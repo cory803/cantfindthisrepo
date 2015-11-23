@@ -1,5 +1,14 @@
 package com.strattus;
 
+import java.net.*;
+import java.io.*;
+import java.util.*;
+import java.awt.*;
+import javax.swing.*;
+import java.lang.Runtime;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,7 +36,14 @@ public class GameServer {
 			loader.finish();
 			logger.info("The loader has finished loading utility tasks.");
 			logger.info("Strattus is now online on port "+GameSettings.GAME_PORT+"!");
-
+			final BufferedReader reader = new BufferedReader(new FileReader(new File("data/mysql_connection.txt")));
+			if(reader.readLine().toLowerCase().equals("on")) {
+				GameSettings.MYSQL_ENABLED = true;
+				System.out.println("MYSQL Connections are enabled!");
+			} else {
+				GameSettings.MYSQL_ENABLED = false;
+				System.out.println("MYSQL Connections are disabled.");
+			}
 		} catch (Exception ex) {
 			logger.log(Level.SEVERE, "Could not start Strattus! Program terminated.", ex);
 			System.exit(1);
