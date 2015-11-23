@@ -193,7 +193,7 @@ public class CommandPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(3094, 3503, 0);
+			Position position = new Position(3087, 3502, 0);
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
