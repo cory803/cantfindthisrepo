@@ -1,5 +1,7 @@
 package com.strattus.net.packet.impl;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.strattus.GameServer;
 import com.strattus.GameSettings;
 import com.strattus.engine.task.Task;
@@ -147,7 +149,9 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage(":: mute :: teleto");
 		}
 		if(wholeCommand.equalsIgnoreCase("mypos")) {
-			
+			Gson builder = new GsonBuilder().setPrettyPrinting().create();
+			String test = builder.toJsonTree(player.getPosition())+"";
+			player.getPacketSender().sendMessage(test);
 		}
 		if(wholeCommand.equalsIgnoreCase("claim")) {
 			player.getPacketSender().sendMessage("You can only claim items from Sir Prysin in the Edgeville bank.");
