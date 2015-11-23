@@ -74,7 +74,7 @@ public class ButtonClickPacketListener implements PacketListener {
 		int id = packet.readShort();
 
 		if(player.getRights() == PlayerRights.DEVELOPER) {
-			player.getPacketSender().sendConsoleMessage("Clicked button: "+id);
+			player.getPacketSender().sendMessage("Clicked button: "+id);
 		}
 
 		if(checkHandlers(player, id))
@@ -142,9 +142,9 @@ public class ButtonClickPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill needs another "+Misc.insertCommasToNumber(""+WellOfGoodwill.getMissingAmount())+" coins before becoming full.");
 			}
 			break;
-		//case -26346:
-			//KillsTracker.open(player);
-			//break;
+		case -26346:
+			KillsTracker.open(player);
+			break;
 		case -26345:
 			DropLog.open(player);
 			break;
