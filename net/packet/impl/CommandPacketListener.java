@@ -258,7 +258,25 @@ public class CommandPacketListener implements PacketListener {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendMessage(""+player.getRights().getYellPrefix()+"["+player.getRights()+"] <img="+player.getRights().ordinal()+">"+player.getUsername()+":"+yellMessage);
+			if(player.getRights().equals(PlayerRights.DEVELOPER)) {
+				World.sendMessage("<col=484192><shad=0>[<img="+player.getRights().ordinal()+">Developer<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);		
+			} else if(player.getRights().equals(PlayerRights.MODERATOR)) {
+				World.sendMessage("<col=31a4ff><shad=0>[<img="+player.getRights().ordinal()+">Moderator<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);			
+			} else if(player.getRights().equals(PlayerRights.ADMINISTRATOR)) {
+				World.sendMessage("<col=FFFF00><shad=0>[<img="+player.getRights().ordinal()+">Adminsitrator<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);			
+			} else if(player.getRights().equals(PlayerRights.DONATOR)) {
+				World.sendMessage("<col=ff0000><shad=0>[<img="+player.getRights().ordinal()+">Premium<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);			
+			} else if(player.getRights().equals(PlayerRights.DONATOR)) {
+				World.sendMessage("<col=ff0000><shad=0>[Premium Donator] [<img="+player.getRights().ordinal()+">"+player.getUsername()+"] : "+yellMessage);			
+			} else if(player.getRights().equals(PlayerRights.SUPER_DONATOR)) {
+				World.sendMessage("<col=bfbf07><shad=0>[Prime Donator] [<img="+player.getRights().ordinal()+">"+player.getUsername()+"] : "+yellMessage);			
+			} else if(player.getRights().equals(PlayerRights.SUPER_DONATOR)) {
+				World.sendMessage("<col=c0c0c0><shad=0>[Platinum Donator] [<img="+player.getRights().ordinal()+">"+player.getUsername()+"] : "+yellMessage);			
+			} else if(player.getRights().equals(PlayerRights.SUPPORT)) {
+				World.sendMessage("<col=589fe1><shad=0>[<img="+player.getRights().ordinal()+">Server Support<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);							
+			} else {
+				player.getPacketSender().sendMessage("Error with command, please report to an administrator.");
+			}
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {
