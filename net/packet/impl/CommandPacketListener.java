@@ -188,6 +188,10 @@ public class CommandPacketListener implements PacketListener {
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
+		if (command[0].startsWith("changepass")) {
+			player.setInputHandling(new ChangePassword());
+			player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
+		}
 		if (command[0].equals("home")) {
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
