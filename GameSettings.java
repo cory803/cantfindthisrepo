@@ -75,7 +75,7 @@ public class GameSettings {
 	/**
 	 * Are the MYSQL services enabled?
 	 */
-	public static boolean MYSQL_ENABLED = true;
+	public static boolean MYSQL_ENABLED = false;
 
 	/**
 	 * Is it currently bonus xp?

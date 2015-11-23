@@ -1,5 +1,7 @@
 package com.strattus.world.entity.impl.player;
 
+import com.strattus.util.PlayersOnline;
+import com.strattus.GameSettings;
 import com.strattus.GameServer;
 import com.strattus.GameSettings;
 import com.strattus.engine.task.TaskManager;
@@ -55,6 +57,12 @@ public class PlayerHandler {
 		World.getPlayers().add(player);
 		World.updatePlayersOnline();
 		PlayersOnlineInterface.add(player);
+		if(GameSettings.MYSQL_ENABLED) {
+			PlayersOnline.createCon();
+			PlayersOnline.offline(player);	
+			PlayersOnline.online(player);
+			PlayersOnline.destroyCon();
+		}
 		player.getSession().setState(SessionState.LOGGED_IN);
 
 		//Packets
@@ -227,6 +235,12 @@ public class PlayerHandler {
 				World.getPlayers().remove(player);
 				session.setState(SessionState.LOGGED_OUT);
 				World.updatePlayersOnline();
+				if(GameSettings.MYSQL_ENABLED) {
+					PlayersOnline.createCon();
+					PlayersOnline.offline(player);	
+					PlayersOnline.online(player);
+					PlayersOnline.destroyCon();
+				}
 				return true;
 			} else {
 				return false;
