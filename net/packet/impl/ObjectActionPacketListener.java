@@ -936,6 +936,7 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 42192:
 				case 26972:
 				case 11402:
+				case 26969:
 				case 75:
 					player.getBank(player.getCurrentBankTab()).open();
 					break;
