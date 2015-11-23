@@ -62,7 +62,7 @@ public class DialogueOptions {
 		if(id == FIRST_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
 			case 0:
-				TeleportHandler.teleportPlayer(player, new Position(2695, 3714), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
 			case 1:
 				TeleportHandler.teleportPlayer(player, new Position(3420, 3510), player.getSpellbook().getTeleportType());
@@ -151,7 +151,7 @@ public class DialogueOptions {
 				}
 				break;
 				case 80:
-				TeleportHandler.teleportPlayer(player, new Position(2695, 3714), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {
@@ -249,7 +249,7 @@ public class DialogueOptions {
 				}
 				break;
 			case 80:
-				TeleportHandler.teleportPlayer(player, new Position(2695, 3714), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
 			}
 		} else if(id == THIRD_OPTION_OF_FIVE) {
