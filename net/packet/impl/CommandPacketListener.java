@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.strattus.GameServer;
 import com.strattus.GameSettings;
 import com.strattus.engine.task.Task;
+import com.strattus.model.input.impl.ChangePassword;
 import com.strattus.engine.task.TaskManager;
 import com.strattus.model.Animation;
 import com.strattus.model.Flag;
