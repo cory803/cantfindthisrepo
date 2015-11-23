@@ -146,6 +146,9 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage(":: jail :: remindvote :: staffzone :: unjail :: movehome");
 			player.getPacketSender().sendMessage(":: mute :: teleto");
 		}
+		if(wholeCommand.equalsIgnoreCase("mypos")) {
+			
+		}
 		if(wholeCommand.equalsIgnoreCase("claim")) {
 			player.getPacketSender().sendMessage("You can only claim items from Sir Prysin in the Edgeville bank.");
 		}
