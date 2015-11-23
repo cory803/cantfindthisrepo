@@ -144,7 +144,7 @@ public class ItemDefinition {
 	/**
 	 * The name of the item.
 	 */
-	private String name = "None";
+	private String name = "Unarmed";
 	
 	/**
 	 * Gets the item's name.
