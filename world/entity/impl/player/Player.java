@@ -42,12 +42,14 @@ import com.strattus.net.SessionState;
 import com.strattus.net.packet.PacketSender;
 import com.strattus.util.FrameUpdater;
 import com.strattus.util.Stopwatch;
+import com.strattus.world.World;
 import com.strattus.world.content.Achievements.AchievementAttributes;
 import com.strattus.world.content.BankPin.BankPinAttributes;
 import com.strattus.world.content.BonusManager;
 import com.strattus.world.content.DropLog.DropLogEntry;
 import com.strattus.world.content.KillsTracker.KillsEntry;
 import com.strattus.world.content.LoyaltyProgramme.LoyaltyTitles;
+import com.strattus.world.content.MoneyPouch;
 import com.strattus.world.content.PointsHandler;
 import com.strattus.world.content.Trading;
 import com.strattus.world.content.clan.ClanChat;
@@ -137,7 +139,6 @@ public class Player extends Character {
 			return skillManager.getCurrentLevel(Skill.MAGIC);
 		return skillManager.getCurrentLevel(Skill.DEFENCE);
 	}
-
 	@Override
 	public int getAttackSpeed() {
 		int speed = weapon.getSpeed();

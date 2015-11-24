@@ -10,7 +10,10 @@ import com.strattus.world.entity.impl.player.Player;
  * Perfected by Gabbe
  */
 public class MoneyPouch {
-
+	public static void depositVote(Player plr, int amount) {
+		plr.setMoneyInPouch(plr.getMoneyInPouch() + amount);
+		plr.getPacketSender().sendString(8135, ""+plr.getMoneyInPouch());
+	}
 	/**
 	 * Deposits money into the money pouch
 	 * @param amount How many coins to deposit

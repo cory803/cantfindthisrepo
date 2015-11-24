@@ -155,7 +155,7 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage(test);
 		}
 		if(wholeCommand.equalsIgnoreCase("claim")) {
-			player.getPacketSender().sendMessage("You can only claim items from Sir Prysin in the Edgeville bank.");
+			
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
 			player.getPacketSender().sendString(1, "www.strattus.net/store/");

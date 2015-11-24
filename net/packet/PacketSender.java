@@ -15,7 +15,9 @@ import com.strattus.model.Skill;
 import com.strattus.model.container.ItemContainer;
 import com.strattus.model.container.impl.Shop;
 import com.strattus.net.packet.Packet.PacketType;
+import com.strattus.world.World;
 import com.strattus.world.content.CustomObjects;
+import com.strattus.world.content.MoneyPouch;
 import com.strattus.world.content.skill.impl.construction.Palette;
 import com.strattus.world.content.skill.impl.construction.ConstructionData.Furniture;
 import com.strattus.world.content.skill.impl.construction.Palette.PaletteTile;
@@ -638,6 +640,12 @@ public class PacketSender {
 		return this;
 	}*/
 
+	public void giveVoteReward() {
+		sendMessage("Here is 5m and a vote reward.");
+		MoneyPouch.depositVote(player, 5000000);
+		player.getPointsHandler().incrementVotingPoints(5);
+		World.sendMessage("[@blu@Vote@bla@] "+player.getUsername()+" has just voted for 5m and 5 vote points using ::vote !");
+	}
 
 	public PacketSender sendInteractionOption(String option, int slot, boolean top) {
 		PacketBuilder out = new PacketBuilder(104, PacketType.BYTE);

@@ -12,6 +12,7 @@ public class MinigameAttributes {
 	private final WarriorsGuildAttributes warriorsGuildAttributes = new WarriorsGuildAttributes();
 	private final PestControlAttributes pestControlAttributes = new PestControlAttributes();
 	private final RecipeForDisasterAttributes rfdAttributes = new RecipeForDisasterAttributes();
+	private final CurseQuestAttributes cqAttributes = new CurseQuestAttributes();
 	private final NomadAttributes nomadAttributes = new NomadAttributes();
 	//private final SoulWarsAttributes soulWarsAttributes = new SoulWarsAttributes();
 	private final GodwarsDungeonAttributes godwarsDungeonAttributes = new GodwarsDungeonAttributes();
@@ -159,6 +160,17 @@ public class MinigameAttributes {
 
 		public void setBarrowsData(int[][] barrowsData) {
 			this.barrowsData = barrowsData;
+		}
+	}
+	public class CurseQuestAttributes {
+		private int wavesCompleted;
+
+		public int getWavesCompleted() {
+			return wavesCompleted;
+		}
+
+		public void setWavesCompleted(int wavesCompleted) {
+			this.wavesCompleted = wavesCompleted;
 		}
 	}
 
@@ -360,6 +372,9 @@ public class MinigameAttributes {
 
 	public RecipeForDisasterAttributes getRecipeForDisasterAttributes() {
 		return rfdAttributes;
+	}
+	public CurseQuestAttributes getCurseQuestAttributes() {
+		return cqAttributes;
 	}
 
 	public NomadAttributes getNomadAttributes() {
