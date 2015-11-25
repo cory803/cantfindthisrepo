@@ -143,10 +143,6 @@ public class ExperienceLamps {
 		int maxLvl = player.getSkillManager().getMaxLevel(skill);
 		if(SkillManager.isNewSkill(skill))
 			maxLvl = maxLvl / 10;
-		if(player.getRights() == PlayerRights.ONYX_DONATOR)
-			maxLvl = maxLvl*2;
-		if(player.getRights() == PlayerRights.DIAMOND_DONATOR)
-			maxLvl = (int) (maxLvl*1.5);
 		return (int) (base+10*(Math.pow(maxLvl, 2.5)));
 	}
 

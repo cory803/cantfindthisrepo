@@ -177,8 +177,8 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 6064:
 				case 7903:
 					if(npc.getId() == 7903 && player.getLocation() == Location.MEMBER_ZONE) {
-						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.DONATOR || player.getRights() == PlayerRights.SUPER_DONATOR) {
-							player.getPacketSender().sendMessage("You must be at least an Extreme Donator to use this.");
+						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+							player.getPacketSender().sendMessage("You must be at least an Prime Donator to use this.");
 							return;
 						}
 					}
@@ -249,8 +249,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(32).open(player);
 					break;
 				case 8444:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.DONATOR) {
-						player.getPacketSender().sendMessage("You must be at least a Super Donator to use this.");
+					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+						player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
 						return;
 					}
 					ShopManager.getShops().get(31).open(player);

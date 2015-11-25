@@ -39,11 +39,9 @@ public enum PlayerRights {
 	/*
 	 * A member who has donated to the server. 
 	 */
-	DONATOR(60, "<shad=FF7F00>", 1.5, 1),
-	SUPER_DONATOR(40, "<shad=0><col=787878>", 1.5, 1.25),
- 	EXTREME_DONATOR(20, "<col=D9D919><shad=0>", 2, 1.5),
-	DIAMOND_DONATOR(10, "<shad=697998>", 2.5, 1.7),
-	ONYX_DONATOR(0, "<shad=0EBFE9>", 3, 2),
+	PREMIUM_DONATOR(60, "<shad=FF7F00>", 1.5, 1),
+	PRIME_DONATOR(40, "<shad=0><col=787878>", 1.5, 1.25),
+ 	PLATINUM_DONATOR(20, "<col=D9D919><shad=0>", 2, 1.5),
 
 	/*
 	 * A member who has the ability to help people better.
@@ -63,7 +61,7 @@ public enum PlayerRights {
 	}
 	
 	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER, DEVELOPER);
-	private static final ImmutableSet<PlayerRights> MEMBERS = Sets.immutableEnumSet(DONATOR, SUPER_DONATOR, EXTREME_DONATOR, DIAMOND_DONATOR, ONYX_DONATOR);
+	private static final ImmutableSet<PlayerRights> MEMBERS = Sets.immutableEnumSet(PREMIUM_DONATOR, PRIME_DONATOR, PLATINUM_DONATOR);
 	
 	/*
 	 * The yell delay for the rank

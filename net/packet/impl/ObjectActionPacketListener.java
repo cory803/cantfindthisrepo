@@ -224,8 +224,8 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("You step through the portal..");
 					break;
 				case 47180:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.DONATOR || player.getRights() == PlayerRights.SUPER_DONATOR) {
-						player.getPacketSender().sendMessage("You must be at least an Extreme Donator to use this.");
+					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+						player.getPacketSender().sendMessage("You must be at least an Prime Donator to use this.");
 						return;
 					}
 					player.getPacketSender().sendMessage("You activate the device..");
@@ -234,8 +234,8 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 10091:
 				case 8702:
 					if(gameObject.getId() == 8702) {
-						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.DONATOR) {
-							player.getPacketSender().sendMessage("You must be at least a Super Donator to use this.");
+						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+							player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
 							return;
 						}
 					}
@@ -811,8 +811,8 @@ public class ObjectActionPacketListener implements PacketListener {
 					Hunter.lootTrap(player, gameObject);
 					break;
 				case 13493:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.DONATOR) {
-						player.getPacketSender().sendMessage("You must be at least a Super Donator to use this.");
+					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+						player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
 						return;
 					}
 					double c = Math.random()*100;

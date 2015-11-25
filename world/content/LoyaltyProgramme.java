@@ -317,15 +317,11 @@ public class LoyaltyProgramme {
 		double pts = player.getRights().getLoyaltyPointsGainModifier();
 		if(WellOfGoodwill.bonusLoyaltyPoints(player))
 			pts *= 1.5;
-		if(player.getRights() == PlayerRights.DONATOR)
+		if(player.getRights() == PlayerRights.PREMIUM_DONATOR)
 			pts *= 1.1;
-		if(player.getRights() == PlayerRights.SUPER_DONATOR)
-			pts *= 1.2;
-		if(player.getRights() == PlayerRights.EXTREME_DONATOR)
+		if(player.getRights() == PlayerRights.PRIME_DONATOR)
 			pts *= 1.3;
-		if(player.getRights() == PlayerRights.DIAMOND_DONATOR)
-			pts *= 1.4;
-		if(player.getRights() == PlayerRights.ONYX_DONATOR)
+		if(player.getRights() == PlayerRights.PLATINUM_DONATOR)
 			pts *= 1.5;
 		player.getPointsHandler().incrementLoyaltyPoints(pts);
 		player.getAchievementAttributes().incrementTotalLoyaltyPointsEarned(pts);
