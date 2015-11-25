@@ -164,6 +164,10 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 38700:
 					player.moveTo(new Position(3085, 3512));
 					break;
+				case 1765:
+					player.moveTo(new Position(2271, 4680));
+					player.performAnimation(new Animation(714));
+					break;
 				case 9312: //Grand Exchange Underwall Tunnel
 					Position position = new Position(3164, 3484, 0);
 					break;
@@ -603,7 +607,7 @@ public class ObjectActionPacketListener implements PacketListener {
 						player.getMinigameAttributes().getGodwarsDungeonAttributes().setHasEnteredRoom(false);
 					}
 					break;
-				case 884:
+				case 26945:
 					player.setDialogueActionId(41);
 					DialogueManager.start(player, 75);
 					break;
@@ -973,7 +977,7 @@ public class ObjectActionPacketListener implements PacketListener {
 				if (player.getFarming().click(player, x, y, 1))
 					return;
 				switch(gameObject.getId()) {
-				case 884:
+				case 26945:
 					player.setDialogueActionId(41);
 					player.setInputHandling(new DonateToWell());
 					player.getPacketSender().sendInterfaceRemoval().sendEnterAmountPrompt("How much money would you like to contribute with?");

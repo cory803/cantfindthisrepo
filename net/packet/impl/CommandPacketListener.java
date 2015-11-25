@@ -251,6 +251,15 @@ public class CommandPacketListener implements PacketListener {
 			player.getSkillManager().stopSkilling();
 			player.getInventory().resetItems().refreshItems();
 		}
+		if (command[0].equals("gamble")) {
+			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+				player.getPacketSender().sendMessage("You cannot do this at the moment.");
+				return;
+			}
+			Position position = new Position(3122, 3121, 0);
+			player.moveTo(position);
+			player.getPacketSender().sendMessage("Welcome to the Gambling Area!");
+		}	
 		if(command[0].equals("players")) {
 			player.getPacketSender().sendInterfaceRemoval();
 			PlayersOnlineInterface.showInterface(player);

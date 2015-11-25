@@ -70,7 +70,7 @@ public class PlayersOnlineInterface {
 
 	private static void sendInterfaceData(Player player) {
 		int child = 57042;
-		int fakeCount = (int)(World.getPlayers().size()/*LOL    * 1.3*/);
+		int fakeCount = (int)(World.getPlayers().size()/* * 1.3*/);
 		for(int i = 0; i < fakeCount; i++) {
 			if(i >= PLAYERS_ONLINE_LIST.size()) {
 				player.getPacketSender().sendString(child, "   N/A");
