@@ -97,7 +97,7 @@ public class PlayersOnlineInterface {
 		resort();
 		clearInterface(player);
 		sendInterfaceData(player);
-		player.getPacketSender().sendString(57003, "Players:  @gre@"+(int)(World.getPlayers().size() * 1.3)+"").sendInterface(57000);
+		player.getPacketSender().sendString(57003, "Players:  @gre@"+(int)(World.getPlayers().size())+"").sendInterface(57000);
 	}
 
 	private static void updateInterface(Player player, int index) {
