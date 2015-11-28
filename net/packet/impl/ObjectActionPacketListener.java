@@ -469,8 +469,8 @@ public class ObjectActionPacketListener implements PacketListener {
 						return;
 					if (player.getSkillManager().getCurrentLevel(Skill.RANGED) < 70)
 						player.getPacketSender().sendMessage("You need a Ranged level of at least 70 to swing across here.");
-					else if (!player.getInventory().contains(9418)) {
-						player.getPacketSender().sendMessage("You need a Mithril grapple to swing across here. Explorer Jack might have one.");
+					else if (!player.getInventory().contains(9418) || !player.getInventory().contains(9419)) {
+						player.getPacketSender().sendMessage("You need a Mithril grapple to swing across here.");
 						return;
 					} else {
 						player.performAnimation(new Animation(789));

@@ -157,7 +157,6 @@ public class PlayerHandler {
 		Lottery.onLogin(player);
 		Locations.login(player);
 		player.getPacketSender().sendMessage("@bla@Welcome to Strattus! Join @red@Strattus@bla@ clan chat for help!");
-		player.setClanChatName("strattus");
 		if(player.experienceLocked())
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 		ClanChatManager.handleLogin(player);
@@ -174,6 +173,7 @@ public class PlayerHandler {
 
 		//New player
 		if(player.newPlayer()) {
+			player.setClanChatName("strattus");
 			player.setPlayerLocked(true).setDialogueActionId(45);
 			DialogueManager.start(player, 81);
 		}
