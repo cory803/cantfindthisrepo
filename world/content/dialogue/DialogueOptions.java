@@ -153,9 +153,6 @@ public class DialogueOptions {
 				case 80:
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
-				case 128:
-				ShopManager.getShops().get(48).open(player);
-				break;
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
@@ -253,9 +250,6 @@ public class DialogueOptions {
 				break;
 			case 80:
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
-				break;
-			case 128:
-				ShopManager.getShops().get(12).open(player);
 				break;
 			}
 		} else if(id == THIRD_OPTION_OF_FIVE) {
@@ -818,6 +812,9 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterface(38000);
 				player.setUsableObject(new Object[2]).setUsableObject(0, "prestige");
 				break;
+			case 128:
+				ShopManager.getShops().get(48).open(player);
+			break;
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
@@ -860,6 +857,9 @@ public class DialogueOptions {
 				if(player.getMinigameAttributes().getDungeoneeringAttributes().getPartyInvitation() != null && player.getMinigameAttributes().getDungeoneeringAttributes().getPartyInvitation().getOwner() != null)
 					player.getMinigameAttributes().getDungeoneeringAttributes().getPartyInvitation().getOwner().getPacketSender().sendMessage(""+player.getUsername()+" has declined your invitation.");
 				player.getMinigameAttributes().getDungeoneeringAttributes().setPartyInvitation(null);
+				break;
+			case 128:
+				ShopManager.getShops().get(12).open(player);
 				break;
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
