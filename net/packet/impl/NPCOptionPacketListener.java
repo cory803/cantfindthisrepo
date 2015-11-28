@@ -287,7 +287,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					break;
 				case 520:
 				case 521:
-					ShopManager.getShops().get(12).open(player);
+					DialogueManager.start(player, 128);
 					break;
 				case 2292:
 					ShopManager.getShops().get(11).open(player);

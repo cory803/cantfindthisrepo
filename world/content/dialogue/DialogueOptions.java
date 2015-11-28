@@ -153,6 +153,9 @@ public class DialogueOptions {
 				case 80:
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
+				case 128:
+				ShopManager.getShops().get(48).open(player);
+				break;
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
@@ -250,6 +253,9 @@ public class DialogueOptions {
 				break;
 			case 80:
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
+				break;
+			case 128:
+				ShopManager.getShops().get(12).open(player);
 				break;
 			}
 		} else if(id == THIRD_OPTION_OF_FIVE) {
