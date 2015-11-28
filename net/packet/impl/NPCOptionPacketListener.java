@@ -287,6 +287,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					break;
 				case 520:
 				case 521:
+					player.setDialogueActionId(128);
 					DialogueManager.start(player, 128);
 					break;
 				case 2292:
