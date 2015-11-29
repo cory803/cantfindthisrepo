@@ -982,6 +982,16 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.setInputHandling(new DonateToWell());
 					player.getPacketSender().sendInterfaceRemoval().sendEnterAmountPrompt("How much money would you like to contribute with?");
 					break;
+				case 28716:
+					if(player.getSkillManager().getCurrentLevel(Skill.SUMMONING) == player.getSkillManager().getMaxLevel(Skill.SUMMONING)) {
+						player.getPacketSender().sendMessage("You do not need to recharge your Summoning points right now.");
+						return;
+					}
+					player.performGraphic(new Graphic(1517));
+					player.getSkillManager().setCurrentLevel(Skill.SUMMONING, player.getSkillManager().getMaxLevel(Skill.SUMMONING), true);
+					player.getPacketSender().sendString(18045, " "+player.getSkillManager().getCurrentLevel(Skill.SUMMONING)+"/"+player.getSkillManager().getMaxLevel(Skill.SUMMONING));
+					player.getPacketSender().sendMessage("You recharge your Summoning points.");
+					break;
 				case 2646:
 				case 312:
 					if(!player.getClickDelay().elapsed(1200))

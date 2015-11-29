@@ -86,7 +86,7 @@ public class CorporealBeast implements CombatStrategy {
 					int lvl = player.getSkillManager().getCurrentLevel(skillT);
 					lvl -= 1 + Misc.getRandom(4);
 					player.getSkillManager().setCurrentLevel(skillT, player.getSkillManager().getCurrentLevel(skillT) - lvl <= 0 ?  1 : lvl);
-					target.getPacketSender().sendMessage("Your " + skillT.getFormatName() +" has been slighly drained!");
+					target.getPacketSender().sendMessage("Your " + skillT.getFormatName() +" has been slightly drained!");
 					stop();
 				}
 			});

@@ -18,6 +18,7 @@ import com.strattus.world.content.combat.magic.Autocasting;
 import com.strattus.world.content.combat.weapon.CombatSpecial;
 import com.strattus.world.content.minigames.impl.Dueling;
 import com.strattus.world.content.minigames.impl.Dueling.DuelRule;
+import com.strattus.world.content.skill.SkillManager.Skills;
 import com.strattus.world.entity.impl.player.Player;
 
 /**
@@ -86,6 +87,17 @@ public class EquipPacketListener implements PacketListener {
 							}
 						}
 					}
+					/*
+					NEX ARMOURS
+					if (equipItem.getId() == 14008 || equipItem.getId() == 14009
+							|| equipItem.getId() == 14010 || equipItem.getId() == 14011 
+							|| equipItem.getId() == 14012 || equipItem.getId() == 14013 
+							|| equipItem.getId() == 14014 || equipItem.getId() == 14015 
+							|| equipItem.getId() == 14016) {
+						int newLevel = player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)+player.calculateMaxLifePoints();
+						player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, newLevel, true);
+						player.getPacketSender().sendMessage("Your new hp is: " + player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION));
+					}*/
 					if (player.hasStaffOfLightEffect() && equipItem.getDefinition().getName().toLowerCase().contains("staff of light")) {
 						player.setStaffOfLightEffect(-1);
 						player.getPacketSender().sendMessage("You feel the spirit of the Staff of Light begin to fade away...");

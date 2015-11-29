@@ -88,7 +88,25 @@ public class Player extends Character {
 		super(GameSettings.DEFAULT_POSITION.copy());
 		this.session = playerIO;
 	}
-
+	public int calculateMaxLifePoints() {
+		int lifePoints = getSkillManager().getCurrentLevel(Skill.CONSTITUTION);//The normal hp
+		int torvaLegs = 14010;//Torva Legs id
+		int torvaBody = 14009;//Torva Body id
+		int torvaHelm = 14008;//Torva Helm id
+		int pernixLegs = 14013 ;//Pernix Chaps id
+		int pernixBody = 14012;//Pernix Body id
+		int pernixHelm = 14011;//Pernix Cowl id
+		int virtusLegs = 14016;//Virtus Robe bottom id
+		int virtusBody = 14015;//Virtus Robe top id
+		int virtusHelm = 14014;//Virtus Mask id
+		if (Equipment.LEG_SLOT == torvaLegs || Equipment.LEG_SLOT == pernixLegs || Equipment.LEG_SLOT == virtusLegs)
+			lifePoints += 13;
+		if (Equipment.BODY_SLOT == torvaBody || Equipment.BODY_SLOT== pernixBody || Equipment.BODY_SLOT == virtusBody)
+			lifePoints += 20;
+		if (Equipment.HEAD_SLOT == torvaHelm || Equipment.HEAD_SLOT == pernixHelm || Equipment.HEAD_SLOT == virtusHelm)
+			lifePoints += 7;
+		return lifePoints;
+	}
 	@Override
 	public void appendDeath() {
 		if(!isDying) {
@@ -116,9 +134,9 @@ public class Player extends Character {
 
 	@Override
 	public void heal(int amount) {
-		int level = skillManager.getMaxLevel(Skill.CONSTITUTION);
-		if ((skillManager.getCurrentLevel(Skill.CONSTITUTION) + amount) >= level) {
-			setConstitution(level);
+		//int level = skillManager.getMaxLevel(Skill.CONSTITUTION);
+		if ((skillManager.getCurrentLevel(Skill.CONSTITUTION) + amount) >= calculateMaxLifePoints()) {
+			setConstitution(calculateMaxLifePoints());
 		} else {
 			setConstitution(skillManager.getCurrentLevel(Skill.CONSTITUTION) + amount);
 		}
