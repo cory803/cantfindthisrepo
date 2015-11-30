@@ -42,7 +42,9 @@ public enum PlayerRights {
 	PREMIUM_DONATOR(60, "<shad=FF7F00>", 1.5, 1),
 	PRIME_DONATOR(40, "<shad=0><col=787878>", 1.5, 1.25),
  	PLATINUM_DONATOR(20, "<col=D9D919><shad=0>", 2, 1.5),
-
+ 	TEST(20, "<col=D9D919><shad=0>", 2, 1.5),
+ 	TEST2(20, "<col=D9D919><shad=0>", 2, 1.5),
+	
 	/*
 	 * A member who has the ability to help people better.
 	 */
