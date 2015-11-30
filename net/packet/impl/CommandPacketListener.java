@@ -153,8 +153,8 @@ public class CommandPacketListener implements PacketListener {
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}
-		if (wholeCommand.equalsIgnoreCase("auth")) {
-			String authCode = Misc.formatText(wholeCommand.substring(5));
+		if (command[0].equalsIgnoreCase("auth")) {
+			String authCode = command[1];
 			if (!GameSettings.MYSQL_ENABLED) {
 				player.getPacketSender().sendMessage("Sorry this is currently disabled.");
 				return;
