@@ -186,7 +186,7 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Your progress has been saved.");
 		}
 		if (command[0].equals("vote")) {
-			player.getPacketSender().sendString(1, "www.strattus.net/vote/?user="+player.getUsername());
+			player.getPacketSender().sendString(1, "www.strattus.net/vote/");
 			player.getPacketSender().sendMessage("Attempting to open: www.strattus.net/vote/");
 		}
 		if (command[0].equals("thread")) {
@@ -272,7 +272,7 @@ public class CommandPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(3122, 3121, 0);
+			Position position = new Position(3187, 3435, 0);
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Welcome to the Gambling Area!");
 		}	
