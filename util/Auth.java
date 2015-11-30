@@ -59,9 +59,6 @@ public class Auth {
 	/* Start Vote Handler */
 
 	public static synchronized void giveItems(Player player) {
-		player.getPacketSender().giveVoteReward();
-		player.getPacketSender().sendMessage("Thanks for voting, you can vote again in 12 hours! Your reward has been given.");
-        World.sendMessage("[@blu@Vote@bla@] @dre@"+player.getUsername()+" has just voted for 5m and 5 vote points from ::vote");
 	}
 
 	public static synchronized boolean checkVote(String auth) {

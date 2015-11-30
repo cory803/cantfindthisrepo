@@ -154,20 +154,24 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage(test);
 		}
 		if (wholeCommand.equalsIgnoreCase("auth")) {
+			String authCode = Misc.formatText(wholeCommand.substring(5));
 			if (!GameSettings.MYSQL_ENABLED) {
 				player.getPacketSender().sendMessage("Sorry this is currently disabled.");
 				return;
 			} else {
 				try {
-						if(Auth.checkVote(player.getUsername())) {
-							player.getPacketSender().giveVoteReward();
-						} else {
-							player.getPacketSender().sendMessage("The auth code is not valid!");
-						}
-					
+					Auth.connect();
+					if (Auth.checkVote(authCode)) {
+						Auth.giveItems(player);
+						Auth.updateVote(authCode);
+					} else {
+						player.getPacketSender().sendMessage("The authcode you have entered is invalid.");
+					}
 				} catch (Exception e) {
+					player.getPacketSender().sendMessage("Error connecting to the database. Please try again later.");
 					e.printStackTrace();
 				}
+
 			}
 			return;
 		}
