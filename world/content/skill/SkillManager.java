@@ -311,12 +311,33 @@ public class SkillManager {
 		} else if (mage >= melee && mage >= ranger) {
 			combatLevel += mage;
 		}
+		/*
+		if (ranger > melee) {
+			combatLevel = (int)
+							((defence * 0.25)
+							+ (hp + 0.25)
+							+ (prayer * 0.125)
+							+ (ranger * .4875)
+							+ (summoning * 0.125));
+		} else if(magic > melee) {
+			combatLevel = (int)
+					((defence * 0.25)
+					+ (hp + 0.25)
+					+ (prayer * 0.125)
+					+ (magic * .4875)
+					+ (summoning * 0.125));
+		} else {
+			combatLevel = (int)
+							((defence * 0.25)
+							+ (hp + 0.25)
+							+ (prayer * 0.125)
+							+ (strength * .4875)
+							+ (summoning * 0.125));
+		}*/
 		if(player.getLocation() != Location.WILDERNESS) {
 			combatLevel += summoning * 0.125;
-		} else {
-			if (combatLevel > 126) {
+		} else  if (combatLevel > 126) {
 				return 126;
-			}
 		}
 		if (combatLevel > 138) {
 			return 138;

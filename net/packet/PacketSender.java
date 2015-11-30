@@ -641,7 +641,6 @@ public class PacketSender {
 	}*/
 
 	public void giveVoteReward() {
-		sendMessage("Here is 5m and a vote reward.");
 		MoneyPouch.depositVote(player, 5000000);
 		player.getPointsHandler().incrementVotingPoints(5);
 		World.sendMessage("[@blu@Vote@bla@] "+player.getUsername()+" has just voted for 5m and 5 vote points using ::vote !");

@@ -26,6 +26,7 @@ import com.strattus.model.definitions.WeaponInterfaces;
 import com.strattus.net.packet.Packet;
 import com.strattus.net.packet.PacketListener;
 import com.strattus.net.security.ConnectionHandler;
+import com.strattus.util.Auth;
 import com.strattus.util.Misc;
 import com.strattus.world.World;
 import com.strattus.world.content.BonusManager;
@@ -152,8 +153,23 @@ public class CommandPacketListener implements PacketListener {
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}
-		if(wholeCommand.equalsIgnoreCase("claim")) {
-			
+		if (wholeCommand.equalsIgnoreCase("auth")) {
+			if (!GameSettings.MYSQL_ENABLED) {
+				player.getPacketSender().sendMessage("Sorry this is currently disabled.");
+				return;
+			} else {
+				try {
+						if(Auth.checkVote(player.getUsername())) {
+							player.getPacketSender().giveVoteReward();
+						} else {
+							player.getPacketSender().sendMessage("The auth code is not valid!");
+						}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			return;
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
 			player.getPacketSender().sendString(1, "www.strattus.net/store/");
