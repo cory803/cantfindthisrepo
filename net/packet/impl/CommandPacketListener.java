@@ -250,16 +250,6 @@ public class CommandPacketListener implements PacketListener {
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Welcome to the Market!");
 		}
-		
-		if (command[0].equals("shops")) {
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			Position position = new Position(3210, 3424, 0);
-			player.moveTo(position);
-			player.getPacketSender().sendMessage("Welcome to the Shops!");
-		}
 		if(command[0].equals("help")) {
 			if(player.getLastYell().elapsed(30000)) {
 				World.sendStaffMessage("<col=FF0066><img=10> [TICKET SYSTEM]<col=6600FF> "+player.getUsername()+" has requested help. Please help them!");
