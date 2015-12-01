@@ -15,6 +15,7 @@ import com.strattus.model.Skill;
 import com.strattus.model.container.ItemContainer;
 import com.strattus.model.container.impl.Shop;
 import com.strattus.net.packet.Packet.PacketType;
+import com.strattus.util.Misc;
 import com.strattus.world.World;
 import com.strattus.world.content.CustomObjects;
 import com.strattus.world.content.MoneyPouch;
@@ -641,9 +642,35 @@ public class PacketSender {
 	}*/
 
 	public void giveVoteReward() {
-		MoneyPouch.depositVote(player, 5000000);
-		player.getPointsHandler().incrementVotingPoints(5);
-		World.sendMessage("[@blu@Vote@bla@] "+player.getUsername()+" has just voted for 5m and 5 vote points using ::vote !");
+		//int[] voteItems = {
+		//		15069, 15071
+		//};
+		final int RANDOM_INT = 1000;
+		MoneyPouch.depositVote(player, 1000000);
+		player.getPointsHandler().incrementVotingPoints(1);
+		player.getPacketSender().sendMessage("You have just claimed an auth for 1m and 1 vote point.");
+		int random = Misc.getRandom(RANDOM_INT);
+		System.out.println("Random number is " +random);
+		if (random < 500) {
+			sendMessage("You got an extra 500k.");
+			MoneyPouch.depositVote(player, 500000);
+		} else if(random < 750) {
+			sendMessage("You got an extra 1m.");
+			MoneyPouch.depositVote(player, 1000000);
+		} else if(random % 27 == 3) {
+			Item item = new Item(15069, 1);
+			player.getInventory().add(item, true);
+			sendMessage("You got a rare drop of a red voting hat.");
+			World.sendMessage("[@blu@Rare@bla@] "+player.getUsername()+" has gotten a rare vote item of a "+item.getDefinition().getName()+".");
+		} else if(random % 34 == 49) {
+			Item item = new Item(15071, 1);
+			player.getInventory().add(item, true);
+			sendMessage("You got a rare drop of a blue voting hat.");
+			World.sendMessage("[@blu@Rare@bla@] "+player.getUsername()+" has gotten a rare vote item of a "+item.getDefinition().getName()+".");
+		} else {
+			sendMessage("Sorry you did not receive anything on the extra roll.");
+		}
+		//World.sendMessage("[@blu@Vote@bla@] "+player.getUsername()+" has just voted for 1m and 1 vote point using ::vote !");
 	}
 
 	public PacketSender sendInteractionOption(String option, int slot, boolean top) {

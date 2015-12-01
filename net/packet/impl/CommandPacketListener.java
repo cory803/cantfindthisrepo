@@ -162,7 +162,7 @@ public class CommandPacketListener implements PacketListener {
 				try {
 					Auth.connect();
 					if (Auth.checkVote(authCode)) {
-						Auth.giveItems(player);
+						player.getPacketSender().giveVoteReward();
 						Auth.updateVote(authCode);
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid.");
@@ -174,6 +174,9 @@ public class CommandPacketListener implements PacketListener {
 
 			}
 			return;
+		}
+		if (command[0].equalsIgnoreCase("testauth")) {
+			player.getPacketSender().giveVoteReward();
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
 			player.getPacketSender().sendString(1, "www.strattus.net/store/");

@@ -3,8 +3,6 @@ package com.strattus.util;
 import java.sql.*;
 import java.util.Properties;
 
-import com.strattus.world.World;
-import com.strattus.world.content.MoneyPouch;
 import com.strattus.world.entity.impl.player.Player;
 
 
