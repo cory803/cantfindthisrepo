@@ -134,9 +134,13 @@ public class Player extends Character {
 
 	@Override
 	public void heal(int amount) {
-		//int level = skillManager.getMaxLevel(Skill.CONSTITUTION);
-		if ((skillManager.getCurrentLevel(Skill.CONSTITUTION) + amount) >= calculateMaxLifePoints()) {
+		int level = skillManager.getMaxLevel(Skill.CONSTITUTION);
+		if ((skillManager.getCurrentLevel(Skill.CONSTITUTION) + amount) >= level) {
+			setConstitution(level);
+	/*	if ((skillManager.getCurrentLevel(Skill.CONSTITUTION) + amount) >= calculateMaxLifePoints()) {
 			setConstitution(calculateMaxLifePoints());
+			Torva test ^
+			*/
 		} else {
 			setConstitution(skillManager.getCurrentLevel(Skill.CONSTITUTION) + amount);
 		}
