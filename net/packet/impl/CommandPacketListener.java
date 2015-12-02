@@ -232,6 +232,15 @@ public class CommandPacketListener implements PacketListener {
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Teleporting you to rock crabs!");
 		}
+		if (command[0].equals("edge")) {
+			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+				player.getPacketSender().sendMessage("You cannot do this at the moment.");
+				return;
+			}
+			Position position = new Position(3087, 3502, 0);
+			player.moveTo(position);
+			player.getPacketSender().sendMessage("Teleporting you to edgeville!");
+		}
 		if (command[0].equals("wests")) {
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
