@@ -731,7 +731,28 @@ public class Locations {
 		public static boolean inMulti(Character gc) {
 			if(gc.getLocation() == WILDERNESS) {
 				int x = gc.getPosition().getX(), y = gc.getPosition().getY();
-				if(x >= 3250 && x <= 3302 && y >= 3905 && y <= 3925 || x >= 3020 && x <= 3055 && y >= 3684 && y <= 3711 || x >= 3150 && x <= 3195 && y >= 2958 && y <= 3003 || x >= 3645 && x <= 3715 && y >= 3454 && y <= 3550)
+				if(x >= 3250 && x <= 3302 && y >= 3905 && y <= 3925
+				|| x >= 3020 && x <= 3055 && y >= 3684 && y <= 3711
+				|| x >= 3150 && x <= 3195 && y >= 2958 && y <= 3003
+				|| x >= 3645 && x <= 3715 && y >= 3454 && y <= 3550
+				|| x > 3193 && x < 3279 && y > 9272 && y < 9343
+				|| x >= 3136 && x <= 3327 && y >= 3519 && y <= 3607
+				|| x >= 3190 && x <= 3327 && y >= 3648 && y <= 3839
+				|| x >= 3200 && x <= 3390 && y >= 3840 && y <= 3967
+				|| x >= 2992 && x <= 3007 && y >= 3912 && y <= 3967
+				|| x >= 2946 && x <= 2959 && y >= 3816 && y <= 3831
+				|| x >= 3008 && x <= 3199 && y >= 3856 && y <= 3903
+				|| x >= 3008 && x <= 3071 && y >= 3600 && y <= 3711
+				|| x >= 3072 && x <= 3327 && y >= 3608 && y <= 3647
+				|| x >= 2624 && x <= 2690 && y >= 2550 && y <= 2619
+				|| x >= 2371 && x <= 2422 && y >= 5062 && y <= 5117
+				|| x >= 2896 && x <= 2927 && y >= 3595 && y <= 3630
+				|| x >= 2892 && x <= 2932 && y >= 4435 && y <= 4464
+				|| x >= 2256 && x <= 2287 && y >= 4680 && y <= 4711
+				|| x >= 2516 && x <= 2595 && y >= 4926 && y <= 5003 //gwd
+				|| x >= 2560 && x <= 2630 && y >= 5710 && y <= 5753 //td cave
+				
+				)
 					return true;
 			}
 			return gc.getLocation().multi;
@@ -791,11 +812,11 @@ public class Locations {
 			return inLocation(gc.getPosition().getX(), gc.getPosition().getY(), location);
 		}
 
-		public static boolean inLocation(int absX, int absY, Location location) {
+		public static boolean inLocation(int x, int y, Location location) {
 			int checks = location.getX().length - 1;
 			for(int i = 0; i <= checks; i+=2) {
-				if(absX >= location.getX()[i] && absX <= location.getX()[i + 1]) {
-					if(absY >= location.getY()[i] && absY <= location.getY()[i + 1]) {
+				if(x >= location.getX()[i] && x <= location.getX()[i + 1]) {
+					if(y >= location.getY()[i] && y <= location.getY()[i + 1]) {
 						return true;
 					}
 				}
