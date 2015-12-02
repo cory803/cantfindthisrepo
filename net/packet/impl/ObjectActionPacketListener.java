@@ -970,6 +970,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		gameObject.setSize(size);
 		player.setInteractingObject(gameObject).setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 			public void execute() {
+				int ran = 0;
 				if(MiningData.forRock(gameObject.getId()) != null) {
 					Prospecting.prospectOre(player, id);
 					return;
@@ -1024,18 +1025,48 @@ public class ObjectActionPacketListener implements PacketListener {
 					}
 					break;
 				case 4875:
+					ran = Misc.getRandom(800);
+					if(ran == 250) {
+						player.getInventory().add(7956, 1);
+					} else if(ran == 600) {
+						player.getInventory().add(15387, 1);
+					}
 					Stalls.stealFromStall(player, 1, 5100, 18199, "You steal a banana.");
 					break;
 				case 4874:
+					ran = Misc.getRandom(800);
+					if(ran == 250) {
+						player.getInventory().add(7956, 1);
+					} else if(ran == 600) {
+						player.getInventory().add(15387, 1);
+					}
 					Stalls.stealFromStall(player, 30, 6130, 15009, "You steal a golden ring.");
 					break;
 				case 4876:
+					ran = Misc.getRandom(800);
+					if(ran == 250) {
+						player.getInventory().add(7956, 1);
+					} else if(ran == 600) {
+						player.getInventory().add(15387, 1);
+					}
 					Stalls.stealFromStall(player, 60, 7370, 17401, "You steal a damaged hammer.");
 					break;
 				case 4877:
+					ran = Misc.getRandom(800);
+					if(ran == 250) {
+						player.getInventory().add(7956, 1);
+					} else if(ran == 600) {
+						player.getInventory().add(15387, 1);
+					}
 					Stalls.stealFromStall(player, 65, 7990, 1389, "You steal a staff.");
 					break;
 				case 4878:
+					ran = Misc.getRandom(800);
+					if(ran == 250) {
+						player.getInventory().add(7956, 1);
+					} else if(ran == 600) {
+						player.getInventory().add(15387, 1);
+					}
 					Stalls.stealFromStall(player, 80, 9230, 11998, "You steal a scimitar.");
 					break;
 				case 6189:

@@ -76,7 +76,7 @@ public class Dungeoneering {
 		}
 		party.enteredDungeon(true);
 		final int height = p.getIndex() * 4;
-		final int amt = party.getPlayers().size() >= 2 ? 35000: 45000;
+		final int amt = party.getPlayers().size() >= 2 ? 60000: 90000;
 		for(Player member : party.getPlayers()) {
 			if(member != null) {
 				member.getPacketSender().sendInterfaceRemoval();
@@ -89,6 +89,12 @@ public class Dungeoneering {
 				member.getEquipment().resetItems().refreshItems();
 				member.getInventory().resetItems().refreshItems();
 				member.getInventory().add(18201, amt);
+				member.getInventory().add(2440, 1);
+				member.getInventory().add(2436, 1);
+				member.getInventory().add(2442, 1);
+				member.getInventory().add(18165, 5);
+				member.getInventory().add(5698, 1);
+				member.getInventory().add(4587, 1);
 				ItemBinding.onDungeonEntrance(member);
 				PrayerHandler.deactivateAll(member);
 				CurseHandler.deactivateAll(member);
@@ -157,9 +163,10 @@ public class Dungeoneering {
 		party.sendMessage("@red@"+player.getUsername()+" has died and been moved to the lobby.");
 		party.setDeaths(party.getDeaths()+1);
 		party.sendFrame(37508, "Party deaths: "+party.getDeaths());
+		player.getInventory().add(18201, Misc.getRandom(3000) + 2000);
 	}
 
-	private static final Item[] misc = {new Item(555, 121), new Item(557, 87), new Item(554, 81), new Item(565, 63), new Item(5678), new Item(560, 97), new Item(861, 1), new Item(892, 127), new Item(18161, 2), new Item(18159, 2), new Item(139, 1)};
+	private static final Item[] misc = {new Item(555, 121), new Item(14484, 1), new Item(557, 87), new Item(554, 81), new Item(565, 63), new Item(5678), new Item(560, 97), new Item(861, 1), new Item(892, 127), new Item(1305, 1), new Item(15486, 1), new Item(9185, 1), new Item(18161, 2), new Item(18159, 2), new Item(139, 1)};
 
 	public static void handleNpcDeath(Player p, NPC n) {
 		if(n.getPosition().getZ() == p.getPosition().getZ()) {
