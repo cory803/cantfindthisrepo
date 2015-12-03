@@ -411,6 +411,7 @@ public class Player extends Character {
 	private int overloadPotionTimer, prayerRenewalPotionTimer;
 	private int fireImmunity, fireDamageModifier;
 	private int amountDonated;
+	private int credits;
 	private int wildernessLevel;
 	private int fireAmmo;
 	private int specialPercentage = 100;
@@ -1354,9 +1355,17 @@ public class Player extends Character {
 	public int getAmountDonated() {
 		return amountDonated;
 	}
+	
+	public int getCredits() {
+		return credits;
+	}
 
 	public void incrementAmountDonated(int amountDonated) {
 		this.amountDonated += amountDonated;
+	}
+	
+	public void addCredits(int cred) {
+		this.credits += cred;
 	}
 
 	public long getTotalPlayTime() {

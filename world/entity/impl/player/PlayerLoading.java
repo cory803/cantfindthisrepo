@@ -111,6 +111,9 @@ public class PlayerLoading {
 				player.incrementAmountDonated(reader.get("donated").getAsInt());
 			}
 			
+			if (reader.has("credits")) {
+				player.addCredits(reader.get("credits").getAsInt());
+			}
 			
 			if(reader.has("minutes-bonus-exp")) {
 				player.setMinutesBonusExp(reader.get("minutes-bonus-exp").getAsInt(), false);

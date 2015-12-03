@@ -46,6 +46,7 @@ public class PlayerSaving {
 			object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
 			object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));
 			object.addProperty("donated", new Long(player.getAmountDonated()));
+			object.addProperty("credits", new Long(player.getCredits()));
 			object.addProperty("minutes-bonus-exp", new Integer(player.getMinutesBonusExp()));
 			object.addProperty("total-gained-exp", new Long(player.getSkillManager().getTotalGainedExp()));
 			object.addProperty("prestige-points", new Integer(player.getPointsHandler().getPrestigePoints()));

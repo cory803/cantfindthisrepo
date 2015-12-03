@@ -53,6 +53,8 @@ public class DialogueOptions {
 	//Last id used = 78
 
 	public static void handle(Player player, int id) {
+		int credits = 0;
+		int funds = 0;
 		if(player.getRights() == PlayerRights.DEVELOPER) {
 			player.getPacketSender().sendMessage("Dialogue button id: "+id+", action id: "+player.getDialogueActionId()).sendConsoleMessage("Dialogue button id: "+id+", action id: "+player.getDialogueActionId());
 		}
@@ -864,6 +866,42 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 129:
+				player.getPacketSender().sendInterfaceRemoval();
+				funds = 10;
+				player.getInventory().delete(10943, 1);
+				player.incrementAmountDonated(funds);
+				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
+				MemberScrolls.checkForRankUpdate(player);
+				PlayerPanel.refreshPanel(player);
+			break;
+			case 130:
+				player.getPacketSender().sendInterfaceRemoval();
+				funds = 25;
+				player.getInventory().delete(10934, 1);
+				player.incrementAmountDonated(funds);
+				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
+				MemberScrolls.checkForRankUpdate(player);
+				PlayerPanel.refreshPanel(player);
+			break;
+			case 131:
+				player.getPacketSender().sendInterfaceRemoval();
+				funds = 50;
+				player.getInventory().delete(10935, 1);
+				player.incrementAmountDonated(funds);
+				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
+				MemberScrolls.checkForRankUpdate(player);
+				PlayerPanel.refreshPanel(player);
+			break;
+			case 132:
+				player.getPacketSender().sendInterfaceRemoval();
+				funds = 100;
+				player.getInventory().delete(7629, 1);
+				player.incrementAmountDonated(funds);
+				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
+				MemberScrolls.checkForRankUpdate(player);
+				PlayerPanel.refreshPanel(player);
+			break;
 			case 15:
 				DialogueManager.start(player, 35);
 				player.setDialogueActionId(19);
@@ -943,6 +981,38 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 129:
+				player.getPacketSender().sendInterfaceRemoval();
+				credits = 10000;
+				player.getInventory().delete(10943, 1);
+				player.addCredits(credits);
+				player.getPacketSender().sendMessage("Your account has gained 10,000 credits. Your total is now at "+player.getCredits()+".");
+				PlayerPanel.refreshPanel(player);
+			break;
+			case 130:
+				player.getPacketSender().sendInterfaceRemoval();
+				credits = 25000;
+				player.getInventory().delete(10934, 1);
+				player.addCredits(credits);
+				player.getPacketSender().sendMessage("Your account has gained 25,000 credits. Your total is now at "+player.getCredits()+".");
+				PlayerPanel.refreshPanel(player);
+			break;
+			case 131:
+				player.getPacketSender().sendInterfaceRemoval();
+				credits = 50000;
+				player.getInventory().delete(10935, 1);
+				player.addCredits(credits);
+				player.getPacketSender().sendMessage("Your account has gained 50,000 credits. Your total is now at "+player.getCredits()+".");
+				PlayerPanel.refreshPanel(player);
+			break;
+			case 132:
+				player.getPacketSender().sendInterfaceRemoval();
+				credits = 100000;
+				player.getInventory().delete(7629, 1);
+				player.addCredits(credits);
+				player.getPacketSender().sendMessage("Your account has gained 100,000 credits. Your total is now at "+player.getCredits()+".");
+				PlayerPanel.refreshPanel(player);
+			break;
 			case 15:
 				DialogueManager.start(player, 25);
 				player.setDialogueActionId(15);
@@ -1061,6 +1131,10 @@ public class DialogueOptions {
 			case 70:
 			case 71:
 			case 77:
+			case 129:
+			case 130:
+			case 131:
+			case 132:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 41:

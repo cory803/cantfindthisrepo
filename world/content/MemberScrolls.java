@@ -29,17 +29,23 @@ public class MemberScrolls {
 	}
 
 	public static boolean handleScroll(Player player, int item) {
+		int funds = 0;
 		switch(item) {
-		case 10942:
-		case 10934:
 		case 10935:
+			player.setDialogueActionId(131);
+			DialogueManager.start(player, 131);
+			break;
 		case 10943:
-			int funds = item == 10942 ? 10 : item == 10934 ? 20 : item == 10935 ? 50 : item == 10943 ? 100 : -1;
-			player.getInventory().delete(item, 1);
-			player.incrementAmountDonated(funds);
-			player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
-			checkForRankUpdate(player);
-			PlayerPanel.refreshPanel(player);
+			player.setDialogueActionId(129);
+			DialogueManager.start(player, 129);
+			break;
+		case 10934:
+			player.setDialogueActionId(130);
+			DialogueManager.start(player, 130);
+			break;
+		case 7629:
+			player.setDialogueActionId(132);
+			DialogueManager.start(player, 132);
 			break;
 		}
 		return false;
