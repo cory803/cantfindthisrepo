@@ -358,6 +358,7 @@ public class Player extends Character {
 	private final Appearance appearance = new Appearance(this);
 	private final FrameUpdater frameUpdater = new FrameUpdater();
 	private PlayerRights rights = PlayerRights.PLAYER;
+	private int donatorRights = 0;
 	private SkillManager skillManager = new SkillManager(this);
 	private PlayerRelations relations = new PlayerRelations(this);
 	private ChatMessage chatMessages = new ChatMessage();
@@ -559,6 +560,13 @@ public class Player extends Character {
 		return this.frameUpdater;
 	}
 
+	public int getDonorRights() {
+		return donatorRights;
+	}
+	public void setDonorRights(int donorRights) {
+		this.donatorRights = donorRights;
+	}
+	
 	public PlayerRights getRights() {
 		return rights;
 	}

@@ -277,7 +277,7 @@ public class NPCDrops {
 			boolean ringOfWealth) {
 		int random = chance.getRandom();
 		if (ringOfWealth && random >= 60) {
-			random -= (random / 10);
+			random -= (random / 5);
 		}
 		return !b[chance.ordinal()] && Misc.getRandom(random) == 1;
 	}

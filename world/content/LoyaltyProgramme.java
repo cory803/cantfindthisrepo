@@ -210,7 +210,7 @@ public class LoyaltyProgramme {
 				return true;
 			}
 		},
-		BARONESS(10000, 43079, -22460) {
+		LADY(8000, 43079, -22460) {
 			@Override
 			boolean canBuy(Player p, boolean sendMessage) {
 				return true;
@@ -222,7 +222,7 @@ public class LoyaltyProgramme {
 				return true;
 			}
 		},
-		LADY(8000, 43087, -22452) {
+		BARONESS(10000, 43087, -22452) {
 			@Override
 			boolean canBuy(Player p, boolean sendMessage) {
 				return true;

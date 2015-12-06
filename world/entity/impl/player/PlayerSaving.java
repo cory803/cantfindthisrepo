@@ -39,6 +39,7 @@ public class PlayerSaving {
 			object.addProperty("password", player.getPassword().trim());
 			object.addProperty("email", player.getEmailAddress() == null ? "null" : player.getEmailAddress().trim());
 			object.addProperty("staff-rights", player.getRights().name());
+			object.addProperty("donor-rights", player.getDonorRights());
 			object.addProperty("game-mode", player.getGameMode().name());
 			object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
 			object.add("position", builder.toJsonTree(player.getPosition()));
