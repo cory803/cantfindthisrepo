@@ -572,6 +572,7 @@ public class ButtonClickPacketListener implements PacketListener {
 		case 12322:
 		case 7637:
 		case 12311:
+		case 10003:
 			CombatSpecial.activate(player);
 			break;
 		case 1772: // shortbow & longbow
