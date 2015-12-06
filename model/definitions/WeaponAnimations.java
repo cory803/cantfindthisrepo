@@ -128,6 +128,7 @@ public final class WeaponAnimations {
 		case 15442: // whip
 		case 15443: // whip
 		case 15444: // whip
+		case 21000: // whip
 			playerStandIndex = 11973;
 			playerWalkIndex = 11975;
 			playerRunIndex = 1661;
@@ -320,6 +321,7 @@ public final class WeaponAnimations {
 		case 15442: // whip
 		case 15443: // whip
 		case 15444: // whip
+		case 21000: // whip
 			if(prop.contains("flick"))
 				return 11968;
 			else if(prop.contains("lash"))
@@ -364,6 +366,7 @@ public final class WeaponAnimations {
 		case 4153:
 			return 1666;
 		case 4151:
+		case 21000: // whip
 		case 13444:
 		case 15441: // whip
 		case 15442: // whip
