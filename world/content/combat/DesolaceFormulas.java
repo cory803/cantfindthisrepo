@@ -474,6 +474,14 @@ public class DesolaceFormulas {
 
 		switch (id) {
 		case 11235:
+		case 21016:
+		case 21017:
+		case 21018:
+		case 21019:
+		case 21020:
+		case 21021:
+		case 21022:
+		case 21023:
 		case 13405: //dbow
 		case 15701: // dark bow
 		case 15702: // dark bow

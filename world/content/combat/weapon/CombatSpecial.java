@@ -202,7 +202,7 @@ public enum CombatSpecial {
 					true);
 		}
 	},
-	DARK_BOW(new int[] { 11235 }, 55, 1.45, 1.22, CombatType.RANGED, WeaponInterface.LONGBOW) {
+	DARK_BOW(new int[] { 11235, 21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023}, 55, 1.45, 1.22, CombatType.RANGED, WeaponInterface.LONGBOW) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(426));
