@@ -468,7 +468,7 @@ public class Sounds {
 		if (c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 2745 || c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 2746 || c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 2747 || c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 2748) { // Godswords
 			return 390;
 		}
-		if (c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 4151 || c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 21000) {
+		if (c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 4151 || (c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() >= 21000 && c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() <= 21007)) {
 			return 1080;
 		} else {
 			return 398; //Daggers(this is enything that isn't added)
@@ -478,7 +478,7 @@ public class Sounds {
 
 	public static int specialSounds(int id)
 	{
-		if (id == 4151 || id == 21000) //whip
+		if (id == 4151 || id == 21000 || id == 21001 || id == 21002 || id == 21003 || id == 21004 || id == 21005 || id == 21006 || id == 21007) //whip
 		{
 			return 1081;
 		}

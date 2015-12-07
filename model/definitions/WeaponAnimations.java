@@ -129,6 +129,13 @@ public final class WeaponAnimations {
 		case 15443: // whip
 		case 15444: // whip
 		case 21000: // whip
+		case 21001: // whip
+		case 21002: // whip
+		case 21003: // whip
+		case 21004: // whip
+		case 21005: // whip
+		case 21006: // whip
+		case 21007: // whip
 			playerStandIndex = 11973;
 			playerWalkIndex = 11975;
 			playerRunIndex = 1661;
@@ -322,6 +329,13 @@ public final class WeaponAnimations {
 		case 15443: // whip
 		case 15444: // whip
 		case 21000: // whip
+		case 21001: // whip
+		case 21002: // whip
+		case 21003: // whip
+		case 21004: // whip
+		case 21005: // whip
+		case 21006: // whip
+		case 21007: // whip
 			if(prop.contains("flick"))
 				return 11968;
 			else if(prop.contains("lash"))
@@ -367,6 +381,13 @@ public final class WeaponAnimations {
 			return 1666;
 		case 4151:
 		case 21000: // whip
+		case 21001: // whip
+		case 21002: // whip
+		case 21003: // whip
+		case 21004: // whip
+		case 21005: // whip
+		case 21006: // whip
+		case 21007: // whip
 		case 13444:
 		case 15441: // whip
 		case 15442: // whip
@@ -379,8 +400,6 @@ public final class WeaponAnimations {
 		case 22211:
 		case 22207:
 		case 22213:
-		case 21005:
-		case 21010:
 		case 14004:
 		case 14005:
 		case 14006:
