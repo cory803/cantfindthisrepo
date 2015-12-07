@@ -729,8 +729,8 @@ public class Locations {
 		}
 
 		public static boolean inMulti(Character gc) {
+			int x = gc.getPosition().getX(), y = gc.getPosition().getY();
 			if(gc.getLocation() == WILDERNESS) {
-				int x = gc.getPosition().getX(), y = gc.getPosition().getY();
 				if(x >= 3250 && x <= 3302 && y >= 3905 && y <= 3925
 				|| x >= 3020 && x <= 3055 && y >= 3684 && y <= 3711
 				|| x >= 3150 && x <= 3195 && y >= 2958 && y <= 3003
@@ -751,10 +751,15 @@ public class Locations {
 				|| x >= 2256 && x <= 2287 && y >= 4680 && y <= 4711
 				|| x >= 2516 && x <= 2595 && y >= 4926 && y <= 5003 //gwd
 				|| x >= 2560 && x <= 2630 && y >= 5710 && y <= 5753 //td cave
-				|| x >= 2656 && x <= 2732 && y >= 3711 && y <= 3742 //rock crabs
-				
 				)
 					return true;
+			} else {
+				if(gc.getLocation() != WILDERNESS) {
+					//rock crabs
+					if(x >= 2656 && x <= 2732 && y >= 3711 && y <= 3742) {
+						return true;
+					}
+				}
 			}
 			return gc.getLocation().multi;
 		}
