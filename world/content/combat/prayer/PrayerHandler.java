@@ -401,8 +401,9 @@ public class PrayerHandler {
 				}
 				double drainAmount = getDrain(player);
 				if(player.getLocation() != Location.WILDERNESS) {
-					if(player.getRights() == PlayerRights.PLATINUM_DONATOR || player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748) {
-						drainAmount = 0;
+					//if(player.getRights() == PlayerRights.PLATINUM_DONATOR || player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748) {
+					if(player.getDonorRights() >= 3 || player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748) {
+								drainAmount = 0;
 					}
 				}
 				

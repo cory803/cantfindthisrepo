@@ -17,10 +17,13 @@ public class MemberScrolls {
 		PlayerRights rights = null;
 		if(player.getAmountDonated() >= 10)
 			rights = PlayerRights.PREMIUM_DONATOR;
+			player.setDonorRights(1);
 		if(player.getAmountDonated() >= 50)
 			rights = PlayerRights.PRIME_DONATOR;
+			player.setDonorRights(2);
 		if(player.getAmountDonated() >= 100)
 			rights = PlayerRights.PLATINUM_DONATOR;
+			player.setDonorRights(3);
 		if(rights != null && rights != player.getRights()) {
 			player.getPacketSender().sendMessage("You've become a "+Misc.formatText(rights.toString().toLowerCase())+"! Congratulations!");
 			player.setRights(rights);
