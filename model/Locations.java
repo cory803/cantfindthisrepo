@@ -756,7 +756,9 @@ public class Locations {
 			} else {
 				if(gc.getLocation() != WILDERNESS) {
 					//rock crabs
-					if(x >= 2656 && x <= 2732 && y >= 3711 && y <= 3742) {
+					if(x >= 2656 && x <= 2732 && y >= 3711 && y <= 3742
+					|| x >= 2885 && x <= 2920 && y >= 4375 && y <= 4415
+					)						{
 						return true;
 					}
 				}

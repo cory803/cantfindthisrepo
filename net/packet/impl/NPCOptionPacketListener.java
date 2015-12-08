@@ -334,6 +334,10 @@ public class NPCOptionPacketListener implements PacketListener {
 			player.getMovementQueue().reset();
 		}
 
+		if(player.getRights() == PlayerRights.DEVELOPER) {
+			player.getPacketSender().sendMessage("Attacking npc id: "+interact.getId());
+		}
+		//System.out.println();
 		player.getCombatBuilder().attack(interact);
 	}
 //run it on eclipse. i host it on my vps, the client wont connect without changing everything
