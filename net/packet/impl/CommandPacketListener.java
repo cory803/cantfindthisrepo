@@ -55,7 +55,7 @@ import com.strattus.world.entity.impl.player.Player;
 import com.strattus.world.entity.impl.player.PlayerSaving;
 import com.strattus.world.clip.stream.ByteStreamExt;
 import com.strattus.world.clip.stream.MemoryArchive;
-
+import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
 
 /**
  * This packet listener manages commands a player uses by using the
@@ -202,6 +202,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Attempting to open: Thread" + thread);
 		}
 		if (command[0].equals("Farming2")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -215,6 +219,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
 		}
 		if (command[0].equals("home")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -224,6 +232,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
 		if (command[0].equals("train")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -233,6 +245,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Teleporting you to rock crabs!");
 		}
 		if (command[0].equals("edge")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -242,6 +258,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Teleporting you to edgeville!");
 		}
 		if (command[0].equals("wests")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -251,6 +271,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Teleporting you to wests!");
 		}
 		if (command[0].equals("easts")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -260,6 +284,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Teleporting you to wests!");
 		}
 		if (command[0].equals("market")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -283,6 +311,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getInventory().resetItems().refreshItems();
 		}
 		if (command[0].equals("gamble")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
@@ -334,6 +366,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;

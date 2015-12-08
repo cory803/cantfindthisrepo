@@ -14,6 +14,8 @@ import com.strattus.world.content.Sounds.Sound;
 import com.strattus.world.content.skill.impl.dungeoneering.ItemBinding;
 import com.strattus.world.entity.impl.GroundItemManager;
 import com.strattus.world.entity.impl.player.Player;
+import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.strattus.model.Locations.Location;
 
 /**
  * This packet listener is called when a player drops an item they
@@ -50,6 +52,11 @@ public class DropItemPacketListener implements PacketListener {
 					player.performGraphic(new Graphic(1750));
 					player.getPacketSender().sendMessage("The potion explodes in your face as you drop it!");
 				} else {
+					if(Dungeoneering.doingDungeoneering(player) && player.getLocation() != Location.DUNGEONEERING) {
+						player.getPacketSender().sendMessage("You can't drop this item outside of a dungeon!");
+						return;
+					}
+					System.out.println("Dropped item");
 					GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 80, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 80));
 					PlayerLogs.log(player.getUsername(), "Player dropping item: "+item.getId()+", amount: "+item.getAmount());
 				}

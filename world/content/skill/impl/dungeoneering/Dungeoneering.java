@@ -127,6 +127,7 @@ public class Dungeoneering {
 			p.getPacketSender().sendDungeoneeringTabIcon(false);
 			p.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 		}
+		System.out.println("Leaving now");
 	}
 
 	public static void setupFloor(DungeoneeringParty party, int height) {
