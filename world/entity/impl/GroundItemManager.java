@@ -54,7 +54,7 @@ public class GroundItemManager {
 	 * @param g		The grounditem to spawn
 	 */
 	public static void spawnGroundItem(Player p, GroundItem g) {
-		if(p == null || p.getRights() == PlayerRights.DEVELOPER)
+		if(p == null)
 			return;
 		final Item item = g.getItem();
 		if(item.getId() > ItemDefinition.getMaxAmountOfItems() || item.getId() <= 0) {
