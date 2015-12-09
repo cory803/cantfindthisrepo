@@ -10,7 +10,7 @@ import com.strattus.util.Misc;
 public enum SlayerTasks {
 
 	NO_TASK(null, -1, null, -1, null),
-//altered
+
 	/**
 	 * Easy tasks
 	 */
