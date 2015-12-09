@@ -44,7 +44,7 @@ public class CorporealBeast implements CombatStrategy {
 		for (Player t : Misc.getCombinedPlayerList(target)) {
 			if(t == null || t.getLocation() != Location.CORPOREAL_BEAST)
 				continue;
-			if (Locations.goodDistance(t.getPosition(), cB.getPosition(), 1)) {
+			if (Locations.goodDistance(t.getPosition(), cB.getPosition(), 4)) {
 				stomp = true;
 				cB.getCombatBuilder().setVictim(t);
 				new CombatHitTask(cB.getCombatBuilder(), new CombatContainer(cB, t, 1, CombatType.MAGIC, true)).handleAttack();
