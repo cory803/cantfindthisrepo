@@ -1,10 +1,10 @@
-package com.strattus.world.content.skill.impl.thieving;
+package com.ikov.world.content.skill.impl.thieving;
 
-import com.strattus.model.Animation;
-import com.strattus.model.Skill;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.model.Skill;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Stalls {
 

@@ -1,9 +1,9 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.util.Misc;
-import com.strattus.world.content.ItemDegrading.DegradingItem;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.util.Misc;
+import com.ikov.world.content.ItemDegrading.DegradingItem;
+import com.ikov.world.entity.impl.player.Player;
 
 public class BrawlingGloves {
 	

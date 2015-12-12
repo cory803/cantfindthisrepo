@@ -1,25 +1,25 @@
-package com.strattus.world.content.minigames.impl;
+package com.ikov.world.content.minigames.impl;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Flag;
-import com.strattus.model.GameMode;
-import com.strattus.model.Item;
-import com.strattus.model.Locations;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.container.impl.Inventory;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.BankPin;
-import com.strattus.world.content.BonusManager;
-import com.strattus.world.content.PlayerLogs;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Flag;
+import com.ikov.model.GameMode;
+import com.ikov.model.Item;
+import com.ikov.model.Locations;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.container.impl.Inventory;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.BankPin;
+import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.PlayerLogs;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Dueling {
 

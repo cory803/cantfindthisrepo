@@ -1,29 +1,29 @@
- package com.strattus.world.content.combat.weapon;
+ package com.ikov.world.content.combat.weapon;
 
 import java.util.Arrays;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.PlayerSpecialAmountTask;
-import com.strattus.engine.task.impl.StaffOfLightSpecialAttackTask;
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.GraphicHeight;
-import com.strattus.model.Projectile;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.definitions.WeaponInterfaces.WeaponInterface;
-import com.strattus.util.Misc;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Consumables;
-import com.strattus.world.content.combat.CombatContainer;
-import com.strattus.world.content.combat.CombatHitTask;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.content.minigames.impl.Dueling;
-import com.strattus.world.content.minigames.impl.Dueling.DuelRule;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.PlayerSpecialAmountTask;
+import com.ikov.engine.task.impl.StaffOfLightSpecialAttackTask;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.GraphicHeight;
+import com.ikov.model.Projectile;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Consumables;
+import com.ikov.world.content.combat.CombatContainer;
+import com.ikov.world.content.combat.CombatHitTask;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.minigames.impl.Dueling;
+import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Holds constants that hold data for all of the special attacks that can be

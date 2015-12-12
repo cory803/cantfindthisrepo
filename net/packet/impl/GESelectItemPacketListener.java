@@ -1,11 +1,11 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.model.Item;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.content.grandexchange.GrandExchange;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.content.grandexchange.GrandExchange;
+import com.ikov.world.entity.impl.player.Player;
 
 public class GESelectItemPacketListener implements PacketListener {
 

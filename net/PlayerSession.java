@@ -1,18 +1,18 @@
-package com.strattus.net;
+package com.ikov.net;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.jboss.netty.channel.Channel;
 
-import com.strattus.GameSettings;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketBuilder;
-import com.strattus.net.packet.PacketConstants;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.net.packet.codec.PacketDecoder;
-import com.strattus.net.packet.impl.PlayerRelationPacketListener;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketBuilder;
+import com.ikov.net.packet.PacketConstants;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.net.packet.codec.PacketDecoder;
+import com.ikov.net.packet.impl.PlayerRelationPacketListener;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * The session handler dedicated to a player that will handle input and output

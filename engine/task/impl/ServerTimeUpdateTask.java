@@ -1,10 +1,10 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.Locations;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.minigames.impl.PestControl;
+import com.ikov.engine.task.Task;
+import com.ikov.model.Locations;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.minigames.impl.PestControl;
 
 /**
  * @author Gabriel Hannason

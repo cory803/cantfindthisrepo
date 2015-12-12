@@ -1,11 +1,11 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.model.Item;
-import com.strattus.model.container.impl.Bank;
-import com.strattus.model.container.impl.Inventory;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.model.container.impl.Inventory;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This packet listener is called when an item is dragged onto another slot.

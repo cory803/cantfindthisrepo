@@ -1,18 +1,18 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
 import java.util.Iterator;
 import java.util.Optional;
 
-import com.strattus.model.CombatIcon;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.model.Item;
-import com.strattus.model.Locations;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.model.Item;
+import com.ikov.model.Locations;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A {@link CombatSpell} implementation that is primarily used for spells that

@@ -1,10 +1,10 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.model.Flag;
-import com.strattus.model.Item;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Flag;
+import com.ikov.model.Item;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ItemDegrading {
 

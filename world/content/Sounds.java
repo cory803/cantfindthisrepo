@@ -1,13 +1,13 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Position;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Position;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Sounds {
 

@@ -1,10 +1,10 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
-import com.strattus.model.Position;
-import com.strattus.model.container.impl.Bank;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Position;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 /**
  * 
  * @author Owner Blade

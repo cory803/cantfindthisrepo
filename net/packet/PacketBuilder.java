@@ -1,10 +1,10 @@
-package com.strattus.net.packet;
+package com.ikov.net.packet;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
 
-import com.strattus.model.ChatMessage.Message;
-import com.strattus.net.packet.Packet.PacketType;
+import com.ikov.model.ChatMessage.Message;
+import com.ikov.net.packet.Packet.PacketType;
 
 /**
  * The {@link Message} implementation that functions as a dynamic buffer wrapper

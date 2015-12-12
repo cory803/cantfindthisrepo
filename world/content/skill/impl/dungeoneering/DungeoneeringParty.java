@@ -1,22 +1,22 @@
-package com.strattus.world.content.skill.impl.dungeoneering;
+package com.ikov.world.content.skill.impl.dungeoneering;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.GameSettings;
-import com.strattus.model.Flag;
-import com.strattus.model.GroundItem;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.dialogue.impl.DungPartyInvitation;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.model.Flag;
+import com.ikov.model.GroundItem;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.dialogue.impl.DungPartyInvitation;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * @author Gabriel Hannason

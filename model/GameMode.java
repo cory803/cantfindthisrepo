@@ -1,13 +1,13 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.model.container.impl.Bank;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.dialogue.impl.Tutorial;
-import com.strattus.world.content.skill.impl.slayer.SlayerMaster;
-import com.strattus.world.content.skill.impl.slayer.SlayerTasks;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.dialogue.impl.Tutorial;
+import com.ikov.world.content.skill.impl.slayer.SlayerMaster;
+import com.ikov.world.content.skill.impl.slayer.SlayerTasks;
+import com.ikov.world.entity.impl.player.Player;
 
 public enum GameMode {
 

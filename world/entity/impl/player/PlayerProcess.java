@@ -1,11 +1,11 @@
-package com.strattus.world.entity.impl.player;
+package com.ikov.world.entity.impl.player;
 
-import com.strattus.model.RegionInstance.RegionInstanceType;
-import com.strattus.util.Misc;
-import com.strattus.world.content.LoyaltyProgramme;
-import com.strattus.world.content.combat.pvp.BountyHunter;
-import com.strattus.world.content.skill.impl.construction.House;
-import com.strattus.world.entity.impl.GroundItemManager;
+import com.ikov.model.RegionInstance.RegionInstanceType;
+import com.ikov.util.Misc;
+import com.ikov.world.content.LoyaltyProgramme;
+import com.ikov.world.content.combat.pvp.BountyHunter;
+import com.ikov.world.content.skill.impl.construction.House;
+import com.ikov.world.entity.impl.GroundItemManager;
 
 public class PlayerProcess {
 

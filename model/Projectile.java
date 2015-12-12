@@ -1,10 +1,10 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.world.World;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.world.World;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A graphic propelled through the air by some sort of spell, weapon, or other

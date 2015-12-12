@@ -1,8 +1,8 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.world.entity.impl.player.Player;
 
 public class FireImmunityTask extends Task {
 

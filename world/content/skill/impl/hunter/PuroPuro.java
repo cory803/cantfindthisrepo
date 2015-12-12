@@ -1,21 +1,21 @@
-package com.strattus.world.content.skill.impl.hunter;
+package com.ikov.world.content.skill.impl.hunter;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.NPCRespawnTask;
-import com.strattus.model.Animation;
-import com.strattus.model.Flag;
-import com.strattus.model.GameObject;
-import com.strattus.model.Item;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.NPCRespawnTask;
+import com.ikov.model.Animation;
+import com.ikov.model.Flag;
+import com.ikov.model.GameObject;
+import com.ikov.model.Item;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PuroPuro {
 

@@ -1,37 +1,37 @@
-package com.strattus.world.content.combat.strategy;
+package com.ikov.world.content.combat.strategy;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.strattus.world.content.combat.strategy.impl.Aviansie;
-import com.strattus.world.content.combat.strategy.impl.BandosAvatar;
-import com.strattus.world.content.combat.strategy.impl.ChaosElemental;
-import com.strattus.world.content.combat.strategy.impl.CorporealBeast;
-import com.strattus.world.content.combat.strategy.impl.DagannothSupreme;
-import com.strattus.world.content.combat.strategy.impl.DefaultMagicCombatStrategy;
-import com.strattus.world.content.combat.strategy.impl.DefaultMeleeCombatStrategy;
-import com.strattus.world.content.combat.strategy.impl.DefaultRangedCombatStrategy;
-import com.strattus.world.content.combat.strategy.impl.Dragon;
-import com.strattus.world.content.combat.strategy.impl.Geerin;
-import com.strattus.world.content.combat.strategy.impl.Glacor;
-import com.strattus.world.content.combat.strategy.impl.Graardor;
-import com.strattus.world.content.combat.strategy.impl.Grimspike;
-import com.strattus.world.content.combat.strategy.impl.Gritch;
-import com.strattus.world.content.combat.strategy.impl.Growler;
-import com.strattus.world.content.combat.strategy.impl.Jad;
-import com.strattus.world.content.combat.strategy.impl.KalphiteQueen;
-import com.strattus.world.content.combat.strategy.impl.KreeArra;
-import com.strattus.world.content.combat.strategy.impl.Kreeyath;
-import com.strattus.world.content.combat.strategy.impl.Nex;
-import com.strattus.world.content.combat.strategy.impl.Nomad;
-import com.strattus.world.content.combat.strategy.impl.PlaneFreezer;
-import com.strattus.world.content.combat.strategy.impl.Revenant;
-import com.strattus.world.content.combat.strategy.impl.Spinolyp;
-import com.strattus.world.content.combat.strategy.impl.Steelwill;
-import com.strattus.world.content.combat.strategy.impl.TormentedDemon;
-import com.strattus.world.content.combat.strategy.impl.Tsutsuroth;
-import com.strattus.world.content.combat.strategy.impl.WingmanSkree;
-import com.strattus.world.content.combat.strategy.impl.Zilyana;
+import com.ikov.world.content.combat.strategy.impl.Aviansie;
+import com.ikov.world.content.combat.strategy.impl.BandosAvatar;
+import com.ikov.world.content.combat.strategy.impl.ChaosElemental;
+import com.ikov.world.content.combat.strategy.impl.CorporealBeast;
+import com.ikov.world.content.combat.strategy.impl.DagannothSupreme;
+import com.ikov.world.content.combat.strategy.impl.DefaultMagicCombatStrategy;
+import com.ikov.world.content.combat.strategy.impl.DefaultMeleeCombatStrategy;
+import com.ikov.world.content.combat.strategy.impl.DefaultRangedCombatStrategy;
+import com.ikov.world.content.combat.strategy.impl.Dragon;
+import com.ikov.world.content.combat.strategy.impl.Geerin;
+import com.ikov.world.content.combat.strategy.impl.Glacor;
+import com.ikov.world.content.combat.strategy.impl.Graardor;
+import com.ikov.world.content.combat.strategy.impl.Grimspike;
+import com.ikov.world.content.combat.strategy.impl.Gritch;
+import com.ikov.world.content.combat.strategy.impl.Growler;
+import com.ikov.world.content.combat.strategy.impl.Jad;
+import com.ikov.world.content.combat.strategy.impl.KalphiteQueen;
+import com.ikov.world.content.combat.strategy.impl.KreeArra;
+import com.ikov.world.content.combat.strategy.impl.Kreeyath;
+import com.ikov.world.content.combat.strategy.impl.Nex;
+import com.ikov.world.content.combat.strategy.impl.Nomad;
+import com.ikov.world.content.combat.strategy.impl.PlaneFreezer;
+import com.ikov.world.content.combat.strategy.impl.Revenant;
+import com.ikov.world.content.combat.strategy.impl.Spinolyp;
+import com.ikov.world.content.combat.strategy.impl.Steelwill;
+import com.ikov.world.content.combat.strategy.impl.TormentedDemon;
+import com.ikov.world.content.combat.strategy.impl.Tsutsuroth;
+import com.ikov.world.content.combat.strategy.impl.WingmanSkree;
+import com.ikov.world.content.combat.strategy.impl.Zilyana;
 
 public class CombatStrategies {
 

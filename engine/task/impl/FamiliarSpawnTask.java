@@ -1,11 +1,11 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.Item;
-import com.strattus.world.content.skill.impl.summoning.FamiliarData;
-import com.strattus.world.content.skill.impl.summoning.BossPets.BossPet;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.model.Item;
+import com.ikov.world.content.skill.impl.summoning.FamiliarData;
+import com.ikov.world.content.skill.impl.summoning.BossPets.BossPet;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Familiar spawn on login

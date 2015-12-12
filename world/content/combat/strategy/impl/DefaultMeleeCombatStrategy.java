@@ -1,16 +1,16 @@
-package com.strattus.world.content.combat.strategy.impl;
+package com.ikov.world.content.combat.strategy.impl;
 
-import com.strattus.model.Animation;
-import com.strattus.model.definitions.WeaponAnimations;
-import com.strattus.model.definitions.WeaponInterfaces.WeaponInterface;
-import com.strattus.world.content.combat.CombatContainer;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.content.combat.strategy.CombatStrategy;
-import com.strattus.world.content.minigames.impl.Dueling;
-import com.strattus.world.content.minigames.impl.Dueling.DuelRule;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.model.definitions.WeaponAnimations;
+import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
+import com.ikov.world.content.combat.CombatContainer;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.strategy.CombatStrategy;
+import com.ikov.world.content.minigames.impl.Dueling;
+import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * The default combat strategy assigned to an {@link Character} during a melee

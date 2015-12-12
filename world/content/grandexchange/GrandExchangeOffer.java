@@ -1,9 +1,9 @@
-package com.strattus.world.content.grandexchange;
+package com.ikov.world.content.grandexchange;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import com.strattus.model.Item;
+import com.ikov.model.Item;
 
 /**
  * A Grand Exchange offer

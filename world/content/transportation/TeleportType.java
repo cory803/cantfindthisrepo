@@ -1,8 +1,8 @@
-package com.strattus.world.content.transportation;
+package com.ikov.world.content.transportation;
 
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.util.Misc;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.util.Misc;
 public enum TeleportType {
 
 	NORMAL(3, new Animation(8939, 20), new Animation(8941), null, null),

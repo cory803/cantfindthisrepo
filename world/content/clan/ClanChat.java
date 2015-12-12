@@ -1,14 +1,14 @@
-package com.strattus.world.content.clan;
+package com.ikov.world.content.clan;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.util.Stopwatch;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.util.Stopwatch;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * An instance of a clanchat channel, holding all fields.

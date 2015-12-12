@@ -1,52 +1,52 @@
-package com.strattus.world.entity.impl.player;
+package com.ikov.world.entity.impl.player;
 
-import com.strattus.util.PlayersOnline;
-import com.strattus.GameSettings;
-import com.strattus.GameServer;
-import com.strattus.GameSettings;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.BonusExperienceTask;
-import com.strattus.engine.task.impl.CombatSkullEffect;
-import com.strattus.engine.task.impl.FireImmunityTask;
-import com.strattus.engine.task.impl.OverloadPotionTask;
-import com.strattus.engine.task.impl.PlayerSkillsTask;
-import com.strattus.engine.task.impl.PlayerSpecialAmountTask;
-import com.strattus.engine.task.impl.PrayerRenewalPotionTask;
-import com.strattus.engine.task.impl.StaffOfLightSpecialAttackTask;
-import com.strattus.model.Flag;
-import com.strattus.model.Locations;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Bank;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.definitions.WeaponAnimations;
-import com.strattus.model.definitions.WeaponInterfaces;
-import com.strattus.net.PlayerSession;
-import com.strattus.net.SessionState;
-import com.strattus.net.security.ConnectionHandler;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.BonusManager;
-import com.strattus.world.content.WellOfGoodwill;
-import com.strattus.world.content.Lottery;
-import com.strattus.world.content.PlayerLogs;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.content.PlayersOnlineInterface;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.combat.effect.CombatPoisonEffect;
-import com.strattus.world.content.combat.effect.CombatTeleblockEffect;
-import com.strattus.world.content.combat.magic.Autocasting;
-import com.strattus.world.content.combat.prayer.CurseHandler;
-import com.strattus.world.content.combat.prayer.PrayerHandler;
-import com.strattus.world.content.combat.pvp.BountyHunter;
-import com.strattus.world.content.combat.range.DwarfMultiCannon;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.grandexchange.GrandExchange;
-import com.strattus.world.content.minigames.impl.Barrows;
-import com.strattus.world.content.skill.impl.hunter.Hunter;
-import com.strattus.world.content.skill.impl.slayer.Slayer;
+import com.ikov.util.PlayersOnline;
+import com.ikov.GameSettings;
+import com.ikov.GameServer;
+import com.ikov.GameSettings;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.BonusExperienceTask;
+import com.ikov.engine.task.impl.CombatSkullEffect;
+import com.ikov.engine.task.impl.FireImmunityTask;
+import com.ikov.engine.task.impl.OverloadPotionTask;
+import com.ikov.engine.task.impl.PlayerSkillsTask;
+import com.ikov.engine.task.impl.PlayerSpecialAmountTask;
+import com.ikov.engine.task.impl.PrayerRenewalPotionTask;
+import com.ikov.engine.task.impl.StaffOfLightSpecialAttackTask;
+import com.ikov.model.Flag;
+import com.ikov.model.Locations;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.definitions.WeaponAnimations;
+import com.ikov.model.definitions.WeaponInterfaces;
+import com.ikov.net.PlayerSession;
+import com.ikov.net.SessionState;
+import com.ikov.net.security.ConnectionHandler;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.WellOfGoodwill;
+import com.ikov.world.content.Lottery;
+import com.ikov.world.content.PlayerLogs;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.content.PlayersOnlineInterface;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.combat.effect.CombatPoisonEffect;
+import com.ikov.world.content.combat.effect.CombatTeleblockEffect;
+import com.ikov.world.content.combat.magic.Autocasting;
+import com.ikov.world.content.combat.prayer.CurseHandler;
+import com.ikov.world.content.combat.prayer.PrayerHandler;
+import com.ikov.world.content.combat.pvp.BountyHunter;
+import com.ikov.world.content.combat.range.DwarfMultiCannon;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.grandexchange.GrandExchange;
+import com.ikov.world.content.minigames.impl.Barrows;
+import com.ikov.world.content.skill.impl.hunter.Hunter;
+import com.ikov.world.content.skill.impl.slayer.Slayer;
 
 public class PlayerHandler {
 
@@ -156,13 +156,13 @@ public class PlayerHandler {
 		//Others
 		Lottery.onLogin(player);
 		Locations.login(player);
-		player.getPacketSender().sendMessage("@bla@Welcome to Strattus! Join @red@Strattus@bla@ clan chat for help!");
+		player.getPacketSender().sendMessage("@bla@Welcome to IKov! Join @red@IKov@bla@ clan chat for help!");
 		if(player.experienceLocked())
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 		ClanChatManager.handleLogin(player);
 
 		if(GameSettings.BONUS_EXP) {
-			player.getPacketSender().sendMessage("<img=10> <col=008FB2>Strattus currently has a bonus experience event going on, make sure to use it!");
+			player.getPacketSender().sendMessage("<img=10> <col=008FB2>IKov currently has a bonus experience event going on, make sure to use it!");
 		}
 		if(WellOfGoodwill.isActive()) {
 			player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");

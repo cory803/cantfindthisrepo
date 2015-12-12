@@ -1,10 +1,10 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Position;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Position;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Digging {
 	

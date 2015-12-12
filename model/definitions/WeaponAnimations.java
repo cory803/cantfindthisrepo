@@ -1,9 +1,9 @@
-package com.strattus.model.definitions;
+package com.ikov.model.definitions;
 
-import com.strattus.model.CharacterAnimations;
-import com.strattus.model.Item;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.CharacterAnimations;
+import com.ikov.model.Item;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A static utility class that contains methods for changing the appearance

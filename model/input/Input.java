@@ -1,6 +1,6 @@
-package com.strattus.model.input;
+package com.ikov.model.input;
 
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.Player;
 
 
 public class Input {

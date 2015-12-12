@@ -1,8 +1,8 @@
-package com.strattus.model.definitions;
+package com.ikov.model.definitions;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.strattus.util.JsonLoader;
+import com.ikov.util.JsonLoader;
 
 /**
  * A single npc definition.

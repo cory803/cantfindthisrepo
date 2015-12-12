@@ -1,4 +1,4 @@
-package com.strattus.model;
+package com.ikov.model;
 
 /**
  * A class that represents a hit inflicted on an entity.

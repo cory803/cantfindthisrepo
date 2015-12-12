@@ -1,8 +1,8 @@
-package com.strattus.world.content.skill.impl.hunter;
+package com.ikov.world.content.skill.impl.hunter;
 
-import com.strattus.model.Skill;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.npc.NPC;
+import com.ikov.model.Skill;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.npc.NPC;
 
 /**
  * 

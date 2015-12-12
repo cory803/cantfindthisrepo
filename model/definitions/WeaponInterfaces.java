@@ -1,15 +1,15 @@
-package com.strattus.model.definitions;
+package com.ikov.model.definitions;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.strattus.model.Item;
-import com.strattus.util.JsonLoader;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.content.combat.weapon.FightType;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.util.JsonLoader;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.combat.weapon.FightType;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A static utility class that displays holds and displays data for weapon

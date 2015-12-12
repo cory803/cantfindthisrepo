@@ -1,4 +1,4 @@
-package com.strattus.model;
+package com.ikov.model;
 
 /**
  * Represents a player's prayer book.

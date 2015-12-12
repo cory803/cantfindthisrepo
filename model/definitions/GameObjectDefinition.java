@@ -1,7 +1,7 @@
-package com.strattus.model.definitions;
+package com.ikov.model.definitions;
 
-import com.strattus.world.clip.stream.ByteStreamExt;
-import com.strattus.world.clip.stream.MemoryArchive;
+import com.ikov.world.clip.stream.ByteStreamExt;
+import com.ikov.world.clip.stream.MemoryArchive;
 
 
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.

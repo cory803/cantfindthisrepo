@@ -1,21 +1,21 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.model.CombatIcon;
-import com.strattus.model.Graphic;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.model.Item;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.content.PlayerLogs;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.content.skill.impl.dungeoneering.ItemBinding;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.player.Player;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.strattus.model.Locations.Location;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.Graphic;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.model.Item;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.content.PlayerLogs;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.content.skill.impl.dungeoneering.ItemBinding;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.model.Locations.Location;
 
 /**
  * This packet listener is called when a player drops an item they

@@ -1,16 +1,16 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.model.GameMode;
-import com.strattus.model.Item;
-import com.strattus.model.Locations;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.GameMode;
+import com.ikov.model.Item;
+import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * @author: @Gabbe

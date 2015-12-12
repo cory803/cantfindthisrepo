@@ -1,15 +1,15 @@
-package com.strattus.world.content.combat.effect;
+package com.ikov.world.content.combat.effect;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.CombatIcon;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.model.Item;
-import com.strattus.world.entity.impl.Character;
+import com.ikov.engine.task.Task;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.model.Item;
+import com.ikov.world.entity.impl.Character;
 
 /**
  * A {@link Task} implementation that handles the poisoning process.

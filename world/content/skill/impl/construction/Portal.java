@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
 /**
  * 

@@ -1,21 +1,21 @@
-package com.strattus.world.entity.updating;
+package com.ikov.world.entity.updating;
 
 import java.util.Iterator;
 
-import com.strattus.model.Direction;
-import com.strattus.model.Flag;
-import com.strattus.model.Position;
-import com.strattus.model.UpdateFlag;
-import com.strattus.net.packet.ByteOrder;
-import com.strattus.net.packet.Packet.PacketType;
-import com.strattus.net.packet.PacketBuilder;
-import com.strattus.net.packet.PacketBuilder.AccessType;
-import com.strattus.net.packet.ValueType;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Direction;
+import com.ikov.model.Flag;
+import com.ikov.model.Position;
+import com.ikov.model.UpdateFlag;
+import com.ikov.net.packet.ByteOrder;
+import com.ikov.net.packet.Packet.PacketType;
+import com.ikov.net.packet.PacketBuilder;
+import com.ikov.net.packet.PacketBuilder.AccessType;
+import com.ikov.net.packet.ValueType;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a player's npc updating task, which loops through all local

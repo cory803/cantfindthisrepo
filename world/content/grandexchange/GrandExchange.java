@@ -1,17 +1,17 @@
-package com.strattus.world.content.grandexchange;
+package com.ikov.world.content.grandexchange;
 
 import java.util.ArrayList;
 
-import com.strattus.model.GameMode;
-import com.strattus.model.Item;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.input.impl.EnterGePricePerItem;
-import com.strattus.model.input.impl.EnterGeQuantity;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.grandexchange.GrandExchangeOffer.OfferType;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.GameMode;
+import com.ikov.model.Item;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.input.impl.EnterGePricePerItem;
+import com.ikov.model.input.impl.EnterGeQuantity;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.grandexchange.GrandExchangeOffer.OfferType;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles the Grand Exchange system.

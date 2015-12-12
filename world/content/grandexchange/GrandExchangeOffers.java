@@ -1,4 +1,4 @@
-package com.strattus.world.content.grandexchange;
+package com.ikov.world.content.grandexchange;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -6,12 +6,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-import com.strattus.GameServer;
-import com.strattus.model.Item;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.World;
-import com.strattus.world.content.grandexchange.GrandExchangeOffer.OfferType;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameServer;
+import com.ikov.model.Item;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.World;
+import com.ikov.world.content.grandexchange.GrandExchangeOffer.OfferType;
+import com.ikov.world.entity.impl.player.Player;
 
 public class GrandExchangeOffers {
 

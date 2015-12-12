@@ -1,8 +1,8 @@
-package com.strattus.world.content.skill.impl.mining;
+package com.ikov.world.content.skill.impl.mining;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Prospecting {
 

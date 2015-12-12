@@ -1,4 +1,4 @@
-package com.strattus.util;
+package com.ikov.util;
 
 public class Stopwatch {
 

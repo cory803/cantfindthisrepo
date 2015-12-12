@@ -1,4 +1,4 @@
-package com.strattus.model.movement;
+package com.ikov.model.movement;
 
 /**
  * Represents a player's movement status, whether they are standing still,

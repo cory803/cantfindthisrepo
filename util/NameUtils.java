@@ -1,4 +1,4 @@
-package com.strattus.util;
+package com.ikov.util;
 
 /**
  * This utility file is used for name purposes, such as checking if

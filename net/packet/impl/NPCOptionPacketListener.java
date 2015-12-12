@@ -1,42 +1,42 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.engine.task.impl.WalkToTask;
-import com.strattus.engine.task.impl.WalkToTask.FinalizedMovementTask;
-import com.strattus.model.GameMode;
-import com.strattus.model.Graphic;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.container.impl.Shop.ShopManager;
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.World;
-import com.strattus.world.content.EnergyHandler;
-import com.strattus.world.content.LoyaltyProgramme;
-import com.strattus.world.content.MemberScrolls;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.content.combat.magic.CombatSpell;
-import com.strattus.world.content.combat.magic.CombatSpells;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.dialogue.impl.ExplorerJack;
-import com.strattus.world.content.grandexchange.GrandExchange;
-import com.strattus.world.content.minigames.impl.WarriorsGuild;
-import com.strattus.world.content.skill.impl.crafting.Tanning;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.strattus.world.content.skill.impl.fishing.Fishing;
-import com.strattus.world.content.skill.impl.hunter.PuroPuro;
-import com.strattus.world.content.skill.impl.runecrafting.DesoSpan;
-import com.strattus.world.content.skill.impl.slayer.SlayerDialogues;
-import com.strattus.world.content.skill.impl.slayer.SlayerTasks;
-import com.strattus.world.content.skill.impl.summoning.BossPets;
-import com.strattus.world.content.skill.impl.summoning.Summoning;
-import com.strattus.world.content.skill.impl.summoning.SummoningData;
-import com.strattus.world.content.transportation.TeleportHandler;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.impl.WalkToTask;
+import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
+import com.ikov.model.GameMode;
+import com.ikov.model.Graphic;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.container.impl.Shop.ShopManager;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.World;
+import com.ikov.world.content.EnergyHandler;
+import com.ikov.world.content.LoyaltyProgramme;
+import com.ikov.world.content.MemberScrolls;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.combat.magic.CombatSpell;
+import com.ikov.world.content.combat.magic.CombatSpells;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.dialogue.impl.ExplorerJack;
+import com.ikov.world.content.grandexchange.GrandExchange;
+import com.ikov.world.content.minigames.impl.WarriorsGuild;
+import com.ikov.world.content.skill.impl.crafting.Tanning;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.world.content.skill.impl.fishing.Fishing;
+import com.ikov.world.content.skill.impl.hunter.PuroPuro;
+import com.ikov.world.content.skill.impl.runecrafting.DesoSpan;
+import com.ikov.world.content.skill.impl.slayer.SlayerDialogues;
+import com.ikov.world.content.skill.impl.slayer.SlayerTasks;
+import com.ikov.world.content.skill.impl.summoning.BossPets;
+import com.ikov.world.content.skill.impl.summoning.Summoning;
+import com.ikov.world.content.skill.impl.summoning.SummoningData;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class NPCOptionPacketListener implements PacketListener {
 
@@ -536,7 +536,7 @@ public class NPCOptionPacketListener implements PacketListener {
 				switch(npc.getId()) {
 				case 4657:
 					if(player.getRights() == PlayerRights.PLAYER) {
-						player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit strattus.net and purchase a scroll.");
+						player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit ikov2.org and purchase a scroll.");
 						return;
 					}
 					TeleportHandler.teleportPlayer(player, new Position(3424, 2919), player.getSpellbook().getTeleportType());

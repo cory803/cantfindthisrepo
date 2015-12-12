@@ -1,10 +1,10 @@
-package com.strattus.model.container.impl;
+package com.ikov.model.container.impl;
 
-import com.strattus.model.Item;
-import com.strattus.model.container.ItemContainer;
-import com.strattus.model.container.StackType;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.container.ItemContainer;
+import com.ikov.model.container.StackType;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a player's equipment item container.

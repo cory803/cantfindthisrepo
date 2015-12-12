@@ -1,15 +1,15 @@
-package com.strattus.world.content.skill.impl.runecrafting;
+package com.ikov.world.content.skill.impl.runecrafting;
 
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.skill.impl.runecrafting.RunecraftingData.RuneData;
-import com.strattus.world.content.skill.impl.runecrafting.RunecraftingData.TalismanData;
-import com.strattus.world.content.transportation.TeleportHandler;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.skill.impl.runecrafting.RunecraftingData.RuneData;
+import com.ikov.world.content.skill.impl.runecrafting.RunecraftingData.TalismanData;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles the Runecrafting skill

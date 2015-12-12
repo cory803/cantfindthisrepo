@@ -1,16 +1,16 @@
-package com.strattus.world.content.combat;
+package com.ikov.world.content.combat;
 
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Consumer;
 
-import com.strattus.model.CombatIcon;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.util.Misc;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.util.Misc;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A container that holds all of the data needed for a single combat hook.

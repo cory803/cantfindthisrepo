@@ -1,15 +1,15 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
 import java.util.Optional;
 
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.GraphicHeight;
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.model.Locations.Location;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.GraphicHeight;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.model.Locations.Location;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Holds data for all no-combat spells

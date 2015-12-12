@@ -1,10 +1,10 @@
-package com.strattus.model.movement;
+package com.ikov.model.movement;
 
 import java.util.LinkedList;
 
-import com.strattus.model.Position;
-import com.strattus.world.clip.region.RegionClipping;
-import com.strattus.world.entity.impl.Character;
+import com.ikov.model.Position;
+import com.ikov.world.clip.region.RegionClipping;
+import com.ikov.world.entity.impl.Character;
 
 public class PathFinder {
 

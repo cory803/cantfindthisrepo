@@ -1,20 +1,20 @@
-package com.strattus.model.movement;
+package com.ikov.model.movement;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Direction;
-import com.strattus.model.Locations;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.world.clip.region.RegionClipping;
-import com.strattus.world.content.EnergyHandler;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Direction;
+import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.world.clip.region.RegionClipping;
+import com.ikov.world.content.EnergyHandler;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A queue of {@link Direction}s which a {@link Character} will follow.

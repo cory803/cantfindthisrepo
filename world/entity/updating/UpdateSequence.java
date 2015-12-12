@@ -1,6 +1,6 @@
-package com.strattus.world.entity.updating;
+package com.ikov.world.entity.updating;
 
-import com.strattus.world.entity.impl.Character;
+import com.ikov.world.entity.impl.Character;
 
 public interface UpdateSequence<T extends Character> {
 	/**

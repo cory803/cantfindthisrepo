@@ -1,7 +1,7 @@
-package com.strattus.world.entity.updating;
+package com.ikov.world.entity.updating;
 
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.npc.NPC;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.npc.NPC;
 
 /**
  * A {@link WorldUpdateSequence} implementation for {@link Npc}s that provides

@@ -1,9 +1,9 @@
-package com.strattus.world.content.skill.impl.cooking;
+package com.ikov.world.content.skill.impl.cooking;
 
 import java.security.SecureRandom;
 
-import com.strattus.model.Skill;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Skill;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Data for the cooking skill.

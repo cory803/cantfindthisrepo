@@ -1,4 +1,4 @@
-package com.strattus.world.content.clan;
+package com.ikov.world.content.clan;
 
 public enum ClanChatRank {
 

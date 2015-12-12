@@ -1,10 +1,10 @@
-package com.strattus.model.input.impl;
+package com.ikov.model.input.impl;
 
-import com.strattus.model.input.EnterAmount;
-import com.strattus.world.content.skill.impl.firemaking.Firemaking;
-import com.strattus.world.content.skill.impl.firemaking.Logdata;
-import com.strattus.world.content.skill.impl.firemaking.Logdata.logData;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.input.EnterAmount;
+import com.ikov.world.content.skill.impl.firemaking.Firemaking;
+import com.ikov.world.content.skill.impl.firemaking.Logdata;
+import com.ikov.world.content.skill.impl.firemaking.Logdata.logData;
+import com.ikov.world.entity.impl.player.Player;
 
 public class EnterAmountOfLogsToAdd extends EnterAmount {
 

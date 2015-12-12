@@ -1,9 +1,9 @@
-package com.strattus.model.input.impl;
+package com.ikov.model.input.impl;
 
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.input.EnterAmount;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.input.EnterAmount;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 public class SellShards extends EnterAmount {
 

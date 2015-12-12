@@ -1,21 +1,21 @@
-package com.strattus.world.content.skill.impl.hunter;
+package com.ikov.world.content.skill.impl.hunter;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.engine.task.impl.HunterTrapsTask;
-import com.strattus.model.Animation;
-import com.strattus.model.GameObject;
-import com.strattus.model.Locations;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.movement.MovementQueue;
-import com.strattus.util.Misc;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.skill.impl.hunter.Trap.TrapState;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.impl.HunterTrapsTask;
+import com.ikov.model.Animation;
+import com.ikov.model.GameObject;
+import com.ikov.model.Locations;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.movement.MovementQueue;
+import com.ikov.util.Misc;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.skill.impl.hunter.Trap.TrapState;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Hunter {
 

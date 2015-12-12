@@ -1,4 +1,4 @@
-package com.strattus.model.container;
+package com.ikov.model.container;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -7,16 +7,16 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import com.google.common.collect.Iterables;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.container.impl.Bank;
-import com.strattus.model.container.impl.Inventory;
-import com.strattus.model.container.impl.Shop;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.model.container.impl.Inventory;
+import com.ikov.model.container.impl.Shop;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a container which contains items.

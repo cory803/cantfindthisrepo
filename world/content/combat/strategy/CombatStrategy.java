@@ -1,10 +1,10 @@
-package com.strattus.world.content.combat.strategy;
+package com.ikov.world.content.combat.strategy;
 
-import com.strattus.world.content.combat.CombatContainer;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.content.combat.CombatContainer;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A container used to determine how an entity will act during a combat session.

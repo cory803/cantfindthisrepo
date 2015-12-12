@@ -1,10 +1,10 @@
-package com.strattus.world.content.combat;
+package com.ikov.world.content.combat;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Locations;
-import com.strattus.model.Locations.Location;
-import com.strattus.world.entity.impl.Character;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
+import com.ikov.world.entity.impl.Character;
 
 public class CombatDistanceTask extends Task {
 

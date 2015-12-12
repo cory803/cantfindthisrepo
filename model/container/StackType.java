@@ -1,4 +1,4 @@
-package com.strattus.model.container;
+package com.ikov.model.container;
 
 /**
  * Represents an ItemContainer's stack type,

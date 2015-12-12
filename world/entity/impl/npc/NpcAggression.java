@@ -1,11 +1,11 @@
-package com.strattus.world.entity.impl.npc;
+package com.ikov.world.entity.impl.npc;
 
-import com.strattus.model.Locations;
-import com.strattus.model.Locations.Location;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.content.combat.strategy.impl.Nex;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.combat.strategy.impl.Nex;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles the behavior of aggressive {@link Npc}s around players within the

@@ -1,10 +1,10 @@
-package com.strattus.world.entity.impl.npc;
+package com.ikov.world.entity.impl.npc;
 
-import com.strattus.model.Position;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.movement.PathFinder;
-import com.strattus.util.Misc;
-import com.strattus.world.clip.region.RegionClipping;
+import com.ikov.model.Position;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.movement.PathFinder;
+import com.ikov.util.Misc;
+import com.ikov.world.clip.region.RegionClipping;
 
 /**
  * Will make all {@link NPC}s set to coordinate, pseudo-randomly move within a

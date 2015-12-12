@@ -1,4 +1,4 @@
-package com.strattus.model.movement;
+package com.ikov.model.movement;
 
 /**
  * Created with IntelliJ IDEA. User: Gabbe

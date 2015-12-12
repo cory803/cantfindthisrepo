@@ -1,11 +1,11 @@
-package com.strattus.world.content.skill.impl.slayer;
+package com.ikov.world.content.skill.impl.slayer;
 
-import com.strattus.util.Misc;
-import com.strattus.world.content.dialogue.Dialogue;
-import com.strattus.world.content.dialogue.DialogueExpression;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.dialogue.DialogueType;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.util.Misc;
+import com.ikov.world.content.dialogue.Dialogue;
+import com.ikov.world.content.dialogue.DialogueExpression;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.dialogue.DialogueType;
+import com.ikov.world.entity.impl.player.Player;
 
 public class SlayerDialogues {
 

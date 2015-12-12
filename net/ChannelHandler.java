@@ -1,4 +1,4 @@
-package com.strattus.net;
+package com.ikov.net;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -12,9 +12,9 @@ import org.jboss.netty.channel.SimpleChannelUpstreamHandler;
 import org.jboss.netty.handler.timeout.IdleStateAwareChannelUpstreamHandler;
 import org.jboss.netty.handler.timeout.IdleStateEvent;
 
-import com.strattus.net.packet.Packet;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.net.packet.Packet;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * An implementation of netty's {@link SimpleChannelUpstreamHandler} to handle

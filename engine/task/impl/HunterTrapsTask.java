@@ -1,12 +1,12 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
 import java.util.Iterator;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.world.content.skill.impl.hunter.Hunter;
-import com.strattus.world.content.skill.impl.hunter.Trap;
-import com.strattus.world.content.skill.impl.hunter.TrapExecution;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.world.content.skill.impl.hunter.Hunter;
+import com.ikov.world.content.skill.impl.hunter.Trap;
+import com.ikov.world.content.skill.impl.hunter.TrapExecution;
 
 public class HunterTrapsTask extends Task {
 	

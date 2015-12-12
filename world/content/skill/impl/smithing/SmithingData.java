@@ -1,11 +1,11 @@
-package com.strattus.world.content.skill.impl.smithing;
+package com.ikov.world.content.skill.impl.smithing;
 
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.input.impl.EnterAmountOfBarsToSmelt;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.input.impl.EnterAmountOfBarsToSmelt;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 public class SmithingData {
 

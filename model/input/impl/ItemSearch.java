@@ -1,15 +1,15 @@
-package com.strattus.model.input.impl;
+package com.ikov.model.input.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.definitions.NPCDrops;
-import com.strattus.model.definitions.NPCDrops.NpcDropItem;
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.model.input.Input;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.dialogue.impl.ExplorerJack;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.definitions.NPCDrops;
+import com.ikov.model.definitions.NPCDrops.NpcDropItem;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.model.input.Input;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.dialogue.impl.ExplorerJack;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ItemSearch extends Input {
 

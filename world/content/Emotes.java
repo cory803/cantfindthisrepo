@@ -1,19 +1,19 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Flag;
-import com.strattus.model.Graphic;
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.util.Misc;
-import com.strattus.world.content.skill.SkillManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Flag;
+import com.ikov.model.Graphic;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.util.Misc;
+import com.ikov.world.content.skill.SkillManager;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles emotes

@@ -1,8 +1,8 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.model.Item;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 public enum PkSets {
 

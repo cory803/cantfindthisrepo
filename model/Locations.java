@@ -1,24 +1,24 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.GameSettings;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.PlayerPunishment.Jail;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.content.combat.pvp.BountyHunter;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.minigames.impl.Barrows;
-import com.strattus.world.content.minigames.impl.FightCave;
-import com.strattus.world.content.minigames.impl.FightPit;
-import com.strattus.world.content.minigames.impl.Graveyard;
-import com.strattus.world.content.minigames.impl.Nomad;
-import com.strattus.world.content.minigames.impl.PestControl;
-import com.strattus.world.content.minigames.impl.RecipeForDisaster;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.PlayerPunishment.Jail;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.combat.pvp.BountyHunter;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.minigames.impl.Barrows;
+import com.ikov.world.content.minigames.impl.FightCave;
+import com.ikov.world.content.minigames.impl.FightPit;
+import com.ikov.world.content.minigames.impl.Graveyard;
+import com.ikov.world.content.minigames.impl.Nomad;
+import com.ikov.world.content.minigames.impl.PestControl;
+import com.ikov.world.content.minigames.impl.RecipeForDisaster;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 public class Locations {
 
 	public static void login(Player player) {

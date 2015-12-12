@@ -1,9 +1,9 @@
-package com.strattus.model.input.impl;
+package com.ikov.model.input.impl;
 
-import com.strattus.model.input.EnterAmount;
-import com.strattus.world.content.skill.impl.smithing.Smelting;
-import com.strattus.world.content.skill.impl.smithing.SmithingData;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.input.EnterAmount;
+import com.ikov.world.content.skill.impl.smithing.Smelting;
+import com.ikov.world.content.skill.impl.smithing.SmithingData;
+import com.ikov.world.entity.impl.player.Player;
 
 public class EnterAmountOfBarsToSmelt extends EnterAmount {
 

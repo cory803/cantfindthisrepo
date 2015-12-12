@@ -1,8 +1,8 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
-import com.strattus.model.RegionInstance;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.RegionInstance;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * 

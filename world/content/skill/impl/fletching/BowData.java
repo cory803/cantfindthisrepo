@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.fletching;
+package com.ikov.world.content.skill.impl.fletching;
 
 public enum BowData {
 	//Log Id, Unstrung Bow Id, Xp, Level Req.

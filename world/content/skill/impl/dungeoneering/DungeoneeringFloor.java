@@ -1,7 +1,7 @@
-package com.strattus.world.content.skill.impl.dungeoneering;
-import com.strattus.model.GameObject;
-import com.strattus.model.Position;
-import com.strattus.world.entity.impl.npc.NPC;
+package com.ikov.world.content.skill.impl.dungeoneering;
+import com.ikov.model.GameObject;
+import com.ikov.model.Position;
+import com.ikov.world.entity.impl.npc.NPC;
 
 /**
  * I couldn't be arsed to put all npc spawns in the enum.

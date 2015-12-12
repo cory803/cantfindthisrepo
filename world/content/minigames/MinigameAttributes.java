@@ -1,6 +1,6 @@
-package com.strattus.world.content.minigames;
+package com.ikov.world.content.minigames;
 
-import com.strattus.world.content.skill.impl.dungeoneering.DungeoneeringParty;
+import com.ikov.world.content.skill.impl.dungeoneering.DungeoneeringParty;
 
 /**
  * Holds different minigame attributes for a player

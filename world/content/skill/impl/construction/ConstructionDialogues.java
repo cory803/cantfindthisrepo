@@ -1,10 +1,10 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
-import com.strattus.world.content.dialogue.Dialogue;
-import com.strattus.world.content.dialogue.DialogueExpression;
-import com.strattus.world.content.dialogue.DialogueType;
-import com.strattus.world.content.skill.impl.construction.ConstructionData.Butlers;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.content.dialogue.Dialogue;
+import com.ikov.world.content.dialogue.DialogueExpression;
+import com.ikov.world.content.dialogue.DialogueType;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.Butlers;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Construction dialogues

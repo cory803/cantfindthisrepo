@@ -1,6 +1,6 @@
-package com.strattus.world.content.skill.impl.firemaking;
+package com.ikov.world.content.skill.impl.firemaking;
 
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.Player;
 
 
 public class Logdata {

@@ -1,13 +1,13 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
 import java.util.Arrays;
 import java.util.Optional;
 
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A parent class represented by any generic spell able to be cast by an

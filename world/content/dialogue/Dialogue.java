@@ -1,4 +1,4 @@
-package com.strattus.world.content.dialogue;
+package com.ikov.world.content.dialogue;
 
 /**
  * Represents a dialogue.

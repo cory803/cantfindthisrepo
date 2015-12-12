@@ -1,12 +1,12 @@
-package com.strattus.world.entity;
+package com.ikov.world.entity;
 
-import com.strattus.GameSettings;
-import com.strattus.model.Animation;
-import com.strattus.model.GameObject;
-import com.strattus.model.Graphic;
-import com.strattus.model.Position;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.model.Animation;
+import com.ikov.model.GameObject;
+import com.ikov.model.Graphic;
+import com.ikov.model.Position;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Entity {
 

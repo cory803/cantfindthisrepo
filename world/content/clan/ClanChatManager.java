@@ -1,4 +1,4 @@
-package com.strattus.world.content.clan;
+package com.ikov.world.content.clan;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -10,12 +10,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map.Entry;
 
-import com.strattus.model.GameMode;
-import com.strattus.model.Item;
-import com.strattus.util.Misc;
-import com.strattus.util.NameUtils;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.GameMode;
+import com.ikov.model.Item;
+import com.ikov.util.Misc;
+import com.ikov.util.NameUtils;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * 100% Runescape clanchat system.
@@ -702,7 +702,7 @@ public class ClanChatManager {
 		resetInterface(player);
 		if(player.getClanChatName() == null || player.getClanChatName().equals("null")) {
 			if(Misc.getMinutesPlayed(player) <= 15) {
-				player.getPacketSender().sendMessage("<img=10> <col=660099>Feel free to join the 'Strattus' clanchat channel to talk to other players.");
+				player.getPacketSender().sendMessage("<img=10> <col=660099>Feel free to join the 'IKov' clanchat channel to talk to other players.");
 			}
 		}
 		ClanChatManager.join(player, player.getClanChatName());

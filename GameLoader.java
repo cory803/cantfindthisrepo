@@ -1,4 +1,4 @@
-package com.strattus;
+package com.ikov;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -13,28 +13,28 @@ import org.jboss.netty.util.HashedWheelTimer;
 
 import com.google.common.base.Preconditions;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.strattus.engine.GameEngine;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.ServerTimeUpdateTask;
-import com.strattus.model.container.impl.Shop.ShopManager;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.definitions.NPCDrops;
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.model.definitions.WeaponInterfaces;
-import com.strattus.net.PipelineFactory;
-import com.strattus.net.security.ConnectionHandler;
-import com.strattus.world.clip.region.RegionClipping;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.WellOfGoodwill;
-import com.strattus.world.content.Lottery;
-import com.strattus.world.content.PlayerPunishment;
-import com.strattus.world.content.Scoreboards;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
-import com.strattus.world.content.combat.strategy.CombatStrategies;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.grandexchange.GrandExchangeOffers;
-import com.strattus.world.entity.impl.npc.NPC;
+import com.ikov.engine.GameEngine;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.ServerTimeUpdateTask;
+import com.ikov.model.container.impl.Shop.ShopManager;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.definitions.NPCDrops;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.model.definitions.WeaponInterfaces;
+import com.ikov.net.PipelineFactory;
+import com.ikov.net.security.ConnectionHandler;
+import com.ikov.world.clip.region.RegionClipping;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.WellOfGoodwill;
+import com.ikov.world.content.Lottery;
+import com.ikov.world.content.PlayerPunishment;
+import com.ikov.world.content.Scoreboards;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
+import com.ikov.world.content.combat.strategy.CombatStrategies;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.world.entity.impl.npc.NPC;
 
 /**
  * Credit: lare96, Gabbe

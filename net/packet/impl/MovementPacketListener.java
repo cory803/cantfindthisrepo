@@ -1,15 +1,15 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.GameSettings;
-import com.strattus.model.Animation;
-import com.strattus.model.Position;
-import com.strattus.model.movement.MovementQueue;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.clip.region.RegionClipping;
-import com.strattus.world.content.minigames.impl.Dueling;
-import com.strattus.world.content.minigames.impl.Dueling.DuelRule;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.model.Animation;
+import com.ikov.model.Position;
+import com.ikov.model.movement.MovementQueue;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.clip.region.RegionClipping;
+import com.ikov.world.content.minigames.impl.Dueling;
+import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This packet listener is called when a player has clicked on 

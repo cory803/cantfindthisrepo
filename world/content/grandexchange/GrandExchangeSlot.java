@@ -1,4 +1,4 @@
-package com.strattus.world.content.grandexchange;
+package com.ikov.world.content.grandexchange;
 
 /**
  * A Grand Exchange slot's attributes

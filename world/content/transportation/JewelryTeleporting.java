@@ -1,10 +1,10 @@
-package com.strattus.world.content.transportation;
+package com.ikov.world.content.transportation;
 
-import com.strattus.model.Item;
-import com.strattus.model.Position;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.Position;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.player.Player;
 
 public class JewelryTeleporting {
 

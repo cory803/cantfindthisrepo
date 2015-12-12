@@ -1,10 +1,10 @@
-package com.strattus.world.content.skill.impl.slayer;
+package com.ikov.world.content.skill.impl.slayer;
 
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.util.Misc;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.util.Misc;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.entity.impl.player.Player;
 
 public enum SlayerMaster {
 	

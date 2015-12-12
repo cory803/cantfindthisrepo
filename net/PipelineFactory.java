@@ -1,4 +1,4 @@
-package com.strattus.net;
+package com.ikov.net;
 
 import org.jboss.netty.channel.ChannelPipeline;
 import org.jboss.netty.channel.ChannelPipelineFactory;
@@ -6,9 +6,9 @@ import org.jboss.netty.channel.DefaultChannelPipeline;
 import org.jboss.netty.handler.timeout.IdleStateHandler;
 import org.jboss.netty.util.Timer;
 
-import com.strattus.GameSettings;
-import com.strattus.net.login.LoginDecoder;
-import com.strattus.net.login.LoginEncoder;
+import com.ikov.GameSettings;
+import com.ikov.net.login.LoginDecoder;
+import com.ikov.net.login.LoginEncoder;
 
 /**
  * The channel's events

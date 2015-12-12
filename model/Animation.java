@@ -1,4 +1,4 @@
-package com.strattus.model;
+package com.ikov.model;
 
 /**
  * This file manages an entity's animation which should be performed.

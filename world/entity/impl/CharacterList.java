@@ -1,4 +1,4 @@
-package com.strattus.world.entity.impl;
+package com.ikov.world.entity.impl;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -12,8 +12,8 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
-import com.strattus.net.SessionState;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.net.SessionState;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A collection that provides functionality for storing and managing characters.

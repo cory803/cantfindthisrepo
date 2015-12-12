@@ -1,6 +1,6 @@
-package com.strattus.net.packet;
+package com.ikov.net.packet;
 
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.Player;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.farming;
+package com.ikov.world.content.skill.impl.farming;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,11 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import com.strattus.model.Animation;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Farming {
 	private final Player player;

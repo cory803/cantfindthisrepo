@@ -1,4 +1,4 @@
-package com.strattus.util;
+package com.ikov.util;
 
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
@@ -21,10 +21,10 @@ import java.util.zip.GZIPInputStream;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.strattus.model.Item;
-import com.strattus.model.Position;
-import com.strattus.world.content.combat.CombatContainer.CombatHit;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.Position;
+import com.ikov.world.content.combat.CombatContainer.CombatHit;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Misc {
 

@@ -1,13 +1,13 @@
-package com.strattus.model.input.impl;
+package com.ikov.model.input.impl;
 
 import java.sql.PreparedStatement;
 
-import com.strattus.GameSettings;
-import com.strattus.model.input.Input;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.model.input.Input;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.entity.impl.player.Player;
 
 public class SetEmail extends Input {
 

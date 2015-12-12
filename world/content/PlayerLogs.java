@@ -1,4 +1,4 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.strattus.GameServer;
+import com.ikov.GameServer;
 
 public class PlayerLogs {
 

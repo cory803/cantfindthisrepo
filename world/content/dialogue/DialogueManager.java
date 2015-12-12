@@ -1,13 +1,13 @@
-package com.strattus.world.content.dialogue;
+package com.ikov.world.content.dialogue;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.util.JsonLoader;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.util.JsonLoader;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Manages the loading and start of dialogues.

@@ -1,4 +1,4 @@
-package com.strattus.model.input;
+package com.ikov.model.input;
 
 
 /**

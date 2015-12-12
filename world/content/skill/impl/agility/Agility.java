@@ -1,12 +1,12 @@
-package com.strattus.world.content.skill.impl.agility;
+package com.ikov.world.content.skill.impl.agility;
 
-import com.strattus.model.GameObject;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.util.Misc;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.GameObject;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Agility {
 

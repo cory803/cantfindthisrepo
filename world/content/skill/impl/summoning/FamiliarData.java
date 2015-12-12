@@ -1,6 +1,6 @@
-package com.strattus.world.content.skill.impl.summoning;
+package com.ikov.world.content.skill.impl.summoning;
 
-import com.strattus.model.Item;
+import com.ikov.model.Item;
 
 public enum FamiliarData {
 	SPIRIT_WOLF(12047, 1, 4.8, 6830, 0.1, 1, 12425, new Item(12158),new Item(

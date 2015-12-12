@@ -1,9 +1,9 @@
-package com.strattus.world.content.combat.pvp;
+package com.ikov.world.content.combat.pvp;
 
-import com.strattus.model.Locations.Location;
-import com.strattus.world.World;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Locations.Location;
+import com.ikov.world.World;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles Bounty Hunter System (PvP)

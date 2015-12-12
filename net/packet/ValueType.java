@@ -1,4 +1,4 @@
-package com.strattus.net.packet;
+package com.ikov.net.packet;
 
 /**
  * The enumerated type whose values represent the possible custom RuneScape

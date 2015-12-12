@@ -1,6 +1,6 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.world.entity.Entity;
+import com.ikov.world.entity.Entity;
 
 
 public class GroundItem extends Entity {

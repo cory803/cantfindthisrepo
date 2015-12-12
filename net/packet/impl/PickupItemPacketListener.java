@@ -1,15 +1,15 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.engine.task.impl.WalkToTask;
-import com.strattus.engine.task.impl.WalkToTask.FinalizedMovementTask;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.Position;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.impl.WalkToTask;
+import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.Position;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This packet listener is used to pick up ground items

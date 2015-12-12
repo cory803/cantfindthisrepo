@@ -1,4 +1,4 @@
-package com.strattus.net.security;
+package com.ikov.net.security;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,12 +11,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.strattus.GameServer;
-import com.strattus.GameSettings;
-import com.strattus.net.login.LoginDetailsMessage;
-import com.strattus.net.login.LoginResponses;
-import com.strattus.world.content.PlayerPunishment;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameServer;
+import com.ikov.GameSettings;
+import com.ikov.net.login.LoginDetailsMessage;
+import com.ikov.net.login.LoginResponses;
+import com.ikov.world.content.PlayerPunishment;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A lot of connection-related stuff.

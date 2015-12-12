@@ -1,7 +1,7 @@
-package com.strattus.world.content.skill.impl.summoning;
+package com.ikov.world.content.skill.impl.summoning;
 
-import com.strattus.world.content.skill.impl.summoning.BossPets.BossPet;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.content.skill.impl.summoning.BossPets.BossPet;
+import com.ikov.world.entity.impl.player.Player;
 
 public class SummoningData {
 

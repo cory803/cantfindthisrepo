@@ -1,8 +1,8 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.model.Locations;
-import com.strattus.model.Position;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Locations;
+import com.ikov.model.Position;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a movement action for a game character.

@@ -1,23 +1,23 @@
-package com.strattus.world.entity.impl;
+package com.ikov.world.entity.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Direction;
-import com.strattus.model.Flag;
-import com.strattus.model.Graphic;
-import com.strattus.model.Hit;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.model.RegionInstance;
-import com.strattus.model.UpdateFlag;
-import com.strattus.model.movement.MovementQueue;
-import com.strattus.util.Stopwatch;
-import com.strattus.world.content.combat.CombatBuilder;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.content.combat.magic.CombatSpell;
-import com.strattus.world.content.combat.strategy.CombatStrategy;
-import com.strattus.world.entity.Entity;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Direction;
+import com.ikov.model.Flag;
+import com.ikov.model.Graphic;
+import com.ikov.model.Hit;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.model.RegionInstance;
+import com.ikov.model.UpdateFlag;
+import com.ikov.model.movement.MovementQueue;
+import com.ikov.util.Stopwatch;
+import com.ikov.world.content.combat.CombatBuilder;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.magic.CombatSpell;
+import com.ikov.world.content.combat.strategy.CombatStrategy;
+import com.ikov.world.entity.Entity;
 /**
  * A player or NPC
  * @author Gabriel Hannason

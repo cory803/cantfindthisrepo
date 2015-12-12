@@ -1,12 +1,12 @@
-package com.strattus.model;
+package com.ikov.model;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.strattus.util.NameUtils;
-import com.strattus.world.World;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.util.NameUtils;
+import com.ikov.world.World;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This file represents a player's relation with other world entities,

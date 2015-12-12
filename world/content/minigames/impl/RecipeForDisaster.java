@@ -1,22 +1,22 @@
-package com.strattus.world.content.minigames.impl;
+package com.ikov.world.content.minigames.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Item;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.model.RegionInstance;
-import com.strattus.model.RegionInstance.RegionInstanceType;
-import com.strattus.model.container.impl.Shop;
-import com.strattus.model.input.impl.EnterAmountToBuyFromShop;
-import com.strattus.model.input.impl.EnterAmountToSellToShop;
-import com.strattus.world.World;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.content.combat.prayer.CurseHandler;
-import com.strattus.world.content.combat.prayer.PrayerHandler;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Item;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.model.RegionInstance;
+import com.ikov.model.RegionInstance.RegionInstanceType;
+import com.ikov.model.container.impl.Shop;
+import com.ikov.model.input.impl.EnterAmountToBuyFromShop;
+import com.ikov.model.input.impl.EnterAmountToSellToShop;
+import com.ikov.world.World;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.content.combat.prayer.CurseHandler;
+import com.ikov.world.content.combat.prayer.PrayerHandler;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * @author Gabriel Hannason

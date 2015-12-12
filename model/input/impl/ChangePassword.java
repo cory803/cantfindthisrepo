@@ -1,11 +1,11 @@
-package com.strattus.model.input.impl;
+package com.ikov.model.input.impl;
 
 import java.sql.PreparedStatement;
 
-import com.strattus.GameSettings;
-import com.strattus.model.input.Input;
-import com.strattus.util.NameUtils;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.model.input.Input;
+import com.ikov.util.NameUtils;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ChangePassword extends Input {
 

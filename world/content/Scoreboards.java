@@ -1,12 +1,12 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Scoreboards {
 
@@ -40,28 +40,28 @@ public class Scoreboards {
 	}
 
 	public static void init() {
-		TOP_PKERS = new Scoreboard("Strattus's Top Pkers", "top-pkers.txt") {
+		TOP_PKERS = new Scoreboard("IKov's Top Pkers", "top-pkers.txt") {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "double");
 			}
 		};
 
-		TOP_KILLSTREAKS = new Scoreboard("Strattus's Top Killstreaks", "top-killstreaks.txt") {
+		TOP_KILLSTREAKS = new Scoreboard("IKov's Top Killstreaks", "top-killstreaks.txt") {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "integer");
 			}
 		};
 
-		TOP_ACHIEVER = new Scoreboard("Strattus's Top Achiever", "top-achievers.txt")  {
+		TOP_ACHIEVER = new Scoreboard("IKov's Top Achiever", "top-achievers.txt")  {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "integer");
 			}
 		};
 
-		TOP_TOTAL_EXP = new Scoreboard("Strattus's Top Total Exp", "top-exp.txt")  {
+		TOP_TOTAL_EXP = new Scoreboard("IKov's Top Total Exp", "top-exp.txt")  {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "long");

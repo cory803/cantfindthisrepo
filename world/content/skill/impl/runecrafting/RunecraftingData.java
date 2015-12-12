@@ -1,9 +1,9 @@
-package com.strattus.world.content.skill.impl.runecrafting;
+package com.ikov.world.content.skill.impl.runecrafting;
 
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.entity.impl.player.Player;
 
 public class RunecraftingData {
 	

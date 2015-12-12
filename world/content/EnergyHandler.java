@@ -1,8 +1,8 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.model.Animation;
-import com.strattus.model.Skill;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.model.Skill;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles a player's run energy

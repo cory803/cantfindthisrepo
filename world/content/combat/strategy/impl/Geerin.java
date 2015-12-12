@@ -1,15 +1,15 @@
-package com.strattus.world.content.combat.strategy.impl;
+package com.ikov.world.content.combat.strategy.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Projectile;
-import com.strattus.world.content.combat.CombatContainer;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.content.combat.strategy.CombatStrategy;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Projectile;
+import com.ikov.world.content.combat.CombatContainer;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.strategy.CombatStrategy;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Geerin implements CombatStrategy {
 

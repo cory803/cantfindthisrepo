@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.prayer;
+package com.ikov.world.content.skill.impl.prayer;
 
 public enum BonesData {
 	 BONES(526, 1355),

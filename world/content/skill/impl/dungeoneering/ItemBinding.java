@@ -1,9 +1,9 @@
-package com.strattus.world.content.skill.impl.dungeoneering;
+package com.ikov.world.content.skill.impl.dungeoneering;
 
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ItemBinding {
 

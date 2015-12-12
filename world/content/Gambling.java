@@ -1,16 +1,16 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.model.Animation;
-import com.strattus.model.GameObject;
-import com.strattus.model.Graphic;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.movement.MovementQueue;
-import com.strattus.util.Misc;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.model.GameObject;
+import com.ikov.model.Graphic;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.movement.MovementQueue;
+import com.ikov.util.Misc;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Gambling {
 

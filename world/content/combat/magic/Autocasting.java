@@ -1,7 +1,7 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
-import com.strattus.model.Skill;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Skill;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Autocasting {
 

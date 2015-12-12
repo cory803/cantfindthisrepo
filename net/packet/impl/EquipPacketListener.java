@@ -1,25 +1,25 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.model.Flag;
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.container.impl.Inventory;
-import com.strattus.model.definitions.WeaponAnimations;
-import com.strattus.model.definitions.WeaponInterfaces;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.util.Misc;
-import com.strattus.world.content.BonusManager;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.content.combat.magic.Autocasting;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.content.minigames.impl.Dueling;
-import com.strattus.world.content.minigames.impl.Dueling.DuelRule;
-import com.strattus.world.content.skill.SkillManager.Skills;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Flag;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.container.impl.Inventory;
+import com.ikov.model.definitions.WeaponAnimations;
+import com.ikov.model.definitions.WeaponInterfaces;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.util.Misc;
+import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.content.combat.magic.Autocasting;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.minigames.impl.Dueling;
+import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
+import com.ikov.world.content.skill.SkillManager.Skills;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This packet listener manages the equip action a player

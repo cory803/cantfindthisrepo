@@ -1,4 +1,4 @@
-package com.strattus.world.entity.impl.player;
+package com.ikov.world.entity.impl.player;
 
 import java.io.BufferedInputStream;
 import java.io.File;

@@ -1,14 +1,14 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.model.GameMode;
-import com.strattus.util.Misc;
-import com.strattus.util.Stopwatch;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.GameMode;
+import com.ikov.util.Misc;
+import com.ikov.util.Stopwatch;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PlayersOnlineInterface {
 

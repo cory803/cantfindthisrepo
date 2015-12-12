@@ -1,7 +1,7 @@
-package com.strattus.world.content.skill.impl.summoning;
+package com.ikov.world.content.skill.impl.summoning;
 
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This class model acts as an interface for a player's familiar.

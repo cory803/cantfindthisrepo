@@ -1,8 +1,8 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.Flag;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.model.Flag;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A {@link Task} implementation that will remove the white skull from above

@@ -1,14 +1,14 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
 import java.util.Optional;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.Projectile;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.Projectile;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
 
 /**
  * A {@link Spell} implementation used for combat related spells.

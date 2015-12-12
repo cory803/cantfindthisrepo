@@ -1,6 +1,6 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This file manages a player's appearance and properties, such as head hints, gender, prayer head hints, etc.

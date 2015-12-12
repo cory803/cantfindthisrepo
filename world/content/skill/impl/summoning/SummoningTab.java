@@ -1,10 +1,10 @@
-package com.strattus.world.content.skill.impl.summoning;
+package com.ikov.world.content.skill.impl.summoning;
 
 import java.util.concurrent.TimeUnit;
 
-import com.strattus.util.Misc;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.util.Misc;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.player.Player;
 
 public class SummoningTab {
 	

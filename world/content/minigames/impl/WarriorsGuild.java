@@ -1,28 +1,28 @@
-package com.strattus.world.content.minigames.impl;
+package com.ikov.world.content.minigames.impl;
 
 import java.util.ArrayList;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.GameObject;
-import com.strattus.model.Graphic;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.RegionInstance;
-import com.strattus.model.RegionInstance.RegionInstanceType;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.dialogue.Dialogue;
-import com.strattus.world.content.dialogue.DialogueExpression;
-import com.strattus.world.content.dialogue.DialogueType;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.GameObject;
+import com.ikov.model.Graphic;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.RegionInstance;
+import com.ikov.model.RegionInstance.RegionInstanceType;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.dialogue.Dialogue;
+import com.ikov.world.content.dialogue.DialogueExpression;
+import com.ikov.world.content.dialogue.DialogueType;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class WarriorsGuild {
 

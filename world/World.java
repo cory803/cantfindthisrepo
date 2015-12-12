@@ -1,4 +1,4 @@
-package com.strattus.world;
+package com.ikov.world;
 
 import java.util.Iterator;
 import java.util.Optional;
@@ -9,21 +9,21 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.strattus.GameSettings;
-import com.strattus.model.PlayerRights;
-import com.strattus.util.Misc;
-import com.strattus.world.content.ShootingStar;
-import com.strattus.world.content.minigames.impl.FightPit;
-import com.strattus.world.content.minigames.impl.PestControl;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.EntityHandler;
-import com.strattus.world.entity.impl.CharacterList;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
-import com.strattus.world.entity.impl.player.PlayerHandler;
-import com.strattus.world.entity.updating.NpcUpdateSequence;
-import com.strattus.world.entity.updating.PlayerUpdateSequence;
-import com.strattus.world.entity.updating.UpdateSequence;
+import com.ikov.GameSettings;
+import com.ikov.model.PlayerRights;
+import com.ikov.util.Misc;
+import com.ikov.world.content.ShootingStar;
+import com.ikov.world.content.minigames.impl.FightPit;
+import com.ikov.world.content.minigames.impl.PestControl;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.EntityHandler;
+import com.ikov.world.entity.impl.CharacterList;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.PlayerHandler;
+import com.ikov.world.entity.updating.NpcUpdateSequence;
+import com.ikov.world.entity.updating.PlayerUpdateSequence;
+import com.ikov.world.entity.updating.UpdateSequence;
 
 /**
  * @author Gabriel Hannason

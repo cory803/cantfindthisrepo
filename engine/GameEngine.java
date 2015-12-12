@@ -1,4 +1,4 @@
-package com.strattus.engine;
+package com.ikov.engine;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -7,10 +7,10 @@ import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
 import java.util.concurrent.TimeUnit;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.world.World;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.world.World;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.grandexchange.GrandExchangeOffers;
 
 /**
  * 

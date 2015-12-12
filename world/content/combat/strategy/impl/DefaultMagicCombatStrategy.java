@@ -1,16 +1,16 @@
-package com.strattus.world.content.combat.strategy.impl;
+package com.ikov.world.content.combat.strategy.impl;
 
-import com.strattus.util.Misc;
-import com.strattus.world.content.combat.CombatContainer;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.content.combat.magic.CombatSpells;
-import com.strattus.world.content.combat.strategy.CombatStrategy;
-import com.strattus.world.content.minigames.impl.Dueling;
-import com.strattus.world.content.minigames.impl.Dueling.DuelRule;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.util.Misc;
+import com.ikov.world.content.combat.CombatContainer;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.magic.CombatSpells;
+import com.ikov.world.content.combat.strategy.CombatStrategy;
+import com.ikov.world.content.minigames.impl.Dueling;
+import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * The default combat strategy assigned to an {@link Entity} during a magic

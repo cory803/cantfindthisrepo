@@ -1,4 +1,4 @@
-package com.strattus.net.security;
+package com.ikov.net.security;
 
 /**
  * <p>An implementation of the

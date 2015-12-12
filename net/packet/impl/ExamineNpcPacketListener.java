@@ -1,9 +1,9 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ExamineNpcPacketListener implements PacketListener {
 

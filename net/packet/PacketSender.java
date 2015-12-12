@@ -1,29 +1,29 @@
-package com.strattus.net.packet;
+package com.ikov.net.packet;
 
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.GameSettings;
-import com.strattus.model.Animation;
-import com.strattus.model.GameObject;
-import com.strattus.model.Graphic;
-import com.strattus.model.Item;
-import com.strattus.model.PlayerInteractingOption;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.ItemContainer;
-import com.strattus.model.container.impl.Shop;
-import com.strattus.net.packet.Packet.PacketType;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.MoneyPouch;
-import com.strattus.world.content.skill.impl.construction.Palette;
-import com.strattus.world.content.skill.impl.construction.ConstructionData.Furniture;
-import com.strattus.world.content.skill.impl.construction.Palette.PaletteTile;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.model.Animation;
+import com.ikov.model.GameObject;
+import com.ikov.model.Graphic;
+import com.ikov.model.Item;
+import com.ikov.model.PlayerInteractingOption;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.ItemContainer;
+import com.ikov.model.container.impl.Shop;
+import com.ikov.net.packet.Packet.PacketType;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.MoneyPouch;
+import com.ikov.world.content.skill.impl.construction.Palette;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.Furniture;
+import com.ikov.world.content.skill.impl.construction.Palette.PaletteTile;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This class manages making the packets that will be sent (when called upon) onto

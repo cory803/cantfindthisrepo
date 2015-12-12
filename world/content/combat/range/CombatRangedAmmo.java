@@ -1,7 +1,7 @@
-package com.strattus.world.content.combat.range;
+package com.ikov.world.content.combat.range;
 
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A table of constants that hold data for all ranged ammo.

@@ -1,29 +1,29 @@
-package com.strattus.world.content.minigames.impl;
+package com.ikov.world.content.minigames.impl;
 
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.CombatIcon;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.Projectile;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.movement.MovementQueue;
-import com.strattus.model.movement.PathFinder;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.Projectile;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.movement.MovementQueue;
+import com.ikov.model.movement.PathFinder;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /** 
  * Pest control minigame

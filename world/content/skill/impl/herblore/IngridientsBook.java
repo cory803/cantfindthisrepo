@@ -1,7 +1,7 @@
-package com.strattus.world.content.skill.impl.herblore;
+package com.ikov.world.content.skill.impl.herblore;
 
-import com.strattus.model.Animation;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Animation;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles the Ingridient's book

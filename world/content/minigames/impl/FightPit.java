@@ -1,13 +1,13 @@
-package com.strattus.world.content.minigames.impl;
+package com.ikov.world.content.minigames.impl;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.strattus.model.Position;
-import com.strattus.util.Misc;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Position;
+import com.ikov.util.Misc;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.player.Player;
 
 public class FightPit {
 

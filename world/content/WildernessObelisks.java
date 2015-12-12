@@ -1,14 +1,14 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.GameObject;
-import com.strattus.model.Locations;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.GameObject;
+import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles the Wilderness teleport obelisks.

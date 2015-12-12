@@ -1,10 +1,10 @@
-package com.strattus.net.login;
+package com.ikov.net.login;
 
 import java.nio.channels.Channel;
 
 import org.jboss.netty.channel.ChannelHandlerContext;
 
-import com.strattus.net.packet.Packet;
+import com.ikov.net.packet.Packet;
 
 /**
  * The {@link Packet} implementation that contains data used for the final

@@ -1,19 +1,19 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.definitions.NPCDrops;
-import com.strattus.world.World;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.KillsTracker;
-import com.strattus.world.content.KillsTracker.KillsEntry;
-import com.strattus.world.content.combat.strategy.impl.KalphiteQueen;
-import com.strattus.world.content.combat.strategy.impl.Nex;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.definitions.NPCDrops;
+import com.ikov.world.World;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.KillsTracker;
+import com.ikov.world.content.KillsTracker.KillsEntry;
+import com.ikov.world.content.combat.strategy.impl.KalphiteQueen;
+import com.ikov.world.content.combat.strategy.impl.Nex;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents an npc's death task, which handles everything

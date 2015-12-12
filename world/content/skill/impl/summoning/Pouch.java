@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.summoning;
+package com.ikov.world.content.skill.impl.summoning;
 
 public enum Pouch {
 

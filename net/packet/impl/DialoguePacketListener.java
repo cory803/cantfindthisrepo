@@ -1,9 +1,9 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This packet listener handles player's mouse click on the

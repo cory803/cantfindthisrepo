@@ -1,6 +1,6 @@
-package com.strattus.world.content.skill.impl.herblore;
+package com.ikov.world.content.skill.impl.herblore;
 
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Combinates potions into doses

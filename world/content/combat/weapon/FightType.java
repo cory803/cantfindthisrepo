@@ -1,6 +1,6 @@
-package com.strattus.world.content.combat.weapon;
+package com.ikov.world.content.combat.weapon;
 
-import com.strattus.world.content.BonusManager;
+import com.ikov.world.content.BonusManager;
 
 /**
  * A collection of constants that each represent a different fighting type.

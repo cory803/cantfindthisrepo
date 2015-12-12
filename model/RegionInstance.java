@@ -1,13 +1,13 @@
-package com.strattus.model;
+package com.ikov.model;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.world.World;
-import com.strattus.world.content.minigames.impl.Barrows;
-import com.strattus.world.content.minigames.impl.WarriorsGuild;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.World;
+import com.ikov.world.content.minigames.impl.Barrows;
+import com.ikov.world.content.minigames.impl.WarriorsGuild;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles a custom region instance for a player

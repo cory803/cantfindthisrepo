@@ -1,8 +1,8 @@
-package com.strattus.world.content.grandexchange;
+package com.ikov.world.content.grandexchange;
 
-import com.strattus.model.Item;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A Grand Exchange slot's state

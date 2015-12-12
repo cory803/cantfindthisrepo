@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.farming;
+package com.ikov.world.content.skill.impl.farming;
 
 public class FarmingConstants {
 	public static final int PLANT_SEED = 2291;

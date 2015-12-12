@@ -1,10 +1,10 @@
-package com.strattus.net.packet;
+package com.ikov.net.packet;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 
-import com.strattus.net.packet.impl.ButtonClickPacketListener;
-import com.strattus.net.packet.impl.EquipPacketListener;
-import com.strattus.net.packet.impl.ItemActionPacketListener;
+import com.ikov.net.packet.impl.ButtonClickPacketListener;
+import com.ikov.net.packet.impl.EquipPacketListener;
+import com.ikov.net.packet.impl.ItemActionPacketListener;
 
 /**
  * Manages reading packet information from the netty's channel.

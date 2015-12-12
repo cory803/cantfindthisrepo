@@ -1,26 +1,26 @@
-package com.strattus.model.container.impl;
+package com.ikov.model.container.impl;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.ShopRestockTask;
-import com.strattus.model.GameMode;
-import com.strattus.model.Item;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Skill;
-import com.strattus.model.container.ItemContainer;
-import com.strattus.model.container.StackType;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.input.impl.EnterAmountToBuyFromShop;
-import com.strattus.model.input.impl.EnterAmountToSellToShop;
-import com.strattus.util.JsonLoader;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.minigames.impl.RecipeForDisaster;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.ShopRestockTask;
+import com.ikov.model.GameMode;
+import com.ikov.model.Item;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Skill;
+import com.ikov.model.container.ItemContainer;
+import com.ikov.model.container.StackType;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.input.impl.EnterAmountToBuyFromShop;
+import com.ikov.model.input.impl.EnterAmountToSellToShop;
+import com.ikov.util.JsonLoader;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.minigames.impl.RecipeForDisaster;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Messy but perfect Shop System

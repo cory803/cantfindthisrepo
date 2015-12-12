@@ -1,8 +1,8 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
-import com.strattus.model.Item;
-import com.strattus.model.definitions.WeaponInterfaces.WeaponInterface;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A set of constants representing the staves that can be used in place of

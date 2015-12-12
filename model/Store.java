@@ -1,4 +1,4 @@
-package com.strattus.model;
+package com.ikov.model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import com.strattus.world.entity.impl.player.Player;
-import com.strattus.world.World;
+import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.World;
 
 public class Store {
 

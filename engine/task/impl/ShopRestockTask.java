@@ -1,8 +1,8 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.Item;
-import com.strattus.model.container.impl.Shop;
+import com.ikov.engine.task.Task;
+import com.ikov.model.Item;
+import com.ikov.model.container.impl.Shop;
 
 public class ShopRestockTask extends Task {
 

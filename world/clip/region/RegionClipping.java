@@ -1,16 +1,16 @@
-package com.strattus.world.clip.region;
+package com.ikov.world.clip.region;
 
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import com.strattus.model.GameObject;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.definitions.GameObjectDefinition;
-import com.strattus.model.Position;
-import com.strattus.util.Misc;
-import com.strattus.world.clip.stream.ByteStream;
-import com.strattus.world.entity.impl.Character;
+import com.ikov.model.GameObject;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.definitions.GameObjectDefinition;
+import com.ikov.model.Position;
+import com.ikov.util.Misc;
+import com.ikov.world.clip.stream.ByteStream;
+import com.ikov.world.entity.impl.Character;
 
 /**
  * A highly modified version of the released clipping.

@@ -1,14 +1,14 @@
-package com.strattus.world.entity;
+package com.ikov.world.entity;
 
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.GameObject;
-import com.strattus.net.PlayerSession;
-import com.strattus.net.SessionState;
-import com.strattus.world.World;
-import com.strattus.world.clip.region.RegionClipping;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.GameObject;
+import com.ikov.net.PlayerSession;
+import com.ikov.net.SessionState;
+import com.ikov.world.World;
+import com.ikov.world.clip.region.RegionClipping;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class EntityHandler {
 

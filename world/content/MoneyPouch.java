@@ -1,8 +1,8 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.model.Locations.Location;
-import com.strattus.model.container.impl.Bank;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles the money pouch

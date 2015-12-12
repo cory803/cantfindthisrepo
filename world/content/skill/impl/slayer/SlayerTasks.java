@@ -1,7 +1,7 @@
-package com.strattus.world.content.skill.impl.slayer;
+package com.ikov.world.content.skill.impl.slayer;
 
-import com.strattus.model.Position;
-import com.strattus.util.Misc;
+import com.ikov.model.Position;
+import com.ikov.util.Misc;
 
 /**
  * @author Gabriel Hannason 

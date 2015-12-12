@@ -1,11 +1,11 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.World;
-import com.strattus.world.content.combat.magic.CombatSpell;
-import com.strattus.world.content.combat.magic.CombatSpells;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.World;
+import com.ikov.world.content.combat.magic.CombatSpell;
+import com.ikov.world.content.combat.magic.CombatSpells;
+import com.ikov.world.entity.impl.player.Player;
 
 public class MagicOnPlayerPacketListener implements PacketListener {
 

@@ -1,26 +1,26 @@
-package com.strattus.world.content.combat;
+package com.ikov.world.content.combat;
 
 import java.util.List;
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.GraphicHeight;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.definitions.WeaponAnimations;
-import com.strattus.util.Misc;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.ItemDegrading;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.combat.CombatContainer.CombatHit;
-import com.strattus.world.content.combat.strategy.impl.DefaultRangedCombatStrategy;
-import com.strattus.world.content.combat.strategy.impl.Nex;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.GraphicHeight;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.definitions.WeaponAnimations;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.ItemDegrading;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.combat.CombatContainer.CombatHit;
+import com.ikov.world.content.combat.strategy.impl.DefaultRangedCombatStrategy;
+import com.ikov.world.content.combat.strategy.impl.Nex;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A {@link Task} implementation that deals a series of hits to an entity after

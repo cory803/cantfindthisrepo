@@ -1,4 +1,4 @@
-package com.strattus;
+package com.ikov;
 
 import java.net.*;
 import java.io.*;
@@ -12,9 +12,9 @@ import java.util.zip.ZipInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import com.strattus.world.entity.impl.player.*;
-import com.strattus.util.RSAKeyGenerator;
-import com.strattus.util.ShutdownHook;
+import com.ikov.world.entity.impl.player.*;
+import com.ikov.util.RSAKeyGenerator;
+import com.ikov.util.ShutdownHook;
 
 /**
  * The starting point of strattus.
@@ -24,7 +24,7 @@ import com.strattus.util.ShutdownHook;
 public class GameServer {
 
 	private static final GameLoader loader = new GameLoader(GameSettings.GAME_PORT);
-	private static final Logger logger = Logger.getLogger("Strattus");
+	private static final Logger logger = Logger.getLogger("IKov");
 	private static boolean updating;
 
 	public static void main(String[] params) {
@@ -35,7 +35,7 @@ public class GameServer {
 			loader.init();
 			loader.finish();
 			logger.info("The loader has finished loading utility tasks.");
-			logger.info("Strattus is now online on port "+GameSettings.GAME_PORT+"!");
+			logger.info("IKov is now online on port "+GameSettings.GAME_PORT+"!");
 			final BufferedReader reader = new BufferedReader(new FileReader(new File("data/mysql_connection.txt")));
 			if(reader.readLine().toLowerCase().equals("on")) {
 				GameSettings.MYSQL_ENABLED = true;
@@ -45,7 +45,7 @@ public class GameServer {
 				System.out.println("MYSQL Connections are disabled.");
 			}
 		} catch (Exception ex) {
-			logger.log(Level.SEVERE, "Could not start Strattus! Program terminated.", ex);
+			logger.log(Level.SEVERE, "Could not start IKov! Program terminated.", ex);
 			System.exit(1);
 		}
 	}

@@ -1,15 +1,15 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
 import java.util.ArrayList;
 
-import com.strattus.model.CombatIcon;
-import com.strattus.model.Damage;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.model.RegionInstance;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.Damage;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.model.RegionInstance;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * 

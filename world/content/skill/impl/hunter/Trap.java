@@ -1,7 +1,7 @@
-package com.strattus.world.content.skill.impl.hunter;
+package com.ikov.world.content.skill.impl.hunter;
 
-import com.strattus.model.GameObject;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.GameObject;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * 

@@ -1,11 +1,11 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.definitions.NPCDrops;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.definitions.NPCDrops;
+import com.ikov.world.entity.impl.player.Player;
 
 public class DropLog {
 

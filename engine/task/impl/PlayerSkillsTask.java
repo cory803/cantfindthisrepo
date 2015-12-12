@@ -1,10 +1,10 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.Skill;
-import com.strattus.world.content.BonusManager;
-import com.strattus.world.content.combat.prayer.CurseHandler;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.model.Skill;
+import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.combat.prayer.CurseHandler;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a player's skill normalizing task, this handles the skills'

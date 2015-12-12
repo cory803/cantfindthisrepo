@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.herblore;
+package com.ikov.world.content.skill.impl.herblore;
 
 public enum FinishedPotions {
 

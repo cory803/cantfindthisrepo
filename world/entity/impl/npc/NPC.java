@@ -1,28 +1,28 @@
-package com.strattus.world.entity.impl.npc;
+package com.ikov.world.entity.impl.npc;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.NPCDeathTask;
-import com.strattus.model.Direction;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.util.JsonLoader;
-import com.strattus.world.World;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.content.combat.effect.CombatPoisonEffect.PoisonType;
-import com.strattus.world.content.combat.strategy.CombatStrategies;
-import com.strattus.world.content.combat.strategy.CombatStrategy;
-import com.strattus.world.content.combat.strategy.impl.KalphiteQueen;
-import com.strattus.world.content.combat.strategy.impl.Nex;
-import com.strattus.world.content.skill.impl.hunter.Hunter;
-import com.strattus.world.content.skill.impl.hunter.PuroPuro;
-import com.strattus.world.content.skill.impl.runecrafting.DesoSpan;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.NPCDeathTask;
+import com.ikov.model.Direction;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.util.JsonLoader;
+import com.ikov.world.World;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
+import com.ikov.world.content.combat.strategy.CombatStrategies;
+import com.ikov.world.content.combat.strategy.CombatStrategy;
+import com.ikov.world.content.combat.strategy.impl.KalphiteQueen;
+import com.ikov.world.content.combat.strategy.impl.Nex;
+import com.ikov.world.content.skill.impl.hunter.Hunter;
+import com.ikov.world.content.skill.impl.hunter.PuroPuro;
+import com.ikov.world.content.skill.impl.runecrafting.DesoSpan;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a non-playable character, which players can interact with.

@@ -1,4 +1,4 @@
-package com.strattus.model.definitions;
+package com.ikov.model.definitions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,27 +8,27 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.strattus.model.Graphic;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Bank;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.util.JsonLoader;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.DropLog;
-import com.strattus.world.content.DropLog.DropLogEntry;
-import com.strattus.world.content.PlayerLogs;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.minigames.impl.WarriorsGuild;
-import com.strattus.world.content.skill.impl.prayer.BonesData;
-import com.strattus.world.content.skill.impl.summoning.CharmingImp;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Graphic;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.util.JsonLoader;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.DropLog;
+import com.ikov.world.content.DropLog.DropLogEntry;
+import com.ikov.world.content.PlayerLogs;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.minigames.impl.WarriorsGuild;
+import com.ikov.world.content.skill.impl.prayer.BonesData;
+import com.ikov.world.content.skill.impl.summoning.CharmingImp;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Controls the npc drops

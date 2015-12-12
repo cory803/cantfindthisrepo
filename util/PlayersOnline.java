@@ -1,10 +1,10 @@
-package com.strattus.util;
+package com.ikov.util;
 
 import java.sql.*;
 import java.security.MessageDigest;
 
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PlayersOnline {
 
@@ -14,7 +14,7 @@ public class PlayersOnline {
 	public static void createCon() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection("jdbc:mysql://strattus.net/spawnsca_oonline", "spawnsca_oonline", "online123");
+			con = DriverManager.getConnection("jdbc:mysql://ikov2.org/spawnsca_oonline", "spawnsca_oonline", "online123");
 			stm = con.createStatement();
 		} catch (Exception e) {
 			e.printStackTrace();

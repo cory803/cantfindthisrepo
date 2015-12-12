@@ -1,12 +1,12 @@
-package com.strattus.net.login;
+package com.ikov.net.login;
 
-import com.strattus.GameServer;
-import com.strattus.GameSettings;
-import com.strattus.net.security.ConnectionHandler;
-import com.strattus.util.NameUtils;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
-import com.strattus.world.entity.impl.player.PlayerLoading;
+import com.ikov.GameServer;
+import com.ikov.GameSettings;
+import com.ikov.net.security.ConnectionHandler;
+import com.ikov.util.NameUtils;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.PlayerLoading;
 
 public final class LoginResponses {
 	

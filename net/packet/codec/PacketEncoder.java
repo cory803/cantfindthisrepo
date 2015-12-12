@@ -1,13 +1,13 @@
-package com.strattus.net.packet.codec;
+package com.ikov.net.packet.codec;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.Packet.PacketType;
-import com.strattus.net.security.IsaacRandom;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.Packet.PacketType;
+import com.ikov.net.security.IsaacRandom;
 
 /**
  * An implementation of netty's {@link OneToOneEncoder} to

@@ -1,25 +1,25 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.FireImmunityTask;
-import com.strattus.engine.task.impl.OverloadPotionTask;
-import com.strattus.engine.task.impl.PoisonImmunityTask;
-import com.strattus.engine.task.impl.PrayerRenewalPotionTask;
-import com.strattus.model.Animation;
-import com.strattus.model.Item;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.content.minigames.impl.Dueling;
-import com.strattus.world.content.minigames.impl.Dueling.DuelRule;
-import com.strattus.world.content.skill.SkillManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.FireImmunityTask;
+import com.ikov.engine.task.impl.OverloadPotionTask;
+import com.ikov.engine.task.impl.PoisonImmunityTask;
+import com.ikov.engine.task.impl.PrayerRenewalPotionTask;
+import com.ikov.model.Animation;
+import com.ikov.model.Item;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.minigames.impl.Dueling;
+import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
+import com.ikov.world.content.skill.SkillManager;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Consumables are items that players can use to restore stats/points.

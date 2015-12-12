@@ -1,4 +1,4 @@
-package com.strattus.util;
+package com.ikov.util;
 
 import java.io.FileReader;
 import java.nio.file.Paths;

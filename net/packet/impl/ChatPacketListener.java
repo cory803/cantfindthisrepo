@@ -1,13 +1,13 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.model.ChatMessage.Message;
-import com.strattus.model.Flag;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.util.Misc;
-import com.strattus.world.content.PlayerPunishment;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.ChatMessage.Message;
+import com.ikov.model.Flag;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.util.Misc;
+import com.ikov.world.content.PlayerPunishment;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This packet listener manages the spoken text by a player.

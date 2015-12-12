@@ -1,13 +1,13 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
 import java.awt.Dimension;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.GameObjectDefinition;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.GameObjectDefinition;
+import com.ikov.world.entity.impl.player.Player;
 /**
  * 
  * @author Owner Blade

@@ -1,4 +1,4 @@
-package com.strattus.model;
+package com.ikov.model;
 
 import java.util.BitSet;
 

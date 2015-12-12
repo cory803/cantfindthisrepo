@@ -1,9 +1,9 @@
-package com.strattus.world.content.combat.strategy.impl;
+package com.ikov.world.content.combat.strategy.impl;
 
-import com.strattus.world.content.combat.CombatContainer;
-import com.strattus.world.content.combat.CombatType;
-import com.strattus.world.content.combat.strategy.CombatStrategy;
-import com.strattus.world.entity.impl.Character;
+import com.ikov.world.content.combat.CombatContainer;
+import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.strategy.CombatStrategy;
+import com.ikov.world.entity.impl.Character;
 
 public class Kraken implements CombatStrategy {
 

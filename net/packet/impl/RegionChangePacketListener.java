@@ -1,17 +1,17 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.RegionInstance.RegionInstanceType;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.clip.region.RegionClipping;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
-import com.strattus.world.entity.updating.NPCUpdating;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.RegionInstance.RegionInstanceType;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.clip.region.RegionClipping;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.entity.updating.NPCUpdating;
 
 
 public class RegionChangePacketListener implements PacketListener {

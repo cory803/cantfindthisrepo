@@ -1,13 +1,13 @@
-package com.strattus.world.content.skill.impl.herblore;
+package com.ikov.world.content.skill.impl.herblore;
 
 import java.util.HashMap;
 
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.util.Misc;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.content.combat.effect.CombatPoisonEffect.PoisonType;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.util.Misc;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 public class WeaponPoison {
 

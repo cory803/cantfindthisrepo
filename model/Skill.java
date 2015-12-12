@@ -1,6 +1,6 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.util.Misc;
+import com.ikov.util.Misc;
 
 
 /**

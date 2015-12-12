@@ -1,28 +1,28 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.RegionInstance.RegionInstanceType;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.skill.impl.construction.ConstructionData.Butlers;
-import com.strattus.world.content.skill.impl.construction.ConstructionData.Furniture;
-import com.strattus.world.content.skill.impl.construction.ConstructionData.HotSpots;
-import com.strattus.world.content.skill.impl.construction.ConstructionData.Portals;
-import com.strattus.world.content.skill.impl.construction.ConstructionData.RoomData;
-import com.strattus.world.content.skill.impl.construction.Palette.PaletteTile;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.RegionInstance.RegionInstanceType;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.Butlers;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.Furniture;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.HotSpots;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.Portals;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.RoomData;
+import com.ikov.world.content.skill.impl.construction.Palette.PaletteTile;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Construction {
 	

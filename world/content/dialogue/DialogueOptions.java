@@ -1,52 +1,52 @@
-package com.strattus.world.content.dialogue;
+package com.ikov.world.content.dialogue;
 
-import com.strattus.engine.task.impl.BonusExperienceTask;
-import com.strattus.model.GameMode;
-import com.strattus.model.GameObject;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Shop.ShopManager;
-import com.strattus.model.input.impl.BuyShards;
-import com.strattus.model.input.impl.ChangePassword;
-import com.strattus.model.input.impl.DonateToWell;
-import com.strattus.model.input.impl.SellShards;
-import com.strattus.model.input.impl.SetEmail;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Artifacts;
-import com.strattus.world.content.BankPin;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.WellOfGoodwill;
-import com.strattus.world.content.Effigies;
-import com.strattus.world.content.Gambling.FlowersData;
-import com.strattus.world.content.Lottery;
-import com.strattus.world.content.LoyaltyProgramme;
-import com.strattus.world.content.MemberScrolls;
-import com.strattus.world.content.PkSets;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.content.Scoreboards;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.dialogue.impl.AgilityTicketExchange;
-import com.strattus.world.content.dialogue.impl.Mandrith;
-import com.strattus.world.content.minigames.impl.Graveyard;
-import com.strattus.world.content.minigames.impl.Nomad;
-import com.strattus.world.content.minigames.impl.RecipeForDisaster;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.strattus.world.content.skill.impl.dungeoneering.DungeoneeringFloor;
-import com.strattus.world.content.skill.impl.mining.Mining;
-import com.strattus.world.content.skill.impl.slayer.Slayer;
-import com.strattus.world.content.skill.impl.slayer.SlayerDialogues;
-import com.strattus.world.content.skill.impl.slayer.SlayerMaster;
-import com.strattus.world.content.skill.impl.summoning.CharmingImp;
-import com.strattus.world.content.skill.impl.summoning.SummoningTab;
-import com.strattus.world.content.transportation.JewelryTeleporting;
-import com.strattus.world.content.transportation.TeleportHandler;
-import com.strattus.world.content.transportation.TeleportType;
-import com.strattus.world.entity.impl.npc.NpcAggression;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.impl.BonusExperienceTask;
+import com.ikov.model.GameMode;
+import com.ikov.model.GameObject;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Shop.ShopManager;
+import com.ikov.model.input.impl.BuyShards;
+import com.ikov.model.input.impl.ChangePassword;
+import com.ikov.model.input.impl.DonateToWell;
+import com.ikov.model.input.impl.SellShards;
+import com.ikov.model.input.impl.SetEmail;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Artifacts;
+import com.ikov.world.content.BankPin;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.WellOfGoodwill;
+import com.ikov.world.content.Effigies;
+import com.ikov.world.content.Gambling.FlowersData;
+import com.ikov.world.content.Lottery;
+import com.ikov.world.content.LoyaltyProgramme;
+import com.ikov.world.content.MemberScrolls;
+import com.ikov.world.content.PkSets;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.content.Scoreboards;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.dialogue.impl.AgilityTicketExchange;
+import com.ikov.world.content.dialogue.impl.Mandrith;
+import com.ikov.world.content.minigames.impl.Graveyard;
+import com.ikov.world.content.minigames.impl.Nomad;
+import com.ikov.world.content.minigames.impl.RecipeForDisaster;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.world.content.skill.impl.dungeoneering.DungeoneeringFloor;
+import com.ikov.world.content.skill.impl.mining.Mining;
+import com.ikov.world.content.skill.impl.slayer.Slayer;
+import com.ikov.world.content.skill.impl.slayer.SlayerDialogues;
+import com.ikov.world.content.skill.impl.slayer.SlayerMaster;
+import com.ikov.world.content.skill.impl.summoning.CharmingImp;
+import com.ikov.world.content.skill.impl.summoning.SummoningTab;
+import com.ikov.world.content.transportation.JewelryTeleporting;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.content.transportation.TeleportType;
+import com.ikov.world.entity.impl.npc.NpcAggression;
+import com.ikov.world.entity.impl.player.Player;
 
 public class DialogueOptions {
 
@@ -617,7 +617,7 @@ public class DialogueOptions {
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
 				if(player.getRights() == PlayerRights.PLAYER) {
-					player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit strattus.net and purchase a scroll.");
+					player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit ikov2.org and purchase a scroll.");
 					return;
 				}
 				TeleportHandler.teleportPlayer(player, new Position(3424, 2919), player.getSpellbook().getTeleportType());
@@ -687,7 +687,7 @@ public class DialogueOptions {
 				}
 				break;
 			case 45:
-				player.getPacketSender().sendString(1, "http://strattus.net/forum/index.php?/topic/51-ironman-mode/");
+				player.getPacketSender().sendString(1, "http://ikov2.org/forum/index.php?/topic/51-ironman-mode/");
 				break;
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {

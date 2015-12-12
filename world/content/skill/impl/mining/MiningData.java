@@ -1,8 +1,8 @@
-package com.strattus.world.content.skill.impl.mining;
+package com.ikov.world.content.skill.impl.mining;
 
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.world.entity.impl.player.Player;
 
 public class MiningData {
 

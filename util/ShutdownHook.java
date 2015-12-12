@@ -1,15 +1,15 @@
-package com.strattus.util;
+package com.ikov.util;
 
 import java.util.logging.Logger;
 
-import com.strattus.GameServer;
-import com.strattus.world.World;
-import com.strattus.world.content.WellOfGoodwill;
-import com.strattus.world.content.Scoreboards;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.grandexchange.GrandExchangeOffers;
-import com.strattus.world.entity.impl.player.Player;
-import com.strattus.world.entity.impl.player.PlayerHandler;
+import com.ikov.GameServer;
+import com.ikov.world.World;
+import com.ikov.world.content.WellOfGoodwill;
+import com.ikov.world.content.Scoreboards;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.PlayerHandler;
 
 public class ShutdownHook extends Thread {
 

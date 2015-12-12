@@ -1,7 +1,7 @@
-package com.strattus.world.content.combat.weapon;
+package com.ikov.world.content.combat.weapon;
 
-import com.strattus.model.Skill;
-import com.strattus.world.content.combat.CombatType;
+import com.ikov.model.Skill;
+import com.ikov.world.content.combat.CombatType;
 
 /**
  * A collection of constants that each represent a different fighting style.

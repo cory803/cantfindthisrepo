@@ -1,15 +1,15 @@
-package com.strattus.world.content.skill.impl.prayer;
+package com.ikov.world.content.skill.impl.prayer;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * The prayer skill is based upon burying the corpses of enemies. Obtaining a higher level means

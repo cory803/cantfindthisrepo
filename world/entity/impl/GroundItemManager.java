@@ -1,20 +1,20 @@
-package com.strattus.world.entity.impl;
+package com.ikov.world.entity.impl;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.strattus.engine.task.impl.GroundItemsTask;
-import com.strattus.model.GameMode;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.World;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.impl.GroundItemsTask;
+import com.ikov.model.GameMode;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.World;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.world.entity.impl.player.Player;
 
 public class GroundItemManager {
 

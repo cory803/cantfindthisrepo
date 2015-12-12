@@ -1,4 +1,4 @@
-package com.strattus.net.login;
+package com.ikov.net.login;
 
 import java.math.BigInteger;
 import java.net.InetSocketAddress;
@@ -12,16 +12,16 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
-import com.strattus.GameSettings;
-import com.strattus.net.PlayerSession;
-import com.strattus.net.packet.PacketBuilder;
-import com.strattus.net.packet.codec.PacketDecoder;
-import com.strattus.net.packet.codec.PacketEncoder;
-import com.strattus.net.security.IsaacRandom;
-import com.strattus.util.Misc;
-import com.strattus.util.NameUtils;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.net.PlayerSession;
+import com.ikov.net.packet.PacketBuilder;
+import com.ikov.net.packet.codec.PacketDecoder;
+import com.ikov.net.packet.codec.PacketEncoder;
+import com.ikov.net.security.IsaacRandom;
+import com.ikov.util.Misc;
+import com.ikov.util.NameUtils;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A {@link org.niobe.net.StatefulFrameDecoder} which decodes

@@ -1,13 +1,13 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.engine.task.impl.WalkToTask;
-import com.strattus.engine.task.impl.WalkToTask.FinalizedMovementTask;
-import com.strattus.model.Locations;
-import com.strattus.model.Locations.Location;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.impl.WalkToTask;
+import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
+import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This packet listener is called when a player accepts a trade offer,

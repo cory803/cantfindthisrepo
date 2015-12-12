@@ -1,9 +1,9 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.model.definitions.GameObjectDefinition;
-import com.strattus.world.World;
-import com.strattus.world.entity.Entity;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.definitions.GameObjectDefinition;
+import com.ikov.world.World;
+import com.ikov.world.entity.Entity;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * This file manages a game object entity on the globe.

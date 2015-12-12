@@ -1,6 +1,6 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
-import com.strattus.world.entity.impl.Character;
+import com.ikov.world.entity.impl.Character;
 
 /**
  * A {@link Spell} implementation primarily used for spells that have no effects

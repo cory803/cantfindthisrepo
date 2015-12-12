@@ -1,26 +1,26 @@
-package com.strattus.world.content.combat.range;
+package com.ikov.world.content.combat.range;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.CombatIcon;
-import com.strattus.model.DwarfCannon;
-import com.strattus.model.GameObject;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.model.Locations;
-import com.strattus.model.Projectile;
-import com.strattus.model.Skill;
-import com.strattus.model.Locations.Location;
-import com.strattus.util.Misc;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.DwarfCannon;
+import com.ikov.model.GameObject;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.model.Locations;
+import com.ikov.model.Projectile;
+import com.ikov.model.Skill;
+import com.ikov.model.Locations.Location;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles the Dwarf multi Cannon

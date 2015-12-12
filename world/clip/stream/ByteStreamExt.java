@@ -1,4 +1,4 @@
-package com.strattus.world.clip.stream;
+package com.ikov.world.clip.stream;
 
 public final class ByteStreamExt {
 

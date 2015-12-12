@@ -1,11 +1,11 @@
-package com.strattus.world.content.dialogue.impl;
+package com.ikov.world.content.dialogue.impl;
 
-import com.strattus.model.input.impl.ItemSearch;
-import com.strattus.util.Misc;
-import com.strattus.world.content.dialogue.Dialogue;
-import com.strattus.world.content.dialogue.DialogueExpression;
-import com.strattus.world.content.dialogue.DialogueType;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.input.impl.ItemSearch;
+import com.ikov.util.Misc;
+import com.ikov.world.content.dialogue.Dialogue;
+import com.ikov.world.content.dialogue.DialogueExpression;
+import com.ikov.world.content.dialogue.DialogueType;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ExplorerJack {
 
@@ -29,7 +29,7 @@ public class ExplorerJack {
 			
 			@Override
 			public String[] dialogue() {
-				return new String[]{"Hello adventurer.", "I have travelled all around Strattus", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
+				return new String[]{"Hello adventurer.", "I have travelled all around IKov", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
 			}
 			
 			public Dialogue nextDialogue() {
@@ -52,7 +52,7 @@ public class ExplorerJack {
 					
 					@Override
 					public String[] dialogue() {
-						return new String[]{"Hello adventurer.", "I have traveled all around Strattus", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
+						return new String[]{"Hello adventurer.", "I have traveled all around IKov", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
 					}
 				
 					@Override

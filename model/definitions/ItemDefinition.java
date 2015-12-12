@@ -1,11 +1,11 @@
-package com.strattus.model.definitions;
+package com.ikov.model.definitions;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-import com.strattus.model.container.impl.Equipment;
+import com.ikov.model.container.impl.Equipment;
 
 /**
  * This file manages every item definition, which includes

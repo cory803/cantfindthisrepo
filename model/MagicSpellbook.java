@@ -1,6 +1,6 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.world.content.transportation.TeleportType;
+import com.ikov.world.content.transportation.TeleportType;
 
 /**
  * Represents a player's magic spellbook.

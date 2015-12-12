@@ -1,17 +1,17 @@
-package com.strattus.world.content.skill;
+package com.ikov.world.content.skill;
 
-import com.strattus.model.input.impl.EnterAmountOfBonesToSacrifice;
-import com.strattus.model.input.impl.EnterAmountOfBowsToString;
-import com.strattus.model.input.impl.EnterAmountOfGemsToCut;
-import com.strattus.model.input.impl.EnterAmountToCook;
-import com.strattus.model.input.impl.EnterAmountToFletch;
-import com.strattus.model.input.impl.EnterAmountToSpin;
-import com.strattus.world.content.skill.impl.cooking.Cooking;
-import com.strattus.world.content.skill.impl.crafting.Flax;
-import com.strattus.world.content.skill.impl.crafting.Gems;
-import com.strattus.world.content.skill.impl.fletching.Fletching;
-import com.strattus.world.content.skill.impl.prayer.BonesOnAltar;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.input.impl.EnterAmountOfBonesToSacrifice;
+import com.ikov.model.input.impl.EnterAmountOfBowsToString;
+import com.ikov.model.input.impl.EnterAmountOfGemsToCut;
+import com.ikov.model.input.impl.EnterAmountToCook;
+import com.ikov.model.input.impl.EnterAmountToFletch;
+import com.ikov.model.input.impl.EnterAmountToSpin;
+import com.ikov.world.content.skill.impl.cooking.Cooking;
+import com.ikov.world.content.skill.impl.crafting.Flax;
+import com.ikov.world.content.skill.impl.crafting.Gems;
+import com.ikov.world.content.skill.impl.fletching.Fletching;
+import com.ikov.world.content.skill.impl.prayer.BonesOnAltar;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ChatboxInterfaceSkillAction {
 

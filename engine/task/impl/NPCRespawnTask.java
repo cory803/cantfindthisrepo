@@ -1,11 +1,11 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.Position;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.skill.impl.hunter.Hunter;
-import com.strattus.world.entity.impl.npc.NPC;
+import com.ikov.engine.task.Task;
+import com.ikov.model.Position;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.skill.impl.hunter.Hunter;
+import com.ikov.world.entity.impl.npc.NPC;
 
 public class NPCRespawnTask extends Task {
 

@@ -1,23 +1,23 @@
-package com.strattus.world.content.skill.impl.dungeoneering;
+package com.ikov.world.content.skill.impl.dungeoneering;
 
-import com.strattus.GameSettings;
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.GameObject;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.PriceChecker;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.combat.prayer.CurseHandler;
-import com.strattus.world.content.combat.prayer.PrayerHandler;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.GameObject;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.PriceChecker;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.combat.prayer.CurseHandler;
+import com.ikov.world.content.combat.prayer.PrayerHandler;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * yeye
@@ -127,7 +127,6 @@ public class Dungeoneering {
 			p.getPacketSender().sendDungeoneeringTabIcon(false);
 			p.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 		}
-		System.out.println("Leaving now");
 	}
 
 	public static void setupFloor(DungeoneeringParty party, int height) {

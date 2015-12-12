@@ -1,23 +1,23 @@
-package com.strattus.world.content.skill.impl.summoning;
+package com.ikov.world.content.skill.impl.summoning;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.engine.task.impl.FamiliarSpawnTask;
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.BeastOfBurden;
-import com.strattus.model.movement.MovementQueue;
-import com.strattus.world.World;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.content.skill.impl.summoning.BossPets.BossPet;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.FamiliarSpawnTask;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.BeastOfBurden;
+import com.ikov.model.movement.MovementQueue;
+import com.ikov.world.World;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.skill.impl.summoning.BossPets.BossPet;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * The summoning skill is based upon creating pouches that contain

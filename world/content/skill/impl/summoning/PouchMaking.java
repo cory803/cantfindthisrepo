@@ -1,16 +1,16 @@
-package com.strattus.world.content.skill.impl.summoning;
+package com.ikov.world.content.skill.impl.summoning;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.model.input.impl.EnterAmountToInfuse;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.transportation.TeleportHandler;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.model.input.impl.EnterAmountToInfuse;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PouchMaking {
 

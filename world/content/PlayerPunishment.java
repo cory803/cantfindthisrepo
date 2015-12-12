@@ -1,4 +1,4 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -7,11 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.strattus.GameServer;
-import com.strattus.GameSettings;
-import com.strattus.model.Position;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameServer;
+import com.ikov.GameSettings;
+import com.ikov.model.Position;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 
 public class PlayerPunishment {

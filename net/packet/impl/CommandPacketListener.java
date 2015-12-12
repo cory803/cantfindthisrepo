@@ -1,61 +1,61 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.strattus.GameServer;
-import com.strattus.GameSettings;
-import com.strattus.engine.task.Task;
-import com.strattus.model.input.impl.ChangePassword;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.Flag;
-import com.strattus.model.GameObject;
-import com.strattus.model.Graphic;
-import com.strattus.model.GroundItem;
-import com.strattus.model.Item;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Bank;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.container.impl.Shop.ShopManager;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.definitions.WeaponAnimations;
-import com.strattus.model.definitions.WeaponInterfaces;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.net.security.ConnectionHandler;
-import com.strattus.util.Auth;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.BonusManager;
-import com.strattus.world.content.WellOfGoodwill;
-import com.strattus.world.content.Lottery;
-import com.strattus.world.content.PlayerLogs;
-import com.strattus.world.content.PlayerPunishment;
-import com.strattus.world.content.PlayerPunishment.Jail;
-import com.strattus.world.content.PlayersOnlineInterface;
-import com.strattus.world.content.ShootingStar;
-import com.strattus.world.content.clan.ClanChatManager;
-import com.strattus.world.content.combat.CombatFactory;
-import com.strattus.world.content.combat.DesolaceFormulas;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.content.grandexchange.GrandExchange;
-import com.strattus.world.content.grandexchange.GrandExchangeOffer;
-import com.strattus.world.content.grandexchange.GrandExchangeOffers;
-import com.strattus.world.content.minigames.impl.WarriorsGuild;
-import com.strattus.world.content.skill.SkillManager;
-import com.strattus.world.content.skill.impl.slayer.SlayerTasks;
-import com.strattus.world.content.transportation.TeleportHandler;
-import com.strattus.world.content.transportation.TeleportType;
-import com.strattus.world.entity.impl.GroundItemManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
-import com.strattus.world.entity.impl.player.PlayerSaving;
-import com.strattus.world.clip.stream.ByteStreamExt;
-import com.strattus.world.clip.stream.MemoryArchive;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.GameServer;
+import com.ikov.GameSettings;
+import com.ikov.engine.task.Task;
+import com.ikov.model.input.impl.ChangePassword;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.Flag;
+import com.ikov.model.GameObject;
+import com.ikov.model.Graphic;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Bank;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.container.impl.Shop.ShopManager;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.definitions.WeaponAnimations;
+import com.ikov.model.definitions.WeaponInterfaces;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.net.security.ConnectionHandler;
+import com.ikov.util.Auth;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.WellOfGoodwill;
+import com.ikov.world.content.Lottery;
+import com.ikov.world.content.PlayerLogs;
+import com.ikov.world.content.PlayerPunishment;
+import com.ikov.world.content.PlayerPunishment.Jail;
+import com.ikov.world.content.PlayersOnlineInterface;
+import com.ikov.world.content.ShootingStar;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.combat.DesolaceFormulas;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.grandexchange.GrandExchange;
+import com.ikov.world.content.grandexchange.GrandExchangeOffer;
+import com.ikov.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.world.content.minigames.impl.WarriorsGuild;
+import com.ikov.world.content.skill.SkillManager;
+import com.ikov.world.content.skill.impl.slayer.SlayerTasks;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.content.transportation.TeleportType;
+import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.PlayerSaving;
+import com.ikov.world.clip.stream.ByteStreamExt;
+import com.ikov.world.clip.stream.MemoryArchive;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 
 /**
  * This packet listener manages commands a player uses by using the
@@ -179,8 +179,8 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().giveVoteReward();
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
-			player.getPacketSender().sendString(1, "www.strattus.net/store/");
-			player.getPacketSender().sendMessage("Attempting to open: www.strattus.net/store/");
+			player.getPacketSender().sendString(1, "www.ikov2.org/store/");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/store/");
 		}
 		if(command[0].equalsIgnoreCase("attacks")) {
 			int attack = DesolaceFormulas.getMeleeAttack(player);
@@ -193,12 +193,12 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Your progress has been saved.");
 		}
 		if (command[0].equals("vote")) {
-			player.getPacketSender().sendString(1, "www.strattus.net/vote/");
-			player.getPacketSender().sendMessage("Attempting to open: www.strattus.net/vote/");
+			player.getPacketSender().sendString(1, "www.ikov2.org/vote/");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/vote/");
 		}
 		if (command[0].equals("thread")) {
 			int thread = Integer.parseInt(command[1]);
-			player.getPacketSender().sendString(1, "www.strattus.net/forum/index.php?/topic/"+thread);
+			player.getPacketSender().sendString(1, "www.ikov2.org/forum/index.php?/topic/"+thread);
 			player.getPacketSender().sendMessage("Attempting to open: Thread" + thread);
 		}
 		if (command[0].equals("Farming2")) {
@@ -376,7 +376,7 @@ public class CommandPacketListener implements PacketListener {
 			}
 			Position position = new Position(3424, 2919, 0);
 			player.moveTo(position);
-			player.getPacketSender().sendMessage("Thanks for supporting Strattus!");
+			player.getPacketSender().sendMessage("Thanks for supporting IKov!");
 		}
 	}
 	
@@ -629,7 +629,7 @@ public class CommandPacketListener implements PacketListener {
 			String player2 = wholeCommand.substring(5);
 			Player playerToKick = World.getPlayerByName(player2);
 			if(playerToKick == null) {
-				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Strattus.");
+				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on IKov.");
 				return;
 			} else if(playerToKick.getLocation() != Location.WILDERNESS) {
 				World.deregister(playerToKick);

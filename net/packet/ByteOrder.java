@@ -1,4 +1,4 @@
-package com.strattus.net.packet;
+package com.ikov.net.packet;
 
 /**
  * The enumerated type whose elements represent the possible order in which

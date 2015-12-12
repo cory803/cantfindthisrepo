@@ -1,10 +1,10 @@
-package com.strattus.net.login;
+package com.ikov.net.login;
 
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.oneone.OneToOneEncoder;
 
-import com.strattus.net.packet.Packet;
+import com.ikov.net.packet.Packet;
 
 /**
  * Handles login encoding requests

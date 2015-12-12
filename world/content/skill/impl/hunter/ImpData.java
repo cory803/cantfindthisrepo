@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.hunter;
+package com.ikov.world.content.skill.impl.hunter;
 
 public enum ImpData {
 	/**

@@ -1,16 +1,16 @@
-package com.strattus.world.content.dialogue.impl;
+package com.ikov.world.content.dialogue.impl;
 
-import com.strattus.GameSettings;
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Direction;
-import com.strattus.model.GameMode;
-import com.strattus.model.Position;
-import com.strattus.net.security.ConnectionHandler;
-import com.strattus.world.content.dialogue.Dialogue;
-import com.strattus.world.content.dialogue.DialogueExpression;
-import com.strattus.world.content.dialogue.DialogueType;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Direction;
+import com.ikov.model.GameMode;
+import com.ikov.model.Position;
+import com.ikov.net.security.ConnectionHandler;
+import com.ikov.world.content.dialogue.Dialogue;
+import com.ikov.world.content.dialogue.DialogueExpression;
+import com.ikov.world.content.dialogue.DialogueType;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a Dungeoneering party invitation dialogue
@@ -67,7 +67,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"You can earn money doing many different things in", "Strattus. For example, see those Thieving stalls infront of ", "you? You can steal items from them and sell them to the", "merchant whose standing over there."};
+					return new String[]{"You can earn money doing many different things in", "IKov. For example, see those Thieving stalls infront of ", "you? You can steal items from them and sell them to the", "merchant whose standing over there."};
 				};
 
 				@Override
@@ -240,7 +240,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"Enough of the boring stuff, let's show you some creatures!", "There are a bunch of bosses to fight in Strattus.", "Every boss drops unique and good gear when killed.", "One example is Nomad!"};
+					return new String[]{"Enough of the boring stuff, let's show you some creatures!", "There are a bunch of bosses to fight in IKov.", "Every boss drops unique and good gear when killed.", "One example is Nomad!"};
 				};
 
 				@Override
@@ -308,7 +308,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"Strattus also has a lot of enjoyable minigames.", "This is the Graveyard Arena, an area that's been run over", "by Zombies. Your job is to simply to kill them all.", "Sounds like fun, don't you think?"};
+					return new String[]{"IKov also has a lot of enjoyable minigames.", "This is the Graveyard Arena, an area that's been run over", "by Zombies. Your job is to simply to kill them all.", "Sounds like fun, don't you think?"};
 				};
 
 				@Override
@@ -410,7 +410,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"Strattus is a competitive game. Next to you is a scoreboard", "which you can use to track other players and their progress."};
+					return new String[]{"IKov is a competitive game. Next to you is a scoreboard", "which you can use to track other players and their progress."};
 				};
 
 				@Override
@@ -480,7 +480,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing Strattus!"};
+					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing IKov!"};
 				};
 
 				@Override
@@ -509,7 +509,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing Strattus!"};
+					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing IKov!"};
 				};
 
 				@Override
@@ -540,7 +540,7 @@ public class Tutorial {
 						protected void execute() {
 							if(p != null && p.isRegistered()) {
 								p.getPacketSender().sendMessage("<img=10> @blu@Want to go player killing? Mandrith now sells premade PvP sets.");
-								p.getPacketSender().sendMessage("<img=10> @blu@Join 'Strattus' clan chat for help!");
+								p.getPacketSender().sendMessage("<img=10> @blu@Join 'IKov' clan chat for help!");
 							}
 							stop();
 						}

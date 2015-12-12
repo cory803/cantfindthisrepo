@@ -1,9 +1,9 @@
-package com.strattus.util;
+package com.ikov.util;
 
 import java.sql.*;
 import java.util.Properties;
 
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.Player;
 
 
 public class Auth {

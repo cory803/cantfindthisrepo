@@ -1,4 +1,4 @@
-package com.strattus.net.packet.codec;
+package com.ikov.net.packet.codec;
 
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
@@ -6,10 +6,10 @@ import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketConstants;
-import com.strattus.net.packet.Packet.PacketType;
-import com.strattus.net.security.IsaacRandom;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketConstants;
+import com.ikov.net.packet.Packet.PacketType;
+import com.ikov.net.security.IsaacRandom;
 
 public class PacketDecoder extends FrameDecoder {
 	

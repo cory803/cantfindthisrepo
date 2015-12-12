@@ -1,11 +1,11 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.model.Appearance;
-import com.strattus.model.Flag;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Appearance;
+import com.ikov.model.Flag;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 public class ChangeAppearancePacketListener implements PacketListener {
 

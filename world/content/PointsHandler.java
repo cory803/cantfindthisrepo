@@ -1,6 +1,6 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PointsHandler {
 

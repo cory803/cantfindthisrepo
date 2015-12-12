@@ -1,4 +1,4 @@
-package com.strattus.world.content.skill.impl.crafting;
+package com.ikov.world.content.skill.impl.crafting;
 
 public enum tanningData {
 	

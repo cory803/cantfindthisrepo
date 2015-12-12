@@ -1,18 +1,18 @@
-package com.strattus.model.container.impl;
+package com.ikov.model.container.impl;
 
-import com.strattus.model.Flag;
-import com.strattus.model.GameMode;
-import com.strattus.model.Item;
-import com.strattus.model.container.ItemContainer;
-import com.strattus.model.container.StackType;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.definitions.WeaponAnimations;
-import com.strattus.model.definitions.WeaponInterfaces;
-import com.strattus.model.input.impl.ItemSearch;
-import com.strattus.world.content.BankPin;
-import com.strattus.world.content.BonusManager;
-import com.strattus.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Flag;
+import com.ikov.model.GameMode;
+import com.ikov.model.Item;
+import com.ikov.model.container.ItemContainer;
+import com.ikov.model.container.StackType;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.definitions.WeaponAnimations;
+import com.ikov.model.definitions.WeaponInterfaces;
+import com.ikov.model.input.impl.ItemSearch;
+import com.ikov.world.content.BankPin;
+import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * 100% safe Bank System
@@ -371,7 +371,7 @@ public class Bank extends ItemContainer {
 			player.getPacketSender().sendClientRightClickRemoval();
 			player.getBankSearchingAttribtues().setSearchedBank(null).setSearchingBank(false).setSearchSyntax(null);
 			player.setCurrentBankTab(0).setNoteWithdrawal(false);
-			player.getPacketSender().sendString(27002, Integer.toString(0)).sendString(27000, "1").sendConfig(117, 0).sendString(5383, "        The Bank of Strattus");
+			player.getPacketSender().sendString(27002, Integer.toString(0)).sendString(27000, "1").sendConfig(117, 0).sendString(5383, "        The Bank of IKov");
 			if(openBank)
 				player.getBank(0).open();
 			player.setInputHandling(null);

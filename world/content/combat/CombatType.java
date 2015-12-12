@@ -1,4 +1,4 @@
-package com.strattus.world.content.combat;
+package com.ikov.world.content.combat;
 
 /**
  * A set of constants representing the three different types of combat that can

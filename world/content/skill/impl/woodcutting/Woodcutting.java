@@ -1,22 +1,22 @@
-package com.strattus.world.content.skill.impl.woodcutting;
+package com.ikov.world.content.skill.impl.woodcutting;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Animation;
-import com.strattus.model.GameObject;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.util.Misc;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.CustomObjects;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.content.skill.impl.firemaking.Logdata;
-import com.strattus.world.content.skill.impl.firemaking.Logdata.logData;
-import com.strattus.world.content.skill.impl.woodcutting.WoodcuttingData.Hatchet;
-import com.strattus.world.content.skill.impl.woodcutting.WoodcuttingData.Trees;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Animation;
+import com.ikov.model.GameObject;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.CustomObjects;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.content.skill.impl.firemaking.Logdata;
+import com.ikov.world.content.skill.impl.firemaking.Logdata.logData;
+import com.ikov.world.content.skill.impl.woodcutting.WoodcuttingData.Hatchet;
+import com.ikov.world.content.skill.impl.woodcutting.WoodcuttingData.Trees;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Woodcutting {
 

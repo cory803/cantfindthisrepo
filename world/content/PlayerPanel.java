@@ -1,10 +1,10 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.util.Misc;
-import com.strattus.world.content.minigames.impl.Nomad;
-import com.strattus.world.content.minigames.impl.RecipeForDisaster;
-import com.strattus.world.content.skill.impl.slayer.SlayerTasks;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.util.Misc;
+import com.ikov.world.content.minigames.impl.Nomad;
+import com.ikov.world.content.minigames.impl.RecipeForDisaster;
+import com.ikov.world.content.skill.impl.slayer.SlayerTasks;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PlayerPanel {
 
@@ -12,7 +12,7 @@ public class PlayerPanel {
 		/**
 		 * General info
 		 */
-		player.getPacketSender().sendString(39159, "@or3@ - Strattus");
+		player.getPacketSender().sendString(39159, "@or3@ - IKov");
 
 		if(ShootingStar.CRASHED_STAR == null) {
 			player.getPacketSender().sendString(39162, "@or2@Crashed star: @yel@N/A");

@@ -1,10 +1,10 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.strattus.GameSettings;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.world.entity.impl.player.Player;
 
 public class KillsTracker {
 

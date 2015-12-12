@@ -1,6 +1,6 @@
-package com.strattus.world.content.skill.impl.construction;
+package com.ikov.world.content.skill.impl.construction;
 
-import com.strattus.world.content.skill.impl.construction.ConstructionData.HotSpots;
+import com.ikov.world.content.skill.impl.construction.ConstructionData.HotSpots;
 
 /**
  * 

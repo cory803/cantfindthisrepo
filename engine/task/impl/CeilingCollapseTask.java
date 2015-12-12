@@ -1,14 +1,14 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
 
-import com.strattus.engine.task.Task;
-import com.strattus.model.CombatIcon;
-import com.strattus.model.Graphic;
-import com.strattus.model.Hit;
-import com.strattus.model.Hitmask;
-import com.strattus.model.Locations.Location;
-import com.strattus.util.Misc;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.model.CombatIcon;
+import com.ikov.model.Graphic;
+import com.ikov.model.Hit;
+import com.ikov.model.Hitmask;
+import com.ikov.model.Locations.Location;
+import com.ikov.util.Misc;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Barrows

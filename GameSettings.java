@@ -1,9 +1,9 @@
-package com.strattus;
+package com.ikov;
 
 import java.math.BigInteger;
 
-import com.strattus.model.Position;
-import com.strattus.net.security.ConnectionHandler;
+import com.ikov.model.Position;
+import com.ikov.net.security.ConnectionHandler;
 
 public class GameSettings {
 	

@@ -1,8 +1,8 @@
-package com.strattus.model;
+package com.ikov.model;
 
-import com.strattus.GameSettings;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.world.content.Effigies;
+import com.ikov.GameSettings;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.content.Effigies;
 
 
 /**

@@ -1,4 +1,4 @@
-package com.strattus.net;
+package com.ikov.net;
 
 /**
  * The enumerated type whose elements represent the IO session states.

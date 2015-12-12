@@ -1,14 +1,14 @@
-package com.strattus.world.content.combat;
+package com.ikov.world.content.combat;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
-import com.strattus.world.content.combat.strategy.impl.DefaultRangedCombatStrategy;
-import com.strattus.world.content.combat.weapon.CombatSpecial;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
+import com.ikov.world.content.combat.strategy.impl.DefaultRangedCombatStrategy;
+import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A {@link Task} implementation that handles every combat 'hook' or 'turn'

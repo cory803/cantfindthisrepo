@@ -1,20 +1,20 @@
-package com.strattus.world.content.skill.impl.slayer;
+package com.ikov.world.content.skill.impl.slayer;
 
-import com.strattus.model.Item;
-import com.strattus.model.Locations;
-import com.strattus.model.Position;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Shop.ShopManager;
-import com.strattus.model.definitions.NpcDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.content.transportation.TeleportHandler;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.Locations;
+import com.ikov.model.Position;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Shop.ShopManager;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Slayer {
 

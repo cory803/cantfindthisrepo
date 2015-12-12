@@ -1,9 +1,9 @@
-package com.strattus.engine.task.impl;
+package com.ikov.engine.task.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.GroundItem;
-import com.strattus.world.entity.impl.GroundItemManager;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.GroundItem;
+import com.ikov.world.entity.impl.GroundItemManager;
 
 public class GroundItemsTask extends Task {
 	

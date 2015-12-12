@@ -1,8 +1,8 @@
-package com.strattus.world.content.skill.impl.hunter;
+package com.ikov.world.content.skill.impl.hunter;
 
-import com.strattus.model.Item;
-import com.strattus.model.ItemRarity;
-import com.strattus.util.Misc;
+import com.ikov.model.Item;
+import com.ikov.model.ItemRarity;
+import com.ikov.util.Misc;
 
 public enum JarData {
 

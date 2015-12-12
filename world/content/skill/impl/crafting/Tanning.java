@@ -1,8 +1,8 @@
-package com.strattus.world.content.skill.impl.crafting;
+package com.ikov.world.content.skill.impl.crafting;
 
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.model.input.impl.EnterAmountOfHidesToTan;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.model.input.impl.EnterAmountOfHidesToTan;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Tanning {
 

@@ -1,4 +1,4 @@
-package com.strattus.world.entity.impl.player;
+package com.ikov.world.entity.impl.player;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -8,8 +8,8 @@ import java.util.logging.Level;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
-import com.strattus.GameServer;
-import com.strattus.util.Misc;
+import com.ikov.GameServer;
+import com.ikov.util.Misc;
 
 public class PlayerSaving {
 	

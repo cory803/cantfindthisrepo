@@ -1,15 +1,15 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.strattus.model.Item;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.content.combat.prayer.CurseHandler;
-import com.strattus.world.content.combat.prayer.PrayerHandler;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.content.combat.prayer.CurseHandler;
+import com.ikov.world.content.combat.prayer.PrayerHandler;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles items kept on death.

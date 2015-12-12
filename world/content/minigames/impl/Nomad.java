@@ -1,16 +1,16 @@
-package com.strattus.world.content.minigames.impl;
+package com.ikov.world.content.minigames.impl;
 
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Graphic;
-import com.strattus.model.Position;
-import com.strattus.model.RegionInstance;
-import com.strattus.model.RegionInstance.RegionInstanceType;
-import com.strattus.world.World;
-import com.strattus.world.content.PlayerPanel;
-import com.strattus.world.content.dialogue.DialogueManager;
-import com.strattus.world.entity.impl.npc.NPC;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Graphic;
+import com.ikov.model.Position;
+import com.ikov.model.RegionInstance;
+import com.ikov.model.RegionInstance.RegionInstanceType;
+import com.ikov.world.World;
+import com.ikov.world.content.PlayerPanel;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * @author Gabriel Hannason

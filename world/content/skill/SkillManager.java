@@ -1,32 +1,32 @@
-package com.strattus.world.content.skill;
+package com.ikov.world.content.skill;
 
 import com.google.common.collect.Range;
 import com.google.common.collect.RangeMap;
 import com.google.common.collect.TreeRangeMap;
-import com.strattus.GameSettings;
-import com.strattus.engine.task.Task;
-import com.strattus.engine.task.TaskManager;
-import com.strattus.model.Flag;
-import com.strattus.model.GameMode;
-import com.strattus.model.Graphic;
-import com.strattus.model.Locations.Location;
-import com.strattus.model.PlayerRights;
-import com.strattus.model.Skill;
-import com.strattus.model.container.impl.Equipment;
-import com.strattus.model.definitions.WeaponAnimations;
-import com.strattus.model.definitions.WeaponInterfaces;
-import com.strattus.util.Misc;
-import com.strattus.world.World;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.BonusManager;
-import com.strattus.world.content.BrawlingGloves;
-import com.strattus.world.content.WellOfGoodwill;
-import com.strattus.world.content.Sounds;
-import com.strattus.world.content.Sounds.Sound;
-import com.strattus.world.content.combat.prayer.CurseHandler;
-import com.strattus.world.content.combat.prayer.PrayerHandler;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
+import com.ikov.model.Flag;
+import com.ikov.model.GameMode;
+import com.ikov.model.Graphic;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
+import com.ikov.model.definitions.WeaponAnimations;
+import com.ikov.model.definitions.WeaponInterfaces;
+import com.ikov.util.Misc;
+import com.ikov.world.World;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.BrawlingGloves;
+import com.ikov.world.content.WellOfGoodwill;
+import com.ikov.world.content.Sounds;
+import com.ikov.world.content.Sounds.Sound;
+import com.ikov.world.content.combat.prayer.CurseHandler;
+import com.ikov.world.content.combat.prayer.PrayerHandler;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Represents a player's skills in the game, also manages

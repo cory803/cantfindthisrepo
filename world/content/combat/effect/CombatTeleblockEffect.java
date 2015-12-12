@@ -1,7 +1,7 @@
-package com.strattus.world.content.combat.effect;
+package com.ikov.world.content.combat.effect;
 
-import com.strattus.engine.task.Task;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.engine.task.Task;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A {@link Task} implementation that will unteleblock the player after the

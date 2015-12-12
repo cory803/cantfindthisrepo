@@ -1,16 +1,16 @@
-package com.strattus.net.packet.impl;
+package com.ikov.net.packet.impl;
 
-import com.strattus.GameSettings;
-import com.strattus.model.Animation;
-import com.strattus.model.Graphic;
-import com.strattus.model.GraphicHeight;
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.net.packet.Packet;
-import com.strattus.net.packet.PacketListener;
-import com.strattus.world.content.combat.magic.MagicSpells;
-import com.strattus.world.content.combat.magic.Spell;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.model.Animation;
+import com.ikov.model.Graphic;
+import com.ikov.model.GraphicHeight;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.net.packet.Packet;
+import com.ikov.net.packet.PacketListener;
+import com.ikov.world.content.combat.magic.MagicSpells;
+import com.ikov.world.content.combat.magic.Spell;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles magic on items. 

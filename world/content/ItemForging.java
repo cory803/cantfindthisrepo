@@ -1,12 +1,12 @@
-package com.strattus.world.content;
+package com.ikov.world.content;
 
-import com.strattus.model.Graphic;
-import com.strattus.model.Item;
-import com.strattus.model.Skill;
-import com.strattus.model.definitions.ItemDefinition;
-import com.strattus.util.Misc;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Graphic;
+import com.ikov.model.Item;
+import com.ikov.model.Skill;
+import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Handles item forging, such as Spirit shields making etc.

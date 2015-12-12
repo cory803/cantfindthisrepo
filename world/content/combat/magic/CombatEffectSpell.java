@@ -1,10 +1,10 @@
-package com.strattus.world.content.combat.magic;
+package com.ikov.world.content.combat.magic;
 
 import java.util.Optional;
 
-import com.strattus.model.Item;
-import com.strattus.world.entity.impl.Character;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Item;
+import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * A {@link Spell} implementation primarily used for spells that have effects

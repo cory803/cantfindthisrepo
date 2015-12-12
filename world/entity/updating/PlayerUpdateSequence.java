@@ -1,11 +1,11 @@
-package com.strattus.world.entity.updating;
+package com.ikov.world.entity.updating;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Phaser;
 
-import com.strattus.world.World;
-import com.strattus.world.entity.impl.npc.NpcAggression;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.world.World;
+import com.ikov.world.entity.impl.npc.NpcAggression;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PlayerUpdateSequence implements UpdateSequence<Player> {
 

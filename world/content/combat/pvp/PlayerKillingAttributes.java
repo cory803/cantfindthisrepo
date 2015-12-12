@@ -1,17 +1,17 @@
-package com.strattus.world.content.combat.pvp;
+package com.ikov.world.content.combat.pvp;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.strattus.model.Locations.Location;
-import com.strattus.util.Misc;
-import com.strattus.world.content.Achievements;
-import com.strattus.world.content.Achievements.AchievementData;
-import com.strattus.world.content.Artifacts;
-import com.strattus.world.content.LoyaltyProgramme;
-import com.strattus.world.content.LoyaltyProgramme.LoyaltyTitles;
-import com.strattus.world.content.Scoreboards;
-import com.strattus.world.entity.impl.player.Player;
+import com.ikov.model.Locations.Location;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.Artifacts;
+import com.ikov.world.content.LoyaltyProgramme;
+import com.ikov.world.content.LoyaltyProgramme.LoyaltyTitles;
+import com.ikov.world.content.Scoreboards;
+import com.ikov.world.entity.impl.player.Player;
 
 public class PlayerKillingAttributes {
 

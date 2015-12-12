@@ -1,6 +1,6 @@
-package com.strattus.world.content.dialogue;
+package com.ikov.world.content.dialogue;
 
-import com.strattus.model.Animation;
+import com.ikov.model.Animation;
 
 /**
  * Represents a dialogue head model's animation.
