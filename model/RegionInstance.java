@@ -16,6 +16,7 @@ import com.ikov.world.entity.impl.player.Player;
 public class RegionInstance {
 
 	public enum RegionInstanceType {
+		BOSS_SYSTEM,
 		BARROWS,
 		GRAVEYARD,
 		FIGHT_CAVE,

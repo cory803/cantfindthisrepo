@@ -18,6 +18,7 @@ import com.ikov.world.World;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Artifacts;
 import com.ikov.world.content.BankPin;
+import com.ikov.world.content.BossSystem;
 import com.ikov.world.content.CustomObjects;
 import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Effigies;
@@ -152,8 +153,11 @@ public class DialogueOptions {
 					}
 				}
 				break;
-				case 80:
+			case 80:
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
+				break;
+			case 134://first boss
+				BossSystem.startBoss(player, 50);
 				break;
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {
@@ -817,6 +821,10 @@ public class DialogueOptions {
 			case 128:
 				ShopManager.getShops().get(48).open(player);
 			break;
+			case 133: //boss system - start; choose a boss
+				DialogueManager.start(player, 134);
+				player.setDialogueActionId(134);
+				break;
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
@@ -862,6 +870,9 @@ public class DialogueOptions {
 				break;
 			case 128:
 				ShopManager.getShops().get(12).open(player);
+				break;
+			case 133: //boss system - close(finish)
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {

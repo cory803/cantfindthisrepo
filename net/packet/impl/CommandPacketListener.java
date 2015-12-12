@@ -148,8 +148,12 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage(":: jail :: remindvote :: staffzone :: unjail :: movehome");
 			player.getPacketSender().sendMessage(":: mute :: teleto");
 		}
+
+		if(wholeCommand.equalsIgnoreCase("testboss")) {
+			player.setDialogueActionId(133);
+		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
-			Gson builder = new GsonBuilder().setPrettyPrinting().create();
+				Gson builder = new GsonBuilder().setPrettyPrinting().create();
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}

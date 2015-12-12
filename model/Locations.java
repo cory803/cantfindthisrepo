@@ -355,6 +355,31 @@ public class Locations {
 				return true;
 			}
 		},
+		BOSS_SYSTEM(new int[]{2380, 2410}, new int[]{9868, 9910}, true, true, true, false, false, false) {
+			@Override
+			public void process(Player player) {}
+
+			@Override
+			public boolean canTeleport(Player player) {
+				return true;
+			}
+
+			@Override
+			public void login(Player player) {}
+
+			@Override
+			public void leave(Player player) {
+				player.getCombatBuilder().reset(true);
+				if(player.getRegionInstance() != null) {
+					player.getRegionInstance().destruct();
+				}
+			}
+
+			public void onDeath(Player player) {
+				leave(player);
+			}
+
+		},
 		GRAVEYARD(new int[]{3485, 3517}, new int[]{3559, 3580}, true, true, false, true, false, false) {
 			@Override
 			public void process(Player player) {
