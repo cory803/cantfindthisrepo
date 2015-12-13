@@ -1,5 +1,6 @@
 package com.ikov.world.content;
 
+import com.ikov.model.GameMode;
 import com.ikov.model.Item;
 import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.player.Player;
@@ -26,6 +27,10 @@ public enum PkSets {
 	
 	public static void buySet(Player player, PkSets set) {
 		player.getPacketSender().sendInterfaceRemoval();
+		if(player.getGameMode() == GameMode.IRONMAN ||player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			player.getPacketSender().sendMessage("You're unable to access this shop because you're an "+player.getGameMode()+".");
+			return;
+		}
 		if(player.getInventory().getFreeSlots() < set.items.length) {
 			player.getPacketSender().sendMessage("You need at least "+set.items.length+" free inventory slots to buy this set.");
 			return;

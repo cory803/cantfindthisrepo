@@ -97,7 +97,7 @@ public class Shop extends ItemContainer {
 	 * @return			The shop instance
 	 */
 	public Shop open(Player player) {
-		if((id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 ||
+		if((id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 ||
 		   id == 7 || id == 13 || id == 14 ||id == 15 || id == 16 || id == 19 ||
 		   id == 26 || id == 27 || id == 34 || id == 35 || id == 41 || id == 46) &&
 		   (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN)) {

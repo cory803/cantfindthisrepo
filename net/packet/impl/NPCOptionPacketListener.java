@@ -69,6 +69,10 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 				switch(npc.getId()) {
+				case 4375:
+					player.setDialogueActionId(133);
+					DialogueManager.start(player, 133);
+					break;
 				case 1304:
 					DialogueManager.start(player, 127);
 					player.setDialogueActionId(80);

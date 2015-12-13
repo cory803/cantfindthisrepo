@@ -640,7 +640,7 @@ public class PacketSender {
 		player.write(builder.toPacket());
 		return this;
 	}*/
-
+	public int authCount;
 	public void giveVoteReward() {
 		//int[] voteItems = {
 		//		15069, 15071
@@ -648,6 +648,7 @@ public class PacketSender {
 		final int RANDOM_INT = 1000;
 		MoneyPouch.depositVote(player, 1000000);
 		player.getPointsHandler().incrementVotingPoints(1);
+		authCount++;
 		player.getPacketSender().sendMessage("You have just claimed an auth for 1m and 1 vote point.");
 		int random = Misc.getRandom(RANDOM_INT);
 		System.out.println("Random number is " +random);
@@ -661,12 +662,12 @@ public class PacketSender {
 			Item item = new Item(15069, 1);
 			player.getInventory().add(item, true);
 			sendMessage("You got a rare drop of a red voting hat.");
-			World.sendMessage("[@blu@Rare@bla@] "+player.getUsername()+" has gotten a rare vote item of a "+item.getDefinition().getName()+".");
+			World.sendMessage("[@blu@Vote@bla@] "+player.getUsername()+" has gotten a rare vote item of a "+item.getDefinition().getName()+".");
 		} else if(random % 34 == 49) {
 			Item item = new Item(15071, 1);
 			player.getInventory().add(item, true);
 			sendMessage("You got a rare drop of a blue voting hat.");
-			World.sendMessage("[@blu@Rare@bla@] "+player.getUsername()+" has gotten a rare vote item of a "+item.getDefinition().getName()+".");
+			World.sendMessage("[@blu@Vote@bla@] "+player.getUsername()+" has gotten a rare vote item of a "+item.getDefinition().getName()+".");
 		} else {
 			sendMessage("Sorry you did not receive anything on the extra roll.");
 		}

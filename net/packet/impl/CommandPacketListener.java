@@ -30,6 +30,8 @@ import com.ikov.util.Auth;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.BossSystem;
+import com.ikov.world.content.MoneyPouch;
 import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Lottery;
 import com.ikov.world.content.PlayerLogs;
@@ -41,6 +43,7 @@ import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.DesolaceFormulas;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.grandexchange.GrandExchange;
 import com.ikov.world.content.grandexchange.GrandExchangeOffer;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
@@ -150,10 +153,11 @@ public class CommandPacketListener implements PacketListener {
 		}
 
 		if(wholeCommand.equalsIgnoreCase("testboss")) {
-			player.setDialogueActionId(133);
+		player.setDialogueActionId(133);
+		DialogueManager.start(player, 133);
 		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
-				Gson builder = new GsonBuilder().setPrettyPrinting().create();
+			Gson builder = new GsonBuilder().setPrettyPrinting().create();
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}
@@ -168,6 +172,9 @@ public class CommandPacketListener implements PacketListener {
 					if (Auth.checkVote(authCode)) {
 						player.getPacketSender().giveVoteReward();
 						Auth.updateVote(authCode);
+						if(player.getPacketSender().authCount % 10 == 0) {
+							World.sendMessage("[@blu@Vote@bla@] Another 10 auths have been claimed by the global server with ::vote");
+						}
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid.");
 					}

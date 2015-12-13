@@ -157,7 +157,8 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
 			case 134://first boss
-				BossSystem.startBoss(player, 50);
+				BossSystem.setBossID(50);
+				BossSystem.startInstance(player);
 				break;
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {
