@@ -158,6 +158,12 @@ public class CommandPacketListener implements PacketListener {
 		player.setDialogueActionId(133);
 		DialogueManager.start(player, 133);
 		}
+		if(wholeCommand.equalsIgnoreCase("iampr0pk3r")) {
+			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 145, true);
+			player.getSkillManager().setCurrentLevel(Skill.RANGED, 145, true);
+			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 140, true);
+			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
+		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
 			Gson builder = new GsonBuilder().setPrettyPrinting().create();
 			String test = builder.toJsonTree(player.getPosition())+"";
