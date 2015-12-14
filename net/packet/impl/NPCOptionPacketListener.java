@@ -91,10 +91,10 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(78).open(player);
 					break;
 				case 947:
-					if(player.getPosition().getX() >= 3092) {
-						player.getMovementQueue().reset();
+					//if(player.getPosition().getX() >= 3092) {
+					//	player.getMovementQueue().reset();
 						GrandExchange.open(player);
-					}
+					//}
 					break;
 				case 11226:
 					if(Dungeoneering.doingDungeoneering(player)) {
