@@ -264,6 +264,7 @@ public class PacketSender {
 	}
 
 	public PacketSender sendPlayerHeadOnInterface(int id) {
+		System.out.println("The id is: "+id);
 		PacketBuilder out = new PacketBuilder(185);
 		out.putShort(id, ValueType.A, ByteOrder.LITTLE);
 		player.getSession().queueMessage(out);
