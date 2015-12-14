@@ -124,6 +124,8 @@ public class CommandPacketListener implements PacketListener {
 			case PREMIUM_DONATOR:
 			case PRIME_DONATOR:
 			case PLATINUM_DONATOR:
+			case LEGENDARY_DONATOR:
+			case UBER_DONATOR:
 				playerCommands(player, parts, command);
 				memberCommands(player, parts, command);
 				break;
@@ -364,11 +366,15 @@ public class CommandPacketListener implements PacketListener {
 			} else if(player.getRights().equals(PlayerRights.ADMINISTRATOR)) {
 				World.sendMessage("<col=FFFF00><shad=0>[<img="+player.getRights().ordinal()+">Adminsitrator<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);			
 			} else if(player.getRights().equals(PlayerRights.PREMIUM_DONATOR)) {
-				World.sendMessage("<col=ff0000><shad=0>[Premium Donator] [<img="+player.getRights().ordinal()+">"+player.getUsername()+"] : "+yellMessage);			
+				World.sendMessage("<img="+player.getRights().ordinal()+"><shad=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);			
 			} else if(player.getRights().equals(PlayerRights.PRIME_DONATOR)) {
-				World.sendMessage("<col=bfbf07><shad=0>[Prime Donator] [<img="+player.getRights().ordinal()+">"+player.getUsername()+"] : "+yellMessage);			
+				World.sendMessage("<img="+player.getRights().ordinal()+"><col=0>[<col=2B547E>Super] "+player.getUsername()+": "+yellMessage);			
 			} else if(player.getRights().equals(PlayerRights.PLATINUM_DONATOR)) {
-				World.sendMessage("<col=c0c0c0><shad=0>[Platinum Donator] [<img="+player.getRights().ordinal()+">"+player.getUsername()+"] : "+yellMessage);			
+				World.sendMessage("<img="+player.getRights().ordinal()+"><col=0>[<col=00ff00><shad=0>Extreme</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			} else if(player.getRights().equals(PlayerRights.LEGENDARY_DONATOR)) {
+				World.sendMessage("<img="+player.getRights().ordinal()+"><col=0>[<col=800080><shad=0>Legendary</shad><col=0>] "+player.getUsername()+": "+yellMessage);
+			} else if(player.getRights().equals(PlayerRights.UBER_DONATOR)) {
+				World.sendMessage("<img="+player.getRights().ordinal()+"><col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);			
 			} else if(player.getRights().equals(PlayerRights.SUPPORT)) {
 				World.sendMessage("<col=589fe1><shad=0>[<img="+player.getRights().ordinal()+">Server Support<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);							
 			} else {
