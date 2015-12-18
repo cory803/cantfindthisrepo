@@ -2,18 +2,13 @@ package com.ikov.world.content;
 
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.NPCRespawnTask;
 import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
-import com.ikov.model.GroundItem;
-import com.ikov.model.Item;
 import com.ikov.model.Position;
 import com.ikov.model.RegionInstance;
 import com.ikov.model.RegionInstance.RegionInstanceType;
-import com.ikov.model.definitions.NpcDefinition;
-import com.ikov.util.Misc;
 import com.ikov.world.World;
-import com.ikov.world.content.dialogue.DialogueManager;
-import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -50,7 +45,8 @@ public class BossSystem {
 					stop();
 					return;
 				}
-				NPC n = new NPC(bossID, new Position(2392, 9894, player.getPosition().getZ()));
+				NPC n = new NPC(bossID, new Position(2392, 9894, player.getPosition().getZ())).setSpawnedFor(player);
+				n.getDefinition().setRespawnTime(-1);
 				World.register(n);
 				player.getRegionInstance().getNpcsList().add(n);
 				n.getCombatBuilder().attack(player);
@@ -61,7 +57,9 @@ public class BossSystem {
 
 	public static void bossKilled(final Player player, NPC n) {
 			if(player.getRegionInstance() != null)
-				player.getRegionInstance().getNpcsList().remove(n);
+			player.getRegionInstance().getNpcsList().remove(n);
+			World.deregister(n);
+			TaskManager.submit(new NPCRespawnTask(n, 0));
 			leaveInstance(player);
 	}
 }
