@@ -16,6 +16,7 @@ import com.ikov.model.input.impl.SetEmail;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.BossSystem.Bosses;
 import com.ikov.world.content.Artifacts;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BossSystem;
@@ -157,8 +158,8 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
 			case 134://first boss
-				BossSystem.setBossID(50);
-				BossSystem.startInstance(player);
+				BossSystem.startInstance(player, BossSystem.Bosses.KBD.getBossID());
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {

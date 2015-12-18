@@ -3,6 +3,7 @@ package com.ikov.model;
 import com.ikov.GameSettings;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
+import com.ikov.world.content.BossSystem;
 import com.ikov.world.content.PlayerPunishment.Jail;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.pvp.BountyHunter;
@@ -355,7 +356,7 @@ public class Locations {
 				return true;
 			}
 		},
-		BOSS_SYSTEM(new int[]{2380, 2410}, new int[]{9868, 9910}, true, true, true, false, false, false) {
+		BOSS_SYSTEM(new int[]{2350, 2450}, new int[]{9800, 10000}, true, true, true, false, false, false) {
 			@Override
 			public void process(Player player) {}
 
@@ -373,10 +374,18 @@ public class Locations {
 				if(player.getRegionInstance() != null) {
 					player.getRegionInstance().destruct();
 				}
+				player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY(), 0));
 			}
 
+			@Override
 			public void onDeath(Player player) {
 				leave(player);
+			}
+
+			@Override
+			public boolean handleKilledNPC(Player killer, NPC npc) {
+				BossSystem.bossKilled(killer, npc);
+				return true;
 			}
 
 		},

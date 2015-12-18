@@ -252,6 +252,9 @@ public class Position {
 	public Position copy() {
 		return new Position(x, y, z);
 	}
+	public Position copyXY() {
+		return new Position(x, y, 0);
+	}
 
 	@Override
 	public String toString() {

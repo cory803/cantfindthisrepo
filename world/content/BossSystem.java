@@ -4,22 +4,20 @@ import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
+import com.ikov.model.GroundItem;
+import com.ikov.model.Item;
 import com.ikov.model.Position;
 import com.ikov.model.RegionInstance;
 import com.ikov.model.RegionInstance.RegionInstanceType;
+import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.util.Misc;
 import com.ikov.world.World;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 
 public class BossSystem {
-	private static int bossId;
-	public static int getBossID() {
-			return bossId;
-		}
-
-		public static void setBossID(int bossID) {
-			bossId = bossID;
-		}
 		public enum Bosses {
 			KBD(50), BOSS(1);
 			
@@ -28,12 +26,16 @@ public class BossSystem {
 			private Bosses(int id) {
 				npcId = id;
 			}
+			public int getBossID() {
+				return npcId;
+			}
 			
 		};
-	public static void startInstance(Player player) {
+	public static void startInstance(Player player, int bossID) {
 		player.moveTo(new Position(2392, 9903, player.getIndex() * 4));
 		player.setRegionInstance(new RegionInstance(player, RegionInstanceType.BOSS_SYSTEM));
-		spawnBoss(player, getBossID());
+		spawnBoss(player, bossID);
+		
 	}
 
 	public static void leaveInstance(Player player) {
@@ -48,7 +50,7 @@ public class BossSystem {
 					stop();
 					return;
 				}
-				NPC n = new NPC(bossID, new Position(2392, 9894, player.getPosition().getZ())).setSpawnedFor(player);
+				NPC n = new NPC(bossID, new Position(2392, 9894, player.getPosition().getZ()));
 				World.register(n);
 				player.getRegionInstance().getNpcsList().add(n);
 				n.getCombatBuilder().attack(player);
@@ -62,5 +64,5 @@ public class BossSystem {
 				player.getRegionInstance().getNpcsList().remove(n);
 			leaveInstance(player);
 	}
-
 }
+

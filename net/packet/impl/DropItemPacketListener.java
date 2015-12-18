@@ -56,7 +56,7 @@ public class DropItemPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("You can't drop this item outside of a dungeon!");
 						return;
 					}
-					System.out.println("Dropped item");
+					//System.out.println("Dropped item");
 					GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 80, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 80));
 					PlayerLogs.log(player.getUsername(), "Player dropping item: "+item.getId()+", amount: "+item.getAmount());
 				}
