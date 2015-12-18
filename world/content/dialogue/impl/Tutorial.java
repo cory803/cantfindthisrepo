@@ -43,7 +43,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -72,7 +72,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -106,7 +106,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -140,7 +140,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -175,7 +175,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -211,7 +211,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -245,7 +245,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -279,7 +279,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -313,7 +313,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -347,7 +347,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -381,7 +381,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -415,7 +415,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -450,7 +450,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -485,7 +485,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override
@@ -514,7 +514,7 @@ public class Tutorial {
 
 				@Override
 				public int npcId() {
-					return 8591;
+					return 945;
 				}
 
 				@Override

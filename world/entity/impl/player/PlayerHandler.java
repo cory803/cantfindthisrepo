@@ -156,7 +156,7 @@ public class PlayerHandler {
 		//Others
 		Lottery.onLogin(player);
 		Locations.login(player);
-		player.getPacketSender().sendMessage("@bla@Welcome to IKov! Join @red@IKov@bla@ clan chat for help!");
+		player.getPacketSender().sendMessage("@bla@Welcome to IKov! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
 		if(player.experienceLocked())
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 		ClanChatManager.handleLogin(player);
@@ -173,7 +173,7 @@ public class PlayerHandler {
 
 		//New player
 		if(player.newPlayer()) {
-			player.setClanChatName("strattus");
+			player.setClanChatName("ikov");
 			player.setPlayerLocked(true).setDialogueActionId(45);
 			DialogueManager.start(player, 81);
 		}
