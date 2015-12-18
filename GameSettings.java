@@ -10,7 +10,12 @@ public class GameSettings {
 	/**
 	 * The game port
 	 */
-	public static final int GAME_PORT = 59018;
+	public static final int GAME_PORT = 59018;	
+	
+	/**
+	 * The game client_version
+	 */
+	public static String client_version = "none";
 
 	/**
 	 * The game version

@@ -37,8 +37,8 @@ public final class LoginDetailsMessage {
     /**
      * The player's client version.
      */
-    private final int clientVersion;
-
+    private final String clientVersion; 
+	
     /**
      * The player's client uid.
      */
@@ -59,7 +59,7 @@ public final class LoginDetailsMessage {
      * @param decryptor
      *            the decryptor for decrypting messages.
      */
-    public LoginDetailsMessage(String username, String password, String host, String serial_number, int clientVersion, int uid) {
+    public LoginDetailsMessage(String username, String password, String host, String serial_number, String clientVersion, int uid) {
         this.username = username;
         this.password = password;
         this.host = host;
@@ -109,7 +109,7 @@ public final class LoginDetailsMessage {
      * 
      * @return the client version.
      */
-    public int getClientVersion() {
+    public String getClientVersion() {
     	return clientVersion;
     }
     

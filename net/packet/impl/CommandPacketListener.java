@@ -9,6 +9,11 @@ import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
 import com.ikov.model.Flag;
+import java.net.*;
+import java.io.*;
+import java.util.*;
+import java.awt.*;
+import javax.swing.*;
 import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
 import com.ikov.model.GroundItem;
@@ -705,6 +710,18 @@ public class CommandPacketListener implements PacketListener {
 			}
 			player.getPacketSender().sendMessage("Your skill levels have now been reset.");
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
+		}	
+		if (command[0].equals("resetclientversion")) {
+			System.out.println("Fetching client version...");
+			try {
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/Turmoil/update.txt").openStream()));
+				for (int i = 0; i < 1; i++) {
+					GameSettings.client_version = reader.readLine();
+				}
+				System.out.println("Client version has been set to: "+GameSettings.client_version+"");
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		if (command[0].equals("rights")) {
 				int rankId = Integer.parseInt(command[1]);

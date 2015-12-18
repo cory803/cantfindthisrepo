@@ -124,6 +124,7 @@ public final class LoginDecoder extends FrameDecoder {
 			String username = Misc.readString(rsaBuffer);
 			String password = Misc.readString(rsaBuffer);
 			String serial = Misc.readString(rsaBuffer);
+			String client_version = Misc.readString(rsaBuffer);
 			if (username.length() > 12 || password.length() > 20) {
 				System.out.println("Username or password length too long");
 				return null;
@@ -131,7 +132,7 @@ public final class LoginDecoder extends FrameDecoder {
 			username = Misc.formatText(username.toLowerCase());
 			channel.getPipeline().replace("encoder", "encoder", new PacketEncoder(new IsaacRandom(seed)));
 			channel.getPipeline().replace("decoder", "decoder", new PacketDecoder(decodingRandom));
-			return login(channel, new LoginDetailsMessage(username, password, ((InetSocketAddress) channel.getRemoteAddress()).getAddress().getHostAddress(), serial, clientVersion, uid));
+			return login(channel, new LoginDetailsMessage(username, password, ((InetSocketAddress) channel.getRemoteAddress()).getAddress().getHostAddress(), serial, client_version, uid));
 		}
 		return null;
 	}
