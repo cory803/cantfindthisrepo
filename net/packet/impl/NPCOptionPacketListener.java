@@ -243,6 +243,9 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.setEntityInteraction(npc);
 					Fishing.setupFishing(player, Fishing.forSpot(npc.getId(), false));
 					break;
+				case 2733:
+					ShopManager.getShops().get(60).open(player);
+					break;
 				case 805:
 					ShopManager.getShops().get(34).open(player);
 					break;
