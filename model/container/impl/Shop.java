@@ -639,57 +639,51 @@ public class Shop extends ItemContainer {
 			if(shop == VOTING_REWARDS_STORE) {
 				switch(item) {
 				case 6500:
-					return new Object[]{100, "Voting points"};
 				case 19336:
-					return new Object[]{125, "Voting points"};
 				case 19337:
 				case 19338:
 				case 19339:
-					return new Object[]{100, "Voting points"};
 				case 19340:
+					return new Object[]{15, "Voting points"};
 				case 9813:
-					return new Object[]{85, "Voting points"};
-				case 20084:
 					return new Object[]{50, "Voting points"};
-				case 6199:
+				case 20084:
 				case 11850:
 				case 11856:
 				case 11854:
 				case 11852:
 				case 11846:
-					return new Object[]{100, "Voting points"};
-				case 6585:
-				case 13262:
+				case 11848:
+				case 19335:
+					return new Object[]{25, "Voting points"};
+				case 6199:
+					return new Object[]{4, "Voting points"};
+				case 15501:
 				case 15018:
 				case 15019:
 				case 15020:
 				case 15220:
-					return new Object[]{50, "Voting points"};
-				case 19335:
-					return new Object[]{120, "Voting points"};
+					return new Object[]{10, "Voting points"};
+				case 13262:
+					return new Object[]{6, "Voting points"};
+				case 6585:
+					return new Object[]{8, "Voting points"};
 				case 6570:
-					return new Object[]{30, "Voting points"};
+					return new Object[]{5, "Voting points"};
 				case 19111:
-					return new Object[]{70, "Voting points"};
 				case 14004:
 				case 14005:
 				case 14006:
 				case 14007:
-				case 15441:
-				case 15442:
-				case 15443:
-				case 15444:
-					return new Object[]{80, "Voting points"};
+				case 2577:
+					return new Object[]{15, "Voting points"};
 				case 15332:
 					return new Object[]{2, "Voting points"};
 				case 14000:
 				case 14001:
 				case 14002:
 				case 14003:
-				case 2577:
-					return new Object[]{35, "Voting points"};
-				case 11848:
-					return new Object[]{35, "Voting points"};
+					return new Object[]{30, "Voting points"};
 				case 13663:
 					return new Object[]{10, "Voting points"};
 				}
@@ -770,7 +764,7 @@ public class Shop extends ItemContainer {
 				case 2572:
 				case 15241:
 					return new Object[]{50, "Donator points"};
-				case 13262:
+				case 5:
 					return new Object[]{25, "Donator points"};
 				}
 			} else if(shop == PKING_REWARDS_STORE) {
