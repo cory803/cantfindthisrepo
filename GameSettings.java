@@ -94,7 +94,10 @@ public class GameSettings {
 
 	
 	public static final int MAX_STARTERS_PER_IP = 1;
-	
+	/**
+	 * Test
+	 * Test
+	 */
 	/**
 	 * Untradeable items
 	 * Items which cannot be traded or staked
