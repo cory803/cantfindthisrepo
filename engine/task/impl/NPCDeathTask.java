@@ -55,10 +55,6 @@ public class NPCDeathTask extends Task {
 	@Override
 	public void execute() {
 		try {
-			npc_killer = npc.getCombatBuilder().getKiller(true);
-			if(npc_killer.isRotatingZulrah() && (npc.getId() == 2045 || npc.getId() == 2044 || npc.getId() == 2043 || npc.getId() == 2042)) {
-				return;
-			}
 			npc.setEntityInteraction(null);
 			switch (ticks) {
 			case 2:

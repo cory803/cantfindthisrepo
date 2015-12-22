@@ -72,7 +72,6 @@ public class CombatBuilder {
 	 *            the entity that this controller will attempt to attack.
 	 */
 	public void attack(Character target) {
-		System.out.println("Attacking");
 		// Make sure we aren't attacking ourself.
 		if (character.equals(target)) {
 			return;
@@ -475,3 +474,4 @@ public class CombatBuilder {
 		combatTask.execute();
 	}
 }
+
