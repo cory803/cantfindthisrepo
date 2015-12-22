@@ -12,6 +12,7 @@ import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.Entity;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.content.minigames.impl.Zulrah;
 
 /**
  * Holds methods for running the entire combat process.
@@ -71,7 +72,7 @@ public class CombatBuilder {
 	 *            the entity that this controller will attempt to attack.
 	 */
 	public void attack(Character target) {
-
+		System.out.println("Attacking");
 		// Make sure we aren't attacking ourself.
 		if (character.equals(target)) {
 			return;

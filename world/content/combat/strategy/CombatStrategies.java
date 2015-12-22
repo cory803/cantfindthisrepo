@@ -28,6 +28,8 @@ import com.ikov.world.content.combat.strategy.impl.PlaneFreezer;
 import com.ikov.world.content.combat.strategy.impl.Revenant;
 import com.ikov.world.content.combat.strategy.impl.Spinolyp;
 import com.ikov.world.content.combat.strategy.impl.Steelwill;
+import com.ikov.world.content.combat.strategy.impl.Zulrah_Red;
+import com.ikov.world.content.combat.strategy.impl.Zulrah_Green;
 import com.ikov.world.content.combat.strategy.impl.TormentedDemon;
 import com.ikov.world.content.combat.strategy.impl.Tsutsuroth;
 import com.ikov.world.content.combat.strategy.impl.WingmanSkree;
@@ -70,6 +72,8 @@ public class CombatStrategies {
 		STRATEGIES.put(27, defaultRangedStrategy);
 		
 		STRATEGIES.put(2745, new Jad());
+		STRATEGIES.put(2044, new Zulrah_Red());
+		STRATEGIES.put(2043, new Zulrah_Green());
 		STRATEGIES.put(8528, new Nomad());
 		STRATEGIES.put(8349, new TormentedDemon());
 		STRATEGIES.put(3200, new ChaosElemental());

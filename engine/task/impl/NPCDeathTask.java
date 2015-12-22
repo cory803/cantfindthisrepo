@@ -49,11 +49,16 @@ public class NPCDeathTask extends Task {
 	 * The player who killed the NPC
 	 */
 	private Player killer = null;
+	private Player npc_killer = null;
 
 	@SuppressWarnings("incomplete-switch")
 	@Override
 	public void execute() {
 		try {
+			npc_killer = npc.getCombatBuilder().getKiller(true);
+			if(npc_killer.isRotatingZulrah() && (npc.getId() == 2045 || npc.getId() == 2044 || npc.getId() == 2043 || npc.getId() == 2042)) {
+				return;
+			}
 			npc.setEntityInteraction(null);
 			switch (ticks) {
 			case 2:

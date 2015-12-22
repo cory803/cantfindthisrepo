@@ -11,6 +11,7 @@ import com.ikov.model.Locations.Location;
 import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.definitions.NpcDefinition;
 import com.ikov.net.packet.Packet;
+import com.ikov.world.content.minigames.impl.Zulrah;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.world.World;
 import com.ikov.world.content.EnergyHandler;
@@ -343,6 +344,9 @@ public class NPCOptionPacketListener implements PacketListener {
 
 		if(player.getRights() == PlayerRights.DEVELOPER) {
 			player.getPacketSender().sendMessage("Attacking npc id: "+interact.getId());
+		}
+		if(player.isZulrahMoving() && (interact.getId() == Zulrah.ZULRAH_GREEN_NPC_ID || interact.getId() == Zulrah.ZULRAH_RED_NPC_ID || interact.getId() == Zulrah.ZULRAH_BLUE_NPC_ID || interact.getId() == Zulrah.ZULRAH_JAD_NPC_ID)) {
+			return;
 		}
 		//System.out.println();
 		player.getCombatBuilder().attack(interact);

@@ -44,7 +44,9 @@ public class PlayerProcess {
 		if(player.shouldProcessFarming()) {
 			player.getFarming().sequence();
 		}
-
+		if(player.getZulrahTime() > 0) {
+			player.decremenetZulrahTimer();
+		}
 		/** MISC **/
 
 		if(previousHeight != player.getPosition().getZ()) {

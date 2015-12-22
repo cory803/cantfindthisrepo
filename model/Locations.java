@@ -11,6 +11,7 @@ import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.minigames.impl.Barrows;
 import com.ikov.world.content.minigames.impl.FightCave;
 import com.ikov.world.content.minigames.impl.FightPit;
+import com.ikov.world.content.minigames.impl.Zulrah;
 import com.ikov.world.content.minigames.impl.Graveyard;
 import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.PestControl;
@@ -353,6 +354,38 @@ public class Locations {
 			@Override
 			public boolean handleKilledNPC(Player killer, NPC npc) {
 				FightCave.handleJadDeath(killer, npc);
+				return true;
+			}
+		},
+		ZULRAH_PIT(new int[]{2257, 2281}, new int[]{3063, 3084}, true, true, false, false, false, false) {
+			@Override
+			public void process(Player player) {}
+
+			@Override
+			public boolean canTeleport(Player player) {
+				return true;
+			}
+
+			@Override
+			public void login(Player player) {}
+
+			@Override
+			public void leave(Player player) {
+				player.getCombatBuilder().reset(true);
+				if(player.getRegionInstance() != null) {
+					player.getRegionInstance().destruct();
+				}
+				player.moveTo(new Position(3087, 3502));
+			}
+
+			@Override
+			public void onDeath(Player player) {
+				Zulrah.leave_pit(player, true);
+			}
+
+			@Override
+			public boolean handleKilledNPC(Player killer, NPC npc) {
+				Zulrah.handleZulrahDeath(killer, npc);
 				return true;
 			}
 		},

@@ -337,7 +337,7 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
-
+	
 	public PacketSender sendTabInterface(int tabId, int interfaceId) {
 		PacketBuilder out = new PacketBuilder(71);
 		out.putShort(interfaceId);

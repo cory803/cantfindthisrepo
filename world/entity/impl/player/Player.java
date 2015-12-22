@@ -413,6 +413,12 @@ public class Player extends Character {
 	private int fireImmunity, fireDamageModifier;
 	private int amountDonated;
 	private int credits;
+	private boolean is_zulrah_moving;
+	private int zulrah_health;
+	private int zulrah_movement;
+	private boolean is_rotating_zulrah;
+	private int zulrah_time;
+	private int zulrah_rotation;
 	private int wildernessLevel;
 	private int fireAmmo;
 	private int specialPercentage = 100;
@@ -736,6 +742,10 @@ public class Player extends Character {
 
 	public void decrementTeleblockTimer() {
 		teleblockTimer--;
+	}
+
+	public void decremenetZulrahTimer() {
+		zulrah_time--;
 	}
 
 	/**
@@ -1366,6 +1376,50 @@ public class Player extends Character {
 	
 	public int getCredits() {
 		return credits;
+	}	
+	
+	public int getZulrahRotation() {
+		return zulrah_rotation;
+	}	
+	
+	public int getZulrahMovement() {
+		return zulrah_movement;
+	}		
+	
+	public int getZulrahHealth() {
+		return zulrah_health;
+	}	
+	
+	public void addZulrahMovement(int rot) {
+		zulrah_movement += rot;
+	}
+	
+	public int getZulrahTime() {
+		return zulrah_time;
+	}	
+	
+	public boolean isRotatingZulrah() {
+		return is_rotating_zulrah;
+	}	
+	
+	public boolean isZulrahMoving() {
+		return is_zulrah_moving;
+	}	
+	
+	public void setRotatingZulrah(boolean wat) {
+		is_rotating_zulrah = wat;
+	}	
+	
+	public void setZulrahMovement(int wat) {
+		zulrah_movement = wat;
+	}	
+	
+	public void setZulrahHealth(int wat) {
+		zulrah_health = wat;
+	}	
+	
+	public void setZulrahMoving(boolean wat) {
+		is_zulrah_moving = wat;
 	}
 
 	public void incrementAmountDonated(int amountDonated) {
@@ -1380,6 +1434,14 @@ public class Player extends Character {
 		return totalPlayTime;
 	}
 
+	public void setZulrahRotation(int amount) {
+		this.zulrah_rotation = amount;
+	}
+	
+	public void setZulrahTime(int amount) {
+		this.zulrah_time = amount;
+	}
+	
 	public void setTotalPlayTime(long amount) {
 		this.totalPlayTime = amount;
 	}

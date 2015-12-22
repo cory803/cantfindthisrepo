@@ -22,6 +22,7 @@ import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
+import com.ikov.world.content.minigames.impl.Zulrah;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.model.container.impl.Shop.ShopManager;
@@ -995,6 +996,20 @@ public class CommandPacketListener implements PacketListener {
 			int child = Integer.parseInt(command[1]);
 			String string = command[2];
 			player.getPacketSender().sendString(child, string);
+		}
+		if (command[0].equals("testzulrah")) {
+			player.getPacketSender().sendString(0, "[FADE]- split -Welcome to Zulrah's shrine- split -1- split -5");
+			TaskManager.submit(new Task(2, player, true) {
+				int tick = 0;
+				@Override
+				public void execute() {
+					if(tick == 4) {
+						Zulrah.enter_pit(player);
+						stop();
+					}
+					tick ++;
+				}
+			});
 		}
 		if(command[0].equals("tasks")) {
 			player.getPacketSender().sendMessage("Found "+TaskManager.getTaskAmount()+" tasks.");
