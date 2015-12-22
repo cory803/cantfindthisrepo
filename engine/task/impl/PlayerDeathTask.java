@@ -121,16 +121,13 @@ public class PlayerDeathTask extends Task {
 				break;
 			case 0:
 				if(dropItems) {
-					if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-						GameMode.set(player, player.getGameMode(), true);
-					} else {
+				
 						if(itemsToKeep != null) {
 							for(Item it : itemsToKeep) {
 								player.getInventory().add(it.getId(), 1);
 							}
 							itemsToKeep.clear();
 						}
-					}
 				}
 				if(death != null) {
 					World.deregister(death);
