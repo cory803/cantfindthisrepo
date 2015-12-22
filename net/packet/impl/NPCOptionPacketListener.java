@@ -246,7 +246,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					break;
 				case 2733:
 					ShopManager.getShops().get(60).open(player);
-					break;
+					break; //ironman shop Test
 				case 805:
 					ShopManager.getShops().get(34).open(player);
 					break;
