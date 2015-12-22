@@ -37,7 +37,7 @@ import com.ikov.world.content.grandexchange.GrandExchangeOffers;
 import com.ikov.world.entity.impl.npc.NPC;
 
 /**
- * Credit: lare96, Gabbe
+ * testCredit: lare96, Gabbe
  */
 public final class GameLoader {
 
