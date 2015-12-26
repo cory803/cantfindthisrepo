@@ -155,7 +155,8 @@ public class Nex implements CombatStrategy {
 				return true;
 			}
 		}
-		if(phase == 1)
+
+if(phase == 1)
 		{
 			int rnd = Misc.getRandom(20);
 			if(rnd < 2 && !attacks[3])
@@ -165,6 +166,8 @@ public class Nex implements CombatStrategy {
 				NEX.setChargingAttack(true);
 				for(final Player p_ : Misc.getCombinedPlayerList(p))
 				{
+					if(p_ == null || p_.getLocation() != Location.GODWARS_DUNGEON)
+						continue;
 					TaskManager.submit(new Task(1, NEX, false) {
 						int origX, origY;
 						int ticks;
@@ -209,6 +212,8 @@ public class Nex implements CombatStrategy {
 				NEX.setChargingAttack(true);
 				for(Player p_ : Misc.getCombinedPlayerList(p))
 				{
+					if(p_ == null || p_.getLocation() != Location.GODWARS_DUNGEON)
+						continue;
 					TaskManager.submit(new Task(1, NEX, false) {
 						int ticks = 0;
 						@Override

@@ -55,7 +55,6 @@ public class Autocasting {
 	public static void resetAutocast(Player p, boolean clientReset) {
 		if(clientReset)
 			p.getPacketSender().sendAutocastId(-1);
-		p.getCombatBuilder().reset(true);
 		p.setAutocast(false);
 		p.setAutocastSpell(null);
 		p.setCastSpell(null);

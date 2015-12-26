@@ -20,6 +20,7 @@ import com.ikov.world.content.Consumables;
 import com.ikov.world.content.combat.CombatContainer;
 import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.magic.Autocasting;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.entity.impl.Character;
@@ -654,7 +655,9 @@ public enum CombatSpecial {
 			}
 			final CombatSpecial spec = player.getCombatSpecial();
 			boolean instantSpecial = spec == CombatSpecial.GRANITE_MAUL || spec == CombatSpecial.DRAGON_BATTLEAXE || spec == CombatSpecial.STAFF_OF_LIGHT;
-			if (spec == CombatSpecial.STAFF_OF_LIGHT && player.hasStaffOfLightEffect()) {
+			if(spec != CombatSpecial.STAFF_OF_LIGHT && player.isAutocast()) {
+				Autocasting.resetAutocast(player, true);
+			} else if (spec == CombatSpecial.STAFF_OF_LIGHT && player.hasStaffOfLightEffect()) {
 				player.getPacketSender().sendMessage("You are already being protected by the Staff of Light!");
 				return;
 			}
