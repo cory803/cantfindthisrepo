@@ -348,10 +348,8 @@ public class NPCOptionPacketListener implements PacketListener {
 		if(player.isZulrahMoving() && (interact.getId() == Zulrah.ZULRAH_GREEN_NPC_ID || interact.getId() == Zulrah.ZULRAH_RED_NPC_ID || interact.getId() == Zulrah.ZULRAH_BLUE_NPC_ID || interact.getId() == Zulrah.ZULRAH_JAD_NPC_ID)) {
 			return;
 		}
-		//System.out.println();
 		player.getCombatBuilder().attack(interact);
 	}
-//run it on eclipse. i host it on my vps, the client wont connect without changing everything
 	public void handleSecondClick(Player player, Packet packet) {
 		int index = packet.readLEShortA();
 		if(index < 0 || index > World.getNpcs().capacity())

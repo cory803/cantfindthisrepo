@@ -216,7 +216,7 @@ public class NPCDrops {
 
 	public enum DropChance {
 		ALWAYS(0), ALMOST_ALWAYS(2), VERY_COMMON(5), COMMON(15), UNCOMMON(40), NOTTHATRARE(
-				100), RARE(350), LEGENDARY(450), LEGENDARY_2(650), LEGENDARY_3(800), LEGENDARY_4(1200), LEGENDARY_5(1500);
+				100), RARE(350), LEGENDARY(500), LEGENDARY_2(800), LEGENDARY_3(1000), LEGENDARY_4(1200), LEGENDARY_5(1500);
 		
 		
 		DropChance(int randomModifier) {
@@ -248,6 +248,7 @@ public class NPCDrops {
 		final boolean goGlobal = p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4;
 		final boolean ringOfWealth = p.getEquipment().get(Equipment.RING_SLOT).getId() == 2572;
 		final Position npcPos = npc.getPosition().copy();
+		final Position npcPos2 = npc.getPosition().copyXY();
 		boolean[] dropsReceived = new boolean[12];
 
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
@@ -264,8 +265,16 @@ public class NPCDrops {
 
 			if (dropChance == DropChance.ALWAYS) {
 				drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
+				if(p.getLocation() == Location.BOSS_SYSTEM) {
+					drop(p, drops.getDropList()[i].getItem(), npc, npcPos2, goGlobal);
+					dropsReceived[dropChance.ordinal()] = true;
+				}
 			} else {
 				if(shouldDrop(dropsReceived, dropChance, ringOfWealth)) {
+					if(p.getLocation() == Location.BOSS_SYSTEM) {
+						drop(p, drops.getDropList()[i].getItem(), npc, npcPos2, goGlobal);
+						dropsReceived[dropChance.ordinal()] = true;
+					}
 					drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
 					dropsReceived[dropChance.ordinal()] = true;
 				}

@@ -14,7 +14,7 @@ public enum SlayerTasks {
 	/**
 	 * Easy tasks
 	 */
-	ROCK_CRAB(SlayerMaster.VANNAKA, 1265, "Rock Crabs can be found in the Training Teleport.", 2100, new Position(2709, 3715, 0)),
+	ROCK_CRAB(SlayerMaster.VANNAKA, 1265, "Rock Crabs can be found in the Chaos Dungeon. NOT THE COLORED ROCK CRABS.", 2100, new Position(3184, 5472, 0)),
 	EXPERIMENT(SlayerMaster.VANNAKA, 1677, "Experiments can be found in the Training Teleport.", 2150, new Position(3564, 9954, 0)),
 	GIANT_BAT(SlayerMaster.VANNAKA, 78, "Giant Bats can be found in Taverly Dungeon.", 2000, new Position(2907, 9833)),
 	CHAOS_DRUID(SlayerMaster.VANNAKA, 181, "Chaos Druids can be found in Edgeville Dungeon.", 2120, new Position(3109, 9931, 0)),

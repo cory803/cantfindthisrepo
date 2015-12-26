@@ -47,11 +47,11 @@ public class Trading {
 			return;
 		}
 		if(player.getLocation() == Location.DUNGEONEERING) {
-			player.getPacketSender().sendMessage("You are far too busy to trade at the moment!");
+			player.getPacketSender().sendMessage("You cannot trade while in a dungeon!");
 			return;
 		}
 		if(player2.getLocation() == Location.DUNGEONEERING) {
-			player.getPacketSender().sendMessage("You are far too busy to trade at the moment!");
+			player.getPacketSender().sendMessage("You cannot trade while in a dungeon!");
 			return;
 		}
 		
