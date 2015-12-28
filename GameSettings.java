@@ -4,6 +4,7 @@ import java.math.BigInteger;
 
 import com.ikov.model.Position;
 import com.ikov.net.security.ConnectionHandler;
+import java.util.ArrayList;
 
 public class GameSettings {
 	
@@ -17,6 +18,20 @@ public class GameSettings {
 	 */
 	public static String client_version = "none";
 
+	public static boolean PLAYERS_ONLINE = false;
+	public static boolean DATABASE_LOGGING = false;
+	public static boolean VOTING_CONNECTIONS = false;
+	public static boolean STORE_CONNECTIONS = false;
+	public static boolean YELL_STATUS = false;
+	public static boolean ITEM_SPAWN_TACTICAL = false;
+	
+	public static int DATABASE_LOGGING_TIME = 60;
+	public static int CONFIGURATION_TIME = 0;
+	
+	public static ArrayList<String> PROTECTED_MAC_ADDRESS = new ArrayList<String>();	
+	public static ArrayList<String> PROTECTED_COMPUTER_ADDRESS = new ArrayList<String>();	
+	public static ArrayList<String> PROTECTED_IP_ADDRESS = new ArrayList<String>();	
+	
 	/**
 	 * The game version
 	 */

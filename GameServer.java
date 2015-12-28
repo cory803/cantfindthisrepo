@@ -12,6 +12,7 @@ import java.util.zip.ZipInputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.ikov.engine.task.impl.ServerTimeUpdateTask;
 import com.ikov.world.entity.impl.player.*;
 import com.ikov.util.RSAKeyGenerator;
 import com.ikov.util.ShutdownHook;
@@ -44,6 +45,9 @@ public class GameServer {
 			}
 			loader.init();
 			loader.finish();
+			logger.info("Starting configuration settings...");
+			ServerTimeUpdateTask.start_configuration_process();
+			logger.info("Finished starting configuration settings...");
 			logger.info("The loader has finished loading utility tasks.");
 			logger.info("IKov is now online on port "+GameSettings.GAME_PORT+"!");
 			final BufferedReader reader = new BufferedReader(new FileReader(new File("data/mysql_connection.txt")));

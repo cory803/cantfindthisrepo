@@ -176,6 +176,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage(test);
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
+			if(!GameSettings.VOTING_CONNECTIONS) {
+				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
+				return;
+			}
 			String authCode = command[1];
 			if (!GameSettings.MYSQL_ENABLED) {
 				player.getPacketSender().sendMessage("Sorry this is currently disabled.");
@@ -204,6 +208,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().giveVoteReward();
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
+			if(!GameSettings.STORE_CONNECTIONS) {
+				player.getPacketSender().sendMessage("The Store is currently turned off, please try again in 30 minutes!");
+				return;
+			}
 			player.getPacketSender().sendString(1, "www.ikov2.org/store/");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/store/");
 		}
@@ -218,6 +226,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Your progress has been saved.");
 		}
 		if (command[0].equals("vote")) {
+			if(!GameSettings.VOTING_CONNECTIONS) {
+				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
+				return;
+			}
 			player.getPacketSender().sendString(1, "www.ikov2.org/vote/");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/vote/");
 		}
@@ -363,6 +375,10 @@ public class CommandPacketListener implements PacketListener {
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(PlayerPunishment.muted(player.getUsername()) || PlayerPunishment.IPMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
+				return;
+			}
+			if(GameSettings.YELL_STATUS) {
+				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
 			int delay = player.getRights().getYellDelay();
@@ -715,7 +731,7 @@ public class CommandPacketListener implements PacketListener {
 		if (command[0].equals("resetclientversion")) {
 			System.out.println("Fetching client version...");
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/Turmoil/update.txt").openStream()));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/IKov/update.txt").openStream()));
 				for (int i = 0; i < 1; i++) {
 					GameSettings.client_version = reader.readLine();
 				}
@@ -770,6 +786,10 @@ public class CommandPacketListener implements PacketListener {
 			player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
 		}
 		if(wholeCommand.toLowerCase().startsWith("yell") && player.getRights() == PlayerRights.PLAYER) {
+			if(GameSettings.YELL_STATUS) {
+				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
+				return;
+			}
 			player.getPacketSender().sendMessage("Only members can yell. To become one, simply use ::store, buy a scroll").sendMessage("and then claim it.");
 		}
 		if (command[0].contains("pure")) {
