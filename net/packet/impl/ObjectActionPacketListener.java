@@ -619,6 +619,7 @@ public class ObjectActionPacketListener implements PacketListener {
 						player.getMinigameAttributes().getGodwarsDungeonAttributes().setHasEnteredRoom(false);
 					}
 					break;
+				case 884:
 				case 26945:
 					player.setDialogueActionId(41);
 					DialogueManager.start(player, 75);
@@ -990,6 +991,7 @@ public class ObjectActionPacketListener implements PacketListener {
 				if (player.getFarming().click(player, x, y, 1))
 					return;
 				switch(gameObject.getId()) {
+				case 884:
 				case 26945:
 					player.setDialogueActionId(41);
 					player.setInputHandling(new DonateToWell());
