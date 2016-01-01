@@ -228,7 +228,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("You step through the portal..");
 					break;
 				case 47180:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
 						player.getPacketSender().sendMessage("You must be at least an Prime Donator to use this.");
 						return;
 					}
@@ -238,7 +238,7 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 10091:
 				case 8702:
 					if(gameObject.getId() == 8702) {
-						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
 							player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
 							return;
 						}
@@ -351,7 +351,8 @@ public class ObjectActionPacketListener implements PacketListener {
 						index = 3;
 						movePos = new Position(2925, leaveRoom ? 5332 : 5331, 2);
 					}
-					if(!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.DEVELOPER && player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index] < 20)) {
+					int killcount_amount = 20;
+					if(!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.DEVELOPER && player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
 						player.getPacketSender().sendMessage("You need "+Misc.anOrA(bossRoom)+" "+bossRoom+" killcount of at least 20 to enter this room.");
 						return;
 					}
@@ -815,7 +816,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					Hunter.lootTrap(player, gameObject);
 					break;
 				case 13493:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.PREMIUM_DONATOR) {
+					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
 						player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
 						return;
 					}

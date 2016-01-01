@@ -146,16 +146,16 @@ public class PlayersOnlineInterface {
 		case ADMINISTRATOR:
 			value = 11;
 			break;
-		case PREMIUM_DONATOR:
+		case REGULAR_DONATOR:
 			value = 3;
 			break;
 		case DEVELOPER:
 			value = 13;
 			break;
-		case PRIME_DONATOR:
+		case SUPER_DONATOR:
 			value = 7;
 			break;
-		case PLATINUM_DONATOR:
+		case EXTREME_DONATOR:
 			value = 5;
 			break;
 		case MODERATOR:

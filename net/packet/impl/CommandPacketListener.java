@@ -127,9 +127,9 @@ public class CommandPacketListener implements PacketListener {
 				playerCommands(player, parts, command);
 				memberCommands(player, parts, command);
 				break;
-			case PREMIUM_DONATOR:
-			case PRIME_DONATOR:
-			case PLATINUM_DONATOR:
+			case REGULAR_DONATOR:
+			case SUPER_DONATOR:
+			case EXTREME_DONATOR:
 			case LEGENDARY_DONATOR:
 			case UBER_DONATOR:
 				playerCommands(player, parts, command);
@@ -393,11 +393,11 @@ public class CommandPacketListener implements PacketListener {
 				World.sendMessage("<col=31a4ff><shad=0>[<img="+player.getRights().ordinal()+">Moderator<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);			
 			} else if(player.getRights().equals(PlayerRights.ADMINISTRATOR)) {
 				World.sendMessage("<col=FFFF00><shad=0>[<img="+player.getRights().ordinal()+">Adminsitrator<img="+player.getRights().ordinal()+">] ["+player.getUsername()+"] : "+yellMessage);			
-			} else if(player.getRights().equals(PlayerRights.PREMIUM_DONATOR)) {
+			} else if(player.getRights().equals(PlayerRights.REGULAR_DONATOR)) {
 				World.sendMessage("<img="+player.getRights().ordinal()+"><shad=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);			
-			} else if(player.getRights().equals(PlayerRights.PRIME_DONATOR)) {
+			} else if(player.getRights().equals(PlayerRights.SUPER_DONATOR)) {
 				World.sendMessage("<img="+player.getRights().ordinal()+"><col=0>[<col=2B547E>Super] "+player.getUsername()+": "+yellMessage);			
-			} else if(player.getRights().equals(PlayerRights.PLATINUM_DONATOR)) {
+			} else if(player.getRights().equals(PlayerRights.EXTREME_DONATOR)) {
 				World.sendMessage("<img="+player.getRights().ordinal()+"><col=0>[<col=00ff00><shad=0>Extreme</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 			} else if(player.getRights().equals(PlayerRights.LEGENDARY_DONATOR)) {
 				World.sendMessage("<img="+player.getRights().ordinal()+"><col=0>[<col=800080><shad=0>Legendary</shad><col=0>] "+player.getUsername()+": "+yellMessage);
