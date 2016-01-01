@@ -1,8 +1,7 @@
-package com.ikov.net.packet.impl;
+package com.ikov.commands.ranks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ikov.GameServer;
 import com.ikov.GameServer;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
@@ -68,27 +67,15 @@ import com.ikov.world.clip.stream.ByteStreamExt;
 import com.ikov.world.clip.stream.MemoryArchive;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 
-/**
- * This packet listener manages commands a player uses by using the
- * command console prompted by using the "`" char.
- * 
- * @author Gabriel Hannason
- */
-
-public class CommandPacketListener implements PacketListener {
-
-	@Override
-	public void handleMessage(Player player, Packet packet) {
-		String command = Misc.readString(packet.getBuffer());
-		String[] parts = command.toLowerCase().split(" ");
-		if(command.contains("\r") || command.contains("\n")) {
-			return;
-		}
-		try {
-			Commands.initiate_commands(player, parts, command);
-		} catch (Exception exception) {
-			player.getPacketSender().sendMessage("Error executing that command.");
-		}
+public class RegularDonators {
+	
+	/**
+	* @Author Jonathan Sirens
+	* Initiates Command
+	**/
+	
+	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
+		
 	}
+	
 }
-

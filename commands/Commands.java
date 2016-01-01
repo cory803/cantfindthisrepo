@@ -1,14 +1,12 @@
-package com.ikov.net.packet.impl;
+package com.ikov.commands;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ikov.GameServer;
 import com.ikov.GameServer;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.engine.task.TaskManager;
-import com.ikov.commands.Commands;
 import com.ikov.model.Animation;
 import com.ikov.model.Flag;
 import java.net.*;
@@ -67,27 +65,19 @@ import com.ikov.world.entity.impl.player.PlayerSaving;
 import com.ikov.world.clip.stream.ByteStreamExt;
 import com.ikov.world.clip.stream.MemoryArchive;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.commands.ranks.*;
 
 /**
- * This packet listener manages commands a player uses by using the
- * command console prompted by using the "`" char.
+ * Initiates a command for each rank/file.
  * 
- * @author Gabriel Hannason
+ * @author Jonathan Sirens
  */
 
-public class CommandPacketListener implements PacketListener {
+public class Commands {
 
-	@Override
-	public void handleMessage(Player player, Packet packet) {
-		String command = Misc.readString(packet.getBuffer());
-		String[] parts = command.toLowerCase().split(" ");
-		if(command.contains("\r") || command.contains("\n")) {
-			return;
-		}
-		try {
-			Commands.initiate_commands(player, parts, command);
-		} catch (Exception exception) {
-			player.getPacketSender().sendMessage("Error executing that command.");
+	public static void initiate_commands(Player player, String[] parts, String whole_command) {
+		if(player.getRights() == PlayerRights.OWNER) {
+			Owners.initiate_command(player, parts, whole_command);
 		}
 	}
 }

@@ -101,7 +101,7 @@ public class Lottery {
 			return;
 		}
 		boolean usePouch = p.getMoneyInPouch() >= PRICE_TO_ENTER;
-		if(p.getInventory().getAmount(995) < PRICE_TO_ENTER && !usePouch || p.getRights() == PlayerRights.DEVELOPER || p.getRights() == PlayerRights.OWNER) {
+		if(p.getInventory().getAmount(995) < PRICE_TO_ENTER && !usePouch || p.getRights() == PlayerRights.OWNER) {
 			p.getPacketSender().sendInterfaceRemoval().sendMessage("").sendMessage("You do not have enough money in your inventory to enter this week's lottery.").sendMessage("The lottery for this week costs "+Misc.insertCommasToNumber(""+PRICE_TO_ENTER+"")+" coins to enter.");
 			return;
 		}

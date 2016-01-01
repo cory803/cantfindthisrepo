@@ -146,18 +146,6 @@ public class PlayersOnlineInterface {
 		case ADMINISTRATOR:
 			value = 11;
 			break;
-		case REGULAR_DONATOR:
-			value = 3;
-			break;
-		case DEVELOPER:
-			value = 13;
-			break;
-		case SUPER_DONATOR:
-			value = 7;
-			break;
-		case EXTREME_DONATOR:
-			value = 5;
-			break;
 		case MODERATOR:
 			value = 10;
 			break;
@@ -167,9 +155,23 @@ public class PlayersOnlineInterface {
 		case SUPPORT:
 			value = 9;
 			break;
-		case VETERAN:
-			value = 8;
-			break;
+		}
+		switch(p.getDonorRights()) {
+			case 1:
+				value = 3;
+				break;
+			case 2:
+				value = 4;
+				break;
+			case 3:
+				value = 5;
+				break;	
+			case 4:
+				value = 6;
+				break;
+			case 5:
+				value = 7;
+				break;
 		}
 		if(value == 0) {
 			if(p.getGameMode() == GameMode.IRONMAN) {

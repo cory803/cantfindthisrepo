@@ -194,16 +194,10 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
-		if(id == GENERAL_STORE) {
-			if(player.getRights() == PlayerRights.DEVELOPER || player.getRights() == PlayerRights.OWNER) {
-				player.getPacketSender().sendMessage("You cannot sell items.");
-				return;
-			}
-		}
 		if (id == DONATOR_STORE || id == DONATOR_STORE_MISC) {
-		player.getPacketSender().sendMessage("You cannot sell items to this store.");
-		return;
-	}
+			player.getPacketSender().sendMessage("You cannot sell items to this store.");
+			return;
+		}
 		if(!player.isShopping() || player.isBanking()) {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;

@@ -29,31 +29,11 @@ public enum PlayerRights {
 	 * The highest-privileged member of the server
 	 */
 	OWNER(-1, "<col=B40404>", 1, 1),
-
-	/*
-	 * The Developer of the server, has same rights as the owner.
-	 */
-	DEVELOPER(-1, "<shad=B40404>", 1, 1),
-
-
-	/*
-	 * A member who has donated to the server. 
-	 */
-	REGULAR_DONATOR(60, "<shad=FF7F00>", 1.5, 1),
-	SUPER_DONATOR(40, "<shad=0><col=787878>", 1.5, 1.25),
- 	EXTREME_DONATOR(20, "<col=D9D919><shad=0>", 2, 1.5),
- 	LEGENDARY_DONATOR(20, "<col=D9D919><shad=0>", 2, 1.5),
- 	UBER_DONATOR(20, "<col=D9D919><shad=0>", 2, 1.5),
 	
 	/*
 	 * A member who has the ability to help people better.
 	 */
-	SUPPORT(-1, "<col=FF0000><shad=0>", 1, 1),
-
-	/*
-	 * A member who has been with the server for a long time.
-	 */
-	VETERAN(30, "<col=CD661D>", 1, 1);
+	SUPPORT(-1, "<col=FF0000><shad=0>", 1, 1);
 
 	PlayerRights(int yellDelaySeconds, String yellHexColorPrefix, double loyaltyPointsGainModifier, double experienceGainModifier) {
 		this.yellDelay = yellDelaySeconds;
@@ -62,8 +42,7 @@ public enum PlayerRights {
 		this.experienceGainModifier = experienceGainModifier;
 	}
 	
-	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER, DEVELOPER);
-	private static final ImmutableSet<PlayerRights> MEMBERS = Sets.immutableEnumSet(REGULAR_DONATOR, SUPER_DONATOR, EXTREME_DONATOR);
+	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER);	
 	
 	/*
 	 * The yell delay for the rank
@@ -100,10 +79,6 @@ public enum PlayerRights {
 	
 	public boolean isStaff() {
 		return STAFF.contains(this);
-	}
-	
-	public boolean isMember() {
-		return MEMBERS.contains(this);
 	}
 	
 	/**

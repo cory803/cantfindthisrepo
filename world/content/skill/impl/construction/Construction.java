@@ -840,9 +840,6 @@ public class Construction {
 	
 	public static String hasReqs(Player p, Furniture f, HotSpots hs)
 	{
-
-		if(p.getRights() == PlayerRights.DEVELOPER)
-			return null;
 		if(p.getSkillManager().getCurrentLevel(Skill.CONSTRUCTION) < f.getLevel())
 		{
 			return "You need a Construction level of at least "+f.getLevel()+" to build this.";

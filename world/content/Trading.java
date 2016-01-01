@@ -63,10 +63,6 @@ public class Trading {
 			BankPin.init(player, false);
 			return;
 		}
-		if(player.getHostAddress().equals(player2.getHostAddress()) && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.DEVELOPER) {
-			player.getPacketSender().sendMessage("Same IP-adress found. You cannot trade yourself from the same IP.");
-			return;
-		}
 		if(System.currentTimeMillis() - lastTradeSent < 5000 && !inTrade()) {
 			player.getPacketSender().sendMessage("You're sending trade requests too frequently. Please slow down.");
 			return;
@@ -179,11 +175,9 @@ public class Trading {
 			player.getPacketSender().sendMessage("You must wait another "+player.getNewPlayerDelay() / 60+" minutes before being able to trade items.");
 			return;
 		}*/
-		if(player.getRights() != PlayerRights.DEVELOPER && player2.getRights() != PlayerRights.DEVELOPER && !(itemId == 1419 && player.getRights().isStaff())) {
-			if (!new Item(itemId).tradeable()) {
-				player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
-				return;
-			}
+		if (!new Item(itemId).tradeable()) {
+			player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
+			return;
 		}
 		falseTradeConfirm();
 		player.getPacketSender().sendClientRightClickRemoval();

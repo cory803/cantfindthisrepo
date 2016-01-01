@@ -73,7 +73,7 @@ public class ButtonClickPacketListener implements PacketListener {
 
 		int id = packet.readShort();
 
-		if(player.getRights() == PlayerRights.DEVELOPER) {
+		if(player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Clicked button: "+id);
 		}
 
@@ -137,17 +137,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case -26373:
 			if(WellOfGoodwill.isActive()) {
-				if(player.getRights() == PlayerRights.MODERATOR ||
-				player.getRights() == PlayerRights.ADMINISTRATOR ||
-				player.getRights() == PlayerRights.DEVELOPER ||
-				player.getRights() == PlayerRights.REGULAR_DONATOR ||
-				player.getRights() == PlayerRights.SUPER_DONATOR ||
-				player.getRights() == PlayerRights.EXTREME_DONATOR ||
-				player.getRights() == PlayerRights.LEGENDARY_DONATOR ||
-				player.getRights() == PlayerRights.UBER_DONATOR ||
-				player.getRights() == PlayerRights.VETERAN ||
-				player.getRights() == PlayerRights.SUPPORT ||
-				player.getRights() == PlayerRights.OWNER) {
+				if(player.getDonorRights() > 0) {
 					player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");
 				} else {
 					player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");					

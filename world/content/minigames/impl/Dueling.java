@@ -148,16 +148,12 @@ public class Dueling {
 		if(!getCanOffer())
 			return;
 		resetAcceptedStake();
-		if(player.getRights() == PlayerRights.DEVELOPER) {
-			player.getPacketSender().sendMessage("You cannot stake items since you are an idiot.");
-			return;
-		}
 		if(!player.getInventory().contains(itemId) || !inDuelScreen)
 			return;
 		Player playerToDuel = World.getPlayers().get(duelingWith);
 		if (playerToDuel == null)
 			return; 
-		if(player.getRights() != PlayerRights.DEVELOPER && playerToDuel.getRights() != PlayerRights.DEVELOPER) {
+		if(player.getRights() != PlayerRights.OWNER) {
 			if (!new Item(itemId).tradeable()) {
 				player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
 				return;

@@ -27,10 +27,6 @@ public class Dungeoneering {
 
 	public static void start(final Player p) {
 		p.getPacketSender().sendInterfaceRemoval();
-		/*if(p.getRights() != PlayerRights.DEVELOPER) {
-			p.getPacketSender().sendMessage("Dungeoneering isn't out yet.");
-			return;
-		}*/
 		if(p.getMinigameAttributes().getDungeoneeringAttributes().getParty() == null) {
 			DialogueManager.start(p, 111);
 			return;

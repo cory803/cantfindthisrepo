@@ -50,7 +50,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (npc == null)
 			return;
 		player.setEntityInteraction(npc);
-		if(player.getRights() == PlayerRights.DEVELOPER)
+		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("First click npc id: "+npc.getId());
 		if(BossPets.pickup(player, npc)) {
 			player.getMovementQueue().reset();
@@ -181,12 +181,6 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 6063:
 				case 6064:
 				case 7903:
-					if(npc.getId() == 7903 && player.getLocation() == Location.MEMBER_ZONE) {
-						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
-							player.getPacketSender().sendMessage("You must be at least an Prime Donator to use this.");
-							return;
-						}
-					}
 					PuroPuro.catchImpling(player, npc);
 					break;
 				case 8022:
@@ -257,10 +251,6 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(32).open(player);
 					break;
 				case 8444:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
-						player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
-						return;
-					}
 					ShopManager.getShops().get(31).open(player);
 					break;
 				case 8459:
@@ -342,7 +332,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			player.getMovementQueue().reset();
 		}
 
-		if(player.getRights() == PlayerRights.DEVELOPER) {
+		if(player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Attacking npc id: "+interact.getId());
 		}
 		if(player.isZulrahMoving() && (interact.getId() == Zulrah.ZULRAH_GREEN_NPC_ID || interact.getId() == Zulrah.ZULRAH_RED_NPC_ID || interact.getId() == Zulrah.ZULRAH_BLUE_NPC_ID || interact.getId() == Zulrah.ZULRAH_JAD_NPC_ID)) {
@@ -359,7 +349,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			return;
 		player.setEntityInteraction(npc);
 		final int npcId = npc.getId();
-		if(player.getRights() == PlayerRights.DEVELOPER)
+		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Second click npc id: "+npcId);
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override
@@ -463,7 +453,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			return;
 		player.setEntityInteraction(npc).setPositionToFace(npc.getPosition().copy());
 		npc.setPositionToFace(player.getPosition());
-		if(player.getRights() == PlayerRights.DEVELOPER)
+		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Third click npc id: "+npc.getId());
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override
@@ -537,7 +527,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (npc == null)
 			return;
 		player.setEntityInteraction(npc);
-		if(player.getRights() == PlayerRights.DEVELOPER)
+		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Fourth click npc id: "+npc.getId());
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override

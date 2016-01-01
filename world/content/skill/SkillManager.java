@@ -79,17 +79,7 @@ public class SkillManager {
 			return this;
 
 		experience *= player.getRights().getExperienceGainModifier();
-		if((WellOfGoodwill.isActive()) && (player.getRights() == PlayerRights.REGULAR_DONATOR
-		|| player.getRights() == PlayerRights.SUPER_DONATOR
-		|| player.getRights() == PlayerRights.EXTREME_DONATOR
-		|| player.getRights() == PlayerRights.LEGENDARY_DONATOR
-		|| player.getRights() == PlayerRights.MODERATOR
-		|| player.getRights() == PlayerRights.ADMINISTRATOR
-		|| player.getRights() == PlayerRights.OWNER
-		|| player.getRights() == PlayerRights.SUPPORT
-		|| player.getRights() == PlayerRights.VETERAN
-		|| player.getRights() == PlayerRights.ADMINISTRATOR
-		|| player.getRights() == PlayerRights.UBER_DONATOR)) {
+		if((WellOfGoodwill.isActive()) && (player.getDonorRights() > 0)) {
 			experience *= 1.5;
 		}
 		if(player.getGameMode() != GameMode.NORMAL) {

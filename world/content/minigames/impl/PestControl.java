@@ -244,9 +244,25 @@ public class PestControl {
 			if(state != null && state.equals(PLAYING)) {
 				leave(p, false);
 				if (won && p.getMinigameAttributes().getPestControlAttributes().getDamageDealt() >= 50) {
+					int point_amount = 15;
+					if(p.getDonorRights() == 1) {
+						point_amount = 20;
+					}	
+					if(p.getDonorRights() == 2) {
+						point_amount = 25;
+					}
+					if(p.getDonorRights() == 3) {
+						point_amount = 30;
+					}
+					if(p.getDonorRights() == 4) {
+						point_amount = 35;
+					}	
+					if(p.getDonorRights() == 5) {
+						point_amount = 40;
+					}
 					p.getPacketSender().sendMessage("The portals were successfully closed. You've been rewarded for your effort.");
-					p.getPacketSender().sendMessage("You've received 15 Commendations and "+p.getSkillManager().getCombatLevel() * 50+" coins.");
-					p.getPointsHandler().setCommendations(15, true);
+					p.getPacketSender().sendMessage("You've received "+point_amount+" Commendations and "+p.getSkillManager().getCombatLevel() * 50+" coins.");
+					p.getPointsHandler().setCommendations(point_amount, true);
 					p.getPointsHandler().refreshPanel();
 					p.getInventory().add(995, p.getSkillManager().getCombatLevel() * 80);
 					p.restart();
@@ -562,7 +578,7 @@ public class PestControl {
 	 * @param cost		The amount it costs to buy this item
 	 */
 	public static void buyFromShop(Player p, boolean item, int id, int amount, int cost) {
-		if(p.getPointsHandler().getCommendations() < cost && p.getRights() != PlayerRights.DEVELOPER) {
+		if(p.getPointsHandler().getCommendations() < cost && p.getRights() != PlayerRights.OWNER) {
 			p.getPacketSender().sendMessage("You don't have enough Commendations to purchase this.");
 			return;
 		}

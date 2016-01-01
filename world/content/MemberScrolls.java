@@ -14,20 +14,21 @@ public class MemberScrolls {
 		if(player.getRights().isStaff()) {
 			return;
 		}
-		PlayerRights rights = null;
-		if(player.getAmountDonated() >= 10)
-			rights = PlayerRights.REGULAR_DONATOR;
+		if(player.getAmountDonated() >= 10) {
 			player.setDonorRights(1);
-		if(player.getAmountDonated() >= 50)
-			rights = PlayerRights.SUPER_DONATOR;
+			player.getPacketSender().sendMessage("You've become a Regular Donator! Congratulations!");
+		} else if(player.getAmountDonated() >= 50) {
 			player.setDonorRights(2);
-		if(player.getAmountDonated() >= 100)
-			rights = PlayerRights.EXTREME_DONATOR;
+			player.getPacketSender().sendMessage("You've become a Super Donator! Congratulations!");
+		} else if(player.getAmountDonated() >= 100) {
 			player.setDonorRights(3);
-		if(rights != null && rights != player.getRights()) {
-			player.getPacketSender().sendMessage("You've become a "+Misc.formatText(rights.toString().toLowerCase())+"! Congratulations!");
-			player.setRights(rights);
-			player.getPacketSender().sendRights();
+			player.getPacketSender().sendMessage("You've become a Extreme Donator! Congratulations!");
+		} else if(player.getAmountDonated() >= 500) {
+			player.setDonorRights(4);
+			player.getPacketSender().sendMessage("You've become a Legendary Donator! Congratulations!");
+		} else if(player.getAmountDonated() >= 5000) {
+			player.setDonorRights(5);
+			player.getPacketSender().sendMessage("You've become a Uber Donator! Congratulations!");
 		}
 	}
 

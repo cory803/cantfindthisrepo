@@ -105,7 +105,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		gameObject.setSize(size);
 		if(player.getMovementQueue().isLockMovement())
 			return;
-		if(player.getRights() == PlayerRights.DEVELOPER)
+		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setInteractingObject(gameObject).setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 			@Override
@@ -228,18 +228,14 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("You step through the portal..");
 					break;
 				case 47180:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
-						player.getPacketSender().sendMessage("You must be at least an Prime Donator to use this.");
-						return;
-					}
 					player.getPacketSender().sendMessage("You activate the device..");
 					player.moveTo(new Position(2586, 3912));
 					break;
 				case 10091:
 				case 8702:
 					if(gameObject.getId() == 8702) {
-						if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
-							player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
+						if(player.getDonorRights() < 2) {
+							player.getPacketSender().sendMessage("You must be at least a Super Donator to use this.");
 							return;
 						}
 					}
@@ -352,18 +348,18 @@ public class ObjectActionPacketListener implements PacketListener {
 						movePos = new Position(2925, leaveRoom ? 5332 : 5331, 2);
 					}
 					int killcount_amount = 20;
-					if(player.getRights() == PlayerRights.REGULAR_DONATOR) {
+					if(player.getDonorRights() == 1) {
 						killcount_amount = 15;
-					} else if(player.getRights() == PlayerRights.SUPER_DONATOR) {
+					} else if(player.getDonorRights() == 2) {
 						killcount_amount = 10;
-					} else if(player.getRights() == PlayerRights.EXTREME_DONATOR) {
+					} else if(player.getDonorRights() == 3) {
 						killcount_amount = 5;
-					} else if(player.getRights() == PlayerRights.LEGENDARY_DONATOR) {
+					} else if(player.getDonorRights() == 4) {
 						killcount_amount = 2;
-					} else if(player.getRights() == PlayerRights.UBER_DONATOR) {
+					} else if(player.getDonorRights() == 5) {
 						killcount_amount = 0;
 					}
-					if(!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.DEVELOPER && player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
+					if(!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.OWNER && player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
 						player.getPacketSender().sendMessage("You need "+Misc.anOrA(bossRoom)+" "+bossRoom+" killcount of at least 20 to enter this room.");
 						return;
 					}
@@ -828,10 +824,6 @@ public class ObjectActionPacketListener implements PacketListener {
 					Hunter.lootTrap(player, gameObject);
 					break;
 				case 13493:
-					if(player.getRights() == PlayerRights.PLAYER || player.getRights() == PlayerRights.REGULAR_DONATOR) {
-						player.getPacketSender().sendMessage("You must be at least a Prime Donator to use this.");
-						return;
-					}
 					double c = Math.random()*100;
 					int reward = c >= 70 ? 13003 : c >= 45 ? 4131 : c >= 35 ? 1113 : c >= 25 ? 1147 : c >= 18 ? 1163 : c >= 12 ? 1079 : c >= 5 ? 1201 : 1127;
 					Stalls.stealFromStall(player, 95, 24800, reward, "You stole some rune equipment.");

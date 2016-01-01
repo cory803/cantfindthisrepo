@@ -505,7 +505,7 @@ public abstract class ItemContainer {
 			if (slot == -1)
 				slot = getEmptySlot();
 			if (slot == -1) {
-				if(getPlayer().getRights() != PlayerRights.OWNER && getPlayer().getRights() != PlayerRights.DEVELOPER) {
+				if(getPlayer().getRights() != PlayerRights.OWNER) {
 					GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 120, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 60));
 					getPlayer().getPacketSender().sendMessage("The item which you couldn't hold has been placed beneath you.");
 					if (refresh)
@@ -529,7 +529,7 @@ public abstract class ItemContainer {
 			while (amount > 0) {
 				int slot = getEmptySlot();
 				if (slot == -1) {
-					if(getPlayer().getRights() != PlayerRights.OWNER && getPlayer().getRights() != PlayerRights.DEVELOPER) {
+					if(getPlayer().getRights() != PlayerRights.OWNER) {
 						GroundItemManager.spawnGroundItem(player, new GroundItem(Item.getNoted(item.getId(), amount), player.getPosition().copy(), player.getUsername(), false, 120, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 60));
 						getPlayer().getPacketSender().sendMessage("The item(s) which you couldn't hold have been placed beneath you.");
 						if (refresh)

@@ -271,7 +271,7 @@ public class ClanChatManager {
 				if(memberPlayer.getRelations().getIgnoreList().contains(player.getLongUsername()))
 					continue;
 				int img = player.getRights().ordinal();
-				if(!player.getRights().isStaff() && !player.getRights().isMember()) {
+				if(!player.getRights().isStaff() && player.getDonorRights() == 0) {
 					if(player.getGameMode() == GameMode.IRONMAN) {
 						img = 33;
 					} else if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {

@@ -57,7 +57,7 @@ public class DialogueOptions {
 	public static void handle(Player player, int id) {
 		int credits = 0;
 		int funds = 0;
-		if(player.getRights() == PlayerRights.DEVELOPER) {
+		if(player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Dialogue button id: "+id+", action id: "+player.getDialogueActionId()).sendConsoleMessage("Dialogue button id: "+id+", action id: "+player.getDialogueActionId());
 		}
 		if(Effigies.handleEffigyAction(player, id)) {
@@ -805,15 +805,6 @@ public class DialogueOptions {
 				player.getPacketSender().sendMessage("The ghost teleports you away.");
 				player.getPacketSender().sendInterfaceRemoval();
 				player.moveTo(new Position(3651, 3486));
-				break;
-			case 76:
-				player.getPacketSender().sendInterfaceRemoval();
-				if(player.getRights().isStaff()) {
-					player.getPacketSender().sendMessage("You cannot change your rank.");
-					return;
-				}
-				player.setRights(PlayerRights.VETERAN);
-				player.getPacketSender().sendRights();
 				break;
 			case 78:
 				player.getPacketSender().sendString(38006, "Select a skill...").sendString(38090, "Which skill would you like to prestige?");

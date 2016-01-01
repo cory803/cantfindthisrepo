@@ -96,7 +96,7 @@ public class UseItemPacketListener implements PacketListener {
 			LeatherMaking.craftLeatherDialogue(player, usedWith.getId(), itemUsedWith.getId());
 		Herblore.handleSpecialPotion(player, itemUsedWith.getId(), usedWith.getId());
 		ItemForging.forgeItem(player, itemUsedWith.getId(), usedWith.getId());
-		if (player.getRights() == PlayerRights.DEVELOPER)
+		if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage(
 					"ItemOnItem - [usedItem, usedWith] : [" + usedWith.getId()
 					+ ", " + itemUsedWith + "]");
