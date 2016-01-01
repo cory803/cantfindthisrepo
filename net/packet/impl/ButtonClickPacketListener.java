@@ -137,7 +137,21 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case -26373:
 			if(WellOfGoodwill.isActive()) {
-				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");
+				if(player.getRights() == PlayerRights.MODERATOR ||
+				player.getRights() == PlayerRights.ADMINISTRATOR ||
+				player.getRights() == PlayerRights.DEVELOPER ||
+				player.getRights() == PlayerRights.REGULAR_DONATOR ||
+				player.getRights() == PlayerRights.SUPER_DONATOR ||
+				player.getRights() == PlayerRights.EXTREME_DONATOR ||
+				player.getRights() == PlayerRights.LEGENDARY_DONATOR ||
+				player.getRights() == PlayerRights.UBER_DONATOR ||
+				player.getRights() == PlayerRights.VETERAN ||
+				player.getRights() == PlayerRights.SUPPORT ||
+				player.getRights() == PlayerRights.OWNER) {
+					player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");
+				} else {
+					player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");					
+				}
 			} else {
 				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill needs another "+Misc.insertCommasToNumber(""+WellOfGoodwill.getMissingAmount())+" coins before becoming full.");
 			}
