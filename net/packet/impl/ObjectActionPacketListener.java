@@ -352,6 +352,17 @@ public class ObjectActionPacketListener implements PacketListener {
 						movePos = new Position(2925, leaveRoom ? 5332 : 5331, 2);
 					}
 					int killcount_amount = 20;
+					if(player.getRights() == PlayerRights.REGULAR_DONATOR) {
+						killcount_amount = 15;
+					} else if(player.getRights() == PlayerRights.SUPER_DONATOR) {
+						killcount_amount = 10;
+					} else if(player.getRights() == PlayerRights.EXTREME_DONATOR) {
+						killcount_amount = 5;
+					} else if(player.getRights() == PlayerRights.LEGENDARY_DONATOR) {
+						killcount_amount = 2;
+					} else if(player.getRights() == PlayerRights.UBER_DONATOR) {
+						killcount_amount = 0;
+					}
 					if(!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.DEVELOPER && player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
 						player.getPacketSender().sendMessage("You need "+Misc.anOrA(bossRoom)+" "+bossRoom+" killcount of at least 20 to enter this room.");
 						return;
