@@ -76,11 +76,14 @@ public class RegularDonators {
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
+			if(player.getRights() != PlayerRights.PLAYER) {
+				return;
+			}
 			if(PlayerPunishment.muted(player.getUsername()) || PlayerPunishment.IPMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
 				return;
 			}
-			if(GameSettings.YELL_STATUS) {
+			if(!GameSettings.YELL_STATUS) {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}

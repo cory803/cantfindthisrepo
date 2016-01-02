@@ -318,7 +318,7 @@ public class Moderators {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
 				return;
 			}
-			if(GameSettings.YELL_STATUS) {
+			if(!GameSettings.YELL_STATUS) {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
