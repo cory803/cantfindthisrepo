@@ -457,7 +457,7 @@ public class DialogueOptions {
 				}
 				break;
 			case 134:
-				BossSystem.startInstance(player, BossSystem.Bosses.TD.getBossID());
+				player.getPacketSender().sendMessage("This is currently the only page you can spawn monsters from.");
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
