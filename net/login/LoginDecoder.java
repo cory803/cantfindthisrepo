@@ -174,8 +174,8 @@ public final class LoginDecoder extends FrameDecoder {
 				rank = 9;
 			}
 		}
-		if(rank == 5) {
-			rank = 11;
+		if(rank == 4) {
+			rank = 10;
 		}
 		if (response == LoginResponses.LOGIN_SUCCESSFUL) {
 			channel.write(new PacketBuilder().put((byte)2).put((byte)rank).put((byte)0).toPacket());

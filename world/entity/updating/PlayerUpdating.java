@@ -414,8 +414,8 @@ public class PlayerUpdating {
 				rankId = 9;
 			}
 		}
-		if(rankId == 5) {
-			rankId = 11;
+		if(rankId == 4) {
+			rankId = 10;
 		}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
@@ -564,8 +564,8 @@ public class PlayerUpdating {
 				rankId = 9;
 			}
 		}
-		if(rankId == 5) {
-			rankId = 11;
+		if(rankId == 4) {
+			rankId = 10;
 		}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();

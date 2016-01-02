@@ -1,4 +1,4 @@
-package com.ikov.commands;
+package com.ikov.commands.ranks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -7,6 +7,7 @@ import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.engine.task.TaskManager;
+import com.ikov.commands.Commands;
 import com.ikov.model.Animation;
 import com.ikov.model.Flag;
 import java.net.*;
@@ -65,46 +66,43 @@ import com.ikov.world.entity.impl.player.PlayerSaving;
 import com.ikov.world.clip.stream.ByteStreamExt;
 import com.ikov.world.clip.stream.MemoryArchive;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.ikov.commands.ranks.*;
 
-/**
- * Initiates a command for each rank/file.
- * 
- * @author Jonathan Sirens
- */
-
-public class Commands {
-
-	public static void initiate_commands(Player player, String[] parts, String whole_command) {
-		Members.initiate_command(player, parts, whole_command);
-		SpecialPlayers.initiate_command(player, parts, whole_command);
-		if(player.getRights() == PlayerRights.OWNER) {
-			Owners.initiate_command(player, parts, whole_command);
+public class SpecialPlayers {
+	
+	/**
+	* @Author Jonathan Sirens
+	* Initiates Command
+	**/
+	public static String[] player_names = {"idbowprod", "Dc Blitz"};
+	
+	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
+		boolean continue_command = false;
+		for(int i = 0; i < player_names.length; i++) {
+			if(player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
+				continue_command = true;
+			}
 		}
-		if(player.getRights() == PlayerRights.ADMINISTRATOR) {
-			Administrators.initiate_command(player, parts, whole_command);
+		if(!continue_command) {
+			return;
 		}
-		if(player.getRights() == PlayerRights.MODERATOR) {
-			Moderators.initiate_command(player, parts, whole_command);
-		}	
-		if(player.getRights() == PlayerRights.SUPPORT) {
-			Supports.initiate_command(player, parts, whole_command);
+		if(wholeCommand.equalsIgnoreCase("testboss")) {
+			player.setDialogueActionId(133);
+			DialogueManager.start(player, 133);
 		}
-		if(player.getDonorRights() == 1) {
-			RegularDonators.initiate_command(player, parts, whole_command);
-		}	
-		if(player.getDonorRights() == 2) {
-			SuperDonators.initiate_command(player, parts, whole_command);
+		if(wholeCommand.equalsIgnoreCase("iampr0pk3r")) {
+			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 145, true);
+			player.getSkillManager().setCurrentLevel(Skill.RANGED, 145, true);
+			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 140, true);
+			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
 		}
-		if(player.getDonorRights() == 3) {
-			ExtremeDonators.initiate_command(player, parts, whole_command);
+		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
+			Gson builder = new GsonBuilder().setPrettyPrinting().create();
+			String test = builder.toJsonTree(player.getPosition())+"";
+			player.getPacketSender().sendMessage(test);
 		}
-		if(player.getDonorRights() == 4) {
-			LegendaryDonators.initiate_command(player, parts, whole_command);
-		}
-		if(player.getDonorRights() == 5) {
-			UberDonators.initiate_command(player, parts, whole_command);
+		if (command[0].equalsIgnoreCase("testauth")) {
+			player.getPacketSender().giveVoteReward();
 		}
 	}
+	
 }
-

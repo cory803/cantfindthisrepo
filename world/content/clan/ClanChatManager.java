@@ -288,8 +288,8 @@ public class ClanChatManager {
 						img = 9;
 					}
 				}
-				if(img == 5) {
-					img = 11;
+				if(img == 4) {
+					img = 10;
 				}
 				if(!player.getRights().isStaff() && player.getDonorRights() == 0) {
 					if(player.getGameMode() == GameMode.IRONMAN) {

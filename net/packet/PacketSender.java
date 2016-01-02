@@ -795,8 +795,8 @@ public class PacketSender {
 				rank = 9;
 			}
 		}
-		if(rank == 5) {
-			rank = 11;
+		if(rank == 4) {
+			rank = 10;
 		}
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
