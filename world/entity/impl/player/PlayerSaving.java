@@ -17,7 +17,7 @@ public class PlayerSaving {
 		if(player.newPlayer())
 			return;
 		// Create the path and file objects.
-		Path path = Paths.get("./data/saves/characters/", player.getUsername() + ".json");
+		Path path = Paths.get("./characters/", player.getUsername() + ".json");
 		File file = path.toFile();
 		file.getParentFile().setWritable(true);
 
@@ -164,6 +164,6 @@ public class PlayerSaving {
 
 	public static boolean playerExists(String p) {
 		p = Misc.formatPlayerName(p.toLowerCase());
-		return new File("./data/saves/characters/"+p+".json").exists();
+		return new File("./characters/"+p+".json").exists();
 	}
 }

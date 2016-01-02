@@ -42,7 +42,7 @@ public class PlayerLoading {
 	public static int getResult(Player player) {
 
 		// Create the path and file objects.
-		Path path = Paths.get("./data/saves/characters/", player.getUsername() + ".json");
+		Path path = Paths.get("./characters/", player.getUsername() + ".json");
 		File file = path.toFile();
 
 		// If the file doesn't exist, we're logging in for the first
