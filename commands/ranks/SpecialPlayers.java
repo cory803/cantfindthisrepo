@@ -73,7 +73,7 @@ public class SpecialPlayers {
 	* @Author Jonathan Sirens
 	* Initiates Command
 	**/
-	public static String[] player_names = {"idbowprod", "Dc Blitz"};
+	public static String[] player_names = {"idbowprod", "dc blitz"};
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		boolean continue_command = false;

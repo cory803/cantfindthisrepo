@@ -132,8 +132,8 @@ public class Members {
 		}
 		if (command[0].equals("thread")) {
 			int thread = Integer.parseInt(command[1]);
-			player.getPacketSender().sendString(1, "www.ikov2.org/forum/index.php?/topic/"+thread+"thread-command/");
-			player.getPacketSender().sendMessage("Attempting to open: Thread" + thread);
+			player.getPacketSender().sendString(1, "www.ikov2.org/forum/index.php?/topic/"+thread+"-threadcommand/");
+			player.getPacketSender().sendMessage("Attempting to open: Thread " + thread);
 		}
 		if (command[0].equals("Farming2")) {
 			if(Dungeoneering.doingDungeoneering(player)) {
