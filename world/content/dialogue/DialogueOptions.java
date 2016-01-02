@@ -884,6 +884,9 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 41:
+				TeleportHandler.teleportPlayer(player, new Position(2974, 3943), player.getSpellbook().getTeleportType());
+				break;
 			case 129:
 				player.getPacketSender().sendInterfaceRemoval();
 				funds = 10;
@@ -941,10 +944,10 @@ public class DialogueOptions {
 				player.getPacketSender().sendEnterAmountPrompt("How many shards would you like to buy? (You can use K, M, B prefixes)");
 				player.setInputHandling(new BuyShards());
 				break;
-			case 41:
+			//case 41:
 				//corp tele
 				//TeleportHandler.teleportPlayer(player, new Position(2884 + Misc.getRandom(1), 4374 + Misc.getRandom(1)), player.getSpellbook().getTeleportType());
-				break;
+			//	break;
 			case 47:
 				TeleportHandler.teleportPlayer(player,new Position(2911, 4832), player.getSpellbook().getTeleportType());
 				break;

@@ -62,7 +62,7 @@ public class Dragon implements CombatStrategy {
 
 	public static int getAnimation(int npc) {
 		int anim = 12259;
-		if(npc == 50)
+		if(npc == 50 || npc == 4000)
 			anim = 81;
 		else if(npc == 5363 || npc == 1590 || npc == 1591 || npc == 1592)
 			anim = 14246;

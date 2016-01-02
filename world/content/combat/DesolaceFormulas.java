@@ -602,7 +602,7 @@ public class DesolaceFormulas {
 			return 4;
 		else if (s.equals("toktz-mej-tal"))// staff
 			return 6;
-		else if (s.contains("whip"))
+		else if (s.contains("whip") || s.toLowerCase().contains("abyssal tentacle"))
 			return 4;
 		else if (s.contains("dart"))
 			return 3;

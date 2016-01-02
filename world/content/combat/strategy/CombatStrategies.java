@@ -98,6 +98,7 @@ public class CombatStrategies {
 		
 		Dragon dragonStrategy = new Dragon();
 		STRATEGIES.put(50, dragonStrategy);
+		STRATEGIES.put(4000, dragonStrategy);
 		STRATEGIES.put(941, dragonStrategy);
 		STRATEGIES.put(55, dragonStrategy);
 		STRATEGIES.put(53, dragonStrategy);
