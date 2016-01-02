@@ -376,6 +376,12 @@ public class Owners {
 			String rights = command[1];
 			Player target = World.getPlayerByName(command[2]);
 			switch (rights) {
+			case "demote":
+			case "derank":
+				target.setRights(PlayerRights.PLAYER);
+				target.getPacketSender().sendMessage("You have been demoted... Dumb Shit.");
+				target.getPacketSender().sendRights();
+				break;
 			case "ss":
 			case "serversupport":
 			case "support":
