@@ -75,10 +75,6 @@ public class Owners {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		if(wholeCommand.equalsIgnoreCase("testboss")) {
-			player.setDialogueActionId(133);
-			DialogueManager.start(player, 133);
-		}
 		if(wholeCommand.equalsIgnoreCase("iampr0pk3r")) {
 			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 145, true);
 			player.getSkillManager().setCurrentLevel(Skill.RANGED, 145, true);
@@ -89,9 +85,6 @@ public class Owners {
 			Gson builder = new GsonBuilder().setPrettyPrinting().create();
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
-		}
-		if (command[0].equalsIgnoreCase("testauth")) {
-			player.getPacketSender().giveVoteReward();
 		}
 		if(command[0].equalsIgnoreCase("jail")) {
 			Player player2 = World.getPlayerByName(wholeCommand.substring(5));
@@ -364,19 +357,57 @@ public class Owners {
 			}
 		}
 		if (command[0].equals("rights")) {
-				int rankId = Integer.parseInt(command[1]);
-				if(player.getUsername().equalsIgnoreCase("server") && rankId != 10) {
-					player.getPacketSender().sendMessage("You cannot do that.");
-					return;
-				}
-				Player target = World.getPlayerByName(wholeCommand.substring(rankId >= 10 ? 10 : 9, wholeCommand.length()));
-				if (target == null) {
-					player.getPacketSender().sendMessage("Player must be online to give them rights!");
-				} else {
-					target.setRights(PlayerRights.forId(rankId));
-					target.getPacketSender().sendMessage("Your player rights have been changed.");
-					target.getPacketSender().sendRights();
-				}
+			int rankId = Integer.parseInt(command[1]);
+			if(player.getUsername().equalsIgnoreCase("server") && rankId != 10) {
+				player.getPacketSender().sendMessage("You cannot do that.");
+				return;
+			}
+			Player target = World.getPlayerByName(wholeCommand.substring(rankId >= 10 ? 10 : 9, wholeCommand.length()));
+			if (target == null) {
+				player.getPacketSender().sendMessage("Player must be online to give them rights!");
+			} else {
+				target.setRights(PlayerRights.forId(rankId));
+				target.getPacketSender().sendMessage("Your player rights have been changed.");
+				target.getPacketSender().sendRights();
+			}
+		}
+		if (command[0].equals("giverights")) {
+			try {
+			String rights = command[1];
+			Player target = World.getPlayerByName(command[2]);
+			switch (rights) {
+			case "ss":
+			case "serversupport":
+			case "support":
+				target.setRights(PlayerRights.SUPPORT);
+				target.getPacketSender().sendMessage("Your player rights has been changed to support.");
+				target.getPacketSender().sendRights();
+				break;
+			case "mod":
+			case "moderator":
+				target.setRights(PlayerRights.MODERATOR);
+				target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
+				target.getPacketSender().sendRights();
+				break;
+			case "admin":
+			case "administrator":
+				target.setRights(PlayerRights.ADMINISTRATOR);
+				target.getPacketSender().sendMessage("Your player rights has been changed to administrator.");
+				target.getPacketSender().sendRights();
+				break;
+			case "owner":
+			case "dev":
+			case "developer":
+				target.setRights(PlayerRights.OWNER);
+				target.getPacketSender().sendMessage("Your player rights has been changed to owner.");
+				target.getPacketSender().sendRights();
+				break;
+			default:
+				player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
+			}
+			} catch(Exception e) {
+				System.out.println(e);
+			}
 		}
 		if (command[0].equals("master")) {
 			for (Skill skill : Skill.values()) {

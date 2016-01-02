@@ -1,8 +1,5 @@
 package com.ikov.world.content.skill;
 
-import com.google.common.collect.Range;
-import com.google.common.collect.RangeMap;
-import com.google.common.collect.TreeRangeMap;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
@@ -10,7 +7,6 @@ import com.ikov.model.Flag;
 import com.ikov.model.GameMode;
 import com.ikov.model.Graphic;
 import com.ikov.model.Locations.Location;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.model.definitions.WeaponAnimations;
