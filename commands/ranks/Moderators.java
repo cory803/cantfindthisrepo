@@ -313,6 +313,18 @@ public class Moderators {
 					player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
 			}
 		}
+		if(wholeCommand.toLowerCase().startsWith("yell")) {
+			if(PlayerPunishment.muted(player.getUsername()) || PlayerPunishment.IPMuted(player.getHostAddress())) {
+				player.getPacketSender().sendMessage("You are muted and cannot yell.");
+				return;
+			}
+			if(GameSettings.YELL_STATUS) {
+				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
+				return;
+			}
+			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
+			World.sendMessage("<col=0>[<col=31a4ff><shad=0><img=1>Moderator<img=1></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+		}
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);
 			Player playerToKick = World.getPlayerByName(player2);

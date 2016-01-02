@@ -253,6 +253,18 @@ public class Supports {
 			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
+		if(wholeCommand.toLowerCase().startsWith("yell")) {
+			if(PlayerPunishment.muted(player.getUsername()) || PlayerPunishment.IPMuted(player.getHostAddress())) {
+				player.getPacketSender().sendMessage("You are muted and cannot yell.");
+				return;
+			}
+			if(GameSettings.YELL_STATUS) {
+				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
+				return;
+			}
+			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
+			World.sendMessage("<col=0>[<col=ffff00><shad=0><img=10>Support<img=10></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+		}
 		if(command[0].equalsIgnoreCase("ipban")) {
 			Player player2 = World.getPlayerByName(wholeCommand.substring(6));
 			if(player2 == null) {
