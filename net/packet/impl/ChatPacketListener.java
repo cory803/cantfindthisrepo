@@ -8,6 +8,7 @@ import com.ikov.util.Misc;
 import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.util.Logs;
 
 /**
  * This packet listener manages the spoken text by a player.
@@ -29,9 +30,11 @@ public class ChatPacketListener implements PacketListener {
 		}
 		String str = Misc.textUnpack(text, size).toLowerCase().replaceAll(";", ".");
 		if(Misc.blockedWord(str)) {
+			Logs.write_data(player.getUsername()+ ".txt", "advertisers", "Player was caught saying in global chat: "+str+"");
 			DialogueManager.sendStatement(player, "A word was blocked in your sentence. Please do not repeat it!");
 			return;
 		}
+		Logs.write_data(player.getUsername()+ ".txt", "global_chats", ""+str+"");
 		player.getChatMessages().set(new Message(color, effects, text));
 		player.getUpdateFlag().flag(Flag.CHAT);
 	}

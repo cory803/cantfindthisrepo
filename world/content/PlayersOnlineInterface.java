@@ -98,6 +98,9 @@ public class PlayersOnlineInterface {
 						rankId = 9;
 					}
 				}
+				if(rankId == 5) {
+					rankId = 11;
+				}
 			if(rankId == 0) {
 				if(p.getGameMode() == GameMode.IRONMAN) {
 					rankId = 33;

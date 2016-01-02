@@ -549,8 +549,8 @@ public class Misc {
 		".i n f o", ".o r g", ".t k", ".n e t", ".c o m", ".c o . u k",
 		".b e", ".n l", ".d k", ".c o . c z", ".c o", ".u s", ".b i z",
 		".e u", ".d e", ".c c", ".(c)om", "(.)", "kandarin", "o r g", "www", 
-		"w w w", "w.w.w", "voidrsps", "void-ps", "desolace", "ikov", "soulsplit", 
-		"soulspawn", "atiloc", "<img", "@cr", "i k o v", "ik0v", "<img=", "@cr", ":tradereq:", ":duelreq:",
+		"w w w", "w.w.w", "voidrsps", "void-ps", "desolace", "soulsplit", 
+		"soulspawn", "atiloc", "<img", "@cr", "<img=", "@cr", ":tradereq:", ":duelreq:",
 		"<col=", "<shad=", "hostilityps", "hostilityp", "hostility ps"};
 
 

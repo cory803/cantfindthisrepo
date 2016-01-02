@@ -795,6 +795,9 @@ public class PacketSender {
 				rank = 9;
 			}
 		}
+		if(rank == 5) {
+			rank = 11;
+		}
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
 		out.putInt(player.getRelations().getPrivateMessageId());

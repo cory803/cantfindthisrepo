@@ -414,6 +414,9 @@ public class PlayerUpdating {
 				rankId = 9;
 			}
 		}
+		if(rankId == 5) {
+			rankId = 11;
+		}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
@@ -560,6 +563,9 @@ public class PlayerUpdating {
 			if(player.getDonorRights() == 5) {
 				rankId = 9;
 			}
+		}
+		if(rankId == 5) {
+			rankId = 11;
 		}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();

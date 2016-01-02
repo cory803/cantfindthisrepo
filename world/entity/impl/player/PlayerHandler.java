@@ -9,6 +9,7 @@ import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.engine.task.impl.CombatSkullEffect;
 import com.ikov.engine.task.impl.FireImmunityTask;
 import com.ikov.engine.task.impl.OverloadPotionTask;
+import com.ikov.util.Logs;
 import com.ikov.engine.task.impl.PlayerSkillsTask;
 import com.ikov.engine.task.impl.PlayerSpecialAmountTask;
 import com.ikov.engine.task.impl.PrayerRenewalPotionTask;
@@ -192,8 +193,7 @@ public class PlayerHandler {
 		if(player.getPointsHandler().getAchievementPoints() == 0) {
 			Achievements.setPoints(player);
 		}
-		
-		PlayerLogs.log(player.getUsername(), "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
+		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
 	}
 
 	public static boolean handleLogout(Player player) {
@@ -246,6 +246,7 @@ public class PlayerHandler {
 					PlayersOnline.online(player);
 					PlayersOnline.destroyCon();
 				}
+				Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Logout from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
 				return true;
 			} else {
 				return false;

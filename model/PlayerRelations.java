@@ -7,6 +7,9 @@ import com.ikov.util.NameUtils;
 import com.ikov.world.World;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.util.Logs;
+import com.ikov.util.Misc;
+import com.ikov.world.content.dialogue.DialogueManager;
 
 /**
  * This file represents a player's relation with other world entities,
@@ -257,7 +260,13 @@ public class PlayerRelations {
 		if(status == PrivateChatStatus.OFF) {
 			setStatus(PrivateChatStatus.FRIENDS_ONLY, true);
 		}
+		if(Misc.blockedWord(Misc.textUnpack(message, size).replaceAll(";", "."))) {
+			Logs.write_data(this.player.getUsername()+ ".txt", "advertisers", "Player was caught saying in private message: "+Misc.textUnpack(message, size).replaceAll(";", ".")+"");
+			return;
+		}
 		friend.getPacketSender().sendPrivateMessage(player.getLongUsername(), player.getRights(), message, size);
+		Logs.write_data(friend.getUsername()+ ".txt", "private_messages", "Recieved from "+this.player.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
+		Logs.write_data(this.player.getUsername()+ ".txt", "private_messages", "Sent to "+friend.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
 	}
 
 	/**
