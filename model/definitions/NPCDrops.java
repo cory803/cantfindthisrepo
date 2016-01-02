@@ -265,16 +265,39 @@ public class NPCDrops {
 
 			if (dropChance == DropChance.ALWAYS) {
 				drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
-				if(p.getLocation() == Location.BOSS_SYSTEM) {
-					drop(p, drops.getDropList()[i].getItem(), npc, npcPos2, goGlobal);
-					dropsReceived[dropChance.ordinal()] = true;
-				}
 			} else {
 				if(shouldDrop(dropsReceived, dropChance, ringOfWealth)) {
-					if(p.getLocation() == Location.BOSS_SYSTEM) {
-						drop(p, drops.getDropList()[i].getItem(), npc, npcPos2, goGlobal);
-						dropsReceived[dropChance.ordinal()] = true;
-					}
+					drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
+					dropsReceived[dropChance.ordinal()] = true;
+				}
+			}
+		}
+	}
+	public static void dropBossSystem(Player p, NPC npc) {
+		NPCDrops drops = NPCDrops.forId(npc.getId());
+		if (drops == null)
+			return;
+		final boolean goGlobal = p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4;
+		final boolean ringOfWealth = p.getEquipment().get(Equipment.RING_SLOT).getId() == 2572;
+		final Position npcPos = new Position(npc.getPosition().getX(), npc.getPosition().getY(), 0);
+		boolean[] dropsReceived = new boolean[12];
+
+		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
+			casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
+		}
+
+
+		for (int i = 0; i < drops.getDropList().length; i++) {
+			if (drops.getDropList()[i].getItem().getId() <= 0 || drops.getDropList()[i].getItem().getId() > ItemDefinition.getMaxAmountOfItems() || drops.getDropList()[i].getItem().getAmount() <= 0) {
+				continue;
+			}
+
+			final DropChance dropChance = drops.getDropList()[i].getChance();
+
+			if (dropChance == DropChance.ALWAYS) {
+				drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
+			} else {
+				if(shouldDrop(dropsReceived, dropChance, ringOfWealth)) {
 					drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
 					dropsReceived[dropChance.ordinal()] = true;
 				}

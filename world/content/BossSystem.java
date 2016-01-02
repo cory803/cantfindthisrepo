@@ -14,7 +14,9 @@ import com.ikov.world.entity.impl.player.Player;
 
 public class BossSystem {
 		public enum Bosses {
-			KBD(50), BOSS(1);
+			KBD(50), 
+			TD(8349),
+			CORP(8133);
 			
 			private int npcId;
 			

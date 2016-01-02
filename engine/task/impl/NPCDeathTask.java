@@ -62,12 +62,14 @@ public class NPCDeathTask extends Task {
 				killer = npc.getCombatBuilder().getKiller(true);
 				if(!(npc.getId() >= 6142 && npc.getId() <= 6145) && !(npc.getId() > 5070 && npc.getId() < 5081))
 					npc.performAnimation(new Animation(npc.getDefinition().getDeathAnimation()));
-
+				
 				/** CUSTOM NPC DEATHS **/
 				if(npc.getId() == 13447) {
 					Nex.handleDeath();
 				}
-
+				if (npc.getLocation() == Location.BOSS_SYSTEM) {
+					NPCDrops.dropBossSystem(killer, npc);
+				}
 				break;
 			case 0:
 				if(killer != null) {

@@ -62,6 +62,10 @@ public class WildernessObelisks {
 		for(Player player : World.getPlayers()) {
 			if(player == null || player.getLocation() == null || player.getLocation() != Location.WILDERNESS)
 				continue;
+			if (player.getTeleblockTimer() > 0) {
+				player.getPacketSender().sendMessage("You cannot use this obelisk while you are teleblocked.");
+				return;
+			}
 			if(Locations.goodDistance(player.getPosition().copy(), new Position(OBELISK_COORDS[index][0] + 2, OBELISK_COORDS[index][1] + 2), 1))
 				player.moveTo(new Position(OBELISK_COORDS[random][0] + 2, OBELISK_COORDS[random][1] + 2));
 		}

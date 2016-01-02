@@ -16,7 +16,6 @@ import com.ikov.model.input.impl.SetEmail;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements.AchievementData;
-import com.ikov.world.content.BossSystem.Bosses;
 import com.ikov.world.content.Artifacts;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BossSystem;
@@ -259,6 +258,10 @@ public class DialogueOptions {
 			case 80:
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
+			case 134:
+				BossSystem.startInstance(player, BossSystem.Bosses.TD.getBossID());
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			}
 		} else if(id == THIRD_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
@@ -362,6 +365,10 @@ public class DialogueOptions {
 					}
 				}
 				break;
+			case 134:
+				BossSystem.startInstance(player, BossSystem.Bosses.CORP.getBossID());
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			}
 		} else if(id == FOURTH_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
@@ -419,7 +426,7 @@ public class DialogueOptions {
 				SlayerMaster.changeSlayerMaster(player, SlayerMaster.SUMONA);
 				break;
 			case 36:
-				TeleportHandler.teleportPlayer(player, new Position(2717, 9805), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(2392, 9903), player.getSpellbook().getTeleportType());
 				break;
 			case 38:
 				TeleportHandler.teleportPlayer(player, new Position(1891, 3177), player.getSpellbook().getTeleportType());
@@ -448,6 +455,10 @@ public class DialogueOptions {
 						player.getMinigameAttributes().getDungeoneeringAttributes().getParty().refreshInterface();
 					}
 				}
+				break;
+			case 134:
+				BossSystem.startInstance(player, BossSystem.Bosses.TD.getBossID());
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
 		} else if(id == FIFTH_OPTION_OF_FIVE) {
@@ -520,6 +531,9 @@ public class DialogueOptions {
 				if(player.getClickDelay().elapsed(1500)) {
 					PkSets.buySet(player, PkSets.HYBRIDING_MAIN_SET);
 				}
+				break;
+			case 134:
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
 		} else if(id == FIRST_OPTION_OF_FOUR) {
@@ -928,7 +942,8 @@ public class DialogueOptions {
 				player.setInputHandling(new BuyShards());
 				break;
 			case 41:
-				TeleportHandler.teleportPlayer(player, new Position(2884 + Misc.getRandom(1), 4374 + Misc.getRandom(1)), player.getSpellbook().getTeleportType());
+				//corp tele
+				//TeleportHandler.teleportPlayer(player, new Position(2884 + Misc.getRandom(1), 4374 + Misc.getRandom(1)), player.getSpellbook().getTeleportType());
 				break;
 			case 47:
 				TeleportHandler.teleportPlayer(player,new Position(2911, 4832), player.getSpellbook().getTeleportType());
