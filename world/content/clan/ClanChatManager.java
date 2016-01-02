@@ -271,6 +271,23 @@ public class ClanChatManager {
 				if(memberPlayer.getRelations().getIgnoreList().contains(player.getLongUsername()))
 					continue;
 				int img = player.getRights().ordinal();
+				if(img == 0) {
+					if(player.getDonorRights() == 1) {
+						img = 5;
+					}
+					if(player.getDonorRights() == 2) {
+						img = 6;
+					}
+					if(player.getDonorRights() == 3) {
+						img = 7;
+					}
+					if(player.getDonorRights() == 4) {
+						img = 8;
+					}
+					if(player.getDonorRights() == 5) {
+						img = 9;
+					}
+				}
 				if(!player.getRights().isStaff() && player.getDonorRights() == 0) {
 					if(player.getGameMode() == GameMode.IRONMAN) {
 						img = 33;

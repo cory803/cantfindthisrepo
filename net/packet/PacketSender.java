@@ -777,10 +777,28 @@ public class PacketSender {
 	}
 
 	public PacketSender sendPrivateMessage(long name, PlayerRights rights, byte[] message, int size) {
+		int rank = rights.ordinal();
+		if(rank == 0) {
+			if(player.getDonorRights() == 1) {
+				rank = 5;
+			}
+			if(player.getDonorRights() == 2) {
+				rank = 6;
+			}
+			if(player.getDonorRights() == 3) {
+				rank = 7;
+			}
+			if(player.getDonorRights() == 4) {
+				rank = 8;
+			}
+			if(player.getDonorRights() == 5) {
+				rank = 9;
+			}
+		}
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
 		out.putInt(player.getRelations().getPrivateMessageId());
-		out.put(rights.ordinal());
+		out.put(rank);
 		out.putBytes(message, size);
 		player.getSession().queueMessage(out);
 		return this;

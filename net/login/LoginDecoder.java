@@ -156,9 +156,26 @@ public final class LoginDecoder extends FrameDecoder {
 			player.setNewPlayer(true);
 			response = LoginResponses.LOGIN_SUCCESSFUL;
 		}
-		
+		int rank = player.getRights().ordinal();
+		if(rank == 0) {
+			if(player.getDonorRights() == 1) {
+				rank = 5;
+			}
+			if(player.getDonorRights() == 2) {
+				rank = 6;
+			}
+			if(player.getDonorRights() == 3) {
+				rank = 7;
+			}
+			if(player.getDonorRights() == 4) {
+				rank = 8;
+			}
+			if(player.getDonorRights() == 5) {
+				rank = 9;
+			}
+		}
 		if (response == LoginResponses.LOGIN_SUCCESSFUL) {
-			channel.write(new PacketBuilder().put((byte)2).put((byte)player.getRights().ordinal()).put((byte)0).toPacket());
+			channel.write(new PacketBuilder().put((byte)2).put((byte)rank).put((byte)0).toPacket());
 			
 			if(!World.getLoginQueue().contains(player)) {
 				World.getLoginQueue().add(player);

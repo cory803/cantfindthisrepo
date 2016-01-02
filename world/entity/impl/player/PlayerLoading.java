@@ -82,6 +82,10 @@ public class PlayerLoading {
 				player.setRights(PlayerRights.valueOf(reader.get("staff-rights").getAsString()));
 			}
 			
+			if (reader.has("donor-rights")) {
+				player.setDonorRights(reader.get("donor-rights").getAsInt());
+			}
+			
 			if (reader.has("game-mode")) {
 				player.setGameMode(GameMode.valueOf(reader.get("game-mode").getAsString()));
 			}

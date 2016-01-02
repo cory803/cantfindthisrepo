@@ -5,6 +5,7 @@ import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.RecipeForDisaster;
 import com.ikov.world.content.skill.impl.slayer.SlayerTasks;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.model.PlayerRights;
 
 public class PlayerPanel {
 
@@ -32,7 +33,25 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(39165, "@or3@ - @whi@ Account Information");
 		player.getPacketSender().sendString(39167, "@or2@Username:  @yel@"+player.getUsername());
 		player.getPacketSender().sendString(39168, "@or2@Claimed:  @yel@$"+player.getAmountDonated());
-		player.getPacketSender().sendString(39169, "@or2@Rank:  @yel@"+Misc.formatText(player.getRights().toString().toLowerCase()));
+		if(player.getRights() == PlayerRights.PLAYER) {
+			if(player.getDonorRights() == 1) {
+				player.getPacketSender().sendString(39169, "@or2@Rank:  @red@Regular Donator");		
+			}			
+			if(player.getDonorRights() == 2) {
+				player.getPacketSender().sendString(39169, "@or2@Rank:  @blu@Super Donator");		
+			}
+			if(player.getDonorRights() == 3) {
+				player.getPacketSender().sendString(39169, "@or2@Rank:  @gre@Extreme Donator");		
+			}
+			if(player.getDonorRights() == 4) {
+				player.getPacketSender().sendString(39169, "@or2@Rank:  @pur@Legendary Donator");		
+			}
+			if(player.getDonorRights() == 5) {
+				player.getPacketSender().sendString(39169, "@or2@Rank:  @yel@Uber Donator");		
+			}
+		} else {
+			player.getPacketSender().sendString(39169, "@or2@Rank:  @whi@"+Misc.formatText(player.getRights().toString().toLowerCase()));	
+		}
 		player.getPacketSender().sendString(39170, "@or2@Email:  @yel@"+(player.getEmailAddress() == null || player.getEmailAddress().equals("null") ? "-" : player.getEmailAddress()));
 		player.getPacketSender().sendString(39171, "@or2@Music:  @yel@"+(player.musicActive() ? "On" : "Off")+"");
 		player.getPacketSender().sendString(39172, "@or2@Sounds:  @yel@"+(player.soundsActive() ? "On" : "Off")+"");

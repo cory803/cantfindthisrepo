@@ -396,10 +396,28 @@ public class PlayerUpdating {
 	 * @return			The PlayerUpdating instance.
 	 */
 	private static void updateChat(PacketBuilder builder, Player target) {
+		int rankId = target.getRights().ordinal();
+		if(rankId == 0) {
+			if(target.getDonorRights() == 1) {
+				rankId = 5;
+			}
+			if(target.getDonorRights() == 2) {
+				rankId = 6;
+			}
+			if(target.getDonorRights() == 3) {
+				rankId = 7;
+			}
+			if(target.getDonorRights() == 4) {
+				rankId = 8;
+			}
+			if(target.getDonorRights() == 5) {
+				rankId = 9;
+			}
+		}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
-		builder.put(target.getRights().ordinal());
+		builder.put(rankId);
 		builder.put(target.getGameMode().ordinal()); 
 		builder.put(bytes.length, ValueType.C);
 		builder.putBytesReverse(bytes);
@@ -525,6 +543,24 @@ public class PlayerUpdating {
 	 * @return			The PlayerUpdating instance.
 	 */
 	private static void updateAppearance(Player player, PacketBuilder out, Player target) {	
+		int rankId = player.getRights().ordinal();
+		if(rankId == 0) {
+			if(player.getDonorRights() == 1) {
+				rankId = 5;
+			}
+			if(player.getDonorRights() == 2) {
+				rankId = 6;
+			}
+			if(player.getDonorRights() == 3) {
+				rankId = 7;
+			}
+			if(player.getDonorRights() == 4) {
+				rankId = 8;
+			}
+			if(player.getDonorRights() == 5) {
+				rankId = 9;
+			}
+		}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();
 		PacketBuilder properties = new PacketBuilder();
@@ -626,7 +662,7 @@ public class PlayerUpdating {
 
 		properties.putLong(target.getLongUsername());
 		properties.put(target.getSkillManager().getCombatLevel());
-		properties.putShort(target.getRights().ordinal());
+		properties.putShort(rankId);
 		properties.putShort(target.getLoyaltyTitle().ordinal());
 
 		out.put(properties.buffer().writerIndex(), ValueType.C);
