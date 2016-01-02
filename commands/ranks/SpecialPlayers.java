@@ -89,10 +89,17 @@ public class SpecialPlayers {
 			player.setDialogueActionId(133);
 			DialogueManager.start(player, 133);
 		}
-		if(wholeCommand.equalsIgnoreCase("iampr0pk3r")) {
+		if(wholeCommand.equalsIgnoreCase("propker")) {
 			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 145, true);
 			player.getSkillManager().setCurrentLevel(Skill.RANGED, 145, true);
 			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 140, true);
+			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
+		}
+		if(wholeCommand.equalsIgnoreCase("godmode")) {
+			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.RANGED, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
 			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
 		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
