@@ -374,6 +374,7 @@ public class NPCDrops {
 		}
 
 		if (ItemDropAnnouncer.announce(itemId)) {
+			System.out.println(""+itemId+"");
 			String itemName = item.getDefinition().getName();
 			String itemMessage = Misc.anOrA(itemName) + " " + itemName;
 			String npcName = Misc.formatText(npc.getDefinition().getName());
@@ -457,7 +458,7 @@ public class NPCDrops {
 			1053, 1830, 1055, 1057, 1831, 1832, 1834, 8000, 21008, 21009, 21010, 21011, 21012, 21013,
 			21014, 21015, 21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023, 21024, 21025,
 			21026, 21027, 21028, 21029, 21030, 21031, 21032, 21033, 21034, 21035, 21036, 21037,
-			21038, 21039, 21040, 21041, 21042, 21043, 10330, 10332, 10334, 10336, 10338, 10340, 10342,
+			21038, 21039, 21040, 21041, 21042, 10330, 10332, 10334, 10336, 10338, 10340, 10342,
 			10344, 10346, 10348, 10350, 10352, 21047};
 
 		private static void init() {
