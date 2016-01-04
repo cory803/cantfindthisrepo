@@ -7,6 +7,7 @@ import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.CombatSkullEffect;
 import com.ikov.commands.Commands;
 import com.ikov.model.Animation;
 import com.ikov.model.Flag;
@@ -75,6 +76,13 @@ public class Members {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
+		if (command[0].equalsIgnoreCase("skull")) {
+			player.setSkullTimer(300);
+			player.setSkullIcon(1);
+			player.getPacketSender().sendMessage("@red@You have skulled yourself for 5 minutes.");
+			TaskManager.submit(new CombatSkullEffect(player));
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+		}
 		if (command[0].equalsIgnoreCase("auth")) {
 			if(!GameSettings.VOTING_CONNECTIONS) {
 				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
