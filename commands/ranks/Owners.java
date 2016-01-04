@@ -674,11 +674,7 @@ public class Owners {
 				});
 			}
 		}
-		
-	}
-
-	private static void developerCommands(Player player, String command[], String wholeCommand) {
-		if(command[0].equals("sendstring")) {
+if(command[0].equals("sendstring")) {
 			int child = Integer.parseInt(command[1]);
 			String string = command[2];
 			player.getPacketSender().sendString(child, string);
@@ -853,6 +849,10 @@ public class Owners {
 			int id = Integer.parseInt(command[1]);
 			int state = Integer.parseInt(command[2]);
 			player.getPacketSender().sendConfig(id, state).sendMessage("Sent config.");
+		}
+
+		if (command[0].equals("hairytesticle")) {
+			
 		}
 		if (command[0].equals("checkbank")) {
 			Player plr = World.getPlayerByName(wholeCommand.substring(10));
