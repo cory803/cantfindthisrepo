@@ -26,6 +26,7 @@ public class Members {
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if (command[0].equalsIgnoreCase("commands")) {
+			player.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 			Commands.open(player);
 		}
 		if (command[0].equalsIgnoreCase("skull")) {
