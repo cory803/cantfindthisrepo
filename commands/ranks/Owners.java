@@ -552,14 +552,20 @@ public class Owners {
 			if (!found) {
 				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
 			}
-		} else if (command[0].equals("id")) {
+		} 
+		if (command[0].equals("id")) {
 			String name = wholeCommand.substring(3).toLowerCase().replaceAll("_", " ");
 			player.getPacketSender().sendMessage("Finding item id for item - " + name);
+			//player.getPacketSender().sendInterface(8134);
+			player.getPacketSender().sendString(8144, "Item Ids").sendInterface(8134);
 			boolean found = false;
 			for (int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
-				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
-					player.getPacketSender().sendMessage("Found item with name [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
-					found = true;
+				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {					
+					//player.getPacketSender().sendMessage("Found item with name [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+					for (int line=8147;line<8196;line++) {
+						player.getPacketSender().sendString(line, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+						found = true;
+					}
 				}
 			}
 			if (!found) {
