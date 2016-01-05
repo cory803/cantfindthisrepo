@@ -484,7 +484,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					//ShopManager.getShops().get(54).open(player);
 					//break;
 				case 961:
-					if(player.getRights() == PlayerRights.PLAYER) {
+					if(player.getDonorRights() == 0) {
 						player.getPacketSender().sendMessage("This feature is currently only available for members.");
 						return;
 					}

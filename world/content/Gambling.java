@@ -15,7 +15,7 @@ import com.ikov.world.entity.impl.player.Player;
 public class Gambling {
 
 	public static void rollDice(Player player) {
-		if(player.getRights() == PlayerRights.PLAYER) {
+		if(player.getDonorRights() == 0) {
 			player.getPacketSender().sendMessage("You need to be a member to use this item.");
 			return;
 		}
@@ -26,7 +26,7 @@ public class Gambling {
 		if(player.getClanChatName() == null) {
 			player.getPacketSender().sendMessage("You need to be in a clanchat channel to roll a dice.");
 			return;
-		} else if(player.getClanChatName().equalsIgnoreCase("help")) {
+		} else if(player.getClanChatName().equalsIgnoreCase("ikov")) {
 			player.getPacketSender().sendMessage("You can't roll a dice in this clanchat channel!");
 			return;
 		}
@@ -42,7 +42,7 @@ public class Gambling {
 	}
 
 	public static void plantSeed(Player player) {
-		if(player.getRights() == PlayerRights.PLAYER) {
+		if(player.getDonorRights() == 0) {
 			player.getPacketSender().sendMessage("You need to be a member to use this item.");
 			return;
 		}

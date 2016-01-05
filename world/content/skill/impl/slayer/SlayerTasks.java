@@ -14,7 +14,14 @@ public enum SlayerTasks {
 	/**
 	 * Easy tasks
 	 */
-	ROCK_CRAB(SlayerMaster.VANNAKA, 1265, "Rock Crabs can be found in the Chaos Dungeon. NOT THE COLORED ROCK CRABS.", 2100, new Position(3184, 5472, 0)),
+	AQUA_ROCK_CRAB(SlayerMaster.VANNAKA, 5508, "Aqua Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	RED_ROCK_CRAB(SlayerMaster.VANNAKA, 5510, "Red Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	PINK_ROCK_CRAB(SlayerMaster.VANNAKA, 5509, "Pink Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	WHITE_ROCK_CRAB(SlayerMaster.VANNAKA, 5511, "White Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	LIME_ROCK_CRAB(SlayerMaster.VANNAKA, 5507, "Lime Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	BLUE_ROCK_CRAB(SlayerMaster.VANNAKA, 5514, "Blue Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	ORGANGE_ROCK_CRAB(SlayerMaster.VANNAKA, 5513, "Orange Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	YELLOW_ROCK_CRAB(SlayerMaster.VANNAKA, 5512, "Yellow Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
 	EXPERIMENT(SlayerMaster.VANNAKA, 1677, "Experiments can be found in the Training Teleport.", 2150, new Position(3564, 9954, 0)),
 	GIANT_BAT(SlayerMaster.VANNAKA, 78, "Giant Bats can be found in Taverly Dungeon.", 2000, new Position(2907, 9833)),
 	CHAOS_DRUID(SlayerMaster.VANNAKA, 181, "Chaos Druids can be found in Edgeville Dungeon.", 2120, new Position(3109, 9931, 0)),
@@ -42,7 +49,7 @@ public enum SlayerTasks {
 	BLOODVELD(SlayerMaster.DURADEL, 1618, "Bloodvelds can be found in Slayer Tower.", 7200, new Position(3418, 3570, 1)),
 	INFERNAL_MAGE(SlayerMaster.DURADEL, 1643, "Infernal Mages can be found in Slayer Tower.", 7000, new Position(3445, 3579, 1)),
 	ABERRANT_SPECTRE(SlayerMaster.DURADEL, 1604, "Aberrant Spectres can be found in Slayer Tower.", 7300, new Position(3432, 3553, 1)),
-	NECHRYAEL(SlayerMaster.DURADEL, 1613, "Nechryaels can be found in Slayer Tower.", 7800, new Position(3448, 3564, 2)),
+	//NECHRYAEL(SlayerMaster.DURADEL, 1613, "Nechryaels can be found in Slayer Tower.", 7800, new Position(3448, 3564, 2)),
 	GARGOYLE(SlayerMaster.DURADEL, 1610, "Gargoyles can be found in Slayer Tower.", 8100, new Position(3438, 3534, 2)),
 	TZHAAR_XIL(SlayerMaster.DURADEL, 2605, "TzHaar-Xils can be found in Tzhaar City.", 9000, new Position(2445, 5147)),
 	TZHAAR_HUR(SlayerMaster.DURADEL, 2600, "TzHaar-Hurs can be found in Tzhaar City.", 7900, new Position(2456, 5135)),
