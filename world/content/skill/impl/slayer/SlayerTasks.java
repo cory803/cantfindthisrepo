@@ -14,14 +14,14 @@ public enum SlayerTasks {
 	/**
 	 * Easy tasks
 	 */
-	AQUA_ROCK_CRAB(SlayerMaster.VANNAKA, 5508, "Aqua Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
-	RED_ROCK_CRAB(SlayerMaster.VANNAKA, 5510, "Red Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
-	PINK_ROCK_CRAB(SlayerMaster.VANNAKA, 5509, "Pink Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
-	WHITE_ROCK_CRAB(SlayerMaster.VANNAKA, 5511, "White Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
-	LIME_ROCK_CRAB(SlayerMaster.VANNAKA, 5507, "Lime Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
-	BLUE_ROCK_CRAB(SlayerMaster.VANNAKA, 5514, "Blue Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
-	ORGANGE_ROCK_CRAB(SlayerMaster.VANNAKA, 5513, "Orange Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
-	YELLOW_ROCK_CRAB(SlayerMaster.VANNAKA, 5512, "Yellow Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715, 0)),
+	AQUA_ROCK_CRAB(SlayerMaster.VANNAKA, 5508, "Aqua Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
+	RED_ROCK_CRAB(SlayerMaster.VANNAKA, 5510, "Red Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
+	PINK_ROCK_CRAB(SlayerMaster.VANNAKA, 5509, "Pink Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
+	WHITE_ROCK_CRAB(SlayerMaster.VANNAKA, 5511, "White Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
+	LIME_ROCK_CRAB(SlayerMaster.VANNAKA, 5507, "Lime Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
+	PURPLE_ROCK_CRAB(SlayerMaster.VANNAKA, 5514, "Purple Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
+	ORGANGE_ROCK_CRAB(SlayerMaster.VANNAKA, 5513, "Orange Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
+	YELLOW_ROCK_CRAB(SlayerMaster.VANNAKA, 5512, "Yellow Rock Crabs can be found in Relleka.", 2100, new Position(2681, 3715)),
 	EXPERIMENT(SlayerMaster.VANNAKA, 1677, "Experiments can be found in the Training Teleport.", 2150, new Position(3564, 9954, 0)),
 	GIANT_BAT(SlayerMaster.VANNAKA, 78, "Giant Bats can be found in Taverly Dungeon.", 2000, new Position(2907, 9833)),
 	CHAOS_DRUID(SlayerMaster.VANNAKA, 181, "Chaos Druids can be found in Edgeville Dungeon.", 2120, new Position(3109, 9931, 0)),
