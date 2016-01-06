@@ -69,6 +69,7 @@ public class NPCDeathTask extends Task {
 				}
 				if (npc.getLocation() == Location.BOSS_SYSTEM) {
 					NPCDrops.dropBossSystem(killer, npc);
+					killer.getSlayer().killedNpc(npc);
 				}
 				break;
 			case 0:

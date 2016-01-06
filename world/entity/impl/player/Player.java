@@ -176,7 +176,10 @@ public class Player extends Character {
 		if(weaponId == 1419) {
 			speed -= 2;
 		}
-		if (fightType == FightType.CROSSBOW_RAPID || fightType == FightType.LONGBOW_RAPID || weaponId == 6522 && fightType == FightType.KNIFE_RAPID || weapon.contains("rapier")) {
+		if(fightType == FightType.CROSSBOW_RAPID ) {
+			speed--;
+		}
+		if (fightType == FightType.LONGBOW_RAPID || weaponId == 6522 && fightType == FightType.KNIFE_RAPID || weapon.contains("rapier")) {
 			if(weaponId != 11235 && weaponId != 21016 && weaponId != 21017 && weaponId != 21018 && weaponId != 21019 && weaponId != 21020 && weaponId != 21021 && weaponId != 21022 && weaponId != 21023) {
 				speed--;
 			}
