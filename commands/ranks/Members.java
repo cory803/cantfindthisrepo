@@ -192,6 +192,14 @@ public class Members {
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Teleporting you to edgeville!");
 		}
+		if(command[0].equals("claim")) {
+			if(!GameSettings.STORE_CONNECTIONS) {
+				player.getPacketSender().sendMessage("The store is currently offline! Try again in 30 minutes.");
+				return;
+			}
+			player.getPacketSender().sendMessage("Checking for any store purchases...");
+			Store.start_store_process(player);
+		}
 		if (command[0].equals("wests")) {
 			if(Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
