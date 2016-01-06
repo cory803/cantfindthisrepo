@@ -367,6 +367,12 @@ public class Shop extends ItemContainer {
 				playerCurrencyAmount = player.getPointsHandler().getPrestigePoints();
 			} else if(id == SLAYER_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getSlayerPoints();
+			} else if(id == CREDIT_STORE_1) {
+				playerCurrencyAmount = player.getCredits();
+			} else if(id == CREDIT_STORE_2) {
+				playerCurrencyAmount = player.getCredits();
+			} else if(id == CREDIT_STORE_3) {
+				playerCurrencyAmount = player.getCredits();
 			}
 		}
 		if(value <= 0) {
@@ -427,6 +433,12 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setPrestigePoints(-value, true);
 						} else if(id == SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value, true);
+						} else if(id == CREDIT_STORE_1) {
+							player.setCredits(-value, true);
+						} else if(id == CREDIT_STORE_2) {
+							player.setCredits(-value, true);
+						} else if(id == CREDIT_STORE_3) {
+							player.setCredits(-value, true);
 						}
 					}
 
@@ -463,6 +475,12 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setPrestigePoints(-value * canBeBought, true);
 						} else if(id == SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
+						} else if(id == CREDIT_STORE_1) {
+							player.setCredits(-value * canBeBought, true);
+						} else if(id == CREDIT_STORE_2) {
+							player.setCredits(-value * canBeBought, true);
+						} else if(id == CREDIT_STORE_3) {
+							player.setCredits(-value * canBeBought, true);
 						}
 					}
 					super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
@@ -591,7 +609,7 @@ public class Shop extends ItemContainer {
 	public static boolean shopBuysItem(int shopId, Item item) {
 		if(shopId == GENERAL_STORE)
 			return true;
-		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE)
+		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE || shopId == CREDIT_STORE_1 || shopId == CREDIT_STORE_2 || shopId == CREDIT_STORE_3 || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
 		if(shop != null && shop.getOriginalStock() != null) {
@@ -816,6 +834,105 @@ public class Shop extends ItemContainer {
 				case 11694:
 					return new Object[]{600, "Pk points"};
 				}
+			} else if(shop == CREDIT_STORE_1) {
+				switch(item) {
+				case 21035:
+				case 21036:
+				case 21037:
+				case 21038:
+				case 21039:
+				case 21040:
+				case 21041:
+				case 1038:	
+				case 1040:
+				case 1042:
+				case 1044:
+				case 1046:
+				case 1048:
+				case 1050:
+				case 21024:
+				case 21025:
+				case 21026:
+					return new Object[]{50000, "Credits"};
+				case 1037:
+					return new Object[]{20000, "Credits"};	
+				case 4084:
+					return new Object[]{25000, "Credits"};
+				case 5607:
+					return new Object[]{5000, "Credits"};
+				}
+			} else if(shop == CREDIT_STORE_2) {
+				switch(item) {
+				case 14008:
+				case 14011:
+				case 14014:
+				case 14484:
+				case 11694:
+				case 19780:
+				case 21016:
+				case 21017:
+				case 21018:
+				case 21019:
+				case 21020:
+				case 21021:
+				case 21022:
+				case 21023:
+					return new Object[]{5000, "Credits"};
+				case 14012:
+				case 14013:
+				case 14015:
+				case 14016:
+				case 14009:
+				case 14010:
+				case 21000:
+				case 21001:
+				case 21002:
+				case 21003:
+				case 21004:
+				case 21005:
+				case 21006:
+				case 21007:
+					return new Object[]{10000, "Credits"};
+				}
+			} else if(shop == CREDIT_STORE_3) {
+				switch(item) {
+				case 15272:
+				case 11212:
+					return new Object[]{5, "Credits"};
+				case 15332:
+					return new Object[]{30, "Credits"};
+				case 12158:
+					return new Object[]{10, "Credits"};	
+				case 4151:
+					return new Object[]{750, "Credits"};
+				case 11235:
+					return new Object[]{500, "Credits"};
+				case 11283:
+					return new Object[]{1250, "Credits"};
+				case 11732:
+				case 6733:
+				case 6735:
+				case 6731:
+				case 15486:
+				case 6889:
+					return new Object[]{500, "Credits"};
+				case 20000:
+				case 20001:
+				case 20002:
+					return new Object[]{3000, "Credits"};
+				case 6580:
+				case 15018:
+				case 15019:
+				case 15020:
+				case 6585:
+					return new Object[]{1000, "Credits"};
+				case 15126:
+					return new Object[]{1250, "Credits"};
+				case 6737:
+					return new Object[]{1500, "Credits"};
+				case 15220:
+					return new Object[]{3000, "Credits"};
+				}
 			} else if(shop == ENERGY_FRAGMENT_STORE) {
 				switch(item) {
 				case 5509:
@@ -1038,6 +1155,9 @@ public class Shop extends ItemContainer {
 
 	private static final int VOTING_REWARDS_STORE = 27;
 	private static final int PKING_REWARDS_STORE = 26;
+	private static final int CREDIT_STORE_1 = 79;
+	private static final int CREDIT_STORE_2 = 80;
+	private static final int CREDIT_STORE_3 = 81;
 	private static final int DONATOR_STORE = 54;
 	private static final int DONATOR_STORE_MISC = 55;
 	private static final int ENERGY_FRAGMENT_STORE = 33;

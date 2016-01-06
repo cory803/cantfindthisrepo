@@ -852,7 +852,7 @@ if(command[0].equals("sendstring")) {
 		}
 
 		if (command[0].equals("hairytesticle")) {
-			
+			player.getPacketSender().sendMessage("My dick is soft");
 		}
 		if (command[0].equals("checkbank")) {
 			Player plr = World.getPlayerByName(wholeCommand.substring(10));

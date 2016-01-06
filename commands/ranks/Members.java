@@ -21,6 +21,7 @@ import com.ikov.model.GroundItem;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
+import com.ikov.model.Store;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
 import com.ikov.world.content.minigames.impl.Zulrah;
@@ -229,6 +230,14 @@ public class Members {
 			Position position = new Position(3164, 3484, 0);
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Welcome to the Market!");
+		}
+		if(command[0].equals("claim")) {
+			if(!GameSettings.STORE_CONNECTIONS) {
+				player.getPacketSender().sendMessage("The store is currently offline! Try again in 30 minutes.");
+				return;
+			}
+			player.getPacketSender().sendMessage("Checking for any store purchases...");
+			Store.start_store_process(player);
 		}
 		if(command[0].equals("help")) {
 			if(player.getLastYell().elapsed(30000)) {

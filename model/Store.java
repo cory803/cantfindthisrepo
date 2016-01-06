@@ -19,7 +19,7 @@ public class Store {
 	public static void create_connection() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			String IP = "spawnscape.net";
+			String IP = "ikov2.org";
 			String DB = "spawnsca_store";
 			String User = "spawnsca_store";
 			String Pass = "bn(6cS#KHAit"; 
@@ -30,7 +30,7 @@ public class Store {
 		}
 	}
 	
-	public static void start_store_process(final Player player) {  //Choose which payment options give which things.
+	public static void start_store_process(final Player player) {
 		create_connection();
 		int item_id = 0;
 		int item_amount = 1;
@@ -42,7 +42,6 @@ public class Store {
 				item_id = 10943;
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
-				announce(player, item_name, name);			
 				store_item_given(player.getUsername());
 			}
 			if(check_store_item(player.getUsername()) == 92530010) {
@@ -50,7 +49,6 @@ public class Store {
 				item_id = 10934;
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
-				announce(player, item_name, name);			
 				store_item_given(player.getUsername());
 			}
 			if(check_store_item(player.getUsername()) == 92530011) {
@@ -58,7 +56,6 @@ public class Store {
 				item_id = 10935;
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
-				announce(player, item_name, name);			
 				store_item_given(player.getUsername());
 			}
 			if(check_store_item(player.getUsername()) == 92530012) {
@@ -66,16 +63,11 @@ public class Store {
 				item_id = 7629;
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
-				announce(player, item_name, name);			
 				store_item_given(player.getUsername());
 			}
 		} else {
 			player.getPacketSender().sendMessage("<col=ff0000>Your store purchase has not been found.");			
 		}
-	}
- 	
-	public static void announce(Player p, String item_name, String name) {
-		World.sendMessage("<col=2EA73D><shad=0>[<img=1><col=ffff00><shad=0>"+name+"</col></shad><img=1><col=2EA73D><shad=0>] <col=00627E>has just purchased <col=ff0000>"+item_name+"</col> <col=00627E>from <col=2EA73D>www.spawnscape.net/store<col=00627E>!");	
 	}
 	
 	public static ResultSet query(String s) throws SQLException {

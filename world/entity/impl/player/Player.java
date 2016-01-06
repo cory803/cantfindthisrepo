@@ -1374,9 +1374,20 @@ public class Player extends Character {
 		return amountDonated;
 	}
 	
+	public void setAmountDonated(int amtdon) {
+		amountDonated = amtdon;
+	}
+	
 	public int getCredits() {
 		return credits;
 	}	
+	
+	public void setCredits(int points, boolean add) {
+		if(add)
+			this.credits += points;
+		else
+			this.credits = points;
+	}
 	
 	public int getZulrahRotation() {
 		return zulrah_rotation;

@@ -884,45 +884,13 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 135:
+				ShopManager.getShops().get(79).open(player);
+				player.getPacketSender().sendMessage("You currently have <col=ffff00><shad=0>"+player.getCredits()+" </col></shad>Credits.");
+				break;
 			case 41:
 				TeleportHandler.teleportPlayer(player, new Position(2974, 3943), player.getSpellbook().getTeleportType());
 				break;
-			case 129:
-				player.getPacketSender().sendInterfaceRemoval();
-				funds = 10;
-				player.getInventory().delete(10943, 1);
-				player.incrementAmountDonated(funds);
-				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
-				MemberScrolls.checkForRankUpdate(player);
-				PlayerPanel.refreshPanel(player);
-			break;
-			case 130:
-				player.getPacketSender().sendInterfaceRemoval();
-				funds = 25;
-				player.getInventory().delete(10934, 1);
-				player.incrementAmountDonated(funds);
-				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
-				MemberScrolls.checkForRankUpdate(player);
-				PlayerPanel.refreshPanel(player);
-			break;
-			case 131:
-				player.getPacketSender().sendInterfaceRemoval();
-				funds = 50;
-				player.getInventory().delete(10935, 1);
-				player.incrementAmountDonated(funds);
-				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
-				MemberScrolls.checkForRankUpdate(player);
-				PlayerPanel.refreshPanel(player);
-			break;
-			case 132:
-				player.getPacketSender().sendInterfaceRemoval();
-				funds = 100;
-				player.getInventory().delete(7629, 1);
-				player.incrementAmountDonated(funds);
-				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
-				MemberScrolls.checkForRankUpdate(player);
-				PlayerPanel.refreshPanel(player);
-			break;
 			case 15:
 				DialogueManager.start(player, 35);
 				player.setDialogueActionId(19);
@@ -1003,6 +971,10 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 135:
+				ShopManager.getShops().get(80).open(player);
+				player.getPacketSender().sendMessage("You currently have <col=ffff00><shad=0>"+player.getCredits()+" </col></shad>Credits.");
+				break;
 			case 129:
 				player.getPacketSender().sendInterfaceRemoval();
 				credits = 10000;
@@ -1158,6 +1130,10 @@ public class DialogueOptions {
 			case 131:
 			case 132:
 				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 135:
+				ShopManager.getShops().get(81).open(player);
+				player.getPacketSender().sendMessage("You currently have <col=ffff00><shad=0>"+player.getCredits()+" </col></shad>Credits.");
 				break;
 			case 41:
 				player.setDialogueActionId(36);
