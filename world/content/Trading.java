@@ -319,10 +319,12 @@ public class Trading {
 			if (inTrade() && player2.getTrading().tradeConfirmed2) {
 				acceptedTrade = true;
 				giveItems();
-				player.getPacketSender().sendMessage("Trade accepted.");
+				player.getPacketSender().sendMessage("Trade accepted. Your progress has been saved.");
+				player.save();
 				player2.getTrading().acceptedTrade = true;
 				player2.getTrading().giveItems();
-				player2.getPacketSender().sendMessage("Trade accepted.");
+				player2.getPacketSender().sendMessage("Trade accepted. Your progress has been saved.");
+				player2.save();
 				resetTrade();
 				player2.getTrading().resetTrade();
 			}
