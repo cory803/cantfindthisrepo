@@ -1,71 +1,18 @@
 package com.ikov.commands.ranks;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.ikov.GameServer;
 import com.ikov.GameSettings;
-import com.ikov.engine.task.Task;
-import com.ikov.model.input.impl.ChangePassword;
-import com.ikov.engine.task.TaskManager;
-import com.ikov.commands.Commands;
-import com.ikov.model.Animation;
-import com.ikov.model.Flag;
-import java.net.*;
-import java.io.*;
-import java.util.*;
-import java.awt.*;
-import javax.swing.*;
-import com.ikov.model.GameObject;
-import com.ikov.model.Graphic;
-import com.ikov.model.GroundItem;
-import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
-import com.ikov.model.Skill;
-import com.ikov.world.content.minigames.impl.Zulrah;
-import com.ikov.model.container.impl.Bank;
-import com.ikov.model.container.impl.Equipment;
-import com.ikov.model.container.impl.Shop.ShopManager;
-import com.ikov.model.definitions.ItemDefinition;
-import com.ikov.model.definitions.WeaponAnimations;
-import com.ikov.model.definitions.WeaponInterfaces;
-import com.ikov.net.packet.Packet;
-import com.ikov.net.packet.PacketListener;
 import com.ikov.net.security.ConnectionHandler;
-import com.ikov.util.Auth;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
-import com.ikov.world.content.BonusManager;
-import com.ikov.world.content.BossSystem;
-import com.ikov.world.content.MoneyPouch;
-import com.ikov.world.content.WellOfGoodwill;
-import com.ikov.world.content.Lottery;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.content.PlayerPunishment.Jail;
-import com.ikov.world.content.PlayersOnlineInterface;
-import com.ikov.world.content.ShootingStar;
-import com.ikov.world.content.clan.ClanChatManager;
-import com.ikov.world.content.combat.CombatFactory;
-import com.ikov.world.content.combat.DesolaceFormulas;
-import com.ikov.world.content.combat.weapon.CombatSpecial;
-import com.ikov.world.content.dialogue.DialogueManager;
-import com.ikov.world.content.grandexchange.GrandExchange;
-import com.ikov.world.content.grandexchange.GrandExchangeOffer;
-import com.ikov.world.content.grandexchange.GrandExchangeOffers;
-import com.ikov.world.content.minigames.impl.WarriorsGuild;
-import com.ikov.world.content.skill.SkillManager;
-import com.ikov.world.content.skill.impl.slayer.SlayerTasks;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
-import com.ikov.world.entity.impl.GroundItemManager;
-import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.entity.impl.player.PlayerSaving;
-import com.ikov.world.clip.stream.ByteStreamExt;
-import com.ikov.world.clip.stream.MemoryArchive;
-import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 
 public class Moderators {
 	
@@ -249,10 +196,6 @@ public class Moderators {
 			} else
 				player.getPacketSender().sendMessage("Could not CPU-ban that player.");
 		}
-		if(command[0].equalsIgnoreCase("toggleinvis")) {
-			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);
-			player.getUpdateFlag().flag(Flag.APPEARANCE);
-		}
 		if(command[0].equalsIgnoreCase("ipban")) {
 			Player player2 = World.getPlayerByName(wholeCommand.substring(6));
 			if(player2 == null) {
@@ -284,6 +227,10 @@ public class Moderators {
 		if(command[0].equalsIgnoreCase("teletome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
+			if (player.getLocation() == Location.WILDERNESS)  {
+				player.getPacketSender().sendMessage("You cannot teleport a player into the wild... What're you thinking?");
+				return;
+			}
 			if(player2 == null) {
 				player.getPacketSender().sendMessage("Cannot find that player online..");
 				return;
@@ -295,22 +242,6 @@ public class Moderators {
 					player2.getPacketSender().sendMessage("You're being teleported to "+player.getUsername()+"...");
 				} else
 					player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
-			}
-		}
-		if(command[0].equalsIgnoreCase("movetome")) {
-			String playerToTele = wholeCommand.substring(9);
-			Player player2 = World.getPlayerByName(playerToTele);
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Cannot find that player..");
-				return;
-			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
-					player.getPacketSender().sendMessage("Moving player: "+player2.getUsername()+"");
-					player2.getPacketSender().sendMessage("You've been moved to "+player.getUsername());
-					player2.moveTo(player.getPosition().copy());
-				} else
-					player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
 			}
 		}
 		if(wholeCommand.toLowerCase().startsWith("yell")) {

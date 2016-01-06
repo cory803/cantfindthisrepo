@@ -108,7 +108,7 @@ public class Locations {
 		},
 		BANDIT_CAMP(new int[]{3020, 3150, 3055, 3195}, new int[]{3684, 3711, 2958, 3003}, true, true, true, true, true, true) {
 		},
-		ROCK_CRABS(new int[]{2689, 2727}, new int[]{3691, 3730}, true, true, true, true, true, true) {
+		ROCK_CRABS(new int[]{2663, 2729}, new int[]{3691, 3730}, true, true, true, true, true, true) {
 		},
 		ARMOURED_ZOMBIES(new int[]{3077, 3132}, new int[]{9657, 9680}, true, true, true, true, true, true) {
 		},

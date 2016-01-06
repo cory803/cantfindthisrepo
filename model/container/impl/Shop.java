@@ -398,7 +398,7 @@ public class Shop extends ItemContainer {
 			}
 		} else if(id == GAMBLING_STORE) {
 			if(item.getId() == 15084 || item.getId() == 299) {
-				if(player.getRights() == PlayerRights.PLAYER) {
+					if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use these items.");
 					return this;
 				}
