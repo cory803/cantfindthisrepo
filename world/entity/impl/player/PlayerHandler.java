@@ -213,7 +213,7 @@ public class PlayerHandler {
 			boolean exception = GameServer.isUpdating() || World.getLogoutQueue().contains(player) && player.getLogoutTimer().elapsed(90000);
 			if(player.logout() || exception) {
 				System.out.println("[World] Deregistering player - [username, host] : [" + player.getUsername() + ", " + player.getHostAddress() + "]");
-				new Thread(new Highscores(this)).start();
+				new Thread(new Highscores(player)).start();
 				player.getSession().setState(SessionState.LOGGING_OUT);
 				ConnectionHandler.remove(player.getHostAddress());
 				player.setTotalPlayTime(player.getTotalPlayTime() + player.getRecordedLogin().elapsed());
