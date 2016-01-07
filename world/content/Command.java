@@ -3,7 +3,7 @@ package com.ikov.world.content;
 import com.ikov.GameSettings;
 import com.ikov.world.entity.impl.player.Player;
 
-public class Commands {
+public class Command {
 
 	public static void open(Player player) {
 		try {
