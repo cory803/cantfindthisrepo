@@ -93,7 +93,7 @@ public class LegendaryDonators {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendMessage("<img=8><col=0>[<col=800080><shad=0>Legendary</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendMessage("<img=8> <col=0>[<col=800080><shad=0>Legendary</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {

@@ -93,7 +93,7 @@ public class SuperDonators {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendMessage("<img=6><col=0>[<col=2B547E><shad=0>Super</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendMessage("<img=6> <col=0>[<col=2B547E><shad=0>Super</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {
