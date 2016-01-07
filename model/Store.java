@@ -43,6 +43,7 @@ public class Store {
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
 				store_item_given(player.getUsername());
+				Logs.write_data(player.getUsername()+ ".txt", "shop_purchases", "Item "+item_name+" has been claimed from a store purchase.");
 			}
 			if(check_store_item(player.getUsername()) == 92530010) {
 				item_name = "Scroll of $25";

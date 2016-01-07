@@ -14,6 +14,7 @@ import com.ikov.world.content.PlayersOnlineInterface;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.DesolaceFormulas;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.util.Logs;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 
 public class Members {
