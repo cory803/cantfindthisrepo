@@ -355,10 +355,17 @@ public class Owners {
 				target.getPacketSender().sendRights();
 			}
 		}
-		if (command[0].equals("giverights")) {
-			try {
+		if (command[0].equals("givedonor")) {
 			String rights = command[1];
 			Player target = World.getPlayerByName(command[2]);
+			target.setDonorRights(Integer.parseInt(rights));
+			target.getPacketSender().sendRights();
+			target.getPacketSender().sendMessage("You have been given donator status");
+		}
+		if (command[0].equals("giverights")) {
+				try {
+				String rights = command[1];
+				Player target = World.getPlayerByName(command[2]);
 			switch (rights) {
 			case "demote":
 			case "derank":
