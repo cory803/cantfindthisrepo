@@ -1508,6 +1508,16 @@ public class Consumables {
 		}
 		return increaseBy;
 	}
+	
+	public static int getPotionBoost(Player player, int skill) {
+		int increaseBy = 0;
+		increaseBy = (int) (SkillManager.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill))) * .18) + 1;
+		if (player.getSkillManager().getCurrentLevel(Skill.forId(skill)) + increaseBy >SkillManager.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill))) + increaseBy + 1) {
+			return SkillManager.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill))) + increaseBy
+					- player.getSkillManager().getCurrentLevel(Skill.forId(skill));
+		}
+		return increaseBy;
+	}
 
 	public static int getBrewStat(final Player player, int skill, double amount) {
 		return (int) (player.getSkillManager().getMaxLevel(Skill.forId(skill)) * amount);

@@ -395,10 +395,6 @@ public class DialogueOptions {
 				break;
 			case 13:
 				player.getPacketSender().sendInterfaceRemoval();
-				if(!player.getUnlockedLoyaltyTitles()[LoyaltyProgramme.LoyaltyTitles.MAXED.ordinal()]) {
-					player.getPacketSender().sendMessage("You must have unlocked the 'Maxed' Loyalty Title in order to buy this cape.");
-					return;
-				}
 				boolean usePouch = player.getMoneyInPouch() >= 50000000;
 				if(!usePouch && player.getInventory().getAmount(995) < 50000000) {
 					player.getPacketSender().sendMessage("You do not have enough coins.");

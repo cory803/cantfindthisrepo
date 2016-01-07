@@ -6,6 +6,9 @@ import com.ikov.world.content.LoyaltyProgramme;
 import com.ikov.world.content.combat.pvp.BountyHunter;
 import com.ikov.world.content.skill.impl.construction.House;
 import com.ikov.world.entity.impl.GroundItemManager;
+import com.ikov.world.content.Consumables;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Skill;
 
 public class PlayerProcess {
 
@@ -47,6 +50,9 @@ public class PlayerProcess {
 		if(player.getZulrahTime() > 0) {
 			player.decremenetZulrahTimer();
 		}
+
+	
+		//player.getSkillManager().setMaxLevel(Skill.ATTACK, 60);
 		/** MISC **/
 
 		if(previousHeight != player.getPosition().getZ()) {
