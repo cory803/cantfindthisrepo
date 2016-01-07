@@ -5,6 +5,7 @@ import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Store;
 import com.ikov.model.Position;
+import com.ikov.model.Skill;
 import com.ikov.util.Auth;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
@@ -23,6 +24,48 @@ public class Members {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
+		if (command[0].equalsIgnoreCase("changelevel")) {
+			String skill = command[1];
+			String newLevel = command[2];
+			switch(skill) {
+			case "att":
+			case "attack":
+			case "atk":
+				if(player.getSkillManager().getMaxLevel(Skill.ATTACK) > Integer.parseInt(newLevel)) {
+					player.getPacketSender().sendMessage("You just changed your attack from "+player.getSkillManager().getCurrentLevel(Skill.ATTACK)+" to "+newLevel+"." );
+					player.getSkillManager().setMaxLevel(Skill.ATTACK, Integer.parseInt(newLevel), true);
+					player.getSkillManager().setCurrentLevel(Skill.ATTACK, Integer.parseInt(newLevel), true);
+				} else {
+					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
+				}
+				break;
+			case "def":
+			case "defence":
+			case "defense":
+				if(player.getSkillManager().getMaxLevel(Skill.DEFENCE) > Integer.parseInt(newLevel)) {
+					player.getPacketSender().sendMessage("You just changed your defence from "+player.getSkillManager().getCurrentLevel(Skill.DEFENCE)+" to "+newLevel+"." );
+					player.getSkillManager().setMaxLevel(Skill.DEFENCE, Integer.parseInt(newLevel), true);
+					player.getSkillManager().setCurrentLevel(Skill.DEFENCE, Integer.parseInt(newLevel), true);
+				} else {
+					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
+				}
+				break;
+			case "pray":
+			case "prayer":
+				if(player.getSkillManager().getMaxLevel(Skill.PRAYER) > Integer.parseInt(newLevel)) {
+					player.getPacketSender().sendMessage("You just changed your prayer from "+player.getSkillManager().getCurrentLevel(Skill.PRAYER)+" to "+newLevel+"." );
+					player.getSkillManager().setMaxLevel(Skill.PRAYER, Integer.parseInt(newLevel), true);
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, Integer.parseInt(newLevel), true);
+				} else {
+					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
+				}
+				break;
+				default:
+					player.getPacketSender().sendMessage("The command syntax example - use a skill below: ::changelevel prayer 52");
+					player.getPacketSender().sendMessage("You can only adjust prayer, defence and attack stats.");
+			}
+			
+		}
 		if (command[0].equalsIgnoreCase("commands")) {
 			player.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 			Command.open(player);
