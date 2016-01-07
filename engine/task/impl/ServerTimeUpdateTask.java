@@ -71,6 +71,13 @@ public class ServerTimeUpdateTask extends Task {
 									GameSettings.STORE_CONNECTIONS = true;
 								} else {
 									GameSettings.STORE_CONNECTIONS = false;
+								}	
+							} else if(line.contains("highscore_connections")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.HIGHSCORE_CONNECTIONS = true;
+								} else {
+									GameSettings.HIGHSCORE_CONNECTIONS = false;
 								}
 							} else if(line.contains("yell_status")) {
 								args = line.split(": ");
