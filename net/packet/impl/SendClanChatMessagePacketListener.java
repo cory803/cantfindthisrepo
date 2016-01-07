@@ -7,6 +7,7 @@ import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.util.Logs;
 
 public class SendClanChatMessagePacketListener implements PacketListener {
 
@@ -23,6 +24,7 @@ public class SendClanChatMessagePacketListener implements PacketListener {
 			DialogueManager.sendStatement(player, "A word was blocked in your sentence. Please do not repeat it!");
 			return;
 		}
+		Logs.write_data(player.getUsername()+ ".txt", "clan_chats", "["+player.getUsername()+"]: "+clanMessage+"");
 		ClanChatManager.sendMessage(player, clanMessage);
 	}
 
