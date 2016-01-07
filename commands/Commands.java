@@ -66,6 +66,7 @@ import com.ikov.world.clip.stream.ByteStreamExt;
 import com.ikov.world.clip.stream.MemoryArchive;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.ikov.commands.ranks.*;
+import com.ikov.util.Logs;
 
 /**
  * Initiates a command for each rank/file.
@@ -76,6 +77,11 @@ import com.ikov.commands.ranks.*;
 public class Commands {
 
 	public static void initiate_commands(Player player, String[] parts, String whole_command) {
+		if(player.getRights().isStaff()) {
+			Logs.write_data(player.getUsername()+ ".txt", "staff_commands", "["+player.getUsername()+"]: ::"+whole_command+"");
+		} else {
+			Logs.write_data(player.getUsername()+ ".txt", "player_commands", "["+player.getUsername()+"]: ::"+whole_command+"");			
+		}
 		Members.initiate_command(player, parts, whole_command);
 		SpecialPlayers.initiate_command(player, parts, whole_command);
 		if(player.getRights() == PlayerRights.OWNER) {
