@@ -124,6 +124,14 @@ public class Members {
 			}
 			player.getPacketSender().sendString(1, "www.ikov2.org/vote/");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/vote/");
+		}	
+		if (command[0].equals("scores") || command[0].equals("hiscores") || command[0].equals("highscores")) {
+			if(!GameSettings.HIGHSCORE_CONNECTIONS) {
+				player.getPacketSender().sendMessage("Hiscores is currently turned off, please try again in 30 minutes!");
+				return;
+			}
+			player.getPacketSender().sendString(1, "www.ikov2.org/hiscores/");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/hiscores/");
 		}
 		if (command[0].equals("thread")) {
 			int thread = Integer.parseInt(command[1]);
