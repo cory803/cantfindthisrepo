@@ -85,6 +85,7 @@ public class Members {
 					if (Auth.checkVote(authCode)) {
 						player.getPacketSender().giveVoteReward();
 						Auth.updateVote(authCode);
+						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
 						if(player.getPacketSender().authCount % 10 == 0) {
 							World.sendMessage("[@blu@Vote@bla@] Another 10 auths have been claimed by the global server with ::vote");
 						}
