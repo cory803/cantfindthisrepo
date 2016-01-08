@@ -193,6 +193,15 @@ public class PlayerHandler {
 		if(player.getPointsHandler().getAchievementPoints() == 0) {
 			Achievements.setPoints(player);
 		}
+		if(player.getRights() == PlayerRights.OWNER) {
+			player.setDonorRights(5);
+		} else if(player.getRights() == PlayerRights.ADMINISTRATOR) {
+			player.setDonorRights(5);
+		} else if(player.getRights() == PlayerRights.MODERATOR && player.getDonorRights() < 3) {
+			player.setDonorRights(3);
+		} else if(player.getRights() == PlayerRights.SUPPORT && player.getDonorRights() < 1) {
+			player.setDonorRights(1);
+		}
 		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
 	}
 
