@@ -16,7 +16,7 @@ public class SendClanChatMessagePacketListener implements PacketListener {
 		String clanMessage = Misc.readString(packet.getBuffer());
 		if(clanMessage == null || clanMessage.length() < 1)
 			return;
-		if(PlayerPunishment.muted(player.getUsername()) || PlayerPunishment.IPMuted(player.getHostAddress())) {
+		if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 			player.getPacketSender().sendMessage("You are muted and cannot chat.");
 			return;
 		}

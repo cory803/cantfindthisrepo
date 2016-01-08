@@ -70,7 +70,6 @@ public final class GameLoader {
 
 	private void executeServiceLoad() {
 		serviceLoader.execute(() -> ConnectionHandler.init());
-		serviceLoader.execute(() -> PlayerPunishment.init());
 		serviceLoader.execute(() -> RegionClipping.init());
 		serviceLoader.execute(() -> CustomObjects.init());
 		serviceLoader.execute(() -> ItemDefinition.init());

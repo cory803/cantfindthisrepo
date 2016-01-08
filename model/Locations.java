@@ -4,7 +4,6 @@ import com.ikov.GameSettings;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.BossSystem;
-import com.ikov.world.content.PlayerPunishment.Jail;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.pvp.BountyHunter;
 import com.ikov.world.content.dialogue.DialogueManager;
@@ -180,14 +179,6 @@ public class Locations {
 				if(target.getLocation() != Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("That player cannot be attacked, because they are not in the Wilderness.");
 					player.getMovementQueue().reset();
-					return false;
-				}
-				if(Jail.isJailed(player)) {
-					player.getPacketSender().sendMessage("You cannot do that right now.");
-					return false;
-				}
-				if(Jail.isJailed(target)) {
-					player.getPacketSender().sendMessage("That player cannot be attacked right now.");
 					return false;
 				}
 				/*if(Misc.getMinutesPlayed(player) < 20) {

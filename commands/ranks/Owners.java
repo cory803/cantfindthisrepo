@@ -32,7 +32,6 @@ import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Lottery;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPunishment;
-import com.ikov.world.content.PlayerPunishment.Jail;
 import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.CombatFactory;
@@ -58,38 +57,247 @@ public class Owners {
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}
-		if(command[0].equalsIgnoreCase("jail")) {
-			Player player2 = World.getPlayerByName(wholeCommand.substring(5));
-			if (player2 != null) {
-				if(Jail.isJailed(player2)) {
-					player.getPacketSender().sendMessage("That player is already jailed!");
+		if(command[0].equalsIgnoreCase("ban")) {
+			String ban_player = wholeCommand.substring(4);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				if(PlayerPunishment.isPlayerBanned(ban_player)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active ban.");
 					return;
 				}
-				if(Jail.jailPlayer(player2)) {
-					player2.getSkillManager().stopSkilling();
-					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just jailed "+player2.getUsername()+"!");
-					player.getPacketSender().sendMessage("Jailed player: "+player2.getUsername()+"");
-					player2.getPacketSender().sendMessage("You have been jailed by "+player.getUsername()+".");
-				} else {
-					player.getPacketSender().sendMessage("Jail is currently full.");
+				Player other = World.getPlayerByName(ban_player);
+				PlayerPunishment.ban(ban_player);
+				if(other != null) {
+					World.deregister(other);
 				}
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned!");
+			}
+		}	
+		if(command[0].equalsIgnoreCase("mute")) {
+			String mute_player = wholeCommand.substring(5);
+			if(!PlayerSaving.playerExists(mute_player)) {
+				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
+				return;
 			} else {
-				player.getPacketSender().sendMessage("Could not find that player online.");
+				if(PlayerPunishment.isMuted(mute_player)) {
+					player.getPacketSender().sendMessage("Player "+mute_player+" already has an active mute.");
+					return;
+				}
+				Player other = World.getPlayerByName(mute_player);
+				PlayerPunishment.mute(mute_player);
+				player.getPacketSender().sendMessage("Player "+mute_player+" was successfully muted!");
+				other.getPacketSender().sendMessage("You have been muted! Please appeal on the forums.");
 			}
 		}
-		if(command[0].equalsIgnoreCase("unjail")) {
-			Player player2 = World.getPlayerByName(wholeCommand.substring(7));
-			if (player2 != null) {
-				Jail.unjail(player2);
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just unjailed "+player2.getUsername()+"!");
-				player.getPacketSender().sendMessage("Unjailed player: "+player2.getUsername()+"");
-				player2.getPacketSender().sendMessage("You have been unjailed by "+player.getUsername()+".");
+		if(command[0].equalsIgnoreCase("ipmute")) {
+			String mute_player = wholeCommand.substring(7);
+			if(!PlayerSaving.playerExists(mute_player)) {
+				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
+				return;
 			} else {
-				player.getPacketSender().sendMessage("Could not find that player online.");
+				if(PlayerPunishment.isIpMuted(mute_player)) {
+					player.getPacketSender().sendMessage("Player "+mute_player+" already has an active ip mute.");
+					return;
+				}
+				Player other = World.getPlayerByName(mute_player);
+				PlayerPunishment.ipMute(mute_player);
+				player.getPacketSender().sendMessage("Player "+mute_player+" was successfully ip muted!");
+				other.getPacketSender().sendMessage("You have been ip muted! Please appeal on the forums.");
+			}
+		}
+		if(command[0].equalsIgnoreCase("unipmute")) {
+			String mute_player = wholeCommand.substring(9);
+			if(!PlayerSaving.playerExists(mute_player)) {
+				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
+				return;
+			} else {
+				if(!PlayerPunishment.isIpMuted(mute_player)) {
+					player.getPacketSender().sendMessage("Player "+mute_player+" does not have an active ip mute!");
+					return;
+				}
+				Player other = World.getPlayerByName(mute_player);
+				PlayerPunishment.unIpMute(mute_player);
+				player.getPacketSender().sendMessage("Player "+mute_player+" was successfully unipmuted!");
+				other.getPacketSender().sendMessage("You have been unipmuted!");
+			}
+		}
+		if(command[0].equalsIgnoreCase("unmute")) {
+			String mute_player = wholeCommand.substring(7);
+			if(!PlayerSaving.playerExists(mute_player)) {
+				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
+				return;
+			} else {
+				if(!PlayerPunishment.isMuted(mute_player)) {
+					player.getPacketSender().sendMessage("Player "+mute_player+" is not muted.");
+					return;
+				}
+				Player other = World.getPlayerByName(mute_player);
+				PlayerPunishment.unMute(mute_player);
+				player.getPacketSender().sendMessage("Player "+mute_player+" was successfully unmuted!");
+				other.getPacketSender().sendMessage("You have been unmuted!");
+			}
+		}
+		if(command[0].equalsIgnoreCase("ipban")) {
+			String ban_player = wholeCommand.substring(6);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				Player other = World.getPlayerByName(ban_player);
+				String ip;
+				if(other == null) {
+					ip = PlayerPunishment.getLastIpAddress(ban_player);
+				} else {
+					ip = player.getHostAddress();
+				}
+				if(PlayerPunishment.isIpBanned(ip)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active ip ban on "+ip+".");
+					return;
+				}
+				PlayerPunishment.ipBan(ip);
+				if(other != null) {
+					World.deregister(other);
+				}
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned on ip "+ip+"!");
+			}
+		}
+		if(command[0].equalsIgnoreCase("serialban")) {
+			String ban_player = wholeCommand.substring(10);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				Player other = World.getPlayerByName(ban_player);
+				String serial;
+				if(other == null) {
+					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+				} else {
+					serial = player.getSerialNumber();
+				}
+				if(PlayerPunishment.isSerialBanned(serial)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active serial ban on "+serial+".");
+					return;
+				}
+				PlayerPunishment.serialBan(serial);
+				if(other != null) {
+					World.deregister(other);
+				}
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully serial banned on serial "+serial+"!");
+			}
+		}		
+		if(command[0].equalsIgnoreCase("unserialban")) {
+			String ban_player = wholeCommand.substring(12);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				Player other = World.getPlayerByName(ban_player);
+				String serial;
+				if(other == null) {
+					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+				} else {
+					serial = player.getSerialNumber();
+				}
+				if(!PlayerPunishment.isSerialBanned(serial)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" does not have an active serial ban on "+serial+".");
+					return;
+				}
+				PlayerPunishment.unSerialBan(serial);
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un serial banned on serial "+serial+"!");
+			}
+		}
+		if(command[0].equalsIgnoreCase("unipban")) {
+			String ban_player = wholeCommand.substring(8);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				Player other = World.getPlayerByName(ban_player);
+				String ip;
+				if(other == null) {
+					ip = PlayerPunishment.getLastIpAddress(ban_player);
+				} else {
+					ip = player.getHostAddress();
+				}
+				if(!PlayerPunishment.isIpBanned(ip)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" does not have an active ip ban on "+ip+".");
+					return;
+				}
+				PlayerPunishment.unIpBan(ip);
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully unipbanned on ip "+ip+"!");
+			}
+		}
+		if(command[0].equalsIgnoreCase("unban")) {
+			String ban_player = wholeCommand.substring(6);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				if(!PlayerPunishment.isPlayerBanned(ban_player)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" is not banned.");
+					return;
+				}
+				PlayerPunishment.unBan(ban_player);
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully unbanned.");
+			}
+		}
+		if(command[0].equalsIgnoreCase("massban")) {
+			String ban_player = wholeCommand.substring(8);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				Player other = World.getPlayerByName(ban_player);
+				String serial;
+				if(other == null) {
+					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+				} else {
+					serial = player.getSerialNumber();
+				}
+				String ip;
+				if(other == null) {
+					ip = PlayerPunishment.getLastIpAddress(ban_player);
+				} else {
+					ip = player.getHostAddress();
+				}
+				PlayerPunishment.serialBan(serial);
+				PlayerPunishment.ipBan(ip);
+				PlayerPunishment.ban(ban_player);
+				if(other != null) {
+					World.deregister(other);
+				}
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully mass banned!");
+			}
+		}
+		if(command[0].equalsIgnoreCase("unmassban")) {
+			String ban_player = wholeCommand.substring(10);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				Player other = World.getPlayerByName(ban_player);
+				String serial;
+				if(other == null) {
+					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+				} else {
+					serial = player.getSerialNumber();
+				}
+				String ip;
+				if(other == null) {
+					ip = PlayerPunishment.getLastIpAddress(ban_player);
+				} else {
+					ip = player.getHostAddress();
+				}
+				PlayerPunishment.unSerialBan(serial);
+				PlayerPunishment.unIpBan(ip);
+				PlayerPunishment.unBan(ban_player);
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
 			}
 		}
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
-			if(PlayerPunishment.muted(player.getUsername()) || PlayerPunishment.IPMuted(player.getHostAddress())) {
+			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
 				return;
 			}
@@ -144,118 +352,9 @@ public class Owners {
 				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
 			} 
 		}
-		if(command[0].equalsIgnoreCase("unmute")) {
-			String player2 = wholeCommand.substring(7);
-			if(!PlayerSaving.playerExists(player2)) {
-				player.getPacketSender().sendMessage("Player "+player2+" does not exist.");
-				return;
-			} else {
-				if(!PlayerPunishment.muted(player2)) {
-					player.getPacketSender().sendMessage("Player "+player2+" is not muted!");
-					return;
-				}
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just unmuted "+player2+"!");
-				PlayerPunishment.unmute(player2);
-				player.getPacketSender().sendMessage("Player "+player2+" was successfully unmuted. Command logs written.");
-				Player plr = World.getPlayerByName(player2);
-				if(plr != null) {
-					plr.getPacketSender().sendMessage("You have been unmuted by "+player.getUsername()+".");
-				}
-			}
-		}
-		if(command[0].equalsIgnoreCase("ipmute")) {
-			Player player2 = World.getPlayerByName(wholeCommand.substring(7));
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Could not find that player online.");
-				return;
-			} else {
-				if(PlayerPunishment.IPMuted(player2.getHostAddress())){
-					player.getPacketSender().sendMessage("Player "+player2.getUsername()+"'s IP is already IPMuted. Command logs written.");
-					return;
-				}
-				final String mutedIP = player2.getHostAddress();
-				PlayerPunishment.addMutedIP(mutedIP);
-				player.getPacketSender().sendMessage("Player "+player2.getUsername()+" was successfully IPMuted. Command logs written.");
-				player2.getPacketSender().sendMessage("You have been IPMuted by "+player.getUsername()+".");
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just IPMuted "+player2.getUsername()+"!");
-			}
-		}
-		if(command[0].equalsIgnoreCase("ban")) {
-			String playerToBan = wholeCommand.substring(4);
-			if(!PlayerSaving.playerExists(playerToBan)) {
-				player.getPacketSender().sendMessage("Player "+playerToBan+" does not exist.");
-				return;
-			} else {
-				if(PlayerPunishment.banned(playerToBan)) {
-					player.getPacketSender().sendMessage("Player "+playerToBan+" already has an active ban.");
-					return;
-				}
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just banned "+playerToBan+"!");
-				PlayerPunishment.ban(playerToBan);
-				player.getPacketSender().sendMessage("Player "+playerToBan+" was successfully banned. Command logs written.");
-				Player toBan = World.getPlayerByName(playerToBan);
-				if(toBan != null) {
-					World.deregister(toBan);
-				}
-			}
-		}
-		if(command[0].equalsIgnoreCase("unban")) {
-			String playerToBan = wholeCommand.substring(6);
-			if(!PlayerSaving.playerExists(playerToBan)) {
-				player.getPacketSender().sendMessage("Player "+playerToBan+" does not exist.");
-				return;
-			} else {
-				if(!PlayerPunishment.banned(playerToBan)) {
-					player.getPacketSender().sendMessage("Player "+playerToBan+" is not banned!");
-					return;
-				}
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just unbanned "+playerToBan+"!");
-				PlayerPunishment.unban(playerToBan);
-				player.getPacketSender().sendMessage("Player "+playerToBan+" was successfully unbanned. Command logs written.");
-			}
-		}
-		if(command[0].equalsIgnoreCase("cpuban")) {
-			Player player2 = World.getPlayerByName(wholeCommand.substring(7));
-			if(player2 != null && !player2.getSerialNumber().equals("null")) {
-				World.deregister(player2);
-				ConnectionHandler.banComputer(player2.getUsername(), player2.getSerialNumber());
-				PlayerPunishment.ban(player2.getUsername());
-				player.getPacketSender().sendMessage("CPU Banned player.");
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just CPUBanned "+player2.getUsername()+"!");
-			} else
-				player.getPacketSender().sendMessage("Could not CPU-ban that player.");
-		}
 		if(command[0].equalsIgnoreCase("toggleinvis")) {
 			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
-		}
-		if(command[0].equalsIgnoreCase("ipban")) {
-			Player player2 = World.getPlayerByName(wholeCommand.substring(6));
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Could not find that player online.");
-				return;
-			} else {
-				if(PlayerPunishment.IPBanned(player2.getHostAddress())){
-					player.getPacketSender().sendMessage("Player "+player2.getUsername()+"'s IP is already banned. Command logs written.");
-					return;
-				}
-				final String bannedIP = player2.getHostAddress();
-				PlayerPunishment.addBannedIP(bannedIP);
-				player.getPacketSender().sendMessage("Player "+player2.getUsername()+"'s IP was successfully banned. Command logs written.");
-				for(Player playersToBan : World.getPlayers()) {
-					if(playersToBan == null)
-						continue;
-					if(playersToBan.getHostAddress() == bannedIP) {
-						PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just IPBanned "+playersToBan.getUsername()+"!");
-						World.deregister(playersToBan);
-						if(player2.getUsername() != playersToBan.getUsername())
-							player.getPacketSender().sendMessage("Player "+playersToBan.getUsername()+" was successfully IPBanned. Command logs written.");
-					}
-				}
-			}
-		}
-		if(command[0].equalsIgnoreCase("unipmute")) {
-			player.getPacketSender().sendMessage("Unipmutes can only be handled manually.");
 		}
 		if(command[0].equalsIgnoreCase("teletome")) {
 			String playerToTele = wholeCommand.substring(9);
@@ -692,60 +791,7 @@ if(command[0].equals("sendstring")) {
 		if(command[0].equals("tasks")) {
 			player.getPacketSender().sendMessage("Found "+TaskManager.getTaskAmount()+" tasks.");
 		}
-		if(command[0].equals("reloadcpubans")) {
-			ConnectionHandler.reloadUUIDBans();
-			player.getPacketSender().sendMessage("UUID bans reloaded!");
-		}
-		if(command[0].equals("reloadipbans")) {
-			PlayerPunishment.reloadIPBans();
-			player.getPacketSender().sendMessage("IP bans reloaded!");
-		}
-		if(command[0].equals("reloadipmutes")) {
-			PlayerPunishment.reloadIPMutes();
-			player.getPacketSender().sendMessage("IP mutes reloaded!");
-		}
-		if(command[0].equalsIgnoreCase("cpuban2")) {
-			String serial = wholeCommand.substring(8);
-			ConnectionHandler.banComputer("cpuban2", serial);
-			player.getPacketSender().sendMessage(""+serial+" cpu was successfully banned. Command logs written.");
-		}
-		if(command[0].equalsIgnoreCase("ipban2")) {
-			String ip = wholeCommand.substring(7);
-			PlayerPunishment.addBannedIP(ip);
-			player.getPacketSender().sendMessage(""+ip+" IP was successfully banned. Command logs written.");
-		}
-		if(command[0].equals("scc")) {
-			/*PlayerPunishment.addBannedIP("46.16.33.9");
-			ConnectionHandler.banComputer("Kustoms", -527305299);
-			player.getPacketSender().sendMessage("Banned Kustoms.");
-			 */
-			/*for(GrandExchangeOffer of : GrandExchangeOffers.getOffers()) {
-				if(of != null) {
-					if(of.getId() == 34) {
-					//	if(of.getOwner().toLowerCase().contains("eliyahu") || of.getOwner().toLowerCase().contains("matt")) {
-
-							player.getPacketSender().sendMessage("FOUND IT! Owner: "+of.getOwner()+", amount: "+of.getAmount()+", finished: "+of.getAmountFinished());
-						//	GrandExchangeOffers.getOffers().remove(of);
-						//}
-					}
-				}
-			}*/
-			/*Player cc = World.getPlayerByName("Thresh");
-			if(cc != null) {
-				//cc.getPointsHandler().setPrestigePoints(50, true);
-				//cc.getPointsHandler().refreshPanel();
-				//player.getPacketSender().sendMessage("Did");
-					cc.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 15000).updateSkill(Skill.CONSTITUTION);
-					cc.getSkillManager().setCurrentLevel(Skill.PRAYER, 15000).updateSkill(Skill.PRAYER);
-			}*/
-			//player.getSkillManager().addExperience(Skill.CONSTITUTION, 200000000);
-			//player.getSkillManager().setExperience(Skill.ATTACK, 1000000000);
-			System.out.println("Seri: "+player.getSerialNumber());
-		}
 		if(command[0].equals("memory")) {
-			//	ManagementFactory.getMemoryMXBean().gc();
-			/*MemoryUsage heapMemoryUsage = ManagementFactory.getMemoryMXBean().getHeapMemoryUsage();
-			long mb = (heapMemoryUsage.getUsed() / 1000);*/
 			long used = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 			player.getPacketSender().sendMessage("Heap usage: "+Misc.insertCommasToNumber(""+used+"")+" bytes!");
 		}
@@ -896,25 +942,6 @@ if(command[0].equals("sendstring")) {
 				World.deregister(playerToKick);
 				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
 				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");
-			}
-		}
-		if(command[0].equalsIgnoreCase("mute")) {
-			String player2 = Misc.formatText(wholeCommand.substring(5));
-			if(!PlayerSaving.playerExists(player2)) {
-				player.getPacketSender().sendMessage("Player "+player2+" does not exist.");
-				return;
-			} else {
-				if(PlayerPunishment.muted(player2)) {
-					player.getPacketSender().sendMessage("Player "+player2+" already has an active mute.");
-					return;
-				}
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just muted "+player2+"!");
-				PlayerPunishment.mute(player2);
-				player.getPacketSender().sendMessage("Player "+player2+" was successfully muted. Command logs written.");
-				Player plr = World.getPlayerByName(player2);
-				if(plr != null) {
-					plr.getPacketSender().sendMessage("You have been muted by "+player.getUsername()+".");
-				}
 			}
 		}
 	}

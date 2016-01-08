@@ -43,7 +43,6 @@ import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Lottery;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPunishment;
-import com.ikov.world.content.PlayerPunishment.Jail;
 import com.ikov.world.content.PlayersOnlineInterface;
 import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.clan.ClanChatManager;

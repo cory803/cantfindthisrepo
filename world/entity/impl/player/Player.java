@@ -486,6 +486,8 @@ public class Player extends Character {
 	private boolean isBuildingMode;
 	private boolean voteMessageSent;
 	private boolean receivedStarter;
+	private String last_ip_address;
+	private String last_serial_address;
 	
 	/*
 	 * Getters & Setters
@@ -513,6 +515,22 @@ public class Player extends Character {
 
 	public String getUsername() {
 		return username;
+	}
+	
+	public void setLastIpAddress(String last_ip) {
+		last_ip_address = last_ip;
+	}	
+	
+	public void setLastSerialAddress(String last_serial) {
+		last_serial_address = last_serial;
+	}
+	
+	public String getLastIpAddress() {
+		return last_ip_address;
+	}	
+	
+	public String getLastSerialAddress() {
+		return last_serial_address;
 	}
 
 	public Player setUsername(String username) {

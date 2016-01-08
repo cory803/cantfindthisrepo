@@ -41,6 +41,8 @@ public class PlayerSaving {
 			object.addProperty("staff-rights", player.getRights().name());
 			object.addProperty("donor-rights", player.getDonorRights());
 			object.addProperty("game-mode", player.getGameMode().name());
+			object.addProperty("last-ip-address", player.getLastIpAddress());
+			object.addProperty("last-serial-address", player.getLastSerialAddress());
 			object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
 			object.add("position", builder.toJsonTree(player.getPosition()));
 			object.addProperty("online-status", player.getRelations().getStatus().name());

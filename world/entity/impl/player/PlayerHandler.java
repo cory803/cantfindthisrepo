@@ -75,7 +75,6 @@ public class PlayerHandler {
 
 		//Tabs
 		player.getPacketSender().sendTabs();
-
 		//Setting up the player's item containers..
 		for(int i = 0; i < player.getBanks().length; i++) {
 			if(player.getBank(i) == null) {
@@ -216,6 +215,10 @@ public class PlayerHandler {
 				if(player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.ADMINISTRATOR) {
 					new Thread(new Highscores(player)).start();
 				}
+				//Sets last account information available
+				player.setLastIpAddress(player.getHostAddress());
+				player.setLastSerialAddress(player.getSerialNumber());
+				
 				player.getSession().setState(SessionState.LOGGING_OUT);
 				ConnectionHandler.remove(player.getHostAddress());
 				player.setTotalPlayTime(player.getTotalPlayTime() + player.getRecordedLogin().elapsed());

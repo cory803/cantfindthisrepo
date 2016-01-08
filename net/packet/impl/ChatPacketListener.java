@@ -24,7 +24,7 @@ public class ChatPacketListener implements PacketListener {
 		int color = packet.readUnsignedByteS();
 		int size = packet.getSize();
 		byte[] text = packet.readReversedBytesA(size);
-		if(PlayerPunishment.muted(player.getUsername()) || PlayerPunishment.IPMuted(player.getHostAddress())) {
+		if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 			player.getPacketSender().sendMessage("You are muted and cannot chat.");
 			return;
 		}

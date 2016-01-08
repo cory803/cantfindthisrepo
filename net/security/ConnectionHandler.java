@@ -36,17 +36,17 @@ public class ConnectionHandler {
 		String host = msg.getHost();
 		String serial_number = msg.getSerialNumber();
 
-		if (PlayerPunishment.banned(player.getUsername())) {
+		if (PlayerPunishment.isPlayerBanned(player.getUsername())) {
 			return LoginResponses.LOGIN_DISABLED_ACCOUNT;
 		}
 
 		if(isBlocked(host)) {
 			return LoginResponses.LOGIN_REJECT_SESSION;
 		} 
-		if(isBlocked(serial_number)) {
+		if(PlayerPunishment.isSerialBanned(serial_number)) {
 			return LoginResponses.LOGIN_DISABLED_COMPUTER;
 		} 
-		if (PlayerPunishment.IPBanned(host)) {
+		if (PlayerPunishment.isIpBanned(host)) {
 			return LoginResponses.LOGIN_DISABLED_IP;
 		}
 

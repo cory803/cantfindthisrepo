@@ -88,9 +88,16 @@ public class PlayerLoading {
 			
 			if (reader.has("game-mode")) {
 				player.setGameMode(GameMode.valueOf(reader.get("game-mode").getAsString()));
+			}		
+			
+			if (reader.has("last-ip-address")) {
+				player.setLastIpAddress(reader.get("last-ip-address").getAsString());
+			}			
+			
+			if (reader.has("last-serial-address")) {
+				player.setLastSerialAddress(reader.get("last-serial-address").getAsString());
 			}
 			
-
 			if (reader.has("loyalty-title")) {
 				player.setLoyaltyTitle(LoyaltyTitles.valueOf(reader.get("loyalty-title").getAsString()));
 			}
