@@ -51,8 +51,18 @@ public class PlayerProcess {
 			player.decremenetZulrahTimer();
 		}
 
-	
-		//player.getSkillManager().setMaxLevel(Skill.ATTACK, 60);
+		if(player.getLocation() == Location.WILDERNESS) {
+			if(player.getSkillManager().getMaxLevel(Skill.ATTACK) > 118)  {
+				player.getSkillManager().setMaxLevel(Skill.ATTACK, 118);
+			}
+			if(player.getSkillManager().getMaxLevel(Skill.STRENGTH) > 118) {
+				player.getSkillManager().setMaxLevel(Skill.STRENGTH, 118);
+			}
+			if(player.getSkillManager().getMaxLevel(Skill.DEFENCE) > 118) {
+				player.getSkillManager().setMaxLevel(Skill.DEFENCE, 118);
+			}
+		}
+		
 		/** MISC **/
 
 		if(previousHeight != player.getPosition().getZ()) {
