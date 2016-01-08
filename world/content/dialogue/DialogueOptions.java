@@ -534,6 +534,10 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 136:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(2845, 5335, 2), player.getSpellbook().getTeleportType());
+				break;
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
@@ -577,6 +581,10 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 136:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(2891, 5356, 2), player.getSpellbook().getTeleportType());
+				break;
 			case 5:
 				DialogueManager.start(player, MemberScrolls.getTotalFunds(player));
 				break;
@@ -630,6 +638,10 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 136:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(2917, 5272, 2), player.getSpellbook().getTeleportType());
+				break;
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
 				if(player.getRights() == PlayerRights.PLAYER) {
@@ -686,6 +698,10 @@ public class DialogueOptions {
 			case 28:
 			case 41:
 				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 136:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(2873, 5263, 2), player.getSpellbook().getTeleportType());
 				break;
 			case 14:
 				player.setDialogueActionId(14);
