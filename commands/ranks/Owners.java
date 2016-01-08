@@ -75,6 +75,11 @@ public class Owners {
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned!");
 			}
 		}	
+		if(command[0].equalsIgnoreCase("getip")) {
+			String player_name = wholeCommand.substring(6);
+			String last_ip = PlayerPunishment.getLastIpAddress(player_name);
+			player.getPacketSender().sendMessage(player_name + "'s ip address is "+last_ip);
+		}
 		if(command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
 			if(!PlayerSaving.playerExists(mute_player)) {

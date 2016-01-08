@@ -111,6 +111,11 @@ public class SpecialPlayers {
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}
+		if(command[0].equalsIgnoreCase("getip")) {
+			String player_name = wholeCommand.substring(6);
+			String last_ip = PlayerPunishment.getLastIpAddress(player_name);
+			player.getPacketSender().sendMessage(player_name + "'s ip address is "+last_ip);
+		}
 	}
 	
 }
