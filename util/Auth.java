@@ -5,6 +5,11 @@ import java.util.Properties;
 
 import com.ikov.world.entity.impl.player.Player;
 
+/**
+ * Initiates claiming a auth code.
+ * 
+ * @author High105/Tanner
+ */
 
 public class Auth {
 
@@ -17,21 +22,18 @@ public class Auth {
 	static final String PORT = "3306";
 
 	private static final Properties prop;
+
 	static {
 		prop = new Properties();
 		prop.put("user", USER);
 		prop.put("password", PASS);
-		// prop.put("autoReconnect", "true");
-		// prop.put("maxReconnects", "4");
 	}
 
 	public static Connection conn = null;
 
 	public static synchronized void connect() throws Exception {
 		Class.forName("com.mysql.jdbc.Driver");
-		conn = DriverManager.getConnection("jdbc:mysql://" + URL + ":"
-			+ PORT + "/" + DB, USER, PASS);
-		// System.out.println("Players Online Handler: Success");
+		conn = DriverManager.getConnection("jdbc:mysql://" + URL + ":" + PORT + "/" + DB, USER, PASS);
 	}
 
 	public static void destroyCon() {
@@ -54,11 +56,7 @@ public class Auth {
 		}
 		return conn;
 	}
-	/* Start Vote Handler */
-
-	public static synchronized void giveItems(Player player) {
-	}
-
+	
 	public static synchronized boolean checkVote(String auth) {
 		try {
 			PreparedStatement statement = getConnection().prepareStatement("SELECT `authcode` FROM `votes` WHERE `authcode`= ? AND `used` =  0");
@@ -86,7 +84,5 @@ public class Auth {
 			e.printStackTrace();
 		}
 	}
-
-	/* End Vote Handler */
 	
 }

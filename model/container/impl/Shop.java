@@ -674,8 +674,9 @@ public class Shop extends ItemContainer {
 				case 15018:
 				case 15019:
 				case 15020:
-				case 15220:
 					return new Object[]{10, "Voting points"};
+				case 15220:
+					return new Object[]{30, "Voting points"};
 				case 13262:
 					return new Object[]{6, "Voting points"};
 				case 6585:

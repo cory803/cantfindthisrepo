@@ -26,6 +26,8 @@ public class GameSettings {
 	public static boolean YELL_STATUS = false;
 	public static boolean ITEM_SPAWN_TACTICAL = false;
 	
+	public static int AUTHS_CLAIMED = 0;
+	
 	public static int DATABASE_LOGGING_TIME = 60;
 	public static int CONFIGURATION_TIME = 0;
 	

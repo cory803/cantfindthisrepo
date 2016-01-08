@@ -84,12 +84,15 @@ public class Members {
 				try {
 					Auth.connect();
 					if (Auth.checkVote(authCode)) {
-						player.getPacketSender().giveVoteReward();
+						player.getInventory().add(10944, 1);
+						GameSettings.AUTHS_CLAIMED++;
+						if(GameSettings.AUTHS_CLAIMED == 25) {
+							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
+							GameSettings.AUTHS_CLAIMED = 10;
+						}
 						Auth.updateVote(authCode);
 						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
-						if(player.getPacketSender().authCount % 10 == 0) {
-							World.sendMessage("[@blu@Vote@bla@] Another 10 auths have been claimed by the global server with ::vote");
-						}
+
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid.");
 					}

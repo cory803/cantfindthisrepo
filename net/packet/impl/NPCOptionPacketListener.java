@@ -91,6 +91,9 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 534:
 					ShopManager.getShops().get(78).open(player);
 					break;
+				case 653:
+					ShopManager.getShops().get(27).open(player);
+					break;
 				case 947:
 					//if(player.getPosition().getX() >= 3092) {
 					//	player.getMovementQueue().reset();

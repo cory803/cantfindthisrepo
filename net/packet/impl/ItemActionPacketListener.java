@@ -11,6 +11,7 @@ import com.ikov.world.content.Consumables;
 import com.ikov.world.content.Digging;
 import com.ikov.world.content.Effigies;
 import com.ikov.world.content.ExperienceLamps;
+import com.ikov.model.VoteTokens;
 import com.ikov.world.content.Gambling;
 import com.ikov.world.content.MemberScrolls;
 import com.ikov.world.content.MoneyPouch;
@@ -45,7 +46,6 @@ public class ItemActionPacketListener implements PacketListener {
 		int interfaceId = packet.readUnsignedShort();
 		int slot = packet.readShort();
 		int itemId = packet.readShort();
-		
 		if(interfaceId == 38274) {
 			Construction.handleItemClick(itemId, player);
 			return;
@@ -82,6 +82,13 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch(itemId) {
+		case 10944:
+			if(player.getInventory().isFull()) {
+				player.getPacketSender().sendMessage("You need to have atleast 1 free inventory space.");
+				return;
+			}
+			VoteTokens.open_token(player, 10944);
+		break;
 		case 13663:
 			if(player.getInterfaceId() > 0) {
 				player.getPacketSender().sendMessage("Please close the interface you have open before doing this.");

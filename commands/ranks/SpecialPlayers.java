@@ -112,9 +112,6 @@ public class SpecialPlayers {
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}
-		if (command[0].equalsIgnoreCase("testauth")) {
-			player.getPacketSender().giveVoteReward();
-		}
 	}
 	
 }
