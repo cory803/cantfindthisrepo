@@ -81,20 +81,20 @@ public class PlayersOnlineInterface {
 			if(p == null)
 				continue;
 			int rankId = p.getRights().ordinal();
-			if(!player.getRights().isStaff()) {
-				if(player.getDonorRights() == 1) {
+			if(!p.getRights().isStaff()) {
+				if(p.getDonorRights() == 1) {
 					rankId = 5;
 				}
-				if(player.getDonorRights() == 2) {
+				if(p.getDonorRights() == 2) {
 					rankId = 6;
 				}
-				if(player.getDonorRights() == 3) {
+				if(p.getDonorRights() == 3) {
 					rankId = 7;
 				}
-				if(player.getDonorRights() == 4) {
+				if(p.getDonorRights() == 4) {
 					rankId = 8;
 				}
-				if(player.getDonorRights() == 5) {
+				if(p.getDonorRights() == 5) {
 					rankId = 9;
 				}
 			}
