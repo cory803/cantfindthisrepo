@@ -81,26 +81,26 @@ public class PlayersOnlineInterface {
 			if(p == null)
 				continue;
 			int rankId = p.getRights().ordinal();
-				if(rankId == 0) {
-					if(player.getDonorRights() == 1) {
-						rankId = 5;
-					}
-					if(player.getDonorRights() == 2) {
-						rankId = 6;
-					}
-					if(player.getDonorRights() == 3) {
-						rankId = 7;
-					}
-					if(player.getDonorRights() == 4) {
-						rankId = 8;
-					}
-					if(player.getDonorRights() == 5) {
-						rankId = 9;
-					}
+			if(!player.getRights().isStaff()) {
+				if(player.getDonorRights() == 1) {
+					rankId = 5;
 				}
-				if(rankId == 4) {
-					rankId = 10;
+				if(player.getDonorRights() == 2) {
+					rankId = 6;
 				}
+				if(player.getDonorRights() == 3) {
+					rankId = 7;
+				}
+				if(player.getDonorRights() == 4) {
+					rankId = 8;
+				}
+				if(player.getDonorRights() == 5) {
+					rankId = 9;
+				}
+			}
+			if(rankId == 4) {
+				rankId = 10;
+			}
 			if(rankId == 0) {
 				if(p.getGameMode() == GameMode.IRONMAN) {
 					rankId = 33;
