@@ -10,6 +10,8 @@ import com.ikov.util.Auth;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Command;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.content.PlayersOnlineInterface;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.DesolaceFormulas;
@@ -153,7 +155,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(2816, 3463, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
 		if (command[0].startsWith("changepass")) {
@@ -170,7 +172,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(3087, 3502, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
 		if (command[0].equals("train")) {
@@ -183,7 +185,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(2679, 3720, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you to rock crabs!");
 		}
 		if (command[0].equals("edge")) {
@@ -196,7 +198,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(3087, 3502, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you to edgeville!");
 		}
 		if (command[0].equals("wests")) {
@@ -209,7 +211,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(2980 + Misc.getRandom(3), 3596 + Misc.getRandom(3), 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you to wests!");
 		}
 		if (command[0].equals("easts")) {
@@ -222,7 +224,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(3329 + Misc.getRandom(2), 3660 + Misc.getRandom(2), 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
 			player.getPacketSender().sendMessage("Teleporting you to wests!");
 		}
 		if (command[0].equals("market")) {
@@ -235,7 +237,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(3164, 3484, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
 			player.getPacketSender().sendMessage("Welcome to the Market!");
 		}
 		if(command[0].equals("claim")) {
@@ -270,7 +272,7 @@ public class Members {
 				return;
 			}
 			Position position = new Position(3187, 3435, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
 			player.getPacketSender().sendMessage("Welcome to the Gambling Area!");
 		}	
 		if(command[0].equals("players")) {
