@@ -38,7 +38,7 @@ public class Achievements {
 		FIGHT_ANOTHER_PLAYER(Difficulty.EASY, "Fight Another Player", 37033, null),
 		BURY_A_DRAGON_BONE(Difficulty.EASY, "Bury A Dragon Bone", 37034, null),
 
-		ENTER_THE_LOTTERY_THREE_TIMES(Difficulty.MEDIUM, "Enter The Lottery Three Times", 37037, new int[]{3, 3}),
+		ENTER_THE_LOTTERY_THREE_TIMES(Difficulty.MEDIUM, "Enter The Lottery", 37037, new int[]{3, 1}),
 		FILL_WELL_OF_GOODWILL_50M(Difficulty.MEDIUM, "Pour 50M Into The Well", 37038, new int[]{4, 50000000}),
 		CUT_100_MAGIC_LOGS(Difficulty.MEDIUM, "Cut 100 Magic Logs", 37039, new int[]{5, 100}),
 		BURN_100_MAGIC_LOGS(Difficulty.MEDIUM, "Burn 100 Magic Logs", 37040, new int[]{6, 100}),
