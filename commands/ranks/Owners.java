@@ -25,10 +25,14 @@ import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.net.security.ConnectionHandler;
+import com.ikov.util.Auth;
+import com.ikov.util.Logs;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
+import com.ikov.world.content.Achievements;
 import com.ikov.world.content.BonusManager;
 import com.ikov.world.content.WellOfGoodwill;
+import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Lottery;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPunishment;
@@ -57,6 +61,19 @@ public class Owners {
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
 		}
+		if (command[0].equalsIgnoreCase("authtest")) {
+						player.getInventory().add(10944, 1);
+						player.setVotesClaimed(player.getVotesClaimed()+1);
+						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
+						if (player.getVotesClaimed() == 100) {
+							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
+						}
+						GameSettings.AUTHS_CLAIMED++;
+						if(GameSettings.AUTHS_CLAIMED == 25) {
+							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
+							GameSettings.AUTHS_CLAIMED = 10;
+						}
+			}
 		if(command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);
 			if(!PlayerSaving.playerExists(ban_player)) {

@@ -58,6 +58,7 @@ public class PlayerSaving {
 			object.addProperty("commendations", new Integer(player.getPointsHandler().getCommendations()));
 			object.addProperty("loyalty-points", new Integer(player.getPointsHandler().getLoyaltyPoints()));
 			object.addProperty("total-loyalty-points", new Double(player.getAchievementAttributes().getTotalLoyaltyPointsEarned()));
+			object.addProperty("votes-claimed", new Integer(player.getVotesClaimed()));
 			object.addProperty("voting-points", new Integer(player.getPointsHandler().getVotingPoints()));
 			object.addProperty("slayer-points", new Integer(player.getPointsHandler().getSlayerPoints()));
 			object.addProperty("pk-points", new Integer(player.getPointsHandler().getPkPoints()));

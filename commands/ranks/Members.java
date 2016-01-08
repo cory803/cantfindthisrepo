@@ -9,10 +9,12 @@ import com.ikov.model.Skill;
 import com.ikov.util.Auth;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
+import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Command;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.content.PlayersOnlineInterface;
+import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.DesolaceFormulas;
 import com.ikov.world.entity.impl.player.Player;
@@ -87,6 +89,11 @@ public class Members {
 					Auth.connect();
 					if (Auth.checkVote(authCode)) {
 						player.getInventory().add(10944, 1);
+						player.setVotesClaimed(player.getVotesClaimed()+1);
+						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
+						if (player.getVotesClaimed() == 100) {
+							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
+						}
 						GameSettings.AUTHS_CLAIMED++;
 						if(GameSettings.AUTHS_CLAIMED == 25) {
 							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
