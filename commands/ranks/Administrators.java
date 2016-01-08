@@ -331,13 +331,13 @@ public class Administrators {
 				if(other == null) {
 					serial = PlayerPunishment.getLastSerialAddress(ban_player);
 				} else {
-					serial = player.getSerialNumber();
+					serial = other.getSerialNumber();
 				}
 				String ip;
 				if(other == null) {
 					ip = PlayerPunishment.getLastIpAddress(ban_player);
 				} else {
-					ip = player.getHostAddress();
+					ip = other.getHostAddress();
 				}
 				PlayerPunishment.serialBan(serial);
 				PlayerPunishment.ipBan(ip);
@@ -359,13 +359,13 @@ public class Administrators {
 				if(other == null) {
 					serial = PlayerPunishment.getLastSerialAddress(ban_player);
 				} else {
-					serial = player.getSerialNumber();
+					serial = other.getSerialNumber();
 				}
 				String ip;
 				if(other == null) {
 					ip = PlayerPunishment.getLastIpAddress(ban_player);
 				} else {
-					ip = player.getHostAddress();
+					ip = other.getHostAddress();
 				}
 				PlayerPunishment.unSerialBan(serial);
 				PlayerPunishment.unIpBan(ip);
