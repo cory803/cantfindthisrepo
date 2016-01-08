@@ -54,20 +54,27 @@ public class PlayerProcess {
 
 		if(player.getLocation() == Location.WILDERNESS) {
 			boolean continue_method = true;
+			boolean continue_lower_stats = false;
 			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
 				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
 					continue_method = false;
 				}
 			}
 			if(continue_method) {
-				if(player.getSkillManager().getMaxLevel(Skill.ATTACK) > 118)  {
-					player.getSkillManager().setMaxLevel(Skill.ATTACK, 118);
+				if(player.getSkillManager().getCurrentLevel(Skill.ATTACK) > 118)  {
+					player.getSkillManager().setCurrentLevel(Skill.ATTACK, 118);
+					continue_lower_stats = true;
 				}
-				if(player.getSkillManager().getMaxLevel(Skill.STRENGTH) > 118) {
-					player.getSkillManager().setMaxLevel(Skill.STRENGTH, 118);
+				if(player.getSkillManager().getCurrentLevel(Skill.STRENGTH) > 118) {
+					player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 118);
+					continue_lower_stats = true;
 				}
-				if(player.getSkillManager().getMaxLevel(Skill.DEFENCE) > 118) {
-					player.getSkillManager().setMaxLevel(Skill.DEFENCE, 118);
+				if(player.getSkillManager().getCurrentLevel(Skill.DEFENCE) > 118) {
+					player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 118);
+					continue_lower_stats = true;
+				}
+				if(continue_lower_stats) {
+					player.getPacketSender().sendMessage("Your stats have been lowered for entering the wilderness.");
 				}
 			}
 		}

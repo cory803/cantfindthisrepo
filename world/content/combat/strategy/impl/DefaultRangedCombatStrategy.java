@@ -277,12 +277,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 		// If we are at 0 ammo remove the item from the equipment completely.
 		if (player.getEquipment().get(slot).getAmount() == 0) {
-			player.getPacketSender().sendMessage("You have run out of ammunition!");
-			player.getEquipment().set(slot, new Item(-1));
-
-			if (slot == Equipment.WEAPON_SLOT) {
-				WeaponInterfaces.assign(player, new Item(-1));
-			}
+			player.getPacketSender().sendMessage("You have no ammunition!");
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 		
