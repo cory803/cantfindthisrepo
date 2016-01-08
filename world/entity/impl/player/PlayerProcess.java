@@ -9,6 +9,7 @@ import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.world.content.Consumables;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Skill;
+import com.ikov.commands.ranks.SpecialPlayers;
 
 public class PlayerProcess {
 
@@ -52,14 +53,22 @@ public class PlayerProcess {
 		}
 
 		if(player.getLocation() == Location.WILDERNESS) {
-			if(player.getSkillManager().getMaxLevel(Skill.ATTACK) > 118)  {
-				player.getSkillManager().setMaxLevel(Skill.ATTACK, 118);
+			boolean continue_method = true;
+			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
+				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
+					continue_method = false;
+				}
 			}
-			if(player.getSkillManager().getMaxLevel(Skill.STRENGTH) > 118) {
-				player.getSkillManager().setMaxLevel(Skill.STRENGTH, 118);
-			}
-			if(player.getSkillManager().getMaxLevel(Skill.DEFENCE) > 118) {
-				player.getSkillManager().setMaxLevel(Skill.DEFENCE, 118);
+			if(continue_method) {
+				if(player.getSkillManager().getMaxLevel(Skill.ATTACK) > 118)  {
+					player.getSkillManager().setMaxLevel(Skill.ATTACK, 118);
+				}
+				if(player.getSkillManager().getMaxLevel(Skill.STRENGTH) > 118) {
+					player.getSkillManager().setMaxLevel(Skill.STRENGTH, 118);
+				}
+				if(player.getSkillManager().getMaxLevel(Skill.DEFENCE) > 118) {
+					player.getSkillManager().setMaxLevel(Skill.DEFENCE, 118);
+				}
 			}
 		}
 		
