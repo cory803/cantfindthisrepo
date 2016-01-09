@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import com.ikov.model.Item;
 import com.ikov.model.Skill;
+import com.ikov.model.Locations.Location;
+import com.ikov.world.content.minigames.impl.ClanWars;
 import com.ikov.world.entity.Entity;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.player.Player;
@@ -29,6 +31,12 @@ public abstract class Spell {
 	 */
 	public boolean canCast(Player player, boolean delete) {
 
+		if(player.getLocation() == Location.CLAN_WARS) {
+			if(ClanWars.Rules.COMBAT_MAGE.getToggle() == false) {
+				player.getPacketSender().sendMessage("You cannot cast spells in this clan battle.");
+				return false;
+			}
+		}
 		// We first check the level required.
 		if (player.getSkillManager().getCurrentLevel(Skill.MAGIC) < levelRequired()) {
 			player.getPacketSender().sendMessage(

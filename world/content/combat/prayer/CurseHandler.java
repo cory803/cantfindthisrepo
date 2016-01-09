@@ -18,6 +18,7 @@ import com.ikov.world.content.ItemsKeptOnDeath;
 import com.ikov.world.content.Sounds;
 import com.ikov.world.content.Sounds.Sound;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.minigames.impl.ClanWars;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.entity.impl.Character;
@@ -83,6 +84,14 @@ public class CurseHandler {
 	}
 
 	public static void activateCurse(Player player, CurseData curse) {
+		if(player.getLocation() == Location.CLAN_WARS) {
+			if(ClanWars.Rules.COMBAT_PRAYER.getToggle() == false) {
+				player.getPacketSender().sendMessage("You cannot use prayers in this clan battle.");
+				CurseHandler.deactivateAll(player);
+				PrayerHandler.deactivateAll(player);
+				return;
+			}
+		}
 		if(player.getPrayerbook() == Prayerbook.NORMAL)
 			return;
 		if (player.getCurseActive()[curse.ordinal()])

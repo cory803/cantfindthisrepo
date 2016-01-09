@@ -7,6 +7,8 @@ import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
 import com.ikov.model.Graphic;
 import com.ikov.model.Projectile;
+import com.ikov.model.Locations.Location;
+import com.ikov.world.content.minigames.impl.ClanWars;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
 
