@@ -81,8 +81,8 @@ public class SkillManager {
 		if(player.getGameMode() != GameMode.NORMAL) {
 			experience *= 0.6;
 		}
-		if(GameSettings.BONUS_EXP) {
-			experience *= 1.75; //15
+		if(GameSettings.DOUBLE_EXP) {
+			experience *= 2.0; //15
 		}
 
 		if(player.getMinutesBonusExp() != -1) {
@@ -136,6 +136,7 @@ public class SkillManager {
 			Sounds.sendSound(player, Sound.LEVELUP);
 			if (skills.maxLevel[skill.ordinal()] == getMaxAchievingLevel(skill)) {
 				player.getPacketSender().sendMessage("Well done! You've achieved the highest possible level in this skill!");
+				Achievements.doProgress(player, AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS);
 				World.sendMessage("<shad=15536940>News: "+player.getUsername()+" has just achieved the highest possible level in "+skillName+"!");
 				TaskManager.submit(new Task(2, player, true) {
 					int localGFX = 1634;
