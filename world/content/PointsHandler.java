@@ -80,10 +80,14 @@ public class PointsHandler {
 	}
 
 	public void setCommendations(int commendations, boolean add) {
-		if(add)
+		if(add) {
+			if(GameSettings.DOUBLE_POINTS) {
+				commendations *= 2;
+			}
 			this.commendations += commendations;
-		else
+		} else {
 			this.commendations = commendations;
+		}
 	}
 
 	public int getLoyaltyPoints() {
@@ -91,10 +95,14 @@ public class PointsHandler {
 	}
 
 	public void setLoyaltyPoints(int points, boolean add) {
-		if(add)
+		if(add) {
+			if(GameSettings.DOUBLE_POINTS) {
+				points *= 2;
+			}
 			this.loyaltyPoints += points;
-		else
+		} else {
 			this.loyaltyPoints = points;
+		}
 	}
 	
 	public void incrementLoyaltyPoints(double amount) {
