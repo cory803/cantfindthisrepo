@@ -380,6 +380,9 @@ public class Locations {
 				return true;
 			}
 		},
+		CLAN_WARS(new int[]{0000, 0000}, new int[]{0000, 0000}, true, true, true, false, false, false) {
+			//^^ all incorrect, just want variable made...
+		},
 		BOSS_SYSTEM(new int[]{2350, 2450}, new int[]{9800, 10000}, true, true, true, false, false, false) {
 			@Override
 			public void process(Player player) {}
