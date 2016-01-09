@@ -157,14 +157,23 @@ public class PlayerHandler {
 		//Others
 		Lottery.onLogin(player);
 		Locations.login(player);
-		player.getPacketSender().sendMessage("@bla@Welcome to IKov! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
+		if(GameSettings.DOUBLE_EXP) {
+			player.getPacketSender().sendMessage("@bla@Welcome to IKov! We're currently in Double EXP mode! (@red@X2.0@bla@)");
+		} else {
+			player.getPacketSender().sendMessage("@bla@Welcome to IKov! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
+		}
 		if(player.experienceLocked())
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 		ClanChatManager.handleLogin(player);
 
-		if(GameSettings.BONUS_EXP) {
-			player.getPacketSender().sendMessage("<img=10> <col=008FB2>IKov currently has a bonus experience event going on, make sure to use it!");
+		if(GameSettings.DOUBLE_POINTS) {
+			player.getPacketSender().sendMessage("<img=10> <col=008FB2>IKov currently has a double points event going on, make sure to use it!");
+		}	
+
+		if(GameSettings.DOUBLE_VOTE_TOKENS) {
+			player.getPacketSender().sendMessage("<img=10> <col=008FB2>IKov currently has a double vote rewards event going on, make sure to use it!");
 		}
+		
 		if(WellOfGoodwill.isActive()) {
 			if(player.getDonorRights() > 0) {
 				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");

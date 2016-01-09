@@ -5,6 +5,7 @@ import com.ikov.world.entity.impl.player.Player;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerPanel;
+import com.ikov.GameSettings;
 
 public class VoteTokens  {
 	
@@ -13,7 +14,7 @@ public class VoteTokens  {
 	* @Author Jonathan Sirens
 	**/
 	
-	public static int super_rare_chance = 1500;
+	public static int super_rare_chance = 3000;
 	
 	public static String global_color = "2EA73D";
 	
@@ -43,7 +44,7 @@ public class VoteTokens  {
 		int random_chance = Misc.getRandom(super_rare_chance);
 		if(random_chance == super_rare_chance - 1) {
 			collection = 2;
-		} else if(random_chance >= 0 && random_chance <= 8) {
+		} else if(random_chance >= 0 && random_chance <= 12) {
 			collection = 1;
 		} else {
 			collection = 0;
@@ -65,6 +66,9 @@ public class VoteTokens  {
 			points += 2;
 		} else if(p.getDonorRights() == 5) {
 			points += 3;
+		}
+		if(GameSettings.DOUBLE_POINTS) {
+			points *= 2;
 		}
 		if(collection == 2) {
 			World.sendMessage("<img=3><col=2F5AB7>The player <shad=0>"+name+"</shad> has recieved <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");

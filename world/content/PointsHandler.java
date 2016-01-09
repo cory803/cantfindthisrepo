@@ -1,6 +1,7 @@
 package com.ikov.world.content;
 
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
 
 public class PointsHandler {
 
@@ -49,10 +50,14 @@ public class PointsHandler {
 	}
 	
 	public void setPrestigePoints(int points, boolean add) {
-		if(add)
+		if(add) {
+			if(GameSettings.DOUBLE_POINTS) {
+				prestigePoints *= 2;
+			}
 			this.prestigePoints += points;
-		else
+		} else {
 			this.prestigePoints = points;
+		}
 	}
 
 	public int getSlayerPoints() {
@@ -60,10 +65,14 @@ public class PointsHandler {
 	}
 
 	public void setSlayerPoints(int slayerPoints, boolean add) {
-		if(add)
+		if(add) {
+			if(GameSettings.DOUBLE_POINTS) {
+				slayerPoints *= 2;
+			}
 			this.slayerPoints += slayerPoints;
-		else
+		} else {
 			this.slayerPoints = slayerPoints;
+		}
 	}
 
 	public int getCommendations() {
@@ -89,6 +98,9 @@ public class PointsHandler {
 	}
 	
 	public void incrementLoyaltyPoints(double amount) {
+		if(GameSettings.DOUBLE_POINTS) {
+			amount *= 2;
+		}
 		this.loyaltyPoints += amount;
 	}
 	
@@ -97,10 +109,14 @@ public class PointsHandler {
 	}
 
 	public void setPkPoints(int points, boolean add) {
-		if(add)
+		if(add) {
+			if(GameSettings.DOUBLE_POINTS) {
+				points *= 2;
+			}
 			this.pkPoints += points;
-		else
+		} else {
 			this.pkPoints = points;
+		}
 	}
 	
 	public int getDungeoneeringTokens() {
@@ -142,9 +158,13 @@ public class PointsHandler {
 	}
 	
 	public void setAchievementPoints(int points, boolean add) {
-		if(add)
+		if(add) {
+			if(GameSettings.DOUBLE_POINTS) {
+				points *= 2;
+			}
 			this.achievementPoints += points;
-		else
+		} else {
 			this.achievementPoints = points;
+		}
 	}
 }

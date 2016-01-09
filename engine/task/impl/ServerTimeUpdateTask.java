@@ -92,6 +92,27 @@ public class ServerTimeUpdateTask extends Task {
 									GameSettings.ITEM_SPAWN_TACTICAL = true;
 								} else {
 									GameSettings.ITEM_SPAWN_TACTICAL = false;
+								}	
+							} else if(line.contains("double_vote_tokens")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.DOUBLE_VOTE_TOKENS = true;
+								} else {
+									GameSettings.DOUBLE_VOTE_TOKENS = false;
+								}
+							} else if(line.contains("double_exp")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.DOUBLE_EXP = true;
+								} else {
+									GameSettings.DOUBLE_EXP = false;
+								}
+							} else if(line.contains("double_points")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.DOUBLE_POINTS = true;
+								} else {
+									GameSettings.DOUBLE_POINTS = false;
 								}
 							} else if(line.contains("database_logging_time")) {
 								args = line.split(": ");

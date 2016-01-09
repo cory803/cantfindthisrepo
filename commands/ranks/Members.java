@@ -76,8 +76,23 @@ public class Members {
 			Command.open(player);
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
+			boolean can_continue = true;
 			if(!GameSettings.VOTING_CONNECTIONS) {
 				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
+				return;
+			}
+			if(GameSettings.DOUBLE_VOTE_TOKENS) {
+				if(player.getInventory().getFreeSlots() <= 1) {
+					player.getPacketSender().sendMessage("You need to have atleast 2 free inventory spaces to claim an auth code!");
+					can_continue = false;
+				}
+			} else {
+				if(player.getInventory().getFreeSlots() == 0) {
+					player.getPacketSender().sendMessage("You need to have atleast 1 free inventory spaces to claim an auth code!");
+					can_continue = false;
+				}
+			}
+			if(!can_continue) {
 				return;
 			}
 			String authCode = command[1];
@@ -88,7 +103,11 @@ public class Members {
 				try {
 					Auth.connect();
 					if (Auth.checkVote(authCode)) {
-						player.getInventory().add(10944, 1);
+						if(GameSettings.DOUBLE_VOTE_TOKENS) {
+							player.getInventory().add(10944, 2);
+						} else {
+							player.getInventory().add(10944, 1);	
+						}
 						player.setVotesClaimed(player.getVotesClaimed()+1);
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 						if (player.getVotesClaimed() == 100) {

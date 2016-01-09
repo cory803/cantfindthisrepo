@@ -131,7 +131,7 @@ public class Supports {
 				return;
 			} else {
 				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
+				if(canTele && player.getLocation() != Location.DUNGEONEERING) {
 					TeleportHandler.teleportPlayer(player, player2.getPosition().copy(), TeleportType.NORMAL);
 					player.getPacketSender().sendMessage("Teleporting to player: "+player2.getUsername()+"");
 				} else
