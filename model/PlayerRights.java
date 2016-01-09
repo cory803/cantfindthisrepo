@@ -41,8 +41,9 @@ public enum PlayerRights {
 		this.loyaltyPointsGainModifier = loyaltyPointsGainModifier;
 		this.experienceGainModifier = experienceGainModifier;
 	}
-	
-	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER);	
+
+	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER);
+	private static final ImmutableSet<PlayerRights> CC = Sets.immutableEnumSet(OWNER);	
 	
 	/*
 	 * The yell delay for the rank
@@ -76,9 +77,12 @@ public enum PlayerRights {
 	public double getExperienceGainModifier() {
 		return experienceGainModifier;
 	}
-	
+
 	public boolean isStaff() {
 		return STAFF.contains(this);
+	}
+	public boolean ownerInCC() {
+		return CC.contains(this);
 	}
 	
 	/**
