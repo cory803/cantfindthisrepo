@@ -77,14 +77,4 @@ public class ClanWars {
 		}
 		
 	}
-	/* Rules */
-	void checkRules(Player player) {
-		if(Rules.COMBAT_FOOD.getToggle() == true) {
-			//player can eat
-		} else {
-			//player cannot eat
-		}
-		
-	}
-	
 }

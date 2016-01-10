@@ -16,6 +16,7 @@ import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Sounds.Sound;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.minigames.impl.ClanWars;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.content.skill.SkillManager;
@@ -74,6 +75,10 @@ public class Consumables {
 			return;
 		if(Dueling.checkRule(player, DuelRule.NO_FOOD)) {
 			player.getPacketSender().sendMessage("Food has been disabled in this duel.");			
+			return;
+		}
+		if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false) {
+			player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
 			return;
 		}
 		if (food != null && player.getFoodTimer().elapsed(1300)) {
@@ -247,6 +252,14 @@ public class Consumables {
 		}
 		if(Dueling.checkRule(player, DuelRule.NO_POTIONS)) {
 			player.getPacketSender().sendMessage("Potions have been disabled in this duel.");			
+			return;
+		}
+		if(ClanWars.Rules.COMBAT_POTS.getToggle() == false) {
+			player.getPacketSender().sendMessage("Potions have been disabled in this clan battle.");			
+			return;
+		}
+		if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false && healingPotion(itemId)) {
+			player.getPacketSender().sendMessage("Since food has been disabled in this clan battle, health-healing potions cannot be used.");			
 			return;
 		}
 		if (player.getPotionTimer().elapsed(900)) {

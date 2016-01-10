@@ -4,6 +4,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
+import com.ikov.engine.task.impl.PlayerDeathTask;
 import com.ikov.model.Flag;
 import com.ikov.model.GameMode;
 import com.ikov.model.Item;
@@ -160,19 +161,19 @@ public class Dueling {
 			}
 		}
 		if(player.getGameMode() == GameMode.IRONMAN) {
-			player.getPacketSender().sendMessage("You're dumb for trying to stake an Ironman. -Sam");
+			player.getPacketSender().sendMessage("You cannot stake an Ironman.");
 			return;
 		}
 		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("You're dumb for trying to trade a Hardcore Ironman. -Sam");
+			player.getPacketSender().sendMessage("You cannot do this with a Hardcore Ironman.");
 			return;
 		}
 		if(playerToDuel.getGameMode() == GameMode.IRONMAN) {
-			player.getPacketSender().sendMessage("You're dumb for trying to stake an Ironman. -Sam");
+			player.getPacketSender().sendMessage("You cannot stake an Ironman.");
 			return;
 		}
 		if(playerToDuel.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("You're dumb for trying to stake a Hardcore Ironman. -Sam");
+			player.getPacketSender().sendMessage("You cannot stake a Hardcore Ironman.");
 			return;
 		}
 		
@@ -597,6 +598,7 @@ public class Dueling {
 		player.getMovementQueue().reset();
 		player.getPacketSender().sendInterface(6733);
 		player.getPointsHandler().refreshPanel();
+		player.save();
 	}
 
 	public static boolean checkDuel(Player playerToDuel, int statusReq) {
