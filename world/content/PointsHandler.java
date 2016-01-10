@@ -52,7 +52,7 @@ public class PointsHandler {
 	public void setPrestigePoints(int points, boolean add) {
 		if(add) {
 			if(GameSettings.DOUBLE_POINTS) {
-				prestigePoints *= 2;
+				points *= 2;
 			}
 			this.prestigePoints += points;
 		} else {
