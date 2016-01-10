@@ -402,6 +402,7 @@ public class Player extends Character {
 	private Pouch selectedPouch;
 
 	/*** INTS ***/
+	public int voteCount = 0;
 	private int votesClaimed = 0;
 	private int[] brawlerCharges = new int[9];
 	private int[] forceMovement = new int[7];
@@ -487,17 +488,25 @@ public class Player extends Character {
 	private boolean isBuildingMode;
 	private boolean voteMessageSent;
 	private boolean receivedStarter;
+	private boolean canVote = true;
+
 	private String last_ip_address;
 	private String last_serial_address;
 	
 	/*
 	 * Getters & Setters
 	 */
+	public boolean isCanVote() {
+		return canVote;
+	}
+	public void setCanVote(boolean canVote) {
+		this.canVote = canVote;
+	}
 	public int getVotesClaimed() {
 		return votesClaimed;
 	}
 	public void setVotesClaimed(int votesClaimed) {
-		this.votesClaimed = votesClaimed;
+		this.votesClaimed += votesClaimed;
 	}
 	public PlayerSession getSession() {
 		return session;

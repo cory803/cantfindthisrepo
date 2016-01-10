@@ -62,8 +62,37 @@ public class Owners {
 			player.getPacketSender().sendMessage(test);
 		}
 		if (command[0].equalsIgnoreCase("authtest")) {
-						player.getInventory().add(10944, 1);
-						player.setVotesClaimed(player.getVotesClaimed()+1);
+			boolean can_continue = true;
+			if (player.voteCount > 4) {
+				player.setCanVote(false);
+			}
+			if(player.isCanVote() == false) {
+				player.getPacketSender().sendMessage("You have been banned from voting for abusing the system. Appeal online.");
+				return;
+			}
+			if(GameSettings.DOUBLE_VOTE_TOKENS) {
+				if(player.getInventory().getFreeSlots() <= 1) {
+					player.getPacketSender().sendMessage("You need to have atleast 2 free inventory spaces to claim an auth code!");
+					can_continue = false;
+				}
+			} else {
+				if(player.getInventory().getFreeSlots() == 0) {
+					player.getPacketSender().sendMessage("You need to have atleast 1 free inventory spaces to claim an auth code!");
+					can_continue = false;
+				}
+			}
+			if(!can_continue) {
+				return;
+			}
+						if(GameSettings.DOUBLE_VOTE_TOKENS) {
+							player.getInventory().add(10944, 2);
+						} else {
+							player.getInventory().add(10944, 1);	
+						}
+						player.setVotesClaimed(1);
+						player.voteCount++;
+						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 5 votes today. If you abuse the system your ");
+						player.getPacketSender().sendMessage("account will be banned from voting.");
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 						if (player.getVotesClaimed() == 100) {
 							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
@@ -73,6 +102,7 @@ public class Owners {
 							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
 							GameSettings.AUTHS_CLAIMED = 10;
 						}
+						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
 			}
 		if(command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);
@@ -476,12 +506,24 @@ public class Owners {
 				target.getPacketSender().sendRights();
 			}
 		}
+		if (command[0].equals("banvote")) {
+			Player target = World.getPlayerByName(command[1]);
+			target.setCanVote(false);
+			target.getPacketSender().sendMessage("You have been banned from voting.");
+			player.getPacketSender().sendMessage("You have banned "+target.getUsername()+" from voting.");
+		}
+		if (command[0].equals("unbanvote")) {
+			Player target = World.getPlayerByName(command[1]);
+			target.setCanVote(true);
+			target.getPacketSender().sendMessage("You have been unbanned from voting.");
+			player.getPacketSender().sendMessage("You have unbanned "+target.getUsername()+" from voting.");
+		}
 		if (command[0].equals("givedonor")) {
 			String rights = command[1];
 			Player target = World.getPlayerByName(command[2]);
 			target.setDonorRights(Integer.parseInt(rights));
-			target.getPacketSender().sendRights();
-			target.getPacketSender().sendMessage("You have been given donator status");
+			target.getPacketSender().sendMessage("You have been given donator status. Relog to see it.");
+			player.getPacketSender().sendMessage("You gave them donor... Why you so nice?!");
 		}
 		if (command[0].equals("giverights")) {
 				try {

@@ -545,7 +545,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			public void execute() {
 				switch(npc.getId()) {
 				case 4657:
-					if(player.getRights() == PlayerRights.PLAYER) {
+				if(player.getDonorRights() == 0) {
 						player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit ikov2.org and purchase a scroll.");
 						return;
 					}
