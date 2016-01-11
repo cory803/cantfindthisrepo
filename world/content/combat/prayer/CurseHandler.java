@@ -85,12 +85,12 @@ public class CurseHandler {
 
 	public static void activateCurse(Player player, CurseData curse) {
 		if(player.getLocation() == Location.CLAN_WARS) {
-			if(ClanWars.Rules.COMBAT_PRAYER.getToggle() == false) {
-				player.getPacketSender().sendMessage("You cannot use prayers in this clan battle.");
-				CurseHandler.deactivateAll(player);
-				PrayerHandler.deactivateAll(player);
-				return;
-			}
+			//if(ClanWars.Rules.COMBAT_PRAYER.getToggle() == false) {
+				//player.getPacketSender().sendMessage("You cannot use prayers in this clan battle.");
+				//CurseHandler.deactivateAll(player);
+				//PrayerHandler.deactivateAll(player);
+				//return;
+			//}
 		}
 		if(player.getPrayerbook() == Prayerbook.NORMAL)
 			return;

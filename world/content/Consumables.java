@@ -77,10 +77,10 @@ public class Consumables {
 			player.getPacketSender().sendMessage("Food has been disabled in this duel.");			
 			return;
 		}
-		if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false) {
-			player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
-			return;
-		}
+		//if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false) {
+			//player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
+			//return;
+		//}
 		if (food != null && player.getFoodTimer().elapsed(1300)) {
 			player.getCombatBuilder().incrementAttackTimer(2).cooldown(false);
 			player.setCastSpell(null);
@@ -254,14 +254,14 @@ public class Consumables {
 			player.getPacketSender().sendMessage("Potions have been disabled in this duel.");			
 			return;
 		}
-		if(ClanWars.Rules.COMBAT_POTS.getToggle() == false) {
-			player.getPacketSender().sendMessage("Potions have been disabled in this clan battle.");			
-			return;
-		}
-		if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false && healingPotion(itemId)) {
-			player.getPacketSender().sendMessage("Since food has been disabled in this clan battle, health-healing potions cannot be used.");			
-			return;
-		}
+		//if(ClanWars.Rules.COMBAT_POTS.getToggle() == false) {
+		//	player.getPacketSender().sendMessage("Potions have been disabled in this clan battle.");			
+		//	return;
+		//}
+		//if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false && healingPotion(itemId)) {
+		//	player.getPacketSender().sendMessage("Since food has been disabled in this clan battle, health-healing potions cannot be used.");			
+		//	return;
+		//}
 		if (player.getPotionTimer().elapsed(900)) {
 			switch(itemId) {
 			/*
