@@ -77,8 +77,15 @@ public class Members {
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
 			boolean can_continue = true;
+			if (player.voteCount > 4) {
+				player.setCanVote(false);
+			}
 			if(!GameSettings.VOTING_CONNECTIONS) {
 				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
+				return;
+			}
+			if(player.isCanVote() == false) {
+				player.getPacketSender().sendMessage("You have been banned from voting for abusing the system. Appeal online.");
 				return;
 			}
 			if(GameSettings.DOUBLE_VOTE_TOKENS) {
@@ -108,7 +115,10 @@ public class Members {
 						} else {
 							player.getInventory().add(10944, 1);	
 						}
-						player.setVotesClaimed(player.getVotesClaimed()+1);
+						player.setVotesClaimed(1);
+						player.voteCount++;
+						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 5 votes today. If you abuse the system your ");
+						player.getPacketSender().sendMessage("account will be banned from voting.");
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 						if (player.getVotesClaimed() == 100) {
 							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);

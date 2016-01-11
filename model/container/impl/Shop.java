@@ -261,6 +261,7 @@ public class Shop extends ItemContainer {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), -1);
 					if(!customShop) {
 						player.getInventory().add(new Item(getCurrency().getId(), itemValue), false);
+						player.save();
 					} else {
 						//Return points here
 					}

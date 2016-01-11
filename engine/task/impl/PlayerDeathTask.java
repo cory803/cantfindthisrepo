@@ -62,6 +62,7 @@ public class PlayerDeathTask extends Task {
 			case 3:
 				player.performAnimation(new Animation(0x900));
 				player.getPacketSender().sendMessage("Oh dear, you are dead!");
+				player.save();
 				this.death = getDeathNpc(player);
 				break;
 			case 1:

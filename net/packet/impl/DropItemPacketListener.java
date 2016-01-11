@@ -58,6 +58,7 @@ public class DropItemPacketListener implements PacketListener {
 					}
 					GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 80, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 80));
 					PlayerLogs.log(player.getUsername(), "Player dropping item: "+item.getId()+", amount: "+item.getAmount());
+					player.save();
 				}
 				Sounds.sendSound(player, Sound.DROP_ITEM);
 			} else
