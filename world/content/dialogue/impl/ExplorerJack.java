@@ -29,7 +29,7 @@ public class ExplorerJack {
 			
 			@Override
 			public String[] dialogue() {
-				return new String[]{"Hello adventurer.", "I have travelled all around IKov", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
+				return new String[]{"Hello adventurer.", "I have travelled all around Ikov", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
 			}
 			
 			public Dialogue nextDialogue() {
@@ -52,7 +52,7 @@ public class ExplorerJack {
 					
 					@Override
 					public String[] dialogue() {
-						return new String[]{"Hello adventurer.", "I have traveled all around IKov", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
+						return new String[]{"Hello adventurer.", "I have traveled all around Ikov", "and can tell about the items I've encountered.", "Which item would you like to know about?"};
 					}
 				
 					@Override

@@ -67,7 +67,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"You can earn money doing many different things in", "IKov. For example, see those Thieving stalls infront of ", "you? You can steal items from them and sell them to the", "merchant whose standing over there."};
+					return new String[]{"You can earn money doing many different things in", "Ikov. For example, see those Thieving stalls infront of ", "you? You can steal items from them and sell them to the", "merchant whose standing over there."};
 				};
 
 				@Override
@@ -240,7 +240,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"Enough of the boring stuff, let's show you some creatures!", "There are a bunch of bosses to fight in IKov.", "Every boss drops unique and good gear when killed.", "One example is Nomad!"};
+					return new String[]{"Enough of the boring stuff, let's show you some creatures!", "There are a bunch of bosses to fight in Ikov.", "Every boss drops unique and good gear when killed.", "One example is Nomad!"};
 				};
 
 				@Override
@@ -308,7 +308,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"IKov also has a lot of enjoyable minigames.", "This is the Graveyard Arena, an area that's been run over", "by Zombies. Your job is to simply to kill them all.", "Sounds like fun, don't you think?"};
+					return new String[]{"Ikov also has a lot of enjoyable minigames.", "This is the Graveyard Arena, an area that's been run over", "by Zombies. Your job is to simply to kill them all.", "Sounds like fun, don't you think?"};
 				};
 
 				@Override
@@ -410,7 +410,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"IKov is a competitive game. Next to you is a scoreboard", "which you can use to track other players and their progress."};
+					return new String[]{"Ikov is a competitive game. Next to you is a scoreboard", "which you can use to track other players and their progress."};
 				};
 
 				@Override
@@ -480,7 +480,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing IKov!"};
+					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing Ikov!"};
 				};
 
 				@Override
@@ -509,7 +509,7 @@ public class Tutorial {
 
 				@Override
 				public String[] dialogue() {
-					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing IKov!"};
+					return new String[]{"If you have any more questions, simply use the ::help", "command and a staff member should get back to you.", "You can also join the clanchat channel 'help' and ask", "other players for help there too. Have fun playing Ikov!"};
 				};
 
 				@Override
@@ -540,7 +540,7 @@ public class Tutorial {
 						protected void execute() {
 							if(p != null && p.isRegistered()) {
 								p.getPacketSender().sendMessage("<img=10> @blu@Want to go player killing? Mandrith now sells premade PvP sets.");
-								p.getPacketSender().sendMessage("<img=10> @blu@Join 'IKov' clan chat for help!");
+								p.getPacketSender().sendMessage("<img=10> @blu@Join 'Ikov' clan chat for help!");
 							}
 							stop();
 						}

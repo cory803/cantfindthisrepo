@@ -722,7 +722,7 @@ public class ClanChatManager {
 		resetInterface(player);
 		if(player.getClanChatName() == null || player.getClanChatName().equals("null")) {
 			if(Misc.getMinutesPlayed(player) <= 15) {
-				player.getPacketSender().sendMessage("<img=10> <col=660099>Feel free to join the 'IKov' clanchat channel to talk to other players.");
+				player.getPacketSender().sendMessage("<img=10> <col=660099>Feel free to join the 'Ikov' clanchat channel to talk to other players.");
 			}
 		}
 		ClanChatManager.join(player, player.getClanChatName());

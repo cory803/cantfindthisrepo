@@ -25,7 +25,7 @@ import com.ikov.util.ShutdownHook;
 public class GameServer {
 
 	private static final GameLoader loader = new GameLoader(GameSettings.GAME_PORT);
-	private static final Logger logger = Logger.getLogger("IKov");
+	private static final Logger logger = Logger.getLogger("Ikov");
 	private static boolean updating;
 
 	public static void main(String[] params) {
@@ -35,7 +35,7 @@ public class GameServer {
 			logger.info("Initializing the loader...");
 			System.out.println("Fetching client version...");
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/IKov/update.txt").openStream()));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/Ikov/update.txt").openStream()));
 				for (int i = 0; i < 1; i++) {
 					GameSettings.client_version = reader.readLine();
 				}
@@ -49,7 +49,7 @@ public class GameServer {
 			ServerTimeUpdateTask.start_configuration_process();
 			logger.info("Finished starting configuration settings...");
 			logger.info("The loader has finished loading utility tasks.");
-			logger.info("IKov is now online on port "+GameSettings.GAME_PORT+"!");
+			logger.info("Ikov is now online on port "+GameSettings.GAME_PORT+"!");
 			final BufferedReader reader = new BufferedReader(new FileReader(new File("data/mysql_connection.txt")));
 			if(reader.readLine().toLowerCase().equals("on")) {
 				GameSettings.MYSQL_ENABLED = true;
@@ -59,7 +59,7 @@ public class GameServer {
 				System.out.println("MYSQL Connections are disabled.");
 			}
 		} catch (Exception ex) {
-			logger.log(Level.SEVERE, "Could not start IKov! Program terminated.", ex);
+			logger.log(Level.SEVERE, "Could not start Ikov! Program terminated.", ex);
 			System.exit(1);
 		}
 	}

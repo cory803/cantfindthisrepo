@@ -40,28 +40,28 @@ public class Scoreboards {
 	}
 
 	public static void init() {
-		TOP_PKERS = new Scoreboard("IKov's Top Pkers", "top-pkers.txt") {
+		TOP_PKERS = new Scoreboard("Ikov's Top Pkers", "top-pkers.txt") {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "double");
 			}
 		};
 
-		TOP_KILLSTREAKS = new Scoreboard("IKov's Top Killstreaks", "top-killstreaks.txt") {
+		TOP_KILLSTREAKS = new Scoreboard("Ikov's Top Killstreaks", "top-killstreaks.txt") {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "integer");
 			}
 		};
 
-		TOP_ACHIEVER = new Scoreboard("IKov's Top Achiever", "top-achievers.txt")  {
+		TOP_ACHIEVER = new Scoreboard("Ikov's Top Achiever", "top-achievers.txt")  {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "integer");
 			}
 		};
 
-		TOP_TOTAL_EXP = new Scoreboard("IKov's Top Total Exp", "top-exp.txt")  {
+		TOP_TOTAL_EXP = new Scoreboard("Ikov's Top Total Exp", "top-exp.txt")  {
 			@Override
 			public void resort(ArrayList<ScoreboardEntry> entries) {
 				Scoreboards.resort(entries, "long");

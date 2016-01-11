@@ -371,7 +371,7 @@ public class Bank extends ItemContainer {
 			player.getPacketSender().sendClientRightClickRemoval();
 			player.getBankSearchingAttribtues().setSearchedBank(null).setSearchingBank(false).setSearchSyntax(null);
 			player.setCurrentBankTab(0).setNoteWithdrawal(false);
-			player.getPacketSender().sendString(27002, Integer.toString(0)).sendString(27000, "1").sendConfig(117, 0).sendString(5383, "        The Bank of IKov");
+			player.getPacketSender().sendString(27002, Integer.toString(0)).sendString(27000, "1").sendConfig(117, 0).sendString(5383, "        The Bank of Ikov");
 			if(openBank)
 				player.getBank(0).open();
 			player.setInputHandling(null);

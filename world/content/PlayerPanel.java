@@ -13,7 +13,7 @@ public class PlayerPanel {
 		/**
 		 * General info
 		 */
-		player.getPacketSender().sendString(39159, "@or3@ - IKov");
+		player.getPacketSender().sendString(39159, "@or3@ - Ikov");
 
 		if(ShootingStar.CRASHED_STAR == null) {
 			player.getPacketSender().sendString(39162, "@or2@Crashed star: @yel@N/A");

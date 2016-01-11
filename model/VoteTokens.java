@@ -10,7 +10,7 @@ import com.ikov.GameSettings;
 public class VoteTokens  {
 	
 	/**
-	* IKov Vote Tokens
+	* Ikov Vote Tokens
 	* @Author Jonathan Sirens
 	**/
 	

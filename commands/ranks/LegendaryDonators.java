@@ -106,7 +106,7 @@ public class LegendaryDonators {
 			}
 			Position position = new Position(3424, 2919, 0);
 			player.moveTo(position);
-			player.getPacketSender().sendMessage("Thanks for supporting IKov!");
+			player.getPacketSender().sendMessage("Thanks for supporting Ikov!");
 		}
 	}
 	

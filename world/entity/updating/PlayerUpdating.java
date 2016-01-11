@@ -546,21 +546,21 @@ public class PlayerUpdating {
 	 * @return			The PlayerUpdating instance.
 	 */
 	private static void updateAppearance(Player player, PacketBuilder out, Player target) {	
-		int rankId = player.getRights().ordinal();
+		int rankId = target.getRights().ordinal();
 		if(rankId == 0) {
-			if(player.getDonorRights() == 1) {
+			if(target.getDonorRights() == 1) {
 				rankId = 5;
 			}
-			if(player.getDonorRights() == 2) {
+			if(target.getDonorRights() == 2) {
 				rankId = 6;
 			}
-			if(player.getDonorRights() == 3) {
+			if(target.getDonorRights() == 3) {
 				rankId = 7;
 			}
-			if(player.getDonorRights() == 4) {
+			if(target.getDonorRights() == 4) {
 				rankId = 8;
 			}
-			if(player.getDonorRights() == 5) {
+			if(target.getDonorRights() == 5) {
 				rankId = 9;
 			}
 		}

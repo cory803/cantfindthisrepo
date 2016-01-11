@@ -482,7 +482,7 @@ public class Owners {
 		if (command[0].equals("resetclientversion")) {
 			System.out.println("Fetching client version...");
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/IKov/update.txt").openStream()));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/Ikov/update.txt").openStream()));
 				for (int i = 0; i < 1; i++) {
 					GameSettings.client_version = reader.readLine();
 				}
@@ -1000,7 +1000,7 @@ if(command[0].equals("sendstring")) {
 			String player2 = wholeCommand.substring(5);
 			Player playerToKick = World.getPlayerByName(player2);
 			if(playerToKick == null) {
-				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on IKov.");
+				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Ikov.");
 				return;
 			} else if(playerToKick.getLocation() != Location.WILDERNESS) {
 				World.deregister(playerToKick);
