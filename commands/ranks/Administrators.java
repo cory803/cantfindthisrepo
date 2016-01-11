@@ -227,7 +227,7 @@ public class Administrators {
 				if(other == null) {
 					ip = PlayerPunishment.getLastIpAddress(ban_player);
 				} else {
-					ip = player.getHostAddress();
+					ip = other.getHostAddress();
 				}
 				if(PlayerPunishment.isIpBanned(ip)) {
 					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active ip ban on "+ip+".");
@@ -251,7 +251,7 @@ public class Administrators {
 				if(other == null) {
 					serial = PlayerPunishment.getLastSerialAddress(ban_player);
 				} else {
-					serial = player.getSerialNumber();
+					serial = other.getSerialNumber();
 				}
 				if(PlayerPunishment.isSerialBanned(serial)) {
 					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active serial ban on "+serial+".");
