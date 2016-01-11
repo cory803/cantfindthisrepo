@@ -35,6 +35,7 @@ public class ChangePassword extends Input {
 			e.printStackTrace();
 			success = false;
 		}
+		success = true;
 		if(success) {
 			player.setPassword(syntax);
 			player.getPacketSender().sendMessage("Your account's password is now: "+syntax);

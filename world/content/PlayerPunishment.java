@@ -99,6 +99,7 @@ public class PlayerPunishment {
 				}
 				if(line.contains("last-ip-address")) {
 					line = line.substring(22).replace("\",", "");
+					last_ip = line;
 				}
 			}
 		} catch (IOException e) {
@@ -118,6 +119,7 @@ public class PlayerPunishment {
 				}
 				if(line.contains("last-serial-address")) {
 					line = line.substring(26).replace("\",", "");
+					last_ip = line;
 				}
 			}
 		} catch (IOException e) {

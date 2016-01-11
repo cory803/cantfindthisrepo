@@ -168,6 +168,19 @@ public class Members {
 			player.getPacketSender().sendString(1, "www.ikov2.org/vote/");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/vote/");
 		}	
+		if (command[0].equals("help") || command[0].equals("support")) {
+			player.getPacketSender().sendString(1, "wwwikov2.org/forum/index.php?app=core&module=global&section=register");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/?app=tickets");
+			player.getPacketSender().sendMessage("Please note this requires you to register on the forums, type ::register!");
+		}
+		if (command[0].equals("register")) {
+			player.getPacketSender().sendString(1, "www.ikov2.org/forum/index.php?app=core&module=global&section=register");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/index.php?app=core&module=global&section=register");
+		}
+		if (command[0].equals("forum")) {
+			player.getPacketSender().sendString(1, "www.ikov2.org/forum/");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/");
+		}	
 		if (command[0].equals("scores") || command[0].equals("hiscores") || command[0].equals("highscores")) {
 			if(!GameSettings.HIGHSCORE_CONNECTIONS) {
 				player.getPacketSender().sendMessage("Hiscores is currently turned off, please try again in 30 minutes!");
@@ -283,15 +296,6 @@ public class Members {
 			}
 			player.getPacketSender().sendMessage("Checking for any store purchases...");
 			Store.start_store_process(player);
-		}
-		if(command[0].equals("help")) {
-			if(player.getLastYell().elapsed(30000)) {
-				World.sendStaffMessage("<col=FF0066><img=10> [TICKET SYSTEM]<col=6600FF> "+player.getUsername()+" has requested help. Please help them!");
-				player.getLastYell().reset();
-				player.getPacketSender().sendMessage("<col=663300>Your help request has been received. Please be patient.");
-			} else {
-				player.getPacketSender().sendMessage("").sendMessage("<col=663300>You need to wait 30 seconds before using this again.").sendMessage("<col=663300>If it's an emergency, please private message a staff member directly instead.");
-			}
 		}
 		if(command[0].equals("empty")) {
 			player.getPacketSender().sendInterfaceRemoval().sendMessage("You clear your inventory.");
