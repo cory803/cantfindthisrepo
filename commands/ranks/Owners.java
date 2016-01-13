@@ -828,7 +828,7 @@ public class Owners {
 				});
 			}
 		}
-if(command[0].equals("sendstring")) {
+		if(command[0].equals("sendstring")) {
 			int child = Integer.parseInt(command[1]);
 			String string = command[2];
 			player.getPacketSender().sendString(child, string);

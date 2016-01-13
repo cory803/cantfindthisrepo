@@ -3,7 +3,6 @@ package com.ikov.commands.ranks;
 import com.ikov.GameSettings;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
-import com.ikov.net.security.ConnectionHandler;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerLogs;
@@ -295,6 +294,10 @@ public class Moderators {
 		if(command[0].equalsIgnoreCase("movehome")) {
 			String player2 = command[1];
 			player2 = Misc.formatText(player2.replaceAll("_", " "));
+			if (World.getPlayerByName(player2).getLocation() == Location.DUEL_ARENA) {
+				player.getPacketSender().sendMessage("Why are you trying to move a player out of duel arena?");
+				return;
+			}
 			if(command.length >= 3 && command[2] != null)
 				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
 			Player playerToMove = World.getPlayerByName(player2);
@@ -307,6 +310,10 @@ public class Moderators {
 		if(command[0].equalsIgnoreCase("teletome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
+			if (World.getPlayerByName(playerToTele).getLocation() == Location.DUEL_ARENA) {
+				player.getPacketSender().sendMessage("Why are you trying to move a player out of duel arena?");
+				return;
+			}
 			if (player.getLocation() == Location.WILDERNESS)  {
 				player.getPacketSender().sendMessage("You cannot teleport a player into the wild... What're you thinking?");
 				return;

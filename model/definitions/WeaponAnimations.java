@@ -338,12 +338,7 @@ public final class WeaponAnimations {
 		case 21005: // whip
 		case 21006: // whip
 		case 21007: // whip
-			if(prop.contains("flick"))
-				return 11968;
-			else if(prop.contains("lash"))
-				return 11969;
-			else if(prop.contains("deflect"))
-				return 11970;
+			return 11968;
 		case 6528:
 		case 20084:
 			return 2661;

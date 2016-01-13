@@ -942,7 +942,15 @@ public class Shop extends ItemContainer {
 				case 5510:
 					return new Object[]{750, "energy fragments"};
 				case 5512:
-					return new Object[]{1100, "energy fragments"};
+					return new Object[]{1000, "energy fragments"};
+				case 13613:
+					return new Object[]{800, "energy fragments"};
+				case 13619:
+					return new Object[]{1000, "energy fragments"};
+				case 13622:
+					return new Object[]{1000, "energy fragments"};
+				case 13623:
+					return new Object[]{450, "energy fragments"};
 				}
 			} else if(shop == AGILITY_TICKET_STORE) {
 				switch(item) {

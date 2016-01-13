@@ -634,7 +634,7 @@ public class PestControl {
 			case 18737:PestControl.buyFromShop(player, true, 8840, 1, 250); return true;//robes
 			case 18742:PestControl.buyFromShop(player, true, 8842, 1, 150); return true;//gloves
 			case 18740:PestControl.buyFromShop(player, true, 19712, 1, 350); return true;//deflector
-			case 18745:PestControl.buyFromShop(player, true, 19780, 1, 50000); return true;//korasi
+			case 18745:PestControl.buyFromShop(player, true, 19780, 1, 2000); return true;//korasi
 			//ENCHANCE
 			case 18749:PestControl.buyFromShop(player, true, 19785, 1, 125); return true;//elite top
 			case 18750:PestControl.buyFromShop(player, true, 19786, 1, 125); return true;//elite legs
