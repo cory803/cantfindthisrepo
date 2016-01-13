@@ -30,6 +30,7 @@ public class GameSettings {
 	public static boolean DOUBLE_POINTS = false;
 	
 	public static int AUTHS_CLAIMED = 0;
+	public static boolean FIGHT_PITS_ACTIVE = false;
 	
 	public static int DATABASE_LOGGING_TIME = 60;
 	public static int CONFIGURATION_TIME = 0;

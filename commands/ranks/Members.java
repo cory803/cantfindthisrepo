@@ -10,6 +10,7 @@ import com.ikov.util.Auth;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
+import com.ikov.world.content.skill.SkillManager;
 import com.ikov.world.content.Command;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
@@ -40,6 +41,7 @@ public class Members {
 					player.getPacketSender().sendMessage("You just changed your attack from "+player.getSkillManager().getCurrentLevel(Skill.ATTACK)+" to "+newLevel+"." );
 					player.getSkillManager().setMaxLevel(Skill.ATTACK, Integer.parseInt(newLevel), true);
 					player.getSkillManager().setCurrentLevel(Skill.ATTACK, Integer.parseInt(newLevel), true);
+					player.getSkillManager().setExperience(Skill.ATTACK, SkillManager.getExperienceForLevel(Integer.parseInt(newLevel)));
 				} else {
 					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
 				}
@@ -51,6 +53,7 @@ public class Members {
 					player.getPacketSender().sendMessage("You just changed your defence from "+player.getSkillManager().getCurrentLevel(Skill.DEFENCE)+" to "+newLevel+"." );
 					player.getSkillManager().setMaxLevel(Skill.DEFENCE, Integer.parseInt(newLevel), true);
 					player.getSkillManager().setCurrentLevel(Skill.DEFENCE, Integer.parseInt(newLevel), true);
+					player.getSkillManager().setExperience(Skill.DEFENCE, SkillManager.getExperienceForLevel(Integer.parseInt(newLevel)));
 				} else {
 					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
 				}
@@ -61,6 +64,7 @@ public class Members {
 					player.getPacketSender().sendMessage("You just changed your prayer from "+player.getSkillManager().getCurrentLevel(Skill.PRAYER)+" to "+newLevel+"." );
 					player.getSkillManager().setMaxLevel(Skill.PRAYER, Integer.parseInt(newLevel), true);
 					player.getSkillManager().setCurrentLevel(Skill.PRAYER, Integer.parseInt(newLevel), true);
+					player.getSkillManager().setExperience(Skill.PRAYER, SkillManager.getExperienceForLevel(Integer.parseInt(newLevel)));
 				} else {
 					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
 				}

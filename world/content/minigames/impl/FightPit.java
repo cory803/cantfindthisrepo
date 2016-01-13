@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.ikov.model.Position;
 import com.ikov.util.Misc;
+import com.ikov.GameSettings;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -141,6 +142,8 @@ public class FightPit {
 			if(player != null) {
 				if(getListCount("PLAYING") == 1 && getState(player) != null && getState(player).equals("PLAYING")) {
 					pitsChampion = player.getUsername();
+					GameSettings.FIGHT_PITS_ACTIVE = false;
+					gameStarted = false;
 					player.getPacketSender().sendMessage("You're the master of the pit!");
 					//player.moveTo(new Position(WAITING_ROOM_X, WAITING_ROOM_Y, 0));
 					//playerMap.remove(player);
@@ -197,7 +200,7 @@ public class FightPit {
 	 * @note Updates waiting room interfaces etplayer.
 	 */
 	public static boolean updateWaitingRoom(Player player) {
-		player.getPacketSender().sendString(2805, "Next Game Begins In : " + gameStartTimer);
+		player.getPacketSender().sendString(2805, "Next game begins in : " + gameStartTimer);
 		player.getPacketSender().sendString(2806, "Champion: " + pitsChampion);
 		if(player.getWalkableInterfaceId() != 2804) {
 			player.getPacketSender().sendWalkableInterface(2804);
@@ -228,8 +231,11 @@ public class FightPit {
 			if (gameStartTimer > 0) {
 				gameStartTimer--;
 			} else if (gameStartTimer == 0) {
-				if (getListCount(WAITING) > 1 || getListCount(WAITING) == 1 && getListCount(PLAYING) == 1)
+				if (getListCount(WAITING) > 1 || getListCount(WAITING) == 1 && getListCount(PLAYING) == 1) {
 					beginGame();
+					GameSettings.FIGHT_PITS_ACTIVE = true;
+					gameStarted = true;
+				}
 				gameStartTimer = 80;
 			}
 		}

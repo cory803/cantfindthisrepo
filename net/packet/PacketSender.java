@@ -777,6 +777,14 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
+	
+	public PacketSender sendClanMember(String clan_member, int value) {
+		PacketBuilder out = new PacketBuilder(51);
+		out.putString(clan_member);
+		out.put(value);
+		player.getSession().queueMessage(out);
+		return this;
+	}
 
 	public PacketSender sendTotalXp(long xp) {
 		PacketBuilder out = new PacketBuilder(45);
