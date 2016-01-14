@@ -9,17 +9,17 @@ import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
 import com.ikov.model.Hit;
 import com.ikov.model.Hitmask;
+import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
 import com.ikov.model.Projectile;
 import com.ikov.model.Skill;
-import com.ikov.model.Locations.Location;
 import com.ikov.model.definitions.NpcDefinition;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.CustomObjects;
 import com.ikov.world.content.combat.CombatContainer;
-import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
@@ -134,7 +134,7 @@ public class Nex implements CombatStrategy {
 				NEX.forceChat("Let the virus flow through you!");
 				cough(p);
 				NEX.performAnimation(new Animation(6986));
-				new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
+				new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
 				return true;
 			}
 			if(p.getPosition().distanceToPoint(NEX.getPosition().getX(), NEX.getPosition().getY()) <= 2 && Misc.getRandom(1) == 0)
@@ -143,7 +143,7 @@ public class Nex implements CombatStrategy {
 				TaskManager.submit(new Task(1, NEX, false) {
 					@Override
 					public void execute() {
-						new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
+						new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
 						stop();
 					}
 				});
@@ -151,7 +151,7 @@ public class Nex implements CombatStrategy {
 			} else {
 				NEX.performAnimation(new Animation(6326));
 				p.performGraphic(new Graphic(383));
-				new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
+				new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
 				return true;
 			}
 		}
@@ -250,7 +250,7 @@ if(phase == 1)
 					});
 				}
 				NEX.performAnimation(new Animation(6984));
-				new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
+				new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
 				return true;
 			} else {
 				if(p.getPosition().distanceToPoint(NEX.getPosition().getX(), NEX.getPosition().getY()) <= 2 && Misc.getRandom(1) == 0)
@@ -259,7 +259,7 @@ if(phase == 1)
 					TaskManager.submit(new Task(1, NEX, false) {
 						@Override
 						public void execute() {
-							new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
+							new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
 							stop();
 						}
 					});
@@ -267,7 +267,7 @@ if(phase == 1)
 				} else {
 					NEX.performAnimation(new Animation(6326));
 					NEX.performGraphic(new Graphic(378));
-					new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
+					new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
 					return true;
 				}
 			}
@@ -279,7 +279,7 @@ if(phase == 1)
 				TaskManager.submit(new Task(1, NEX, false) {
 					@Override
 					public void execute() {
-						new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
+						new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
 						stop();
 					}
 				});
@@ -309,7 +309,7 @@ if(phase == 1)
 				TaskManager.submit(new Task(1, NEX, false) {
 					@Override
 					public void execute() {
-						new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
+						new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
 						stop();
 					}
 				});
@@ -317,7 +317,7 @@ if(phase == 1)
 			} else {
 				NEX.performAnimation(new Animation(6326));
 				NEX.performGraphic(new Graphic(373));
-				new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
+				new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
 				return true;
 			}
 		}
@@ -414,7 +414,7 @@ if(phase == 1)
 					TaskManager.submit(new Task(1, NEX, false) {
 						@Override
 						public void execute() {
-							new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
+							new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
 							stop();
 						}
 					});
@@ -422,7 +422,7 @@ if(phase == 1)
 					p.performGraphic(new Graphic(366));
 					p.getMovementQueue().freeze(5);
 					NEX.performAnimation(new Animation(6326));
-					new CombatHitTask(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
+					new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true)).handleAttack();
 				}
 			}
 		}

@@ -12,8 +12,8 @@ import com.ikov.model.Projectile;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.combat.CombatContainer;
-import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
@@ -88,7 +88,7 @@ public class KalphiteQueen implements CombatStrategy {
 								KALPHITE_QUEEN.setEntityInteraction(toAttack);
 								CombatType cbType = (secondForm() && Misc.getRandom(5) <= 3 ? CombatType.RANGED : CombatType.MAGIC);
 								KALPHITE_QUEEN.getCombatBuilder().setVictim(toAttack);
-								new CombatHitTask(KALPHITE_QUEEN.getCombatBuilder(), new CombatContainer(KALPHITE_QUEEN, toAttack, 1, cbType, true)).handleAttack();
+								new CombatHit(KALPHITE_QUEEN.getCombatBuilder(), new CombatContainer(KALPHITE_QUEEN, toAttack, 1, cbType, true)).handleAttack();
 							}
 						}
 						KALPHITE_QUEEN.getCombatBuilder().attack(victim);

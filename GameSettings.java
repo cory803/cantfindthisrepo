@@ -96,7 +96,7 @@ public class GameSettings {
 	/**
 	 * Processing the engine
 	 */
-	public static final int ENGINE_PROCESSING_CYCLE_RATE = 200;
+	public static final int ENGINE_PROCESSING_CYCLE_RATE = 600;//200;
 	public static final int GAME_PROCESSING_CYCLE_RATE = 600;
 
 	/**

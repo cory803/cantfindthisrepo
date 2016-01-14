@@ -26,7 +26,7 @@ public class CombatContainer {
 	private Character victim;
 
 	/** The hits that will be dealt during this combat hook. */
-	private CombatHit[] hits;
+	private ContainerHit[] hits;
 
 	/** The skills that will be given experience. */
 	private int[] experience;
@@ -99,7 +99,7 @@ public class CombatContainer {
 	 *            the amount of hits to deal, maximum 4 and minimum 0.
 	 * @return the hits that will be dealt this combat hook.
 	 */
-	private final CombatHit[] prepareHits(int hitAmount) {
+	private final ContainerHit[] prepareHits(int hitAmount) {
 
 		// Check the hit amounts.
 		if (hitAmount > 4) {
@@ -113,15 +113,15 @@ public class CombatContainer {
 		// No hit for this turn, but we still need to calculate accuracy.
 		if (hitAmount == 0) {
 			accurate = checkAccuracy ? CombatFactory.rollAccuracy(attacker, victim, combatType) : true;
-			return new CombatHit[] {};
+			return new ContainerHit[] {};
 		}
 
 		// Create the new array of hits, and populate it. Here we do the maximum
 		// hit and accuracy calculations.
-		CombatHit[] array = new CombatHit[hitAmount];
+		ContainerHit[] array = new ContainerHit[hitAmount];
 		for (int i = 0; i < array.length; i++) {
 			boolean accuracy = checkAccuracy ? CombatFactory.rollAccuracy(attacker, victim, combatType) : true;
-			array[i] = new CombatHit(CombatFactory.getHit(attacker, victim, combatType), accuracy);
+			array[i] = new ContainerHit(CombatFactory.getHit(attacker, victim, combatType), accuracy);
 			if (array[i].isAccurate()) {
 				accurate = true;
 			}
@@ -154,7 +154,7 @@ public class CombatContainer {
 		return array;
 	}
 
-	public void setHits(CombatHit[] hits) {
+	public void setHits(ContainerHit[] hits) {
 		this.hits = hits;
 		prepareHits(hits.length);
 	}
@@ -165,13 +165,13 @@ public class CombatContainer {
 	 * @param action
 	 *            the action to perform on every single hit.
 	 */
-	protected final void allHits(Consumer<CombatHit> c) {
+	protected final void allHits(Consumer<ContainerHit> c) {
 		Arrays.stream(hits).filter(Objects::nonNull).forEach(c);
 	}
 
 	public final int getDamage() {
 		int damage = 0;
-		for (CombatHit hit : hits) {
+		for (ContainerHit hit : hits) {
 			if (hit == null)
 				continue;
 			if (!hit.accurate) {
@@ -238,7 +238,7 @@ public class CombatContainer {
 	 * 
 	 * @return the hits that will be dealt during this combat hook.
 	 */
-	public final CombatHit[] getHits() {
+	public final ContainerHit[] getHits() {
 		return hits;
 	}
 
@@ -322,7 +322,7 @@ public class CombatContainer {
 	 * 
 	 * @author lare96
 	 */
-	public static class CombatHit {
+	public static class ContainerHit {
 
 		/** The actual hit that will be dealt. */
 		private Hit hit;
@@ -331,14 +331,14 @@ public class CombatContainer {
 		private boolean accurate;
 
 		/**
-		 * Create a new {@link CombatHit}.
+		 * Create a new {@link ContainerHit}.
 		 * 
 		 * @param hit
 		 *            the actual hit that will be dealt.
 		 * @param accurate
 		 *            the accuracy of the hit to be dealt.
 		 */
-		public CombatHit(Hit hit, boolean accurate) {
+		public ContainerHit(Hit hit, boolean accurate) {
 			this.hit = hit;
 			this.accurate = accurate;
 		}

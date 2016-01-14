@@ -45,6 +45,10 @@ public class NPC extends Character {
 	}
 
 	public void sequence() {
+		
+		/** COMBAT **/
+		getCombatBuilder().process();
+		
 		/**
 		 * HP restoration
 		 */

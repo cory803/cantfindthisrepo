@@ -18,8 +18,8 @@ import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Consumables;
 import com.ikov.world.content.combat.CombatContainer;
-import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.magic.Autocasting;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
@@ -239,7 +239,7 @@ public enum CombatSpecial {
 				public void execute() {
 					player.performGraphic(new Graphic(2141));
 					new Projectile(player, target, 2143, 44, 3, 43, 31, 0).sendProjectile();
-					new CombatHitTask(player.getCombatBuilder(), new CombatContainer(player, target, CombatType.RANGED, true)).handleAttack();
+					new CombatHit(player.getCombatBuilder(), new CombatContainer(player, target, CombatType.RANGED, true)).handleAttack();
 					player.getCombatBuilder().setAttackTimer(2);
 					stop();
 				}

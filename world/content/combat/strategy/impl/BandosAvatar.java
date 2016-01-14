@@ -9,8 +9,8 @@ import com.ikov.model.Position;
 import com.ikov.model.Projectile;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.CombatContainer;
-import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
@@ -75,7 +75,7 @@ public class BandosAvatar implements CombatStrategy {
 							for(Player toAttack : Misc.getCombinedPlayerList((Player)victim)) {
 								if(toAttack != null && Locations.goodDistance(bandosAvatar.getPosition(), toAttack.getPosition(), 7) && toAttack.getConstitution() > 0) {
 									bandosAvatar.forceChat("DIE!");
-									new CombatHitTask(bandosAvatar.getCombatBuilder(), new CombatContainer(bandosAvatar, toAttack, 2, CombatType.MAGIC, false)).handleAttack();
+									new CombatHit(bandosAvatar.getCombatBuilder(), new CombatContainer(bandosAvatar, toAttack, 2, CombatType.MAGIC, false)).handleAttack();
 									toAttack.performGraphic(new Graphic(1556));
 								}
 							}

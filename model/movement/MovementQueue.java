@@ -241,68 +241,61 @@ public final class MovementQueue {
 	 * Called every 600ms, updates the queue.
 	 */
 	public void sequence() {
-		if (lockMovement || character.isFrozen()) {
-			return;
-		}
+		
+		boolean movement = !lockMovement && !character.isFrozen();
+		
+		if(movement) {
+			Point walkPoint = null;
+			Point runPoint = null;
 
-		Point walkPoint = null;
-		Point runPoint = null;
+			walkPoint = points.poll();
+			if(isRunToggled()) {
+				runPoint = points.poll();
+			}
 
-		walkPoint = points.poll();
-		if(isRunToggled()) {
-			runPoint = points.poll();
-		}
+			if(character.isNeedsPlacement()) {
+				reset();
+				return;
+			}
 
-		if(character.isNeedsPlacement()) {
-			reset();
-			return;
-		}
+			if(walkPoint != null && walkPoint.direction != Direction.NONE) {
 
-		if(walkPoint != null && walkPoint.direction != Direction.NONE) {
-
-			if (followCharacter != null) {
-				if (walkPoint.equals(followCharacter.getPosition())) {
-					return;
-				} else {
-					if(!followCharacter.getMovementQueue().isRunToggled()) {
-						if(character.getPosition().isWithinDistance(followCharacter.getPosition(), 2)) {
-							runPoint = null;
+				if (followCharacter != null) {
+					if (walkPoint.equals(followCharacter.getPosition())) {
+						return;
+					} else {
+						if(!followCharacter.getMovementQueue().isRunToggled()) {
+							if(character.getPosition().isWithinDistance(followCharacter.getPosition(), 2)) {
+								runPoint = null;
+							}
 						}
 					}
 				}
-			}
 
-			if(!isPlayer && !character.getCombatBuilder().isAttacking()) {
-				if(((NPC)character).isSummoningNpc() && !((NPC)character).summoningCombat()) {
-					if(!canWalk(character.getPosition(), walkPoint.position, character.getSize())) {
+				if(!isPlayer && !character.getCombatBuilder().isAttacking()) {
+					if(((NPC)character).isSummoningNpc() && !((NPC)character).summoningCombat()) {
+						if(!canWalk(character.getPosition(), walkPoint.position, character.getSize())) {
+							return;
+						}
+					}
+				}
+
+				character.setPosition(walkPoint.position);
+				character.setPrimaryDirection(walkPoint.direction);
+				character.setLastDirection(walkPoint.direction);
+			}
+			if(runPoint != null && runPoint.direction != Direction.NONE) {
+				if (followCharacter != null) {
+					if (walkPoint.equals(followCharacter.getPosition())) {
 						return;
 					}
 				}
-			}
-
-			character.setPosition(walkPoint.position);
-			character.setPrimaryDirection(walkPoint.direction);
-			character.setLastDirection(walkPoint.direction);
-			if(isPlayer) {
-				handleRegionChange();
-				EnergyHandler.processPlayerEnergy((Player)character);
-			} else {
-				((NPC)character).getMovementCoordinator().updateCoordinator();
-			}
-		}
-
-		if(runPoint != null && runPoint.direction != Direction.NONE) {
-
-			if (followCharacter != null) {
-				if (walkPoint.equals(followCharacter.getPosition())) {
-					return;
+				character.setPosition(runPoint.position);
+				character.setSecondaryDirection(runPoint.direction);
+				character.setLastDirection(runPoint.direction);
+				if(isPlayer) {
+					handleRegionChange();
 				}
-			}
-			character.setPosition(runPoint.position);
-			character.setSecondaryDirection(runPoint.direction);
-			character.setLastDirection(runPoint.direction);
-			if(isPlayer) {
-				handleRegionChange();
 			}
 		}
 

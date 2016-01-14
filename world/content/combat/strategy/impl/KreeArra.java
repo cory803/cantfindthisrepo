@@ -10,8 +10,8 @@ import com.ikov.model.Projectile;
 import com.ikov.model.movement.MovementQueue;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.CombatContainer;
-import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
@@ -76,7 +76,7 @@ public class KreeArra implements CombatStrategy {
 							continue;
 						if(near.getPosition().distanceToPoint(kreearra.getPosition().getX(), kreearra.getPosition().getY()) > 20)
 							continue;
-						new CombatHitTask(kreearra.getCombatBuilder(), new CombatContainer(kreearra, victim, 1, style, true)).handleAttack();
+						new CombatHit(kreearra.getCombatBuilder(), new CombatContainer(kreearra, victim, 1, style, true)).handleAttack();
 					}
 					kreearra.setChargingAttack(false);
 					stop();

@@ -1,19 +1,19 @@
 package com.ikov.world.content.combat;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-import com.ikov.engine.task.TaskManager;
 import com.ikov.util.Misc;
 import com.ikov.util.Stopwatch;
-import com.ikov.world.content.combat.CombatContainer.CombatHit;
+import com.ikov.world.content.combat.CombatContainer.ContainerHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.Entity;
-import com.ikov.world.entity.impl.Character;
+import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
-import com.ikov.world.content.minigames.impl.Zulrah;
-
+import com.ikov.world.entity.impl.Character;
 /**
  * Holds methods for running the entire combat process.
  * 
@@ -21,58 +21,39 @@ import com.ikov.world.content.minigames.impl.Zulrah;
  */
 public class CombatBuilder {
 
-	/** The entity controlling this builder. */
 	private Character character;
-
-	/** The entity this controller is currently attacking. */
 	private Character victim;
-
-	/** The entity that last attacked you. */
 	private Character lastAttacker;
 
-	/** The task used to handle the combat process. */
-	private CombatHookTask combatTask;
-	private CombatDistanceTask distanceTask;
-
-	/** A map of all players who have inflicted damage on this controller. */
-	private Map<Player, CombatDamageCache> damageMap = new HashMap<>();
-
-	/** The combat strategy this entity is using to attack. */
-	private CombatStrategy strategy;
-
-	/** The time that must be waited in order to attack. */
-	protected int attackTimer;
-
-	/** The time that must be waited before the entity can be attacked. */
-	protected int cooldown;
-	
-	/** Did the player's auto retaliate start the combat sequence? */
-	private boolean retaliated;
-
+	private HitQueue hitQueue = new HitQueue();
+	private CombatSession combatSession;
+	private CombatDistanceSession distanceSession;
 	private CombatContainer container;
 	
+	private Map<Player, CombatDamageCache> damageMap = new HashMap<>();
 	private Stopwatch lastAttack = new Stopwatch();
+	private CombatStrategy strategy;
+	protected int attackTimer;
+	protected int cooldown;
+	private boolean retaliated;
 
-	/**
-	 * Create a new {@link CombatBuilder}.
-	 * 
-	 * @param entity
-	 *            the entity controlling this builder.
-	 */
+	
 	public CombatBuilder(Character entity) {
 		this.character = entity;
 	}
+	
+	public void process() {
+		hitQueue.process();
+		if(distanceSession != null) {
+			distanceSession.process();
+		}
+		if(combatSession != null) {
+			combatSession.process();
+		}
+	}
 
-	/**
-	 * Prompts the controller to begin attacking the argued entity. Wilderness
-	 * and multicombat checks are still applied, although later on in the
-	 * process. If this controller is already attack
-	 * 
-	 * @param target
-	 *            the entity that this controller will attempt to attack.
-	 */
+
 	public void attack(Character target) {
-		// Make sure we aren't attacking ourself.
 		if (character.equals(target)) {
 			return;
 		}
@@ -85,17 +66,16 @@ public class CombatBuilder {
 			}
 		}
 
-		// Start following the victim right away.
 		character.getMovementQueue().setFollowCharacter(target);
 		if(character.getInteractingEntity() != target)
 			character.setEntityInteraction(target);
 
 		// If the combat task is running, change targets.
-		if (combatTask != null && combatTask.isRunning()) {
+		if (combatSession != null) {
 			victim = target;
 			
 			if(lastAttacker == null || lastAttacker != victim) {
-				retaliated = false;
+				setDidAutoRetaliate(false);
 			}
 			
 			if (character.isPlayer()) {
@@ -106,19 +86,7 @@ public class CombatBuilder {
 			}
 			return;
 		}
-
-		// Start the event listener implementation that will allow the
-		// controller to attack the victim once we're close enough.
-		TaskManager.cancelTasks(this);
-		
-		if (distanceTask != null) {
-			if (distanceTask.isRunning()) {
-				distanceTask.stop();
-			}
-		}
-		distanceTask = new CombatDistanceTask(this, target);
-		TaskManager.submit(distanceTask);
-		
+		distanceSession = new CombatDistanceSession(this, target);
 	}
 
 	/**
@@ -126,20 +94,9 @@ public class CombatBuilder {
 	 * the combat process.
 	 */
 	public void reset(boolean resetAttack) {
-
-		// Reset and discard all the builder's fields.
-
-		if (distanceTask != null) {
-			distanceTask.stop();
-		}
-
-		if (combatTask != null) {
-			combatTask.stop();
-		}
-
 		victim = null;
-		distanceTask = null;
-		combatTask = null;
+		distanceSession = null;
+		combatSession = null;
 		container = null;
 		if(resetAttack) {
 			attackTimer = 0;
@@ -159,10 +116,9 @@ public class CombatBuilder {
 		if (strategy == null)
 			return;
 
-		// Start the cooldown.
+
 		cooldown = 10;
 
-		// Stop following whomever.
 		character.getMovementQueue().setFollowCharacter(null);
 		character.setEntityInteraction(null);
 
@@ -245,19 +201,16 @@ public class CombatBuilder {
 	 */
 	public void addDamage(Character entity, int amount) {
 
-		// No damage below 0, and no npcs can be added to the map.
 		if (amount < 1 || entity.isNpc()) {
 			return;
 		}
-
-		// Add on to the damage for existing players.
+		
 		Player player = (Player) entity;
 		if (damageMap.containsKey(player)) {
 			damageMap.get(player).incrementDamage(amount);
 			return;
 		}
 
-		// Or add a completely new entry.
 		damageMap.put(player, new CombatDamageCache(amount));
 	}
 
@@ -270,29 +223,14 @@ public class CombatBuilder {
 		return victim != null;
 	}
 
-	/**
-	 * Determines if this entity is being attacked by another entity.
-	 * 
-	 * @return true if this entity is being attacked by another entity.
-	 */
 	public boolean isBeingAttacked() {
 		return !character.getLastCombat().elapsed(5000);
 	}
 
-	/**
-	 * Gets the entity controlling this builder.
-	 * 
-	 * @return the entity controlling this builder.
-	 */
 	public Character getCharacter() {
 		return character;
 	}
 
-	/**
-	 * Gets the entity this controller is currently attacking.
-	 * 
-	 * @return the entity this controller is currently attacking.
-	 */
 	public Character getVictim() {
 		return victim;
 	}
@@ -301,11 +239,6 @@ public class CombatBuilder {
 		this.victim = victim;
 	}
 
-	/**
-	 * Determines if the builder is in cooldown mode.
-	 * 
-	 * @return true if the builder is in cooldown mode.
-	 */
 	public boolean isCooldown() {
 		return cooldown > 0;
 	}
@@ -323,64 +256,38 @@ public class CombatBuilder {
 		return this.attackTimer;
 	}
 
-	/**
-	 * Gets the entity that last attacked you.
-	 * 
-	 * @return the entity that last attacked you.
-	 */
 	public Character getLastAttacker() {
 		return lastAttacker;
 	}
-
-	/**
-	 * Sets the entity that last attacked you.
-	 * 
-	 * @param lastAttacker
-	 *            the entity that last attacked you.
-	 */
+	
 	public void setLastAttacker(Character lastAttacker) {
 		this.lastAttacker = lastAttacker;
 	}
 
-	/**
-	 * Gets the current combat strategy this npc is using.
-	 * 
-	 * @return the current combat strategy this npc is using.
-	 */
 	public CombatStrategy getStrategy() {
 		return strategy;
 	}
 
-	/**
-	 * Gets the combat task that runs the combat process.
-	 * 
-	 * @return the combat task that runs the combat process.
-	 */
-	public CombatHookTask getCombatTask() {
-		return combatTask;
+	public CombatSession getCombatSession() {
+		return combatSession;
 	}
 
-	public CombatDistanceTask getDistanceTask() {
-		return distanceTask;
+	public CombatDistanceSession getDistanceSession() {
+		return distanceSession;
 	}
 
-	/**
-	 * Sets the combat task that runs the combat process.
-	 * 
-	 * @param combatTask
-	 *            the combat task that runs the combat process.
-	 */
-	public void setCombatTask(CombatHookTask combatTask) {
-		this.combatTask = combatTask;
+	public HitQueue getHitQueue() {
+		return hitQueue;
 	}
 
-	public void setDistanceTask(CombatDistanceTask distanceTask) {
-		this.distanceTask = distanceTask;
+	public void setCombatSession(CombatSession combatTask) {
+		this.combatSession = combatTask;
 	}
 
-	/**
-	 * Calculates and sets the combat strategy.
-	 */
+	public void setDistanceSession(CombatDistanceSession distanceTask) {
+		this.distanceSession = distanceTask;
+	}
+
 	public void determineStrategy() {
 		this.strategy = character.determineStrategy();
 	}
@@ -405,7 +312,7 @@ public class CombatBuilder {
 
 	public void setContainer(CombatContainer customContainer) {
 		if(customContainer != null && customContainer.getHits() != null && this.container != null) {
-			CombatHit[] totalHits = Misc.concat(this.container.getHits(), customContainer.getHits());
+			ContainerHit[] totalHits = Misc.concat(this.container.getHits(), customContainer.getHits());
 			this.container = customContainer;
 			if(!(totalHits.length > 4 || totalHits.length < 0)) {
 				this.container.setHits(totalHits);
@@ -471,7 +378,6 @@ public class CombatBuilder {
 
 	/** Executes the task instantly **/
 	public void instant() {
-		combatTask.execute();
+		combatSession.process();
 	}
 }
-

@@ -23,7 +23,7 @@ import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.ikov.model.Item;
 import com.ikov.model.Position;
-import com.ikov.world.content.combat.CombatContainer.CombatHit;
+import com.ikov.world.content.combat.CombatContainer.ContainerHit;
 import com.ikov.world.entity.impl.player.Player;
 
 public class Misc {
@@ -35,10 +35,10 @@ public class Misc {
 	private static ZonedDateTime zonedDateTime;
 	public static final int HALF_A_DAY_IN_MILLIS = 43200000;
 
-	public static CombatHit[] concat(CombatHit[] a, CombatHit[] b) {
+	public static ContainerHit[] concat(ContainerHit[] a, ContainerHit[] b) {
 		int aLen = a.length;
 		int bLen = b.length;
-		CombatHit[] c= new CombatHit[aLen+bLen];
+		ContainerHit[] c= new ContainerHit[aLen+bLen];
 		System.arraycopy(a, 0, c, 0, aLen);
 		System.arraycopy(b, 0, c, aLen, bLen);
 		return c;

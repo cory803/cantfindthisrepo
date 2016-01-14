@@ -43,6 +43,9 @@ public class PlayerProcess {
 	}
 
 	public void sequence() {
+		
+		/** COMBAT **/
+		player.getCombatBuilder().process();
 
 		/** SKILLS **/
 		if(player.shouldProcessFarming()) {

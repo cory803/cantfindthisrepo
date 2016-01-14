@@ -864,10 +864,21 @@ public final class CombatFactory {
 				entity.getCombatBuilder().reset(true);
 				return false;
 			}
-			if(npc.isSummoningNpc() && ((Player)entity).getLocation() != Location.WILDERNESS) {
-				((Player)entity).getPacketSender().sendMessage("You can only attack familiars in the wilderness.");
-				entity.getCombatBuilder().reset(true);
-				return false;
+			if(npc.isSummoningNpc()) {
+				Player player = ((Player)entity);
+				if(player.getLocation() != Location.WILDERNESS) {
+					player.getPacketSender().sendMessage("You can only attack familiars in the wilderness.");
+					player.getCombatBuilder().reset(true);
+					return false;
+				} else if(npc.getLocation() != Location.WILDERNESS) {
+					player.getPacketSender().sendMessage("That familiar is not in the wilderness.");
+					player.getCombatBuilder().reset(true);
+					return false;
+				}
+				/** DEALING DMG TO THEIR OWN FAMILIAR **/
+				if(player.getSummoning().getFamiliar() != null && player.getSummoning().getFamiliar().getSummonNpc() != null && player.getSummoning().getFamiliar().getSummonNpc().getIndex() == npc.getIndex()) {
+					return false;
+				}
 			}
 			if(Nex.nexMob(npc.getId()) || npc.getId() == 6260 || npc.getId() == 6261 || npc.getId() == 6263 || npc.getId() == 6265 || npc.getId() == 6222 || npc.getId() == 6223 || npc.getId() == 6225 || npc.getId() == 6227 || npc.getId() == 6203 || npc.getId() == 6208 || npc.getId() == 6204 || npc.getId() == 6206 || npc.getId() == 6247 || npc.getId() == 6248 || npc.getId() == 6250 || npc.getId() == 6252) {
 				if(!((Player)entity).getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()) {
@@ -917,13 +928,30 @@ public final class CombatFactory {
 
 		// Here we check if the entity we are attacking is already in
 		// combat.
-		if (victim.getCombatBuilder().getLastAttacker() != null && !Location.inMulti(entity) && victim.getCombatBuilder().isBeingAttacked() && !victim.getCombatBuilder().getLastAttacker().equals(
-				entity)) {
-			if (entity.isPlayer())
-				((Player) entity).getPacketSender().sendMessage(
-						"They are already under attack!");
-			entity.getCombatBuilder().reset(true);
-			return false;
+		if(!(entity.isNpc() && ((NPC)entity).isSummoningNpc())) {
+			boolean allowAttack = false;
+			if (victim.getCombatBuilder().getLastAttacker() != null && !Location.inMulti(entity) && victim.getCombatBuilder().isBeingAttacked() && !victim.getCombatBuilder().getLastAttacker().equals(entity)) {
+				
+				if(victim.getCombatBuilder().getLastAttacker().isNpc()) {
+					NPC npc = (NPC)victim.getCombatBuilder().getLastAttacker();
+					if(npc.isSummoningNpc()) {
+						if(entity.isPlayer()) {
+							Player player = (Player)entity;
+							if(player.getSummoning().getFamiliar() != null && player.getSummoning().getFamiliar().getSummonNpc() != null && player.getSummoning().getFamiliar().getSummonNpc().getIndex() == npc.getIndex()) {
+								allowAttack = true;
+							}
+						}
+					}
+				}
+				
+				if(!allowAttack) {
+					if (entity.isPlayer())
+						((Player) entity).getPacketSender().sendMessage(
+								"They are already under attack!");
+					entity.getCombatBuilder().reset(true);
+					return false;
+				}
+			}
 		}
 
 		// Check if the victim is still in the wilderness, and check if the

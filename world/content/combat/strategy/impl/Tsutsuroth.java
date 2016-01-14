@@ -11,8 +11,8 @@ import com.ikov.model.Projectile;
 import com.ikov.model.Skill;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.CombatContainer;
-import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
@@ -83,7 +83,7 @@ public class Tsutsuroth implements CombatStrategy {
 								continue;
 							target.performGraphic(graphic2);
 							tsutsuroth.getCombatBuilder().setVictim(t);
-							new CombatHitTask(tsutsuroth.getCombatBuilder(), new CombatContainer(tsutsuroth, t, 1, CombatType.MAGIC, true)).handleAttack();
+							new CombatHit(tsutsuroth.getCombatBuilder(), new CombatContainer(tsutsuroth, t, 1, CombatType.MAGIC, true)).handleAttack();
 						}
 						tsutsuroth.setChargingAttack(false);
 						stop();

@@ -81,8 +81,9 @@ public class Consumables {
 			//player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
 			//return;
 		//}
-		if (food != null && player.getFoodTimer().elapsed(1300)) {
+		if (food != null && player.getFoodTimer().elapsed(1100)) {
 			player.getCombatBuilder().incrementAttackTimer(2).cooldown(false);
+			player.getCombatBuilder().setDistanceSession(null);
 			player.setCastSpell(null);
 			player.getFoodTimer().reset();
 		//	player.getPotionTimer().reset();
@@ -1438,6 +1439,7 @@ public class Consumables {
 			}
 			player.getPacketSender().sendInterfaceRemoval();
 			player.getCombatBuilder().incrementAttackTimer(1).cooldown(false);
+			player.getCombatBuilder().setDistanceSession(null);
 			player.setCastSpell(null);
 			player.getFoodTimer().reset();
 			player.getPotionTimer().reset();

@@ -8,6 +8,7 @@ import com.ikov.model.Hit;
 import com.ikov.model.Hitmask;
 import com.ikov.model.Item;
 import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.entity.impl.Character;
@@ -61,8 +62,14 @@ public abstract class CombatAncientSpell extends CombatSpell {
             
             if(next.isNpc()) {
             	NPC n = (NPC)next;
-            	if(!n.getDefinition().isAttackable() || n.isSummoningNpc())
+            	if(!n.getDefinition().isAttackable() || n.isSummoningNpc()) {
             		continue;
+            	}
+            } else {
+            	Player p = (Player)next;
+            	if(p.getLocation() != Location.WILDERNESS || !Location.inMulti(p)) {
+            		continue;
+            	}
             }
 
             if (next.getPosition().isWithinDistance(castOn.getPosition(),

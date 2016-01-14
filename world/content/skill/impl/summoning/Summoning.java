@@ -161,7 +161,6 @@ public class Summoning {
 	}
 
 	public void processFamiliar() {
-
 		final NPC n = familiar.getSummonNpc();
 		TaskManager.submit(new Task(1, n, true) {
 			int clockTimer = 2;
@@ -174,10 +173,14 @@ public class Summoning {
 					return;
 				}
 
-				if(!familiar.isPet() && n.getDefinition().isAttackable() && Location.inMulti(player) && player.getCombatBuilder().isAttacking() && player.getCombatBuilder().getVictim().getConstitution() > 0 && CombatFactory.checkHook(player, player.getCombatBuilder().getVictim()) && CombatFactory.checkHook(n, player.getCombatBuilder().getVictim())) {
-					n.setSummoningCombat(true);
-					n.getCombatBuilder().attack(player.getCombatBuilder().getVictim());
-					n.setEntityInteraction(player.getCombatBuilder().getVictim());
+				boolean underAttack = player.getCombatBuilder().isBeingAttacked() && player.getCombatBuilder().getLastAttacker() != null && player.getCombatBuilder().getLastAttacker().getCombatBuilder().getVictim() != null && player.getCombatBuilder().getLastAttacker().getCombatBuilder().getVictim() == player;
+				boolean attacking = player.getCombatBuilder().isAttacking(); 
+				if(!familiar.isPet() && n.getDefinition().isAttackable() && (underAttack || attacking)) {
+					if(n.getLocation() != Location.WILDERNESS || Location.inMulti(player)) {
+						n.setSummoningCombat(true);
+						n.getCombatBuilder().attack(attacking ? player.getCombatBuilder().getVictim() : player.getCombatBuilder().getLastAttacker());
+						n.setEntityInteraction(n.getCombatBuilder().getVictim());
+					}
 				} else {
 					if(n.getCombatBuilder().isAttacking()) {
 						n.getCombatBuilder().reset(true);

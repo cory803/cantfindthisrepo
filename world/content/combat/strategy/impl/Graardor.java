@@ -6,12 +6,12 @@ import com.ikov.model.Animation;
 import com.ikov.model.Graphic;
 import com.ikov.model.GraphicHeight;
 import com.ikov.model.Locations;
-import com.ikov.model.Projectile;
 import com.ikov.model.Locations.Location;
+import com.ikov.model.Projectile;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.CombatContainer;
-import com.ikov.world.content.combat.CombatHitTask;
 import com.ikov.world.content.combat.CombatType;
+import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
@@ -60,7 +60,7 @@ public class Graardor implements CombatStrategy {
 						if(t == null || t.getLocation() != Location.GODWARS_DUNGEON)
 							continue;
 						graardor.getCombatBuilder().setVictim(t);
-						new CombatHitTask(graardor.getCombatBuilder(), new CombatContainer(graardor, t, 1, CombatType.RANGED, true)).handleAttack();
+						new CombatHit(graardor.getCombatBuilder(), new CombatContainer(graardor, t, 1, CombatType.RANGED, true)).handleAttack();
 					}
 					graardor.setChargingAttack(false);
 					stop();

@@ -22,7 +22,7 @@ import com.ikov.util.Misc;
 import com.ikov.world.content.combat.CombatContainer;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.CombatType;
-import com.ikov.world.content.combat.CombatContainer.CombatHit;
+import com.ikov.world.content.combat.CombatContainer.ContainerHit;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
 import com.ikov.world.content.combat.range.CombatRangedAmmo.AmmunitionData;
 import com.ikov.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
@@ -293,7 +293,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	private static final int getModifiedDamage(Player player, Character target, CombatContainer container) {
 		if(container == null || container.getHits().length < 1)
 			return 0;
-		CombatHit hit = container.getHits()[0];
+		ContainerHit hit = container.getHits()[0];
 		if(!hit.isAccurate())
 			return 0;
 		int damage = container.getHits()[0].getHit().getDamage();

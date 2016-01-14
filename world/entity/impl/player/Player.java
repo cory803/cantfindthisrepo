@@ -1,4 +1,3 @@
-
 package com.ikov.world.entity.impl.player;
 
 import java.util.ArrayList;
