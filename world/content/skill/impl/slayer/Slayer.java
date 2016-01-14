@@ -139,8 +139,13 @@ public class Slayer {
 			pointsReceived = 16;
 			break;
 		}
+		boolean wearingHelm = player.getEquipment().HEAD_SLOT == 13263;
 		int per5 = pointsReceived * 3;
 		int per10 = pointsReceived * 5;
+		if(wearingHelm) {
+			pointsReceived += 3;
+			player.getPacketSender().sendMessage("You received a bonus in slayer points for wearing a slayer helm.");
+		}
 		if(player.getSlayer().getTaskStreak() == 5) {
 			player.getPointsHandler().setSlayerPoints(per5, true);
 			player.getPacketSender().sendMessage("You received "+per5+" Slayer points.");
