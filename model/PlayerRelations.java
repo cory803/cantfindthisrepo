@@ -249,6 +249,12 @@ public class PlayerRelations {
 	 * @param size		The size of the message.
 	 */
 	public void message(Player friend, byte[] message, int size) {
+		int tlNeeded = 149;
+	if(this.player.getSkillManager().getTotalLevel() < tlNeeded && !friend.getRights().isStaff()) {
+		this.player.getPacketSender().sendMessage("You cannot use the private message until you have over "+(tlNeeded+1)+" total level.");
+		this.player.getPacketSender().sendMessage("You can only pm the staff currently online, if you need something. Have fun training!");
+			return;
+		}
 		if(friend == null || message == null) {
 			this.player.getPacketSender().sendMessage("This player is currently offline.");
 			return;

@@ -215,7 +215,7 @@ public class Owners {
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned on ip "+ip+"!");
 			}
 		}
-		if(command[0].equalsIgnoreCase("serialban")) {
+		if(command[0].equalsIgnoreCase("serialban") ||(command[0].equalsIgnoreCase("cpuban"))) {
 			String ban_player = wholeCommand.substring(10);
 			if(!PlayerSaving.playerExists(ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
