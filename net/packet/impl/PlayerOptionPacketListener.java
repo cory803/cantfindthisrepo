@@ -49,7 +49,9 @@ public class PlayerOptionPacketListener implements PacketListener {
 			player.getMovementQueue().reset();
 			return;
 		}
-
+		if(player.isPlayerLocked() || player.getMovementQueue().isLockMovement())
+			return;
+		
 		if(player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 0) {
 			player.getDueling().challengePlayer(attacked);
 			return;

@@ -187,7 +187,7 @@ public class PlayerHandler {
 
 		//New player
 		if(player.newPlayer()) {
-			player.setClanChatName("ikov");
+			//player.setClanChatName("ikov");
 			player.setPlayerLocked(true).setDialogueActionId(45);
 			DialogueManager.start(player, 81);
 		}

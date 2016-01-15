@@ -528,7 +528,7 @@ public class Tutorial {
 						}
 						p.getPacketSender().sendMessage("<col=FF0066>You've been given a Novite 2h! It is untradeable and you will keep it on death.");
 						ConnectionHandler.addStarter(p.getHostAddress(), true);
-						p.setReceivedStarter(true); //Incase they want to change game mode, regives starter items
+						p.setReceivedStarter(true);
 					} else {
 						p.getPacketSender().sendMessage("Your connection has received enough starting items.");
 					}

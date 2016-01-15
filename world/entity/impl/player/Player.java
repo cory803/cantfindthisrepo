@@ -476,6 +476,7 @@ public class Player extends Character {
 	private boolean autoRetaliate;
 	private boolean autocast;
 	private boolean specialActivated;
+	private boolean isDoingTutorial;
 	private boolean isCoughing;
 	private boolean playerLocked;
 	private boolean recoveringSpecialAttack;
@@ -535,8 +536,16 @@ public class Player extends Character {
 		last_ip_address = last_ip;
 	}	
 	
+	public void setDoingTotorial(boolean doing_it) {
+		isDoingTutorial = doing_it;
+	}
+	
 	public void setLastSerialAddress(String last_serial) {
 		last_serial_address = last_serial;
+	}
+	
+	public boolean doingTutorial() {
+		return isDoingTutorial;
 	}
 	
 	public String getLastIpAddress() {

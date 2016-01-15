@@ -640,7 +640,7 @@ public class DialogueOptions {
 			switch(player.getDialogueActionId()) {
 			case 136:
 				player.getPacketSender().sendInterfaceRemoval();
-				TeleportHandler.teleportPlayer(player, new Position(2917, 5272, 2), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(2917, 5272, 0), player.getSpellbook().getTeleportType());
 				break;
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
