@@ -48,7 +48,6 @@ public class BossSystem {
 					return;
 				}
 				NPC n = new NPC(bossID, new Position(2392, 9894, player.getPosition().getZ())).setSpawnedFor(player);
-				//n.getDefinition().setRespawnTime(-1);
 				World.register(n);
 				player.getRegionInstance().getNpcsList().add(n);
 				n.getCombatBuilder().attack(player);

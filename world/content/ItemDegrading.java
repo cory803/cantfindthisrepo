@@ -44,7 +44,7 @@ public class ItemDegrading {
 			if(reset) {
 				return p.getBrawlerChargers()[index] = 0;
 			} else {
-				return p.getBrawlerChargers()[index]++;
+				//return p.getBrawlerChargers()[index]++;
 			}
 		case RING_OF_RECOIL:
 			if(reset) {

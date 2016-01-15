@@ -31,6 +31,7 @@ import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.CrystalChest;
 import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Lottery;
@@ -60,6 +61,37 @@ public class Owners {
 			Gson builder = new GsonBuilder().setPrettyPrinting().create();
 			String test = builder.toJsonTree(player.getPosition())+"";
 			player.getPacketSender().sendMessage(test);
+		}
+		if(wholeCommand.equalsIgnoreCase("testchest")) {
+		Position position = new Position(3089, 3495);
+		final GameObject gameObject = new GameObject(172, position);
+		CrystalChest.handleChest(player, gameObject);
+		}
+		if(wholeCommand.equalsIgnoreCase("warn")) {
+			Player dumbass = World.getPlayerByName(command[2]);
+			String comm = command[2];
+			switch(comm) {
+			case "+":
+				dumbass.addWarningPoints(1);
+				player.getPacketSender().sendMessage("You have just added a warning point to "+dumbass.getUsername());
+				dumbass.getPacketSender().sendMessage("You have been warned by "+player.getUsername()+". You now have "+dumbass.getWarningPoints()+" warning points.");
+				break;
+			case "-":
+				dumbass.minusWarningPoints(1);
+				player.getPacketSender().sendMessage("You have just removed a warning point to "+dumbass.getUsername());
+				dumbass.getPacketSender().sendMessage("You had a warning point removed by "+player.getUsername()+". You now have "+dumbass.getWarningPoints()+" warning points.");
+				break;
+			case "!":
+				dumbass.setWarningPoints(0);
+				player.getPacketSender().sendMessage("You have just added a warning point to "+dumbass.getUsername());
+				dumbass.getPacketSender().sendMessage("You have been warned by "+player.getUsername()+". You now have "+dumbass.getWarningPoints()+" warning points.");
+				break;
+			case "=":
+				player.getPacketSender().sendMessage(dumbass.getUsername()+"has "+dumbass.getWarningPoints()+" warning points.");
+				default:
+					player.getPacketSender().sendMessage("Syntax: ::warn target punishment - Punishments[+(add a warning point), -(Subtract a warning point");
+					player.getPacketSender().sendMessage("Punishments[=(check warning point), !(Clear all warning points");
+			}
 		}
 		if (command[0].equalsIgnoreCase("authtest")) {
 			boolean can_continue = true;

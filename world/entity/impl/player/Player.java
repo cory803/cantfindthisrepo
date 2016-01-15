@@ -402,6 +402,7 @@ public class Player extends Character {
 
 	/*** INTS ***/
 	public int voteCount = 0;
+	private int warningPoints = 0;
 	private int votesClaimed = 0;
 	private int[] brawlerCharges = new int[9];
 	private int[] forceMovement = new int[7];
@@ -496,6 +497,18 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public int getWarningPoints() {
+		return warningPoints;
+	}
+	public void setWarningPoints(int warningPoints) {
+		this.warningPoints = warningPoints;
+	}
+	public void addWarningPoints(int warningPoints) {
+		this.warningPoints += warningPoints;
+	}
+	public void minusWarningPoints(int warningPoints) {
+		this.warningPoints -= warningPoints;
+	}
 	public boolean isCanVote() {
 		return canVote;
 	}

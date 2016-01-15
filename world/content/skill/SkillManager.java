@@ -93,7 +93,7 @@ public class SkillManager {
 			}
 		}
 
-		experience = BrawlingGloves.getExperienceIncrease(player, skill.ordinal(), experience);
+		experience = (int) BrawlingGloves.getExperienceIncrease(player, skill.ordinal(), experience);
 
 		/*
 		 * The skill's level before adding experience.
