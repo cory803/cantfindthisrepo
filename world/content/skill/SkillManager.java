@@ -84,7 +84,7 @@ public class SkillManager {
 		if(GameSettings.DOUBLE_EXP) {
 			experience *= 2.0; //15
 		}
-
+		
 		if(player.getMinutesBonusExp() != -1) {
 			if(player.getGameMode() != GameMode.NORMAL) {
 				experience *= 1.10;
@@ -99,6 +99,29 @@ public class SkillManager {
 		 * The skill's level before adding experience.
 		 */
 		int startingLevel = isNewSkill(skill) ? (int) (skills.maxLevel[skill.ordinal()]/10) : skills.maxLevel[skill.ordinal()];
+			String skillName = Misc.formatText(skill.toString().toLowerCase());
+		int amount_for_announcement = 500000000;
+		if(player.getSkillManager().getExperience(skill) < amount_for_announcement && player.getSkillManager().getExperience(skill) + experience >= amount_for_announcement) {
+			World.sendMessage("<img=2><col=006251>News: "+player.getUsername()+" has just achieved <col=0062A8>500 million<col=006251> experience in <col=0062A8>"+skillName+"<col=006251>!");
+		}	
+
+		amount_for_announcement = 1000000000;
+		if(player.getSkillManager().getExperience(skill) < amount_for_announcement && player.getSkillManager().getExperience(skill) + experience >= amount_for_announcement) {
+			World.sendMessage("<img=2><col=006251>News: "+player.getUsername()+" has just achieved 1 billion experience in "+skillName+"!");
+		}
+		
+		boolean maxed_out = true;
+		for(int i = 0; i < Skill.values().length; i++) {
+			if(i == 21)
+				continue;
+			if(player.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
+				maxed_out = false;
+			}
+		}
+		if(!player.hasAnnouncedMax() && maxed_out) {
+			World.sendMessage("<img=2><col=006251>News: "+player.getUsername()+" has just achieved the maximum level in all skills!");
+			player.setAnnounceMax(true);
+		}
 		/*
 		 * Adds the experience to the skill's experience.
 		 */
@@ -115,7 +138,6 @@ public class SkillManager {
 		 */
 		if (newLevel > startingLevel) {
 			int level = newLevel - startingLevel;
-			String skillName = Misc.formatText(skill.toString().toLowerCase());
 			skills.maxLevel[skill.ordinal()] += isNewSkill(skill) ? level * 10 : level;
 			/*
 			 * If the skill is not constitution, prayer or summoning, then set the current level
@@ -137,7 +159,6 @@ public class SkillManager {
 			if (skills.maxLevel[skill.ordinal()] == getMaxAchievingLevel(skill)) {
 				player.getPacketSender().sendMessage("Well done! You've achieved the highest possible level in this skill!");
 				Achievements.doProgress(player, AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS);
-				World.sendMessage("<shad=15536940>News: "+player.getUsername()+" has just achieved the highest possible level in "+skillName+"!");
 				TaskManager.submit(new Task(2, player, true) {
 					int localGFX = 1634;
 					@Override

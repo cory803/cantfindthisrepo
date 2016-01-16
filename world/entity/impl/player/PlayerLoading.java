@@ -267,6 +267,10 @@ public class PlayerLoading {
 			
 			if(reader.has("entered-gwd-room")) {
 				player.getMinigameAttributes().getGodwarsDungeonAttributes().setHasEnteredRoom(reader.get("entered-gwd-room").getAsBoolean());
+			}	
+			
+			if(reader.has("announced-max")) {
+				player.setAnnounceMax(reader.get("announced-max").getAsBoolean());
 			}
 			
 			if(reader.has("gwd-altar-delay")) {

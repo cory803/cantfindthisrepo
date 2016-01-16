@@ -323,6 +323,7 @@ public class Player extends Character {
 	private long totalPlayTime;
 	//Timers (Stopwatches)
 	private final Stopwatch sqlTimer = new Stopwatch();
+	public boolean pestControlSolo = false;
 	private final Stopwatch foodTimer = new Stopwatch();
 	private final Stopwatch potionTimer = new Stopwatch();
 	private final Stopwatch lastRunRecovery = new Stopwatch();
@@ -754,7 +755,14 @@ public class Player extends Character {
 	public int getSkullTimer() {
 		return skullTimer;
 	}
+	
+	public boolean getPestControlSolo() {
+		return pestControlSolo;
+	}
 
+	public void setPestControlSolo(boolean solo) {
+		pestControlSolo = solo;
+	}
 	/**
 	 * @param skullTimer
 	 *            the skullTimer to set
@@ -2022,4 +2030,25 @@ public class Player extends Character {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public boolean bossingSystem = false;
+	
+	public boolean inBossingSystem() {
+		return bossingSystem;
+	}
+	
+	public void setBossingSystem(boolean bossSystem) {
+		bossingSystem = bossSystem;
+	}
+	
+	public boolean hasAnnouncedMax() {
+		return maxAnnounce;
+	}
+	
+	public void setAnnounceMax(boolean max) {
+		maxAnnounce = max;
+	}
+	
+	public boolean maxAnnounce = false;
+	
 }

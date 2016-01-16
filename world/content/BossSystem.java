@@ -11,8 +11,14 @@ import com.ikov.model.RegionInstance.RegionInstanceType;
 import com.ikov.world.World;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.content.clan.*;
+/**
+* Ikov's bossing system
+* Developed by High105
+**/
 
 public class BossSystem {
+	
 		public enum Bosses {
 			KBD(50), 
 			TD(8349),
@@ -28,8 +34,29 @@ public class BossSystem {
 			}
 			
 		};
+		
 	public static void startInstance(Player player, int bossID) {
+		final ClanChat clan = player.getCurrentClanChat();
 		player.moveTo(new Position(2392, 9903, player.getIndex() * 4));
+		for (Player member : clan.getMembers()) {
+			if (member != null) {
+				ClanChatRank rank = clan.getRank(member);
+				boolean move_in = false;
+				int floor = member.getIndex() * 4;
+				if(rank == ClanChatRank.OWNER || rank == ClanChatRank.STAFF) {
+					move_in = true;
+				}
+				for (Player others : clan.getMembers()) {
+					if (others != null) {
+						if(move_in) {
+							if(others.getLocation() == Location.BOSS_SYSTEM) {
+								others.moveTo(new Position(2392, 9903, floor));
+							}
+						}
+					}
+				}
+			}
+		}
 		player.setRegionInstance(new RegionInstance(player, RegionInstanceType.BOSS_SYSTEM));
 		spawnBoss(player, bossID);
 		
@@ -47,6 +74,7 @@ public class BossSystem {
 					stop();
 					return;
 				}
+				player.setBossingSystem(true);
 				NPC n = new NPC(bossID, new Position(2392, 9894, player.getPosition().getZ())).setSpawnedFor(player);
 				World.register(n);
 				player.getRegionInstance().getNpcsList().add(n);
@@ -62,6 +90,7 @@ public class BossSystem {
 			World.deregister(n);
 			TaskManager.submit(new NPCRespawnTask(n, 0));
 			leaveInstance(player);
+			player.setBossingSystem(false);
 	}
 }
 

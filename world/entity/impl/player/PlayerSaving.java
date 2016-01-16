@@ -93,6 +93,7 @@ public class PlayerSaving {
 			object.addProperty("teleblock-timer", new Integer(player.getTeleblockTimer()));
 			object.addProperty("special-amount", new Integer(player.getSpecialPercentage()));
 			object.addProperty("entered-gwd-room", new Boolean(player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()));
+			object.addProperty("announced-max", new Boolean(player.hasAnnouncedMax()));
 			object.addProperty("gwd-altar-delay", new Long(player.getMinigameAttributes().getGodwarsDungeonAttributes().getAltarDelay()));
 			object.add("gwd-killcount", builder.toJsonTree(player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()));
 			object.addProperty("effigy", new Integer(player.getEffigy()));

@@ -85,7 +85,7 @@ public class PestControl {
 		p.moveTo(new Position(2661, 2639, 0));
 		p.getPacketSender().sendString(21117, "");
 		p.getPacketSender().sendString(21118, "");
-		p.getPacketSender().sendString(21008, "(Need 3 to 25 players)");
+		p.getPacketSender().sendString(21008, "(Need 1 to 25 players)");
 		p.getMovementQueue().setLockMovement(false).reset();
 	}
 
@@ -200,7 +200,7 @@ public class PestControl {
 	 * Starts a game and moves players in to the game.
 	 */
 	private static void startGame() {
-		boolean startGame = !gameRunning && PLAYERS_IN_BOAT >= 3;
+		boolean startGame = !gameRunning && PLAYERS_IN_BOAT >= 1;
 		if(startGame) {
 			gameRunning = true;
 			spawnMainNPCs();
@@ -210,10 +210,13 @@ public class PestControl {
 				String state = getState(player);
 				if(state != null && state.equals(WAITING)) {
 					if(startGame) {
+						if(PLAYERS_IN_BOAT == 1) {
+							player.setPestControlSolo(true);
+						}
 						movePlayerToIsland(player);
 						playerMap.put(player, PLAYING);
 					} else
-						player.getPacketSender().sendMessage("There must be at least 3 players in the boat before a game can start.");
+						player.getPacketSender().sendMessage("There must be at least 1 players in the boat before a game can start.");
 				}
 			}
 		}
@@ -259,6 +262,9 @@ public class PestControl {
 					}	
 					if(p.getDonorRights() == 5) {
 						point_amount = 40;
+					}
+					if(p.getPestControlSolo()) {
+						point_amount *= 2;
 					}
 					p.getPacketSender().sendMessage("The portals were successfully closed. You've been rewarded for your effort.");
 					p.getPacketSender().sendMessage("You've received "+point_amount+" Commendations and "+p.getSkillManager().getCombatLevel() * 50+" coins.");

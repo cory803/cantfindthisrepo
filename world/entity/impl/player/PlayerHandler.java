@@ -71,8 +71,17 @@ public class PlayerHandler {
 		player.getPacketSender().sendMapRegion().sendDetails();
 
 		player.getRecordedLogin().reset();
-
-
+		boolean maxed_out = true;
+		for(int i = 0; i < Skill.values().length; i++) {
+			if(i == 21)
+				continue;
+			if(player.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
+				maxed_out = false;
+			}
+		}
+		if(maxed_out) {
+			player.setAnnounceMax(true);
+		}
 		//Tabs
 		player.getPacketSender().sendTabs();
 		//Setting up the player's item containers..
