@@ -117,13 +117,12 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 		Player player = (Player) entity;
 		final boolean dBow = CombatFactory.darkBow(player);
-
+			
 		player.setFireAmmo(0);
 
 		startAnimation(player);
 
 		AmmunitionData ammo = RangedWeaponData.getAmmunitionData(player);
-
 
 		if (!player.isSpecialActivated()) {
 
@@ -261,16 +260,22 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		final boolean avas = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 10499;
 		if(avas) { //Avas
 			if(Misc.getRandom(6) == 1 || Misc.getRandom(6) == 2 || Misc.getRandom(6) == 3 || Misc.getRandom(6) == 4 || Misc.getRandom(6) == 5)
-				
 			return;
 		}
 		if(ardy) { //ardy
 			if(Misc.getRandom(7) == 1 || Misc.getRandom(7) == 2 || Misc.getRandom(7) == 3 || Misc.getRandom(7) == 4 || Misc.getRandom(7) == 5 || Misc.getRandom(7) == 0 || Misc.getRandom(7) == 6)	
 			return;
 		}
-		
+		int ammo_id = player.getEquipment().get(slot).getId();
+		if(player.getEquipment().get(slot).getAmount() == 1) {
+			player.getEquipment().setItem(slot, new Item(-1));
+			player.getEquipment().refreshItems();
+			player.getInventory().refreshItems();
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+		}
 		// Decrement the ammo in the selected slot.
 		player.getEquipment().get(slot).decrementAmount();
+		
 		if(!avas && player.getFireAmmo() != 15243) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(player.getFireAmmo()), pos, player.getUsername(), false, 120, true, 120));
 		}
