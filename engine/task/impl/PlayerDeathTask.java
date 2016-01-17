@@ -90,6 +90,7 @@ public class PlayerDeathTask extends Task {
 						playerItems.addAll(player.getEquipment().getValidItems());
 						final Position position = player.getPosition();
 						if(loc == Location.WILDERNESS) {
+							spawnItems = true;
 							for (Item item : playerItems) {
 								if(!item.tradeable() || itemsToKeep.contains(item)) {
 									if(!itemsToKeep.contains(item)) {
