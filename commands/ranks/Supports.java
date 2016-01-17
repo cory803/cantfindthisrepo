@@ -103,6 +103,10 @@ public class Supports {
 				return;
 			}
 			Player playerToMove = World.getPlayerByName(player2);
+			if (playerToMove.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("You cannot move someone out of dung.");
+				return;
+			}
 			if(playerToMove != null) {
 				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");

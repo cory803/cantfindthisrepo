@@ -306,6 +306,10 @@ public class Moderators {
 			if(command.length >= 3 && command[2] != null)
 				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
 			Player playerToMove = World.getPlayerByName(player2);
+			if (playerToMove.getLocation() == Location.DUNGEONEERING)  {
+				player.getPacketSender().sendMessage("You cannot teleport a player out of dung?");
+				return;
+			}
 			if(playerToMove != null) {
 				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
@@ -317,6 +321,10 @@ public class Moderators {
 			Player player2 = World.getPlayerByName(playerToTele);
 			if (World.getPlayerByName(playerToTele).getLocation() == Location.DUEL_ARENA) {
 				player.getPacketSender().sendMessage("Why are you trying to move a player out of duel arena?");
+				return;
+			}
+			if (player2.getLocation() == Location.DUNGEONEERING)  {
+				player.getPacketSender().sendMessage("You cannot teleport a player out of dung?");
 				return;
 			}
 			if (player.getLocation() == Location.WILDERNESS)  {
