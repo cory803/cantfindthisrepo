@@ -48,11 +48,16 @@ public class Administrators {
 				return;
 			} else {
 				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
+				if(canTele && player.getLocation() != Location.DUNGEONEERING) {
 					TeleportHandler.teleportPlayer(player, player2.getPosition().copy(), TeleportType.NORMAL);
 					player.getPacketSender().sendMessage("Teleporting to player: "+player2.getUsername()+"");
-				} else
-					player.getPacketSender().sendMessage("You can not teleport to this player at the moment. Minigame maybe?");
+				} else {
+					if(player2.getLocation() == Location.DUNGEONEERING) {
+						player.getPacketSender().sendMessage("You can not teleport to this player while they are dungeoneering.");
+					} else {
+						player.getPacketSender().sendMessage("You can not teleport to this player at the moment. Minigame maybe?");
+					}
+				}
 			}
 		}
 		if(command[0].equalsIgnoreCase("movehome")) {

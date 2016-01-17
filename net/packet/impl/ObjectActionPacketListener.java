@@ -301,8 +301,20 @@ public class ObjectActionPacketListener implements PacketListener {
 					break;
 				case 5960: //Levers
 				case 5959:
-					player.setDirection(Direction.WEST);
-					TeleportHandler.teleportPlayer(player, new Position(3090, 3475), TeleportType.LEVER);
+					if(player.getTeleblockTimer() > 0) {
+						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+						return;
+					}
+					if (gameObject.getPosition().getX() == 2539 && gameObject.getPosition().getY() == 4712) {
+						player.setDirection(Direction.EAST);
+						TeleportHandler.teleportPlayer(player, new Position(3090, 3956), TeleportType.LEVER);
+					} else if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3956) {
+						player.setDirection(Direction.SOUTH);
+						TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
+					} else {
+						player.setDirection(Direction.WEST);
+						TeleportHandler.teleportPlayer(player, new Position(3087, 3502), TeleportType.LEVER);
+					}
 					break;
 				case 5096:
 					if (gameObject.getPosition().getX() == 2644 && gameObject.getPosition().getY() == 9593)

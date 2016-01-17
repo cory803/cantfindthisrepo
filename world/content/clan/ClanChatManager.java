@@ -227,6 +227,7 @@ public class ClanChatManager {
 						if(rank != null) {
 							image = 34 + rank.ordinal();
 						}
+						member.getPacketSender().sendString(1, "[LEFTCLAN]");
 						member.getPacketSender().sendString(1, others.getUsername() + "-[CLAN]-" + value);
 						String prefix = image >= 0 ? ("<img=" + (image) +  "> ") : "";
 						member.getPacketSender().sendString(childId, prefix + others.getUsername());
@@ -332,15 +333,7 @@ public class ClanChatManager {
 		for (int i = 29344; i < 29444; i++) {
 			player.getPacketSender().sendString(i, "");
 		}
-		for (Player member : clan.getMembers()) {
-			if (member != null) {
-				for (Player others : clan.getMembers()) {
-					if (others != null) {
-						others.getPacketSender().sendString(1, member.getUsername() + "-[REMOVECLAN]-");
-					}
-				}
-			}
-		}
+		player.getPacketSender().sendString(1, "[LEFTCLAN]");
 		player.getPacketSender().sendClanChatListOptionsVisible(0);
 		updateList(clan);
 		player.getPacketSender().sendMessage(kicked ? "You have been kicked from the channel." : "You have left the channel.");

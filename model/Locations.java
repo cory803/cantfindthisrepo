@@ -380,6 +380,10 @@ public class Locations {
 				return true;
 			}
 		},
+		INSIDE_MAGE_BANK(new int[]{2525, 2555}, new int[]{4706, 4728}, true, true, true, true, true, true) {
+		},
+		OUTSIDE_MAGE_BANK(new int[]{3085, 3101}, new int[]{3947, 3961}, true, true, true, true, true, true) {
+		},
 		CLAN_WARS(new int[]{0000, 0000}, new int[]{0000, 0000}, true, true, true, false, false, false) {
 			//^^ all incorrect, just want variable made...
 		},
@@ -608,8 +612,7 @@ public class Locations {
 
 			@Override
 			public void enter(Player player) {
-				DialogueManager.start(player, 110);
-				player.getPacketSender().sendMessage("<img=10> If you die in a boss room, you will lose your items. You have been warned.");
+
 			}
 
 			@Override
@@ -624,12 +627,7 @@ public class Locations {
 
 			@Override
 			public void leave(Player p) {
-				for(int i = 0; i < p.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount().length; i++) {
-					p.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[i] = 0;
-					p.getPacketSender().sendString((16216+i), "0");
-				}
 				p.getMinigameAttributes().getGodwarsDungeonAttributes().setAltarDelay(0).setHasEnteredRoom(false);
-				p.getPacketSender().sendMessage("Your Godwars dungeon progress has been reset.");
 			}
 
 			@Override
@@ -812,6 +810,7 @@ public class Locations {
 				|| x >= 2256 && x <= 2287 && y >= 4680 && y <= 4711
 				|| x >= 2516 && x <= 2595 && y >= 4926 && y <= 5003 //gwd
 				|| x >= 2560 && x <= 2630 && y >= 5710 && y <= 5753 //td cave
+				|| x >= 2940 && x <= 2994 && y >= 3903 && y <= 3969
 				)
 					return true;
 			} else {

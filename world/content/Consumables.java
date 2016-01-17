@@ -1117,8 +1117,8 @@ public class Consumables {
 				player.getInventory().getItems()[slot] = new Item(15302, 1);
 				player.getInventory().refreshItems();
 				player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-				if(player.getSpecialPercentage() > 1000) 
-					player.setSpecialPercentage(1000);
+				if(player.getSpecialPercentage() > 100) 
+					player.setSpecialPercentage(100);
 				CombatSpecial.updateBar(player);
 				player.getSpecialRestoreTimer().reset();
 				break;
@@ -1153,7 +1153,7 @@ public class Consumables {
 				player.getInventory().getItems()[slot] = new Item(229, 1);
 				player.getInventory().refreshItems();
 				player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-				if(player.getSpecialPercentage() > 10.00) 
+				if(player.getSpecialPercentage() > 100) 
 					player.setSpecialPercentage(100);
 				CombatSpecial.updateBar(player);
 				player.getSpecialRestoreTimer().reset();

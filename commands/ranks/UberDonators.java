@@ -92,6 +92,10 @@ public class UberDonators {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
+			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
+				player.getPacketSender().sendMessage("You are not aloud to put these symbols in your yell message.");
+				return;
+			}
 			World.sendMessage("<img=9> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getLastYell().reset();
 		}

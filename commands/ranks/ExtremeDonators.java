@@ -92,7 +92,11 @@ public class ExtremeDonators {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendMessage("<img=7> <col=0>[<col=00ff00><shad=0>Extreme</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
+				player.getPacketSender().sendMessage("You are not aloud to put these symbols in your yell message.");
+				return;
+			}
+			World.sendMessage("<img=7> <col=0>[<col=2FAC45>Extreme<col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {

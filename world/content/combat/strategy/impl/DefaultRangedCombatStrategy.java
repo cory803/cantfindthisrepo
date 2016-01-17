@@ -259,7 +259,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		final boolean ardy = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748;
 		final boolean avas = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 10499;
 		if(avas) { //Avas
-			if(Misc.getRandom(6) == 1 || Misc.getRandom(6) == 2 || Misc.getRandom(6) == 3 || Misc.getRandom(6) == 4 || Misc.getRandom(6) == 5)
+			if(Misc.getRandom(8) == 1 || Misc.getRandom(8) == 2 || Misc.getRandom(8) == 3 || Misc.getRandom(8) == 4 || Misc.getRandom(8) == 5 || Misc.getRandom(8) == 6 || Misc.getRandom(8) == 7)
 			return;
 		}
 		if(ardy) { //ardy

@@ -92,7 +92,11 @@ public class RegularDonators {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendMessage("<img=5> <col=0>[<col=ff0000><shad=0>Donator</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
+				player.getPacketSender().sendMessage("You are not aloud to put these symbols in your yell message.");
+				return;
+			}
+			World.sendMessage("<img=5> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {

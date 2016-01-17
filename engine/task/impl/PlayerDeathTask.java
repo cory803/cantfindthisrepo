@@ -53,6 +53,7 @@ public class PlayerDeathTask extends Task {
 			stop();
 			return;
 		}
+
 		try {
 			switch (ticks) {
 			case 5:
@@ -81,23 +82,25 @@ public class PlayerDeathTask extends Task {
 							dropItems = false;
 						}
 					}
-					boolean spawnItems = loc != Location.NOMAD && !(loc == Location.GODWARS_DUNGEON && player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom());
+					boolean spawnItems = false;
 					if(dropItems) {
 						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
 						final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
 						playerItems.addAll(player.getInventory().getValidItems());
 						playerItems.addAll(player.getEquipment().getValidItems());
 						final Position position = player.getPosition();
-						for (Item item : playerItems) {
-							if(!item.tradeable() || itemsToKeep.contains(item)) {
-								if(!itemsToKeep.contains(item)) {
-									itemsToKeep.add(item);
+						if(loc == Location.WILDERNESS) {
+							for (Item item : playerItems) {
+								if(!item.tradeable() || itemsToKeep.contains(item)) {
+									if(!itemsToKeep.contains(item)) {
+										itemsToKeep.add(item);
+									}
+									continue;
 								}
-								continue;
-							}
-							if(spawnItems) {
-								if(item != null && item.getId() > 0 && item.getAmount() > 0) {
-									GroundItemManager.spawnGroundItem((killer != null && killer.getGameMode() == GameMode.NORMAL ? killer : player), new GroundItem(item, position, killer != null ? killer.getUsername() : player.getUsername(), player.getHostAddress(), false, 150, true, 150));
+								if(spawnItems) {
+									if(item != null && item.getId() > 0 && item.getAmount() > 0) {
+										GroundItemManager.spawnGroundItem((killer != null && killer.getGameMode() == GameMode.NORMAL ? killer : player), new GroundItem(item, position, killer != null ? killer.getUsername() : player.getUsername(), player.getHostAddress(), false, 150, true, 150));
+									}
 								}
 							}
 						}
@@ -107,8 +110,10 @@ public class PlayerDeathTask extends Task {
 							player.getPlayerKillingAttributes().setPlayerKillStreak(0);
 							player.getPointsHandler().refreshPanel();
 						}
-						player.getInventory().resetItems().refreshItems();
-						player.getEquipment().resetItems().refreshItems();
+						if(loc == Location.WILDERNESS) {
+							player.getInventory().resetItems().refreshItems();
+							player.getEquipment().resetItems().refreshItems();
+						}
 					}
 				} else
 					dropItems = false;
@@ -122,13 +127,14 @@ public class PlayerDeathTask extends Task {
 				break;
 			case 0:
 				if(dropItems) {
-				
+					if(loc == Location.WILDERNESS) {
 						if(itemsToKeep != null) {
 							for(Item it : itemsToKeep) {
 								player.getInventory().add(it.getId(), 1);
 							}
 							itemsToKeep.clear();
 						}
+					}
 				}
 				if(death != null) {
 					World.deregister(death);

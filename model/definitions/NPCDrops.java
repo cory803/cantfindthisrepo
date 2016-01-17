@@ -194,6 +194,8 @@ public class NPCDrops {
 				return DropChance.LEGENDARY_4;
 			case 10:
 				return DropChance.LEGENDARY_5;
+			case 11:
+				return DropChance.INSANE;
 			default:
 				return DropChance.ALWAYS; // 100% <-> 1/1
 			}
@@ -216,7 +218,7 @@ public class NPCDrops {
 
 	public enum DropChance {
 		ALWAYS(0), ALMOST_ALWAYS(2), VERY_COMMON(5), COMMON(15), UNCOMMON(40), NOTTHATRARE(
-				100), RARE(350), LEGENDARY(500), LEGENDARY_2(800), LEGENDARY_3(1000), LEGENDARY_4(1200), LEGENDARY_5(1500);
+				100), RARE(350), LEGENDARY(500), LEGENDARY_2(800), LEGENDARY_3(1000), LEGENDARY_4(1200), LEGENDARY_5(1500), INSANE(3000);
 		
 		
 		DropChance(int randomModifier) {

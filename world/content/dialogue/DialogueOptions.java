@@ -484,24 +484,7 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 12:
-				int random = Misc.getRandom(4);
-				switch(random) {
-				case 0:
-					TeleportHandler.teleportPlayer(player, new Position(3035, 3701, 0), player.getSpellbook().getTeleportType());
-					break;
-				case 1:
-					TeleportHandler.teleportPlayer(player, new Position(3036, 3694, 0), player.getSpellbook().getTeleportType());
-					break;
-				case 2:
-					TeleportHandler.teleportPlayer(player, new Position(3045, 3697, 0), player.getSpellbook().getTeleportType());
-					break;
-				case 3:
-					TeleportHandler.teleportPlayer(player, new Position(3043, 3691, 0), player.getSpellbook().getTeleportType());
-					break;
-				case 4:
-					TeleportHandler.teleportPlayer(player, new Position(3037, 3687, 0), player.getSpellbook().getTeleportType());
-					break;
-				}
+				TeleportHandler.teleportPlayer(player, new Position(2539, 4715, 0), player.getSpellbook().getTeleportType());
 				break;
 			case 14:
 				DialogueManager.start(player, 23);
