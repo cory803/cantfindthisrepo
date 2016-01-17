@@ -859,11 +859,6 @@ public final class CombatFactory {
 
 		if(victim.isNpc() && entity.isPlayer()) {
 			NPC npc = (NPC)victim;
-			if(npc.getSpawnedFor() != null && npc.getSpawnedFor().getIndex() != ((Player)entity).getIndex()) {
-				((Player)entity).getPacketSender().sendMessage("That's not your enemy to fight.");
-				entity.getCombatBuilder().reset(true);
-				return false;
-			}
 			if(npc.isSummoningNpc()) {
 				Player player = ((Player)entity);
 				if(player.getLocation() != Location.WILDERNESS) {
