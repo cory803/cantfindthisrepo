@@ -205,6 +205,7 @@ public class CustomObjects {
 	//Only adds clips to these objects, they are spawned clientsided
 	//NOTE: You must add to the client's customobjects array to make them spawn, this is just clipping!
 	private static final int[][] CLIENT_OBJECTS = {
+		{172, 3098, 3496, 0, 0},
 		{401, 3503, 3567, 0, 0},
 		{401, 3504, 3567, 0, 0},
 		{1309, 2715, 3465, 0, 0},
@@ -307,8 +308,8 @@ public class CustomObjects {
 		{411, 3085, 3483, 0, 0},
 		{6552, 3092, 3487, 0, 2},
 		{410, 3079, 3484, 0, 2},
-		{4875, 3097, 3500, 0, 0},
-		{4874, 3098, 3500, 0, 0},
+		{4874, 3097, 3500, 0, 0},
+		{4875, 3098, 3500, 0, 0},
 		{4876, 3096, 3500, 0, 0},
 		{4877, 3095, 3500, 0, 0},
 		{4878, 3094, 3500, 0, 0},
