@@ -938,15 +938,6 @@ public class Owners {
 			});*/
 			//npc.getMovementCoordinator().setCoordinator(new Coordinator().setCoordinate(true).setRadius(5));
 		}
-		if (command[0].equals("skull")) {
-			if(player.getSkullTimer() > 0) {
-				player.setSkullTimer(0);
-				player.setSkullIcon(0);
-				player.getUpdateFlag().flag(Flag.APPEARANCE);
-			} else {
-				CombatFactory.skullPlayer(player);
-			}
-		}
 		if (command[0].equals("fillinv")) {
 			for(int i = 0; i < 28; i++) {
 				int it = Misc.getRandom(10000);

@@ -37,6 +37,7 @@ import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.BonusManager;
 import com.ikov.world.content.BossSystem;
+import com.ikov.world.content.BankPin;
 import com.ikov.world.content.MoneyPouch;
 import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Lottery;
@@ -76,6 +77,10 @@ import com.ikov.util.Logs;
 public class Commands {
 
 	public static void initiate_commands(Player player, String[] parts, String whole_command) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 		if(player.getRights().isStaff()) {
 			Logs.write_data(player.getUsername()+ ".txt", "staff_commands", "["+player.getUsername()+"]: ::"+whole_command+"");
 		} else {

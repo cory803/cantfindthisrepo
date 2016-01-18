@@ -30,7 +30,7 @@ public class Bank extends ItemContainer {
 		if(Dungeoneering.doingDungeoneering(getPlayer())) {
 			return this;
 		}
-		if(getPlayer().getBankPinAttributes().hasBankPin() && !getPlayer().getBankPinAttributes().hasEnteredBankPin()) {
+		if(getPlayer().getBankPinAttributes().hasBankPin() && !getPlayer().getBankPinAttributes().hasEnteredBankPin() && getPlayer().getBankPinAttributes().onDifferent(getPlayer())) {
 			BankPin.init(getPlayer(), true);
 			return this;
 		}

@@ -5,6 +5,7 @@ import com.ikov.GameSettings;
 import com.ikov.GameServer;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.TaskManager;
+import com.ikov.world.content.BankPin;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.engine.task.impl.CombatSkullEffect;
 import com.ikov.engine.task.impl.FireImmunityTask;
@@ -220,6 +221,11 @@ public class PlayerHandler {
 		} else if(player.getRights() == PlayerRights.SUPPORT && player.getDonorRights() < 1) {
 			player.setDonorRights(1);
 		}
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+		}
+		if(!player.getBankPinAttributes().hasBankPin())
+			player.getPacketSender().sendMessage("<img=10><col=ff0000>You don't have an account pin set! Make sure that you set one at the town crier.");
 		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
 	}
 

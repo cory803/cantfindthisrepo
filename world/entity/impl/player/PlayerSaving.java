@@ -43,10 +43,13 @@ public class PlayerSaving {
 			object.addProperty("game-mode", player.getGameMode().name());
 			object.addProperty("last-ip-address", player.getLastIpAddress());
 			object.addProperty("last-serial-address", player.getLastSerialAddress());
+			object.addProperty("last-bank-ip", player.getLastBankIp());
+			object.addProperty("last-bank-serial", player.getLastBankSerial());
 			object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
 			object.add("position", builder.toJsonTree(player.getPosition()));
 			object.addProperty("online-status", player.getRelations().getStatus().name());
 			object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
+			object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
 			object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));
 			object.addProperty("donated", new Long(player.getAmountDonated()));
 			object.addProperty("credits", new Long(player.getCredits()));

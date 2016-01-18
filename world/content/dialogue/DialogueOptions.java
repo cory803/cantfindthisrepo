@@ -717,6 +717,10 @@ public class DialogueOptions {
 				BankPin.init(player, false);
 				break;
 			case 8:
+				if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+					BankPin.init(player, true);
+					return;
+				}
 				BankPin.deletePin(player);
 				break;
 			case 16:

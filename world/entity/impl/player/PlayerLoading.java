@@ -96,6 +96,14 @@ public class PlayerLoading {
 			
 			if (reader.has("last-serial-address")) {
 				player.setLastSerialAddress(reader.get("last-serial-address").getAsString());
+			}		
+			
+			if (reader.has("last-bank-ip")) {
+				player.setLastBankIp(reader.get("last-bank-ip").getAsString());
+			}		
+			
+			if (reader.has("last-bank-serial")) {
+				player.setLastBankSerial(reader.get("last-bank-serial").getAsString());
 			}
 			
 			if (reader.has("loyalty-title")) {

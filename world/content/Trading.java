@@ -59,7 +59,7 @@ public class Trading {
 			player.getPacketSender().sendMessage("You must have played for at least 15 minutes in order to trade someone.");
 			return;
 		}*/
-		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 			return;
 		}

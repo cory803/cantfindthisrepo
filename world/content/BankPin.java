@@ -4,7 +4,7 @@ import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
- * bank-pin
+ * account-pin
  * @author Gabriel Hannason
  * NOTE: This was taken & redone from my PI base
  */
@@ -16,13 +16,13 @@ public class BankPin {
 			player.getBankPinAttributes().getBankPin()[i] = -1;
 			player.getBankPinAttributes().getEnteredBankPin()[i] = -1;
 		}
-		player.getPacketSender().sendMessage("Your bank-pin was deleted.").sendInterfaceRemoval();
+		player.getPacketSender().sendMessage("Your account-pin was deleted.").sendInterfaceRemoval();
 	}
 
 	public static void init(Player player, boolean openBankAfter) {
 		if(player.getBankPinAttributes().getInvalidAttempts() == 3) {
 			if(System.currentTimeMillis() - player.getBankPinAttributes().getLastAttempt() < 400000) {
-				player.getPacketSender().sendMessage("You must wait "+(int)((400 - (System.currentTimeMillis() - player.getBankPinAttributes().getLastAttempt()) * 0.001))+" seconds before attempting to enter your bank-pin again.");
+				player.getPacketSender().sendMessage("You must wait "+(int)((400 - (System.currentTimeMillis() - player.getBankPinAttributes().getLastAttempt()) * 0.001))+" seconds before attempting to enter your account-pin again.");
 				return;
 			} else
 				player.getBankPinAttributes().setInvalidAttempts(0);
@@ -69,8 +69,10 @@ public class BankPin {
 					player.getBankPinAttributes().getEnteredBankPin()[3] = player.getBankPinAttributes().getBankPins()[i];
 			if(!player.getBankPinAttributes().hasBankPin()) {
 				player.getBankPinAttributes().setHasBankPin(true).setHasEnteredBankPin(true).setBankPin(player.getBankPinAttributes().getEnteredBankPin());
-				player.getPacketSender().sendMessage("You've created a bank-pin. Your digit is "+player.getBankPinAttributes().getEnteredBankPin()[0]+"-"+player.getBankPinAttributes().getEnteredBankPin()[1]+"-"+player.getBankPinAttributes().getEnteredBankPin()[2]+"-"+player.getBankPinAttributes().getEnteredBankPin()[3]+". Please write it down.");
+				player.getPacketSender().sendMessage("You've created a account-pin. Your digit is "+player.getBankPinAttributes().getEnteredBankPin()[0]+"-"+player.getBankPinAttributes().getEnteredBankPin()[1]+"-"+player.getBankPinAttributes().getEnteredBankPin()[2]+"-"+player.getBankPinAttributes().getEnteredBankPin()[3]+". Please write it down.");
 				player.getPacketSender().sendInterfaceRemoval();
+				player.setLastBankSerial(player.getSerialNumber());
+				player.setLastBankIp(player.getHostAddress());
 				return;
 			}
 			for(int i = 0; i < player.getBankPinAttributes().getEnteredBankPin().length; i++) {
@@ -80,7 +82,7 @@ public class BankPin {
 					if(invalidAttempts >= 3)
 						player.getBankPinAttributes().setLastAttempt(System.currentTimeMillis());
 					player.getBankPinAttributes().setInvalidAttempts(invalidAttempts);
-					player.getPacketSender().sendMessage("Invalid bank-pin entered entered.");
+					player.getPacketSender().sendMessage("Invalid account-pin entered entered.");
 					return;
 				}
 			}
@@ -90,6 +92,8 @@ public class BankPin {
 			} else {
 				player.getPacketSender().sendInterfaceRemoval();
 			}
+			player.setLastBankSerial(player.getSerialNumber());
+			player.setLastBankIp(player.getHostAddress());
 		}
 		randomizeNumbers(player);
 	}
@@ -211,6 +215,18 @@ public class BankPin {
 		public BankPinAttributes setHasEnteredBankPin(boolean hasEnteredBankPin) {
 			this.hasEnteredBankPin = hasEnteredBankPin;
 			return this;
+		}
+		
+		public boolean onDifferent(Player player) {
+			String last_ip = player.getLastBankIp();
+			String current_ip = player.getHostAddress();
+			String last_serial = player.getLastBankSerial();
+			String current_serial = player.getSerialNumber();
+			boolean on_different = false;
+			if(!last_ip.equals(current_ip) && !last_serial.equals(current_serial)) {
+				on_different = true;
+			}
+			return on_different;
 		}
 
 		public int[] getBankPin() {

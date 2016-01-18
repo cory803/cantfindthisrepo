@@ -3,7 +3,9 @@ package com.ikov.commands.ranks;
 import com.ikov.GameSettings;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.Locations.Location;
+import com.ikov.model.Flag;
 import com.ikov.model.Store;
+import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
 import com.ikov.util.Auth;
@@ -79,7 +81,20 @@ public class Members {
 			player.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 			Command.open(player);
 		}
+		if (command[0].equals("skull")) {
+			if(player.getSkullTimer() > 0) {
+				player.setSkullTimer(0);
+				player.setSkullIcon(0);
+				player.getUpdateFlag().flag(Flag.APPEARANCE);
+			} else {
+				CombatFactory.skullPlayer(player);
+			}
+		}
 		if (command[0].equalsIgnoreCase("auth")) {
+			if(player.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("You can't claim a vote in Dungeoneering!");
+				return;
+			}
 			boolean can_continue = true;
 			if (player.voteCount > 4) {
 				player.setCanVote(false);

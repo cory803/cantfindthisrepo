@@ -75,9 +75,15 @@ public class SkillManager {
 			return this;
 
 		experience *= player.getRights().getExperienceGainModifier();
+		
+		
 		if((WellOfGoodwill.isActive()) && (player.getDonorRights() > 0)) {
 			experience *= 1.5;
+		} else if(WellOfGoodwill.isActive()) {
+			experience *= 1.3;
 		}
+		int amount = BrawlingGloves.getExperience(player, skill.ordinal(), experience);
+		experience = amount;
 		if(player.getGameMode() != GameMode.NORMAL) {
 			experience *= 0.6;
 		}
@@ -92,8 +98,6 @@ public class SkillManager {
 				experience *= 1.30;
 			}
 		}
-
-		experience = (int) BrawlingGloves.getExperienceIncrease(player, skill.ordinal(), experience);
 
 		/*
 		 * The skill's level before adding experience.

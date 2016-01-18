@@ -1,6 +1,7 @@
 package com.ikov.net.packet.impl;
 
 import com.ikov.engine.task.impl.WalkToTask;
+import com.ikov.world.content.BankPin;
 import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.GameMode;
 import com.ikov.model.Graphic;
@@ -43,6 +44,10 @@ public class NPCOptionPacketListener implements PacketListener {
 
 
 	private static void firstClick(Player player, Packet packet) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 		int index = packet.readLEShort();
 		if(index < 0 || index > World.getNpcs().capacity())
 			return;
@@ -320,6 +325,10 @@ public class NPCOptionPacketListener implements PacketListener {
 	}
 
 	private static void attackNPC(Player player, Packet packet) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 		int index = packet.readShortA();
 		if(index < 0 || index > World.getNpcs().capacity())
 			return;
@@ -352,6 +361,10 @@ public class NPCOptionPacketListener implements PacketListener {
 		player.getCombatBuilder().attack(interact);
 	}
 	public void handleSecondClick(Player player, Packet packet) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 		int index = packet.readLEShortA();
 		if(index < 0 || index > World.getNpcs().capacity())
 			return;
@@ -456,6 +469,10 @@ public class NPCOptionPacketListener implements PacketListener {
 	}
 
 	public void handleThirdClick(Player player, Packet packet) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 		int index = packet.readShort();
 		if(index < 0 || index > World.getNpcs().capacity())
 			return;
@@ -531,6 +548,10 @@ public class NPCOptionPacketListener implements PacketListener {
 	}
 
 	public void handleFourthClick(Player player, Packet packet) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 		int index = packet.readLEShort();
 		if(index < 0 || index > World.getNpcs().capacity())
 			return;

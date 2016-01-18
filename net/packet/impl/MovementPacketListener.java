@@ -9,6 +9,7 @@ import com.ikov.net.packet.PacketListener;
 import com.ikov.world.clip.region.RegionClipping;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
+import com.ikov.world.content.BankPin;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
@@ -91,6 +92,10 @@ public class MovementPacketListener implements PacketListener {
 		if (player.isFrozen()) {
 			if(opcode != COMMAND_MOVEMENT_OPCODE)
 				player.getPacketSender().sendMessage("A magical spell has made you unable to move.");
+			return false;
+		}
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
 			return false;
 		}
 		if(player.getTrading().inTrade() && System.currentTimeMillis() - player.getTrading().lastAction <= 1000) {

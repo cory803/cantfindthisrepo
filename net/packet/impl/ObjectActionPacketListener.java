@@ -4,6 +4,7 @@ import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.WalkToTask;
+import com.ikov.model.GameMode;
 import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.Direction;
@@ -1066,6 +1067,13 @@ public class ObjectActionPacketListener implements PacketListener {
 						player.getInventory().add(7956, 1);
 					} else if(ran == 600) {
 						player.getInventory().add(15387, 1);
+					}
+					if(player.getGameMode().equals(GameMode.IRONMAN) || player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
+						int chance = Misc.getRandom(5);
+						if(chance == 1)
+							player.getInventory().add(1734, Misc.getRandom(50 + 1));
+						if(chance == 2)
+							player.getInventory().add(1733, 1);
 					}
 					Stalls.stealFromStall(player, 60, 7370, 17401, "You steal a damaged hammer.");
 					break;

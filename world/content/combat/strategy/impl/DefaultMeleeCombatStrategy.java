@@ -42,7 +42,7 @@ public class DefaultMeleeCombatStrategy implements CombatStrategy {
 
         // Start the performAnimation for this attack.
         startAnimation(entity);
-
+		
         // Create the combat container for this hook.
         return new CombatContainer(entity, victim, 1, CombatType.MELEE, true);
     }

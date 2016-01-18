@@ -52,7 +52,7 @@ public class Dueling {
 			player.getPacketSender().sendMessage("You can only challenge people outside the arena.");
 			return;
 		}
-		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 			return;
 		}

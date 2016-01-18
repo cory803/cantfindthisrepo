@@ -96,7 +96,7 @@ public class SuperDonators {
 				player.getPacketSender().sendMessage("You are not aloud to put these symbols in your yell message.");
 				return;
 			}
-			World.sendMessage("<img=6> <col=0>[<col=2B547E>Super<col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendMessage("<img=6> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellMessage);	
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {

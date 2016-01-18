@@ -22,7 +22,7 @@ public class SetEmail extends Input {
 			player.getPacketSender().sendMessage("Invalid syntax, please enter a valid one.");
 			return;
 		}
-		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			player.getPacketSender().sendMessage("Please visit the nearest bank and enter your pin before doing this.");
 			return;
 		}

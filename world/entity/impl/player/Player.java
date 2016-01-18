@@ -574,6 +574,35 @@ public class Player extends Character {
 		this.username = username;
 		return this;
 	}
+	
+	public String last_bank_serial = "";
+	public String last_bank_ip = "";
+	public int combat_hit_tick = 0;
+	public boolean has_combat_tick = false;
+	public boolean yell_toggle = true;
+	
+	public String getLastBankSerial() {
+		return last_bank_serial;
+	}	
+	
+	public boolean yellToggle() {
+		return yell_toggle;
+	}
+	
+	public void setYellToggle(boolean new_yell) {
+		yell_toggle = new_yell;
+	}
+	public String getLastBankIp() {
+		return last_bank_ip;
+	}
+	
+	public void setLastBankSerial(String serial) {
+		last_bank_serial = serial;
+	}	
+	
+	public void setLastBankIp(String ip) {
+		last_bank_ip = ip;
+	}
 
 	public Long getLongUsername() {
 		return longUsername;

@@ -522,10 +522,10 @@ public class SmithingData {
 		player.getPacketSender().sendSmithingData(1295,3,1119,1);
 		player.getPacketSender().sendSmithingData(1365,3,1120,1);
 		player.getPacketSender().sendSmithingData(1119,3,1121,1);
-		player.getPacketSender().sendSmithingData(1193,3,1122,1); //sec lazoh //ok
+		player.getPacketSender().sendSmithingData(1193,3,1122,1);
 		player.getPacketSender().sendSmithingData(1311,4,1119,1);
 		player.getPacketSender().sendSmithingData(1539,4,1122,15);
-		player.getPacketSender().sendSmithingData(2,3,1123,40);
+		player.getPacketSender().sendSmithingData(2,3,1123,4);
 		player.getPacketSender().sendSmithingData(2370,4,1123,1);
 		player.getPacketSender().sendSmithingData(3097,4,1120, 1);
 		player.getPacketSender().sendInterface(994);		

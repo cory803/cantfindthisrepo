@@ -44,6 +44,16 @@ public class HitQueue {
 				continue;
 			}
 			if(c.delay > 0) {
+				Player p = (Player)c.attacker;
+				if(!p.has_combat_tick) {
+					p.combat_hit_tick = c.delay;
+					p.has_combat_tick = true;
+				}
+				if(c.delay == p.combat_hit_tick) {
+					CombatFactory.giveExperience(c.builder, c.container, c.container.getDamage());
+				}
+			}	
+			if(c.delay > 0) {
 				c.delay--;
 			} else {
 				c.handleAttack();
@@ -103,7 +113,7 @@ public class HitQueue {
 					context.setAccurate(true);
 				});
 			}
-
+			
 			// Now we send the hitsplats if needed! We can't send the hitsplats
 			// there are none to send, or if we're using magic and it splashed.
 			if (container.getHits().length != 0 && container.getCombatType() != CombatType.MAGIC || container.isAccurate()) {
@@ -112,6 +122,9 @@ public class HitQueue {
 				CombatFactory.applyPrayerProtection(container, builder);
 
 				this.damage = container.getDamage();
+				if(container.getCombatType() == CombatType.MELEE) {
+					CombatFactory.giveExperience(builder, container, damage);
+				}
 				victim.getCombatBuilder().addDamage(attacker, damage);
 				container.dealDamage();
 
@@ -155,10 +168,6 @@ public class HitQueue {
 					}
 				}
 			}
-
-
-			// Give experience based on the hits.
-			CombatFactory.giveExperience(builder, container, damage);
 
 			if (!container.isAccurate()) {
 				if (container.getCombatType() == CombatType.MAGIC && attacker.getCurrentlyCasting() != null) {
@@ -251,7 +260,8 @@ public class HitQueue {
 						}
 					}
 				}
-
+				player.has_combat_tick = false;
+				player.combat_hit_tick = 0;
 				player.setLastCombatType(container.getCombatType());
 
 				Sounds.sendSound(player, Sounds.getPlayerAttackSound(player));

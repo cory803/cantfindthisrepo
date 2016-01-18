@@ -250,7 +250,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			DialogueManager.start(player, 89);
 			break;
 		case 8670:
-			TeleportHandler.teleportPlayer(player, new Position(2392, 9903), player.getSpellbook().getTeleportType());
+			TeleportHandler.teleportPlayer(player, new Position(2715, 3493), player.getSpellbook().getTeleportType());
 			break;
 		case 8668:
 			TeleportHandler.teleportPlayer(player, new Position(2709, 3437), player.getSpellbook().getTeleportType());
