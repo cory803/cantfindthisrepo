@@ -44,13 +44,15 @@ public class HitQueue {
 				continue;
 			}
 			if(c.delay > 0) {
-				Player p = (Player)c.attacker;
-				if(!p.has_combat_tick) {
-					p.combat_hit_tick = c.delay;
-					p.has_combat_tick = true;
-				}
-				if(c.delay == p.combat_hit_tick) {
-					CombatFactory.giveExperience(c.builder, c.container, c.container.getDamage());
+				if(c.attacker.isPlayer()) {
+					Player p = (Player)c.attacker;
+					if(!p.has_combat_tick) {
+						p.combat_hit_tick = c.delay;
+						p.has_combat_tick = true;
+					}
+					if(c.delay == p.combat_hit_tick) {
+						CombatFactory.giveExperience(c.builder, c.container, c.container.getDamage());
+					}
 				}
 			}	
 			if(c.delay > 0) {
