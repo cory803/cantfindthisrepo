@@ -651,6 +651,8 @@ public class Shop extends ItemContainer {
 		public static Object[] getCustomShopData(int shop, int item) {
 			if(shop == VOTING_REWARDS_STORE) {
 				switch(item) {
+				case 21047: //kraken whip
+					return new Object[]{100, "Voting points"};
 				case 6500:
 				case 19336:
 				case 19337:
@@ -699,7 +701,7 @@ public class Shop extends ItemContainer {
 				case 14003:
 					return new Object[]{30, "Voting points"};
 				case 13663:
-					return new Object[]{10, "Voting points"};
+					return new Object[]{1, "Voting points"};
 				}
 			} else if (shop == DONATOR_STORE) {
 				switch(item) {
