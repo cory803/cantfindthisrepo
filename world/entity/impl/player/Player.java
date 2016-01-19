@@ -459,6 +459,7 @@ public class Player extends Character {
 	private int combatRingType;
 	
 	/*** BOOLEANS ***/
+	private boolean bossSolo = true;
 	private boolean unlockedLoyaltyTitles[] = new boolean[12];
 	private boolean[] crossedObstacles = new boolean[7];
 	private boolean processFarming;
@@ -499,6 +500,12 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public boolean isBossSolo() {
+		return bossSolo;
+	}
+	public void setBossSolo(boolean bossSolo) {
+		this.bossSolo = bossSolo;
+	}
 	public int getLastBoss() {
 		return lastBoss;
 	}

@@ -158,7 +158,7 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
 			case 134://first boss
-				BossSystem.startInstance(player, BossSystem.Bosses.KBD.getBossID());
+				BossSystem.startInstance(player, BossSystem.Bosses.KBD.getBossID(), player.isBossSolo());
 				player.setLastBoss(Bosses.KBD.getBossID());
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
@@ -261,7 +261,7 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
 			case 134:
-				BossSystem.startInstance(player, BossSystem.Bosses.TD.getBossID());
+				BossSystem.startInstance(player, BossSystem.Bosses.TD.getBossID(), player.isBossSolo());
 				player.setLastBoss(Bosses.TD.getBossID());
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
@@ -369,7 +369,7 @@ public class DialogueOptions {
 				}
 				break;
 			case 134:
-				BossSystem.startInstance(player, BossSystem.Bosses.CORP.getBossID());
+				BossSystem.startInstance(player, BossSystem.Bosses.CORP.getBossID(), player.isBossSolo());
 				player.setLastBoss(Bosses.CORP.getBossID());
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
@@ -1008,8 +1008,14 @@ public class DialogueOptions {
 				PlayerPanel.refreshPanel(player);
 			break;
 			case 133: //boss with clan
-				player.getPacketSender().sendMessage("Coming soon!");
-				player.getPacketSender().sendInterfaceRemoval();
+				if(player.getClanChatName() == null ) {
+					player.getPacketSender().sendMessage("You cannot boss in a clan when you are not in one!");
+					player.getPacketSender().sendInterfaceRemoval();
+					return;
+				}
+				player.setBossSolo(false);
+				DialogueManager.start(player, 134);
+				player.setDialogueActionId(134);
 				break;
 			case 15:
 				DialogueManager.start(player, 25);

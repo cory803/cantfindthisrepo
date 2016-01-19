@@ -383,8 +383,12 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 4375:
 					if(player.getLastBoss() == 0) {
 						player.getPacketSender().sendMessage("You have not spawned a boss since your last login!");
+					} else if(player.getClanChatName() == null ) {
+							player.getPacketSender().sendMessage("You cannot boss in a clan when you are not in one!");
+							player.getPacketSender().sendInterfaceRemoval();
+							return;
 					} else {
-						BossSystem.startInstance(player, player.getLastBoss());
+						BossSystem.startInstance(player, player.getLastBoss(), player.isBossSolo());
 					}
 					break;
 				case 2579:
