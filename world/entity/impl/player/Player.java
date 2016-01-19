@@ -403,6 +403,7 @@ public class Player extends Character {
 
 	/*** INTS ***/
 	public int voteCount = 0;
+	private int lastBoss = 0;
 	private int warningPoints = 0;
 	private int votesClaimed = 0;
 	private int[] brawlerCharges = new int[9];
@@ -498,6 +499,12 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public int getLastBoss() {
+		return lastBoss;
+	}
+	public void setLastBoss(int lastBoss) {
+		this.lastBoss = lastBoss;
+	}
 	public int getWarningPoints() {
 		return warningPoints;
 	}

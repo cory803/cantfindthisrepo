@@ -16,6 +16,7 @@ import com.ikov.model.input.impl.SetEmail;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.world.content.BossSystem.Bosses;
 import com.ikov.world.content.Artifacts;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BossSystem;
@@ -158,6 +159,7 @@ public class DialogueOptions {
 				break;
 			case 134://first boss
 				BossSystem.startInstance(player, BossSystem.Bosses.KBD.getBossID());
+				player.setLastBoss(Bosses.KBD.getBossID());
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
@@ -260,6 +262,7 @@ public class DialogueOptions {
 				break;
 			case 134:
 				BossSystem.startInstance(player, BossSystem.Bosses.TD.getBossID());
+				player.setLastBoss(Bosses.TD.getBossID());
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
@@ -367,6 +370,7 @@ public class DialogueOptions {
 				break;
 			case 134:
 				BossSystem.startInstance(player, BossSystem.Bosses.CORP.getBossID());
+				player.setLastBoss(Bosses.CORP.getBossID());
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
@@ -827,10 +831,6 @@ public class DialogueOptions {
 			case 128:
 				ShopManager.getShops().get(48).open(player);
 			break;
-			case 133: //boss system - start; choose a boss
-				DialogueManager.start(player, 134);
-				player.setDialogueActionId(134);
-				break;
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
@@ -877,12 +877,13 @@ public class DialogueOptions {
 			case 128:
 				ShopManager.getShops().get(12).open(player);
 				break;
-			case 133: //boss system - close(finish)
-				player.getPacketSender().sendInterfaceRemoval();
-				break;
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 133: //boss system - start; choose a boss
+				DialogueManager.start(player, 134);
+				player.setDialogueActionId(134);
+				break;
 			case 135:
 				ShopManager.getShops().get(79).open(player);
 				player.getPacketSender().sendMessage("You currently have <col=ffff00><shad=0>"+player.getCredits()+" </col></shad>Credits.");
@@ -1006,6 +1007,10 @@ public class DialogueOptions {
 				player.getPacketSender().sendMessage("Your account has gained 100,000 credits. Your total is now at "+player.getCredits()+".");
 				PlayerPanel.refreshPanel(player);
 			break;
+			case 133: //boss with clan
+				player.getPacketSender().sendMessage("Coming soon!");
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 15:
 				DialogueManager.start(player, 25);
 				player.setDialogueActionId(15);
@@ -1137,6 +1142,9 @@ public class DialogueOptions {
 			case 41:
 				player.setDialogueActionId(36);
 				DialogueManager.start(player, 65);
+				break;
+			case 133: //boss system - close(finish)
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
 		}

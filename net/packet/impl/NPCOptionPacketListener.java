@@ -2,6 +2,7 @@ package com.ikov.net.packet.impl;
 
 import com.ikov.engine.task.impl.WalkToTask;
 import com.ikov.world.content.BankPin;
+import com.ikov.world.content.BossSystem;
 import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.GameMode;
 import com.ikov.model.Graphic;
@@ -379,6 +380,13 @@ public class NPCOptionPacketListener implements PacketListener {
 			@Override
 			public void execute() {
 				switch(npc.getId()) {
+				case 4375:
+					if(player.getLastBoss() == 0) {
+						player.getPacketSender().sendMessage("You have not spawned a boss since your last login!");
+					} else {
+						BossSystem.startInstance(player, player.getLastBoss());
+					}
+					break;
 				case 2579:
 					ShopManager.getShops().get(46).open(player);
 					player.getPacketSender().sendMessage("<col=255>You currently have "+player.getPointsHandler().getPrestigePoints()+" Prestige points!");
