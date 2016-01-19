@@ -1428,7 +1428,7 @@ public class SmithingData {
 			break;
 		case 1213: //Rune Dagger
 			xp = 5870;
-			reqLvl = 51;
+			reqLvl = 85;
 			break;
 		case 1359: //Rune Axe
 			xp = 6000;
