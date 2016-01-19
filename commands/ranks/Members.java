@@ -78,6 +78,10 @@ public class Members {
 			
 		}
 		if (command[0].equalsIgnoreCase("commands")) {
+			if(player.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("You cannot open the commands in dungeoneering.");
+				return;
+			}
 			player.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 			Command.open(player);
 		}

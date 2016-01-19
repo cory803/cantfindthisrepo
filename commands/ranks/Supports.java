@@ -107,6 +107,10 @@ public class Supports {
 				player.getPacketSender().sendMessage("You cannot move someone out of dung.");
 				return;
 			}
+			if (playerToMove.getLocation() == Location.DUEL_ARENA) {
+				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
+				return;
+			}
 			if(playerToMove != null) {
 				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
@@ -131,6 +135,10 @@ public class Supports {
 			Player playerToKick = World.getPlayerByName(player2);
 			if (World.getPlayerByName(player2).getLocation() == Location.DUEL_ARENA) {
 				player.getPacketSender().sendMessage("Why are you trying to move a player out of duel arena?");
+				return;
+			}
+			if (playerToKick.getLocation() == Location.DUEL_ARENA) {
+				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
 				return;
 			}
 			if(playerToKick == null) {

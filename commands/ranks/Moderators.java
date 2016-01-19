@@ -331,6 +331,10 @@ public class Moderators {
 				player.getPacketSender().sendMessage("You cannot teleport a player into the wild... What're you thinking?");
 				return;
 			}
+			if (player2.getLocation() == Location.DUEL_ARENA) {
+				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
+				return;
+			}
 			if(player2 == null) {
 				player.getPacketSender().sendMessage("Cannot find that player online..");
 				return;
@@ -359,6 +363,10 @@ public class Moderators {
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);
 			Player playerToKick = World.getPlayerByName(player2);
+			if (playerToKick.getLocation() == Location.DUEL_ARENA) {
+				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
+				return;
+			}
 			if(playerToKick == null) {
 				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Ikov.");
 				return;
