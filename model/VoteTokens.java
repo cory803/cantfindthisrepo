@@ -40,6 +40,28 @@ public class VoteTokens  {
 	}
 	
 	public static void open_token(Player p, int itemId) {
+		if(p.getGameMode() == GameMode.IRONMAN || p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			int points = 1;
+			if(p.getDonorRights() == 1) {
+				points += 1;
+			} else if(p.getDonorRights() == 2) {
+				points += 1;
+			} else if(p.getDonorRights() == 3) {
+				points += 2;
+			} else if(p.getDonorRights() == 4) {
+				points += 2;
+			} else if(p.getDonorRights() == 5) {
+				points += 3;
+			}
+			if(GameSettings.DOUBLE_POINTS) {
+				points *= 2;
+			}
+			p.getPointsHandler().incrementVotingPoints(points);
+			p.getPacketSender().sendMessage("<img=10><col=2F5AB7>You have received and "+points+" vote points.");
+			PlayerPanel.refreshPanel(p);
+			p.getInventory().delete(10944, 1);
+			return;
+		}
 		int collection = 0;
 		int random_chance = Misc.getRandom(super_rare_chance);
 		if(random_chance == super_rare_chance - 1) {
@@ -71,9 +93,9 @@ public class VoteTokens  {
 			points *= 2;
 		}
 		if(collection == 2) {
-			World.sendMessage("<img=3><col=2F5AB7>The player <shad=0>"+name+"</shad> has recieved <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");
+			World.sendMessage("<img=3><col=2F5AB7>The player <shad=0>"+name+"</shad> has received <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");
 		} else if(collection == 1) {
-			World.sendMessage("<img=1><col=2F5AB7>The player <shad=0>"+name+"</shad> has recieved <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");
+			World.sendMessage("<img=1><col=2F5AB7>The player <shad=0>"+name+"</shad> has received <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");
 		}
 		p.getPacketSender().sendMessage("<img=10><col=2F5AB7>You have recieved ("+item_name+"), and "+points+" vote points.");
 		p.getPointsHandler().incrementVotingPoints(points);

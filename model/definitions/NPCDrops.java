@@ -1,5 +1,6 @@
 package com.ikov.model.definitions;
 
+import java.util.Random;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -285,6 +286,9 @@ public class NPCDrops {
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
 			casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
+		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
+			wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
+		}
 
 
 		for (int i = 0; i < drops.getDropList().length; i++) {
@@ -436,12 +440,21 @@ public class NPCDrops {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(7956), pos, player.getUsername(), false, 150, true, 200));
 		}
 	}
-
+	public static int selectKey(int[] array) {
+	    int rnd = new Random().nextInt(array.length);
+	    return array[rnd];
+	}
+	public static void wildKeys(Player player, int combat, Position pos) {
+		int chance = (int) (1 + combat);
+		if (Misc.getRandom(combat <= 50 ? 450 : 300) < chance) {
+			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos, player.getUsername(), false, 150, true, 200));
+		}
+	}
 	public static class ItemDropAnnouncer {
 
 		private static List<Integer> ITEM_LIST;
 
-		private static final int[] TO_ANNOUNCE = new int[] { 14484, 4224,
+		private static final int[] TO_ANNOUNCE = new int[] { 6571, 14484, 4224,
 			11702, 11704, 11706, 11708, 11704, 11724, 11726, 11728, 11718,
 			11720, 11722, 11730, 11716, 14876, 11286, 13427, 6731, 6737,
 			6735, 4151, 2513, 15259, 13902, 13890, 13884, 13861, 13858,

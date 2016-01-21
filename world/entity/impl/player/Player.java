@@ -402,6 +402,7 @@ public class Player extends Character {
 	private Pouch selectedPouch;
 
 	/*** INTS ***/
+	public int[] allKeys = {1543, 1545, 1546, 1547, 1548};
 	public int voteCount = 0;
 	private int lastBoss = 0;
 	private int warningPoints = 0;

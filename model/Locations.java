@@ -115,6 +115,9 @@ public class Locations {
 		},
 		DAGANNOTH_DUNGEON(new int[]{2886, 2938}, new int[]{4431, 4477}, true, true, true, false, true, true) {
 		},
+		//Location(int[] x, int[] y, boolean multi, boolean summonAllowed, boolean followingAllowed, boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed) {
+		WILDKEY_ZONE(new int[]{3352, 3390}, new int[]{3870, 3905}, true, true, true, false, true, true) {
+		},
 		WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653}, new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472}, false, true, true, true, true, true) {
 			@Override
 			public void process(Player player) {

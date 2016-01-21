@@ -576,6 +576,15 @@ public abstract class ItemContainer {
 	public ItemContainer delete(int id, int amount) {
 		return delete(id, amount, true);
 	}
+	/**
+	 * Deletes an item from the item container.
+	 * @param id		The id of the item to delete.
+	 * @param amount	The amount of the item to delete.
+	 * @return			The ItemContainer instance.
+	 */
+	public ItemContainer deleteAmount(int id, int amount) {
+		return delete(id, amount, true);
+	}
 
 	/**
 	 * Deletes an item from the item container.

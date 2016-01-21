@@ -102,7 +102,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(78).open(player);
 					break;
 				case 653:
-					ShopManager.getShops().get(27).open(player);
+					if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+						ShopManager.getShops().get(82).open(player);
+					} else {
+						ShopManager.getShops().get(27).open(player);
+					}
 					break;
 				case 947:
 					//if(player.getPosition().getX() >= 3092) {

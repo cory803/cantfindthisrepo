@@ -1074,6 +1074,8 @@ public class ObjectActionPacketListener implements PacketListener {
 							player.getInventory().add(1734, Misc.getRandom(50 + 1));
 						if(chance == 2)
 							player.getInventory().add(1733, 1);
+						if(chance == 3)
+							player.getInventory().add(1595, 1);
 					}
 					Stalls.stealFromStall(player, 60, 7370, 17401, "You steal a damaged hammer.");
 					break;
