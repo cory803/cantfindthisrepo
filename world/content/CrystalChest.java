@@ -31,7 +31,7 @@ public class CrystalChest {
 						p.getInventory().add(item);
 					}
 					p.getPacketSender().sendMessage("..and find some items!");
-					CustomObjects.objectRespawnTask(p, new GameObject(173 , chest.getPosition().copy(), 10, 3), chest, 3);
+					CustomObjects.objectRespawnTask(p, new GameObject(173 , chest.getPosition().copy(), 10, 0), chest, 3);
 					stop();
 					break;
 				}
