@@ -32,7 +32,6 @@ public abstract class CombatSpell extends Spell {
 		}
 
 		if(castAnimation().isPresent() && castAnimation == -1) {
-						System.out.println("Magic spell cast");
 			castAnimation().ifPresent(cast::performAnimation);
 		} else {
 			cast.performAnimation(new Animation(castAnimation));
@@ -46,7 +45,6 @@ public abstract class CombatSpell extends Spell {
 			TaskManager.submit(new Task(2, cast.getCombatBuilder(), false) {
 				@Override
 				public void execute() {
-					System.out.println("Recieved attack magic");
 					g.sendProjectile();
 					this.stop();
 				}
