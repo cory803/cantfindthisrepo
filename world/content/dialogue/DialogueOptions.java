@@ -7,6 +7,8 @@ import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
+import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
 import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.input.impl.BuyShards;
 import com.ikov.model.input.impl.ChangePassword;
@@ -426,7 +428,12 @@ public class DialogueOptions {
 				SlayerMaster.changeSlayerMaster(player, SlayerMaster.SUMONA);
 				break;
 			case 36:
-				TeleportHandler.teleportPlayer(player, new Position(2392, 9903), player.getSpellbook().getTeleportType());
+				if (player.getLocation() == Location.BOSS_SYSTEM) {
+					Locations.Location.BOSS_SYSTEM.leave(player);
+					player.getPacketSender().sendInterfaceRemoval();
+				} else {
+					TeleportHandler.teleportPlayer(player, new Position(2392, 9903), player.getSpellbook().getTeleportType());
+				}
 				break;
 			case 38:
 				TeleportHandler.teleportPlayer(player, new Position(1891, 3177), player.getSpellbook().getTeleportType());
@@ -883,6 +890,7 @@ public class DialogueOptions {
 			case 133: //boss system - start; choose a boss
 				DialogueManager.start(player, 134);
 				player.setDialogueActionId(134);
+				player.setBossSolo(true);
 				break;
 			case 135:
 				ShopManager.getShops().get(79).open(player);

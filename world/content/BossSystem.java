@@ -40,8 +40,7 @@ public class BossSystem {
 	 * @param isSolo if true (spawns just player) if false(spawns entire clan)
 	 */
 	public static void startInstance(Player player, int bossID, boolean isSolo) {
-		if (isSolo == false) {
-			player.setBossSolo(false);
+		if (!isSolo) {
 			final ClanChat clan = player.getCurrentClanChat();
 			player.moveTo(new Position(2392, 9903, player.getIndex() * 4));
 			for (Player member : clan.getMembers()) {
@@ -57,6 +56,7 @@ public class BossSystem {
 							if (move_in) {
 								if (others.getLocation() == Location.BOSS_SYSTEM) {
 									others.moveTo(new Position(2392, 9903, floor));
+									others.setBossSolo(false);
 								}
 							}
 						}
@@ -64,7 +64,7 @@ public class BossSystem {
 				}
 			}
 		} else {
-			player.setBossSolo(true);
+			player.moveTo(new Position(2392, 9903, player.getIndex() * 4));
 		}
 		player.setRegionInstance(new RegionInstance(player, RegionInstanceType.BOSS_SYSTEM));
 		spawnBoss(player, bossID);
@@ -72,7 +72,7 @@ public class BossSystem {
 	}
 
 	public static void leaveInstance(Player player) {
-		if(player.isBossSolo() == false) {
+		if(!player.isBossSolo()) {
 			Locations.Location.BOSS_SYSTEM.leave(player);
 			final ClanChat clan = player.getCurrentClanChat();
 			player.moveTo(new Position(2392, 9903, player.getIndex() * 4));

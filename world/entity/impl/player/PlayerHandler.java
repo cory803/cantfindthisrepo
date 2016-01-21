@@ -224,6 +224,9 @@ public class PlayerHandler {
 		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
+		if(player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 1);
+		}
 		if(!player.getBankPinAttributes().hasBankPin())
 			player.getPacketSender().sendMessage("<img=10><col=ff0000>You don't have an account pin set! Make sure that you set one at the town crier.");
 		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
