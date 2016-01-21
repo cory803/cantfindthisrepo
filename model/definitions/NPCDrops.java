@@ -287,7 +287,8 @@ public class NPCDrops {
 			casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
-			wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
+			//wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
+			System.out.println("Wild key would have dropped if this was active.");
 		}
 
 
@@ -446,7 +447,7 @@ public class NPCDrops {
 	}
 	public static void wildKeys(Player player, int combat, Position pos) {
 		int chance = (int) (1 + combat);
-		if (Misc.getRandom(combat <= 50 ? 450 : 300) < chance) {
+		if (Misc.getRandom(combat <= 50 ? 750 : 500) < chance) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos, player.getUsername(), false, 150, true, 200));
 		}
 	}
