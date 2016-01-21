@@ -1,6 +1,7 @@
 package com.ikov.world.content.skill.impl.dungeoneering;
 
 import com.ikov.GameSettings;
+import com.ikov.GameServer;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.GameObject;
@@ -39,6 +40,10 @@ public class Dungeoneering {
 			return;
 		} else if(party.getComplexity() == -1) {
 			DialogueManager.start(p, 113);
+			return;
+		}
+		if(GameServer.isUpdating()) {
+			p.getPacketSender().sendMessage("You can't start a game of Dungeoneering while a update is happening!");
 			return;
 		}
 		if(party.getOwner() != p) {

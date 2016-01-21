@@ -7,6 +7,7 @@ import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
+import com.ikov.world.content.skill.impl.dungeoneering.*;
 import com.ikov.model.Flag;
 import java.net.*;
 import java.io.*;
@@ -855,6 +856,11 @@ public class Owners {
 					if (players == null)
 						continue;
 					players.getPacketSender().sendSystemUpdate(time);
+					if(Dungeoneering.doingDungeoneering(players)) {
+						Dungeoneering.leave(players, false, true);
+						players.getClickDelay().reset();
+						players.getPacketSender().sendMessage("You have been forced out of your dungeon due to an update, sorry!");
+					}
 				}
 				TaskManager.submit(new Task(time) {
 					@Override
