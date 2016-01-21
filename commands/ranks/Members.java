@@ -286,18 +286,8 @@ public class Members {
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you to wests!");
 		}
-		if (command[0].equals("easts")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
-				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
-				return;
-			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			Position position = new Position(3329 + Misc.getRandom(2), 3660 + Misc.getRandom(2), 0);
-			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
-			player.getPacketSender().sendMessage("Teleporting you to wests!");
+		if (command[0].equals("teamspeak")) {
+			player.getPacketSender().sendMessage("Teamspeak address: ts3.ikov2.org");
 		}
 		if (command[0].equals("market")) {
 			if(Dungeoneering.doingDungeoneering(player)) {

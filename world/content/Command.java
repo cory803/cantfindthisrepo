@@ -22,7 +22,7 @@ public class Command {
 			player.getPacketSender().sendString(55027, "@or3@ - @whi@ ::train");
 			player.getPacketSender().sendString(55028, "@or3@ - @whi@ ::edge");
 			player.getPacketSender().sendString(55029, "@or3@ - @whi@ ::wests");
-			player.getPacketSender().sendString(55030, "@or3@ - @whi@ ::easts");
+			player.getPacketSender().sendString(55030, "@or3@ - @whi@ ::teamspeak");
 			player.getPacketSender().sendString(55031, "@or3@ - @whi@ ::changelevel [skill] [level]");
 			player.getPacketSender().sendString(55032, "@or3@ - @whi@ ::gamble");
 			player.getPacketSender().sendString(55033, "@or3@ - @whi@ ::skull");
