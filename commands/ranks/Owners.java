@@ -448,6 +448,10 @@ public class Owners {
 		if(command[0].equalsIgnoreCase("teletome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
+			if(player2.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("This player is in dung....");
+				return;
+			}
 			if(player2 == null) {
 				player.getPacketSender().sendMessage("Cannot find that player online..");
 				return;
@@ -464,6 +468,10 @@ public class Owners {
 		if(command[0].equalsIgnoreCase("movetome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
+			if(player2.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("This player is in dung....");
+				return;
+			}
 			if(player2 == null) {
 				player.getPacketSender().sendMessage("Cannot find that player..");
 				return;

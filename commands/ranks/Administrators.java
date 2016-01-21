@@ -79,6 +79,10 @@ public class Administrators {
 		if(command[0].equalsIgnoreCase("teletome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
+			if(player2.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("This player is in dung....");
+				return;
+			}
 			if(player2 == null) {
 				player.getPacketSender().sendMessage("Cannot find that player online..");
 				return;
@@ -95,6 +99,10 @@ public class Administrators {
 		if(command[0].equalsIgnoreCase("movetome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
+			if(player2.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("This player is in dung....");
+				return;
+			}
 			if(player2 == null) {
 				player.getPacketSender().sendMessage("Cannot find that player..");
 				return;
@@ -398,6 +406,10 @@ public class Administrators {
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);
 			Player playerToKick = World.getPlayerByName(player2);
+			if(playerToKick.getLocation() == Location.DUNGEONEERING) {
+				player.getPacketSender().sendMessage("This player is in dung....");
+				return;
+			}
 			if(playerToKick == null) {
 				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Ikov.");
 				return;
