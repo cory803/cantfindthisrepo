@@ -42,7 +42,7 @@ public class CorporealBeast implements CombatStrategy {
 		Player target = (Player)victim;
 		boolean stomp = false;
 		for (Player t : Misc.getCombinedPlayerList(target)) {
-			if(t == null || t.getLocation() != Location.CORPOREAL_BEAST)
+			if(t == null || t.getLocation() != Location.BOSS_SYSTEM)
 				continue;
 			if (Locations.goodDistance(t.getPosition(), cB.getPosition(), 4)) {
 				stomp = true;
@@ -64,7 +64,7 @@ public class CorporealBeast implements CombatStrategy {
 			else {
 
 				cB.performAnimation(new Animation(attackStyle == 0 ? 10057 : 10058));
-				if(target.getLocation() == Location.CORPOREAL_BEAST)
+				if(target.getLocation() == Location.BOSS_SYSTEM)
 					cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 1, CombatType.MELEE, true));
 				return true;
 			}
@@ -74,7 +74,7 @@ public class CorporealBeast implements CombatStrategy {
 			new Projectile(cB, target, 1825, 44, 3, 43, 43, 0).sendProjectile();
 		} else if (attackStyle == 3) { // translucent ball of energy
 			cB.performAnimation(attack_anim2);
-			if(target.getLocation() == Location.CORPOREAL_BEAST)
+			if(target.getLocation() == Location.BOSS_SYSTEM)
 				cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 2, CombatType.MAGIC, true));
 			new Projectile(cB, target, 1823, 44, 3, 43, 43, 0).sendProjectile();
 			TaskManager.submit(new Task(1, target, false) {
@@ -94,7 +94,7 @@ public class CorporealBeast implements CombatStrategy {
 		if(attackStyle == 4) {
 			cB.performAnimation(attack_anim2);
 			for (Player t : Misc.getCombinedPlayerList(target)) {
-				if(t == null || t.getLocation() != Location.CORPOREAL_BEAST)
+				if(t == null || t.getLocation() != Location.BOSS_SYSTEM)
 					continue;
 				new Projectile(cB, target, 1824, 44, 3, 43, 43, 0).sendProjectile();
 			}
@@ -102,7 +102,7 @@ public class CorporealBeast implements CombatStrategy {
 				@Override
 				public void execute() {
 					for (Player t : Misc.getCombinedPlayerList(target)) {
-						if(t == null || t.getLocation() != Location.CORPOREAL_BEAST)
+						if(t == null || t.getLocation() != Location.BOSS_SYSTEM)
 							continue;
 						cB.getCombatBuilder().setVictim(t);
 						new CombatHit(cB.getCombatBuilder(), new CombatContainer(cB, t, 1, CombatType.RANGED, true)).handleAttack();
