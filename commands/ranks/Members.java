@@ -86,7 +86,12 @@ public class Members {
 			Command.open(player);
 		}
 		if (command[0].equals("skull")) {
-				CombatFactory.skullPlayer(player);
+			if(player.getSkullTimer() > 0) {
+				player.getPacketSender().sendMessage("You are already skulled!");
+				return;
+			} else {
+			CombatFactory.skullPlayer(player);
+			}
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
 			if(player.getLocation() == Location.DUNGEONEERING) {
