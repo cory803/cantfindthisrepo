@@ -610,7 +610,10 @@ public class Locations {
 		GODWARS_DUNGEON(new int[]{2800, 2950, 2858, 2943}, new int[]{5200, 5400, 5180, 5230}, true, true, true, false, true, true) {
 			@Override
 			public void process(Player player) {
-				if(player.getPosition().getZ() != 2) {
+				int x = player.getPosition().getX();
+				int y = player.getPosition().getY();
+				boolean inNex = x >= 2900 && x <= 2940 && y >= 5187 && y <= 5220;
+				if(player.getPosition().getZ() != 2 && !inNex) {
 					player.getPosition().setZ(2);
 					player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()));
 				}	
