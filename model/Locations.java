@@ -105,8 +105,8 @@ public class Locations {
 		},
 		PHOENIX(new int[]{2824, 2862}, new int[]{9545, 9594}, true, true, true, true, true, true) {
 		},
-		BANDIT_CAMP(new int[]{3020, 3150, 3055, 3195}, new int[]{3684, 3711, 2958, 3003}, true, true, true, true, true, true) {
-		},
+		//BANDIT_CAMP(new int[]{3020, 3150, 3055, 3195}, new int[]{3684, 3711, 2958, 3003}, true, true, true, true, true, true) {
+		//},
 		ROCK_CRABS(new int[]{2663, 2729}, new int[]{3691, 3730}, true, true, true, true, true, true) {
 		},
 		ARMOURED_ZOMBIES(new int[]{3077, 3132}, new int[]{9657, 9680}, true, true, true, true, true, true) {
@@ -124,7 +124,8 @@ public class Locations {
 				int x = player.getPosition().getX();
 				int y = player.getPosition().getY();
 				boolean ghostTown = x >= 3650 && y <= 3538;
-				if(ghostTown) {
+				boolean safeSpot = x == 3650 && y == 3472;
+				if(ghostTown && !safeSpot) {
 					player.setWildernessLevel(60);
 				} else {
 					player.setWildernessLevel(((((y > 6400 ? y - 6400 : y) - 3520) / 8)+1));
@@ -609,6 +610,10 @@ public class Locations {
 		GODWARS_DUNGEON(new int[]{2800, 2950, 2858, 2943}, new int[]{5200, 5400, 5180, 5230}, true, true, true, false, true, true) {
 			@Override
 			public void process(Player player) {
+				if(player.getPosition().getZ() != 2) {
+					player.getPosition().setZ(2);
+					player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()));
+				}	
 				if(player.getWalkableInterfaceId() != 16210)
 					player.getPacketSender().sendWalkableInterface(16210);
 			}
