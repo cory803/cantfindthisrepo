@@ -68,6 +68,21 @@ public class Owners {
 		final GameObject gameObject = new GameObject(172, position);
 		CrystalChest.handleChest(player, gameObject);
 		}
+		if(wholeCommand.equalsIgnoreCase("propker")) {
+			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 145, true);
+			player.getSkillManager().setCurrentLevel(Skill.RANGED, 145, true);
+			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 140, true);
+			player.getSkillManager().setCurrentLevel(Skill.MAGIC, 120, true);
+			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
+		}
+		if(wholeCommand.equalsIgnoreCase("godmode")) {
+			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.RANGED, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.MAGIC, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
+			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
+		}
 		if(wholeCommand.equalsIgnoreCase("warn")) {
 			Player dumbass = World.getPlayerByName(command[2]);
 			String comm = command[2];
