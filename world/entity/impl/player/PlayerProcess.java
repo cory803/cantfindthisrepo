@@ -10,6 +10,7 @@ import com.ikov.world.content.Consumables;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Skill;
 import com.ikov.commands.ranks.SpecialPlayers;
+import com.ikov.model.PlayerRights;
 
 public class PlayerProcess {
 

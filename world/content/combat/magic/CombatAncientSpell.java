@@ -6,6 +6,7 @@ import java.util.Optional;
 import com.ikov.model.CombatIcon;
 import com.ikov.model.Hit;
 import com.ikov.model.Hitmask;
+import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.model.Item;
 import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
@@ -67,18 +68,31 @@ public abstract class CombatAncientSpell extends CombatSpell {
             	}
             } else {
             	Player p = (Player)next;
-            	if(p.getLocation() != Location.WILDERNESS || !Location.inMulti(p)) {
+            	if((p.getLocation() != Location.WILDERNESS && p.getLocation() != Location.FREE_FOR_ALL_ARENA) || !Location.inMulti(p)) {
             		continue;
             	}
             }
 
             if (next.getPosition().isWithinDistance(castOn.getPosition(),
                 spellRadius()) && !next.equals(cast) && !next.equals(castOn) && next.getConstitution() > 0 && next.getConstitution() > 0) {
-                cast.getCurrentlyCasting().endGraphic().ifPresent(next::performGraphic);
-                int calc = Misc.inclusiveRandom(0, maximumHit());
-                next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-                next.getCombatBuilder().addDamage(cast, calc);
-                spellEffect(cast, next, calc);
+					Player p2 = (Player)next;
+					Player p3 = (Player)cast;
+				int combatDifference = CombatFactory.combatLevelDifference(p3.getSkillManager().getCombatLevel(), p2.getSkillManager().getCombatLevel());
+				if (combatDifference > p3.getWildernessLevel() || combatDifference > p2.getWildernessLevel()) {
+					if(p2.getLocation() == Location.FREE_FOR_ALL_ARENA) {
+						cast.getCurrentlyCasting().endGraphic().ifPresent(next::performGraphic);
+						int calc = Misc.inclusiveRandom(0, maximumHit());
+						next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
+						next.getCombatBuilder().addDamage(cast, calc);
+						spellEffect(cast, next, calc);
+					}
+				} else {
+					cast.getCurrentlyCasting().endGraphic().ifPresent(next::performGraphic);
+					int calc = Misc.inclusiveRandom(0, maximumHit());
+					next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
+					next.getCombatBuilder().addDamage(cast, calc);
+					spellEffect(cast, next, calc);
+				}
             }
         }
     }

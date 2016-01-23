@@ -8,7 +8,10 @@ import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
+import com.ikov.commands.ranks.SpecialPlayers;
+import com.ikov.model.input.impl.EnterAmountToDice;
 import com.ikov.model.PlayerRights;
+import com.ikov.model.input.impl.EnterAmountToDiceOther;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
 import com.ikov.model.definitions.GameObjectDefinition;
@@ -238,7 +241,7 @@ public class UseItemPacketListener implements PacketListener {
 			return;
 		switch (itemId) {
 		case 962:
-			if(!player.getInventory().contains(962) || player.getRights() == PlayerRights.ADMINISTRATOR)
+			if(!player.getInventory().contains(962))
 				return;
 			player.setPositionToFace(target.getPosition());
 			player.performGraphic(new Graphic(1006));
@@ -258,6 +261,22 @@ public class UseItemPacketListener implements PacketListener {
 				player.getInventory().add((1038 + Misc.getRandom(5)*2), 1);			
 				target.getPacketSender().sendMessage(""+player.getUsername()+" has received a Party hat!");
 			}*/
+			break;
+		case 11211:
+			boolean continue_command = false;
+			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
+				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
+					continue_command = true;
+				}
+			}
+			if(!continue_command && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.ADMINISTRATOR) {
+				return;
+			}
+			if(!player.getInventory().contains(11211))
+				return;
+				player.setInputHandling(new EnterAmountToDiceOther(1, 1));
+				player.getPacketSender().sendEnterAmountPrompt("What would you like "+target.getUsername()+" to roll?");
+				player.dice_other_name = target.getUsername();
 			break;
 		case 4155:
 			if (player.getSlayer().getDuoPartner() != null) {

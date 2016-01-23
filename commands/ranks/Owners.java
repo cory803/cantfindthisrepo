@@ -660,6 +660,26 @@ public class Owners {
 
 			player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
 		}
+		if (command[0].equals("spawn")) {
+			String name = wholeCommand.substring(6, wholeCommand.indexOf(":")).toLowerCase().replaceAll("_", " ");
+			String[] what = wholeCommand.split(":");
+			int amount_of = Integer.parseInt(what[1]);
+			player.getPacketSender().sendMessage("Finding item id for item - " + name);
+			boolean found2 = false;
+			for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
+				if(found2)
+					break;
+				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
+					player.getInventory().add(i, amount_of);
+					player.getPacketSender().sendMessage("Spawned item [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+					found2 = true;
+				}
+			}
+			if (!found2) {
+				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
+			}
+			player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
+		}
 		if(wholeCommand.toLowerCase().startsWith("yell") && player.getRights() == PlayerRights.PLAYER) {
 			if(GameSettings.YELL_STATUS) {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");

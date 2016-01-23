@@ -15,6 +15,7 @@ import com.ikov.world.entity.impl.player.Player;
 public class Gambling {
 
 	public static void rollDice(Player player) {
+		int amount = Misc.getRandom(100);
 		if(player.getDonorRights() == 0) {
 			player.getPacketSender().sendMessage("You need to be a member to use this item.");
 			return;
@@ -34,11 +35,15 @@ public class Gambling {
 			player.getPacketSender().sendMessage("You must wait 5 seconds between each dice cast.");
 			return;
 		}
+		if(player.dice_other) {
+			amount = player.dice_other_amount;
+		}
 		player.getMovementQueue().reset();
 		player.performAnimation(new Animation(11900));
 		player.performGraphic(new Graphic(2075));
-		ClanChatManager.sendMessage(player.getCurrentClanChat(), "@bla@[ClanChat] @whi@"+player.getUsername()+" just rolled @bla@" +Misc.getRandom(100)+ "@whi@ on the percentile dice.");
+		ClanChatManager.sendMessage(player.getCurrentClanChat(), "@bla@[ClanChat] @whi@"+player.getUsername()+" just rolled @bla@" +amount+ "@whi@ on the percentile dice.");
 		player.getClickDelay().reset();
+		player.dice_other = false;
 	}
 
 	public static void plantSeed(Player player) {

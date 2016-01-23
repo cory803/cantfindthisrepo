@@ -4,10 +4,14 @@ import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
 import com.ikov.model.Item;
 import com.ikov.model.Position;
+import com.ikov.model.PlayerRights;
 import com.ikov.net.packet.Packet;
+import com.ikov.commands.ranks.SpecialPlayers;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
 import com.ikov.world.content.Consumables;
+import com.ikov.model.input.impl.EnterAmountToDice;
+import com.ikov.model.Skill;
 import com.ikov.world.content.Digging;
 import com.ikov.world.content.Effigies;
 import com.ikov.world.content.ExperienceLamps;
@@ -82,6 +86,52 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch(itemId) {
+		case 11211:
+			boolean continue_command2 = false;
+			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
+				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
+					continue_command2 = true;
+				}
+			}
+			if(!continue_command2 && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.ADMINISTRATOR) {
+				return;
+			}
+			player.setInputHandling(new EnterAmountToDice(1, 1));
+			player.getPacketSender().sendEnterAmountPrompt("What would you like to roll?");
+		break;
+		case 4490:
+			boolean continue_command1 = false;
+			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
+				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
+					continue_command1 = true;
+				}
+			}
+			if(!continue_command1 && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.ADMINISTRATOR) {
+				return;
+			}
+			player.setDialogueActionId(137);
+			DialogueManager.start(player, 137);
+		break;
+		case 4142:
+			boolean continue_command = false;
+			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
+				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
+					continue_command = true;
+				}
+			}
+			if(!continue_command && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.ADMINISTRATOR) {
+				return;
+			}
+			if(!player.boost_stats) {
+				player.getPacketSender().sendMessage("<col=ff0000><shad=0>You have boosted to 1,000 defence.");
+				player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 1000, true);
+				player.boost_stats = true;
+			} else {
+				player.getPacketSender().sendMessage("<col=ff0000><shad=0>You have restored your defence.");
+				player.boost_stats = false;
+				player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99, true);
+			}
+		break;
 		case 10944:
 			if(player.getInventory().isFull()) {
 				player.getPacketSender().sendMessage("You need to have atleast 1 free inventory space.");

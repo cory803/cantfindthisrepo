@@ -13,6 +13,17 @@ import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.input.impl.BuyShards;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.input.impl.DonateToWell;
+import com.ikov.model.Animation;
+import com.ikov.model.GameObject;
+import com.ikov.model.Graphic;
+import com.ikov.model.PlayerRights;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.movement.MovementQueue;
+import com.ikov.util.Misc;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 import com.ikov.model.input.impl.SellShards;
 import com.ikov.model.input.impl.SetEmail;
 import com.ikov.util.Misc;
@@ -67,6 +78,42 @@ public class DialogueOptions {
 		}
 		if(id == FIRST_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 137:
+				if(player.getDonorRights() == 0) {
+					player.getPacketSender().sendMessage("You need to be a member to use this item.");
+					return;
+				}
+				if(player.getLocation() != Location.VARROCK) {
+					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
+					return;
+				}
+				if(!player.getClickDelay().elapsed(3000))
+					return;
+				for(NPC npc : player.getLocalNpcs()) {
+					if(npc != null && npc.getPosition().equals(player.getPosition())) {
+						player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+						return;
+					}
+				}
+				if(CustomObjects.objectExists(player.getPosition().copy())) {
+					player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+					return;
+				}
+				FlowersData flowers = FlowersData.BLUE_FLOWERS;
+				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
+				player.getMovementQueue().reset();
+				player.getInventory().delete(299, 1);
+				player.performAnimation(new Animation(827));
+				player.getPacketSender().sendMessage("You plant the seed..");
+				player.getMovementQueue().reset();
+				player.setDialogueActionId(42);
+				player.setInteractingObject(flower);
+				DialogueManager.start(player, 78);
+				MovementQueue.stepAway(player);
+				CustomObjects.globalObjectRemovalTask(flower, 90);
+				player.setPositionToFace(flower.getPosition());
+				player.getClickDelay().reset();
+			break;
 			case 0:
 				TeleportHandler.teleportPlayer(player, new Position(2679, 3720), player.getSpellbook().getTeleportType());
 				break;
@@ -167,6 +214,42 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 137:
+				if(player.getDonorRights() == 0) {
+					player.getPacketSender().sendMessage("You need to be a member to use this item.");
+					return;
+				}
+				if(player.getLocation() != Location.VARROCK) {
+					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
+					return;
+				}
+				if(!player.getClickDelay().elapsed(3000))
+					return;
+				for(NPC npc : player.getLocalNpcs()) {
+					if(npc != null && npc.getPosition().equals(player.getPosition())) {
+						player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+						return;
+					}
+				}
+				if(CustomObjects.objectExists(player.getPosition().copy())) {
+					player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+					return;
+				}
+				FlowersData flowers = FlowersData.ORANGE_FLOWERS;
+				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
+				player.getMovementQueue().reset();
+				player.getInventory().delete(299, 1);
+				player.performAnimation(new Animation(827));
+				player.getPacketSender().sendMessage("You plant the seed..");
+				player.getMovementQueue().reset();
+				player.setDialogueActionId(42);
+				player.setInteractingObject(flower);
+				DialogueManager.start(player, 78);
+				MovementQueue.stepAway(player);
+				CustomObjects.globalObjectRemovalTask(flower, 90);
+				player.setPositionToFace(flower.getPosition());
+				player.getClickDelay().reset();
+			break;
 			case 0:
 				TeleportHandler.teleportPlayer(player, new Position(3557 + (Misc.getRandom(2)), 9946 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
 				break;
@@ -270,6 +353,42 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 137:
+				if(player.getDonorRights() == 0) {
+					player.getPacketSender().sendMessage("You need to be a member to use this item.");
+					return;
+				}
+				if(player.getLocation() != Location.VARROCK) {
+					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
+					return;
+				}
+				if(!player.getClickDelay().elapsed(3000))
+					return;
+				for(NPC npc : player.getLocalNpcs()) {
+					if(npc != null && npc.getPosition().equals(player.getPosition())) {
+						player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+						return;
+					}
+				}
+				if(CustomObjects.objectExists(player.getPosition().copy())) {
+					player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+					return;
+				}
+				FlowersData flowers = FlowersData.YELLOW_FLOWERS;
+				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
+				player.getMovementQueue().reset();
+				player.getInventory().delete(299, 1);
+				player.performAnimation(new Animation(827));
+				player.getPacketSender().sendMessage("You plant the seed..");
+				player.getMovementQueue().reset();
+				player.setDialogueActionId(42);
+				player.setInteractingObject(flower);
+				DialogueManager.start(player, 78);
+				MovementQueue.stepAway(player);
+				CustomObjects.globalObjectRemovalTask(flower, 90);
+				player.setPositionToFace(flower.getPosition());
+				player.getClickDelay().reset();
+			break;
 			case 0:
 				TeleportHandler.teleportPlayer(player, new Position(3204 + (Misc.getRandom(2)), 3263 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
 				break;
@@ -378,6 +497,42 @@ public class DialogueOptions {
 			}
 		} else if(id == FOURTH_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 137:
+				if(player.getDonorRights() == 0) {
+					player.getPacketSender().sendMessage("You need to be a member to use this item.");
+					return;
+				}
+				if(player.getLocation() != Location.VARROCK) {
+					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
+					return;
+				}
+				if(!player.getClickDelay().elapsed(3000))
+					return;
+				for(NPC npc : player.getLocalNpcs()) {
+					if(npc != null && npc.getPosition().equals(player.getPosition())) {
+						player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+						return;
+					}
+				}
+				if(CustomObjects.objectExists(player.getPosition().copy())) {
+					player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+					return;
+				}
+				FlowersData flowers = FlowersData.RED_FLOWERS;
+				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
+				player.getMovementQueue().reset();
+				player.getInventory().delete(299, 1);
+				player.performAnimation(new Animation(827));
+				player.getPacketSender().sendMessage("You plant the seed..");
+				player.getMovementQueue().reset();
+				player.setDialogueActionId(42);
+				player.setInteractingObject(flower);
+				DialogueManager.start(player, 78);
+				MovementQueue.stepAway(player);
+				CustomObjects.globalObjectRemovalTask(flower, 90);
+				player.setPositionToFace(flower.getPosition());
+				player.getClickDelay().reset();
+			break;
 			case 0:
 				TeleportHandler.teleportPlayer(player, new Position(3173 - (Misc.getRandom(2)), 2981 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
 				break;
@@ -470,6 +625,11 @@ public class DialogueOptions {
 			}
 		} else if(id == FIFTH_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+	
+			case 137:
+				player.setDialogueActionId(138);
+				DialogueManager.start(player, 138);
+				break;	
 			case 0:
 				player.setDialogueActionId(1);
 				DialogueManager.next(player);
@@ -887,6 +1047,42 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 138:
+				if(player.getDonorRights() == 0) {
+					player.getPacketSender().sendMessage("You need to be a member to use this item.");
+					return;
+				}
+				if(player.getLocation() != Location.VARROCK) {
+					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
+					return;
+				}
+				if(!player.getClickDelay().elapsed(3000))
+					return;
+				for(NPC npc : player.getLocalNpcs()) {
+					if(npc != null && npc.getPosition().equals(player.getPosition())) {
+						player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+						return;
+					}
+				}
+				if(CustomObjects.objectExists(player.getPosition().copy())) {
+					player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+					return;
+				}
+				FlowersData flowers = FlowersData.PASTEL_FLOWERS;
+				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
+				player.getMovementQueue().reset();
+				player.getInventory().delete(299, 1);
+				player.performAnimation(new Animation(827));
+				player.getPacketSender().sendMessage("You plant the seed..");
+				player.getMovementQueue().reset();
+				player.setDialogueActionId(42);
+				player.setInteractingObject(flower);
+				DialogueManager.start(player, 78);
+				MovementQueue.stepAway(player);
+				CustomObjects.globalObjectRemovalTask(flower, 90);
+				player.setPositionToFace(flower.getPosition());
+				player.getClickDelay().reset();
+			break;
 			case 133: //boss system - start; choose a boss
 				DialogueManager.start(player, 134);
 				player.setDialogueActionId(134);
@@ -979,6 +1175,42 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 138:
+				if(player.getDonorRights() == 0) {
+					player.getPacketSender().sendMessage("You need to be a member to use this item.");
+					return;
+				}
+				if(player.getLocation() != Location.VARROCK) {
+					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
+					return;
+				}
+				if(!player.getClickDelay().elapsed(3000))
+					return;
+				for(NPC npc : player.getLocalNpcs()) {
+					if(npc != null && npc.getPosition().equals(player.getPosition())) {
+						player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+						return;
+					}
+				}
+				if(CustomObjects.objectExists(player.getPosition().copy())) {
+					player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+					return;
+				}
+				FlowersData flowers = FlowersData.PURPLE_FLOWERS;
+				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
+				player.getMovementQueue().reset();
+				player.getInventory().delete(299, 1);
+				player.performAnimation(new Animation(827));
+				player.getPacketSender().sendMessage("You plant the seed..");
+				player.getMovementQueue().reset();
+				player.setDialogueActionId(42);
+				player.setInteractingObject(flower);
+				DialogueManager.start(player, 78);
+				MovementQueue.stepAway(player);
+				CustomObjects.globalObjectRemovalTask(flower, 90);
+				player.setPositionToFace(flower.getPosition());
+				player.getClickDelay().reset();
+			break;
 			case 135:
 				ShopManager.getShops().get(80).open(player);
 				player.getPacketSender().sendMessage("You currently have <col=ffff00><shad=0>"+player.getCredits()+" </col></shad>Credits.");
@@ -1122,6 +1354,42 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 138:
+				if(player.getDonorRights() == 0) {
+					player.getPacketSender().sendMessage("You need to be a member to use this item.");
+					return;
+				}
+				if(player.getLocation() != Location.VARROCK) {
+					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
+					return;
+				}
+				if(!player.getClickDelay().elapsed(3000))
+					return;
+				for(NPC npc : player.getLocalNpcs()) {
+					if(npc != null && npc.getPosition().equals(player.getPosition())) {
+						player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+						return;
+					}
+				}
+				if(CustomObjects.objectExists(player.getPosition().copy())) {
+					player.getPacketSender().sendMessage("You cannot plant a seed right here.");
+					return;
+				}
+				FlowersData flowers = FlowersData.RAINBOW_FLOWERS;
+				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
+				player.getMovementQueue().reset();
+				player.getInventory().delete(299, 1);
+				player.performAnimation(new Animation(827));
+				player.getPacketSender().sendMessage("You plant the seed..");
+				player.getMovementQueue().reset();
+				player.setDialogueActionId(42);
+				player.setInteractingObject(flower);
+				DialogueManager.start(player, 78);
+				MovementQueue.stepAway(player);
+				CustomObjects.globalObjectRemovalTask(flower, 90);
+				player.setPositionToFace(flower.getPosition());
+				player.getClickDelay().reset();
+			break;
 			case 5:
 			case 10:
 			case 15:

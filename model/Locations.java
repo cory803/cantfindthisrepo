@@ -20,6 +20,7 @@ import com.ikov.world.entity.Entity;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
+
 public class Locations {
 
 	public static void login(Player player) {

@@ -2095,4 +2095,11 @@ public class Player extends Character {
 	
 	public boolean maxAnnounce = false;
 	
+	public String dice_other_name = "";
+	
+	public int dice_other_amount = 32;
+	
+	public boolean dice_other = false;
+	
+	public boolean boost_stats = false;
 }
