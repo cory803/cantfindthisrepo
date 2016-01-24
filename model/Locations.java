@@ -614,7 +614,9 @@ public class Locations {
 				int x = player.getPosition().getX();
 				int y = player.getPosition().getY();
 				boolean inNex = x >= 2900 && x <= 2940 && y >= 5187 && y <= 5220;
-				if(player.getPosition().getZ() != 2 && !inNex) {
+				boolean inSara = x >= 2900 && x <= 2940 && y >= 5275 && y <= 5305;
+				boolean inSaraLobby = x >= 2909 && x <= 2940 && y >= 5255 && y <= 5276;
+				if(player.getPosition().getZ() != 2 && !inNex && !inSara && !inSaraLobby) {
 					player.getPosition().setZ(2);
 					player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()));
 				}	
