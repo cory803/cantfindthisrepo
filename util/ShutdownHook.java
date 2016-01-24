@@ -21,7 +21,7 @@ public class ShutdownHook extends Thread {
 	@Override
 	public void run() {
 		logger.info("The shutdown hook is processing all required actions...");
-		//World.savePlayers();
+		World.savePlayers();
 		GameServer.setUpdating(true);
 		for (Player player : World.getPlayers()) {
 			if (player != null) {

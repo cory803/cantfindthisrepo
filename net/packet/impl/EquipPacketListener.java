@@ -68,6 +68,156 @@ public class EquipPacketListener implements PacketListener {
 							return;
 						}
 					}
+					if(item.getId() == 21050) {
+						if(player.getSkillManager().getExperience(Skill.ATTACK) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Attack to wear this cape!");
+							return;
+						}
+					}					
+					if(item.getId() == 21051) {
+						if(player.getSkillManager().getExperience(Skill.DEFENCE) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Defence to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21052) {
+						if(player.getSkillManager().getExperience(Skill.STRENGTH) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Strength to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21053) {
+						if(player.getSkillManager().getExperience(Skill.CONSTITUTION) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Constitution to wear this cape!");
+							return;
+						}
+					}					
+					if(item.getId() == 21054) {
+						if(player.getSkillManager().getExperience(Skill.RANGED) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Range to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21055) {
+						if(player.getSkillManager().getExperience(Skill.PRAYER) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Prayer to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21056) {
+						if(player.getSkillManager().getExperience(Skill.MAGIC) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Magic to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21057) {
+						if(player.getSkillManager().getExperience(Skill.COOKING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Cooking to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21058) {
+						if(player.getSkillManager().getExperience(Skill.WOODCUTTING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Woodcutting to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21059) {
+						if(player.getSkillManager().getExperience(Skill.FLETCHING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Fletching to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21060) {
+						if(player.getSkillManager().getExperience(Skill.FISHING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Fishing to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21061) {
+						if(player.getSkillManager().getExperience(Skill.FIREMAKING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Firemaking to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21062) {
+						if(player.getSkillManager().getExperience(Skill.CRAFTING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Crafting to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21063) {
+						if(player.getSkillManager().getExperience(Skill.SMITHING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Smithing to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21064) {
+						if(player.getSkillManager().getExperience(Skill.MINING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Mining to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21065) {
+						if(player.getSkillManager().getExperience(Skill.HERBLORE) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Herblore to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21066) {
+						if(player.getSkillManager().getExperience(Skill.AGILITY) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Agility to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21067) {
+						if(player.getSkillManager().getExperience(Skill.THIEVING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Thieving to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21068) {
+						if(player.getSkillManager().getExperience(Skill.SLAYER) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Slayer to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21069) {
+						if(player.getSkillManager().getExperience(Skill.FARMING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Farming to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21070) {
+						if(player.getSkillManager().getExperience(Skill.RUNECRAFTING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Runecrafting to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21071) {
+						if(player.getSkillManager().getExperience(Skill.CONSTRUCTION) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Construction to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 21072) {
+						if(player.getSkillManager().getExperience(Skill.HUNTER) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Hunter to wear this cape!");
+							return;
+						}
+					}	
+					if(item.getId() == 21073) {
+						if(player.getSkillManager().getExperience(Skill.SUMMONING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Summoning to wear this cape!");
+							return;
+						}
+					}
+					if(item.getId() == 19709) {
+						if(player.getSkillManager().getExperience(Skill.DUNGEONEERING) < 500000000) {
+							player.getPacketSender().sendMessage("You need atleast 500 million experience in Dungeoneering to wear this cape!");
+							return;
+						}
+					}
 					int equipmentSlot = item.getDefinition().getEquipmentSlot();
 					Item equipItem = player.getEquipment().forSlot(equipmentSlot).copy();
 					if(player.getLocation() == Location.DUEL_ARENA) {

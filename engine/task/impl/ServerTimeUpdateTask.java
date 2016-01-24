@@ -114,6 +114,13 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.DOUBLE_POINTS = false;
 								}
+							} else if(line.contains("double_drops")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.DOUBLE_DROPS = true;
+								} else {
+									GameSettings.DOUBLE_DROPS = false;
+								}
 							} else if(line.contains("database_logging_time")) {
 								args = line.split(": ");
 								int time = Integer.valueOf(args[1]);

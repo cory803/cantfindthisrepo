@@ -75,11 +75,19 @@ public abstract class CombatAncientSpell extends CombatSpell {
 
             if (next.getPosition().isWithinDistance(castOn.getPosition(),
                 spellRadius()) && !next.equals(cast) && !next.equals(castOn) && next.getConstitution() > 0 && next.getConstitution() > 0) {
+				if(next.isPlayer()) {
 					Player p2 = (Player)next;
 					Player p3 = (Player)cast;
-				int combatDifference = CombatFactory.combatLevelDifference(p3.getSkillManager().getCombatLevel(), p2.getSkillManager().getCombatLevel());
-				if (combatDifference > p3.getWildernessLevel() || combatDifference > p2.getWildernessLevel()) {
-					if(p2.getLocation() == Location.FREE_FOR_ALL_ARENA) {
+					int combatDifference = CombatFactory.combatLevelDifference(p3.getSkillManager().getCombatLevel(), p2.getSkillManager().getCombatLevel());
+					if (combatDifference > p3.getWildernessLevel() || combatDifference > p2.getWildernessLevel()) {
+						if(p2.getLocation() == Location.FREE_FOR_ALL_ARENA) {
+							cast.getCurrentlyCasting().endGraphic().ifPresent(next::performGraphic);
+							int calc = Misc.inclusiveRandom(0, maximumHit());
+							next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
+							next.getCombatBuilder().addDamage(cast, calc);
+							spellEffect(cast, next, calc);
+						}
+					} else {
 						cast.getCurrentlyCasting().endGraphic().ifPresent(next::performGraphic);
 						int calc = Misc.inclusiveRandom(0, maximumHit());
 						next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
@@ -87,15 +95,15 @@ public abstract class CombatAncientSpell extends CombatSpell {
 						spellEffect(cast, next, calc);
 					}
 				} else {
-					cast.getCurrentlyCasting().endGraphic().ifPresent(next::performGraphic);
-					int calc = Misc.inclusiveRandom(0, maximumHit());
-					next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-					next.getCombatBuilder().addDamage(cast, calc);
-					spellEffect(cast, next, calc);
+						cast.getCurrentlyCasting().endGraphic().ifPresent(next::performGraphic);
+						int calc = Misc.inclusiveRandom(0, maximumHit());
+						next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
+						next.getCombatBuilder().addDamage(cast, calc);
+						spellEffect(cast, next, calc);
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 
     @Override
     public Optional<Item[]> equipmentRequired(Player player) {

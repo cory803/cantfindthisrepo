@@ -12,6 +12,7 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
+import com.ikov.model.GameMode;
 import com.ikov.GameSettings;
 import com.ikov.net.PlayerSession;
 import com.ikov.net.packet.PacketBuilder;
@@ -176,6 +177,12 @@ public final class LoginDecoder extends FrameDecoder {
 		}
 		if(rank == 4) {
 			rank = 10;
+		}
+		if(player.getGameMode() == GameMode.IRONMAN) {
+			rank = 33;
+		}
+		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			rank = 32;
 		}
 		if (response == LoginResponses.LOGIN_SUCCESSFUL) {
 			channel.write(new PacketBuilder().put((byte)2).put((byte)rank).put((byte)0).toPacket());

@@ -875,15 +875,39 @@ public class Shop extends ItemContainer {
 					return new Object[]{25000, "Credits"};
 				case 5607:
 					return new Object[]{5000, "Credits"};
+				case 21048:
+				case 21049:
+					return new Object[]{150000, "Credits"};
+				case 21034:
+					return new Object[]{100000, "Credits"};	
+				case 6082:
+				case 9920:
+				case 5608:
+					return new Object[]{50000, "Credits"};	
+				case 9921:
+				case 9922:
+				case 9923:
+				case 9924:
+				case 9925:
+				case 15352:
+					return new Object[]{35000, "Credits"};	
+				case 15449:
+				case 15464:
+				case 15454:
+				case 15459:
+					return new Object[]{110000, "Credits"};
 				}
 			} else if(shop == CREDIT_STORE_2) {
 				switch(item) {
+				case 11694:
+				case 19780:		
+					return new Object[]{10000, "Credits"};
+				case 14484:
+					return new Object[]{7500, "Credits"};
+						
 				case 14008:
 				case 14011:
 				case 14014:
-				case 14484:
-				case 11694:
-				case 19780:
 				case 21016:
 				case 21017:
 				case 21018:
@@ -892,6 +916,8 @@ public class Shop extends ItemContainer {
 				case 21021:
 				case 21022:
 				case 21023:
+				case 11724:
+				case 11726:
 					return new Object[]{5000, "Credits"};
 				case 14012:
 				case 14013:

@@ -12,6 +12,7 @@ import com.ikov.model.Animation;
 import com.ikov.model.Flag;
 import java.net.*;
 import java.io.*;
+import com.ikov.model.GameMode;
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
@@ -94,6 +95,16 @@ public class RegularDonators {
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
 			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
 				player.getPacketSender().sendMessage("You are not aloud to put these symbols in your yell message.");
+				return;
+			}
+			if(player.getGameMode() == GameMode.IRONMAN) {
+				World.sendMessage("<img=33> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				player.getLastYell().reset();
+				return;
+			}
+			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+				World.sendMessage("<img=32> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				player.getLastYell().reset();
 				return;
 			}
 			World.sendMessage("<img=5> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);	

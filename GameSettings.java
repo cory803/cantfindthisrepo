@@ -28,6 +28,7 @@ public class GameSettings {
 	public static boolean DOUBLE_VOTE_TOKENS = false;
 	public static boolean DOUBLE_EXP = false;
 	public static boolean DOUBLE_POINTS = false;
+	public static boolean DOUBLE_DROPS = false;
 	
 	public static int AUTHS_CLAIMED = 0;
 	public static boolean FIGHT_PITS_ACTIVE = false;

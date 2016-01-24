@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.google.gson.Gson;
+import com.ikov.GameSettings;
 import com.google.gson.JsonObject;
 import com.ikov.model.Graphic;
 import com.ikov.model.GroundItem;
@@ -432,6 +433,12 @@ public class NPCDrops {
 
 		GroundItemManager.spawnGroundItem(toGive, new GroundItem(item, pos,
 				toGive.getUsername(), false, 150, goGlobal, 200));
+		if(GameSettings.DOUBLE_DROPS) {
+			GroundItemManager.spawnGroundItem(toGive, new GroundItem(item, pos,
+					toGive.getUsername(), false, 150, goGlobal, 200));
+			DropLog.submit(toGive, new DropLogEntry(itemId, item.getAmount()));
+
+		}
 		DropLog.submit(toGive, new DropLogEntry(itemId, item.getAmount()));
 	}
 

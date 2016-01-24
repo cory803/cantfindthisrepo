@@ -101,12 +101,10 @@ public class PlayersOnlineInterface {
 			if(rankId == 4) {
 				rankId = 10;
 			}
-			if(rankId == 0) {
-				if(p.getGameMode() == GameMode.IRONMAN) {
-					rankId = 33;
-				} else if(p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-					rankId = 32;
-				}
+			if(p.getGameMode() == GameMode.IRONMAN) {
+				rankId = 33;
+			} else if(p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+				rankId = 32;
 			}
 			player.getPacketSender().sendString(child, ""+(rankId > 0 ? "<img="+rankId+">" : "  ")+""+p.getUsername());
 			child++;

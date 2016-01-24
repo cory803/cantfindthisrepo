@@ -7,6 +7,7 @@ import com.ikov.GameSettings;
 import com.ikov.model.Animation;
 import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
+import com.ikov.model.GameMode;
 import com.ikov.model.Item;
 import com.ikov.model.PlayerInteractingOption;
 import com.ikov.model.PlayerRights;
@@ -752,6 +753,12 @@ public class PacketSender {
 		}
 		if(rank == 4) {
 			rank = 10;
+		}
+		if(p.getGameMode() == GameMode.IRONMAN) {
+			rank = 13;
+		}
+		if(p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			rank = 12;
 		}
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);

@@ -259,6 +259,9 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.setEntityInteraction(npc);
 					Fishing.setupFishing(player, Fishing.forSpot(npc.getId(), false));
 					break;
+				case 2253:
+					ShopManager.getShops().get(9).open(player);
+					break;
 				case 2733:
 					ShopManager.getShops().get(60).open(player);
 					break; //test
@@ -419,6 +422,9 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 7969:
 					ShopManager.getShops().get(28).open(player);
 					break;
+				case 2253:
+					ShopManager.getShops().get(8).open(player);
+					break;
 				case 605:
 					player.getPacketSender().sendMessage("").sendMessage("You currently have "+player.getPointsHandler().getVotingPoints()+" Voting points.").sendMessage("You can earn points and coins by voting. To do so, simply use the ::vote command.");;
 					ShopManager.getShops().get(27).open(player);
@@ -469,9 +475,6 @@ public class NPCOptionPacketListener implements PacketListener {
 					break;
 				case 705:
 					ShopManager.getShops().get(4).open(player);
-					break;
-				case 2253:
-					ShopManager.getShops().get(9).open(player);
 					break;
 				case 6970:
 					player.setDialogueActionId(35);
@@ -524,9 +527,9 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 1861:
 					ShopManager.getShops().get(2).open(player);
 					break;
-				//case 597:
-					//ShopManager.getShops().get(54).open(player);
-					//break;
+				case 2253:
+					ShopManager.getShops().get(83).open(player);
+					break;
 				case 961:
 					if(player.getDonorRights() == 0) {
 						player.getPacketSender().sendMessage("This feature is currently only available for members.");
@@ -552,9 +555,6 @@ public class NPCOptionPacketListener implements PacketListener {
 					break;
 				case 705:
 					ShopManager.getShops().get(5).open(player);
-					break;
-				case 2253:
-					ShopManager.getShops().get(10).open(player);
 					break;
 				}
 				npc.setPositionToFace(player.getPosition());

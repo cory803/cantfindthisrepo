@@ -8,6 +8,7 @@ import com.ikov.engine.task.Task;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.commands.Commands;
+import com.ikov.model.GameMode;
 import com.ikov.model.Animation;
 import com.ikov.model.Flag;
 import java.net.*;
@@ -94,6 +95,16 @@ public class SuperDonators {
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
 			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
 				player.getPacketSender().sendMessage("You are not aloud to put these symbols in your yell message.");
+				return;
+			}
+			if(player.getGameMode() == GameMode.IRONMAN) {
+				World.sendMessage("<img=33> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				player.getLastYell().reset();
+				return;
+			}
+			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+				World.sendMessage("<img=32> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				player.getLastYell().reset();
 				return;
 			}
 			World.sendMessage("<img=6> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellMessage);	
