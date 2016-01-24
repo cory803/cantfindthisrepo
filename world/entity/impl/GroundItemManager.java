@@ -11,6 +11,7 @@ import com.ikov.model.Position;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.world.World;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.Sounds;
 import com.ikov.world.content.Sounds.Sound;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
@@ -156,6 +157,7 @@ public class GroundItemManager {
 			p.getInventory().add(item);
 			p.getLastItemPickup().reset();
 			Sounds.sendSound(p, Sound.PICKUP_ITEM);
+			PlayerLogs.log(p.getUsername(), "Player looting item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: "+item.getAmount());
 		}
 	}
 
