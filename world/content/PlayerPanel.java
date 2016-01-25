@@ -13,7 +13,7 @@ public class PlayerPanel {
 		/**
 		 * General info
 		 */
-		player.getPacketSender().sendString(39159, "Ikov2.org - Main World");
+		player.getPacketSender().sendString(39155, "Ikov2.org - Main World");
 		player.getPacketSender().sendString(39159, "@whi@   - General Information");
 
 		player.getPacketSender().sendString(39162, "@whi@   - Configurations");
