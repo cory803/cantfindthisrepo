@@ -14,7 +14,7 @@ public class PlayersOnline {
 	public static void createCon() {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
-			con = DriverManager.getConnection("jdbc:mysql://ikov2.org/spawnsca_oonline", "spawnsca_oonline", "online123");
+			con = DriverManager.getConnection("jdbc:mysql://ikov2.org/ikovorg_online", "ikovorg_online", "6*Z6qGRee4Jt");
 			stm = con.createStatement();
 		} catch (Exception e) {
 			e.printStackTrace();

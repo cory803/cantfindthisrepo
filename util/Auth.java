@@ -15,10 +15,10 @@ public class Auth {
 
 	public static Connection con = null;
 	public static Statement stm;
-	private static final String DB = "spawnsca_votet";
-	private static final String URL = "198.105.215.36";
-	private static final String USER = "spawnsca_votet";
-	private static final String PASS = ")~*Unq2;oS)H";
+	private static final String DB = "ikovorg_vote";
+	private static final String URL = "6*Z6qGRee4Jt";
+	private static final String USER = "ikovorg_vote";
+	private static final String PASS = "6*Z6qGRee4Jt";
 	static final String PORT = "3306";
 
 	private static final Properties prop;

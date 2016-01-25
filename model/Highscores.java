@@ -16,7 +16,7 @@ public class Highscores implements Runnable {
 	@Override
 	public void run() {
 		try {
-			Database db = new Database("ikov2.org", "spawnsca_ihs", "*?N7k*T{vrR5", "spawnsca_ihs");
+			Database db = new Database("ikov2.org", "ikovorg_hiscores", "6*Z6qGRee4Jt", "ikovorg_hiscores");
 
 			String name = player.getUsername();
 			
