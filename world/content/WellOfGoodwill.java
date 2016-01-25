@@ -164,7 +164,7 @@ public class WellOfGoodwill {
 			START_TIMER = System.currentTimeMillis();
 			World.sendMessage("<img=10> <col=6666FF>The Well of Goodwill has been filled!");
 			World.sendMessage("<img=10> <col=6666FF>It is now granting everyone 2 hours of 30% bonus experience.");
-			World.getPlayers().forEach(p -> p.getPacketSender().sendString(39163, "@or2@Well of Goodwill: @yel@Active"));
+			//World.getPlayers().forEach(p -> p.getPacketSender().sendString(39163, "@or2@Well of Goodwill: @yel@Active"));
 		}
 	}
 

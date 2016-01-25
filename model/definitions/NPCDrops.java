@@ -453,7 +453,7 @@ public class NPCDrops {
 	}
 	public static void wildKeys(Player player, int combat, Position pos) {
 		int chance = (int) (1 + combat);
-		if (Misc.getRandom(combat <= 50 ? 550 : 400) < chance) {
+		if (Misc.getRandom(combat <= 50 ? 450 : 200) < chance) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos, player.getUsername(), false, 150, true, 200));
 		}
 	}
