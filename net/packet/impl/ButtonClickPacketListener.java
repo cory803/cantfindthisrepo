@@ -81,11 +81,17 @@ public class ButtonClickPacketListener implements PacketListener {
 
 		switch(id) {
 		case -26372:			
-			player.setMusicActive(!player.musicActive());
+			//player.setMusicActive(!player.musicActive());
+			DialogueManager.sendStatement(player, "You can adjust the music volume in the settings tab.");
+			player.setDialogueActionId(-1);
+			player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
 			PlayerPanel.refreshPanel(player);
 			break;
 		case -26371:
-			player.setSoundsActive(!player.soundsActive());
+			//player.setSoundsActive(!player.soundsActive());
+			DialogueManager.sendStatement(player, "You can adjust the sound volume in the settings tab.");
+			player.setDialogueActionId(-1);
+			player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
 			PlayerPanel.refreshPanel(player);
 			break;
 		case -26370:
