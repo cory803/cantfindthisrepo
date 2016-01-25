@@ -21,9 +21,9 @@ public class Store {
 		try {
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			String IP = "ikov2.org";
-			String DB = "spawnsca_store";
-			String User = "spawnsca_store";
-			String Pass = "bn(6cS#KHAit"; 
+			String DB = "ikovorg_store";
+			String User = "ikovorg_store";
+			String Pass = "6*Z6qGRee4Jt"; 
 			con = DriverManager.getConnection("jdbc:mysql://"+IP+"/"+DB, User, Pass);
 			stmt = con.createStatement();
 		} catch (Exception e) {
