@@ -14,10 +14,6 @@ public class SetEmail extends Input {
 	@Override
 	public void handleSyntax(Player player, String syntax) {
 		player.getPacketSender().sendInterfaceRemoval();
-		if(!GameSettings.MYSQL_ENABLED) {
-			player.getPacketSender().sendMessage("This service is currently unavailable.");
-			return;
-		}
 		if(syntax.length() <= 3 || !syntax.contains("@") || syntax.endsWith("@")) {
 			player.getPacketSender().sendMessage("Invalid syntax, please enter a valid one.");
 			return;

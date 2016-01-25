@@ -125,10 +125,6 @@ public class Members {
 				return;
 			}
 			String authCode = command[1];
-			if (!GameSettings.MYSQL_ENABLED) {
-				player.getPacketSender().sendMessage("Sorry this is currently disabled.");
-				return;
-			} else {
 				try {
 					Auth.connect();
 					if (Auth.checkVote(authCode)) {
@@ -160,8 +156,6 @@ public class Members {
 					player.getPacketSender().sendMessage("Error connecting to the database. Please try again later.");
 					e.printStackTrace();
 				}
-
-			}
 			return;
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
