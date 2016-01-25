@@ -33,8 +33,20 @@ public class Members {
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if (command[0].equalsIgnoreCase("changelevel")) {
+			if(player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
+				player.getPacketSender().sendMessage("Please unequip all your items first.");
+				return;
+			}
 			String skill = command[1];
 			String newLevel = command[2];
+			if(Integer.parseInt(newLevel) < 1) {
+				player.getPacketSender().sendMessage("You cannot set your level to "+newLevel+".");
+				return;
+			}
+			if(Integer.parseInt(newLevel) > 99) {
+				player.getPacketSender().sendMessage("You cannot set your level to "+newLevel+".");
+				return;
+			}
 			switch(skill) {
 			case "att":
 			case "attack":
@@ -63,9 +75,9 @@ public class Members {
 			case "pray":
 			case "prayer":
 				if(player.getSkillManager().getMaxLevel(Skill.PRAYER) > Integer.parseInt(newLevel)) {
-					player.getPacketSender().sendMessage("You just changed your prayer from "+player.getSkillManager().getCurrentLevel(Skill.PRAYER)+" to "+newLevel+"." );
-					player.getSkillManager().setMaxLevel(Skill.PRAYER, Integer.parseInt(newLevel), true);
-					player.getSkillManager().setCurrentLevel(Skill.PRAYER, Integer.parseInt(newLevel), true);
+					player.getPacketSender().sendMessage("You just changed your prayer from "+player.getSkillManager().getCurrentLevel(Skill.PRAYER)/10+" to "+newLevel+"." );
+					player.getSkillManager().setMaxLevel(Skill.PRAYER, Integer.parseInt(newLevel)*10, true);
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, Integer.parseInt(newLevel)*10, true);
 					player.getSkillManager().setExperience(Skill.PRAYER, SkillManager.getExperienceForLevel(Integer.parseInt(newLevel)));
 				} else {
 					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
