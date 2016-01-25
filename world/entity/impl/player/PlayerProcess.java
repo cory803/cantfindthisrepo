@@ -6,11 +6,9 @@ import com.ikov.world.content.LoyaltyProgramme;
 import com.ikov.world.content.combat.pvp.BountyHunter;
 import com.ikov.world.content.skill.impl.construction.House;
 import com.ikov.world.entity.impl.GroundItemManager;
-import com.ikov.world.content.Consumables;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Skill;
 import com.ikov.commands.ranks.SpecialPlayers;
-import com.ikov.model.PlayerRights;
 
 public class PlayerProcess {
 
@@ -99,7 +97,7 @@ public class PlayerProcess {
 		}
 		
 		if(timerTick >= 1) {
-			player.getPacketSender().sendString(39166, "@or2@Time played:  @yel@"+Misc.getTimePlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed())));
+			player.getPacketSender().sendString(39171, "@or2@Time played:  @yel@"+Misc.getTimePlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed())));
 			timerTick = 0;
 		}
 		timerTick++;

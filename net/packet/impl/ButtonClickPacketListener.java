@@ -11,7 +11,6 @@ import com.ikov.model.input.impl.EnterClanChatToJoin;
 import com.ikov.model.input.impl.EnterSyntaxToBankSearchFor;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
-import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.BankPin;
@@ -81,6 +80,15 @@ public class ButtonClickPacketListener implements PacketListener {
 			return;
 
 		switch(id) {
+		case -26370:
+			player.getPacketSender().sendMessage("Coming soon...");
+			break;
+		case -26366:
+			DropLog.open(player);
+			break;
+		case -26367:
+			KillsTracker.open(player);
+			break;
 		case -27454:
 		case -27534:
 		case 5384:
@@ -136,7 +144,9 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.getSkillManager().setTotalGainedExp(0);
 			break;
 		case -26373:
-			if(WellOfGoodwill.isActive()) {
+			player.setYellToggle(!player.yell_toggle);
+			PlayerPanel.refreshPanel(player);
+			/*if(WellOfGoodwill.isActive()) {
 				if(player.getDonorRights() > 0) {
 					player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");
 				} else {
@@ -144,13 +154,7 @@ public class ButtonClickPacketListener implements PacketListener {
 				}
 			} else {
 				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill needs another "+Misc.insertCommasToNumber(""+WellOfGoodwill.getMissingAmount())+" coins before becoming full.");
-			}
-			break;
-		case -26346:
-			KillsTracker.open(player);
-			break;
-		case -26345:
-			DropLog.open(player);
+			}*/
 			break;
 		case -10531:
 			if(player.isKillsTrackerOpen()) {
