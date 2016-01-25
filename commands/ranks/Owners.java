@@ -59,7 +59,7 @@ public class Owners {
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
-			player.moveTo(new Position(3357, 3875));
+			player.moveTo(new Position(3357, 3873));
 		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
 			Gson builder = new GsonBuilder().setPrettyPrinting().create();
