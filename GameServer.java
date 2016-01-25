@@ -50,14 +50,6 @@ public class GameServer {
 			logger.info("Finished starting configuration settings...");
 			logger.info("The loader has finished loading utility tasks.");
 			logger.info("Ikov is now online on port "+GameSettings.GAME_PORT+"!");
-			final BufferedReader reader = new BufferedReader(new FileReader(new File("data/mysql_connection.txt")));
-			if(reader.readLine().toLowerCase().equals("on")) {
-				GameSettings.MYSQL_ENABLED = true;
-				System.out.println("MYSQL Connections are enabled!");
-			} else {
-				GameSettings.MYSQL_ENABLED = false;
-				System.out.println("MYSQL Connections are disabled.");
-			}
 		} catch (Exception ex) {
 			logger.log(Level.SEVERE, "Could not start Ikov! Program terminated.", ex);
 			System.exit(1);

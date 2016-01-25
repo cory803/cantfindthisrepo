@@ -60,7 +60,7 @@ public class PlayerHandler {
 		World.getPlayers().add(player);
 		World.updatePlayersOnline();
 		PlayersOnlineInterface.add(player);
-		if(GameSettings.MYSQL_ENABLED) {
+		if(GameSettings.PLAYERS_ONLINE) {
 			PlayersOnline.createCon();
 			PlayersOnline.offline(player);	
 			PlayersOnline.online(player);
@@ -283,7 +283,7 @@ public class PlayerHandler {
 				World.getPlayers().remove(player);
 				session.setState(SessionState.LOGGED_OUT);
 				World.updatePlayersOnline();
-				if(GameSettings.MYSQL_ENABLED) {
+				if(GameSettings.PLAYERS_ONLINE) {
 					PlayersOnline.createCon();
 					PlayersOnline.offline(player);	
 					PlayersOnline.online(player);
