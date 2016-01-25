@@ -18,6 +18,7 @@ import com.ikov.world.entity.impl.player.Player;
 public class RegionInstance {
 
 	public enum RegionInstanceType {
+		WILDKEY_ZONE,
 		BOSS_SYSTEM,
 		BARROWS,
 		GRAVEYARD,

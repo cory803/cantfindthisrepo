@@ -116,8 +116,58 @@ public class Locations {
 		},
 		DAGANNOTH_DUNGEON(new int[]{2886, 2938}, new int[]{4431, 4477}, true, true, true, false, true, true) {
 		},
+		WILDYKEY_LOBBY(new int[]{3350, 3358}, new int[]{3870, 3875}, true, true, true, false, true, true) {
+		},
 		//Location(int[] x, int[] y, boolean multi, boolean summonAllowed, boolean followingAllowed, boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed) {
 		WILDKEY_ZONE(new int[]{3352, 3390}, new int[]{3870, 3905}, true, true, true, false, true, true) {
+			@Override
+			public void process(Player player) {
+					int x = player.getPosition().getX();
+					int y = player.getPosition().getY();
+					player.setWildernessLevel(60);
+					player.getPacketSender().sendString(25352, ""+player.getWildernessLevel());
+					player.getPacketSender().sendString(25355, "Levels: "+CombatFactory.getLevelDifference(player, false) +" - "+CombatFactory.getLevelDifference(player, true));
+					BountyHunter.process(player);
+					player.getPacketSender().sendInteractionOption("Attack", 2, true);
+					player.getPacketSender().sendWalkableInterface(25347);
+					player.getPacketSender().sendString(19000, "Combat level: " + player.getSkillManager().getCombatLevel());
+					player.getUpdateFlag().flag(Flag.APPEARANCE);
+			}
+
+			@Override
+			public boolean canTeleport(Player player) {
+				if(player.getWildernessLevel() > 20) {
+					if(player.getRights() == PlayerRights.ADMINISTRATOR || player.getRights() == PlayerRights.OWNER) {
+						player.getPacketSender().sendMessage("@red@You've teleported out of deep Wilderness, logs have been written.");
+						return true;
+					}
+					player.getPacketSender().sendMessage("Teleport spells are blocked in this level of Wilderness.");
+					player.getPacketSender().sendMessage("You must be below level 20 of Wilderness to use teleportation spells.");
+					return false;
+				}
+				return true;
+			}
+
+			@Override
+			public void login(Player player) {
+				player.performGraphic(new Graphic(2000, 8));
+			}
+
+			@Override
+			public boolean canAttack(Player player, Player target) {
+				int combatDifference = CombatFactory.combatLevelDifference(player.getSkillManager().getCombatLevel(), target.getSkillManager().getCombatLevel());
+				if (combatDifference > player.getWildernessLevel() || combatDifference > target.getWildernessLevel()) {
+					player.getPacketSender().sendMessage("Your combat level difference is too great to attack that player here.");
+					player.getMovementQueue().reset();
+					return false;
+				}
+				if(target.getLocation() != Location.WILDKEY_ZONE) {
+					player.getPacketSender().sendMessage("That player cannot be attacked, because they are not in the Wilderness.");
+					player.getMovementQueue().reset();
+					return false;
+				}
+				return true;
+			}
 		},
 		WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653}, new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472}, false, true, true, true, true, true) {
 			@Override

@@ -5,14 +5,34 @@ import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
+import com.ikov.model.RegionInstance.RegionInstanceType;
 import com.ikov.model.Position;
+import com.ikov.model.RegionInstance;
 import com.ikov.model.definitions.NPCDrops;
 import com.ikov.world.World;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 
 public class Digging {
-
+	public static void spawnNpc(final Player player, int npc) {
+		Position spawnNpc = new Position(player.getPosition().getX() , player.getPosition().getY(), player.getPosition().getZ());
+		player.setRegionInstance(new RegionInstance(player, RegionInstanceType.WILDKEY_ZONE));
+		TaskManager.submit(new Task(2, player, false) {
+			@Override
+			public void execute() {
+				if (player.getRegionInstance() == null || !player.isRegistered()
+						|| player.getLocation() != Location.WILDKEY_ZONE) {
+					stop();
+					return;
+				}
+				NPC n = new NPC(npc, spawnNpc).setSpawnedFor(player);
+				World.register(n);
+				player.getRegionInstance().getNpcsList().add(n);
+				n.getCombatBuilder().attack(player);
+				stop();
+			}
+		});
+	}
 	public static void dig(final Player player) {
 		if (!player.getClickDelay().elapsed(2000))
 			return;
@@ -41,27 +61,22 @@ public class Digging {
 				 * Wilderness Keys
 				 **/
 				if (player.getLocation() == Location.WILDKEY_ZONE) {
-					Position spawnNpc = new Position(player.getPosition().getX() + 1, player.getPosition().getY());
-					if (player.getInventory().containsAny(player.allKeys)) {
 						if(player.getInventory().contains(1543)) { //red best
 							player.getInventory().deleteAmount(1543, 1);
-							
+							spawnNpc(player, 9939);
 						} else if(player.getInventory().contains(1545)) { //yellow 2nd best
 							player.getInventory().deleteAmount(1545, 1);
-							
+							spawnNpc(player, 13458);
 						} else if(player.getInventory().contains(1546)) { //blue 3rd best
 							player.getInventory().deleteAmount(1546, 1);	
-							
+							spawnNpc(player, 6691);
 						} else if(player.getInventory().contains(1547)) { //magenta 4th best
-							player.getInventory().deleteAmount(1547, 1);	
-								
+							player.getInventory().deleteAmount(1547, 1);		
+							spawnNpc(player, 2060);
 						} else if(player.getInventory().contains(1548)) { //green worst
-							player.getInventory().deleteAmount(1548, 1);
-						
-						} else {
-							
-						}
-					}
+							player.getInventory().deleteAmount(1548, 1);	
+							spawnNpc(player, 9463);
+						} 
 				}
 				/**
 				 * Barrows

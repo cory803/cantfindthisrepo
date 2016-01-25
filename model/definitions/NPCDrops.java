@@ -218,7 +218,7 @@ public class NPCDrops {
 
 	public enum DropChance {
 		ALWAYS(0), ALMOST_ALWAYS(2), VERY_COMMON(5), COMMON(15), UNCOMMON(40), NOTTHATRARE(
-				100), RARE(350), LEGENDARY(500), LEGENDARY_2(800), LEGENDARY_3(1000), LEGENDARY_4(1200), LEGENDARY_5(1500);
+				100), RARE(250), LEGENDARY(500), LEGENDARY_2(800), LEGENDARY_3(1000), LEGENDARY_4(1200), LEGENDARY_5(1500);
 		
 		
 		DropChance(int randomModifier) {
@@ -288,8 +288,7 @@ public class NPCDrops {
 			casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
-			//wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
-			System.out.println("Wild key would have dropped if this was active.");
+			wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
 
 
@@ -454,7 +453,7 @@ public class NPCDrops {
 	}
 	public static void wildKeys(Player player, int combat, Position pos) {
 		int chance = (int) (1 + combat);
-		if (Misc.getRandom(combat <= 50 ? 750 : 500) < chance) {
+		if (Misc.getRandom(combat <= 50 ? 550 : 400) < chance) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos, player.getUsername(), false, 150, true, 200));
 		}
 	}
@@ -462,7 +461,8 @@ public class NPCDrops {
 
 		private static List<Integer> ITEM_LIST;
 
-		private static final int[] TO_ANNOUNCE = new int[] { 6571, 14484, 4224,
+		private static final int[] TO_ANNOUNCE = new int[] { 1543, 1545, 1546, 1547, 1548,
+			6571, 14484, 4224,
 			11702, 11704, 11706, 11708, 11704, 11724, 11726, 11728, 11718,
 			11720, 11722, 11730, 11716, 14876, 11286, 13427, 6731, 6737,
 			6735, 4151, 2513, 15259, 13902, 13890, 13884, 13861, 13858,

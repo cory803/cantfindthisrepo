@@ -997,7 +997,17 @@ public class DialogueOptions {
 				break;
 			case 128:
 				ShopManager.getShops().get(48).open(player);
-			break;
+				break;
+			case 139:
+				DialogueManager.start(player, 141);
+				player.setDialogueActionId(140);
+				break;
+			case 140:
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 142:
+				player.moveTo(new Position(3349, player.getPosition().getY()));
+				break;
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
@@ -1043,6 +1053,16 @@ public class DialogueOptions {
 				break;
 			case 128:
 				ShopManager.getShops().get(12).open(player);
+				break;
+			case 139:
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 140:
+				player.moveTo(new Position(3087, 3502, 0));
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 142:
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {

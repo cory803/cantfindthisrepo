@@ -139,6 +139,14 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				}
 				switch(id) {
+				case 3565:
+					if(player.getPosition().getX() <= 3350) {
+						player.moveTo(new Position(3352, player.getPosition().getY()));
+					} else if (player.getPosition().getX() > 3350) {
+						DialogueManager.start(player, 142);
+						player.setDialogueActionId(142);
+					}
+					break;
 				case 38660:
 					if(ShootingStar.CRASHED_STAR != null) {
 
@@ -400,6 +408,14 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.performAnimation(new Animation(645));
 					player.getSkillManager().setCurrentLevel(Skill.PRAYER, toRestore);
 					player.getMinigameAttributes().getGodwarsDungeonAttributes().setAltarDelay(System.currentTimeMillis());
+					break;
+				case 16044:
+					if(player.getPosition().getY() < 3875) {
+						player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()+3));
+					player.getPacketSender().sendMessage("You can only leave this zone by talking to Sir Tinley.");
+					} else {
+						player.getPacketSender().sendMessage("You cannot leave through this portal, talk to Sir Tinley.");
+					}
 					break;
 				case 23093:
 					if(player.getSkillManager().getCurrentLevel(Skill.AGILITY) < 70) {
