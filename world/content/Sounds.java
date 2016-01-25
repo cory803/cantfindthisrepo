@@ -48,15 +48,23 @@ public class Sounds {
 	}
 
 	public static boolean handleButton(Player player, int id) {
-			if(id == -26372) {
-				if(player.musicActive()) {
-					sendSound(player, 319);
-				}
-				player.setMusicActive(!player.musicActive());
+		if(id >= 930 && id <= 934) {
+			player.setMusicActive(id != 930);
+			if(id <= 931) {
+				sendSound(player, 319);
 			}
 			PlayerPanel.refreshPanel(player);
 			return true;
+		}
+		if(id >= 941 && id <= 945) {
+			player.setSoundsActive(id != 941);
+			sendSound(player, 319);
+			PlayerPanel.refreshPanel(player);
+			return true;
+		}
+		return false;
 	}
+
 
 	public static void handleRegionChange(Player player) {
 		if(player.musicActive()) {

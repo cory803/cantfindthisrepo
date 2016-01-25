@@ -80,6 +80,14 @@ public class ButtonClickPacketListener implements PacketListener {
 			return;
 
 		switch(id) {
+		case -26372:			
+			player.setMusicActive(!player.musicActive());
+			PlayerPanel.refreshPanel(player);
+			break;
+		case -26371:
+			player.setSoundsActive(!player.soundsActive());
+			PlayerPanel.refreshPanel(player);
+			break;
 		case -26370:
 			player.getPacketSender().sendMessage("Coming soon...");
 			break;
@@ -524,6 +532,7 @@ public class ButtonClickPacketListener implements PacketListener {
 				player.setRunning(!player.isRunning());
 			player.getPacketSender().sendRunStatus();
 			break;
+		case -26369:
 		case 27658:
 			player.setExperienceLocked(!player.experienceLocked());
 			String type = player.experienceLocked() ? "locked" : "unlocked";
@@ -859,9 +868,9 @@ public class ButtonClickPacketListener implements PacketListener {
 		if(Achievements.handleButton(player, id)) {
 			return true;
 		}
-		if(Sounds.handleButton(player, id)) {
-			return true;
-		}
+		//if(Sounds.handleButton(player, id)) {
+		//	return true;
+		//}
 		if (PrayerHandler.isButton(id)) {
 			PrayerHandler.togglePrayerWithActionButton(player, id);
 			return true;
