@@ -868,9 +868,9 @@ public class ButtonClickPacketListener implements PacketListener {
 		if(Achievements.handleButton(player, id)) {
 			return true;
 		}
-		//if(Sounds.handleButton(player, id)) {
-		//	return true;
-		//}
+		if(Sounds.handleButton(player, id)) {
+			return true;
+		}
 		if (PrayerHandler.isButton(id)) {
 			PrayerHandler.togglePrayerWithActionButton(player, id);
 			return true;

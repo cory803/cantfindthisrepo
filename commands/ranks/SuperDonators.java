@@ -98,16 +98,16 @@ public class SuperDonators {
 				return;
 			}
 			if(player.getGameMode() == GameMode.IRONMAN) {
-				World.sendMessage("<img=33> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=33> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
 				player.getLastYell().reset();
 				return;
 			}
 			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-				World.sendMessage("<img=32> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=32> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
 				player.getLastYell().reset();
 				return;
 			}
-			World.sendMessage("<img=6> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<img=6> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellMessage);	
 			player.getLastYell().reset();
 		}
 		if (command[0].equals("dzone")) {

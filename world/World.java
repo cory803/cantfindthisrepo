@@ -76,6 +76,9 @@ public class World {
 	public static void sendMessage(String message) {
 		players.forEach(p -> p.getPacketSender().sendMessage(message));
 	}
+	public static void sendYell(String message) {
+		players.stream().filter(p -> p != null && (p.yellToggle())).forEach(p -> p.getPacketSender().sendMessage(message));
+	}
 	
 	public static void sendStaffMessage(String message) {
 		players.stream().filter(p -> p != null && (p.getRights() == PlayerRights.OWNER || p.getRights() == PlayerRights.ADMINISTRATOR || p.getRights() == PlayerRights.MODERATOR || p.getRights() == PlayerRights.SUPPORT)).forEach(p -> p.getPacketSender().sendMessage(message));

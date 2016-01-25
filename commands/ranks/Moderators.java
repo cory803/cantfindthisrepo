@@ -358,7 +358,7 @@ public class Moderators {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendMessage("<col=0>[<col=31a4ff><shad=0><img=1>Moderator<img=1></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=31a4ff><shad=0><img=1>Moderator<img=1></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);
