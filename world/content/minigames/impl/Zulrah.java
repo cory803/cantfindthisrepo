@@ -9,10 +9,8 @@ import com.ikov.model.RegionInstance;
 import com.ikov.model.RegionInstance.RegionInstanceType;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
-import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
-import com.ikov.model.Position;
 
 public class Zulrah {
 

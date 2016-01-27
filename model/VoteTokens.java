@@ -75,7 +75,7 @@ public class VoteTokens  {
 		String name = p.getUsername();
 		p.getInventory().delete(10944, 1);
 		p.getInventory().add(item_id, 1);
-		int yell_chance = Misc.getRandom(5);
+//		int yell_chance = Misc.getRandom(5);
 		String item_name = ItemDefinition.forId(item_id).name;
 		int points = 1;
 		if(p.getDonorRights() == 1) {

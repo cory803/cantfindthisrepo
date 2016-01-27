@@ -16,7 +16,6 @@ import com.ikov.model.Projectile;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.model.definitions.WeaponAnimations;
-import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.CombatContainer;

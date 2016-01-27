@@ -3,7 +3,6 @@ package com.ikov.world.content.combat.strategy.impl;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
-import com.ikov.model.Graphic;
 import com.ikov.model.Locations;
 import com.ikov.model.Projectile;
 import com.ikov.model.Locations.Location;

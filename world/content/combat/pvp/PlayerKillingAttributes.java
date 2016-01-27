@@ -10,7 +10,6 @@ import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Artifacts;
 import com.ikov.world.content.LoyaltyProgramme;
 import com.ikov.world.content.LoyaltyProgramme.LoyaltyTitles;
-import com.ikov.world.content.Scoreboards;
 import com.ikov.world.entity.impl.player.Player;
 
 public class PlayerKillingAttributes {

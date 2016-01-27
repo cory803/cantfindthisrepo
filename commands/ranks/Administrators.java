@@ -5,7 +5,6 @@ import com.ikov.model.Flag;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
-import com.ikov.net.security.ConnectionHandler;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerLogs;
@@ -83,18 +82,13 @@ public class Administrators {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Cannot find that player online..");
-				return;
-			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
 				if(canTele) {
 					TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
 					player.getPacketSender().sendMessage("Teleporting player to you: "+player2.getUsername()+"");
 					player2.getPacketSender().sendMessage("You're being teleported to "+player.getUsername()+"...");
 				} else
 					player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
-			}
 		}
 		if(command[0].equalsIgnoreCase("movetome")) {
 			String playerToTele = wholeCommand.substring(9);
@@ -103,18 +97,13 @@ public class Administrators {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Cannot find that player..");
-				return;
-			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
-					player.getPacketSender().sendMessage("Moving player: "+player2.getUsername()+"");
-					player2.getPacketSender().sendMessage("You've been moved to "+player.getUsername());
-					player2.moveTo(player.getPosition().copy());
-				} else
-					player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
-			}
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			if(canTele) {
+				player.getPacketSender().sendMessage("Moving player: "+player2.getUsername()+"");
+				player2.getPacketSender().sendMessage("You've been moved to "+player.getUsername());
+				player2.moveTo(player.getPosition().copy());
+			} else
+				player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
 		}
 		if(command[0].contains("host")) {
 			String plr = wholeCommand.substring(command[0].length()+1);
@@ -410,10 +399,7 @@ public class Administrators {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			if(playerToKick == null) {
-				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Ikov.");
-				return;
-			} else if(playerToKick.getLocation() != Location.WILDERNESS) {
+			if(playerToKick.getLocation() != Location.WILDERNESS) {
 				World.deregister(playerToKick);
 				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
 				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");

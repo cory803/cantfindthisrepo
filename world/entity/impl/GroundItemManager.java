@@ -6,7 +6,6 @@ import com.ikov.engine.task.impl.GroundItemsTask;
 import com.ikov.model.GameMode;
 import com.ikov.model.GroundItem;
 import com.ikov.model.Item;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.definitions.ItemDefinition;

@@ -1,8 +1,6 @@
 package com.ikov.world.content.combat;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -11,7 +9,6 @@ import com.ikov.util.Stopwatch;
 import com.ikov.world.content.combat.CombatContainer.ContainerHit;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.entity.Entity;
-import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.entity.impl.Character;
 /**

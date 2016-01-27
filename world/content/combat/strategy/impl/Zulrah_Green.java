@@ -4,7 +4,6 @@ import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
 import com.ikov.model.Graphic;
-import com.ikov.model.Locations;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.model.Projectile;
 import com.ikov.util.Misc;

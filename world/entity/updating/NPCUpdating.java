@@ -11,7 +11,6 @@ import com.ikov.net.packet.Packet.PacketType;
 import com.ikov.net.packet.PacketBuilder;
 import com.ikov.net.packet.PacketBuilder.AccessType;
 import com.ikov.net.packet.ValueType;
-import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.entity.Entity;
 import com.ikov.world.entity.impl.npc.NPC;

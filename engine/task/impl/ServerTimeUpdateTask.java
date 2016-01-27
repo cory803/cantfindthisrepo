@@ -7,14 +7,9 @@ import com.ikov.util.Misc;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.world.World;
 import com.ikov.world.content.minigames.impl.PestControl;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.io.BufferedWriter;
 import java.io.File;
 
 /**
@@ -142,6 +137,7 @@ public class ServerTimeUpdateTask extends Task {
 								}
 							}
 						}
+						reader.close();
 					} catch (IOException e) {
 						
 					}

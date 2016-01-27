@@ -1,8 +1,6 @@
 package com.ikov.world.content;
 
 import com.ikov.model.container.impl.Equipment;
-import com.ikov.util.Misc;
-import com.ikov.world.content.ItemDegrading.DegradingItem;
 import com.ikov.world.entity.impl.player.Player;
 
 public class BrawlingGloves {

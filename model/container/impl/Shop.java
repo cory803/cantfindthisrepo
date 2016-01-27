@@ -9,7 +9,6 @@ import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.ShopRestockTask;
 import com.ikov.model.GameMode;
 import com.ikov.model.Item;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Skill;
 import com.ikov.model.container.ItemContainer;
 import com.ikov.model.container.StackType;

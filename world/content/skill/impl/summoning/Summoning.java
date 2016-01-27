@@ -13,7 +13,6 @@ import com.ikov.model.Skill;
 import com.ikov.model.container.impl.BeastOfBurden;
 import com.ikov.model.movement.MovementQueue;
 import com.ikov.world.World;
-import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.skill.impl.summoning.BossPets.BossPet;
 import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.world.entity.impl.npc.NPC;

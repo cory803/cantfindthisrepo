@@ -1,21 +1,8 @@
 package com.ikov.model.input.impl;
 
-import com.ikov.model.Item;
-import com.ikov.model.container.impl.Bank;
 import com.ikov.model.input.EnterAmount;
 import com.ikov.world.entity.impl.player.Player;
-import com.ikov.model.Animation;
-import com.ikov.model.GameObject;
-import com.ikov.model.Graphic;
-import com.ikov.model.PlayerRights;
-import com.ikov.model.Locations.Location;
-import com.ikov.model.movement.MovementQueue;
 import com.ikov.world.World;
-import com.ikov.util.Misc;
-import com.ikov.world.content.clan.ClanChatManager;
-import com.ikov.world.content.dialogue.DialogueManager;
-import com.ikov.world.entity.impl.npc.NPC;
-import com.ikov.world.entity.impl.player.Player;
 
 public class EnterAmountToDiceOther extends EnterAmount {
 

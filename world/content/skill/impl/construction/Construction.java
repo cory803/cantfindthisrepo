@@ -6,7 +6,6 @@ import java.util.Iterator;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.RegionInstance.RegionInstanceType;
 import com.ikov.model.Skill;

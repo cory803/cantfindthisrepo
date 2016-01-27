@@ -5,7 +5,6 @@ import java.util.logging.Logger;
 import com.ikov.GameServer;
 import com.ikov.world.World;
 import com.ikov.world.content.WellOfGoodwill;
-import com.ikov.world.content.Scoreboards;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
 import com.ikov.world.entity.impl.player.Player;

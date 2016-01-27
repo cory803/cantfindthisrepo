@@ -171,4 +171,12 @@ public class NPCDeathTask extends Task {
 			Nex.death(npc.getId());
 		}
 	}
+
+	public Player getNpc_killer() {
+		return npc_killer;
+	}
+
+	public void setNpc_killer(Player npc_killer) {
+		this.npc_killer = npc_killer;
+	}
 }

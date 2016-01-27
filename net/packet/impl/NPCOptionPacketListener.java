@@ -9,7 +9,6 @@ import com.ikov.model.Graphic;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
-import com.ikov.model.Locations.Location;
 import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.definitions.NpcDefinition;
 import com.ikov.net.packet.Packet;

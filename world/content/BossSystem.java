@@ -80,7 +80,7 @@ public class BossSystem {
 				if (member != null) {
 					ClanChatRank rank = clan.getRank(member);
 					boolean move_in = false;
-					int floor = member.getIndex() * 4;
+//					int floor = member.getIndex() * 4;
 					if (rank == ClanChatRank.OWNER || rank == ClanChatRank.STAFF) {
 						move_in = true;
 					}

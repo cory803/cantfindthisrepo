@@ -5,7 +5,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import com.ikov.GameSettings;
 import com.ikov.model.Flag;
 import com.ikov.model.GroundItem;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;

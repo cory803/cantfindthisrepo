@@ -3,7 +3,6 @@ package com.ikov.world.content;
 import com.ikov.model.Animation;
 import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.movement.MovementQueue;
 import com.ikov.util.Misc;

@@ -16,7 +16,6 @@ import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Sounds.Sound;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
-import com.ikov.world.content.minigames.impl.ClanWars;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.content.skill.SkillManager;

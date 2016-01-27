@@ -2,10 +2,6 @@ package com.ikov.world.content.skill.impl.construction;
 
 import java.util.ArrayList;
 
-import com.ikov.model.CombatIcon;
-import com.ikov.model.Damage;
-import com.ikov.model.Hit;
-import com.ikov.model.Hitmask;
 import com.ikov.model.RegionInstance;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;

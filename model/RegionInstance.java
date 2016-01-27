@@ -3,10 +3,7 @@ package com.ikov.model;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.ikov.world.World;
-import com.ikov.world.content.BossSystem;
-import com.ikov.world.content.DropLog.DropLogEntry;
 import com.ikov.world.content.minigames.impl.Barrows;
-import com.ikov.world.content.minigames.impl.WarriorsGuild;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;

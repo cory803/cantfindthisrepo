@@ -3,8 +3,6 @@ package com.ikov.util;
 import java.sql.*;
 import java.util.Properties;
 
-import com.ikov.world.entity.impl.player.Player;
-
 /**
  * Initiates claiming a auth code.
  * 

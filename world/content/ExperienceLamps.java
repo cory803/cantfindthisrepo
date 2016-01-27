@@ -1,6 +1,5 @@
 package com.ikov.world.content;
 
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Skill;
 import com.ikov.util.Misc;
 import com.ikov.world.content.skill.SkillManager;

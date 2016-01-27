@@ -1,11 +1,6 @@
 package com.ikov.model.input.impl;
 
-import java.sql.PreparedStatement;
-
-import com.ikov.GameSettings;
 import com.ikov.model.input.Input;
-import com.ikov.world.content.Achievements;
-import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.entity.impl.player.Player;
 

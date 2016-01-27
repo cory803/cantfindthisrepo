@@ -1,10 +1,5 @@
 package com.ikov.world.content.minigames.impl;
 
-import com.ikov.model.Item;
-import com.ikov.model.Position;
-import com.ikov.model.container.impl.Shop;
-import com.ikov.model.input.impl.EnterAmountToBuyFromShop;
-import com.ikov.model.input.impl.EnterAmountToSellToShop;
 import com.ikov.world.entity.impl.player.Player;
 
 public class CurseQuest {

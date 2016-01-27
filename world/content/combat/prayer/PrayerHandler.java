@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Prayerbook;
 import com.ikov.model.Skill;
 import com.ikov.model.Locations.Location;

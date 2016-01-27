@@ -52,6 +52,8 @@ public class ItemDegrading {
 			} else {
 				return p.setRecoilCharges(p.getRecoilCharges() + 1);
 			}
+		default:
+			break;
 		}
 		return d.degradingCharges;
 	}

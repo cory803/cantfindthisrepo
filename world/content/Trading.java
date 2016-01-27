@@ -6,7 +6,6 @@ import com.ikov.model.GameMode;
 import com.ikov.model.Item;
 import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.util.Misc;
 import com.ikov.world.World;

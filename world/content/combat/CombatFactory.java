@@ -31,7 +31,6 @@ import com.ikov.world.content.combat.effect.CombatPoisonEffect;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
 import com.ikov.world.content.combat.effect.EquipmentBonus;
 import com.ikov.world.content.combat.magic.CombatAncientSpell;
-import com.ikov.world.content.combat.magic.CombatSpells;
 import com.ikov.world.content.combat.prayer.CurseHandler;
 import com.ikov.world.content.combat.prayer.PrayerHandler;
 import com.ikov.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;

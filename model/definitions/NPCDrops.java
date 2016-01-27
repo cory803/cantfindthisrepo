@@ -255,6 +255,8 @@ public class NPCDrops {
 
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
 			casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
+			if(npc.getLocation() == Location.WILDERNESS)
+			wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
 
 
@@ -286,11 +288,8 @@ public class NPCDrops {
 
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
 			casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
-		}
-		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {
 			wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
 		}
-
 
 		for (int i = 0; i < drops.getDropList().length; i++) {
 			if (drops.getDropList()[i].getItem().getId() <= 0 || drops.getDropList()[i].getItem().getId() > ItemDefinition.getMaxAmountOfItems() || drops.getDropList()[i].getItem().getAmount() <= 0) {
@@ -452,17 +451,20 @@ public class NPCDrops {
 	    return array[rnd];
 	}
 	public static void wildKeys(Player player, int combat, Position pos) {
-		int chance = (int) (1 + combat);
-		if (Misc.getRandom(combat <= 50 ? 450 : 200) < chance) {
+		int chance =  (int) (1 + combat);
+		if (Misc.getRandom(combat <= 50 ? 400 : 200) < chance) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos, player.getUsername(), false, 150, true, 200));
+			String message = "<img=10><col=009966> " + player.getUsername()
+			+ " has just received a wilderness key as a random drop!";
+			World.sendMessage(message);
 		}
 	}
 	public static class ItemDropAnnouncer {
 
 		private static List<Integer> ITEM_LIST;
 
-		private static final int[] TO_ANNOUNCE = new int[] { 1543, 1545, 1546, 1547, 1548,
-			6571, 14484, 4224,
+		private static final int[] TO_ANNOUNCE = new int[] { 
+			1543, 1545, 1546, 1547, 1548, 6571, 14484, 4224,
 			11702, 11704, 11706, 11708, 11704, 11724, 11726, 11728, 11718,
 			11720, 11722, 11730, 11716, 14876, 11286, 13427, 6731, 6737,
 			6735, 4151, 2513, 15259, 13902, 13890, 13884, 13861, 13858,

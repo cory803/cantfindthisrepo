@@ -25,8 +25,6 @@ import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.model.definitions.WeaponInterfaces;
-import com.ikov.net.security.ConnectionHandler;
-import com.ikov.util.Auth;
 import com.ikov.util.Logs;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
@@ -40,7 +38,6 @@ import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.clan.ClanChatManager;
-import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
 import com.ikov.world.content.skill.SkillManager;
@@ -471,18 +468,13 @@ public class Owners {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Cannot find that player online..");
-				return;
-			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
-					TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
-					player.getPacketSender().sendMessage("Teleporting player to you: "+player2.getUsername()+"");
-					player2.getPacketSender().sendMessage("You're being teleported to "+player.getUsername()+"...");
-				} else
-					player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
-			}
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			if(canTele) {
+				TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
+				player.getPacketSender().sendMessage("Teleporting player to you: "+player2.getUsername()+"");
+				player2.getPacketSender().sendMessage("You're being teleported to "+player.getUsername()+"...");
+			} else
+				player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
 		}
 		if(command[0].equalsIgnoreCase("movetome")) {
 			String playerToTele = wholeCommand.substring(9);
@@ -491,18 +483,13 @@ public class Owners {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Cannot find that player..");
-				return;
-			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
-					player.getPacketSender().sendMessage("Moving player: "+player2.getUsername()+"");
-					player2.getPacketSender().sendMessage("You've been moved to "+player.getUsername());
-					player2.moveTo(player.getPosition().copy());
-				} else
-					player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
-			}
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			if(canTele) {
+				player.getPacketSender().sendMessage("Moving player: "+player2.getUsername()+"");
+				player2.getPacketSender().sendMessage("You've been moved to "+player.getUsername());
+				player2.moveTo(player.getPosition().copy());
+			} else
+				player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
 		}
 		if(command[0].contains("host")) {
 			String plr = wholeCommand.substring(command[0].length()+1);
@@ -790,11 +777,9 @@ public class Owners {
 			player.getPacketSender().sendString(8144, "Finding any id's - " + name).sendInterface(8134);
 			boolean found = false;
 			for (int line=8147;line<8196;line++) {
-				int item=0;
 				for (int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
 					if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
 						found = true;
-						item = i;
 						player.getPacketSender().sendString(line, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
 					}
 				}

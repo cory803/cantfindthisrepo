@@ -9,7 +9,6 @@ import com.ikov.model.Graphic;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
 import com.ikov.commands.ranks.SpecialPlayers;
-import com.ikov.model.input.impl.EnterAmountToDice;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.input.impl.EnterAmountToDiceOther;
 import com.ikov.model.Position;
@@ -58,9 +57,9 @@ public class UseItemPacketListener implements PacketListener {
 	private static void useItem(Player player, Packet packet) {
 		if (player.isTeleporting() || player.getConstitution() <= 0)
 			return;
-		int interfaceId = packet.readLEShortA();
-		int slot = packet.readShortA();
-		int id = packet.readLEShort();
+		packet.readLEShortA();
+		packet.readShortA();
+		packet.readLEShort();
 	}
 
 	private static void itemOnItem(Player player, Packet packet) {
@@ -105,10 +104,8 @@ public class UseItemPacketListener implements PacketListener {
 					+ ", " + itemUsedWith + "]");
 	}
 
-	@SuppressWarnings("unused")
 	private static void itemOnObject(Player player, Packet packet) {
-		@SuppressWarnings("unused")
-		int interfaceType = packet.readShort();
+		packet.readShort();
 		final int objectId = packet.readShort();
 		final int objectY = packet.readLEShortA();
 		final int itemSlot = packet.readLEShort();
@@ -223,14 +220,13 @@ public class UseItemPacketListener implements PacketListener {
 	}
 
 	private static void itemOnNpc(final Player player, Packet packet) {
-		int id = packet.readShortA();
-		int index = packet.readShortA();
-		final int slot = packet.readLEShort();
+		packet.readShortA();
+		packet.readShortA();
+		packet.readLEShort();
 	}
 
-	@SuppressWarnings("unused")
 	private static void itemOnPlayer(Player player, Packet packet) {
-		int interfaceId = packet.readUnsignedShortA();
+		packet.readUnsignedShortA();
 		int targetIndex = packet.readUnsignedShort();
 		int itemId = packet.readUnsignedShort();
 		int slot = packet.readLEShort();

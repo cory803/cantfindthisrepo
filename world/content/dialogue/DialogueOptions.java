@@ -8,16 +8,11 @@ import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
 import com.ikov.model.Locations;
-import com.ikov.model.Locations.Location;
 import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.input.impl.BuyShards;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.input.impl.DonateToWell;
 import com.ikov.model.Animation;
-import com.ikov.model.GameObject;
-import com.ikov.model.Graphic;
-import com.ikov.model.PlayerRights;
-import com.ikov.model.Locations.Location;
 import com.ikov.model.movement.MovementQueue;
 import com.ikov.util.Misc;
 import com.ikov.world.content.clan.ClanChatManager;
@@ -26,7 +21,6 @@ import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.model.input.impl.SellShards;
 import com.ikov.model.input.impl.SetEmail;
-import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.BossSystem.Bosses;
@@ -43,7 +37,6 @@ import com.ikov.world.content.MemberScrolls;
 import com.ikov.world.content.PkSets;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.Scoreboards;
-import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.dialogue.impl.AgilityTicketExchange;
 import com.ikov.world.content.dialogue.impl.Mandrith;
 import com.ikov.world.content.minigames.impl.Graveyard;
@@ -61,7 +54,6 @@ import com.ikov.world.content.transportation.JewelryTeleporting;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.entity.impl.npc.NpcAggression;
-import com.ikov.world.entity.impl.player.Player;
 
 public class DialogueOptions {
 
@@ -69,7 +61,6 @@ public class DialogueOptions {
 
 	public static void handle(Player player, int id) {
 		int credits = 0;
-		int funds = 0;
 		if(player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Dialogue button id: "+id+", action id: "+player.getDialogueActionId()).sendConsoleMessage("Dialogue button id: "+id+", action id: "+player.getDialogueActionId());
 		}

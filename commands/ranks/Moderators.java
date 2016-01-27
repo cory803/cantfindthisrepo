@@ -335,18 +335,13 @@ public class Moderators {
 				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
 				return;
 			}
-			if(player2 == null) {
-				player.getPacketSender().sendMessage("Cannot find that player online..");
-				return;
-			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
-					TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
-					player.getPacketSender().sendMessage("Teleporting player to you: "+player2.getUsername()+"");
-					player2.getPacketSender().sendMessage("You're being teleported to "+player.getUsername()+"...");
-				} else
-					player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
-			}
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			if(canTele) {
+				TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
+				player.getPacketSender().sendMessage("Teleporting player to you: "+player2.getUsername()+"");
+				player2.getPacketSender().sendMessage("You're being teleported to "+player.getUsername()+"...");
+			} else
+				player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
 		}
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
@@ -367,10 +362,7 @@ public class Moderators {
 				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
 				return;
 			}
-			if(playerToKick == null) {
-				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Ikov.");
-				return;
-			} else if(playerToKick.getLocation() != Location.WILDERNESS) {
+			if(playerToKick.getLocation() != Location.WILDERNESS) {
 				World.deregister(playerToKick);
 				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
 				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");

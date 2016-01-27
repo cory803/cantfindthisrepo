@@ -1,7 +1,5 @@
 package com.ikov.world.content.combat;
 
-import com.ikov.engine.task.Task;
-import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
 import com.ikov.world.entity.impl.Character;

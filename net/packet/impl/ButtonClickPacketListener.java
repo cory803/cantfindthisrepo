@@ -17,7 +17,6 @@ import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BonusManager;
 import com.ikov.world.content.Consumables;
 import com.ikov.world.content.DropLog;
-import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Emotes;
 import com.ikov.world.content.EnergyHandler;
 import com.ikov.world.content.ExperienceLamps;

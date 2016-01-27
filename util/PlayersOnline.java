@@ -1,7 +1,6 @@
 package com.ikov.util;
 
 import java.sql.*;
-import java.security.MessageDigest;
 
 import com.ikov.world.World;
 import com.ikov.world.entity.impl.player.Player;

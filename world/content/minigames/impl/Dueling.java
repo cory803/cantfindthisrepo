@@ -4,7 +4,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
-import com.ikov.engine.task.impl.PlayerDeathTask;
 import com.ikov.model.Flag;
 import com.ikov.model.GameMode;
 import com.ikov.model.Item;

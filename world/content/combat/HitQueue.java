@@ -15,7 +15,6 @@ import com.ikov.util.Misc;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Sounds;
-import com.ikov.world.content.combat.strategy.impl.Kraken;
 import com.ikov.world.content.combat.strategy.impl.Nex;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;

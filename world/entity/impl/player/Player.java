@@ -41,14 +41,12 @@ import com.ikov.net.SessionState;
 import com.ikov.net.packet.PacketSender;
 import com.ikov.util.FrameUpdater;
 import com.ikov.util.Stopwatch;
-import com.ikov.world.World;
 import com.ikov.world.content.Achievements.AchievementAttributes;
 import com.ikov.world.content.BankPin.BankPinAttributes;
 import com.ikov.world.content.BonusManager;
 import com.ikov.world.content.DropLog.DropLogEntry;
 import com.ikov.world.content.KillsTracker.KillsEntry;
 import com.ikov.world.content.LoyaltyProgramme.LoyaltyTitles;
-import com.ikov.world.content.MoneyPouch;
 import com.ikov.world.content.PointsHandler;
 import com.ikov.world.content.Trading;
 import com.ikov.world.content.clan.ClanChat;
@@ -335,7 +333,7 @@ public class Player extends Character {
 	private final Stopwatch specialRestoreTimer = new Stopwatch();
 	private final Stopwatch lastSummon = new Stopwatch();
 	private final Stopwatch recordedLogin = new Stopwatch();
-	private final Stopwatch creationDate = new Stopwatch();
+//	private final Stopwatch creationDate = new Stopwatch();
 	private final Stopwatch tolerance = new Stopwatch();
 	private final Stopwatch lougoutTimer = new Stopwatch();
 

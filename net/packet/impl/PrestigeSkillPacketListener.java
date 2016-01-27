@@ -1,7 +1,6 @@
 package com.ikov.net.packet.impl;
 
 import com.ikov.model.Skill;
-import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.world.entity.impl.player.Player;

@@ -27,7 +27,6 @@ import com.ikov.world.clip.region.RegionClipping;
 import com.ikov.world.content.CustomObjects;
 import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Lottery;
-import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.content.Scoreboards;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;

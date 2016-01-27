@@ -9,7 +9,6 @@ import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.util.Logs;
 import com.ikov.util.Misc;
-import com.ikov.world.content.dialogue.DialogueManager;
 
 /**
  * This file represents a player's relation with other world entities,

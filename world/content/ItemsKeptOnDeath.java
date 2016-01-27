@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import com.ikov.model.Item;
-import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.prayer.CurseHandler;
 import com.ikov.world.content.combat.prayer.PrayerHandler;

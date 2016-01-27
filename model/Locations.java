@@ -122,8 +122,6 @@ public class Locations {
 		WILDKEY_ZONE(new int[]{3352, 3390}, new int[]{3870, 3905}, true, true, true, false, true, true) {
 			@Override
 			public void process(Player player) {
-					int x = player.getPosition().getX();
-					int y = player.getPosition().getY();
 					player.setWildernessLevel(60);
 					player.getPacketSender().sendString(25352, ""+player.getWildernessLevel());
 					player.getPacketSender().sendString(25355, "Levels: "+CombatFactory.getLevelDifference(player, false) +" - "+CombatFactory.getLevelDifference(player, true));

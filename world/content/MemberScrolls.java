@@ -1,7 +1,5 @@
 package com.ikov.world.content;
 
-import com.ikov.model.PlayerRights;
-import com.ikov.util.Misc;
 import com.ikov.world.content.dialogue.Dialogue;
 import com.ikov.world.content.dialogue.DialogueExpression;
 import com.ikov.world.content.dialogue.DialogueManager;

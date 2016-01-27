@@ -141,10 +141,7 @@ public class Supports {
 				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
 				return;
 			}
-			if(playerToKick == null) {
-				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Ikov.");
-				return;
-			} else if(playerToKick.getLocation() != Location.WILDERNESS) {
+			if(playerToKick.getLocation() != Location.WILDERNESS) {
 				World.deregister(playerToKick);
 				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
 				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");

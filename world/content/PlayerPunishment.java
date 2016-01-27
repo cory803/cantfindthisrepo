@@ -1,23 +1,9 @@
 package com.ikov.world.content;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Calendar;
-
-import com.ikov.GameServer;
-import com.ikov.GameSettings;
-import com.ikov.model.Position;
-import com.ikov.util.Misc;
-import com.ikov.world.entity.impl.player.Player;
-import com.ikov.world.World;
 
 public class PlayerPunishment {
 
@@ -102,6 +88,7 @@ public class PlayerPunishment {
 					last_ip = line;
 				}
 			}
+			reader.close();
 		} catch (IOException e) {
 			
 		}
@@ -122,6 +109,7 @@ public class PlayerPunishment {
 					last_ip = line;
 				}
 			}
+			reader.close();
 		} catch (IOException e) {
 			
 		}

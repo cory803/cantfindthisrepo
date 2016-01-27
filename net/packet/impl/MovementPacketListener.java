@@ -1,12 +1,9 @@
 package com.ikov.net.packet.impl;
 
-import com.ikov.GameSettings;
 import com.ikov.model.Animation;
 import com.ikov.model.Position;
-import com.ikov.model.movement.MovementQueue;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
-import com.ikov.world.clip.region.RegionClipping;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.content.BankPin;

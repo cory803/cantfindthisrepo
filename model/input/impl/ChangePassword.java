@@ -1,8 +1,5 @@
 package com.ikov.model.input.impl;
 
-import java.sql.PreparedStatement;
-
-import com.ikov.GameSettings;
 import com.ikov.model.input.Input;
 import com.ikov.util.NameUtils;
 import com.ikov.world.entity.impl.player.Player;
