@@ -460,6 +460,7 @@ public class Player extends Character {
 	private int combatRingType;
 	
 	/*** BOOLEANS ***/
+	private boolean passedRandom = true;
 	private boolean bossSolo = true;
 	private boolean unlockedLoyaltyTitles[] = new boolean[12];
 	private boolean[] crossedObstacles = new boolean[7];
@@ -501,6 +502,12 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public boolean isPassedRandom() {
+		return passedRandom;
+	}
+	public void setPassedRandom(boolean passedRandom) {
+		this.passedRandom = passedRandom;
+	}
 	public boolean isBossSolo() {
 		return bossSolo;
 	}
