@@ -426,7 +426,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(28).open(player);
 					break;
 				case 2253:
-					ShopManager.getShops().get(8).open(player);
+					ShopManager.getShops().get(10).open(player);
 					break;
 				case 605:
 					player.getPacketSender().sendMessage("").sendMessage("You currently have "+player.getPointsHandler().getVotingPoints()+" Voting points.").sendMessage("You can earn points and coins by voting. To do so, simply use the ::vote command.");;
