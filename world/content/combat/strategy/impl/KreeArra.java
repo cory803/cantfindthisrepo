@@ -94,7 +94,7 @@ public class KreeArra implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 8;
+		return 12;
 	}
 
 	@Override

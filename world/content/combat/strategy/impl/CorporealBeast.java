@@ -121,7 +121,7 @@ public class CorporealBeast implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 2;
+		return 8;
 	}
 
 	@Override
