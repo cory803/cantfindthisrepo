@@ -44,7 +44,7 @@ public class Revenant implements CombatStrategy {
 
 	@Override
 	public boolean canAttack(Character entity, Character victim) {
-		return victim.getLocation() == Location.WILDERNESS || victim.getLocation() == Location.WILDKEY_ZONE;
+		return victim.getLocation() == Location.WILDERNESS;
 	}
 
 	@Override

@@ -64,10 +64,10 @@ public class Digging {
 							spawnNpc(player, 9939);
 						} else if(player.getInventory().contains(1545)) { //yellow 2nd best
 							player.getInventory().deleteAmount(1545, 1);
-							spawnNpc(player, 13458);
+							spawnNpc(player, 1318); //other guard
 						} else if(player.getInventory().contains(1546)) { //blue 3rd best
 							player.getInventory().deleteAmount(1546, 1);	
-							spawnNpc(player, 6691);
+							spawnNpc(player, 4336); //guard
 						} else if(player.getInventory().contains(1547)) { //magenta 4th best
 							player.getInventory().deleteAmount(1547, 1);		
 							spawnNpc(player, 2060);

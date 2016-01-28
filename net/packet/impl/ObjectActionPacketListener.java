@@ -140,8 +140,27 @@ public class ObjectActionPacketListener implements PacketListener {
 				}
 				switch(id) {
 				case 3565:
-					if(player.getPosition().getX() <= 3350) {
-						player.moveTo(new Position(3352, player.getPosition().getY()));
+					if(player.getPosition().getX() <= 3349) {
+						TaskManager.submit(new Task(1, player, true) {
+							int tick = 1;
+							@Override
+							public void execute() {
+								tick++;
+								player.performAnimation(new Animation(769));
+								if(tick == 3) {
+									player.moveTo(new Position(3352, player.getPosition().getY()));
+								} else if(tick >= 4) {
+									stop();
+								}
+							}
+							@Override
+							public void stop() {
+								setEventRunning(false);
+								Agility.addExperience(player, 100);
+								player.getPacketSender().sendMessage("You jump over the wall and enter the safe zone.");
+								player.getPacketSender().sendMessage("@red@You will lose your items when you enter the portal of death.");
+							}
+						});
 					} else if (player.getPosition().getX() > 3350) {
 						DialogueManager.start(player, 142);
 						player.setDialogueActionId(142);
@@ -411,8 +430,26 @@ public class ObjectActionPacketListener implements PacketListener {
 					break;
 				case 16044:
 					if(player.getPosition().getY() < 3875) {
-						player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()+3));
-					player.getPacketSender().sendMessage("You can only leave this zone by talking to Sir Tinley.");
+						TaskManager.submit(new Task(1, player, true) {
+						int tick = 1;
+						@Override
+						public void execute() {
+							tick++;
+							player.performAnimation(new Animation(804));
+							if(tick == 4) {
+								stop();
+							} else if(tick >= 6) {
+								stop();
+							}
+						}
+						@Override
+						public void stop() {
+							setEventRunning(false);
+							player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()+2));
+							player.getPacketSender().sendMessage("You teleport through the portal.");
+							player.getPacketSender().sendMessage("You can only leave this zone by talking to Sir Tinley.");
+						}
+					});
 					} else {
 						player.getPacketSender().sendMessage("You cannot leave through this portal, talk to Sir Tinley.");
 					}

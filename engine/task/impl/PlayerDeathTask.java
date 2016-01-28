@@ -84,7 +84,7 @@ public class PlayerDeathTask extends Task {
 					}
 					boolean spawnItems = false;
 					if(dropItems) {
-						killer.getPacketSender().sendMessage("You have just been killed by the player "+killer.getUsername()+". ");
+						killer.getPacketSender().sendMessage("You have just killed the player "+player.getUsername()+". ");
 						player.getPacketSender().sendMessage("You were just killed by the player "+killer.getUsername()+".");
 						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
 						final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
@@ -119,7 +119,7 @@ public class PlayerDeathTask extends Task {
 						}
 					}
 				} else
-					dropItems = false;
+				dropItems = false;
 				player.getPacketSender().sendInterfaceRemoval();
 				player.setEntityInteraction(null);
 				player.getMovementQueue().setFollowCharacter(null);

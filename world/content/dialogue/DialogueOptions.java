@@ -1,5 +1,7 @@
 package com.ikov.world.content.dialogue;
 
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
@@ -42,6 +44,7 @@ import com.ikov.world.content.dialogue.impl.Mandrith;
 import com.ikov.world.content.minigames.impl.Graveyard;
 import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.RecipeForDisaster;
+import com.ikov.world.content.skill.impl.agility.Agility;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.ikov.world.content.skill.impl.dungeoneering.DungeoneeringFloor;
 import com.ikov.world.content.skill.impl.mining.Mining;
@@ -997,7 +1000,26 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 142:
-				player.moveTo(new Position(3349, player.getPosition().getY()));
+				TaskManager.submit(new Task(1, player, true) {
+					int tick = 1;
+					@Override
+					public void execute() {
+						tick++;
+						player.performAnimation(new Animation(769));
+						if(tick == 3) {
+							player.moveTo(new Position(3349, player.getPosition().getY()));
+							player.getPacketSender().sendInterfaceRemoval();
+						} else if(tick >= 4) {
+							stop();
+						}
+					}
+					@Override
+					public void stop() {
+						setEventRunning(false);
+						Agility.addExperience(player, 100);
+						player.getPacketSender().sendMessage("You jump over the wall.");
+					}
+				});
 				break;
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
