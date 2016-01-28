@@ -452,7 +452,7 @@ public class NPCDrops {
 	}
 	public static void wildKeys(Player player, int combat, Position pos) {
 		int chance =  (int) (1 + combat);
-		if (Misc.getRandom(combat <= 50 ? 400 : 200) < chance) {
+		if (Misc.getRandom(combat <= 50 ? 400 : 350) < 5) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos, player.getUsername(), false, 150, true, 200));
 			String message = "<img=10><col=009966> " + player.getUsername()
 			+ " has just received a wilderness key as a random drop!";
