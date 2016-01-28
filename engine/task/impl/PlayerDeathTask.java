@@ -73,7 +73,7 @@ public class PlayerDeathTask extends Task {
 					Player killer = player.getCombatBuilder().getKiller(true);
 					if(player.getRights().equals(PlayerRights.OWNER))
 						dropItems = false;
-					if(loc == Location.WILDERNESS) {
+					if(loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 						if(killer != null && (killer.getRights().equals(PlayerRights.OWNER) || killer.getGameMode().equals(GameMode.IRONMAN) || killer.getGameMode().equals(GameMode.HARDCORE_IRONMAN)))
 							dropItems = false;
 					}
@@ -84,12 +84,14 @@ public class PlayerDeathTask extends Task {
 					}
 					boolean spawnItems = false;
 					if(dropItems) {
+						killer.getPacketSender().sendMessage("You have just been killed by the player "+killer.getUsername()+". ");
+						player.getPacketSender().sendMessage("You were just killed by the player "+killer.getUsername()+".");
 						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
 						final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
 						playerItems.addAll(player.getInventory().getValidItems());
 						playerItems.addAll(player.getEquipment().getValidItems());
 						final Position position = player.getPosition();
-						if(loc == Location.WILDERNESS) {
+						if(loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 							spawnItems = true;
 							for (Item item : playerItems) {
 								if(!item.tradeable() || itemsToKeep.contains(item)) {
@@ -111,7 +113,7 @@ public class PlayerDeathTask extends Task {
 							player.getPlayerKillingAttributes().setPlayerKillStreak(0);
 							player.getPointsHandler().refreshPanel();
 						}
-						if(loc == Location.WILDERNESS) {
+						if(loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 							player.getInventory().resetItems().refreshItems();
 							player.getEquipment().resetItems().refreshItems();
 						}
@@ -128,7 +130,7 @@ public class PlayerDeathTask extends Task {
 				break;
 			case 0:
 				if(dropItems) {
-					if(loc == Location.WILDERNESS) {
+					if(loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 						if(itemsToKeep != null) {
 							for(Item it : itemsToKeep) {
 								player.getInventory().add(it.getId(), 1);
