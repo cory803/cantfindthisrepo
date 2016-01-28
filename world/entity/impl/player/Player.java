@@ -493,13 +493,19 @@ public class Player extends Character {
 	private boolean voteMessageSent;
 	private boolean receivedStarter;
 	private boolean canVote = true;
-
+	private boolean jailed = false;
 	private String last_ip_address;
 	private String last_serial_address;
 	
 	/*
 	 * Getters & Setters
 	 */
+	public boolean isJailed() {
+		return jailed;
+	}
+	public void setJailed(boolean jailed) {
+		this.jailed = jailed;
+	}
 	public boolean isPassedRandom() {
 		return passedRandom;
 	}
@@ -2107,4 +2113,5 @@ public class Player extends Character {
 	public boolean dice_other = false;
 	
 	public boolean boost_stats = false;
+
 }

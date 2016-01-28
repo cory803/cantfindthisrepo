@@ -251,7 +251,7 @@ public class HitQueue {
 				Player player = (Player)attacker;
 
 				/** SKULLS **/
-				if(player.getLocation() == Location.WILDERNESS && victim.isPlayer()) {
+				if(player.getLocation() == Location.WILDERNESS || player.getLocation() == Location.WILDKEY_ZONE && victim.isPlayer()) {
 					boolean didRetaliate = player.getCombatBuilder().didAutoRetaliate();
 					if(!didRetaliate) {
 						boolean soloRetaliate = !player.getCombatBuilder().isBeingAttacked();

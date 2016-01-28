@@ -118,6 +118,33 @@ public class Locations {
 		},
 		WILDYKEY_LOBBY(new int[]{3350, 3358}, new int[]{3870, 3875}, true, true, true, false, true, true) {
 		},
+		JAIL(new int[]{1967, 1982}, new int[]{4997, 5013}, false, false, false, false, false, false) {
+			@Override
+			public void process(Player player) {
+				if(player.isJailed() && player.getLocation() != Location.JAIL){
+					player.getPacketSender().sendMessage("What are you doing out of your cell? Get back in there!");
+				}
+			}
+
+			@Override
+			public boolean canTeleport(Player player) {
+					if(player.isJailed()) {
+					player.getPacketSender().sendMessage("You cannot teleport out of jail... What're you thinking?");
+					return false;
+				}
+				return true;
+			}
+
+			@Override
+			public boolean canAttack(Player player, Player target) {
+				if(player.isJailed()) {
+					player.getPacketSender().sendMessage("You cannot attack players while you are jailed.");
+					player.getMovementQueue().reset();
+					return false;
+				}
+				return false;
+			}
+		},
 		//Location(int[] x, int[] y, boolean multi, boolean summonAllowed, boolean followingAllowed, boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed) {
 		WILDKEY_ZONE(new int[]{3352, 3390}, new int[]{3870, 3905}, true, true, true, false, true, true) {
 			@Override

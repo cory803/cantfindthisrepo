@@ -48,6 +48,7 @@ public class PlayerSaving {
 			object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
 			object.add("position", builder.toJsonTree(player.getPosition()));
 			object.addProperty("online-status", player.getRelations().getStatus().name());
+			object.addProperty("jailed-status", new Boolean(player.isJailed()));
 			object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
 			object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
 			object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));

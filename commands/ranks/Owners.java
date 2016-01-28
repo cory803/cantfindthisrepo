@@ -58,6 +58,75 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
+		if(wholeCommand.equalsIgnoreCase("unjail")) {
+			String jail_punishee = wholeCommand.substring(7);
+			Player punishee = World.getPlayerByName(jail_punishee);
+			punishee.setJailed(true);
+			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
+			punishee.moveTo(new Position(3087, 3502, 0));
+		}
+			if(wholeCommand.equalsIgnoreCase("jail")) {
+				String jail_punishee = wholeCommand.substring(5);
+				Player punishee = World.getPlayerByName(jail_punishee);
+				if(!PlayerSaving.playerExists(jail_punishee)) {
+					player.getPacketSender().sendMessage("Player "+jail_punishee+" does not exist.");
+					return;
+				}
+				int cellAmounts = Misc.getRandom(1);
+				switch(cellAmounts) {
+				case 1:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5011, 0));
+				break;
+				case 2:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5008, 0));
+				break;
+				case 3:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5005, 0));
+				break;
+				case 4:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5002, 0));
+				break;
+				case 5:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 4999, 0));
+				break;
+				case 6:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5011, 0));
+				break;
+				case 7:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5008, 0));
+				break;
+				case 8:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5005, 0));
+				break;
+				case 9:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5002, 0));
+				break;
+				case 10:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 4999, 0));
+				break;
+				default:
+			}
+		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
 			Gson builder = new GsonBuilder().setPrettyPrinting().create();
 			String test = builder.toJsonTree(player.getPosition())+"";
