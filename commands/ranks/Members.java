@@ -30,9 +30,6 @@ public class Members {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		if(wholeCommand.equalsIgnoreCase("wildykey")) {
-			player.moveTo(new Position(3357, 3873));
-		}
 		if (command[0].equalsIgnoreCase("changelevel")) {
 			if(player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
 				player.getPacketSender().sendMessage("Please unequip all your items first.");
