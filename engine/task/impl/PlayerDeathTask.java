@@ -106,7 +106,7 @@ public class PlayerDeathTask extends Task {
 							}
 						}
 						if(killer != null) {
-							killer.getPacketSender().sendMessage("You have just killed the player "+killer.getUsername()+". ");
+							killer.getPacketSender().sendMessage("You have just killed the player "+player.getUsername()+". ");
 							player.getPacketSender().sendMessage("You were just killed by the player "+killer.getUsername()+".");
 							killer.getPlayerKillingAttributes().add(player);
 							player.getPlayerKillingAttributes().setPlayerDeaths(player.getPlayerKillingAttributes().getPlayerDeaths() + 1);
