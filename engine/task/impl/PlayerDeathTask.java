@@ -83,41 +83,6 @@ public class PlayerDeathTask extends Task {
 						}
 					}
 					boolean spawnItems = false;
-					if(player.getLocation() == Location.WILDKEY_ZONE) {
-//						killer.getPacketSender().sendMessage("You have just killed the player "+player.getUsername()+". ");
-//						player.getPacketSender().sendMessage("You were just killed by the player "+killer.getUsername()+".");
-						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
-						final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
-						playerItems.addAll(player.getInventory().getValidItems());
-						playerItems.addAll(player.getEquipment().getValidItems());
-						final Position position = player.getPosition();
-						if(loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
-							spawnItems = true;
-							for (Item item : playerItems) {
-								if(!item.tradeable() || itemsToKeep.contains(item)) {
-									if(!itemsToKeep.contains(item)) {
-										itemsToKeep.add(item);
-									}
-									continue;
-								}
-								if(spawnItems) {
-									if(item != null && item.getId() > 0 && item.getAmount() > 0) {
-										GroundItemManager.spawnGroundItem((killer != null && killer.getGameMode() == GameMode.NORMAL ? killer : player), new GroundItem(item, position, killer != null ? killer.getUsername() : player.getUsername(), player.getHostAddress(), false, 150, true, 150));
-									}
-								}
-							}
-						}
-						if(killer != null) {
-							killer.getPlayerKillingAttributes().add(player);
-							player.getPlayerKillingAttributes().setPlayerDeaths(player.getPlayerKillingAttributes().getPlayerDeaths() + 1);
-							player.getPlayerKillingAttributes().setPlayerKillStreak(0);
-							player.getPointsHandler().refreshPanel();
-						}
-						if(loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
-							player.getInventory().resetItems().refreshItems();
-							player.getEquipment().resetItems().refreshItems();
-						}
-					}
 					if(dropItems) {
 						killer.getPacketSender().sendMessage("You have just killed the player "+player.getUsername()+". ");
 						player.getPacketSender().sendMessage("You were just killed by the player "+killer.getUsername()+".");
