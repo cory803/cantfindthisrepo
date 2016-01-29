@@ -234,7 +234,7 @@ public class Consumables {
 
 	public static boolean isPotion(int itemId) {
 		String pot = ItemDefinition.forId(itemId).getName();
-		return pot.contains("(4)") || pot.contains("(3)") || pot.contains("(2)") || pot.contains("(1)");
+		return pot.contains("(6)") ||  pot.contains("(5)") || pot.contains("(4)") || pot.contains("(3)") || pot.contains("(2)") || pot.contains("(1)");
 	}
 
 	public static boolean healingPotion(int itemId) {
@@ -254,6 +254,7 @@ public class Consumables {
 			player.getPacketSender().sendMessage("Potions have been disabled in this duel.");			
 			return;
 		}
+		final int EMPTY_FLASK = -1;
 		//if(ClanWars.Rules.COMBAT_POTS.getToggle() == false) {
 		//	player.getPacketSender().sendMessage("Potions have been disabled in this clan battle.");			
 		//	return;
@@ -564,6 +565,57 @@ public class Consumables {
 			case 143: //Prayer pot 1
 				player.performAnimation(new Animation(829));
 				player.getInventory().getItems()[slot] = new Item(229, 1);
+				player.getInventory().refreshItems();
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) + (player.getSkillManager().getMaxLevel(Skill.PRAYER) * 0.33)));
+				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) 
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER));
+				break;
+				/*
+				 * Prayer Flask
+				 */
+			case 14200: //Prayer Flask 6
+				player.performAnimation(new Animation(829));
+				player.getInventory().getItems()[slot] = new Item(14198, 1);
+				player.getInventory().refreshItems();
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) + (player.getSkillManager().getMaxLevel(Skill.PRAYER) * 0.33)));
+				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) 
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER));
+				break;
+			case 14198: //Prayer Flask 5
+				player.performAnimation(new Animation(829));
+				player.getInventory().getItems()[slot] = new Item(14196, 1);
+				player.getInventory().refreshItems();
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) + (player.getSkillManager().getMaxLevel(Skill.PRAYER) * 0.33)));
+				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) 
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER));
+				break;
+			case 14196: //Prayer Flask 4
+				player.performAnimation(new Animation(829));
+				player.getInventory().getItems()[slot] = new Item(14194, 1);
+				player.getInventory().refreshItems();
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) + (player.getSkillManager().getMaxLevel(Skill.PRAYER) * 0.33)));
+				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) 
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER));
+				break;
+			case 14194: //Prayer Flask 3
+				player.performAnimation(new Animation(829));
+				player.getInventory().getItems()[slot] = new Item(14192, 1);
+				player.getInventory().refreshItems();
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) + (player.getSkillManager().getMaxLevel(Skill.PRAYER) * 0.33)));
+				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) 
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER));
+				break;
+			case 14192: //Prayer Flask 2
+				player.performAnimation(new Animation(829));
+				player.getInventory().getItems()[slot] = new Item(14190, 1);
+				player.getInventory().refreshItems();
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) + (player.getSkillManager().getMaxLevel(Skill.PRAYER) * 0.33)));
+				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) 
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER));
+				break;
+			case 14190: //Prayer Flask 1
+				player.performAnimation(new Animation(829));
+				player.getInventory().getItems()[slot] = new Item(EMPTY_FLASK, 1);
 				player.getInventory().refreshItems();
 				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) + (player.getSkillManager().getMaxLevel(Skill.PRAYER) * 0.33)));
 				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) 
@@ -1444,7 +1496,11 @@ public class Consumables {
 			player.getPotionTimer().reset();
 			String potion = ItemDefinition.forId(itemId).getName();
 			player.getPacketSender().sendMessage("You drink some of your "+ potion + "..");
-			if (potion.endsWith("(4)")) {
+			if (potion.endsWith("(6)")) {
+				player.getPacketSender().sendMessage("You have 5 doses of potion left.");
+			} else if (potion.endsWith("(5)")) {
+				player.getPacketSender().sendMessage("You have 4 doses of potion left.");
+			} else if (potion.endsWith("(4)")) {
 				player.getPacketSender().sendMessage("You have 3 doses of potion left.");
 			} else if (potion.endsWith("(3)")) {
 				player.getPacketSender().sendMessage("You have 2 doses of potion left.");
@@ -1476,7 +1532,7 @@ public class Consumables {
 	}
 
 	public static boolean drinkOverload(final Player player, int slot, int replacePotion) {
-		if(player.getLocation() == Location.WILDERNESS || player.getLocation() == Location.DUEL_ARENA) {
+		if(player.getLocation() == Location.WILDERNESS || player.getLocation() == Location.WILDKEY_ZONE || player.getLocation() == Location.DUEL_ARENA) {
 			player.getPacketSender().sendMessage("You cannot use this potion here.");
 			return false;
 		}

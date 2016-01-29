@@ -29,9 +29,30 @@ public class PotionCombinating {
 			}
 		}
 	}
-	
+	public static void combineFlask(Player p, int firstPotID, int secondPotID) {
+		CombiningDoses flask = CombiningDoses.getPotionByID(firstPotID);
+		if (flask == null || !p.getInventory().contains(firstPotID) || !p.getInventory().contains(secondPotID))
+			return;
+		if (flask.getDoseForID(secondPotID) > 0) {
+			int firstPotAmount = flask.getDoseForID(firstPotID);
+			int secondPotAmount = flask.getDoseForID(secondPotID);
+			if (firstPotAmount + secondPotAmount <= 6) {
+				p.getInventory().delete(firstPotID, 1);
+				p.getInventory().delete(secondPotID, 1);
+				p.getInventory().add(flask.getIDForDose(firstPotAmount + secondPotAmount), 1);
+				p.getInventory().add(EMPTY_FLASK, 1);
+			} else {
+				int overflow = (firstPotAmount + secondPotAmount) - 6;
+				p.getInventory().delete(firstPotID, 1);
+				p.getInventory().delete(secondPotID, 1);
+				p.getInventory().add(flask.getIDForDose(6), 1);
+				p.getInventory().add(flask.getIDForDose(overflow), 1);
+			}
+		}
+	}
 	private static final int VIAL = 227;
 	private static final int EMPTY_VIAL = 229;
+	private static final int EMPTY_FLASK = 229;
 
 	public enum CombiningDoses {
 
@@ -66,7 +87,22 @@ public class PotionCombinating {
 				VIAL, "Super prayer"), OVERLOAD(15335, 15334, 15333, 15332,
 				VIAL, "Overload"), SUPER_FIRE(15307, 15306, 15305, 15304, VIAL,
 				"Super antifire"), REC_SPEC(15303, 15302, 15301, 15300, VIAL,
-				"Recover special");
+				"Recover special"),
+				PRAYER_FLASK(14200, 14198, 14196, 14194, 14192, 14190, VIAL, "Prayer Flask"),
+				SUPER_ATTACK_FLASK(14188, 14186, 14184, 14182, 14180, 14178, VIAL, "Super Attack Flask"),
+				SUPER_STR_FLASK(14176, 14174, 14172, 14170, 14168, 14166, VIAL, "Super Strength Flask"),
+				SUPER_DEF_FLASK(14164, 14162, 14160, 14158, 14156, 14154, VIAL, "Super Defence Flask"),
+				RANGING_FLASK(14152, 14150, 14148, 14146, 14144, 14142, VIAL, "Ranging Flask"),
+				SARA_BREW_FLASK(14128, 14126, 14124, 14122, 14419, 14417, VIAL, "Saradomin Brew Flask"),
+				SUPER_RESTORE_FLASK(14415, 14413, 14411, 14409, 14407, 14405, VIAL, "Super Restore Flask"),
+				MAGIC_FLASK(14403, 14401, 14399, 14397, 14395, 14393, VIAL, "Magic Flask"),
+				RECOVER_SPEC_FLASK(14385, 14383, 14381, 14379, 14377, 14375, VIAL, "Recover Special Flask"),
+				EXTREME_ATTACK_FLASK(14373, 14371, 14369, 14367, 14365, 14363, VIAL, "Extreme Attack Flask"),
+				EXTREME_STR_FLASK(14361, 14359, 14357, 14355, 14353, 15351, VIAL, "Extreme Strength Flask"),
+				EXTREME_DEF_FLASK(14349, 14347, 14345, 14343, 14341, 14339, VIAL, "Extreme Defence Flask"),
+				EXTREME_MAGIC_FLASK(14337, 14335, 14333, 14331, 14329, 14327, VIAL, "Extreme Magic Flask"),
+				EXTREME_RANGE_FLASK(14325, 14323, 14321, 14319, 14317, 14315, VIAL, "Extreme Range Flask"),
+				OVERLOAD_FLASK(14301, 14299, 14297, 14295, 14293, 14921, VIAL, "Overload Flask");
 
 		/*
 		 * This is what the data in the above enumeration is, in order. EX:
@@ -114,6 +150,39 @@ public class PotionCombinating {
 			this.fourDosePotionID = fourDosePotionID;
 			this.vial = vial;
 			this.potionName = potionName;
+		}
+		private CombiningDoses(int flaskSix, int flaskFive, int flaskFour, int flaskThree,  int flaskTwo, int flaskOne, int vial, String name) {
+			this.flaskSix = flaskSix;
+			this.flaskFive = flaskFive;
+			this.flaskFour = flaskFour;
+			this.flaskThree = flaskThree;
+			this.flaskTwo = flaskTwo;
+			this.flaskOne = flaskOne;
+			this.vial = vial;
+			this.name = name;
+		}
+		private int flaskSix, flaskFive, flaskFour, flaskThree, flaskTwo, flaskOne;
+		private String name;
+		public String getName() {
+			return name;
+		}
+		public int getFlaskSix() {
+			return flaskSix;
+		}
+		public int getFlaskFive() {
+			return flaskFive;
+		}
+		public int getFlaskFour() {
+			return flaskFour;
+		}
+		public int getFlaskThree() {
+			return flaskThree;
+		}
+		public int getFlaskTwo() {
+			return flaskTwo;
+		}
+		public int getFlaskOne() {
+			return flaskOne;
 		}
 
 		/*
