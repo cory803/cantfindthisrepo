@@ -278,6 +278,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(32).open(player);
 					break;
 				case 8444:
+					if(player.getDonorRights() == 0) {
+						player.getPacketSender().sendMessage("You are not a donator... Get out of here!");
+						player.moveTo(new Position(3087, 3502, 0));
+						return;
+					}
 					ShopManager.getShops().get(31).open(player);
 					break;
 				case 8459:

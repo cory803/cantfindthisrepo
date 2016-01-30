@@ -52,6 +52,13 @@ public class DropItemPacketListener implements PacketListener {
 					player.performGraphic(new Graphic(1750));
 					player.getPacketSender().sendMessage("The potion explodes in your face as you drop it!");
 				} else {
+					if(player.getLocation() != Location.DUNGEONEERING) {
+						if(item.getDefinition().getName().contains("Primal")) {
+							player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
+							player.getPacketSender().sendMessage("You cannot have primal outside of dungeoneering...");
+							return;
+						}
+					}
 					if(Dungeoneering.doingDungeoneering(player) && player.getLocation() != Location.DUNGEONEERING) {
 						player.getPacketSender().sendMessage("You can't drop this item outside of a dungeon!");
 						return;

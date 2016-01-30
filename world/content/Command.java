@@ -41,11 +41,13 @@ public class Command {
 			player.getPacketSender().sendString(55046, "@or3@ - @whi@ ::ban [player]");
 			player.getPacketSender().sendString(55047, "@or3@ - @whi@ ::unban [player]");
 			player.getPacketSender().sendString(55048, "@or3@ - @whi@ ::ipban [player]");
-			player.getPacketSender().sendString(55049, "@or3@ - @whi@ ::massban [player]");
-			player.getPacketSender().sendString(55050, "@or2@ Administrator Commands");
-			player.getPacketSender().sendString(55051, "@or3@ - @whi@ ::cpuban [player]");
-			player.getPacketSender().sendString(55052, "@or3@ - @whi@ ::host [player]");
-			player.getPacketSender().sendString(55053, "@or3@ - @whi@ ::gold [player]");
+			player.getPacketSender().sendString(55049, "@or2@ Administrator Commands");
+			player.getPacketSender().sendString(55050, "@or3@ - @whi@ ::massban [player]");
+			player.getPacketSender().sendString(55051, "@or3@ - @whi@ ::unmassban [player]");
+			player.getPacketSender().sendString(55052, "@or3@ - @whi@ ::serialban [player]");
+			player.getPacketSender().sendString(55053, "@or3@ - @whi@ ::unserialban [player]");
+			player.getPacketSender().sendString(55054, "@or3@ - @whi@ ::host [player]");
+			player.getPacketSender().sendString(55055, "@or3@ - @whi@ ::gold [player]");
 			/*
 			player.getPacketSender().sendString(55054, "@or3@ - @whi@ ");
 			player.getPacketSender().sendString(55055, "@or3@ - @whi@ ");

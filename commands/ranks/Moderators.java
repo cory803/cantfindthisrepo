@@ -33,6 +33,76 @@ public class Moderators {
 				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
 			}
 		}
+		if(wholeCommand.startsWith("unjail")) {
+			String jail_punishee = wholeCommand.substring(7);
+			Player punishee = World.getPlayerByName(jail_punishee);
+			punishee.setJailed(true);
+			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
+			punishee.moveTo(new Position(3087, 3502, 0));
+		}
+		if(wholeCommand.startsWith("jail")) {
+				String jail_punishee = wholeCommand.substring(5);
+				Player punishee = World.getPlayerByName(jail_punishee);
+				if(!PlayerSaving.playerExists(jail_punishee)) {
+					player.getPacketSender().sendMessage("Player "+jail_punishee+" does not exist.");
+					return;
+				} else {
+				int cellAmounts = Misc.getRandom(1);
+				switch(cellAmounts) {
+				case 1:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5011, 0));
+				break;
+				case 2:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5008, 0));
+				break;
+				case 3:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5005, 0));
+				break;
+				case 4:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5002, 0));
+				break;
+				case 5:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 4999, 0));
+				break;
+				case 6:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5011, 0));
+				break;
+				case 7:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5008, 0));
+				break;
+				case 8:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5005, 0));
+				break;
+				case 9:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5002, 0));
+				break;
+				case 10:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 4999, 0));
+				break;
+				default:
+				}
+			}
+		}
 		if(command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);
 			if(!PlayerSaving.playerExists(ban_player)) {
@@ -133,55 +203,11 @@ public class Moderators {
 					return;
 				}
 				PlayerPunishment.ipBan(ip);
+				PlayerPunishment.ban(ban_player);
 				if(other != null) {
 					World.deregister(other);
 				}
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned on ip "+ip+"!");
-			}
-		}
-		if(command[0].equalsIgnoreCase("serialban")) {
-			String ban_player = wholeCommand.substring(10);
-			if(!PlayerSaving.playerExists(ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
-				return;
-			} else {
-				Player other = World.getPlayerByName(ban_player);
-				String serial;
-				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
-				} else {
-					serial = other.getSerialNumber();
-				}
-				if(PlayerPunishment.isSerialBanned(serial)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active serial ban on "+serial+".");
-					return;
-				}
-				PlayerPunishment.serialBan(serial);
-				if(other != null) {
-					World.deregister(other);
-				}
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully serial banned on serial "+serial+"!");
-			}
-		}		
-		if(command[0].equalsIgnoreCase("unserialban")) {
-			String ban_player = wholeCommand.substring(12);
-			if(!PlayerSaving.playerExists(ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
-				return;
-			} else {
-				Player other = World.getPlayerByName(ban_player);
-				String serial;
-				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
-				} else {
-					serial = player.getSerialNumber();
-				}
-				if(!PlayerPunishment.isSerialBanned(serial)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" does not have an active serial ban on "+serial+".");
-					return;
-				}
-				PlayerPunishment.unSerialBan(serial);
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un serial banned on serial "+serial+"!");
 			}
 		}
 		if(command[0].equalsIgnoreCase("unipban")) {
@@ -217,59 +243,6 @@ public class Moderators {
 				}
 				PlayerPunishment.unBan(ban_player);
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully unbanned.");
-			}
-		}
-		if(command[0].equalsIgnoreCase("massban")) {
-			String ban_player = wholeCommand.substring(8);
-			if(!PlayerSaving.playerExists(ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
-				return;
-			} else {
-				Player other = World.getPlayerByName(ban_player);
-				String serial;
-				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
-				} else {
-					serial = other.getSerialNumber();
-				}
-				String ip;
-				if(other == null) {
-					ip = PlayerPunishment.getLastIpAddress(ban_player);
-				} else {
-					ip = other.getHostAddress();
-				}
-				PlayerPunishment.serialBan(serial);
-				PlayerPunishment.ipBan(ip);
-				PlayerPunishment.ban(ban_player);
-				if(other != null) {
-					World.deregister(other);
-				}
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully mass banned!");
-			}
-		}
-		if(command[0].equalsIgnoreCase("unmassban")) {
-			String ban_player = wholeCommand.substring(10);
-			if(!PlayerSaving.playerExists(ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
-				return;
-			} else {
-				Player other = World.getPlayerByName(ban_player);
-				String serial;
-				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
-				} else {
-					serial = other.getSerialNumber();
-				}
-				String ip;
-				if(other == null) {
-					ip = PlayerPunishment.getLastIpAddress(ban_player);
-				} else {
-					ip = other.getHostAddress();
-				}
-				PlayerPunishment.unSerialBan(serial);
-				PlayerPunishment.unIpBan(ip);
-				PlayerPunishment.unBan(ban_player);
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
 			}
 		}
 		if(command[0].equalsIgnoreCase("saveall")) {

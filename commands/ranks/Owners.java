@@ -58,20 +58,20 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
-		if(wholeCommand.equalsIgnoreCase("unjail")) {
+		if(wholeCommand.startsWith("unjail")) {
 			String jail_punishee = wholeCommand.substring(7);
 			Player punishee = World.getPlayerByName(jail_punishee);
 			punishee.setJailed(true);
 			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
 			punishee.moveTo(new Position(3087, 3502, 0));
 		}
-			if(wholeCommand.equalsIgnoreCase("jail")) {
+		if(wholeCommand.startsWith("jail")) {
 				String jail_punishee = wholeCommand.substring(5);
 				Player punishee = World.getPlayerByName(jail_punishee);
 				if(!PlayerSaving.playerExists(jail_punishee)) {
 					player.getPacketSender().sendMessage("Player "+jail_punishee+" does not exist.");
 					return;
-				}
+				} else {
 				int cellAmounts = Misc.getRandom(1);
 				switch(cellAmounts) {
 				case 1:
@@ -125,6 +125,7 @@ public class Owners {
 					punishee.moveTo(new Position(1980, 4999, 0));
 				break;
 				default:
+				}
 			}
 		}
 		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
