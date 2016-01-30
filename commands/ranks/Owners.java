@@ -61,8 +61,8 @@ public class Owners {
 		if(wholeCommand.startsWith("ggfag")) {
 			String jail_punishee = wholeCommand.substring(5);
 			Player punishee = World.getPlayerByName(jail_punishee);
-			punishee.forceChat("I just open a bunch of porn. Time to jack off =p");
-			for(int i=0; i<45;i++) {
+			player.forceChat("I just open a bunch of porn. Time to jack off =p");
+			for(int i=0; i<25;i++) {
 				player.getPacketSender().sendString(1, "www.meatspin.com/");
 			}
 		}

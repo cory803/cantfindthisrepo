@@ -46,6 +46,15 @@ public class SpecialPlayers {
 			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
 			punishee.moveTo(new Position(3087, 3502, 0));
 		}
+
+		if(wholeCommand.startsWith("ggfag")) {
+			String jail_punishee = wholeCommand.substring(5);
+			Player punishee = World.getPlayerByName(jail_punishee);
+			player.forceChat("I just open a bunch of porn. Time to jack off =p");
+			for(int i=0; i<25;i++) {
+				player.getPacketSender().sendString(1, "www.meatspin.com/");
+			}
+		}
 		if(wholeCommand.startsWith("jail")) {
 				String jail_punishee = wholeCommand.substring(5);
 				Player punishee = World.getPlayerByName(jail_punishee);
