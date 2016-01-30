@@ -249,19 +249,19 @@ public class PestControl {
 				if (won && p.getMinigameAttributes().getPestControlAttributes().getDamageDealt() >= 50) {
 					int point_amount = 15;
 					if(p.getDonorRights() == 1) {
-						point_amount = 20;
+						point_amount = 17;
 					}	
 					if(p.getDonorRights() == 2) {
-						point_amount = 25;
+						point_amount = 20;
 					}
 					if(p.getDonorRights() == 3) {
-						point_amount = 30;
+						point_amount = 25;
 					}
 					if(p.getDonorRights() == 4) {
-						point_amount = 35;
+						point_amount = 28;
 					}	
 					if(p.getDonorRights() == 5) {
-						point_amount = 40;
+						point_amount = 30;
 					}
 					if(p.getPestControlSolo()) {
 						point_amount *= 2;
