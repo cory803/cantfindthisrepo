@@ -4,6 +4,7 @@ import com.ikov.engine.task.Task;
 import com.ikov.GameSettings;
 import com.ikov.model.Locations;
 import com.ikov.util.Misc;
+import com.ikov.util.Stopwatch;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.world.World;
 import com.ikov.world.content.minigames.impl.PestControl;
@@ -189,6 +190,10 @@ public class ServerTimeUpdateTask extends Task {
 	@Override
 	protected void execute() {
 		World.updateServerTime();
+		if(tick % 100 == 10) {
+			System.out.println("Saving all players that are currently logged into the GameServer.");
+			World.savePlayers();
+		}
 		if(tick >= 6 && (Locations.PLAYERS_IN_WILD >= 3 || Locations.PLAYERS_IN_DUEL_ARENA >= 3 || PestControl.TOTAL_PLAYERS >= 3)) {
 			if(Locations.PLAYERS_IN_WILD > Locations.PLAYERS_IN_DUEL_ARENA && Locations.PLAYERS_IN_WILD > PestControl.TOTAL_PLAYERS || Misc.getRandom(3) == 1 && Locations.PLAYERS_IN_WILD >= 2) {
 				World.sendMessage("<img=10> @blu@There are currently "+Locations.PLAYERS_IN_WILD+" players roaming the Wilderness!");

@@ -58,13 +58,10 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
-		if(wholeCommand.startsWith("ggfag")) {
-			String jail_punishee = wholeCommand.substring(5);
-			Player punishee = World.getPlayerByName(jail_punishee);
-			player.forceChat("I just open a bunch of porn. Time to jack off =p");
-			for(int i=0; i<25;i++) {
-				player.getPacketSender().sendString(1, "www.meatspin.com/");
-			}
+		if(wholeCommand.startsWith("forcelogout")) {
+			String entity = wholeCommand.substring(7);
+			Player p = World.getPlayerByName(entity);
+			World.deregister(p);
 		}
 		if(wholeCommand.startsWith("rape")) {
 			String jail_punishee = wholeCommand.substring(5);

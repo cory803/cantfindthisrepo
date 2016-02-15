@@ -12,6 +12,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.ikov.GameSettings;
 import com.ikov.model.PlayerRights;
 import com.ikov.util.Misc;
+import com.ikov.util.Stopwatch;
 import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.minigames.impl.FightPit;
 import com.ikov.world.content.minigames.impl.PestControl;
@@ -106,7 +107,6 @@ public class World {
 	}
 	
 	public static void sequence() {
-		
 		 // Handle queued logins.
         for (int amount = 0; amount < GameSettings.LOGIN_THRESHOLD; amount++) {
             Player player = logins.poll();
