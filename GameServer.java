@@ -27,7 +27,7 @@ public class GameServer {
 			logger.info("Initializing the loader...");
 			System.out.println("Fetching client version...");
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/Ikov/update.txt").openStream()));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/IKov/update.txt").openStream()));
 				for (int i = 0; i < 1; i++) {
 					GameSettings.client_version = reader.readLine();
 				}
