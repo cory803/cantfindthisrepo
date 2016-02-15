@@ -272,7 +272,7 @@ public enum CombatSpecial {
 			player.performGraphic(new Graphic(1958));
 			player.performAnimation(new Animation(10516));
 			CombatSpecial.drain(player, STAFF_OF_LIGHT.drainAmount);
-			player.setStaffOfLightEffect(200);
+			player.setStaffOfLightEffect(100);
 			TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
 			player.getPacketSender().sendMessage("You are shielded by the spirits of the Staff of light!");
 			player.getCombatBuilder().cooldown(true);

@@ -213,7 +213,10 @@ public final class WeaponInterfaces {
 	 */
 	public static void assign(Player player, Item item) {
 		WeaponInterface weapon;
+		FightType fightStyle;
 
+		fightStyle = player.getFightType();
+		
 		if(item == null || item.getId() == -1) {
 			weapon = WeaponInterface.UNARMED;
 		} else {
@@ -244,15 +247,22 @@ public final class WeaponInterfaces {
 		CombatSpecial.updateBar(player);
 
 		for (FightType type : weapon.getFightType()) {
-
 			if (type.getStyle() == player.getFightType().getStyle()) {
 				player.setFightType(type);
 				player.getPacketSender().sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId());
 				return;
 			}
 		}
+		
+		int fightTypeIndex = 0;
+		
+		if(fightStyle != null) { //Fix for weapon style changes
+			if(!(fightStyle.getChildId() > weapon.getFightType().length)) {
+				fightTypeIndex = fightStyle.getChildId();
+			}
+		}
 
-		player.setFightType(player.getWeapon().getFightType()[0]);
+		player.setFightType(player.getWeapon().getFightType()[fightTypeIndex]);
 		player.getPacketSender().sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId());
 	}
 

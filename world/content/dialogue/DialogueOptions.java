@@ -1344,6 +1344,11 @@ public class DialogueOptions {
 					player.getPacketSender().sendInterfaceRemoval();
 					return;
 				}
+				if(player.getClanChatName().equalsIgnoreCase("ikov")) {
+					player.getPacketSender().sendMessage("You cannot boss in a clan when you are in the Ikov cc!");
+					player.getPacketSender().sendInterfaceRemoval();
+					return;
+				}
 				player.setBossSolo(false);
 				DialogueManager.start(player, 134);
 				player.setDialogueActionId(134);

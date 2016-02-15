@@ -25,7 +25,7 @@ public class CorporealBeast implements CombatStrategy {
 
 	@Override
 	public boolean canAttack(Character entity, Character victim) {
-		return victim.isPlayer();
+		return true;
 	}
 
 	@Override
@@ -68,7 +68,7 @@ public class CorporealBeast implements CombatStrategy {
 					cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 1, CombatType.MELEE, true));
 				return true;
 			}
-		} else if (attackStyle == 2) { // powerfull mage spiky ball
+		} else if (attackStyle == 2) { // powerful mage spiky ball
 			cB.performAnimation(attack_anim2);
 			cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 2, CombatType.MAGIC, true));
 			new Projectile(cB, target, 1825, 44, 3, 43, 43, 0).sendProjectile();

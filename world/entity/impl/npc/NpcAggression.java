@@ -2,6 +2,7 @@ package com.ikov.world.entity.impl.npc;
 
 import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
+import com.ikov.world.content.combat.CombatContainer;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.strategy.impl.Nex;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
@@ -34,7 +35,12 @@ public final class NpcAggression {
 			if(npc == null || npc.getConstitution() <= 0 || !(dung && npc.getId() != 11226) && !npc.getDefinition().isAggressive()) {
 				continue;
 			}
-			
+			if(npc.getCombatBuilder().isBeingAttacked() && !npc.getCombatBuilder().isAttacking()) {
+				npc.getCombatBuilder().getLastAttacker();
+				player.setTargeted(true);
+				npc.getCombatBuilder().attack(player);
+				player.getPacketSender().sendMessage("time to attack now...");
+			}
 			if(!npc.findNewTarget()) {
 				if(npc.getCombatBuilder().isAttacking() || npc.getCombatBuilder().isBeingAttacked()) {
 					continue;

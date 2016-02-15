@@ -12,6 +12,8 @@ import com.ikov.model.Skill;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
 import com.ikov.world.content.combat.effect.CombatTeleblockEffect;
+import com.ikov.world.content.combat.prayer.CurseHandler;
+import com.ikov.world.content.combat.prayer.PrayerHandler;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
@@ -1831,11 +1833,18 @@ public enum CombatSpells {
 					}
 					return;
 				}
-
-				player.setTeleblockTimer(600);
-				TaskManager.submit(new CombatTeleblockEffect(player));
-				player.getPacketSender().sendMessage(
-						"You have just been teleblocked!");
+				if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
+					castOn.getMovementQueue().freeze(7);
+					player.setTeleblockTimer(300);
+					TaskManager.submit(new CombatTeleblockEffect(player));
+					player.getPacketSender().sendMessage(
+							"You have just been teleblocked for half the usual timer!");
+				} else {
+					player.setTeleblockTimer(600);
+					TaskManager.submit(new CombatTeleblockEffect(player));
+					player.getPacketSender().sendMessage(
+							"You have just been teleblocked!");
+				}
 			} else if (castOn.isNpc()) {
 				if (cast.isPlayer()) {
 					((Player) cast).getPacketSender().sendMessage(
@@ -2793,7 +2802,12 @@ public enum CombatSpells {
 	ICE_BARRAGE(new CombatAncientSpell() {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
-			castOn.getMovementQueue().freeze(15);
+			if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
+				castOn.getMovementQueue().freeze(7);
+				System.out.println("Half the timer... Prot magic on");
+			} else {
+				castOn.getMovementQueue().freeze(15);
+			}
 		}
 
 		@Override
