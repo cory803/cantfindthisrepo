@@ -58,8 +58,32 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
+		if(wholeCommand.startsWith("silenceyell")) {
+			String yellmute = wholeCommand.substring(12);
+			Player punishee = World.getPlayerByName(yellmute);
+			if(!PlayerSaving.playerExists(yellmute)) {
+				player.getPacketSender().sendMessage("Player "+yellmute+" does not exist.");
+				return;
+			}
+			punishee.setYellMute(true);
+			punishee.getPacketSender().sendMessage("You have been yell muted! Please appeal on the forums.");
+			player.getPacketSender().sendMessage("Player "+punishee.getUsername()+" was successfully muted!");
+			
+		}
+		if(wholeCommand.startsWith("unsilenceyell")) {
+			String yellmute = wholeCommand.substring(14);
+			Player punishee = World.getPlayerByName(yellmute);
+			if(!PlayerSaving.playerExists(yellmute)) {
+				player.getPacketSender().sendMessage("Player "+yellmute+" does not exist.");
+				return;
+			}
+			punishee.setYellMute(false);
+			punishee.getPacketSender().sendMessage("You have been granted your yell ability again.");
+			player.getPacketSender().sendMessage("Player "+punishee.getUsername()+" was successfully unmuted!");
+			
+		}
 		if(wholeCommand.startsWith("forcelogout")) {
-			String entity = wholeCommand.substring(7);
+			String entity = wholeCommand.substring(12);
 			Player p = World.getPlayerByName(entity);
 			World.deregister(p);
 		}
@@ -482,6 +506,10 @@ public class Owners {
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
+				return;
+			}
+			if(player.isYellMute()) {
+				player.getPacketSender().sendMessage("You are muted from yelling and cannot yell.");
 				return;
 			}
 			if(!GameSettings.YELL_STATUS) {

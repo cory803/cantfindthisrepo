@@ -123,9 +123,13 @@ public class PlayerLoading {
 			if (reader.has("given-starter")) {
 				player.setReceivedStarter(reader.get("given-starter").getAsBoolean());
 			}	
-			
+
 			if (reader.has("yell-toggle")) {
 				player.setYellToggle(reader.get("yell-toggle").getAsBoolean());
+			}
+			
+			if (reader.has("yell-mute")) {
+				player.setYellMute(reader.get("yell-mute").getAsBoolean());
 			}
 
 			if (reader.has("donated")) {

@@ -33,6 +33,30 @@ public class Moderators {
 				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
 			}
 		}
+		if(wholeCommand.startsWith("silenceyell")) {
+			String yellmute = wholeCommand.substring(12);
+			Player punishee = World.getPlayerByName(yellmute);
+			if(!PlayerSaving.playerExists(yellmute)) {
+				player.getPacketSender().sendMessage("Player "+yellmute+" does not exist.");
+				return;
+			}
+			punishee.setYellMute(true);
+			punishee.getPacketSender().sendMessage("You have been yell muted! Please appeal on the forums.");
+			player.getPacketSender().sendMessage("Player "+punishee.getUsername()+" was successfully muted!");
+			
+		}
+		if(wholeCommand.startsWith("unsilenceyell")) {
+			String yellmute = wholeCommand.substring(14);
+			Player punishee = World.getPlayerByName(yellmute);
+			if(!PlayerSaving.playerExists(yellmute)) {
+				player.getPacketSender().sendMessage("Player "+yellmute+" does not exist.");
+				return;
+			}
+			punishee.setYellMute(false);
+			punishee.getPacketSender().sendMessage("You have been granted your yell ability again.");
+			player.getPacketSender().sendMessage("Player "+punishee.getUsername()+" was successfully unmuted!");
+			
+		}
 		if(wholeCommand.startsWith("unjail")) {
 			String jail_punishee = wholeCommand.substring(7);
 			Player punishee = World.getPlayerByName(jail_punishee);

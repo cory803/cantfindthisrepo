@@ -605,6 +605,15 @@ public class Player extends Character {
 	public String last_bank_ip = "";
 	public int combat_hit_tick = 0;
 	public boolean has_combat_tick = false;
+	private boolean yellMute = false;
+	
+	public boolean isYellMute() {
+		return yellMute;
+	}
+	public void setYellMute(boolean yellMute) {
+		this.yellMute = yellMute;
+	}
+
 	public boolean yell_toggle = true;
 	
 	public String getLastBankSerial() {

@@ -2804,7 +2804,6 @@ public enum CombatSpells {
 		public void spellEffect(Character cast, Character castOn, int damage) {
 			if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
 				castOn.getMovementQueue().freeze(7);
-				System.out.println("Half the timer... Prot magic on");
 			} else {
 				castOn.getMovementQueue().freeze(15);
 			}
