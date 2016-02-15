@@ -6,6 +6,7 @@ import java.util.Map;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.GameSettings;
 import com.ikov.util.JsonLoader;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -146,6 +147,16 @@ public class DialogueManager {
 	 */
 	private static void showDialogue(Player player, Dialogue dialogue) {
 		String[] lines = dialogue.dialogue();
+		for(int i = 0; i < lines.length; i++) {
+			if(lines[i].equals("Try again in 0 minutes.")) {
+				if(player.gambler_id == 1) {
+					lines[i] = "Try again in "+GameSettings.gambler_timer_1 / 2 / 60 +" minutes.";
+				}
+				if(player.gambler_id == 2) {
+					lines[i] = "Try again in "+GameSettings.gambler_timer_2 / 2 / 60 +" minutes.";
+				}
+			}
+		}
 		switch (dialogue.type()) {
 		case NPC_STATEMENT:
 			int startDialogueChildId = NPC_DIALOGUE_ID[lines.length - 1];

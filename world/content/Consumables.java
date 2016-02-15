@@ -21,8 +21,6 @@ import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.content.skill.SkillManager;
 import com.ikov.world.entity.impl.player.Player;
 
-import sun.invoke.empty.Empty;
-
 /**
  * Consumables are items that players can use to restore stats/points.
  * Examples of Consumable items: Food, Potions

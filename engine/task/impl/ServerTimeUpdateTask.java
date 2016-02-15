@@ -7,10 +7,13 @@ import com.ikov.util.Misc;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.world.World;
 import com.ikov.world.content.minigames.impl.PestControl;
+import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.model.Position;
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
+import com.ikov.model.Direction;
 
 /**
  * @author Gabriel Hannason
@@ -31,6 +34,42 @@ public class ServerTimeUpdateTask extends Task {
 				String line;
 				if(GameSettings.CONFIGURATION_TIME > 0) {
 					GameSettings.CONFIGURATION_TIME--;
+				}
+				if(GameSettings.gambler_timer_1 > 0) {
+					GameSettings.gambler_timer_1--;
+				}
+				if(GameSettings.gambler_timer_2 > 0) {
+					GameSettings.gambler_timer_2--;
+				}
+				if(!GameSettings.spawned_1) {
+					NPC advertiser_1 = new NPC(4002, new Position(2453, 3091));
+					World.register(advertiser_1);
+					advertiser_1.setDirection(Direction.EAST);
+					GameSettings.advertiser_1 = advertiser_1;
+					GameSettings.spawned_1 = true;
+				}
+				if(!GameSettings.spawned_2) {
+					NPC advertiser_2 = new NPC(2633, new Position(2453, 3088));
+					World.register(advertiser_2);
+					advertiser_2.setDirection(Direction.EAST);
+					GameSettings.advertiser_2 = advertiser_2;
+					GameSettings.spawned_2 = true;
+				}
+				if(GameSettings.gambler_timer_1 < 14400) {
+					if(GameSettings.gambler_1) {
+						GameSettings.advertiser_1.forceChat("All join the clan chat '"+GameSettings.clan_name_1+"' for gambling!");
+					}
+				}
+				if(GameSettings.gambler_timer_2 < 14400) {
+					if(GameSettings.gambler_2) {
+						GameSettings.advertiser_2.forceChat("All join the clan chat '"+GameSettings.clan_name_2+"' for gambling!");
+					}
+				}
+				if(GameSettings.gambler_timer_1 == 0 && GameSettings.gambler_1) {
+					GameSettings.gambler_1 = false;
+				}
+				if(GameSettings.gambler_timer_2 == 0 && GameSettings.gambler_2) {
+					GameSettings.gambler_2 = false;
 				}
 				if(GameSettings.CONFIGURATION_TIME == 0) {
 					GameSettings.PROTECTED_COMPUTER_ADDRESS.clear();

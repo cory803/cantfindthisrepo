@@ -390,7 +390,7 @@ public class ObjectActionPacketListener implements PacketListener {
 						bossRoom = "Saradomin";
 						leaveRoom = player.getPosition().getX() < 2908;
 						index = 2;
-						movePos = new Position(leaveRoom ? 2908 : 2907, 5265);
+						movePos = new Position(leaveRoom ? 2908 : 2907, 5265, 0);
 					} else if(id == 26428) {
 						bossRoom = "Zamorak";
 						leaveRoom = player.getPosition().getY() <= 5331;

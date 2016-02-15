@@ -2113,5 +2113,7 @@ public class Player extends Character {
 	public boolean dice_other = false;
 	
 	public boolean boost_stats = false;
+	
+	public int gambler_id = 0;
 
 }

@@ -8,6 +8,7 @@ import com.ikov.model.GameMode;
 import com.ikov.model.Graphic;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
+import com.ikov.GameSettings;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.definitions.NpcDefinition;
@@ -78,6 +79,26 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 2286:
 					player.setDialogueActionId(139);
 					DialogueManager.start(player, 139);
+					break;
+				case 4002:
+					player.gambler_id = 1;
+					if(GameSettings.gambler_1) {
+						player.setDialogueActionId(151);
+						DialogueManager.start(player, 151);
+					} else {
+						player.setDialogueActionId(144);
+						DialogueManager.start(player, 144);
+					}
+					break;
+				case 2633:
+					player.gambler_id = 2;
+					if(GameSettings.gambler_2) {
+						player.setDialogueActionId(151);
+						DialogueManager.start(player, 151);
+					} else {
+						player.setDialogueActionId(144);
+						DialogueManager.start(player, 144);
+					}
 					break;
 				case 4375:
 					player.setDialogueActionId(133);

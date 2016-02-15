@@ -329,7 +329,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(3187, 3435, 0);
+			Position position = new Position(2441, 3090, 0);
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
 			player.getPacketSender().sendMessage("Welcome to the Gambling Area!");
 		}	

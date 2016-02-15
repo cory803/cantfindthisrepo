@@ -4,6 +4,7 @@ import java.math.BigInteger;
 
 import com.ikov.model.Position;
 import com.ikov.net.security.ConnectionHandler;
+import com.ikov.world.entity.impl.npc.NPC;
 import java.util.ArrayList;
 
 public class GameSettings {
@@ -29,6 +30,21 @@ public class GameSettings {
 	public static boolean DOUBLE_EXP = false;
 	public static boolean DOUBLE_POINTS = false;
 	public static boolean DOUBLE_DROPS = false;
+	
+	public static int gambler_timer_1 = 0;
+	public static int gambler_timer_2 = 0;
+	
+	public static boolean gambler_1 = false;
+	public static boolean gambler_2 = false;
+	
+	public static String clan_name_1 = "";
+	public static String clan_name_2 = "";
+	
+	public static boolean spawned_1 = false;
+	public static boolean spawned_2 = false;
+	
+	public static NPC advertiser_1;
+	public static NPC advertiser_2;
 	
 	public static int AUTHS_CLAIMED = 0;
 	public static boolean FIGHT_PITS_ACTIVE = false;

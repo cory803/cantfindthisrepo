@@ -5,9 +5,12 @@ import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
+import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
+import com.ikov.GameSettings;
+import com.ikov.model.input.impl.GambleAdvertiser;
 import com.ikov.model.Skill;
 import com.ikov.model.Locations;
 import com.ikov.model.container.impl.Shop.ShopManager;
@@ -16,6 +19,7 @@ import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.input.impl.DonateToWell;
 import com.ikov.model.Animation;
 import com.ikov.model.movement.MovementQueue;
+import java.io.File;
 import com.ikov.util.Misc;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.dialogue.DialogueManager;
@@ -875,6 +879,50 @@ public class DialogueOptions {
 			case 3:
 				ShopManager.getShops().get(22).open(player);
 				break;
+			case 144:
+				if(player.getInventory().getAmount(995) >= 300000000) {
+					player.setDialogueActionId(147);
+					DialogueManager.start(player, 147);
+				} else {
+					player.setDialogueActionId(146);
+					DialogueManager.start(player, 146);
+				}
+			break;
+			case 147:
+				File file = new File("./data/saves/clans/" + player.getClanChatName());
+				if (file.exists()) {
+					if(player.getInventory().getAmount(995) >= 300000000) {
+						player.getInventory().delete(new Item(995, 300000000));
+						player.setDialogueActionId(150);
+						DialogueManager.start(player, 150);
+						if(player.gambler_id == 1) {
+							if(GameSettings.gambler_1) {
+								player.setDialogueActionId(151);
+								DialogueManager.start(player, 151);
+							} else {
+								GameSettings.clan_name_1 = player.getClanChatName();
+								GameSettings.gambler_1 = true;
+								GameSettings.gambler_timer_1 = 14400;
+							}
+						} else {
+							if(GameSettings.gambler_2) {
+								player.setDialogueActionId(151);
+								DialogueManager.start(player, 151);
+							} else {
+								GameSettings.clan_name_2 = player.getClanChatName();
+								GameSettings.gambler_2 = true;
+								GameSettings.gambler_timer_2 = 14400;
+							}
+						}
+					} else {
+						player.setDialogueActionId(146);
+						DialogueManager.start(player, 146);
+					}
+				} else {
+					player.setDialogueActionId(149);
+					DialogueManager.start(player, 149);
+				}
+				break;
 			case 4:
 				SummoningTab.handleDismiss(player, true);
 				break;
@@ -1027,9 +1075,19 @@ public class DialogueOptions {
 			case 3:
 				ShopManager.getShops().get(23).open(player);
 				break;
+			case 147:
+				if(player.getInventory().getAmount(995) >= 300000000) {
+					player.setInputHandling(new GambleAdvertiser());
+					player.getPacketSender().sendEnterInputPrompt("What clan chat would you like to advertise?");
+				} else {
+					player.setDialogueActionId(146);
+					DialogueManager.start(player, 146);
+				}
+			break;
 			case 4:
 			case 16:
 			case 20:
+			case 144:
 			case 23:
 			case 33:
 			case 37:

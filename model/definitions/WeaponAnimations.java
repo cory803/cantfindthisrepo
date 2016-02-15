@@ -75,6 +75,11 @@ public final class WeaponAnimations {
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;*/
 		}
+		else if (item.getId() == 21074) {
+			playerStandIndex = 809;
+			playerRunIndex = 1210;
+			playerWalkIndex = 1146;
+		}
 		else if (weaponName.contains("wand") || weaponName.contains("staff")
 				|| weaponName.contains("staff") || weaponName.contains("spear") || item.getId() == 21005 || item.getId() == 21010) {
 			playerStandIndex = 8980;
