@@ -431,18 +431,39 @@ public class Administrators {
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully unipbanned on ip "+ip+"!");
 			}
 		}
-		if(command[0].equalsIgnoreCase("unban")) {
-			String ban_player = wholeCommand.substring(6);
+		if(command[0].equalsIgnoreCase("massban")) {
+			String ban_player = wholeCommand.substring(8);
 			if(!PlayerSaving.playerExists(ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;
 			} else {
-				if(!PlayerPunishment.isPlayerBanned(ban_player)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" is not banned.");
-					return;
+				Player other = World.getPlayerByName(ban_player);
+				String mac;
+				if(other == null) {
+					mac = PlayerPunishment.getLastMacAddress(ban_player);
+				} else {
+					mac = other.getMacAddress();
 				}
-				PlayerPunishment.unBan(ban_player);
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully unbanned.");
+				String ip;
+				if(other == null) {
+					ip = PlayerPunishment.getLastIpAddress(ban_player);
+				} else {
+					ip = other.getHostAddress();
+				}	
+				String address;
+				if(other == null) {
+					address = PlayerPunishment.getLastComputerAddress(ban_player);
+				} else {
+					address = other.getComputerAddress();
+				}
+				PlayerPunishment.pcBan(address);
+				PlayerPunishment.macBan(mac);
+				PlayerPunishment.ipBan(ip);
+				PlayerPunishment.ban(ban_player);
+				if(other != null) {
+					World.deregister(other);
+				}
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully mass banned!");
 			}
 		}
 		if(command[0].equalsIgnoreCase("unmassban")) {
@@ -463,7 +484,14 @@ public class Administrators {
 					ip = PlayerPunishment.getLastIpAddress(ban_player);
 				} else {
 					ip = other.getHostAddress();
+				}	
+				String address;
+				if(other == null) {
+					address = PlayerPunishment.getLastComputerAddress(ban_player);
+				} else {
+					address = other.getComputerAddress();
 				}
+				PlayerPunishment.unPcBan(address);
 				PlayerPunishment.unMacBan(mac);
 				PlayerPunishment.unIpBan(ip);
 				PlayerPunishment.unBan(ban_player);

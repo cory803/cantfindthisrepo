@@ -37,7 +37,12 @@ public final class LoginDetailsMessage {
     /**
      * The player's mac address.
      */
-    private final String mac_address;
+    private final String mac_address;	
+	
+    /**
+     * The player's computer address.
+     */
+    private final String computer_address;
     
     /**
      * The player's client version.
@@ -64,12 +69,13 @@ public final class LoginDetailsMessage {
      * @param decryptor
      *            the decryptor for decrypting messages.
      */
-    public LoginDetailsMessage(String username, String password, String host, String serial_number, String clientVersion, String mac, int uid) {
+    public LoginDetailsMessage(String username, String password, String host, String serial_number, String clientVersion, String mac, String cp_address, int uid) {
         this.username = username;
         this.password = password;
         this.host = host;
         this.serial_number = serial_number;
         this.mac_address = mac;
+        this.computer_address = cp_address;
         this.clientVersion = clientVersion;
         this.uid = uid;
     }
@@ -117,6 +123,15 @@ public final class LoginDetailsMessage {
      */
     public String getMacAddress() {
     	return mac_address;
+    }	
+	
+    /**
+     * Gets the player's serial number.
+     * 
+     * @return the serial number.
+     */
+    public String getComputerAddress() {
+    	return computer_address;
     }
     
     /**

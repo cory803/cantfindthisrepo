@@ -28,6 +28,13 @@ public class PlayerPunishment {
 		return false;
 	}	
 	
+	public static boolean isPcBanned(String add) {
+		if(new File(PC_BAN_DIRECTORY + add.toLowerCase()).exists()) {
+			return true;
+		}
+		return false;
+	}	
+	
 	public static boolean isIpMuted(String ip) {
 		if(new File(IP_MUTE_DIRECTORY + ip.toLowerCase()).exists()) {
 			return true;
@@ -51,8 +58,22 @@ public class PlayerPunishment {
 	}		
 	
 	public static void macBan(String mac) {
+		if(mac.toLowerCase().equals("none")) {
+			return;
+		}
 		try {
 			new File(MAC_BAN_DIRECTORY + mac).createNewFile();
+		} catch (IOException exception) {
+			exception.printStackTrace();
+		}
+	}	
+		
+	public static void pcBan(String add) {
+		if(add.toLowerCase().equals("none")) {
+			return;
+		}
+		try {
+			new File(PC_BAN_DIRECTORY + add).createNewFile();
 		} catch (IOException exception) {
 			exception.printStackTrace();
 		}
@@ -135,6 +156,27 @@ public class PlayerPunishment {
 			
 		}
 		return last_ip;
+	}	
+	
+	public static String getLastComputerAddress(String name) {
+		String line;
+		String last_ip = "";
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(new File("./characters/"+name+".json")));	
+			while ((line = reader.readLine()) != null) {
+				if (line.isEmpty()) {
+					break;
+				}
+				if(line.contains("last-computer-address")) {
+					line = line.substring(28).replace("\",", "");
+					last_ip = line;
+				}
+			}
+			reader.close();
+		} catch (IOException e) {
+			
+		}
+		return last_ip;
 	}
 	
 	public static void mute(String name) {
@@ -163,6 +205,10 @@ public class PlayerPunishment {
 	
 	public static void unMacBan(String mac) {
 		new File(MAC_BAN_DIRECTORY + mac).delete();
+	}	
+	
+	public static void unPcBan(String add) {
+		new File(PC_BAN_DIRECTORY + add).delete();
 	}
 	
 	/**
@@ -194,5 +240,10 @@ public class PlayerPunishment {
 	 * Leads to directory where banned account files are stored.
 	 */
 	public static final String MAC_BAN_DIRECTORY = PUNISHMENT_DIRECTORY + "/mac_bans/";	
+	
+	/**
+	 * Leads to directory where banned account files are stored.
+	 */
+	public static final String PC_BAN_DIRECTORY = PUNISHMENT_DIRECTORY + "/pc_bans/";	
 
 }

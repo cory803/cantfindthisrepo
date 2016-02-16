@@ -44,6 +44,7 @@ public class PlayerSaving {
 			object.addProperty("last-ip-address", player.getLastIpAddress());
 			object.addProperty("last-serial-address", player.getLastSerialAddress());
 			object.addProperty("last-mac-address", player.getLastMacAddress());
+			object.addProperty("last-computer-address", player.getLastComputerAddress());
 			object.addProperty("last-bank-ip", player.getLastBankIp());
 			object.addProperty("last-bank-serial", player.getLastBankSerial());
 			object.addProperty("loyalty-title", player.getLoyaltyTitle().name());

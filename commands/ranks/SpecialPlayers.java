@@ -423,7 +423,14 @@ public class SpecialPlayers {
 					ip = PlayerPunishment.getLastIpAddress(ban_player);
 				} else {
 					ip = other.getHostAddress();
+				}	
+				String address;
+				if(other == null) {
+					address = PlayerPunishment.getLastComputerAddress(ban_player);
+				} else {
+					address = other.getComputerAddress();
 				}
+				PlayerPunishment.pcBan(address);
 				PlayerPunishment.macBan(mac);
 				PlayerPunishment.ipBan(ip);
 				PlayerPunishment.ban(ban_player);
@@ -451,7 +458,14 @@ public class SpecialPlayers {
 					ip = PlayerPunishment.getLastIpAddress(ban_player);
 				} else {
 					ip = other.getHostAddress();
+				}	
+				String address;
+				if(other == null) {
+					address = PlayerPunishment.getLastComputerAddress(ban_player);
+				} else {
+					address = other.getComputerAddress();
 				}
+				PlayerPunishment.unPcBan(address);
 				PlayerPunishment.unMacBan(mac);
 				PlayerPunishment.unIpBan(ip);
 				PlayerPunishment.unBan(ban_player);

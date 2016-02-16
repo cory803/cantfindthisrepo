@@ -98,6 +98,10 @@ public class PlayerLoading {
 			
 			if (reader.has("last-mac-address")) {
 				player.setLastMacAddress(reader.get("last-mac-address").getAsString());
+			}			
+			
+			if (reader.has("last-computer-address")) {
+				player.setLastMacAddress(reader.get("last-computer-address").getAsString());
 			}		
 			
 			if (reader.has("last-bank-ip")) {
