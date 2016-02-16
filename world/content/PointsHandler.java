@@ -26,12 +26,12 @@ public class PointsHandler {
 		p.getPacketSender().sendString(39176, "@or2@Dung. Tokens: @yel@ "+dungTokens);
 		p.getPacketSender().sendString(39177, "@or2@Voting Points: @yel@ "+votingPoints);
 		p.getPacketSender().sendString(39178, "@or2@Slayer Points: @yel@"+slayerPoints);
-		p.getPacketSender().sendString(39179, "@or2@Pk Points: @yel@"+pkPoints);
-		p.getPacketSender().sendString(39180, "@or2@Wilderness Killstreak: @yel@"+p.getPlayerKillingAttributes().getPlayerKillStreak());
-		p.getPacketSender().sendString(39181, "@or2@Wilderness Kills: @yel@"+p.getPlayerKillingAttributes().getPlayerKills());		
-		p.getPacketSender().sendString(39182, "@or2@Wilderness Deaths: @yel@"+p.getPlayerKillingAttributes().getPlayerDeaths());
-		p.getPacketSender().sendString(39183, "@or2@Arena Victories: @yel@"+p.getDueling().arenaStats[0]);
-		p.getPacketSender().sendString(39184, "@or2@Arena Losses: @yel@"+p.getDueling().arenaStats[1]);
+		p.getPacketSender().sendString(39180, "@or2@Pk Points: @yel@"+pkPoints);
+		p.getPacketSender().sendString(39181, "@or2@Wilderness Killstreak: @yel@"+p.getPlayerKillingAttributes().getPlayerKillStreak());
+		p.getPacketSender().sendString(39182, "@or2@Wilderness Kills: @yel@"+p.getPlayerKillingAttributes().getPlayerKills());		
+		p.getPacketSender().sendString(39183, "@or2@Wilderness Deaths: @yel@"+p.getPlayerKillingAttributes().getPlayerDeaths());
+		p.getPacketSender().sendString(39184, "@or2@Arena Victories: @yel@"+p.getDueling().arenaStats[0]);
+		p.getPacketSender().sendString(39185, "@or2@Arena Losses: @yel@"+p.getDueling().arenaStats[1]);
 		
 		return this;
 	}

@@ -9,6 +9,7 @@ import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.KillsTracker;
+import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.KillsTracker.KillsEntry;
 import com.ikov.world.content.combat.strategy.impl.KalphiteQueen;
 import com.ikov.world.content.combat.strategy.impl.Nex;
@@ -80,6 +81,7 @@ public class NPCDeathTask extends Task {
 						KillsTracker.submit(killer, new KillsEntry(npc.getDefinition().getName(), 1, boss));
 						if(boss) {
 							killer.addBossPoints(1);
+							PlayerPanel.refreshPanel(killer);
 							killer.getPacketSender().sendMessage("You have defeated @blu@"+npc.getDefinition().getName()+"@bla@. You now have@red@ "+killer.getBossPoints()+" @bla@boss points.");
 							Achievements.doProgress(killer, AchievementData.DEFEAT_500_BOSSES);
 						}

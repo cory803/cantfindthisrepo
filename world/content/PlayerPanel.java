@@ -30,6 +30,7 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(39170, "@or2@Open Drop Log");
 		//player.getPacketSender().sendString(39171, "Time Played - In PlayerProcess");
 		player.getPacketSender().sendString(39172, "@or2@Claimed:  @yel@$"+player.getAmountDonated());
+		player.getPacketSender().sendString(39179, "@or2@Bossing Points:  @yel@"+player.getBossPoints());
 		player.getPointsHandler().refreshPanel();
 		/**
 		 * Points
