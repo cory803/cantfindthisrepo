@@ -253,13 +253,14 @@ public class HitQueue {
 				/** SKULLS **/
 				if(player.getLocation() == Location.WILDERNESS || player.getLocation() == Location.WILDKEY_ZONE && victim.isPlayer()) {
 					boolean didRetaliate = player.getCombatBuilder().didAutoRetaliate();
-					if(!didRetaliate) {
+					//if(!didRetaliate) {
 						boolean soloRetaliate = !player.getCombatBuilder().isBeingAttacked();
 						boolean multiRetaliate = player.getCombatBuilder().isBeingAttacked() && player.getCombatBuilder().getLastAttacker() != victim && Location.inMulti(player);
-						if (soloRetaliate || multiRetaliate) {
+						boolean lastAttacker = player.getCombatBuilder().getLastAttacker() != victim;
+						if(/**soloRetaliate || multiRetaliate ||**/ lastAttacker) {
 							CombatFactory.skullPlayer(player);
 						}
-					}
+					//}
 				}
 				player.has_combat_tick = false;
 				player.combat_hit_tick = 0;

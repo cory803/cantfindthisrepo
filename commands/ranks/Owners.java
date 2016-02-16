@@ -58,6 +58,12 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
+		if (command[0].equals("unskull")) {
+			player.setSkullTimer(0);
+			player.setSkullIcon(0);
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+			player.getPacketSender().sendMessage("You are unskulled!");
+		}
 		if(wholeCommand.startsWith("silenceyell")) {
 			String yellmute = wholeCommand.substring(12);
 			Player punishee = World.getPlayerByName(yellmute);
