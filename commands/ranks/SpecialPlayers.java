@@ -482,7 +482,18 @@ public class SpecialPlayers {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ff0000><shad=0><img=2>Owner<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			if(player.getDonorRights() == 1) {
+				World.sendYell("<img=5> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);
+			} else if(player.getDonorRights() == 2) {
+				World.sendYell("<img=6> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellMessage);
+			} else if(player.getDonorRights() == 3) {
+				World.sendYell("<img=7> <col=0>[<col=2FAC45>Extreme<col=0>] "+player.getUsername()+": "+yellMessage);
+			} else if(player.getDonorRights() == 4) {
+				World.sendYell("<img=8> <col=0>[<col=3E0069>Legendary<col=0>] "+player.getUsername()+": "+yellMessage);
+			} else if(player.getDonorRights() == 5) {
+				World.sendYell("<img=9> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);
+			}
+//			World.sendYell("<col=0>[<col=ff0000><shad=0><img=2>Owner<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if(command[0].equalsIgnoreCase("saveall")) {
 			World.savePlayers();
