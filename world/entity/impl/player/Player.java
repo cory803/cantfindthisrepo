@@ -404,6 +404,7 @@ public class Player extends Character {
 	/*** INTS ***/
 	public int[] allKeys = {1543, 1545, 1546, 1547, 1548};
 	public int voteCount = 0;
+	private int bossPoints = 0;
 	private int lastBoss = 0;
 	private int warningPoints = 0;
 	private int votesClaimed = 0;
@@ -504,6 +505,18 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public int getBossPoints() {
+		return bossPoints;
+	}
+	public void setBossPoints(int bossPoints) {
+		this.bossPoints = bossPoints;
+	}
+	public void addBossPoints(int bossPoints) {
+		this.bossPoints += bossPoints;
+	}
+	public void minusBossPoints(int bossPoints) {
+		this.bossPoints -= bossPoints;
+	}
 	public boolean isJailed() {
 		return jailed;
 	}

@@ -373,6 +373,8 @@ public class Shop extends ItemContainer {
 				playerCurrencyAmount = player.getCredits();
 			} else if(id == CREDIT_STORE_3) {
 				playerCurrencyAmount = player.getCredits();
+			} else if(id == BOSS_POINT_STORE) {
+				playerCurrencyAmount = player.getBossPoints();
 			}
 		}
 		if(value <= 0) {
@@ -439,6 +441,8 @@ public class Shop extends ItemContainer {
 							player.setCredits(-value, true);
 						} else if(id == CREDIT_STORE_3) {
 							player.setCredits(-value, true);
+						} else if(id == BOSS_POINT_STORE) {
+							player.addBossPoints(-value);
 						}
 					}
 
@@ -481,6 +485,8 @@ public class Shop extends ItemContainer {
 							player.setCredits(-value * canBeBought, true);
 						} else if(id == CREDIT_STORE_3) {
 							player.setCredits(-value * canBeBought, true);
+						} else if(id == BOSS_POINT_STORE) {
+							player.addBossPoints(-value * canBeBought);
 						}
 					}
 					super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
@@ -609,7 +615,7 @@ public class Shop extends ItemContainer {
 	public static boolean shopBuysItem(int shopId, Item item) {
 		if(shopId == GENERAL_STORE)
 			return true;
-		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE || shopId == CREDIT_STORE_1 || shopId == CREDIT_STORE_2 || shopId == CREDIT_STORE_3 || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == IRON_VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE)
+		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE || shopId == CREDIT_STORE_1 || shopId == CREDIT_STORE_2 || shopId == CREDIT_STORE_3 || shopId == BOSS_POINT_STORE || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == IRON_VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
 		if(shop != null && shop.getOriginalStock() != null) {
@@ -869,20 +875,21 @@ public class Shop extends ItemContainer {
 				case 21026:
 					return new Object[]{50000, "Credits"};
 				case 1037:
-					return new Object[]{20000, "Credits"};	
+					return new Object[]{100000, "Credits"};	
 				case 4084:
-					return new Object[]{25000, "Credits"};
+					return new Object[]{125000, "Credits"};
 				case 5607:
-					return new Object[]{5000, "Credits"};
+					return new Object[]{100000, "Credits"};
 				case 21048:
 				case 21049:
+				case 1419:
 					return new Object[]{150000, "Credits"};
 				case 21034:
 					return new Object[]{100000, "Credits"};	
 				case 6082:
 				case 9920:
 				case 5608:
-					return new Object[]{50000, "Credits"};	
+					return new Object[]{125000, "Credits"};	
 				case 9921:
 				case 9922:
 				case 9923:
@@ -894,7 +901,7 @@ public class Shop extends ItemContainer {
 				case 15464:
 				case 15454:
 				case 15459:
-					return new Object[]{110000, "Credits"};
+					return new Object[]{165000, "Credits"};
 				}
 			} else if(shop == CREDIT_STORE_2) {
 				switch(item) {
@@ -934,8 +941,38 @@ public class Shop extends ItemContainer {
 				case 21007:
 					return new Object[]{10000, "Credits"};
 				}
-			} else if(shop == CREDIT_STORE_3) {
+			} else if(shop == BOSS_POINT_STORE) {
 				switch(item) {
+				case 11710:
+				case 11712:
+				case 11714:
+				case 6585:
+				case 11235:
+				case 11732:
+				case 15017:
+					return new Object[]{150, "Boss Points"};
+				case 11286:
+				case 13902:
+				case 13905:
+					return new Object[]{550, "Boss Points"};
+				case 13746:
+					return new Object[]{750, "Boss Points"};
+				case 13748:
+					return new Object[]{850, "Boss Points"};
+				case 13750:
+					return new Object[]{800, "Boss Points"};
+				case 11724:
+				case 11726:
+				case 13899:
+				case 13752:
+					return new Object[]{600, "Boss Points"};
+				case 11702:
+					return new Object[]{900, "Boss Points"};
+				case 14484:
+					return new Object[]{1000, "Boss Points"};
+				}
+			} else if(shop == CREDIT_STORE_3) {
+					switch(item) {
 				case 15272:
 				case 11212:
 					return new Object[]{5, "Credits"};
@@ -1207,6 +1244,7 @@ public class Shop extends ItemContainer {
 	private static final int CREDIT_STORE_1 = 79;
 	private static final int CREDIT_STORE_2 = 80;
 	private static final int CREDIT_STORE_3 = 81;
+	private static final int BOSS_POINT_STORE = 84;
 	private static final int DONATOR_STORE = 54;
 	private static final int DONATOR_STORE_MISC = 55;
 	private static final int ENERGY_FRAGMENT_STORE = 33;

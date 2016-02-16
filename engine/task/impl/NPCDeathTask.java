@@ -75,10 +75,12 @@ public class NPCDeathTask extends Task {
 			case 0:
 				if(killer != null) {
 
-					boolean boss = (npc.getDefaultConstitution() > 2000);
+					boolean boss = (npc.getDefaultConstitution() > 2300);
 					if(!Nex.nexMinion(npc.getId()) && npc.getId() != 1158 && !(npc.getId() >= 3493 && npc.getId() <= 3497)) {
 						KillsTracker.submit(killer, new KillsEntry(npc.getDefinition().getName(), 1, boss));
 						if(boss) {
+							killer.addBossPoints(1);
+							killer.getPacketSender().sendMessage("You have defeated @blu@"+npc.getDefinition().getName()+"@bla@. You now have@red@ "+killer.getBossPoints()+" @bla@boss points.");
 							Achievements.doProgress(killer, AchievementData.DEFEAT_500_BOSSES);
 						}
 					}

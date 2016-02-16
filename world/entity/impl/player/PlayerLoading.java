@@ -191,6 +191,10 @@ public class PlayerLoading {
 			if(reader.has("pk-points")) {
 				player.getPointsHandler().setPkPoints(reader.get("pk-points").getAsInt(), false);
 			}
+			
+			if(reader.has("boss-points")) {
+				player.setBossPoints(reader.get("boss-points").getAsInt());
+			}
 
 			if(reader.has("player-kills")) {
 				player.getPlayerKillingAttributes().setPlayerKills(reader.get("player-kills").getAsInt());
