@@ -493,7 +493,6 @@ public class SpecialPlayers {
 			} else if(player.getDonorRights() == 5) {
 				World.sendYell("<img=9> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);
 			}
-//			World.sendYell("<col=0>[<col=ff0000><shad=0><img=2>Owner<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if(command[0].equalsIgnoreCase("saveall")) {
 			World.savePlayers();
