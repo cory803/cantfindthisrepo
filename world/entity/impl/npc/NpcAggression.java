@@ -35,12 +35,7 @@ public final class NpcAggression {
 			if(npc == null || npc.getConstitution() <= 0 || !(dung && npc.getId() != 11226) && !npc.getDefinition().isAggressive()) {
 				continue;
 			}
-			if(npc.getCombatBuilder().isBeingAttacked() && !npc.getCombatBuilder().isAttacking()) {
-				npc.getCombatBuilder().getLastAttacker();
-				player.setTargeted(true);
-				npc.getCombatBuilder().attack(player);
-				player.getPacketSender().sendMessage("time to attack now...");
-			}
+			
 			if(!npc.findNewTarget()) {
 				if(npc.getCombatBuilder().isAttacking() || npc.getCombatBuilder().isBeingAttacked()) {
 					continue;
