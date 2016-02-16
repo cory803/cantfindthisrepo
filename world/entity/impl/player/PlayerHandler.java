@@ -221,7 +221,7 @@ public class PlayerHandler {
 		}
 		if(!player.getBankPinAttributes().hasBankPin())
 			player.getPacketSender().sendMessage("<img=10><col=ff0000>You don't have an account pin set! Make sure that you set one at the town crier.");
-			Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber()+", Mac Address: "+player.getMacAddress()+", Computer Address: "+player.getComputerAddress()+"");
+			Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
 	}
 
 	public static boolean handleLogout(Player player) {
@@ -277,7 +277,7 @@ public class PlayerHandler {
 				World.getPlayers().remove(player);
 				session.setState(SessionState.LOGGED_OUT);
 				World.updatePlayersOnline();
-				Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Logout from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber()+", Mac Address: "+player.getMacAddress()+", Computer Address: "+player.getComputerAddress()+"");
+				Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Logout from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
 				return true;
 			} else {
 				return false;

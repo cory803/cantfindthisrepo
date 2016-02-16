@@ -71,7 +71,7 @@ public class BankPin {
 				player.getBankPinAttributes().setHasBankPin(true).setHasEnteredBankPin(true).setBankPin(player.getBankPinAttributes().getEnteredBankPin());
 				player.getPacketSender().sendMessage("You've created a account-pin. Your digit is "+player.getBankPinAttributes().getEnteredBankPin()[0]+"-"+player.getBankPinAttributes().getEnteredBankPin()[1]+"-"+player.getBankPinAttributes().getEnteredBankPin()[2]+"-"+player.getBankPinAttributes().getEnteredBankPin()[3]+". Please write it down.");
 				player.getPacketSender().sendInterfaceRemoval();
-				player.setLastBankSerial(player.getSerialNumber());
+				player.setLastBankSerial(player.getComputerAddress());
 				player.setLastBankIp(player.getHostAddress());
 				return;
 			}
@@ -92,7 +92,7 @@ public class BankPin {
 			} else {
 				player.getPacketSender().sendInterfaceRemoval();
 			}
-			player.setLastBankSerial(player.getSerialNumber());
+			player.setLastBankSerial(player.getComputerAddress());
 			player.setLastBankIp(player.getHostAddress());
 		}
 		randomizeNumbers(player);
@@ -221,7 +221,7 @@ public class BankPin {
 			String last_ip = player.getLastBankIp();
 			String current_ip = player.getHostAddress();
 			String last_serial = player.getLastBankSerial();
-			String current_serial = player.getSerialNumber();
+			String current_serial = player.getComputerAddress();
 			boolean on_different = false;
 			if(!last_ip.equals(current_ip) && !last_serial.equals(current_serial)) {
 				on_different = true;

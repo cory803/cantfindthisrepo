@@ -58,14 +58,6 @@ public class PlayerPunishment {
 	}		
 	
 	public static void macBan(String mac) {
-		if(mac.toLowerCase().equals("none")) {
-			return;
-		}
-		try {
-			new File(MAC_BAN_DIRECTORY + mac).createNewFile();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
 	}	
 		
 	public static void pcBan(String add) {

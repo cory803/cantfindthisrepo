@@ -33,13 +33,14 @@ public final class LoginResponses {
 		/** CHAR FILE LOADING **/
 		int playerLoadingResponse = PlayerLoading.getResult(player);
 		if(playerLoadingResponse != LOGIN_SUCCESSFUL && playerLoadingResponse != NEW_ACCOUNT) {
+			System.out.println("Character file loading for "+player.getUsername()+"");
 			return playerLoadingResponse;
 		}
 		
 		/** BANS AND ACCESS LIMITS **/
 		int hostHandlerResponse = ConnectionHandler.getResponse(player, msg);
 		if(hostHandlerResponse != LOGIN_SUCCESSFUL) {
-			System.out.println(""+hostHandlerResponse);
+			System.out.println("Access limit reached for "+player.getUsername()+"");
 			return hostHandlerResponse;
 		}
 		
