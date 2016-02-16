@@ -29,13 +29,6 @@ public abstract class Spell {
 	 *         <code>false</code> otherwise.
 	 */
 	public boolean canCast(Player player, boolean delete) {
-
-		if(player.getLocation() == Location.CLAN_WARS) {
-			//if(ClanWars.Rules.COMBAT_MAGE.getToggle() == false) {
-			//	player.getPacketSender().sendMessage("You cannot cast spells in this clan battle.");
-			//	return false;
-			//}
-		}
 		// We first check the level required.
 		if (player.getSkillManager().getCurrentLevel(Skill.MAGIC) < levelRequired()) {
 			player.getPacketSender().sendMessage(

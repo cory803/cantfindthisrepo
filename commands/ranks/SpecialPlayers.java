@@ -14,6 +14,7 @@ import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerPunishment;
+import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
 import com.ikov.world.content.skill.SkillManager;
 import com.ikov.world.content.transportation.TeleportHandler;
@@ -38,6 +39,16 @@ public class SpecialPlayers {
 		}
 		if(!continue_command) {
 			return;
+		}
+		if (command[0].equals("untb")) {
+			player.setTeleblockTimer(0);
+			player.getPacketSender().sendMessage("You are unteleblocked!");
+		}
+		if (command[0].equals("unskull")) {
+			player.setSkullTimer(0);
+			player.setSkullIcon(0);
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+			player.getPacketSender().sendMessage("You are  unskulled!");
 		}
 		if(wholeCommand.startsWith("unjail")) {
 			String jail_punishee = wholeCommand.substring(7);

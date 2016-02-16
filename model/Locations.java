@@ -201,7 +201,8 @@ public class Locations {
 				int y = player.getPosition().getY();
 				boolean ghostTown = x >= 3650 && y <= 3538;
 				boolean safeSpot = x == 3650 && y == 3472;
-				if(ghostTown && !safeSpot) {
+				boolean clanWarsLobby =  x >= 3264 && x <= 3279 && y >= 3672 && y <= 3695;
+				if(ghostTown && !safeSpot && !clanWarsLobby) {
 					player.setWildernessLevel(60);
 				} else {
 					player.setWildernessLevel(((((y > 6400 ? y - 6400 : y) - 3520) / 8)+1));
@@ -463,9 +464,6 @@ public class Locations {
 		INSIDE_MAGE_BANK(new int[]{2525, 2555}, new int[]{4706, 4728}, true, true, true, true, true, true) {
 		},
 		OUTSIDE_MAGE_BANK(new int[]{3085, 3101}, new int[]{3947, 3961}, true, true, true, true, true, true) {
-		},
-		CLAN_WARS(new int[]{0000, 0000}, new int[]{0000, 0000}, true, true, true, false, false, false) {
-			//^^ all incorrect, just want variable made...
 		},
 		BOSS_SYSTEM(new int[]{2350, 2450}, new int[]{9800, 10000}, true, true, true, false, false, false) {
 			@Override

@@ -12,7 +12,7 @@ import com.ikov.util.NameUtils;
 import com.ikov.world.content.Sounds;
 import com.ikov.world.content.Sounds.Sound;
 import com.ikov.world.content.combat.CombatType;
-import com.ikov.world.content.minigames.impl.ClanWars;
+import com.ikov.world.content.minigames.impl.ClanWarsRules;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.entity.impl.player.Player;
@@ -187,14 +187,6 @@ public class PrayerHandler {
 			return;
 		if (player.getPrayerActive()[prayerId])
 			return;
-		if(player.getLocation() == Location.CLAN_WARS) {
-			if(ClanWars.Rules.COMBAT_PRAYER.getToggle() == false) {
-				player.getPacketSender().sendMessage("You cannot use prayers in this clan battle.");
-				CurseHandler.deactivateAll(player);
-				PrayerHandler.deactivateAll(player);
-				return;
-			}
-		}
 		if(Dueling.checkRule(player, DuelRule.NO_PRAYER)) {
 			player.getPacketSender().sendMessage("Prayer has been disabled in this duel.");		
 			CurseHandler.deactivateAll(player);
