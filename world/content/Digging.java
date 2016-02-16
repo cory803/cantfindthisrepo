@@ -73,7 +73,7 @@ public class Digging {
 							spawnNpc(player, 2060);
 						} else if(player.getInventory().contains(1548)) { //green worst
 							player.getInventory().deleteAmount(1548, 1);	
-							spawnNpc(player, 9463);
+							spawnNpc(player, 4465);
 						} 
 				}
 				/**
