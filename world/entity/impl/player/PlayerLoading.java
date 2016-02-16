@@ -96,6 +96,10 @@ public class PlayerLoading {
 				player.setLastSerialAddress(reader.get("last-serial-address").getAsString());
 			}		
 			
+			if (reader.has("last-mac-address")) {
+				player.setLastMacAddress(reader.get("last-mac-address").getAsString());
+			}		
+			
 			if (reader.has("last-bank-ip")) {
 				player.setLastBankIp(reader.get("last-bank-ip").getAsString());
 			}		

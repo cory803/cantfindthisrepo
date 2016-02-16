@@ -311,6 +311,7 @@ public class Player extends Character {
 	private String username;
 	private String password;
 	private String serial_number;
+	private String mac_address;
 	private String emailAddress;
 	private String hostAddress;
 	private String clanChatName;
@@ -496,6 +497,7 @@ public class Player extends Character {
 	private boolean jailed = false;
 	private String last_ip_address;
 	private String last_serial_address;
+	private String last_mac_address;
 	
 	/*
 	 * Getters & Setters
@@ -582,6 +584,10 @@ public class Player extends Character {
 	
 	public void setLastSerialAddress(String last_serial) {
 		last_serial_address = last_serial;
+	}	
+	
+	public void setLastMacAddress(String mac) {
+		last_mac_address = mac;
 	}
 	
 	public boolean doingTutorial() {
@@ -594,6 +600,10 @@ public class Player extends Character {
 	
 	public String getLastSerialAddress() {
 		return last_serial_address;
+	}	
+	
+	public String getLastMacAddress() {
+		return last_mac_address;
 	}
 
 	public Player setUsername(String username) {
@@ -678,9 +688,18 @@ public class Player extends Character {
 	public String getSerialNumber() {
 		return serial_number;
 	}
+	
+	public String getMacAddress() {
+		return mac_address;
+	}
 
 	public Player setSerialNumber(String serial_number) {
 		this.serial_number = serial_number;
+		return this;
+	}
+	
+	public Player setMacAddress(String macc) {
+		this.mac_address = macc;
 		return this;
 	}
 

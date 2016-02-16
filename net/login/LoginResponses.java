@@ -37,7 +37,7 @@ public final class LoginResponses {
 		}
 		
 		/** PREVENTING IMPERSONATING **/
-		if(playerLoadingResponse == LoginResponses.NEW_ACCOUNT && (msg.getUsername().toLowerCase().contains("gabbe") || msg.getUsername().toLowerCase().contains("samy"))) {
+		if(playerLoadingResponse == LoginResponses.NEW_ACCOUNT) {
 			return LoginResponses.LOGIN_INVALID_CREDENTIALS;
 		}
 		

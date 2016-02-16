@@ -58,12 +58,6 @@ public class PlayerHandler {
 		World.getPlayers().add(player);
 		World.updatePlayersOnline();
 		PlayersOnlineInterface.add(player);
-		if(GameSettings.PLAYERS_ONLINE) {
-			PlayersOnline.createCon();
-			PlayersOnline.offline(player);	
-			PlayersOnline.online(player);
-			PlayersOnline.destroyCon();
-		}
 		player.getSession().setState(SessionState.LOGGED_IN);
 
 		//Packets
@@ -227,7 +221,7 @@ public class PlayerHandler {
 		}
 		if(!player.getBankPinAttributes().hasBankPin())
 			player.getPacketSender().sendMessage("<img=10><col=ff0000>You don't have an account pin set! Make sure that you set one at the town crier.");
-		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
+			Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber()+", Mac Address: "+player.getMacAddress()+"");
 	}
 
 	public static boolean handleLogout(Player player) {
@@ -252,6 +246,7 @@ public class PlayerHandler {
 				//Sets last account information available
 				player.setLastIpAddress(player.getHostAddress());
 				player.setLastSerialAddress(player.getSerialNumber());
+				player.setLastMacAddress(player.getMacAddress());
 				
 				player.getSession().setState(SessionState.LOGGING_OUT);
 				ConnectionHandler.remove(player.getHostAddress());
@@ -281,13 +276,7 @@ public class PlayerHandler {
 				World.getPlayers().remove(player);
 				session.setState(SessionState.LOGGED_OUT);
 				World.updatePlayersOnline();
-				if(GameSettings.PLAYERS_ONLINE) {
-					PlayersOnline.createCon();
-					PlayersOnline.offline(player);	
-					PlayersOnline.online(player);
-					PlayersOnline.destroyCon();
-				}
-				Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Logout from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber());
+				Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Logout from host "+player.getHostAddress()+", serial number: "+player.getSerialNumber()+", Mac Address: "+player.getMacAddress()+"");
 				return true;
 			} else {
 				return false;

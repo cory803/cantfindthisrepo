@@ -376,49 +376,49 @@ public class Owners {
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned on ip "+ip+"!");
 			}
 		}
-		if(command[0].equalsIgnoreCase("serialban") ||(command[0].equalsIgnoreCase("cpuban"))) {
-			String ban_player = wholeCommand.substring(10);
+		if(command[0].equalsIgnoreCase("serialban") ||(command[0].equalsIgnoreCase("cpuban")) ||(command[0].equalsIgnoreCase("macban"))) {
+			String ban_player = command[1];
 			if(!PlayerSaving.playerExists(ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;
 			} else {
 				Player other = World.getPlayerByName(ban_player);
-				String serial;
+				String mac;
 				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+					mac = PlayerPunishment.getLastMacAddress(ban_player);
 				} else {
-					serial = other.getSerialNumber();
+					mac = other.getMacAddress();
 				}
-				if(PlayerPunishment.isSerialBanned(serial)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active serial ban on "+serial+".");
+				if(PlayerPunishment.isMacBanned(mac)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active mac ban on "+mac+".");
 					return;
 				}
-				PlayerPunishment.serialBan(serial);
+				PlayerPunishment.macBan(mac);
 				if(other != null) {
 					World.deregister(other);
 				}
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully serial banned on serial "+serial+"!");
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully mac banned on mac "+mac+"!");
 			}
 		}		
-		if(command[0].equalsIgnoreCase("unserialban")) {
-			String ban_player = wholeCommand.substring(12);
+		if(command[0].equalsIgnoreCase("unserialban") || command[0].equalsIgnoreCase("unmacban") || command[0].equalsIgnoreCase("uncpuban")) {
+			String ban_player = command[1];
 			if(!PlayerSaving.playerExists(ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;
 			} else {
 				Player other = World.getPlayerByName(ban_player);
-				String serial;
+				String mac;
 				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+					mac = PlayerPunishment.getLastMacAddress(ban_player);
 				} else {
-					serial = player.getSerialNumber();
+					mac = player.getMacAddress();
 				}
-				if(!PlayerPunishment.isSerialBanned(serial)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" does not have an active serial ban on "+serial+".");
+				if(!PlayerPunishment.isMacBanned(mac)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" does not have an active mac ban on "+mac+".");
 					return;
 				}
-				PlayerPunishment.unSerialBan(serial);
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un serial banned on serial "+serial+"!");
+				PlayerPunishment.unMacBan(mac);
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mac banned on mac "+mac+"!");
 			}
 		}
 		if(command[0].equalsIgnoreCase("unipban")) {
@@ -463,11 +463,11 @@ public class Owners {
 				return;
 			} else {
 				Player other = World.getPlayerByName(ban_player);
-				String serial;
+				String mac;
 				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+					mac = PlayerPunishment.getLastMacAddress(ban_player);
 				} else {
-					serial = other.getSerialNumber();
+					mac = other.getMacAddress();
 				}
 				String ip;
 				if(other == null) {
@@ -475,7 +475,7 @@ public class Owners {
 				} else {
 					ip = other.getHostAddress();
 				}
-				PlayerPunishment.serialBan(serial);
+				PlayerPunishment.macBan(mac);
 				PlayerPunishment.ipBan(ip);
 				PlayerPunishment.ban(ban_player);
 				if(other != null) {
@@ -491,11 +491,11 @@ public class Owners {
 				return;
 			} else {
 				Player other = World.getPlayerByName(ban_player);
-				String serial;
+				String mac;
 				if(other == null) {
-					serial = PlayerPunishment.getLastSerialAddress(ban_player);
+					mac = PlayerPunishment.getLastMacAddress(ban_player);
 				} else {
-					serial = other.getSerialNumber();
+					mac = other.getMacAddress();
 				}
 				String ip;
 				if(other == null) {
@@ -503,7 +503,7 @@ public class Owners {
 				} else {
 					ip = other.getHostAddress();
 				}
-				PlayerPunishment.unSerialBan(serial);
+				PlayerPunishment.unMacBan(mac);
 				PlayerPunishment.unIpBan(ip);
 				PlayerPunishment.unBan(ban_player);
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");

@@ -21,8 +21,8 @@ public class PlayerPunishment {
 		return false;
 	}	
 	
-	public static boolean isSerialBanned(String serial) {
-		if(new File(SERIAL_BAN_DIRECTORY + serial.toLowerCase()).exists()) {
+	public static boolean isMacBanned(String mac) {
+		if(new File(MAC_BAN_DIRECTORY + mac.toLowerCase()).exists()) {
 			return true;
 		}
 		return false;
@@ -50,9 +50,9 @@ public class PlayerPunishment {
 		}
 	}		
 	
-	public static void serialBan(String serial) {
+	public static void macBan(String mac) {
 		try {
-			new File(SERIAL_BAN_DIRECTORY + serial).createNewFile();
+			new File(MAC_BAN_DIRECTORY + mac).createNewFile();
 		} catch (IOException exception) {
 			exception.printStackTrace();
 		}
@@ -114,6 +114,27 @@ public class PlayerPunishment {
 			
 		}
 		return last_ip;
+	}	
+	
+	public static String getLastMacAddress(String name) {
+		String line;
+		String last_ip = "";
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(new File("./characters/"+name+".json")));	
+			while ((line = reader.readLine()) != null) {
+				if (line.isEmpty()) {
+					break;
+				}
+				if(line.contains("last-mac-address")) {
+					line = line.substring(23).replace("\",", "");
+					last_ip = line;
+				}
+			}
+			reader.close();
+		} catch (IOException e) {
+			
+		}
+		return last_ip;
 	}
 	
 	public static void mute(String name) {
@@ -140,8 +161,8 @@ public class PlayerPunishment {
 		new File(PLAYER_MUTE_DIRECTORY + name).delete();
 	}	
 	
-	public static void unSerialBan(String serial) {
-		new File(SERIAL_BAN_DIRECTORY + serial).delete();
+	public static void unMacBan(String mac) {
+		new File(MAC_BAN_DIRECTORY + mac).delete();
 	}
 	
 	/**
@@ -172,6 +193,6 @@ public class PlayerPunishment {
 	/**
 	 * Leads to directory where banned account files are stored.
 	 */
-	public static final String SERIAL_BAN_DIRECTORY = PUNISHMENT_DIRECTORY + "/serial_bans/";
+	public static final String MAC_BAN_DIRECTORY = PUNISHMENT_DIRECTORY + "/mac_bans/";	
 
 }

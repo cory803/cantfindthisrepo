@@ -35,6 +35,7 @@ public class ConnectionHandler {
 
 		String host = msg.getHost();
 		String serial_number = msg.getSerialNumber();
+		String mac_address = msg.getMacAddress();
 
 		if (PlayerPunishment.isPlayerBanned(player.getUsername())) {
 			return LoginResponses.LOGIN_DISABLED_ACCOUNT;
@@ -43,12 +44,14 @@ public class ConnectionHandler {
 		if(isBlocked(host)) {
 			return LoginResponses.LOGIN_REJECT_SESSION;
 		} 
-		if(PlayerPunishment.isSerialBanned(serial_number)) {
+		if(PlayerPunishment.isMacBanned(mac_address)) {
 			return LoginResponses.LOGIN_DISABLED_COMPUTER;
 		} 
 		if (PlayerPunishment.isIpBanned(host)) {
 			return LoginResponses.LOGIN_DISABLED_IP;
 		}
+		System.out.println(""+mac_address);
+		System.out.println(""+serial_number);
 
 		if(!isLocal(host)) {
 			if(CONNECTIONS.get(host) != null) {
