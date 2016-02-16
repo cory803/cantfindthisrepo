@@ -180,6 +180,18 @@ public class PlayerLoading {
 				player.getAchievementAttributes().incrementTotalLoyaltyPointsEarned(reader.get("total-loyalty-points").getAsDouble());
 			}
 
+			if (reader.has("Can-Vote")) {
+				player.setCanVote(reader.get("Can-Vote").getAsBoolean());
+			}
+			
+			if (reader.has("revs-warning")) {
+				player.setRevsWarning(reader.get("revs-warning").getAsBoolean());
+			}
+			
+			if(reader.has("votes-claimed")) {
+				player.setVotesClaimed(reader.get("votes-claimed").getAsInt());
+			}
+
 			if(reader.has("voting-points")) {
 				player.getPointsHandler().setVotingPoints(reader.get("voting-points").getAsInt(), false);
 			}

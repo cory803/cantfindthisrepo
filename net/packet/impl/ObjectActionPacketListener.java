@@ -180,8 +180,13 @@ public class ObjectActionPacketListener implements PacketListener {
 					if(player.getPosition().getX() >= 3653) { // :)
 						player.moveTo(new Position(3652, player.getPosition().getY()));
 					} else {
-						player.setDialogueActionId(73);
-						DialogueManager.start(player, 115);
+						if(player.getRevsWarning()) {
+							player.setDialogueActionId(73);
+							DialogueManager.start(player, 115);
+						} else {
+							player.getPacketSender().sendInterfaceRemoval();
+							player.moveTo(new Position(3653, player.getPosition().getY()));
+						}
 					}
 					break;
 				case 10805:
@@ -1059,6 +1064,10 @@ public class ObjectActionPacketListener implements PacketListener {
 				if (player.getFarming().click(player, x, y, 1))
 					return;
 				switch(gameObject.getId()) {
+				case 2274:
+					player.setRevsWarning(true);
+					player.getPacketSender().sendMessage("You have re-enabled the revs warning toggle.");
+					break;
 				case 884:
 				case 26945:
 					player.setDialogueActionId(41);
@@ -1139,6 +1148,8 @@ public class ObjectActionPacketListener implements PacketListener {
 							player.getInventory().add(1733, 1);
 						if(chance == 3)
 							player.getInventory().add(1595, 1);
+						if(chance == 4)
+							player.getInventory().add(1597, 1);
 					}
 					Stalls.stealFromStall(player, 60, 7370, 17401, "You steal a damaged hammer.");
 					break;

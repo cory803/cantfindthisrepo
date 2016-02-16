@@ -1023,10 +1023,6 @@ public class DialogueOptions {
 					}
 				}
 				break;
-			case 73:
-				player.getPacketSender().sendInterfaceRemoval();
-				player.moveTo(new Position(3653, player.getPosition().getY()));
-				break;
 			case 74:
 				player.getPacketSender().sendMessage("The ghost teleports you away.");
 				player.getPacketSender().sendInterfaceRemoval();
@@ -1098,7 +1094,6 @@ public class DialogueOptions {
 			case 57:
 			case 71:
 			case 72:
-			case 73:
 			case 74:
 			case 76:
 			case 78:
@@ -1138,6 +1133,10 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 73:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.moveTo(new Position(3653, player.getPosition().getY()));
+				break;
 			case 138:
 				if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
@@ -1266,6 +1265,9 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 73:
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 138:
 				if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
@@ -1450,6 +1452,12 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 73:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.setRevsWarning(false);
+				player.getPacketSender().sendMessage("You have removed the revs warning. You can reenable it by right clicking the portal to leave.");
+				player.moveTo(new Position(3653, player.getPosition().getY()));
+				break;
 			case 138:
 				if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");

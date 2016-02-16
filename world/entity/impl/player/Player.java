@@ -461,6 +461,7 @@ public class Player extends Character {
 	private int combatRingType;
 	
 	/*** BOOLEANS ***/
+	private boolean revsWarning = true;
 	private boolean passedRandom = true;
 	private boolean bossSolo = true;
 	private boolean unlockedLoyaltyTitles[] = new boolean[12];
@@ -505,6 +506,12 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public boolean getRevsWarning() {
+		return revsWarning;
+	}
+	public void setRevsWarning(boolean revsWarning) {
+		this.revsWarning = revsWarning;
+	}
 	public int getBossPoints() {
 		return bossPoints;
 	}
