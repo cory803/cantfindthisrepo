@@ -15,8 +15,8 @@ public class GambleAdvertiser extends Input {
 		player.getPacketSender().sendInterfaceRemoval();
 		File file = new File("./data/saves/clans/" + syntax);
 		if (file.exists()) {
-			if(player.getInventory().getAmount(995) >= 300000000) {
-				player.getInventory().delete(new Item(995, 300000000));
+			if(player.getInventory().getAmount(995) >= 100000000) {
+				player.getInventory().delete(new Item(995, 100000000));
 				player.setDialogueActionId(150);
 				DialogueManager.start(player, 150);
 				if(player.gambler_id == 1) {

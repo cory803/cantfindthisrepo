@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.File;
 import com.ikov.model.Direction;
+import com.ikov.util.PlayersOnline;
 
 /**
  * @author Gabriel Hannason
@@ -41,6 +42,9 @@ public class ServerTimeUpdateTask extends Task {
 				}
 				if(GameSettings.gambler_timer_2 > 0) {
 					GameSettings.gambler_timer_2--;
+				}
+				if(GameSettings.PLAYERS_ONLINE) {
+					PlayersOnline.update();
 				}
 				if(!GameSettings.spawned_1) {
 					NPC advertiser_1 = new NPC(4002, new Position(2453, 3091));

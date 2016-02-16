@@ -2802,10 +2802,14 @@ public enum CombatSpells {
 	ICE_BARRAGE(new CombatAncientSpell() {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
-			if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
-				castOn.getMovementQueue().freeze(7);
-			} else {
+			if(castOn.isNpc()) {
 				castOn.getMovementQueue().freeze(15);
+			} else {
+				if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
+					castOn.getMovementQueue().freeze(7);
+				} else {
+					castOn.getMovementQueue().freeze(15);
+				}
 			}
 		}
 

@@ -81,7 +81,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if(player.getLocation() != Location.VARROCK) {
+				if(player.getLocation() != Location.GAMBLE) {
 					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
 					return;
 				}
@@ -356,7 +356,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if(player.getLocation() != Location.VARROCK) {
+				if(player.getLocation() != Location.GAMBLE) {
 					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
 					return;
 				}
@@ -500,7 +500,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if(player.getLocation() != Location.VARROCK) {
+				if(player.getLocation() != Location.GAMBLE) {
 					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
 					return;
 				}
@@ -880,7 +880,7 @@ public class DialogueOptions {
 				ShopManager.getShops().get(22).open(player);
 				break;
 			case 144:
-				if(player.getInventory().getAmount(995) >= 300000000) {
+				if(player.getInventory().getAmount(995) >= 100000000) {
 					player.setDialogueActionId(147);
 					DialogueManager.start(player, 147);
 				} else {
@@ -891,8 +891,8 @@ public class DialogueOptions {
 			case 147:
 				File file = new File("./data/saves/clans/" + player.getClanChatName());
 				if (file.exists()) {
-					if(player.getInventory().getAmount(995) >= 300000000) {
-						player.getInventory().delete(new Item(995, 300000000));
+					if(player.getInventory().getAmount(995) >= 100000000) {
+						player.getInventory().delete(new Item(995, 100000000));
 						player.setDialogueActionId(150);
 						DialogueManager.start(player, 150);
 						if(player.gambler_id == 1) {
@@ -1072,7 +1072,7 @@ public class DialogueOptions {
 				ShopManager.getShops().get(23).open(player);
 				break;
 			case 147:
-				if(player.getInventory().getAmount(995) >= 300000000) {
+				if(player.getInventory().getAmount(995) >= 100000000) {
 					player.setInputHandling(new GambleAdvertiser());
 					player.getPacketSender().sendEnterInputPrompt("What clan chat would you like to advertise?");
 				} else {
@@ -1142,7 +1142,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if(player.getLocation() != Location.VARROCK) {
+				if(player.getLocation() != Location.GAMBLE) {
 					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
 					return;
 				}
@@ -1273,7 +1273,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if(player.getLocation() != Location.VARROCK) {
+				if(player.getLocation() != Location.GAMBLE) {
 					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
 					return;
 				}
@@ -1463,7 +1463,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if(player.getLocation() != Location.VARROCK) {
+				if(player.getLocation() != Location.GAMBLE) {
 					player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
 					return;
 				}
