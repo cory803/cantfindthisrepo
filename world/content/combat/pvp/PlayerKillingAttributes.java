@@ -58,7 +58,7 @@ public class PlayerKillingAttributes {
 	 * @param other
 	 */
 	private void handleReward(Player o, boolean targetKilled) {
-		if (!o.getSerialNumber().equals(player.getSerialNumber()) && !player.getHostAddress().equalsIgnoreCase(o.getHostAddress()) && player.getLocation() == Location.WILDERNESS) {
+		if (/**!o.getSerialNumber().equals(player.getSerialNumber()) && !player.getHostAddress().equalsIgnoreCase(o.getHostAddress()) && **/player.getLocation() == Location.WILDERNESS) {
 			if(!killedPlayers.contains(o.getUsername()))
 				killedPlayers.add(o.getUsername());
 			player.getPacketSender().sendMessage(getRandomKillMessage(o.getUsername()));
