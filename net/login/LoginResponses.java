@@ -36,14 +36,10 @@ public final class LoginResponses {
 			return playerLoadingResponse;
 		}
 		
-		/** PREVENTING IMPERSONATING **/
-		if(playerLoadingResponse == LoginResponses.NEW_ACCOUNT) {
-			return LoginResponses.LOGIN_INVALID_CREDENTIALS;
-		}
-		
 		/** BANS AND ACCESS LIMITS **/
 		int hostHandlerResponse = ConnectionHandler.getResponse(player, msg);
 		if(hostHandlerResponse != LOGIN_SUCCESSFUL) {
+			System.out.println(""+hostHandlerResponse);
 			return hostHandlerResponse;
 		}
 		
