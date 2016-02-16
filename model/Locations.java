@@ -201,8 +201,7 @@ public class Locations {
 				int y = player.getPosition().getY();
 				boolean ghostTown = x >= 3650 && y <= 3538;
 				boolean safeSpot = x == 3650 && y == 3472;
-				boolean clanWarsLobby =  x >= 3264 && x <= 3279 && y >= 3672 && y <= 3695;
-				if(ghostTown && !safeSpot && !clanWarsLobby) {
+				if(ghostTown && !safeSpot) {
 					player.setWildernessLevel(60);
 				} else {
 					player.setWildernessLevel(((((y > 6400 ? y - 6400 : y) - 3520) / 8)+1));
