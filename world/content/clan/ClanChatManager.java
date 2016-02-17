@@ -1,14 +1,19 @@
 package com.ikov.world.content.clan;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 
 import com.ikov.model.GameMode;
 import com.ikov.model.Item;
@@ -59,14 +64,14 @@ public class ClanChatManager {
 				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_ENTER, ClanChatRank.forId(input.read()));
 				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_KICK, ClanChatRank.forId(input.read()));
 				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_TALK, ClanChatRank.forId(input.read()));
-			//	int totalRanks = input.readShort();
-				//for (int i = 0; i < totalRanks; i++) {
-				//	clan.getRankedNames().put(input.readUTF(), ClanChatRank.forId(input.read()));
-				//}
-			//	int totalBans = input.readShort();
-			//	for (int i = 0; i < totalBans; i++) {
-			//		clan.addBannedName(input.readUTF());
-			//	}
+				int totalRanks = input.readShort();
+				for (int i = 0; i < totalRanks; i++) {
+					clan.getRankedNames().put(input.readUTF(), ClanChatRank.forId(input.read()));
+				}
+				int totalBans = input.readShort();
+				for (int i = 0; i < totalBans; i++) {
+					clan.addBannedName(input.readUTF());
+				}
 				clans[index] = clan;
 				input.close();
 			}
@@ -74,7 +79,6 @@ public class ClanChatManager {
 			exception.printStackTrace();
 		}
 	}
-
 	public static void writeFile(ClanChat clan) {
 		try {
 			File file = new File(FILE_DIRECTORY + clan.getName());
@@ -101,17 +105,23 @@ public class ClanChatManager {
 			output.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-	}
+		}}
 
 	public static void save() {
+		final long startup = System.currentTimeMillis();
+		int amount = 0;
+		
+		System.out.println("Saving all clan chats configurations...");
+		
 		for (ClanChat clan : clans) {
 			if (clan != null) {
 				writeFile(clan);
+				amount++;
 			}
 		}
+		
+		System.out.println("Saved " + amount + " clan configuration(s) in " + (System.currentTimeMillis() - startup) + "ms");
 	}
-
 	public static void createClan(Player player) {
 		player.getPacketSender().sendInterfaceRemoval();
 		if(getClanChatChannel(player) != null) {
