@@ -20,18 +20,18 @@ public class PointsHandler {
 	}
 
 	public PointsHandler refreshPanel() {
-		p.getPacketSender().sendString(39173, "@or2@Prestige Points: @yel@"+prestigePoints);
-		p.getPacketSender().sendString(39174, "@or2@Commendations: @yel@ "+commendations);
-		p.getPacketSender().sendString(39175, "@or2@Loyalty Points: @yel@"+(int)loyaltyPoints);
-		p.getPacketSender().sendString(39176, "@or2@Dung. Tokens: @yel@ "+dungTokens);
-		p.getPacketSender().sendString(39177, "@or2@Voting Points: @yel@ "+votingPoints);
-		p.getPacketSender().sendString(39178, "@or2@Slayer Points: @yel@"+slayerPoints);
-		p.getPacketSender().sendString(39180, "@or2@Pk Points: @yel@"+pkPoints);
-		p.getPacketSender().sendString(39181, "@or2@Wilderness Killstreak: @yel@"+p.getPlayerKillingAttributes().getPlayerKillStreak());
-		p.getPacketSender().sendString(39182, "@or2@Wilderness Kills: @yel@"+p.getPlayerKillingAttributes().getPlayerKills());		
-		p.getPacketSender().sendString(39183, "@or2@Wilderness Deaths: @yel@"+p.getPlayerKillingAttributes().getPlayerDeaths());
-		p.getPacketSender().sendString(39184, "@or2@Arena Victories: @yel@"+p.getDueling().arenaStats[0]);
-		p.getPacketSender().sendString(39185, "@or2@Arena Losses: @yel@"+p.getDueling().arenaStats[1]);
+		p.getPacketSender().sendString(55079, "@red@Prestige Points: @gre@"+prestigePoints);
+		p.getPacketSender().sendString(55080, "@red@Commendations: @gre@ "+commendations);
+		p.getPacketSender().sendString(55081, "@red@Loyalty Points: @gre@"+(int)loyaltyPoints);
+		p.getPacketSender().sendString(55082, "@red@Dung. Tokens: @gre@ "+dungTokens);
+		p.getPacketSender().sendString(55083, "@red@Voting Points: @gre@ "+votingPoints);
+		p.getPacketSender().sendString(55084, "@red@Slayer Points: @gre@"+slayerPoints);
+		p.getPacketSender().sendString(55085, "@red@Pk Points: @gre@"+pkPoints);
+		p.getPacketSender().sendString(55086, "@red@Wilderness Killstreak: @gre@"+p.getPlayerKillingAttributes().getPlayerKillStreak());
+		p.getPacketSender().sendString(55087, "@red@Wilderness Kills: @gre@"+p.getPlayerKillingAttributes().getPlayerKills());		
+		p.getPacketSender().sendString(55088, "@red@Wilderness Deaths: @gre@"+p.getPlayerKillingAttributes().getPlayerDeaths());
+		p.getPacketSender().sendString(55089, "@red@Arena Victories: @gre@"+p.getDueling().arenaStats[0]);
+		p.getPacketSender().sendString(55090, "@red@Arena Losses: @gre@"+p.getDueling().arenaStats[1]);
 		
 		return this;
 	}

@@ -79,14 +79,17 @@ public class ButtonClickPacketListener implements PacketListener {
 			return;
 
 		switch(id) {
-		case -26372:			
+		case -10426:			
 			//player.setMusicActive(!player.musicActive());
 			DialogueManager.sendStatement(player, "You can adjust the music volume in the settings tab.");
 			player.setDialogueActionId(-1);
 			player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
 			PlayerPanel.refreshPanel(player);
 			break;
-		case -26371:
+		case -10424:
+			player.getPacketSender().sendMessage("This is still being developed.");
+			break;
+		case -10425:
 			//player.setSoundsActive(!player.soundsActive());
 			DialogueManager.sendStatement(player, "You can adjust the sound volume in the settings tab.");
 			player.setDialogueActionId(-1);
@@ -96,11 +99,14 @@ public class ButtonClickPacketListener implements PacketListener {
 		case -26370:
 			player.getPacketSender().sendMessage("Coming soon...");
 			break;
-		case -26366:
+		case -10417:
 			DropLog.open(player);
 			break;
-		case -26367:
+		case -10419:
 			KillsTracker.open(player);
+			break;
+		case -10465:
+			player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55200);
 			break;
 		case -27454:
 		case -27534:
@@ -156,58 +162,86 @@ public class ButtonClickPacketListener implements PacketListener {
 		case 1013:
 			player.getSkillManager().setTotalGainedExp(0);
 			break;
-		case -26373:
+		case -10427:
 			player.setYellToggle(!player.yell_toggle);
 			PlayerPanel.refreshPanel(player);
-			/*if(WellOfGoodwill.isActive()) {
-				if(player.getDonorRights() > 0) {
-					player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");
+			break;
+		case -10418:
+			if(player.getPlayerKillingAttributes().getTarget() != null) {
+				int my_x = player.getPosition().getX();
+				int other_x = player.getPlayerKillingAttributes().getTarget().getPosition().getX();
+				int wild_lvl = player.getPlayerKillingAttributes().getTarget().getWildernessLevel();
+				int steps_x = 0;
+				String direction = "";
+				boolean on_eachother = false;
+				if(my_x > other_x) {
+					steps_x = my_x - other_x;
+					direction = "West";
+				} else if(my_x == other_x) {
+					on_eachother = true;
 				} else {
-					player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");					
+					steps_x = other_x - my_x;
+					direction = "East";
+				}
+				if(player.getPlayerKillingAttributes().getTarget().getLocation() == Location.WILDERNESS) {
+					if(on_eachother) {
+						player.getPacketSender().sendMessage("Your target '"+player.getPlayerKillingAttributes().getTarget().getUsername()+"' is directly on you in level "+wild_lvl+" wilderness.");
+					} else {
+						player.getPacketSender().sendMessage("Your target '"+player.getPlayerKillingAttributes().getTarget().getUsername()+"' is "+steps_x+" steps "+direction+" in level "+wild_lvl+" wilderness.");
+					}
+				} else {
+					player.getPacketSender().sendMessage("Your target is not in the wilderness!");
 				}
 			} else {
-				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill needs another "+Misc.insertCommasToNumber(""+WellOfGoodwill.getMissingAmount())+" coins before becoming full.");
-			}*/
-			break;
+				player.getPacketSender().sendMessage("You currently do not have a target!");
+			}
+		break;
 		case -10531:
 			if(player.isKillsTrackerOpen()) {
 				player.setKillsTrackerOpen(false);
-				player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 639);
+				player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
 				PlayerPanel.refreshPanel(player);
 			}
+			break;
+		case -10330:
+			player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
 			break;
 		case 11014:
 			player.setDialogueActionId(36);
 			DialogueManager.start(player, 65);
 			break;
-		case -26333:
-			player.getPacketSender().sendString(1, "www.ikov2.org/forum/");
+		case -10436:
+			player.getPacketSender().sendString(1, "www.ikov2.org/");
+			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/");
+			break;
+		case -10435:
+			player.getPacketSender().sendString(1, "www.ikov2.org/forum");
 			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/forum");
 			break;
-		case -26332:
-			player.getPacketSender().sendString(1, "http://www.ikov2.org/forum/index.php?/forum/6-knowledge-base/");
-			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/rules");
+		case -10434:
+			player.getPacketSender().sendString(1, "www.ikov2.org/vote");
+			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/vote");
 			break;
-		case -26331:
+		case -10433:
 			player.getPacketSender().sendString(1, "www.ikov2.org/store/");
 			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/store");
 			break;
-		case -26330:
-			player.getPacketSender().sendString(1, "www.ikov2.org/vote/");
-			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/vote");
+		case -10432:
+			player.getPacketSender().sendString(1, "www.ikov2.org/apply");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/apply");
+			break;	
+		case -10431:
+			player.getPacketSender().sendString(1, "www.ikov2.org/wiki");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/wiki");
 			break;
-		case -26329:
-			player.getPacketSender().sendString(1, "www.ikov2.org/hiscores/");
-			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/hiscores");
+		case -10430:
+			player.getPacketSender().sendString(1, "www.ikov2.org/forum/?app=tickets");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/?app=tickets");
 			break;
-		case -26328:
-			player.getPacketSender().sendString(1, "www.ikov2.org/forum/");
-			player.getPacketSender().sendMessage("Attempting to open: ikov2.org/report");
-			break;
-		case -26337:
+		case -10329:
 			RecipeForDisaster.openQuestLog(player);
 			break;
-		case -26336:
+		case -10328:
 			Nomad.openQuestLog(player);
 			break;
 		case 350:
@@ -537,6 +571,7 @@ public class ButtonClickPacketListener implements PacketListener {
 				player.setRunning(!player.isRunning());
 			player.getPacketSender().sendRunStatus();
 			break;
+		case -10423:
 		case -26369:
 		case 27658:
 			player.setExperienceLocked(!player.experienceLocked());

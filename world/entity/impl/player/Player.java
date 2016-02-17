@@ -480,6 +480,7 @@ public class Player extends Character {
 	private boolean settingUpCannon;
 	private boolean hasVengeance;
 	private boolean killsTrackerOpen;
+	private boolean questTabOpen;
 	private boolean acceptingAid;
 	private boolean autoRetaliate;
 	private boolean autocast;
@@ -1668,9 +1669,17 @@ public class Player extends Character {
 	public boolean isKillsTrackerOpen() {
 		return killsTrackerOpen;
 	}
+	
+	public boolean isQuestTabOpen() {
+		return questTabOpen;
+	}
 
 	public void setKillsTrackerOpen(boolean killsTrackerOpen) {
 		this.killsTrackerOpen = killsTrackerOpen;
+	}
+	
+	public void setQuestTabOpen(boolean questTabOpene) {
+		this.questTabOpen = questTabOpene;
 	}
 
 	public boolean isCoughing() {

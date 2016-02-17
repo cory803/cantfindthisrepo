@@ -101,7 +101,7 @@ public class DungeoneeringParty {
 		if(fromParty) {
 			player_members.remove(p);
 			if(resetTab) {
-				p.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, p.isKillsTrackerOpen() ? 55000 : 639);
+				p.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, p.isKillsTrackerOpen() ? 55000 : 55065);
 				p.getPacketSender().sendDungeoneeringTabIcon(false);
 				p.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 			} else {

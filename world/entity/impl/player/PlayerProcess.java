@@ -97,7 +97,7 @@ public class PlayerProcess {
 		}
 		
 		if(timerTick >= 1) {
-			player.getPacketSender().sendString(39171, "@or2@Time played:  @yel@"+Misc.getTimePlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed())));
+			player.getPacketSender().sendString(55077, "@red@Time played:  @gre@"+Misc.getTimePlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed())));
 			timerTick = 0;
 		}
 		timerTick++;

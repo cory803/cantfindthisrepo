@@ -178,6 +178,10 @@ public class Members {
 			player.getPacketSender().sendString(1, "www.ikov2.org/store/");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/store/");
 		}
+		if (wholeCommand.equalsIgnoreCase("wiki")) {
+			player.getPacketSender().sendString(1, "www.ikov-2.wikia.com/wiki/Ikov_2_Wikia");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/wiki/");
+		}
 		if(command[0].equalsIgnoreCase("attacks")) {
 			int attack = DesolaceFormulas.getMeleeAttack(player);
 			int range = DesolaceFormulas.getRangedAttack(player);

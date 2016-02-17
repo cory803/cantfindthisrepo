@@ -123,7 +123,7 @@ public class Dungeoneering {
 		if(p.getMinigameAttributes().getDungeoneeringAttributes().getParty() != null) {
 			p.getMinigameAttributes().getDungeoneeringAttributes().getParty().remove(p, resetTab, leaveParty);
 		} else if(resetTab) {
-			p.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, p.isKillsTrackerOpen() ? 55000 : 639);
+			p.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, p.isKillsTrackerOpen() ? 55000 : 55065);
 			p.getPacketSender().sendDungeoneeringTabIcon(false);
 			p.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 		}
