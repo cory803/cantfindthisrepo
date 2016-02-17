@@ -141,18 +141,7 @@ public class ClanChat {
 			});
 		}
 	}
-	
-	private final int[] rankReq = {-1, -1, ClanChatRank.CAPTAIN.ordinal(), ClanChatRank.CAPTAIN.ordinal()};
-	
-	public int[] getRankReq() {
-		return rankReq;
-	}
 
-	public ClanChat setRankReqs(int index, int rankReq) {
-		this.rankReq[index] = rankReq;
-		return this;
-	}
-	
 	public boolean isBanned(String name) {
 		return bannedNames.contains(name);
 	}
