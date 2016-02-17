@@ -59,14 +59,14 @@ public class ClanChatManager {
 				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_ENTER, ClanChatRank.forId(input.read()));
 				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_KICK, ClanChatRank.forId(input.read()));
 				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_TALK, ClanChatRank.forId(input.read()));
-			//	int totalRanks = input.readShort();
-				//for (int i = 0; i < totalRanks; i++) {
-				//	clan.getRankedNames().put(input.readUTF(), ClanChatRank.forId(input.read()));
-				//}
-			//	int totalBans = input.readShort();
-			//	for (int i = 0; i < totalBans; i++) {
-			//		clan.addBannedName(input.readUTF());
-			//	}
+				int totalRanks = input.readShort();
+				for (int i = 0; i < totalRanks; i++) {
+					clan.getRankedNames().put(input.readUTF(), ClanChatRank.forId(input.read()));
+				}
+				int totalBans = input.readShort();
+				for (int i = 0; i < totalBans; i++) {
+					clan.addBannedName(input.readUTF());
+				}
 				clans[index] = clan;
 				input.close();
 			}
@@ -105,11 +105,17 @@ public class ClanChatManager {
 	}
 
 	public static void save() {
+		final long startup = System.currentTimeMillis();
+		int amount = 0;
+		System.out.println("Saving all clan chats configurations...");
 		for (ClanChat clan : clans) {
 			if (clan != null) {
 				writeFile(clan);
+				amount++;
 			}
 		}
+		
+		System.out.println("Saved " + amount + " clan configuration(s) in " + (System.currentTimeMillis() - startup) + "ms");
 	}
 
 	public static void createClan(Player player) {
