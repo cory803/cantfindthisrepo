@@ -876,6 +876,15 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 159:
+				player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(4);
+				DialogueManager.start(player, 165);
+				break;
+			case 152:
+				player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(1);
+				DialogueManager.start(player, 154);
+				PlayerPanel.refreshPanel(player);
+				break;
 			case 3:
 				ShopManager.getShops().get(22).open(player);
 				break;
@@ -1068,6 +1077,12 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 159:
+				DialogueManager.start(player, 163);
+				break;
+			case 152:
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 3:
 				ShopManager.getShops().get(23).open(player);
 				break;

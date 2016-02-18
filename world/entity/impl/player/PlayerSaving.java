@@ -130,6 +130,7 @@ public class PlayerSaving {
 			object.addProperty("barrows-killcount", new Integer(player.getMinigameAttributes().getBarrowsMinigameAttributes().getKillcount()));
 			object.add("nomad", builder.toJsonTree(player.getMinigameAttributes().getNomadAttributes().getQuestParts()));
 			object.add("recipe-for-disaster", builder.toJsonTree(player.getMinigameAttributes().getRecipeForDisasterAttributes().getQuestParts()));
+			object.add("claw-quest", builder.toJsonTree(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts()));
 			object.addProperty("recipe-for-disaster-wave", new Integer(player.getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted()));
 			object.add("dung-items-bound", builder.toJsonTree(player.getMinigameAttributes().getDungeoneeringAttributes().getBoundItems()));
 			object.addProperty("rune-ess", new Integer(player.getStoredRuneEssence()));

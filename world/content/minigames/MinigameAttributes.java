@@ -14,6 +14,7 @@ public class MinigameAttributes {
 	private final RecipeForDisasterAttributes rfdAttributes = new RecipeForDisasterAttributes();
 	private final CurseQuestAttributes cqAttributes = new CurseQuestAttributes();
 	private final NomadAttributes nomadAttributes = new NomadAttributes();
+	private final ClawQuestAttributes clawQuestAttributes = new ClawQuestAttributes();
 	//private final SoulWarsAttributes soulWarsAttributes = new SoulWarsAttributes();
 	private final GodwarsDungeonAttributes godwarsDungeonAttributes = new GodwarsDungeonAttributes();
 	private final GraveyardAttributes graveyardAttributes = new GraveyardAttributes();
@@ -231,6 +232,27 @@ public class MinigameAttributes {
 			questParts = new boolean[2];
 		}
 	}
+	
+	public class ClawQuestAttributes {
+		private int questParts = 0;
+
+		public int hasFinishedPart(int index) {
+			return questParts;
+		}
+
+		public void setPartFinished(int index, int finished) {
+			questParts = finished;
+		}
+
+		public int getQuestParts() {
+			return questParts;
+		}
+
+		public void setQuestParts(int questParts) {
+			this.questParts = questParts;
+		}
+
+	}
 
 	/*public class SoulWarsAttributes {
 		private int activity = 30;
@@ -372,6 +394,9 @@ public class MinigameAttributes {
 
 	public RecipeForDisasterAttributes getRecipeForDisasterAttributes() {
 		return rfdAttributes;
+	}
+	public ClawQuestAttributes getClawQuestAttributes() {
+		return clawQuestAttributes;
 	}
 	public CurseQuestAttributes getCurseQuestAttributes() {
 		return cqAttributes;

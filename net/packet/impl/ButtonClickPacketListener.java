@@ -39,6 +39,7 @@ import com.ikov.world.content.combat.weapon.FightType;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.dialogue.DialogueOptions;
 import com.ikov.world.content.grandexchange.GrandExchange;
+import com.ikov.world.content.minigames.impl.ClawQuest;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.PestControl;
@@ -243,6 +244,9 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case -10328:
 			Nomad.openQuestLog(player);
+			break;
+		case -10327:
+			ClawQuest.openQuestLog(player);
 			break;
 		case 350:
 			player.getPacketSender().sendMessage("To autocast a spell, please right-click it and choose the autocast option.").sendTab(GameSettings.MAGIC_TAB).sendConfig(108, player.getAutocastSpell() == null ? 3 : 1);
