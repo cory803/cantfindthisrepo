@@ -264,7 +264,7 @@ public class PestControl {
 						point_amount = 30;
 					}
 					if(p.getPestControlSolo()) {
-						point_amount *= 2;
+						//point_amount *= 2;
 					}
 					p.getPacketSender().sendMessage("The portals were successfully closed. You've been rewarded for your effort.");
 					p.getPacketSender().sendMessage("You've received "+point_amount+" Commendations and "+p.getSkillManager().getCombatLevel() * 50+" coins.");

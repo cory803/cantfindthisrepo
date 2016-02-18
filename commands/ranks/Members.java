@@ -72,20 +72,9 @@ public class Members {
 					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
 				}
 				break;
-			case "pray":
-			case "prayer":
-				if(player.getSkillManager().getMaxLevel(Skill.PRAYER) > Integer.parseInt(newLevel)) {
-					player.getPacketSender().sendMessage("You just changed your prayer from "+player.getSkillManager().getCurrentLevel(Skill.PRAYER)/10+" to "+newLevel+"." );
-					player.getSkillManager().setMaxLevel(Skill.PRAYER, Integer.parseInt(newLevel)*10, true);
-					player.getSkillManager().setCurrentLevel(Skill.PRAYER, Integer.parseInt(newLevel)*10, true);
-					player.getSkillManager().setExperience(Skill.PRAYER, SkillManager.getExperienceForLevel(Integer.parseInt(newLevel)));
-				} else {
-					player.getPacketSender().sendMessage("You cannot set a skill to be a higher level than it currently is.");
-				}
-				break;
 				default:
-					player.getPacketSender().sendMessage("The command syntax example - use a skill below: ::changelevel prayer 52");
-					player.getPacketSender().sendMessage("You can only adjust prayer, defence and attack stats.");
+					player.getPacketSender().sendMessage("The command syntax example - use a skill below: ::changelevel def 20");
+					player.getPacketSender().sendMessage("You can only adjust defence and attack stats.");
 			}
 			
 		}

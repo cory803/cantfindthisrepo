@@ -12,6 +12,7 @@ import com.ikov.model.DwarfCannon;
 import com.ikov.model.Flag;
 import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
+import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.MagicSpellbook;
 import com.ikov.model.PlayerRights;
@@ -139,6 +140,33 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				}
 				switch(id) {
+				case 12987:
+					player.getPacketSender().sendMessage("There is another way out of this stable. The gate is broken!");
+					break;
+				case 12982:
+					if(player.getPosition().getY() == 3275) {
+						TaskManager.submit(new Task(1, player, true) {
+							int tick = 1;
+							@Override
+							public void execute() {
+								tick++;
+								player.performAnimation(new Animation(828));
+								if(tick == 3) {
+									player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()+2));
+								} else if(tick >= 4) {
+									stop();
+								}
+							}
+							@Override
+							public void stop() {
+								setEventRunning(false);
+								player.getPacketSender().sendMessage("You jump over the stile.");
+							}
+						});
+					} else {
+						player.getPacketSender().sendMessage("You failed to climb over, please try again.");
+					}
+					break;
 				case 3565:
 					if(player.getPosition().getX() <= 3349) {
 						TaskManager.submit(new Task(1, player, true) {

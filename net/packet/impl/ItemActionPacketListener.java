@@ -41,6 +41,8 @@ import com.ikov.world.content.skill.impl.summoning.CharmingImp;
 import com.ikov.world.content.skill.impl.summoning.SummoningData;
 import com.ikov.world.content.skill.impl.woodcutting.BirdNests;
 import com.ikov.world.content.transportation.JewelryTeleporting;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.entity.impl.player.Player;
 
 
@@ -86,6 +88,10 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch(itemId) {
+		case 6040:
+			Position location = new Position(2036, 4535, 0);
+			TeleportHandler.teleportPlayer(player, location, TeleportType.PURO_PURO);
+			break;
 		case 11211:
 			boolean continue_command2 = false;
 			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {

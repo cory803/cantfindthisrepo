@@ -1,9 +1,12 @@
 package com.ikov.net.packet.impl;
 
+import com.ikov.engine.task.Task;
+import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.WalkToTask;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BossSystem;
 import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
+import com.ikov.model.Animation;
 import com.ikov.model.GameMode;
 import com.ikov.model.Graphic;
 import com.ikov.model.PlayerRights;
@@ -19,10 +22,12 @@ import com.ikov.world.World;
 import com.ikov.world.content.EnergyHandler;
 import com.ikov.world.content.LoyaltyProgramme;
 import com.ikov.world.content.MemberScrolls;
+import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.magic.CombatSpell;
 import com.ikov.world.content.combat.magic.CombatSpells;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
+import com.ikov.world.content.dialogue.Dialogue;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.dialogue.impl.ExplorerJack;
 import com.ikov.world.content.grandexchange.GrandExchange;
@@ -76,6 +81,74 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 				switch(npc.getId()) {
+				case 4663:
+					if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 3) {
+						DialogueManager.start(player, 159);
+						player.setDialogueActionId(159);
+					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 4) {
+						if(player.getInventory().getAmount(15273) >= 100) {
+							player.getInventory().delete(15273, 100);
+							player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(5);
+							DialogueManager.start(player, 166);
+						} else {
+							DialogueManager.start(player, 164);
+						}
+					}
+					break;
+				case 2947:
+					if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 1) {
+						if(player.getSkillManager().getMaxLevel(17) < 50) {
+							player.getPacketSender().sendMessage("You need a thieving level of 50 to pickpocket this woman.");
+							return;
+						}
+						if(!player.getInventory().isFull()) {
+							player.performAnimation(new Animation(881));
+							TaskManager.submit(new Task(1, player, false) {
+								int tick = 0;
+								@Override
+								public void execute() {
+									switch(tick) {
+									case 2:
+											player.getInventory().add(6040, 1);
+											DialogueManager.sendStatement(player, "I think this is what the king wanted me to steal for him...");
+											player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(2);
+										stop();
+										break;
+									}
+									tick++;
+								}
+							});
+						} else {
+							player.getPacketSender().sendMessage("You need at least one free space.");
+						}
+					} else {
+						player.getPacketSender().sendMessage("I cannot pick pocket this woman and I'm not sure why.");
+					}
+					break;
+				case 4646:
+					if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 0) {
+						if(player.getSkillManager().getMaxLevel(17) < 50 && player.getSkillManager().getMaxLevel(10) < 91) {
+							player.getPacketSender().sendMessage("You do not meet all the requirements for this quest.");
+							return;
+						}
+						player.setDialogueActionId(152);
+						DialogueManager.start(player, 152);
+					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 2) {
+						if(player.getInventory().contains(6040)) { 
+							DialogueManager.start(player, 156);
+							player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(3);
+						} else {
+							DialogueManager.start(player, 155);
+						}
+
+					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 5) {
+						player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(6);
+						PlayerPanel.refreshPanel(player);
+						DialogueManager.start(player, 167);
+					} else {
+						DialogueManager.sendStatement(player, "The king does not seem interested in talking to you right now.");
+					}
+					break;
 				case 5093:
 					ShopManager.getShops().get(84).open(player);
 					break;
