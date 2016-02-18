@@ -33,7 +33,7 @@ public class Members {
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if (command[0].equalsIgnoreCase("changelevel")) {
-			if(player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
+			/*if(player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
 				player.getPacketSender().sendMessage("Please unequip all your items first.");
 				return;
 			}
@@ -86,7 +86,8 @@ public class Members {
 				default:
 					player.getPacketSender().sendMessage("The command syntax example - use a skill below: ::changelevel prayer 52");
 					player.getPacketSender().sendMessage("You can only adjust prayer, defence and attack stats.");
-			}
+			}*/
+					player.getPacketSender().sendMessage("Currently Disabled.");
 			
 		}
 		if (command[0].equalsIgnoreCase("commands")) {
