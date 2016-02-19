@@ -68,6 +68,12 @@ public class NPCDeathTask extends Task {
 				if(npc.getId() == 13447) {
 					Nex.handleDeath();
 				}
+				if(npc.getId() == 1172) {
+					if(killer.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 8) {
+						killer.getMinigameAttributes().getClawQuestAttributes().setQuestParts(9);
+						killer.getPacketSender().sendMessage("The Shaikahan dropped a certificate you need to show the king.");
+					}
+				}
 				if (npc.getLocation() == Location.BOSS_SYSTEM) {
 					NPCDrops.dropBossSystem(killer, npc);
 					killer.getSlayer().killedNpc(npc);

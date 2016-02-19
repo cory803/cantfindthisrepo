@@ -29,6 +29,7 @@ import com.ikov.world.content.combat.magic.CombatSpells;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
 import com.ikov.world.content.dialogue.Dialogue;
 import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.dialogue.impl.Denath;
 import com.ikov.world.content.dialogue.impl.ExplorerJack;
 import com.ikov.world.content.grandexchange.GrandExchange;
 import com.ikov.world.content.minigames.impl.WarriorsGuild;
@@ -93,6 +94,23 @@ public class NPCOptionPacketListener implements PacketListener {
 						} else {
 							DialogueManager.start(player, 164);
 						}
+					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() >= 6) {
+						if(player.getMinigameAttributes().getClawQuestAttributes().getSamples() >= player.getMinigameAttributes().getClawQuestAttributes().SAMPLES_NEEDED) {
+							if(!player.getInventory().isFull()) {
+								player.getMinigameAttributes().getClawQuestAttributes().minusSamples(player.getMinigameAttributes().getClawQuestAttributes().SAMPLES_NEEDED);
+								player.getPacketSender().sendMessage("Denath takes the samples and converts it into a bravery potion.");
+								player.getPacketSender().sendMessage("If you lose this potion you can bring denath more samples to get another one.");
+								player.getInventory().add(739, 1);
+								player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(7);
+								DialogueManager.start(player, 169);
+							} else {
+								player.getPacketSender().sendMessage("You need one free slot to have your samples converted");
+							}
+						} else {
+							DialogueManager.start(player, Denath.getDialogue(player));
+						}
+					} else {
+						DialogueManager.sendStatement(player, "He doesn't seem interested in speaking to me right now.");
 					}
 					break;
 				case 2947:
@@ -145,6 +163,9 @@ public class NPCOptionPacketListener implements PacketListener {
 						player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(6);
 						PlayerPanel.refreshPanel(player);
 						DialogueManager.start(player, 167);
+					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 7) {
+						player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(8);
+						DialogueManager.start(player, 170);
 					} else {
 						DialogueManager.sendStatement(player, "The king does not seem interested in talking to you right now.");
 					}
@@ -492,6 +513,19 @@ public class NPCOptionPacketListener implements PacketListener {
 			@Override
 			public void execute() {
 				switch(npc.getId()) {
+				case 4646:
+					if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 8) {
+						if(!player.getInventory().isFull()) {
+							player.getInventory().add(993, 1);
+							player.moveTo(new Position(2660, 3306, 0));
+							DialogueManager.start(player, 176);
+						} else {
+							player.getPacketSender().sendMessage("You need 1 slot available for this teleport");
+						}
+					} else {
+						player.getPacketSender().sendMessage("The king has no reason to drain his energy on you.");
+					}
+					break;
 				case 4375:
 					if(player.getLastBoss() == 0) {
 						player.getPacketSender().sendMessage("You have not spawned a boss since your last login!");

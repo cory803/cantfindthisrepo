@@ -235,6 +235,21 @@ public class MinigameAttributes {
 	
 	public class ClawQuestAttributes {
 		private int questParts = 0;
+		private int samples = 0;
+		public final int SAMPLES_NEEDED = 2;
+		public int getSamples() {
+			return samples;
+		}
+
+		public void setSamples(int samples) {
+			this.samples = samples;
+		}
+		public void addSamples(int samples) {
+			this.samples += samples;
+		}
+		public void minusSamples(int samples) {
+			this.samples -= samples;
+		}
 
 		public int hasFinishedPart(int index) {
 			return questParts;

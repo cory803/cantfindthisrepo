@@ -26,6 +26,7 @@ import com.ikov.model.input.impl.EnterAmountOfLogsToAdd;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
+import com.ikov.util.Stopwatch;
 import com.ikov.world.World;
 import com.ikov.world.clip.region.RegionClipping;
 import com.ikov.world.content.CrystalChest;
@@ -69,6 +70,7 @@ import com.ikov.world.content.skill.impl.woodcutting.WoodcuttingData;
 import com.ikov.world.content.skill.impl.woodcutting.WoodcuttingData.Hatchet;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
+import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
@@ -84,11 +86,11 @@ public class ObjectActionPacketListener implements PacketListener {
 	 * The PacketListener logger to debug information and print out errors.
 	 */
 	//private final static Logger logger = Logger.getLogger(ObjectActionPacketListener.class);
-
 	private static void firstClick(final Player player, Packet packet) {
 		final int x = packet.readLEShortA();
 		final int id = packet.readUnsignedShort();
 		final int y = packet.readUnsignedShortA();
+		NPC npc;
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
 		if(id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
@@ -140,6 +142,103 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				}
 				switch(id) {
+				case 2932:
+					player.moveTo(new Position(2600, 3157, 0));
+					player.performAnimation(new Animation(2306));
+					TaskManager.submit(new Task(1, player, true) {
+						int tick = 1;
+						@Override
+						public void execute() {
+							tick++;
+							if(tick == 6) {
+							} else if(tick >= 10) {
+								stop();
+							}
+						}
+						@Override
+						public void stop() {
+							setEventRunning(false);
+							player.moveTo(new Position(player.getPosition().getX()-1, player.getPosition().getY(), player.getPosition().getZ()));
+							player.getPacketSender().sendMessage("You smash open the barrel by jumping on it, a lion appeared!");
+							NPC n = new NPC(1172, new Position(player.getPosition().getX(), player.getPosition().getY()+2, player.getPosition().getZ())).setSpawnedFor(player);
+							World.register(n);
+							n.getCombatBuilder().attack(player);
+						}
+					});
+					break;
+				case 81:
+					if(player.getPosition().getX() == 2584) {
+						if(player.getInventory().contains(993)) {
+							player.performAnimation(new Animation(1820));
+							TaskManager.submit(new Task(1, player, true) {
+								int tick = 1;
+								@Override
+								public void execute() {
+									tick++;
+									if(tick == 2) {
+									} else if(tick >= 5) {
+										player.moveTo(new Position(player.getPosition().getX()+1, player.getPosition().getY(), 0));
+										stop();
+									}
+								}
+								@Override
+								public void stop() {
+									setEventRunning(false);
+									player.getPacketSender().sendMessage("You use the key to get through the door.");
+								}
+							});
+						}
+					}
+					break;
+				case 82:
+					if(player.getPosition().getX() == 2606 || player.getPosition().getX() == 2607) {
+						if(player.getInventory().contains(993)) {
+							player.performAnimation(new Animation(1820));
+							TaskManager.submit(new Task(1, player, true) {
+								int tick = 1;
+								@Override
+								public void execute() {
+									tick++;
+									if(tick == 2) {
+									} else if(tick >= 5) {
+										player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()+2, 0));
+										stop();
+									}
+								}
+								@Override
+								public void stop() {
+									setEventRunning(false);
+									player.getPacketSender().sendMessage("You use the key to get through the door.");
+								}
+							});
+						} 
+					}
+					break;
+				case 4754:
+				case 4749:
+				if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() >= 6) {
+					player.performAnimation(new Animation(2290));
+						TaskManager.submit(new Task(1, player, true) {
+							int tick = 1;
+							@Override
+							public void execute() {
+								tick++;
+								if(tick == 2) {
+									player.getMinigameAttributes().getClawQuestAttributes().addSamples(1);
+								} else if(tick >= 6) {
+									stop();
+								}
+							}
+							@Override
+							public void stop() {
+								setEventRunning(false);
+								player.getPacketSender().sendMessage("You collected "+player.getMinigameAttributes().getClawQuestAttributes().getSamples()+" of "+player.getMinigameAttributes().getClawQuestAttributes().SAMPLES_NEEDED+" samples needed.");
+							}
+						});
+				} else {
+					player.getPacketSender().sendMessage("Nothing interesting happened.");
+				}
+					break;
 				case 12987:
 					player.getPacketSender().sendMessage("There is another way out of this stable. The gate is broken!");
 					break;

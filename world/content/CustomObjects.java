@@ -205,6 +205,7 @@ public class CustomObjects {
 	//Only adds clips to these objects, they are spawned clientsided
 	//NOTE: You must add to the client's customobjects array to make them spawn, this is just clipping!
 	private static final int[][] CLIENT_OBJECTS = {
+		{2932, 2600, 3157, 0, 1},
 		/**
 		 Boss System Boxes Begin
 		 **/

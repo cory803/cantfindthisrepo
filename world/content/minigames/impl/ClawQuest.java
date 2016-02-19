@@ -62,7 +62,7 @@ public class ClawQuest {
 			p.getPacketSender().sendString(8157, "@str@He said something about her being in a cow pasture and");
 			p.getPacketSender().sendString(8158, "@str@along the river.");
 			p.getPacketSender().sendString(8159, "@str@He requested me to come back to him with whatever I found.");
-			p.getPacketSender().sendString(8160, "@str@I need to talk to the GUY and convince him to agree to");
+			p.getPacketSender().sendString(8160, "@str@I need to talk to Denath and convince him to agree to");
 			p.getPacketSender().sendString(8161, "@str@help the king. Then inform the king when he says yes.");
 			p.getPacketSender().sendString(8162, "I need to bring Denath 100 noted rocktails before he");
 			p.getPacketSender().sendString(8163, "agrees to help the king. Then I must tell the king that");
@@ -91,7 +91,73 @@ public class ClawQuest {
 			p.getPacketSender().sendString(8163, "@str@agrees to help the king. Then I must tell the king that");
 			p.getPacketSender().sendString(8164, "@str@Denath has agreed to help.");
 			p.getPacketSender().sendString(8165, "@str@I must let the king know that Denath will help us.");
-			p.getPacketSender().sendString(8166, "@dre@Quest complete!");
+			p.getPacketSender().sendString(8166, "I must collect some samples from the banana tree's");
+			p.getPacketSender().sendString(8167, "from ape toll and bring it to Denath.");
+		} else if(p.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 7) {
+			p.getPacketSender().sendString(8155, "@str@The king wants me to go north of the yaks training");
+			p.getPacketSender().sendString(8156, "@str@area and find Phingspet. She has something of his.");
+			p.getPacketSender().sendString(8157, "@str@He said something about her being in a cow pasture and");
+			p.getPacketSender().sendString(8158, "@str@along the river.");
+			p.getPacketSender().sendString(8159, "@str@He requested me to come back to him with whatever I found.");
+			p.getPacketSender().sendString(8160, "@str@I need to talk to the GUY and convince him to agree to");
+			p.getPacketSender().sendString(8161, "@str@help the king. Then inform the king when he says yes.");
+			p.getPacketSender().sendString(8162, "@str@I need to bring Denath 100 noted rocktails before he");
+			p.getPacketSender().sendString(8163, "@str@agrees to help the king. Then I must tell the king that");
+			p.getPacketSender().sendString(8164, "@str@Denath has agreed to help.");
+			p.getPacketSender().sendString(8165, "@str@I must let the king know that Denath will help us.");
+			p.getPacketSender().sendString(8166, "@str@I must collect some samples from the banana tree's");
+			p.getPacketSender().sendString(8167, "@str@from ape toll and bring it to Denath.");
+			p.getPacketSender().sendString(8168, "I should show the King what I helped Denath make.");
+		} else if(p.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 8) {
+			p.getPacketSender().sendString(8155, "@str@The king wants me to go north of the yaks training");
+			p.getPacketSender().sendString(8156, "@str@area and find Phingspet. She has something of his.");
+			p.getPacketSender().sendString(8157, "@str@He said something about her being in a cow pasture and");
+			p.getPacketSender().sendString(8158, "@str@along the river.");
+			p.getPacketSender().sendString(8159, "@str@He requested me to come back to him with whatever I found.");
+			p.getPacketSender().sendString(8160, "@str@I need to talk to the GUY and convince him to agree to");
+			p.getPacketSender().sendString(8161, "@str@help the king. Then inform the king when he says yes.");
+			p.getPacketSender().sendString(8162, "@str@I need to bring Denath 100 noted rocktails before he");
+			p.getPacketSender().sendString(8163, "@str@agrees to help the king. Then I must tell the king that");
+			p.getPacketSender().sendString(8164, "@str@Denath has agreed to help.");
+			p.getPacketSender().sendString(8165, "@str@I must let the king know that Denath will help us.");
+			p.getPacketSender().sendString(8166, "@str@I must collect some samples from the banana tree's");
+			p.getPacketSender().sendString(8167, "@str@from ape toll and bring it to Denath.");
+			p.getPacketSender().sendString(8168, "@str@I should show the King what I helped Denath make.");
+			p.getPacketSender().sendString(8169, "The king promised me wealth and power if I help him out");
+			p.getPacketSender().sendString(8170, "he also said I can keep anything I find on this new");
+			p.getPacketSender().sendString(8171, "adventure into the khazard fight arena.");
+			p.getPacketSender().sendString(8172, "He told me if I killed The Shaikahan I would");
+			p.getPacketSender().sendString(8173, "be given my reward. He also said to bring my bravery");
+			p.getPacketSender().sendString(8174, "potion and if I needed another to bring Denath more samples.");
+			p.getPacketSender().sendString(8175, "I will need the Sinister key the king gives me when I ");
+			p.getPacketSender().sendString(8176, "teleport. The key is what will give me access to the arena.");
+		} else if(p.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 9) {
+			p.getPacketSender().sendString(8155, "@str@The king wants me to go north of the yaks training");
+			p.getPacketSender().sendString(8156, "@str@area and find Phingspet. She has something of his.");
+			p.getPacketSender().sendString(8157, "@str@He said something about her being in a cow pasture and");
+			p.getPacketSender().sendString(8158, "@str@along the river.");
+			p.getPacketSender().sendString(8159, "@str@He requested me to come back to him with whatever I found.");
+			p.getPacketSender().sendString(8160, "@str@I need to talk to the GUY and convince him to agree to");
+			p.getPacketSender().sendString(8161, "@str@help the king. Then inform the king when he says yes.");
+			p.getPacketSender().sendString(8162, "@str@I need to bring Denath 100 noted rocktails before he");
+			p.getPacketSender().sendString(8163, "@str@agrees to help the king. Then I must tell the king that");
+			p.getPacketSender().sendString(8164, "@str@Denath has agreed to help.");
+			p.getPacketSender().sendString(8165, "@str@I must let the king know that Denath will help us.");
+			p.getPacketSender().sendString(8166, "@str@I must collect some samples from the banana tree's");
+			p.getPacketSender().sendString(8167, "@str@from ape toll and bring it to Denath.");
+			p.getPacketSender().sendString(8168, "@str@I should show the King what I helped Denath make.");
+			p.getPacketSender().sendString(8169, "@str@The king promised me wealth and power if I help him out");
+			p.getPacketSender().sendString(8170, "@str@he also said I can keep anything I find on this new");
+			p.getPacketSender().sendString(8171, "@str@adventure into the khazard fight arena.");
+			p.getPacketSender().sendString(8172, "@str@He told me if I killed The Shaikahan I would");
+			p.getPacketSender().sendString(8173, "@str@be given my reward. He also said to bring my bravery");
+			p.getPacketSender().sendString(8174, "@str@potion and if I needed another to bring Denath more samples.");
+			p.getPacketSender().sendString(8175, "@str@I will need the Sinister key the king gives me when I ");
+			p.getPacketSender().sendString(8176, "@str@teleport. The key is what will give me access to the arena.");
+			p.getPacketSender().sendString(8177, "I killed The Shaikahan and got a certificate to prove to the king");
+			p.getPacketSender().sendString(8178, "that I killed it. If I bring it to him I should get my reward!");
+			p.getPacketSender().sendString(8179, "");
+//			p.getPacketSender().sendString(8166, "@dre@Quest complete!");
 		}
 	}
 	public static void giveReward(Player player) {
