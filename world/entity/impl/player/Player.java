@@ -1056,6 +1056,10 @@ public class Player extends Character {
 	public WeaponInterface getWeapon() {
 		return weapon;
 	}
+	
+	public int getShieldId() {
+		return equipment.get(Equipment.SHIELD_SLOT).getId();
+	}
 
 	/**
 	 * @param weapon

@@ -3,6 +3,7 @@ package com.ikov.world.content.dialogue;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.BonusExperienceTask;
+import com.ikov.util.Misc;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
 import com.ikov.model.Item;
@@ -76,6 +77,29 @@ public class DialogueOptions {
 		}
 		if(id == FIRST_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 178:
+				int random = Misc.getRandom(3);
+				switch(random) {
+				case 0:
+					TeleportHandler.teleportPlayer(player, new Position(3212, 3429, 0), player.getSpellbook().getTeleportType());
+				break;
+				case 1:
+					TeleportHandler.teleportPlayer(player, new Position(3213, 3429, 0), player.getSpellbook().getTeleportType());
+				break;
+				case 2:
+					TeleportHandler.teleportPlayer(player, new Position(3213, 3428, 0), player.getSpellbook().getTeleportType());
+				break;
+				case 3:
+					TeleportHandler.teleportPlayer(player, new Position(3212, 3428, 0), player.getSpellbook().getTeleportType());
+				break;
+				}
+				break;
+			case 179:
+				TeleportHandler.teleportPlayer(player, new Position(3092, 3248, 0), player.getSpellbook().getTeleportType());
+				break;
+			case 180:
+				TeleportHandler.teleportPlayer(player, new Position(3276, 3166, 0), player.getSpellbook().getTeleportType());
+				break;
 			case 137:
 				if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
@@ -212,6 +236,15 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 178:
+				TeleportHandler.teleportPlayer(player, new Position(2965, 3379, 0), player.getSpellbook().getTeleportType());
+				break;
+			case 179:
+				TeleportHandler.teleportPlayer(player, new Position(2662, 3305, 0), player.getSpellbook().getTeleportType());
+				break;
+			case 180:
+				TeleportHandler.teleportPlayer(player, new Position(2606, 3093, 0), player.getSpellbook().getTeleportType());
+				break;
 			case 137:
 				if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
@@ -351,6 +384,15 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 178:
+				TeleportHandler.teleportPlayer(player, new Position(3222, 3218, 0), player.getSpellbook().getTeleportType());
+				break;
+			case 179:
+				TeleportHandler.teleportPlayer(player, new Position(3496, 3486, 0), player.getSpellbook().getTeleportType());
+				break;
+			case 180:
+				TeleportHandler.teleportPlayer(player, new Position(2852, 2962, 0), player.getSpellbook().getTeleportType());
+				break;
 			case 137:
 				if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
@@ -495,6 +537,15 @@ public class DialogueOptions {
 			}
 		} else if(id == FOURTH_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
+			case 178:
+				TeleportHandler.teleportPlayer(player, new Position(2757, 3477, 0), player.getSpellbook().getTeleportType());
+				break;
+			case 179:
+				TeleportHandler.teleportPlayer(player, new Position(2809, 3435, 0), player.getSpellbook().getTeleportType());
+				break;
+			case 180:
+				TeleportHandler.teleportPlayer(player, new Position(2336, 3803, 0), player.getSpellbook().getTeleportType());
+				break;
 			case 137:
 				if(player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
@@ -623,7 +674,17 @@ public class DialogueOptions {
 			}
 		} else if(id == FIFTH_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
-	
+			case 178:
+				player.setDialogueActionId(179);
+				DialogueManager.start(player, 179);
+				break;
+			case 179:
+				player.setDialogueActionId(180);
+				DialogueManager.start(player, 180);
+				break;
+			case 180:
+				TeleportHandler.teleportPlayer(player, new Position(2929, 3559, 0), player.getSpellbook().getTeleportType());
+				break;
 			case 137:
 				player.setDialogueActionId(138);
 				DialogueManager.start(player, 138);

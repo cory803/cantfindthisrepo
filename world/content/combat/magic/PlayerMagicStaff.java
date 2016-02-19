@@ -63,6 +63,14 @@ public enum PlayerMagicStaff {
             }
             return runesRequired;
         }
+        for (int i = 0; i < runesRequired.length; i++) {
+        	
+        	 if(player.getShieldId() == 18346) {
+        		 if(runesRequired[i].getId() == 555) {
+        			 runesRequired[i] = null;
+        		 }
+        	 }
+        }
         return runesRequired;
     }
 }

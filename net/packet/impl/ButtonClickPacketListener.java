@@ -428,9 +428,8 @@ public class ButtonClickPacketListener implements PacketListener {
 				player.getSummoning().toInventory();
 			break;
 		case 11004:
-			player.getPacketSender().sendTab(GameSettings.SKILLS_TAB);
-			DialogueManager.sendStatement(player, "Simply press on the skill you want to train in the skills tab.");
-			player.setDialogueActionId(-1);
+			player.setDialogueActionId(178);
+			DialogueManager.start(player, 178);
 			break;
 		case 8654:
 		case 8657:

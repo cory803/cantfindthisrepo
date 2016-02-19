@@ -225,15 +225,14 @@ public class ClanChatManager {
 			if (member != null) {
 				int childId = 29344;
 				int value = 0;
+				member.getPacketSender().sendString(1, "[CLEAR]");
 				for (Player others : clan.getMembers()) {
 					if (others != null) {
 						ClanChatRank rank = clan.getRank(others);
-
 						int image = -1;
 						if(rank != null) {
 							image = 34 + rank.ordinal();
 						}
-						member.getPacketSender().sendString(1, "[LEFTCLAN]");
 						member.getPacketSender().sendString(1, others.getUsername() + "-[CLAN]-" + value);
 						String prefix = image >= 0 ? ("<img=" + (image) +  "> ") : "";
 						member.getPacketSender().sendString(childId, prefix + others.getUsername());
@@ -339,9 +338,9 @@ public class ClanChatManager {
 		for (int i = 29344; i < 29444; i++) {
 			player.getPacketSender().sendString(i, "");
 		}
-		player.getPacketSender().sendString(1, "[LEFTCLAN]");
 		player.getPacketSender().sendClanChatListOptionsVisible(0);
 		updateList(clan);
+		player.getPacketSender().sendString(1, "[CLEAR]");
 		player.getPacketSender().sendMessage(kicked ? "You have been kicked from the channel." : "You have left the channel.");
 	}
 
@@ -590,19 +589,20 @@ public class ClanChatManager {
 
 	public static void toggleLootShare(Player player) {
 		final ClanChat clan = player.getCurrentClanChat();
+		ClanChatRank rank = clan.getRank(player);
 		if (clan == null) {
 			player.getPacketSender().sendMessage("You're not in a clan channel.");
 			return;
 		}
-		if(!player.getRights().ownerInCC()) {
+		if(!player.getRights().ownerInCC() && rank != ClanChatRank.GENERAL) {
 			if(clan.getOwner() == null)
 				return;
 			if (!clan.getOwner().equals(player)) {
-				player.getPacketSender().sendMessage("Only the owner of the channel has the power to do this.");
+				player.getPacketSender().sendMessage("Only the owner or general of the channel has the power to do this.");
 				return;
 			}
 		}
-		if(clan.getLastAction().elapsed(5000) || player.getRights().ownerInCC()) {
+		if(clan.getLastAction().elapsed(5000) || player.getRights().ownerInCC() || rank != ClanChatRank.GENERAL) {
 			clan.setLootShare(!clan.getLootShare());
 			sendMessage(clan, "<col=16777215>[<col=255>"+clan.getName() +"<col=16777215>] <col=3300CC>"+player.getUsername()+" has "+(clan.getLootShare() ? "enabled" : "disabled")+" Lootshare.");
 			for (Player member : clan.getMembers()) {
