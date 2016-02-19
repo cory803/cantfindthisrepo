@@ -243,6 +243,11 @@ public class Consumables {
 		return pot.contains("saradomin brew");
 	}
 
+	/**
+	 * @param player
+	 * @param itemId
+	 * @param slot
+	 */
 	public static void handlePotion(final Player player, final int itemId, final int slot) {
 		if(player.getConstitution() <= 0)
 			return;
@@ -268,6 +273,12 @@ public class Consumables {
 			double amount = player.getEquipment().wearingNexAmours() ? 1.22 : 1.17;
 			int bonus = player.getEquipment().wearingNexAmours() ? getBrewStat(player, 3, .21) : getBrewStat(player, 3, .15);
 			switch(itemId) {
+			/*
+			 * Braverly Potion - Kings Quest
+			 */
+			case 739:
+				drinkBraverly(player, slot);
+				break;
 			/*
 			 * Attack potions
 			 */
@@ -2336,6 +2347,14 @@ public class Consumables {
 		player.getInventory().refreshItems();
 		player.setOverloadPotionTimer(600);
 		TaskManager.submit(new OverloadPotionTask(player));
+		return true;
+	}
+	public static boolean drinkBraverly(final Player player, int slot) {
+		player.drankBraverly(true);
+		player.getPacketSender().sendMessage("You feel the bravery surge through your body!");
+		player.performAnimation(new Animation(829));
+		player.getInventory().getItems()[slot] = new Item(-1, 1);
+		player.getInventory().refreshItems();
 		return true;
 	}
 

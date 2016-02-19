@@ -88,6 +88,11 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch(itemId) {
+		case 739:
+			if(player.getInventory().contains(739)) {
+				Consumables.handlePotion(player, 739, slot);
+			}
+			break;
 		case 6040:
 			Position location = new Position(2036, 4535, 0);
 			TeleportHandler.teleportPlayer(player, location, TeleportType.PURO_PURO);

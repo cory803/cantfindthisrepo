@@ -162,7 +162,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							player.getPacketSender().sendMessage("You smash open the barrel by jumping on it, a lion appeared!");
 							NPC n = new NPC(1172, new Position(player.getPosition().getX(), player.getPosition().getY()+2, player.getPosition().getZ())).setSpawnedFor(player);
 							World.register(n);
-							n.getCombatBuilder().attack(player);
 						}
 					});
 					break;

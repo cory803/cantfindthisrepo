@@ -32,6 +32,7 @@ import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.dialogue.impl.Denath;
 import com.ikov.world.content.dialogue.impl.ExplorerJack;
 import com.ikov.world.content.grandexchange.GrandExchange;
+import com.ikov.world.content.minigames.impl.ClawQuest;
 import com.ikov.world.content.minigames.impl.WarriorsGuild;
 import com.ikov.world.content.skill.impl.crafting.Tanning;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
@@ -166,6 +167,19 @@ public class NPCOptionPacketListener implements PacketListener {
 					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 7) {
 						player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(8);
 						DialogueManager.start(player, 170);
+					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 9) {
+						if(player.getInventory().contains(691)) {
+							if(player.getInventory().getFreeSlots() > 2) {
+								player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(10);
+								player.getInventory().delete(691, 1);
+								ClawQuest.giveReward(player);
+								//DialogueManager.start(player, 178);
+							} else {
+								player.getPacketSender().sendMessage("You need 3 free slots before you can claim your reward.");
+							}
+						} else {
+							DialogueManager.sendStatement(player, "Show me the proof when you've killed the beast.");
+						}
 					} else {
 						DialogueManager.sendStatement(player, "The king does not seem interested in talking to you right now.");
 					}
@@ -492,6 +506,14 @@ public class NPCOptionPacketListener implements PacketListener {
 		if(player.isZulrahMoving() && (interact.getId() == Zulrah.ZULRAH_GREEN_NPC_ID || interact.getId() == Zulrah.ZULRAH_RED_NPC_ID || interact.getId() == Zulrah.ZULRAH_BLUE_NPC_ID || interact.getId() == Zulrah.ZULRAH_JAD_NPC_ID)) {
 			return;
 		}
+		if(interact.getId() == 1172) {
+			if(!player.getDrankBraverly()) {
+				player.getPacketSender().sendMessage("You need to drink a braverly potion before fighting this monster.");
+				return;
+			} else {
+				player.getCombatBuilder().attack(interact);
+			}
+		}
 		player.getCombatBuilder().attack(interact);
 	}
 	public void handleSecondClick(Player player, Packet packet) {
@@ -522,6 +544,8 @@ public class NPCOptionPacketListener implements PacketListener {
 						} else {
 							player.getPacketSender().sendMessage("You need 1 slot available for this teleport");
 						}
+					} else if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 10) {
+						player.moveTo(new Position(2660, 3306, 0));
 					} else {
 						player.getPacketSender().sendMessage("The king has no reason to drain his energy on you.");
 					}

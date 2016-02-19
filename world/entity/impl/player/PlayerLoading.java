@@ -143,9 +143,12 @@ public class PlayerLoading {
 			if (reader.has("donated")) {
 				player.incrementAmountDonated(reader.get("donated").getAsInt());
 			}
-			
+
 			if (reader.has("credits")) {
 				player.addCredits(reader.get("credits").getAsInt());
+			}
+			if (reader.has("quest-points")) {
+				player.setQuestPoints(reader.get("quest-points").getAsInt());
 			}
 			
 			if(reader.has("minutes-bonus-exp")) {

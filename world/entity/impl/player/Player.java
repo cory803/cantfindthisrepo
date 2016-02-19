@@ -404,6 +404,7 @@ public class Player extends Character {
 	/*** INTS ***/
 	public int[] allKeys = {1543, 1545, 1546, 1547, 1548};
 	public int voteCount = 0;
+	private int questPoints = 0;
 	private int bossPoints = 0;
 	private int lastBoss = 0;
 	private int warningPoints = 0;
@@ -507,6 +508,15 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public int getQuestPoints() {
+		return questPoints;
+	}
+	public void setQuestPoints(int questPoints) {
+		this.questPoints = questPoints;
+	}
+	public void addQuestPoints(int questPoints) {
+		this.questPoints += questPoints;
+	}
 	public boolean getRevsWarning() {
 		return revsWarning;
 	}
@@ -2165,7 +2175,13 @@ public class Player extends Character {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+	private boolean drankQuestPotion = false;
+	public void drankBraverly(boolean potion) {
+		drankQuestPotion = potion;
+	}
+	public boolean getDrankBraverly() {
+		return drankQuestPotion;
+	}
 	public boolean bossingSystem = false;
 	
 	public boolean inBossingSystem() {
