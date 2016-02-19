@@ -156,7 +156,7 @@ public class GroundItemManager {
 			p.getInventory().add(item);
 			p.getLastItemPickup().reset();
 			Sounds.sendSound(p, Sound.PICKUP_ITEM);
-			PlayerLogs.log(p.getUsername(), "Player looting item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: "+item.getAmount());
+			PlayerLogs.log(p.getUsername(), "Player looting item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: "+item.getAmount() + " from the computer address: " + p.getLastComputerAddress());
 		}
 	}
 
