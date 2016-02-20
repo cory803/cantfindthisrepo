@@ -236,7 +236,7 @@ public class MinigameAttributes {
 	public class ClawQuestAttributes {
 		private int questParts = 0;
 		private int samples = 0;
-		public final int SAMPLES_NEEDED = 2;
+		public final int SAMPLES_NEEDED = 50;
 		public int getSamples() {
 			return samples;
 		}
