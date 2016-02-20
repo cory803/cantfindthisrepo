@@ -1209,6 +1209,11 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 182:
+			case 181:
+			case 183:
+				BankPin.init(player, false);
+				break;
 			case 73:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.moveTo(new Position(3653, player.getPosition().getY()));
@@ -1341,6 +1346,11 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 182:
+			case 181:
+			case 183:
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 73:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
@@ -1528,6 +1538,13 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 182:
+			case 181:
+			case 183:
+				DialogueManager.start(player, 183);
+				player.setDialogueActionId(183);
+				break;
+				
 			case 73:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.setRevsWarning(false);

@@ -115,7 +115,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					}
 					break;
 				case 2947:
-					if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 1) {
+					if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 1 || !player.getInventory().contains(6040)) {
 						if(player.getSkillManager().getMaxLevel(17) < 50) {
 							player.getPacketSender().sendMessage("You need a thieving level of 50 to pickpocket this woman.");
 							return;

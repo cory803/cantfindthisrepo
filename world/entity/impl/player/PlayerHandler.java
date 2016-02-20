@@ -1,6 +1,7 @@
 package com.ikov.world.entity.impl.player;
 
 import com.ikov.util.PlayersOnline;
+import com.ikov.model.Locations.Location;
 import com.ikov.GameSettings;
 import com.ikov.GameServer;
 import com.ikov.engine.task.TaskManager;
@@ -219,9 +220,13 @@ public class PlayerHandler {
 		if(player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 1);
 		}
-		if(!player.getBankPinAttributes().hasBankPin())
-			player.getPacketSender().sendMessage("<img=10><col=ff0000>You don't have an account pin set! Make sure that you set one at the town crier.");
-			Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
+		if(!player.getBankPinAttributes().hasBankPin()) {
+			if(player.getLocation() != Location.WILDERNESS) {
+				player.setDialogueActionId(181);
+				DialogueManager.start(player, 181);
+			}
+		}
+		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
 	}
 
 	public static boolean handleLogout(Player player) {

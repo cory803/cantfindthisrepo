@@ -569,6 +569,21 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.getSkillManager().setCurrentLevel(Skill.PRAYER, toRestore);
 					player.getMinigameAttributes().getGodwarsDungeonAttributes().setAltarDelay(System.currentTimeMillis());
 					break;
+				case 2873:
+					player.performAnimation(new Animation(645));
+					player.getPacketSender().sendMessage("You pray to Saradomin and recieve a holy cape...");
+					player.getInventory().add(new Item(2412, 1));
+					break;
+				case 2875:
+					player.performAnimation(new Animation(645));
+					player.getPacketSender().sendMessage("You pray to Guthix and recieve a holy cape...");
+					player.getInventory().add(new Item(2413, 1));
+					break;
+				case 2874:
+					player.performAnimation(new Animation(645));
+					player.getPacketSender().sendMessage("You pray to Zamorak and recieve a holy cape...");
+					player.getInventory().add(new Item(2414, 1));
+					break;
 				case 16044:
 					if(player.getPosition().getY() < 3875) {
 						TaskManager.submit(new Task(1, player, true) {
@@ -1139,6 +1154,9 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.setSpellbook(player.getSpellbook() == MagicSpellbook.LUNAR ? MagicSpellbook.NORMAL : MagicSpellbook.LUNAR);
 					player.getPacketSender().sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId()).sendMessage("Your magic spellbook is changed..");;
 					Autocasting.resetAutocast(player, true);
+					break;
+				case 2878:
+					player.moveTo(new Position(2509, 4689));
 					break;
 				case 172:
 					CrystalChest.handleChest(player, gameObject);

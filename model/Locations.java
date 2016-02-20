@@ -1,6 +1,7 @@
 package com.ikov.model;
 
 import com.ikov.GameSettings;
+import com.ikov.model.Locations.Location;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.BossSystem;
@@ -22,6 +23,8 @@ import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 
 public class Locations {
+
+	public static final Location WILDERNESS = null;
 
 	public static void login(Player player) {
 		player.setLocation(Location.getLocation(player));
