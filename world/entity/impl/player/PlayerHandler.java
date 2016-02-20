@@ -222,8 +222,12 @@ public class PlayerHandler {
 		}
 		if(!player.getBankPinAttributes().hasBankPin()) {
 			if(player.getLocation() != Location.WILDERNESS) {
-				player.setDialogueActionId(181);
-				DialogueManager.start(player, 181);
+				if(player.newPlayer()) {
+					
+				} else {
+					player.setDialogueActionId(181);
+					DialogueManager.start(player, 181);
+				}
 			}
 		}
 		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
