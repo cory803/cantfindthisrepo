@@ -9,7 +9,7 @@ import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.Direction;
 import com.ikov.model.DwarfCannon;
-import com.ikov.model.Flag;2414
+import com.ikov.model.Flag;
 import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
 import com.ikov.model.Item;
