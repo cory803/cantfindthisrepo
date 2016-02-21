@@ -844,9 +844,10 @@ public class Locations {
 		},
 		FLESH_CRAWLERS(new int[]{2033, 2049}, new int[]{5178, 5197}, false, true, true, false, true, true) {
 		},
+		AGILITY_WILDERNESS_COURSE(new int[]{2989, 3009}, new int[]{3916, 3966}, false, true, true, false, false, false) {
+		},
 		DEFAULT(null, null, false, true, true, true, true, true) {
 		};
-
 		Location(int[] x, int[] y, boolean multi, boolean summonAllowed, boolean followingAllowed, boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed) {
 			this.x = x;
 			this.y = y;
@@ -876,6 +877,7 @@ public class Locations {
 
 		public static boolean inMulti(Character gc) {
 			int x = gc.getPosition().getX(), y = gc.getPosition().getY();
+			boolean agilityWild = x >= 2989 && x <= 3009 && y >= 3916 && y <= 3966;
 			if(gc.getLocation() == WILDERNESS) {
 				if(x >= 3250 && x <= 3302 && y >= 3905 && y <= 3925
 				|| x >= 3020 && x <= 3055 && y >= 3684 && y <= 3711
@@ -885,7 +887,7 @@ public class Locations {
 				|| x >= 3136 && x <= 3327 && y >= 3519 && y <= 3607
 				|| x >= 3190 && x <= 3327 && y >= 3648 && y <= 3839
 				|| x >= 3200 && x <= 3390 && y >= 3840 && y <= 3967
-				|| x >= 2992 && x <= 3007 && y >= 3912 && y <= 3967
+				|| x >= 2992 && x <= 3007 && y >= 3912 && y <= 3967 && !agilityWild
 				|| x >= 2946 && x <= 2959 && y >= 3816 && y <= 3831
 				|| x >= 3008 && x <= 3199 && y >= 3856 && y <= 3903
 				|| x >= 3008 && x <= 3071 && y >= 3600 && y <= 3711

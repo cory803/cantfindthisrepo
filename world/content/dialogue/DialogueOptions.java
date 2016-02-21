@@ -601,7 +601,7 @@ public class DialogueOptions {
 				Scoreboards.open(player, Scoreboards.TOP_ACHIEVER);
 				break;
 			case 12:
-				TeleportHandler.teleportPlayer(player, new Position(3329 + Misc.getRandom(2), 3660 + Misc.getRandom(2), 0), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(3379 + Misc.getRandom(2), 3689 + Misc.getRandom(2), 0), player.getSpellbook().getTeleportType());
 				break;
 			case 13:
 				player.getPacketSender().sendInterfaceRemoval();

@@ -1824,25 +1824,27 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn) {
 			if (castOn.isPlayer()) {
-				Player player = (Player) castOn;
+				Player player2 = (Player) castOn;
 
-				if (player.getTeleblockTimer() > 0) {
+				if (player2.getTeleblockTimer() > 0) {
 					if (cast.isPlayer()) {
 						((Player) cast).getPacketSender().sendMessage(
 								"The spell has no effect because the player is already teleblocked.");
+						player2.getPacketSender().sendMessage(
+								"The teleblock spell has no effect because the you are already teleblocked.");
 					}
 					return;
 				}
 				if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
 					castOn.getMovementQueue().freeze(7);
-					player.setTeleblockTimer(300);
-					TaskManager.submit(new CombatTeleblockEffect(player));
-					player.getPacketSender().sendMessage(
+					player2.setTeleblockTimer(300);
+					TaskManager.submit(new CombatTeleblockEffect(player2));
+					player2.getPacketSender().sendMessage(
 							"You have just been teleblocked for half the usual timer!");
 				} else {
-					player.setTeleblockTimer(600);
-					TaskManager.submit(new CombatTeleblockEffect(player));
-					player.getPacketSender().sendMessage(
+					player2.setTeleblockTimer(600);
+					TaskManager.submit(new CombatTeleblockEffect(player2));
+					player2.getPacketSender().sendMessage(
 							"You have just been teleblocked!");
 				}
 			} else if (castOn.isNpc()) {
