@@ -18,6 +18,7 @@ import com.ikov.model.input.impl.EnterAmountToSellToShop;
 import com.ikov.util.JsonLoader;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.minigames.impl.RecipeForDisaster;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -224,6 +225,7 @@ public class Shop extends ItemContainer {
 			return;
 		}*/
 		int itemId = itemToSell.getId();
+		int count = 0;
 		boolean customShop = this.getCurrency().getId() == -1;
 		boolean inventorySpace = customShop ? true : false;
 		if(!customShop) {
@@ -283,7 +285,9 @@ public class Shop extends ItemContainer {
 				}
 			}
 			amountToSell--;
+			count++;
 		}
+		PlayerLogs.log(player.getUsername(), "Player has sold item: "+itemToSell.getDefinition().getName()+" ("+itemToSell.getId()+"), amount: " + count +" to the store.");
 		if(customShop) {
 			player.getPointsHandler().refreshPanel();
 		}
@@ -337,6 +341,7 @@ public class Shop extends ItemContainer {
 		String currencyName = "";
 		if(getCurrency().getId() != -1) {
 			playerCurrencyAmount = player.getInventory().getAmount(currency.getId());
+			PlayerLogs.log(player.getUsername(), "Player has bought the store item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: " + amountBuying);
 			currencyName = ItemDefinition.forId(currency.getId()).getName().toLowerCase();
 			if(currency.getId() == 995) {
 				if(player.getMoneyInPouch() >= value) {
