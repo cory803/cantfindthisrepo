@@ -282,6 +282,20 @@ public class Owners {
 				}
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned!");
 			}
+		}
+		if(command[0].equalsIgnoreCase("fixnull")) {
+			String ban_player = wholeCommand.substring(4);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				Player other = World.getPlayerByName(ban_player);
+				other.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 1, true);
+				if(other != null) {
+					World.deregister(other);
+				}
+				player.getPacketSender().sendMessage("Player "+ban_player+"'s null was successfully fixed!");
+			}
 		}	
 		if(command[0].equalsIgnoreCase("getip")) {
 			String player_name = wholeCommand.substring(6);

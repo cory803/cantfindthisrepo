@@ -110,6 +110,15 @@ public class Woodcutting {
 	}
 	
 	public static boolean infernoAdze(Player player) {
+		boolean contains = false;
+		if(player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 13661) {
+			contains = true;
+		} else if(player.getInventory().contains(13661)) {
+			contains = true;
+		}
+		if(player.getSkillManager().getCurrentLevel(Skill.WOODCUTTING) < 80) {
+			contains = false;
+		}
 		return player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 13661;
 	}
 

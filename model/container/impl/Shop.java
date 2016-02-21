@@ -1174,6 +1174,7 @@ public class Shop extends ItemContainer {
 				case 13851:
 				case 13850:
 				case 13849:
+				case 13857:
 					return new Object[]{5, "Prestige points"};
 				case 10400:
 				case 10402:
@@ -1182,6 +1183,7 @@ public class Shop extends ItemContainer {
 				case 10408:
 				case 10410:
 				case 10412:
+				case 13852:
 				case 10414:
 				case 10404:
 				case 10406:
