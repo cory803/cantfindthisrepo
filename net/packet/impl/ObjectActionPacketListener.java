@@ -9,7 +9,7 @@ import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.Direction;
 import com.ikov.model.DwarfCannon;
-import com.ikov.model.Flag;
+import com.ikov.model.Flag;2414
 import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
 import com.ikov.model.Item;
@@ -570,32 +570,20 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.getMinigameAttributes().getGodwarsDungeonAttributes().setAltarDelay(System.currentTimeMillis());
 					break;
 				case 2873:
-					if(player.getInventory().contains(2412) || player.getInventory().contains(2413)  || player.getInventory().contains(2414)) {
-						player.getPacketSender().sendMessage("You already have a cape of the gods.");
-					} else {
-						player.performAnimation(new Animation(645));
-						player.getPacketSender().sendMessage("You pray to Saradomin and recieve a holy cape...");
-						player.getInventory().add(new Item(2412, 1));
-					}
+					player.performAnimation(new Animation(645));
+					player.getPacketSender().sendMessage("You pray to Saradomin and recieve a holy cape...");
+					player.getInventory().add(new Item(2412, 1));
 					break;
 				case 2875:
-					if(player.getInventory().contains(2412) || player.getInventory().contains(2413)  || player.getInventory().contains(2414)) {
-						player.getPacketSender().sendMessage("You already have a cape of the gods.");
-					} else {
-						player.performAnimation(new Animation(645));
-						player.getPacketSender().sendMessage("You pray to Guthix and recieve a holy cape...");
-						player.getInventory().add(new Item(2413, 1));
-					}
-						break;
+					player.performAnimation(new Animation(645));
+					player.getPacketSender().sendMessage("You pray to Guthix and recieve a holy cape...");
+					player.getInventory().add(new Item(2413, 1));
+					break;
 				case 2874:
-					if(player.getInventory().contains(2412) || player.getInventory().contains(2413)  || player.getInventory().contains(2414)) {
-						player.getPacketSender().sendMessage("You already have a cape of the gods.");
-					} else {
-						player.performAnimation(new Animation(645));
-						player.getPacketSender().sendMessage("You pray to Zamorak and recieve a holy cape...");
-						player.getInventory().add(new Item(2414, 1));
-					}
-						break;
+					player.performAnimation(new Animation(645));
+					player.getPacketSender().sendMessage("You pray to Zamorak and recieve a holy cape...");
+					player.getInventory().add(new Item(2414, 1));
+					break;
 				case 16044:
 					if(player.getPosition().getY() < 3875) {
 						TaskManager.submit(new Task(1, player, true) {
