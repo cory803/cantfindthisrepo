@@ -26,7 +26,6 @@ import com.ikov.model.input.impl.EnterAmountOfLogsToAdd;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
-import com.ikov.util.Stopwatch;
 import com.ikov.world.World;
 import com.ikov.world.clip.region.RegionClipping;
 import com.ikov.world.content.CrystalChest;
@@ -90,7 +89,6 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int x = packet.readLEShortA();
 		final int id = packet.readUnsignedShort();
 		final int y = packet.readUnsignedShortA();
-		NPC npc;
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
 		if(id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {

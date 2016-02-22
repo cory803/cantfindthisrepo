@@ -2,7 +2,6 @@ package com.ikov.world.entity.impl.npc;
 
 import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
-import com.ikov.world.content.combat.CombatContainer;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.strategy.impl.Nex;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;

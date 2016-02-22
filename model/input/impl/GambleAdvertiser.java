@@ -5,7 +5,6 @@ import com.ikov.model.input.Input;
 import java.io.File;
 import com.ikov.GameSettings;
 import com.ikov.world.content.dialogue.DialogueManager;
-import com.ikov.util.NameUtils;
 import com.ikov.world.entity.impl.player.Player;
 
 public class GambleAdvertiser extends Input {

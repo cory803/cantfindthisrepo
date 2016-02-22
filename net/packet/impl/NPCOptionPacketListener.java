@@ -27,7 +27,6 @@ import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.magic.CombatSpell;
 import com.ikov.world.content.combat.magic.CombatSpells;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
-import com.ikov.world.content.dialogue.Dialogue;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.dialogue.impl.Denath;
 import com.ikov.world.content.dialogue.impl.ExplorerJack;

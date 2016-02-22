@@ -250,7 +250,6 @@ public class NPCDrops {
 		final boolean goGlobal = p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4;
 		final boolean ringOfWealth = p.getEquipment().get(Equipment.RING_SLOT).getId() == 2572;
 		final Position npcPos = npc.getPosition().copy();
-		final Position npcPos2 = npc.getPosition().copyXY();
 		boolean[] dropsReceived = new boolean[12];
 
 		if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4) {

@@ -12,7 +12,6 @@ import com.ikov.util.NameUtils;
 import com.ikov.world.content.Sounds;
 import com.ikov.world.content.Sounds.Sound;
 import com.ikov.world.content.combat.CombatType;
-import com.ikov.world.content.minigames.impl.ClanWarsRules;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.entity.impl.player.Player;

@@ -14,7 +14,6 @@ import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerPunishment;
-import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
 import com.ikov.world.content.skill.SkillManager;
 import com.ikov.world.content.transportation.TeleportHandler;

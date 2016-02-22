@@ -4,7 +4,6 @@ import com.ikov.engine.task.Task;
 import com.ikov.GameSettings;
 import com.ikov.model.Locations;
 import com.ikov.util.Misc;
-import com.ikov.util.Stopwatch;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.world.World;
 import com.ikov.world.content.minigames.impl.PestControl;

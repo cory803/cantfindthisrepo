@@ -5,7 +5,6 @@ import com.ikov.world.content.minigames.impl.ClawQuest;
 import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.RecipeForDisaster;
 import com.ikov.world.content.skill.impl.slayer.SlayerTasks;
-import com.ikov.world.World;
 import com.ikov.world.entity.impl.player.Player;
 
 public class PlayerPanel {
