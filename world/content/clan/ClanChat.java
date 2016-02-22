@@ -155,5 +155,25 @@ public class ClanChat {
 		return this;
 	}
 
+	/**
+	 * This array contains all the rank requirements
+	 * needed to be met in order to perform certain
+	 * actions in this clan chat; see {@link #RANK_REQUIRED_TO_ENTER},
+	 * {@link #RANK_REQUIRED_TO_KICK}, {@link #RANK_REQUIRED_TO_TALK}
+	 * and {@link #RANK_REQUIRED_TO_BAN}. 
+	 */
+	private final int[] rankReqs = {-1, -1, ClanChatRank.CAPTAIN.ordinal(), ClanChatRank.CAPTAIN.ordinal()};
+	/**
+	 * Sets the designated {@link #rankRequirement} with said
+	 * index.
+	 * @param index				The index of the rank requirement to edit.
+	 * @param rankRequirement	The new {@link Rank.ordinal()} value.
+	 * @return					The ClanChat instance.
+	 */
+	public ClanChat setRankReqs(int index, int rankRequirement) {
+		this.rankReqs[index] = rankRequirement;
+		return this;
+	}
 	public static final int RANK_REQUIRED_TO_ENTER = 0, RANK_REQUIRED_TO_KICK = 1, RANK_REQUIRED_TO_TALK = 2;
+
 }

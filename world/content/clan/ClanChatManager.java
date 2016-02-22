@@ -1,14 +1,15 @@
 package com.ikov.world.content.clan;
 
-import java.io.DataInputStream;
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map.Entry;
+import java.util.logging.Logger;
 
 import com.ikov.model.GameMode;
 import com.ikov.model.Item;
@@ -46,32 +47,79 @@ public class ClanChatManager {
 		return null;
 	}
 
+	/**
+	 * Loads all the files located in the directory {@link #FILE_DIRECTORY}
+	 * and populates the {@link #clans} array.
+	 */
 	public static void init() {
 		try {
-			for (File file : (new File(FILE_DIRECTORY)).listFiles()) {
-				if(!file.exists())
-					continue;
-				DataInputStream input = new DataInputStream(new FileInputStream(file));
-				String name = input.readUTF();
-				String owner = input.readUTF();
-				int index = input.readShort();
-				ClanChat clan = new ClanChat(owner, name, index);
-				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_ENTER, ClanChatRank.forId(input.read()));
-				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_KICK, ClanChatRank.forId(input.read()));
-				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_TALK, ClanChatRank.forId(input.read()));
-				int totalRanks = input.readShort();
-				for (int i = 0; i < totalRanks; i++) {
-					clan.getRankedNames().put(input.readUTF(), ClanChatRank.forId(input.read()));
-				}
-				int totalBans = input.readShort();
-				for (int i = 0; i < totalBans; i++) {
-					clan.addBannedName(input.readUTF());
-				}
-				clans[index] = clan;
-				input.close();
+			final long startup = System.currentTimeMillis();
+			int amount = 0;
+			
+			final File directory = new File(FILE_DIRECTORY);
+			
+			if (!directory.exists()) {
+				Logger.getLogger(ClanChatManager.class.getName()).info("Directory for clan files does NOT exist!");
+				return;
 			}
+
+			final File[] files = new File(FILE_DIRECTORY).listFiles();
+			
+			System.out.println("Loading clan chat channels...");
+			for (File file : files) {
+				final BufferedReader reader = new BufferedReader(new FileReader(file));
+				String line = null;
+				
+				ClanChat clan = null;
+				String name = null;
+				String owner = null;
+				int index = -1;
+				
+				while ((line = reader.readLine()) != null) {
+					final String[] split = line.split(": ");
+					if (split.length < 2)
+						continue;
+					final String tag = split[0];
+					final String value = split[1];
+					
+					if (tag.equals("name")) {
+						name = value;
+					} else if (tag.equals("owner")) {
+						owner = value;
+					} else if (tag.equals("index")) {
+						index = Integer.valueOf(value);
+						
+						clan = new ClanChat(owner, name, index);
+					} else if (tag.startsWith("rank_requirement")) {
+						final String substring = tag.substring(tag.indexOf('[') + 1, tag.indexOf(']'));
+						final int arrayIndex = Integer.valueOf(substring);
+						
+						if (clan != null)
+							clan.setRankReqs(arrayIndex, Integer.valueOf(value));
+					} else if (tag.startsWith("ranked_member")) {
+						final String player_name = tag.substring(tag.indexOf('[') + 1, tag.indexOf(']'));
+						if (value != null && !value.equals("null")) {
+							try {
+								final ClanChatRank rank = ClanChatRank.valueOf(value);
+								if (clan != null && rank != null)
+									clan.getRankedNames().put(player_name, rank);
+							} catch (IllegalArgumentException e) {
+								e.printStackTrace();
+							}
+						}
+					} 
+				}
+				reader.close();
+				
+				if (index < clans.length && index >= 0)
+					clans[index] = clan;
+				amount++;
+			}
+			System.out.println("Loaded " + amount + " clan chat channel" + (amount != 1 ? "s" : "") + " in " + (System.currentTimeMillis() - startup) + "ms");
+			
 		} catch (IOException exception) {
 			exception.printStackTrace();
+			
 		}
 	}
 
@@ -93,10 +141,6 @@ public class ClanChatManager {
 				int rank = iterator.getValue().ordinal();
 				output.writeUTF(name);
 				output.write(rank);
-			}
-			output.writeShort(clan.getBannedNames().size());
-			for(String ban : clan.getBannedNames()) {
-				output.writeUTF(ban);
 			}
 			output.close();
 		} catch (IOException e) {
@@ -587,6 +631,7 @@ public class ClanChatManager {
 		return false;
 	}
 
+	@SuppressWarnings("unused")
 	public static void toggleLootShare(Player player) {
 		final ClanChat clan = player.getCurrentClanChat();
 		ClanChatRank rank = clan.getRank(player);
