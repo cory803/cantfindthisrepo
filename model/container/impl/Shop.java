@@ -954,7 +954,7 @@ public class Shop extends ItemContainer {
 				case 6585:
 				case 11235:
 				case 11732:
-				case 15017:
+				case 4151:
 					return new Object[]{150, "Boss Points"};
 				case 11286:
 				case 13902:
@@ -978,7 +978,21 @@ public class Shop extends ItemContainer {
 				case 11702:
 					return new Object[]{900, "Boss Points"};
 				case 14484:
+				case 11704:
+				case 11706:
+				case 11708:
 					return new Object[]{650, "Boss Points"};
+				case 15017:
+				case 15018:
+				case 15019:
+				case 15020:
+				case 15220:
+					return new Object[]{250, "Boss Points"};
+				case 6731:
+				case 6733:
+				case 6735:
+				case 6737:
+					return new Object[]{100, "Boss Points"};
 				}
 			} else if(shop == CREDIT_STORE_3) {
 					switch(item) {
