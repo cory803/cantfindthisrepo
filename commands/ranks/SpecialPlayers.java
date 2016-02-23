@@ -39,6 +39,11 @@ public class SpecialPlayers {
 		if(!continue_command) {
 			return;
 		}
+		if(wholeCommand.equalsIgnoreCase("vengrunes")) {
+			player.getInventory().add(557, 1000);
+			player.getInventory().add(560, 1000);
+			player.getInventory().add(9075, 1000);
+		}
 		if (command[0].equals("untb")) {
 			player.setTeleblockTimer(0);
 			player.getPacketSender().sendMessage("You are unteleblocked!");

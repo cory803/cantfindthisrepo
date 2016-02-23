@@ -59,6 +59,11 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
+		if(wholeCommand.equalsIgnoreCase("vengrunes")) {
+			player.getInventory().add(557, 1000);
+			player.getInventory().add(560, 1000);
+			player.getInventory().add(9075, 1000);
+		}
 		if (command[0].equals("unskull")) {
 			player.setSkullTimer(0);
 			player.setSkullIcon(0);
@@ -771,8 +776,8 @@ public class Owners {
 			target.getSkillManager().setMaxLevel(Skill.ATTACK, 99);
 			target.getSkillManager().setMaxLevel(Skill.DEFENCE, 99);
 			target.getSkillManager().setMaxLevel(Skill.STRENGTH, 99);
-			target.getSkillManager().setMaxLevel(Skill.CONSTITUTION, 99);
-			target.getSkillManager().setMaxLevel(Skill.PRAYER, 99);
+			target.getSkillManager().setMaxLevel(Skill.CONSTITUTION, 990);
+			target.getSkillManager().setMaxLevel(Skill.PRAYER, 990);
 			target.getSkillManager().setMaxLevel(Skill.RANGED, 99);
 			target.getSkillManager().setMaxLevel(Skill.MAGIC, 99);
 			target.getSkillManager().setMaxLevel(Skill.SUMMONING, 99);
@@ -780,12 +785,21 @@ public class Owners {
 			target.getSkillManager().setCurrentLevel(Skill.ATTACK, 99);
 			target.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99);
 			target.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99);
-			target.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99);
-			target.getSkillManager().setCurrentLevel(Skill.PRAYER, 99);
+			target.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 990);
+			target.getSkillManager().setCurrentLevel(Skill.PRAYER, 990);
 			target.getSkillManager().setCurrentLevel(Skill.RANGED, 99);
 			target.getSkillManager().setCurrentLevel(Skill.MAGIC, 99);
 			target.getSkillManager().setCurrentLevel(Skill.SUMMONING, 99);
 			target.getSkillManager().setCurrentLevel(Skill.DUNGEONEERING, 80);
+			target.getSkillManager().setExperience(Skill.ATTACK, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.DEFENCE, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.STRENGTH, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.CONSTITUTION, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.PRAYER, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.RANGED, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.MAGIC, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.SUMMONING, SkillManager.getExperienceForLevel(99));
+			target.getSkillManager().setExperience(Skill.DUNGEONEERING, SkillManager.getExperienceForLevel(80));
 			target.getPacketSender().sendMessage("You are now a master of all combat skills.");
 			target.getUpdateFlag().flag(Flag.APPEARANCE);
 		}

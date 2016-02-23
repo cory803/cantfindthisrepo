@@ -78,15 +78,15 @@ public class PlayerDeathTask extends Task {
 						if(killer != null && (killer.getRights().equals(PlayerRights.OWNER) || killer.getGameMode().equals(GameMode.IRONMAN) || killer.getGameMode().equals(GameMode.HARDCORE_IRONMAN)))
 							dropItems = false;
 					}
+//					final boolean doubleDeath = player.isDying() && killer.getConstitution() <= 0;
+//					if(killer.getLocation() == Location.WILDERNESS || killer.getLocation() == Location.WILDKEY_ZONE) {
+//						if(doubleDeath)
+//							killer.restart();
+//					}
 					if(killer != null) {
 						if( killer.getRights().equals(PlayerRights.OWNER) || killer.getGameMode().equals(GameMode.IRONMAN) || killer.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
 							dropItems = false;
 						}
-					}
-					final boolean doubleDeath = killer.getConstitution() == 0;
-					if(doubleDeath) {
-						killer.restart();
-						dropItems = false;
 					}
 					boolean spawnItems = false;
 					if(dropItems) {
@@ -107,8 +107,10 @@ public class PlayerDeathTask extends Task {
 								if(spawnItems) {
 									if(item != null && item.getId() > 0 && item.getAmount() > 0) {
 										GroundItemManager.spawnGroundItem((killer != null && killer.getGameMode() == GameMode.NORMAL ? killer : player), new GroundItem(item, position, killer != null ? killer.getUsername() : player.getUsername(), player.getHostAddress(), false, 150, true, 150));
-										PlayerLogs.log(player.getUsername(), "Player killed by "+killer.getUsername()+" for item: Id: "+item.getDefinition().getName()+"("+item.getId()+"), amount: "+item.getAmount());
-										PlayerLogs.log(killer.getUsername(), "Player killed "+player.getUsername()+" for item: Id: "+item.getDefinition().getName()+"("+item.getId()+"), amount: "+item.getAmount());
+										if(killer != null) {
+											PlayerLogs.log(player.getUsername(), "Player killed by "+killer.getUsername()+" for item: Id: "+item.getDefinition().getName()+"("+item.getId()+"), amount: "+item.getAmount());
+											PlayerLogs.log(killer.getUsername(), "Player killed "+player.getUsername()+" for item: Id: "+item.getDefinition().getName()+"("+item.getId()+"), amount: "+item.getAmount());
+										}
 									}
 								}
 							}
