@@ -485,29 +485,7 @@ public class SpecialPlayers {
 //				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
 //			}
 //		} 
-		/*
-		if(wholeCommand.toLowerCase().startsWith("yell")) {
-			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
-				player.getPacketSender().sendMessage("You are muted and cannot yell.");
-				return;
-			}
-			if(!GameSettings.YELL_STATUS) {
-				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
-				return;
-			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			if(player.getDonorRights() == 1) {
-				World.sendYell("<img=5> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);
-			} else if(player.getDonorRights() == 2) {
-				World.sendYell("<img=6> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellMessage);
-			} else if(player.getDonorRights() == 3) {
-				World.sendYell("<img=7> <col=0>[<col=2FAC45>Extreme<col=0>] "+player.getUsername()+": "+yellMessage);
-			} else if(player.getDonorRights() == 4) {
-				World.sendYell("<img=8> <col=0>[<col=3E0069>Legendary<col=0>] "+player.getUsername()+": "+yellMessage);
-			} else if(player.getDonorRights() == 5) {
-				World.sendYell("<img=9> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);
-			}
-		}*/
+
 		if(command[0].equalsIgnoreCase("saveall")) {
 			World.savePlayers();
 			player.getPacketSender().sendMessage("Saved players!");

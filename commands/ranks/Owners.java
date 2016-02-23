@@ -941,25 +941,29 @@ public class Owners {
 				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
 			}
 		} 
-//		if (command[0].equals("id")) {
-//			String name = wholeCommand.substring(3).toLowerCase().replaceAll("_", " ");
-//			player.getPacketSender().sendString(8144, "Finding any id's - " + name).sendInterface(8134);
-//			boolean found = false;
-//			int index = 0;
-//			for(int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
-//				found = true;
-//				if(found) {
-//					int strLine = 8146+index > 8196 ? 12174+index :8146+index;
-//					if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
-//						player.getPacketSender().sendString(strLine, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
-//						index++;
-//					}
-//				}
-//			}
-//			if (!found) {
-//				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
-//			}
-//		}
+		/**
+		 * 
+		 * Causing weird strings to be sent... 
+		if (command[0].equals("id")) {
+			String name = wholeCommand.substring(3).toLowerCase().replaceAll("_", " ");
+			player.getPacketSender().sendString(8144, "Finding any id's - " + name).sendInterface(8134);
+			boolean found = false;
+			int index = 0;
+			for(int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
+				found = true;
+				if(found) {
+					int strLine = 8146+index > 8196 ? 12174+index :8146+index;
+					if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
+						player.getPacketSender().sendString(strLine, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+						index++;
+					}
+				}
+			}
+			if (!found) {
+				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
+			}
+		}
+		 */
 		if(command[0].equals("spec")) {
 			player.setSpecialPercentage(100);
 			CombatSpecial.updateBar(player);
