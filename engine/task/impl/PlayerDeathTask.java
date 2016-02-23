@@ -84,8 +84,10 @@ public class PlayerDeathTask extends Task {
 						}
 					}
 					final boolean doubleDeath = killer.getConstitution() == 0;
-					if(doubleDeath)
+					if(doubleDeath) {
 						killer.restart();
+						dropItems = false;
+					}
 					boolean spawnItems = false;
 					if(dropItems) {
 						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
