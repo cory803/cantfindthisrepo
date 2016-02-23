@@ -549,7 +549,7 @@ public class Dueling {
 					stop();
 					return;
 				}
-				if(timer == 3 || timer == 2 || timer == 1)
+				if(timer == 6 || timer == 5 || timer == 4 || timer == 3 || timer == 2 || timer == 1)
 					player.forceChat(""+timer+"..");
 				else {
 					player.forceChat("FIGHT!!");
@@ -566,6 +566,7 @@ public class Dueling {
 	}
 
 	public void duelVictory() {
+		final boolean refund = player.getConstitution() == 0;
 		duelingStatus = 6;
 		player.restart();
 		player.getMovementQueue().reset().setLockMovement(false);
@@ -574,9 +575,17 @@ public class Dueling {
 			if(playerDuel != null && playerDuel.getDueling().stakedItems.size() > 0) {
 				for(Item item : playerDuel.getDueling().stakedItems) {
 					if(item.getId() > 0 && item.getAmount() > 0) {
-						stakedItems.add(item);
-						PlayerLogs.log(player.getUsername(), "Player won "+playerDuel.getUsername()+"' staked item in duel: "+item.getId()+", "+item.getAmount());
+						if(refund) {
+							playerDuel.getInventory().add(item);
+						} else {
+							PlayerLogs.log(player.getUsername(), "Player won "+playerDuel.getUsername()+"' staked item in duel: "+item.getId()+", "+item.getAmount());
+							stakedItems.add(item);
+						}
 					}
+				}
+				if(refund) {
+					playerDuel.getPacketSender().sendMessage("Staked items have been refunded as both duelists died.");
+					player.getPacketSender().sendMessage("Staked items have been refunded as both duelists died.");
 				}
 			}
 		}
@@ -597,9 +606,8 @@ public class Dueling {
 		player.getMovementQueue().reset();
 		player.getPacketSender().sendInterface(6733);
 		player.getPointsHandler().refreshPanel();
-		player.save();
 	}
-
+	
 	public static boolean checkDuel(Player playerToDuel, int statusReq) {
 		boolean goodInterfaceId = playerToDuel.getInterfaceId() == -1 || playerToDuel.getInterfaceId() == 6575 || playerToDuel.getInterfaceId() == 6412;
 		if(playerToDuel.getDueling().duelingStatus != statusReq || playerToDuel.isBanking() || playerToDuel.isShopping() || playerToDuel.getConstitution() <= 0 || playerToDuel.isResting() || !goodInterfaceId)
@@ -637,7 +645,7 @@ public class Dueling {
 		duelingWith = -1;
 		duelConfig = 0;
 		duelTelePos = null;
-		timer = 3;
+		timer = 6;
 		player.getCombatBuilder().reset(true);
 		player.getMovementQueue().reset();
 		player.getPacketSender().sendEntityHintRemoval(true);
