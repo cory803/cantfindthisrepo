@@ -471,6 +471,21 @@ public class SpecialPlayers {
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
 			}
 		}
+		if (command[0].equals("find")) {
+			String name = wholeCommand.substring(5).toLowerCase().replaceAll("_", " ");
+			player.getPacketSender().sendMessage("Finding item id for item - " + name);
+			boolean found = false;
+			for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
+				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
+					player.getPacketSender().sendMessage("Found item with name [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+					found = true;
+				}
+			}
+			if (!found) {
+				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
+			}
+		} 
+		/*
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
@@ -492,7 +507,7 @@ public class SpecialPlayers {
 			} else if(player.getDonorRights() == 5) {
 				World.sendYell("<img=9> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);
 			}
-		}
+		}*/
 		if(command[0].equalsIgnoreCase("saveall")) {
 			World.savePlayers();
 			player.getPacketSender().sendMessage("Saved players!");
