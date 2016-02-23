@@ -33,7 +33,6 @@ import com.ikov.world.content.BonusManager;
 import com.ikov.world.content.CrystalChest;
 import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Achievements.AchievementData;
-import com.ikov.world.content.DropLog.DropLogEntry;
 import com.ikov.world.content.Lottery;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPunishment;
@@ -948,16 +947,22 @@ public class Owners {
 			String name = wholeCommand.substring(3).toLowerCase().replaceAll("_", " ");
 			player.getPacketSender().sendString(8144, "Finding any id's - " + name).sendInterface(8134);
 			boolean found = false;
+<<<<<<< HEAD
 			int index = 0;
 			for(int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
 				found = true;
 				if(found) {
 					int strLine = 8146+index > 8196 ? 12174+index :8146+index;
+=======
+			for (int line=8147;line<8196;line++) {
+				for (int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
+>>>>>>> parent of 8ae8eb4... XD
 					if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
-						player.getPacketSender().sendString(strLine, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
-						index++;
+						found = true;
+						player.getPacketSender().sendString(line, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
 					}
 				}
+				//player.getPacketSender().sendString(line, "[" + ItemDefinition.forId(item).getName().toLowerCase() + "] - id: " + item);
 			}
 			if (!found) {
 				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
