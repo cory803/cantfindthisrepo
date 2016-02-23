@@ -232,8 +232,8 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/apply");
 			break;	
 		case -10431:
-			player.getPacketSender().sendString(1, "www.ikov2.org/wiki");
-			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/wiki");
+			player.getPacketSender().sendString(1, "www.ikov-2.wikia.com/wiki/Ikov_2_Wikia");
+			player.getPacketSender().sendMessage("Attempting to open: www.ikov-2.wikia.com/wiki/Ikov_2_Wikia");
 			break;
 		case -10430:
 			player.getPacketSender().sendString(1, "www.ikov2.org/forum/?app=tickets");

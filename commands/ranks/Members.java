@@ -5,6 +5,7 @@ import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Store;
 import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.util.Auth;
 import com.ikov.util.Misc;
@@ -85,6 +86,9 @@ public class Members {
 			}*/ 
 					player.getPacketSender().sendMessage("Currently Disabled.");
 			
+		}
+		if (command[0].equalsIgnoreCase("staffonline")) {
+			boolean isStaff = player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.ADMINISTRATOR || player.getRights() == PlayerRights.MODERATOR || player.getRights() == PlayerRights.SUPPORT;
 		}
 		if (command[0].equalsIgnoreCase("commands")) {
 			if(player.getLocation() == Location.DUNGEONEERING) {
@@ -206,7 +210,7 @@ public class Members {
 			player.getPacketSender().sendString(1, "www.ikov2.org/forum/index.php?app=core&module=global&section=register");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/index.php?app=core&module=global&section=register");
 		}
-		if (command[0].equals("forum")) {
+		if (command[0].equals("forum") || command[0].equals("forums")) {
 			player.getPacketSender().sendString(1, "www.ikov2.org/forum/");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/");
 		}	

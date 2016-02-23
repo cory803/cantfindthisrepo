@@ -13,7 +13,8 @@ public class PlayerPanel {
 		
 		player.getPacketSender().sendString(55072, "---------------------------------");
 		player.getPacketSender().sendString(55074, "---------------------------------");
-		
+
+		player.getPacketSender().sendString(55075, " ");
 		player.getPacketSender().sendString(55076, "@whi@ ~ Statistics ~");
 		
 		

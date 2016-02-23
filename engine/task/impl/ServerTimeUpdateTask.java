@@ -196,6 +196,16 @@ public class ServerTimeUpdateTask extends Task {
 		if(tick % 100 == 10) {
 			System.out.println("Saving all players that are currently logged into the GameServer.");
 			World.savePlayers();
+			int random = Misc.getRandom(5);
+			if(random == 1) {
+				World.sendMessage("<img=10> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
+			} else if(random == 2) {
+				World.sendMessage("<img=10> @blu@If you need any help join the @bla@'@dre@Ikov@bla@'@blu@ clan chat!");
+			} else if(random == 3) {
+				World.sendMessage("<img=10> @blu@Do not forget to register on the forums with the command @dre@::register@blu@!");
+			} else if(random == 4) {
+				World.sendMessage("<img=10> @blu@Do not forget to register on the forums with the command @dre@::register@blu@!");
+			}
 		}
 		if(tick >= 6 && (Locations.PLAYERS_IN_WILD >= 3 || Locations.PLAYERS_IN_DUEL_ARENA >= 3 || PestControl.TOTAL_PLAYERS >= 3)) {
 			if(Locations.PLAYERS_IN_WILD > Locations.PLAYERS_IN_DUEL_ARENA && Locations.PLAYERS_IN_WILD > PestControl.TOTAL_PLAYERS || Misc.getRandom(3) == 1 && Locations.PLAYERS_IN_WILD >= 2) {
