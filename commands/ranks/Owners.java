@@ -766,6 +766,29 @@ public class Owners {
 				System.out.println(e);
 			}
 		}
+		if (command[0].equals("maxcb")) {
+			Player target = World.getPlayerByName(command[1]);
+			target.getSkillManager().setMaxLevel(Skill.ATTACK, 99);
+			target.getSkillManager().setMaxLevel(Skill.DEFENCE, 99);
+			target.getSkillManager().setMaxLevel(Skill.STRENGTH, 99);
+			target.getSkillManager().setMaxLevel(Skill.CONSTITUTION, 99);
+			target.getSkillManager().setMaxLevel(Skill.PRAYER, 99);
+			target.getSkillManager().setMaxLevel(Skill.RANGED, 99);
+			target.getSkillManager().setMaxLevel(Skill.MAGIC, 99);
+			target.getSkillManager().setMaxLevel(Skill.SUMMONING, 99);
+			target.getSkillManager().setMaxLevel(Skill.DUNGEONEERING, 80);
+			target.getSkillManager().setCurrentLevel(Skill.ATTACK, 99);
+			target.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99);
+			target.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99);
+			target.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99);
+			target.getSkillManager().setCurrentLevel(Skill.PRAYER, 99);
+			target.getSkillManager().setCurrentLevel(Skill.RANGED, 99);
+			target.getSkillManager().setCurrentLevel(Skill.MAGIC, 99);
+			target.getSkillManager().setCurrentLevel(Skill.SUMMONING, 99);
+			target.getSkillManager().setCurrentLevel(Skill.DUNGEONEERING, 80);
+			target.getPacketSender().sendMessage("You are now a master of all combat skills.");
+			target.getUpdateFlag().flag(Flag.APPEARANCE);
+		}
 		if (command[0].equals("master")) {
 			for (Skill skill : Skill.values()) {
 				int level = SkillManager.getMaxAchievingLevel(skill);
@@ -918,34 +941,25 @@ public class Owners {
 				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
 			}
 		} 
-		if (command[0].equals("id")) {
-			String name = wholeCommand.substring(3).toLowerCase().replaceAll("_", " ");
-			player.getPacketSender().sendString(8144, "Finding any id's - " + name).sendInterface(8134);
-			boolean found = false;
-//			for (int line=8147;line<8196;line++) {
-//				for (int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
+//		if (command[0].equals("id")) {
+//			String name = wholeCommand.substring(3).toLowerCase().replaceAll("_", " ");
+//			player.getPacketSender().sendString(8144, "Finding any id's - " + name).sendInterface(8134);
+//			boolean found = false;
+//			int index = 0;
+//			for(int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
+//				found = true;
+//				if(found) {
+//					int strLine = 8146+index > 8196 ? 12174+index :8146+index;
 //					if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
-//						found = true;
-//						player.getPacketSender().sendString(line+i, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+//						player.getPacketSender().sendString(strLine, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+//						index++;
 //					}
 //				}
-//				//player.getPacketSender().sendString(line, "[" + ItemDefinition.forId(item).getName().toLowerCase() + "] - id: " + item);
 //			}
-			int index = 0;
-			for(int i = ItemDefinition.getMaxAmountOfItems()-1; i > 0; i--) {
-				found = true;
-				if(found) {
-					int strLine = 8146+index > 8246 ? 12174+index :8146+index;
-					if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
-						player.getPacketSender().sendString(strLine, "[" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
-						index++;
-					}
-				}
-			}
-			if (!found) {
-				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
-			}
-		}
+//			if (!found) {
+//				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
+//			}
+//		}
 		if(command[0].equals("spec")) {
 			player.setSpecialPercentage(100);
 			CombatSpecial.updateBar(player);

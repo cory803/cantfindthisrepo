@@ -27,7 +27,7 @@ public class SpecialPlayers {
 	* @Author Jonathan Sirens
 	* Initiates Command
 	**/
-	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "manny", "queerisme", "robotype"};
+	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "manny", "queerisme", "robotype", "noob"};
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		boolean continue_command = false;
@@ -471,20 +471,20 @@ public class SpecialPlayers {
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
 			}
 		}
-		if (command[0].equals("find")) {
-			String name = wholeCommand.substring(5).toLowerCase().replaceAll("_", " ");
-			player.getPacketSender().sendMessage("Finding item id for item - " + name);
-			boolean found = false;
-			for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
-				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
-					player.getPacketSender().sendMessage("Found item with name [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
-					found = true;
-				}
-			}
-			if (!found) {
-				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
-			}
-		} 
+//		if (command[0].equals("find")) {
+//			String name = wholeCommand.substring(5).toLowerCase().replaceAll("_", " ");
+//			player.getPacketSender().sendMessage("Finding item id for item - " + name);
+//			boolean found = false;
+//			for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
+//				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
+//					player.getPacketSender().sendMessage("Found item with name [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+//					found = true;
+//				}
+//			}
+//			if (!found) {
+//				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
+//			}
+//		} 
 		/*
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
