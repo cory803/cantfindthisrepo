@@ -486,8 +486,12 @@ public class SpecialPlayers {
 //				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
 //			}
 //		} 
+<<<<<<< HEAD
 
 =======
+=======
+		/*
+>>>>>>> parent of ed7f503... Commands
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
@@ -509,8 +513,12 @@ public class SpecialPlayers {
 			} else if(player.getDonorRights() == 5) {
 				World.sendYell("<img=9> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);
 			}
+<<<<<<< HEAD
 		}
 >>>>>>> parent of 8ae8eb4... XD
+=======
+		}*/
+>>>>>>> parent of ed7f503... Commands
 		if(command[0].equalsIgnoreCase("saveall")) {
 			World.savePlayers();
 			player.getPacketSender().sendMessage("Saved players!");
