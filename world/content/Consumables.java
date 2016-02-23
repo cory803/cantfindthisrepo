@@ -80,7 +80,24 @@ public class Consumables {
 			//player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
 			//return;
 		//}
-		if (food != null && player.getFoodTimer().elapsed(1100)) {
+		if(food != null && player.getComboFoodDelay().elapsed(1000) && food.hasComboDelay()) {
+			player.getPacketSender().sendInterfaceRemoval();
+			player.performAnimation(new Animation(829));
+			player.getInventory().delete(food.item, slot);
+			int heal = food.heal;
+			boolean nexEffect = player.getEquipment().wearingNexAmours();
+			int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
+			if(nexEffect)
+				max = 1390;
+			if (heal + player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > max) {
+				heal = max - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
+			}
+			
+			String e = food.toString() == "BANDAGES" ? "use" : "eat";
+			player.getPacketSender().sendMessage("You "+e+" the " + food.name + ".");
+			player.setConstitution(player.getConstitution() + heal);
+		}
+		if (food != null && player.getFoodTimer().elapsed(1100) && !food.hasComboDelay()) {
 			player.getCombatBuilder().incrementAttackTimer(2).cooldown(false);
 			player.getCombatBuilder().setDistanceSession(null);
 			player.setCastSpell(null);
@@ -205,20 +222,37 @@ public class Consumables {
 		 * Other food types.
 		 */
 		PURPLE_SWEETS(new Item(4561), 30),
-		OKTOBERTFEST_PRETZEL(new Item(19778), 120);
+		OKTOBERTFEST_PRETZEL(new Item(19778), 120),
 
+		/*
+		 * Fish Combo Foods
+		*/
+		KARAMBWANI(new Item(3144), 180, true);
+		
+		
 		private FoodType(Item item, int heal) {
 			this.item = item;
 			this.heal = heal;
 			this.name = (toString().toLowerCase().replaceAll("__", "-").replaceAll("_", " "));
 		}
 
+		private FoodType(Item item, int heal, boolean comboDelay) {
+			this.item = item;
+			this.heal = heal;
+			this.comboDelay = comboDelay;
+			this.name = (toString().toLowerCase().replaceAll("__", "-").replaceAll("_", " "));
+		}
+		private boolean comboDelay;
+		
 		private Item item;
 
 		private int heal;
 
 		private String name;
 
+		public boolean hasComboDelay() {
+			return comboDelay;
+		}
 		private static Map<Integer, FoodType> types = new HashMap<Integer, FoodType>();
 
 		static {

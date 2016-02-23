@@ -25,6 +25,7 @@ public enum CookingData {
 		SEA_TURTLE(395, 397, 399, 82, 21357, 105, "sea turtle"),
 		MANTA_RAY(389, 391, 393, 91, 23300, 99, "manta ray"),
 		ROCKTAIL(15270, 15272, 15274, 92, 32524, 93, "rocktail"),
+		KARAMBWAN(3142, 3144, 3148, 30, 13434, 90, "karambwan"),
 		
 		
 		HEIM_CRAB(17797, 18159, 18179, 5, 50, 40, "heim crab"),

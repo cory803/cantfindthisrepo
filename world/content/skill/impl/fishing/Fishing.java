@@ -19,11 +19,11 @@ public class Fishing {
 		
 		CAGE(312, new int[]{377}, 301, -1, new int[]{40}, false, new int[]{2980}, 619),
 		
-		BIGNET(313, new int[]{353, 341, 363}, 305, -1, new int[]{16, 23, 46}, false, new int[]{780, 1130, 2120}, 620),
+		BIGNET(313, new int[]{353, 341, 363}, 305, -1, new int[]{16, 23, 46}, false, new int[]{780, 1130, 2120}, 621),
 		
 		SMALLNET(316, new int[]{317, 321}, 303, -1, new int[]{1, 15}, false, new int[]{290, 550}, 621),
 		
-		MONK_FISH(318, new int[]{7944, 389}, 305, -1, new int[]{62, 81}, false, new int[]{6985, 10122}, 621),
+		MONK_FISH(318, new int[]{7944, 389, 3142}, 305, -1, new int[]{62, 81, 65}, false, new int[]{6985, 10122, 7435}, 621),
 		
 		HARPOON(312, new int[]{359, 371}, 311, -1, new int[]{35, 50}, true, new int[]{2530, 5100}, 618),
 		

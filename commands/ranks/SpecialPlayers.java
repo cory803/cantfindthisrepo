@@ -27,7 +27,7 @@ public class SpecialPlayers {
 	* @Author Jonathan Sirens
 	* Initiates Command
 	**/
-	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "manny", "queerisme", "robotype", "noob"};
+	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "manny", "queerisme", "robotype", "alt"};
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		boolean continue_command = false;
@@ -39,6 +39,20 @@ public class SpecialPlayers {
 		if(!continue_command) {
 			return;
 		}
+		if (command[0].equals("find")) {
+			String name = wholeCommand.substring(5).toLowerCase().replaceAll("_", " ");
+			player.getPacketSender().sendMessage("Finding item id for item - " + name);
+			boolean found = false;
+			for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
+				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
+					player.getPacketSender().sendMessage("Found item with name [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+					found = true;
+				}
+			}
+			if (!found) {
+				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
+			}
+		} 
 		if(wholeCommand.equalsIgnoreCase("vengrunes")) {
 			player.getInventory().add(557, 1000);
 			player.getInventory().add(560, 1000);
