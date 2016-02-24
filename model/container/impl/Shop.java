@@ -981,6 +981,7 @@ public class Shop extends ItemContainer {
 				case 11704:
 				case 11706:
 				case 11708:
+				case 13754:
 					return new Object[]{650, "Boss Points"};
 				case 15017:
 				case 15018:

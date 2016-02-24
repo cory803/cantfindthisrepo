@@ -232,7 +232,7 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 8705:
 					EnergyHandler.rest(player);
 					break;
-				case 534:
+				case 1396:
 					ShopManager.getShops().get(78).open(player);
 					break;
 				case 653:

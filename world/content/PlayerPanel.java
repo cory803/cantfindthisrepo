@@ -14,17 +14,17 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(55072, "---------------------------------");
 		player.getPacketSender().sendString(55074, "---------------------------------");
 
-		player.getPacketSender().sendString(55075, " ");
-		player.getPacketSender().sendString(55076, "@whi@ ~ Statistics ~");
+		player.getPacketSender().sendString(55075, "@whi@ ~ Statistics ~");
+
 		
 		
 		
 		
-		player.getPacketSender().sendString(55077, "@or1@Yell channel: "+(player.yellToggle() ? "@gre@ON" : "@red@OFF")+"");
-		player.getPacketSender().sendString(39164, "@or2@Game Music:  "+(player.musicActive() ? "@gre@ON" : "@red@OFF")+"");
-		player.getPacketSender().sendString(39165, "@or2@Game Sounds:  "+(player.soundsActive() ? "@gre@ON" : "@red@OFF")+"");
-		player.getPacketSender().sendString(39166, "@or2@Hide Familiars:  @red@OFF");
-		player.getPacketSender().sendString(39167, "@or2@Exp Lock:  "+(player.experienceLocked() ? "@red@Locked" : "@gre@Unlocked")+"");
+//		player.getPacketSender().sendString(55077, "@or1@Yell channel: "+(player.yellToggle() ? "@gre@ON" : "@red@OFF")+"");
+//		player.getPacketSender().sendString(39164, "@or2@Game Music:  "+(player.musicActive() ? "@gre@ON" : "@red@OFF")+"");
+//		player.getPacketSender().sendString(39165, "@or2@Game Sounds:  "+(player.soundsActive() ? "@gre@ON" : "@red@OFF")+"");
+//		player.getPacketSender().sendString(39166, "@or2@Hide Familiars:  @red@OFF");
+//		player.getPacketSender().sendString(39167, "@or2@Exp Lock:  "+(player.experienceLocked() ? "@red@Locked" : "@gre@Unlocked")+"");
 		
 		/**
 		 * Account info
@@ -33,8 +33,8 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(39169, "@or2@Open Kills Tracker");
 		player.getPacketSender().sendString(39170, "@or2@Open Drop Log");
 		//player.getPacketSender().sendString(39171, "Time Played - In PlayerProcess");
-		player.getPacketSender().sendString(55078, "@red@Claimed:  @gre@$"+player.getAmountDonated());
-		player.getPacketSender().sendString(39179, "@red@Bossing Points:  @gre@"+player.getBossPoints());
+		player.getPacketSender().sendString(55077, "@red@Claimed:  @gre@$"+player.getAmountDonated());
+		player.getPacketSender().sendString(55078, "@red@Bossing Points:  @gre@"+player.getBossPoints());
 		player.getPointsHandler().refreshPanel();
 		/**
 		 * Points
