@@ -29,7 +29,7 @@ public abstract class CombatAncientSpell extends CombatSpell {
         int damage) {
 
         // The spell wasn't accurate, so do nothing.
-        if (!accurate) {
+        if (!accurate || damage < 0) {
             return;
         }
 
