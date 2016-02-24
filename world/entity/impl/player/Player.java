@@ -176,11 +176,11 @@ public class Player extends Character {
 		if(fightType == FightType.CROSSBOW_RAPID ) {
 			speed -= (double)0.1;
 		}
-		if (fightType == FightType.LONGBOW_RAPID || weaponId == 6522 && fightType == FightType.KNIFE_RAPID || weapon.contains("rapier")) {
+		if (fightType == FightType.LONGBOW_RAPID || weaponId == 6522 && fightType == FightType.KNIFE_RAPID || weaponId == 12926 && fightType == FightType.BLOWPIPE_RAPID || weapon.contains("rapier")) {
 			if(weaponId != 11235 && weaponId != 21016 && weaponId != 21017 && weaponId != 21018 && weaponId != 21019 && weaponId != 21020 && weaponId != 21021 && weaponId != 21022 && weaponId != 21023) {
 				speed--;
 			}
-		} else if(weaponId != 6522 && weaponId != 15241 && (fightType == FightType.SHORTBOW_RAPID || fightType == FightType.DART_RAPID || fightType == FightType.KNIFE_RAPID || fightType == FightType.THROWNAXE_RAPID || fightType == FightType.JAVELIN_RAPID) || weaponId == 11730) {
+		} else if(weaponId != 6522 && weaponId != 15241&& weaponId != 12926 && (fightType == FightType.SHORTBOW_RAPID || fightType == FightType.DART_RAPID || fightType == FightType.BLOWPIPE_RAPID || fightType == FightType.KNIFE_RAPID || fightType == FightType.THROWNAXE_RAPID || fightType == FightType.JAVELIN_RAPID) || weaponId == 11730) {
 			speed -= 2;
 		}
 		return speed;
@@ -283,6 +283,7 @@ public class Player extends Character {
 		setSkullIcon(0);
 		setTeleblockTimer(0);
 		setPoisonDamage(0);
+		getPacketSender().sendConstitutionOrbPoison(false);
 		setStaffOfLightEffect(0);
 		performAnimation(new Animation(65535));
 		WeaponInterfaces.assign(this, getEquipment().get(Equipment.WEAPON_SLOT));

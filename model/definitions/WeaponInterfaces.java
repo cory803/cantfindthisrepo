@@ -61,6 +61,8 @@ public final class WeaponInterfaces {
 																										FightType.MACE_BLOCK }, 7624, 7636),
 																										KNIFE(4446, 4449, 4, new FightType[] { FightType.KNIFE_ACCURATE,
 																												FightType.KNIFE_RAPID, FightType.KNIFE_LONGRANGE }, 7649, 7661),
+																											BLOWPIPE(4446, 4449, 4, new FightType[] { FightType.BLOWPIPE_ACCURATE,
+																												FightType.BLOWPIPE_RAPID, FightType.BLOWPIPE_LONGRANGE }, 7649, 7661),
 																												SPEAR(4679, 4682, 6, new FightType[] { FightType.SPEAR_LUNGE,
 																														FightType.SPEAR_SWIPE, FightType.SPEAR_POUND,
 																														FightType.SPEAR_BLOCK }, 7674, 7686),

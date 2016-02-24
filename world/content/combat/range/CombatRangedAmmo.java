@@ -2,6 +2,7 @@ package com.ikov.world.content.combat.range;
 
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
 
 /**
  * A table of constants that hold data for all ranged ammo.
@@ -25,6 +26,7 @@ public class CombatRangedAmmo {
 		YEW_SHORTBOW(new int[] {857}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.ICE_ARROW}, RangedWeaponType.SHORTBOW),
 		MAGIC_LONGBOW(new int[] {859}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.ICE_ARROW, AmmunitionData.BROAD_ARROW}, RangedWeaponType.LONGBOW),
 		MAGIC_SHORTBOW(new int[] {861, 6724}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.ICE_ARROW, AmmunitionData.BROAD_ARROW}, RangedWeaponType.SHORTBOW),
+		TOXIC_BLOWPIPE(new int[] {12926}, new AmmunitionData[] {AmmunitionData.BLOWPIPE_DART}, RangedWeaponType.BLOWPIPE),
 		GODBOW(new int[] {19143, 19149, 19146}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.BROAD_ARROW, AmmunitionData.DRAGON_ARROW}, RangedWeaponType.SHORTBOW),
 		
 		DARK_BOW(new int[] {21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023, 11235, 13405, 15701, 15702, 15703, 15704}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.DRAGON_ARROW}, RangedWeaponType.DARK_BOW),
@@ -122,6 +124,9 @@ public class CombatRangedAmmo {
 					}
 				}
 			}
+			if(p.getWeapon() == WeaponInterface.BLOWPIPE) {
+				return AmmunitionData.BLOWPIPE_DART;
+			}
 			return AmmunitionData.BRONZE_ARROW;
 		}
 	}
@@ -163,6 +168,7 @@ public class CombatRangedAmmo {
 		ADAMANT_DART(new int[] {810}, 1239, 230, 3, 33, 15, 45, 37),
 		RUNE_DART(new int[] {811}, 1240, 231, 3, 33, 20, 45, 37),
 		DRAGON_DART(new int[] {11230}, 1123, 226, 3, 33, 25, 45, 37),
+		BLOWPIPE_DART(new int[] {11230}, -1, 226, 3, 33, 25, 45, 37),
 
 		BRONZE_KNIFE(new int[] {864, 870, 5654}, 219, 212, 3, 33, 8, 45, 37),
 		IRON_KNIFE(new int[] {863, 871, 5655}, 220, 213, 3, 33, 12, 45, 37),
@@ -259,6 +265,7 @@ public class CombatRangedAmmo {
 		SHORTBOW(5, 4),
 		CROSSBOW(5, 5),
 		THROW(4, 3),
+		BLOWPIPE(4, 3),
 		DARK_BOW(5, 5),
 		HAND_CANNON(5, 4);
 

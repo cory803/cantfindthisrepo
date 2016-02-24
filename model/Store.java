@@ -41,6 +41,7 @@ public class Store {
 			if(check_store_item(player.getUsername()) == 92530009) {
 				item_name = "Scroll of $10";
 				item_id = 10943;
+				item_amount = check_store_quantity(player.getUsername());
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
 				store_item_given(player.getUsername());
@@ -125,6 +126,23 @@ public class Store {
                 int productid = results.getInt("item_id");
                 if(productid >= 1) {				                          
 					return productid;
+                }
+			}
+        } catch(SQLException e) {
+            e.printStackTrace();
+        }
+		return 0;
+	}		
+	
+	public static int check_store_quantity(String name) {  
+        try {
+			Statement statement = con.createStatement();
+            String query = "SELECT * FROM purchased WHERE username = '" + name + "'";
+            ResultSet results = statement.executeQuery(query);
+            while(results.next()) {
+                int quantity = results.getInt("quantity");
+                if(quantity >= 1) {				                          
+					return quantity;
                 }
 			}
         } catch(SQLException e) {

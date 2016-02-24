@@ -191,6 +191,21 @@ public final class CombatFactory {
 		return item.getDefinition().getName().toLowerCase().contains(
 				"crystal bow");
 	}
+	
+	/**
+	 * Determines if the player is wielding a blow pipe.
+	 * 
+	 * @param player
+	 *            the player to determine for.
+	 * @return true if the player is wielding a blow pipe.
+	 */
+	public static boolean blowPipe(Player player) {
+		Item item = player.getEquipment().get(Equipment.WEAPON_SLOT);
+		if (item == null)
+			return false;
+		return item.getDefinition().getName().toLowerCase().contains(
+				"blow pipe");
+	}
 
 	/**
 	 * Determines if the player is wielding a dark bow.
@@ -265,9 +280,10 @@ public final class CombatFactory {
 			Player player = (Player) entity;
 			if (player.getPoisonImmunity() > 0)
 				return;
+			player.getPacketSender().sendConstitutionOrbPoison(true);
 			player.getPacketSender().sendMessage("You have been poisoned!");
 		}
-
+		
 		entity.setPoisonDamage(poisonType.get().getDamage());
 		TaskManager.submit(new CombatPoisonEffect(entity));
 	}

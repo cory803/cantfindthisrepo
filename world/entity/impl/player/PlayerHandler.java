@@ -110,6 +110,7 @@ public class PlayerHandler {
 		.sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId())
 		.sendRunStatus()
 		.sendRunEnergy(player.getRunEnergy())
+		.sendConstitutionOrbPoison(player.isPoisoned())
 		.sendString(8135, ""+player.getMoneyInPouch())
 		.sendInteractionOption("Follow", 3, false)
 		.sendInteractionOption("Trade With", 4, false)
