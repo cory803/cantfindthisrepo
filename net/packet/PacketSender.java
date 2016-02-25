@@ -345,6 +345,17 @@ public class PacketSender {
 		}
 		player.getSession().queueMessage(out);
 		return this;
+	}	
+	
+	public PacketSender sendConstitutionOrbVenom(boolean venom) {
+		PacketBuilder out = new PacketBuilder(90);
+		if(venom) {
+			out.put(1);
+		} else {
+			out.put(0);
+		}
+		player.getSession().queueMessage(out);
+		return this;
 	}
 	
 	public PacketSender sendTabInterface(int tabId, int interfaceId) {

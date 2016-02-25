@@ -295,7 +295,7 @@ public class Owners {
 			}
 		}
 		if(command[0].equalsIgnoreCase("fixnull")) {
-			String ban_player = wholeCommand.substring(4);
+			String ban_player = command[1];
 			if(!PlayerSaving.playerExists(ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;

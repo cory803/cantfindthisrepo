@@ -28,7 +28,7 @@ public class EnterAmountToDice extends EnterAmount {
 			player.getPacketSender().sendMessage("You need to be a member to use this item.");
 			return;
 		}
-		if(player.getLocation() != Location.VARROCK) {
+		if(player.getLocation() != Location.GAMBLE) {
 			player.getPacketSender().sendMessage("").sendMessage("This dice can only be used in the gambling area!").sendMessage("To get there, talk to the gambler.");
 			return;
 		}
