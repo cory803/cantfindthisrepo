@@ -159,6 +159,20 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.DOUBLE_DROPS = false;
 								}
+							} else if(line.contains("insane_xp")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.INSANE_EXP = true;
+								} else {
+									GameSettings.INSANE_EXP = false;
+								} 
+							} else if(line.contains("triple_vote_tokens")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.TRIPLE_VOTE_TOKENS = true;
+								} else {
+									GameSettings.TRIPLE_VOTE_TOKENS = false;
+								}
 							} else if(line.contains("database_logging_time")) {
 								args = line.split(": ");
 								int time = Integer.valueOf(args[1]);

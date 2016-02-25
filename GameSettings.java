@@ -30,6 +30,8 @@ public class GameSettings {
 	public static boolean DOUBLE_EXP = false;
 	public static boolean DOUBLE_POINTS = false;
 	public static boolean DOUBLE_DROPS = false;
+	public static boolean INSANE_EXP = true;
+	public static boolean TRIPLE_VOTE_TOKENS = true;
 	
 	public static int gambler_timer_1 = 0;
 	public static int gambler_timer_2 = 0;

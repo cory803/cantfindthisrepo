@@ -145,7 +145,12 @@ public class Members {
 							player.getInventory().add(10944, 2);
 						} else {
 							player.getInventory().add(10944, 1);	
+						}	
+						
+						if(GameSettings.TRIPLE_VOTE_TOKENS) {
+							player.getInventory().add(10944, 1);	
 						}
+						
 						player.setVotesClaimed(1);
 						player.voteCount++;
 						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 5 votes today. If you abuse the system your ");

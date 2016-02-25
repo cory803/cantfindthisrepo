@@ -166,6 +166,11 @@ public class PlayerHandler {
 		} else {
 			player.getPacketSender().sendMessage("@bla@Welcome to Ikov! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
 		}
+		
+		if(GameSettings.INSANE_EXP) {
+			player.getPacketSender().sendMessage("@bla@Welcome to Ikov! We're currently in Insane EXP mode! (@red@X8.0@bla@)");
+		}
+		
 		if(player.experienceLocked())
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 		ClanChatManager.handleLogin(player);
@@ -176,6 +181,10 @@ public class PlayerHandler {
 
 		if(GameSettings.DOUBLE_VOTE_TOKENS) {
 			player.getPacketSender().sendMessage("<img=10> <col=008FB2>Ikov currently has a double vote rewards event going on, make sure to use it!");
+		}
+		
+		if(GameSettings.TRIPLE_VOTE_TOKENS) {
+			player.getPacketSender().sendMessage("<img=10> <col=008FB2>Ikov currently has a triple vote rewards event going on, make sure to use it!");
 		}
 		
 		if(WellOfGoodwill.isActive()) {

@@ -91,6 +91,10 @@ public class SkillManager {
 			experience *= 2.0; //15
 		}
 		
+		if(GameSettings.INSANE_EXP) {
+			experience *= 8.0; //15
+		}
+		
 		if(player.getMinutesBonusExp() != -1) {
 			if(player.getGameMode() != GameMode.NORMAL) {
 				experience *= 1.10;
