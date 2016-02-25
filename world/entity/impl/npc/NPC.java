@@ -141,6 +141,11 @@ public class NPC extends Character {
 		}
 
 	}
+	
+	@Override
+	public void venomVictim(Character victim, CombatType type) {
+
+	}
 
 	/**
 	 * Prepares the dynamic json loader for loading world npcs.

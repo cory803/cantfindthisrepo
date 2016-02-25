@@ -53,6 +53,7 @@ import com.ikov.world.content.clan.ClanChat;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.CombatType;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
+import com.ikov.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
 import com.ikov.world.content.combat.magic.CombatSpell;
 import com.ikov.world.content.combat.magic.CombatSpells;
 import com.ikov.world.content.combat.prayer.CurseHandler;
@@ -215,6 +216,15 @@ public class Player extends Character {
 			CombatFactory.poisonEntity(victim, CombatPoisonData.getPoisonType(equipment.get(Equipment.AMMUNITION_SLOT)));
 		}
 	}
+	
+	@Override
+	public void venomVictim(Character victim, CombatType type) {
+		if (type == CombatType.MELEE || weapon == WeaponInterface.DART || weapon == WeaponInterface.KNIFE || weapon == WeaponInterface.THROWNAXE || weapon == WeaponInterface.JAVELIN) {
+			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.WEAPON_SLOT)));
+		} else if (type == CombatType.RANGED) {
+			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.AMMUNITION_SLOT)));
+		}
+	}
 
 	@Override
 	public CombatStrategy determineStrategy() {
@@ -283,6 +293,7 @@ public class Player extends Character {
 		setSkullIcon(0);
 		setTeleblockTimer(0);
 		setPoisonDamage(0);
+		setVenomDamage(0);
 		getPacketSender().sendConstitutionOrbPoison(false);
 		setStaffOfLightEffect(0);
 		performAnimation(new Animation(65535));
@@ -438,6 +449,7 @@ public class Player extends Character {
 	private int teleblockTimer;
 	private int dragonFireImmunity;
 	private int poisonImmunity;
+	private int venomImmunity;
 	private int shadowState;
 	private int effigy;
 	private int dfsCharges;
@@ -825,17 +837,33 @@ public class Player extends Character {
 	public int getPoisonImmunity() {
 		return poisonImmunity;
 	}
+	
+	public int getVenomImmunity() {
+		return poisonImmunity;
+	}
 
 	public void setPoisonImmunity(int poisonImmunity) {
 		this.poisonImmunity = poisonImmunity;
+	}
+	
+	public void setVenomImmunity(int venomImmunity) {
+		this.venomImmunity = venomImmunity;
 	}
 
 	public void incrementPoisonImmunity(int amount) {
 		poisonImmunity += amount;
 	}
+	
+	public void incrementVenomImmunity(int amount) {
+		venomImmunity += amount;
+	}
 
 	public void decrementPoisonImmunity(int amount) {
 		poisonImmunity -= amount;
+	}
+	
+	public void decrementVenomImmunity(int amount) {
+		venomImmunity -= amount;
 	}
 
 	public boolean isAutoRetaliate() {

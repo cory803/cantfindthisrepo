@@ -183,6 +183,7 @@ public class HitQueue {
 				CombatFactory.handleSpellEffects(attacker, victim, damage, container.getCombatType());
 
 				attacker.poisonVictim(victim, container.getCombatType());
+				attacker.venomVictim(victim, container.getCombatType());
 
 				// Finish the magic spell with the correct end graphic.
 				if (container.getCombatType() == CombatType.MAGIC && attacker.getCurrentlyCasting() != null) {

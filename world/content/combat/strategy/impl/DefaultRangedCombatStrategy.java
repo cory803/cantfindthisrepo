@@ -23,6 +23,7 @@ import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.CombatType;
 import com.ikov.world.content.combat.CombatContainer.ContainerHit;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
+import com.ikov.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.ikov.world.content.combat.range.CombatRangedAmmo.AmmunitionData;
 import com.ikov.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
 import com.ikov.world.content.combat.range.CombatRangedAmmo.RangedWeaponType;

@@ -96,6 +96,8 @@ public class PlayerSaving {
 			object.addProperty("accept-aid", new Boolean(player.isAcceptAid()));
 			object.addProperty("poison-damage", new Integer(player.getPoisonDamage()));
 			object.addProperty("poison-immunity", new Integer(player.getPoisonImmunity()));
+			object.addProperty("venom-damage", new Integer(player.getVenomDamage()));
+			object.addProperty("venom-immunity", new Integer(player.getVenomImmunity()));
 			object.addProperty("overload-timer", new Integer(player.getOverloadPotionTimer()));
 			object.addProperty("fire-immunity", new Integer(player.getFireImmunity()));
 			object.addProperty("fire-damage-mod", new Integer(player.getFireDamageModifier()));

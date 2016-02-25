@@ -37,6 +37,7 @@ import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.PlayersOnlineInterface;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect;
+import com.ikov.world.content.combat.effect.CombatVenomEffect;
 import com.ikov.world.content.combat.effect.CombatTeleblockEffect;
 import com.ikov.world.content.combat.magic.Autocasting;
 import com.ikov.world.content.combat.prayer.CurseHandler;
@@ -110,7 +111,10 @@ public class PlayerHandler {
 		.sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId())
 		.sendRunStatus()
 		.sendRunEnergy(player.getRunEnergy())
-		.sendConstitutionOrbPoison(player.isPoisoned())
+		//.sendConstitutionOrbPoison(player.isPoisoned())
+		//.sendConstitutionOrbVenom(player.isVenomed())
+		.sendConstitutionOrbPoison(false)
+		.sendConstitutionOrbVenom(true)
 		.sendString(8135, ""+player.getMoneyInPouch())
 		.sendInteractionOption("Follow", 3, false)
 		.sendInteractionOption("Trade With", 4, false)
@@ -128,6 +132,9 @@ public class PlayerHandler {
 		TaskManager.submit(new PlayerSkillsTask(player));
 		if (player.isPoisoned()) {
 			TaskManager.submit(new CombatPoisonEffect(player));
+		}	
+		if (player.isVenomed()) {
+			TaskManager.submit(new CombatVenomEffect(player));
 		}
 		if(player.getPrayerRenewalPotionTimer() > 0) {
 			TaskManager.submit(new PrayerRenewalPotionTask(player));

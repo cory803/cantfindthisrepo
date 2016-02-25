@@ -59,6 +59,7 @@ public abstract class Character extends Entity {
 	/*** INTS ***/
 	private int npcTransformationId;
 	private int poisonDamage;
+	private int venomDamage;
 	private int freezeDelay;
 	
 	/*** BOOLEANS ***/
@@ -74,6 +75,7 @@ public abstract class Character extends Entity {
 	public abstract void appendDeath();
 	public abstract void heal(int damage);
 	public abstract void poisonVictim(Character victim, CombatType type);
+	public abstract void venomVictim(Character victim, CombatType type);
 	public abstract int getConstitution();
 	public abstract int getBaseAttack(CombatType type);
 	public abstract int getBaseDefence(CombatType type);
@@ -291,12 +293,24 @@ public abstract class Character extends Entity {
 	public int getAndDecrementPoisonDamage() {
 		return poisonDamage -= 15;
 	}
+	
+	public int getAndDecrementVenomDamage() {
+		return venomDamage -= 15;
+	}
 
 	public int getPoisonDamage() {
 		return poisonDamage;
 	}
+	
+	public int getVenomDamage() {
+		return poisonDamage;
+	}
 
 	public void setPoisonDamage(int poisonDamage) {
+		this.poisonDamage = poisonDamage;
+	}
+	
+	public void setVenomDamage(int poisonDamage) {
 		this.poisonDamage = poisonDamage;
 	}
 
@@ -304,6 +318,12 @@ public abstract class Character extends Entity {
 		if(poisonDamage < 0)
 			poisonDamage = 0;
 		return poisonDamage != 0;
+	}
+	
+	public boolean isVenomed() {
+		if(venomDamage < 0)
+			venomDamage = 0;
+		return venomDamage != 0;
 	}
 
 

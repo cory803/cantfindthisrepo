@@ -284,6 +284,12 @@ public class PlayerLoading {
 			if (reader.has("poison-immunity")) {
 				player.setPoisonImmunity(reader.get("poison-immunity").getAsInt());
 			}
+			if (reader.has("venom-damage")) {
+				player.setVenomDamage(reader.get("venom-damage").getAsInt());
+			}
+			if (reader.has("venom-immunity")) {
+				player.setVenomImmunity(reader.get("venom-immunity").getAsInt());
+			}
 			if (reader.has("overload-timer")) {
 				player.setOverloadPotionTimer(reader.get("overload-timer").getAsInt());
 			}

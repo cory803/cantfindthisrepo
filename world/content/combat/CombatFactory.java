@@ -28,7 +28,9 @@ import com.ikov.world.content.BonusManager;
 import com.ikov.world.content.ItemDegrading;
 import com.ikov.world.content.ItemDegrading.DegradingItem;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect;
+import com.ikov.world.content.combat.effect.CombatVenomEffect;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
+import com.ikov.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.ikov.world.content.combat.effect.EquipmentBonus;
 import com.ikov.world.content.combat.magic.CombatAncientSpell;
 import com.ikov.world.content.combat.prayer.CurseHandler;
@@ -287,6 +289,38 @@ public final class CombatFactory {
 		entity.setPoisonDamage(poisonType.get().getDamage());
 		TaskManager.submit(new CombatPoisonEffect(entity));
 	}
+	
+	/**
+	 * Attempts to venom the argued {@link Character} with the argued
+	 * {@link PoisonType}. This method will have no effect if the entity is
+	 * already poisoned.
+	 * 
+	 * @param entity
+	 *            the entity that will be poisoned, if not already.
+	 * @param poisonType
+	 *            the venom type that this entity is being inflicted with.
+	 */
+	public static void venomEntity(Character entity, Optional<VenomType> venomType) {
+
+		// We are already poisoned or the poison type is invalid, do nothing.
+		if (entity.isVenomed() || !venomType.isPresent()) {
+			return;
+		}
+
+		// If the entity is a player, we check for poison immunity. If they have
+		// no immunity then we send them a message telling them that they are
+		// poisoned.
+		if (entity.isPlayer()) {
+			Player player = (Player) entity;
+			if (player.getVenomImmunity() > 0)
+				return;
+			player.getPacketSender().sendConstitutionOrbVenom(true);
+			player.getPacketSender().sendMessage("You have been poisoned with venom!");
+		}
+		
+		entity.setVenomDamage(venomType.get().getDamage());
+		TaskManager.submit(new CombatVenomEffect(entity));
+	}
 
 	/**
 	 * Attempts to poison the argued {@link Character} with the argued
@@ -300,6 +334,20 @@ public final class CombatFactory {
 	 */
 	public static void poisonEntity(Character entity, PoisonType poisonType) {
 		poisonEntity(entity, Optional.ofNullable(poisonType));
+	}
+	
+	/**
+	 * Attempts to venom the argued {@link Character} with the argued
+	 * {@link PoisonType}. This method will have no effect if the entity is
+	 * already venomed.
+	 * 
+	 * @param entity
+	 *            the entity that will be venomed, if not already.
+	 * @param poisonType
+	 *            the venom type that this entity is being inflicted with.
+	 */
+	public static void venomEntity(Character entity, VenomType venomType) {
+		venomEntity(entity, Optional.ofNullable(venomType));
 	}
 
 	/**

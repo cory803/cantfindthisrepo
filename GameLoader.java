@@ -30,6 +30,7 @@ import com.ikov.world.content.Lottery;
 import com.ikov.world.content.Scoreboards;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
+import com.ikov.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
 import com.ikov.world.content.combat.strategy.CombatStrategies;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
@@ -78,6 +79,7 @@ public final class GameLoader {
 		serviceLoader.execute(() -> WellOfGoodwill.init());
 		serviceLoader.execute(() -> ClanChatManager.init());
 		serviceLoader.execute(() -> CombatPoisonData.init());
+		serviceLoader.execute(() -> CombatVenomData.init());
 		serviceLoader.execute(() -> CombatStrategies.init());
 		serviceLoader.execute(() -> NpcDefinition.parseNpcs().load());
 		serviceLoader.execute(() -> NPCDrops.parseDrops().load());

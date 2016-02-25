@@ -6,6 +6,7 @@ import com.ikov.model.container.impl.Equipment;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
+import com.ikov.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.player.Player;
 

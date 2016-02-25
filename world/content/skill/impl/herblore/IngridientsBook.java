@@ -21,7 +21,7 @@ public class IngridientsBook {
 			pageIndex = 12;
 		player.getMovementQueue().reset();
 		player.performAnimation(new Animation(1350));
-		player.getPacketSender().sendString(903, "Ingridients");
+		player.getPacketSender().sendString(903, "Ingredients");
 		for(int i = 0; i < pages[0].length; i++)
 			player.getPacketSender().sendString(843+i, pages[pageIndex][i]);
 		for(int i = 0; i < pages[1].length; i++)
