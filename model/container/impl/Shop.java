@@ -1160,6 +1160,8 @@ public class Shop extends ItemContainer {
 					return new Object[]{153000, "Dungeoneering tokens"};
 				case 18839:
 					return new Object[]{140000, "Dungeoneering tokens"};
+				case 18346:
+					return new Object[]{100000, "Dungeoneering tokens"};
 				case 18335:
 					return new Object[]{75000, "Dungeoneering tokens"};
 				}
@@ -1198,11 +1200,11 @@ public class Shop extends ItemContainer {
 				case 10408:
 				case 10410:
 				case 10412:
-				case 13852:
 				case 10414:
 				case 10404:
 				case 10406:
 					return new Object[]{2, "Prestige points"};
+				case 13852:
 				case 14595:
 				case 14603:
 					 return new Object[]{5, "Prestige points"};

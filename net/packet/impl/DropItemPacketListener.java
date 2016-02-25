@@ -8,6 +8,7 @@ import com.ikov.model.Hitmask;
 import com.ikov.model.Item;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
+import com.ikov.world.content.BankPin;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.Sounds;
 import com.ikov.world.content.Sounds.Sound;
@@ -40,6 +41,10 @@ public class DropItemPacketListener implements PacketListener {
 			return;
 		Item item = player.getInventory().getItems()[itemSlot];
 		if(item.getId() != id) {
+			return;
+		}
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
 			return;
 		}
 		player.getPacketSender().sendInterfaceRemoval();

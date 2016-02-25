@@ -30,6 +30,19 @@ import com.ikov.world.entity.updating.UpdateSequence;
  * Thanks to lare96 for help with parallel updating system
  */
 public class World {
+	
+	/**
+	 * Is global yell enabled?
+	 */
+	private static boolean globalYell = true;
+	
+	public static boolean isGlobalYell() {
+		return globalYell;
+	}
+
+	public static void setGlobalYell(boolean globalYell) {
+		World.globalYell = globalYell;
+	}
 
 	/** All of the registered players. */
 	private static CharacterList<Player> players = new CharacterList<>(1000);

@@ -59,6 +59,11 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
+		if(wholeCommand.startsWith("globalyell")) {
+			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
+			World.setGlobalYell(!World.isGlobalYell());
+			World.sendMessage("<img=10> @blu@The yell channel has been @dre@"+(World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
+		}
 		if(wholeCommand.equalsIgnoreCase("vengrunes")) {
 			player.getInventory().add(557, 1000);
 			player.getInventory().add(560, 1000);

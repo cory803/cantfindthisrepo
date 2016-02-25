@@ -22,6 +22,10 @@ public class SuperDonators {
 			if(player.getRights() != PlayerRights.PLAYER) {
 				return;
 			}
+			if(World.isGlobalYell() == false) {
+				player.getPacketSender().sendMessage("An admin has temporarily disabled the global yell channel.");
+				return;
+			}
 			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
 				return;

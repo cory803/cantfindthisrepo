@@ -50,6 +50,7 @@ public class Command {
 			player.getPacketSender().sendString(55055, "@or3@ - @whi@ ::unserialban [player]");
 			player.getPacketSender().sendString(55056, "@or3@ - @whi@ ::host [player]");
 			player.getPacketSender().sendString(55057, "@or3@ - @whi@ ::gold [player]");
+			player.getPacketSender().sendString(55058, "@or3@ - @whi@ ::globalyell");
 			/*
 			player.getPacketSender().sendString(55054, "@or3@ - @whi@ ");
 			player.getPacketSender().sendString(55055, "@or3@ - @whi@ ");

@@ -193,6 +193,10 @@ public class Supports {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
 				return;
 			}
+			if(World.isGlobalYell() == false) {
+				player.getPacketSender().sendMessage("An admin has temporarily disabled the global yell channel.");
+				return;
+			}
 			if(!GameSettings.YELL_STATUS) {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;

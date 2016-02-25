@@ -35,6 +35,11 @@ public class Administrators {
 				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
 			}
 		}
+		if(wholeCommand.startsWith("globalyell")) {
+			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
+			World.setGlobalYell(!World.isGlobalYell());
+			World.sendMessage("<img=10> @blu@The yell channel has been @dre@"+(World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
+		}
 		if(wholeCommand.startsWith("silenceyell")) {
 			String yellmute = wholeCommand.substring(12);
 			Player punishee = World.getPlayerByName(yellmute);
