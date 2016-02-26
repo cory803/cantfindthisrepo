@@ -73,7 +73,10 @@ public class CombatPoisonEffect extends Task {
             this.stop();
             return;
         }
-
+		if (entity.isVenomed()) {
+			this.stop();
+			return;
+		}
         // Deal the damage, then try and decrement the damage count.
         entity.dealDamage(new Hit(entity.getAndDecrementPoisonDamage(), Hitmask.RED2, CombatIcon.NONE));
        /* if(entity.isPlayer()) {

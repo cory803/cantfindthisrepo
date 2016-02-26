@@ -272,7 +272,6 @@ public final class CombatFactory {
 
 		// We are already poisoned or the poison type is invalid, do nothing.
 		if (entity.isPoisoned() || !poisonType.isPresent()) {
-			System.out.println("is poisoned");
 			return;
 		}
 		
@@ -327,6 +326,7 @@ public final class CombatFactory {
 			if (player.getVenomImmunity() > 0)
 				return;
 			player.getPacketSender().sendConstitutionOrbVenom(true);
+			player.getPacketSender().sendConstitutionOrbPoison(false);
 			player.getPacketSender().sendMessage("You have been poisoned with venom!");
 		}
 		

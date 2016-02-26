@@ -296,8 +296,8 @@ public abstract class Character extends Entity {
 	}
 	
 	public int getAndDecrementVenomDamage() {
-		if(poisonDamage < 0)
-			poisonDamage = 0;
+		if(venomDamage < 0)
+			venomDamage = 0;
 		return venomDamage -= 15;
 
 	}
@@ -307,15 +307,15 @@ public abstract class Character extends Entity {
 	}
 	
 	public int getVenomDamage() {
-		return poisonDamage;
+		return venomDamage;
 	}
 
 	public void setPoisonDamage(int poisonDamage) {
 		this.poisonDamage = poisonDamage;
 	}
 	
-	public void setVenomDamage(int poisonDamage) {
-		this.poisonDamage = poisonDamage;
+	public void setVenomDamage(int abc) {
+		this.venomDamage = abc;
 	}
 
 	public boolean isPoisoned() {
@@ -337,9 +337,18 @@ public abstract class Character extends Entity {
 	public boolean isVenomed() {
 		if(venomDamage < 0)
 			venomDamage = 0;
+		
+		if(venomDamage != 0) {
+			if(isPlayer()) {
+				((Player)this).getPacketSender().sendConstitutionOrbVenom(true);
+			}
+		} else {
+			if(isPlayer()) {
+				((Player)this).getPacketSender().sendConstitutionOrbVenom(false);
+			}
+		}
 		return venomDamage != 0;
 	}
-
 
 	public Position getPositionToFace() {
 		return positionToFace;
