@@ -445,7 +445,7 @@ public enum CombatSpecial {
 			};
 		}
 	},
-	SARADOMIN_GODSWORD(new int[] { 11698 }, 50, 1.25, 1.5, CombatType.MELEE, WeaponInterface.TWO_HANDED_SWORD) {
+	SARADOMIN_GODSWORD(new int[] { 11698 }, 50, 1, 1.1, CombatType.MELEE, WeaponInterface.TWO_HANDED_SWORD) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(7071));
@@ -470,7 +470,7 @@ public enum CombatSpecial {
 			};
 		}
 	},
-	DRAGON_CLAWS(new int[] { 14484 }, 50, 2, 1.8, CombatType.MELEE, WeaponInterface.CLAWS) {
+	DRAGON_CLAWS(new int[] { 14484 }, 50, 1.35, 1, CombatType.MELEE, WeaponInterface.CLAWS) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(10961));
