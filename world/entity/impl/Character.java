@@ -7,6 +7,7 @@ import com.ikov.model.Direction;
 import com.ikov.model.Flag;
 import com.ikov.model.Graphic;
 import com.ikov.model.Hit;
+import com.ikov.world.entity.impl.player.Player;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
 import com.ikov.model.RegionInstance;
@@ -295,7 +296,10 @@ public abstract class Character extends Entity {
 	}
 	
 	public int getAndDecrementVenomDamage() {
+		if(poisonDamage < 0)
+			poisonDamage = 0;
 		return venomDamage -= 15;
+
 	}
 
 	public int getPoisonDamage() {
@@ -317,6 +321,16 @@ public abstract class Character extends Entity {
 	public boolean isPoisoned() {
 		if(poisonDamage < 0)
 			poisonDamage = 0;
+		
+		if(poisonDamage != 0) {
+			if(isPlayer()) {
+				((Player)this).getPacketSender().sendConstitutionOrbPoison(true);
+			}
+		} else {
+			if(isPlayer()) {
+				((Player)this).getPacketSender().sendConstitutionOrbPoison(false);
+			}
+		}
 		return poisonDamage != 0;
 	}
 	

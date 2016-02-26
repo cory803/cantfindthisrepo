@@ -272,9 +272,14 @@ public final class CombatFactory {
 
 		// We are already poisoned or the poison type is invalid, do nothing.
 		if (entity.isPoisoned() || !poisonType.isPresent()) {
+			System.out.println("is poisoned");
 			return;
 		}
-
+		
+		if (entity.isVenomed()) {
+			return;
+		}
+		
 		// If the entity is a player, we check for poison immunity. If they have
 		// no immunity then we send them a message telling them that they are
 		// poisoned.
@@ -285,7 +290,6 @@ public final class CombatFactory {
 			player.getPacketSender().sendConstitutionOrbPoison(true);
 			player.getPacketSender().sendMessage("You have been poisoned!");
 		}
-		
 		entity.setPoisonDamage(poisonType.get().getDamage());
 		TaskManager.submit(new CombatPoisonEffect(entity));
 	}
@@ -305,6 +309,14 @@ public final class CombatFactory {
 		// We are already poisoned or the poison type is invalid, do nothing.
 		if (entity.isVenomed() || !venomType.isPresent()) {
 			return;
+		}
+		
+		if (entity.isPoisoned()) {
+			entity.setPoisonDamage(0);
+			if(entity.isPlayer()) {
+				Player player = (Player) entity;
+				player.getPacketSender().sendConstitutionOrbPoison(false);
+			}
 		}
 
 		// If the entity is a player, we check for poison immunity. If they have

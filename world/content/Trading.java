@@ -170,10 +170,6 @@ public class Trading {
 		Player player2 = World.getPlayers().get(getTradeWith());
 		if(player2 == null || player == null)
 			return;
-	/*	if(player.getNewPlayerDelay() > 0 && player.getRights().ordinal() == 0) {
-			player.getPacketSender().sendMessage("You must wait another "+player.getNewPlayerDelay() / 60+" minutes before being able to trade items.");
-			return;
-		}*/
 		if (!new Item(itemId).tradeable()) {
 			player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
 			return;

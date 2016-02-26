@@ -69,12 +69,16 @@ public class Owners {
 			player.getInventory().add(560, 1000);
 			player.getInventory().add(9075, 1000);
 		}
+		if (command[0].equals("nopoison")) {
+			player.setPoisonDamage(20);
+		}
 		if (command[0].equals("unskull")) {
 			player.setSkullTimer(0);
 			player.setSkullIcon(0);
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 			player.getPacketSender().sendMessage("You are unskulled!");
 		}
+		
 		if(wholeCommand.startsWith("silenceyell")) {
 			String yellmute = wholeCommand.substring(12);
 			Player punishee = World.getPlayerByName(yellmute);

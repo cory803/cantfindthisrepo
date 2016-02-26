@@ -38,9 +38,9 @@ public class CombatVenomEffect extends Task {
      * @author lare96
      */
     public enum VenomType {
-        MILD(50),
-        EXTRA(70),
-        SUPER(120);
+        MILD(130),
+        EXTRA(150),
+        SUPER(200);
 
         /** The starting damage for this venom type. */
         private int damage;
@@ -75,7 +75,7 @@ public class CombatVenomEffect extends Task {
         }
 
         // Deal the damage, then try and decrement the damage count.
-        entity.dealDamage(new Hit(entity.getAndDecrementVenomDamage(), Hitmask.DARK_PURPLE, CombatIcon.NONE));
+        entity.dealDamage(new Hit(entity.getAndDecrementVenomDamage(), Hitmask.DARK_GREEN, CombatIcon.NONE));
        /* if(entity.isPlayer()) {
         	((Player)entity).getPacketSender().sendInterfaceRemoval();
         }*/
@@ -91,108 +91,11 @@ public class CombatVenomEffect extends Task {
 
         /** The map of all of the different weapons that venom. */
         // Increase the capacity of the map as more elements are added.
-        private static final Map<Integer, VenomType> types = new HashMap<>(97);
+        private static final Map<Integer, VenomType> types = new HashMap<>(0);
 
         /** Load all of the venom data. */
         public static void init() {
-            types.put(817, VenomType.MILD);
-            types.put(816, VenomType.MILD);
-            types.put(818, VenomType.MILD);
-            types.put(831, VenomType.MILD);
-            types.put(812, VenomType.MILD);
-            types.put(813, VenomType.MILD);
-            types.put(814, VenomType.MILD);
-            types.put(815, VenomType.MILD);
-            types.put(883, VenomType.MILD);
-            types.put(885, VenomType.MILD);
-            types.put(887, VenomType.MILD);
-            types.put(889, VenomType.MILD);
-            types.put(891, VenomType.MILD);
-            types.put(893, VenomType.MILD);
-            types.put(870, VenomType.MILD);
-            types.put(871, VenomType.MILD);
-            types.put(872, VenomType.MILD);
-            types.put(873, VenomType.MILD);
-            types.put(874, VenomType.MILD);
-            types.put(875, VenomType.MILD);
-            types.put(876, VenomType.MILD);
-            types.put(834, VenomType.MILD);
-            types.put(835, VenomType.MILD);
-            types.put(832, VenomType.MILD);
-            types.put(833, VenomType.MILD);
-            types.put(836, VenomType.MILD);
-            types.put(1221, VenomType.MILD);
-            types.put(1223, VenomType.MILD);
-            types.put(1219, VenomType.MILD);
-            types.put(1229, VenomType.MILD);
-            types.put(1231, VenomType.MILD);
-            types.put(1225, VenomType.MILD);
-            types.put(1227, VenomType.MILD);
-            types.put(1233, VenomType.MILD);
-            types.put(1253, VenomType.MILD);
-            types.put(1251, VenomType.MILD);
-            types.put(1263, VenomType.MILD);
-            types.put(1261, VenomType.MILD);
-            types.put(1259, VenomType.MILD);
-            types.put(1257, VenomType.MILD);
-            types.put(3094, VenomType.MILD);
-
-            types.put(5621, VenomType.EXTRA);
-            types.put(5620, VenomType.EXTRA);
-            types.put(5617, VenomType.EXTRA);
-            types.put(5616, VenomType.EXTRA);
-            types.put(5619, VenomType.EXTRA);
-            types.put(5618, VenomType.EXTRA);
-            types.put(5629, VenomType.EXTRA);
-            types.put(5628, VenomType.EXTRA);
-            types.put(5631, VenomType.EXTRA);
-            types.put(5630, VenomType.EXTRA);
-            types.put(5645, VenomType.EXTRA);
-            types.put(5644, VenomType.EXTRA);
-            types.put(5647, VenomType.EXTRA);
-            types.put(5646, VenomType.EXTRA);
-            types.put(5643, VenomType.EXTRA);
-            types.put(5642, VenomType.EXTRA);
-            types.put(5633, VenomType.EXTRA);
-            types.put(5632, VenomType.EXTRA);
-            types.put(5634, VenomType.EXTRA);
-            types.put(5660, VenomType.EXTRA);
-            types.put(5656, VenomType.EXTRA);
-            types.put(5657, VenomType.EXTRA);
-            types.put(5658, VenomType.EXTRA);
-            types.put(5659, VenomType.EXTRA);
-            types.put(5654, VenomType.EXTRA);
-            types.put(5655, VenomType.EXTRA);
-            types.put(5680, VenomType.EXTRA);
-
-            types.put(5623, VenomType.SUPER);
-            types.put(5622, VenomType.SUPER);
-            types.put(5625, VenomType.SUPER);
-            types.put(5624, VenomType.SUPER);
-            types.put(5627, VenomType.SUPER);
-            types.put(5626, VenomType.SUPER);
-            types.put(5698, VenomType.SUPER);
-            types.put(5730, VenomType.SUPER);
-            types.put(5641, VenomType.SUPER);
-            types.put(5640, VenomType.SUPER);
-            types.put(5637, VenomType.SUPER);
-            types.put(5636, VenomType.SUPER);
-            types.put(5639, VenomType.SUPER);
-            types.put(5638, VenomType.SUPER);
-            types.put(5635, VenomType.SUPER);
-            types.put(5661, VenomType.SUPER);
-            types.put(5662, VenomType.SUPER);
-            types.put(5663, VenomType.SUPER);
-            types.put(5652, VenomType.SUPER);
-            types.put(5653, VenomType.SUPER);
-            types.put(5648, VenomType.SUPER);
-            types.put(5649, VenomType.SUPER);
-            types.put(5650, VenomType.SUPER);
-            types.put(5651, VenomType.SUPER);
-            types.put(5667, VenomType.SUPER);
-            types.put(5666, VenomType.SUPER);
-            types.put(5665, VenomType.SUPER);
-            types.put(5664, VenomType.SUPER);
+            types.put(12926, VenomType.SUPER);
         }
 
         /**

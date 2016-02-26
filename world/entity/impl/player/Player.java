@@ -219,10 +219,8 @@ public class Player extends Character {
 	
 	@Override
 	public void venomVictim(Character victim, CombatType type) {
-		if (type == CombatType.MELEE || weapon == WeaponInterface.DART || weapon == WeaponInterface.KNIFE || weapon == WeaponInterface.THROWNAXE || weapon == WeaponInterface.JAVELIN) {
+		if (type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) {
 			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.WEAPON_SLOT)));
-		} else if (type == CombatType.RANGED) {
-			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.AMMUNITION_SLOT)));
 		}
 	}
 
@@ -295,6 +293,7 @@ public class Player extends Character {
 		setPoisonDamage(0);
 		setVenomDamage(0);
 		getPacketSender().sendConstitutionOrbPoison(false);
+		getPacketSender().sendConstitutionOrbVenom(false);
 		setStaffOfLightEffect(0);
 		performAnimation(new Animation(65535));
 		WeaponInterfaces.assign(this, getEquipment().get(Equipment.WEAPON_SLOT));
