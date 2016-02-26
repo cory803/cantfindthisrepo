@@ -23,6 +23,10 @@ public class Gambling {
 			player.getPacketSender().sendMessage("").sendMessage("This dice can only be used in the gambling area!").sendMessage("To get there, talk to the gambler.");
 			return;
 		}
+		if(player.getCurrentClanChat() == null) {
+			DialogueManager.sendStatement(player, "You need to be in a clanchat channel to roll a dice.");
+			return;
+		}
 		if(player.getClanChatName() == null) {
 			player.getPacketSender().sendMessage("You need to be in a clanchat channel to roll a dice.");
 			return;

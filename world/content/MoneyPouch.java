@@ -74,13 +74,12 @@ public class MoneyPouch {
 			return false;
 		}
 		boolean allowWithdraw = plr.getTrading().inTrade() || plr.getDueling().inDuelScreen;
-		if(!allowWithdraw) {
+//		Disabled ^ because players would be able to add more than max stack into trade/stake
 			if(plr.getInterfaceId() > 0) {
 				plr.getPacketSender().sendMessage("Please close the interface you have open before opening another one.");
 				return false;
 			}
 			plr.getPacketSender().sendInterfaceRemoval();
-		}
 		if(amount > plr.getMoneyInPouch())
 			amount = plr.getMoneyInPouch();
 		if ((plr.getInventory().getAmount(995) + amount) < Integer.MAX_VALUE) {

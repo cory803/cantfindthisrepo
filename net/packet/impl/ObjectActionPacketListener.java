@@ -467,20 +467,32 @@ public class ObjectActionPacketListener implements PacketListener {
 					}
 					break;
 				case 5960: //Levers
-				case 5959:
 					if(player.getTeleblockTimer() > 0) {
 						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
 						return;
 					}
 					if (gameObject.getPosition().getX() == 2539 && gameObject.getPosition().getY() == 4712) {
-						player.setDirection(Direction.EAST);
+						player.setDirection(Direction.SOUTH);
 						TeleportHandler.teleportPlayer(player, new Position(3090, 3956), TeleportType.LEVER);
-					} else if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3956) {
+					}
+				case 5959:
+					if(player.getTeleblockTimer() > 0) {
+						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+						return;
+					}
+					if(player.getPosition().getX() <= 3089) {
+						
+						return;
+					}
+					if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3956) {
+						player.setDirection(Direction.WEST);
+						TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
+					} else if (player.getPosition().getX() == 3090 && player.getPosition().getY() >= 3957) {
 						player.setDirection(Direction.SOUTH);
 						TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
-					} else {
-						player.setDirection(Direction.WEST);
-						TeleportHandler.teleportPlayer(player, new Position(3087, 3502), TeleportType.LEVER);
+					} else if (player.getPosition().getX() == 3090 && player.getPosition().getY() <= 3955) {
+						player.setDirection(Direction.NORTH);
+						TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
 					}
 					break;
 				case 5096:

@@ -198,6 +198,10 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("The casket was empty.");
 			break;
 		case 15084:
+			if(player.getClanChatName() == null) {
+				player.getPacketSender().sendMessage("You need to be in a clanchat channel to roll a dice.");
+				return;
+			}
 			Gambling.rollDice(player);
 			break;
 		case 299:

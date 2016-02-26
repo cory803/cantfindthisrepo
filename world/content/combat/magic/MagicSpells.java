@@ -1,6 +1,7 @@
 package com.ikov.world.content.combat.magic;
 
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import com.ikov.model.Animation;
 import com.ikov.model.Graphic;
@@ -8,6 +9,7 @@ import com.ikov.model.GraphicHeight;
 import com.ikov.model.Item;
 import com.ikov.model.Skill;
 import com.ikov.model.Locations.Location;
+import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -376,7 +378,7 @@ public enum MagicSpells {
 				return true;
 			}
 			if(!p.getLastVengeance().elapsed(30000)) {
-				p.getPacketSender().sendMessage("This spell can only be cast once every 30 seconds.");
+				p.getPacketSender().sendMessage("You must wait another "+Misc.getTimeLeft(p.getLastVengeance().getTime(), 30, TimeUnit.SECONDS)+" seconds before you can cast vengeance again.");
 				return true;
 			}
 			p.getInventory().deleteItemSet(spell.getSpell().itemsRequired(p));
