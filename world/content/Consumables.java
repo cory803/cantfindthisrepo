@@ -81,6 +81,7 @@ public class Consumables {
 			//return;
 		//}
 		if(food != null && player.getComboFoodDelay().elapsed(1000) && food.hasComboDelay()) {
+			player.getComboFoodDelay().reset();
 			player.getPacketSender().sendInterfaceRemoval();
 			player.performAnimation(new Animation(829));
 			player.getInventory().delete(food.item, slot);
