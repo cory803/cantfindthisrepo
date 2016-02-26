@@ -937,6 +937,12 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 184:
+				if(player.getInventory().contains(21076) && player.getInventory().contains(21074)) {
+					player.getInventory().delete(new Item(21074, 1));
+					player.getInventory().delete(new Item(21076, 1));
+					player.getInventory().add(new Item(21077, 1));
+				}
 			case 159:
 				player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(4);
 				DialogueManager.start(player, 165);

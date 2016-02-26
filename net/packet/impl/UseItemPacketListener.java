@@ -71,6 +71,10 @@ public class UseItemPacketListener implements PacketListener {
 			return;
 		Item usedWith = player.getInventory().getItems()[usedWithSlot];
 		Item itemUsedWith = player.getInventory().getItems()[itemUsedSlot];
+		if((usedWith.getId() == 21076 && itemUsedWith.getId() == 21074) || (usedWith.getId() == 21074 && itemUsedWith.getId() == 21076)) {
+			player.setDialogueActionId(184);
+			DialogueManager.start(player, 184);
+		}
 		if(usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
 			player.getPacketSender().sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");
 			return;
