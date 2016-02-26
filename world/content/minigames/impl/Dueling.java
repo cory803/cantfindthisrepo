@@ -664,7 +664,7 @@ public class Dueling {
 	public int arenaStats[] = {0, 0};
 	public int spaceReq = 0;
 	public int duelConfig;
-	public int timer = 3;
+	public int timer = 6;
 	public int inDuelWith = -1;
 	private boolean canOffer;
 	
