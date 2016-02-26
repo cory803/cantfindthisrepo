@@ -408,7 +408,7 @@ public final class CombatFactory {
 
 	public static int getLevelDifference(Player player, boolean up) {
 		int max = player.getLocation() == Location.WILDERNESS ? 126 : 138;
-		int wildLevel = player.getWildernessLevel() + 5; //+ 5 to make wild more active
+		int wildLevel = player.getWildernessLevel(); //+ 5 to make wild more active
 		int combatLevel = player.getSkillManager().getCombatLevel();
 		int difference = up ? combatLevel + wildLevel : combatLevel - wildLevel;
 		return difference < 3 ? 3 : difference > max && up ? max : difference;
