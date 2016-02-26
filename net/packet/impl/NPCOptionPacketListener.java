@@ -703,11 +703,11 @@ public class NPCOptionPacketListener implements PacketListener {
 						return;
 					}
 					boolean restore = player.getSpecialPercentage() < 100;
-					if(restore) {
-						player.setSpecialPercentage(100);
-						CombatSpecial.updateBar(player);
-						player.getPacketSender().sendMessage("Your special attack energy has been restored.");
-					}
+//					if(restore) {
+//						player.setSpecialPercentage(100);
+//						CombatSpecial.updateBar(player);
+//						player.getPacketSender().sendMessage("Your special attack energy has been restored.");
+//					}
 					for(Skill skill : Skill.values()) {
 						if(player.getSkillManager().getCurrentLevel(skill) < player.getSkillManager().getMaxLevel(skill)) {
 							player.getSkillManager().setCurrentLevel(skill, player.getSkillManager().getMaxLevel(skill));
