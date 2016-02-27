@@ -37,7 +37,7 @@ public class ClanChat {
 	private boolean lootShare;
 	private Stopwatch lastAction = new Stopwatch();
 
-	private ClanChatRank[] rankRequirement = new ClanChatRank[3];
+	private ClanChatRank[] rankRequirement = new ClanChatRank[4];
 	private CopyOnWriteArrayList<Player> members = new CopyOnWriteArrayList<Player>();
 	private CopyOnWriteArrayList<String> bannedNames = new CopyOnWriteArrayList<String>();
 	private Map<String, ClanChatRank> rankedNames = new HashMap<String, ClanChatRank>();
@@ -174,6 +174,15 @@ public class ClanChat {
 		this.rankReqs[index] = rankRequirement;
 		return this;
 	}
-	public static final int RANK_REQUIRED_TO_ENTER = 0, RANK_REQUIRED_TO_KICK = 1, RANK_REQUIRED_TO_TALK = 2;
+	/**
+	 * Gets the array of {@link Rank} requirements
+	 * in order to do certain actions in the {@link ClanChat}.
+	 * @return	The {@link #rankRequirement} array.
+	 */
+	public int[] getRankReqs() {
+		return rankReqs;
+	}
+	public static final int RANK_REQUIRED_TO_ENTER = 0, RANK_REQUIRED_TO_KICK = 1, RANK_REQUIRED_TO_TALK = 2,
+			 RANK_REQUIRED_TO_BAN = 3;
 
 }

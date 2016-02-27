@@ -1,10 +1,12 @@
 package com.ikov.world.content.clan;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
@@ -107,7 +109,7 @@ public class ClanChatManager {
 								e.printStackTrace();
 							}
 						}
-					} 
+					}
 				}
 				reader.close();
 				
@@ -123,26 +125,50 @@ public class ClanChatManager {
 		}
 	}
 
+	/**
+	 * Writes a file with information from said
+	 * {@link ClanChat}.
+	 * @param clan	The clan chat to get information from.
+	 */
 	public static void writeFile(ClanChat clan) {
 		try {
-			File file = new File(FILE_DIRECTORY + clan.getName());
-			if (file.exists())
-				file.createNewFile();
-			DataOutputStream output = new DataOutputStream(new FileOutputStream(file));
-			output.writeUTF(clan.getName());
-			output.writeUTF(clan.getOwnerName());
-			output.writeShort(clan.getIndex());
-			output.write(clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_ENTER] != null ? clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_ENTER].ordinal() : -1);
-			output.write(clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_KICK] != null ? clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_KICK].ordinal() : -1);
-			output.write(clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_TALK] != null ? clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_TALK].ordinal() : -1);
-			output.writeShort(clan.getRankedNames().size());
-			for (Entry<String, ClanChatRank> iterator : clan.getRankedNames().entrySet()) {
-				String name = iterator.getKey();
-				int rank = iterator.getValue().ordinal();
-				output.writeUTF(name);
-				output.write(rank);
+			if (!new File(FILE_DIRECTORY).exists()) {
+				Logger.getLogger(ClanChatManager.class.getName()).info("Directory for clan files does NOT exist!");
+				return;
 			}
-			output.close();
+			final File file = new File(FILE_DIRECTORY + clan.getOwnerName());
+			final BufferedWriter writer = new BufferedWriter(new FileWriter(file));
+			
+			writer.write("name: " + clan.getName());
+			writer.newLine();
+			
+			writer.write("owner: " + clan.getOwnerName());
+			writer.newLine();
+			
+			writer.write("index: " + clan.getIndex());
+			writer.newLine();
+			writer.newLine();
+			
+			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_ENTER + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_ENTER]);
+			writer.newLine();
+			
+			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_TALK + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_TALK]);
+			writer.newLine();
+			
+			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_KICK + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_KICK]);
+			writer.newLine();
+			
+			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_BAN + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_BAN]);
+			writer.newLine();
+			
+			for (Entry<String, ClanChatRank> iterator : clan.getRankedNames().entrySet()) {
+				if (iterator.getValue() == ClanChatRank.STAFF)
+					continue;
+				writer.newLine();
+				writer.write("ranked_member[" + iterator.getKey() + "]: " + iterator.getValue() );
+			}
+			
+			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
