@@ -44,6 +44,9 @@ public class NpcDefinition {
 
 	/** If the npc poisons. */
 	private boolean poisonous;
+	
+	/** If the npc venoms. */
+	private boolean venomous = false;
 
 	/** Time it takes for this npc to respawn. */
 	private int respawn;
@@ -109,6 +112,10 @@ public class NpcDefinition {
 						.getAsBoolean());
 				definitions[index].setPoisonous(reader.get("poisonous")
 						.getAsBoolean());
+				if(reader.get("venomous") != null) {
+				definitions[index].setVenomous(reader.get("venomous")
+						.getAsBoolean());
+						}
 				definitions[index].setRespawnTime(reader.get("respawn")
 						.getAsInt());
 				definitions[index].setMaxHit(reader.get("maxHit").getAsInt());
@@ -312,6 +319,15 @@ public class NpcDefinition {
 	public boolean isPoisonous() {
 		return poisonous;
 	}
+	
+	/**
+	 * Gets if this npc is venomous.
+	 * 
+	 * @return the poisonous.
+	 */
+	public boolean isVenomous() {
+		return venomous;
+	}
 
 	/**
 	 * Sets if this npc is poisonous.
@@ -321,6 +337,16 @@ public class NpcDefinition {
 	 */
 	public void setPoisonous(boolean poisonous) {
 		this.poisonous = poisonous;
+	}
+	
+	/**
+	 * Sets if this npc is venomous.
+	 * 
+	 * @param venomous
+	 *            the venomous to set.
+	 */
+	public void setVenomous(boolean venomous) {
+		this.venomous = venomous;
 	}
 
 	/**

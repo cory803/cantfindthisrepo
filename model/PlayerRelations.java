@@ -192,17 +192,12 @@ public class PlayerRelations {
 	public void deleteFriend(Long username) {
 		if (friendList.contains(username)) {
 			friendList.remove(username);
-			//if (!status.equals(PrivateChatStatus.ON)) {
-				Player unfriend = World.getPlayerByName(NameUtils.longToString(username));
-				if (unfriend != null) {
-					unfriend.getRelations().updateLists(false);
-					if(player.getCurrentClanChat() != null) {
-						ClanChatManager.checkFriendsRank(unfriend, player.getCurrentClanChat(), true);
-					}
-				}
-				//sendFriends();
+			if (!status.equals(PrivateChatStatus.ON)) {	
+				Player ignored = World.getPlayerByName(NameUtils.longToString(username));
+				if (ignored != null)
+					ignored.getRelations().updateLists(false);
 				updateLists(false);
-			//}
+			}
 		} else {
 			player.getPacketSender().sendMessage("This player is not on your friends list!");
 		}

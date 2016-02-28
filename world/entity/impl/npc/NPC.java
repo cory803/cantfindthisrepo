@@ -13,6 +13,7 @@ import com.ikov.world.World;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.CombatType;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
+import com.ikov.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.ikov.world.content.combat.strategy.CombatStrategies;
 import com.ikov.world.content.combat.strategy.CombatStrategy;
 import com.ikov.world.content.combat.strategy.impl.KalphiteQueen;
@@ -144,6 +145,9 @@ public class NPC extends Character {
 	
 	@Override
 	public void venomVictim(Character victim, CombatType type) {
+		if (getDefinition().isVenomous()) {
+			CombatFactory.venomEntity(victim, VenomType.SUPER);
+		}
 
 	}
 

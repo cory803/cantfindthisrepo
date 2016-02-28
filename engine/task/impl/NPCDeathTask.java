@@ -86,7 +86,7 @@ public class NPCDeathTask extends Task {
 					if(!Nex.nexMinion(npc.getId()) && npc.getId() != 1158 && !(npc.getId() >= 3493 && npc.getId() <= 3497)) {
 						KillsTracker.submit(killer, new KillsEntry(npc.getDefinition().getName(), 1, boss));
 						if(boss) {
-							if(!npc.getDefinition().getName().contains("Reve")) {
+							if(!npc.getDefinition().getName().contains("Reve") && !npc.getDefinition().getName().contains("Zulrah")) {
 								killer.addBossPoints(1);
 								PlayerPanel.refreshPanel(killer);
 								killer.getPacketSender().sendMessage("You have defeated @blu@"+npc.getDefinition().getName()+"@bla@. You now have@red@ "+killer.getBossPoints()+" @bla@boss points.");

@@ -229,7 +229,26 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
-
+	
+	/**
+	 * Sends some information to the client about screen fading. 
+	 * @param text		the text that will be displayed in the center of the screen
+	 * @param state		the state should be either 0, -1, or 1. 
+	 * @param seconds	the amount of time in seconds it takes for the fade
+	 * to transition.
+	 * <p>
+	 * If the state is -1 then the screen fades from black to transparent.
+	 * When the state is +1 the screen fades from transparent to black. If 
+	 * the state is 0 all drawing is stopped.
+	 */
+	public PacketSender sendScreenFade(int state, int seconds) {
+		PacketBuilder out = new PacketBuilder(9);
+		out.putShort(state);
+		out.putShort(seconds);
+		player.getSession().queueMessage(out);
+		return this;
+	}
+	
 	public PacketSender commandFrame(int i) {
 		PacketBuilder out = new PacketBuilder(28);
 		out.put(i);
