@@ -23,7 +23,7 @@ public class Fishing {
 		
 		SMALLNET(316, new int[]{317, 321}, 303, -1, new int[]{1, 15}, false, new int[]{290, 550}, 621),
 		
-		MONK_FISH(318, new int[]{7944, 389, 3142}, 305, -1, new int[]{62, 81, 65}, false, new int[]{6985, 10122, 7435}, 621),
+		MONK_FISH(318, new int[]{7944, 3142, 389}, 305, -1, new int[]{62, 65, 81}, false, new int[]{6985, 7435, 10122}, 621),
 		
 		HARPOON(312, new int[]{359, 371}, 311, -1, new int[]{35, 50}, true, new int[]{2530, 5100}, 618),
 		
