@@ -96,6 +96,7 @@ public class PlayerRelations {
 		if (status == PrivateChatStatus.OFF)
 			online = false;
 		player.getPacketSender().sendFriendStatus(2);
+		/*
 		for (Player players : World.getPlayers()) {
 			if(players == null)
 				continue;
@@ -116,6 +117,16 @@ public class PlayerRelations {
 				player.getPacketSender().sendFriend(players.getLongUsername(), tempOn ? 1 : 0);
 			}	
 		}
+		*/
+		for (long list : friendList) {
+			player.getPacketSender().sendFriend(list, World.getPlayerForLongName(list) != null ? 1 : 0, 0);
+		}
+		
+		for (Player other : World.getPlayers()) {
+			if (other != null && other.getRelations().getFriendList().contains(player.getLongUsername())) {
+				other.getPacketSender().sendFriend(player.getLongUsername(), online ? 1 : 0, 0);
+			}
+		}
 		return this;
 	}
 	
@@ -126,7 +137,7 @@ public class PlayerRelations {
 
 	public void sendFriends() {
 		for(int i = 0; i < player.getRelations().getFriendList().size(); i++) {
-			player.getPacketSender().sendFriend(player.getRelations().getFriendList().get(i), 0);
+			player.getPacketSender().sendFriend(player.getRelations().getFriendList().get(i), 0, 1);
 		}
 	}
 	
@@ -155,7 +166,7 @@ public class PlayerRelations {
 			player.getPacketSender().sendMessage(name + " is already on your friends list!");
 		} else {
 			friendList.add(username);
-			sendFriends();
+			//sendFriends();
 			updateLists(true);
 			Player friend = World.getPlayerByName(name);
 			if (friend != null) {
@@ -189,7 +200,7 @@ public class PlayerRelations {
 						ClanChatManager.checkFriendsRank(unfriend, player.getCurrentClanChat(), true);
 					}
 				}
-				sendFriends();
+				//sendFriends();
 				updateLists(false);
 			//}
 		} else {

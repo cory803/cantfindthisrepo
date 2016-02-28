@@ -30,6 +30,7 @@ public final class WeaponInterfaces {
 	 */
 	public enum WeaponInterface {
 		STAFF(328, 331, 6, new FightType[] { FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS }),
+		TOXIC_STAFF(328, 331, 6, new FightType[] { FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS }),
 				WARHAMMER(425, 428, 6, new FightType[] { FightType.WARHAMMER_POUND,
 						FightType.WARHAMMER_PUMMEL, FightType.WARHAMMER_BLOCK }, 7474, 7486),
 						SCYTHE(776, 779, 6, new FightType[] { FightType.SCYTHE_REAP,

@@ -938,11 +938,15 @@ public class DialogueOptions {
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
 			case 184:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.performAnimation(new Animation(885));
 				if(player.getInventory().contains(21076) && player.getInventory().contains(21074)) {
 					player.getInventory().delete(new Item(21074, 1));
 					player.getInventory().delete(new Item(21076, 1));
 					player.getInventory().add(new Item(21077, 1));
 				}
+				player.getPacketSender().sendMessage("You have been given a staff of great power.");
+				break;
 			case 159:
 				player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(4);
 				DialogueManager.start(player, 165);
@@ -1147,6 +1151,7 @@ public class DialogueOptions {
 			case 159:
 				DialogueManager.start(player, 163);
 				break;
+			case 184:
 			case 152:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;

@@ -72,6 +72,10 @@ public class UseItemPacketListener implements PacketListener {
 		Item usedWith = player.getInventory().getItems()[usedWithSlot];
 		Item itemUsedWith = player.getInventory().getItems()[itemUsedSlot];
 		if((usedWith.getId() == 21076 && itemUsedWith.getId() == 21074) || (usedWith.getId() == 21074 && itemUsedWith.getId() == 21076)) {
+			if(player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 59) {
+				player.getPacketSender().sendMessage("You need a Crafting level of at least 59 to make that item.");
+				return;
+			}
 			player.setDialogueActionId(184);
 			DialogueManager.start(player, 184);
 		}

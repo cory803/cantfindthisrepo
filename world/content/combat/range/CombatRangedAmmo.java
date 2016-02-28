@@ -168,7 +168,7 @@ public class CombatRangedAmmo {
 		ADAMANT_DART(new int[] {810}, 1239, 230, 3, 33, 15, 45, 37),
 		RUNE_DART(new int[] {811}, 1240, 231, 3, 33, 20, 45, 37),
 		DRAGON_DART(new int[] {11230}, 1123, 226, 3, 33, 25, 45, 37),
-		BLOWPIPE_DART(new int[] {11230}, -1, 226, 3, 33, 25, 45, 37),
+		BLOWPIPE_DART(new int[] {11230}, -1, 226, 6, 33, 25, 45, 37),
 
 		BRONZE_KNIFE(new int[] {864, 870, 5654}, 219, 212, 3, 33, 8, 45, 37),
 		IRON_KNIFE(new int[] {863, 871, 5655}, 220, 213, 3, 33, 12, 45, 37),

@@ -296,10 +296,12 @@ public abstract class Character extends Entity {
 	}
 	
 	public int getAndDecrementVenomDamage() {
-		if(venomDamage < 0)
-			venomDamage = 0;
-		return venomDamage -= 15;
-
+		if(venomDamage == 200) {
+			venomDamage = 200;
+		} else {
+			venomDamage += 20;
+		}
+		return venomDamage;
 	}
 
 	public int getPoisonDamage() {

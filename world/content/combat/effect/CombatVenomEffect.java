@@ -67,13 +67,11 @@ public class CombatVenomEffect extends Task {
 
     @Override
     public void execute() {
-		System.out.println("Venom start");
         // Stop the task if the entity is unregistered.
         if (!entity.isRegistered() || !entity.isVenomed()) {
             this.stop();
             return;
         }
-		System.out.println("Venom end");
         // Deal the damage, then try and decrement the damage count.
         entity.dealDamage(new Hit(entity.getAndDecrementVenomDamage(), Hitmask.DARK_GREEN, CombatIcon.NONE));
        /* if(entity.isPlayer()) {
@@ -91,11 +89,12 @@ public class CombatVenomEffect extends Task {
 
         /** The map of all of the different weapons that venom. */
         // Increase the capacity of the map as more elements are added.
-        private static final Map<Integer, VenomType> types = new HashMap<>(1);
+        private static final Map<Integer, VenomType> types = new HashMap<>(2);
 
         /** Load all of the venom data. */
         public static void init() {
             types.put(12926, VenomType.SUPER);
+            types.put(21077, VenomType.SUPER);
         }
 
         /**

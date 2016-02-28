@@ -174,14 +174,17 @@ public class Player extends Character {
 		if(weaponId == 1419) {
 			speed -= 2;
 		}
+		if(weaponId == 12926) {
+			speed -= 2;
+		}
 		if(fightType == FightType.CROSSBOW_RAPID ) {
 			speed -= (double)0.1;
 		}
-		if (fightType == FightType.LONGBOW_RAPID || weaponId == 6522 && fightType == FightType.KNIFE_RAPID || weaponId == 12926 && fightType == FightType.BLOWPIPE_RAPID || weapon.contains("rapier")) {
+		if (fightType == FightType.LONGBOW_RAPID || weaponId == 6522 && fightType == FightType.KNIFE_RAPID && fightType == FightType.BLOWPIPE_RAPID || weapon.contains("rapier")) {
 			if(weaponId != 11235 && weaponId != 21016 && weaponId != 21017 && weaponId != 21018 && weaponId != 21019 && weaponId != 21020 && weaponId != 21021 && weaponId != 21022 && weaponId != 21023) {
 				speed--;
 			}
-		} else if(weaponId != 6522 && weaponId != 15241&& weaponId != 12926 && (fightType == FightType.SHORTBOW_RAPID || fightType == FightType.DART_RAPID || fightType == FightType.BLOWPIPE_RAPID || fightType == FightType.KNIFE_RAPID || fightType == FightType.THROWNAXE_RAPID || fightType == FightType.JAVELIN_RAPID) || weaponId == 11730) {
+		} else if(weaponId != 6522 && weaponId != 15241 && (fightType == FightType.SHORTBOW_RAPID || fightType == FightType.DART_RAPID || fightType == FightType.BLOWPIPE_RAPID || fightType == FightType.KNIFE_RAPID || fightType == FightType.THROWNAXE_RAPID || fightType == FightType.JAVELIN_RAPID) || weaponId == 11730) {
 			speed -= 2;
 		}
 		return speed;
@@ -219,7 +222,7 @@ public class Player extends Character {
 	
 	@Override
 	public void venomVictim(Character victim, CombatType type) {
-		if (type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) {
+		if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) || (weapon == WeaponInterface.TOXIC_STAFF && type == CombatType.MAGIC)) {
 			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.WEAPON_SLOT)));
 		}
 	}

@@ -795,11 +795,12 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendFriend(long name, int world) {
+	public PacketSender sendFriend(long name, int world, int message) {
 		world = world != 0 ? world + 9 : world;
 		PacketBuilder out = new PacketBuilder(50);
 		out.putLong(name);
 		out.put(world);
+		out.put(message);
 		player.getSession().queueMessage(out);
 		return this;
 	}

@@ -118,6 +118,20 @@ public class World {
 		return npcs;
 	}
 	
+	/*
+	 * Gets the player according to said name in long format.
+	 * @param name	The name of the player to search for in long format.
+	 * @return		The player who has the same name as said param.
+	 */
+	public static Player getPlayerForLongName(long longName) {
+		for (Player player : players) {
+			if (player != null && player.getLongUsername() == longName) {
+				return player;
+			}
+		}
+		return null;
+	}
+	
 	public static void sequence() {
 		 // Handle queued logins.
         for (int amount = 0; amount < GameSettings.LOGIN_THRESHOLD; amount++) {

@@ -329,8 +329,7 @@ public final class CombatFactory {
 			player.getPacketSender().sendConstitutionOrbPoison(false);
 			player.getPacketSender().sendMessage("You have been poisoned with venom!");
 		}
-		
-		entity.setVenomDamage(venomType.get().getDamage());
+		entity.setVenomDamage(60);
 		TaskManager.submit(new CombatVenomEffect(entity));
 	}
 

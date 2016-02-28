@@ -75,7 +75,7 @@ public final class WeaponAnimations {
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;*/
 		}
-		else if (item.getId() == 21074) {
+		else if (item.getId() == 21074 || item.getId() == 21077) {
 			playerStandIndex = 809;
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
