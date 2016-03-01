@@ -840,11 +840,11 @@ public final class CombatFactory {
 	}
 
 	public static int calculateMaxDragonFireHit(Character e, Character v) {
-		int baseMax = 250;
+		int baseMax = 350;
 		if(e.isNpc() && v.isPlayer()) {
 			Player victim = (Player)v;
 			NPC npc = (NPC)e;
-			baseMax = (int) (npc.getDefinition().getMaxHit() * 2.5);
+			baseMax = (int) (npc.getDefinition().getMaxHit() * 3);
 			if(victim.getFireImmunity() > 0 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 1540 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283) {
 
 				if(victim.getFireDamageModifier() == 100) {

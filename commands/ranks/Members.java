@@ -1,5 +1,7 @@
 package com.ikov.commands.ranks;
 
+import java.util.concurrent.TimeUnit;
+
 import com.ikov.GameSettings;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.Locations.Location;
@@ -97,6 +99,19 @@ public class Members {
 			}
 			player.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
 			Command.open(player);
+		}
+		if (command[0].equals("stuck")) {
+			if(player.getCombatBuilder().isBeingAttacked() || player.getCombatBuilder().isAttacking()) {
+				player.getPacketSender().sendMessage("You cannot use this command while in combat!");
+				return;
+			}
+			if(!player.getStuckDelay().elapsed(300000)) {
+				player.getPacketSender().sendMessage("You have not waited the entire 5 minutes to be able to use this command again.");
+				return;
+			}
+			player.getStuckDelay().reset();
+			player.moveTo(new Position(3087, 3502, 0));
+			player.getPacketSender().sendMessage("You have gotten yourself unstuck. You must wait 5 minutes to use it again.");
 		}
 		if (command[0].equals("skull")) {
 			if(player.getSkullTimer() > 0) {
@@ -287,19 +302,6 @@ public class Members {
 			Position position = new Position(3087, 3502, 0);
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you to edgeville!");
-		}
-		if (command[0].equals("wests")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
-				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
-				return;
-			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			Position position = new Position(2980 + Misc.getRandom(3), 3596 + Misc.getRandom(3), 0);
-			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
-			player.getPacketSender().sendMessage("Teleporting you to wests!");
 		}
 		if (command[0].equals("teamspeak")) {
 			player.getPacketSender().sendMessage("Teamspeak address: ts3.ikov2.org");

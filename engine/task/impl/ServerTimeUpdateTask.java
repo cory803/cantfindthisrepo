@@ -8,6 +8,7 @@ import com.ikov.engine.task.TaskManager;
 import com.ikov.world.World;
 import com.ikov.world.content.minigames.impl.PestControl;
 import com.ikov.world.entity.impl.npc.NPC;
+import com.ikov.world.entity.impl.player.Player;
 import com.ikov.model.Position;
 import java.io.IOException;
 import java.io.BufferedReader;
@@ -26,7 +27,7 @@ public class ServerTimeUpdateTask extends Task {
 	}
 
 	private int tick = 0;
-	
+	Player player;
 	public static void start_configuration_process() {
 		TaskManager.submit(new Task(true) {
 			@Override
@@ -211,15 +212,26 @@ public class ServerTimeUpdateTask extends Task {
 			System.out.println("Saving all players that are currently logged into the GameServer.");
 			World.savePlayers();
 			int random = Misc.getRandom(5);
-			if(random == 1) {
+			switch(random) {
+			case 1:
 				World.sendMessage("<img=10> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
-			} else if(random == 2) {
+				break;
+			case 2:
 				World.sendMessage("<img=10> @blu@If you need any help join the @bla@'@dre@Ikov@bla@'@blu@ clan chat!");
-			} else if(random == 3) {
+				break;
+			case 3:
 				World.sendMessage("<img=10> @blu@Do not forget to register on the forums with the command @dre@::register@blu@!");
-			} else if(random == 4) {
-				World.sendMessage("<img=10> @blu@Do not forget to register on the forums with the command @dre@::register@blu@!");
+				break;
+			case 4:
+				World.sendMessage("<img=10> @blu@Did you know that? There is a @dre@::market@blu@ for the GE!");
+				break;
+			case 5:
+				World.sendMessage("<img=10> @blu@Remember to read all the ingame and forum rules on the forums @dre@::forums@blu@!");
+				break;
+			default:
+				World.sendMessage("<img=10> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
 			}
+			
 		}
 		if(tick >= 6 && (Locations.PLAYERS_IN_WILD >= 3 || Locations.PLAYERS_IN_DUEL_ARENA >= 3 || PestControl.TOTAL_PLAYERS >= 3)) {
 			if(Locations.PLAYERS_IN_WILD > Locations.PLAYERS_IN_DUEL_ARENA && Locations.PLAYERS_IN_WILD > PestControl.TOTAL_PLAYERS || Misc.getRandom(3) == 1 && Locations.PLAYERS_IN_WILD >= 2) {

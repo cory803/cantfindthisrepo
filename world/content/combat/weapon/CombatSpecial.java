@@ -79,7 +79,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.RANGED, true);
 		}
 	},
-	GRANITE_MAUL(new int[] { 4153, 20084 }, 50, 1.21, 1, CombatType.MELEE, WeaponInterface.WARHAMMER) {
+	GRANITE_MAUL(new int[] { 4153, 20084 }, 50, 1.05, 1, CombatType.MELEE, WeaponInterface.WARHAMMER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1667));

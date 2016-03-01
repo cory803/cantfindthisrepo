@@ -343,6 +343,7 @@ public class Player extends Character {
 	private final Stopwatch potionTimer = new Stopwatch();
 	private final Stopwatch lastRunRecovery = new Stopwatch();
 	private final Stopwatch clickDelay = new Stopwatch();
+	private final Stopwatch stuckDelay = new Stopwatch();
 	private final Stopwatch lastItemPickup = new Stopwatch();
 	private final Stopwatch lastYell = new Stopwatch();
 	private final Stopwatch lastVengeance = new Stopwatch();
@@ -1415,6 +1416,10 @@ public class Player extends Character {
 
 	public Stopwatch getClickDelay() {
 		return clickDelay;
+	}
+
+	public Stopwatch getStuckDelay() {
+		return stuckDelay;
 	}
 
 	public int[] getLeechedBonuses() {

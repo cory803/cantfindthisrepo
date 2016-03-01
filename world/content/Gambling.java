@@ -45,6 +45,7 @@ public class Gambling {
 		player.performAnimation(new Animation(11900));
 		player.performGraphic(new Graphic(2075));
 		ClanChatManager.sendMessage(player.getCurrentClanChat(), "@bla@[ClanChat] @whi@"+player.getUsername()+" just rolled @bla@" +amount+ "@whi@ on the percentile dice.");
+		player.forceChat("[HOST] "+player.getUsername()+" just ROLLED " +amount+ " on the percentile dice.");
 		player.getClickDelay().reset();
 		player.dice_other = false;
 	}
