@@ -433,7 +433,7 @@ public class Locations {
 				return true;
 			}
 		},
-		ZULRAH_PIT(new int[]{2257, 2281}, new int[]{3063, 3084}, true, true, false, false, false, false) {
+		ZULRAH_PIT(new int[]{2257, 2281}, new int[]{3063, 3084}, false, true, true, true, true, true) {
 			@Override
 			public void process(Player player) {}
 
@@ -447,11 +447,7 @@ public class Locations {
 
 			@Override
 			public void leave(Player player) {
-				player.getCombatBuilder().reset(true);
-				if(player.getRegionInstance() != null) {
-					player.getRegionInstance().destruct();
-				}
-				player.moveTo(new Position(3087, 3502));
+				Zulrah.leave_pit(player, true);
 			}
 
 			@Override

@@ -175,7 +175,7 @@ public class Player extends Character {
 			speed -= 2;
 		}
 		if(weaponId == 12926) {
-			speed -= 2;
+			speed -= 1;
 		}
 		if(fightType == FightType.CROSSBOW_RAPID ) {
 			speed -= (double)0.1;
@@ -359,6 +359,7 @@ public class Player extends Character {
 	private final CopyOnWriteArrayList<DropLogEntry> dropLog = new CopyOnWriteArrayList<DropLogEntry>();
 	private ArrayList<HouseFurniture> houseFurniture = new ArrayList<HouseFurniture>();
 	private ArrayList<Portal> housePortals = new ArrayList<>();
+	private ArrayList<NPC> Zulrah = new ArrayList<>();
 	private final List<Player> localPlayers = new LinkedList<Player>();
 	private final List<NPC> localNpcs = new LinkedList<NPC>();
 
@@ -438,12 +439,6 @@ public class Player extends Character {
 	private int fireImmunity, fireDamageModifier;
 	private int amountDonated;
 	private int credits;
-	private boolean is_zulrah_moving;
-	private int zulrah_health;
-	private int zulrah_movement;
-	private boolean is_rotating_zulrah;
-	private int zulrah_time;
-	private int zulrah_rotation;
 	private int wildernessLevel;
 	private int fireAmmo;
 	private int specialPercentage = 100;
@@ -521,15 +516,47 @@ public class Player extends Character {
 	private String last_mac_address;
 	private String last_computer_address;
 	
+	//Zulrah
+	public boolean zulrah_rotating = false;
+	public boolean zulrah_rotating_process = false;
+	public int zulrah_health = 0;
+	
+	
 	/*
 	 * Getters & Setters
 	 */
 	public int getQuestPoints() {
 		return questPoints;
 	}
+
+	public int getZulrahHealth() {
+		return zulrah_health;
+	}
+
+	public boolean getZulrahRotating() {
+		return zulrah_rotating;
+	}
+	
+	public boolean getZulrahRotatingProcess() {
+		return zulrah_rotating_process;
+	}
+	
 	public void setQuestPoints(int questPoints) {
 		this.questPoints = questPoints;
+	}	
+	
+	public void setZulrahHealth(int aa) {
+		this.zulrah_health = aa;
 	}
+
+	public void setZulrahRotating(boolean zulrahrotating) {
+		this.zulrah_rotating = zulrahrotating;
+	}
+	
+	public void setZulrahRotatingProcess(boolean zulrahrotating) {
+		this.zulrah_rotating_process = zulrahrotating;
+	}
+	
 	public void addQuestPoints(int questPoints) {
 		this.questPoints += questPoints;
 	}
@@ -972,10 +999,6 @@ public class Player extends Character {
 
 	public void decrementTeleblockTimer() {
 		teleblockTimer--;
-	}
-
-	public void decremenetZulrahTimer() {
-		zulrah_time--;
 	}
 
 	/**
@@ -1622,50 +1645,6 @@ public class Player extends Character {
 		else
 			this.credits = points;
 	}
-	
-	public int getZulrahRotation() {
-		return zulrah_rotation;
-	}	
-	
-	public int getZulrahMovement() {
-		return zulrah_movement;
-	}		
-	
-	public int getZulrahHealth() {
-		return zulrah_health;
-	}	
-	
-	public void addZulrahMovement(int rot) {
-		zulrah_movement += rot;
-	}
-	
-	public int getZulrahTime() {
-		return zulrah_time;
-	}	
-	
-	public boolean isRotatingZulrah() {
-		return is_rotating_zulrah;
-	}	
-	
-	public boolean isZulrahMoving() {
-		return is_zulrah_moving;
-	}	
-	
-	public void setRotatingZulrah(boolean wat) {
-		is_rotating_zulrah = wat;
-	}	
-	
-	public void setZulrahMovement(int wat) {
-		zulrah_movement = wat;
-	}	
-	
-	public void setZulrahHealth(int wat) {
-		zulrah_health = wat;
-	}	
-	
-	public void setZulrahMoving(boolean wat) {
-		is_zulrah_moving = wat;
-	}
 
 	public void incrementAmountDonated(int amountDonated) {
 		this.amountDonated += amountDonated;
@@ -1679,13 +1658,6 @@ public class Player extends Character {
 		return totalPlayTime;
 	}
 
-	public void setZulrahRotation(int amount) {
-		this.zulrah_rotation = amount;
-	}
-	
-	public void setZulrahTime(int amount) {
-		this.zulrah_time = amount;
-	}
 	
 	public void setTotalPlayTime(long amount) {
 		this.totalPlayTime = amount;
@@ -2161,6 +2133,10 @@ public class Player extends Character {
 	
 	public ArrayList<Portal> getHousePortals() {
 		return housePortals;
+	}	
+	
+	public ArrayList<NPC> getZulrah() {
+		return Zulrah;
 	}
 	
 	public ArrayList<HouseFurniture> getHouseFurniture() {

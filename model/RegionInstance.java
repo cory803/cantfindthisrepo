@@ -24,7 +24,8 @@ public class RegionInstance {
 		NOMAD,
 		RECIPE_FOR_DISASTER,
 		CONSTRUCTION_HOUSE,
-		CONSTRUCTION_DUNGEON;
+		CONSTRUCTION_DUNGEON,
+		ZULRAH_PIT;
 	}
 	
 	private Player owner;

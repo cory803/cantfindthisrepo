@@ -35,6 +35,11 @@ public class Item {
 	 * The item id.
 	 */
 	private int id;
+	
+	/**
+	 * The item id.
+	 */
+	private int charges;
 
 	/**
 	 * Gets the item's id.

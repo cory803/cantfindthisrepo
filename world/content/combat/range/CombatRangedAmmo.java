@@ -265,7 +265,7 @@ public class CombatRangedAmmo {
 		SHORTBOW(5, 4),
 		CROSSBOW(5, 5),
 		THROW(4, 3),
-		BLOWPIPE(4, 3),
+		BLOWPIPE(5, 3),
 		DARK_BOW(5, 5),
 		HAND_CANNON(5, 4);
 

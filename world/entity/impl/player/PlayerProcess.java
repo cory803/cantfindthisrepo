@@ -41,19 +41,13 @@ public class PlayerProcess {
 		this.previousHeight = player.getPosition().getZ();
 	}
 
-	public void sequence() {
-		
+	public void sequence() {	
 		/** COMBAT **/
 		player.getCombatBuilder().process();
-
 		/** SKILLS **/
 		if(player.shouldProcessFarming()) {
 			player.getFarming().sequence();
 		}
-		if(player.getZulrahTime() > 0) {
-			player.decremenetZulrahTimer();
-		}
-
 		if(player.getLocation() == Location.WILDERNESS) {
 			boolean continue_method = true;
 			boolean continue_lower_stats = false;

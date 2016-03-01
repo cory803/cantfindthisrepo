@@ -30,53 +30,44 @@ public class Zulrah_Green implements CombatStrategy {
 	
 	@Override
 	public boolean customContainerAttack(Character entity, Character victim) {
-		//zulrah.forceChat("Embrace darkness!");
 		NPC zulrah = (NPC)entity;
 		killer = (Player)victim;
-		if(victim.getConstitution() <= 0 || victim.getConstitution() <= 0) {
+		if(killer.getZulrahRotatingProcess()) {
 			return true;
 		}
-		if(killer.getZulrahTime() <= 0) {
-			killer.setZulrahTime(200);
-		}
-		int rotation_switch_chance = Misc.getRandom(40);
-		boolean rotate = false;
-		if(killer.getZulrahTime() < 50) {
-			if(killer.getZulrahTime() - rotation_switch_chance < 0) {
-				rotate = true;
-			}
-		}
-		if(rotate) {
-			zulrah.performAnimation(go_down);
-			killer.setRotatingZulrah(true);
-			if(killer.getZulrahMovement() == 0) {
-				killer.addZulrahMovement(1);
-			}
-			if(killer.getZulrahMovement() == 12 && killer.getZulrahRotation() != 2) {
-				killer.setZulrahMovement(1);
-			} else if(killer.getZulrahMovement() == 11 && killer.getZulrahRotation() == 2) {
-				killer.setZulrahMovement(1);
-			}
-			zulrah.getCombatBuilder().setContainer(new CombatContainer(zulrah, victim, 1, 5, CombatType.RANGED, true));
-			killer.setZulrahHealth(zulrah.getConstitution());
-			TaskManager.submit(new Task(2, zulrah, false) {
+		if(killer.getZulrahRotating()) {
+			int hp = zulrah.getConstitution();
+			killer.getCombatBuilder().reset(true);
+			killer.setZulrahRotatingProcess(true);
+			TaskManager.submit(new Task(1, killer, true) {
 				int tick = 0;
 				@Override
 				public void execute() {
-					if(tick == 3) {
-						if(killer.getZulrahRotation() >= 0) {
-							if(killer.getZulrahMovement() == 1) {
-								killer.setZulrahHealth(zulrah.getConstitution());
-								killer.addZulrahMovement(1);
-								killer.setZulrahMoving(true);
-								zulrah.appendDeath();
-								NPC new_zulrah_form = new NPC(Zulrah.ZULRAH_RED_NPC_ID, new Position(2269, 3075, killer.getPosition().getZ())).setSpawnedFor(killer);
-								World.register(new_zulrah_form);
-								killer.setZulrahMoving(false);
-								new_zulrah_form.performAnimation(go_up);
-							}
-						}
-						stop();
+					tick++;
+					if(tick == 1) {
+						zulrah.performAnimation(go_down);
+					} else if(tick == 6) {
+						killer.getRegionInstance().getNpcsList().remove(zulrah);
+						World.deregister(zulrah);
+					} else if (tick == 7) {
+						NPC new_zulrah_form = new NPC(Zulrah.ZULRAH_RED_NPC_ID, new Position(2269, 3075, killer.getPosition().getZ())).setSpawnedFor(killer);
+						World.register(new_zulrah_form);
+						killer.getRegionInstance().getNpcsList().add(new_zulrah_form);
+						new_zulrah_form.setConstitution(hp);
+						killer.setZulrahRotating(false);
+						killer.setZulrahRotatingProcess(false);
+						
+					}
+				}
+			});
+			TaskManager.submit(new Task(2, false) {
+				int tick = 0;
+				@Override
+				public void execute() {
+					switch(tick) {
+						case 1:
+							stop();
+						break;
 					}
 					tick++;
 				}
@@ -84,7 +75,6 @@ public class Zulrah_Green implements CombatStrategy {
 		} else {
 			zulrah.performAnimation(shoot);
 			zulrah.getCombatBuilder().setContainer(new CombatContainer(zulrah, victim, 1, 5, CombatType.RANGED, true));
-			killer.setZulrahHealth(zulrah.getConstitution());
 			TaskManager.submit(new Task(2, zulrah, false) {
 				int tick = 0;
 				@Override
@@ -92,6 +82,7 @@ public class Zulrah_Green implements CombatStrategy {
 					switch(tick) {
 					case 1:
 						new Projectile(zulrah, victim, 1044, 44, 3, 43, 31, 0).sendProjectile();
+						killer.setZulrahRotating(Misc.getRandom(5) == 3);
 						stop();
 						break;
 					}

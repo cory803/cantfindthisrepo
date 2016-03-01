@@ -11,6 +11,7 @@ import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.entity.impl.Character;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.model.Locations.Location;
 
 /**
  * The default combat strategy assigned to an {@link Character} during a melee
@@ -33,6 +34,17 @@ public class DefaultMeleeCombatStrategy implements CombatStrategy {
     			return false;
     		}
     	}
+		
+		if(entity.isPlayer()) {
+			Player player = (Player)entity;
+			if(victim.isNpc()) {
+				if(player.getLocation() == Location.ZULRAH_PIT) {
+					if(player.getZulrahRotating() || player.getZulrahRotatingProcess()) {
+						return false;
+					}
+				}
+			}
+		}
        
         return true;
     }

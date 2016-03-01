@@ -502,7 +502,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		if(player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Attacking npc id: "+interact.getId());
 		}
-		if(player.isZulrahMoving() && (interact.getId() == Zulrah.ZULRAH_GREEN_NPC_ID || interact.getId() == Zulrah.ZULRAH_RED_NPC_ID || interact.getId() == Zulrah.ZULRAH_BLUE_NPC_ID || interact.getId() == Zulrah.ZULRAH_JAD_NPC_ID)) {
+		if(player.getZulrahRotatingProcess() && (interact.getId() == Zulrah.ZULRAH_GREEN_NPC_ID || interact.getId() == Zulrah.ZULRAH_RED_NPC_ID || interact.getId() == Zulrah.ZULRAH_BLUE_NPC_ID || interact.getId() == Zulrah.ZULRAH_JAD_NPC_ID)) {
 			return;
 		}
 		if(interact.getId() == 1172) {
