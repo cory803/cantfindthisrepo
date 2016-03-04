@@ -119,9 +119,13 @@ public class PlayerLoading {
 			if (reader.has("position")) {
 				player.getPosition().setAs(builder.fromJson(reader.get("position"), Position.class));
 			}
-			
+
 			if(reader.has("online-status")) {
 				player.getRelations().setStatus(PrivateChatStatus.valueOf(reader.get("online-status").getAsString()), false);
+			}
+
+			if(reader.has("jailed-status")) {
+				player.setJailed(reader.get("jailed-status").getAsBoolean());
 			}
 
 			if (reader.has("money-pouch")) {

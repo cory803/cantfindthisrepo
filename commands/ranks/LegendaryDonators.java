@@ -24,6 +24,10 @@ public class LegendaryDonators {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
+		if(player.isJailed()) {
+			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
+			return;
+		}
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(player.getRights() != PlayerRights.PLAYER) {
 				return;

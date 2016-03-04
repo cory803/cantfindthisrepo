@@ -84,51 +84,61 @@ public class Administrators {
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1969, 5011, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 2:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1969, 5008, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 3:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1969, 5005, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 4:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1969, 5002, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 5:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1969, 4999, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 6:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1980, 5011, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 7:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1980, 5008, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 8:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1980, 5005, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 9:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1980, 5002, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				case 10:
 					punishee.setJailed(true);
 					punishee.forceChat("Ahh shit... They put me in jail.");
 					punishee.moveTo(new Position(1980, 4999, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
 				break;
 				default:
 				}

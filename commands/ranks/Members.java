@@ -1,16 +1,12 @@
 package com.ikov.commands.ranks;
 
-import java.util.concurrent.TimeUnit;
-
 import com.ikov.GameSettings;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Store;
 import com.ikov.world.content.combat.CombatFactory;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.util.Auth;
-import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Command;
@@ -89,8 +85,9 @@ public class Members {
 					player.getPacketSender().sendMessage("Currently Disabled.");
 			
 		}
-		if (command[0].equalsIgnoreCase("staffonline")) {
-			boolean isStaff = player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.ADMINISTRATOR || player.getRights() == PlayerRights.MODERATOR || player.getRights() == PlayerRights.SUPPORT;
+		if(player.isJailed()) {
+			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
+			return;
 		}
 		if (command[0].equalsIgnoreCase("commands")) {
 			if(player.getLocation() == Location.DUNGEONEERING) {
@@ -120,7 +117,7 @@ public class Members {
 			} else {
 			CombatFactory.skullPlayer(player);
 			}
-		}
+		}		
 		if (command[0].equalsIgnoreCase("auth")) {
 			if(player.getLocation() == Location.DUNGEONEERING) {
 				player.getPacketSender().sendMessage("You can't claim a vote in Dungeoneering!");
