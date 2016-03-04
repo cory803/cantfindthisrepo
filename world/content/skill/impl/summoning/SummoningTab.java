@@ -151,7 +151,7 @@ public class SummoningTab {
 				c.getPacketSender().sendMessage("You must wait another "+Misc.getTimeLeft(c.getLastSummon().elapsed(), 30, TimeUnit.SECONDS)+" seconds before being able to do this again.");
 				return;
 			}
-			c.getSummoning().moveFollower(false);
+			c.getSummoning().moveFollower(true);
 		} else {
 			c.getPacketSender().sendMessage("You don't have a familiar to call.");
 		}

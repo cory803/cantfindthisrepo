@@ -466,6 +466,26 @@ public class ObjectActionPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("You do not have any weeds in your inventory.");
 					}
 					break;
+				case 9706:
+					if(player.getTeleblockTimer() > 0) {
+						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+						return;
+					}
+					if (gameObject.getPosition().getX() == 3104 && gameObject.getPosition().getY() == 3956) {
+						player.setDirection(Direction.WEST);
+						TeleportHandler.teleportPlayer(player, new Position(3105, 3951), TeleportType.LEVER);
+					}
+					break;
+				case 9707:
+					if(player.getTeleblockTimer() > 0) {
+						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+						return;
+					}
+					if (gameObject.getPosition().getX() == 3105 && gameObject.getPosition().getY() == 3952) {
+						player.setDirection(Direction.NORTH);
+						TeleportHandler.teleportPlayer(player, new Position(3105, 3956), TeleportType.LEVER);
+					}
+					break;
 				case 5960: //Levers
 					if(player.getTeleblockTimer() > 0) {
 						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
@@ -475,6 +495,7 @@ public class ObjectActionPacketListener implements PacketListener {
 						player.setDirection(Direction.SOUTH);
 						TeleportHandler.teleportPlayer(player, new Position(3090, 3956), TeleportType.LEVER);
 					}
+					break;
 				case 5959:
 					if(player.getTeleblockTimer() > 0) {
 						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
