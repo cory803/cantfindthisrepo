@@ -191,6 +191,16 @@ public enum CombatSpecial {
 					true);
 		}
 	},
+	ARMADYL_CROSSBOW(new int[] { 21075 }, 40, 1, 2.0, CombatType.RANGED, WeaponInterface.CROSSBOW) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			
+			new Projectile(player, target, 301, 140, 0, 31, 15, 15).sendProjectile();
+			player.performAnimation(new Animation(4230));
+
+			return new CombatContainer(player, target, 1, CombatType.RANGED, true);
+		}
+	},
 	MAGIC_LONGBOW(new int[] { 859 }, 35, 1, 5, CombatType.RANGED, WeaponInterface.LONGBOW) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
@@ -278,6 +288,40 @@ public enum CombatSpecial {
 			player.getCombatBuilder().cooldown(true);
 		}
 
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			throw new UnsupportedOperationException(
+					"Dragon battleaxe does not have a special attack!");
+		}
+	},	
+	TOXIC_STAFF_OF_DEAD(new int[] { 21077 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
+		@Override
+		public void onActivation(Player player, Character target) {
+			player.performGraphic(new Graphic(1228, GraphicHeight.SUPER_HIGH6));
+			player.performAnimation(new Animation(1720));
+			CombatSpecial.drain(player, TOXIC_STAFF_OF_DEAD.drainAmount);
+			player.setStaffOfLightEffect(100);
+			TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
+			player.getPacketSender().sendMessage("You are shielded by the gods of the Toxic staff of the dead!");
+			player.getCombatBuilder().cooldown(true);
+		}
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			throw new UnsupportedOperationException(
+					"Dragon battleaxe does not have a special attack!");
+		}
+	},
+	STAFF_OF_DEAD(new int[] { 21074 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
+		@Override
+		public void onActivation(Player player, Character target) {
+			player.performGraphic(new Graphic(1228, GraphicHeight.SUPER_HIGH6));
+			player.performAnimation(new Animation(7083));
+			CombatSpecial.drain(player, STAFF_OF_DEAD.drainAmount);
+			player.setStaffOfLightEffect(100);
+			TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
+			player.getPacketSender().sendMessage("You are shielded by the gods of the Staff of the dead!");
+			player.getCombatBuilder().cooldown(true);
+		}
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			throw new UnsupportedOperationException(
@@ -654,11 +698,17 @@ public enum CombatSpecial {
 				return;
 			}
 			final CombatSpecial spec = player.getCombatSpecial();
-			boolean instantSpecial = spec == CombatSpecial.GRANITE_MAUL || spec == CombatSpecial.DRAGON_BATTLEAXE || spec == CombatSpecial.STAFF_OF_LIGHT;
-			if(spec != CombatSpecial.STAFF_OF_LIGHT && player.isAutocast()) {
+			boolean instantSpecial = spec == CombatSpecial.GRANITE_MAUL || spec == CombatSpecial.DRAGON_BATTLEAXE || spec == CombatSpecial.STAFF_OF_LIGHT || spec == CombatSpecial.TOXIC_STAFF_OF_DEAD || spec == CombatSpecial.STAFF_OF_DEAD;
+			if(spec != CombatSpecial.STAFF_OF_LIGHT && spec != CombatSpecial.TOXIC_STAFF_OF_DEAD && spec != CombatSpecial.STAFF_OF_DEAD && player.isAutocast()) {
 				Autocasting.resetAutocast(player, true);
 			} else if (spec == CombatSpecial.STAFF_OF_LIGHT && player.hasStaffOfLightEffect()) {
 				player.getPacketSender().sendMessage("You are already being protected by the Staff of Light!");
+				return;
+			} else if (spec == CombatSpecial.TOXIC_STAFF_OF_DEAD && player.hasStaffOfLightEffect()) {
+				player.getPacketSender().sendMessage("You are already being protected by the Toxic staff of the dead!");
+				return;
+			} else if (spec == CombatSpecial.STAFF_OF_DEAD && player.hasStaffOfLightEffect()) {
+				player.getPacketSender().sendMessage("You are already being protected by the Staff of the dead!");
 				return;
 			}
 			player.setSpecialActivated(true);

@@ -9,6 +9,7 @@ import com.ikov.model.container.impl.Inventory;
 import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.net.packet.Packet;
+import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
 import com.ikov.world.content.BonusManager;
@@ -39,6 +40,10 @@ public class EquipPacketListener implements PacketListener {
 		if(player.getInterfaceId() > 0 && player.getInterfaceId() != 21172 /* EQUIP SCREEN */) {
 			player.getPacketSender().sendInterfaceRemoval();
 			//return;
+		}
+		if(id == 9185 || id == 4734 || id == 18357 || id == 767 || id == 837) {
+			player.getPacketSender().sendInterfaceDisplayState(player.getWeapon().getSpecialBar(), true);
+			//player.setCombatSpecial(null);
 		}
 		switch (interfaceId) {
 		case Inventory.INTERFACE_ID:

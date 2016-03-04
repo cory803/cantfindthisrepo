@@ -398,6 +398,7 @@ public final class WeaponAnimations {
 		case 15444: // whip
 			return 11974;
 		case 15486:
+		case 21077:
 		case 15502:
 		case 22209:
 		case 22211:

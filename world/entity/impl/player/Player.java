@@ -222,7 +222,8 @@ public class Player extends Character {
 	
 	@Override
 	public void venomVictim(Character victim, CombatType type) {
-		if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) || (weapon == WeaponInterface.TOXIC_STAFF && type == CombatType.MAGIC)) {
+	int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
+		if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) || (weaponId == 21077 && type == CombatType.MAGIC)) {
 			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.WEAPON_SLOT)));
 		}
 	}

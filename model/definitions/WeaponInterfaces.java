@@ -30,7 +30,6 @@ public final class WeaponInterfaces {
 	 */
 	public enum WeaponInterface {
 		STAFF(328, 331, 6, new FightType[] { FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS }),
-		TOXIC_STAFF(328, 331, 6, new FightType[] { FightType.STAFF_BASH, FightType.STAFF_POUND, FightType.STAFF_FOCUS }),
 				WARHAMMER(425, 428, 6, new FightType[] { FightType.WARHAMMER_POUND,
 						FightType.WARHAMMER_PUMMEL, FightType.WARHAMMER_BLOCK }, 7474, 7486),
 						SCYTHE(776, 779, 6, new FightType[] { FightType.SCYTHE_REAP,
@@ -40,7 +39,7 @@ public final class WeaponInterfaces {
 										FightType.BATTLEAXE_HACK, FightType.BATTLEAXE_SMASH,
 										FightType.BATTLEAXE_BLOCK }, 7499, 7511),
 										CROSSBOW(1764, 1767, 5, new FightType[] { FightType.CROSSBOW_ACCURATE,
-												FightType.CROSSBOW_RAPID, FightType.CROSSBOW_LONGRANGE }, 7524, 7536),
+												FightType.CROSSBOW_RAPID, FightType.CROSSBOW_LONGRANGE }, 7549, 7561),
 												SHORTBOW(1764, 1767, 5, new FightType[] { FightType.SHORTBOW_ACCURATE,
 														FightType.SHORTBOW_RAPID, FightType.SHORTBOW_LONGRANGE }, 7549, 7561),
 														LONGBOW(1764, 1767, 6, new FightType[] { FightType.LONGBOW_ACCURATE,

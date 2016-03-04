@@ -4,6 +4,7 @@ import com.ikov.model.Item;
 import com.ikov.model.container.ItemContainer;
 import com.ikov.model.container.StackType;
 import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.content.combat.weapon.FightType;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
