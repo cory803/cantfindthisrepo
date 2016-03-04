@@ -39,6 +39,9 @@ public class SpecialPlayers {
 		if(!continue_command) {
 			return;
 		}
+		if (command[0].equals("bank")) {
+			player.getBank(player.getCurrentBankTab()).open();
+		}
 		if (command[0].equals("find")) {
 			String name = wholeCommand.substring(5).toLowerCase().replaceAll("_", " ");
 			player.getPacketSender().sendMessage("Finding item id for item - " + name);

@@ -377,7 +377,7 @@ public final class CombatFactory {
 		}
 
 		// Otherwise skull the player as normal.
-		player.setSkullTimer(300);
+		player.setSkullTimer(600);
 		player.setSkullIcon(1);
 		player.getPacketSender().sendMessage("@red@You have been skulled!");
 		TaskManager.submit(new CombatSkullEffect(player));
@@ -460,7 +460,7 @@ public final class CombatFactory {
 			switch(type) {
 			case MAGIC:
 				int mageAttk = DesolaceFormulas.getMagicAttack(p1);
-				return Misc.getRandom(DesolaceFormulas.getMagicDefence(p2)) < Misc.getRandom((mageAttk / 2)) + Misc.getRandom((int) (mageAttk/2.1));
+				return Misc.getRandom(DesolaceFormulas.getMagicDefence(p2)) < Misc.getRandom((mageAttk / 2)) + Misc.getRandom((int) (mageAttk/1.9));
 			case MELEE:
 				int def = 1 + DesolaceFormulas.getMeleeDefence(p2);
 				return Misc.getRandom(def) < Misc.getRandom(1 + DesolaceFormulas.getMeleeAttack(p1)) + (def/4.5);

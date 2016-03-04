@@ -165,15 +165,15 @@ public class Members {
 						if(GameSettings.TRIPLE_VOTE_TOKENS) {
 							player.getInventory().add(10944, 1);	
 						}
-						
-						player.setVotesClaimed(1);
-						player.voteCount++;
-						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 5 votes today. If you abuse the system your ");
-						player.getPacketSender().sendMessage("account will be banned from voting.");
+
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 						if (player.getVotesClaimed() == 100) {
 							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
 						}
+						player.setVotesClaimed(1);
+						player.voteCount++;
+						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 5 votes today. If you abuse the system your ");
+						player.getPacketSender().sendMessage("account will be banned from voting.");
 						GameSettings.AUTHS_CLAIMED++;
 						if(GameSettings.AUTHS_CLAIMED == 25) {
 							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");

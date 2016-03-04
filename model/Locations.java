@@ -199,14 +199,16 @@ public class Locations {
 				return true;
 			}
 		},
+		//3653
 		WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653}, new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472}, false, true, true, true, true, true) {
 			@Override
 			public void process(Player player) {
 				int x = player.getPosition().getX();
 				int y = player.getPosition().getY();
 				boolean ghostTown = x >= 3650 && y <= 3538;
+				boolean notInTown = y > 3507 && x < 3681;
 				boolean safeSpot = x == 3650 && y == 3472;
-				if(ghostTown && !safeSpot) {
+				if(ghostTown && !safeSpot && !notInTown) {
 					player.setWildernessLevel(60);
 				} else {
 					player.setWildernessLevel(((((y > 6400 ? y - 6400 : y) - 3520) / 8)+1));
