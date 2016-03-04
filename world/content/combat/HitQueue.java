@@ -260,7 +260,7 @@ public class HitQueue {
 						boolean soloRetaliate = !player.getCombatBuilder().isBeingAttacked();
 						boolean multiRetaliate = player.getCombatBuilder().isBeingAttacked() && player.getCombatBuilder().getLastAttacker() != victim && Location.inMulti(player);
 						boolean lastAttacker = player.getCombatBuilder().getLastAttacker() != victim;
-						if(/**soloRetaliate || multiRetaliate ||**/ lastAttacker) {
+						if(victim.isPlayer() && /**soloRetaliate || multiRetaliate ||**/ lastAttacker) {
 							CombatFactory.skullPlayer(player);
 						}
 					//}
