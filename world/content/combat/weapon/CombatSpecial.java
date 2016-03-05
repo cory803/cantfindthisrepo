@@ -195,7 +195,7 @@ public enum CombatSpecial {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			
-			new Projectile(player, target, 301, 140, 0, 31, 15, 15).sendProjectile();
+			new Projectile(player, target, 301, 98, 0, 31, 15, 15).sendProjectile();
 			player.performAnimation(new Animation(4230));
 
 			return new CombatContainer(player, target, 1, CombatType.RANGED, true);
@@ -311,6 +311,7 @@ public enum CombatSpecial {
 					"Dragon battleaxe does not have a special attack!");
 		}
 	},
+	
 	STAFF_OF_DEAD(new int[] { 21074 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
 		@Override
 		public void onActivation(Player player, Character target) {
