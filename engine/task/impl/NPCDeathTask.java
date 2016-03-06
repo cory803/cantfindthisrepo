@@ -94,7 +94,6 @@ public class NPCDeathTask extends Task {
 							Achievements.doProgress(killer, AchievementData.DEFEAT_500_BOSSES);
 						}
 					}
-					
 					Achievements.doProgress(killer, AchievementData.DEFEAT_10000_MONSTERS);
 					if(npc.getId() == 50) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_KING_BLACK_DRAGON);

@@ -78,6 +78,24 @@ public class UseItemPacketListener implements PacketListener {
 			}
 			player.setDialogueActionId(184);
 			DialogueManager.start(player, 184);
+		}	
+		if((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080) || (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
+			boolean already_has = false;
+			for(int i = 0; i < 9; i++) {
+				for(Item item : player.getBank(i).getItems()) {
+					if(item != null && item.getId() > 0 && item.getId() == 21077)
+						already_has = true;
+				}
+			}
+			if(player.getInventory().contains(21077) || player.getEquipment().contains(21077) || already_has) {
+				player.getPacketSender().sendMessage("You already have a Toxic staff of the dead.");
+			}
+			if(player.getToxicStaffCharges() >= 11000) {
+				player.getPacketSender().sendMessage("You already have 11,000 charges on your Toxic staff (uncharged).");
+				return;
+			}
+			player.setDialogueActionId(186);
+			DialogueManager.start(player, 186);
 		}
 		if(usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
 			player.getPacketSender().sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");

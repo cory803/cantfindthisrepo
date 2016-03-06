@@ -6,6 +6,9 @@ import com.ikov.model.Locations.Location;
 import com.ikov.model.Store;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.model.Position;
+import com.ikov.util.ForumDatabase;
+import java.sql.*;
+import java.util.Properties;
 import com.ikov.util.Auth;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
@@ -187,6 +190,44 @@ public class Members {
 					e.printStackTrace();
 				}
 			return;
+		}
+		if (command[0].equals("forumrank")) {
+			if(player.getForumConnections() > 0) {
+				player.getPacketSender().sendMessage("You have just used this command in the last 60 seconds, try again later!");
+				return;
+			}
+			if(!player.getRights().isStaff()) {
+				try {
+					ForumDatabase.connect();
+					player.addForumConnections(60);
+					int current_rank_id = ForumDatabase.getCurrentMemberID(player.getUsername());
+					if(current_rank_id != ForumDatabase.regular_donator 
+					&& current_rank_id != ForumDatabase.super_donator
+					&& current_rank_id != ForumDatabase.extreme_donator
+					&& current_rank_id != ForumDatabase.legendary_donator
+					&& current_rank_id != ForumDatabase.uber_donator
+					&& current_rank_id != ForumDatabase.validating
+					&& current_rank_id != ForumDatabase.members) {
+						player.getPacketSender().sendMessage("You have a rank on the forum that is not supported with this command.");
+						return;
+					} else if(current_rank_id == ForumDatabase.banned) {
+						player.getPacketSender().sendMessage("Your forum account is banned.");
+						return;
+					}
+					player.setForumConnectionsRank(player.getDonorRights());
+					if(ForumDatabase.check_has_username(player.getUsername())) {
+						ForumDatabase.update_donator_rank(player.getUsername(), player.getDonorRights());
+						player.getPacketSender().sendMessage("Your in-game rank has been added to your forum account.");
+					} else {
+						player.getPacketSender().sendMessage("We noticed you don't have a forum account! You should make one at <col=ff0000><shad=0>::register");
+					}
+					ForumDatabase.destroy_connection();
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+			} else {
+				player.getPacketSender().sendMessage("Staff members are not aloud to use this command.");
+			}
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
 			if(!GameSettings.STORE_CONNECTIONS) {

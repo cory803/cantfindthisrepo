@@ -118,7 +118,13 @@ public class ButtonClickPacketListener implements PacketListener {
 			EnergyHandler.rest(player);
 			break;
 		case -26376:
-			PlayersOnlineInterface.showInterface(player);
+		case -10463:
+			int tlNeeded = 149;
+			if(player.getSkillManager().getTotalLevel() < tlNeeded) {
+				player.getPacketSender().sendMessage("You cannot the players online until you have over "+(tlNeeded+1)+" total level.");
+			} else {
+				PlayersOnlineInterface.showInterface(player);
+			}
 			break;
 		case 27229:
 			DungeoneeringParty.create(player);

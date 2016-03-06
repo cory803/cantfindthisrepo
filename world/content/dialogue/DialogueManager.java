@@ -156,6 +156,13 @@ public class DialogueManager {
 					lines[i] = "Try again in "+GameSettings.gambler_timer_2 / 2 / 60 +" minutes.";
 				}
 			}
+			if(lines[i].contains("Zulrah's scales to your Toxic staff (uncharged)")) {
+				int amount_of_scales = player.getInventory().getAmount(21080);
+				if(amount_of_scales + player.getToxicStaffCharges() > 11000) {
+					amount_of_scales = 11000 - player.getToxicStaffCharges();
+				}
+				lines[i] = "Add "+amount_of_scales+" Zulrah's scales to your Toxic staff (uncharged)";
+			}
 		}
 		switch (dialogue.type()) {
 		case NPC_STATEMENT:

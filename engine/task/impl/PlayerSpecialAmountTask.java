@@ -27,6 +27,7 @@ public class PlayerSpecialAmountTask extends Task {
 			player.setRecoveringSpecialAttack(false);
 			stop();
 		}
+		player.decrementForumConnections();
 		player.setSpecialPercentage(amount);
 		CombatSpecial.updateBar(player);
 		if(player.getSpecialPercentage() % 50 == 0)

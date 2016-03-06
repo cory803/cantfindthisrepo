@@ -73,6 +73,8 @@ public class PlayerSaving {
 			object.addProperty("voting-points", new Integer(player.getPointsHandler().getVotingPoints()));
 			object.addProperty("slayer-points", new Integer(player.getPointsHandler().getSlayerPoints()));
 			object.addProperty("pk-points", new Integer(player.getPointsHandler().getPkPoints()));
+			object.addProperty("toxic-staff-charges", new Integer(player.getToxicStaffCharges()));
+			object.addProperty("forum-connections", new Integer(player.getForumConnections()));
 			object.addProperty("boss-points", new Integer(player.getBossPoints()));
 			object.addProperty("player-kills", new Integer(player.getPlayerKillingAttributes().getPlayerKills()));
 			object.addProperty("player-killstreak", new Integer(player.getPlayerKillingAttributes().getPlayerKillStreak()));

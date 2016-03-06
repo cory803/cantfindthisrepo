@@ -15,6 +15,10 @@ public class BonusManager {
 			ItemDefinition definition = ItemDefinition.forId(item.getId());
 			for (int i = 0; i < definition.getBonus().length; i++) {
 				bonuses[i] += definition.getBonus()[i];
+				if(player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 12926) {
+					bonuses[15] = 0;
+					player.getBonusManager().otherBonus[1] = 0;
+				}
 			}
 		}
 		for (int i = 0; i < STRING_ID.length; i++) {
@@ -67,15 +71,15 @@ public class BonusManager {
 		{"1682", "Crush"},
 		{"1683", "Magic"},
 		{"1684", "Range"},
-		{"16522", "Summoning"},
-		{"16523", "Absorb Melee"},
-		{"16524", "Absorb Magic"},
-		{"16525", "Absorb Ranged"},
+		{"1690", "Summoning"},
+		{"1691", "Absorb Melee"},
+		{"1692", "Absorb Magic"},
+		{"1693", "Absorb Ranged"},
 
 		{"1686", "Strength"},
-		{"16526", "Ranged Strength"},
+		{"1694", "Ranged Strength"},
 		{"1687", "Prayer"},
-		{"16527", "Magic Damage"}
+		{"1689", "Magic Damage"}
 	};
 
 	public static final int 

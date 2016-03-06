@@ -49,6 +49,18 @@ public class DropItemPacketListener implements PacketListener {
 		}
 		player.getPacketSender().sendInterfaceRemoval();
 		player.getCombatBuilder().cooldown(false);
+		if(item.getId() == 21077) {
+			if(player.getInventory().contains(21080) || player.getInventory().getFreeSlots() == 1) {
+				player.getInventory().delete(new Item(21077, 1));
+				player.getInventory().add(new Item(21079, 1));
+				player.getInventory().add(new Item(21080, player.getToxicStaffCharges()));
+				player.setToxicStaffCharges(0);
+				player.getPacketSender().sendMessage("You have removed the charges from your Toxic staff of the dead.");
+			} else {
+				player.getPacketSender().sendMessage("You must have atleast 1 inventory space in order to uncharge your item.");
+			}
+			return;
+		}
 		if (item != null && item.getId() != -1 && item.getAmount() >= 1) {
 			if(item.tradeable() && !ItemBinding.isBoundItem(item.getId())) {
 				player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
@@ -73,8 +85,9 @@ public class DropItemPacketListener implements PacketListener {
 					player.save();
 				}
 				Sounds.sendSound(player, Sound.DROP_ITEM);
-			} else
+			} else {
 				destroyItemInterface(player, item);
+			}
 		}
 	}
 

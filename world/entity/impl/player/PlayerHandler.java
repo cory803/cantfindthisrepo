@@ -6,6 +6,9 @@ import com.ikov.GameSettings;
 import com.ikov.GameServer;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.world.content.BankPin;
+import com.ikov.util.ForumDatabase;
+import java.sql.*;
+import java.util.Properties;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.engine.task.impl.CombatSkullEffect;
 import com.ikov.engine.task.impl.FireImmunityTask;
@@ -233,7 +236,7 @@ public class PlayerHandler {
 			BankPin.init(player, false);
 		}
 		if(player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
-			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 1);
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
 		}
 		if(!player.getBankPinAttributes().hasBankPin()) {
 			if(player.getLocation() != Location.WILDERNESS) {

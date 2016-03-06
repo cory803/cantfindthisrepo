@@ -1,6 +1,7 @@
 package com.ikov.net.packet.impl;
 
 import com.ikov.model.GameMode;
+import java.text.DecimalFormat;
 import com.ikov.model.GameObject;
 import com.ikov.model.Item;
 import com.ikov.model.Position;
@@ -477,6 +478,11 @@ public class ItemActionPacketListener implements PacketListener {
 			} else {
 				player.getPacketSender().sendMessage("You need at least 50.000 Tokkul to upgrade your Fire Cape into a TokHaar-Kal cape.");
 			}
+			break;
+			case 21077:
+				double charges = (double)player.getToxicStaffCharges() / 110;
+				DecimalFormat double_decimal_format = new DecimalFormat("#.00");
+				player.getPacketSender().sendMessage("Your Toxic staff of the dead has "+double_decimal_format.format(charges)+"% of it's charges left.");
 			break;
 		case 15262:
 			if(!player.getClickDelay().elapsed(1300))

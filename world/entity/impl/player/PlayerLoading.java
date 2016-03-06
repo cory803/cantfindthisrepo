@@ -75,6 +75,14 @@ public class PlayerLoading {
 			if (reader.has("email")) {
 				player.setEmailAddress(reader.get("email").getAsString());
 			}
+			
+			if (reader.has("toxic-staff-charges")) {
+				player.setToxicStaffCharges(reader.get("toxic-staff-charges").getAsInt());
+			}	
+			
+			if (reader.has("forum-connections")) {
+				player.setForumConnections(reader.get("forum-connections").getAsInt());
+			}
 
 			if (reader.has("staff-rights")) {
 				player.setRights(PlayerRights.valueOf(reader.get("staff-rights").getAsString()));

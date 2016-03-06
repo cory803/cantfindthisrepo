@@ -2,6 +2,7 @@ package com.ikov.world.content.dialogue;
 
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
+import com.ikov.model.input.impl.ToxicStaffZulrahScales;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.util.Misc;
 import com.ikov.model.GameMode;
@@ -1220,6 +1221,19 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 186:
+				if(player.getInventory().contains(21079)) {
+					player.getInventory().delete(new Item(21079, 1));
+					player.getInventory().add(new Item(21077, 1));
+				}
+				int amount_of_scales = player.getInventory().getAmount(21080);
+				if(amount_of_scales + player.getToxicStaffCharges() > 11000) {
+					amount_of_scales = 11000 - player.getToxicStaffCharges();
+				}
+				player.getInventory().delete(new Item(21080, amount_of_scales));
+				player.addToxicStaffCharges(amount_of_scales);
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 182:
 			case 181:
 			case 183:
@@ -1357,6 +1371,10 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+			case 186:
+				player.getPacketSender().sendEnterAmountPrompt("How many scales would you like to put on your Toxic staff?");
+				player.setInputHandling(new ToxicStaffZulrahScales());
+				break;
 			case 182:
 			case 181:
 			case 183:

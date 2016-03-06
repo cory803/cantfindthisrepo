@@ -369,6 +369,11 @@ public class ClanChatManager {
 				if(img == 4) {
 					img = 10;
 				}
+				if(img == 3) {
+					img = 2;
+				} else if(img == 2) {
+					img = 3;
+				}
 				if(!player.getRights().ownerInCC() && player.getDonorRights() == 0) {
 					if(player.getGameMode() == GameMode.IRONMAN) {
 						img = 33;

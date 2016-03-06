@@ -201,6 +201,25 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.RANGED, true);
 		}
 	},
+	TOXIC_BLOWPIPE(new int[] { 12926 }, 50, 1.5, 1.0, CombatType.RANGED, WeaponInterface.BLOWPIPE) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			new Projectile(player, target, 1043, 30, 0, 31, 15, 15).sendProjectile();
+			player.performAnimation(new Animation(5061));
+			return new CombatContainer(player, target, 1, CombatType.RANGED, true) {
+				@Override
+				public void onHit(int dmg, boolean accurate) {
+					if(accurate) {
+						int damageHeal = (int) (dmg * 0.5);
+						if(player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) < player.getSkillManager().getMaxLevel(Skill.CONSTITUTION)) {
+							int level = player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) + damageHeal > player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) ? player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) : player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) + damageHeal;
+							player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, level);
+						}
+					}
+				}
+			};
+		}
+	},
 	MAGIC_LONGBOW(new int[] { 859 }, 35, 1, 5, CombatType.RANGED, WeaponInterface.LONGBOW) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
@@ -294,7 +313,7 @@ public enum CombatSpecial {
 					"Dragon battleaxe does not have a special attack!");
 		}
 	},	
-	TOXIC_STAFF_OF_DEAD(new int[] { 21077 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
+	TOXIC_STAFF_OF_DEAD(new int[] { 21077, 21079 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
 		@Override
 		public void onActivation(Player player, Character target) {
 			player.performGraphic(new Graphic(1228, GraphicHeight.SUPER_HIGH6));

@@ -11,6 +11,8 @@ import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.content.Achievements;
+import com.ikov.world.content.Achievements.AchievementData;
 
 public class Zulrah {
 
@@ -64,6 +66,7 @@ public class Zulrah {
 			if(player.getRegionInstance() != null) {
 				player.getRegionInstance().getNpcsList().remove(n);
 			}
+			Achievements.doProgress(player, AchievementData.UNLOCK_ALL_LOYALTY_TITLES);
 			leave_pit(player, true);
 		}
 	}

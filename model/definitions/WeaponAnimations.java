@@ -75,7 +75,7 @@ public final class WeaponAnimations {
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;*/
 		}
-		else if (item.getId() == 21074 || item.getId() == 21077) {
+		else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21079) {
 			playerStandIndex = 809;
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
@@ -399,6 +399,7 @@ public final class WeaponAnimations {
 			return 11974;
 		case 15486:
 		case 21077:
+		case 21079:
 		case 15502:
 		case 22209:
 		case 22211:

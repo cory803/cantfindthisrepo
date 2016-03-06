@@ -33,7 +33,21 @@ public enum PlayerRights {
 	/*
 	 * A member who has the ability to help people better.
 	 */
-	SUPPORT(-1, "<col=FF0000><shad=0>", 1, 1);
+	SUPPORT(-1, "<col=FF0000><shad=0>", 1, 1),
+	
+	OLD_DONATOR_1(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	OLD_DONATOR_2(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	OLD_DONATOR_3(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	OLD_DONATOR_4(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	OLD_DONATOR_5(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	
+	SUPPORT_ICON(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	EX_STAFF(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	
+	/*
+	 * A member who is a YouTuber.
+	 */
+	YOUTUBER(-1, "<col=EE0101><shad=891E19>", 1, 1);
 
 	PlayerRights(int yellDelaySeconds, String yellHexColorPrefix, double loyaltyPointsGainModifier, double experienceGainModifier) {
 		this.yellDelay = yellDelaySeconds;
@@ -42,6 +56,7 @@ public enum PlayerRights {
 		this.experienceGainModifier = experienceGainModifier;
 	}
 
+	private static final ImmutableSet<PlayerRights> YT = Sets.immutableEnumSet(YOUTUBER);
 	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER);
 	private static final ImmutableSet<PlayerRights> CC = Sets.immutableEnumSet(OWNER);	
 	
@@ -81,6 +96,11 @@ public enum PlayerRights {
 	public boolean isStaff() {
 		return STAFF.contains(this);
 	}
+	
+	public boolean isYouTuber() {
+		return YT.contains(this);
+	}
+	
 	public boolean ownerInCC() {
 		return CC.contains(this);
 	}

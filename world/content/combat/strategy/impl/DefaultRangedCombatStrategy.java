@@ -123,7 +123,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		startAnimation(player);
 
 		AmmunitionData ammo = RangedWeaponData.getAmmunitionData(player);
-
+		if(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
+			ammo = AmmunitionData.DRAGON_DART;
+		}
 		if (!player.isSpecialActivated()) {
 
 			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player)) {
@@ -306,6 +308,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		int damage = container.getHits()[0].getHit().getDamage();
 		int ammo = player.getFireAmmo();
 		if(ammo == -1) {
+			return damage;
+		}
+		if(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
 			return damage;
 		}
 		double multiplier = 1;

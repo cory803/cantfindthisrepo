@@ -794,8 +794,10 @@ public final class CombatFactory {
 
 
 		int rangedStrength = ((int) player.getBonusManager().getAttackBonus()[4] / 10);
-		if(player.getRangedWeaponData() != null)
-			rangedStrength += (RangedWeaponData.getAmmunitionData(player).getStrength());
+		if(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() != 12926) {
+			if(player.getRangedWeaponData() != null)
+				rangedStrength += (RangedWeaponData.getAmmunitionData(player).getStrength());
+		}
 		int rangeLevel = player.getSkillManager().getCurrentLevel(Skill.RANGED);
 		int combatStyleBonus = 0;
 

@@ -262,7 +262,6 @@ public class LoyaltyProgramme {
 	public static void unlock(Player player, LoyaltyTitles title) {
 		if(player.getUnlockedLoyaltyTitles()[title.ordinal()])
 			return;
-		Achievements.doProgress(player, AchievementData.UNLOCK_ALL_LOYALTY_TITLES);
 		player.setUnlockedLoyaltyTitle(title.ordinal());
 		player.getPacketSender().sendMessage("You've unlocked the "+Misc.formatText(title.name().toLowerCase())+" loyalty title!");
 	}

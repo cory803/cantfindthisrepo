@@ -33,6 +33,15 @@ public class Moderators {
 				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
 			}
 		}
+		if (command[0].equals("tele")) {
+			int x = Integer.valueOf(command[1]), y = Integer.valueOf(command[2]);
+			int z = player.getPosition().getZ();
+			if (command.length > 3)
+				z = Integer.valueOf(command[3]);
+			Position position = new Position(x, y, z);
+			player.moveTo(position);
+			player.getPacketSender().sendMessage("Teleporting to " + position.toString());
+		}
 		if(wholeCommand.startsWith("silenceyell")) {
 			String yellmute = wholeCommand.substring(12);
 			Player punishee = World.getPlayerByName(yellmute);

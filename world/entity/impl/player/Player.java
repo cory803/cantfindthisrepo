@@ -475,6 +475,8 @@ public class Player extends Character {
 	private int buildFurnitureX;
 	private int buildFurnitureY;
 	private int combatRingType;
+	private int forum_connections;
+	private int forum_connections_rank;
 	
 	/*** BOOLEANS ***/
 	private boolean revsWarning = true;
@@ -524,6 +526,9 @@ public class Player extends Character {
 	public boolean zulrah_rotating = false;
 	public boolean zulrah_rotating_process = false;
 	public int zulrah_health = 0;
+	
+	//Toxic weapons
+	public int toxic_staff_charges = 0;
 	
 	
 	/*
@@ -807,6 +812,7 @@ public class Player extends Character {
 	public int getDonorRights() {
 		return donatorRights;
 	}
+	
 	public void setDonorRights(int donorRights) {
 		this.donatorRights = donorRights;
 	}
@@ -845,6 +851,18 @@ public class Player extends Character {
 
 	public PointsHandler getPointsHandler() {
 		return pointsHandler;
+	}
+	
+	public int getToxicStaffCharges() {
+		return toxic_staff_charges;
+	}
+	
+	public void setToxicStaffCharges(int charges1) {
+		toxic_staff_charges = charges1;
+	}
+	
+	public void addToxicStaffCharges(int charges1) {
+		toxic_staff_charges += charges1;
 	}
 
 	public boolean isImmuneToDragonFire() {
@@ -1847,6 +1865,10 @@ public class Player extends Character {
 		this.staffOfLightEffect--;
 	}
 
+	public void decrementForumConnections() {
+		this.forum_connections--;
+	}
+
 	public boolean openBank() {
 		return openBank;
 	}
@@ -2129,6 +2151,26 @@ public class Player extends Character {
 	
 	public int getCombatRingType() {
 		return this.combatRingType;
+	}	
+	
+	public int getForumConnections() {
+		return this.forum_connections;
+	}	
+	
+	public int getForumConnectionsRank() {
+		return this.forum_connections_rank;
+	}
+	
+	public void addForumConnections(int abcc) {
+		this.forum_connections += abcc;
+	}	
+	
+	public void setForumConnections(int abccc) {
+		this.forum_connections_rank = abccc;
+	}	
+	
+	public void setForumConnectionsRank(int abccc) {
+		this.forum_connections_rank = abccc;
 	}
 	
 	public void setCombatRingType(int combatRingType) {

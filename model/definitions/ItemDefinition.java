@@ -81,6 +81,10 @@ public class ItemDefinition {
 					int price = Integer.valueOf(value);
 					definition.value = price;
 					break;
+				case "charges":
+					int charge = Integer.valueOf(value);
+					definition.charges = charge;
+					break;
 				case "stackable":
 					definition.stackable = Boolean.valueOf(value);
 					break;
@@ -95,6 +99,9 @@ public class ItemDefinition {
 					break;
 				case "is weapon":
 					definition.weapon = Boolean.valueOf(value);
+					break;
+				case "has charges":
+					definition.has_charges = Boolean.valueOf(value);
 					break;
 				}
 			}
@@ -130,7 +137,12 @@ public class ItemDefinition {
 	/**
 	 * The id of the item.
 	 */
-	private int id = 0;
+	private int id = 0;	
+	
+	/**
+	 * The charges the item can hold @ custom.
+	 */
+	private int charges = 0;
 	
 	/**
 	 * Gets the item's id.
@@ -139,6 +151,15 @@ public class ItemDefinition {
 	 */
 	public int getId() {
 		return id;
+	}	
+	
+	/**
+	 * Gets the amount of charges held in the item @ custom.
+	 * 
+	 * @return charges.
+	 */
+	public int getCharges() {
+		return charges;
 	}
 	
 	/**
@@ -211,7 +232,12 @@ public class ItemDefinition {
 	/**
 	 * Flag that checks if item is noted.
 	 */
-	private boolean noted;
+	private boolean noted;	
+	
+	/**
+	 * Flag that checks if item has custom charges.
+	 */
+	private boolean has_charges;
 	
 	/**
 	 * Checks if item is noted.
@@ -220,6 +246,15 @@ public class ItemDefinition {
 	 */
 	public boolean isNoted() {
 		return noted;
+	}	
+	
+	/**
+	 * Checks if item has charges.
+	 * 
+	 * @return noted.
+	 */
+	public boolean hasCharges() {
+		return has_charges;
 	}
 		
 	private boolean isTwoHanded;
