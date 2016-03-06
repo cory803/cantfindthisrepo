@@ -193,7 +193,7 @@ public class Members {
 		}
 		if (command[0].equals("forumrank")) {
 			if(player.getForumConnections() > 0) {
-				player.getPacketSender().sendMessage("You have just used this command in the last 60 seconds, try again later!");
+				player.getPacketSender().sendMessage("You have just used this command, please relog and try again!");
 				return;
 			}
 			if(!player.getRights().isStaff()) {
