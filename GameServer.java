@@ -5,6 +5,7 @@ import java.io.*;
 import java.lang.Runtime;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import com.rspserver.mvh.*;
 
 import com.ikov.engine.task.impl.ServerTimeUpdateTask;
 import com.ikov.util.ShutdownHook;
@@ -39,6 +40,8 @@ public class GameServer {
 			loader.finish();
 			logger.info("Starting configuration settings...");
 			ServerTimeUpdateTask.start_configuration_process();
+			logger.info("Starting voting...");
+			AuthService.setProvider(new Motivote("qypFds9A0q2TAccrVXeAJvA8SGusjyxm"));
 			logger.info("Finished starting configuration settings...");
 			logger.info("The loader has finished loading utility tasks.");
 			logger.info("Ikov is now online on port "+GameSettings.GAME_PORT+"!");

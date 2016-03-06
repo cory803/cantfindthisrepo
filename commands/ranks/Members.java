@@ -7,6 +7,7 @@ import com.ikov.model.Store;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.model.Position;
 import com.ikov.util.ForumDatabase;
+import com.rspserver.mvh.*;
 import java.sql.*;
 import java.util.Properties;
 import com.ikov.util.Auth;
@@ -154,8 +155,8 @@ public class Members {
 			}
 			String authCode = command[1];
 				try {
-					Auth.connect();
-					if (Auth.checkVote(authCode)) {
+					boolean success = AuthService.provider().redeemNow(authCode);
+					if (success) {
 						if(GameSettings.DOUBLE_VOTE_TOKENS) {
 							player.getInventory().add(10944, 2);
 						} else {
@@ -179,9 +180,7 @@ public class Members {
 							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
 							GameSettings.AUTHS_CLAIMED = 10;
 						}
-						Auth.updateVote(authCode);
 						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
-
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid.");
 					}
@@ -194,6 +193,10 @@ public class Members {
 		if (command[0].equals("forumrank")) {
 			if(player.getForumConnections() > 0) {
 				player.getPacketSender().sendMessage("You have just used this command, please relog and try again!");
+				return;
+			}
+			if(!GameSettings.FORUM_DATABASE_CONNECTIONS) {
+				player.getPacketSender().sendMessage("This is currently disabled, try again in 30 minutes!");
 				return;
 			}
 			if(!player.getRights().isStaff()) {
