@@ -304,6 +304,7 @@ public class PlayerHandler {
 				World.getPlayers().remove(player);
 				session.setState(SessionState.LOGGED_OUT);
 				World.updatePlayersOnline();
+				player.setForumConnections(0);
 				Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Logout from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
 				return true;
 			} else {
