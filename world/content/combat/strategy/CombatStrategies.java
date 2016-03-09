@@ -123,11 +123,11 @@ public class CombatStrategies {
 		STRATEGIES.put(1160, kalphiteQueenStrategy);
 		
 		Revenant revenantStrategy = new Revenant();
-		STRATEGIES.put(6715, revenantStrategy);
-		STRATEGIES.put(6716, revenantStrategy);
-		STRATEGIES.put(6701, revenantStrategy);
-		STRATEGIES.put(6725, revenantStrategy);
-		STRATEGIES.put(6691, revenantStrategy);
+		STRATEGIES.put(13465, revenantStrategy);
+		STRATEGIES.put(13469, revenantStrategy);
+		STRATEGIES.put(13474, revenantStrategy);
+		STRATEGIES.put(13478, revenantStrategy);
+		STRATEGIES.put(13479, revenantStrategy);
 	}
 	
 	public static CombatStrategy getStrategy(int npc) {

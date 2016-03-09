@@ -33,7 +33,6 @@ public final class LoginResponses {
 		/** CHAR FILE LOADING **/
 		int playerLoadingResponse = PlayerLoading.getResult(player);
 		if(playerLoadingResponse != LOGIN_SUCCESSFUL && playerLoadingResponse != NEW_ACCOUNT) {
-			System.out.println("Character file loading for "+player.getUsername()+"");
 			return playerLoadingResponse;
 		}
 		

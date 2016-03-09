@@ -326,11 +326,11 @@ public abstract class Character extends Entity {
 		
 		if(poisonDamage != 0) {
 			if(isPlayer()) {
-				((Player)this).getPacketSender().sendConstitutionOrbPoison(true);
+				//((Player)this).getPacketSender().sendConstitutionOrbPoison(true);
 			}
 		} else {
 			if(isPlayer()) {
-				((Player)this).getPacketSender().sendConstitutionOrbPoison(false);
+				//((Player)this).getPacketSender().sendConstitutionOrbPoison(false);
 			}
 		}
 		return poisonDamage != 0;
@@ -342,11 +342,11 @@ public abstract class Character extends Entity {
 		
 		if(venomDamage != 0) {
 			if(isPlayer()) {
-				((Player)this).getPacketSender().sendConstitutionOrbVenom(true);
+				//((Player)this).getPacketSender().sendConstitutionOrbVenom(true);
 			}
 		} else {
 			if(isPlayer()) {
-				((Player)this).getPacketSender().sendConstitutionOrbVenom(false);
+				//((Player)this).getPacketSender().sendConstitutionOrbVenom(false);
 			}
 		}
 		return venomDamage != 0;

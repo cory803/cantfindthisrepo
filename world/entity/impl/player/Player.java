@@ -298,8 +298,8 @@ public class Player extends Character {
 		setTeleblockTimer(0);
 		setPoisonDamage(0);
 		setVenomDamage(0);
-		getPacketSender().sendConstitutionOrbPoison(false);
-		getPacketSender().sendConstitutionOrbVenom(false);
+		//getPacketSender().sendConstitutionOrbPoison(false);
+		//getPacketSender().sendConstitutionOrbVenom(false);
 		setStaffOfLightEffect(0);
 		performAnimation(new Animation(65535));
 		WeaponInterfaces.assign(this, getEquipment().get(Equipment.WEAPON_SLOT));

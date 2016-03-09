@@ -719,13 +719,13 @@ public class Locations {
 			public boolean handleKilledNPC(Player killer, NPC n) {
 				int index = -1;
 				int npc = n.getId();
-				if(npc == 6246 || npc == 6229 || npc == 6230 || npc == 6231) //Armadyl
+				if(npc == 6246 || npc == 6229 || npc == 6230 || npc == 6231 || npc == 6227 || npc == 6625 || npc == 6223 || npc == 6222) //Armadyl
 					index = 0;
-				else if(npc == 102 || npc == 3583 || npc == 115 || npc == 113 || npc == 6273 || npc == 6276 || npc == 6277 || npc == 6288) //Bandos
+				else if(npc == 102 || npc == 3583 || npc == 115 || npc == 113 || npc == 6273 || npc == 6276 || npc == 6277 || npc == 6288 || npc == 6265 || npc == 6263 || npc == 6261 || npc == 6260) //Bandos
 					index = 1;
-				else if(npc == 6258 || npc == 6259 || npc == 6254 || npc == 6255 || npc == 6257 || npc == 6256) //Saradomin
+				else if(npc == 6258 || npc == 6259 || npc == 6254 || npc == 6255 || npc == 6257 || npc == 6256 || npc == 6252 || npc == 6250 || npc == 6240 || npc == 6247) //Saradomin
 					index = 2;
-				else if(npc == 10216 || npc == 6216 || npc == 1220 || npc == 6007 || npc == 6219 ||npc == 6220 || npc == 6221 || npc == 49 || npc == 4418) //Zamorak
+				else if(npc == 10216 || npc == 6216 || npc == 1220 || npc == 6007 || npc == 6219 ||npc == 6220 || npc == 6221 || npc == 49 || npc == 4418 || npc == 6208 || npc == 6206 || npc == 6204 || npc == 6203) //Zamorak
 					index = 3;
 				if(index != -1) {
 					killer.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index]++;

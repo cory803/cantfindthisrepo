@@ -3,6 +3,7 @@ package com.ikov.commands.ranks;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.ikov.GameServer;
+import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
@@ -845,6 +846,17 @@ public class Owners {
 
 			player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
 		}
+		if (command[0].equals("reload")) {
+			switch(command[1]) {
+				case "itemdef":
+				case "item_definition":
+				case "item_definitions":
+					GameServer.getLoader().getEngine().submit(() -> {
+						ItemDefinition.init();
+					});
+				break;
+			}
+		}
 		if (command[0].equals("spawn")) {
 			String name = wholeCommand.substring(6, wholeCommand.indexOf(":")).toLowerCase().replaceAll("_", " ");
 			String[] what = wholeCommand.split(":");
@@ -1114,7 +1126,7 @@ public class Owners {
 			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
 		}	
 		if (command[0].equals("testzulrah")) {
-			player.getPacketSender().sendScreenFade(1, 5);
+			//player.getPacketSender().sendScreenFade(1, 5);
 			TaskManager.submit(new Task(2, player, true) {
 				int tick = 0;
 				@Override

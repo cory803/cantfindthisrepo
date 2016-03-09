@@ -39,7 +39,7 @@ public class PacketSender {
 	public PacketSender sendDetails() {
 		PacketBuilder out = new PacketBuilder(249);
 		out.put(1, ValueType.A);
-		out.putShort(player.getIndex(), ValueType.A, ByteOrder.LITTLE);
+		out.putShort(player.getIndex());
 		player.getSession().queueMessage(out);
 		return this;
 	}
@@ -70,6 +70,14 @@ public class PacketSender {
 		return this;
 	}
 
+	/**
+	 * Requests a reload of the region
+	 */
+	public PacketSender sendRegionReload() {
+		PacketBuilder out = new PacketBuilder(89);
+		player.getSession().queueMessage(out);
+		return this;
+	}
 	/**
 	 * Sets the world's system update time, once timer is 0, everyone will be disconnected.
 	 * @param time	The amount of seconds in which world will be updated in.
@@ -181,12 +189,14 @@ public class PacketSender {
 	}
 
 	public PacketSender updateSpecialAttackOrb() {
+		/* spec orb is disabled.. */
+		/*
 		PacketBuilder out = new PacketBuilder(111);
 		out.put(player.getSpecialPercentage());
 		player.getSession().queueMessage(out);
 		out = new PacketBuilder(108);
 		out.put(player.isSpecialActivated() ? 1 : 0);
-		player.getSession().queueMessage(out);
+		player.getSession().queueMessage(out);*/
 		return this;
 	}
 
@@ -196,19 +206,19 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
-	
+
 	public PacketSender sendHeight() {
 		player.getSession().queueMessage(new PacketBuilder(86).put(player.getPosition().getZ()));
 		return this;
 	}
-	
+
 	public PacketSender sendIronmanMode(int ironmanMode) {
 		PacketBuilder out = new PacketBuilder(112);
 		out.put(ironmanMode);
 		player.getSession().queueMessage(out);
 		return this;
 	}
-	
+
 	public PacketSender sendClanChatListOptionsVisible(int config) {
 		PacketBuilder out = new PacketBuilder(115);
 		out.put(config); //0 = no right click options, 1 = Kick only, 2 = demote/promote & kick
@@ -229,26 +239,7 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
-	
-	/**
-	 * Sends some information to the client about screen fading. 
-	 * @param text		the text that will be displayed in the center of the screen
-	 * @param state		the state should be either 0, -1, or 1. 
-	 * @param seconds	the amount of time in seconds it takes for the fade
-	 * to transition.
-	 * <p>
-	 * If the state is -1 then the screen fades from black to transparent.
-	 * When the state is +1 the screen fades from transparent to black. If 
-	 * the state is 0 all drawing is stopped.
-	 */
-	public PacketSender sendScreenFade(int state, int seconds) {
-		PacketBuilder out = new PacketBuilder(9);
-		out.putShort(state);
-		out.putShort(seconds);
-		player.getSession().queueMessage(out);
-		return this;
-	}
-	
+
 	public PacketSender commandFrame(int i) {
 		PacketBuilder out = new PacketBuilder(28);
 		out.put(i);
@@ -281,7 +272,6 @@ public class PacketSender {
 	}
 
 	public PacketSender sendPlayerHeadOnInterface(int id) {
-		//System.out.println("The id is: "+id);
 		PacketBuilder out = new PacketBuilder(185);
 		out.putShort(id, ValueType.A, ByteOrder.LITTLE);
 		player.getSession().queueMessage(out);
@@ -354,29 +344,7 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
-	
-	public PacketSender sendConstitutionOrbPoison(boolean poison) {
-		PacketBuilder out = new PacketBuilder(89);
-		if(poison) {
-			out.put(1);
-		} else {
-			out.put(0);
-		}
-		player.getSession().queueMessage(out);
-		return this;
-	}	
-	
-	public PacketSender sendConstitutionOrbVenom(boolean venom) {
-		PacketBuilder out = new PacketBuilder(90);
-		if(venom) {
-			out.put(1);
-		} else {
-			out.put(0);
-		}
-		player.getSession().queueMessage(out);
-		return this;
-	}
-	
+
 	public PacketSender sendTabInterface(int tabId, int interfaceId) {
 		PacketBuilder out = new PacketBuilder(71);
 		out.putShort(interfaceId);
@@ -391,7 +359,7 @@ public class PacketSender {
 		sendTabInterface(GameSettings.QUESTS_TAB, 55065);
 		sendTabInterface(GameSettings.ACHIEVEMENT_TAB, 37000);
 		sendTabInterface(GameSettings.INVENTORY_TAB, 3213);
-		sendTabInterface(GameSettings.EQUIPMENT_TAB, 27650);
+		sendTabInterface(GameSettings.EQUIPMENT_TAB, 15000);
 		sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId());
 		sendTabInterface(GameSettings.PRAYER_TAB, player.getPrayerbook().getInterfaceId());
 		//Row 2
@@ -544,6 +512,11 @@ public class PacketSender {
 		out.putShort(interfaceId);
 		out.putShort(container.capacity());
 		for (Item item: container.getItems()) {
+			if(item == null) {
+				out.put(0);
+				out.putShort(0, ValueType.A, ByteOrder.LITTLE);
+				continue;
+			}
 			if (item.getAmount() > 254) {
 				out.put((byte)255);
 				out.putInt(item.getAmount(), ByteOrder.INVERSE_MIDDLE);
@@ -669,6 +642,19 @@ public class PacketSender {
 		return this;
 	}
 
+	/*public PacketSender sendConstructionInterfaceItems(ArrayList<Furniture> items) {
+		PacketBuilder builder = new PacketBuilder(53, PacketType.SHORT);
+		builder.writeShort(38274);
+		builder.writeShort(items.size());
+		for (int i = 0; i < items.size(); i++) {
+			builder.writeByte(1);
+			builder.writeLEShortA(items.get(i).getItemId() + 1);
+		}
+		player.write(builder.toPacket());
+		return this;
+	}*/
+
+
 	public PacketSender sendInteractionOption(String option, int slot, boolean top) {
 		PacketBuilder out = new PacketBuilder(104, PacketType.BYTE);
 		out.put(slot, ValueType.C);
@@ -770,38 +756,11 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendPrivateMessage(long name, PlayerRights rights, Player p, byte[] message, int size) {
-		int rank = rights.ordinal();
-		if(rank == 0) {
-			if(p.getDonorRights() == 1) {
-				rank = 5;
-			}
-			if(p.getDonorRights() == 2) {
-				rank = 6;
-			}
-			if(p.getDonorRights() == 3) {
-				rank = 7;
-			}
-			if(p.getDonorRights() == 4) {
-				rank = 8;
-			}
-			if(p.getDonorRights() == 5) {
-				rank = 9;
-			}
-		}
-		if(rank == 4) {
-			rank = 10;
-		}
-		if(p.getGameMode() == GameMode.IRONMAN) {
-			rank = 13;
-		}
-		if(p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			rank = 12;
-		}
+	public PacketSender sendPrivateMessage(long name, PlayerRights rights, byte[] message, int size) {
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
 		out.putInt(player.getRelations().getPrivateMessageId());
-		out.put(rank);
+		out.put(rights.ordinal());
 		out.putBytes(message, size);
 		player.getSession().queueMessage(out);
 		return this;
@@ -814,20 +773,11 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendFriend(long name, int world, int message) {
+	public PacketSender sendFriend(long name, int world) {
 		world = world != 0 ? world + 9 : world;
 		PacketBuilder out = new PacketBuilder(50);
 		out.putLong(name);
 		out.put(world);
-		out.put(message);
-		player.getSession().queueMessage(out);
-		return this;
-	}
-	
-	public PacketSender sendClanMember(String clan_member, int value) {
-		PacketBuilder out = new PacketBuilder(51);
-		out.putString(clan_member);
-		out.put(value);
 		player.getSession().queueMessage(out);
 		return this;
 	}
@@ -840,9 +790,9 @@ public class PacketSender {
 	}
 
 	public PacketSender sendIgnoreList() {
-		PacketBuilder out = new PacketBuilder(214, PacketType.BYTE);
+		PacketBuilder out = new PacketBuilder(214, PacketType.SHORT);
 		int amount = player.getRelations().getIgnoreList().size();
-		out.putString(""+amount);
+		out.putShort(amount);
 		for(int i = 0; i < amount; i++)
 			out.putString(""+player.getRelations().getIgnoreList().get(i));
 		player.getSession().queueMessage(out);
@@ -922,7 +872,14 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
-
+	public PacketSender createGroundItem(int itemID, Position position, int itemAmount) {
+		sendPosition(position);
+		PacketBuilder out = new PacketBuilder(44);
+		out.putShort(itemID, ValueType.A, ByteOrder.LITTLE);
+		out.putShort(itemAmount).put(0);
+		player.getSession().queueMessage(out);
+		return this;
+	}
 	public PacketSender removeGroundItem(int itemID, int itemX, int itemY, int Amount) {
 		sendPosition(new Position(itemX, itemY));
 		PacketBuilder out = new PacketBuilder(156);
@@ -1001,6 +958,16 @@ public class PacketSender {
 		}
 	}
 
+	public PacketSender sendCombatBoxData(Character character) {
+		
+		return this;
+	}
+
+	public PacketSender sendHideCombatBox() {
+		player.getSession().queueMessage(new PacketBuilder(128));
+		return this;
+	}
+
 	public void sendObject_cons(int objectX, int objectY, int objectId, int face, int objectType, int height) {
 		sendPosition(new Position(objectX, objectY));
 		PacketBuilder bldr = new PacketBuilder(152);
@@ -1011,7 +978,7 @@ public class PacketSender {
 		}
 	}
 
-	public PacketSender constructMapRegion(Palette palette) {
+	/*public PacketSender constructMapRegion(Palette palette) {
 		PacketBuilder bldr = new PacketBuilder(241, PacketType.SHORT);
 		if(palette != null) {
 			bldr.putString("palette"); //Inits map construction sequence
@@ -1036,6 +1003,30 @@ public class PacketSender {
 		} else {
 			bldr.putString("null"); //Resets map construction sequence
 		}
+		player.getSession().queueMessage(bldr);
+		return this;
+	}
+	 */
+	public PacketSender constructMapRegion(Palette palette) {
+		PacketBuilder bldr = new PacketBuilder(241, PacketType.SHORT);
+		bldr.putShort(player.getPosition().getRegionY() + 6, ValueType.A);
+		for (int z = 0; z < 4; z++) {
+			for (int x = 0; x < 13; x++) {
+				for (int y = 0; y < 13; y++) {
+					PaletteTile tile = palette.getTile(x, y, z);
+					boolean b = false;
+					if (x < 2 || x > 10 || y < 2 || y > 10)
+						b = true;
+					int toWrite = !b && tile != null ? 5 : 0;
+					bldr.put(toWrite);
+					if(toWrite == 5) {
+						int val = tile.getX() << 14 | tile.getY() << 3 | tile.getZ() << 24 | tile.getRotation() << 1;
+						bldr.putString(""+val+"");
+					}
+				}
+			}
+		}
+		bldr.putShort(player.getPosition().getRegionX() + 6);
 		player.getSession().queueMessage(bldr);
 		return this;
 	}

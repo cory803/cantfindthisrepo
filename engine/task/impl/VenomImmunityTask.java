@@ -34,7 +34,7 @@ public class VenomImmunityTask extends Task {
 		boolean startEvent = currentImmunity == 0;
 		p.setVenomImmunity(currentImmunity+seconds);
 		p.setVenomDamage(0);
-		p.getPacketSender().sendConstitutionOrbVenom(false);
+		//p.getPacketSender().sendConstitutionOrbVenom(false);
 		if(!startEvent)
 			return;
 		TaskManager.submit(new VenomImmunityTask(p));

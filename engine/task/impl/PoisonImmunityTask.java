@@ -34,7 +34,7 @@ public class PoisonImmunityTask extends Task {
 		boolean startEvent = currentImmunity == 0;
 		p.setPoisonImmunity(currentImmunity+seconds);
 		p.setPoisonDamage(0);
-		p.getPacketSender().sendConstitutionOrbPoison(false);
+		//p.getPacketSender().sendConstitutionOrbPoison(false);
 		if(!startEvent)
 			return;
 		TaskManager.submit(new PoisonImmunityTask(p));

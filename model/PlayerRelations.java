@@ -119,12 +119,12 @@ public class PlayerRelations {
 		}
 		*/
 		for (long list : friendList) {
-			player.getPacketSender().sendFriend(list, World.getPlayerForLongName(list) != null ? 1 : 0, 0);
+			player.getPacketSender().sendFriend(list, World.getPlayerForLongName(list) != null ? 1 : 0);
 		}
 		
 		for (Player other : World.getPlayers()) {
 			if (other != null && other.getRelations().getFriendList().contains(player.getLongUsername())) {
-				other.getPacketSender().sendFriend(player.getLongUsername(), online ? 1 : 0, 0);
+				other.getPacketSender().sendFriend(player.getLongUsername(), online ? 1 : 0);
 			}
 		}
 		return this;
@@ -137,7 +137,7 @@ public class PlayerRelations {
 
 	public void sendFriends() {
 		for(int i = 0; i < player.getRelations().getFriendList().size(); i++) {
-			player.getPacketSender().sendFriend(player.getRelations().getFriendList().get(i), 0, 1);
+			player.getPacketSender().sendFriend(player.getRelations().getFriendList().get(i), 0);
 		}
 	}
 	
@@ -280,7 +280,7 @@ public class PlayerRelations {
 			Logs.write_data(this.player.getUsername()+ ".txt", "advertisers", "Player was caught saying in private message: "+Misc.textUnpack(message, size).replaceAll(";", ".")+"");
 			return;
 		}
-		friend.getPacketSender().sendPrivateMessage(player.getLongUsername(), player.getRights(), player, message, size);
+		friend.getPacketSender().sendPrivateMessage(player.getLongUsername(), player.getRights(), message, size);
 		Logs.write_data(friend.getUsername()+ ".txt", "private_messages", "Recieved from "+this.player.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
 		Logs.write_data(this.player.getUsername()+ ".txt", "private_messages", "Sent to "+friend.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
 	}

@@ -113,6 +113,8 @@ public class ForumDatabase {
 			donator_rank = legendary_donator;
 		} else if(donator_rank == 5) {
 			donator_rank = uber_donator;
+		} else if(donator_rank == 0) {
+			donator_rank = members;
 		}
 		try {
 			PreparedStatement statement = getConnection().prepareStatement("UPDATE `members` SET `member_group_id` = '"+donator_rank+"' WHERE `name` = '"+username+"'");

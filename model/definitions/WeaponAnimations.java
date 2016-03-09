@@ -69,7 +69,7 @@ public final class WeaponAnimations {
 		} else if(weaponName.contains("silverlight")
 				|| weaponName.contains("korasi's") || weaponName.contains("katana")) {
 			playerStandIndex = 12021;
-			playerRunIndex = 12023;
+			playerRunIndex = 1210;
 			playerWalkIndex = 12024;/*
 			playerStandIndex = 8980;
 			playerRunIndex = 1210;
@@ -105,7 +105,7 @@ public final class WeaponAnimations {
 		if(weaponName.toLowerCase().contains("rapier")) {
 			playerStandIndex = 12021;
 			playerWalkIndex = 12024;
-			playerRunIndex = 12023;
+			playerRunIndex = 1210;
 			/*
 			playerStandIndex = 8980;
 			playerRunIndex = 1210;

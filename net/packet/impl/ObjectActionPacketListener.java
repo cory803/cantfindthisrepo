@@ -1338,6 +1338,11 @@ public class ObjectActionPacketListener implements PacketListener {
 					Stalls.stealFromStall(player, 65, 7990, 1389, "You steal a staff.");
 					break;
 				case 4878:
+					if(player.getGameMode().equals(GameMode.IRONMAN) || player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
+						int chance = Misc.getRandom(100);
+						if(chance == 1)
+							player.getInventory().add(4587, 1);
+					}
 					ran = Misc.getRandom(800);
 					if(ran == 250) {
 						player.getInventory().add(7956, 1);

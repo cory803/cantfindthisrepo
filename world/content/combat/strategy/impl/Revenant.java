@@ -17,11 +17,11 @@ public class Revenant implements CombatStrategy {
 
 	enum REVENANT_DATA {
 
-		REVENANT_IMP(6715, new Animation(7500), new Animation(7501)),
-		REVENANT_GOBLIN(6716, new Animation(7499), new Animation(7513)),
-		REVENANT_WEREWOLF(6701, new Animation(7496), new Animation(7521)),
-		REVENANT_ORK(6725, new Animation(7505), new Animation(7518)),
-		REVENANT_DARK_BEAST(6691, new Animation(7502), new Animation(7514));
+		REVENANT_IMP(13465, new Animation(7500), new Animation(7501)),
+		REVENANT_GOBLIN(13469, new Animation(7499), new Animation(7513)),
+		REVENANT_WEREWOLF(13474, new Animation(7496), new Animation(7521)),
+		REVENANT_ORK(13478, new Animation(7505), new Animation(7518)),
+		REVENANT_DARK_BEAST(13479, new Animation(7502), new Animation(7514));
 
 		REVENANT_DATA(int npc, Animation magicAttack, Animation rangedAttack) {
 			this.npc = npc;

@@ -23,7 +23,7 @@ public class Mandrith {
 
 			@Override
 			public int npcId() {
-				return 8725;
+				return 6537;
 			}
 
 			@Override
