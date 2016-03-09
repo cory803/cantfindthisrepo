@@ -1831,7 +1831,7 @@ public enum CombatSpells {
 						((Player) cast).getPacketSender().sendMessage(
 								"The spell has no effect because the player is already teleblocked.");
 						player2.getPacketSender().sendMessage(
-								"The teleblock spell has no effect because the you are already teleblocked.");
+								"The teleblock spell has no effect because you were already teleblocked.");
 					}
 					return;
 				}

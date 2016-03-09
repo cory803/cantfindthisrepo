@@ -162,9 +162,9 @@ public enum CombatSpecial {
 						int defDecrease = (int) (currentDef * 0.11);
 						if((currentDef - defDecrease) <= 0 || currentDef <= 0)
 							return;
-						t.getSkillManager().setCurrentLevel(Skill.DEFENCE, defDecrease);
-						t.getPacketSender().sendMessage("Your opponent has reduced your Defence level.");
-						player.getPacketSender().sendMessage("Your hammer forces some of your opponent's defences to break.");
+//						t.getSkillManager().setCurrentLevel(Skill.DEFENCE, defDecrease);
+//						t.getPacketSender().sendMessage("Your opponent has reduced your Defence level.");
+//						player.getPacketSender().sendMessage("Your hammer forces some of your opponent's defences to break.");
 					}
 				}
 			};

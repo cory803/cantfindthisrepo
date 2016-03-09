@@ -102,6 +102,10 @@ public class Members {
 			Command.open(player);
 		}
 		if (command[0].equals("stuck")) {
+			if(player.getTeleblockTimer() > 0) {
+				player.getPacketSender().sendMessage("You cannot teleport with this command while teleblocked.");
+				return;
+			}
 			if(player.getCombatBuilder().isBeingAttacked() || player.getCombatBuilder().isAttacking()) {
 				player.getPacketSender().sendMessage("You cannot use this command while in combat!");
 				return;

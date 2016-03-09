@@ -662,6 +662,11 @@ public class Shop extends ItemContainer {
 			if(shop == VOTING_REWARDS_STORE || shop == IRON_VOTING_REWARDS_STORE) {
 				switch(item) {
 				//iron man shop
+				case 12:
+				case 10:
+				case 8:
+				case 6:
+					return new Object[]{1, "Voting points"};
 				case 1275:
 				case 1359:
 					return new Object[]{5, "Voting points"};

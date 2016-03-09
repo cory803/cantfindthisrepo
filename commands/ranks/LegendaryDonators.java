@@ -1,5 +1,7 @@
 package com.ikov.commands.ranks;
 
+import java.util.concurrent.TimeUnit;
+
 import com.ikov.GameSettings;
 import com.ikov.model.MagicSpellbook;
 import com.ikov.world.content.combat.magic.Autocasting;
@@ -7,6 +9,7 @@ import com.ikov.world.content.combat.prayer.CurseHandler;
 import com.ikov.world.content.combat.prayer.PrayerHandler;
 import com.ikov.model.Prayerbook;
 import com.ikov.model.Locations.Location;
+import com.ikov.util.Misc;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.GameMode;
 import com.ikov.model.Position;
@@ -48,9 +51,8 @@ public class LegendaryDonators {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			int delay = player.getRights().getYellDelay();
-			if(!player.getLastYell().elapsed((delay * 1000))) {
-				player.getPacketSender().sendMessage("You must wait at least "+delay+" seconds between every yell-message you send.");
+			if(!player.getYellTimer().elapsed(5000)) {
+				player.getPacketSender().sendMessage("Do not flood the yell channel. You must wait another "+Misc.getTimeLeft(0, 5, TimeUnit.SECONDS)+" seconds before yelling again.");
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
@@ -60,16 +62,16 @@ public class LegendaryDonators {
 			}
 			if(player.getGameMode() == GameMode.IRONMAN) {
 				World.sendYell("<img=33> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
-				player.getLastYell().reset();
+				player.getYellTimer().reset();
 				return;
 			}
 			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 				World.sendYell("<img=32> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
-				player.getLastYell().reset();
+				player.getYellTimer().reset();
 				return;
 			}
 			World.sendYell("<img=8> <col=0>[<col=3E0069>Legendary<col=0>] "+player.getUsername()+": "+yellMessage);	
-			player.getLastYell().reset();
+			player.getYellTimer().reset();
 		}
 		if (command[0].equals("ancients")) {
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {

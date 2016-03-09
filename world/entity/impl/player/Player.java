@@ -339,6 +339,7 @@ public class Player extends Character {
 	private long moneyInPouch;
 	private long totalPlayTime;
 	//Timers (Stopwatches)
+	private final Stopwatch yellTimer = new Stopwatch();
 	private final Stopwatch sqlTimer = new Stopwatch();
 	public boolean pestControlSolo = false;
 	private final Stopwatch foodTimer = new Stopwatch();
@@ -348,7 +349,6 @@ public class Player extends Character {
 	private final Stopwatch clickDelay = new Stopwatch();
 	private final Stopwatch stuckDelay = new Stopwatch();
 	private final Stopwatch lastItemPickup = new Stopwatch();
-	private final Stopwatch lastYell = new Stopwatch();
 	private final Stopwatch lastVengeance = new Stopwatch();
 	private final Stopwatch emoteDelay = new Stopwatch();
 	private final Stopwatch specialRestoreTimer = new Stopwatch();
@@ -1649,10 +1649,6 @@ public class Player extends Character {
 		this.targeted = targeted;
 	}
 
-	public Stopwatch getLastYell() {
-		return lastYell;
-	}
-
 	public int getAmountDonated() {
 		return amountDonated;
 	}
@@ -1759,6 +1755,10 @@ public class Player extends Character {
 		return this;
 	}
 
+	public Stopwatch getYellTimer() {
+		return yellTimer;
+	}
+	
 	public Stopwatch getSqlTimer() {
 		return sqlTimer;
 	}
