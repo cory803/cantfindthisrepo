@@ -71,6 +71,15 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 			NPC npc = (NPC) entity;
 
 			switch (npc.getId()) {
+			case 912: //zammy battle mage
+				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.FIRE_BLAST, CombatSpells.FLAMES_OF_ZAMORAK, CombatSpells.ENTANGLE }).getSpell(), victim);
+				break;
+			case 913: //sara battle mage
+				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.FIRE_BLAST, CombatSpells.SARADOMIN_STRIKE, CombatSpells.ENTANGLE }).getSpell(), victim);
+				break;
+			case 914: //guthix battle mage
+				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.FIRE_BLAST, CombatSpells.CLAWS_OF_GUTHIX, CombatSpells.ENTANGLE }).getSpell(), victim);
+				break;
 			case 13:
 			case 172:
 			case 174:

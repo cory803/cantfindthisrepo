@@ -44,6 +44,9 @@ public class CombatStrategies {
 	
 	public static void init() {
 		DefaultMagicCombatStrategy defaultMagicStrategy = new DefaultMagicCombatStrategy();
+		STRATEGIES.put(912, defaultMagicStrategy);
+		STRATEGIES.put(913, defaultMagicStrategy);
+		STRATEGIES.put(914, defaultMagicStrategy);
 		STRATEGIES.put(13, defaultMagicStrategy);
 		STRATEGIES.put(172, defaultMagicStrategy);
 		STRATEGIES.put(174, defaultMagicStrategy);
