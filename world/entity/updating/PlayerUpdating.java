@@ -7,6 +7,7 @@ import com.ikov.model.ChatMessage.Message;
 import com.ikov.model.Direction;
 import com.ikov.model.Flag;
 import com.ikov.model.Gender;
+import com.ikov.model.GameMode;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
@@ -395,26 +396,29 @@ public class PlayerUpdating {
 	 */
 	private static void updateChat(PacketBuilder builder, Player target) {
 		int rankId = target.getRights().ordinal();
-		if(rankId == 0) {
-			if(target.getDonorRights() == 1) {
-				rankId = 5;
-			}
-			if(target.getDonorRights() == 2) {
-				rankId = 6;
-			}
-			if(target.getDonorRights() == 3) {
-				rankId = 7;
-			}
-			if(target.getDonorRights() == 4) {
-				rankId = 8;
-			}
-			if(target.getDonorRights() == 5) {
-				rankId = 9;
-			}
-		}
-		if(rankId == 4) {
-			rankId = 10;
-		}
+				if(rankId == 0) {
+					if(target.getDonorRights() == 1) {
+						rankId = 7;
+					}
+					if(target.getDonorRights() == 2) {
+						rankId = 8;
+					}
+					if(target.getDonorRights() == 3) {
+						rankId = 9;
+					}
+					if(target.getDonorRights() == 4) {
+						rankId = 10;
+					}
+					if(target.getDonorRights() == 5) {
+						rankId = 11;
+					}
+				}
+				if(target.getGameMode() == GameMode.IRONMAN) {
+					rankId = 12;
+				}
+				if(target.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					rankId = 13;
+				}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
@@ -545,26 +549,29 @@ public class PlayerUpdating {
 	 */
 	private static void updateAppearance(Player player, PacketBuilder out, Player target) {	
 		int rankId = target.getRights().ordinal();
-		if(rankId == 0) {
-			if(target.getDonorRights() == 1) {
-				rankId = 5;
-			}
-			if(target.getDonorRights() == 2) {
-				rankId = 6;
-			}
-			if(target.getDonorRights() == 3) {
-				rankId = 7;
-			}
-			if(target.getDonorRights() == 4) {
-				rankId = 8;
-			}
-			if(target.getDonorRights() == 5) {
-				rankId = 9;
-			}
-		}
-		if(rankId == 4) {
-			rankId = 10;
-		}
+				if(rankId == 0) {
+					if(target.getDonorRights() == 1) {
+						rankId = 7;
+					}
+					if(target.getDonorRights() == 2) {
+						rankId = 8;
+					}
+					if(target.getDonorRights() == 3) {
+						rankId = 9;
+					}
+					if(target.getDonorRights() == 4) {
+						rankId = 10;
+					}
+					if(target.getDonorRights() == 5) {
+						rankId = 11;
+					}
+				}
+				if(target.getGameMode() == GameMode.IRONMAN) {
+					rankId = 12;
+				}
+				if(target.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					rankId = 13;
+				}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();
 		PacketBuilder properties = new PacketBuilder();

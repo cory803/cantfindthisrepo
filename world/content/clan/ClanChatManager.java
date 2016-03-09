@@ -12,6 +12,15 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Map.Entry;
 
 import com.ikov.model.GameMode;
 import com.ikov.model.Item;
@@ -25,6 +34,7 @@ import com.ikov.world.entity.impl.player.Player;
  * @author Gabriel Hannason
  */
 public class ClanChatManager {
+
 
 	private static final String FILE_DIRECTORY = "./data/saves/clans/";
 
@@ -49,143 +59,70 @@ public class ClanChatManager {
 		return null;
 	}
 
-	/**
-	 * Loads all the files located in the directory {@link #FILE_DIRECTORY}
-	 * and populates the {@link #clans} array.
-	 */
 	public static void init() {
 		try {
-			final long startup = System.currentTimeMillis();
-			int amount = 0;
-			
-			final File directory = new File(FILE_DIRECTORY);
-			
-			if (!directory.exists()) {
-				Logger.getLogger(ClanChatManager.class.getName()).info("Directory for clan files does NOT exist!");
-				return;
+			for (File file : (new File(FILE_DIRECTORY)).listFiles()) {
+				if(!file.exists())
+					continue;
+				DataInputStream input = new DataInputStream(new FileInputStream(file));
+				String name = input.readUTF();
+				String owner = input.readUTF();
+				int index = input.readShort();
+				ClanChat clan = new ClanChat(owner, name, index);
+				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_ENTER, ClanChatRank.forId(input.read()));
+				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_KICK, ClanChatRank.forId(input.read()));
+				clan.setRankRequirements(ClanChat.RANK_REQUIRED_TO_TALK, ClanChatRank.forId(input.read()));
+			//	int totalRanks = input.readShort();
+				//for (int i = 0; i < totalRanks; i++) {
+				//	clan.getRankedNames().put(input.readUTF(), ClanChatRank.forId(input.read()));
+				//}
+			//	int totalBans = input.readShort();
+			//	for (int i = 0; i < totalBans; i++) {
+			//		clan.addBannedName(input.readUTF());
+			//	}
+				clans[index] = clan;
+				input.close();
 			}
-
-			final File[] files = new File(FILE_DIRECTORY).listFiles();
-			
-			System.out.println("Loading clan chat channels...");
-			for (File file : files) {
-				final BufferedReader reader = new BufferedReader(new FileReader(file));
-				String line = null;
-				
-				ClanChat clan = null;
-				String name = null;
-				String owner = null;
-				int index = -1;
-				
-				while ((line = reader.readLine()) != null) {
-					final String[] split = line.split(": ");
-					if (split.length < 2)
-						continue;
-					final String tag = split[0];
-					final String value = split[1];
-					
-					if (tag.equals("name")) {
-						name = value;
-					} else if (tag.equals("owner")) {
-						owner = value;
-					} else if (tag.equals("index")) {
-						index = Integer.valueOf(value);
-						
-						clan = new ClanChat(owner, name, index);
-					} else if (tag.startsWith("rank_requirement")) {
-						final String substring = tag.substring(tag.indexOf('[') + 1, tag.indexOf(']'));
-						final int arrayIndex = Integer.valueOf(substring);
-						
-						if (clan != null)
-							clan.setRankReqs(arrayIndex, Integer.valueOf(value));
-					} else if (tag.startsWith("ranked_member")) {
-						final String player_name = tag.substring(tag.indexOf('[') + 1, tag.indexOf(']'));
-						if (value != null && !value.equals("null")) {
-							try {
-								final ClanChatRank rank = ClanChatRank.valueOf(value);
-								if (clan != null && rank != null)
-									clan.getRankedNames().put(player_name, rank);
-							} catch (IllegalArgumentException e) {
-								e.printStackTrace();
-							}
-						}
-					}
-				}
-				reader.close();
-				
-				if (index < clans.length && index >= 0)
-					clans[index] = clan;
-				amount++;
-			}
-			System.out.println("Loaded " + amount + " clan chat channel" + (amount != 1 ? "s" : "") + " in " + (System.currentTimeMillis() - startup) + "ms");
-			
 		} catch (IOException exception) {
 			exception.printStackTrace();
-			
 		}
 	}
 
-	/**
-	 * Writes a file with information from said
-	 * {@link ClanChat}.
-	 * @param clan	The clan chat to get information from.
-	 */
 	public static void writeFile(ClanChat clan) {
 		try {
-			if (!new File(FILE_DIRECTORY).exists()) {
-				Logger.getLogger(ClanChatManager.class.getName()).info("Directory for clan files does NOT exist!");
-				return;
-			}
-			final File file = new File(FILE_DIRECTORY + clan.getOwnerName());
-			final BufferedWriter writer = new BufferedWriter(new FileWriter(file));
-			
-			writer.write("name: " + clan.getName());
-			writer.newLine();
-			
-			writer.write("owner: " + clan.getOwnerName());
-			writer.newLine();
-			
-			writer.write("index: " + clan.getIndex());
-			writer.newLine();
-			writer.newLine();
-			
-			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_ENTER + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_ENTER]);
-			writer.newLine();
-			
-			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_TALK + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_TALK]);
-			writer.newLine();
-			
-			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_KICK + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_KICK]);
-			writer.newLine();
-			
-			writer.write("rank_requirement[" + ClanChat.RANK_REQUIRED_TO_BAN + "]: " + clan.getRankReqs()[ClanChat.RANK_REQUIRED_TO_BAN]);
-			writer.newLine();
-			
+			File file = new File(FILE_DIRECTORY + clan.getName());
+			if (file.exists())
+				file.createNewFile();
+			DataOutputStream output = new DataOutputStream(new FileOutputStream(file));
+			output.writeUTF(clan.getName());
+			output.writeUTF(clan.getOwnerName());
+			output.writeShort(clan.getIndex());
+			output.write(clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_ENTER] != null ? clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_ENTER].ordinal() : -1);
+			output.write(clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_KICK] != null ? clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_KICK].ordinal() : -1);
+			output.write(clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_TALK] != null ? clan.getRankRequirement()[ClanChat.RANK_REQUIRED_TO_TALK].ordinal() : -1);
+			output.writeShort(clan.getRankedNames().size());
 			for (Entry<String, ClanChatRank> iterator : clan.getRankedNames().entrySet()) {
-				if (iterator.getValue() == ClanChatRank.STAFF)
-					continue;
-				writer.newLine();
-				writer.write("ranked_member[" + iterator.getKey() + "]: " + iterator.getValue() );
+				String name = iterator.getKey();
+				int rank = iterator.getValue().ordinal();
+				output.writeUTF(name);
+				output.write(rank);
 			}
-			
-			writer.close();
+			output.writeShort(clan.getBannedNames().size());
+			for(String ban : clan.getBannedNames()) {
+				output.writeUTF(ban);
+			}
+			output.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public static void save() {
-		final long startup = System.currentTimeMillis();
-		int amount = 0;
-		System.out.println("Saving all clan chats configurations...");
 		for (ClanChat clan : clans) {
 			if (clan != null) {
 				writeFile(clan);
-				amount++;
 			}
 		}
-		
-		System.out.println("Saved " + amount + " clan configuration(s) in " + (System.currentTimeMillis() - startup) + "ms");
 	}
 
 	public static void createClan(Player player) {
@@ -294,20 +231,16 @@ public class ClanChatManager {
 		for (Player member : clan.getMembers()) {
 			if (member != null) {
 				int childId = 29344;
-				int value = 0;
-				member.getPacketSender().sendString(1, "[CLEAR]");
 				for (Player others : clan.getMembers()) {
 					if (others != null) {
 						ClanChatRank rank = clan.getRank(others);
 						int image = -1;
 						if(rank != null) {
-							image = 34 + rank.ordinal();
+							image = 841 + rank.ordinal();
 						}
-						member.getPacketSender().sendString(1, others.getUsername() + "-[CLAN]-" + value);
 						String prefix = image >= 0 ? ("<img=" + (image) +  "> ") : "";
 						member.getPacketSender().sendString(childId, prefix + others.getUsername());
 						childId++;
-						value++;
 					}
 				}
 				for (int i = childId; i < 29444; i++) {
@@ -325,7 +258,7 @@ public class ClanChatManager {
 				}
 			}
 		}
-	}	
+	}
 
 	public static void sendMessage(Player player, String message) {
 		ClanChat clan = player.getCurrentClanChat();
@@ -351,39 +284,30 @@ public class ClanChatManager {
 				int img = player.getRights().ordinal();
 				if(img == 0) {
 					if(player.getDonorRights() == 1) {
-						img = 5;
-					}
-					if(player.getDonorRights() == 2) {
-						img = 6;
-					}
-					if(player.getDonorRights() == 3) {
 						img = 7;
 					}
-					if(player.getDonorRights() == 4) {
+					if(player.getDonorRights() == 2) {
 						img = 8;
 					}
-					if(player.getDonorRights() == 5) {
+					if(player.getDonorRights() == 3) {
 						img = 9;
 					}
-				}
-				if(img == 4) {
-					img = 10;
-				}
-				if(img == 3) {
-					img = 2;
-				} else if(img == 2) {
-					img = 3;
-				}
-				if(!player.getRights().ownerInCC() && player.getDonorRights() == 0) {
-					if(player.getGameMode() == GameMode.IRONMAN) {
-						img = 33;
-					} else if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-						img = 32;
+					if(player.getDonorRights() == 4) {
+						img = 10;
 					}
+					if(player.getDonorRights() == 5) {
+						img = 11;
+					}
+				}
+				if(player.getGameMode() == GameMode.IRONMAN) {
+					img = 12;
+				}
+				if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					img = 13;
 				}
 				
 				String rankImg = img > 0 ? " <img="+img+"> " : " ";
-				memberPlayer.getPacketSender().sendMessage("@clan:A@" + bracketColor + "[" + clanNameColor + clan.getName() + bracketColor + "]" + nameColor + ""+rankImg+"" +
+				memberPlayer.getPacketSender().sendMessage(":clan:" + bracketColor + "[" + clanNameColor + clan.getName() + bracketColor + "]" + nameColor + ""+rankImg+"" +
 						NameUtils.capitalizeWords(player.getUsername()) +
 						": " + chatColor +
 						NameUtils.capitalize(message));
@@ -415,7 +339,6 @@ public class ClanChatManager {
 		}
 		player.getPacketSender().sendClanChatListOptionsVisible(0);
 		updateList(clan);
-		player.getPacketSender().sendString(1, "[CLEAR]");
 		player.getPacketSender().sendMessage(kicked ? "You have been kicked from the channel." : "You have left the channel.");
 	}
 
@@ -437,7 +360,7 @@ public class ClanChatManager {
 		}
 		checkFriendsRank(player, clan, false);
 		ClanChatRank rank = clan.getRank(player);
-		if (player.getRights().ownerInCC()) {
+		if (player.getRights().isStaff()) {
 			if(rank == null || rank != ClanChatRank.OWNER) {
 				rank = ClanChatRank.STAFF;
 				clan.giveRank(player, ClanChatRank.STAFF);
@@ -515,7 +438,7 @@ public class ClanChatManager {
 			player.getPacketSender().sendMessage("That clanchat name is already taken.");
 			return;
 		}
-		if(clan.getLastAction().elapsed(5000) || player.getRights().ownerInCC()) {
+		if(clan.getLastAction().elapsed(5000) || player.getRights().isStaff()) {
 			new File(FILE_DIRECTORY + clan.getName()).delete();
 			clan.setName(NameUtils.capitalizeWords(newName));
 			for(Player member : clan.getMembers()) {
@@ -592,7 +515,7 @@ public class ClanChatManager {
 					return;
 				}
 			}
-			if(player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getRights().ownerInCC()) {
+			if(player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getRights().isStaff()) {
 				player.getCurrentClanChat().giveRank(target, rank);
 				updateList(player.getCurrentClanChat());
 				sendMessage(player.getCurrentClanChat(), "<col=16777215>[<col=255>"+player.getCurrentClanChat().getName() +"<col=16777215>]<col=3300CC> "+target.getUsername()+" has been given the rank: "+Misc.formatText(rank.name().toLowerCase())+".");
@@ -611,7 +534,7 @@ public class ClanChatManager {
 				player.getPacketSender().sendMessage("That player cannot be promoted or demoted.");
 				return;
 			}
-			if(player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getRights().ownerInCC()) {
+			if(player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getRights().isStaff()) {
 				player.getCurrentClanChat().getRankedNames().remove(target.getUsername());
 				checkFriendsRank(target, player.getCurrentClanChat(), false);
 				updateList(player.getCurrentClanChat());
@@ -662,23 +585,21 @@ public class ClanChatManager {
 		return false;
 	}
 
-	@SuppressWarnings("unused")
 	public static void toggleLootShare(Player player) {
 		final ClanChat clan = player.getCurrentClanChat();
-		ClanChatRank rank = clan.getRank(player);
 		if (clan == null) {
 			player.getPacketSender().sendMessage("You're not in a clan channel.");
 			return;
 		}
-		if(!player.getRights().ownerInCC() && rank != ClanChatRank.GENERAL) {
+		if(!player.getRights().isStaff()) {
 			if(clan.getOwner() == null)
 				return;
 			if (!clan.getOwner().equals(player)) {
-				player.getPacketSender().sendMessage("Only the owner or general of the channel has the power to do this.");
+				player.getPacketSender().sendMessage("Only the owner of the channel has the power to do this.");
 				return;
 			}
 		}
-		if(clan.getLastAction().elapsed(5000) || player.getRights().ownerInCC() || rank != ClanChatRank.GENERAL) {
+		if(clan.getLastAction().elapsed(5000) || player.getRights().isStaff()) {
 			clan.setLootShare(!clan.getLootShare());
 			sendMessage(clan, "<col=16777215>[<col=255>"+clan.getName() +"<col=16777215>] <col=3300CC>"+player.getUsername()+" has "+(clan.getLootShare() ? "enabled" : "disabled")+" Lootshare.");
 			for (Player member : clan.getMembers()) {
@@ -806,11 +727,6 @@ public class ClanChatManager {
 
 	public static void handleLogin(Player player) {
 		resetInterface(player);
-		if(player.getClanChatName() == null || player.getClanChatName().equals("null")) {
-			if(Misc.getMinutesPlayed(player) <= 15) {
-				player.getPacketSender().sendMessage("<img=10> <col=660099>Feel free to join the 'Ikov' clanchat channel to talk to other players.");
-			}
-		}
 		ClanChatManager.join(player, player.getClanChatName());
 	}
 
@@ -821,7 +737,6 @@ public class ClanChatManager {
 		for (int i = 29344; i < 29444; i++) {
 			player.getPacketSender().sendString(i, "");
 		}
-		player.getPacketSender().sendString(1, "[LEFTCLAN]");
 	}
 
 	public static Player getPlayer(int index, ClanChat clan) {

@@ -80,37 +80,30 @@ public class PlayersOnlineInterface {
 			Player p = PLAYERS_ONLINE_LIST.get(i);
 			if(p == null)
 				continue;
-			int rankId = p.getRights().ordinal();
-			if(!p.getRights().isStaff()) {
-				if(p.getDonorRights() == 1) {
-					rankId = 5;
+				int rankId = p.getRights().ordinal();
+				if(rankId == 0) {
+					if(player.getDonorRights() == 1) {
+						rankId = 7;
+					}
+					if(player.getDonorRights() == 2) {
+						rankId = 8;
+					}
+					if(player.getDonorRights() == 3) {
+						rankId = 9;
+					}
+					if(player.getDonorRights() == 4) {
+						rankId = 10;
+					}
+					if(player.getDonorRights() == 5) {
+						rankId = 11;
+					}
 				}
-				if(p.getDonorRights() == 2) {
-					rankId = 6;
+				if(player.getGameMode() == GameMode.IRONMAN) {
+					rankId = 12;
 				}
-				if(p.getDonorRights() == 3) {
-					rankId = 7;
+				if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					rankId = 13;
 				}
-				if(p.getDonorRights() == 4) {
-					rankId = 8;
-				}
-				if(p.getDonorRights() == 5) {
-					rankId = 9;
-				}
-			}
-			if(rankId == 4) {
-				rankId = 10;
-			}
-			if(rankId == 3) {
-				rankId = 2;
-			} else if(rankId == 2) {
-				rankId = 3;
-			}
-			if(p.getGameMode() == GameMode.IRONMAN) {
-				rankId = 33;
-			} else if(p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-				rankId = 32;
-			}
 			player.getPacketSender().sendString(child, ""+(rankId > 0 ? "<img="+rankId+">" : "  ")+""+p.getUsername());
 			child++;
 		}

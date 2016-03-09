@@ -698,7 +698,31 @@ public class PacketSender {
 	 */
 	public PacketSender sendRights() {
 		PacketBuilder out = new PacketBuilder(127);
-		out.put(player.getRights().ordinal());
+		int rank = player.getRights().ordinal();
+		if(rank == 0) {
+			if(player.getDonorRights() == 1) {
+				rank = 7;
+			}
+			if(player.getDonorRights() == 2) {
+				rank = 8;
+			}
+			if(player.getDonorRights() == 3) {
+				rank = 9;
+			}
+			if(player.getDonorRights() == 4) {
+				rank = 10;
+			}
+			if(player.getDonorRights() == 5) {
+				rank = 11;
+			}
+		}
+		if(player.getGameMode() == GameMode.IRONMAN) {
+			rank = 12;
+		}
+		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			rank = 13;
+		}
+		out.put(rank);
 		player.getSession().queueMessage(out);
 		return this;
 	}

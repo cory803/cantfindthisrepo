@@ -35,19 +35,15 @@ public enum PlayerRights {
 	 */
 	SUPPORT(-1, "<col=FF0000><shad=0>", 1, 1),
 	
-	OLD_DONATOR_1(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	OLD_DONATOR_2(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	OLD_DONATOR_3(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	OLD_DONATOR_4(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	OLD_DONATOR_5(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	
-	SUPPORT_ICON(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	EX_STAFF(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	
 	/*
 	 * A member who is a YouTuber.
 	 */
-	YOUTUBER(-1, "<col=EE0101><shad=891E19>", 1, 1);
+	YOUTUBER(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	
+	/*
+	 * A member who is a Global Moderator.
+	 */
+	GLOBAL_MOD(-1, "<col=EE0101><shad=891E19>", 1, 1);
 
 	PlayerRights(int yellDelaySeconds, String yellHexColorPrefix, double loyaltyPointsGainModifier, double experienceGainModifier) {
 		this.yellDelay = yellDelaySeconds;
