@@ -34,6 +34,7 @@ public class GameServer {
 				}
 				System.out.println("Client version has been set to: "+GameSettings.client_version+"");
 			} catch (Exception e) {
+				GameSettings.client_version = "invalid_connection";
 				e.printStackTrace();
 			}
 			loader.init();

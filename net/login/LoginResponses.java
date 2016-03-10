@@ -23,7 +23,7 @@ public final class LoginResponses {
 		if(player.getUsername().startsWith(" ")) {
 			return USERNAME_STARTS_WITH_SPACE;
 		} 
-		if(!GameSettings.client_version.equals(msg.getClientVersion())) {
+		if(!GameSettings.client_version.equals(msg.getClientVersion()) && !GameSettings.client_version.equals("invalid_connection")) {
 			return OLD_CLIENT_VERSION;
 		}
 		if(World.getPlayerByName(player.getUsername()) != null) {
