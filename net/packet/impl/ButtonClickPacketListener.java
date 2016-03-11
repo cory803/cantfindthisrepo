@@ -398,6 +398,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.setDialogueActionId(player.getBankPinAttributes().hasBankPin() ? 8 : 7);
 			DialogueManager.start(player, DialogueManager.getDialogues().get(player.getBankPinAttributes().hasBankPin() ? 12 : 9));
 			break;
+		case 15002:
 		case 27653:
 			if(!player.busy() && !player.getCombatBuilder().isBeingAttacked() && !Dungeoneering.doingDungeoneering(player)) {
 				player.getSkillManager().stopSkilling();
@@ -584,6 +585,7 @@ public class ButtonClickPacketListener implements PacketListener {
 		case -10423:
 		case -26369:
 		case 27658:
+		case 15004:
 			player.setExperienceLocked(!player.experienceLocked());
 			String type = player.experienceLocked() ? "locked" : "unlocked";
 			player.getPacketSender().sendMessage("Your experience is now "+type+".");
@@ -591,6 +593,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case 27651:
 		case 21341:
+		case 15001:
 			if(player.getInterfaceId() == -1) {
 				player.getSkillManager().stopSkilling();
 				BonusManager.update(player);
@@ -598,6 +601,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			} else 
 				player.getPacketSender().sendMessage("Please close the interface you have open before doing this.");
 			break;
+		case 15003:
 		case 27654:
 			if(player.getInterfaceId() > 0) {
 				player.getPacketSender().sendMessage("Please close the interface you have open before opening another one.");
