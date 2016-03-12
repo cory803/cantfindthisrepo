@@ -74,7 +74,7 @@ public class Mining {
 										player.getPacketSender().sendMessage("You've found a gem!");
 										if(gemId == 6571) {
 											String s = o == Ores.Runite ? "Runite ore" : "Crashed star";
-											World.sendMessage("<img=10><col=009966> "+player.getUsername()+" has just received an Uncut Onyx from mining a "+s+"!");
+											World.sendMessage("<img=4><col=009966> "+player.getUsername()+" has just received an Uncut Onyx from mining a "+s+"!");
 										}
 									}
 								}

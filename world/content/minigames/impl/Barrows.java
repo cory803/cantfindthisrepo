@@ -214,7 +214,7 @@ public class Barrows {
 				if (Misc.getRandom(100) >= 87) {
 					int b = randomBarrows();
 					player.getInventory().add(b, 1);
-					World.sendMessage("<img=10><col=009966> "+player.getUsername()+" has just received "+ItemDefinition.forId(b).getName()+" from the Barrows minigame!");
+					World.sendMessage("<img=4><col=009966> "+player.getUsername()+" has just received "+ItemDefinition.forId(b).getName()+" from the Barrows minigame!");
 				}
 				player.getPacketSender().sendCameraShake(3, 2, 3, 2);
 				player.getPacketSender().sendMessage("The cave begins to collapse!");

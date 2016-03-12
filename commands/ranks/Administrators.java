@@ -38,7 +38,7 @@ public class Administrators {
 		if(wholeCommand.startsWith("globalyell")) {
 			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
 			World.setGlobalYell(!World.isGlobalYell());
-			World.sendMessage("<img=10> @blu@The yell channel has been @dre@"+(World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
+			World.sendMessage("<img=4> @blu@The yell channel has been @dre@"+(World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
 		}
 		if(wholeCommand.startsWith("silenceyell")) {
 			String yellmute = wholeCommand.substring(12);
@@ -528,7 +528,7 @@ public class Administrators {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ffff00><shad=0><img=3>Administrator<img=3></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=ffff00><shad=0><img=2>Administrator<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);

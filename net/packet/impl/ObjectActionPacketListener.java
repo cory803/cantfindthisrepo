@@ -163,6 +163,19 @@ public class ObjectActionPacketListener implements PacketListener {
 						}
 					});
 					break;
+				case 21764:
+					player.performAnimation(new Animation(1327));
+					player.setSpecialPercentage(100);
+					CombatSpecial.updateBar(player);
+					int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
+					player.setConstitution(max);
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int) player.getSkillManager().getMaxLevel(Skill.PRAYER));
+					player.setPoisonDamage(0);
+					player.setVenomDamage(0);
+					player.getPacketSender().sendConstitutionOrbPoison(false);
+					player.getPacketSender().sendConstitutionOrbVenom(false);
+					player.getPacketSender().sendMessage("<col=00ff00><shad=0><img=9> You take a drink from the fountain... and feel revived!");
+					break;
 				case 81:
 					if(player.getPosition().getX() == 2584) {
 						if(player.getInventory().contains(993)) {
@@ -330,7 +343,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					break;
 				case 2465:
 					if(player.getLocation() == Location.EDGEVILLE) {
-						player.getPacketSender().sendMessage("<img=10> @blu@Welcome to the free-for-all arena! You will not lose any items on death here.");
+						player.getPacketSender().sendMessage("<img=4> @blu@Welcome to the free-for-all arena! You will not lose any items on death here.");
 						player.moveTo(new Position(2815, 5511));
 					} else {
 						player.getPacketSender().sendMessage("The portal does not seem to be functioning properly.");

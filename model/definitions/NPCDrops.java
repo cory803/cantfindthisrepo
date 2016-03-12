@@ -416,7 +416,7 @@ public class NPCDrops {
 				npcName = "" + Misc.anOrA(npcName) + " " + npcName + "";
 				break;
 			}
-			String message = "<img=10><col=009966> " + toGive.getUsername()
+			String message = "<img=4><col=009966> " + toGive.getUsername()
 					+ " has just received " + itemMessage + " from " + npcName
 					+ "!";
 			World.sendMessage(message);
@@ -453,7 +453,7 @@ public class NPCDrops {
 		int chance =  (int) (1 + combat);
 		if (Misc.getRandom(combat <= 50 ? 400 : 350) < 5) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos, player.getUsername(), false, 150, true, 200));
-			String message = "<img=10><col=009966> " + player.getUsername()
+			String message = "<img=4><col=009966> " + player.getUsername()
 			+ " has just received a wilderness key as a random drop!";
 			World.sendMessage(message);
 		}

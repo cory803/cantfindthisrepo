@@ -24,7 +24,7 @@ public class Graveyard {
 		DialogueManager.start(player, 97);
 		player.getMinigameAttributes().getGraveyardAttributes().setEntered(true).setWave(1).setLevel(0);
 		spawn(player, 1, 0);
-		player.getPacketSender().sendMessage("<img=10><col=FF0000><shad=0> To leave the graveyard, simply teleport out.");
+		player.getPacketSender().sendMessage("<img=4><col=FF0000><shad=0> To leave the graveyard, simply teleport out.");
 	}
 
 	public static void leave(Player player) {

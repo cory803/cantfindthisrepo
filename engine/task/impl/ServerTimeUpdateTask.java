@@ -221,22 +221,22 @@ public class ServerTimeUpdateTask extends Task {
 			int random = Misc.getRandom(5);
 			switch(random) {
 			case 1:
-				World.sendMessage("<img=10> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
+				World.sendMessage("<img=4> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
 				break;
 			case 2:
-				World.sendMessage("<img=10> @blu@If you need any help join the @bla@'@dre@Ikov@bla@'@blu@ clan chat!");
+				World.sendMessage("<img=4> @blu@If you need any help join the @bla@'@dre@Ikov@bla@'@blu@ clan chat!");
 				break;
 			case 3:
-				World.sendMessage("<img=10> @blu@Do not forget to register on the forums with the command @dre@::register@blu@!");
+				World.sendMessage("<img=4> @blu@Do not forget to register on the forums with the command @dre@::register@blu@!");
 				break;
 			case 4:
-				World.sendMessage("<img=10> @blu@Did you know that? There is a @dre@::market@blu@ for the GE!");
+				World.sendMessage("<img=4> @blu@Did you know that? There is a @dre@::market@blu@ for the GE!");
 				break;
 			case 5:
-				World.sendMessage("<img=10> @blu@Remember to read all the ingame and forum rules on the forums @dre@::forums@blu@!");
+				World.sendMessage("<img=4> @blu@Remember to read all the ingame and forum rules on the forums @dre@::forums@blu@!");
 				break;
 			default:
-				World.sendMessage("<img=10> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
+				World.sendMessage("<img=4> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
 			}
 			
 		}

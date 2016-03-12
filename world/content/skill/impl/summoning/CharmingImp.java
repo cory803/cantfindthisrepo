@@ -18,7 +18,7 @@ public class CharmingImp {
 
 	public static void changeConfig(Player player, int index, int config) {
 		player.getSummoning().setCharmImpConfig(index, config);
-		player.getPacketSender().sendInterfaceRemoval().sendMessage("<img=10> <col=996633>Your configuration for "+ItemDefinition.forId(getCharmForIndex(index)).getName()+"s has been saved.");
+		player.getPacketSender().sendInterfaceRemoval().sendMessage("<img=4> <col=996633>Your configuration for "+ItemDefinition.forId(getCharmForIndex(index)).getName()+"s has been saved.");
 	}
 
 	public static boolean handleCharmDrop(Player player, int itemId, int amount) {
@@ -87,10 +87,10 @@ public class CharmingImp {
 			int charm = getCharmForIndex(i);
 			switch(state) {
 			case 0:
-				player.getPacketSender().sendMessage("<img=10> <col=996633>Your Charming imp is placing all "+ItemDefinition.forId(charm).getName()+"s it finds in your inventory.");
+				player.getPacketSender().sendMessage("<img=4> <col=996633>Your Charming imp is placing all "+ItemDefinition.forId(charm).getName()+"s it finds in your inventory.");
 				break;
 			case 1:
-				player.getPacketSender().sendMessage("<img=10> <col=996633>Your Charming imp is turning all "+ItemDefinition.forId(charm).getName()+"s it finds into Summoning exp.");
+				player.getPacketSender().sendMessage("<img=4> <col=996633>Your Charming imp is turning all "+ItemDefinition.forId(charm).getName()+"s it finds into Summoning exp.");
 				break;
 			}
 		}

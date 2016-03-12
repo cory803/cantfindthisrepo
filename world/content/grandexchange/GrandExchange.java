@@ -177,7 +177,7 @@ public class GrandExchange {
 					if(Item.sellable(player.getSelectedGeItem())) {
 						setPricePerItem(player, ItemDefinition.forId(player.getSelectedGeItem()).getValue());
 					} else {
-						player.getPacketSender().sendMessage("<img=10> <col=996633>This item does not have a base price set.");
+						player.getPacketSender().sendMessage("<img=4> <col=996633>This item does not have a base price set.");
 					}
 					return true;
 				case 24602:
@@ -402,7 +402,7 @@ public class GrandExchange {
 					GrandExchangeOffers.setOffer(o2.getIndex(), null);
 				}
 				if(o2.getFailAttempts() >= 3) {
-					player.getPacketSender().sendMessage("").sendMessage("<img=10> <col=996633>Perhaps you should try lowering the price on your "+ItemDefinition.forId(o2.getId()).getName()+" offer").sendMessage("<col=996633>in the Grand Exchange. People are currently paying less for that item.");
+					player.getPacketSender().sendMessage("").sendMessage("<img=4> <col=996633>Perhaps you should try lowering the price on your "+ItemDefinition.forId(o2.getId()).getName()+" offer").sendMessage("<col=996633>in the Grand Exchange. People are currently paying less for that item.");
 					o2.setFailAttempts(0);
 				}
 			}
@@ -422,7 +422,7 @@ public class GrandExchange {
 		player.setGeQuantity(1);
 		if(player.getInterfaceId() == BUY_INTERFACE) {
 			int cheapest = GrandExchangeOffers.getGoodOffer(item, OfferType.BUYING);
-			player.getPacketSender().sendMessage(cheapest == -1 ? "<img=10> <col=996633>Note: There are currently no players selling that item." : "<img=10> <col=996633>The cheapest offer found is currently selling at: "+Misc.insertCommasToNumber(""+cheapest+"")+" gp per item.");
+			player.getPacketSender().sendMessage(cheapest == -1 ? "<img=4> <col=996633>Note: There are currently no players selling that item." : "<img=4> <col=996633>The cheapest offer found is currently selling at: "+Misc.insertCommasToNumber(""+cheapest+"")+" gp per item.");
 			if(cheapest >= 0 && player.getGePricePerItem() > cheapest) {
 				player.setGePricePerItem(cheapest);
 			}
@@ -432,7 +432,7 @@ public class GrandExchange {
 				player.setGeQuantity(player.getInventory().getAmount(item));
 			}
 			int mostExpensive = GrandExchangeOffers.getGoodOffer(item, OfferType.SELLING);
-			player.getPacketSender().sendMessage(mostExpensive == -1 ? "<img=10> <col=996633>Note: There are currently no players buying that item." : "<img=10> <col=996633>The most expensive offer found is currently buying at: "+Misc.insertCommasToNumber(""+mostExpensive+"")+" gp per item."); 
+			player.getPacketSender().sendMessage(mostExpensive == -1 ? "<img=4> <col=996633>Note: There are currently no players buying that item." : "<img=4> <col=996633>The most expensive offer found is currently buying at: "+Misc.insertCommasToNumber(""+mostExpensive+"")+" gp per item."); 
 			if(mostExpensive >= 0 && player.getGePricePerItem() < mostExpensive) {
 				player.setGePricePerItem(mostExpensive);
 			}

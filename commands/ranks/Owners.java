@@ -66,7 +66,7 @@ public class Owners {
 		if(wholeCommand.startsWith("globalyell")) {
 			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
 			World.setGlobalYell(!World.isGlobalYell());
-			World.sendMessage("<img=10> @blu@The yell channel has been @dre@"+(World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
+			World.sendMessage("<img=4> @blu@The yell channel has been @dre@"+(World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
 		}
 		if(wholeCommand.equalsIgnoreCase("vengrunes")) {
 			player.getInventory().add(557, 1000);
@@ -279,8 +279,8 @@ public class Owners {
 						}
 						GameSettings.AUTHS_CLAIMED++;
 						if(GameSettings.AUTHS_CLAIMED == 25) {
-							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
-							GameSettings.AUTHS_CLAIMED = 10;
+							World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
+							GameSettings.AUTHS_CLAIMED = 0;
 						}
 						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
 			}
@@ -570,7 +570,7 @@ public class Owners {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ff0000><shad=0><img=2>Owner<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if (command[0].equals("staffzone")) {
 			if (command.length > 1 && command[1].equals("all")) {
@@ -1063,7 +1063,7 @@ public class Owners {
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 		if(wholeCommand.equals("afk")) {
-			World.sendMessage("<img=10> <col=FF0000><shad=0>"+player.getUsername()+": I am now away, please don't message me; I won't reply.");
+			World.sendMessage("<img=4> <col=FF0000><shad=0>"+player.getUsername()+": I am now away, please don't message me; I won't reply.");
 		}
 		if(wholeCommand.equals("sfs")) {
 			Lottery.restartLottery();
@@ -1157,7 +1157,7 @@ public class Owners {
 			World.savePlayers();
 		}
 		if(command[0].equals("v1")) {
-			World.sendMessage("<img=10> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");
+			World.sendMessage("<img=4> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");
 		}
 		if(command[0].equals("test")) {
 			player.getSkillManager().addExperience(Skill.FARMING, 500);

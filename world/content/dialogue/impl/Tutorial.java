@@ -539,8 +539,8 @@ public class Tutorial {
 						@Override
 						protected void execute() {
 							if(p != null && p.isRegistered()) {
-								p.getPacketSender().sendMessage("<img=10> @blu@Want to go player killing? Mandrith now sells premade PvP sets.");
-								p.getPacketSender().sendMessage("<img=10> @blu@Join 'Ikov' clan chat for help!");
+								p.getPacketSender().sendMessage("<img=4> @blu@Want to go player killing? Mandrith now sells premade PvP sets.");
+								p.getPacketSender().sendMessage("<img=4> @blu@Join 'Ikov' clan chat for help!");
 							}
 							stop();
 						}

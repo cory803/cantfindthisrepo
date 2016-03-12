@@ -66,7 +66,7 @@ public class Artifacts {
 			int rareDrop = getRandomItem(EXR_ARTIFACTS);
 			String itemName = Misc.formatText(ItemDefinition.forId(rareDrop).getName());
 			GroundItemManager.spawnGroundItem(killer, new GroundItem(new Item(rareDrop), death.getPosition().copy(), killer.getUsername(), false, 110, true, 100));
-			World.sendMessage("<img=10><col=009966> "+killer.getUsername()+" has just received "+Misc.anOrA(itemName)+" "+itemName+" from Bounty Hunter!");
+			World.sendMessage("<img=4><col=009966> "+killer.getUsername()+" has just received "+Misc.anOrA(itemName)+" "+itemName+" from Bounty Hunter!");
 		}
 	}
 	

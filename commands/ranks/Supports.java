@@ -212,7 +212,7 @@ public class Supports {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=589fe1><shad=0><img=10>Support<img=10></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=589fe1><shad=0><img=4>Support<img=4></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);

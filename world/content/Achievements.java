@@ -151,16 +151,16 @@ public class Achievements {
 		if(index >= 0 && index < AchievementData.values().length) {
 			AchievementData achievement = AchievementData.values()[index];
 			if(player.getAchievementAttributes().getCompletion()[achievement.ordinal()]) {
-				player.getPacketSender().sendMessage("<img=10> <col=339900>You have completed the achievement: "+achievement.interfaceLine+".");
+				player.getPacketSender().sendMessage("<img=4> <col=339900>You have completed the achievement: "+achievement.interfaceLine+".");
 			} else if(achievement.progressData == null) {
-				player.getPacketSender().sendMessage("<img=10> <col=660000>You have not started the achievement: "+achievement.interfaceLine+".");
+				player.getPacketSender().sendMessage("<img=4> <col=660000>You have not started the achievement: "+achievement.interfaceLine+".");
 			} else {
 				int progress = player.getAchievementAttributes().getProgress()[achievement.progressData[0]];
 				int requiredProgress = achievement.progressData[1];
 				if(progress == 0) {
-					player.getPacketSender().sendMessage("<img=10> <col=660000>You have not started the achievement: "+achievement.interfaceLine+".");
+					player.getPacketSender().sendMessage("<img=4> <col=660000>You have not started the achievement: "+achievement.interfaceLine+".");
 				} else if(progress != requiredProgress) {
-					player.getPacketSender().sendMessage("<img=10> <col=FFFF00>Your progress for this achievement is currently at: "+Misc.insertCommasToNumber(""+progress)+"/"+Misc.insertCommasToNumber(""+requiredProgress)+".");
+					player.getPacketSender().sendMessage("<img=4> <col=FFFF00>Your progress for this achievement is currently at: "+Misc.insertCommasToNumber(""+progress)+"/"+Misc.insertCommasToNumber(""+requiredProgress)+".");
 				}
 			}
 		}
@@ -211,7 +211,7 @@ public class Achievements {
 		if(player.getAchievementAttributes().getCompletion()[achievement.ordinal()])
 			return;
 		player.getAchievementAttributes().getCompletion()[achievement.ordinal()] = true;
-		player.getPacketSender().sendString(achievement.interfaceFrame, ("@gre@") + achievement.interfaceLine).sendMessage("<img=10> <col=339900>You have completed the achievement "+Misc.formatText(achievement.toString().toLowerCase()+".")).sendString(37001, "Achievements: "+player.getPointsHandler().getAchievementPoints()+"/"+AchievementData.values().length);
+		player.getPacketSender().sendString(achievement.interfaceFrame, ("@gre@") + achievement.interfaceLine).sendMessage("<img=4> <col=339900>You have completed the achievement "+Misc.formatText(achievement.toString().toLowerCase()+".")).sendString(37001, "Achievements: "+player.getPointsHandler().getAchievementPoints()+"/"+AchievementData.values().length);
 
 		if(achievement.getDifficulty() == Difficulty.HARD) {
 			doProgress(player, AchievementData.COMPLETE_ALL_HARD_TASKS);

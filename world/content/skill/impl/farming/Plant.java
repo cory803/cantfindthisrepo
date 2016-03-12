@@ -208,7 +208,7 @@ public class Plant {
 					stage++;
 					player.getFarming().doConfig();
 					if (stage >= Plants.values()[plant].stages) {
-						player.getPacketSender().sendMessage("<img=10> <shad=996699>A seed which you planted has finished growing!");
+						player.getPacketSender().sendMessage("<img=4> <shad=996699>A seed which you planted has finished growing!");
 						return;
 					}
 				}

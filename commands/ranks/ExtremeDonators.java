@@ -6,6 +6,7 @@ import com.ikov.GameSettings;
 import com.ikov.model.GameMode;
 import com.ikov.model.Locations.Location;
 import com.ikov.util.Misc;
+import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.world.World;
@@ -55,17 +56,45 @@ public class ExtremeDonators {
 				return;
 			}
 			if(player.getGameMode() == GameMode.IRONMAN) {
-				World.sendYell("<img=33> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
 				player.getYellTimer().reset();
 				return;
 			}
 			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-				World.sendYell("<img=32> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
 				player.getYellTimer().reset();
 				return;
 			}
-			World.sendYell("<img=7> <col=0>[<col=2FAC45>Extreme<col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<img=9> <col=0>[<col=2FAC45>Extreme<col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getYellTimer().reset();
+		}
+		if (command[0].equals("ezone")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
+			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+				player.getPacketSender().sendMessage("You cannot do this at the moment.");
+				return;
+			}
+			Position position = new Position(3362, 9640, 0);
+			int ran = Misc.getRandom(3);
+			switch(ran) {
+				case 0:
+					position = new Position(3363, 9641, 0);
+				break;
+				case 1:
+					position = new Position(3364, 9640, 0);
+				break;
+				case 2:
+					position = new Position(3363, 9639, 0);
+				break;
+				case 3:
+					position = new Position(3362, 9640, 0);
+				break;
+			}
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
+			player.getPacketSender().sendMessage("<img=9><col=00ff00><shad=0> Welcome to the Extreme Donator Zone!");
 		}
 		if (command[0].equals("dzone")) {
 			if(Dungeoneering.doingDungeoneering(player)) {

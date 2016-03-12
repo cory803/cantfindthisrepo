@@ -1350,11 +1350,11 @@ public class DialogueOptions {
 							"You already have a duo partner.");
 					return;
 				}
-				player.getPacketSender().sendMessage("<img=10> To do Social slayer, simply use your Slayer gem on another player.");
+				player.getPacketSender().sendMessage("<img=4> To do Social slayer, simply use your Slayer gem on another player.");
 				break;
 			case 69:
 				ShopManager.getShops().get(44).open(player);
-				player.getPacketSender().sendMessage("<img=10> <col=660000>You currently have "+player.getPointsHandler().getDungeoneeringTokens()+" Dungeoneering tokens.");
+				player.getPacketSender().sendMessage("<img=4> <col=660000>You currently have "+player.getPointsHandler().getDungeoneeringTokens()+" Dungeoneering tokens.");
 				break;
 			case 70:			
 			case 71:

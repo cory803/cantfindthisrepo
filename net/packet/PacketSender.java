@@ -823,6 +823,30 @@ public class PacketSender {
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
 		out.putInt(player.getRelations().getPrivateMessageId());
+		int rank = rights.ordinal();
+		if(rank == 0) {
+			if(player.getDonorRights() == 1) {
+				rank = 7;
+			}
+			if(player.getDonorRights() == 2) {
+				rank = 8;
+			}
+			if(player.getDonorRights() == 3) {
+				rank = 9;
+			}
+			if(player.getDonorRights() == 4) {
+				rank = 10;
+			}
+			if(player.getDonorRights() == 5) {
+				rank = 11;
+			}
+		}
+		if(player.getGameMode() == GameMode.IRONMAN) {
+			rank = 12;
+		}
+		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			rank = 13;
+		}
 		out.put(rights.ordinal());
 		out.putBytes(message, size);
 		player.getSession().queueMessage(out);

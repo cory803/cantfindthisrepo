@@ -57,7 +57,7 @@ public class VoteTokens  {
 				points *= 2;
 			}
 			p.getPointsHandler().incrementVotingPoints(points);
-			p.getPacketSender().sendMessage("<img=10><col=2F5AB7>You have received and "+points+" vote points.");
+			p.getPacketSender().sendMessage("<img=4><col=2F5AB7>You have received and "+points+" vote points.");
 			PlayerPanel.refreshPanel(p);
 			p.getInventory().delete(10944, 1);
 			return;
@@ -93,11 +93,11 @@ public class VoteTokens  {
 			points *= 2;
 		}
 		if(collection == 2) {
-			World.sendMessage("<img=3><col=2F5AB7>The player <shad=0>"+name+"</shad> has received <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");
+			World.sendMessage("<img=2><col=2F5AB7>The player <shad=0>"+name+"</shad> has received <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");
 		} else if(collection == 1) {
 			World.sendMessage("<img=1><col=2F5AB7>The player <shad=0>"+name+"</shad> has received <col=ff0000>"+item_name+" <col=2F5AB7>from ::vote!");
 		}
-		p.getPacketSender().sendMessage("<img=10><col=2F5AB7>You have recieved ("+item_name+"), and "+points+" vote points.");
+		p.getPacketSender().sendMessage("<img=4><col=2F5AB7>You have recieved ("+item_name+"), and "+points+" vote points.");
 		p.getPointsHandler().incrementVotingPoints(points);
 		PlayerPanel.refreshPanel(p);
 	}

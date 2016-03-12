@@ -73,7 +73,7 @@ public class GrandExchangeOffers {
 							if(o.getFailAttempts() >= 3) {
 								Player p = World.getPlayerByName(o.getOwner());
 								if(p != null) {
-									p.getPacketSender().sendMessage("").sendMessage("<img=10> <col=996633>Perhaps you should try lowering the price on your "+ItemDefinition.forId(item2).getName()+" offer").sendMessage("<col=996633>in the Grand Exchange. People are currently paying less for that item.");
+									p.getPacketSender().sendMessage("").sendMessage("<img=4> <col=996633>Perhaps you should try lowering the price on your "+ItemDefinition.forId(item2).getName()+" offer").sendMessage("<col=996633>in the Grand Exchange. People are currently paying less for that item.");
 									o.setFailAttempts(0);
 								}
 							}

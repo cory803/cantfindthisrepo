@@ -612,7 +612,7 @@ public class Locations {
 			@Override
 			public void enter(Player player) {
 				PLAYERS_IN_DUEL_ARENA++;
-				player.getPacketSender().sendMessage("<img=10> <col=996633>Warning! Do not stake items which you are not willing to lose.");
+				player.getPacketSender().sendMessage("<img=4> <col=996633>Warning! Do not stake items which you are not willing to lose.");
 			}
 
 			@Override

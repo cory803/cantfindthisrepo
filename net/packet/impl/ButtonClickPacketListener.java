@@ -288,7 +288,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case 8672:
 			TeleportHandler.teleportPlayer(player, new Position(2595, 4772), player.getSpellbook().getTeleportType());
-			player.getPacketSender().sendMessage("<img=10> To get started with Runecrafting, buy a talisman and use the locate option on it.");
+			player.getPacketSender().sendMessage("<img=4> To get started with Runecrafting, buy a talisman and use the locate option on it.");
 			break;
 		case 8861:
 			TeleportHandler.teleportPlayer(player, new Position(2914, 3450), player.getSpellbook().getTeleportType());
@@ -644,6 +644,7 @@ public class ButtonClickPacketListener implements PacketListener {
 		case 7637:
 		case 12311:
 		case 10003:
+		case 8003:
 			CombatSpecial.activate(player);
 			break;
 		case 1772: // shortbow & longbow

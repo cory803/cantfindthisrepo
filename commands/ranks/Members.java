@@ -181,8 +181,8 @@ public class Members {
 						player.getPacketSender().sendMessage("account will be banned from voting.");
 						GameSettings.AUTHS_CLAIMED++;
 						if(GameSettings.AUTHS_CLAIMED == 25) {
-							World.sendMessage("<img=10><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
-							GameSettings.AUTHS_CLAIMED = 10;
+							World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
+							GameSettings.AUTHS_CLAIMED = 0;
 						}
 						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
 					} else {

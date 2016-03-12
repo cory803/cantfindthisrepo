@@ -184,22 +184,22 @@ public class PlayerHandler {
 		ClanChatManager.handleLogin(player);
 
 		if(GameSettings.DOUBLE_POINTS) {
-			player.getPacketSender().sendMessage("<img=10> <col=008FB2>Ikov currently has a double points event going on, make sure to use it!");
+			player.getPacketSender().sendMessage("<img=4> <col=008FB2>Ikov currently has a double points event going on, make sure to use it!");
 		}	
 
 		if(GameSettings.DOUBLE_VOTE_TOKENS) {
-			player.getPacketSender().sendMessage("<img=10> <col=008FB2>Ikov currently has a double vote rewards event going on, make sure to use it!");
+			player.getPacketSender().sendMessage("<img=4> <col=008FB2>Ikov currently has a double vote rewards event going on, make sure to use it!");
 		}
 		
 		if(GameSettings.TRIPLE_VOTE_TOKENS) {
-			player.getPacketSender().sendMessage("<img=10> <col=008FB2>Ikov currently has a triple vote rewards event going on, make sure to use it!");
+			player.getPacketSender().sendMessage("<img=4> <col=008FB2>Ikov currently has a triple vote rewards event going on, make sure to use it!");
 		}
 		
 		if(WellOfGoodwill.isActive()) {
 			if(player.getDonorRights() > 0) {
-				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");
+				player.getPacketSender().sendMessage("<img=4> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");
 			} else {
-				player.getPacketSender().sendMessage("<img=10> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");		
+				player.getPacketSender().sendMessage("<img=4> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "+WellOfGoodwill.getMinutesRemaining()+" minutes.");		
 			}
 		}
 
@@ -216,7 +216,7 @@ public class PlayerHandler {
 		player.getPacketSender().updateSpecialAttackOrb().sendIronmanMode(player.getGameMode().ordinal());
 
 		if(player.getRights() == PlayerRights.SUPPORT || player.getRights() == PlayerRights.MODERATOR || player.getRights() == PlayerRights.ADMINISTRATOR)
-			World.sendMessage("<img=10><col=6600CC> "+Misc.formatText(player.getRights().toString().toLowerCase())+" "+player.getUsername()+" has just logged in, feel free to message them for support.");
+			World.sendMessage("<img=4><col=6600CC> "+Misc.formatText(player.getRights().toString().toLowerCase())+" "+player.getUsername()+" has just logged in, feel free to message them for support.");
 		
 		GrandExchange.onLogin(player);
 		

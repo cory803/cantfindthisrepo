@@ -167,7 +167,7 @@ public class DungeoneeringParty {
 				}
 				p.getSkillManager().addExperience(Skill.DUNGEONEERING, exp);
 				p.getPointsHandler().setDungeoneeringTokens(tokens, true);
-				p.getPacketSender().sendMessage("<img=10> <col=660000>You've received some Dungeoneering experience and "+tokens+" Dungeoneering tokens.");
+				p.getPacketSender().sendMessage("<img=4> <col=660000>You've received some Dungeoneering experience and "+tokens+" Dungeoneering tokens.");
 				PlayerPanel.refreshPanel(p);
 			}
 			if(p == owner) {
@@ -206,7 +206,7 @@ public class DungeoneeringParty {
 	public void sendMessage(String message) {
 		for(Player member : getPlayers()) {
 			if(member != null) {
-				member.getPacketSender().sendMessage("<img=10> <col=660000>"+message);
+				member.getPacketSender().sendMessage("<img=4> <col=660000>"+message);
 			}
 		}
 	}
@@ -232,7 +232,7 @@ public class DungeoneeringParty {
 			p.getMinigameAttributes().getDungeoneeringAttributes().setParty(new DungeoneeringParty(p));
 		p.getMinigameAttributes().getDungeoneeringAttributes().getParty().setDungeoneeringFloor(DungeoneeringFloor.FIRST_FLOOR);
 		p.getMinigameAttributes().getDungeoneeringAttributes().getParty().setComplexity(1);
-		p.getPacketSender().sendMessage("<img=10> <col=660000>You've created a Dungeoneering party. Perhaps you should invite a few players?");
+		p.getPacketSender().sendMessage("<img=4> <col=660000>You've created a Dungeoneering party. Perhaps you should invite a few players?");
 		p.getMinigameAttributes().getDungeoneeringAttributes().getParty().refreshInterface();
 		p.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, Dungeoneering.PARTY_INTERFACE);
 		p.getPacketSender().sendDungeoneeringTabIcon(true);
