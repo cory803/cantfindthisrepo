@@ -106,7 +106,7 @@ public class PlayerHandler {
 		}
 
 		//Relations
-		player.getRelations().setPrivateMessageId(1).onLogin(player).updateLists(true);
+		player.getRelations().setPrivateMessageId(1).onLogin(player).updateLists(true, 1);
 
 		//Client configurations
 		player.getPacketSender().sendConfig(172, player.isAutoRetaliate() ? 1 : 0)
@@ -114,8 +114,8 @@ public class PlayerHandler {
 		.sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId())
 		.sendRunStatus()
 		.sendRunEnergy(player.getRunEnergy())
-		//.sendConstitutionOrbPoison(player.isPoisoned())
-		//.sendConstitutionOrbVenom(player.isVenomed())
+		.sendConstitutionOrbPoison(player.isPoisoned())
+		.sendConstitutionOrbVenom(player.isVenomed())
 		.sendString(8135, ""+player.getMoneyInPouch())
 		.sendInteractionOption("Follow", 3, false)
 		.sendInteractionOption("Trade With", 4, false)
@@ -296,7 +296,7 @@ public class PlayerHandler {
 				player.getFarming().save();
 				BountyHunter.handleLogout(player);
 				ClanChatManager.leave(player, false);
-				player.getRelations().updateLists(false);
+				player.getRelations().updateLists(false, 0);
 				PlayersOnlineInterface.remove(player);
 				TaskManager.cancelTasks(player.getCombatBuilder());
 				TaskManager.cancelTasks(player);

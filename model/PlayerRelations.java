@@ -63,7 +63,7 @@ public class PlayerRelations {
 	public PlayerRelations setStatus(PrivateChatStatus status, boolean update) {
 		this.status = status;
 		if(update)
-			updateLists(true);
+			updateLists(true, 0);
 		return this;
 	}
 
@@ -92,7 +92,7 @@ public class PlayerRelations {
 	 * @param online	If <code>true</code>, the players who have this player added, will be sent the notification this player has logged in.
 	 * @return			The PlayerRelations instance.
 	 */
-	public PlayerRelations updateLists(boolean online) {
+	public PlayerRelations updateLists(boolean online, int sendmessage) {
 		if (status == PrivateChatStatus.OFF)
 			online = false;
 		player.getPacketSender().sendFriendStatus(2);
@@ -119,12 +119,12 @@ public class PlayerRelations {
 		}
 		*/
 		for (long list : friendList) {
-			player.getPacketSender().sendFriend(list, World.getPlayerForLongName(list) != null ? 1 : 0);
+			player.getPacketSender().sendFriend(list, World.getPlayerForLongName(list) != null ? 1 : 0, sendmessage);
 		}
 		
 		for (Player other : World.getPlayers()) {
 			if (other != null && other.getRelations().getFriendList().contains(player.getLongUsername())) {
-				other.getPacketSender().sendFriend(player.getLongUsername(), online ? 1 : 0);
+				other.getPacketSender().sendFriend(player.getLongUsername(), online ? 1 : 0, 0);
 			}
 		}
 		return this;
@@ -137,7 +137,7 @@ public class PlayerRelations {
 
 	public void sendFriends() {
 		for(int i = 0; i < player.getRelations().getFriendList().size(); i++) {
-			player.getPacketSender().sendFriend(player.getRelations().getFriendList().get(i), 0);
+			player.getPacketSender().sendFriend(player.getRelations().getFriendList().get(i), 0, 1);
 		}
 	}
 	
@@ -167,10 +167,10 @@ public class PlayerRelations {
 		} else {
 			friendList.add(username);
 			//sendFriends();
-			updateLists(true);
+			updateLists(true, 0);
 			Player friend = World.getPlayerByName(name);
 			if (friend != null) {
-				friend.getRelations().updateLists(true);
+				friend.getRelations().updateLists(true, 0);
 				if(player.getCurrentClanChat() != null) {
 					ClanChatManager.checkFriendsRank(friend, player.getCurrentClanChat(), true);
 				}
@@ -195,8 +195,8 @@ public class PlayerRelations {
 			if (!status.equals(PrivateChatStatus.ON)) {	
 				Player ignored = World.getPlayerByName(NameUtils.longToString(username));
 				if (ignored != null)
-					ignored.getRelations().updateLists(false);
-				updateLists(false);
+					ignored.getRelations().updateLists(false, 0);
+				updateLists(false, 0);
 			}
 		} else {
 			player.getPacketSender().sendMessage("This player is not on your friends list!");
@@ -222,10 +222,10 @@ public class PlayerRelations {
 		} else {
 			ignoreList.add(username);
 			player.getPacketSender().sendIgnoreList();
-			updateLists(true);
+			updateLists(true, 0);
 			Player ignored = World.getPlayerByName(name);
 			if (ignored != null)
-				ignored.getRelations().updateLists(false);
+				ignored.getRelations().updateLists(false, 0);
 		}
 	}
 
@@ -237,11 +237,11 @@ public class PlayerRelations {
 		if (ignoreList.contains(username)) {
 			ignoreList.remove(username);
 			player.getPacketSender().sendIgnoreList();
-			updateLists(true);
+			updateLists(true, 0);
 			if (status.equals(PrivateChatStatus.ON)) {
 				Player ignored = World.getPlayerByName(NameUtils.longToString(username));
 				if (ignored != null)
-					ignored.getRelations().updateLists(true);
+					ignored.getRelations().updateLists(true, 0);
 			}
 		} else {
 			player.getPacketSender().sendMessage("This player is not on your ignore list!");

@@ -1126,7 +1126,7 @@ public class Owners {
 			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
 		}	
 		if (command[0].equals("testzulrah")) {
-			//player.getPacketSender().sendScreenFade(1, 5);
+			player.getPacketSender().sendScreenFade(1, 5);
 			TaskManager.submit(new Task(2, player, true) {
 				int tick = 0;
 				@Override

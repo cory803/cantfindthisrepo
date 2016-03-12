@@ -286,7 +286,7 @@ public final class CombatFactory {
 			Player player = (Player) entity;
 			if (player.getPoisonImmunity() > 0)
 				return;
-			//player.getPacketSender().sendConstitutionOrbPoison(true);
+			player.getPacketSender().sendConstitutionOrbPoison(true);
 			player.getPacketSender().sendMessage("You have been poisoned!");
 		}
 		entity.setPoisonDamage(poisonType.get().getDamage());
@@ -314,7 +314,7 @@ public final class CombatFactory {
 			entity.setPoisonDamage(0);
 			if(entity.isPlayer()) {
 				Player player = (Player) entity;
-				//player.getPacketSender().sendConstitutionOrbPoison(false);
+				player.getPacketSender().sendConstitutionOrbPoison(false);
 			}
 		}
 
@@ -325,8 +325,8 @@ public final class CombatFactory {
 			Player player = (Player) entity;
 			if (player.getVenomImmunity() > 0)
 				return;
-			//player.getPacketSender().sendConstitutionOrbVenom(true);
-			//player.getPacketSender().sendConstitutionOrbPoison(false);
+			player.getPacketSender().sendConstitutionOrbVenom(true);
+			player.getPacketSender().sendConstitutionOrbPoison(false);
 			player.getPacketSender().sendMessage("You have been poisoned with venom!");
 		}
 		entity.setVenomDamage(40);

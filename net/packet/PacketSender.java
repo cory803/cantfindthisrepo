@@ -189,14 +189,12 @@ public class PacketSender {
 	}
 
 	public PacketSender updateSpecialAttackOrb() {
-		/* spec orb is disabled.. */
-		/*
 		PacketBuilder out = new PacketBuilder(111);
 		out.put(player.getSpecialPercentage());
 		player.getSession().queueMessage(out);
 		out = new PacketBuilder(108);
 		out.put(player.isSpecialActivated() ? 1 : 0);
-		player.getSession().queueMessage(out);*/
+		player.getSession().queueMessage(out);
 		return this;
 	}
 
@@ -254,7 +252,48 @@ public class PacketSender {
 		player.setInterfaceId(id);
 		return this;
 	}
-
+	
+	/**
+	 * Sends some information to the client about screen fading. 
+	 * @param text		the text that will be displayed in the center of the screen
+	 * @param state		the state should be either 0, -1, or 1. 
+	 * @param seconds	the amount of time in seconds it takes for the fade
+	 * to transition.
+	 * <p>
+	 * If the state is -1 then the screen fades from black to transparent.
+	 * When the state is +1 the screen fades from transparent to black. If 
+	 * the state is 0 all drawing is stopped.
+	 */
+	public PacketSender sendScreenFade(int state, int seconds) {
+		PacketBuilder out = new PacketBuilder(9);
+		out.putShort(state);
+		out.putShort(seconds);
+		player.getSession().queueMessage(out);
+		return this;
+	}
+	
+	public PacketSender sendConstitutionOrbPoison(boolean poison) {
+		PacketBuilder out = new PacketBuilder(91);
+		if(poison) {
+			out.putShort(1);
+		} else {
+			out.putShort(0);
+		}
+		player.getSession().queueMessage(out);
+		return this;
+	}	
+	
+	public PacketSender sendConstitutionOrbVenom(boolean venom) {
+		PacketBuilder out = new PacketBuilder(90);
+		if(venom) {
+			out.putShort(1);
+		} else {
+			out.putShort(0);
+		}
+		player.getSession().queueMessage(out);
+		return this;
+	}
+	
 	public PacketSender sendWalkableInterface(int interfaceId) {
 		player.setWalkableInterfaceId(interfaceId);
 		PacketBuilder out = new PacketBuilder(208);
@@ -797,11 +836,12 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendFriend(long name, int world) {
+	public PacketSender sendFriend(long name, int world, int send_message) {
 		world = world != 0 ? world + 9 : world;
 		PacketBuilder out = new PacketBuilder(50);
 		out.putLong(name);
 		out.put(world);
+		out.put(send_message);
 		player.getSession().queueMessage(out);
 		return this;
 	}
