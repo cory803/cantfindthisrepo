@@ -166,7 +166,7 @@ public class Shop extends ItemContainer {
 			}
 			if(sellingItem) {
 				if(finalValue != 1) {
-					finalValue = (int) (finalValue * 0.85);	
+					finalValue = (int) (finalValue * 0.75);	
 				}
 			}
 			finalString += ""+(int) finalValue+" "+s+""+shopPriceEx((int) finalValue)+".";
@@ -177,7 +177,7 @@ public class Shop extends ItemContainer {
 			finalValue = (int) obj[0];
 			if(sellingItem) {
 				if(finalValue != 1) {
-					finalValue = (int) (finalValue * 0.85);	
+					finalValue = (int) (finalValue * 0.75);	
 				}
 			}
 			finalString += ""+finalValue+" " + (String) obj[1] + ".";
@@ -203,7 +203,8 @@ public class Shop extends ItemContainer {
 			return;
 		} 
 		Item itemToSell = player.getInventory().getItems()[slot];
-		if(!itemToSell.sellable()) {
+		boolean creditShop = id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3;
+		if(!itemToSell.sellable() && !creditShop) {
 			player.getPacketSender().sendMessage("This item cannot be sold.");
 			return;
 		}
@@ -265,6 +266,11 @@ public class Shop extends ItemContainer {
 						player.save();
 					} else {
 						//Return points here
+						if(creditShop) {
+							player.setCredits(itemValue, true);
+							player.getPacketSender().sendMessage("You have sold the item: "+itemToSell.getDefinition().getName()+" for " + itemValue +" credits.");
+							player.getPacketSender().sendMessage("You now have "+player.getCredits()+" credits.");
+						}
 					}
 				} else {
 					player.getPacketSender().sendMessage("Please free some inventory space before doing that.");
@@ -276,6 +282,11 @@ public class Shop extends ItemContainer {
 					if(!customShop) {
 						player.getInventory().add(new Item(getCurrency().getId(), itemValue * amountToSell), false);
 					} else {
+						if(creditShop) {
+							player.setCredits(itemValue * amountToSell, true);
+							player.getPacketSender().sendMessage("You have sold the item: "+itemToSell.getDefinition().getName()+" for " + itemValue * amountToSell +" credits.");
+							player.getPacketSender().sendMessage("You now have "+player.getCredits()+" credits.");
+						}
 						//Return points here
 					}
 					break;
@@ -352,7 +363,7 @@ public class Shop extends ItemContainer {
 				}
 			} else {
 				/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
-				if(id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == ENERGY_FRAGMENT_STORE || id == AGILITY_TICKET_STORE || id == GRAVEYARD_STORE) {
+				if(id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == ENERGY_FRAGMENT_STORE || id == AGILITY_TICKET_STORE || id == GRAVEYARD_STORE || id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3 ) {
 					value = (int) ShopManager.getCustomShopData(id, item.getId())[0];
 				}
 			}
@@ -618,9 +629,9 @@ public class Shop extends ItemContainer {
 	}
 
 	public static boolean shopBuysItem(int shopId, Item item) {
-		if(shopId == GENERAL_STORE)
+		if(shopId == GENERAL_STORE || shopId == CREDIT_STORE_1 || shopId == CREDIT_STORE_2 || shopId == CREDIT_STORE_3)
 			return true;
-		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE || shopId == CREDIT_STORE_1 || shopId == CREDIT_STORE_2 || shopId == CREDIT_STORE_3 || shopId == BOSS_POINT_STORE || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == IRON_VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE)
+		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE|| shopId == BOSS_POINT_STORE || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == IRON_VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
 		if(shop != null && shop.getOriginalStock() != null) {
