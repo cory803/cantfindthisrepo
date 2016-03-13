@@ -213,7 +213,7 @@ public class PacketSender {
 	public PacketSender sendIronmanMode(int ironmanMode) {
 		if(ironmanMode == 1) {
 			ironmanMode = 2;
-		} else {
+		} else if(ironmanMode == 2) {
 			ironmanMode = 1;
 		}
 		PacketBuilder out = new PacketBuilder(112);

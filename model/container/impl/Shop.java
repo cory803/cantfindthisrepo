@@ -194,7 +194,7 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
-		if (id == DONATOR_STORE || id == DONATOR_STORE_MISC) {
+		if (id == DONATOR_STORE || id == DONATOR_STORE_MISC || id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3) {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
 		}
