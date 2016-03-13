@@ -73,9 +73,9 @@ public class MemberScrolls {
 				player.incrementAmountDonated(funds);
 				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
 				MemberScrolls.checkForRankUpdate(player);
-				credits = 25000;
+				credits = 27875;
 				player.addCredits(credits);
-				player.getPacketSender().sendMessage("Your account has gained 25,000 credits. Your total is now at "+player.getCredits()+".");
+				player.getPacketSender().sendMessage("Your account has gained 27,875 credits. Your total is now at "+player.getCredits()+".");
 				PlayerPanel.refreshPanel(player);
 			break;
 			case 10935:
@@ -84,9 +84,9 @@ public class MemberScrolls {
 				player.incrementAmountDonated(funds);
 				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
 				MemberScrolls.checkForRankUpdate(player);
-				credits = 50000;
+				credits = 55750;
 				player.addCredits(credits);
-				player.getPacketSender().sendMessage("Your account has gained 50,000 credits. Your total is now at "+player.getCredits()+".");
+				player.getPacketSender().sendMessage("Your account has gained 55,750 credits. Your total is now at "+player.getCredits()+".");
 				PlayerPanel.refreshPanel(player);
 			break;
 			case 7629:
@@ -95,9 +95,9 @@ public class MemberScrolls {
 				player.incrementAmountDonated(funds);
 				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
 				MemberScrolls.checkForRankUpdate(player);
-				credits = 100000;
+				credits = 111500;
 				player.addCredits(credits);
-				player.getPacketSender().sendMessage("Your account has gained 100,000 credits. Your total is now at "+player.getCredits()+".");
+				player.getPacketSender().sendMessage("Your account has gained 111,500 credits. Your total is now at "+player.getCredits()+".");
 				PlayerPanel.refreshPanel(player);
 			break;
 		}

@@ -211,6 +211,11 @@ public class PacketSender {
 	}
 
 	public PacketSender sendIronmanMode(int ironmanMode) {
+		if(ironmanMode == 1) {
+			ironmanMode = 2;
+		} else {
+			ironmanMode = 1;
+		}
 		PacketBuilder out = new PacketBuilder(112);
 		out.put(ironmanMode);
 		player.getSession().queueMessage(out);
@@ -819,35 +824,35 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendPrivateMessage(long name, PlayerRights rights, byte[] message, int size) {
+	public PacketSender sendPrivateMessage(long name, PlayerRights rights, byte[] message, int size, Player me) {
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
 		out.putInt(player.getRelations().getPrivateMessageId());
 		int rank = rights.ordinal();
 		if(rank == 0) {
-			if(player.getDonorRights() == 1) {
+			if(me.getDonorRights() == 1) {
 				rank = 7;
 			}
-			if(player.getDonorRights() == 2) {
+			if(me.getDonorRights() == 2) {
 				rank = 8;
 			}
-			if(player.getDonorRights() == 3) {
+			if(me.getDonorRights() == 3) {
 				rank = 9;
 			}
-			if(player.getDonorRights() == 4) {
+			if(me.getDonorRights() == 4) {
 				rank = 10;
 			}
-			if(player.getDonorRights() == 5) {
+			if(me.getDonorRights() == 5) {
 				rank = 11;
 			}
 		}
-		if(player.getGameMode() == GameMode.IRONMAN) {
+		if(me.getGameMode() == GameMode.IRONMAN) {
 			rank = 12;
 		}
-		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+		if(me.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 			rank = 13;
 		}
-		out.put(rights.ordinal());
+		out.put(rank);
 		out.putBytes(message, size);
 		player.getSession().queueMessage(out);
 		return this;

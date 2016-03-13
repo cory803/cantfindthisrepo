@@ -34,6 +34,9 @@ public class Commands {
 		}
 		if(player.getRights() == PlayerRights.MODERATOR) {
 			Moderators.initiate_command(player, parts, whole_command);
+		}
+		if(player.getRights() == PlayerRights.GLOBAL_MOD) {
+			GlobalModerators.initiate_command(player, parts, whole_command);
 		}	
 		if(player.getRights() == PlayerRights.SUPPORT) {
 			Supports.initiate_command(player, parts, whole_command);
