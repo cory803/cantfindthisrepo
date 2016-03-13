@@ -51,7 +51,7 @@ public class Dueling {
 			player.getPacketSender().sendMessage("You can only challenge people outside the arena.");
 			return;
 		}
-		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()) {
 			BankPin.init(player, false);
 			return;
 		}
@@ -95,6 +95,8 @@ public class Dueling {
 		for (int i = 0; i < selectedDuelRules.length; i++)
 			selectedDuelRules[i] = false;
 		player.getPacketSender().sendConfig(286, 0);
+		for (int i = 643; i <= 656; i++)
+			player.getPacketSender().sendToggle(i, 0);
 		player.getTrading().setCanOffer(true);
 		player.getPacketSender().sendDuelEquipment();
 		player.getPacketSender().sendString(6671, "Dueling with: " + playerToDuel.getUsername() +", Level: "+playerToDuel.getSkillManager().getCombatLevel()+", Duel victories: "+playerToDuel.getDueling().arenaStats[0]+", Duel losses: "+playerToDuel.getDueling().arenaStats[1]);
@@ -153,26 +155,26 @@ public class Dueling {
 		Player playerToDuel = World.getPlayers().get(duelingWith);
 		if (playerToDuel == null)
 			return; 
-		if(player.getRights() != PlayerRights.OWNER) {
+		if(player.getRights() != PlayerRights.OWNER && playerToDuel.getRights() != PlayerRights.OWNER) {
 			if (!new Item(itemId).tradeable()) {
 				player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
 				return;
 			}
 		}
 		if(player.getGameMode() == GameMode.IRONMAN) {
-			player.getPacketSender().sendMessage("You cannot stake an Ironman.");
+			player.getPacketSender().sendMessage("You're dumb for trying to stake an Ironman. -Sam");
 			return;
 		}
 		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("You cannot do this with a Hardcore Ironman.");
+			player.getPacketSender().sendMessage("You're dumb for trying to trade a Hardcore Ironman. -Sam");
 			return;
 		}
 		if(playerToDuel.getGameMode() == GameMode.IRONMAN) {
-			player.getPacketSender().sendMessage("You cannot stake an Ironman.");
+			player.getPacketSender().sendMessage("You're dumb for trying to stake an Ironman. -Sam");
 			return;
 		}
 		if(playerToDuel.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("You cannot stake a Hardcore Ironman.");
+			player.getPacketSender().sendMessage("You're dumb for trying to stake a Hardcore Ironman. -Sam");
 			return;
 		}
 		
@@ -326,17 +328,38 @@ public class Dueling {
 			player.getPacketSender().sendMessage(""+playerToDuel.getUsername()+" does not have enough inventory space for this rule to be set.");
 			return;
 		}
-		if (!player.getDueling().selectedDuelRules[index]) {
-			player.getDueling().selectedDuelRules[index] = true;
-			player.getDueling().duelConfig += duelRule.getConfigId();
-		} else {
-			player.getDueling().selectedDuelRules[index] = false;
-			player.getDueling().duelConfig -= duelRule.getConfigId();
+		if (index > 10) { //Equipment
+			if (!player.getDueling().selectedDuelRules[index]) {
+				player.getDueling().selectedDuelRules[index] = true;
+				player.getPacketSender().sendToggle(duelRule.getConfigId(), player.getDueling().selectedDuelRules[index] ? 1 : 0);
+				playerToDuel.getPacketSender().sendToggle(duelRule.getConfigId(), player.getDueling().selectedDuelRules[index] ? 1 : 0);
+			} else {
+				player.getDueling().selectedDuelRules[index] = false;
+				player.getPacketSender().sendToggle(duelRule.getConfigId(), player.getDueling().selectedDuelRules[index] ? 1 : 0);
+				playerToDuel.getPacketSender().sendToggle(duelRule.getConfigId(), player.getDueling().selectedDuelRules[index] ? 1 : 0);
+			}
+		} else { //Other
+			if (!player.getDueling().selectedDuelRules[index]) {
+				player.getDueling().selectedDuelRules[index] = true;
+				
+				player.getDueling().duelConfig += duelRule.getConfigId();
+				
+			} else {
+				player.getDueling().selectedDuelRules[index] = false;
+				
+				player.getDueling().duelConfig -= duelRule.getConfigId();
+				
+			}
 		}
-		player.getPacketSender().sendToggle(286, player.getDueling().duelConfig);
-		playerToDuel.getDueling().duelConfig = player.getDueling().duelConfig;
+		if(index <= 10) {
+			player.getPacketSender().sendToggle(286, player.getDueling().duelConfig);
+			playerToDuel.getPacketSender().sendToggle(286, player.getDueling().duelConfig);
+		}
+		//playerToDuel.getDueling().duelConfig = player.getDueling().duelConfig;
 		playerToDuel.getDueling().selectedDuelRules[index] = player.getDueling().selectedDuelRules[index];
-		playerToDuel.getPacketSender().sendToggle(286, playerToDuel.getDueling().duelConfig);
+		
+		//playerToDuel.getPacketSender().sendToggle(286, playerToDuel.getDueling().duelConfig);
+		
 		player.getPacketSender().sendString(6684, "");
 		resetAcceptedStake();
 		if (selectedDuelRules[DuelRule.OBSTACLES.ordinal()]) {
@@ -549,7 +572,7 @@ public class Dueling {
 					stop();
 					return;
 				}
-				if(timer == 6 || timer == 5 || timer == 4 || timer == 3 || timer == 2 || timer == 1)
+				if(timer == 3 || timer == 2 || timer == 1)
 					player.forceChat(""+timer+"..");
 				else {
 					player.forceChat("FIGHT!!");
@@ -566,7 +589,6 @@ public class Dueling {
 	}
 
 	public void duelVictory() {
-		final boolean refund = player.getConstitution() == 0;
 		duelingStatus = 6;
 		player.restart();
 		player.getMovementQueue().reset().setLockMovement(false);
@@ -575,17 +597,9 @@ public class Dueling {
 			if(playerDuel != null && playerDuel.getDueling().stakedItems.size() > 0) {
 				for(Item item : playerDuel.getDueling().stakedItems) {
 					if(item.getId() > 0 && item.getAmount() > 0) {
-						if(refund) {
-							playerDuel.getInventory().add(item);
-						} else {
-							PlayerLogs.log(player.getUsername(), "Player won "+playerDuel.getUsername()+"' staked item in duel: "+item.getId()+", "+item.getAmount());
-							stakedItems.add(item);
-						}
+						stakedItems.add(item);
+						PlayerLogs.log(player.getUsername(), "Player won "+playerDuel.getUsername()+"' staked item in duel: "+item.getId()+", "+item.getAmount());
 					}
-				}
-				if(refund) {
-					playerDuel.getPacketSender().sendMessage("Staked items have been refunded as both duelists died.");
-					player.getPacketSender().sendMessage("Staked items have been refunded as both duelists died.");
 				}
 			}
 		}
@@ -607,7 +621,7 @@ public class Dueling {
 		player.getPacketSender().sendInterface(6733);
 		player.getPointsHandler().refreshPanel();
 	}
-	
+
 	public static boolean checkDuel(Player playerToDuel, int statusReq) {
 		boolean goodInterfaceId = playerToDuel.getInterfaceId() == -1 || playerToDuel.getInterfaceId() == 6575 || playerToDuel.getInterfaceId() == 6412;
 		if(playerToDuel.getDueling().duelingStatus != statusReq || playerToDuel.isBanking() || playerToDuel.isShopping() || playerToDuel.getConstitution() <= 0 || playerToDuel.isResting() || !goodInterfaceId)
@@ -645,7 +659,7 @@ public class Dueling {
 		duelingWith = -1;
 		duelConfig = 0;
 		duelTelePos = null;
-		timer = 6;
+		timer = 3;
 		player.getCombatBuilder().reset(true);
 		player.getMovementQueue().reset();
 		player.getPacketSender().sendEntityHintRemoval(true);
@@ -664,7 +678,7 @@ public class Dueling {
 	public int arenaStats[] = {0, 0};
 	public int spaceReq = 0;
 	public int duelConfig;
-	public int timer = 6;
+	public int timer = 3;
 	public int inDuelWith = -1;
 	private boolean canOffer;
 	
@@ -684,17 +698,17 @@ public class Dueling {
 		NO_MOVEMENT(2, 6722, -1, -1),
 		OBSTACLES(1024, 6732, -1, -1),
 
-		NO_HELM(16384, 13813, 1, Equipment.HEAD_SLOT),
-		NO_CAPE(32768, 13814, 1, Equipment.CAPE_SLOT),
-		NO_AMULET(65536, 13815, 1, Equipment.AMULET_SLOT),
-		NO_AMMUNITION(134217728, 13816, 1, Equipment.AMMUNITION_SLOT),
-		NO_WEAPON(131072, 13817, 1, Equipment.WEAPON_SLOT),
-		NO_BODY(262144, 13818, 1, Equipment.BODY_SLOT),
-		NO_SHIELD(524288, 13819, 1, Equipment.SHIELD_SLOT),
-		NO_LEGS(2097152, 13820, 1, Equipment.LEG_SLOT),
-		NO_RING(67108864, 13821, 1, Equipment.RING_SLOT),
-		NO_BOOTS(16777216, 13822, 1, Equipment.FEET_SLOT),
-		NO_GLOVES(8388608, 13823, 1, Equipment.HANDS_SLOT);
+		NO_HELM(/*16384*/643, 13813, 1, Equipment.HEAD_SLOT),
+		NO_CAPE(/*32768*/644, 13814, 1, Equipment.CAPE_SLOT),
+		NO_AMULET(/*65536*/645, 13815, 1, Equipment.AMULET_SLOT),
+		NO_AMMUNITION(/*134217728*/656, 13816, 1, Equipment.AMMUNITION_SLOT),
+		NO_WEAPON(/*131072*/646, 13817, 1, Equipment.WEAPON_SLOT),
+		NO_BODY(/*262144*/647, 13818, 1, Equipment.BODY_SLOT),
+		NO_SHIELD(/*524288*/648, 13819, 1, Equipment.SHIELD_SLOT),
+		NO_LEGS(/*2097152*/650, 13820, 1, Equipment.LEG_SLOT),
+		NO_RING(/*67108864*/655, 13821, 1, Equipment.RING_SLOT),
+		NO_BOOTS(/*16777216*/653, 13822, 1, Equipment.FEET_SLOT),
+		NO_GLOVES(/*8388608*/652, 13823, 1, Equipment.HANDS_SLOT);
 
 		DuelRule(int configId, int buttonId, int inventorySpaceReq, int equipmentSlot) {
 			this.configId = configId;

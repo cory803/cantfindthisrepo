@@ -42,6 +42,7 @@ public class PlayerProcess {
 	}
 
 	public void sequence() {	
+		//player.getPacketSender().sendToggle(286, 1024 + 512 + 4096 + 2);
 		/** COMBAT **/
 		player.getCombatBuilder().process();
 		/** SKILLS **/
