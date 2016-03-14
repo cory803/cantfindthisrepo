@@ -65,7 +65,7 @@ public class PlayerPunishment {
 			return;
 		}
 		try {
-			new File(PC_BAN_DIRECTORY + add).createNewFile();
+			//new File(PC_BAN_DIRECTORY + add).createNewFile();
 		} catch (IOException exception) {
 			exception.printStackTrace();
 		}
