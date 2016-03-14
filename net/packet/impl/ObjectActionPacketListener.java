@@ -352,6 +352,43 @@ public class ObjectActionPacketListener implements PacketListener {
 						}
 					});
 					break;
+				case 2795: //lever KBD
+					if(player.getPosition().getY() >= 10252) {
+						TaskManager.submit(new Task(1, player, true) {
+							int tick = 1;
+							@Override
+							public void execute() {
+								tick++;
+								player.performAnimation(new Animation(2140));
+								if(tick >= 2) {
+									stop();
+								}
+							}
+							@Override
+							public void stop() {
+								setEventRunning(false);
+								TeleportHandler.teleportPlayer(player, new Position(2273, 4681, 0), TeleportType.LEVER);
+							}
+						});
+					} else {
+						TaskManager.submit(new Task(1, player, true) {
+							int tick = 1;
+							@Override
+							public void execute() {
+								tick++;
+								player.performAnimation(new Animation(2140));
+								if(tick >= 2) {
+									stop();
+								}
+							}
+							@Override
+							public void stop() {
+								setEventRunning(false);
+								TeleportHandler.teleportPlayer(player, new Position(3066, 10254), TeleportType.LEVER);
+							}
+						});
+					}
+					break;
 				case 1766://poison spider ladder KBD
 					player.performAnimation(new Animation(828));
 					TaskManager.submit(new Task(1, player, true) {

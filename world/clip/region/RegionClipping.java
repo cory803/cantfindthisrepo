@@ -313,7 +313,9 @@ public final class RegionClipping {
 		boolean well = id == 884 && pos.getX() == 3084 && pos.getY() == 3502;
 		boolean waterRcAltar = id == 2480 && pos.getX() == 3483 && pos.getY() == 4835;
 		boolean crystalChest = id == 172 && pos.getX() == 3077 && pos.getY() == 3497;
-		if (well || mageBankLever || lawAltar || trees || chaosTunnels || lunar || barrows || rfd || lumbridgeCastle || barbCourseRopeswing || catherbyAquariums || freeForAllPortal || warriorsGuild || fightPit || godwars || barrows || waterRcAltar || crystalChest)
+		boolean poisonSpiderLever = id == 2795 && pos.getX() == 3067 && pos.getY() == 10253;
+		boolean kbdLever = id == 2795 && pos.getX() == 2272 && pos.getY() == 4680;
+		if (kbdLever || poisonSpiderLever || well || mageBankLever || lawAltar || trees || chaosTunnels || lunar || barrows || rfd || lumbridgeCastle || barbCourseRopeswing || catherbyAquariums || freeForAllPortal || warriorsGuild || fightPit || godwars || barrows || waterRcAltar || crystalChest)
 			return true;
 		int[] info = getObjectInformation(object.getPosition());
 		if (info != null) {
