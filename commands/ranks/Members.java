@@ -305,6 +305,7 @@ public class Members {
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
+			
 		if (command[0].startsWith("changepass")) {
 			player.setInputHandling(new ChangePassword());
 			player.getPacketSender().sendEnterInputPrompt("Enter a new password:");

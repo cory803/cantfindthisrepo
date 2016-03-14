@@ -574,6 +574,14 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendInterfaceRemoval();
 					player.moveTo(new Position(3651, 3486));
 					break;
+				case 6874:
+				case 6873:
+					if(player.getSummoning().getFamiliar() == null || player.getSummoning().getFamiliar().getSummonNpc() == null || player.getSummoning().getFamiliar().getSummonNpc().getIndex() != npc.getIndex()) {
+						player.getPacketSender().sendMessage("That is not your familiar.");
+						return;
+					}
+					player.getSummoning().store();
+					break;
 				case 2622:
 					ShopManager.getShops().get(43).open(player);
 					break;

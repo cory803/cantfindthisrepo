@@ -526,7 +526,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			}
 			break;
 		case Bank.INTERFACE_ID:
-		case 11:
 			if(player.isBanking()) {
 				if(interfaceId == 11) {
 					player.setInputHandling(new EnterAmountToRemoveFromBank(id, slot));
@@ -592,6 +591,12 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		int slot = packet.readShortA();
 		int id = packet.readShortA();
 		switch (interfaceId) {
+		case Bank.INTERFACE_ID:
+			if(player.isBanking()) {
+				player.setInputHandling(new EnterAmountToRemoveFromBank(id, slot));
+				player.getPacketSender().sendEnterAmountPrompt("How many would you like to withdraw?");
+			}
+			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if(player.isShopping()) {
 				player.getShop().sellItem(player, slot, player.getInventory().getAmount(id));

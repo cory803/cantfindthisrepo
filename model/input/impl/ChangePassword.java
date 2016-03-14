@@ -9,7 +9,7 @@ public class ChangePassword extends Input {
 	@Override
 	public void handleSyntax(Player player, String syntax) {
 		player.getPacketSender().sendInterfaceRemoval();
-		if(syntax == null || syntax.length() <= 2 || syntax.length() > 15 || !NameUtils.isValidName(syntax)) {
+		if(syntax == null || syntax.length() <= 2 || syntax.length() > 20 || !NameUtils.isValidName(syntax)) {
 			player.getPacketSender().sendMessage("That password is invalid. Please try another password.");
 			return;
 		}

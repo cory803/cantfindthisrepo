@@ -4,6 +4,7 @@ import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
 import com.ikov.model.GameObject;
+import com.ikov.model.Position;
 import com.ikov.model.Skill;
 import com.ikov.model.movement.MovementQueue;
 import com.ikov.util.Misc;
@@ -79,7 +80,10 @@ public class Firemaking {
 						player.performAnimation(new Animation(65535));
 						MovementQueue.stepAway(player);
 					}
-					CustomObjects.globalFiremakingTask(new GameObject(2732, player.getPosition().copy()), player, logData.getBurnTime());
+					if(Dungeoneering.doingDungeoneering(player))
+						CustomObjects.globalFiremakingTask(new GameObject(2732, new Position(player.getPosition().getX(), player.getPosition().getY() - 4, player.getPosition().getZ())), player, logData.getBurnTime());
+					else
+						CustomObjects.globalFiremakingTask(new GameObject(2732, new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ())), player, logData.getBurnTime());						
 					player.getPacketSender().sendMessage("The fire catches and the logs begin to burn.");
 					stop();
 				}

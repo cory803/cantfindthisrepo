@@ -8,6 +8,7 @@ import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Bank.BankSearchAttributes;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.ikov.model.input.impl.EnterClanChatToJoin;
+import com.ikov.model.input.impl.InviteToDungeoneering;
 import com.ikov.model.input.impl.EnterSyntaxToBankSearchFor;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
@@ -137,6 +138,10 @@ public class ButtonClickPacketListener implements PacketListener {
 			} else {
 				Dungeoneering.leave(player, false, true);
 			}
+			break;
+		case 26250:
+			player.setInputHandling(new InviteToDungeoneering());
+			player.getPacketSender().sendEnterInputPrompt("Enter the name of the player to invite:");
 			break;
 		case 26244:
 		case 26247:
@@ -431,7 +436,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			else if(id == 1021 || id == -11498)
 				SummoningTab.handleDismiss(player, false);
 			else if(id == -11507)
-				player.getSummoning().store();
+				player.getSummoning().toInventory();
 			else if(id == 1018) 
 				player.getSummoning().toInventory();
 			break;

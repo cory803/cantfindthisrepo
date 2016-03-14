@@ -5,6 +5,7 @@ import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.ikov.model.Graphic;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
@@ -145,8 +146,8 @@ public class UseItemPacketListener implements PacketListener {
 			return;
 		final GameObject gameObject = new GameObject(objectId, new Position(
 				objectX, objectY, player.getPosition().getZ()));
-		if(objectId > 0 && objectId != 6 && !RegionClipping.objectExists(gameObject)) {
-			//	player.getPacketSender().sendMessage("An error occured. Error code: "+id).sendMessage("Please report the error to a staff member.");
+		if(objectId > 0 && objectId != 6 && objectId != 1765 && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
+			//	player.getPacketSender().sendMessage("An error occured. Error code: "+objectId).sendMessage("Please report the error to a staff member.");
 			return;
 		}
 		player.setInteractingObject(gameObject);
