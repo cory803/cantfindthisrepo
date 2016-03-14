@@ -189,7 +189,7 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(2871, 5318, 2), player.getSpellbook().getTeleportType());
 				break;
 			case 38:
-				TeleportHandler.teleportPlayer(player, new Position(2273, 4681), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(3003, 3850, 0), player.getSpellbook().getTeleportType());
 				break;
 			case 40:
 				TeleportHandler.teleportPlayer(player, new Position(3476, 9502), player.getSpellbook().getTeleportType());

@@ -335,8 +335,12 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.moveTo(new Position(3085, 3512));
 					break;
 				case 1765:
-					player.moveTo(new Position(2271, 4680));
-					player.performAnimation(new Animation(714));
+					player.moveTo(new Position(3067, 10256, 0));
+					player.performAnimation(new Animation(827));
+					break;
+				case 1766:
+					player.moveTo(new Position(3017, 3850, 0));
+					player.performAnimation(new Animation(828));
 					break;
 				case 9312: //Grand Exchange Underwall Tunnel
 					Position position = new Position(3164, 3484, 0);
@@ -1428,10 +1432,10 @@ public class ObjectActionPacketListener implements PacketListener {
 			secondClick(player, packet);
 			break;
 		case THIRD_CLICK:
-			//thirdClick(player, packet);
+			thirdClick(player, packet);
 			break;
 		case FOURTH_CLICK:
-			//fourthClick(player, packet);
+			fourthClick(player, packet);
 			break;
 		case FIFTH_CLICK:
 			fifthClick(player, packet);
