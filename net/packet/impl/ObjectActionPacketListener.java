@@ -334,13 +334,41 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 38700:
 					player.moveTo(new Position(3085, 3512));
 					break;
-				case 1765:
-					player.moveTo(new Position(3067, 10256, 0));
+				case 1765://ladder down to posion spider KBD
 					player.performAnimation(new Animation(827));
+					TaskManager.submit(new Task(1, player, true) {
+						int tick = 1;
+						@Override
+						public void execute() {
+							tick++;
+							if(tick == 4) {
+								stop();
+							}
+						}
+						@Override
+						public void stop() {
+							setEventRunning(false);
+							player.moveTo(new Position(3067, 10256, 0));
+						}
+					});
 					break;
-				case 1766:
-					player.moveTo(new Position(3017, 3850, 0));
+				case 1766://poison spider ladder KBD
 					player.performAnimation(new Animation(828));
+					TaskManager.submit(new Task(1, player, true) {
+						int tick = 1;
+						@Override
+						public void execute() {
+							tick++;
+							if(tick == 4) {
+								stop();
+							}
+						}
+						@Override
+						public void stop() {
+							setEventRunning(false);
+							player.moveTo(new Position(3017, 3850, 0));
+						}
+					});
 					break;
 				case 9312: //Grand Exchange Underwall Tunnel
 					Position position = new Position(3164, 3484, 0);
