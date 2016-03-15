@@ -381,7 +381,7 @@ public class Shop extends ItemContainer {
 				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
 			} else if(id == PRESTIGE_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getPrestigePoints();
-			} else if(id == SLAYER_STORE) {
+			} else if(id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getSlayerPoints();
 			} else if(id == CREDIT_STORE_1) {
 				playerCurrencyAmount = player.getCredits();
@@ -449,7 +449,7 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setDungeoneeringTokens(-value, true);
 						} else if(id == PRESTIGE_STORE) {
 							player.getPointsHandler().setPrestigePoints(-value, true);
-						} else if(id == SLAYER_STORE) {
+						} else if(id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value, true);
 						} else if(id == CREDIT_STORE_1) {
 							player.setCredits(-value, true);
@@ -493,7 +493,7 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
 						} else if(id == PRESTIGE_STORE) {
 							player.getPointsHandler().setPrestigePoints(-value * canBeBought, true);
-						} else if(id == SLAYER_STORE) {
+						} else if(id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
 						} else if(id == CREDIT_STORE_1) {
 							player.setCredits(-value * canBeBought, true);
@@ -631,7 +631,7 @@ public class Shop extends ItemContainer {
 	public static boolean shopBuysItem(int shopId, Item item) {
 		if(shopId == GENERAL_STORE || shopId == CREDIT_STORE_1 || shopId == CREDIT_STORE_2 || shopId == CREDIT_STORE_3)
 			return true;
-		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE|| shopId == BOSS_POINT_STORE || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == IRON_VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE)
+		if(shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE|| shopId == BOSS_POINT_STORE || shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE || shopId == IRON_VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
 		if(shop != null && shop.getOriginalStock() != null) {
@@ -1250,6 +1250,16 @@ public class Shop extends ItemContainer {
 				case 2572:
 					return new Object[]{500, "Slayer points"};
 				}
+			} else if (shop == IRON_SLAYER_STORE) {
+				switch(item) {
+					case 5574:
+					case 5575:
+					case 5576:
+						return new Object[]{50, "Slayer points"};
+					case 544:
+					case 542:
+						return new Object[]{10, "Slayer points"};
+				}
 			}
 			return null;
 		}
@@ -1303,4 +1313,5 @@ public class Shop extends ItemContainer {
 	private static final int DUNGEONEERING_STORE = 44;
 	private static final int PRESTIGE_STORE = 46;
 	private static final int SLAYER_STORE = 47;
+	private static final int IRON_SLAYER_STORE = 85;
 }

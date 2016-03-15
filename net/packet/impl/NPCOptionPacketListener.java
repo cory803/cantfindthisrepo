@@ -773,8 +773,8 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 9085:
 				case 8275:
 				case 7780:
-					player.getPacketSender().sendString(36030, "Current Points:   "+player.getPointsHandler().getSlayerPoints());
-					player.getPacketSender().sendInterface(36000);
+					player.setDialogueActionId(187);
+					DialogueManager.start(player, 187);
 					break;
 				}
 				npc.setPositionToFace(player.getPosition());
