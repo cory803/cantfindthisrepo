@@ -28,8 +28,8 @@ import com.ikov.world.content.BonusManager;
 import com.ikov.world.content.ItemDegrading;
 import com.ikov.world.content.ItemDegrading.DegradingItem;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect;
-import com.ikov.world.content.combat.effect.CombatVenomEffect;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect.PoisonType;
+import com.ikov.world.content.combat.effect.CombatVenomEffect;
 import com.ikov.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.ikov.world.content.combat.effect.EquipmentBonus;
 import com.ikov.world.content.combat.magic.CombatAncientSpell;
@@ -1111,9 +1111,10 @@ public final class CombatFactory {
 		boolean sameSpot = attacker.equals(victim) && !a.getMovementQueue().isMoving() && !b.getMovementQueue().isMoving();
 		boolean goodDistance = !sameSpot && Locations.goodDistance(attacker.getX(), attacker.getY(), victim.getX(), victim.getY(), distance);
 		boolean projectilePathBlocked = false;
-		if(a.isPlayer() && (strategy.getCombatType() == CombatType.RANGED || strategy.getCombatType() == CombatType.MAGIC && ((Player)a).getCastSpell() != null && !(((Player)a).getCastSpell() instanceof CombatAncientSpell))|| a.isNpc() && strategy.getCombatType() == CombatType.MELEE) {
-			if(!RegionClipping.canProjectileAttack(b, a))
+		if(a.isPlayer() && (strategy.getCombatType().equals(CombatType.RANGED) || (strategy.getCombatType().equals(CombatType.MAGIC)) && (((Player)a).getCastSpell() != null || ((Player)a).getAutocastSpell() != null) && !(((Player)a).getCastSpell() instanceof CombatAncientSpell)) || a.isNpc() && strategy.getCombatType() == CombatType.MELEE) {
+			if (!PathFinder.isProjectilePathClear(a.getPosition(), b.getPosition())) {
 				projectilePathBlocked = true;
+			}			
 		}
 		if(!projectilePathBlocked && goodDistance) {
 			if(strategy.getCombatType() == CombatType.MELEE && RegionClipping.isInDiagonalBlock(b, a)) {

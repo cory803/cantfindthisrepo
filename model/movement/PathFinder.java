@@ -200,4 +200,99 @@ public class PathFinder {
 			gc.getMovementQueue().reset();
 		}
 	}
+	
+	public static boolean isProjectilePathClear(Position a, Position b) {
+		return isProjectilePathClear(a.getX(), a.getY(), a.getZ(), b.getX(), b.getY());
+	}
+	
+	public static boolean isProjectilePathClear(final int x0, final int y0,
+			final int z, final int x1, final int y1) {
+		int deltaX = x1 - x0;
+		int deltaY = y1 - y0;
+
+		double error = 0;
+		final double deltaError = Math.abs((deltaY) / (deltaX == 0 ? ((double) deltaY) : ((double) deltaX)));
+
+		int x = x0;
+		int y = y0;
+
+		int pX = x;
+		int pY = y;
+
+		boolean incrX = x0 < x1;
+		boolean incrY = y0 < y1;
+
+		while (true) {
+			if (x != x1) {
+				x += (incrX ? 1 : -1);
+			}
+
+			if (y != y1) {
+				error += deltaError;
+
+				if (error >= 0.5) {
+					y += (incrY ? 1 : -1);
+					error -= 1;
+				}
+			}
+
+			if (!shootable(x, y, z, pX, pY)) {
+				return false;
+			}
+
+			if (incrX && incrY
+					&& x >= x1 && y >= y1) {
+				break;
+			} else if (!incrX && !incrY
+					&& x <= x1 && y <= y1) {
+				break;
+			} else if (!incrX && incrY
+					&& x <= x1 && y >= y1) {
+				break;
+			} else if (incrX && !incrY
+					&& x >= x1 && y <= y1) {
+				break;
+			}
+
+			pX = x;
+			pY = y;
+		}
+
+		return true;
+	}
+	
+	private static boolean shootable(int x, int y, int z, int pX, int pY) {
+		if (x == pX && y == pY) {
+			return true;
+		}
+
+		int dir = getDirection(x, y, pX, pY);
+		int dir2 = getDirection(pX, pY, x, y);
+
+		if (dir == -1 || dir2 == -1) {
+			System.out.println("NEGATIVE DIRECTION PROJECTILE ERROR");
+			return false;
+		}
+		Position pos = new Position(x, y, z);
+		Position other = new Position(pX, pY, z);
+		
+		if (RegionClipping.forPosition(pos).canMove(pos, dir) && RegionClipping.forPosition(other).canMove(other, dir2)) {
+			return true;
+		} else {
+			return RegionClipping.forPosition(pos).canShoot(pos, dir) && RegionClipping.forPosition(pos).canShoot(pos, dir2);
+		}
+	}
+	
+	public static final int[][] DIR = { { -1, 1 }, { 0, 1 }, { 1, 1 }, { -1, 0 }, { 1, 0 }, { -1, -1 }, { 0, -1 }, { 1, -1 } };
+
+	public static final int getDirection(int x, int y, int x2, int y2) {
+		int xDiff = x2 - x;
+		int yDiff = y2 - y;
+		for (int i = 0; i < DIR.length; i++) {
+			if ((xDiff == DIR[i][0]) && (yDiff == DIR[i][1])) {
+				return i;
+			}
+		}
+		return -1;
+	}
 }
