@@ -64,11 +64,11 @@ public class PlayerPunishment {
 		if(add.toLowerCase().equals("none")) {
 			return;
 		}
-		try {
+		/*try {
 			//new File(PC_BAN_DIRECTORY + add).createNewFile();
 		} catch (IOException exception) {
 			exception.printStackTrace();
-		}
+		}*/
 	}	
 	
 	public static void ban(String name) {

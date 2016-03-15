@@ -1,12 +1,15 @@
 package com.ikov.net.packet.impl;
 
+import java.util.Arrays;
+
 import com.ikov.model.Animation;
 import com.ikov.model.Position;
+import com.ikov.model.movement.PathFinder;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
+import com.ikov.world.content.BankPin;
 import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
-import com.ikov.world.content.BankPin;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
@@ -56,33 +59,42 @@ public class MovementPacketListener implements PacketListener {
 		final Position[] positions = new Position[steps + 1];
 		positions[0] = new Position(firstStepX, firstStepY, player.getPosition().getZ());
 		
+		boolean newWalking = false;
 		
-		boolean invalidStep = false;
-
-		if(!player.getPosition().isViewableFrom(positions[0])) {
-			invalidStep = true;
+		if (newWalking) {
+			if (steps > 0)
+				PathFinder.findPath(player.getCharacter(), positions[(steps)].getX(), positions[(steps)].getY(), true, 16, 16);
+			else
+				PathFinder.findPath(player.getCharacter(), firstStepX, firstStepY, true, 16, 16);
 		} else {
-			for (int i = 0; i < steps; i++) {
-				positions[i + 1] = new Position(path[i][0] + firstStepX, path[i][1] + firstStepY, player.getPosition().getZ());
-				int distance = player.getPosition().getDistance(positions[i + 1]);
-				if(distance < -22 || distance > 22) {
-					invalidStep = true;
-					break;
+			boolean invalidStep = false;
+
+			if(!player.getPosition().isViewableFrom(positions[0])) {
+				invalidStep = true;
+			} else {
+				for (int i = 0; i < steps; i++) {
+					positions[i + 1] = new Position(path[i][0] + firstStepX, path[i][1] + firstStepY, player.getPosition().getZ());
+					int distance = player.getPosition().getDistance(positions[i + 1]);
+					if(distance < -22 || distance > 22) {
+						invalidStep = true;
+						break;
+					}
+				}
+			}
+			
+			if(invalidStep) {
+				player.getMovementQueue().reset();
+				//System.out.println(""+player.getUsername()+" invalid step at "+player.getLocation().toString());
+				return;
+			}
+			
+			if (player.getMovementQueue().addFirstStep(positions[0])) {
+				for (int i = 1; i < positions.length; i++) {
+					player.getMovementQueue().addStep(positions[i]);
 				}
 			}
 		}
 		
-		if(invalidStep) {
-			player.getMovementQueue().reset();
-			//System.out.println(""+player.getUsername()+" invalid step at "+player.getLocation().toString());
-			return;
-		}
-
-		if (player.getMovementQueue().addFirstStep(positions[0])) {
-			for (int i = 1; i < positions.length; i++) {
-				player.getMovementQueue().addStep(positions[i]);
-			}
-		}
 	}
 
 	public boolean checkReqs(Player player, int opcode) {

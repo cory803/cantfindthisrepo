@@ -529,6 +529,10 @@ public abstract class Character extends Entity {
 		this.npcTransformationId = npcTransformationId;
 		return this;
 	}
+	
+	public Character getCharacter() {
+		return this;
+	}
 
 	/*
 	 * Movement queue
