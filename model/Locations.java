@@ -844,6 +844,8 @@ public class Locations {
 		},
 		AGILITY_WILDERNESS_COURSE(new int[]{2989, 3009}, new int[]{3916, 3966}, false, true, true, false, false, false) {
 		},
+		EZONE_DONOR(new int[]{3342, 3385}, new int[]{9618, 9661}, false, true, true, false, false, false) {
+		},
 		DEFAULT(null, null, false, true, true, true, true, true) {
 		};
 		Location(int[] x, int[] y, boolean multi, boolean summonAllowed, boolean followingAllowed, boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed) {

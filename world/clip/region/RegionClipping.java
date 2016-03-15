@@ -315,7 +315,9 @@ public final class RegionClipping {
 		boolean crystalChest = id == 172 && pos.getX() == 3077 && pos.getY() == 3497;
 		boolean poisonSpiderLever = id == 2795 && pos.getX() == 3067 && pos.getY() == 10253;
 		boolean kbdLever = id == 2795 && pos.getX() == 2272 && pos.getY() == 4680;
-		if (kbdLever || poisonSpiderLever || well || mageBankLever || lawAltar || trees || chaosTunnels || lunar || barrows || rfd || lumbridgeCastle || barbCourseRopeswing || catherbyAquariums || freeForAllPortal || warriorsGuild || fightPit || godwars || barrows || waterRcAltar || crystalChest)
+		boolean eZoneRuneRock = id == 14859 && pos.getX() == 3371 || pos.getX() == 3372 && pos.getY() == 9653;
+		boolean eZoneChests = id == 4483 && loc == Location.EZONE_DONOR;
+		if (eZoneChests || eZoneRuneRock || kbdLever || poisonSpiderLever || well || mageBankLever || lawAltar || trees || chaosTunnels || lunar || barrows || rfd || lumbridgeCastle || barbCourseRopeswing || catherbyAquariums || freeForAllPortal || warriorsGuild || fightPit || godwars || barrows || waterRcAltar || crystalChest)
 			return true;
 		int[] info = getObjectInformation(object.getPosition());
 		if (info != null) {
