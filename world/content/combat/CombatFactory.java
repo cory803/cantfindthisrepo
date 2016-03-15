@@ -854,7 +854,7 @@ public final class CombatFactory {
 				} else if(victim.getFireDamageModifier() == 50) {
 					baseMax /= 2;
 				} else {
-					baseMax /= 3; //Shields
+					baseMax /= 4; //Shields
 				}
 
 			}
@@ -1679,7 +1679,7 @@ public final class CombatFactory {
 				ticks++;
 			}
 		});
-		player.incrementDfsCharges(-20);
+		player.incrementDfsCharges(-1);
 		BonusManager.update(player);
 	}
 

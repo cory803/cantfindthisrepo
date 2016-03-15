@@ -218,7 +218,7 @@ public class CustomObjects {
 			//skilling anvil
 			{4306, 3375, 9660, 0, 4},
 			//furnace
-			{6189, 3376, 9659, 0, 4},
+			{6189, 3376, 9659, 0, 1},
 			//bank booths
 			//mining booth
 			{2213, 3363, 9652, 0, 0},

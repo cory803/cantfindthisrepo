@@ -159,7 +159,7 @@ public class HitQueue {
 				} else {
 					if(victim.isPlayer() && container.getCombatType() == CombatType.DRAGON_FIRE) {
 						Player p = (Player)victim;
-						if(Misc.getRandom(20) <= 15 && p.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283) {
+						if(p.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283) {
 							p.setPositionToFace(attacker.getPosition().copy());
 							CombatFactory.chargeDragonFireShield(p);
 						}
