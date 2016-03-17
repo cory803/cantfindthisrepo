@@ -1,47 +1,44 @@
 package com.ikov.world.entity.impl.player;
 
-import com.ikov.util.PlayersOnline;
-import com.ikov.model.Locations.Location;
-import com.ikov.GameSettings;
+import java.util.concurrent.TimeUnit;
+
 import com.ikov.GameServer;
+import com.ikov.GameSettings;
 import com.ikov.engine.task.TaskManager;
-import com.ikov.world.content.BankPin;
-import com.ikov.util.ForumDatabase;
-import java.sql.*;
-import java.util.Properties;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.engine.task.impl.CombatSkullEffect;
 import com.ikov.engine.task.impl.FireImmunityTask;
 import com.ikov.engine.task.impl.OverloadPotionTask;
-import com.ikov.util.Logs;
 import com.ikov.engine.task.impl.PlayerSkillsTask;
 import com.ikov.engine.task.impl.PlayerSpecialAmountTask;
 import com.ikov.engine.task.impl.PrayerRenewalPotionTask;
 import com.ikov.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.ikov.model.Flag;
 import com.ikov.model.Locations;
+import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.model.definitions.WeaponInterfaces;
-import com.ikov.model.Highscores;
 import com.ikov.net.PlayerSession;
 import com.ikov.net.SessionState;
 import com.ikov.net.security.ConnectionHandler;
+import com.ikov.util.Logs;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
+import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BonusManager;
-import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Lottery;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.PlayersOnlineInterface;
+import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.effect.CombatPoisonEffect;
-import com.ikov.world.content.combat.effect.CombatVenomEffect;
 import com.ikov.world.content.combat.effect.CombatTeleblockEffect;
+import com.ikov.world.content.combat.effect.CombatVenomEffect;
 import com.ikov.world.content.combat.magic.Autocasting;
 import com.ikov.world.content.combat.prayer.CurseHandler;
 import com.ikov.world.content.combat.prayer.PrayerHandler;
@@ -179,6 +176,16 @@ public class PlayerHandler {
 			player.getPacketSender().sendMessage("@bla@Welcome to Ikov! We're currently in Insane EXP mode! (@red@X8.0@bla@)");
 		}
 		
+		long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin());
+		
+		if (player.getLastIpAddress() != null && player.getLastLogin() != -1) {
+			if (days > 0) {
+				player.getPacketSender().sendMessage("You last logged in @blu@" + days + "@bla@ " + (days > 1 ? "days" : "day") + " ago from @blu@" + player.getLastIpAddress());
+			} else {
+				player.getPacketSender().sendMessage("You last logged in earlier today from @blu@" + player.getLastIpAddress());
+			}
+		}
+		
 		if(player.experienceLocked())
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 		ClanChatManager.handleLogin(player);
@@ -271,6 +278,7 @@ public class PlayerHandler {
 				//	new Thread(new Highscores(player)).start();
 				//}
 				//Sets last account information available
+				player.setLastLogin(System.currentTimeMillis());
 				player.setLastIpAddress(player.getHostAddress());
 				player.setLastSerialAddress(player.getSerialNumber());
 				player.setLastMacAddress(player.getMacAddress());

@@ -517,6 +517,7 @@ public class Player extends Character {
 	private boolean receivedStarter;
 	private boolean canVote = true;
 	private boolean jailed = false;
+	private long last_login = -1;
 	private String last_ip_address;
 	private String last_serial_address;
 	private String last_mac_address;
@@ -659,6 +660,10 @@ public class Player extends Character {
 		return username;
 	}
 	
+	public void setLastLogin(long last_login) {
+		this.last_login = last_login;
+	}
+	
 	public void setLastIpAddress(String last_ip) {
 		last_ip_address = last_ip;
 	}	
@@ -681,6 +686,10 @@ public class Player extends Character {
 	
 	public boolean doingTutorial() {
 		return isDoingTutorial;
+	}
+	
+	public long getLastLogin() {
+		return last_login;
 	}
 	
 	public String getLastIpAddress() {
