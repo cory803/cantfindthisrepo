@@ -30,8 +30,10 @@ public class Fishing {
 		HARPOON2(313, new int[]{383}, 311, -1, new int[]{76}, true, new int[]{8547}, 618),
 		
 		BAIT(316, new int[]{327, 345}, 307, 313, new int[]{5, 10}, true, new int[]{650, 980}, 623),
+
+		ROCKTAIL(10091, new int[]{15270}, 309, 25, new int[]{91}, false, new int[]{18010}, 623),
 		
-		ROCKTAIL(10091, new int[]{15270}, 309, 25, new int[]{91}, false, new int[]{18010}, 623);
+		KARAM(2859, new int[]{3142}, 305, -1, new int[]{65}, false, new int[]{7435}, 621);
 
 		int npcId, equipment, bait, anim;
 		int[] rawFish, fishingReqs, xp;
