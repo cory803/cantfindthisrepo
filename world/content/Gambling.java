@@ -59,7 +59,7 @@ public class Gambling {
 			player.getPacketSender().sendMessage("").sendMessage("This seed can only be planted in the gambling area").sendMessage("To get there, talk to the gambler.");
 			return;
 		}
-		if(!player.getClickDelay().elapsed(3000))
+		if(!player.getClickDelay().elapsed(1400))
 			return;
 		for(NPC npc : player.getLocalNpcs()) {
 			if(npc != null && npc.getPosition().equals(player.getPosition())) {
