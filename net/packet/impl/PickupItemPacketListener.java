@@ -4,6 +4,7 @@ import com.ikov.engine.task.impl.WalkToTask;
 import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.GroundItem;
 import com.ikov.model.Item;
+import com.ikov.model.GameMode;
 import com.ikov.model.Position;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.net.packet.Packet;
@@ -48,6 +49,10 @@ public class PickupItemPacketListener implements PacketListener {
 				if(gItem != null) {
 					if(player.getInventory().getAmount(gItem.getItem().getId()) + gItem.getItem().getAmount() > Integer.MAX_VALUE || player.getInventory().getAmount(gItem.getItem().getId()) + gItem.getItem().getAmount() <= 0) {
 						player.getPacketSender().sendMessage("You cannot hold that amount of this item. Clear your inventory!");
+						return;
+					}
+					if(player.getGameMode().equals(GameMode.IRONMAN) || player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) { 
+						player.getPacketSender().sendMessage("You can't pick up items on an ironman account.");
 						return;
 					}
 					GroundItemManager.pickupGroundItem(player, new Item(itemId), new Position(x, y, player.getPosition().getZ()));

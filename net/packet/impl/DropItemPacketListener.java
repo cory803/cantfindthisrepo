@@ -1,6 +1,7 @@
 package com.ikov.net.packet.impl;
 
 import com.ikov.model.CombatIcon;
+import com.ikov.model.GameMode;
 import com.ikov.model.Graphic;
 import com.ikov.model.GroundItem;
 import com.ikov.model.Hit;
@@ -61,8 +62,8 @@ public class DropItemPacketListener implements PacketListener {
 			}
 			return;
 		}
-		if (item != null && item.getId() != -1 && item.getAmount() >= 1) {
-			if(item.tradeable() && !ItemBinding.isBoundItem(item.getId())) {
+		if (item != null && item.getId() != -1 && item.getAmount() >= 1) {	
+			if(item.tradeable() && !ItemBinding.isBoundItem(item.getId()) && !player.getGameMode().equals(GameMode.IRONMAN) && !player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
 				player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
 				if(item.getId() == 4045) {
 					player.dealDamage(new Hit((player.getConstitution() - 1) == 0 ? 1 : player.getConstitution() - 1, Hitmask.CRITICAL, CombatIcon.BLUE_SHIELD));

@@ -72,22 +72,11 @@ public class PlayerDeathTask extends Task {
 				this.loc = player.getLocation();
 				if(loc != Location.DUNGEONEERING && loc != Location.PEST_CONTROL_GAME && loc != Location.DUEL_ARENA && loc != Location.FREE_FOR_ALL_ARENA && loc != Location.FREE_FOR_ALL_WAIT && loc != Location.SOULWARS && loc != Location.FIGHT_PITS && loc != Location.FIGHT_PITS_WAIT_ROOM && loc != Location.FIGHT_CAVES && loc != Location.RECIPE_FOR_DISASTER && loc != Location.GRAVEYARD) {
 					Player killer = player.getCombatBuilder().getKiller(true);
-					if(player.getRights().equals(PlayerRights.OWNER))
-						dropItems = false;
-					if(loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
-						if(killer != null && (killer.getRights().equals(PlayerRights.OWNER) || killer.getGameMode().equals(GameMode.IRONMAN) || killer.getGameMode().equals(GameMode.HARDCORE_IRONMAN)))
-							dropItems = false;
-					}
 //					final boolean doubleDeath = player.isDying() && killer.getConstitution() <= 0;
 //					if(killer.getLocation() == Location.WILDERNESS || killer.getLocation() == Location.WILDKEY_ZONE) {
 //						if(doubleDeath)
 //							killer.restart();
 //					}
-					if(killer != null) {
-						if( killer.getRights().equals(PlayerRights.OWNER) || killer.getGameMode().equals(GameMode.IRONMAN) || killer.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
-							dropItems = false;
-						}
-					}
 					boolean spawnItems = false;
 					if(dropItems) {
 						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);

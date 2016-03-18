@@ -80,10 +80,7 @@ public class Firemaking {
 						player.performAnimation(new Animation(65535));
 						MovementQueue.stepAway(player);
 					}
-					if(Dungeoneering.doingDungeoneering(player))
-						CustomObjects.globalFiremakingTask(new GameObject(2732, new Position(player.getPosition().getX(), player.getPosition().getY() - 4, player.getPosition().getZ())), player, logData.getBurnTime());
-					else
-						CustomObjects.globalFiremakingTask(new GameObject(2732, new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ())), player, logData.getBurnTime());						
+					CustomObjects.globalFiremakingTask(new GameObject(2732, new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ())), player, logData.getBurnTime());						
 					player.getPacketSender().sendMessage("The fire catches and the logs begin to burn.");
 					stop();
 				}
