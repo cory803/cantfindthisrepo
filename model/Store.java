@@ -54,6 +54,7 @@ public class Store {
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
 				store_item_given(player.getUsername());
+				Logs.write_data(player.getUsername()+ ".txt", "shop_purchases", "Item "+item_name+" has been claimed from a store purchase.");
 				World.sendMessage("<img=4><col=2F5AB7>"+player.getUsername()+" has just claimed a <col=9A0032>$25<col=2f5ab7> scroll using ::donate!");
 			}
 			if(check_store_item(player.getUsername()) == 92530011) {
@@ -62,6 +63,7 @@ public class Store {
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
 				store_item_given(player.getUsername());
+				Logs.write_data(player.getUsername()+ ".txt", "shop_purchases", "Item "+item_name+" has been claimed from a store purchase.");
 				World.sendMessage("<img=4><col=2F5AB7>"+player.getUsername()+" has just claimed a <col=9A0032>$50<col=2f5ab7> scroll using ::donate!");
 			}
 			if(check_store_item(player.getUsername()) == 92530012) {
@@ -70,6 +72,7 @@ public class Store {
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
 				store_item_given(player.getUsername());
+				Logs.write_data(player.getUsername()+ ".txt", "shop_purchases", "Item "+item_name+" has been claimed from a store purchase.");
 				World.sendMessage("<img=4><col=2F5AB7>"+player.getUsername()+" has just claimed a <col=9A0032>$100<col=2f5ab7> scroll using ::donate!");
 			}
 		} else {

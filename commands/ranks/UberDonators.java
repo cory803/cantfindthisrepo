@@ -102,9 +102,9 @@ public class UberDonators {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(3424, 2919, 0);
+			Position position = new Position(2508, 3860, 0);
 			player.moveTo(position);
-			player.getPacketSender().sendMessage("Thanks for supporting Ikov!");
+			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}
 		if (command[0].equals("ancients")) {
 			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {

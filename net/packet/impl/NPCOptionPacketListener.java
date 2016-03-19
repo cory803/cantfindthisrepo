@@ -566,6 +566,9 @@ public class NPCOptionPacketListener implements PacketListener {
 						BossSystem.startInstance(player, player.getLastBoss(), player.isBossSolo());
 					}
 					break;
+				case 536:
+					ShopManager.getShops().get(59).open(player);
+					break;
 				case 2579:
 					ShopManager.getShops().get(46).open(player);
 					player.getPacketSender().sendMessage("<col=255>You currently have "+player.getPointsHandler().getPrestigePoints()+" Prestige points!");
