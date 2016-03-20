@@ -123,11 +123,8 @@ public final class LoginDecoder extends FrameDecoder {
 			int uid = rsaBuffer.readInt();
 			String username = Misc.readString(rsaBuffer);
 			String password = Misc.readString(rsaBuffer);
-			//String computer_address = Misc.readString(rsaBuffer);
 			String client_version = Misc.readString(rsaBuffer);	
-			
-			String computer_address = "null";
-			//String client_version = "2.25";	
+			String computer_address = Misc.readString(rsaBuffer);
 			
 			if (username.length() > 12 || password.length() > 20) {
 				System.out.println("Username or password length too long");
