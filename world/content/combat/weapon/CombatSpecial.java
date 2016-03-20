@@ -19,6 +19,7 @@ import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.Consumables;
 import com.ikov.world.content.combat.CombatContainer;
+import com.ikov.world.content.combat.prayer.CurseHandler;
 import com.ikov.world.content.combat.CombatType;
 import com.ikov.world.content.combat.HitQueue.CombatHit;
 import com.ikov.world.content.combat.magic.Autocasting;
@@ -408,6 +409,7 @@ public enum CombatSpecial {
 				public void onHit(int damage, boolean accurate) {
 					if(target.isPlayer()) {
 						PrayerHandler.resetPrayers((Player)target, PrayerHandler.OVERHEAD_PRAYERS, -1);
+						CurseHandler.resetPrayers((Player)target, CurseHandler.OVERHEAD_CURSES, -1);
 						((Player)target).getPacketSender().sendMessage("Your overhead prayers have been disabled!");
 					}
 				}
