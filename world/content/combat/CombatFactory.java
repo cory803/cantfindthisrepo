@@ -1028,8 +1028,10 @@ public final class CombatFactory {
 		// Check if the victim is still in the wilderness, and check if the
 		if(entity.isPlayer()) {
 			if(victim.isPlayer()) {
-				if (!properLocation((Player)entity, (Player)victim)) {
-					entity.getCombatBuilder().reset(true);
+				if (!properLocation((Player) entity, (Player) victim)) {
+					if (((Player) entity).getDueling().duelingStatus != 5 && ((Player) victim).getDueling().duelingStatus != 5) {
+						entity.getCombatBuilder().reset(true);
+					}
 					entity.setPositionToFace(victim.getPosition());
 					return false;
 				}
