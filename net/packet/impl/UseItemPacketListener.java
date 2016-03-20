@@ -105,6 +105,10 @@ public class UseItemPacketListener implements PacketListener {
 		WeaponPoison.execute(player, itemUsedWith.getId(), usedWith.getId());
 		if (itemUsedWith.getId() == 590 || usedWith.getId() == 590)
 			Firemaking.lightFire(player, itemUsedWith.getId() == 590 ? usedWith.getId() : itemUsedWith.getId(), false, 1);
+
+		if (itemUsedWith.getId() == 2946 || usedWith.getId() == 2946)
+			Firemaking.lightFire(player, itemUsedWith.getId() == 2946 ? usedWith.getId() : itemUsedWith.getId(), false, 1);
+		
 		if (itemUsedWith.getDefinition().getName().contains("(") && usedWith.getDefinition().getName().contains("("))
 			PotionCombinating.combinePotion(player, usedWith.getId(), itemUsedWith.getId());
 		if (usedWith.getId() == Herblore.VIAL || itemUsedWith.getId() == Herblore.VIAL){

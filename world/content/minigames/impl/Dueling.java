@@ -29,6 +29,10 @@ public class Dueling {
 	}
 
 	public void challengePlayer(Player playerToDuel) {
+		if(player.getDonorRights() == 0) {
+			player.getPacketSender().sendMessage("Dueling has been disabled for anyone non-donator until we re-work a bug.");
+			return;
+		}
 		if(player.getLocation() != Location.DUEL_ARENA)
 			return;
 		if(player.getInterfaceId() > 0) {

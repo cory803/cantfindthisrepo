@@ -7,6 +7,7 @@ import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.PlayerSpecialAmountTask;
 import com.ikov.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.ikov.model.Animation;
+import com.ikov.world.content.combat.prayer.PrayerHandler;
 import com.ikov.model.Graphic;
 import com.ikov.model.GraphicHeight;
 import com.ikov.model.Projectile;
@@ -89,7 +90,7 @@ public enum CombatSpecial {
 					true);
 		}
 	},
-	ABYSSAL_WHIP(new int[] { 21047, 4151, 15441, 15442, 15443, 15444, 21000, 21001, 21002, 21003, 21004, 21005, 21006, 21007}, 50, 1, 1, CombatType.MELEE, WeaponInterface.WHIP) {
+	ABYSSAL_WHIP(new int[] { 21047, 21372, 4151, 15441, 15442, 15443, 15444, 21000, 21001, 21002, 21003, 21004, 21005, 21006, 21007}, 50, 1, 1, CombatType.MELEE, WeaponInterface.WHIP) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1658));
@@ -402,9 +403,15 @@ public enum CombatSpecial {
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1872));
 			player.performGraphic(new Graphic(347, GraphicHeight.HIGH));
-
-			return new CombatContainer(player, target, 1, CombatType.MELEE,
-					true);
+			return new CombatContainer(player, target, 1, CombatType.MELEE, true) {
+				@Override
+				public void onHit(int damage, boolean accurate) {
+					if(target.isPlayer()) {
+						PrayerHandler.resetPrayers((Player)target, PrayerHandler.OVERHEAD_PRAYERS, -1);
+						((Player)target).getPacketSender().sendMessage("Your overhead prayers have been disabled!");
+					}
+				}
+			};
 		}
 	},
 	DRAGON_2H_SWORD(new int[] { 7158 }, 60, 1, 1, CombatType.MELEE, WeaponInterface.TWO_HANDED_SWORD) {

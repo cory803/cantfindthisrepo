@@ -203,6 +203,10 @@ public class Shop extends ItemContainer {
 			return;
 		} 
 		Item itemToSell = player.getInventory().getItems()[slot];
+		if(itemToSell.getId() == 12183 || itemToSell.getId() == 12530 || itemToSell.getId() == 18016) {
+			player.getPacketSender().sendMessage("You can't sell this item to this shop, please exchange shards with pikkupstix.");
+			return;
+		}
 		boolean creditShop = id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3;
 		if(!itemToSell.sellable() && !creditShop) {
 			player.getPacketSender().sendMessage("This item cannot be sold.");

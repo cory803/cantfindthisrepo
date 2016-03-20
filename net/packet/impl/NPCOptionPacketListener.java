@@ -82,6 +82,10 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 				switch(npc.getId()) {
+				case 536:
+					DialogueManager.start(player, 187);
+					player.setDialogueActionId(187);
+					break;
 				case 4663:
 					if(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 3) {
 						DialogueManager.start(player, 159);

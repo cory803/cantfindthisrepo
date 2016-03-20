@@ -99,6 +99,11 @@ public class LegendaryDonators {
 				player.getYellTimer().reset();
 				return;
 			}
+			if(!player.getYellTag().equals("invalid_yell_tag_set")) {
+				World.sendYell("<img=10> <col=0>[<col=3E0069>"+player.getYellTag()+"<col=0>] "+player.getUsername()+": "+yellMessage);	
+				player.getYellTimer().reset();
+				return;
+			}
 			World.sendYell("<img=10> <col=0>[<col=3E0069>Legendary<col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getYellTimer().reset();
 		}
@@ -154,7 +159,7 @@ public class LegendaryDonators {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(2508, 3860, 0);
+			Position position = new Position(2514, 3860, 0);
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}

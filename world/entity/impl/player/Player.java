@@ -198,6 +198,16 @@ public class Player extends Character {
 		return true;
 	}
 
+	public String yell_tag = "invalid_yell_tag_set";
+	
+	public void setYellTag(String tag) {
+		yell_tag = tag;
+	}
+	
+	public String getYellTag() {
+		return yell_tag;
+	}
+	
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Player)) {

@@ -76,7 +76,7 @@ public class SuperDonators {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(2508, 3860, 0);
+			Position position = new Position(2514, 3860, 0);
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}

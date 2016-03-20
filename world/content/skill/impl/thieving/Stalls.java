@@ -5,6 +5,7 @@ import com.ikov.model.Skill;
 import com.ikov.model.input.impl.ThievBots;
 import com.ikov.util.Misc;
 import com.ikov.world.content.Achievements;
+import com.ikov.model.Item;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -67,5 +68,36 @@ public class Stalls {
 				Achievements.doProgress(player, AchievementData.STEAL_5000_SCIMITARS);
 			}
 		}
+	}
+	public static void stealFromStall(Player player, int lvlreq, int xp, Item item, String message) {
+			if(player.getInventory().getFreeSlots() < 1) {
+				player.getPacketSender().sendMessage("You need some more inventory space to do this.");
+				return;
+			}
+			if (player.getCombatBuilder().isBeingAttacked()) {
+				player.getPacketSender().sendMessage("You must wait a few seconds after being out of combat before doing this.");
+				return;
+			}
+			if(!player.getClickDelay().elapsed(1500))
+				return;
+			if(player.getSkillManager().getMaxLevel(Skill.THIEVING) < lvlreq) {
+				player.getPacketSender().sendMessage("You need a Thieving level of at least " + lvlreq + " to steal from this stall.");
+				return;
+			}
+			player.performAnimation(new Animation(881));
+			player.getPacketSender().sendMessage("You steal "+item.getAmount()+" coins.");
+			int fishyType = Misc.getRandom(5);
+			if(fishyType == 1) {
+				player.getInventory().add(15273, Misc.getRandom(15));
+			} else if(fishyType == 2) {
+				player.getInventory().add(386, Misc.getRandom(15));
+			} else if(fishyType == 3) {
+				player.getInventory().add(3145, Misc.getRandom(15));
+			}
+			player.getPacketSender().sendInterfaceRemoval();
+			player.getSkillManager().addExperience(Skill.THIEVING, xp);
+			player.getClickDelay().reset();
+			player.getInventory().add(item.getId(), item.getAmount());
+			player.getSkillManager().stopSkilling();
 	}
 }

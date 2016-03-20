@@ -76,6 +76,10 @@ public class PlayerLoading {
 				player.setEmailAddress(reader.get("email").getAsString());
 			}
 			
+			if (reader.has("yell-tag")) {
+				player.setYellTag(reader.get("yell-tag").getAsString());
+			}
+
 			if (reader.has("toxic-staff-charges")) {
 				player.setToxicStaffCharges(reader.get("toxic-staff-charges").getAsInt());
 			}	

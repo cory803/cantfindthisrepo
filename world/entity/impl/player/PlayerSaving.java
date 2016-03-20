@@ -38,6 +38,7 @@ public class PlayerSaving {
 			object.addProperty("username", player.getUsername().trim());
 			object.addProperty("password", player.getPassword().trim());
 			object.addProperty("email", player.getEmailAddress() == null ? "null" : player.getEmailAddress().trim());
+			object.addProperty("yell-tag", player.getYellTag());
 			object.addProperty("staff-rights", player.getRights().name());
 			object.addProperty("donor-rights", player.getDonorRights());
 			object.addProperty("game-mode", player.getGameMode().name());

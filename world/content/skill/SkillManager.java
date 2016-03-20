@@ -87,20 +87,19 @@ public class SkillManager {
 		if(player.getGameMode() != GameMode.NORMAL) {
 			experience *= 0.6;
 		}
+		
 		if(GameSettings.DOUBLE_EXP) {
 			experience *= 2.0; //15
-		}
-		
-		if(GameSettings.INSANE_EXP) {
+		} else if(GameSettings.INSANE_EXP) {
 			experience *= 8.0; //15
-		}
-		
-		if(player.getMinutesBonusExp() != -1) {
+		} else if(player.getMinutesBonusExp() != -1) {
 			if(player.getGameMode() != GameMode.NORMAL) {
 				experience *= 1.10;
 			} else {
 				experience *= 1.30;
 			}
+		} else if(player.getLocation() == Location.DONATOR_ZONE) {
+			experience *= 2.0;
 		}
 
 		/*

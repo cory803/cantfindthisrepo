@@ -63,6 +63,11 @@ public class UberDonators {
 				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
 				return;
 			}
+			if(!player.getYellTag().equals("invalid_yell_tag_set")) {
+				World.sendYell("<img=11> <col=0>[<col=ffff00><shad=0>"+player.getYellTag()+"<col=0></shad>] "+player.getUsername()+": "+yellMessage);	
+				player.getYellTimer().reset();
+				return;
+			}
 			World.sendYell("<img=11> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if (command[0].equals("ezone")) {
@@ -102,7 +107,7 @@ public class UberDonators {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(2508, 3860, 0);
+			Position position = new Position(2514, 3860, 0);
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}

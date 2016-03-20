@@ -91,7 +91,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int y = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if(id > 0 && id != 6 && id != 1765 && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
+		if(id > 0 && id != 6 && id != 1765 && id != 1306 && id != 2213 && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
 				player.getPacketSender().sendMessage("An error occured. Error code: "+id).sendMessage("Please report the error to a staff member.");
 			return;
 		}
@@ -1298,10 +1298,12 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int x = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if(id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
-			//player.getPacketSender().sendMessage("An error occured. Error code: "+id).sendMessage("Please report the error to a staff member.");
+		if(id > 0 && id != 6 && id != 2213 && !RegionClipping.objectExists(gameObject) && id != 4706) {
+			player.getPacketSender().sendMessage("An error occured. Error code: "+id).sendMessage("Please report the error to a staff member.");
 			return;
 		}
+		if(player.getRights() == PlayerRights.OWNER)
+			player.getPacketSender().sendMessage("Second click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setPositionToFace(gameObject.getPosition());
 		int distanceX = (player.getPosition().getX() - position.getX());
 		int distanceY = (player.getPosition().getY() - position.getY());
@@ -1321,6 +1323,12 @@ public class ObjectActionPacketListener implements PacketListener {
 				if (player.getFarming().click(player, x, y, 1))
 					return;
 				switch(gameObject.getId()) {
+				case 4705:
+					Stalls.stealFromStall(player, 75, 22500, new Item(995, Misc.getRandom(50000)), "You stole some coins.");
+					break;
+				case 4706:
+					Stalls.stealFromStall(player, 50, 15000, new Item(995, Misc.getRandom(30000)), "You stole some coins.");
+					break;
 				case 2274:
 					player.setRevsWarning(true);
 					player.getPacketSender().sendMessage("You have re-enabled the revs warning toggle.");

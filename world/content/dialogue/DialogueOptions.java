@@ -19,6 +19,7 @@ import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.input.impl.BuyShards;
 import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.input.impl.DonateToWell;
+import com.ikov.model.input.impl.EnterYellTag;
 import com.ikov.model.Animation;
 import com.ikov.model.movement.MovementQueue;
 import java.io.File;
@@ -42,6 +43,7 @@ import com.ikov.world.content.Gambling.FlowersData;
 import com.ikov.world.content.Lottery;
 import com.ikov.world.content.LoyaltyProgramme;
 import com.ikov.world.content.MemberScrolls;
+import com.ikov.world.content.MoneyPouch;
 import com.ikov.world.content.PkSets;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.Scoreboards;
@@ -1242,6 +1244,9 @@ public class DialogueOptions {
 				player.addToxicStaffCharges(amount_of_scales);
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
+			case 187:
+				ShopManager.getShops().get(59).open(player);
+				break;
 			case 182:
 			case 181:
 			case 183:
@@ -1382,6 +1387,19 @@ public class DialogueOptions {
 			case 186:
 				player.getPacketSender().sendEnterAmountPrompt("How many scales would you like to put on your Toxic staff?");
 				player.setInputHandling(new ToxicStaffZulrahScales());
+				break;
+			case 187:
+				if(player.getDonorRights() < 4) {
+					DialogueManager.sendStatement(player, "This feature is only available for Legendary & Uber Donators.");
+					return;
+				}
+				if(player.getInventory().getAmount(995) < 500000000 && player.getMoneyInPouch() < 500000000) {
+					DialogueManager.sendStatement(player, "You do not have enough money to purchase a yell tag.");
+					return;
+				} else {
+					player.getPacketSender().sendEnterInputPrompt("What would you like to set your yell tag to?");
+					player.setInputHandling(new EnterYellTag());
+				}
 				break;
 			case 182:
 			case 181:
@@ -1581,7 +1599,9 @@ public class DialogueOptions {
 				DialogueManager.start(player, 183);
 				player.setDialogueActionId(183);
 				break;
-				
+			case 187:
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 73:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.setRevsWarning(false);

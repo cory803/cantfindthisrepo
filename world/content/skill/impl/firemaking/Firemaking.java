@@ -4,6 +4,7 @@ import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
 import com.ikov.model.GameObject;
+import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
 import com.ikov.model.movement.MovementQueue;
@@ -91,7 +92,11 @@ public class Firemaking {
 					Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
 				}
 				Sounds.sendSound(player, Sound.LIGHT_FIRE);
-				player.getSkillManager().addExperience(Skill.FIREMAKING, logData.getXp());
+				if(player.getInventory().contains(2946) && player.getDonorRights() > 0 && player.getLocation() != Location.DONATOR_ZONE) {
+					player.getSkillManager().addExperience(Skill.FIREMAKING, logData.getXp() * 2);
+				} else {
+					player.getSkillManager().addExperience(Skill.FIREMAKING, logData.getXp());
+				}
 				added++;
 				if(added >= amount || !player.getInventory().contains(logData.getLogId())) {
 					stop();

@@ -376,7 +376,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			break;
 		case 9244:
 			target.performGraphic(new Graphic(756));
-			if(pTarget != null && (pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 1540 || pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283 || pTarget.getFireImmunity() > 0)) {
+			if(pTarget != null && (pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 1540 || pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283 || pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284 || pTarget.getFireImmunity() > 0)) {
 				return damage;
 			}
 			if(damage < 300 && Misc.getRandom(3) <= 1) {

@@ -58,8 +58,8 @@ public class PrayerHandler {
 		SMITE(52, 6, 25046, 100, 685, 6),
 		CHIVALRY(60, 8, 25048, 607),
 		PIETY(70, 10, 25050, 608),
-		RIGOUR(80, 11, 18021, 708),
-		AUGURY(80, 11, 18027, 709);
+		RIGOUR(80, 11, 25104, 609),
+		AUGURY(80, 11, 25108, 610);
 
 		private PrayerData(int requirement, double drainRate, int buttonId, int configId, int... hint) {
 			this.requirement = requirement;
@@ -462,8 +462,9 @@ public class PrayerHandler {
 	 */
 	public static void resetPrayers(Player player, int[] prayers, int prayerID) {
 		for (int i = 0; i < prayers.length; i++) {
-			if (prayers[i] != prayerID)
+			if (prayers[i] != prayerID) {
 				deactivatePrayer(player, prayers[i]);
+			}
 		}
 	}
 

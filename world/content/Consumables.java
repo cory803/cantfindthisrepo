@@ -1178,7 +1178,7 @@ public class Consumables {
 				drinkStatPotion(player, itemId, 14401, slot, 6, false); // Magic Flask 6
 				break;
 			case 14401:
-				drinkStatPotion(player, itemId, 14339, slot, 6, false); // Magic Flask 5
+				drinkStatPotion(player, itemId, 14399, slot, 6, false); // Magic Flask 5
 				break;
 			case 14399:
 				drinkStatPotion(player, itemId, 14397, slot, 6, false); // Magic Flask 4
@@ -1216,9 +1216,9 @@ public class Consumables {
 				/*
 				 * Saradomin Brew Flask
 				 */
-			case 14128: //Sara Brew Flask 6
+			case 14427: //Sara Brew Flask 6
 				player.performAnimation(new Animation(829));
-				player.getInventory().getItems()[slot] = new Item(14126, 1);
+				player.getInventory().getItems()[slot] = new Item(14425, 1);
 				player.getInventory().refreshItems();
 				for (int tD : decrease) {
 					player.getSkillManager().setCurrentLevel(Skill.forId(tD), player.getSkillManager().getCurrentLevel(Skill.forId(tD)) - getBrewStat(player, tD, .10));
@@ -1236,9 +1236,9 @@ public class Consumables {
 					player.getSkillManager().setCurrentLevel(Skill.forId(3), (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
 				}
 				break;
-			case 14126: //Sara Brew Flask 5
+			case 14425: //Sara Brew Flask 5
 				player.performAnimation(new Animation(829));
-				player.getInventory().getItems()[slot] = new Item(14124, 1);
+				player.getInventory().getItems()[slot] = new Item(14423, 1);
 				player.getInventory().refreshItems();
 				for (int tD : decrease) {
 					player.getSkillManager().setCurrentLevel(Skill.forId(tD), player.getSkillManager().getCurrentLevel(Skill.forId(tD)) - getBrewStat(player, tD, .10));
@@ -1256,9 +1256,9 @@ public class Consumables {
 					player.getSkillManager().setCurrentLevel(Skill.forId(3), (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
 				}
 				break;
-			case 14124: //Sara Brew Flask 4
+			case 14423: //Sara Brew Flask 4
 				player.performAnimation(new Animation(829));
-				player.getInventory().getItems()[slot] = new Item(14122, 1);
+				player.getInventory().getItems()[slot] = new Item(14421, 1);
 				player.getInventory().refreshItems();
 				for (int tD : decrease) {
 					player.getSkillManager().setCurrentLevel(Skill.forId(tD), player.getSkillManager().getCurrentLevel(Skill.forId(tD)) - getBrewStat(player, tD, .10));
@@ -1276,9 +1276,9 @@ public class Consumables {
 					player.getSkillManager().setCurrentLevel(Skill.forId(3), (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
 				}
 				break;
-			case 14122: //Sara Brew Flask 3
+			case 14421: //Sara Brew Flask 3
 				player.performAnimation(new Animation(829));
-				player.getInventory().getItems()[slot] = new Item(14119, 1);
+				player.getInventory().getItems()[slot] = new Item(14419, 1);
 				player.getInventory().refreshItems();
 				for (int tD : decrease) {
 					player.getSkillManager().setCurrentLevel(Skill.forId(tD), player.getSkillManager().getCurrentLevel(Skill.forId(tD)) - getBrewStat(player, tD, .10));
@@ -1296,9 +1296,9 @@ public class Consumables {
 					player.getSkillManager().setCurrentLevel(Skill.forId(3), (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
 				}
 				break;
-			case 14119: //Sara Brew Flask 2
+			case 14419: //Sara Brew Flask 2
 				player.performAnimation(new Animation(829));
-				player.getInventory().getItems()[slot] = new Item(14117, 1);
+				player.getInventory().getItems()[slot] = new Item(14417, 1);
 				player.getInventory().refreshItems();
 				for (int tD : decrease) {
 					player.getSkillManager().setCurrentLevel(Skill.forId(tD), player.getSkillManager().getCurrentLevel(Skill.forId(tD)) - getBrewStat(player, tD, .10));
@@ -1316,7 +1316,7 @@ public class Consumables {
 					player.getSkillManager().setCurrentLevel(Skill.forId(3), (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
 				}
 				break;
-			case 14117: //Sara Brew Flask 1
+			case 14417: //Sara Brew Flask 1
 				player.performAnimation(new Animation(829));
 				player.getInventory().getItems()[slot] = new Item(EMPTY_FLASK, 1);
 				player.getInventory().refreshItems();

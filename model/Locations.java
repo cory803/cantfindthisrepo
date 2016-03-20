@@ -101,6 +101,14 @@ public class Locations {
 		},
 		LUMBRIDGE(new int[]{3175, 3238}, new int[]{3179, 3302}, false, true, true, true, true, true) {
 		},
+		DONATOR_ZONE(new int[]{2489, 2636}, new int[]{3827, 3933}, false, true, true, true, true, true) {
+			@Override
+			public void process(Player player) {
+				if(player.getDonorRights() == 0) {
+					player.moveTo(new Position(3086, 3502));
+				}
+			}
+		},
 		KING_BLACK_DRAGON(new int[]{2251, 2292}, new int[]{4673, 4717}, true, true, true, true, true, true) {
 		},
 		SLASH_BASH(new int[]{2504, 2561}, new int[]{9401, 9473}, true, true, true, true, true, true) {
