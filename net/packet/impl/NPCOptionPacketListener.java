@@ -781,8 +781,8 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 9085:
 				case 8275:
 				case 7780:
-					player.setDialogueActionId(187);
-					DialogueManager.start(player, 187);
+					player.setDialogueActionId(188);
+					DialogueManager.start(player, 188);
 					break;
 				}
 				npc.setPositionToFace(player.getPosition());

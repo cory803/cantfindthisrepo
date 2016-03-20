@@ -940,7 +940,7 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
-			case 187:
+			case 188:
 				player.getPacketSender().sendInterface(36000);
 				player.getPacketSender().sendString(36030, "Current Points:   "+player.getPointsHandler().getSlayerPoints());
 				break;
@@ -1155,7 +1155,7 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
-			case 187:
+			case 188:
 				ShopManager.getShops().get(85).open(player);
 				player.getPacketSender().sendMessage("Current Slayer Points: "+player.getPointsHandler().getSlayerPoints());
 				break;
