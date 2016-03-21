@@ -249,7 +249,7 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 947:
 					//if(player.getPosition().getX() >= 3092) {
 					//	player.getMovementQueue().reset();
-						GrandExchange.open(player);
+						//GrandExchange.open(player);
 					//}
 					break;
 				case 11226:

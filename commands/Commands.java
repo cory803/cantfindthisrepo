@@ -5,6 +5,7 @@ import com.ikov.world.content.BankPin;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.commands.ranks.*;
 import com.ikov.util.Logs;
+import com.ikov.world.content.PlayerLogs;
 
 /**
  * Initiates a command for each rank/file.
@@ -19,11 +20,7 @@ public class Commands {
 			BankPin.init(player, false);
 			return;
 		}
-		if(player.getRights().isStaff()) {
-			Logs.write_data(player.getUsername()+ ".txt", "staff_commands", "["+player.getUsername()+"]: ::"+whole_command+"");
-		} else {
-			Logs.write_data(player.getUsername()+ ".txt", "player_commands", "["+player.getUsername()+"]: ::"+whole_command+"");			
-		}
+		PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has done command "+whole_command+"!");
 		Members.initiate_command(player, parts, whole_command);
 		SpecialPlayers.initiate_command(player, parts, whole_command);
 		if(player.getRights() == PlayerRights.OWNER) {

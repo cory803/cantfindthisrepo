@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import com.ikov.model.PlayerRights;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;

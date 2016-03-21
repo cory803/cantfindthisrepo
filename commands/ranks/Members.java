@@ -5,6 +5,7 @@ import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Store;
 import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.model.Position;
 import com.ikov.util.ForumDatabase;
 import com.rspserver.mvh.*;
@@ -194,7 +195,7 @@ public class Members {
 							World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
 							GameSettings.AUTHS_CLAIMED = 0;
 						}
-						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
+						PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has claimed an auth code "+authCode+"!");
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid.");
 					}

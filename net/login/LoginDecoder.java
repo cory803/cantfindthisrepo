@@ -12,6 +12,7 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
+import com.ikov.model.PlayerRights;
 import com.ikov.model.GameMode;
 import com.ikov.GameSettings;
 import com.ikov.net.PlayerSession;

@@ -2,6 +2,7 @@ package com.ikov.world.entity.updating;
 
 import java.util.Iterator;
 
+import com.ikov.model.PlayerRights;
 import com.ikov.model.Appearance;
 import com.ikov.model.ChatMessage.Message;
 import com.ikov.model.Direction;
@@ -419,7 +420,7 @@ public class PlayerUpdating {
 				if(target.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 					rankId = 13;
 				}
-				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+				if(target.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 					rankId = 14;
 				}
 		Message message = target.getChatMessages().get();
@@ -575,7 +576,7 @@ public class PlayerUpdating {
 				if(target.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 					rankId = 13;
 				}
-				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+				if(target.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 					rankId = 14;
 				}
 		Appearance appearance = target.getAppearance();

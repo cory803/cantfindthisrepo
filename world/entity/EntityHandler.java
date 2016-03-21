@@ -34,7 +34,6 @@ public class EntityHandler {
 		if(entity.isPlayer()) {
 			Player player = (Player)entity;
 			World.getPlayers().remove(player);
-			Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Player attempted de-register on name "+player.getUsername()+"");
 		} else if(entity.isNpc()) {
 			NPC npc = (NPC)entity;
 			TaskManager.cancelTasks(npc.getCombatBuilder());

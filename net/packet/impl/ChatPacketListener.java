@@ -30,11 +30,11 @@ public class ChatPacketListener implements PacketListener {
 		}
 		String str = Misc.textUnpack(text, size).toLowerCase().replaceAll(";", ".");
 		if(Misc.blockedWord(str)) {
-			Logs.write_data(player.getUsername()+ ".txt", "advertisers", "Player was caught saying in global chat: "+str+"");
+			//Logs.write_data(player.getUsername()+ ".txt", "advertisers", "Player was caught saying in global chat: "+str+"");
 			DialogueManager.sendStatement(player, "A word was blocked in your sentence. Please do not repeat it!");
 			return;
 		}
-		Logs.write_data(player.getUsername()+ ".txt", "global_chats", ""+str+"");
+		//Logs.write_data(player.getUsername()+ ".txt", "global_chats", ""+str+"");
 		player.getChatMessages().set(new Message(color, effects, text));
 		player.getUpdateFlag().flag(Flag.CHAT);
 	}

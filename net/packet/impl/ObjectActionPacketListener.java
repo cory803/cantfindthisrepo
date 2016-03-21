@@ -329,7 +329,7 @@ public class ObjectActionPacketListener implements PacketListener {
 				case 10805:
 				case 10806:
 				case 28089:
-					GrandExchange.open(player);
+					//GrandExchange.open(player);
 					break;
 				case 38700:
 					player.moveTo(new Position(3085, 3512));

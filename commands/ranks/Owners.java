@@ -282,7 +282,6 @@ public class Owners {
 							World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
 							GameSettings.AUTHS_CLAIMED = 0;
 						}
-						Logs.write_data(player.getUsername()+ ".txt", "auth_claims", "An auth code has been claimed.");
 			}
 		if(command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);

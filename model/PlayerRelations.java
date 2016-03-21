@@ -277,12 +277,12 @@ public class PlayerRelations {
 			setStatus(PrivateChatStatus.FRIENDS_ONLY, true);
 		}
 		if(Misc.blockedWord(Misc.textUnpack(message, size).replaceAll(";", "."))) {
-			Logs.write_data(this.player.getUsername()+ ".txt", "advertisers", "Player was caught saying in private message: "+Misc.textUnpack(message, size).replaceAll(";", ".")+"");
+			//Logs.write_data(this.player.getUsername()+ ".txt", "advertisers", "Player was caught saying in private message: "+Misc.textUnpack(message, size).replaceAll(";", ".")+"");
 			return;
 		}
 		friend.getPacketSender().sendPrivateMessage(player.getLongUsername(), player.getRights(), message, size, player);
-		Logs.write_data(friend.getUsername()+ ".txt", "private_messages", "Recieved from "+this.player.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
-		Logs.write_data(this.player.getUsername()+ ".txt", "private_messages", "Sent to "+friend.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
+		//Logs.write_data(friend.getUsername()+ ".txt", "private_messages", "Recieved from "+this.player.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
+		//Logs.write_data(this.player.getUsername()+ ".txt", "private_messages", "Sent to "+friend.getUsername()+": " + Misc.textUnpack(message, size).replaceAll(";", "."));
 	}
 
 	/**

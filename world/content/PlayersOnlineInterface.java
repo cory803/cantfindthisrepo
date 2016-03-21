@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.ikov.model.GameMode;
+import com.ikov.model.PlayerRights;
 import com.ikov.util.Misc;
 import com.ikov.util.Stopwatch;
 import com.ikov.world.World;
@@ -104,7 +105,7 @@ public class PlayersOnlineInterface {
 				if(p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 					rankId = 13;
 				}
-				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+				if(p.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 					rankId = 14;
 				}
 			player.getPacketSender().sendString(child, ""+(rankId > 0 ? "<img="+rankId+">" : "  ")+""+p.getUsername());

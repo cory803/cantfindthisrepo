@@ -3,6 +3,7 @@ package com.ikov.world.entity.impl.player;
 import java.util.concurrent.TimeUnit;
 
 import com.ikov.GameServer;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.BonusExperienceTask;
@@ -253,7 +254,7 @@ public class PlayerHandler {
 				}
 			}
 		}
-		Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
+		PlayerLogs.log(player.getUsername(), "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress());
 	}
 
 	public static boolean handleLogout(Player player) {
@@ -311,8 +312,7 @@ public class PlayerHandler {
 				session.setState(SessionState.LOGGED_OUT);
 				World.updatePlayersOnline();
 				player.setForumConnections(0);
-				Logs.write_data(player.getUsername()+ ".txt", "account_logins", "Logout from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");
-				return true;
+				PlayerLogs.log(player.getUsername(), "Logout from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress()+"");				return true;
 			} else {
 				return false;
 			}

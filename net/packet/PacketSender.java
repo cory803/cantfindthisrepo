@@ -855,7 +855,7 @@ public class PacketSender {
 		if(me.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 			rank = 13;
 		}
-		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+		if(me.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			rank = 14;
 		}
 		out.put(rank);
