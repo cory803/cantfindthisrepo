@@ -51,10 +51,6 @@ public class PickupItemPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("You cannot hold that amount of this item. Clear your inventory!");
 						return;
 					}
-					//if(player.getGameMode().equals(GameMode.IRONMAN) || player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) { 
-					//	player.getPacketSender().sendMessage("You can't pick up items on an ironman account.");
-					//	return;
-					//}
 					GroundItemManager.pickupGroundItem(player, new Item(itemId), new Position(x, y, player.getPosition().getZ()));
 				}
 			}

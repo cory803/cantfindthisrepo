@@ -114,6 +114,16 @@ public class Members {
 				player.getPacketSender().sendMessage("You have not waited the entire 5 minutes to be able to use this command again.");
 				return;
 			}
+			/*
+			Position[] wilderness_agility_course = {
+				new Position{3005, 3939, 0}
+			};
+			for(wilderness_agility_course : p) {
+				if(p == player.getLocation()) {
+					
+				}
+			}
+			*/
 			player.getStuckDelay().reset();
 			player.moveTo(new Position(3087, 3502, 0));
 			player.getPacketSender().sendMessage("You have gotten yourself unstuck. You must wait 5 minutes to use it again.");
@@ -297,7 +307,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -315,7 +325,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -328,7 +338,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -341,7 +351,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -357,7 +367,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -374,6 +384,10 @@ public class Members {
 			Store.start_store_process(player);
 		}
 		if(command[0].equals("empty")) {
+			if(player.getLocation() == Location.WILDERNESS) {
+				player.getPacketSender().sendMessage("You can't use this command in the wilderness!");
+				return;
+			}
 			player.getPacketSender().sendInterfaceRemoval().sendMessage("You clear your inventory.");
 			player.getSkillManager().stopSkilling();
 			player.getInventory().resetItems().refreshItems();
@@ -383,7 +397,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -401,5 +415,4 @@ public class Members {
 			}
 		}
 	}
-	
 }

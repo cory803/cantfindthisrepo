@@ -1324,10 +1324,10 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				switch(gameObject.getId()) {
 				case 4705:
-					Stalls.stealFromStall(player, 75, 22500, new Item(995, Misc.getRandom(50000)), "You stole some coins.");
+					Stalls.stealFromStall(player, 75, 22500, new Item(995, Misc.getRandom(40000)), "You stole some coins.");
 					break;
 				case 4706:
-					Stalls.stealFromStall(player, 50, 15000, new Item(995, Misc.getRandom(30000)), "You stole some coins.");
+					Stalls.stealFromStall(player, 50, 15000, new Item(995, Misc.getRandom(25000)), "You stole some coins.");
 					break;
 				case 2274:
 					player.setRevsWarning(true);

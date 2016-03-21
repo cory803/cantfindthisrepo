@@ -73,7 +73,7 @@ public class ExtremeDonators {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -101,7 +101,7 @@ public class ExtremeDonators {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}

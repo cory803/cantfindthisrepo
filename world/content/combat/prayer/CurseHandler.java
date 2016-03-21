@@ -225,7 +225,7 @@ public class CurseHandler {
 		}
 	}
 
-	private static void deactivateCurses(Player player, CurseData[] curses) {
+	public static void deactivateCurses(Player player, CurseData[] curses) {
 		for (CurseData curse : curses) {
 			if (player.getCurseActive()[curse.ordinal()]) {
 				deactivateCurse(player, curse);

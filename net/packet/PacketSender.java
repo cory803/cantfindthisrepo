@@ -766,6 +766,9 @@ public class PacketSender {
 		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 			rank = 13;
 		}
+		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+			rank = 14;
+		}
 		out.put(rank);
 		player.getSession().queueMessage(out);
 		return this;
@@ -851,6 +854,9 @@ public class PacketSender {
 		}
 		if(me.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 			rank = 13;
+		}
+		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+			rank = 14;
 		}
 		out.put(rank);
 		out.putBytes(message, size);

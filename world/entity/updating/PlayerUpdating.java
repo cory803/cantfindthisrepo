@@ -419,6 +419,9 @@ public class PlayerUpdating {
 				if(target.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 					rankId = 13;
 				}
+				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+					rankId = 14;
+				}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
@@ -571,6 +574,9 @@ public class PlayerUpdating {
 				}
 				if(target.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 					rankId = 13;
+				}
+				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+					rankId = 14;
 				}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();

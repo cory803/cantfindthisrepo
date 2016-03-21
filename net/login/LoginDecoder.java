@@ -181,6 +181,9 @@ public final class LoginDecoder extends FrameDecoder {
 		if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 			rank = 13;
 		}
+		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+			rank = 14;
+		}
 		if (response == LoginResponses.LOGIN_SUCCESSFUL) {
 			channel.write(new PacketBuilder().put((byte)2).put((byte)rank).put((byte)0).toPacket());
 			

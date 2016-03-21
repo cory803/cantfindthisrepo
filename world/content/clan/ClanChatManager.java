@@ -372,7 +372,9 @@ public class ClanChatManager {
 				if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 					img = 13;
 				}
-				
+				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+					img = 14;
+				}
 				String rankImg = img > 0 ? " <img="+img+"> " : " ";
 				memberPlayer.getPacketSender().sendMessage(":clan:" + bracketColor + "[" + clanNameColor + clan.getName() + bracketColor + "]" + nameColor + ""+rankImg+"" +
 						NameUtils.capitalizeWords(player.getUsername()) +

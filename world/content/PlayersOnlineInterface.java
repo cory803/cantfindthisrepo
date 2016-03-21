@@ -104,6 +104,9 @@ public class PlayersOnlineInterface {
 				if(p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 					rankId = 13;
 				}
+				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+					rankId = 14;
+				}
 			player.getPacketSender().sendString(child, ""+(rankId > 0 ? "<img="+rankId+">" : "  ")+""+p.getUsername());
 			child++;
 		}

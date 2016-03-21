@@ -16,6 +16,7 @@ public class Agility {
 				p.getPacketSender().sendMessage("You need an Agility level of at least 55 to enter this course.");
 				return true;
 			}
+			p.getPacketSender().sendMessage("If you get stuck in this course, type ::stuck!");
 		}
 		ObstacleData agilityObject = ObstacleData.forId(object.getId());
 		if(agilityObject != null) {
