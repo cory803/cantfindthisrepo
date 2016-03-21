@@ -976,7 +976,7 @@ public final class CombatFactory {
 				return false;
 			}
 			if(npc.getId() == 13465 || npc.getId() == 13469 || npc.getId() == 13474 || npc.getId() == 13478 || npc.getId() == 13479) {
-				if(entity.getLocation() != Location.WILDERNESS) {
+				if(entity.getLocation() != Location.WILDERNESS && entity.getLocation() != Location.EZONE_DONOR) {
 					((Player)entity).getPacketSender().sendMessage("You cannot reach that.");
 					entity.getCombatBuilder().reset(true);
 					return false;
