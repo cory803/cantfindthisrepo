@@ -82,6 +82,15 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 				switch(npc.getId()) {
+				case 2305:
+					switch(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts()) {
+					case 0:
+						break;
+						
+					default:
+						DialogueManager.sendStatement(player, "Vanessa does not seem interested in talking to you right now.");
+					}
+					break;
 				case 536:
 					DialogueManager.start(player, 187);
 					player.setDialogueActionId(187);
