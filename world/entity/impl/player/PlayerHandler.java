@@ -237,10 +237,13 @@ public class PlayerHandler {
 					player.getPacketSender().sendMessage("An offer that you had in The Grand Exchange has been added to your bank.");		
 					GrandExchangeSlot slot = player.getGrandExchangeSlots()[i];
 					if(slot.getState() == GrandExchangeSlotState.FINISHED_SALE) {
-						player.getBank(0).add(995, offer.getCoinsCollect());	
+						player.getBank(0).add(995, offer.getCoinsCollect());
+						System.out.println("Went1");
 					} else {
-						player.getBank(0).add(offer.getId(), offer.getItemCollect());
+						System.out.println("Went2");
+						player.getBank(0).add(offer.getId(), offer.getAmount());
 					}
+					System.out.println(""+slot.getState());
 					if(offer.getId() == 995) {
 						offer.setCoinsCollect(0);
 					} else {
