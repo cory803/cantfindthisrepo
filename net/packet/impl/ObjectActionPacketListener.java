@@ -1,5 +1,7 @@
 package com.ikov.net.packet.impl;
 
+import java.util.concurrent.TimeUnit;
+
 import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
@@ -164,6 +166,14 @@ public class ObjectActionPacketListener implements PacketListener {
 					});
 					break;
 				case 21764:
+					if(!player.getSpecTimer().elapsed(300000)) {
+						player.getPacketSender().sendMessage("You can only restore your special attack every 5 minutes.");
+						return;
+					}
+					if(player.getSpecialPercentage() >= 100) {
+						player.getPacketSender().sendMessage("Your special attack is already full. You do not need to drink from here.");
+						return;
+					}
 					player.performAnimation(new Animation(1327));
 					player.setSpecialPercentage(100);
 					CombatSpecial.updateBar(player);
@@ -175,6 +185,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.getPacketSender().sendConstitutionOrbPoison(false);
 					player.getPacketSender().sendConstitutionOrbVenom(false);
 					player.getPacketSender().sendMessage("<col=00ff00><shad=0><img=9> You take a drink from the fountain... and feel revived!");
+					player.getSpecTimer().reset();
 					break;
 				case 81:
 					if(player.getPosition().getX() == 2584) {

@@ -351,6 +351,7 @@ public class Player extends Character {
 	//Timers (Stopwatches)
 	private final Stopwatch yellTimer = new Stopwatch();
 	private final Stopwatch sqlTimer = new Stopwatch();
+	private final Stopwatch specTimer = new Stopwatch();
 	public boolean pestControlSolo = false;
 	private final Stopwatch foodTimer = new Stopwatch();
 	private final Stopwatch comboFoodDelay = new Stopwatch();
@@ -1777,9 +1778,13 @@ public class Player extends Character {
 	public Stopwatch getYellTimer() {
 		return yellTimer;
 	}
-	
+
 	public Stopwatch getSqlTimer() {
 		return sqlTimer;
+	}
+	
+	public Stopwatch getSpecTimer() {
+		return specTimer;
 	}
 	
 	public Stopwatch getFoodTimer() {
