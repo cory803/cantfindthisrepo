@@ -238,12 +238,11 @@ public class PlayerHandler {
 					GrandExchangeSlot slot = player.getGrandExchangeSlots()[i];
 					if(slot.getState() == GrandExchangeSlotState.FINISHED_SALE) {
 						player.getBank(0).add(995, offer.getCoinsCollect());
-						System.out.println("Went1");
+					} else if(slot.getState() == GrandExchangeSlotState.PENDING_PURCHASE) {
+						player.getBank(0).add(995, offer.getPricePerItem() * offer.getAmount());
 					} else {
-						System.out.println("Went2");
 						player.getBank(0).add(offer.getId(), offer.getAmount());
 					}
-					System.out.println(""+slot.getState());
 					if(offer.getId() == 995) {
 						offer.setCoinsCollect(0);
 					} else {
