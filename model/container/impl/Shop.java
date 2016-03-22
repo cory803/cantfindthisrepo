@@ -99,7 +99,7 @@ public class Shop extends ItemContainer {
 	public Shop open(Player player) {
 		if((id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 ||
 		   id == 7 || id == 13 || id == 14 ||id == 15 || id == 16 || id == 19 ||
-		   id == 26 || id == 27 || id == 34 || id == 35 || id == 41) &&
+		   id == 26 || id == 27 || id == 34 || id == 35 || id == 41 || id == 59) &&
 		   (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN)) {
 			player.getPacketSender().sendMessage("You're unable to access this shop because you're an "+player.getGameMode()+".");
 			return this;

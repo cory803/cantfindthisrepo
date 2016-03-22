@@ -92,6 +92,12 @@ public class CurseHandler {
 			PrayerHandler.deactivateAll(player);
 			return;
 		}
+		if(!player.getDragonScimitarTimer().elapsed(5000)) {
+			player.getPacketSender().sendMessage("You have been damaged badly with a Dragon Scimitar! Try again in 5 seconds.");
+			CurseHandler.deactivateAll(player);
+			PrayerHandler.deactivateAll(player);
+			return;
+		}
 		if(player.getLocation() == Location.RECIPE_FOR_DISASTER) {
 			player.getPacketSender().sendMessage("For some reason, your prayers do not have any effect here.");		
 			CurseHandler.deactivateAll(player);

@@ -3,10 +3,12 @@ package com.ikov.engine.task.impl;
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.ikov.model.GameMode;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.model.Animation;
 import com.ikov.model.Flag;
+import com.ikov.model.GameMode;
 import com.ikov.model.GameMode;
 import com.ikov.model.GroundItem;
 import com.ikov.model.Item;
@@ -95,7 +97,7 @@ public class PlayerDeathTask extends Task {
 								}
 								if(spawnItems) {
 									if(item != null && item.getId() > 0 && item.getAmount() > 0) {
-										GroundItemManager.spawnGroundItem((killer != null && killer.getGameMode() == GameMode.NORMAL ? killer : player), new GroundItem(item, position, killer != null ? killer.getUsername() : player.getUsername(), player.getHostAddress(), false, 150, true, 150));
+										GroundItemManager.spawnGroundItem((killer != null && killer.getGameMode() == GameMode.NORMAL ? killer : player), new GroundItem(item, position, killer != null ? killer.getUsername() : player.getUsername(), player.getHostAddress(), false, 150, true, 150, killer.getGameMode() == GameMode.IRONMAN));
 										if(killer != null) {
 											PlayerLogs.log(player.getUsername(), "Player killed by "+killer.getUsername()+" for item: Id: "+item.getDefinition().getName()+"("+item.getId()+"), amount: "+item.getAmount());
 											PlayerLogs.log(killer.getUsername(), "Player killed "+player.getUsername()+" for item: Id: "+item.getDefinition().getName()+"("+item.getId()+"), amount: "+item.getAmount());

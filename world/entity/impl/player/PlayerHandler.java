@@ -3,12 +3,14 @@ package com.ikov.world.entity.impl.player;
 import java.util.concurrent.TimeUnit;
 
 import com.ikov.GameServer;
+import com.ikov.world.content.grandexchange.*;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.GameSettings;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.engine.task.impl.CombatSkullEffect;
 import com.ikov.engine.task.impl.FireImmunityTask;
+import com.ikov.world.content.grandexchange.GrandExchangeOffer;
 import com.ikov.engine.task.impl.OverloadPotionTask;
 import com.ikov.engine.task.impl.PlayerSkillsTask;
 import com.ikov.engine.task.impl.PlayerSpecialAmountTask;
@@ -19,6 +21,7 @@ import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Skill;
+import com.ikov.world.content.grandexchange.GrandExchangeOffers;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.model.definitions.WeaponAnimations;
@@ -225,11 +228,38 @@ public class PlayerHandler {
 			World.sendMessage("<img=4><col=6600CC> "+Misc.formatText(player.getRights().toString().toLowerCase())+" "+player.getUsername()+" has just logged in, feel free to message them for support.");
 		
 		GrandExchange.onLogin(player);
-		
+		GrandExchange.updateSlotStates(player);
+		if(!player.hasDoneGrandExchangeReturn()) {
+			for(int i = 0; i < 6; i++) {
+				GrandExchangeOffer offer = player.getGrandExchangeSlots()[i].getOffer();
+				if(offer != null) {
+					player.getPacketSender().sendMessage("Hi, The Grand Exchange has been disabled while we work on Player Owned Shops.");
+					player.getPacketSender().sendMessage("An offer that you had in The Grand Exchange has been added to your bank.");		
+					GrandExchangeSlot slot = player.getGrandExchangeSlots()[i];
+					if(slot.getState() == GrandExchangeSlotState.FINISHED_SALE) {
+						player.getBank(0).add(995, offer.getCoinsCollect());
+					} else if(slot.getState() == GrandExchangeSlotState.PENDING_PURCHASE) {
+						player.getBank(0).add(995, offer.getPricePerItem() * offer.getAmount());
+					} else {
+						player.getBank(0).add(offer.getId(), offer.getAmount());
+					}
+					if(offer.getId() == 995) {
+						offer.setCoinsCollect(0);
+					} else {
+						offer.setItemCollect(0);
+					}
+					GrandExchangeOffers.setOffer(offer.getIndex(), null);
+					player.getGrandExchangeSlots()[i].setOffer(null);
+					player.getGrandExchangeSlots()[i].setState(GrandExchangeSlotState.EMPTY);
+				}
+			}
+			player.setDoneGrandExchangeReturn(true);
+			player.save();
+		}
 		if(player.getPointsHandler().getAchievementPoints() == 0) {
 			Achievements.setPoints(player);
 		}
-		if(player.getRights() == PlayerRights.OWNER) {
+		if(player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			player.setDonorRights(5);
 		} else if(player.getRights() == PlayerRights.ADMINISTRATOR) {
 			player.setDonorRights(5);

@@ -164,19 +164,22 @@ public class PlayersOnlineInterface {
 			value = 0;
 			break;
 		case ADMINISTRATOR:
-			value = 99;
-			break;
-		case GLOBAL_MOD:
 			value = 98;
 			break;
-		case MODERATOR:
+		case GLOBAL_MOD:
 			value = 97;
+			break;
+		case MODERATOR:
+			value = 96;
 			break;
 		case OWNER:
 			value = 100;
+			break;	
+		case COMMUNITY_MANAGER:
+			value = 99;
 			break;
 		case SUPPORT:
-			value = 96;
+			value = 95;
 			break;
 		}
 		switch(p.getDonorRights()) {

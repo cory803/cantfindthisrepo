@@ -33,6 +33,7 @@ public class EnterYellTag extends Input {
 		} else if(player.getMoneyInPouch() >= value) {
 			player.setMoneyInPouch((player.getMoneyInPouch() - value));
 		}
+		player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
 		DialogueManager.sendStatement(player, "Your yell tag has been set to "+yell_tag+"!");
 		player.setYellTag(yell_tag);
 	}

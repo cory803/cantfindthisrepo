@@ -664,7 +664,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					} else if(player.getDonorRights() == 5) {
 						killcount_amount = 0;
 					}
-					if(!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.OWNER && player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
+					if(!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.COMMUNITY_MANAGER && player.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
 						player.getPacketSender().sendMessage("You need "+Misc.anOrA(bossRoom)+" "+bossRoom+" killcount of at least 20 to enter this room.");
 						return;
 					}
@@ -1335,6 +1335,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				switch(gameObject.getId()) {
 				case 4705:
+<<<<<<< HEAD
 					int random = Misc.getRandom(50);
 					if(random > 44) {
 						player.moveTo(new Position(2506, 3852, 0));
@@ -1347,6 +1348,12 @@ public class ObjectActionPacketListener implements PacketListener {
 						player.moveTo(new Position(2506, 3852, 0));
 					}
 					Stalls.stealFromStall(player, 50, 15000, new Item(995, Misc.getRandom(25000)), "You stole some coins.");
+=======
+					Stalls.stealFromStall(player, 75, 17500, new Item(995, Misc.getRandom(45000)), "You stole some coins.", true);
+					break;
+				case 4706:
+					Stalls.stealFromStall(player, 75, 17500, new Item(995, Misc.getRandom(45000)), "You stole some coins.", false);
+>>>>>>> origin/master
 					break;
 				case 2274:
 					player.setRevsWarning(true);

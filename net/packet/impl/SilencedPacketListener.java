@@ -16,6 +16,7 @@ public class SilencedPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
+	
 	}
 
 }

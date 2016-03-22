@@ -43,7 +43,7 @@ public class WarriorsGuild {
 	 * @param object	That animator object which the player is using an item on
 	 */
 	public static boolean itemOnAnimator(final Player player, final Item item, final GameObject object) {
-		if(player.getMinigameAttributes().getWarriorsGuildAttributes().hasSpawnedArmour() && player.getRights() != PlayerRights.OWNER) {
+		if(player.getMinigameAttributes().getWarriorsGuildAttributes().hasSpawnedArmour() && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.COMMUNITY_MANAGER) {
 			player.getPacketSender().sendMessage("You have already spawned some animated armour.");
 			return true;
 		} else {

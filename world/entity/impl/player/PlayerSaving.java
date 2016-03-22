@@ -56,6 +56,7 @@ public class PlayerSaving {
 			object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
 			object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
 			object.addProperty("yell-mute", new Boolean(player.isYellMute()));
+			object.addProperty("ge-return", new Boolean(player.hasDoneGrandExchangeReturn()));
 			object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));
 			object.addProperty("donated", new Long(player.getAmountDonated()));
 			object.addProperty("credits", new Long(player.getCredits()));

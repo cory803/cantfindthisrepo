@@ -136,13 +136,8 @@ public class GroundItemManager {
 		if(gt == null || gt.hasBeenPickedUp() || !groundItems.contains(gt)) //last one isn't needed, but hey, just trying to be safe
 			return;
 		else {
-			/*	if(p.getHostAdress().equals(gt.getFromIP()) && !p.getUsername().equals(gt.getOwner())) { //Transferring items by IP..
-
-				p.getPacketSender().sendMessage("An error occured.");
-				return;
-			}*/
 			if(p.getGameMode() != GameMode.NORMAL && !Dungeoneering.doingDungeoneering(p)) {
-				if(gt.getOwner() != null && !gt.getOwner().equals("null") && !gt.getOwner().equals(p.getUsername())) {
+				if((gt.getOwner() != null && !gt.getOwner().equals("null") && !gt.getOwner().equals(p.getUsername())) || (gt.getIronman() && p.getGameMode() == GameMode.IRONMAN)) {
 					p.getPacketSender().sendMessage("You cannot pick this item up because it was not spawned for you.");
 					return;
 				}
@@ -156,7 +151,7 @@ public class GroundItemManager {
 			p.getInventory().add(item);
 			p.getLastItemPickup().reset();
 			Sounds.sendSound(p, Sound.PICKUP_ITEM);
-			PlayerLogs.log(p.getUsername(), "Player looting item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: "+item.getAmount() + " from the computer address: " + p.getLastComputerAddress());
+			PlayerLogs.log(p.getUsername(), "Player looting item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: "+item.getAmount() + " Owner: "+gt.getOwner()+"");
 		}
 	}
 

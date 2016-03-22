@@ -107,6 +107,17 @@ public class Player extends Character {
 			lifePoints += 7;
 		return lifePoints;
 	}
+	
+	public boolean ge_return = false;
+	
+	public boolean hasDoneGrandExchangeReturn() {
+		return ge_return;
+	}
+	
+	public void setDoneGrandExchangeReturn(boolean abb) {
+		ge_return = abb;
+	}
+	
 	@Override
 	public void appendDeath() {
 		if(!isDying) {
@@ -350,6 +361,7 @@ public class Player extends Character {
 	private long totalPlayTime;
 	//Timers (Stopwatches)
 	private final Stopwatch yellTimer = new Stopwatch();
+	private final Stopwatch dragon_scimitar_timer = new Stopwatch();
 	private final Stopwatch sqlTimer = new Stopwatch();
 	private final Stopwatch specTimer = new Stopwatch();
 	public boolean pestControlSolo = false;
@@ -1778,7 +1790,15 @@ public class Player extends Character {
 	public Stopwatch getYellTimer() {
 		return yellTimer;
 	}
+<<<<<<< HEAD
 
+=======
+	
+	public Stopwatch getDragonScimitarTimer() {
+		return dragon_scimitar_timer;
+	}
+	
+>>>>>>> origin/master
 	public Stopwatch getSqlTimer() {
 		return sqlTimer;
 	}

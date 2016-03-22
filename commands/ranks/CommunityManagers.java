@@ -52,7 +52,7 @@ import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.entity.impl.player.PlayerSaving;
 
-public class Owners {
+public class CommunityManagers {
 	
 	/**
 	* @Author Jonathan Sirens
@@ -569,7 +569,7 @@ public class Owners {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>Community Manager<img=14></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if (command[0].equals("staffzone")) {
 			if (command.length > 1 && command[1].equals("all")) {
@@ -1068,37 +1068,6 @@ public class Owners {
 			} else {
 				player.getPacketSender().sendMessage("Gave player gold.");
 				target.getInventory().add(item, amount);
-			}
-		}
-		if (command[0].equals("update")) {
-			int time = Integer.parseInt(command[1]);
-			if(time > 0) {
-				GameServer.setUpdating(true);
-				for (Player players : World.getPlayers()) {
-					if (players == null)
-						continue;
-					players.getPacketSender().sendSystemUpdate(time);
-					if(Dungeoneering.doingDungeoneering(players)) {
-						Dungeoneering.leave(players, false, true);
-						players.getClickDelay().reset();
-						players.getPacketSender().sendMessage("You have been forced out of your dungeon due to an update, sorry!");
-					}
-				}
-				TaskManager.submit(new Task(time) {
-					@Override
-					protected void execute() {
-						for (Player player : World.getPlayers()) {
-							if (player != null) {
-								World.deregister(player);
-							}
-						}
-						WellOfGoodwill.save();
-						GrandExchangeOffers.save();
-						ClanChatManager.save();
-						GameServer.getLogger().info("Update task finished!");
-						stop();
-					}
-				});
 			}
 		}
 		if(command[0].equals("sendstring")) {
