@@ -20,7 +20,7 @@ public class Commands {
 			BankPin.init(player, false);
 			return;
 		}
-		PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has done command "+whole_command+"!");
+		PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has done command "+whole_command+"");
 		Members.initiate_command(player, parts, whole_command);
 		SpecialPlayers.initiate_command(player, parts, whole_command);
 		if(player.getRights() == PlayerRights.OWNER) {
@@ -37,6 +37,9 @@ public class Commands {
 		}	
 		if(player.getRights() == PlayerRights.SUPPORT) {
 			Supports.initiate_command(player, parts, whole_command);
+		}
+		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+			CommunityManagers.initiate_command(player, parts, whole_command);
 		}
 		if(player.getDonorRights() == 1) {
 			RegularDonators.initiate_command(player, parts, whole_command);

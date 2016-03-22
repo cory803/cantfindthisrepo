@@ -158,6 +158,10 @@ public class PlayerLoading {
 			
 			if (reader.has("yell-mute")) {
 				player.setYellMute(reader.get("yell-mute").getAsBoolean());
+			}	
+			
+			if (reader.has("ge-return")) {
+				player.setDoneGrandExchangeReturn(reader.get("ge-return").getAsBoolean());
 			}
 
 			if (reader.has("donated")) {

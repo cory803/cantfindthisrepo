@@ -25,6 +25,18 @@ public class GroundItem extends Entity {
 		this.showDelay = showDelay;
 		this.goGlobal = goGlobal;
 		this.globalTimer = globalTimer;
+	}	
+	
+	public GroundItem(Item item, Position pos, String owner, String fromIP, boolean isGlobal, int showDelay, boolean goGlobal, int globalTimer, boolean ironman) {
+		super(pos);
+		this.setItem(item);
+		this.owner = owner;
+		this.fromIP = fromIP;
+		this.isGlobal = isGlobal;
+		this.showDelay = showDelay;
+		this.goGlobal = goGlobal;
+		this.globalTimer = globalTimer;
+		this.ironman_pk_loot = ironman;
 	}
 	
 	private Item item;
@@ -32,6 +44,7 @@ public class GroundItem extends Entity {
 	private boolean isGlobal;
 	private int showDelay;
 	private boolean goGlobal;
+	private boolean ironman_pk_loot = false;
 	private int globalTimer;
 	private boolean hasBeenPickedUp;
 	private boolean refreshNeeded;
@@ -55,6 +68,10 @@ public class GroundItem extends Entity {
 	
 	public void setFromIP(String IP) {
 		this.fromIP = IP;
+	}
+	
+	public boolean getIronman() {
+		return ironman_pk_loot;
 	}
 	
 	public String getFromIP() {

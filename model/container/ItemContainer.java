@@ -56,7 +56,15 @@ public abstract class ItemContainer {
 			items[i] = new Item(-1, 0);
 		}
 	}
-
+	
+    public boolean hasRoomFor(int id, int itemAmount) {
+        if (ItemDefinition.forId(id).isStackable()) {
+            return getFreeSlots() >= 1 || contains(id);
+        } else {
+            return getFreeSlots() >= itemAmount;
+        }
+    }
+	
 	/**
 	 * ItemContainer constructor to create a new instance and to define the player.
 	 * @param player	Player who owns the item container.

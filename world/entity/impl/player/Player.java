@@ -107,6 +107,17 @@ public class Player extends Character {
 			lifePoints += 7;
 		return lifePoints;
 	}
+	
+	public boolean ge_return = false;
+	
+	public boolean hasDoneGrandExchangeReturn() {
+		return ge_return;
+	}
+	
+	public void setDoneGrandExchangeReturn(boolean abb) {
+		ge_return = abb;
+	}
+	
 	@Override
 	public void appendDeath() {
 		if(!isDying) {

@@ -88,11 +88,11 @@ public class Stalls {
 			player.getPacketSender().sendMessage("You steal "+item.getAmount()+" coins.");
 			int fishyType = Misc.getRandom(6);
 			if(fishyType == 1) {
-				player.getInventory().add(15273, Misc.getRandom(10));
+				player.getInventory().add(15271, Misc.getRandom(10));
 			} else if(fishyType == 2) {
-				player.getInventory().add(386, Misc.getRandom(10));
+				player.getInventory().add(384, Misc.getRandom(10));
 			} else if(fishyType == 3) {
-				player.getInventory().add(3145, Misc.getRandom(10));
+				player.getInventory().add(3143, Misc.getRandom(10));
 			}
 			player.getPacketSender().sendInterfaceRemoval();
 			player.getSkillManager().addExperience(Skill.THIEVING, xp);

