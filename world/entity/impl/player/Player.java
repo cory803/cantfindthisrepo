@@ -1790,15 +1790,11 @@ public class Player extends Character {
 	public Stopwatch getYellTimer() {
 		return yellTimer;
 	}
-<<<<<<< HEAD
-
-=======
 	
 	public Stopwatch getDragonScimitarTimer() {
 		return dragon_scimitar_timer;
 	}
 	
->>>>>>> origin/master
 	public Stopwatch getSqlTimer() {
 		return sqlTimer;
 	}
