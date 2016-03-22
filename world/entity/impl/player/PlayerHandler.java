@@ -257,7 +257,7 @@ public class PlayerHandler {
 		if(player.getPointsHandler().getAchievementPoints() == 0) {
 			Achievements.setPoints(player);
 		}
-		if(player.getRights() == PlayerRights.OWNER) {
+		if(player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			player.setDonorRights(5);
 		} else if(player.getRights() == PlayerRights.ADMINISTRATOR) {
 			player.setDonorRights(5);

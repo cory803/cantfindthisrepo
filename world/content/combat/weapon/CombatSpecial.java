@@ -411,6 +411,7 @@ public enum CombatSpecial {
 						PrayerHandler.resetPrayers((Player)target, PrayerHandler.OVERHEAD_PRAYERS, -1);
 						CurseHandler.deactivateCurses((Player)target, CurseHandler.OVERHEAD_CURSES);
 						((Player)target).getPacketSender().sendMessage("Your overhead prayers have been disabled!");
+						((Player)target).getDragonScimitarTimer().reset();
 					}
 				}
 			};

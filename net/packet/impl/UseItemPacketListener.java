@@ -296,7 +296,7 @@ public class UseItemPacketListener implements PacketListener {
 					continue_command = true;
 				}
 			}
-			if(!continue_command && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.ADMINISTRATOR) {
+			if(!continue_command && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.COMMUNITY_MANAGER && player.getRights() != PlayerRights.ADMINISTRATOR) {
 				return;
 			}
 			if(!player.getInventory().contains(11211))

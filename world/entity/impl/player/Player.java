@@ -361,6 +361,7 @@ public class Player extends Character {
 	private long totalPlayTime;
 	//Timers (Stopwatches)
 	private final Stopwatch yellTimer = new Stopwatch();
+	private final Stopwatch dragon_scimitar_timer = new Stopwatch();
 	private final Stopwatch sqlTimer = new Stopwatch();
 	public boolean pestControlSolo = false;
 	private final Stopwatch foodTimer = new Stopwatch();
@@ -1787,6 +1788,10 @@ public class Player extends Character {
 
 	public Stopwatch getYellTimer() {
 		return yellTimer;
+	}
+	
+	public Stopwatch getDragonScimitarTimer() {
+		return dragon_scimitar_timer;
 	}
 	
 	public Stopwatch getSqlTimer() {
