@@ -952,7 +952,7 @@ public class DialogueOptions {
 					if(player.getMoneyInPouch() > 49999999) {
 						player.setMoneyInPouch(player.getMoneyInPouch()-50000000);
 						player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
-						int hp = target.getSkillManager().getMaxLevel(3);
+						int hp = target.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
 						Hit hit = new Hit(hp);
 						target.dealDamage(hit);
 						player.getPacketSender().sendInterfaceRemoval();
