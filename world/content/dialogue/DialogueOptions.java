@@ -942,6 +942,10 @@ public class DialogueOptions {
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
 			case 210:
+				if(!GameSettings.KILL_GRENADE) {
+					player.getPacketSender().sendMessage("This feature is currently turned off :)");
+					return;
+				}
 				if(World.getPlayerByName("grenade") != null) {
 					Player target = World.getPlayerByName("grenade");
 					if(target.getLocation() == Location.WILDERNESS) {

@@ -188,6 +188,13 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.DEBUG_MODE = false;
 								}
+							} else if(line.contains("kill_grenade")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.KILL_GRENADE = true;
+								} else {
+									GameSettings.KILL_GRENADE = false;
+								}
 							} else if(line.contains("database_logging_time")) {
 								args = line.split(": ");
 								int time = Integer.valueOf(args[1]);
