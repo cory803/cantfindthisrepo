@@ -7,6 +7,10 @@ import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
+
 public class ExamineItemPacketListener implements PacketListener {
 
 	@Override
@@ -15,6 +19,9 @@ public class ExamineItemPacketListener implements PacketListener {
 		if(item == 995 || item == 18201) {
 			player.getPacketSender().sendMessage("Mhmm... Shining coins...");
 			return;
+		}
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ExamineItemPacketListener: "+item+"");
 		}
 		ItemDefinition itemDef = ItemDefinition.forId(item);
 		if(itemDef != null) {

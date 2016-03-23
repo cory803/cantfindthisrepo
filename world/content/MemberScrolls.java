@@ -90,14 +90,14 @@ public class MemberScrolls {
 				PlayerPanel.refreshPanel(player);
 			break;
 			case 7629:
-				funds = 100;
+				funds = 125;
 				player.getInventory().delete(7629, 1);
 				player.incrementAmountDonated(funds);
 				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
 				MemberScrolls.checkForRankUpdate(player);
 				credits = 111500;
 				player.addCredits(credits);
-				player.getPacketSender().sendMessage("Your account has gained 111,500 credits. Your total is now at "+player.getCredits()+".");
+				player.getPacketSender().sendMessage("Your account has gained 137,500 credits. Your total is now at "+player.getCredits()+".");
 				PlayerPanel.refreshPanel(player);
 			break;
 		}

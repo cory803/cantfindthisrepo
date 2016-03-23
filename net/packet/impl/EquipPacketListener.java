@@ -21,6 +21,9 @@ import com.ikov.world.content.minigames.impl.Dueling;
 import com.ikov.world.content.minigames.impl.Dueling.DuelRule;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
 /**
  * This packet listener manages the equip action a player
  * executes when wielding or equipping an item.
@@ -259,6 +262,9 @@ public class EquipPacketListener implements PacketListener {
 						player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, newLevel, true);
 						player.getPacketSender().sendMessage("Your new hp is: " + player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION));
 					}*/
+					if(GameSettings.DEBUG_MODE) {
+						PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in EquipPacketListener: "+item.getId()+" from Inventory");
+					}
 					if (player.hasStaffOfLightEffect() && equipItem.getDefinition().getName().toLowerCase().contains("staff of light")) {
 						player.setStaffOfLightEffect(-1);
 						player.getPacketSender().sendMessage("You feel the spirit of the Staff of Light begin to fade away...");

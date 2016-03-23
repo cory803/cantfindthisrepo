@@ -181,6 +181,13 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.FORUM_DATABASE_CONNECTIONS = false;
 								}
+							} else if(line.contains("debug_mode")) {
+								args = line.split(": ");
+								if(args[1].toLowerCase().equals("on")) {
+									GameSettings.DEBUG_MODE = true;
+								} else {
+									GameSettings.DEBUG_MODE = false;
+								}
 							} else if(line.contains("database_logging_time")) {
 								args = line.split(": ");
 								int time = Integer.valueOf(args[1]);

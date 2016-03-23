@@ -13,6 +13,9 @@ import com.ikov.commands.ranks.SpecialPlayers;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.input.impl.EnterAmountToDiceOther;
 import com.ikov.model.Position;
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
 import com.ikov.model.Skill;
 import com.ikov.model.definitions.GameObjectDefinition;
 import com.ikov.model.definitions.ItemDefinition;
@@ -70,8 +73,13 @@ public class UseItemPacketListener implements PacketListener {
 				|| itemUsedSlot > player.getInventory().capacity()
 				|| usedWithSlot > player.getInventory().capacity())
 			return;
+			
 		Item usedWith = player.getInventory().getItems()[usedWithSlot];
 		Item itemUsedWith = player.getInventory().getItems()[itemUsedSlot];
+		
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in UseItemPacketListener "+usedWith+" - "+itemUsedWith+"");
+		}
 		if((usedWith.getId() == 21076 && itemUsedWith.getId() == 21074) || (usedWith.getId() == 21074 && itemUsedWith.getId() == 21076)) {
 			if(player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 59) {
 				player.getPacketSender().sendMessage("You need a Crafting level of at least 59 to make that item.");

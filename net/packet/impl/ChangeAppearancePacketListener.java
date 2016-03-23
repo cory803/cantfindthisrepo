@@ -7,6 +7,9 @@ import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
 public class ChangeAppearancePacketListener implements PacketListener {
 
 	@Override
@@ -15,6 +18,9 @@ public class ChangeAppearancePacketListener implements PacketListener {
 		if(appearanceAttributes == null || appearanceAttributes.length() <= 1)
 			return;
 		try {
+			if(GameSettings.DEBUG_MODE) {
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has changed their appearance in ChangeAppearancePacketListener");
+			}
 			String[] parts = appearanceAttributes.split(" ");
 			int gender = Integer.parseInt(parts[0]);
 			if(gender != 0 && gender != 1) {

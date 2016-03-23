@@ -11,6 +11,8 @@ import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
 
 /**
  * This packet listener is used to pick up ground items
@@ -33,6 +35,10 @@ public class PickupItemPacketListener implements PacketListener {
 			return;
 		if(player.getConstitution() <= 0 || player.isTeleporting())
 			return;
+				
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in PickupItemPacketListener: "+itemId+"");
+		}
 		player.setWalkToTask(new WalkToTask(player, position, 1, new FinalizedMovementTask() {
 			@Override
 			public void execute() {

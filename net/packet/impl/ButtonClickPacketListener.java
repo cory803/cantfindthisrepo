@@ -8,6 +8,7 @@ import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Bank.BankSearchAttributes;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.ikov.model.input.impl.EnterClanChatToJoin;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.model.input.impl.InviteToDungeoneering;
 import com.ikov.model.input.impl.EnterSyntaxToBankSearchFor;
 import com.ikov.net.packet.Packet;
@@ -80,7 +81,9 @@ public class ButtonClickPacketListener implements PacketListener {
 
 		if(checkHandlers(player, id))
 			return;
-
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button in ButtonClickPacketListener "+id+"");
+		}
 		switch(id) {
 		case -10426:			
 			//player.setMusicActive(!player.musicActive());

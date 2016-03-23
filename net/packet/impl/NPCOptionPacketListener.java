@@ -12,6 +12,8 @@ import com.ikov.model.Graphic;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+import com.ikov.GameSettings;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.definitions.NpcDefinition;
@@ -69,6 +71,9 @@ public class NPCOptionPacketListener implements PacketListener {
 		if(BossPets.pickup(player, npc)) {
 			player.getMovementQueue().reset();
 			return;
+		}
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in NPCOptionPacketListener: "+npc.getId()+" - FIRST_CLICK_OPCODE");
 		}
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override
@@ -591,6 +596,10 @@ public class NPCOptionPacketListener implements PacketListener {
 		final int npcId = npc.getId();
 		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Second click npc id: "+npcId);
+		
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in NPCOptionPacketListener: "+npc.getId()+" - SECOND_CLICK_OPCODE");
+		}
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override
 			public void execute() {
@@ -741,6 +750,10 @@ public class NPCOptionPacketListener implements PacketListener {
 		npc.setPositionToFace(player.getPosition());
 		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Third click npc id: "+npc.getId());
+		
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in NPCOptionPacketListener: "+npc.getId()+" - THIRD_CLICK_OPCODE");
+		}
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override
 			public void execute() {
@@ -816,6 +829,10 @@ public class NPCOptionPacketListener implements PacketListener {
 		player.setEntityInteraction(npc);
 		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Fourth click npc id: "+npc.getId());
+		
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in NPCOptionPacketListener: "+npc.getId()+" - FOURTH_CLICK_OPCODE");
+		}
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override
 			public void execute() {

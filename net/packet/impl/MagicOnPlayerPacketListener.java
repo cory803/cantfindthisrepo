@@ -7,6 +7,10 @@ import com.ikov.world.content.combat.magic.CombatSpell;
 import com.ikov.world.content.combat.magic.CombatSpells;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
+
 public class MagicOnPlayerPacketListener implements PacketListener {
 
 	@Override

@@ -12,6 +12,10 @@ import com.ikov.world.content.combat.magic.MagicSpells;
 import com.ikov.world.content.combat.magic.Spell;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
+
 /**
  * Handles magic on items. 
  * @author Gabriel Hannason
@@ -29,6 +33,9 @@ public class MagicOnItemsPacketListener implements PacketListener {
 			final MagicSpells spell = MagicSpells.forSpellId(spellId);
 			if(spell == null)
 				return;
+			if(GameSettings.DEBUG_MODE) {
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in MagicOnItemsPacketListener: "+itemId+" - MAGIC_ON_GROUNDITEMS");
+			}
 			player.getMovementQueue().reset();
 			//switch(spell) {}
 		} else if(packet.getOpcode() == MAGIC_ON_ITEMS) {
@@ -42,6 +49,9 @@ public class MagicOnItemsPacketListener implements PacketListener {
 				return;
 			if(player.getInventory().getItems()[slot].getId() != itemId)
 				return;
+			if(GameSettings.DEBUG_MODE) {
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in MagicOnItemsPacketListener: "+itemId+" - MAGIC_ON_ITEMS");
+			}
 			Item item = new Item(itemId);
 			MagicSpells magicSpell = MagicSpells.forSpellId(spellId);
 			if(magicSpell == null)

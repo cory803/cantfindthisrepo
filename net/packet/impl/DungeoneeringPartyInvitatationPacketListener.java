@@ -7,6 +7,10 @@ import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
+
 public class DungeoneeringPartyInvitatationPacketListener implements PacketListener {
 
 	@Override
@@ -29,6 +33,9 @@ public class DungeoneeringPartyInvitatationPacketListener implements PacketListe
 				return;
 			}
 			player.getMinigameAttributes().getDungeoneeringAttributes().getParty().invite(invite);
+		}
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in DungeoneeringPartyInvitatationPacketListener");
 		}
 	}
 }

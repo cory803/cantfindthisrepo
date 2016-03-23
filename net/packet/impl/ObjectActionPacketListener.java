@@ -11,6 +11,9 @@ import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.Direction;
 import com.ikov.model.DwarfCannon;
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
 import com.ikov.model.Flag;
 import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
@@ -109,6 +112,10 @@ public class ObjectActionPacketListener implements PacketListener {
 		gameObject.setSize(size);
 		if(player.getMovementQueue().isLockMovement())
 			return;
+		
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ObjectActionPacketListener: "+id+" - FIRST_CLICK_OPCODE");
+		}
 		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setInteractingObject(gameObject).setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
@@ -1342,6 +1349,9 @@ public class ObjectActionPacketListener implements PacketListener {
 			distanceY = -(distanceY);
 		int size = distanceX > distanceY ? distanceX : distanceY;
 		gameObject.setSize(size);
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ObjectActionPacketListener: "+gameObject.getId()+" - SECOND_CLICK");
+		}
 		player.setInteractingObject(gameObject).setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 			public void execute() {
 				int ran = 0;

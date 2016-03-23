@@ -5,6 +5,9 @@ import com.ikov.net.packet.PacketListener;
 import com.ikov.world.content.MoneyPouch;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.content.BankPin;
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
 
 public class WithdrawMoneyFromPouchPacketListener implements PacketListener {
 
@@ -16,6 +19,9 @@ public class WithdrawMoneyFromPouchPacketListener implements PacketListener {
 		}
 		int amount = packet.readInt();
 		MoneyPouch.withdrawMoney(player, amount);
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in WithdrawMoneyFromPouchPacketListener "+amount+"");
+		}
 	}
 
 }

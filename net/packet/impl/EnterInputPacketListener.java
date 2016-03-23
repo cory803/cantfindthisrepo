@@ -5,6 +5,10 @@ import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
+
 /**
  * This packet manages the input taken from chat box interfaces that allow input,
  * such as withdraw x, bank x, enter name of friend, etc.
@@ -24,6 +28,10 @@ public class EnterInputPacketListener implements PacketListener {
 				return;
 			if(player.getInputHandling() != null)
 				player.getInputHandling().handleSyntax(player, name);
+			
+			if(GameSettings.DEBUG_MODE) {
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in EnterInputPacketListener: "+name+"");
+			}
 			player.setInputHandling(null);
 			break;
 			case ENTER_AMOUNT_OPCODE:
@@ -32,6 +40,10 @@ public class EnterInputPacketListener implements PacketListener {
 				return;
 			if(player.getInputHandling() != null)
 				player.getInputHandling().handleAmount(player, amount);
+
+			if(GameSettings.DEBUG_MODE) {
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in EnterInputPacketListener: "+amount+"");
+			}
 			player.setInputHandling(null);
 			break;
 		}

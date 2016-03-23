@@ -46,6 +46,10 @@ import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.entity.impl.player.Player;
 
+import com.ikov.GameSettings;
+import com.ikov.world.content.PlayerLogs;
+
+
 
 public class ItemActionPacketListener implements PacketListener {
 
@@ -53,6 +57,9 @@ public class ItemActionPacketListener implements PacketListener {
 		int interfaceId = packet.readUnsignedShort();
 		int slot = packet.readShort();
 		int itemId = packet.readShort();
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemActionPacketListener: "+itemId+"");
+		}
 		if(interfaceId == 38274) {
 			Construction.handleItemClick(itemId, player);
 			return;

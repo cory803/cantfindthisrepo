@@ -4,11 +4,13 @@ import java.util.ArrayList;
 
 import com.ikov.model.GameMode;
 import com.ikov.model.Item;
+import com.ikov.GameSettings;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.input.impl.EnterGePricePerItem;
 import com.ikov.model.input.impl.EnterGeQuantity;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.grandexchange.GrandExchangeOffer.OfferType;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -33,24 +35,7 @@ public class GrandExchange {
 			case 24535:
 			case 24520:
 			case 24538:
-				int slot = getSlotForButton(id);
-				if(slot == -1) {
-					return true;
-				}
-				if(player.getGrandExchangeSlots()[slot] == null) {
-					return true;
-				}
-				if(player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.EMPTY) {
-					reset(player);
-					if(id == 24505 || id == 24523 || id == 24514 || id == 24508 || id == 24517 || id == 24520) {
-						updateBuyInterface(player);
-						player.getPacketSender().sendInterface(BUY_INTERFACE);
-					} else {
-						updateSellInterface(player);
-						player.getPacketSender().sendInterface(SELL_INTERFACE);
-					}
-					player.setSelectedGeSlot(slot);
-				}
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 				return true;
 			case 24541:
 			case 24545:
@@ -58,25 +43,7 @@ public class GrandExchange {
 			case 24553:
 			case 24557:
 			case 24561:
-				slot = getSlotForButton(id);
-				if(player.getGrandExchangeSlots()[slot] == null || !player.getClickDelay().elapsed(1000)) {
-					return true;
-				}
-				if(player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.PENDING_PURCHASE || player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.PENDING_SALE) {
-					final GrandExchangeOffer offer = player.getGrandExchangeSlots()[slot].getOffer();
-					if(offer.getAmountFinished() < offer.getAmount()) {
-						if(offer.getType() == OfferType.BUYING) {
-							offer.setCoinsCollect(offer.getTotalCost() - (offer.getAmountFinished() * offer.getPricePerItem()));
-						} else {
-							offer.setItemCollect(offer.getAmount() - offer.getAmountFinished());
-						}
-						GrandExchangeOffers.setOffer(offer.getIndex(), null);
-						player.getGrandExchangeSlots()[slot].setState(GrandExchangeSlotState.ABORTED);
-						updateSlotStates(player);
-						player.save();
-						player.getClickDelay().reset();
-					}
-				}
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 				return true;
 			case 24543:
 			case 24547:
@@ -84,22 +51,7 @@ public class GrandExchange {
 			case 24555:
 			case 24559:
 			case 24563:
-				slot = getSlotForButton(id);
-				player.getGrandExchangeSlots()[slot] = player.getGrandExchangeSlots()[slot];
-				if(player.getGrandExchangeSlots()[slot] == null) {
-					return true;
-				}
-				if(player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.PENDING_PURCHASE || player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.PENDING_SALE || player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.ABORTED || player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.FINISHED_PURCHASE || player.getGrandExchangeSlots()[slot].getState() == GrandExchangeSlotState.FINISHED_SALE) {
-					GrandExchangeOffer offer = player.getGrandExchangeSlots()[slot].getOffer();
-					if(offer.getType() == OfferType.BUYING) {
-						updateViewPurchaseInterface(player, slot);
-						player.getPacketSender().sendInterface(VIEW_PURCHASE_INTERFACE);
-					} else if(offer.getType() == OfferType.SELLING) {
-						updateViewSaleInterface(player, slot);
-						player.getPacketSender().sendInterface(VIEW_SALE_INTERFACE);
-					}
-					player.setSelectedGeSlot(slot);
-				}
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 				return true;
 			}
 		} else if(player.getInterfaceId() == BUY_INTERFACE || player.getInterfaceId() == SELL_INTERFACE) {
@@ -107,165 +59,67 @@ public class GrandExchange {
 				switch(id) {
 				case 24606:
 				case 24706:
-					setQuantity(player, player.getGeQuantity() - 1);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24610:
 				case 24614:
 				case 24710:
 				case 24714:
-					setQuantity(player, player.getGeQuantity() + 1);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24618:
 				case 24718:
-					setQuantity(player, player.getGeQuantity() + 10);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24622:
 				case 24722:
-					setQuantity(player, player.getGeQuantity() + 100);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24626:
-					setQuantity(player, player.getGeQuantity() + 1000);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24726:
-					if(!(player.getSelectedGeItem() > 0)) {
-						player.getPacketSender().sendMessage("You must choose an item before changing these settings.");
-					} else {
-					/*	int amt = 0;
-						for(Item t : player.getInventory().getValidItems()) {
-							if(t.getId() == Item.getNoted(player.getSelectedGeItem()) || t.getId() == Item.getUnNoted(player.getSelectedGeItem())) {
-								amt += t.getAmount();
-							}
-						}
-						if(amt > Integer.MAX_VALUE) {
-							amt = 0;
-						}*/
-						setQuantity(player, player.getInventory().getAmount(player.getSelectedGeItem()));
-					}
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24630:
 				case 24730:
-					player.setInputHandling(new EnterGeQuantity());
-					player.getPacketSender().sendEnterAmountPrompt("Please enter the amount you wish to buy below.");
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24662:
 				case 24762:
-					setPricePerItem(player, player.getGePricePerItem() - 1);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24665:
 				case 24765:
-					setPricePerItem(player, player.getGePricePerItem() + 1);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24634:
 				case 24734:
-					setPricePerItem(player, ((int)(player.getGePricePerItem() * 0.95)) == player.getGePricePerItem() ? player.getGePricePerItem() - 1 : (int)(player.getGePricePerItem() * 0.95));
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24646:
 				case 24746:
-					setPricePerItem(player, ((int)(player.getGePricePerItem() * 1.05)) == player.getGePricePerItem() ? player.getGePricePerItem() + 1 : (int)(player.getGePricePerItem() * 1.05));
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24642:
 				case 24742:
-					player.setInputHandling(new EnterGePricePerItem());
-					player.getPacketSender().sendEnterAmountPrompt("Please enter the amount you wish to pay per item.");
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24638:
 				case 24738:
-					if(player.getSelectedGeItem() <= 0) {
-						player.getPacketSender().sendMessage("Please select an item first.");
-						return true;
-					}
-					if(Item.sellable(player.getSelectedGeItem())) {
-						setPricePerItem(player, ItemDefinition.forId(player.getSelectedGeItem()).getValue());
-					} else {
-						player.getPacketSender().sendMessage("<img=4> <col=996633>This item does not have a base price set.");
-					}
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24602:
 				case 24702:
-					reset(player);
-					player.getPacketSender().sendInterfaceRemoval();
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24658:
 				case 24758:
-					reset(player);
-					player.getPacketSender().sendInterface(MAIN_INTERFACE);
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				case 24650:
 				case 24750:
-					if(player.getGrandExchangeSlots()[player.getSelectedGeSlot()].getOffer() == null && player.getGrandExchangeSlots()[player.getSelectedGeSlot()].getState() == GrandExchangeSlotState.EMPTY) {
-						OfferType offerType = id == 24650 ? OfferType.BUYING : OfferType.SELLING;
-						if(player.getGeQuantity() <= 0) {
-							player.getPacketSender().sendMessage("Please select a proper quantity before confirming your offer.");
-							return true;
-						}
-						if(player.getGePricePerItem() <= 0) {
-							player.getPacketSender().sendMessage("Please select a proper price per item before confirming your offer.");
-							return true;
-						}
-						if(!player.getClickDelay().elapsed(1000)) {
-							return true;
-						}
-						for(GrandExchangeOffer offer : getOffers(player)) {
-							if(offer == null)
-								continue;
-							int item = Item.getUnNoted(player.getSelectedGeItem());
-							int item2 = Item.getUnNoted(offer.getId());
-							if(item2 == item) {
-								player.getPacketSender().sendMessage("You already have an offer set for this item.");
-								return true;
-							}
-						}
-						int index = GrandExchangeOffers.findIndex();
-						if(index == -1) {
-							player.getPacketSender().sendMessage("The Grand Exchange is currently too busy to accept your offer.");
-							return true;
-						}
-						int item = player.getSelectedGeItem();
-						if(offerType == OfferType.BUYING) {
-							int cost = calculateTotalCost(player.getGePricePerItem(), player.getGeQuantity());
-							if(cost <= 0 || cost > Integer.MAX_VALUE) {
-								player.getPacketSender().sendMessage("Invalid cost.");
-								return true;
-							}
-							boolean usePouch = player.getMoneyInPouch() >= cost;
-							if(!usePouch) {
-								if(player.getInventory().getAmount(995) < cost) {
-									player.getPacketSender().sendMessage("You do not have enough coins to make this purchase.");
-									return true;
-								} 
-								player.getInventory().delete(995, cost);
-							} else {
-								player.getPacketSender().sendMessage(""+Misc.insertCommasToNumber(""+cost+"")+" coins have been taken from your money pouch.");
-								player.setMoneyInPouch(player.getMoneyInPouch() - cost);
-								player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
-							}
-						} else if(offerType == OfferType.SELLING) {
-							int cost = calculateTotalCost(player.getGePricePerItem(), player.getGeQuantity());
-							if(cost <= 0 || cost > Integer.MAX_VALUE) {
-								player.getPacketSender().sendMessage("Invalid cost.");
-								return true;
-							}
-							if(player.getInventory().getAmount(player.getSelectedGeItem()) < player.getGeQuantity()) {
-								player.getPacketSender().sendMessage("You do not have that quantity of the item in your inventory.");
-								return true;
-							}
-							ItemDefinition def = ItemDefinition.forId(item);
-							if(!def.isNoted() && !def.isStackable() && player.getGeQuantity() > 1) {
-								item = Item.getNoted(item);
-							} else if(def.isNoted() && player.getGeQuantity() == 1) {
-								item = Item.getUnNoted(item);
-							}
-							player.getInventory().delete(player.getSelectedGeItem(), player.getGeQuantity());
-						}
-						if(GrandExchangeOffers.getOffer(index) != null) { // double check
-							return true;
-						}
-						player.getGrandExchangeSlots()[player.getSelectedGeSlot()].setOffer(new GrandExchangeOffer(item, player.getGeQuantity(), player.getUsername(), index, player.getGePricePerItem(), player.getSelectedGeSlot(), offerType));
-						player.getGrandExchangeSlots()[player.getSelectedGeSlot()].setState(id == 24650 ? GrandExchangeSlotState.PENDING_PURCHASE : GrandExchangeSlotState.PENDING_SALE);
-						GrandExchangeOffers.add(player.getGrandExchangeSlots()[player.getSelectedGeSlot()].getOffer());
-						player.getClickDelay().reset();
-						open(player);
-					}
+					PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 					return true;
 				}
 			}
@@ -273,38 +127,15 @@ public class GrandExchange {
 			switch(id) {
 			case -10778:
 			case -11778:
-				open(player);
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 				return true;
 			case -10736:
 			case -11736:
-				if(player.getSelectedGeSlot() == -1 || player.getGrandExchangeSlots()[player.getSelectedGeSlot()].getOffer() == null || !player.getClickDelay().elapsed(1000)) {
-					return true;
-				}
-				if(player.getGrandExchangeSlots()[player.getSelectedGeSlot()].getState() == GrandExchangeSlotState.PENDING_PURCHASE || player.getGrandExchangeSlots()[player.getSelectedGeSlot()].getState() == GrandExchangeSlotState.PENDING_SALE) {
-					final GrandExchangeOffer offer = player.getGrandExchangeSlots()[player.getSelectedGeSlot()].getOffer();
-					if(offer.getAmountFinished() < offer.getAmount()) {
-						if(offer.getType() == OfferType.BUYING) {
-							offer.setCoinsCollect(offer.getTotalCost() - (offer.getAmountFinished() * offer.getPricePerItem()));
-						} else {
-							offer.setItemCollect(offer.getAmount() - offer.getAmountFinished());
-						}
-						GrandExchangeOffers.setOffer(offer.getIndex(), null);
-						player.getGrandExchangeSlots()[player.getSelectedGeSlot()].setState(GrandExchangeSlotState.ABORTED);
-						updateSlotStates(player);
-						if(offer.getType() == OfferType.BUYING) {
-							updateViewPurchaseInterface(player, player.getSelectedGeSlot());
-						} else if(offer.getType() == OfferType.SELLING) {
-							updateViewSaleInterface(player, player.getSelectedGeSlot());
-						}
-						player.save();
-					}
-					player.getClickDelay().reset();
-				}
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 				return true;
 			case -10834:
 			case -11834:
-				reset(player);
-				player.getPacketSender().sendInterfaceRemoval();
+				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has clicked button "+id+"");
 				return true;
 			}
 		}
