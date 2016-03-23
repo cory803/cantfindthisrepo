@@ -949,8 +949,8 @@ public class DialogueOptions {
 						player.getPacketSender().sendMessage("You cannot have Grenade killed while he is in the wild. Try again later.");
 						return;
 					}
-					if(player.getMoneyInPouch() > 4999999) {
-						player.setMoneyInPouch(player.getMoneyInPouch()-5000000);
+					if(player.getMoneyInPouch() > 49999999) {
+						player.setMoneyInPouch(player.getMoneyInPouch()-50000000);
 						player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
 						int hp = target.getSkillManager().getMaxLevel(3);
 						Hit hit = new Hit(hp);
