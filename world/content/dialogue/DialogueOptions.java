@@ -960,7 +960,7 @@ public class DialogueOptions {
 						Hit hit = new Hit(hp);
 						target.dealDamage(hit);
 						player.getPacketSender().sendInterfaceRemoval();
-						player.getPacketSender().sendMessage("You paid 5m to have Grenade killed. He will be slayed!");
+						player.getPacketSender().sendMessage("You paid 50m to have Grenade killed. He will be slayed!");
 						World.sendMessage("<img=4> @blu@"+player.getUsername()+" has put a bounty on Grenade that just had him killed!");
 					} else {
 						player.getPacketSender().sendMessage("You do not have enough money in your pouch to set this hit.");
