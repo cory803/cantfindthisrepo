@@ -142,6 +142,24 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				}
 				switch(id) {
+				case 51:
+					player.getPacketSender().sendMessage("There is no way I could squeeze through that...");
+					break;
+				case 52:
+				case 53:
+					if(player.getPosition().getY() < 3470) {
+						player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()+1));
+					} else if(player.getPosition().getY() > 3469) {
+						player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()-1));
+					}
+					break;
+				case 99:
+					if(player.getInventory().contains(1843)) {
+						player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY()-1, 0));
+					} else {
+						player.getPacketSender().sendMessage("The door is locked. I must need some sort of key to get in.");
+					}
+					break;
 				case 2932:
 					player.moveTo(new Position(2600, 3157, 0));
 					player.performAnimation(new Animation(2306));

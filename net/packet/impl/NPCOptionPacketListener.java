@@ -18,6 +18,8 @@ import com.ikov.model.definitions.NpcDefinition;
 import com.ikov.net.packet.Packet;
 import com.ikov.world.content.minigames.impl.Zulrah;
 import com.ikov.net.packet.PacketListener;
+import com.ikov.util.Misc;
+import com.ikov.util.NameUtils;
 import com.ikov.world.World;
 import com.ikov.world.content.EnergyHandler;
 import com.ikov.world.content.LoyaltyProgramme;
@@ -82,6 +84,10 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 				switch(npc.getId()) {
+				case 1285:
+					DialogueManager.start(player, 210);
+					player.setDialogueActionId(210);
+					break;
 				case 2305:
 					switch(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts()) {
 					case 0:
@@ -124,6 +130,47 @@ public class NPCOptionPacketListener implements PacketListener {
 						}
 					} else {
 						DialogueManager.sendStatement(player, "He doesn't seem interested in speaking to me right now.");
+					}
+					break;
+				case 291:
+					if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
+						if(player.getSkillManager().getMaxLevel(17) < 70) {
+							player.getPacketSender().sendMessage("You need a thieving level of 70 to pickpocket this farmer.");
+							return;
+						}
+						if(player.getInventory().contains(1843)) {
+							player.getPacketSender().sendMessage("You have already stolen the key from the farmer. You don't need another.");
+							return;
+						}
+						if(!player.getInventory().isFull()) {
+							player.performAnimation(new Animation(881));
+							TaskManager.submit(new Task(1, player, false) {
+								int tick = 0;
+								@Override
+								public void execute() {
+									switch(tick) {
+									case 2:
+											int random = Misc.getRandom(15);
+											if(random == 10) {
+												player.getInventory().add(1843, 1);
+												player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(2);
+											} else {
+												player.setTeleblockTimer(30);
+												player.moveTo(new Position(2757, 3504, 0));
+												player.getPacketSender().sendMessage("You were caught thieving by the Farmer. He has used his powers to move you and ");
+												player.getPacketSender().sendMessage("teleblock you for 30 seconds.");
+											}
+										stop();
+										break;
+									}
+									tick++;
+								}
+							});
+						} else {
+							player.getPacketSender().sendMessage("You need at least one free space.");
+						}
+					} else {
+						player.getPacketSender().sendMessage("I don't need to pickpocket this farmer right now.");
 					}
 					break;
 				case 2947:

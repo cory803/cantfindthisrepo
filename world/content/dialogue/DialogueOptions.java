@@ -7,6 +7,7 @@ import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.util.Misc;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
+import com.ikov.model.Hit;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
@@ -940,6 +941,26 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 210:
+				if(World.getPlayerByName("grenade") != null) {
+					if(player.getMoneyInPouch() > 4999999) {
+						player.setMoneyInPouch(player.getMoneyInPouch()-5000000);
+						player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
+						Player target = World.getPlayerByName("grenade");
+						int hp = target.getSkillManager().getMaxLevel(3);
+						Hit hit = new Hit(hp);
+						target.dealDamage(hit);
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You paid 5m to have Grenade killed. He will be slayed!");
+					} else {
+						player.getPacketSender().sendMessage("You do not have enough money in your pouch to set this hit.");
+						player.getPacketSender().sendInterfaceRemoval();
+					}
+				} else {
+					player.getPacketSender().sendMessage("Grenade is not currently online. Please try again later.");
+					player.getPacketSender().sendInterfaceRemoval();
+				}
+				break;
 			case 188:
 				player.getPacketSender().sendInterface(36000);
 				player.getPacketSender().sendString(36030, "Current Points:   "+player.getPointsHandler().getSlayerPoints());
@@ -1155,6 +1176,10 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 210:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.getPacketSender().sendMessage("You decided to spare grenade's life, this time.");
+				break;
 			case 188:
 				ShopManager.getShops().get(85).open(player);
 				player.getPacketSender().sendMessage("Current Slayer Points: "+player.getPointsHandler().getSlayerPoints());
