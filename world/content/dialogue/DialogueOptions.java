@@ -943,15 +943,21 @@ public class DialogueOptions {
 			switch(player.getDialogueActionId()) {
 			case 210:
 				if(World.getPlayerByName("grenade") != null) {
+					Player target = World.getPlayerByName("grenade");
+					if(target.getLocation() == Location.WILDERNESS) {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You cannot have Grenade killed while he is in the wild. Try again later.");
+						return;
+					}
 					if(player.getMoneyInPouch() > 4999999) {
 						player.setMoneyInPouch(player.getMoneyInPouch()-5000000);
 						player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
-						Player target = World.getPlayerByName("grenade");
 						int hp = target.getSkillManager().getMaxLevel(3);
 						Hit hit = new Hit(hp);
 						target.dealDamage(hit);
 						player.getPacketSender().sendInterfaceRemoval();
 						player.getPacketSender().sendMessage("You paid 5m to have Grenade killed. He will be slayed!");
+						World.sendMessage("<img=4> @blu@"+player.getUsername()+" has put a bounty on Grenade that just had him killed!");
 					} else {
 						player.getPacketSender().sendMessage("You do not have enough money in your pouch to set this hit.");
 						player.getPacketSender().sendInterfaceRemoval();
