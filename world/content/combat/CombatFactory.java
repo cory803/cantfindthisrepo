@@ -1001,8 +1001,8 @@ public final class CombatFactory {
 		// combat.
 		if(!(entity.isNpc() && ((NPC)entity).isSummoningNpc())) {
 			boolean allowAttack = false;
-			if (victim.getCombatBuilder().getLastAttacker() != null && !Location.inMulti(entity) && victim.getCombatBuilder().isBeingAttacked() && !victim.getCombatBuilder().getLastAttacker().equals(entity)) {
-				
+			if (victim.getCombatBuilder().getLastAttacker() != null && !Location.inMulti(victim) && victim.getCombatBuilder().isBeingAttacked() && !victim.getCombatBuilder().getLastAttacker().equals(entity)) {
+						
 				if(victim.getCombatBuilder().getLastAttacker().isNpc()) {
 					NPC npc = (NPC)victim.getCombatBuilder().getLastAttacker();
 					if(npc.isSummoningNpc()) {
@@ -1014,11 +1014,10 @@ public final class CombatFactory {
 						}
 					}
 				}
-				
-				if(!allowAttack) {
+
+				if (!allowAttack) {
 					if (entity.isPlayer())
-						((Player) entity).getPacketSender().sendMessage(
-								"They are already under attack!");
+						((Player) entity).getPacketSender().sendMessage("They are already under attack!");
 					entity.getCombatBuilder().reset(true);
 					return false;
 				}
