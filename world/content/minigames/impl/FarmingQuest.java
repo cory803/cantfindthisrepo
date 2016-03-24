@@ -45,14 +45,17 @@ public class FarmingQuest {
 		if(p.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
 			p.getPacketSender().sendString(8156, "Vanessa has agreed to help me with my farming ability");
 			p.getPacketSender().sendString(8157, "if I help her gather the following items: a pair of ");
-			p.getPacketSender().sendString(8158, "secateurs and a dramen branch to create something for me.");
+			p.getPacketSender().sendString(8158, "secateurs and a dramen branch. I can talk to her");
+			p.getPacketSender().sendString(8159, "for information on how to get those items.");
 		} else if(p.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 2) {
 			p.getPacketSender().sendString(8156, "@str@Vanessa has agreed to help me with my farming ability");
 			p.getPacketSender().sendString(8157, "@str@if I help her gather the following items: a pair of ");
-			p.getPacketSender().sendString(8158, "@str@secateurs and a dramen branch to create something for me.");
-			p.getPacketSender().sendString(8159, "Now that Vanessa has the secateurs and a dramen branch she said");
-			p.getPacketSender().sendString(8160, "I need to pickpocket something from Farmer Brumty. She");
-			p.getPacketSender().sendString(8161, "said something about him being by McGrubor's Woods.");
+			p.getPacketSender().sendString(8158, "@str@secateurs and a dramen branch. I can talk to her");
+			p.getPacketSender().sendString(8159, "@str@for information on how to get those items.");
+			p.getPacketSender().sendString(8160, "Now that Vanessa has the secateurs and a dramen branch she said");
+			p.getPacketSender().sendString(8161, "I need to pickpocket something from Farmer Brumty. She");
+			p.getPacketSender().sendString(8162, "said something about him being by McGrubor's Woods and to");
+			p.getPacketSender().sendString(8162, "be very careful because he has some strange powers.");
 		}
 	}
 	public static void giveReward(Player p) {

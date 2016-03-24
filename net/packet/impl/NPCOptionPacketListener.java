@@ -94,11 +94,21 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.setDialogueActionId(210);
 					break;
 				case 2305:
-					switch(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts()) {
-					case 0:
-						break;
-						
-					default:
+					if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 0) {
+						if(player.getSkillManager().getMaxLevel(17) < 70 || player.getSkillManager().getMaxLevel(8) < 60 || player.getSkillManager().getMaxLevel(19) < 60) {
+							player.getPacketSender().sendMessage("You do not have the skills required to start this quest.");
+							return;
+						}
+						DialogueManager.start(player, 189);
+						player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(1);
+						PlayerPanel.refreshPanel(player);
+					} else if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {  
+						if(player.getInventory().contains(5329) && player.getInventory().contains(771)) {
+							
+						} else {
+							DialogueManager.start(player, 195);
+						}
+					} else {
 						DialogueManager.sendStatement(player, "Vanessa does not seem interested in talking to you right now.");
 					}
 					break;

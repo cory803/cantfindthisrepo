@@ -149,6 +149,42 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				}
 				switch(id) {
+				case 10309:
+					player.performAnimation(new Animation(828));
+					TaskManager.submit(new Task(1, player, true) {
+						int tick = 1;
+						@Override
+						public void execute() {
+							tick++;
+							if(tick == 4) {
+								stop();
+							}
+						}
+						@Override
+						public void stop() {
+							setEventRunning(false);
+							player.moveTo(new Position(2658, 3492, 0));
+						}
+					});
+					break;
+				case 1754:
+					player.performAnimation(new Animation(827));
+					TaskManager.submit(new Task(1, player, true) {
+						int tick = 1;
+						@Override
+						public void execute() {
+							tick++;
+							if(tick == 4) {
+								stop();
+							}
+						}
+						@Override
+						public void stop() {
+							setEventRunning(false);
+							player.moveTo(new Position(2962, 9650, 0));
+						}
+					});
+					break;
 				case 51:
 					player.getPacketSender().sendMessage("There is no way I could squeeze through that...");
 					break;
