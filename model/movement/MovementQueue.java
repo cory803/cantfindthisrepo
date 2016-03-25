@@ -458,7 +458,7 @@ public final class MovementQueue {
 	}
 
 	public void freeze(int delay) {
-		if(character.isFrozen())
+		if(character.isFrozen() || (System.currentTimeMillis() - character.getLastFreeze()) < 5000)
 			return;
 		character.setFreezeDelay(delay);
 		if(character.isPlayer()) {
@@ -473,6 +473,7 @@ public final class MovementQueue {
 					return;
 				}
 				if(character.decrementAndGetFreezeDelay() == 0) {
+					character.setLastFreeze();
 					stop();
 				}
 			}

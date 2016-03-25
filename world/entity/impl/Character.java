@@ -574,6 +574,16 @@ public abstract class Character extends Entity {
 		return freezeDelay > 0;
 	}
 	
+	private long lastFreeze;
+	
+	public void setLastFreeze() {
+		this.lastFreeze = System.currentTimeMillis();
+	}
+	
+	public long getLastFreeze() {
+		return lastFreeze;
+	}
+	
 	/**
      * Determines if this character needs to reset their movement queue.
      *
