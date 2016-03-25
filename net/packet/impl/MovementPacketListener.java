@@ -69,25 +69,21 @@ public class MovementPacketListener implements PacketListener {
 		} else {
 			boolean invalidStep = false;
 
-			if(!player.getPosition().isViewableFrom(positions[0])) {
-				invalidStep = true;
-			} else {
-				for (int i = 0; i < steps; i++) {
-					positions[i + 1] = new Position(path[i][0] + firstStepX, path[i][1] + firstStepY, player.getPosition().getZ());
-					int distance = player.getPosition().getDistance(positions[i + 1]);
-					if(distance < -22 || distance > 22) {
-						invalidStep = true;
-						break;
-					}
+			for (int i = 0; i < steps; i++) {
+				positions[i + 1] = new Position(path[i][0] + firstStepX, path[i][1] + firstStepY, player.getPosition().getZ());
+				int distance = player.getPosition().getDistance(positions[i + 1]);
+				if (distance < -22 || distance > 22) {
+					invalidStep = true;
+					break;
 				}
 			}
-			
-			if(invalidStep) {
+
+			if (invalidStep) {
 				player.getMovementQueue().reset();
-				//System.out.println(""+player.getUsername()+" invalid step at "+player.getLocation().toString());
+				// System.out.println(""+player.getUsername()+" invalid step at "+player.getLocation().toString());
 				return;
 			}
-			
+
 			if (player.getMovementQueue().addFirstStep(positions[0])) {
 				for (int i = 1; i < positions.length; i++) {
 					player.getMovementQueue().addStep(positions[i]);
