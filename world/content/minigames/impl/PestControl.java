@@ -272,6 +272,8 @@ public class PestControl {
 					p.getPointsHandler().refreshPanel();
 					p.getInventory().add(995, p.getSkillManager().getCombatLevel() * 80);
 					p.restart();
+					p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, p.getSkillManager().getMaxLevel(Skill.CONSTITUTION), true);
+					p.setSpecialPercentage(100);
 				} else if (won)
 					p.getPacketSender().sendMessage("You didn't participate enough to receive a reward.");
 				else {
