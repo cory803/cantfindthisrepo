@@ -86,8 +86,8 @@ public class ItemActionPacketListener implements PacketListener {
 		}
 		if (Herblore.cleanHerb(player, itemId))
 			return;
-		if(MemberScrolls.handleScroll(player, itemId))
-			return;
+//		if(MemberScrolls.handleScroll(player, itemId))
+//			return;
 		if(Effigies.isEffigy(itemId)) {
 			Effigies.handleEffigy(player, itemId);
 			return;
@@ -96,6 +96,22 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch(itemId) {
+		case 10943:
+			DialogueManager.start(player, 203);
+			player.setDialogueActionId(203);
+			break;
+		case 10934:
+			DialogueManager.start(player, 204);
+			player.setDialogueActionId(204);
+			break;
+		case 10935:
+			DialogueManager.start(player, 205);
+			player.setDialogueActionId(205);
+			break;
+		case 7629:
+			DialogueManager.start(player, 206);
+			player.setDialogueActionId(206);
+			break;
 		case 739:
 			if(player.getInventory().contains(739)) {
 				Consumables.handlePotion(player, 739, slot);

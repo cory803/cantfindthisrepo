@@ -941,6 +941,22 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 203:
+				MemberScrolls.handleScroll(player, 10943);
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 204:
+				MemberScrolls.handleScroll(player, 10934);
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 205:
+				MemberScrolls.handleScroll(player, 10935);
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
+			case 206:
+				MemberScrolls.handleScroll(player, 7629);
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 210:
 				if(!GameSettings.KILL_GRENADE) {
 					player.getPacketSender().sendMessage("This feature is currently turned off :)");
@@ -1186,6 +1202,12 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 203:
+			case 204:
+			case 205:
+			case 206:
+				player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 210:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("You decided to spare grenade's life, this time.");
