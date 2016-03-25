@@ -463,8 +463,13 @@ public class PlayerLoading {
 			if (reader.has("nomad")) {
 				player.getMinigameAttributes().getNomadAttributes().setQuestParts(builder.fromJson(reader.get("nomad").getAsJsonArray(), boolean[].class));
 			}
+			
 			if (reader.has("claw-quest")) {
 				player.getMinigameAttributes().getClawQuestAttributes().setQuestParts(reader.get("claw-quest").getAsInt());
+			}
+
+			if (reader.has("farm-quest")) {
+				player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(reader.get("farm-quest").getAsInt());
 			}
 
 			if (reader.has("recipe-for-disaster")) {

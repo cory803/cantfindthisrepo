@@ -29,7 +29,6 @@ public class Plant {
 
 	public byte harvested = 0;
 	boolean harvesting = false;
-
 	public Plant(int patchId, int plantId) {
 		patch = patchId;
 		plant = plantId;
@@ -97,9 +96,10 @@ public class Plant {
 	}
 
 	public void harvest(final Player player) {
+		boolean wearingMagicSecateurs = player.getEquipment().contains(7409);
 		if(harvesting)
 			return;
-		if (player.getInventory().contains(FarmingPatches.values()[patch].harvestItem)) {
+		if (player.getInventory().contains(FarmingPatches.values()[patch].harvestItem) || wearingMagicSecateurs) {
 			final Plant instance = this;
 			player.performAnimation(new Animation(FarmingPatches.values()[patch].harvestAnimation));
 			harvesting = true;
@@ -119,7 +119,12 @@ public class Plant {
 					Item add = null;
 					int id = Plants.values()[plant].harvest;
 					add = ItemDefinition.forId(id).isNoted() ? new Item(id-1, 1) : new Item(id, 1);
-					player.getInventory().add(add.getId(), add.getAmount());
+					if(wearingMagicSecateurs) {
+						player.getInventory().add(add.getId(), (int) (add.getAmount()*1.20)+1);
+						player.getPacketSender().sendMessage("You received 20% more harvest because of the magic secateurs.");
+					} else {
+						player.getInventory().add(add.getId(), add.getAmount());
+					}
 					String name = ItemDefinition.forId(Plants.values()[plant].harvest).getName();
 					if(name.endsWith("s"))
 						name = name.substring(0, name.length() - 1);

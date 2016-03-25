@@ -271,6 +271,7 @@ public class MinigameAttributes {
 	}
 	public class FarmQuestAttributes {
 		private int questParts = 0;
+		private int produce = 0;
 
 		public int getQuestParts() {
 			return questParts;
@@ -279,7 +280,14 @@ public class MinigameAttributes {
 		public void setQuestParts(int questParts) {
 			this.questParts = questParts;
 		}
-
+		
+		public void addProduce(int produce) {
+			this.produce += produce;
+		}
+		
+		public int getProduce() {
+			return produce;
+		}
 	}
 
 	/*public class SoulWarsAttributes {

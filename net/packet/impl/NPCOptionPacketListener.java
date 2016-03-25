@@ -9,6 +9,7 @@ import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.GameMode;
 import com.ikov.model.Graphic;
+import com.ikov.model.Item;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.GameSettings;
@@ -36,6 +37,7 @@ import com.ikov.world.content.dialogue.impl.Denath;
 import com.ikov.world.content.dialogue.impl.ExplorerJack;
 import com.ikov.world.content.grandexchange.GrandExchange;
 import com.ikov.world.content.minigames.impl.ClawQuest;
+import com.ikov.world.content.minigames.impl.FarmingQuest;
 import com.ikov.world.content.minigames.impl.WarriorsGuild;
 import com.ikov.world.content.skill.impl.crafting.Tanning;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
@@ -102,12 +104,21 @@ public class NPCOptionPacketListener implements PacketListener {
 						DialogueManager.start(player, 189);
 						player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(1);
 						PlayerPanel.refreshPanel(player);
-					} else if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {  
+					} else if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
 						if(player.getInventory().contains(5329) && player.getInventory().contains(771)) {
-							
+							player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(2);
+							player.getInventory().delete(new Item(5329));
+							player.getInventory().delete(new Item(771));
+							DialogueManager.start(player, 200);
 						} else {
 							DialogueManager.start(player, 195);
 						}
+					} else if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 2) {
+						DialogueManager.start(player, 197);
+					} else if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 3) {
+						player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(4);
+						FarmingQuest.giveReward(player);
+						PlayerPanel.refreshPanel(player);
 					} else {
 						DialogueManager.sendStatement(player, "Vanessa does not seem interested in talking to you right now.");
 					}

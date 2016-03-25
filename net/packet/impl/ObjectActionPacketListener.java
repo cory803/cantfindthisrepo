@@ -610,12 +610,21 @@ public class ObjectActionPacketListener implements PacketListener {
 					}
 					break;
 				case 7836:
+				case 7837:
 				case 7808:
 					int amt = player.getInventory().getAmount(6055);
 					if(amt > 0) {
 						player.getInventory().delete(6055, amt);
 						player.getPacketSender().sendMessage("You put the weed in the compost bin.");
 						player.getSkillManager().addExperience(Skill.FARMING, 20*amt);
+						if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 2) {
+							player.getMinigameAttributes().getFarmQuestAttributes().addProduce(amt);
+							player.getPacketSender().sendMessage("You now have added " +player.getMinigameAttributes().getFarmQuestAttributes().getProduce()+"/100 weeds to the compost bin.");
+							if(player.getMinigameAttributes().getFarmQuestAttributes().getProduce() > 10) {
+								player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(3);
+								DialogueManager.sendStatement(player, "You have put 100 weeds in the bin. Vanessa should be informed.");
+							}
+						}
 					} else {
 						player.getPacketSender().sendMessage("You do not have any weeds in your inventory.");
 					}

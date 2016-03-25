@@ -64,7 +64,7 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(55207, RecipeForDisaster.getQuestTabPrefix(player) + "Recipe For Disaster");
 		player.getPacketSender().sendString(55208, Nomad.getQuestTabPrefix(player) + "Nomad's Requeim");
 		player.getPacketSender().sendString(55209, ClawQuest.getQuestTabPrefix(player) + "The King's Task");
-		//player.getPacketSender().sendString(55210, FarmingQuest.getQuestTabPrefix(player) + "Farmer's Expedition");
+		player.getPacketSender().sendString(55210, FarmingQuest.getQuestTabPrefix(player) + "Farmer's Expedition");
 
 		/**
 		 * Links
