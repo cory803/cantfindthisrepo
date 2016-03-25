@@ -18,9 +18,17 @@ public class ThievBots extends Input {
 				player.setPassedRandom(false);
 //				player.getPacketSender().sendLogout();
 			}
-		}
-		if (Stalls.getBotStop() == 2) {
+		} else if (Stalls.getBotStop() == 2) {
 			if (syntax.equalsIgnoreCase("15")) {
+				player.getPacketSender().sendMessage("You have successfully completed the random.");
+				player.setPassedRandom(true);
+			} else {
+				player.getPacketSender().sendMessage("That was not the right answer, please try again.");
+				player.setPassedRandom(false);
+//				player.getPacketSender().sendLogout();
+			}
+		} else if (Stalls.getBotStop() == 3) {
+			if (syntax.equalsIgnoreCase("no")) {
 				player.getPacketSender().sendMessage("You have successfully completed the random.");
 				player.setPassedRandom(true);
 			} else {

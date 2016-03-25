@@ -25,10 +25,12 @@ public class Stalls {
 			if(getBotStop() == 1) {
 				player.setInputHandling(new ThievBots());
 				player.getPacketSender().sendEnterInputPrompt("Please enter ikov2");
-			}
-			if(getBotStop() == 2) {
+			} else if(getBotStop() == 2) {
 				player.setInputHandling(new ThievBots());
 				player.getPacketSender().sendEnterInputPrompt("What is 10+5?");
+			} else if(getBotStop() == 3) {
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
 			}
 		} else {
 			if(player.getInventory().getFreeSlots() < 1) {
@@ -54,12 +56,17 @@ public class Stalls {
 			player.getSkillManager().stopSkilling();
 			setBotStop(Misc.getRandom(50));
 			if(getBotStop() == 1) {
+				player.setPassedRandom(false);
 				player.setInputHandling(new ThievBots());
 				player.getPacketSender().sendEnterInputPrompt("Please enter ikov2");
-			}
-			if(getBotStop() == 2) {
+			} else if(getBotStop() == 2) {
+				player.setPassedRandom(false);
 				player.setInputHandling(new ThievBots());
 				player.getPacketSender().sendEnterInputPrompt("What is 10+5?");
+			} else if(getBotStop() == 3) {
+				player.setPassedRandom(false);
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
 			}
 			if(reward == 15009)
 				Achievements.finishAchievement(player, AchievementData.STEAL_A_RING);
@@ -70,6 +77,18 @@ public class Stalls {
 		}
 	}
 	public static void stealFromStall(Player player, int lvlreq, int xp, Item item, String message, boolean which_stall) {
+		if (player.isPassedRandom() == false) {
+			if(getBotStop() == 1) {
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("Please enter ikov2");
+			} else if(getBotStop() == 2) {
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("What is 10+5?");
+			} else if(getBotStop() == 3) {
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
+			}
+		} else {
 			if(player.getInventory().getFreeSlots() < 1) {
 				player.getPacketSender().sendMessage("You need some more inventory space to do this.");
 				return;
@@ -140,5 +159,20 @@ public class Stalls {
 			player.getClickDelay().reset();
 			player.getInventory().add(item.getId(), item.getAmount());
 			player.getSkillManager().stopSkilling();
+			setBotStop(Misc.getRandom(50));
+			if(getBotStop() == 1) {
+				player.setPassedRandom(false);
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("Please enter ikov2");
+			} else if(getBotStop() == 2) {
+				player.setPassedRandom(false);
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("What is 10+5?");
+			} else if(getBotStop() == 3) {
+				player.setPassedRandom(false);
+				player.setInputHandling(new ThievBots());
+				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
+			}
+		}
 	}
 }
