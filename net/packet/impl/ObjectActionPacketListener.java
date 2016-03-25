@@ -620,7 +620,7 @@ public class ObjectActionPacketListener implements PacketListener {
 						if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 2) {
 							player.getMinigameAttributes().getFarmQuestAttributes().addProduce(amt);
 							player.getPacketSender().sendMessage("You now have added " +player.getMinigameAttributes().getFarmQuestAttributes().getProduce()+"/100 weeds to the compost bin.");
-							if(player.getMinigameAttributes().getFarmQuestAttributes().getProduce() > 10) {
+							if(player.getMinigameAttributes().getFarmQuestAttributes().getProduce() > 99) {
 								player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(3);
 								DialogueManager.sendStatement(player, "You have put 100 weeds in the bin. Vanessa should be informed.");
 							}
