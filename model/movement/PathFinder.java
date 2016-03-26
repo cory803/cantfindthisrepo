@@ -194,6 +194,9 @@ public class PathFinder {
 				pathY = gc.getPosition().getRegionY() * 8 + tileQueueY.get(tail);
 				gc.getMovementQueue().addStep(new Position(pathX, pathY, gc.getPosition().getZ()));
 			}
+			if (gc.isPlayer()) {
+				gc.getMovementQueue().setPathDestination(new Position(gc.getPosition().getRegionX() * 8 + tileQueueX.get(0), gc.getPosition().getRegionY() * 8 + tileQueueY.get(0)));
+			}
 		} catch(Exception e) {
 			System.out.println("Error finding route, destx: "+destX+", destY: "+destY+". Reseted queue.");
 			//gc.getMovementQueue().setFollowCharacter(null);

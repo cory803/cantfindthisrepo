@@ -9,6 +9,7 @@ import com.ikov.model.GameObject;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
 import com.ikov.model.definitions.GameObjectDefinition;
+import com.ikov.model.movement.PathFinder;
 import com.ikov.util.Misc;
 import com.ikov.world.clip.stream.ByteStream;
 import com.ikov.world.entity.impl.Character;
@@ -359,6 +360,66 @@ public final class RegionClipping {
 		} else {
 			return null;
 		}
+	}
+	
+	/**
+	 * Gets the object next to the position (non-diagonal)
+	 * 
+	 * @param position
+	 *            the position to look from
+	 * @param objectId
+	 *            the object id to look for
+	 * @return
+	 */
+	public static GameObject getNearObject(Position position, int objectId) {
+		final RegionClipping clipping = forPosition(position);
+		if (clipping != null) {
+			int x = position.getX();
+			int y = position.getY();
+			int height = position.getZ();
+			int regionAbsX = (clipping.id >> 8) * 64;
+			int regionAbsY = (clipping.id & 0xff) * 64;
+			if (height < 0 || height >= 4)
+				height = 0;
+			if (clipping.gameObjects[height] == null) {
+				return null;
+			}
+			for (int i = -1; i < 2; i++) {
+				for (int j = -1; j < 2; j++) {
+					if (i == j)
+						continue;
+					GameObject o = clipping.gameObjects[height][x - regionAbsX + i][y - regionAbsY + j];
+					if (o != null && o.getId() == objectId) {
+						return clipping.gameObjects[height][x - regionAbsX + i][y - regionAbsY + j];
+					}
+				}
+			}
+			return null;
+		} else {
+			return null;
+		}
+	}
+
+	/**
+	 * Finds a non-diagonal, reachable position between the npc & bank
+	 * 
+	 * @param npc
+	 *            the npc's position
+	 * @param bank
+	 *            the bank object position
+	 * @return
+	 */
+	public static Position getReachablePosition(Position npc, Position bank) {
+		for (int x = -1; x < 2; x++) {
+			for (int y = -1; y < 2; y++) {
+				if (x == y)
+					continue;
+				Position pos = new Position(bank.getX() + x, bank.getY() + y, bank.getZ());
+				if (PathFinder.isProjectilePathClear(bank, pos) && !pos.equals(npc))
+					return pos;
+			}
+		}
+		return null;
 	}
 
 	private static void addClippingForVariableObject(int x, int y, int height, int type, int direction, boolean flag) {

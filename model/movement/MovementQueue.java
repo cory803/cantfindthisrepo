@@ -420,8 +420,10 @@ public final class MovementQueue {
 	 */
 	public MovementQueue reset() {
 		points.clear();
-		if (character.isPlayer())
+		if (character.isPlayer()) {
 			((Player) character).setWalkToTask(null);
+			setPathDestination(null);
+		}
 		return this;
 	}
 
@@ -516,5 +518,18 @@ public final class MovementQueue {
 
 	public boolean isRunToggled() {
 		return character.isPlayer() && ((Player) character).isRunning() && !((Player)character).isCrossingObstacle();
+	}
+	
+	/**
+	 * The destination of the found path.
+	 */
+	private Position pathDestination;
+	
+	public void setPathDestination(Position pos) {
+		this.pathDestination = pos;
+	}
+	
+	public Position getPathDestination() {
+		return pathDestination;
 	}
 }

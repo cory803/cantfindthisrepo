@@ -3,21 +3,26 @@ package com.ikov.net.packet.impl;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.WalkToTask;
+import com.ikov.world.clip.region.RegionClipping;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BossSystem;
 import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.GameMode;
+import com.ikov.model.GameObject;
 import com.ikov.model.Graphic;
 import com.ikov.model.Item;
+import com.ikov.model.Locations;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
+import com.ikov.model.Projectile;
 import com.ikov.GameSettings;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.GameSettings;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.definitions.NpcDefinition;
+import com.ikov.model.movement.PathFinder;
 import com.ikov.net.packet.Packet;
 import com.ikov.world.content.minigames.impl.Zulrah;
 import com.ikov.net.packet.PacketListener;
@@ -55,7 +60,6 @@ import com.ikov.world.entity.impl.player.Player;
 
 public class NPCOptionPacketListener implements PacketListener {
 
-
 	private static void firstClick(Player player, Packet packet) {
 		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
@@ -77,6 +81,44 @@ public class NPCOptionPacketListener implements PacketListener {
 		if(GameSettings.DEBUG_MODE) {
 			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in NPCOptionPacketListener: "+npc.getId()+" - FIRST_CLICK_OPCODE");
 		}
+
+		switch (npc.getId()) {
+		
+		/**
+		 * Talking to bankers behind bank booths
+		 */
+		case 494:
+		case 1360:
+			GameObject bank = RegionClipping.getNearObject(npc.getPosition(), 2213);
+			Position reachablePosition = RegionClipping.getReachablePosition(npc.getPosition(), bank.getPosition());
+			if (bank != null && reachablePosition != null) {
+				PathFinder.findPath(player, reachablePosition.getX(), reachablePosition.getY(), true, 1, 1);
+			}
+			if (player.getMovementQueue().getPathDestination() != null) {
+				if (player.getPosition().equals(player.getMovementQueue().getPathDestination())) {
+					player.getBank(player.getCurrentBankTab()).open();
+					npc.setPositionToFace(player.getPosition());
+				} else {
+					TaskManager.submit(new Task(1, player, false) {
+
+						@Override
+						public void execute() {
+							if (player.getMovementQueue().getPathDestination() != null) {
+								if (player.getPosition().equals(player.getMovementQueue().getPathDestination())) {
+									player.getBank(player.getCurrentBankTab()).open();
+									npc.setPositionToFace(player.getPosition());
+									this.stop();
+								}
+							} else {
+								this.stop();
+							}
+						}
+					});
+				}
+			}
+			break;
+		}
+
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
 			@Override
 			public void execute() {
@@ -545,10 +587,10 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendInterface(3559);
 					player.getAppearance().setCanChangeAppearance(true);
 					break;
-				case 494:
+				/*case 494:
 				case 1360:
 					player.getBank(player.getCurrentBankTab()).open();
-					break;
+					break;*/
 				}
 				if(!(npc.getId() >= 8705 && npc.getId() <= 8710)) {
 					npc.setPositionToFace(player.getPosition());
