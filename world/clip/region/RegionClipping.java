@@ -386,8 +386,9 @@ public final class RegionClipping {
 			}
 			for (int i = -1; i < 2; i++) {
 				for (int j = -1; j < 2; j++) {
-					if (i == j)
+					if (i == j || i == -j || j == -i) {
 						continue;
+					}
 					GameObject o = clipping.gameObjects[height][x - regionAbsX + i][y - regionAbsY + j];
 					if (o != null && o.getId() == objectId) {
 						return clipping.gameObjects[height][x - regionAbsX + i][y - regionAbsY + j];
@@ -412,9 +413,9 @@ public final class RegionClipping {
 	public static Position getReachablePosition(Position npc, Position bank) {
 		for (int x = -1; x < 2; x++) {
 			for (int y = -1; y < 2; y++) {
-				if (x == y)
+				if (x == y || x == -y || x == -y)
 					continue;
-				Position pos = new Position(bank.getX() + x, bank.getY() + y, bank.getZ());
+				Position pos = new Position(bank.getX() - x, bank.getY() - y, bank.getZ());
 				if (PathFinder.isProjectilePathClear(bank, pos) && !pos.equals(npc))
 					return pos;
 			}

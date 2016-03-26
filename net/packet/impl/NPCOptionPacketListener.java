@@ -90,30 +90,32 @@ public class NPCOptionPacketListener implements PacketListener {
 		case 494:
 		case 1360:
 			GameObject bank = RegionClipping.getNearObject(npc.getPosition(), 2213);
-			Position reachablePosition = RegionClipping.getReachablePosition(npc.getPosition(), bank.getPosition());
-			if (bank != null && reachablePosition != null) {
-				PathFinder.findPath(player, reachablePosition.getX(), reachablePosition.getY(), true, 1, 1);
-			}
-			if (player.getMovementQueue().getPathDestination() != null) {
-				if (player.getPosition().equals(player.getMovementQueue().getPathDestination())) {
-					player.getBank(player.getCurrentBankTab()).open();
-					npc.setPositionToFace(player.getPosition());
-				} else {
-					TaskManager.submit(new Task(1, player, false) {
+			if (bank != null) {
+				Position reachablePosition = RegionClipping.getReachablePosition(npc.getPosition(), bank.getPosition());
+				if (reachablePosition != null) {
+					PathFinder.findPath(player, reachablePosition.getX(), reachablePosition.getY(), true, 1, 1);
+					if (player.getMovementQueue().getPathDestination() != null) {
+						if (player.getPosition().equals(player.getMovementQueue().getPathDestination())) {
+							player.getBank(player.getCurrentBankTab()).open();
+							npc.setPositionToFace(player.getPosition());
+						} else {
+							TaskManager.submit(new Task(1, player, false) {
 
-						@Override
-						public void execute() {
-							if (player.getMovementQueue().getPathDestination() != null) {
-								if (player.getPosition().equals(player.getMovementQueue().getPathDestination())) {
-									player.getBank(player.getCurrentBankTab()).open();
-									npc.setPositionToFace(player.getPosition());
-									this.stop();
+								@Override
+								public void execute() {
+									if (player.getMovementQueue().getPathDestination() != null) {
+										if (player.getPosition().equals(player.getMovementQueue().getPathDestination())) {
+											player.getBank(player.getCurrentBankTab()).open();
+											npc.setPositionToFace(player.getPosition());
+											this.stop();
+										}
+									} else {
+										this.stop();
+									}
 								}
-							} else {
-								this.stop();
-							}
+							});
 						}
-					});
+					}
 				}
 			}
 			break;
