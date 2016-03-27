@@ -115,19 +115,70 @@ public class Members {
 				player.getPacketSender().sendMessage("You have not waited the entire 5 minutes to be able to use this command again.");
 				return;
 			}
-			/*
-			Position[] wilderness_agility_course = {
-				new Position{3005, 3939, 0}
+			Position[] obstacle_pipe = {
+				new Position(3004, 3938, 0), new Position(3004, 3939, 0),
+				new Position(3004, 3940, 0), new Position(3004, 3941, 0),
+				new Position(3004, 3942, 0), new Position(3004, 3943, 0),
+				new Position(3004, 3944, 0), new Position(3004, 3945, 0),
+				new Position(3004, 3946, 0), new Position(3004, 3947, 0),
+				new Position(3004, 3948, 0), new Position(3004, 3949, 0),
+				new Position(3003, 3948, 0), new Position(3003, 3947, 0),
+				new Position(3003, 3946, 0), new Position(3003, 3945, 0),
+				new Position(3003, 3944, 0), new Position(3003, 3943, 0),
+				new Position(3003, 3942, 0), new Position(3003, 3941, 0),
+				new Position(3003, 3940, 0), new Position(3003, 3939, 0),
+				new Position(3005, 3939, 0), new Position(3005, 3940, 0),
+				new Position(3005, 3941, 0), new Position(3005, 3942, 0),
+				new Position(3005, 3943, 0), new Position(3005, 3944, 0),
+				new Position(3005, 3945, 0), new Position(3005, 3946, 0),
+				new Position(3005, 3947, 0), new Position(3005, 3948, 0)
 			};
-			for(wilderness_agility_course : p) {
-				if(p == player.getLocation()) {
-					
+			for(Position p : obstacle_pipe) {
+				if(p == player.getPosition()) {
+					player.moveTo(new Position(3004, 3937, 0));
+					player.getPacketSender().sendMessage("You have been moved outside of the obstacle pipe!");
 				}
 			}
-			*/
+			Position[] ropeswing = {
+				new Position(3006, 3954, 0), new Position(3005, 3954, 0),
+				new Position(3006, 3955, 0), new Position(3005, 3955, 0),
+				new Position(3006, 3956, 0), new Position(3005, 3956, 0),
+				new Position(3006, 3957, 0), new Position(3005, 3957, 0),
+				new Position(3004, 3954, 0),
+				new Position(3004, 3955, 0),
+				new Position(3004, 3956, 0),
+				new Position(3004, 3957, 0)
+			};
+			for(Position p : ropeswing) {
+				if(p == player.getPosition()) {
+					player.moveTo(new Position(3005, 3953, 0));
+					player.getPacketSender().sendMessage("You have been moved outside of the rope swing!");
+				}
+			}
+			Position[] strange_floor = {
+				new Position(2997, 3960, 0), new Position(2998, 3960, 0),
+				new Position(2999, 3960, 0), new Position(3000, 3960, 0),
+				new Position(3001, 3960, 0)
+			};
+			for(Position p : strange_floor) {
+				if(p == player.getPosition()) {
+					player.moveTo(new Position(3002, 3960, 0));
+					player.getPacketSender().sendMessage("You have been moved outside of the strange floor!");
+				}
+			}
+			Position[] log_balance = {
+				new Position(3002, 3945, 0), new Position(3001, 3945, 0),
+				new Position(3000, 3945, 0), new Position(2999, 3945, 0),
+				new Position(2998, 3945, 0), new Position(2997, 3945, 0),
+				new Position(2996, 3945, 0), new Position(2995, 3945, 0),
+			};
+			for(Position p : strange_floor) {
+				if(p == player.getPosition()) {
+					player.moveTo(new Position(3002, 3945, 0));
+					player.getPacketSender().sendMessage("You have been moved outside of the log balance!");
+				}
+			}
 			player.getStuckDelay().reset();
-			player.moveTo(new Position(3087, 3502, 0));
-			player.getPacketSender().sendMessage("You have gotten yourself unstuck. You must wait 5 minutes to use it again.");
 		}
 		if (command[0].equals("skull")) {
 			if(player.getSkullTimer() > 0) {

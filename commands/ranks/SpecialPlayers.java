@@ -65,6 +65,9 @@ public class SpecialPlayers {
 			player.setTeleblockTimer(0);
 			player.getPacketSender().sendMessage("You are unteleblocked!");
 		}
+		if(wholeCommand.equalsIgnoreCase("hp")) {
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
+		}
 		if (command[0].equals("unskull")) {
 			player.setSkullTimer(0);
 			player.setSkullIcon(0);

@@ -207,6 +207,9 @@ public class Owners {
 			player.getSkillManager().setCurrentLevel(Skill.MAGIC, 120, true);
 			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
 		}
+		if(wholeCommand.equalsIgnoreCase("hp")) {
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
+		}
 		if(wholeCommand.equalsIgnoreCase("godmode")) {
 			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99999, true);
 			player.getSkillManager().setCurrentLevel(Skill.RANGED, 99999, true);
