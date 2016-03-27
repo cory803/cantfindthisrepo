@@ -501,6 +501,8 @@ public class Player extends Character {
 	private int forum_connections;
 	private int forum_connections_rank;
 	
+	private Player killed_player;
+	
 	/*** BOOLEANS ***/
 	private boolean revsWarning = true;
 	private boolean passedRandom = true;
@@ -564,6 +566,14 @@ public class Player extends Character {
 
 	public int getZulrahHealth() {
 		return zulrah_health;
+	}
+	
+	public Player getKilledPlayer() {
+		return killed_player;
+	}
+	
+	public void setKilledPlayer(Player pp) {
+		killed_player = pp;
 	}
 
 	public boolean getZulrahRotating() {

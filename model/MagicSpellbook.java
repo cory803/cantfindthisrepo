@@ -10,9 +10,9 @@ import com.ikov.world.content.transportation.TeleportType;
 
 public enum MagicSpellbook {
 	
-	NORMAL(11000, TeleportType.NORMAL),
-	ANCIENT(11500, TeleportType.ANCIENT),
-	LUNAR(11800, TeleportType.LUNAR);
+	NORMAL(1151, TeleportType.NORMAL),
+	ANCIENT(12855, TeleportType.ANCIENT),
+	LUNAR(29999, TeleportType.LUNAR);
 	
 	/**
 	 * The MagicSpellBook constructor.
