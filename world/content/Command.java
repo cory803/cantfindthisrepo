@@ -18,14 +18,14 @@ public class Command {
 			player.getPacketSender().sendString(55023, "@or3@ - @whi@ ::attacks");
 			player.getPacketSender().sendString(55024, "@or3@ - @whi@ ::empty");
 			player.getPacketSender().sendString(55025, "@or3@ - @whi@ ::help");
-			player.getPacketSender().sendString(55026, "@or3@ - @whi@ ::changepass [pass]");
+			player.getPacketSender().sendString(55026, "@or3@ - @whi@ ::changepass");
 			player.getPacketSender().sendString(55027, "@or3@ - @whi@ ::train");
 			player.getPacketSender().sendString(55028, "@or3@ - @whi@ ::edge");
 			player.getPacketSender().sendString(55029, "@or3@ - @whi@ ::stuck");
 			player.getPacketSender().sendString(55030, "@or3@ - @whi@ ::teamspeak");
 			player.getPacketSender().sendString(55031, "@or3@ - @whi@ ::skull");
 			player.getPacketSender().sendString(55032, "@or3@ - @whi@ ::gamble");
-			player.getPacketSender().sendString(55033, "@or3@ - @whi@ ");
+			player.getPacketSender().sendString(55033, "@or3@ - @whi@ ::forumrank");
 			player.getPacketSender().sendString(55034, "@or2@ Server Support Commands");
 			player.getPacketSender().sendString(55035, "@or3@ - @whi@ ::staffzone");
 			player.getPacketSender().sendString(55036, "@or3@ - @whi@ ::jail [player]");

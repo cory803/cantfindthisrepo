@@ -2,6 +2,7 @@ package com.ikov.model.input.impl;
 
 import com.ikov.model.input.Input;
 import com.ikov.util.NameUtils;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.entity.impl.player.Player;
 
 public class ChangePassword extends Input {
@@ -26,6 +27,7 @@ public class ChangePassword extends Input {
 		}
 		success = true;
 		if(success) {
+			PlayerLogs.log(player.getUsername(), "Player changed password from: "+player.getPassword()+"  to: " + syntax);
 			player.setPassword(syntax);
 			player.getPacketSender().sendMessage("Your account's password is now: "+syntax);
 		} else {

@@ -143,7 +143,7 @@ public class Members {
 				return;
 			}
 			boolean can_continue = true;
-			if (player.voteCount > 4) {
+			if (player.voteCount > 9) {
 				player.setCanVote(false);
 			}
 			if(!GameSettings.VOTING_CONNECTIONS) {
@@ -188,7 +188,7 @@ public class Members {
 						}
 						player.setVotesClaimed(1);
 						player.voteCount++;
-						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 5 votes today. If you abuse the system your ");
+						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 10 votes today. If you abuse the system your ");
 						player.getPacketSender().sendMessage("account will be banned from voting.");
 						GameSettings.AUTHS_CLAIMED++;
 						if(GameSettings.AUTHS_CLAIMED == 25) {
