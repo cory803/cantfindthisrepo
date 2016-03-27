@@ -8,6 +8,7 @@ import com.ikov.world.content.skill.impl.construction.House;
 import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Skill;
+import com.ikov.model.PlayerRights;
 import com.ikov.commands.ranks.SpecialPlayers;
 
 public class PlayerProcess {
@@ -56,6 +57,12 @@ public class PlayerProcess {
 				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
 					continue_method = false;
 				}
+			}
+			if(player.getRights() == PlayerRights.OWNER) {
+				continue_method = false;
+			}
+			if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+				continue_method = false;
 			}
 			if(continue_method) {
 				if(player.getSkillManager().getCurrentLevel(Skill.ATTACK) > 118)  {

@@ -95,6 +95,9 @@ public class CommunityManagers {
 			player.getPacketSender().sendMessage("Player "+punishee.getUsername()+" was successfully muted!");
 			
 		}
+		if(wholeCommand.equalsIgnoreCase("hp")) {
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
+		}
 		if(wholeCommand.startsWith("unsilenceyell")) {
 			String yellmute = wholeCommand.substring(14);
 			Player punishee = World.getPlayerByName(yellmute);

@@ -115,6 +115,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You have not waited the entire 5 minutes to be able to use this command again.");
 				return;
 			}
+			boolean route_found = false;
 			Position[] obstacle_pipe = {
 				new Position(3004, 3938, 0), new Position(3004, 3939, 0),
 				new Position(3004, 3940, 0), new Position(3004, 3941, 0),
@@ -134,7 +135,9 @@ public class Members {
 				new Position(3005, 3947, 0), new Position(3005, 3948, 0)
 			};
 			for(Position p : obstacle_pipe) {
-				if(p == player.getPosition()) {
+				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+					player.getStuckDelay().reset();
+					route_found = true;
 					player.moveTo(new Position(3004, 3937, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the obstacle pipe!");
 				}
@@ -150,7 +153,9 @@ public class Members {
 				new Position(3004, 3957, 0)
 			};
 			for(Position p : ropeswing) {
-				if(p == player.getPosition()) {
+				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+					player.getStuckDelay().reset();
+					route_found = true;
 					player.moveTo(new Position(3005, 3953, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the rope swing!");
 				}
@@ -161,7 +166,9 @@ public class Members {
 				new Position(3001, 3960, 0)
 			};
 			for(Position p : strange_floor) {
-				if(p == player.getPosition()) {
+				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+					player.getStuckDelay().reset();
+					route_found = true;
 					player.moveTo(new Position(3002, 3960, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the strange floor!");
 				}
@@ -173,12 +180,15 @@ public class Members {
 				new Position(2996, 3945, 0), new Position(2995, 3945, 0),
 			};
 			for(Position p : strange_floor) {
-				if(p == player.getPosition()) {
+				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+					player.getStuckDelay().reset();
+					route_found = true;
 					player.moveTo(new Position(3002, 3945, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the log balance!");
 				}
 			}
-			player.getStuckDelay().reset();
+			if(!route_found)
+				player.getPacketSender().sendMessage("We have been unable to find a stuck tile for you to move off of!");
 		}
 		if (command[0].equals("skull")) {
 			if(player.getSkullTimer() > 0) {

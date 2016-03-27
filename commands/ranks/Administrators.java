@@ -13,6 +13,7 @@ import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.entity.impl.player.PlayerSaving;
+import com.ikov.model.Skill;
 
 public class Administrators {
 	
@@ -34,6 +35,9 @@ public class Administrators {
 			} else {
 				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
 			}
+		}
+		if(wholeCommand.equalsIgnoreCase("hp")) {
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
 		}
 		if(wholeCommand.startsWith("globalyell")) {
 			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
