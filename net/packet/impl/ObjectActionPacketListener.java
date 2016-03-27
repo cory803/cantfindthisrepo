@@ -149,6 +149,9 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				}
 				switch(id) {
+				case 2995:
+					player.openBank();
+					break;
 				case 10309:
 					player.performAnimation(new Animation(828));
 					TaskManager.submit(new Task(1, player, true) {

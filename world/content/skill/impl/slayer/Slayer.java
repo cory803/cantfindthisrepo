@@ -237,6 +237,10 @@ public class Slayer {
 						inviteOwner.getPacketSender().sendMessage(""+player.getUsername()+" already has a Slayer duo partner.");
 						return;
 					}
+					if(inviteOwner.getSlayer().getSlayerTask() != SlayerTasks.NO_TASK) {
+						player.getPacketSender().sendMessage("You cannot join a duo team if the other player already has a task.");
+						return;
+					}
 					inviteOwner.getPacketSender().sendMessage(""+player.getUsername()+" has joined your duo Slayer team.").sendMessage("Seek respective Slayer master for a task.");
 					inviteOwner.getSlayer().setDuoPartner(player.getUsername());
 					PlayerPanel.refreshPanel(inviteOwner);

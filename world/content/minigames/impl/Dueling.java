@@ -30,7 +30,11 @@ public class Dueling {
 
 	public void challengePlayer(Player playerToDuel) {
 		if(player.getLocation() != Location.DUEL_ARENA)
-			return;
+			return;		
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+				BankPin.init(player, false);
+				return;
+			}
 		if(player.getInterfaceId() > 0) {
 			player.getPacketSender().sendMessage("Please close the interface you have open before trying to open a new one.");
 			return;

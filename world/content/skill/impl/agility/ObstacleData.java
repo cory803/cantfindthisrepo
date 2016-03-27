@@ -798,7 +798,7 @@ public enum ObstacleData {
 	}
 
 	public static ObstacleData forId(int object) {
-		if(object == 2993 || object == 2328 || object == 2995 || object == 2994)
+		if(object == 2993 || object == 2328 || object == 2994)
 			return CLIMB_WALL;
 		else if(object == 2307)
 			return GATE_2;
