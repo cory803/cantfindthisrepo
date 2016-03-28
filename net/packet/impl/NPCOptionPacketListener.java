@@ -163,8 +163,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					} else if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
 						if(player.getInventory().contains(5329) && player.getInventory().contains(771)) {
 							player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(2);
-							player.getInventory().delete(new Item(5329));
-							player.getInventory().delete(new Item(771));
+							player.getInventory().delete(new Item(5329, 1));
+							player.getInventory().delete(new Item(771, 1));
 							DialogueManager.start(player, 200);
 						} else {
 							DialogueManager.start(player, 195);
