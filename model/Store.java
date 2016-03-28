@@ -40,7 +40,7 @@ public class Store {
 		String name = player.getUsername();
 		if(check_store(player.getUsername())) {		
 			if(check_store_item(player.getUsername()) == 92530009) {
-				item_name = "Scroll of $10";
+				item_name = "$10 Payment Scroll";
 				item_id = 10943;
 				item_amount = check_store_quantity(player.getUsername());
 				player.getInventory().add(item_id, item_amount);
@@ -50,7 +50,7 @@ public class Store {
 				World.sendMessage("<img=4><col=2F5AB7>"+player.getUsername()+" has just claimed a <col=9A0032>$10<col=2f5ab7> scroll using ::donate!");
 			}
 			if(check_store_item(player.getUsername()) == 92530010) {
-				item_name = "Scroll of $25";
+				item_name = "$25 Payment Scroll";
 				item_id = 10934;
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
@@ -59,7 +59,7 @@ public class Store {
 				World.sendMessage("<img=4><col=2F5AB7>"+player.getUsername()+" has just claimed a <col=9A0032>$25<col=2f5ab7> scroll using ::donate!");
 			}
 			if(check_store_item(player.getUsername()) == 92530011) {
-				item_name = "Scroll of $50";
+				item_name = "$50 Payment Scroll";
 				item_id = 10935;
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
@@ -68,7 +68,7 @@ public class Store {
 				World.sendMessage("<img=4><col=2F5AB7>"+player.getUsername()+" has just claimed a <col=9A0032>$50<col=2f5ab7> scroll using ::donate!");
 			}
 			if(check_store_item(player.getUsername()) == 92530012) {
-				item_name = "Scroll of $100";
+				item_name = "$100 Payment Scroll";
 				item_id = 7629;
 				player.getInventory().add(item_id, item_amount);
 				player.getPacketSender().sendMessage("Thank you for purchasing <col=ff0000><shad=0>"+item_name+"</shad></col>, we have added it to your inventory.");
