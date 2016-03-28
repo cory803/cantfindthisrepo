@@ -20,7 +20,22 @@ public class WikiEditors {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		
+		if(wholeCommand.toLowerCase().startsWith("yell")) {
+			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
+				player.getPacketSender().sendMessage("You are muted and cannot yell.");
+				return;
+			}
+			if(World.isGlobalYell() == false) {
+				player.getPacketSender().sendMessage("An admin has temporarily disabled the global yell channel.");
+				return;
+			}
+			if(!GameSettings.YELL_STATUS) {
+				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
+				return;
+			}
+			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
+			World.sendYell("<col=0>[<col=ff7f00><shad=0><img=15>Wiki Editor<img=15></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+		}
 	}
 	
 }

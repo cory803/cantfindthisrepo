@@ -833,7 +833,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(40).open(player);
 					break;
 				case 605:
-					LoyaltyProgramme.open(player);
+					//LoyaltyProgramme.open(player);
 					break;
 				case 4657:
 					DialogueManager.start(player, MemberScrolls.getTotalFunds(player));

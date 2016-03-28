@@ -693,7 +693,7 @@ public class PlayerUpdating {
 		properties.putLong(target.getLongUsername());
 		properties.put(target.getSkillManager().getCombatLevel());
 		properties.putShort(rankId);
-		properties.putShort(target.getLoyaltyTitle().ordinal());
+		properties.putShort(target.getLoyaltyRank()); //Loyalty Title
 
 		out.put(properties.buffer().writerIndex(), ValueType.C);
 		out.putBytes(properties.buffer());

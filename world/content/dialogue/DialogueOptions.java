@@ -456,10 +456,6 @@ public class DialogueOptions {
 				break;
 			case 13:
 				player.getPacketSender().sendInterfaceRemoval();
-				if(!player.getUnlockedLoyaltyTitles()[LoyaltyProgramme.LoyaltyTitles.VETERAN.ordinal()]) {
-					player.getPacketSender().sendMessage("You must have unlocked the 'Veteran' Loyalty Title in order to buy this cape.");
-					return;
-				}
 				boolean usePouch = player.getMoneyInPouch() >= 75000000;
 				if(!usePouch && player.getInventory().getAmount(995) < 75000000) {
 					player.getPacketSender().sendMessage("You do not have enough coins.");
@@ -806,7 +802,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, MemberScrolls.getTotalFunds(player));
 				break;
 			case 8:
-				LoyaltyProgramme.open(player);
+				//LoyaltyProgramme.open(player);
 				break;
 			case 9:
 				DialogueManager.start(player, 14);
@@ -868,7 +864,7 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(3424, 2919), player.getSpellbook().getTeleportType());
 				break;
 			case 8:
-				LoyaltyProgramme.reset(player);
+				//LoyaltyProgramme.reset(player);
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 9:

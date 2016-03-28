@@ -1427,7 +1427,15 @@ public class Player extends Character {
 	public int getMoneyInPouchAsInt() {
 		return moneyInPouch > Integer.MAX_VALUE ? Integer.MAX_VALUE : (int)moneyInPouch;
 	}
-
+	
+	public int loyaltyRank = 0;
+	public int getLoyaltyRank() {
+		return loyaltyRank;
+	}
+	public void setLoyaltyRank(int ii) {
+		loyaltyRank = ii;
+	}
+	
 	public boolean experienceLocked() {
 		return experienceLocked;
 	}

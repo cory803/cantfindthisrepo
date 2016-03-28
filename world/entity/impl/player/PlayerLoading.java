@@ -128,14 +128,14 @@ public class PlayerLoading {
 				player.setLastBankSerial(reader.get("last-bank-serial").getAsString());
 			}
 			
-			if (reader.has("loyalty-title")) {
-				player.setLoyaltyTitle(LoyaltyTitles.valueOf(reader.get("loyalty-title").getAsString()));
-			}
-
 			if (reader.has("position")) {
 				player.getPosition().setAs(builder.fromJson(reader.get("position"), Position.class));
 			}
 
+			if (reader.has("loyalty-rank")) {
+				player.setLoyaltyRank(reader.get("loyalty-rank").getAsInt());
+			}
+			
 			if(reader.has("online-status")) {
 				player.getRelations().setStatus(PrivateChatStatus.valueOf(reader.get("online-status").getAsString()), false);
 			}

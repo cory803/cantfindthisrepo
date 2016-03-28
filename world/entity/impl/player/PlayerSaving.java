@@ -51,6 +51,7 @@ public class PlayerSaving {
 			object.addProperty("last-bank-serial", player.getLastBankSerial());
 			object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
 			object.add("position", builder.toJsonTree(player.getPosition()));
+			object.addProperty("loyalty-rank", new Integer(player.getLoyaltyRank()));
 			object.addProperty("online-status", player.getRelations().getStatus().name());
 			object.addProperty("jailed-status", new Boolean(player.isJailed()));
 			object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));

@@ -72,22 +72,13 @@ public class PlayerKillingAttributes {
 			player.getPointsHandler().refreshPanel();
 			
 			/** ACHIEVEMENTS AND LOYALTY TITLES **/
-			LoyaltyProgramme.unlock(player, LoyaltyTitles.KILLER);
 			Achievements.doProgress(player, AchievementData.DEFEAT_10_PLAYERS);
 			Achievements.doProgress(player, AchievementData.DEFEAT_30_PLAYERS);
-			if(this.playerKills >= 15) {
-				LoyaltyProgramme.unlock(player, LoyaltyTitles.SLAUGHTERER);
-			} else if(this.playerKills >= 50) {
-				LoyaltyProgramme.unlock(player, LoyaltyTitles.GENOCIDAL);
-			}
 			if(this.playerKillStreak >= 3) {
 				Achievements.finishAchievement(player, AchievementData.REACH_A_KILLSTREAK_OF_3);
 			}
 			if(this.playerKillStreak >= 6) {
 				Achievements.finishAchievement(player, AchievementData.REACH_A_KILLSTREAK_OF_6);
-			}
-			if(this.playerKillStreak >= 15) {
-				LoyaltyProgramme.unlock(player, LoyaltyTitles.IMMORTAL);
 			}
 		}
 	}

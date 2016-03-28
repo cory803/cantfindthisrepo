@@ -301,6 +301,42 @@ public class PlayerHandler {
 		} else if((player.getRights() == PlayerRights.SUPPORT || player.getRights() == PlayerRights.WIKI_EDITOR) && player.getDonorRights() < 1) {
 			player.setDonorRights(1);
 		}
+		if(player.getRights().isStaff()) {
+			if(player.getRights() == PlayerRights.OWNER) {
+				player.setLoyaltyRank(43);
+			} else if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+				player.setLoyaltyRank(50);
+			} else if(player.getRights() == PlayerRights.ADMINISTRATOR) {
+				player.setLoyaltyRank(42);
+			} else if(player.getRights() == PlayerRights.WIKI_MANAGER) {
+				player.setLoyaltyRank(49);
+			} else if(player.getRights() == PlayerRights.WIKI_EDITOR) {
+				player.setLoyaltyRank(48);
+			} else if(player.getRights() == PlayerRights.GLOBAL_MOD) {
+				player.setLoyaltyRank(47);
+			} else if(player.getRights() == PlayerRights.SUPPORT) {
+				player.setLoyaltyRank(44);
+			} else if(player.getRights() == PlayerRights.MODERATOR) {
+				player.setLoyaltyRank(41);
+			}
+		} else if(player.getDonorRights() != 0 && !player.getUsername().equalsIgnoreCase("dc blitz")) {
+			if(player.getDonorRights() == 1) {
+				player.setLoyaltyRank(37);
+			} else if(player.getDonorRights() == 2) {
+				player.setLoyaltyRank(38);
+			} else if(player.getDonorRights() == 3) {
+				player.setLoyaltyRank(39);
+			} else if(player.getDonorRights() == 4) {
+				player.setLoyaltyRank(40);
+			} else if(player.getDonorRights() == 5) {
+				player.setLoyaltyRank(46);
+			}
+		}
+		
+		if(player.getUsername().equalsIgnoreCase("dc blitz")) {
+			player.setLoyaltyRank(51);
+		}
+		
 		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
