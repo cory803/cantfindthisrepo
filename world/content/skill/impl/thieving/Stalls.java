@@ -21,6 +21,7 @@ public class Stalls {
 	}
 
 	public static void stealFromStall(Player player, int lvlreq, int xp, int reward, String message) {
+		/*
 		if (player.isPassedRandom() == false) {
 			if(getBotStop() == 1) {
 				player.setInputHandling(new ThievBots());
@@ -33,6 +34,7 @@ public class Stalls {
 				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
 			}
 		} else {
+			*/
 			if(player.getInventory().getFreeSlots() < 1) {
 				player.getPacketSender().sendMessage("You need some more inventory space to do this.");
 				return;
@@ -54,6 +56,7 @@ public class Stalls {
 			player.getClickDelay().reset();
 			player.getInventory().add(reward, 1);
 			player.getSkillManager().stopSkilling();
+			/*
 			setBotStop(Misc.getRandom(50));
 			if(getBotStop() == 1) {
 				player.setPassedRandom(false);
@@ -68,15 +71,16 @@ public class Stalls {
 				player.setInputHandling(new ThievBots());
 				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
 			}
+			*/
 			if(reward == 15009)
 				Achievements.finishAchievement(player, AchievementData.STEAL_A_RING);
 			else if(reward == 11998) {
 				Achievements.doProgress(player, AchievementData.STEAL_140_SCIMITARS);
 				Achievements.doProgress(player, AchievementData.STEAL_5000_SCIMITARS);
 			}
-		}
 	}
 	public static void stealFromStall(Player player, int lvlreq, int xp, Item item, String message, boolean which_stall) {
+		/*
 		if (player.isPassedRandom() == false) {
 			if(getBotStop() == 1) {
 				player.setInputHandling(new ThievBots());
@@ -89,6 +93,7 @@ public class Stalls {
 				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
 			}
 		} else {
+			*/
 			if(player.getInventory().getFreeSlots() < 1) {
 				player.getPacketSender().sendMessage("You need some more inventory space to do this.");
 				return;
@@ -159,6 +164,7 @@ public class Stalls {
 			player.getClickDelay().reset();
 			player.getInventory().add(item.getId(), item.getAmount());
 			player.getSkillManager().stopSkilling();
+			/*
 			setBotStop(Misc.getRandom(50));
 			if(getBotStop() == 1) {
 				player.setPassedRandom(false);
@@ -173,6 +179,6 @@ public class Stalls {
 				player.setInputHandling(new ThievBots());
 				player.getPacketSender().sendEnterInputPrompt("Are you botting?");
 			}
-		}
+			*/
 	}
 }

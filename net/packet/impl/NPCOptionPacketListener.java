@@ -87,6 +87,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		/**
 		 * Talking to bankers behind bank booths
 		 */
+		 /*
 		case 494:
 		case 1360:
 			GameObject bank = RegionClipping.getNearObject(npc.getPosition(), 2213);
@@ -100,7 +101,6 @@ public class NPCOptionPacketListener implements PacketListener {
 							npc.setPositionToFace(player.getPosition());
 						} else {
 							TaskManager.submit(new Task(1, player, false) {
-
 								@Override
 								public void execute() {
 									if (player.getMovementQueue().getPathDestination() != null) {
@@ -117,8 +117,20 @@ public class NPCOptionPacketListener implements PacketListener {
 						}
 					}
 				}
+			} else {
+				
+				System.out.println("Sending walk task...");
+				player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
+					@Override
+					public void execute() {
+						player.getBank(player.getCurrentBankTab()).open();
+						npc.setPositionToFace(player.getPosition());
+					}
+				}));
+				
 			}
 			break;
+			*/
 		}
 
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
@@ -589,10 +601,10 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendInterface(3559);
 					player.getAppearance().setCanChangeAppearance(true);
 					break;
-				/*case 494:
+				case 494:
 				case 1360:
 					player.getBank(player.getCurrentBankTab()).open();
-					break;*/
+					break;
 				}
 				if(!(npc.getId() >= 8705 && npc.getId() <= 8710)) {
 					npc.setPositionToFace(player.getPosition());
