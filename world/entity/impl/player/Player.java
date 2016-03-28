@@ -371,6 +371,7 @@ public class Player extends Character {
 	private final Stopwatch lastRunRecovery = new Stopwatch();
 	private final Stopwatch clickDelay = new Stopwatch();
 	private final Stopwatch stuckDelay = new Stopwatch();
+	private final Stopwatch forumDelay = new Stopwatch();
 	private final Stopwatch lastItemPickup = new Stopwatch();
 	private final Stopwatch lastVengeance = new Stopwatch();
 	private final Stopwatch emoteDelay = new Stopwatch();
@@ -1483,6 +1484,10 @@ public class Player extends Character {
 
 	public Stopwatch getStuckDelay() {
 		return stuckDelay;
+	}
+	
+	public Stopwatch getForumDelay() {
+		return forumDelay;
 	}
 
 	public int[] getLeechedBonuses() {

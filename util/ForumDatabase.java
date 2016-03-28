@@ -12,6 +12,8 @@ import java.util.Properties;
  */
 
 public class ForumDatabase {
+	
+	public static boolean forum_connection_happening = false;
 
 	//Database connection information
 	private static final String database_name = "ikov2_forum";
@@ -30,6 +32,8 @@ public class ForumDatabase {
 	public static int members = 3;
 	public static int validating = 1;
 	public static int banned = 5;
+	
+	public static int wiki_editor = 34;
 
 	//Misc information (disregard)
 	private static final Properties prop;
@@ -118,6 +122,26 @@ public class ForumDatabase {
 		}
 		try {
 			PreparedStatement statement = getConnection().prepareStatement("UPDATE `members` SET `member_group_id` = '"+donator_rank+"' WHERE `name` = '"+username+"'");
+			statement.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+	}
+	
+	public static synchronized void promote_wiki_editor(String username) {
+		try {
+			PreparedStatement statement = getConnection().prepareStatement("UPDATE `members` SET `member_group_id` = '"+wiki_editor+"' WHERE `name` = '"+username+"'");
+			statement.execute();
+		} catch (Exception e) {
+			System.out.println(e);
+			e.printStackTrace();
+		}
+	}	
+	
+	public static synchronized void demote_wiki_editor(String username) {
+		try {
+			PreparedStatement statement = getConnection().prepareStatement("UPDATE `members` SET `member_group_id` = '"+members+"' WHERE `name` = '"+username+"'");
 			statement.execute();
 		} catch (Exception e) {
 			System.out.println(e);

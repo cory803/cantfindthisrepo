@@ -508,8 +508,41 @@ public class Administrators {
 				PlayerPunishment.unPcBan(address);
 				PlayerPunishment.unMacBan(mac);
 				PlayerPunishment.unIpBan(ip);
+				PlayerPunishment.unVoteBan(ban_player);
 				PlayerPunishment.unBan(ban_player);
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
+			}
+		}
+		if (command[0].equals("unbanvote")) {
+			String vote_player = wholeCommand.substring(10);
+			if(!PlayerSaving.playerExists(vote_player)) {
+				player.getPacketSender().sendMessage("Player "+vote_player+" does not exist.");
+				return;
+			} else {
+				if(!PlayerPunishment.isVoteBanned(vote_player)) {
+					player.getPacketSender().sendMessage("Player "+vote_player+" is not vote banned.");
+					return;
+				}
+				Player other = World.getPlayerByName(vote_player);
+				PlayerPunishment.unVoteBan(vote_player);
+				other.getPacketSender().sendMessage("You have been unbanned from voting.");
+				player.getPacketSender().sendMessage("You have unbanned "+other.getUsername()+" from voting.");
+			}
+		}
+		if(command[0].equalsIgnoreCase("banvote")) {
+			String vote_player = wholeCommand.substring(8);
+			if(!PlayerSaving.playerExists(vote_player)) {
+				player.getPacketSender().sendMessage("Player "+vote_player+" does not exist.");
+				return;
+			} else {
+				if(PlayerPunishment.isVoteBanned(vote_player)) {
+					player.getPacketSender().sendMessage("Player "+vote_player+" already has an active vote ban.");
+					return;
+				}
+				Player other = World.getPlayerByName(vote_player);
+				PlayerPunishment.voteBan(vote_player);
+				other.getPacketSender().sendMessage("You have been banned from voting.");
+				player.getPacketSender().sendMessage("You have banned "+other.getUsername()+" from voting.");
 			}
 		}
 		if(command[0].equalsIgnoreCase("getip")) {

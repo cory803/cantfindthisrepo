@@ -423,6 +423,12 @@ public class PlayerUpdating {
 				if(target.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 					rankId = 14;
 				}
+				if(target.getRights() == PlayerRights.WIKI_EDITOR) {
+					rankId = 15;
+				}
+				if(target.getRights() == PlayerRights.WIKI_MANAGER) {
+					rankId = 16;
+				}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
@@ -578,6 +584,12 @@ public class PlayerUpdating {
 				}
 				if(target.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 					rankId = 14;
+				}
+				if(target.getRights() == PlayerRights.WIKI_EDITOR) {
+					rankId = 15;
+				}
+				if(target.getRights() == PlayerRights.WIKI_MANAGER) {
+					rankId = 16;
 				}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();

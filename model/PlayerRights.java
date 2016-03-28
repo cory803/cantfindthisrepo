@@ -48,7 +48,17 @@ public enum PlayerRights {
 	/*
 	 * A member of staff who is a Community Manager
 	 */
-	COMMUNITY_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1);
+	COMMUNITY_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	
+	/*
+	 * A member of staff who is a Wiki Editor
+	 */
+	WIKI_EDITOR(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	
+	/*
+	 * A member of staff who is a Wiki Editor
+	 */
+	WIKI_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1);
 
 	PlayerRights(int yellDelaySeconds, String yellHexColorPrefix, double loyaltyPointsGainModifier, double experienceGainModifier) {
 		this.yellDelay = yellDelaySeconds;
@@ -58,7 +68,7 @@ public enum PlayerRights {
 	}
 
 	private static final ImmutableSet<PlayerRights> YT = Sets.immutableEnumSet(YOUTUBER);
-	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER, GLOBAL_MOD, COMMUNITY_MANAGER);
+	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER, GLOBAL_MOD, COMMUNITY_MANAGER, WIKI_EDITOR, WIKI_MANAGER);
 	private static final ImmutableSet<PlayerRights> CC = Sets.immutableEnumSet(OWNER);	
 	
 	/*

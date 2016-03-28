@@ -296,9 +296,9 @@ public class PlayerHandler {
 			player.setDonorRights(5);
 		} else if(player.getRights() == PlayerRights.ADMINISTRATOR) {
 			player.setDonorRights(5);
-		} else if(player.getRights() == PlayerRights.MODERATOR && player.getDonorRights() < 3) {
+		} else if((player.getRights() == PlayerRights.MODERATOR || player.getRights() == PlayerRights.WIKI_MANAGER) && player.getDonorRights() < 3) {
 			player.setDonorRights(3);
-		} else if(player.getRights() == PlayerRights.SUPPORT && player.getDonorRights() < 1) {
+		} else if((player.getRights() == PlayerRights.SUPPORT || player.getRights() == PlayerRights.WIKI_EDITOR) && player.getDonorRights() < 1) {
 			player.setDonorRights(1);
 		}
 		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {

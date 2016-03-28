@@ -486,6 +486,7 @@ public class SpecialPlayers {
 				}
 				PlayerPunishment.unPcBan(address);
 				PlayerPunishment.unMacBan(mac);
+				PlayerPunishment.unVoteBan(ban_player);
 				PlayerPunishment.unIpBan(ip);
 				PlayerPunishment.unBan(ban_player);
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
@@ -561,19 +562,38 @@ public class SpecialPlayers {
 			} else
 				player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
 		}
-		if (command[0].equals("banvote")) {
-			Player target = World.getPlayerByName(command[1]);
-			target.setCanVote(false);
-			target.getPacketSender().sendMessage("You have been banned from voting.");
-			player.getPacketSender().sendMessage("You have banned "+target.getUsername()+" from voting.");
-		}
 		if (command[0].equals("unbanvote")) {
-			Player target = World.getPlayerByName(command[1]);
-			target.setCanVote(true);
-			target.getPacketSender().sendMessage("You have been unbanned from voting.");
-			player.getPacketSender().sendMessage("You have unbanned "+target.getUsername()+" from voting.");
+			String vote_player = command[1];
+			if(!PlayerSaving.playerExists(vote_player)) {
+				player.getPacketSender().sendMessage("Player "+vote_player+" does not exist.");
+				return;
+			} else {
+				if(!PlayerPunishment.isVoteBanned(vote_player)) {
+					player.getPacketSender().sendMessage("Player "+vote_player+" is not vote banned.");
+					return;
+				}
+				Player other = World.getPlayerByName(vote_player);
+				PlayerPunishment.unVoteBan(vote_player);
+				other.getPacketSender().sendMessage("You have been unbanned from voting.");
+				player.getPacketSender().sendMessage("You have unbanned "+other.getUsername()+" from voting.");
+			}
 		}
-
+		if(command[0].equalsIgnoreCase("banvote")) {
+			String vote_player = command[1];
+			if(!PlayerSaving.playerExists(vote_player)) {
+				player.getPacketSender().sendMessage("Player "+vote_player+" does not exist.");
+				return;
+			} else {
+				if(PlayerPunishment.isVoteBanned(vote_player)) {
+					player.getPacketSender().sendMessage("Player "+vote_player+" already has an active vote ban.");
+					return;
+				}
+				Player other = World.getPlayerByName(vote_player);
+				PlayerPunishment.voteBan(vote_player);
+				other.getPacketSender().sendMessage("You have been banned from voting.");
+				player.getPacketSender().sendMessage("You have banned "+other.getUsername()+" from voting.");
+			}
+		}
 		if (command[0].equals("setlevel") && !player.getUsername().equalsIgnoreCase("Jack")) {
 			int skillId = Integer.parseInt(command[1]);
 			int level = Integer.parseInt(command[2]);

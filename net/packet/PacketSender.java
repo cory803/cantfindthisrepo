@@ -769,6 +769,12 @@ public class PacketSender {
 		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			rank = 14;
 		}
+		if(player.getRights() == PlayerRights.WIKI_EDITOR) {
+			rank = 15;
+		}
+		if(player.getRights() == PlayerRights.WIKI_MANAGER) {
+			rank = 16;
+		}
 		out.put(rank);
 		player.getSession().queueMessage(out);
 		return this;
@@ -857,6 +863,12 @@ public class PacketSender {
 		}
 		if(me.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			rank = 14;
+		}
+		if(me.getRights() == PlayerRights.WIKI_EDITOR) {
+			rank = 15;
+		}
+		if(me.getRights() == PlayerRights.WIKI_MANAGER) {
+			rank = 16;
 		}
 		out.put(rank);
 		out.putBytes(message, size);

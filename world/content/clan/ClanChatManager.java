@@ -376,6 +376,12 @@ public class ClanChatManager {
 				if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 					img = 14;
 				}
+				if(player.getRights() == PlayerRights.WIKI_EDITOR) {
+					img = 15;
+				}
+				if(player.getRights() == PlayerRights.WIKI_MANAGER) {
+					img = 16;
+				}
 				String rankImg = img > 0 ? " <img="+img+"> " : " ";
 				memberPlayer.getPacketSender().sendMessage(":clan:" + bracketColor + "[" + clanNameColor + clan.getName() + bracketColor + "]" + nameColor + ""+rankImg+"" +
 						NameUtils.capitalizeWords(player.getUsername()) +

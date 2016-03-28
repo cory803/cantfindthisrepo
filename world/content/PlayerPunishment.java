@@ -47,11 +47,26 @@ public class PlayerPunishment {
 			return true;
 		}
 		return false;
+	}	
+	
+	public static boolean isVoteBanned(String name) {
+		if(new File(VOTE_BAN_DIRECTORY + name.toLowerCase()).exists()) {
+			return true;
+		}
+		return false;
 	}
 	
 	public static void ipBan(String ip) {
 		try {
 			new File(IP_BAN_DIRECTORY + ip).createNewFile();
+		} catch (IOException exception) {
+			exception.printStackTrace();
+		}
+	}			
+	
+	public static void voteBan(String vote) {
+		try {
+			new File(VOTE_BAN_DIRECTORY + vote).createNewFile();
 		} catch (IOException exception) {
 			exception.printStackTrace();
 		}
@@ -199,6 +214,10 @@ public class PlayerPunishment {
 		new File(MAC_BAN_DIRECTORY + mac).delete();
 	}	
 	
+	public static void unVoteBan(String vote) {
+		new File(VOTE_BAN_DIRECTORY + vote).delete();
+	}	
+	
 	public static void unPcBan(String add) {
 		new File(PC_BAN_DIRECTORY + add).delete();
 	}
@@ -217,6 +236,11 @@ public class PlayerPunishment {
 	 * Leads to directory where muted account files are stored.
 	 */
 	public static final String PLAYER_MUTE_DIRECTORY = PUNISHMENT_DIRECTORY + "/player_mutes/";
+		
+	/**
+	 * Leads to directory where muted account files are stored.
+	 */
+	public static final String VOTE_BAN_DIRECTORY = PUNISHMENT_DIRECTORY + "/vote_bans/";
 	
 	/**
 	 * Leads to directory where banned account files are stored.

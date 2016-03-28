@@ -9,6 +9,7 @@ import com.ikov.world.content.PlayerLogs;
 import com.ikov.model.Position;
 import com.ikov.util.ForumDatabase;
 import com.rspserver.mvh.*;
+import com.ikov.world.content.PlayerPunishment;
 import java.sql.*;
 import java.util.Properties;
 import com.ikov.util.Auth;
@@ -205,20 +206,25 @@ public class Members {
 				return;
 			}
 			boolean can_continue = true;
-			if (player.voteCount > 9) {
-				player.setCanVote(false);
+			if (player.voteCount >= 10) {
+				PlayerPunishment.voteBan(player.getUsername());
 			}
 			if(!GameSettings.VOTING_CONNECTIONS) {
 				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			if(player.isCanVote() == false) {
-				player.getPacketSender().sendMessage("You have been banned from voting for abusing the system. Appeal online.");
+			if(PlayerPunishment.isVoteBanned(player.getUsername())) {
+				player.getPacketSender().sendMessage("You have been banned from voting for abusing the system. Appeal @ ::support.");
 				return;
 			}
 			if(GameSettings.DOUBLE_VOTE_TOKENS) {
 				if(player.getInventory().getFreeSlots() <= 1) {
 					player.getPacketSender().sendMessage("You need to have atleast 2 free inventory spaces to claim an auth code!");
+					can_continue = false;
+				}
+			} else if(GameSettings.TRIPLE_VOTE_TOKENS) {
+				if(player.getInventory().getFreeSlots() <= 2) {
+					player.getPacketSender().sendMessage("You need to have atleast 3 free inventory spaces to claim an auth code!");
 					can_continue = false;
 				}
 			} else {
@@ -236,13 +242,11 @@ public class Members {
 					if (success) {
 						if(GameSettings.DOUBLE_VOTE_TOKENS) {
 							player.getInventory().add(10944, 2);
+						} else if(GameSettings.TRIPLE_VOTE_TOKENS) {
+							player.getInventory().add(10944, 3);	
 						} else {
 							player.getInventory().add(10944, 1);	
 						}	
-						
-						if(GameSettings.TRIPLE_VOTE_TOKENS) {
-							player.getInventory().add(10944, 1);	
-						}
 
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 						if (player.getVotesClaimed() == 100) {

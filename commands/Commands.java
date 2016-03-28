@@ -21,8 +21,12 @@ public class Commands {
 			return;
 		}
 		PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has done command "+whole_command+"");
+		
+		//Regular Commands
 		Members.initiate_command(player, parts, whole_command);
 		SpecialPlayers.initiate_command(player, parts, whole_command);
+		
+		//Staff Members
 		if(player.getRights() == PlayerRights.OWNER) {
 			Owners.initiate_command(player, parts, whole_command);
 		}
@@ -41,6 +45,14 @@ public class Commands {
 		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			CommunityManagers.initiate_command(player, parts, whole_command);
 		}
+		if(player.getRights() == PlayerRights.WIKI_EDITOR) {
+			WikiEditors.initiate_command(player, parts, whole_command);
+		}
+		if(player.getRights() == PlayerRights.WIKI_MANAGER) {
+			WikiManagers.initiate_command(player, parts, whole_command);
+		}
+		
+		//Donator Ranks
 		if(player.getDonorRights() == 1) {
 			RegularDonators.initiate_command(player, parts, whole_command);
 		}	

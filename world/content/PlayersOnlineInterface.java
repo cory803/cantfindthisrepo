@@ -108,6 +108,12 @@ public class PlayersOnlineInterface {
 				if(p.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 					rankId = 14;
 				}
+				if(p.getRights() == PlayerRights.WIKI_EDITOR) {
+					rankId = 15;
+				}
+				if(p.getRights() == PlayerRights.WIKI_MANAGER) {
+					rankId = 16;
+				}
 			player.getPacketSender().sendString(child, ""+(rankId > 0 ? "<img="+rankId+">" : "  ")+""+p.getUsername());
 			child++;
 		}
