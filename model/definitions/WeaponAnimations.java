@@ -67,7 +67,7 @@ public final class WeaponAnimations {
 			playerRunIndex = 15070;//12023;
 			playerWalkIndex = 15073; //12024;
 		} else if(weaponName.contains("silverlight")
-				|| weaponName.contains("korasi's") || weaponName.contains("katana")) {
+				|| weaponName.contains("korasi's")) {
 			playerStandIndex = 12021;
 			playerRunIndex = 1210;
 			playerWalkIndex = 12024;/*
@@ -112,6 +112,11 @@ public final class WeaponAnimations {
 			playerWalkIndex = 1146;*/
 		}
 		switch (item.getId()) {
+		case 14018: //katana
+			playerStandIndex = 13217; //wrong
+			playerWalkIndex = 7046;
+			playerRunIndex = 7046;
+			break;
 		case 18353: // maul chaotic
 			playerStandIndex = 13217;
 			playerWalkIndex = 13218;
@@ -248,7 +253,7 @@ public final class WeaponAnimations {
 			return 12028;
 		}
 		if (weaponName.contains("scimitar") || weaponName.contains("longsword")
-				|| weaponName.contains("korasi's") || weaponName.contains("katana")) {
+				|| weaponName.contains("korasi's")) {
 			if(prop.contains("lunge"))
 				return 15072;
 			return 15071;
@@ -366,7 +371,7 @@ public final class WeaponAnimations {
 			return 420;
 		if (shield.contains("shield"))
 			return 1156;
-		if(weapon.contains("scimitar") || weapon.contains("longsword") || weapon.contains("katana") || weapon.contains("korasi"))
+		if(weapon.contains("scimitar") || weapon.contains("longsword") || weapon.contains("korasi"))
 			return 15074;
 		switch (weaponId) {
 		case 4755:
