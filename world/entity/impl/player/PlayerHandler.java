@@ -128,8 +128,41 @@ public class PlayerHandler {
 		BonusManager.sendCurseBonuses(player);
 		Achievements.updateInterface(player);
 		Barrows.updateInterface(player);
-
-
+		
+		//Spellbook Teleports
+		player.getPacketSender().sendString(13037, "Training Teleports");
+		player.getPacketSender().sendString(13038, "Teleport to easy monsters.");
+		player.getPacketSender().sendString(13047, "Skilling Areas");
+		player.getPacketSender().sendString(13048, "Teleport to skillable locations.");
+		player.getPacketSender().sendString(13055, "Boss Teleports");
+		player.getPacketSender().sendString(13056, "Teleport to Bosses on Ikov.");
+		player.getPacketSender().sendString(13063, "Quests");
+		player.getPacketSender().sendString(13064, "Teleport to start quests.");
+		player.getPacketSender().sendString(13071, "Dungeons");
+		player.getPacketSender().sendString(13072, "Teleport to dungeons.");
+		player.getPacketSender().sendString(13081, "City Teleports");
+		player.getPacketSender().sendString(13082, "Teleport to various citys.");
+		player.getPacketSender().sendString(13089, "Minigames");
+		player.getPacketSender().sendString(13090, "Teleport to minigames.");
+		player.getPacketSender().sendString(13097, "Wilderness Areas");
+		player.getPacketSender().sendString(13098, "Teleport to the wilderness.");
+		
+		player.getPacketSender().sendString(1300, "Training Teleports");
+		player.getPacketSender().sendString(1301, "Teleport to easy monsters.");
+		player.getPacketSender().sendString(1325, "Minigames");
+		player.getPacketSender().sendString(1326, "Teleport to minigames.");
+		player.getPacketSender().sendString(1350, "Wilderness Areas");
+		player.getPacketSender().sendString(1351, "Teleport to the wilderness.");
+		player.getPacketSender().sendString(1382, "City Teleports");
+		player.getPacketSender().sendString(1383, "Teleport to various citys.");
+		player.getPacketSender().sendString(1415, "Quests");
+		player.getPacketSender().sendString(1416, "Teleport to start quests.");
+		player.getPacketSender().sendString(1454, "Dungeons");
+		player.getPacketSender().sendString(1455, "Teleport to dungeons.");
+		player.getPacketSender().sendString(7457, "Boss Teleports");
+		player.getPacketSender().sendString(7458, "Teleport to Bosses on Ikov.");
+		player.getPacketSender().sendString(18472, "Ape Atoll");
+		
 		//Tasks
 		TaskManager.submit(new PlayerSkillsTask(player));
 		if (player.isPoisoned()) {

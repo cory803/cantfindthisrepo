@@ -1420,6 +1420,19 @@ public class ObjectActionPacketListener implements PacketListener {
 					player.setRevsWarning(true);
 					player.getPacketSender().sendMessage("You have re-enabled the revs warning toggle.");
 					break;
+				case 6910:
+				case 4483:
+				case 3193:
+				case 2213:
+				case 11758:
+				case 14367:
+				case 42192:
+				case 26972:
+				case 11402:
+				case 26969:
+				case 75:
+					player.getBank(player.getCurrentBankTab()).open();
+					break;
 				case 884:
 				case 26945:
 					player.setDialogueActionId(41);

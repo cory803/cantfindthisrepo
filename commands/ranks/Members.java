@@ -18,6 +18,7 @@ import com.ikov.world.content.Command;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.PlayersOnlineInterface;
 import com.ikov.world.content.Achievements.AchievementData;
+import com.ikov.util.Misc;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.DesolaceFormulas;
 import com.ikov.world.entity.impl.player.Player;
@@ -433,8 +434,21 @@ public class Members {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(3164, 3484, 0);
-			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
+			int random = Misc.getRandom(3);
+			switch(random) {
+			case 0:
+				TeleportHandler.teleportPlayer(player, new Position(3212, 3429, 0), player.getSpellbook().getTeleportType());
+			break;
+			case 1:
+				TeleportHandler.teleportPlayer(player, new Position(3213, 3429, 0), player.getSpellbook().getTeleportType());
+			break;
+			case 2:
+				TeleportHandler.teleportPlayer(player, new Position(3213, 3428, 0), player.getSpellbook().getTeleportType());
+			break;
+			case 3:
+				TeleportHandler.teleportPlayer(player, new Position(3212, 3428, 0), player.getSpellbook().getTeleportType());
+			break;
+			}
 			player.getPacketSender().sendMessage("Welcome to the Market!");
 		}
 		if(command[0].equals("claim")) {

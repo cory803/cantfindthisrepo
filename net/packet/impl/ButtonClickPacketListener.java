@@ -17,6 +17,7 @@ import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BonusManager;
+import com.ikov.util.Misc;
 import com.ikov.world.content.Consumables;
 import com.ikov.world.content.DropLog;
 import com.ikov.world.content.Emotes;
@@ -222,7 +223,9 @@ public class ButtonClickPacketListener implements PacketListener {
 		case -10330:
 			player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
 			break;
-		case 11014:
+		case 13053:
+		case 7455:
+		case 30266:
 			player.setDialogueActionId(36);
 			DialogueManager.start(player, 65);
 			break;
@@ -292,8 +295,15 @@ public class ButtonClickPacketListener implements PacketListener {
 			DialogueManager.start(player, 55);
 			player.setDialogueActionId(26);
 			break;
-		case 11001:
+		case 30000:
+		case 1195:
 			TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION.copy(), player.getSpellbook().getTeleportType());
+			break;
+		case 1540:
+		case 13061:
+		case 30162:
+			DialogueManager.start(player, 35);
+			player.setDialogueActionId(19);
 			break;
 		case 8667:
 			TeleportHandler.teleportPlayer(player, new Position(2742, 3443), player.getSpellbook().getTeleportType());
@@ -339,6 +349,9 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case 28179:
 			TeleportHandler.teleportPlayer(player, new Position(2209, 5348), player.getSpellbook().getTeleportType());
+			break;
+		case 18470:
+			TeleportHandler.teleportPlayer(player, new Position(2762, 2782), player.getSpellbook().getTeleportType());
 			break;
 		case 28178:
 			DialogueManager.start(player, 54);
@@ -447,9 +460,16 @@ public class ButtonClickPacketListener implements PacketListener {
 			else if(id == 1018) 
 				player.getSummoning().toInventory();
 			break;
-		case 11004:
+		case 1174:
+		case 30250:
+		case 13079:
 			player.setDialogueActionId(178);
 			DialogueManager.start(player, 178);
+			break;
+		case 30083:
+		case 13045:
+			DialogueManager.sendStatement(player, "Please select a skill that you would like to train.");
+			player.getPacketSender().sendTab(GameSettings.SKILLS_TAB);
 			break;
 		case 8654:
 		case 8657:
@@ -457,19 +477,27 @@ public class ButtonClickPacketListener implements PacketListener {
 		case 8663:
 		case 8669:
 		case 8660:
-		case 11008:
+		case 1164:
+		case 30064:
+		case 13035:
 			player.setDialogueActionId(0);
 			DialogueManager.start(player, 0);
 			break;
-		case 11017:
-			DialogueManager.start(player, 34);
+		case 1167:
+		case 30106:
+		case 13087:
+			DialogueManager.start(player, 25);
 			player.setDialogueActionId(15);
 			break;
-		case 11011:
+		case 1541:
+		case 30138:
+		case 13069:
 			DialogueManager.start(player, 22);
 			player.setDialogueActionId(14);
 			break;
-		case 11020:
+		case 30226:
+		case 1170:
+		case 13095:
 			DialogueManager.start(player, 21);
 			player.setDialogueActionId(12);
 			break;
