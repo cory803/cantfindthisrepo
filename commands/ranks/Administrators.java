@@ -203,6 +203,15 @@ public class Administrators {
 				} else
 					player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
 		}
+		if (command[0].equals("tele")) {
+			int x = Integer.valueOf(command[1]), y = Integer.valueOf(command[2]);
+			int z = player.getPosition().getZ();
+			if (command.length > 3)
+				z = Integer.valueOf(command[3]);
+			Position position = new Position(x, y, z);
+			player.moveTo(position);
+			player.getPacketSender().sendMessage("Teleporting to " + position.toString());
+		}
 		if(command[0].equalsIgnoreCase("movetome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
@@ -266,7 +275,21 @@ public class Administrators {
 				}
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned!");
 			}
-		}	
+		}
+		if(command[0].equalsIgnoreCase("unban")) {
+			String ban_player = wholeCommand.substring(6);
+			if(!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+				return;
+			} else {
+				if(!PlayerPunishment.isPlayerBanned(ban_player)) {
+					player.getPacketSender().sendMessage("Player "+ban_player+" is not banned.");
+					return;
+				}
+				PlayerPunishment.unBan(ban_player);
+				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully unbanned.");
+			}
+		}
 		if(command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
 			if(!PlayerSaving.playerExists(mute_player)) {
