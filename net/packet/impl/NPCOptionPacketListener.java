@@ -87,7 +87,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		/**
 		 * Talking to bankers behind bank booths
 		 */
-		 /*
+		 
 		case 494:
 		case 1360:
 			GameObject bank = RegionClipping.getNearObject(npc.getPosition(), 2213);
@@ -117,20 +117,9 @@ public class NPCOptionPacketListener implements PacketListener {
 						}
 					}
 				}
-			} else {
-				
-				System.out.println("Sending walk task...");
-				player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
-					@Override
-					public void execute() {
-						player.getBank(player.getCurrentBankTab()).open();
-						npc.setPositionToFace(player.getPosition());
-					}
-				}));
-				
 			}
 			break;
-			*/
+			
 		}
 
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
