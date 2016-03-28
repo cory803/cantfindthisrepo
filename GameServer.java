@@ -17,14 +17,17 @@ import com.ikov.util.ShutdownHook;
  */
 public class GameServer {
 
+	private static final GamePanel panel = new GamePanel();
 	private static final GameLoader loader = new GameLoader(GameSettings.GAME_PORT);
 	private static final Logger logger = Logger.getLogger("Ikov");
 	private static boolean updating;
+	private static long startTime;
 
 	public static void main(String[] params) {
+		startTime = System.currentTimeMillis();
 		Runtime.getRuntime().addShutdownHook(new ShutdownHook());
 		try {
-
+			panel.setVisible(true);
 			logger.info("Initializing the loader...");
 			System.out.println("Fetching client version...");
 			try {
@@ -51,6 +54,10 @@ public class GameServer {
 			System.exit(1);
 		}
 	}
+	
+	public static GamePanel getPanel() {
+		return panel;
+	}
 
 	public static GameLoader getLoader() {
 		return loader;
@@ -66,5 +73,9 @@ public class GameServer {
 
 	public static boolean isUpdating() {
 		return GameServer.updating;
+	}
+
+	public static long getStartTime() {
+		return startTime;
 	}
 }
