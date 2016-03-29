@@ -10,9 +10,6 @@ import com.ikov.model.Position;
 import com.ikov.util.ForumDatabase;
 import com.rspserver.mvh.*;
 import com.ikov.world.content.PlayerPunishment;
-import java.sql.*;
-import java.util.Properties;
-import com.ikov.util.Auth;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Command;
@@ -23,7 +20,6 @@ import com.ikov.util.Misc;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.DesolaceFormulas;
 import com.ikov.world.entity.impl.player.Player;
-import com.ikov.util.Logs;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 
 public class Members {
