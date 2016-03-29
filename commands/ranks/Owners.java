@@ -573,7 +573,7 @@ public class Owners {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if (command[0].equals("staffzone")) {
 			if (command.length > 1 && command[1].equals("all")) {
