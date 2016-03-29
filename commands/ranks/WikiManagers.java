@@ -45,7 +45,7 @@ public class WikiManagers {
 					player.getPacketSender().sendMessage("Forum database connections are currently turned off.");
 					return;
 				}
-				if(player.getForumDelay().elapsed(20000)) {
+				if(!player.getForumDelay().elapsed(20000)) {
 					player.getPacketSender().sendMessage("Please wait another 20 seconds before connecting to the forum...");
 					return;
 				}
@@ -83,7 +83,7 @@ public class WikiManagers {
 					player.getPacketSender().sendMessage("Forum database connections are currently turned off.");
 					return;
 				}
-				if(player.getForumDelay().elapsed(20000)) {
+				if(!player.getForumDelay().elapsed(20000)) {
 					player.getPacketSender().sendMessage("Please wait another 20 seconds before connecting to the forum...");
 					return;
 				}
@@ -112,24 +112,32 @@ public class WikiManagers {
 			break;
 			case "promote":
 				Player target = World.getPlayerByName(wholeCommand.substring(8));
-				if (target == null) {
-					player.getPacketSender().sendMessage("Player must be online to give them wiki editor.");
+				if(target.getRights() == PlayerRights.PLAYER) {
+					if (target == null) {
+						player.getPacketSender().sendMessage("Player must be online to give them wiki editor.");
+					} else {
+						target.setRights(PlayerRights.WIKI_EDITOR);
+						target.getPacketSender().sendMessage("You have been given Wiki Editor!");
+						player.getPacketSender().sendMessage("You have given "+wholeCommand.substring(8)+" the rank Wiki Editor!");
+						target.getPacketSender().sendRights();
+					}
 				} else {
-					target.setRights(PlayerRights.WIKI_EDITOR);
-					target.getPacketSender().sendMessage("You have been given Wiki Editor!");
-					player.getPacketSender().sendMessage("You have given "+wholeCommand.substring(8)+" the rank Wiki Editor!");
-					target.getPacketSender().sendRights();
+					player.getPacketSender().sendMessage("You can't promote someone who already has a rank.");
 				}
 			break;
 			case "demote":
 				Player target2 = World.getPlayerByName(wholeCommand.substring(7));
-				if (target2 == null) {
-					player.getPacketSender().sendMessage("Player must be online to demote them!");
+				if(target2.getRights() == PlayerRights.WIKI_EDITOR) {
+					if (target2 == null) {
+						player.getPacketSender().sendMessage("Player must be online to demote them!");
+					} else {
+						target2.setRights(PlayerRights.PLAYER);
+						target2.getPacketSender().sendMessage("Your Wiki Editor rank has been taken.");
+						player.getPacketSender().sendMessage("You have demoted "+wholeCommand.substring(7)+" from the rank Wiki Editor.");
+						target2.getPacketSender().sendRights();
+					}
 				} else {
-					target2.setRights(PlayerRights.PLAYER);
-					target2.getPacketSender().sendMessage("Your Wiki Editor rank has been taken.");
-					player.getPacketSender().sendMessage("You have demoted "+wholeCommand.substring(7)+" from the rank Wiki Editor.");
-					target2.getPacketSender().sendRights();
+					player.getPacketSender().sendMessage("You can't demote someone who is not a wiki editor.");
 				}
 			break;
 		}
