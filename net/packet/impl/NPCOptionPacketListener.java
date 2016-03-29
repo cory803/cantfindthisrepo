@@ -87,7 +87,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		/**
 		 * Talking to bankers behind bank booths
 		 */
-		 
+		 /*
 		case 494:
 		case 1360:
 			GameObject bank = RegionClipping.getNearObject(npc.getPosition(), 2213);
@@ -117,9 +117,20 @@ public class NPCOptionPacketListener implements PacketListener {
 						}
 					}
 				}
+			} else {
+				
+				System.out.println("Sending walk task...");
+				player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
+					@Override
+					public void execute() {
+						player.getBank(player.getCurrentBankTab()).open();
+						npc.setPositionToFace(player.getPosition());
+					}
+				}));
+				
 			}
 			break;
-			
+			*/
 		}
 
 		player.setWalkToTask(new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
@@ -152,8 +163,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					} else if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
 						if(player.getInventory().contains(5329) && player.getInventory().contains(771)) {
 							player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(2);
-							player.getInventory().delete(new Item(5329, 1));
-							player.getInventory().delete(new Item(771, 1));
+							player.getInventory().delete(new Item(5329));
+							player.getInventory().delete(new Item(771));
 							DialogueManager.start(player, 200);
 						} else {
 							DialogueManager.start(player, 195);

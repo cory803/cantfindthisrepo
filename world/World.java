@@ -9,7 +9,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.ikov.GameServer;
 import com.ikov.GameSettings;
 import com.ikov.model.PlayerRights;
 import com.ikov.util.Misc;
@@ -134,8 +133,6 @@ public class World {
 	}
 	
 	public static void sequence() {
-		long start = System.currentTimeMillis();
-		
 		 // Handle queued logins.
         for (int amount = 0; amount < GameSettings.LOGIN_THRESHOLD; amount++) {
             Player player = logins.poll();
@@ -143,8 +140,6 @@ public class World {
                 break;
             PlayerHandler.handleLogin(player);
         }
-        long logout_start = System.currentTimeMillis();
-        long loginCycle = logout_start - start;
 
         // Handle queued logouts.
         int amount = 0;
@@ -158,15 +153,11 @@ public class World {
                 amount++;
             }
         }
-        long minigame_start = System.currentTimeMillis();
-        long logoutCycle = minigame_start - logout_start;
         
         FightPit.sequence();
 		PestControl.sequence();
 		ShootingStar.sequence();
-		long player_start = System.currentTimeMillis();
-		long minigameCycle = player_start - minigame_start;
-
+		
 		// First we construct the update sequences.
 		UpdateSequence<Player> playerUpdate = new PlayerUpdateSequence(synchronizer, updateExecutor);
 		UpdateSequence<NPC> npcUpdate = new NpcUpdateSequence();
@@ -180,10 +171,6 @@ public class World {
 		// Then we execute post-updating code.
 		players.forEach(playerUpdate::executePostUpdate);
 		npcs.forEach(npcUpdate::executePostUpdate);
-		long end = System.currentTimeMillis();
-		long entityUpdateCycle = end - player_start;
-		//long cycleTime = end - start;
-		GameServer.getPanel().addWorldCycle(loginCycle, logoutCycle, minigameCycle, entityUpdateCycle);
 	}
 	
 	public static Queue<Player> getLoginQueue() {
