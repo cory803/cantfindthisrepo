@@ -1,6 +1,7 @@
 package com.ikov.net.packet.impl;
 
 import com.ikov.net.packet.Packet;
+import com.ikov.world.content.BankPin;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.world.World;
 import com.ikov.world.entity.impl.player.Player;
@@ -24,6 +25,10 @@ public class FollowPlayerPacketListener implements PacketListener {
 			return;
 		if(leader.getConstitution() <= 0 || player.getConstitution() <= 0 || !player.getLocation().isFollowingAllowed()) {
 			player.getPacketSender().sendMessage("You cannot follow other players right now.");
+			return;
+		}
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
 			return;
 		}
 		player.setEntityInteraction(leader);

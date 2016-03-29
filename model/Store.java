@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import com.ikov.util.Logs;
 import com.ikov.world.content.PlayerLogs;
+import com.ikov.world.content.dialogue.DialogueManager;
 
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.World;
@@ -77,7 +78,7 @@ public class Store {
 				World.sendMessage("<img=4><col=2F5AB7>"+player.getUsername()+" has just claimed a <col=9A0032>$100<col=2f5ab7> scroll using ::donate!");
 			}
 		} else {
-			player.getPacketSender().sendMessage("<col=ff0000>Your store purchase has not been found.");			
+			DialogueManager.sendStatement(player, "Your donation has not been found, it may take up to 24 hours!");		
 		}
 	}
 	

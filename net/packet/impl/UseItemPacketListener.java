@@ -16,7 +16,9 @@ import com.ikov.model.Position;
 import com.ikov.GameSettings;
 import com.ikov.world.content.PlayerLogs;
 
+import com.ikov.world.content.BankPin;
 import com.ikov.model.Skill;
+import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.model.definitions.GameObjectDefinition;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.net.packet.Packet;
@@ -259,9 +261,32 @@ public class UseItemPacketListener implements PacketListener {
 	}
 
 	private static void itemOnNpc(final Player player, Packet packet) {
-		packet.readShortA();
-		packet.readShortA();
-		packet.readLEShort();
+		int item_id = packet.readShortA();
+		int npc_id = packet.readLEShort();
+		int inventory_slot = packet.readLEShort();
+		
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
+		if(npc_id < 0 || npc_id > World.getNpcs().capacity())
+			return;
+		final NPC npc = World.getNpcs().get(npc_id);
+		if (npc == null)
+			return;
+		player.setEntityInteraction(npc);
+		if(player.getRights() == PlayerRights.OWNER)
+			player.getPacketSender().sendMessage("Item used on NPC - Npc ID:"+npc.getId()+" Item ID: "+item_id+"");
+		
+		if(GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in NPCOptionPacketListener: "+npc.getId()+" - FIRST_CLICK_OPCODE");
+		}
+
+		switch (npc.getId()) {
+			case 494:
+				//banker
+				break;
+		}
 	}
 
 	private static void itemOnPlayer(Player player, Packet packet) {

@@ -400,16 +400,16 @@ public class ClanChatManager {
 		player.getPacketSender().sendString(29450, "Owner: N/A");
 		player.getPacketSender().sendString(29454, "Lootshare: N/A");
 		player.setCurrentClanChat(null);
+		player.getPacketSender().sendString(1, "[CLEAR]");
+		for (Player memberPlayer : clan.getMembers()) {
+			memberPlayer.getPacketSender().sendString(1, "[REMOVE]-"+player.getUsername());
+		}
 		clan.removeMember(player.getUsername());
 		for (int i = 29344; i < 29444; i++) {
 			player.getPacketSender().sendString(i, "");
 		}
 		player.getPacketSender().sendClanChatListOptionsVisible(0);
 		updateList(clan);
-		player.getPacketSender().sendString(1, "[CLEAR]");
-		for (Player memberPlayer : clan.getMembers()) {
-			memberPlayer.getPacketSender().sendString(1, "[REMOVE]-"+player.getUsername());
-		}
 		player.getPacketSender().sendMessage(kicked ? "You have been kicked from the channel." : "You have left the channel.");
 	}
 

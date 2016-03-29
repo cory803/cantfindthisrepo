@@ -111,6 +111,13 @@ public final class WeaponAnimations {
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;*/
 		}
+		if(weaponName.toLowerCase().contains("fixed device")) {
+			playerStandIndex = 2316;
+			/*
+			playerStandIndex = 8980;
+			playerRunIndex = 1210;
+			playerWalkIndex = 1146;*/
+		}
 		switch (item.getId()) {
 		case 14018: //katana
 			playerStandIndex = 13217; //wrong

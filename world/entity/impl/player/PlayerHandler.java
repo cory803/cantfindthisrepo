@@ -358,7 +358,6 @@ public class PlayerHandler {
 
 	public static boolean handleLogout(Player player) {
 		try {
-
 			PlayerSession session = player.getSession();
 			
 			if(session.getChannel().isOpen()) {
@@ -381,7 +380,6 @@ public class PlayerHandler {
 				player.setLastSerialAddress(player.getSerialNumber());
 				player.setLastMacAddress(player.getMacAddress());
 				player.setLastComputerAddress(player.getComputerAddress());
-				
 				player.getSession().setState(SessionState.LOGGING_OUT);
 				ConnectionHandler.remove(player.getHostAddress());
 				player.setTotalPlayTime(player.getTotalPlayTime() + player.getRecordedLogin().elapsed());
