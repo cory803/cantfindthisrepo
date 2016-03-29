@@ -1,5 +1,6 @@
 package com.ikov.engine;
 
+import java.util.LinkedList;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledThreadPoolExecutor;
@@ -7,6 +8,8 @@ import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
 import java.util.concurrent.TimeUnit;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.ikov.GamePanel;
+import com.ikov.GameServer;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.world.World;
 import com.ikov.world.content.clan.ClanChatManager;
@@ -18,6 +21,8 @@ import com.ikov.world.content.grandexchange.GrandExchangeOffers;
  * @author Gabriel Hannason
  */
 public final class GameEngine implements Runnable {
+	
+	private final GamePanel panel = GameServer.getPanel();
 
 	private final ScheduledExecutorService logicService = GameEngine.createLogicService();   
 
@@ -40,8 +45,15 @@ public final class GameEngine implements Runnable {
 				break;
 			}
 			engineState = next();*/
+			long start = System.currentTimeMillis();
 			TaskManager.sequence();
+			long task_start = System.currentTimeMillis();
+			long taskCycle = task_start - start;
 			World.sequence();
+			long end = System.currentTimeMillis() - start;
+			panel.addCycleTime(end);
+			panel.addTaskCycle(taskCycle);
+			panel.addGeneral();
 		} catch (Throwable e) {
 			e.printStackTrace();
 			World.savePlayers();

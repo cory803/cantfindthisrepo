@@ -347,11 +347,8 @@ public class ClanChatManager {
 		String chatColor = "<col=993D00>";
 		for (Player memberPlayer : clan.getMembers()) {
 			if (memberPlayer != null) {
-				if(memberPlayer.getRelations().getIgnoreList().contains(player.getLongUsername())) {
-					System.out.println("YE");
+				if(memberPlayer.getRelations().getIgnoreList().contains(player.getLongUsername()))
 					continue;
-				}
-					//continue;
 				int img = player.getRights().ordinal();
 				if(img == 0) {
 					if(player.getDonorRights() == 1) {
@@ -454,9 +451,6 @@ public class ClanChatManager {
 				player.getPacketSender().sendMessage("Your rank is not high enough to enter this channel.");
 				return;
 			}
-		}
-		for (Player memberPlayer : clan.getMembers()) {
-			player.getPacketSender().sendString(1, "[CLAN]-"+memberPlayer.getUsername());
 		}
 		player.setCurrentClanChat(clan);
 		player.setClanChatName(clan.getName());
@@ -563,7 +557,6 @@ public class ClanChatManager {
 				}
 				clan.addBannedName(member.getUsername());
 				leave(member, true);
-				member.getPacketSender().sendString(1, "[CLEAR]");
 				sendMessage(player.getCurrentClanChat(), "<col=16777215>[<col=255>"+clan.getName() +"<col=16777215>]<col=3300CC> "+member.getUsername()+" has been kicked from the channel by "+player.getUsername()+".");
 				break;
 			}
