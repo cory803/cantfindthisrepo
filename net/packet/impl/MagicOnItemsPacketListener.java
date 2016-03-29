@@ -12,7 +12,6 @@ import com.ikov.world.content.combat.magic.MagicSpells;
 import com.ikov.world.content.combat.magic.Spell;
 import com.ikov.world.entity.impl.player.Player;
 
-import com.ikov.GameSettings;
 import com.ikov.world.content.PlayerLogs;
 
 

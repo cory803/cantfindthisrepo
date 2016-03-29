@@ -1,9 +1,7 @@
 package com.ikov.world.content;
 
 import com.ikov.model.Flag;
-import com.ikov.model.Skill;
 import com.ikov.util.Misc;
-import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.entity.impl.player.Player;
 
 public class LoyaltyProgramme {

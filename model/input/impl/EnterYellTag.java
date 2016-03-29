@@ -2,8 +2,6 @@ package com.ikov.model.input.impl;
 
 import com.ikov.model.Item;
 import com.ikov.model.input.Input;
-import java.io.File;
-import com.ikov.GameSettings;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.entity.impl.player.Player;
 

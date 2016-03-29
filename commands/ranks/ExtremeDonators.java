@@ -4,7 +4,6 @@ import java.util.concurrent.TimeUnit;
 
 import com.ikov.GameSettings;
 import com.ikov.model.GameMode;
-import com.ikov.model.Locations.Location;
 import com.ikov.util.Misc;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.model.PlayerRights;
