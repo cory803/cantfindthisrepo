@@ -4,20 +4,20 @@ import com.ikov.GameSettings;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
+import com.ikov.model.actions.Action;
+import com.ikov.model.actions.ActionHandler;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Bank.BankSearchAttributes;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.ikov.model.input.impl.EnterClanChatToJoin;
-import com.ikov.world.content.PlayerLogs;
-import com.ikov.model.input.impl.InviteToDungeoneering;
 import com.ikov.model.input.impl.EnterSyntaxToBankSearchFor;
+import com.ikov.model.input.impl.InviteToDungeoneering;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BonusManager;
-import com.ikov.util.Misc;
 import com.ikov.world.content.Consumables;
 import com.ikov.world.content.DropLog;
 import com.ikov.world.content.Emotes;
@@ -27,6 +27,7 @@ import com.ikov.world.content.ItemsKeptOnDeath;
 import com.ikov.world.content.KillsTracker;
 import com.ikov.world.content.LoyaltyProgramme;
 import com.ikov.world.content.MoneyPouch;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.PlayersOnlineInterface;
 import com.ikov.world.content.Sounds;
@@ -49,6 +50,7 @@ import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.PestControl;
 import com.ikov.world.content.minigames.impl.RecipeForDisaster;
 import com.ikov.world.content.skill.ChatboxInterfaceSkillAction;
+import com.ikov.world.content.skill.Enchanting;
 import com.ikov.world.content.skill.impl.construction.Construction;
 import com.ikov.world.content.skill.impl.crafting.LeatherMaking;
 import com.ikov.world.content.skill.impl.crafting.Tanning;
@@ -78,6 +80,12 @@ public class ButtonClickPacketListener implements PacketListener {
 
 		if(player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Clicked button: "+id);
+		}
+		
+		Action action = ActionHandler.getActionHandler().getAction(id);
+		if (action != null) {
+			action.handle(player);
+			return;
 		}
 
 		if(checkHandlers(player, id))

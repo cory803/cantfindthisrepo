@@ -1,27 +1,8 @@
 package com.ikov.world.content.skill;
 
-import com.ikov.GameSettings;
-import com.ikov.engine.task.Task;
-import com.ikov.engine.task.TaskManager;
-import com.ikov.model.Flag;
-import com.ikov.model.GameMode;
-import com.ikov.model.Graphic;
-import com.ikov.model.Locations.Location;
 import com.ikov.model.Skill;
-import com.ikov.model.container.impl.Equipment;
-import com.ikov.model.definitions.WeaponAnimations;
-import com.ikov.model.definitions.WeaponInterfaces;
-import com.ikov.util.Misc;
-import com.ikov.world.World;
-import com.ikov.world.content.Achievements;
-import com.ikov.world.content.Achievements.AchievementData;
-import com.ikov.world.content.BonusManager;
-import com.ikov.world.content.BrawlingGloves;
-import com.ikov.world.content.WellOfGoodwill;
-import com.ikov.world.content.Sounds;
-import com.ikov.world.content.Sounds.Sound;
-import com.ikov.world.content.combat.prayer.CurseHandler;
-import com.ikov.world.content.combat.prayer.PrayerHandler;
+import com.ikov.model.actions.Action;
+import com.ikov.model.actions.ActionHandler;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
@@ -86,6 +67,19 @@ public class Enchanting {
 			if (magic_level < d.getLevelRequired()) {
 				player.getPacketSender().sendString(d.getStringId(), "@red@Magic " + d.getLevelRequired());
 			}
+		}
+	}
+	
+	static {
+		for (Data d : Data.values()) {
+			ActionHandler.getActionHandler().submit(d.getButtonId(), new Action() {
+
+				@Override
+				public void handle(Player player) {
+					enchantButtons(player, d.getButtonId());
+				}
+				
+			});
 		}
 	}
 
