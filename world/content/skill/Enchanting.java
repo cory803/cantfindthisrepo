@@ -66,6 +66,8 @@ public class Enchanting {
 		for (Data d : Data.values()) {
 			if (magic_level < d.getLevelRequired()) {
 				player.getPacketSender().sendString(d.getStringId(), "@red@Magic " + d.getLevelRequired());
+			} else {
+				player.getPacketSender().sendString(d.getStringId(), "@gre@Magic " + d.getLevelRequired());
 			}
 		}
 	}
