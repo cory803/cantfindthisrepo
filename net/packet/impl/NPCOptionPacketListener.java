@@ -38,6 +38,7 @@ import com.ikov.world.content.grandexchange.GrandExchange;
 import com.ikov.world.content.minigames.impl.ClawQuest;
 import com.ikov.world.content.minigames.impl.FarmingQuest;
 import com.ikov.world.content.minigames.impl.WarriorsGuild;
+import com.ikov.world.content.skill.Enchanting;
 import com.ikov.world.content.skill.impl.crafting.Tanning;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.ikov.world.content.skill.impl.fishing.Fishing;
@@ -77,6 +78,9 @@ public class NPCOptionPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
+		case 4707: //bolt enchanter
+			Enchanting.update_interface(player);
+			break;
 		case 1093: //unnoter
 			if(player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
 				DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");

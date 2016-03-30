@@ -18,6 +18,7 @@ import com.ikov.model.container.impl.Shop;
 import com.ikov.net.packet.Packet.PacketType;
 import com.ikov.world.content.CustomObjects;
 import com.ikov.world.content.skill.impl.construction.Palette;
+import com.ikov.world.content.skill.Enchanting;
 import com.ikov.world.content.skill.impl.construction.ConstructionData.Furniture;
 import com.ikov.world.content.skill.impl.construction.Palette.PaletteTile;
 import com.ikov.world.entity.Entity;
