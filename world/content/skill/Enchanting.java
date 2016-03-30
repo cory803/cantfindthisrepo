@@ -32,33 +32,69 @@ import com.ikov.world.entity.impl.player.Player;
  * @author High105
  */
 
-public class Enchanting {
+public class Enchanting {	
 	public static void enchantButtons(Player player, int buttonId) {
 		int magicLevel = player.getSkillManager().getCurrentLevel(Skill.MAGIC);
 		switch(buttonId) {
 		case -16530: //opal
 			if(magicLevel < 4) {
-				player.getPacketSender().sendMessage("");
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
 				return;
 			}
 			break;
 		case -16521: //sapphire
+			if(magicLevel < 7) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16513: //jade
+			if(magicLevel < 14) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16505: //pearl
+			if(magicLevel < 24) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16497: //emerald
+			if(magicLevel < 27) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16489: //red topaz
+			if(magicLevel < 29) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16481: //ruby
+			if(magicLevel < 49) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16473: //diamond
+			if(magicLevel < 57) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16465: //dragonstone
+			if(magicLevel < 68) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		case -16457: //onyx
+			if(magicLevel < 87) {
+				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
+				return;
+			}
 			break;
 		}
 	}
