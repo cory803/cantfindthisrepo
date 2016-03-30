@@ -77,7 +77,13 @@ public class NPCOptionPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
-		
+		case 1093: //unnoter
+			if(player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
+				DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");
+				return;
+			}
+			DialogueManager.start(player, 207);
+			break;
 		/**
 		 * Talking to bankers behind bank booths
 		 */

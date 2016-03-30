@@ -264,7 +264,9 @@ public class UseItemPacketListener implements PacketListener {
 		int item_id = packet.readShortA();
 		int npc_id = packet.readLEShort();
 		int inventory_slot = packet.readLEShort();
-		
+		int itemAmount = player.getInventory().getAmount(item_id);
+		int freeSlots = player.getInventory().getFreeSlots();
+		ItemDefinition itemDef = ItemDefinition.forId(item_id);
 		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 			return;
@@ -283,8 +285,28 @@ public class UseItemPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
-			case 494:
-				//banker
+			case 1093: //billy
+//				if(player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
+//					DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");
+//					return;
+//				}
+				if(itemDef.isNoted()) {
+					if(freeSlots == 0) {
+						player.getPacketSender().sendMessage("You dont have any free slots.");
+						return;
+					}
+					if(itemAmount > freeSlots) {
+						itemAmount = freeSlots;
+						player.getInventory().delete(item_id, itemAmount);
+						player.getInventory().add(Item.getUnNoted(item_id), itemAmount);
+						player.getPacketSender().sendMessage("You had "+itemAmount+" noted "+itemDef.getName().toLowerCase()+" deleted and placed in your inventory.");
+					} else {
+						player.getInventory().delete(item_id, itemAmount);
+						player.getInventory().add(Item.getUnNoted(item_id), itemAmount);
+					}
+				} else {
+					player.getPacketSender().sendMessage("This item is not noted, you cannot not unnote a normal item.");
+				}
 				break;
 		}
 	}
