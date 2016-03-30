@@ -32,105 +32,61 @@ import com.ikov.world.entity.impl.player.Player;
  * @author High105
  */
 
-public class Enchanting {	
+public class Enchanting {
+	
+	enum Data {
+		OPAL(-16530, 4, 49009),
+		SAPPHIRE(-16521, 7, 49017),
+		JADE(-16513, 14, 49025),
+		PEARL(-16505, 24, 49033),
+		EMERALD(-16497, 27, 49041),
+		RED_TOPAZ(-16489, 29, 49049),
+		RUBY(-16481, 49, 49057),
+		DIAMOND(-16473, 57, 49065),
+		DRAGONSTONE(-16465, 68, 49073),
+		ONYX(-16457, 87, 49081);
+		
+		private int buttonId, levelRequired, stringId;
+		
+		Data(int buttonId, int levelRequired, int stringId) {
+			this.buttonId = buttonId;
+			this.levelRequired = levelRequired;
+			this.stringId = stringId;
+		}
+		
+		public int getButtonId() {
+			return buttonId;
+		}
+		
+		public int getLevelRequired() {
+			return levelRequired;
+		}
+		
+		public int getStringId() {
+			return stringId;
+		}
+	}
+	
 	public static void enchantButtons(Player player, int buttonId) {
 		int magicLevel = player.getSkillManager().getCurrentLevel(Skill.MAGIC);
-		switch(buttonId) {
-		case -16530: //opal
-			if(magicLevel < 4) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
+		for (Data d : Data.values()) {
+			if (d.getButtonId() == buttonId) {
+				if (magicLevel >= d.getLevelRequired()) {
+					//Proceed with enchanting..
+				} else {
+					player.getPacketSender().sendMessage("You need a magic level of " + d.getLevelRequired() + " to enchant these bolts.");
+				}
 			}
-			break;
-		case -16521: //sapphire
-			if(magicLevel < 7) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16513: //jade
-			if(magicLevel < 14) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16505: //pearl
-			if(magicLevel < 24) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16497: //emerald
-			if(magicLevel < 27) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16489: //red topaz
-			if(magicLevel < 29) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16481: //ruby
-			if(magicLevel < 49) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16473: //diamond
-			if(magicLevel < 57) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16465: //dragonstone
-			if(magicLevel < 68) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
-		case -16457: //onyx
-			if(magicLevel < 87) {
-				player.getPacketSender().sendMessage("You do not have a high enough magic level to enchant these bolts.");
-				return;
-			}
-			break;
 		}
 	}
 	public static void update_interface(Player player) {
 		player.getPacketSender().sendInterface(49000);
 		int magic_level = player.getSkillManager().getCurrentLevel(Skill.MAGIC);
-		if (magic_level < 87) {
-			player.getPacketSender().sendString(49081, "@red@Magic 87");
-		}
-		if (magic_level < 68) {
-			player.getPacketSender().sendString(49073, "@red@Magic 68");
-		}
-		if (magic_level < 57) {
-			player.getPacketSender().sendString(49065, "@red@Magic 57");
-		}
-		if (magic_level < 49) {
-			player.getPacketSender().sendString(49057, "@red@Magic 49");
-		}
-		if (magic_level < 29) {
-			player.getPacketSender().sendString(49049, "@red@Magic 29");
-		}
-		if (magic_level < 27) {
-			player.getPacketSender().sendString(49041, "@red@Magic 27");
-		}
-		if (magic_level < 24) {
-			player.getPacketSender().sendString(49033, "@red@Magic 24");
-		}
-		if (magic_level < 14) {
-			player.getPacketSender().sendString(49025, "@red@Magic 14");
-		}
-		if (magic_level < 7) {
-			player.getPacketSender().sendString(49017, "@red@Magic 7");
-		}
-		if (magic_level < 4) {
-			player.getPacketSender().sendString(49009, "@red@Magic 4");
+		for (Data d : Data.values()) {
+			if (magic_level < d.getLevelRequired()) {
+				player.getPacketSender().sendString(d.getStringId(), "@red@Magic " + d.getLevelRequired());
+			}
 		}
 	}
 
-}
+} 
