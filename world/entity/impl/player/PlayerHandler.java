@@ -223,6 +223,9 @@ public class PlayerHandler {
 		
 		if(player.experienceLocked())
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
+		
+		player.getPacketSender().sendString(1, "[CLEAR]");
+		System.out.println("Clear");
 		ClanChatManager.handleLogin(player);
 
 		if(GameSettings.DOUBLE_POINTS) {
