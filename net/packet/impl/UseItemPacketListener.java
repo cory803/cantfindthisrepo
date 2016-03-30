@@ -299,7 +299,7 @@ public class UseItemPacketListener implements PacketListener {
 						itemAmount = freeSlots;
 						player.getInventory().delete(item_id, itemAmount);
 						player.getInventory().add(Item.getUnNoted(item_id), itemAmount);
-						PlayerLogs.log(player.getUsername(), "Player unnoted "+itemDef.getName()+"  ");
+						PlayerLogs.log(player.getUsername(), "Player unnoted "+itemDef.getName().toLowerCase()+" "+itemAmount+" with Billy.");
 						player.getPacketSender().sendMessage("You had "+itemAmount+" noted "+itemDef.getName().toLowerCase()+" deleted and placed in your inventory.");
 					} else {
 						player.getInventory().delete(item_id, itemAmount);
