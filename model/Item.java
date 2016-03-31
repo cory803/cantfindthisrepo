@@ -222,4 +222,10 @@ public class Item {
 		this.rarity = rarity;
 		return this;
 	}
+	
+	@Override
+	public String toString() {
+		return "Item[" + id + ", " + amount + "]";
+	}
+	
 }
