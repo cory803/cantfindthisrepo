@@ -293,7 +293,7 @@ public class Player extends Character {
 	
 	public boolean logout() {
 		if (getCombatBuilder().isBeingAttacked() || getCombatBuilder().isAttacking()) {
-			getPacketSender().sendMessage("You must wait a few seconds after being out of combat before doing this.");
+			getPacketSender().sendMessage("You must wait 10 seconds after being out of combat before doing this.");
 			return false;
 		}
 		if(getConstitution() <= 0 || isDying || settingUpCannon || crossingObstacle) {
@@ -375,10 +375,10 @@ public class Player extends Character {
 	private final Stopwatch specialRestoreTimer = new Stopwatch();
 	private final Stopwatch lastSummon = new Stopwatch();
 	private final Stopwatch recordedLogin = new Stopwatch();
-//	private final Stopwatch creationDate = new Stopwatch();
 	private final Stopwatch tolerance = new Stopwatch();
 	private final Stopwatch lougoutTimer = new Stopwatch();
 	private final Stopwatch dragonfireShield = new Stopwatch();
+	private final Stopwatch dragonSpear = new Stopwatch();
 
 	/*** INSTANCES ***/
 	private final CopyOnWriteArrayList<KillsEntry> killsTracker = new CopyOnWriteArrayList<KillsEntry>();
@@ -1890,6 +1890,10 @@ public class Player extends Character {
 	
 	public Stopwatch getDragonfireShield() {
 		return dragonfireShield;
+	}	
+	
+	public Stopwatch getDragonSpear() {
+		return dragonSpear;
 	}
 
 	public Player setUsableObject(Object[] usableObject) {

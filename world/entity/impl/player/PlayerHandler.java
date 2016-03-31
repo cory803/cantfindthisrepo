@@ -323,7 +323,7 @@ public class PlayerHandler {
 			} else if(player.getRights() == PlayerRights.STAFF_MANAGER) {
 				player.setLoyaltyRank(52);
 			}
-		} else if(player.getDonorRights() != 0 && !player.getUsername().equalsIgnoreCase("dc blitz")) {
+		} else if(player.getDonorRights() != 0 && !player.getUsername().equalsIgnoreCase("dc blitz") && !player.getUsername().equalsIgnoreCase("wtf hero")) {
 			if(player.getDonorRights() == 1) {
 				player.setLoyaltyRank(37);
 			} else if(player.getDonorRights() == 2) {
@@ -337,7 +337,7 @@ public class PlayerHandler {
 			}
 		}
 		
-		if(player.getUsername().equalsIgnoreCase("dc blitz")) {
+		if(player.getUsername().equalsIgnoreCase("dc blitz") || player.getUsername().equalsIgnoreCase("wtf hero")) {
 			player.setLoyaltyRank(51);
 		}
 		

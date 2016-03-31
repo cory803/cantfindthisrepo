@@ -36,7 +36,7 @@ public class WildernessObelisks {
 					obeliskY = i >= 2 ? OBELISK_COORDS[index][1] + 4 : OBELISK_COORDS[index][1];
 					CustomObjects.globalObjectRespawnTask(obelisks[i], new GameObject(OBELISK_IDS[index], new Position(obeliskX, obeliskY)), 4);
 				}
-				TaskManager.submit(new Task(5, false) {
+				TaskManager.submit(new Task(10, false) {
 					@Override
 					public void execute() {
 						handleTeleport(index);

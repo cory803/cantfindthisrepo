@@ -381,14 +381,13 @@ public enum CombatSpecial {
 					"Dragon battleaxe does not have a special attack!");
 		}
 	},
-	DRAGON_SPEAR(new int[] { 1249, 1263, 5716, 5730 }, 25, 1, 1, CombatType.MELEE, WeaponInterface.SPEAR) {
+	DRAGON_SPEAR(new int[] { 1249, 1263, 5716, 5730 }, 25, 0, 0, CombatType.MELEE, WeaponInterface.SPEAR) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1064));
 			player.performGraphic(new Graphic(253));
 
-			return new CombatContainer(player, target, 1, CombatType.MELEE,
-					true) {
+			return new CombatContainer(player, target, 0, CombatType.MELEE, true) {
 				@Override
 				public void onHit(int damage, boolean accurate) {
 					if(target.isPlayer()) {
@@ -412,7 +411,10 @@ public enum CombatSpecial {
 					TaskManager.submit(new Task(1, false) {
 						@Override
 						public void execute() {
-							target.getMovementQueue().freeze(6);
+							if(target.isPlayer()) {
+								((Player)target).getDragonSpear().reset();
+								((Player)target).getPacketSender().sendMessage("You have been stunned!");
+							}
 							stop();
 						}
 					});

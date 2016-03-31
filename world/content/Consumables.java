@@ -76,6 +76,10 @@ public class Consumables {
 			player.getPacketSender().sendMessage("Food has been disabled in this duel.");			
 			return;
 		}
+		if(!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You are stunned!");
+			return;
+		}
 		//if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false) {
 			//player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
 			//return;

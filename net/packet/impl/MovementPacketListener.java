@@ -100,6 +100,12 @@ public class MovementPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("A magical force stops you from moving.");
 			return false;
 		}
+		if(!player.getDragonSpear().elapsed(3000)) {
+			if(opcode != COMMAND_MOVEMENT_OPCODE)
+			player.getMovementQueue().reset();
+			player.getPacketSender().sendMessage("You are stunned!");
+			return false;
+		} 
 		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 			return false;
