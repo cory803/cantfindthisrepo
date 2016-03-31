@@ -51,6 +51,9 @@ public class Commands {
 		if(player.getRights() == PlayerRights.WIKI_MANAGER) {
 			WikiManagers.initiate_command(player, parts, whole_command);
 		}
+		if(player.getRights() == PlayerRights.STAFF_MANAGER) {
+			StaffManagers.initiate_command(player, parts, whole_command);
+		}
 		
 		//Donator Ranks
 		if(player.getDonorRights() == 1) {

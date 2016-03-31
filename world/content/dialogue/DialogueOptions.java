@@ -937,6 +937,16 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 212:
+				Position position222 = new Position(2979, 3599, 0);
+				TeleportHandler.teleportPlayer(player, position222, player.getSpellbook().getTeleportType());
+				player.getPacketSender().sendMessage("Teleporting you to west wilderness (<col=ff0000>dangerous</col>)");
+				break;
+			case 213:
+				Position position223 = new Position(3372, 3687, 0);
+				TeleportHandler.teleportPlayer(player, position223, player.getSpellbook().getTeleportType());
+				player.getPacketSender().sendMessage("Teleporting you to east wilderness (<col=ff0000>dangerous</col>)");
+				break;
 			case 203:
 				MemberScrolls.handleScroll(player, 10943);
 				player.getPacketSender().sendInterfaceRemoval();
@@ -1202,6 +1212,8 @@ public class DialogueOptions {
 			case 204:
 			case 205:
 			case 206:
+			case 212:
+			case 213:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 210:

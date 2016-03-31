@@ -776,6 +776,9 @@ public class PacketSender {
 		if(player.getRights() == PlayerRights.WIKI_MANAGER) {
 			rank = 16;
 		}
+		if(player.getRights() == PlayerRights.STAFF_MANAGER) {
+			rank = 17;
+		}
 		out.put(rank);
 		player.getSession().queueMessage(out);
 		return this;
@@ -870,6 +873,9 @@ public class PacketSender {
 		}
 		if(me.getRights() == PlayerRights.WIKI_MANAGER) {
 			rank = 16;
+		}
+		if(me.getRights() == PlayerRights.STAFF_MANAGER) {
+			rank = 17;
 		}
 		out.put(rank);
 		out.putBytes(message, size);

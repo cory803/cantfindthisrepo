@@ -18,6 +18,7 @@ import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.ikov.model.Locations.Location;
+import com.ikov.model.definitions.ItemDefinition;
 
 /**
  * This packet listener is called when a player drops an item they
@@ -81,7 +82,12 @@ public class DropItemPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("You can't drop this item outside of a dungeon!");
 						return;
 					}
-					GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 80, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 80));
+					if(player.getLocation() == Location.WILDERNESS && ItemDefinition.forId(item.getId()).getValue() >= 100000) {
+						GroundItemManager.spawnGroundItemGlobally(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 80, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 80));
+					} else {
+						GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 80, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 80));
+					}
+					
 					PlayerLogs.log(player.getUsername(), "Player dropping item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: "+item.getAmount() + " from the computer address: " + player.getLastComputerAddress());
 					player.save();
 				}

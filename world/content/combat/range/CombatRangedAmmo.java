@@ -27,6 +27,7 @@ public class CombatRangedAmmo {
 		MAGIC_LONGBOW(new int[] {859}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.ICE_ARROW, AmmunitionData.BROAD_ARROW}, RangedWeaponType.LONGBOW),
 		MAGIC_SHORTBOW(new int[] {861, 6724}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.ICE_ARROW, AmmunitionData.BROAD_ARROW}, RangedWeaponType.SHORTBOW),
 		TOXIC_BLOWPIPE(new int[] {12926}, new AmmunitionData[] {AmmunitionData.BLOWPIPE_DART}, RangedWeaponType.BLOWPIPE),
+		ZARYTE_BOW(new int[] {20171}, new AmmunitionData[] {AmmunitionData.ZARYTE_ARROW}, RangedWeaponType.SHORTBOW),
 		GODBOW(new int[] {19143, 19149, 19146}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.BROAD_ARROW, AmmunitionData.DRAGON_ARROW}, RangedWeaponType.SHORTBOW),
 		
 		DARK_BOW(new int[] {21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023, 11235, 13405, 15701, 15702, 15703, 15704}, new AmmunitionData[] {AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW, AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW, AmmunitionData.RUNE_ARROW, AmmunitionData.DRAGON_ARROW}, RangedWeaponType.DARK_BOW),
@@ -36,15 +37,16 @@ public class CombatRangedAmmo {
 		STEEL_CROSSBOW(new int[] {9179}, new AmmunitionData[] {AmmunitionData.BRONZE_BOLT, AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT, AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT, AmmunitionData.PEARL_BOLT}, RangedWeaponType.CROSSBOW),
 		MITHRIL_CROSSBOW(new int[] {9181}, new AmmunitionData[] {AmmunitionData.BRONZE_BOLT, AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT, AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT, AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT, AmmunitionData.TOPAZ_BOLT}, RangedWeaponType.CROSSBOW),
 		ADAMANT_CROSSBOW(new int[] {9183}, new AmmunitionData[] {AmmunitionData.BRONZE_BOLT, AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT, AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT, AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT, AmmunitionData.TOPAZ_BOLT, AmmunitionData.ADAMANT_BOLT, AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT, AmmunitionData.RUBY_BOLT}, RangedWeaponType.CROSSBOW),
-		/* Crossbows who accept all ammo */HIGHEST_CROSSBOWS(new int[] {9185, 18357, 14684, 21075}, new AmmunitionData[] {AmmunitionData.BRONZE_BOLT, AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT, AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT, AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT, AmmunitionData.TOPAZ_BOLT, AmmunitionData.ADAMANT_BOLT, AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT, AmmunitionData.RUBY_BOLT, AmmunitionData.RUNITE_BOLT, AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT, AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT}, RangedWeaponType.CROSSBOW),
+		HIGHEST_CROSSBOWS(new int[] {9185, 18357, 14684}, new AmmunitionData[] {AmmunitionData.BRONZE_BOLT, AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT, AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT, AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT, AmmunitionData.TOPAZ_BOLT, AmmunitionData.ADAMANT_BOLT, AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT, AmmunitionData.RUBY_BOLT, AmmunitionData.RUNITE_BOLT, AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT, AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT}, RangedWeaponType.CROSSBOW),
+		ARMADYL_CROSSBOW(new int[] {21075}, new AmmunitionData[] {AmmunitionData.BRONZE_BOLT, AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT, AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT, AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT, AmmunitionData.TOPAZ_BOLT, AmmunitionData.ADAMANT_BOLT, AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT, AmmunitionData.RUBY_BOLT, AmmunitionData.RUNITE_BOLT, AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT, AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT}, RangedWeaponType.ARMADYL_CROSSBOW),
 
-		BRONZE_DART(new int[] {806}, new AmmunitionData[] {AmmunitionData.BRONZE_DART}, RangedWeaponType.THROW),
-		IRON_DART(new int[] {807}, new AmmunitionData[] {AmmunitionData.IRON_DART}, RangedWeaponType.THROW),
-		STEEL_DART(new int[] {808}, new AmmunitionData[] {AmmunitionData.STEEL_DART}, RangedWeaponType.THROW),
-		MITHRIL_DART(new int[] {809}, new AmmunitionData[] {AmmunitionData.MITHRIL_DART}, RangedWeaponType.THROW),
-		ADAMANT_DART(new int[] {810}, new AmmunitionData[] {AmmunitionData.ADAMANT_DART}, RangedWeaponType.THROW),
-		RUNE_DART(new int[] {811}, new AmmunitionData[] {AmmunitionData.RUNE_DART}, RangedWeaponType.THROW),
-		DRAGON_DART(new int[] {11230}, new AmmunitionData[] {AmmunitionData.DRAGON_DART}, RangedWeaponType.THROW),
+		BRONZE_DART(new int[] {806}, new AmmunitionData[] {AmmunitionData.BRONZE_DART}, RangedWeaponType.DART),
+		IRON_DART(new int[] {807}, new AmmunitionData[] {AmmunitionData.IRON_DART}, RangedWeaponType.DART),
+		STEEL_DART(new int[] {808}, new AmmunitionData[] {AmmunitionData.STEEL_DART}, RangedWeaponType.DART),
+		MITHRIL_DART(new int[] {809}, new AmmunitionData[] {AmmunitionData.MITHRIL_DART}, RangedWeaponType.DART),
+		ADAMANT_DART(new int[] {810}, new AmmunitionData[] {AmmunitionData.ADAMANT_DART}, RangedWeaponType.DART),
+		RUNE_DART(new int[] {811}, new AmmunitionData[] {AmmunitionData.RUNE_DART}, RangedWeaponType.DART),
+		DRAGON_DART(new int[] {11230}, new AmmunitionData[] {AmmunitionData.DRAGON_DART}, RangedWeaponType.DART),
 
 		BRONZE_KNIFE(new int[] {864, 870, 5654}, new AmmunitionData[] {AmmunitionData.BRONZE_KNIFE}, RangedWeaponType.THROW),
 		IRON_KNIFE(new int[] {863, 871, 5655}, new AmmunitionData[] {AmmunitionData.IRON_KNIFE}, RangedWeaponType.THROW),
@@ -127,6 +129,9 @@ public class CombatRangedAmmo {
 			if(p.getWeapon() == WeaponInterface.BLOWPIPE) {
 				return AmmunitionData.BLOWPIPE_DART;
 			}
+			if(p.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171) {
+				return AmmunitionData.ZARYTE_ARROW;
+			}
 			return AmmunitionData.BRONZE_ARROW;
 		}
 	}
@@ -169,6 +174,7 @@ public class CombatRangedAmmo {
 		RUNE_DART(new int[] {811}, 1240, 231, 3, 33, 20, 45, 37),
 		DRAGON_DART(new int[] {11230}, 1123, 226, 3, 33, 25, 45, 37),
 		BLOWPIPE_DART(new int[] {11230}, -1, 226, 6, 33, 25, 45, 37),
+		ZARYTE_ARROW(new int[] {892}, 24, 15, 3, 44, 50, 43, 31),
 
 		BRONZE_KNIFE(new int[] {864, 870, 5654}, 219, 212, 3, 33, 8, 45, 37),
 		IRON_KNIFE(new int[] {863, 871, 5655}, 220, 213, 3, 33, 12, 45, 37),
@@ -261,13 +267,15 @@ public class CombatRangedAmmo {
 
 	public enum RangedWeaponType {
 
-		LONGBOW(5, 5),
-		SHORTBOW(5, 4),
-		CROSSBOW(5, 5),
+		LONGBOW(10, 6),
+		SHORTBOW(7, 4),
+		CROSSBOW(7, 6),
+		ARMADYL_CROSSBOW(8, 6),
 		THROW(4, 3),
-		BLOWPIPE(5, 3),
-		DARK_BOW(5, 5),
-		HAND_CANNON(5, 4);
+		DART(3, 3),
+		BLOWPIPE(3, 3),
+		DARK_BOW(9, 8),
+		HAND_CANNON(8, 4);
 
 		RangedWeaponType(int distanceRequired, int attackDelay) {
 			this.distanceRequired = distanceRequired;

@@ -128,7 +128,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		}
 		if (!player.isSpecialActivated()) {
 
-			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player)) {
+			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player) && !CombatFactory.zaryteBow(player)) {
 				decrementAmmo(player, victim.getPosition());
 				if(dBow || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW && player.isSpecialActivated() && player.getCombatSpecial() != null && player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW) {
 					decrementAmmo(player, victim.getPosition());
@@ -216,7 +216,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	 */
 	private boolean checkAmmo(Player player) {
 		RangedWeaponData data = player.getRangedWeaponData();
-		if(data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.BLOWPIPE)
+		if(data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.BLOWPIPE || player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171)
 			return true;
 		Item ammunition = player.getEquipment().getItems()[data.getType() == RangedWeaponType.THROW ? Equipment.WEAPON_SLOT : Equipment.AMMUNITION_SLOT];
 		boolean darkBow = data.getType() == RangedWeaponType.DARK_BOW && ammunition.getAmount() < 2 || data == RangedWeaponData.MAGIC_SHORTBOW && player.isSpecialActivated() && player.getCombatSpecial() != null && player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW && ammunition.getAmount() < 2;
@@ -256,6 +256,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		int slot = player.getWeapon() == WeaponInterface.SHORTBOW || player.getWeapon() == WeaponInterface.LONGBOW || player.getWeapon() == WeaponInterface.CROSSBOW ? Equipment.AMMUNITION_SLOT
 				: Equipment.WEAPON_SLOT;
 		if(player.getWeapon() == WeaponInterface.BLOWPIPE) {
+			return;
+		}
+		if(player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171) {
 			return;
 		}
 		// Set the ammo we are currently using.

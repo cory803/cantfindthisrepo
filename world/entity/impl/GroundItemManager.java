@@ -91,6 +91,47 @@ public class GroundItemManager {
 		}*/
 		add(g, true);
 	}
+	
+	/**
+	 * This method spawns a grounditem for a player.
+	 * @param p		The owner of the grounditem
+	 * @param g		The grounditem to spawn
+	 */
+	public static void spawnGroundItemGlobally(Player p, GroundItem g) {
+		if(p == null)
+			return;
+		final Item item = g.getItem();
+		if(item.getId() > ItemDefinition.getMaxAmountOfItems() || item.getId() <= 0) {
+			return;
+		}
+		if(item.getDefinition().getName().toLowerCase().contains("clue scroll"))
+			return;
+		if (item.getId() >= 2412 && item.getId() <= 2414) {
+			p.getPacketSender().sendMessage("The cape vanishes as it touches the ground.");
+			return;
+		}
+		if(Dungeoneering.doingDungeoneering(p)) {
+			g = new GroundItem(item, g.getPosition(), "Dungeoneering", true, -1, false, -1);
+			p.getMinigameAttributes().getDungeoneeringAttributes().getParty().getGroundItems().add(g);
+			if(item.getId() == 17489) {
+				p.getMinigameAttributes().getDungeoneeringAttributes().getParty().setGatestonePosition(g.getPosition().copy());
+			}
+		}
+		if(ItemDefinition.forId(item.getId()).isStackable()) {
+			GroundItem it = getGroundItem(p, item, g.getPosition());
+			if(it != null) {
+				it.getItem().setAmount(it.getItem().getAmount() + g.getItem().getAmount() > Integer.MAX_VALUE ? Integer.MAX_VALUE : it.getItem().getAmount() + g.getItem().getAmount());
+				if(it.getItem().getAmount() <= 0)
+					remove(it, true);
+				else
+					it.setRefreshNeeded(true);
+				return;
+			}
+		}
+		g.setGlobalStatus(true);
+		g.setGoGlobal(true);
+		add(g, true);
+	}
 
 	/**
 	 * Adds a grounditem to the world

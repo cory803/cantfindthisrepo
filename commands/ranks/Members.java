@@ -14,6 +14,7 @@ import com.ikov.world.World;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.Command;
 import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.PlayersOnlineInterface;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.util.Misc;
@@ -91,6 +92,43 @@ public class Members {
 		if(player.isJailed()) {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
+		}
+		if (command[0].equalsIgnoreCase("mb")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+				player.getPacketSender().sendMessage("You cannot do this at the moment.");
+				return;
+			}
+			Position position = new Position(2539, 4715, 0);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
+			player.getPacketSender().sendMessage("Teleporting you to mage bank!");
+		}
+		if (command[0].equalsIgnoreCase("wests")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+				player.getPacketSender().sendMessage("You cannot do this at the moment.");
+				return;
+			}
+			DialogueManager.start(player, 212);
+			player.setDialogueActionId(212);
+		}	
+		if (command[0].equalsIgnoreCase("easts")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+				player.getPacketSender().sendMessage("You cannot do this at the moment.");
+				return;
+			}
+			DialogueManager.start(player, 213);
+			player.setDialogueActionId(213);
 		}
 		if (command[0].equalsIgnoreCase("commands")) {
 			if(player.getLocation() == Location.DUNGEONEERING) {

@@ -428,6 +428,9 @@ public class PlayerUpdating {
 				}
 				if(target.getRights() == PlayerRights.WIKI_MANAGER) {
 					rankId = 16;
+				}	
+				if(target.getRights() == PlayerRights.STAFF_MANAGER) {
+					rankId = 17;
 				}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
@@ -590,6 +593,9 @@ public class PlayerUpdating {
 				}
 				if(target.getRights() == PlayerRights.WIKI_MANAGER) {
 					rankId = 16;
+				}
+				if(target.getRights() == PlayerRights.STAFF_MANAGER) {
+					rankId = 17;
 				}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();

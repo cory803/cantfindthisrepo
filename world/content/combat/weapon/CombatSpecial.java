@@ -193,6 +193,37 @@ public enum CombatSpecial {
 					true);
 		}
 	},
+	ZARYTE_BOW(new int[] { 20171 }, 100, 0.40, 1.30, CombatType.RANGED, WeaponInterface.SHORTBOW) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+
+			player.performAnimation(new Animation(1074));
+			player.performGraphic(new Graphic(250, GraphicHeight.HIGH));
+			new Projectile(player, target, 249, 44, 3, 43, 31, 0).sendProjectile();
+
+			TaskManager.submit(new Task(1, player, false) {
+				@Override
+				public void execute() {
+
+					new Projectile(player, target, 249, 44, 3, 43, 31, 0).sendProjectile();
+					this.stop();
+				}
+			});
+
+			return new CombatContainer(player, target, 1, CombatType.RANGED, true) {
+				@Override
+				public void onHit(int damage, boolean accurate) {
+					if(target.isPlayer()) {
+						CurseHandler.deactivateAll(((Player)target));
+						PrayerHandler.deactivateAll(((Player)target));
+						((Player)target).getSkillManager().setCurrentLevel(Skill.PRAYER, 0);
+						((Player)target).getPacketSender().sendMessage("Your prayer has dropped!");
+						((Player)player).getPacketSender().sendMessage(""+((Player)target).getUsername()+"'s prayer has dropped!");
+					}
+				}
+			};
+		}
+	},
 	ARMADYL_CROSSBOW(new int[] { 21075 }, 40, 1, 2.0, CombatType.RANGED, WeaponInterface.CROSSBOW) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
@@ -455,7 +486,7 @@ public enum CombatSpecial {
 			};
 		}
 	},
-	DRAGON_HALBERD(new int[] { 3204 }, 30, 1.07, 1.08, CombatType.MELEE, WeaponInterface.HALBERD) {
+	DRAGON_HALBERD(new int[] { 3204 }, 30, 1.10, 1.00, CombatType.MELEE, WeaponInterface.HALBERD) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1203));

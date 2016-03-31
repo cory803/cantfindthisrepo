@@ -97,7 +97,7 @@ public class MovementPacketListener implements PacketListener {
 		if (player.isFrozen()) {
 			if(opcode != COMMAND_MOVEMENT_OPCODE)
 			player.getMovementQueue().reset();
-			player.getPacketSender().sendMessage("A magical spell has made you unable to move for another "+player.getFreezeDelay()+" seconds.");
+			player.getPacketSender().sendMessage("A magical force stops you from moving.");
 			return false;
 		}
 		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {

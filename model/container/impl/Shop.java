@@ -718,7 +718,7 @@ public class Shop extends ItemContainer {
 				case 15018:
 				case 15019:
 				case 15020:
-					return new Object[]{10, "Voting points"};
+					return new Object[]{7, "Voting points"};
 				case 15220:
 					return new Object[]{30, "Voting points"};
 				case 13262:
@@ -788,7 +788,9 @@ public class Shop extends ItemContainer {
 					return new Object[]{50, "Donator points"};
 				case 14484:
 				case 19780:
-					return new Object[]{150, "Donator points"};
+					return new Object[]{150, "Donator points"};	
+				case 20171:
+					return new Object[]{15000, "Donator points"};
 				case 13899:
 				case 13902:
 				case 11698:
@@ -831,6 +833,8 @@ public class Shop extends ItemContainer {
 				case 6889:
 				case 2579:
 					return new Object[]{25, "Pk points"};
+				case 20171:
+					return new Object[]{1500, "Pk points"};
 				case 6916:
 				case 6924:
 					return new Object[]{30, "Pk points"};
@@ -976,6 +980,8 @@ public class Shop extends ItemContainer {
 				case 11732:
 				case 4151:
 					return new Object[]{150, "Boss Points"};
+				case 20171:
+					return new Object[]{1500, "Boss Points"};
 				case 11286:
 				case 13902:
 				case 13905:

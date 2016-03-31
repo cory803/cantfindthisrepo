@@ -92,7 +92,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int y = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if(id > 0 && id != 6 && id != 1765 && id != 1306 && id != 2213 && id != 411 && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
+		if(id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 2213 && id != 411 && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
 				player.getPacketSender().sendMessage("An error occured. Error code: "+id).sendMessage("Please report the error to a staff member.");
 			return;
 		}
@@ -424,6 +424,10 @@ public class ObjectActionPacketListener implements PacketListener {
 					});
 					break;
 				case 2795: //lever KBD
+					if(player.getTeleblockTimer() > 0) {
+						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+						return;
+					}
 					if(player.getPosition().getY() >= 10252) {
 						TaskManager.submit(new Task(1, player, true) {
 							int tick = 1;
@@ -461,6 +465,10 @@ public class ObjectActionPacketListener implements PacketListener {
 					}
 					break;
 				case 1766://poison spider ladder KBD
+					if(player.getTeleblockTimer() > 0) {
+						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
+						return;
+					}
 					player.performAnimation(new Animation(828));
 					TaskManager.submit(new Task(1, player, true) {
 						int tick = 1;
@@ -663,10 +671,6 @@ public class ObjectActionPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
 						return;
 					}
-					if(player.getPosition().getX() <= 3089) {
-						
-						return;
-					}
 					if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3956) {
 						player.setDirection(Direction.WEST);
 						TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
@@ -676,6 +680,12 @@ public class ObjectActionPacketListener implements PacketListener {
 					} else if (player.getPosition().getX() == 3090 && player.getPosition().getY() <= 3955) {
 						player.setDirection(Direction.NORTH);
 						TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
+					} else if (player.getPosition().getX() == 3153 && player.getPosition().getY() <= 3923) {
+						player.setDirection(Direction.WEST);
+						TeleportHandler.teleportPlayer(player, new Position(2561, 3311), TeleportType.LEVER);
+					} else if (player.getPosition().getX() == 2561 && player.getPosition().getY() <= 3311) {
+						player.setDirection(Direction.WEST);
+						TeleportHandler.teleportPlayer(player, new Position(3153, 3923), TeleportType.LEVER);
 					}
 					break;
 				case 5096:

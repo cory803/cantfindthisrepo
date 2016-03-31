@@ -78,16 +78,6 @@ public class NPCOptionPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
-		case 4707: //bolt enchanter
-			Enchanting.update_interface(player);
-			break;
-		case 1093: //unnoter
-			if(player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
-				DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");
-				return;
-			}
-			DialogueManager.start(player, 207);
-			break;
 		/**
 		 * Talking to bankers behind bank booths
 		 */
@@ -143,6 +133,16 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 1285:
 					DialogueManager.start(player, 210);
 					player.setDialogueActionId(210);
+					break;
+				case 4707: //bolt enchanter
+					Enchanting.update_interface(player);
+					break;
+				case 1093: //unnoter
+					if(player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
+						DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");
+						return;
+					}
+					DialogueManager.start(player, 207);
 					break;
 				case 2305:
 					if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 0) {

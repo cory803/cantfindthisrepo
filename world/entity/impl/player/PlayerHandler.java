@@ -225,7 +225,6 @@ public class PlayerHandler {
 			player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 		
 		player.getPacketSender().sendString(1, "[CLEAR]");
-		System.out.println("Clear");
 		ClanChatManager.handleLogin(player);
 
 		if(GameSettings.DOUBLE_POINTS) {
@@ -321,6 +320,8 @@ public class PlayerHandler {
 				player.setLoyaltyRank(44);
 			} else if(player.getRights() == PlayerRights.MODERATOR) {
 				player.setLoyaltyRank(41);
+			} else if(player.getRights() == PlayerRights.STAFF_MANAGER) {
+				player.setLoyaltyRank(52);
 			}
 		} else if(player.getDonorRights() != 0 && !player.getUsername().equalsIgnoreCase("dc blitz")) {
 			if(player.getDonorRights() == 1) {

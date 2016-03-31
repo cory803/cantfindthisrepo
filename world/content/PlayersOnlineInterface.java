@@ -114,6 +114,9 @@ public class PlayersOnlineInterface {
 				if(p.getRights() == PlayerRights.WIKI_MANAGER) {
 					rankId = 16;
 				}
+				if(p.getRights() == PlayerRights.STAFF_MANAGER) {
+					rankId = 17;
+				}
 			player.getPacketSender().sendString(child, ""+(rankId > 0 ? "<img="+rankId+">" : "  ")+""+p.getUsername());
 			child++;
 		}

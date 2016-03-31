@@ -1836,12 +1836,12 @@ public enum CombatSpells {
 					return;
 				}
 				if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
-					player2.setTeleblockTimer(300);
+					player2.setTeleblockTimer(250);
 					TaskManager.submit(new CombatTeleblockEffect(player2));
 					player2.getPacketSender().sendMessage(
 							"You have just been teleblocked for half the usual timer!");
 				} else {
-					player2.setTeleblockTimer(600);
+					player2.setTeleblockTimer(500);
 					TaskManager.submit(new CombatTeleblockEffect(player2));
 					player2.getPacketSender().sendMessage(
 							"You have just been teleblocked!");
@@ -2562,7 +2562,7 @@ public enum CombatSpells {
 	ICE_BLITZ(new CombatAncientSpell() {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
-			castOn.getMovementQueue().freeze(15);
+			castOn.getMovementQueue().freeze(10);
 		}
 
 		@Override
@@ -2803,15 +2803,7 @@ public enum CombatSpells {
 	ICE_BARRAGE(new CombatAncientSpell() {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
-			if(castOn.isNpc()) {
-				castOn.getMovementQueue().freeze(15);
-			} else {
-//				if(PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC) || CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
-//					castOn.getMovementQueue().freeze(7);
-//				} else {
-					castOn.getMovementQueue().freeze(20);
-//				}
-			}
+			castOn.getMovementQueue().freeze(15);
 		}
 
 		@Override

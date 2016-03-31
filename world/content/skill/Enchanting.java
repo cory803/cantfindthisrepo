@@ -3,6 +3,7 @@ package com.ikov.world.content.skill;
 import com.ikov.model.Skill;
 import com.ikov.model.actions.Action;
 import com.ikov.model.actions.ActionHandler;
+import com.ikov.model.Item;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
@@ -16,27 +17,40 @@ import com.ikov.world.entity.impl.player.Player;
 public class Enchanting {
 	
 	enum Data {
-		OPAL(-16530, 4, 49009),
-		SAPPHIRE(-16521, 7, 49017),
-		JADE(-16513, 14, 49025),
-		PEARL(-16505, 24, 49033),
-		EMERALD(-16497, 27, 49041),
-		RED_TOPAZ(-16489, 29, 49049),
-		RUBY(-16481, 49, 49057),
-		DIAMOND(-16473, 57, 49065),
-		DRAGONSTONE(-16465, 68, 49073),
-		ONYX(-16457, 87, 49081);
+		OPAL(-16530, 4, 49009, 879, 9236, new Item[] {new Item(564, 1), new Item(556, 2)}),
+		SAPPHIRE(-16521, 7, 49017, 9337, 9240, new Item[] {new Item(564, 2), new Item(555, 4)}),
+		JADE(-16513, 14, 49025, 9335, 9237, new Item[] {new Item(564, 3), new Item(557, 6)}),
+		PEARL(-16505, 24, 49033, 880, 9238, new Item[] {new Item(564, 4), new Item(555, 8)}),
+		EMERALD(-16497, 27, 49041, 9338, 9241, new Item[] {new Item(564, 5), new Item(561, 5)}),
+		RED_TOPAZ(-16489, 29, 49049, 9336, 9239, new Item[] {new Item(564, 6), new Item(554, 12)}),
+		RUBY(-16481, 49, 49057, 9339, 9242, new Item[] {new Item(565, 5), new Item(9075, 50)}),
+		DIAMOND(-16473, 57, 49065, 9340, 9243, new Item[] {new Item(563, 5), new Item(9075, 75)}),
+		DRAGONSTONE(-16465, 68, 49073, 9341, 9244, new Item[] {new Item(566, 5), new Item(9075, 100)}),
+		ONYX(-16457, 87, 49081, 9342, 9245, new Item[] {new Item(560, 10), new Item(9075, 115)});
 		
-		private int buttonId, levelRequired, stringId;
+		private int buttonId, levelRequired, stringId, regularBoltId, enchantedBoltId;
 		
-		Data(int buttonId, int levelRequired, int stringId) {
+		private Item[] items_required;
+		
+		Data(int buttonId, int levelRequired, int stringId, int regularId, int enchantedId, Item[] req) {
 			this.buttonId = buttonId;
 			this.levelRequired = levelRequired;
 			this.stringId = stringId;
+			this.regularBoltId = regularId;
+			this.enchantedBoltId = enchantedId;
+			this.items_required = req;
 		}
 		
 		public int getButtonId() {
 			return buttonId;
+		}	
+		
+		public int getRegularBoltId() {
+			return regularBoltId;
+		}		
+		
+		public int getEnchantedBoltId() {
+			return enchantedBoltId;
 		}
 		
 		public int getLevelRequired() {
@@ -45,6 +59,10 @@ public class Enchanting {
 		
 		public int getStringId() {
 			return stringId;
+		}	
+		
+		public Item[] getRequiredItems() {
+			return items_required;
 		}
 	}
 	
@@ -53,7 +71,15 @@ public class Enchanting {
 		for (Data d : Data.values()) {
 			if (d.getButtonId() == buttonId) {
 				if (magicLevel >= d.getLevelRequired()) {
-					//Proceed with enchanting..
+					if(player.getInventory().contains(d.getRegularBoltId()) && player.getInventory().getAmount(d.getRegularBoltId()) >= 15) {
+						if(player.getInventory().contains(d.getRequiredItems())) {
+							player.getInventory().deleteItemSet(d.getRequiredItems());
+						} else {
+							player.getPacketSender().sendMessage("You do not have the required runes for this spell.");
+						}
+					} else {
+						player.getPacketSender().sendMessage("You do not have the required bolts to enchant!");
+					}
 				} else {
 					player.getPacketSender().sendMessage("You need a magic level of " + d.getLevelRequired() + " to enchant these bolts.");
 				}

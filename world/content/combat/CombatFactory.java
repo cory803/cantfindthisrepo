@@ -207,6 +207,21 @@ public final class CombatFactory {
 			return false;
 		return item.getDefinition().getName().toLowerCase().contains(
 				"blow pipe");
+	}	
+	
+	/**
+	 * Determines if the player is wielding a zaryte bow
+	 * 
+	 * @param player
+	 *            the player to determine for.
+	 * @return true if the player is wielding a zaryte bow.
+	 */
+	public static boolean zaryteBow(Player player) {
+		Item item = player.getEquipment().get(Equipment.WEAPON_SLOT);
+		if (item == null)
+			return false;
+		return item.getDefinition().getName().toLowerCase().contains(
+				"zaryte bow");
 	}
 
 	/**

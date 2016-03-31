@@ -191,6 +191,9 @@ public final class LoginDecoder extends FrameDecoder {
 		if(player.getRights() == PlayerRights.WIKI_MANAGER) {
 			rank = 16;
 		}
+		if(player.getRights() == PlayerRights.STAFF_MANAGER) {
+			rank = 17;
+		}
 		if (response == LoginResponses.LOGIN_SUCCESSFUL) {
 			channel.write(new PacketBuilder().put((byte)2).put((byte)rank).put((byte)0).toPacket());
 			
