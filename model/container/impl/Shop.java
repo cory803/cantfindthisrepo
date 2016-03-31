@@ -1301,6 +1301,8 @@ public class Shop extends ItemContainer {
 	 */
 	public static final int GENERAL_STORE = 12;
 	public static final int RECIPE_FOR_DISASTER_STORE = 36;
+	
+	public static final int POS = 100;
 
 	private static final int VOTING_REWARDS_STORE = 27;
 	private static final int IRON_VOTING_REWARDS_STORE = 82;
