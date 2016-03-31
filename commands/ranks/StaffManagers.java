@@ -14,6 +14,7 @@ import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.entity.impl.player.PlayerSaving;
 import com.ikov.model.Skill;
+import com.ikov.model.PlayerRights;
 
 public class StaffManagers {
 	
@@ -55,6 +56,45 @@ public class StaffManagers {
 			punishee.getPacketSender().sendMessage("You have been yell muted! Please appeal on the forums.");
 			player.getPacketSender().sendMessage("Player "+punishee.getUsername()+" was successfully muted!");
 			
+		}
+		if (command[0].equals("giverights")) {
+				try {
+				String rights = command[1];
+				Player target = World.getPlayerByName(command[2]);
+			if(target == null) {
+				player.getPacketSender().sendMessage("This player is not online.");
+				return;
+			}
+			if(target.getRights() != PlayerRights.MODERATOR && target.getRights() != PlayerRights.SUPPORT && target.getRights() != PlayerRights.PLAYER) {
+				player.getPacketSender().sendMessage("You can't use this command on this person.");
+				return;
+			}
+			switch (rights) {
+			case "demote":
+			case "derank":
+				target.setRights(PlayerRights.PLAYER);
+				target.getPacketSender().sendMessage("You have been demoted...");
+				target.getPacketSender().sendRights();
+				break;
+			case "ss":
+			case "serversupport":
+			case "support":
+				target.setRights(PlayerRights.SUPPORT);
+				target.getPacketSender().sendMessage("Your player rights has been changed to support.");
+				target.getPacketSender().sendRights();
+				break;
+			case "mod":
+			case "moderator":
+				target.setRights(PlayerRights.MODERATOR);
+				target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
+				target.getPacketSender().sendRights();
+				break;
+			default:
+				player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
+			}
+			} catch(Exception e) {
+				System.out.println(e);
+			}
 		}
 		if(wholeCommand.startsWith("unsilenceyell")) {
 			String yellmute = wholeCommand.substring(14);
@@ -560,7 +600,7 @@ public class StaffManagers {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ffff00><shad=0><img=2>Administrator<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);
