@@ -1,7 +1,6 @@
 package com.ikov.model.input.impl;
 
 import com.ikov.model.input.Input;
-import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.entity.impl.player.Player;
 
 public class PosItemToBuy extends Input {
@@ -13,5 +12,6 @@ public class PosItemToBuy extends Input {
 			return;
 		}
 		//search item entered @param syntax
+		player.getPacketSender().sendMessage("Does nothing yet");
 	}
 }

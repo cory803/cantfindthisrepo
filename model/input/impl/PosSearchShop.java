@@ -1,7 +1,6 @@
 package com.ikov.model.input.impl;
 
 import com.ikov.model.input.Input;
-import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.entity.impl.player.Player;
 
 public class PosSearchShop extends Input {
@@ -13,5 +12,6 @@ public class PosSearchShop extends Input {
 			return;
 		}
 		//search shop entered @param syntax
+		player.getPacketSender().sendMessage("Does nothing yet");
 	}
 }

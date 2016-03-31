@@ -49,6 +49,7 @@ import com.ikov.world.content.minigames.impl.FarmingQuest;
 import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.PestControl;
 import com.ikov.world.content.minigames.impl.RecipeForDisaster;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 import com.ikov.world.content.skill.ChatboxInterfaceSkillAction;
 import com.ikov.world.content.skill.Enchanting;
 import com.ikov.world.content.skill.impl.construction.Construction;
@@ -1018,6 +1019,9 @@ public class ButtonClickPacketListener implements PacketListener {
 			return true;
 		}
 		if(GrandExchange.handleButton(player, id)) {
+			return true;
+		}
+		if(PlayerOwnedShops.posButtons(player, id)) {
 			return true;
 		}
 		if(ClanChatManager.handleClanChatSetupButton(player, id)) {

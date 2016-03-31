@@ -46,7 +46,7 @@ public class PlayerOwnedShops {
 			ex.printStackTrace();
 		}
 	}
-	public static void posButtons(Player player, int buttonId) {
+	public static boolean posButtons(Player player, int buttonId) {
 		switch(buttonId) {
 			case -24062:
 				
@@ -54,12 +54,13 @@ public class PlayerOwnedShops {
 			case -24074: //Search by Name
 				player.setInputHandling(new PosSearchShop());
 				player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
-				break;
+				return true;
 			case -24073: //Search by Item
 				player.setInputHandling(new PosItemToBuy());
 				player.getPacketSender().sendEnterInputPrompt("Enter the name of the item you wish to buy:");
-				break;
+				return true;
 		}
+		return false;
 	}
 	public static void openPosShop(final Player player) {
 		int[] stock = new int[40];
