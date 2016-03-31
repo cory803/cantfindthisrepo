@@ -5,6 +5,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 
 import org.jboss.netty.channel.Channel;
 
+import com.ikov.GameServer;
 import com.ikov.GameSettings;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketBuilder;
@@ -91,7 +92,7 @@ public final class PlayerSession {
 			handleInputMessage(msg);
 		}
 	}
-
+	
 	/**
 	 * Handles an incoming message.
 	 * @param msg	The message to handle.
@@ -107,8 +108,13 @@ public final class PlayerSession {
 					return;
 				}
 			}
-
+			long start = System.currentTimeMillis();
 			listener.handleMessage(player, msg);
+			long time = System.currentTimeMillis() - start;
+			if (time > 50) {
+				msg.setTime(time);
+				GameServer.getPanel().addPacket(msg);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

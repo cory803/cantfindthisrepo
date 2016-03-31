@@ -12,11 +12,13 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.border.EmptyBorder;
 
 import com.ikov.engine.task.TaskManager;
+import com.ikov.net.packet.Packet;
 import com.ikov.world.World;
 
 public class GamePanel extends JFrame {
 	
 	private LinkedList<Long> cycleTimes = new LinkedList<Long>();
+	private LinkedList<Packet> slowPackets = new LinkedList<Packet>();
 	private long maxCycle = 0;
 	private long maxMemory = 0;
 
@@ -32,6 +34,7 @@ public class GamePanel extends JFrame {
 	private JLabel minigameCycleLabel;
 	private JLabel entityUpdateLabel;
 	private JLabel taskCycleLabel;
+	private JLabel slowPacketsLabel;
 
 	/**
 	 * Launch the application.
@@ -55,7 +58,7 @@ public class GamePanel extends JFrame {
 	public GamePanel() {
 		setTitle("Ikov");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 420, 285);
+		setBounds(100, 100, 420, 313);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -81,6 +84,8 @@ public class GamePanel extends JFrame {
 		entityUpdateLabel = new JLabel("Entity Update Cycle: -");
 		
 		taskCycleLabel = new JLabel("Task Cycle: -");
+		
+		slowPacketsLabel = new JLabel("Slow Packets: -");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -96,8 +101,9 @@ public class GamePanel extends JFrame {
 						.addComponent(logoutCycleLabel)
 						.addComponent(loginCycleLabel)
 						.addComponent(minigameCycleLabel)
-						.addComponent(entityUpdateLabel))
-					.addContainerGap(270, Short.MAX_VALUE))
+						.addComponent(entityUpdateLabel)
+						.addComponent(slowPacketsLabel))
+					.addContainerGap(288, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -123,7 +129,9 @@ public class GamePanel extends JFrame {
 					.addComponent(minigameCycleLabel)
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(entityUpdateLabel)
-					.addContainerGap(18, Short.MAX_VALUE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(slowPacketsLabel)
+					.addContainerGap(20, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
@@ -169,5 +177,21 @@ public class GamePanel extends JFrame {
 			}
 		}
 		tasksLabel.setText("Tasks: " + TaskManager.getTaskAmount());
+	}
+
+	public void addPacket(Packet p) {
+		slowPackets.add(p);
+		if (slowPackets.size() > 5)
+			slowPackets.poll();
+		StringBuilder sb = new StringBuilder();
+		sb.append("Slow Packets: ");
+		for (Packet packet : slowPackets) {
+			sb.append("[" + packet.getOpcode() + "/" + packet.getTime() + "], ");	
+			slowPacketsLabel.setText(sb.toString());
+		}
+		
+	}
+	public JLabel getSlowPacketsLabel() {
+		return slowPacketsLabel;
 	}
 }

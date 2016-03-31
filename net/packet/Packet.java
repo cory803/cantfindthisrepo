@@ -343,4 +343,25 @@ public class Packet {
 	public boolean prioritize() {
 		return opcode == EquipPacketListener.OPCODE || opcode == ItemActionPacketListener.FIRST_ITEM_ACTION_OPCODE || opcode == ButtonClickPacketListener.OPCODE;
 	}
+	
+	/**
+	 * The time it takes to process the packet.
+	 */
+	private long time;
+
+	/**
+	 * Gets the packet's processing time.
+	 * 
+	 * @return The time
+	 */
+	public long getTime() {
+		return time;
+	}
+
+	/**
+	 * Sets the packet processing time.
+	 */
+	public void setTime(long time) {
+		this.time = time;
+	}
 }
