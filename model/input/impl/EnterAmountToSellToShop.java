@@ -19,7 +19,6 @@ public class EnterAmountToSellToShop extends EnterAmount {
 					return;
 				player.getShop().setPlayer(player).forSlot(getSlot()).copy().setAmount(amount).copy();
 				shop.sellItem(player, getSlot(), amount);
-				System.out.println(""+getSlot());
 			} else
 				player.getPacketSender().sendInterfaceRemoval();
 		} else
