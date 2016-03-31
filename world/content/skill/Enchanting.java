@@ -16,6 +16,17 @@ import com.ikov.world.entity.impl.player.Player;
 public class Enchanting {
 	
 	enum Data {
+		OPAL_REQ(879, 9236, 564, 1, 556, 20),
+		SAPPHIRE_REQ(9337, 9240, 564, 2, 555, 4),
+		JADE_REQ(9335, 9237, 564, 3, 557, 6),
+		PEARL_REQ(880, 9238, 564, 4, 555, 8),
+		EMERALD_REQ(9338, 9241, 564, 5, 561, 5),
+		RED_TOPAZ_REQ(9336, 9239, 564, 6, 554, 12),
+		RUBY_REQ(9339, 9242, 565, 5, 9075, 50),
+		DIAMOND_REQ(9340, 9243, 563, 5, 9075, 75),
+		DRAGONSTONE_REQ(9341, 9244, 566, 5, 9075, 100),
+		ONYX_REQ(9342, 9245, 560, 10, 9075, 115),
+		
 		OPAL(-16530, 4, 49009),
 		SAPPHIRE(-16521, 7, 49017),
 		JADE(-16513, 14, 49025),
@@ -28,11 +39,44 @@ public class Enchanting {
 		ONYX(-16457, 87, 49081);
 		
 		private int buttonId, levelRequired, stringId;
+		private int boltId, enchantId, firstRune, firstRuneAmount, secondRune, secondRuneAmount;
 		
+		Data(int boltId, int enchantId, int firstRune, int firstRuneAmount, int secondRune, int secondRuneAmount) {
+			this.boltId = boltId;
+			this.enchantId = enchantId;
+			this.firstRune = firstRune;
+			this.firstRuneAmount = firstRuneAmount;
+			this.secondRune = secondRune;
+			this.secondRuneAmount = secondRuneAmount;
+		}
 		Data(int buttonId, int levelRequired, int stringId) {
 			this.buttonId = buttonId;
 			this.levelRequired = levelRequired;
 			this.stringId = stringId;
+		}
+
+		public int getBoltId() {
+			return boltId;
+		}
+		
+		public int getEnchantId() {
+			return enchantId;
+		}
+		
+		public int getFirstRune() {
+			return firstRune;
+		}
+		
+		public int getFirstRuneAmount() {
+			return firstRuneAmount;
+		}
+		
+		public int getSecondRune() {
+			return secondRune;
+		}
+		
+		public int getSecondRuneAmount() {
+			return secondRuneAmount;
 		}
 		
 		public int getButtonId() {
