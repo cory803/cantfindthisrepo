@@ -93,6 +93,9 @@ public class Members {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
 		}
+		if (command[0].equalsIgnoreCase("time")) {
+			player.forceChat("[IKOV] "+player.getUsername()+" has played for ["+Misc.getHoursPlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed()))+"]");
+		}
 		if (command[0].equalsIgnoreCase("mb")) {
 			if(Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");

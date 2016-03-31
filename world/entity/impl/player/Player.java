@@ -378,6 +378,7 @@ public class Player extends Character {
 //	private final Stopwatch creationDate = new Stopwatch();
 	private final Stopwatch tolerance = new Stopwatch();
 	private final Stopwatch lougoutTimer = new Stopwatch();
+	private final Stopwatch dragonfireShield = new Stopwatch();
 
 	/*** INSTANCES ***/
 	private final CopyOnWriteArrayList<KillsEntry> killsTracker = new CopyOnWriteArrayList<KillsEntry>();
@@ -1885,6 +1886,10 @@ public class Player extends Character {
 
 	public Stopwatch getLogoutTimer() {
 		return lougoutTimer;
+	}
+	
+	public Stopwatch getDragonfireShield() {
+		return dragonfireShield;
 	}
 
 	public Player setUsableObject(Object[] usableObject) {

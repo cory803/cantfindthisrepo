@@ -59,7 +59,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 			switch(magicSpell) {
 			case LOW_ALCHEMY:
 			case HIGH_ALCHEMY:
-				if(!item.tradeable() || !item.sellable() || item.getId() == 995) {
+				if(!item.tradeable() || item.getId() == 995) {
 					player.getPacketSender().sendMessage("This spell can not be cast on this item.");
 					return;
 				}

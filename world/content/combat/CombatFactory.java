@@ -1658,7 +1658,7 @@ public final class CombatFactory {
 	}
 
 	public static void chargeDragonFireShield(Player player) {
-		if(player.getDfsCharges() >= 20) {
+		if(player.getDfsCharges() >= 50) {
 			player.getPacketSender().sendMessage("Your Dragonfire shield is fully charged and can be operated.");
 			return;
 		}
@@ -1666,12 +1666,13 @@ public final class CombatFactory {
 		player.performGraphic(new Graphic(1164));
 		player.incrementDfsCharges(1);
 		BonusManager.update(player);
-		player.getPacketSender().sendMessage("Your shield absorbs some of the Dragon's fire..");
+		player.getPacketSender().sendMessage("Your shield absorbs some of the Dragon's fire and you have "+player.getDfsCharges()+"/50 charges..");
 	}
 
 	public static void handleDragonFireShield(final Player player, final Character target) {
 		if(player == null || target == null || target.getConstitution() <= 0 || player.getConstitution() <= 0)
 			return;
+		player.getDragonfireShield().reset();
 		player.getCombatBuilder().cooldown(false);
 		player.setEntityInteraction(target);
 		player.performAnimation(new Animation(6696));

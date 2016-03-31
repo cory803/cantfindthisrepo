@@ -316,7 +316,11 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				break;
 			case 11283:
 				int charges = player.getDfsCharges();
-				if(charges >= 20 || player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+				if(!player.getDragonfireShield().elapsed(30000)) {
+					player.getPacketSender().sendMessage("Your dragonfire shield needs to cool down.");
+					return;
+				}
+				if(charges >= 1) {
 					if(player.getCombatBuilder().isAttacking())
 						CombatFactory.handleDragonFireShield(player, player.getCombatBuilder().getVictim());
 					else
