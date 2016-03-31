@@ -207,6 +207,10 @@ public class NPCOptionPacketListener implements PacketListener {
 						DialogueManager.sendStatement(player, "He doesn't seem interested in speaking to me right now.");
 					}
 					break;
+				case 2127:
+					player.setDialogueActionId(214);
+					DialogueManager.start(player, 214);
+					break;
 				case 291:
 					if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
 						if(player.getSkillManager().getMaxLevel(17) < 70) {
