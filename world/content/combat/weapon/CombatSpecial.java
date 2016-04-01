@@ -667,7 +667,7 @@ public enum CombatSpecial {
 	 *            the amount of energy to drain from the special bar.
 	 */
 	public static void drain(Player player, int amount) {
-		player.decrementSpecialPercentage(amount);
+		player.decrementSpecialPercentage(player.getEquipment().contains(19669) ? amount *= .9 : amount);
 		player.setSpecialActivated(false);
 		CombatSpecial.updateBar(player);
 		if(!player.isRecoveringSpecialAttack())
@@ -755,7 +755,10 @@ public enum CombatSpecial {
 			player.setSpecialActivated(false);
 			CombatSpecial.updateBar(player);
 		} else {
-			if (player.getSpecialPercentage() < player.getCombatSpecial().getDrainAmount()) {
+			int amount = player.getCombatSpecial().getDrainAmount();
+			if (player.getEquipment().contains(19669))
+				amount *= .9;
+			if (player.getSpecialPercentage() < amount) {
 				player.getPacketSender().sendMessage(
 						"You do not have enough special attack energy left!");
 				return;

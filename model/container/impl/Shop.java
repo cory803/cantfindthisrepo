@@ -1190,6 +1190,8 @@ public class Shop extends ItemContainer {
 					return new Object[]{100000, "Dungeoneering tokens"};
 				case 18335:
 					return new Object[]{75000, "Dungeoneering tokens"};
+				case 19669:
+					return new Object[]{50000, "Dungeoneering tokens"};
 				}
 			} else if(shop == PRESTIGE_STORE) {
 				switch(item) {
