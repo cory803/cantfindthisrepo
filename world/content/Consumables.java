@@ -298,6 +298,10 @@ public class Consumables {
 			player.getPacketSender().sendMessage("Potions have been disabled in this duel.");			
 			return;
 		}
+		if(!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You are stunned!");
+			return;
+		}
 		final int EMPTY_FLASK = -1;
 		//if(ClanWars.Rules.COMBAT_POTS.getToggle() == false) {
 		//	player.getPacketSender().sendMessage("Potions have been disabled in this clan battle.");			

@@ -114,6 +114,11 @@ public class ObjectActionPacketListener implements PacketListener {
 		}
 		if(player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
+		
+		if(!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You are stunned!");
+			return;
+		}
 		player.setInteractingObject(gameObject).setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 			@Override
 			public void execute() {
@@ -1406,6 +1411,10 @@ public class ObjectActionPacketListener implements PacketListener {
 		if(GameSettings.DEBUG_MODE) {
 			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ObjectActionPacketListener: "+gameObject.getId()+" - SECOND_CLICK");
 		}
+		if(!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You are stunned!");
+			return;
+		}
 		player.setInteractingObject(gameObject).setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 			public void execute() {
 				int ran = 0;
@@ -1578,6 +1587,10 @@ public class ObjectActionPacketListener implements PacketListener {
 				//player.getPacketSender().sendMessage("An error occured. Error code: "+id).sendMessage("Please report the error to a staff member.");
 				return;
 			}
+		}
+		if(!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You are stunned!");
+			return;
 		}
 		player.setPositionToFace(gameObject.getPosition());
 		int distanceX = (player.getPosition().getX() - position.getX());
