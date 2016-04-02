@@ -2364,4 +2364,14 @@ public class Player extends Character {
 	
 	public int gambler_id = 0;
 
+	private boolean hasNext;
+	
+	public boolean hasNext() {
+		return hasNext;
+	}
+	
+	public void setHasNext(boolean b) {
+		this.hasNext = b;
+	}
+
 }

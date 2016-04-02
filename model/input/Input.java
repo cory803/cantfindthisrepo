@@ -12,4 +12,5 @@ public class Input {
 	public void handleAmount(Player player, int amount) {
 		
 	}
+	
 }

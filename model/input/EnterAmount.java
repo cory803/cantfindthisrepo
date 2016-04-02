@@ -31,12 +31,5 @@ public abstract class EnterAmount extends Input {
 	public EnterAmount(int item, int slot) {
 		this.item = item;
 		this.slot = slot;
-	}	
-	
-	public EnterAmount(int item, int slot, long customVal) {
-		this.item = item;
-		this.slot = slot;
-		this.customVal = customVal;
-	}
-	
+	}		
 }

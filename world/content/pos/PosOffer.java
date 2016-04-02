@@ -35,6 +35,15 @@ public class PosOffer implements Comparable<PosOffer> {
 	}
 	
 	/**
+	 * Increases the item amount.
+	 * @param item_amount
+	 */
+	public void increaseAmount(int item_amount) {
+		System.out.println("Increase " + itemId + "; amount by " + item_amount);
+		this.amount += item_amount;
+	}
+	
+	/**
 	 * Gets the sold amount
 	 * @return the sold amount
 	 */

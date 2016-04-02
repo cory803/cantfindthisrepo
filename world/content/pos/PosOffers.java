@@ -2,27 +2,28 @@ package com.ikov.world.content.pos;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.ikov.model.Item;
-
+/**
+ * Represents a group of offers in the pos.
+ * @author Blake
+ */
 public class PosOffers {
 
 	private String owner_name;
 	private String caption;
-	private int index;
-	private int amount_in_shop = 0;
+	private int shopItems;
 	private int coins_to_collect;
-	private int[][] sell_offers = new int[40][4];
-	private long[] price = new long[40];
+	private List<PosOffer> offers = new ArrayList<PosOffer>();
 	
-	public PosOffers(String owner_name, String caption, int index, int amount_in_shop, int coins_to_collect, int[][] sell_offers, long[] price) {
-		this.owner_name = owner_name;
+	public PosOffers(String owner, String caption, int shopItems, int coins_to_collect, PosOffer[] offers) {
+		this.owner_name = owner;
 		this.caption = caption;
-		this.index = index;
-		this.amount_in_shop = amount_in_shop;
+		this.shopItems = shopItems;
 		this.coins_to_collect = coins_to_collect;
-		this.sell_offers = sell_offers;
-		this.price = price;
+		for (int i = 0; i<offers.length; i++)
+			this.offers.add(i, offers[i]);
 	}	
 	
 	public String getOwner() {
@@ -33,45 +34,48 @@ public class PosOffers {
 		return caption;
 	}
 	
-	public int getIndex() {
-		return index;
-	}	
-	
 	public int getAmountInShop() {
-		return amount_in_shop;
+		return shopItems;
 	}
 
 	public int getCoinsToCollect() {
 		return coins_to_collect;
 	}
 	
-	public int[][] getSellOffers() {
-		return sell_offers;
-	}	
-	
-	public long[] getPrice() {
-		return price;
+	public List<PosOffer> getOffers() {
+		return offers;
 	}
 	
-	public void addToSellOffers(int item_id, int amount, long price) {
-		this.sell_offers[getAmountInShop()][0] = item_id;
-		this.sell_offers[getAmountInShop()][1] = amount;
-		this.price[getAmountInShop()] = price; //Price complete at a later date
-		this.amount_in_shop++;
-		
+	public boolean containsItem(int itemId) {
+		for (PosOffer e : offers) {
+			if (e.getItemId() == itemId)
+				return true;
+		}
+		return false;
+	}
+	
+	public PosOffer forId(int id) {
+		for (PosOffer e : offers) {
+			if (e.getItemId() == id)
+				return e;
+		}
+		return null;
+	}
+	
+	public boolean addOffer(PosOffer o) {
+		return offers.add(o);
 	}
 	
 	public void save(DataOutputStream out) throws IOException {
 		out.writeUTF(getOwner());
 		out.writeUTF(getCaption());
-		out.writeInt(getIndex());
-		out.writeInt(getAmountInShop());
+		out.writeInt(getOffers().size());
 		out.writeInt(getCoinsToCollect());
-		for(int i2 = 0; i2 < getAmountInShop(); i2++) {
-			out.writeInt(getSellOffers()[i2][0]);
-			out.writeInt(getSellOffers()[i2][1]);
-			out.writeInt(getSellOffers()[i2][2]);
-			out.writeLong(getPrice()[i2]);
+		for(int i2 = 0; i2 < getOffers().size(); i2++) {
+			out.writeInt(getOffers().get(i2).getItemId());
+			out.writeInt(getOffers().get(i2).getAmount());
+			out.writeInt(getOffers().get(i2).getSoldAmount());
+			out.writeLong(getOffers().get(i2).getPrice());
 		}
 	}
 	

@@ -24,27 +24,33 @@ public class EnterInputPacketListener implements PacketListener {
 		switch (packet.getOpcode()) {
 		case ENTER_SYNTAX_OPCODE:
 			String name = Misc.readString(packet.getBuffer());
-			if(name == null)
+			if (name == null)
 				return;
-			if(player.getInputHandling() != null)
+			if (player.getInputHandling() != null)
 				player.getInputHandling().handleSyntax(player, name);
-			
-			if(GameSettings.DEBUG_MODE) {
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in EnterInputPacketListener: "+name+"");
+
+			if (GameSettings.DEBUG_MODE) {
+				PlayerLogs.log(player.getUsername(),
+						"" + player.getUsername() + " in EnterInputPacketListener: " + name + "");
 			}
 			player.setInputHandling(null);
 			break;
-			case ENTER_AMOUNT_OPCODE:
+		case ENTER_AMOUNT_OPCODE:
 			int amount = packet.readInt();
-			if(amount <= 0)
+			if (amount <= 0)
 				return;
-			if(player.getInputHandling() != null)
+			if (player.getInputHandling() != null)
 				player.getInputHandling().handleAmount(player, amount);
 
-			if(GameSettings.DEBUG_MODE) {
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in EnterInputPacketListener: "+amount+"");
+			if (GameSettings.DEBUG_MODE) {
+				PlayerLogs.log(player.getUsername(),
+						"" + player.getUsername() + " in EnterInputPacketListener: " + amount + "");
 			}
-			player.setInputHandling(null);
+			if (!player.hasNext()) {
+				player.setInputHandling(null);
+			} else {
+				player.setHasNext(false);
+			}
 			break;
 		}
 	}

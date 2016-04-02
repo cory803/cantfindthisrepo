@@ -1,9 +1,9 @@
 package com.ikov.net.packet.impl;
 
+import com.ikov.GameSettings;
 import com.ikov.model.Flag;
 import com.ikov.model.Item;
 import com.ikov.model.Locations.Location;
-import com.ikov.model.PlayerRights;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.BeastOfBurden;
 import com.ikov.model.container.impl.Equipment;
@@ -20,6 +20,7 @@ import com.ikov.model.input.impl.EnterAmountToRemoveFromBob;
 import com.ikov.model.input.impl.EnterAmountToRemoveFromPriceCheck;
 import com.ikov.model.input.impl.EnterAmountToRemoveFromStake;
 import com.ikov.model.input.impl.EnterAmountToRemoveFromTrade;
+import com.ikov.model.input.impl.EnterAmountToSellToPos;
 import com.ikov.model.input.impl.EnterAmountToSellToShop;
 import com.ikov.model.input.impl.EnterAmountToStake;
 import com.ikov.model.input.impl.EnterAmountToStore;
@@ -27,6 +28,7 @@ import com.ikov.model.input.impl.EnterAmountToTrade;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.world.content.BonusManager;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.Trading;
 import com.ikov.world.content.combat.CombatFactory;
 import com.ikov.world.content.combat.magic.Autocasting;
@@ -39,9 +41,6 @@ import com.ikov.world.content.skill.impl.smithing.EquipmentMaking;
 import com.ikov.world.content.skill.impl.smithing.SmithingData;
 import com.ikov.world.content.transportation.JewelryTeleporting;
 import com.ikov.world.entity.impl.player.Player;
-
-import com.ikov.GameSettings;
-import com.ikov.world.content.PlayerLogs;
 
 
 public class ItemContainerActionPacketListener implements PacketListener {
@@ -240,8 +239,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				player.getShop().sellItem(player, slot, 1);
 				return;
 			} else if(player.isPlayerOwnedShopping()) {
-				player.setInputHandling(new EnterPriceToSellPOS(id, slot, 1));
-				player.getPacketSender().sendEnterAmountPrompt("How much would you like to sell this for each?");
+				player.getPlayerOwnedShop().sellItem(player, slot, 1, 0);
 				return;
 			}
 			break;
@@ -374,6 +372,9 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			if(player.isShopping()) {
 				player.getShop().sellItem(player, slot, 5);
 				return;
+			} else if(player.isPlayerOwnedShopping()) {
+				player.getPlayerOwnedShop().sellItem(player, slot, 5, 0);
+				return;
 			}
 			break;
 		case BeastOfBurden.INTERFACE_ID:
@@ -481,6 +482,9 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			if(player.isShopping()) {
 				player.getShop().sellItem(player,slot, 10);
 				return;
+			} else if(player.isPlayerOwnedShopping()) {
+				player.getPlayerOwnedShop().sellItem(player, slot, 10, 0);
+				return;
 			}
 			break;
 		case BeastOfBurden.INTERFACE_ID:
@@ -579,6 +583,10 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				player.setInputHandling(new EnterAmountToSellToShop(id, slot));
 				player.getPacketSender().sendEnterAmountPrompt("How many would you like to sell?");
 				player.getShop().setPlayer(player);
+			} else if(player.isPlayerOwnedShopping()) {
+				player.setInputHandling(new EnterAmountToSellToPos(id, slot));
+				player.getPacketSender().sendEnterAmountPrompt("How many would you like to sell?");
+				return;
 			}
 			break;
 		case PriceChecker.INTERFACE_PC_ID:

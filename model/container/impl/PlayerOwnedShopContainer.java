@@ -13,6 +13,7 @@ import com.ikov.model.container.StackType;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.input.impl.EnterAmountToBuyFromShop;
 import com.ikov.model.input.impl.EnterAmountToSellToShop;
+import com.ikov.model.input.impl.EnterAmountOfPosOfferPrice;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerLogs;
@@ -27,19 +28,19 @@ import com.ikov.world.content.pos.PlayerOwnedShops;
 
 public class PlayerOwnedShopContainer extends ItemContainer {
 
-	public PlayerOwnedShopContainer(Player player, int index, String name, Item[] stockItems) {
+	public PlayerOwnedShopContainer(Player player, String name, Item[] stockItems) {
 		super(player);
-		this.index = index;
-		this.name = name;
+		this.name = name + "'s store";
+		this.index = getIndex(name);
 		this.originalStock = new Item[stockItems.length];
-		for(int i = 0; i < stockItems.length; i++) {
+		for (int i = 0; i < stockItems.length; i++) {
 			Item item = new Item(stockItems[i].getId(), stockItems[i].getAmount());
 			add(item, false);
 			this.originalStock[i] = item;
 		}
 	}
 
-	private final int index;
+	private int index;
 
 	private String name;
 
@@ -58,6 +59,10 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 	public String getName() {
 		return name;
 	}
+	
+	public static int getIndex(String name) {
+		return PlayerOwnedShops.getIndex(name);
+	}
 
 	public PlayerOwnedShopContainer setName(String name) {
 		this.name = name;
@@ -69,10 +74,10 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 	 * @param player	The player to open the shop for
 	 * @return			The shop instance
 	 */
-	public PlayerOwnedShopContainer open(Player player) {
+	public PlayerOwnedShopContainer open(Player player, String owner) {
 		setPlayer(player);
 		getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
-		getPlayer().setPlayerOwnedShop(PlayerOwnedShopManager.getShops().get(index)).setInterfaceId(INTERFACE_ID).setPlayerOwnedShopping(true);
+		getPlayer().setPlayerOwnedShop(PlayerOwnedShopManager.getShops().get(getIndex(owner))).setInterfaceId(INTERFACE_ID).setPlayerOwnedShopping(true);
 		refreshItems();
 		return this;
 	}
@@ -110,7 +115,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			return;
 		int itemId = itemToSell.getId();
 		int count = 0;
-		int itemValue = 0;
 		boolean inventorySpace = false;
 		if(!itemToSell.getDefinition().isStackable()) {
 			if(!player.getInventory().contains(995))
@@ -120,15 +124,30 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			inventorySpace = true;
 		if(player.getInventory().getFreeSlots() > 0 || player.getInventory().getAmount(995) > 0)
 			inventorySpace = true;
-		
-		itemValue = 100; //Item Value
-		
-		if(itemValue <= 0)
+		PosOffers o = PlayerOwnedShops.SHOPS[index];
+		if (o == null)
 			return;
-		if(itemValue <= 0) {
-			itemValue = 1;
+		
+		if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
+			player.getPacketSender().sendMessage("You can't sell items to this shop.");
+			return;
 		}
 		
+		for (int q = 0; q < o.getOffers().size(); q++) {
+			if (o.getOffers().get(q).getItemId() == itemId) {
+				price = o.getOffers().get(q).getPrice();
+			}
+		}
+		
+		if (price < 0)
+			return;
+		if (price == 0) {
+			player.setHasNext(true);
+			player.setInputHandling(new EnterAmountOfPosOfferPrice(slot, amountToSell)); //Enter the price of the item
+			player.getPacketSender().sendEnterAmountPrompt("Enter the price of the item:");
+			return;
+		}
+			
 		for (int i = amountToSell; i > 0; i--) {
 			itemToSell = new Item(itemId);
 			if(this.full(itemToSell.getId()) || !player.getInventory().contains(itemToSell.getId()) || !player.isPlayerOwnedShopping())
@@ -136,7 +155,8 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			if(!itemToSell.getDefinition().isStackable()) {
 				if(inventorySpace) {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), -1);
-					player.getInventory().add(new Item(995, itemValue), false);
+					//player.getInventory().add(new Item(995, itemValue), false);
+					PlayerOwnedShops.soldItem(player, index, itemToSell.getId(), amountToSell, price);
 					player.save();
 				} else {
 					player.getPacketSender().sendMessage("Please free some inventory space before doing that.");
@@ -145,8 +165,8 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			} else {
 				if(inventorySpace) {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), amountToSell);
-					player.getInventory().add(new Item(995, itemValue * amountToSell), false);
-					PlayerOwnedShops.soldItem(index, itemToSell.getId(), amountToSell, price);
+					//player.getInventory().add(new Item(995, itemValue * amountToSell), false);
+					PlayerOwnedShops.soldItem(player, index, itemToSell.getId(), amountToSell, price);
 					break;
 				} else {
 					player.getPacketSender().sendMessage("Please free some inventory space before doing that.");
@@ -336,11 +356,12 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				if(o == null) {
 					continue;
 				}
-				Item[] items = new Item[o.getAmountInShop()];
-				for(int i = 0; i < o.getAmountInShop(); i++) {
-					items[i] = new Item(o.getSellOffers()[i][0], o.getSellOffers()[i][1]);
+				Item[] items = new Item[o.getOffers().size()];
+				for(int i = 0; i < o.getOffers().size(); i++) {
+					items[i] = new Item(o.getOffers().get(i).getItemId(), o.getOffers().get(i).getAmount());
 				}
-				pos_shops.put(o.getIndex(), new PlayerOwnedShopContainer(null, o.getIndex(), o.getOwner(), items));
+				System.out.println("Added " + o.getOwner() + " ; " + getIndex(o.getOwner()));
+				pos_shops.put(getIndex(o.getOwner()), new PlayerOwnedShopContainer(null, o.getOwner(), items));
 			}
 		}
 	}
