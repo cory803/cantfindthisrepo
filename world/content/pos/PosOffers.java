@@ -3,26 +3,24 @@ package com.ikov.world.content.pos;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import com.ikov.model.Item;
-
+/**
+ * Represents a group of offers in the pos.
+ * @author Blake
+ */
 public class PosOffers {
 
 	private String owner_name;
 	private String caption;
-	private int index;
-	private int amount_in_shop;
+	private int shopItems;
 	private int coins_to_collect;
-	private int[][] sell_offers = new int[40][4];
-	private long[] price = new long[40];
+	private PosOffer[] offers = new PosOffer[40];
 	
-	public PosOffers(String owner_name, String caption, int index, int amount_in_shop, int coins_to_collect, int[][] sell_offers, long[] price) {
-		this.owner_name = owner_name;
+	public PosOffers(String owner, String caption, int shopItems, int coins_to_collect, PosOffer[] offers) {
+		this.owner_name = owner;
 		this.caption = caption;
-		this.index = index;
-		this.amount_in_shop = amount_in_shop;
+		this.shopItems = shopItems;
 		this.coins_to_collect = coins_to_collect;
-		this.sell_offers = sell_offers;
-		this.price = price;
+		this.offers = offers;
 	}	
 	
 	public String getOwner() {
@@ -33,37 +31,28 @@ public class PosOffers {
 		return caption;
 	}
 	
-	public int getIndex() {
-		return index;
-	}	
-	
-	public int getAmountInShop() {
-		return amount_in_shop;
+	public int getShopItems() {
+		return shopItems;
 	}
 
 	public int getCoinsToCollect() {
 		return coins_to_collect;
 	}
 	
-	public int[][] getSellOffers() {
-		return sell_offers;
-	}	
-	
-	public long[] getPrice() {
-		return price;
+	public PosOffer[] getOffers() {
+		return offers;
 	}
 	
 	public void save(DataOutputStream out) throws IOException {
 		out.writeUTF(getOwner());
 		out.writeUTF(getCaption());
-		out.writeInt(getIndex());
-		out.writeInt(getAmountInShop());
+		out.writeInt(getOffers().length);
 		out.writeInt(getCoinsToCollect());
-		for(int i2 = 0; i2 < getAmountInShop(); i2++) {
-			out.writeInt(getSellOffers()[i2][0]);
-			out.writeInt(getSellOffers()[i2][1]);
-			out.writeInt(getSellOffers()[i2][2]);
-			out.writeLong(getPrice()[i2]);
+		for(int i2 = 0; i2 < getOffers().length; i2++) {
+			out.writeInt(getOffers()[i2].getItemId());
+			out.writeInt(getOffers()[i2].getAmount());
+			out.writeInt(getOffers()[i2].getSoldAmount());
+			out.writeLong(getOffers()[i2].getPrice());
 		}
 	}
 	

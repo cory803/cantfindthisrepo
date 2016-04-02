@@ -30,18 +30,13 @@ public class PlayerOwnedShops {
 				for (int i = 0; i < count; i++) {
 					String owner_name = in.readUTF();
 					String store_caption = in.readUTF();
-					int index = in.readInt();
-					int amount_in_shop = in.readInt();
+					int shopItems = in.readInt();
 					int coins_to_collect = in.readInt();
-					int[][] sell_offers = new int[amount_in_shop][4];
-					long[] price = new long[amount_in_shop];
-					for(int i2 = 0; i2 < amount_in_shop; i2++) {
-						sell_offers[i2][0] = in.readInt(); //Item id
-						sell_offers[i2][1] = in.readInt(); //Item amount
-						sell_offers[i2][3] = in.readInt(); //Amount Sold
-						price[i2] = in.readLong();
+					PosOffer[] sell_offers = new PosOffer[shopItems];
+					for(int i2 = 0; i2 < shopItems; i2++) {
+						sell_offers[i2] = new PosOffer(in.readInt(), in.readInt(), in.readInt(), in.readLong());
 					}
-					SHOPS[index] = new PosOffers(owner_name, store_caption, index, amount_in_shop, coins_to_collect, sell_offers, price);
+					SHOPS[i] = new PosOffers(owner_name, store_caption, shopItems, coins_to_collect, sell_offers);
 				}
 			}
 			in.close();
@@ -104,13 +99,11 @@ public class PlayerOwnedShops {
 		int length_of_shops = 0;
 		boolean opened_shop = false;
 		for(PosOffers o : SHOPS) {
-			length_of_shops++;
 			if(o == null) {
 				if(!opened_shop) {
 					if(player.getUsername().equalsIgnoreCase(username)) {
-						int[][] sell_offers = new int[0][4];
-						long[] price = new long[0];
-						SHOPS[length_of_shops - 1] = new PosOffers(player.getUsername(), player.getUsername()+"'s store", length_of_shops - 1, 0, 0, sell_offers, price);
+						PosOffer[] offers = new PosOffer[0];
+						SHOPS[length_of_shops++] = new PosOffers(player.getUsername(), player.getUsername()+"'s store", 0, 0, offers);
 						openShop(player.getUsername(), player);
 						break;
 					} else {
@@ -122,10 +115,10 @@ public class PlayerOwnedShops {
 			if(o.getOwner().toLowerCase().equals(username.toLowerCase())) {
 				Item[] stockItems = new Item[stock.length];
 				for(int i = 0; i < stock.length; i++) {
-					if(i > o.getAmountInShop() - 1) {
+					if(i > o.getOffers().length - 1) {
 						stockItems[i] = new Item(-1, 1);
 					} else {
-						stockItems[i] = new Item(o.getSellOffers()[i][0], o.getSellOffers()[i][1]);
+						stockItems[i] = new Item(o.getOffers()[i].getItemId(), o.getOffers()[i].getAmount());
 					}
 				}
 				Shop shop = new Shop(player, Shop.POS, o.getOwner()+"'s shop", new Item(995), stockItems);
@@ -145,5 +138,10 @@ public class PlayerOwnedShops {
 				player.getPacketSender().sendMessage("This shop does not exist!");
 			}
 		}
+	}
+	
+	static {
+		SHOPS[0] = new PosOffers("Blake", "Blake's Shop", 2, 0, new PosOffer[] {new PosOffer(4151, 1, 0, 123000), new PosOffer(1050, 1, 0, 121000)});
+		SHOPS[1] = new PosOffers("Jonny", "Jonny's Shop", 2, 0, new PosOffer[] {new PosOffer(4151, 1, 0, 110000), new PosOffer(1050, 1, 0, 1170000)});
 	}
 }
