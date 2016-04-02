@@ -93,17 +93,13 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		}
 	}
 	
-	public void sellItem(Player player, int slot, int amountToSell) {
+	public void sellItem(Player player, int slot, int amountToSell, long price) {
 		this.setPlayer(player);
 		if(!player.isPlayerOwnedShopping() || player.isBanking()) {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
 		Item itemToSell = player.getInventory().getItems()[slot];
-		if(!itemToSell.sellable()) {
-			player.getPacketSender().sendMessage("This item cannot be sold.");
-			return;
-		}
 		if(!player.getInventory().contains(itemToSell.getId()) || itemToSell.getId() == 995)
 			return;
 		if(this.full(itemToSell.getId()))
@@ -150,7 +146,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				if(inventorySpace) {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), amountToSell);
 					player.getInventory().add(new Item(995, itemValue * amountToSell), false);
-					PlayerOwnedShops.soldItem(index, itemToSell.getId(), amountToSell);
+					PlayerOwnedShops.soldItem(index, itemToSell.getId(), amountToSell, price);
 					break;
 				} else {
 					player.getPacketSender().sendMessage("Please free some inventory space before doing that.");

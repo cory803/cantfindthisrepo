@@ -240,7 +240,8 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				player.getShop().sellItem(player, slot, 1);
 				return;
 			} else if(player.isPlayerOwnedShopping()) {
-				player.getPlayerOwnedShop().sellItem(player, slot, 1);
+				player.setInputHandling(new EnterPriceToSellPOS(id, slot, 1));
+				player.getPacketSender().sendEnterAmountPrompt("How much would you like to sell this for each?");
 				return;
 			}
 			break;

@@ -96,8 +96,8 @@ public class PlayerOwnedShops {
 		return false;
 	}
 	
-	public static void soldItem(int index, int item_id, int item_amount) {
-		SHOPS[index].addToSellOffers(item_id, item_amount);
+	public static void soldItem(int index, int item_id, int item_amount, long price) {
+		SHOPS[index].addToSellOffers(item_id, item_amount, price);
 	}
 	
 	public static void openShop(String username, Player player) {

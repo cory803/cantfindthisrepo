@@ -42,7 +42,7 @@ public class PosItemToBuy extends Input {
 				}
 				int item_id = o.getSellOffers()[i][0];
 				String item_name = ItemDefinition.forId(item_id).name;
-				if(item_name.contains(item_searched)) {
+				if(item_name.toLowerCase().contains(item_searched.toLowerCase())) {
 					start_button += 4;
 					start_caption += 4;
 					start_owner_name += 4;
@@ -64,7 +64,6 @@ public class PosItemToBuy extends Input {
 			}
 			*/
 		}
-		player.getPacketSender().sendMessage("Does nothing yet");
 	}
 	
 	public final String formatAmount(long amount) {
