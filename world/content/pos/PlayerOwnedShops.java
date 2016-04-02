@@ -13,6 +13,8 @@ import com.ikov.model.input.impl.EnterAmountToSellToShop;
 import com.ikov.model.input.impl.PosItemToBuy;
 import com.ikov.model.input.impl.PosSearchShop;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 
 public class PlayerOwnedShops {
 	
@@ -33,12 +35,12 @@ public class PlayerOwnedShops {
 					int index = in.readInt();
 					int amount_in_shop = in.readInt();
 					int coins_to_collect = in.readInt();
-					int[][] sell_offers = new int[amount_in_shop][4];
-					long[] price = new long[amount_in_shop];
+					int[][] sell_offers = new int[40][4];
+					long[] price = new long[40];
 					for(int i2 = 0; i2 < amount_in_shop; i2++) {
 						sell_offers[i2][0] = in.readInt(); //Item id
 						sell_offers[i2][1] = in.readInt(); //Item amount
-						sell_offers[i2][3] = in.readInt(); //Amount Sold
+						sell_offers[i2][2] = in.readInt(); //Price
 						price[i2] = in.readLong();
 					}
 					SHOPS[index] = new PosOffers(owner_name, store_caption, index, amount_in_shop, coins_to_collect, sell_offers, price);
@@ -94,6 +96,10 @@ public class PlayerOwnedShops {
 		return false;
 	}
 	
+	public static void soldItem(int index, int item_id, int item_amount) {
+		SHOPS[index].addToSellOffers(item_id, item_amount);
+	}
+	
 	public static void openShop(String username, Player player) {
 		int[] stock = new int[40];
 		int[] stockAmount = new int[40];
@@ -108,9 +114,11 @@ public class PlayerOwnedShops {
 			if(o == null) {
 				if(!opened_shop) {
 					if(player.getUsername().equalsIgnoreCase(username)) {
-						int[][] sell_offers = new int[0][4];
-						long[] price = new long[0];
+						int[][] sell_offers = new int[40][4];
+						long[] price = new long[40];
 						SHOPS[length_of_shops - 1] = new PosOffers(player.getUsername(), player.getUsername()+"'s store", length_of_shops - 1, 0, 0, sell_offers, price);
+						Item[] default_items = new Item[0];
+						PlayerOwnedShopManager.getShops().put(length_of_shops - 1, new PlayerOwnedShopContainer(null, length_of_shops - 1, player.getUsername()+"'s store", default_items));
 						openShop(player.getUsername(), player);
 						break;
 					} else {
@@ -120,25 +128,7 @@ public class PlayerOwnedShops {
 				break;
 			}
 			if(o.getOwner().toLowerCase().equals(username.toLowerCase())) {
-				Item[] stockItems = new Item[stock.length];
-				for(int i = 0; i < stock.length; i++) {
-					if(i > o.getAmountInShop() - 1) {
-						stockItems[i] = new Item(-1, 1);
-					} else {
-						stockItems[i] = new Item(o.getSellOffers()[i][0], o.getSellOffers()[i][1]);
-					}
-				}
-				Shop shop = new Shop(player, Shop.POS, o.getOwner()+"'s shop", new Item(995), stockItems);
-				stock = stockAmount = null;
-				stockItems = null;
-				shop.setPlayer(player);
-				player.getPacketSender().sendItemContainer(player.getInventory(), Shop.INVENTORY_INTERFACE_ID);
-				player.getPacketSender().sendItemContainer(shop, Shop.ITEM_CHILD_ID);
-				player.getPacketSender().sendString(Shop.NAME_INTERFACE_CHILD_ID, o.getOwner()+"'s shop");
-				if(player.getInputHandling() == null || !(player.getInputHandling() instanceof EnterAmountToSellToShop || player.getInputHandling() instanceof EnterAmountToBuyFromShop))
-					player.getPacketSender().sendInterfaceSet(Shop.INTERFACE_ID, Shop.INVENTORY_INTERFACE_ID - 1);
-				
-				player.setShop(shop).setInterfaceId(Shop.INTERFACE_ID).setShopping(true);
+				PlayerOwnedShopManager.getShops().get(o.getIndex()).open(player);
 				opened_shop = true;
 			}
 			if(length_of_shops == SHOPS.length && !opened_shop) {

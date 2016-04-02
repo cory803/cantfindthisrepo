@@ -31,6 +31,7 @@ import com.ikov.model.container.impl.Equipment;
 import com.ikov.model.container.impl.Inventory;
 import com.ikov.model.container.impl.PriceChecker;
 import com.ikov.model.container.impl.Shop;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
@@ -335,7 +336,7 @@ public class Player extends Character {
 	}
 
 	public boolean busy() {
-		return interfaceId > 0 || isBanking || shopping || trading.inTrade() || dueling.inDuelScreen || isResting;
+		return interfaceId > 0 || isBanking || shopping || posShopping || trading.inTrade() || dueling.inDuelScreen || isResting;
 	}
 
 	/*
@@ -428,6 +429,7 @@ public class Player extends Character {
 	private Input inputHandling;
 	private WalkToTask walkToTask;
 	private Shop shop;
+	private PlayerOwnedShopContainer player_owned_shop;
 	private GameObject interactingObject;
 	private Item interactingItem;
 	private Dialogue dialogue;
@@ -519,6 +521,7 @@ public class Player extends Character {
 	private boolean clientExitTaskActive;
 	private boolean drainingPrayer;
 	private boolean shopping;
+	private boolean posShopping;
 	private boolean settingUpCannon;
 	private boolean hasVengeance;
 	private boolean killsTrackerOpen;
@@ -1553,20 +1556,38 @@ public class Player extends Character {
 	public boolean swapMode() {
 		return swapMode;
 	}
+	
 	public boolean isShopping() {
 		return shopping;
+	}
+
+	public boolean isPlayerOwnedShopping() {
+		return posShopping;
 	}
 
 	public void setShopping(boolean shopping) {
 		this.shopping = shopping;
 	}
+	
+	public void setPlayerOwnedShopping(boolean shopping) {
+		this.posShopping = shopping;
+	}
 
 	public Shop getShop() {
 		return shop;
 	}
+	
+	public PlayerOwnedShopContainer getPlayerOwnedShop() {
+		return player_owned_shop;
+	}
 
 	public Player setShop(Shop shop) {
 		this.shop = shop;
+		return this;
+	}
+	
+	public Player setPlayerOwnedShop(PlayerOwnedShopContainer shop) {
+		this.player_owned_shop = shop;
 		return this;
 	}
 

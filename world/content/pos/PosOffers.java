@@ -10,7 +10,7 @@ public class PosOffers {
 	private String owner_name;
 	private String caption;
 	private int index;
-	private int amount_in_shop;
+	private int amount_in_shop = 0;
 	private int coins_to_collect;
 	private int[][] sell_offers = new int[40][4];
 	private long[] price = new long[40];
@@ -53,14 +53,29 @@ public class PosOffers {
 		return price;
 	}
 	
+	public void addToSellOffers(int item_id, int amount) {
+		if(getAmountInShop() == 0) {
+			this.sell_offers[getAmountInShop()][0] = item_id;
+			this.sell_offers[getAmountInShop()][1] = amount;
+			this.price[getAmountInShop()] = 500; //Price complete at a later date
+		} else {
+			this.sell_offers[getAmountInShop() + 1][0] = item_id;
+			this.sell_offers[getAmountInShop() + 1][1] = amount;
+			this.price[getAmountInShop() + 1] = 500; //Price complete at a later date
+		}
+		this.amount_in_shop++;
+	}
+	
 	public void save(DataOutputStream out) throws IOException {
 		out.writeUTF(getOwner());
 		out.writeUTF(getCaption());
 		out.writeInt(getIndex());
 		out.writeInt(getAmountInShop());
 		out.writeInt(getCoinsToCollect());
+		System.out.println("Saving total: "+getAmountInShop()+"");
 		for(int i2 = 0; i2 < getAmountInShop(); i2++) {
 			out.writeInt(getSellOffers()[i2][0]);
+			System.out.println("Saving: "+getSellOffers()[i2][0]+"");
 			out.writeInt(getSellOffers()[i2][1]);
 			out.writeInt(getSellOffers()[i2][2]);
 			out.writeLong(getPrice()[i2]);

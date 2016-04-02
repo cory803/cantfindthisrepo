@@ -17,6 +17,7 @@ import com.ikov.engine.GameEngine;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.ServerTimeUpdateTask;
 import com.ikov.model.container.impl.Shop.ShopManager;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.definitions.NPCDrops;
 import com.ikov.model.definitions.NpcDefinition;
@@ -87,6 +88,7 @@ public final class GameLoader {
 		serviceLoader.execute(() -> NPCDrops.parseDrops().load());
 		serviceLoader.execute(() -> WeaponInterfaces.parseInterfaces().load());
 		serviceLoader.execute(() -> ShopManager.parseShops().load());
+		serviceLoader.execute(() -> PlayerOwnedShopManager.load());
 		serviceLoader.execute(() -> DialogueManager.parseDialogues().load());
 		serviceLoader.execute(() -> NPC.init());
 	}

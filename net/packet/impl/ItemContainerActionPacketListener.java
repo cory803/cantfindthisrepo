@@ -239,6 +239,9 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			if(player.isShopping()) {
 				player.getShop().sellItem(player, slot, 1);
 				return;
+			} else if(player.isPlayerOwnedShopping()) {
+				player.getPlayerOwnedShop().sellItem(player, slot, 1);
+				return;
 			}
 			break;
 		case BeastOfBurden.INTERFACE_ID:

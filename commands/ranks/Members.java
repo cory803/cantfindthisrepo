@@ -519,8 +519,9 @@ public class Members {
 				return;
 			}
 			Position position = new Position(2441, 3090, 0);
-			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
-			player.getPacketSender().sendMessage("Welcome to the Gambling Area!");
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
+			player.getPacketSender().sendMessage("Welcome to the Gambling Area, make sure you always use a middle man for high bets!");
+			player.getPacketSender().sendMessage("Recording your stake will only get the player banned if they scam.");
 		}	
 		if(command[0].equals("players")) {
 			player.getPacketSender().sendInterfaceRemoval();
