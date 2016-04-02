@@ -343,4 +343,15 @@ public class ItemDefinition {
 		}
 		return -1;
 	}
+	
+	public static int getIdContaining(String itemName) {
+		for (int i = 0; i < MAX_AMOUNT_OF_ITEMS; i++) {
+			if (definitions[i] != null) {
+				if (definitions[i].getName().toLowerCase().contains(itemName.toLowerCase())) {
+					return definitions[i].getId();
+				}
+			}
+		}
+		return -1;
+	}
 }
