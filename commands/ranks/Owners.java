@@ -45,6 +45,7 @@ import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 import com.ikov.world.content.skill.SkillManager;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
@@ -75,6 +76,17 @@ public class Owners {
 		}
 		if (command[0].equals("nopoison")) {
 			player.setPoisonDamage(20);
+		}
+		if (command[0].equals("save11")) {
+			PlayerOwnedShops.save();
+		}
+		if (command[0].equals("test555")) {
+			try {
+				player.getPacketSender().sendMessage("Opening shop...");
+				PlayerOwnedShops.openShop("jonny", player);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		if (command[0].equals("unskull")) {
 			player.setSkullTimer(0);
@@ -1118,6 +1130,7 @@ public class Owners {
 						}
 						WellOfGoodwill.save();
 						GrandExchangeOffers.save();
+						PlayerOwnedShops.save();
 						ClanChatManager.save();
 						GameServer.getLogger().info("Update task finished!");
 						stop();

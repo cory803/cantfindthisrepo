@@ -5,138 +5,66 @@ import java.io.IOException;
 
 import com.ikov.model.Item;
 
-public class PosOffers extends Item {
+public class PosOffers {
 
-	private String owner;
+	private String owner_name;
+	private String caption;
 	private int index;
-	private int pricePerItem;
-	private int box;
-	private OfferType type;
+	private int amount_in_shop;
+	private int coins_to_collect;
+	private int[][] sell_offers = new int[40][4];
+	private long[] price = new long[40];
 	
-	private int totalCost;
-	private int amountFinished;
-	private int coinsCollect;
-	private int itemCollect;
-	private int failedAttempts;
-	
-//	private GrandExchangeSlotState updateState;
-	
-	public PosOffers(int item, int quantity, String owner, int index, int pricePerItem, int box, OfferType type) {
-		super(item, quantity);
-		this.owner = owner;
+	public PosOffers(String owner_name, String caption, int index, int amount_in_shop, int coins_to_collect, int[][] sell_offers, long[] price) {
+		this.owner_name = owner_name;
+		this.caption = caption;
 		this.index = index;
-		this.pricePerItem = pricePerItem;
-		this.type = type;
-		this.box = box;
-//		this.totalCost = GrandExchange.calculateTotalCost(pricePerItem, quantity);
-	}
-	
-	public PosOffers(int item, int quantity, String owner, int index, int pricePerItem, int box, int amountFinished, int coinsCollect, int itemCollect, int failedAttempts, OfferType type, int updateStateOrdinal) {
-		super(item, quantity);
-		this.owner = owner;
-		this.index = index;
-		this.pricePerItem = pricePerItem;
-		this.box = box;
-		this.amountFinished = amountFinished;
-		this.coinsCollect = coinsCollect;
-		this.itemCollect = itemCollect;
-		this.failedAttempts = failedAttempts;
-//		this.updateState = updateStateOrdinal == -1 ? null : GrandExchangeSlotState.forId(updateStateOrdinal);
-		this.type = type;
-//		this.totalCost = GrandExchange.calculateTotalCost(pricePerItem, quantity);
+		this.amount_in_shop = amount_in_shop;
+		this.coins_to_collect = coins_to_collect;
+		this.sell_offers = sell_offers;
+		this.price = price;
 	}	
 	
 	public String getOwner() {
-		return owner;
+		return owner_name;
+	}	
+	
+	public String getCaption() {
+		return caption;
 	}
 	
 	public int getIndex() {
 		return index;
+	}	
+	
+	public int getAmountInShop() {
+		return amount_in_shop;
+	}
+
+	public int getCoinsToCollect() {
+		return coins_to_collect;
 	}
 	
-	public int getPricePerItem() {
-		return this.pricePerItem;
-	}
+	public int[][] getSellOffers() {
+		return sell_offers;
+	}	
 	
-	public int getBox() {
-		return box;
-	}
-	
-	public OfferType getType() {
-		return this.type;
-	}
-	
-	public int getTotalCost() {
-		return totalCost;
-	}
-	
-	public int getPercent() {
-		float amt = (float)this.amountFinished;
-		float total = (float)this.getAmount();
-		return (int) ((amt * 100)/total);
-	}
-	
-	public int getAmountFinished() {
-		return amountFinished;
-	}
-	
-	public void incrementAmountFinished(int amountFinished) {
-		this.amountFinished += amountFinished;
-	}
-	
-	public void setAmountFinished(int amountFinished) {
-		this.amountFinished = amountFinished;
-	}
-	
-	public int getCoinsCollect() {
-		return coinsCollect;
-	}
-	
-	public void setCoinsCollect(int coinsCollect) {
-		this.coinsCollect = coinsCollect;
-	}
-	
-	public void incrementCoinsCollect(int coinsCollect) {
-		this.coinsCollect += coinsCollect;
-	}
-	
-	public int getItemCollect() {
-		return itemCollect;
-	}
-	
-	public void setItemCollect(int itemCollect) {
-		this.itemCollect = itemCollect;
-	}
-	
-	public void incrementItemCollect(int itemCollect) {
-		this.itemCollect += itemCollect;
-	}
-	
-	public int getFailAttempts() {
-		return failedAttempts;
-	}
-	
-	public void incrementFailAttempts() {
-		this.failedAttempts ++;
-	}
-	
-	public enum OfferType {
-		SELLING,
-		BUYING;
+	public long[] getPrice() {
+		return price;
 	}
 	
 	public void save(DataOutputStream out) throws IOException {
-		out.writeInt(getId());
-		out.writeInt(getAmount());
 		out.writeUTF(getOwner());
+		out.writeUTF(getCaption());
 		out.writeInt(getIndex());
-		out.writeInt(getPricePerItem());
-		out.writeInt(getBox());
-		out.writeInt(getAmountFinished());
-		out.writeInt(getCoinsCollect());
-		out.writeInt(getItemCollect());
-		out.writeInt(getFailAttempts());
-//		out.writeInt(getUpdateStateOrdinal());
-		out.writeUTF(getType().name());
+		out.writeInt(getAmountInShop());
+		out.writeInt(getCoinsToCollect());
+		for(int i2 = 0; i2 < getAmountInShop(); i2++) {
+			out.writeInt(getSellOffers()[i2][0]);
+			out.writeInt(getSellOffers()[i2][1]);
+			out.writeInt(getSellOffers()[i2][2]);
+			out.writeLong(getPrice()[i2]);
+		}
 	}
+	
 }

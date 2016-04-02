@@ -7,6 +7,7 @@ import com.ikov.world.World;
 import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.entity.impl.player.PlayerHandler;
 
@@ -30,6 +31,7 @@ public class ShutdownHook extends Thread {
 		}
 		WellOfGoodwill.save();
 		GrandExchangeOffers.save();
+		PlayerOwnedShops.save();
 		ClanChatManager.save();
 		logger.info("The shudown hook actions have been completed, shutting the server down...");
 	}

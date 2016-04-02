@@ -3,6 +3,7 @@ package com.ikov.net.packet.impl;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.engine.task.impl.WalkToTask;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 import com.ikov.world.clip.region.RegionClipping;
 import com.ikov.world.content.BankPin;
 import com.ikov.world.content.BossSystem;
@@ -737,6 +738,17 @@ public class NPCOptionPacketListener implements PacketListener {
 					npc.forceChat("Off you go!");
 					TeleportHandler.teleportPlayer(player,new Position(2911, 4832), player.getSpellbook().getTeleportType());
 					break;
+				case 2127:
+					//Store Caption
+					for(int caption_index = 41869; caption_index > 41469; caption_index -= 4) {
+						player.getPacketSender().sendString(caption_index, "");
+					}
+					//Store Owner
+					for(int owner_name_index = 41868; owner_name_index > 41468; owner_name_index -= 4) {
+						player.getPacketSender().sendString(owner_name_index, "");
+					}
+					player.getPacketSender().sendInterface(41409);
+					break;
 				case 3101:
 					DialogueManager.start(player, 95);
 					player.setDialogueActionId(57);
@@ -841,6 +853,9 @@ public class NPCOptionPacketListener implements PacketListener {
 				case 7780:
 					ShopManager.getShops().get(40).open(player);
 					break;
+				case 2127:
+					PlayerOwnedShops.openShop(player.getUsername(), player);
+					break;
 				case 605:
 					//LoyaltyProgramme.open(player);
 					break;
@@ -911,6 +926,9 @@ public class NPCOptionPacketListener implements PacketListener {
 			@Override
 			public void execute() {
 				switch(npc.getId()) {
+				case 2217:
+					player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
+					break;
 				case 4657:
 				if(player.getDonorRights() == 0) {
 						player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit ikov2.org and purchase a scroll.");

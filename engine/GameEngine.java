@@ -14,6 +14,7 @@ import com.ikov.engine.task.TaskManager;
 import com.ikov.world.World;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 
 /**
  * 
@@ -58,6 +59,7 @@ public final class GameEngine implements Runnable {
 			e.printStackTrace();
 			World.savePlayers();
 			GrandExchangeOffers.save();
+			PlayerOwnedShops.save();
 			ClanChatManager.save();
 		}
 	}

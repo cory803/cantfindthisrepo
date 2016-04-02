@@ -187,7 +187,7 @@ public class Shop extends ItemContainer {
 			return;
 		}
 	}
-
+	
 	public void sellItem(Player player, int slot, int amountToSell) {
 		this.setPlayer(player);
 		if(!player.isShopping() || player.isBanking()) {
@@ -198,10 +198,12 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
 		}
-		if(!player.isShopping() || player.isBanking()) {
-			player.getPacketSender().sendInterfaceRemoval();
+		/*
+		if(id == POS) {
+			sellPosItem(player, slot, amountToSell);
 			return;
-		} 
+		}
+		*/
 		Item itemToSell = player.getInventory().getItems()[slot];
 		if(itemToSell.getId() == 12183 || itemToSell.getId() == 12530 || itemToSell.getId() == 18016) {
 			player.getPacketSender().sendMessage("You can't sell this item to this shop, please exchange shards with pikkupstix.");
@@ -306,6 +308,24 @@ public class Shop extends ItemContainer {
 		if(customShop) {
 			player.getPointsHandler().refreshPanel();
 		}
+		player.getInventory().refreshItems();
+		fireRestockTask();
+		refreshItems();
+		publicRefresh();
+	}
+	
+	public  void sellPosItem(Player player, int slot, int amountToSell) {
+		Item itemToSell = player.getInventory().getItems()[slot];
+		if(!player.getInventory().contains(itemToSell.getId()) || itemToSell.getId() == 995)
+			return;
+		if(!itemToSell.sellable()) {
+			player.getPacketSender().sendMessage("This item cannot be sold.");
+			return;
+		}
+		if(amountToSell == 0)
+			return;
+		
+		//PlayerLogs.log(player.getUsername(), "Player has sold item: "+itemToSell.getDefinition().getName()+" ("+itemToSell.getId()+"), amount: " + count +" to the store.");
 		player.getInventory().refreshItems();
 		fireRestockTask();
 		refreshItems();

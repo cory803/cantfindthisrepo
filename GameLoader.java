@@ -34,6 +34,7 @@ import com.ikov.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
 import com.ikov.world.content.combat.strategy.CombatStrategies;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 import com.ikov.world.entity.impl.npc.NPC;
 
 /**
@@ -75,6 +76,7 @@ public final class GameLoader {
 		serviceLoader.execute(() -> ItemDefinition.init());
 		serviceLoader.execute(() -> Lottery.init());
 		serviceLoader.execute(() -> GrandExchangeOffers.init());
+		serviceLoader.execute(() -> PlayerOwnedShops.init());
 		serviceLoader.execute(() -> Scoreboards.init());
 		serviceLoader.execute(() -> WellOfGoodwill.init());
 		serviceLoader.execute(() -> ClanChatManager.init());

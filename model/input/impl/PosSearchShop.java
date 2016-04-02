@@ -2,6 +2,7 @@ package com.ikov.model.input.impl;
 
 import com.ikov.model.input.Input;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 
 public class PosSearchShop extends Input {
 
@@ -11,7 +12,6 @@ public class PosSearchShop extends Input {
 			player.getPacketSender().sendMessage("Invalid syntax entered.");
 			return;
 		}
-		//search shop entered @param syntax
-		player.getPacketSender().sendMessage("Does nothing yet");
+		PlayerOwnedShops.openShop(syntax, player);
 	}
 }
