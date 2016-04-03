@@ -95,7 +95,7 @@ public class MemberScrolls {
 				player.incrementAmountDonated(funds);
 				player.getPacketSender().sendMessage("Your account has gained funds worth $"+funds+". Your total is now at $"+player.getAmountDonated()+".");
 				MemberScrolls.checkForRankUpdate(player);
-				credits = 111500;
+				credits = 137500;
 				player.addCredits(credits);
 				player.getPacketSender().sendMessage("Your account has gained 137,500 credits. Your total is now at "+player.getCredits()+".");
 				PlayerPanel.refreshPanel(player);
