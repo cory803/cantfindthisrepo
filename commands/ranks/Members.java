@@ -300,7 +300,7 @@ public class Members {
 						}
 						PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has claimed an auth code "+authCode+"!");
 					} else {
-						player.getPacketSender().sendMessage("The authcode you have entered is invalid.");
+						player.getPacketSender().sendMessage("The authcode you have entered is invalid. Please try again.");
 					}
 				} catch (Exception e) {
 					player.getPacketSender().sendMessage("Error connecting to the database. Please try again later.");
