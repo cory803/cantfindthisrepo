@@ -130,7 +130,7 @@ public class PlayerOwnedShops {
 		return -1;
 	}
 	
-	private static boolean opened_shop;
+	private static boolean opened_shop = false;
 	public static void openShop(String username, Player player) {
 		int[] stock = new int[40];
 		int[] stockAmount = new int[40];
@@ -160,7 +160,7 @@ public class PlayerOwnedShops {
 			if(o.getOwner().toLowerCase().equals(username.toLowerCase())) {
 				System.out.println("Owner index: " + PlayerOwnedShopContainer.getIndex(o.getOwner()));
 				PlayerOwnedShopManager.getShops().get(PlayerOwnedShopContainer.getIndex(o.getOwner())).open(player, username.toLowerCase());
-				//opened_shop = true;
+				opened_shop = true;
 			}
 			if(i == SHOPS.length && !opened_shop) {
 				player.getPacketSender().sendMessage("This shop does not exist!");
