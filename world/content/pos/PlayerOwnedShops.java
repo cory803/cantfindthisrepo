@@ -1,21 +1,17 @@
 package com.ikov.world.content.pos;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
 import com.ikov.model.Item;
-import com.ikov.model.container.impl.Shop;
-import com.ikov.model.input.impl.EnterAmountToBuyFromShop;
-import com.ikov.model.input.impl.EnterAmountToSellToShop;
-import com.ikov.model.input.impl.EnterAmountOfPosOfferPrice;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
 import com.ikov.model.input.impl.PosItemToBuy;
 import com.ikov.model.input.impl.PosSearchShop;
 import com.ikov.world.entity.impl.player.Player;
-import com.ikov.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
-import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 
 public class PlayerOwnedShops {
 	
@@ -52,15 +48,19 @@ public class PlayerOwnedShops {
 
 	public static void save() {
 		try {
-			DataOutputStream out = new DataOutputStream(new FileOutputStream("./data/saves/pos/shops.dat", false));
+			File pos = new File("./data/saves/pos");
+			if (!pos.exists())
+				pos.mkdirs();
+			DataOutputStream out = new DataOutputStream(new FileOutputStream(pos + "/shops.dat", false));
 			out.writeInt(getCount());
 			for (PosOffers l : SHOPS) {
-				if(l == null) {
+				if (l == null) {
 					continue;
 				}
 				l.save(out);
 			}
 			out.close();
+			System.out.println("[POS] Saved!");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -130,7 +130,6 @@ public class PlayerOwnedShops {
 		return -1;
 	}
 	
-	private static boolean opened_shop = false;
 	public static void openShop(String username, Player player) {
 		int[] stock = new int[40];
 		int[] stockAmount = new int[40];
@@ -141,29 +140,25 @@ public class PlayerOwnedShops {
 		
 		for (int i = 0; i < SHOPS.length; i++) {
 			PosOffers o = SHOPS[i];
-			if (o == null) {
-				if(!opened_shop) {
-					if(player.getUsername().equalsIgnoreCase(username)) {
-						PosOffer[] offers = new PosOffer[40];
-						SHOPS[i] = new PosOffers(player.getUsername(), player.getUsername()+"'s store", offers.length, 0, offers);
-						Item[] default_items = new Item[0];
-						PlayerOwnedShopManager.getShops().put(i, new PlayerOwnedShopContainer(null, player.getUsername(), default_items));
-						opened_shop = true;
-						openShop(player.getUsername(), player);
-						break;
-					} else {
+			if (o != null) {
+				if(o.getOwner().toLowerCase().equals(username.toLowerCase())) {
+					PlayerOwnedShopManager.getShops().get(PlayerOwnedShopContainer.getIndex(o.getOwner())).open(player, username.toLowerCase());
+					if(i == SHOPS.length)
 						player.getPacketSender().sendMessage("This shop does not exist!");
-					}
+					break;
+				}
+			} else {
+				if (player.getUsername().equalsIgnoreCase(username)) {
+					PosOffer[] offers = new PosOffer[40];
+					SHOPS[i] = new PosOffers(player.getUsername(), player.getUsername() + "'s store", offers.length, 0, offers);
+					Item[] default_items = new Item[0];
+					PlayerOwnedShopManager.getShops().put(i, new PlayerOwnedShopContainer(null, player.getUsername(), default_items));
+					openShop(player.getUsername(), player);
+					break;
+				} else {
+					player.getPacketSender().sendMessage("This shop does not exist!");
 				}
 				break;
-			}
-			if(o.getOwner().toLowerCase().equals(username.toLowerCase())) {
-				System.out.println("Owner index: " + PlayerOwnedShopContainer.getIndex(o.getOwner()));
-				PlayerOwnedShopManager.getShops().get(PlayerOwnedShopContainer.getIndex(o.getOwner())).open(player, username.toLowerCase());
-				opened_shop = true;
-			}
-			if(i == SHOPS.length && !opened_shop) {
-				player.getPacketSender().sendMessage("This shop does not exist!");
 			}
 		}
 	}
