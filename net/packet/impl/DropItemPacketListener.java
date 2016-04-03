@@ -67,6 +67,11 @@ public class DropItemPacketListener implements PacketListener {
 			if(item.tradeable() && !ItemBinding.isBoundItem(item.getId()) && !player.getGameMode().equals(GameMode.IRONMAN) && !player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
 				player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
 				if(item.getId() == 4045) {
+					if(player.isJailed()) {
+						player.getPacketSender().sendMessage("You cannot do this while in Jail.");
+						player.getMovementQueue().reset();
+						return;
+					}
 					player.dealDamage(new Hit((player.getConstitution() - 1) == 0 ? 1 : player.getConstitution() - 1, Hitmask.CRITICAL, CombatIcon.BLUE_SHIELD));
 					player.performGraphic(new Graphic(1750));
 					player.getPacketSender().sendMessage("The potion explodes in your face as you drop it!");
