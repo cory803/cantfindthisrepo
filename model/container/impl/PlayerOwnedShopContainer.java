@@ -94,11 +94,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		if (o == null)
 			return;
 
-		if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
-			player.getPacketSender().sendMessage("You can't sell items to this shop.");
-			return;
-		}
-
 		PosOffer offer = o.forId(item.getId());
 		if (offer != null)
 			finalValue = offer.getPrice();
