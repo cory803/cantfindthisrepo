@@ -13,7 +13,7 @@ public class PosOffer implements Comparable<PosOffer> {
 
 	public PosOffer(int itemId, int amount, int soldAmount, long price) {
 		this.itemId = itemId;
-		this.amount= amount;
+		this.amount = amount;
 		this.soldAmount = soldAmount;
 		this.price = price;
 	}

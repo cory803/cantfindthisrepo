@@ -56,6 +56,9 @@ public class PosOffers {
 	
 	public PosOffer forId(int id) {
 		for (PosOffer e : offers) {
+			if(e == null) {
+				continue;
+			}
 			if (e.getItemId() == id)
 				return e;
 		}
@@ -72,10 +75,17 @@ public class PosOffers {
 		out.writeInt(getOffers().size());
 		out.writeInt(getCoinsToCollect());
 		for(int i2 = 0; i2 < getOffers().size(); i2++) {
-			out.writeInt(getOffers().get(i2).getItemId());
-			out.writeInt(getOffers().get(i2).getAmount());
-			out.writeInt(getOffers().get(i2).getSoldAmount());
-			out.writeLong(getOffers().get(i2).getPrice());
+			if(getOffers().get(i2) == null) {
+				out.writeInt(-1);
+				out.writeInt(-1);
+				out.writeInt(-1);
+				out.writeLong(-1);
+			} else {
+				out.writeInt(getOffers().get(i2).getItemId());
+				out.writeInt(getOffers().get(i2).getAmount());
+				out.writeInt(getOffers().get(i2).getSoldAmount());
+				out.writeLong(getOffers().get(i2).getPrice());
+			}
 		}
 	}
 	

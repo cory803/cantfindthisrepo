@@ -21,6 +21,11 @@ public class BuyShards extends EnterAmount {
 			long cost = ItemDefinition.forId(18016).getValue() * amount;
 			long moneyAmount = player.getMoneyInPouch();
 			long canBeBought = moneyAmount / (ItemDefinition.forId(18016).getValue());
+			long totalShards = player.getInventory().getAmount(18016) + canBeBought;
+			if(totalShards > 2147000000) {
+				player.getPacketSender().sendMessage("You already have the max amount of spirit shards!");
+				return;
+			}
 			if(canBeBought >= amount)
 				canBeBought = amount;
 			if(canBeBought == 0) {

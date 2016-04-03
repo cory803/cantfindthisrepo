@@ -10,6 +10,7 @@ import com.ikov.model.Item;
 import com.ikov.model.Skill;
 import com.ikov.model.container.ItemContainer;
 import com.ikov.model.container.StackType;
+import com.ikov.model.container.impl.Shop.ShopManager;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.input.impl.EnterAmountToBuyFromShop;
 import com.ikov.model.input.impl.EnterAmountToSellToShop;
@@ -68,6 +69,69 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		this.name = name;
 		return this;
 	}
+
+	/**
+	 * Checks a value of an item in a shop
+	 * @param player		The player who's checking the item's value
+	 * @param slot			The shop item's slot (in the shop!)
+	 * @param sellingItem	Is the player selling the item?
+	 */
+	public void checkValue(Player player, int slot, boolean sellingItem) {
+		this.setPlayer(player);
+		Item shopItem = new Item(getItems()[slot].getId());
+		if(!player.isPlayerOwnedShopping()) {
+			player.getPacketSender().sendInterfaceRemoval();
+			return;
+		}
+		Item item = sellingItem ? player.getInventory().getItems()[slot] : getItems()[slot];
+		if(item.getId() == 995)
+			return;
+		long finalValue = 0;
+		PosOffers o = PlayerOwnedShops.SHOPS[index];
+		if (o == null)
+			return;
+		
+		if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
+			player.getPacketSender().sendMessage("You can't sell items to this shop.");
+			return;
+		}
+		
+		for (int q = 0; q < o.getOffers().size(); q++) {
+			if (o.getOffers().get(q) == null) {
+				continue;
+			}
+			if (o.getOffers().get(q).getItemId() == item.getId()) {
+				finalValue = o.getOffers().get(q).getPrice();
+			}
+		}
+		
+		if (item.getId() < 0)
+			return;
+		if(player!= null && finalValue > 0) {
+			player.getPacketSender().sendMessage("<col=CA024B>"+ItemDefinition.forId(item.getId()).getName()+"</col> is for sale for: <col=CA024B>"+formatAmount(finalValue)+" each.");
+			return;
+		}
+	}
+	
+	public final String formatAmount(long amount) {
+		String format = "Too high!";
+		if (amount >= 0 && amount < 100000) {
+			format = String.valueOf(amount);
+		} else if (amount >= 100000 && amount < 1000000) {
+			format = amount / 1000 + "K";
+		} else if (amount >= 1000000 && amount < 10000000000L) {
+			format = amount / 1000000 + "M";
+		} else if (amount >= 10000000000L && amount < 1000000000000L) {
+			format = amount / 1000000000 + "B";
+		} else if (amount >= 10000000000000L && amount < 10000000000000000L) {
+			format = amount / 1000000000000L + "T";
+		} else if (amount >= 10000000000000000L && amount < 1000000000000000000L) {
+			format = amount / 1000000000000000L + "QD";
+		} else if (amount >= 1000000000000000000L && amount < Long.MAX_VALUE) {
+			format = amount / 1000000000000000000L + "QT";
+		}
+		return format;
+	}	
 	
 	/**
 	 * Opens a shop for a player
@@ -134,6 +198,9 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		}
 		
 		for (int q = 0; q < o.getOffers().size(); q++) {
+			if (o.getOffers().get(q) == null) {
+				continue;
+			}
 			if (o.getOffers().get(q).getItemId() == itemId) {
 				price = o.getOffers().get(q).getPrice();
 			}
@@ -203,7 +270,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		int value = ItemDefinition.forId(item.getId()).getValue();
 		String currencyName = "";
 		playerCurrencyAmount = player.getInventory().getAmount(995);
-		PlayerLogs.log(player.getUsername(), "Player has bought the store item: "+item.getDefinition().getName()+" ("+item.getId()+"), amount: " + amountBuying);
 		currencyName = ItemDefinition.forId(currency.getId()).getName().toLowerCase();
 		if(player.getMoneyInPouch() >= value) {
 			playerCurrencyAmount = player.getMoneyInPouchAsInt();

@@ -23,9 +23,9 @@ public class PlayerOwnedShops {
 
 	public static void init() {
 		try {
-			SHOPS[0] = new PosOffers("Jonny", "Jonny's Shop", 2, 0, new PosOffer[] {new PosOffer(4151, 1, 0, 110000), new PosOffer(1050, 1, 0, 1170000)});
-			SHOPS[1] = new PosOffers("Blake", "Blake's Shop", 2, 0, new PosOffer[] {new PosOffer(4151, 1, 0, 123000), new PosOffer(1050, 1, 0, 121000)});
-			/*File file = new File("./data/saves/pos/shops.dat");
+			//SHOPS[0] = new PosOffers("Jonny", "Jonny's Shop", 2, 0, new PosOffer[] {new PosOffer(4151, 1, 0, 110000), new PosOffer(1050, 1, 0, 1170000)});
+			//SHOPS[1] = new PosOffers("Blake", "Blake's Shop", 2, 0, new PosOffer[] {new PosOffer(4151, 1, 0, 123000), new PosOffer(1050, 1, 0, 121000)});
+			File file = new File("./data/saves/pos/shops.dat");
 			if (!file.exists()) {
 				return;
 			}
@@ -44,7 +44,7 @@ public class PlayerOwnedShops {
 					SHOPS[i] = new PosOffers(owner_name, store_caption, shopItems, coins_to_collect, sell_offers);
 				}
 			}
-			in.close();*/
+			in.close();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -139,7 +139,7 @@ public class PlayerOwnedShops {
 			stockAmount[i] = 1;
 		}
 		
-		for (int i = 0; i<SHOPS.length; i++) {
+		for (int i = 0; i < SHOPS.length; i++) {
 			PosOffers o = SHOPS[i];
 			if (o == null) {
 				if(!opened_shop) {

@@ -138,8 +138,12 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			player.getInventory().switchItem(player.getBank(player.getCurrentBankTab()), item, slot, false, true);
 			break;
 		case Shop.ITEM_CHILD_ID:
-			if(player.getShop() != null)
+			if(player.getShop() != null) {
 				player.getShop().checkValue(player, slot, false);
+			} else if(player.getPlayerOwnedShop() != null) {
+				player.getPlayerOwnedShop().checkValue(player, slot, false);
+				return;
+			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if(player.getShop() != null)
