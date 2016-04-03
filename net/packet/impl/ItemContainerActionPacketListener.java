@@ -13,6 +13,7 @@ import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.model.input.impl.EnterAmountToBank;
+import com.ikov.model.input.impl.EnterAmountToBuyFromPos;
 import com.ikov.model.input.impl.EnterAmountToBuyFromShop;
 import com.ikov.model.input.impl.EnterAmountToPriceCheck;
 import com.ikov.model.input.impl.EnterAmountToRemoveFromBank;
@@ -233,10 +234,13 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			player.getInventory().switchItem(player.getBank(player.getCurrentBankTab()), item, slot, false, true);
 			break;
 		case Shop.ITEM_CHILD_ID:
-			if(player.getShop() == null)
-				return;
-			item = player.getShop().forSlot(slot).copy().setAmount(1).copy();
-			player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			if (player.getShop() != null) {
+				item = player.getShop().forSlot(slot).copy().setAmount(1).copy();
+				player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			} else if (player.getPlayerOwnedShop() != null) {
+				item = player.getPlayerOwnedShop().forSlot(slot).copy().setAmount(1).copy();
+				player.getPlayerOwnedShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if(player.isShopping()) {
@@ -367,10 +371,13 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			player.getInventory().switchItem(player.getBank(player.getCurrentBankTab()), item, slot, false, true);
 			break;
 		case Shop.ITEM_CHILD_ID:
-			if(player.getShop() == null)
-				return;
-			item = player.getShop().forSlot(slot).copy().setAmount(5).copy();
-			player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			if (player.getShop() != null) {
+				item = player.getShop().forSlot(slot).copy().setAmount(5).copy();
+				player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			} else if (player.getPlayerOwnedShop() != null) {
+				item = player.getPlayerOwnedShop().forSlot(slot).copy().setAmount(5).copy();
+				player.getPlayerOwnedShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if(player.isShopping()) {
@@ -477,10 +484,13 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			player.getInventory().switchItem(player.getBank(player.getCurrentBankTab()), item, slot, false, true);
 			break;
 		case Shop.ITEM_CHILD_ID:
-			if(player.getShop() == null)
-				return;
-			item = player.getShop().forSlot(slot).copy().setAmount(10).copy();
-			player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, true, true);
+			if (player.getShop() != null) {
+				item = player.getShop().forSlot(slot).copy().setAmount(10).copy();
+				player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			} else if (player.getPlayerOwnedShop() != null) {
+				item = player.getPlayerOwnedShop().forSlot(slot).copy().setAmount(10).copy();
+				player.getPlayerOwnedShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
+			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if(player.isShopping()) {
@@ -578,6 +588,10 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				player.setInputHandling(new EnterAmountToBuyFromShop(id, slot));
 				player.getPacketSender().sendEnterAmountPrompt("How many would you like to buy?");
 				player.getShop().setPlayer(player);
+			} else if (player.isPlayerOwnedShopping()) {
+				player.setInputHandling(new EnterAmountToBuyFromPos(id, slot));
+				player.getPacketSender().sendEnterAmountPrompt("How many would you like to buy?");
+				player.getPlayerOwnedShop().setPlayer(player);
 			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:

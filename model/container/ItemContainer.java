@@ -12,6 +12,7 @@ import com.ikov.model.Item;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Inventory;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 import com.ikov.model.container.impl.Shop;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.world.entity.impl.GroundItemManager;
@@ -340,7 +341,7 @@ public abstract class ItemContainer {
 			to.full();
 			return this;
 		}
-		if(this instanceof Shop) {
+		if(this instanceof Shop || this instanceof PlayerOwnedShopContainer) {
 			delete(item, slot, refresh, to);
 		}
 		to.add(item, refresh);

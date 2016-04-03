@@ -17,8 +17,10 @@ import com.ikov.model.input.impl.EnterAmountToSellToShop;
 import com.ikov.model.input.impl.EnterAmountOfPosOfferPrice;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
+import com.ikov.world.content.MoneyPouch;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.world.content.pos.PosOffer;
 import com.ikov.world.content.pos.PosOffers;
 import com.ikov.world.content.pos.PlayerOwnedShops;
 
@@ -34,6 +36,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		this.name = name + "'s store";
 		this.index = getIndex(name);
 		this.originalStock = new Item[stockItems.length];
+		this.currency = new Item(995);
 		for (int i = 0; i < stockItems.length; i++) {
 			Item item = new Item(stockItems[i].getId(), stockItems[i].getAmount());
 			add(item, false);
@@ -79,40 +82,35 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 	public void checkValue(Player player, int slot, boolean sellingItem) {
 		this.setPlayer(player);
 		Item shopItem = new Item(getItems()[slot].getId());
-		if(!player.isPlayerOwnedShopping()) {
+		if (!player.isPlayerOwnedShopping()) {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
 		Item item = sellingItem ? player.getInventory().getItems()[slot] : getItems()[slot];
-		if(item.getId() == 995)
+		if (item.getId() == 995)
 			return;
 		long finalValue = 0;
 		PosOffers o = PlayerOwnedShops.SHOPS[index];
 		if (o == null)
 			return;
-		
+
 		if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
 			player.getPacketSender().sendMessage("You can't sell items to this shop.");
 			return;
 		}
-		
-		for (int q = 0; q < o.getOffers().size(); q++) {
-			if (o.getOffers().get(q) == null) {
-				continue;
-			}
-			if (o.getOffers().get(q).getItemId() == item.getId()) {
-				finalValue = o.getOffers().get(q).getPrice();
-			}
-		}
+
+		PosOffer offer = o.forId(item.getId());
+		if (offer != null)
+			finalValue = offer.getPrice();
 		
 		if (item.getId() < 0)
 			return;
-		if(player!= null && finalValue > 0) {
-			player.getPacketSender().sendMessage("<col=CA024B>"+ItemDefinition.forId(item.getId()).getName()+"</col> is for sale for: <col=CA024B>"+formatAmount(finalValue)+" each.");
+		if (player != null && finalValue > 0) {
+			player.getPacketSender().sendMessage("<col=CA024B>" + ItemDefinition.forId(item.getId()).getName() + "</col> is for sale for: <col=CA024B>" + formatAmount(finalValue) + " each.");
 			return;
 		}
 	}
-	
+		
 	public final String formatAmount(long amount) {
 		String format = "Too high!";
 		if (amount >= 0 && amount < 100000) {
@@ -178,6 +176,10 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		if(amountToSell == 0)
 			return;
 		int itemId = itemToSell.getId();
+		if (!itemToSell.sellable() || !itemToSell.tradeable()) {
+			player.getPacketSender().sendMessage("You can't sell this item.");
+			return;
+		}
 		int count = 0;
 		boolean inventorySpace = false;
 		if(!itemToSell.getDefinition().isStackable()) {
@@ -191,20 +193,14 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		PosOffers o = PlayerOwnedShops.SHOPS[index];
 		if (o == null)
 			return;
-		
 		if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
 			player.getPacketSender().sendMessage("You can't sell items to this shop.");
 			return;
 		}
-		
-		for (int q = 0; q < o.getOffers().size(); q++) {
-			if (o.getOffers().get(q) == null) {
-				continue;
-			}
-			if (o.getOffers().get(q).getItemId() == itemId) {
-				price = o.getOffers().get(q).getPrice();
-			}
-		}
+
+		PosOffer offer = o.forId(itemId);
+		if (offer != null)
+			price = offer.getPrice();
 		
 		if (price < 0)
 			return;
@@ -249,7 +245,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 	}
 
 	/**
-	 * Buying an item from a shop
+	 * Buying an item from a pos
 	 */
 	@Override
 	public PlayerOwnedShopContainer switchItem(ItemContainer to, Item item, int slot, boolean sort, boolean refresh) {
@@ -267,10 +263,19 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			return this;
 		boolean usePouch = false;
 		int playerCurrencyAmount = 0;
-		int value = ItemDefinition.forId(item.getId()).getValue();
-		String currencyName = "";
+		
+		int value = 0;
+
+		PosOffers o = PlayerOwnedShops.SHOPS[index];
+		if (o == null)
+			return this;
+		
+		PosOffer offer = o.forId(item.getId());
+		if (offer != null)
+			value = (int) offer.getPrice();
+		
 		playerCurrencyAmount = player.getInventory().getAmount(995);
-		currencyName = ItemDefinition.forId(currency.getId()).getName().toLowerCase();
+		String currencyName = ItemDefinition.forId(currency.getId()).getName().toLowerCase();
 		if(player.getMoneyInPouch() >= value) {
 			playerCurrencyAmount = player.getMoneyInPouchAsInt();
 			if(!(player.getInventory().getFreeSlots() == 0 && player.getInventory().getAmount(995) == value)) {
@@ -280,54 +285,79 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		if(value <= 0) {
 			return this;
 		}
-		if(!hasInventorySpace(player, item, 995, value)) {
-			player.getPacketSender().sendMessage("You do not have any free inventory slots.");
-			return this;
-		}
-		if (playerCurrencyAmount <= 0 || playerCurrencyAmount < value) {
-			player.getPacketSender().sendMessage("You do not have enough " + ((currencyName.endsWith("s") ? (currencyName) : (currencyName + "s"))) + " to purchase this item.");
-			return this;
-		}
+		if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
+			if(!hasInventorySpace(player, item, 995, value)) {
+				player.getPacketSender().sendMessage("You do not have any free inventory slots.");
+				return this;
+			}
+			if (playerCurrencyAmount <= 0 || playerCurrencyAmount < value) {
+				player.getPacketSender().sendMessage("You do not have enough " + ((currencyName.endsWith("s") ? (currencyName) : (currencyName + "s"))) + " to purchase this item.");
+				return this;
+			}
 
-		for (int i = amountBuying; i > 0; i--) {
-			if(!item.getDefinition().isStackable()) {
-				if(playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, value)) {
-					if(usePouch) {
-						player.setMoneyInPouch((player.getMoneyInPouch() - value));
-					} else {
-						player.getInventory().delete(currency.getId(), value, false);
-					}
-					super.switchItem(to, new Item(item.getId(), 1), slot, false, false);
-					playerCurrencyAmount -= value;
-				} else {
-					break;
-				}
-			} else {
-				if(playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, value)) {
-					int canBeBought = playerCurrencyAmount / (value);
-					if(canBeBought >= amountBuying) {
-						canBeBought = amountBuying;
-					}
-					if(canBeBought == 0)
-						break;
-					
+			int total = 0;
+			for (int i = amountBuying; i > 0; i--) {
+				if(!item.getDefinition().isStackable()) {
+					if(playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, value)) {
 						if(usePouch) {
-							player.setMoneyInPouch((player.getMoneyInPouch() - (value * canBeBought)));
+							player.setMoneyInPouch((player.getMoneyInPouch() - value));
 						} else {
-							player.getInventory().delete(995, value * canBeBought, false);
+							player.getInventory().delete(currency.getId(), value, false);
 						}
-
-					super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
-					playerCurrencyAmount -= value;
-					break;
+						super.switchItem(to, new Item(item.getId(), 1), slot, false, false);
+						playerCurrencyAmount -= value;
+						total += value;
+					} else {
+						break;
+					}
 				} else {
-					break;
+					if(playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, value)) {
+						int canBeBought = playerCurrencyAmount / (value);
+						if(canBeBought >= amountBuying) {
+							canBeBought = amountBuying;
+						}
+						if(canBeBought == 0)
+							break;
+						
+							if(usePouch) {
+								player.setMoneyInPouch((player.getMoneyInPouch() - (value * canBeBought)));
+							} else {
+								player.getInventory().delete(995, value * canBeBought, false);
+							}
+
+						super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
+						playerCurrencyAmount -= value;
+						total += value;
+						break;
+					} else {
+						break;
+					}
+				}
+				amountBuying--;
+			}
+			Player owner = World.getPlayerByName(o.getOwner());
+			if (owner != null) {
+				owner.getPacketSender().sendMessage(formatAmount(total) + " Coins has been added to your money pouch!");
+				MoneyPouch.depositVote(owner, total);
+			} else {
+				//TODO: increase coins to collect & save?
+			}
+			if(usePouch) {
+				player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch()); //Update the money pouch
+			}
+		} else {
+			if (offer != null && offer.getAmount() > 0) {
+				if (item.getAmount() >= offer.getAmount()) {
+					if (o.removeOffer(o.forId(item.getId()))) {
+						super.switchItem(to, new Item(item.getId(), offer.getAmount()), slot, false, false);
+						player.getPacketSender().sendMessage("The item <col=CA024B>" + item.getDefinition().getName() + "</col> has been removed from your shop.");
+					}
+				} else {
+					offer.decreaseAmount(item.getAmount());
+					//System.out.println("Left " + offer.getAmount());
+					super.switchItem(to, new Item(item.getId(), item.getAmount()), slot, false, false);
 				}
 			}
-			amountBuying--;
-		}
-		if(usePouch) {
-			player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch()); //Update the money pouch
 		}
 		player.getInventory().refreshItems();
 		refreshItems();
@@ -452,4 +482,5 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 	 * to 'sell'.
 	 */
 	public static final int INVENTORY_INTERFACE_ID = 3823;
+
 }

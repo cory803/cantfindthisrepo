@@ -44,6 +44,15 @@ public class PosOffer implements Comparable<PosOffer> {
 	}
 	
 	/**
+	 * Decreases the item amount.
+	 * @param item_amount
+	 */
+	public void decreaseAmount(int item_amount) {
+		System.out.println("Decrease " + itemId + "; amount by " + item_amount);
+		this.amount -= item_amount;
+	}
+	
+	/**
 	 * Gets the sold amount
 	 * @return the sold amount
 	 */

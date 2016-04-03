@@ -99,9 +99,9 @@ public class PlayerOwnedShops {
 		if (o != null) {
 			PosOffer offer = o.forId(item_id);
 			if (offer != null) {
-				offer.increaseAmount(item_amount);
+				offer.increaseAmount(1);
 			} else {
-				if (!o.addOffer(new PosOffer(item_id, item_amount, 0, price)))
+				if (!o.addOffer(new PosOffer(item_id, 1, 0, price)))
 					player.getPacketSender().sendMessage("Shop full!");
 			}
 		} else {

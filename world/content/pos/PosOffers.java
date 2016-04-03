@@ -69,6 +69,10 @@ public class PosOffers {
 		return offers.add(o);
 	}
 	
+	public boolean removeOffer(PosOffer o) {
+		return offers.remove(o);
+	}
+	
 	public void save(DataOutputStream out) throws IOException {
 		out.writeUTF(getOwner());
 		out.writeUTF(getCaption());
