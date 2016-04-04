@@ -50,7 +50,8 @@ public class GameSettings {
 	
 	public static NPC advertiser_1;
 	public static NPC advertiser_2;
-	
+
+	public static int AUTH_AMOUNT = 1;
 	public static int AUTHS_CLAIMED = 0;
 	public static boolean FIGHT_PITS_ACTIVE = false;
 	

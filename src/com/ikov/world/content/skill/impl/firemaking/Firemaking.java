@@ -35,7 +35,8 @@ public class Firemaking {
 			player.getPacketSender().sendMessage("You can not light a fire in this area.");
 			return;
 		}
-		boolean objectExists = CustomObjects.objectExists(player.getPosition().copy());
+		//boolean objectExists = CustomObjects.objectExists(player.getPosition().copy());
+		boolean objectExists = CustomObjects.objectExists(new Position(player.getPosition().getLocalX()+1, (player.getPosition().getLocalY())));
 		if(!Dungeoneering.doingDungeoneering(player)) {
 			if(objectExists && !addingToFire || player.getPosition().getZ() > 0 || !player.getMovementQueue().canWalk(1, 0) && !player.getMovementQueue().canWalk(-1, 0) && !player.getMovementQueue().canWalk(0, 1) && !player.getMovementQueue().canWalk(0, -1)) {
 				player.getPacketSender().sendMessage("You can not light a fire here.");
