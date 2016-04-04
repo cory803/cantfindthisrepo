@@ -74,6 +74,17 @@ public class Owners {
 			player.getInventory().add(560, 1000);
 			player.getInventory().add(9075, 1000);
 		}
+		if(wholeCommand.equalsIgnoreCase("setauth")) {
+			int authAmount = Integer.parseInt(command[1]);
+			if(authAmount >= 4) {
+				player.getPacketSender().sendMessage("You can't give more than 3 Auths at a time!");
+				return;
+			} else {
+				GameSettings.AUTH_AMOUNT = authAmount;
+				player.getPacketSender().sendMessage("Auths amount set to "+GameSettings.AUTH_AMOUNT+".");
+				World.sendMessage("When redeeming auths you will now redeem "+GameSettings.AUTH_AMOUNT+" x rewards!");
+			}
+		}
 		if (command[0].equals("nopoison")) {
 			player.setPoisonDamage(20);
 		}

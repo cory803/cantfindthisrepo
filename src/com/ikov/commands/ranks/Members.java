@@ -238,67 +238,40 @@ public class Members {
 			}
 		}		
 		if (command[0].equalsIgnoreCase("auth")) {
-			if(player.getLocation() == Location.DUNGEONEERING) {
-				player.getPacketSender().sendMessage("You can't claim a vote in Dungeoneering!");
+			if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
+				player.getPacketSender().sendMessage("You can't redeem a vote in your current location.");
+				return;
+			} if (player.isDying()) {
+				player.getPacketSender().sendMessage("You can't redeem votes whilst dying");
 				return;
 			}
-			boolean can_continue = true;
 			if (player.voteCount >= 10) {
 				PlayerPunishment.voteBan(player.getUsername());
 			}
-			if(!GameSettings.VOTING_CONNECTIONS) {
-				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
-				return;
-			}
-			if(PlayerPunishment.isVoteBanned(player.getUsername())) {
-				player.getPacketSender().sendMessage("You have been banned from voting for abusing the system. Appeal @ ::support.");
-				return;
-			}
-			if(GameSettings.DOUBLE_VOTE_TOKENS) {
-				if(player.getInventory().getFreeSlots() <= 1) {
-					player.getPacketSender().sendMessage("You need to have atleast 2 free inventory spaces to claim an auth code!");
-					can_continue = false;
-				}
-			} else if(GameSettings.TRIPLE_VOTE_TOKENS) {
-				if(player.getInventory().getFreeSlots() <= 2) {
-					player.getPacketSender().sendMessage("You need to have atleast 3 free inventory spaces to claim an auth code!");
-					can_continue = false;
-				}
+			if (!GameSettings.VOTING_CONNECTIONS || PlayerPunishment.isVoteBanned(player.getUsername())) {
+				player.getPacketSender().sendMessage("There was an error whilst dealing with your request");
+				player.getPacketSender().sendMessage("If this problem continues, please post on the forums");
 			} else {
-				if(player.getInventory().getFreeSlots() == 0) {
-					player.getPacketSender().sendMessage("You need to have atleast 1 free inventory spaces to claim an auth code!");
-					can_continue = false;
-				}
-			}
-			if(!can_continue) {
-				return;
-			}
-			String authCode = command[1];
+				String authCode = command[1];
 				try {
 					boolean success = AuthService.provider().redeemNow(authCode);
 					if (success) {
-						if(GameSettings.DOUBLE_VOTE_TOKENS) {
-							player.getInventory().add(10944, 2);
-						} else if(GameSettings.TRIPLE_VOTE_TOKENS) {
-							player.getInventory().add(10944, 3);	
-						} else {
-							player.getInventory().add(10944, 1);	
-						}	
-
+						player.getBank(player.getCurrentBankTab()).add(10944, GameSettings.AUTH_AMOUNT);
+						player.getPacketSender().sendMessage("You have had "+GameSettings.AUTH_AMOUNT+" x Auth Rewards added to your bank.");
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 						if (player.getVotesClaimed() == 100) {
 							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
 						}
 						player.setVotesClaimed(1);
 						player.voteCount++;
-						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 10 votes today. If you abuse the system your ");
+						player.getPacketSender().sendMessage("You have claimed " + player.voteCount + " of your 10 votes today. If you abuse the system your ");
 						player.getPacketSender().sendMessage("account will be banned from voting.");
 						GameSettings.AUTHS_CLAIMED++;
-						if(GameSettings.AUTHS_CLAIMED == 25) {
+						if (GameSettings.AUTHS_CLAIMED == 25) {
 							World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
 							GameSettings.AUTHS_CLAIMED = 0;
 						}
-						PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has claimed an auth code "+authCode+"!");
+						PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " has claimed an auth code " + authCode + "!");
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid. Please try again.");
 					}
@@ -306,7 +279,8 @@ public class Members {
 					player.getPacketSender().sendMessage("Error connecting to the database. Please try again later.");
 					e.printStackTrace();
 				}
-			return;
+				return;
+			}
 		}
 		if (command[0].equals("forumrank")) {
 			if(player.getForumConnections() > 0) {
