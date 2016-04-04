@@ -1,4 +1,15 @@
 *.class
+*.bat
+*.classpath
+*.project
+.settings/
+bin/
+characters/
+punishments/
+data/saves/
+logs/
+/config.txt
+/data/mysql_connection.txt
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
