@@ -37,20 +37,23 @@ public class PosItemToBuy extends Input {
 		//0 = owner_name
 		//1 = owner_caption
 		
-		String item_searched = syntax;
-		int searchedItem = ItemDefinition.getIdContaining(item_searched);
-		if (searchedItem == -1)
+		String itemName = syntax;
+		if (itemName.length() < 3) {
+			player.getPacketSender().sendMessage("Your search must contain atleast 3 characters.");
 			return;
+		}
 		
 		Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
-		
 		for (PosOffers o : PlayerOwnedShops.SHOPS) {
 			if (o == null)
 				continue;
-			
-			for (int q = 0; q<o.getOffers().size(); q++) {
-				if (o.getOffers().get(q).getItemId() == searchedItem) {
-					foundOffers.put(new PosDetails(o.getOwner(), o.getCaption()), new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(), o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
+
+			for (int q = 0; q < o.getOffers().size(); q++) {
+				if (o.getOffers().get(q) != null && !o.getOwner().equalsIgnoreCase(player.getUsername())) {
+					ItemDefinition def = ItemDefinition.forId(o.getOffers().get(q).getItemId());
+					if (def != null && def.getName().toLowerCase().contains(itemName)) {
+						foundOffers.put(new PosDetails(o.getOwner(), o.getCaption()), new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(), o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
+					}
 				}
 			}
 		}
@@ -69,7 +72,7 @@ public class PosItemToBuy extends Input {
 			PosDetails pd = entry.getKey();
 			PosOffer p = entry.getValue();
 
-			String item_name = ItemDefinition.forId(p.getItemId()).name;
+			String item_name = ItemDefinition.forId(p.getItemId()).getName();
 			start_button += 4;
 			start_caption += 4;
 			start_owner_name += 4;
@@ -82,6 +85,12 @@ public class PosItemToBuy extends Input {
 			player.getPacketSender().sendString(search_results_values[index][2], search_results_strings[index][1]);
 			index++;
 		}
+		
+		for (int i = start_owner_name + 4; i<41868; i++)
+			player.getPacketSender().sendString(i, "");
+		
+		for (int i = start_caption + 4; i<41869; i++)
+			player.getPacketSender().sendString(i, "");
 		
 		player.getPacketSender().sendMessage("Does nothing yet");
 	}

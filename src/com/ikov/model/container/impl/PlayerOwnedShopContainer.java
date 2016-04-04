@@ -297,7 +297,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						if(usePouch) {
 							player.setMoneyInPouch((player.getMoneyInPouch() - value));
 						} else {
-							player.getInventory().delete(currency.getId(), value, false);
+							player.getInventory().delete(995, value, false);
 						}
 						super.switchItem(to, new Item(item.getId(), 1), slot, false, false);
 						playerCurrencyAmount -= value;

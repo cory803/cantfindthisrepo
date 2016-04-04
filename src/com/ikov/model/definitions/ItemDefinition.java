@@ -333,25 +333,4 @@ public class ItemDefinition {
 				+ value + "; stackable ? " + Boolean.toString(stackable) + "; noted ? " + Boolean.toString(noted) + "; 2h ? " + isTwoHanded;
 	}
 	
-	public static int getItemId(String itemName) {
-		for (int i = 0; i < MAX_AMOUNT_OF_ITEMS; i++) {
-			if (definitions[i] != null) {
-				if (definitions[i].getName().equalsIgnoreCase(itemName)) {
-					return definitions[i].getId();
-				}
-			}
-		}
-		return -1;
-	}
-	
-	public static int getIdContaining(String itemName) {
-		for (int i = 0; i < MAX_AMOUNT_OF_ITEMS; i++) {
-			if (definitions[i] != null) {
-				if (definitions[i].getName().toLowerCase().contains(itemName.toLowerCase())) {
-					return definitions[i].getId();
-				}
-			}
-		}
-		return -1;
-	}
 }
