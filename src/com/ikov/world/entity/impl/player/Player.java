@@ -372,6 +372,7 @@ public class Player extends Character {
 	private final Stopwatch forumDelay = new Stopwatch();
 	private final Stopwatch lastItemPickup = new Stopwatch();
 	private final Stopwatch lastVengeance = new Stopwatch();
+	private final Stopwatch lastAuth = new Stopwatch();
 	private final Stopwatch emoteDelay = new Stopwatch();
 	private final Stopwatch specialRestoreTimer = new Stopwatch();
 	private final Stopwatch lastSummon = new Stopwatch();
@@ -1174,7 +1175,6 @@ public class Player extends Character {
 	}
 
 	/**
-	 * @param rangedAmmo
 	 *            the rangedAmmo to set
 	 */
 	public void setRangedWeaponData(RangedWeaponData rangedWeaponData) {
@@ -1709,6 +1709,10 @@ public class Player extends Character {
 
 	public Stopwatch getLastVengeance() {
 		return lastVengeance;
+	}
+
+	public Stopwatch getLastAuthTime() {
+		return lastAuth;
 	}
 
 	public Stopwatch getTolerance() {

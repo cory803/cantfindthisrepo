@@ -23,6 +23,8 @@ import com.ikov.world.content.combat.DesolaceFormulas;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 
+import java.util.concurrent.TimeUnit;
+
 public class Members {
 	
 	/**
@@ -241,6 +243,9 @@ public class Members {
 			if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
 				player.getPacketSender().sendMessage("You can't redeem a vote in your current location.");
 				return;
+			} if(!player.getLastAuthTime().elapsed(30000)) {
+					player.getPacketSender().sendMessage("You must wait another "+Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS)+" seconds attempting to vote again.");
+					return;
 			} if (player.isDying()) {
 				player.getPacketSender().sendMessage("You can't redeem votes whilst dying");
 				return;
@@ -251,6 +256,7 @@ public class Members {
 			if (!GameSettings.VOTING_CONNECTIONS || PlayerPunishment.isVoteBanned(player.getUsername())) {
 				player.getPacketSender().sendMessage("There was an error whilst dealing with your request");
 				player.getPacketSender().sendMessage("If this problem continues, please post on the forums");
+				player.getLastVengeance().reset();
 			} else {
 				String authCode = command[1];
 				try {
@@ -259,6 +265,7 @@ public class Members {
 						player.getBank(player.getCurrentBankTab()).add(10944, GameSettings.AUTH_AMOUNT);
 						player.getPacketSender().sendMessage("You have had "+GameSettings.AUTH_AMOUNT+" x Auth Rewards added to your bank.");
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
+						player.getLastVengeance().reset();
 						if (player.getVotesClaimed() == 100) {
 							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
 						}
@@ -274,9 +281,11 @@ public class Members {
 						PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " has claimed an auth code " + authCode + "!");
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid. Please try again.");
+						player.getLastVengeance().reset();
 					}
 				} catch (Exception e) {
 					player.getPacketSender().sendMessage("Error connecting to the database. Please try again later.");
+					player.getLastVengeance().reset();
 					e.printStackTrace();
 				}
 				return;

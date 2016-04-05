@@ -49,7 +49,6 @@ public enum SlayerTasks {
 	BLOODVELD(SlayerMaster.DURADEL, 1618, "Bloodvelds can be found in Slayer Tower.", 7200, new Position(3418, 3570, 1)),
 	INFERNAL_MAGE(SlayerMaster.DURADEL, 1643, "Infernal Mages can be found in Slayer Tower.", 7000, new Position(3445, 3579, 1)),
 	ABERRANT_SPECTRE(SlayerMaster.DURADEL, 1604, "Aberrant Spectres can be found in Slayer Tower.", 7300, new Position(3432, 3553, 1)),
-	//NECHRYAEL(SlayerMaster.DURADEL, 1613, "Nechryaels can be found in Slayer Tower.", 7800, new Position(3448, 3564, 2)),
 	GARGOYLE(SlayerMaster.DURADEL, 1610, "Gargoyles can be found in Slayer Tower.", 8100, new Position(3438, 3534, 2)),
 	TZHAAR_XIL(SlayerMaster.DURADEL, 2605, "TzHaar-Xils can be found in Tzhaar City.", 9000, new Position(2445, 5147)),
 	TZHAAR_HUR(SlayerMaster.DURADEL, 2600, "TzHaar-Hurs can be found in Tzhaar City.", 7900, new Position(2456, 5135)),
@@ -58,11 +57,12 @@ public enum SlayerTasks {
 	DUST_DEVIL(SlayerMaster.DURADEL, 1624, "Dust Devils can be found in the Training Teleport", 9500, new Position(3279, 2964)),
 	JUNGLE_STRYKEWYRM(SlayerMaster.DURADEL, 9467, "Strykewyrms can be found in the Strykewyrm Cavern", 10874, new Position(2731, 5095)),
 	DESERT_STRYKEWYRM(SlayerMaster.DURADEL, 9465, "Strykewyrms can be found in the Strykewyrm Cavern.", 11120, new Position(2731, 5095)),
+	ABYSSAL_DEMON(SlayerMaster.DURADEL, 1615, "Abyssal Demons can be found in Slayer Tower.", 15600, new Position(3418, 3564, 2)),
+	DARK_BEAST(SlayerMaster.DURADEL, 1615, "Dark Beasts can be found in Slayer Tower.", 16000, new Position(3423, 3550, 2)),
 
 	/**
 	 * Hard tasks
 	 */
-	MONKEY_GUARD(SlayerMaster.KURADEL, 1459, "Monkey Guards can be found in the Training Teleport", 14000, new Position(2795, 2775)),
 	WATERFIEND(SlayerMaster.KURADEL, 5361, "Waterfiends can be found in the Ancient Cavern.", 13400, new Position(1737, 5353)),
 	ICE_STRYKEWYRM(SlayerMaster.KURADEL, 9463, "Strykewyrms can be found in the Strykewyrm Cavern.", 13877, new Position(2731, 5095)),
 	STEEL_DRAGON(SlayerMaster.KURADEL, 1592, "Steel dragons can be found in Brimhaven Dungeon.", 15600, new Position(2710, 9441)),
@@ -71,13 +71,20 @@ public enum SlayerTasks {
 	SKELETON_WARLORD(SlayerMaster.KURADEL, 6105, "Skeleton Warlords can be found in the Ancient Cavern.", 14400, new Position(1763, 5358)),
 	SKELETON_BRUTE(SlayerMaster.KURADEL, 6104, "Skeleton Brutes can be found in the Ancient Cavern.", 14400, new Position(1788, 5335)),
 	AVIANSIE(SlayerMaster.KURADEL, 6246, "Aviansies can be found in the Godwars Dungeon.", 14600, new Position(2868, 5268, 2)),
-	FROST_DRAGON(SlayerMaster.KURADEL, 51, "Frost Dragons can be found in the deepest of Wilderness.", 22570, new Position(2968, 3902)),
-
+	NECHRYAEL(SlayerMaster.KURADEL, 1613, "Nechryaels can be found in Slayer Tower.", 14600, new Position(3448, 3564, 2)),
+	ABYSSAL_DEMON2(SlayerMaster.KURADEL, 1615, "Abyssal Demons can be found in Slayer Tower.", 15600, new Position(3418, 3564, 2)),
+	DARK_BEAST2(SlayerMaster.KURADEL, 1615, "Dark Beasts can be found in Slayer Tower.", 16000, new Position(3423, 3550, 2)),
+	GARGOYLE2(SlayerMaster.KURADEL, 1610, "Gargoyles can be found in Slayer Tower.", 10400, new Position(3438, 3534, 2)),
+	ABERRANT_SPECTRE2(SlayerMaster.KURADEL, 1604, "Aberrant Spectres can be found in Slayer Tower.", 10400, new Position(3432, 3553, 1)),
+	HELLHOUND2(SlayerMaster.KURADEL, 49, "Hellhounds can be found in Taverly Dungeon.", 9400, new Position(2870, 9848)),
 	/**
 	 * Elite
 	 */
 	NEX(SlayerMaster.SUMONA, 13447, "Nex can be found in the Godwars Dungeon.", 100000, new Position(2903, 5203)),
 	GENERAL_GRAARDOR(SlayerMaster.SUMONA, 6260, "General Graardor can be found in the Godwars Dungeon.", 68000, new Position(2863, 5354, 2)),
+	KRIL_TSUTSAROTH(SlayerMaster.SUMONA, 6203, "K'ril Tsutsaroth can be found in the Godwars Dungeon.", 68000, new Position(2925, 5332, 2)),
+	COMMANDER_ZILYANA(SlayerMaster.SUMONA, 6247, "Commander Zilyana can be found in the Godwars Dungeon.", 68000, new Position(2908, 5265, 0)),
+	KREE_ARRA(SlayerMaster.SUMONA, 6222, "Kree'Arra can be found in the Godwars Dungeon.", 68000, new Position(2839, 5295, 2)),
 	TORMENTED_DEMON(SlayerMaster.SUMONA, 8349, "Tormented Demons can be found using the Boss teleport.", 40000, new Position(2602, 5713)),
 	KING_BLACK_DRAGON(SlayerMaster.SUMONA, 50, "The King Black Dragon can be found using the Boss teleport.", 26000, new Position(2273, 4680, 1)),
 	DAGANNOTH_SUPREME(SlayerMaster.SUMONA, 2881, "The Dagannoth Kings can be found using the Boss teleport.", 26000, new Position(1908, 4367)),
@@ -167,16 +174,16 @@ public enum SlayerTasks {
 			slayerTaskId = 1 + Misc.getRandom(easyTasks);
 			if(slayerTaskId > easyTasks)
 				slayerTaskId = easyTasks;
-			slayerTaskAmount = 15 + Misc.getRandom(15);
+			slayerTaskAmount = Misc.exclusiveRandom(10, 30);
 		} else if(master == SlayerMaster.DURADEL) {
 			slayerTaskId = easyTasks - 1 + Misc.getRandom(mediumTasks);
-			slayerTaskAmount = 12 + Misc.getRandom(13);
+			slayerTaskAmount = Misc.exclusiveRandom(50, 90);
 		} else if(master == SlayerMaster.KURADEL) {
 			slayerTaskId = 1 + easyTasks + mediumTasks + Misc.getRandom(hardTasks - 1);
-			slayerTaskAmount = 10 + Misc.getRandom(15);
+			slayerTaskAmount = Misc.exclusiveRandom(90, 150);
 		} else if(master == SlayerMaster.SUMONA) {
 			slayerTaskId = 1 + easyTasks + mediumTasks + hardTasks + Misc.getRandom(eliteTasks - 1);
-			slayerTaskAmount = 2 + Misc.getRandom(7);
+			slayerTaskAmount = Misc.exclusiveRandom(5, 25);
 		}
 		return new int[] {slayerTaskId, slayerTaskAmount};
 	}

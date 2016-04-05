@@ -64,11 +64,6 @@ public class ItemActionPacketListener implements PacketListener {
 			Construction.handleItemClick(itemId, player);
 			return;
 		}
-		if(!player.getDragonSpear().elapsed(3000)) {
-			player.getMovementQueue().reset();
-			player.getPacketSender().sendMessage("You can't do that, you're stunned!");
-			return;
-		}
 		if(slot < 0 || slot > player.getInventory().capacity())
 			return;
 		if(player.getInventory().getItems()[slot].getId() != itemId)
@@ -76,6 +71,10 @@ public class ItemActionPacketListener implements PacketListener {
 		player.setInteractingItem(player.getInventory().getItems()[slot]);
 		if (Prayer.isBone(itemId)) {
 			Prayer.buryBone(player, itemId);
+			return;
+		}
+		if(!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You can't do that, you're stunned!");
 			return;
 		}
 		if (Consumables.isFood(player, itemId, slot))

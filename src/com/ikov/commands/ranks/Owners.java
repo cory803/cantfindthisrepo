@@ -74,7 +74,10 @@ public class Owners {
 			player.getInventory().add(560, 1000);
 			player.getInventory().add(9075, 1000);
 		}
-		if(wholeCommand.equalsIgnoreCase("setauth")) {
+		if(wholeCommand.equalsIgnoreCase("checkauths")) {
+			player.getPacketSender().sendMessage("The current amount of rewards is "+GameSettings.AUTH_AMOUNT+".");
+		}
+		if(command[0].equals("setauth")) {
 			int authAmount = Integer.parseInt(command[1]);
 			if(authAmount >= 4) {
 				player.getPacketSender().sendMessage("You can't give more than 3 Auths at a time!");
@@ -292,8 +295,9 @@ public class Owners {
 			}
 						if(GameSettings.DOUBLE_VOTE_TOKENS) {
 							player.getInventory().add(10944, 2);
+							player.getLastAuthTime().reset();
 						} else {
-							player.getInventory().add(10944, 1);	
+							player.getInventory().add(10944, GameSettings.AUTH_AMOUNT);
 						}
 						player.setVotesClaimed(1);
 						player.voteCount++;
