@@ -11,9 +11,14 @@ import com.ikov.world.entity.impl.player.PlayerLoading;
 public final class LoginResponses {
 	
 	public static final int getResponse(Player player, LoginDetailsMessage msg) {
+		int playerLoadingResponse = PlayerLoading.getResult(player);
 		if (World.getPlayers().isFull()) {
 			return LOGIN_WORLD_FULL;
-		} 
+		}
+		if(GameSettings.ANTI_FLOOD >= 1 && playerLoadingResponse == NEW_ACCOUNT) {
+			System.out.println("Anti-Flood enabled!");
+			return LOGIN_SERVER_OFFLINE;
+		}
 		if(GameServer.isUpdating()) {
 			return LOGIN_GAME_UPDATE;
 		} 
@@ -31,7 +36,6 @@ public final class LoginResponses {
 		}
 		
 		/** CHAR FILE LOADING **/
-		int playerLoadingResponse = PlayerLoading.getResult(player);
 		if(playerLoadingResponse != LOGIN_SUCCESSFUL && playerLoadingResponse != NEW_ACCOUNT) {
 			return playerLoadingResponse;
 		}
@@ -118,7 +122,6 @@ public final class LoginResponses {
 	
 	/**
 	 * This login opcode is used when the connections
-	 * from an ip address has exceeded {@link org.desolace.net.NetworkConstants.MAXIMUM_CONNECTIONS}.
 	 */
 	public static final int LOGIN_CONNECTION_LIMIT = 9;
 	

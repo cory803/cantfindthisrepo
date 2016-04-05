@@ -26,7 +26,6 @@ import com.ikov.world.World;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
- * A {@link org.niobe.net.StatefulFrameDecoder} which decodes
  * the login requests.
  *
  * @author Gabriel Hannason

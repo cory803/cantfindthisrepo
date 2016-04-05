@@ -88,6 +88,16 @@ public class Owners {
 				World.sendMessage("When redeeming auths you will now redeem "+GameSettings.AUTH_AMOUNT+" x rewards!");
 			}
 		}
+		if(command[0].equals("antiflood")) {
+			int flood = Integer.parseInt(command[1]);
+			if(flood > 1) {
+				player.getPacketSender().sendMessage("1 for on, 0 for off");
+				return;
+			} else {
+				GameSettings.ANTI_FLOOD = flood;
+				player.getPacketSender().sendMessage("Anti flood set to: "+GameSettings.ANTI_FLOOD+".");
+			}
+		}
 		if (command[0].equals("nopoison")) {
 			player.setPoisonDamage(20);
 		}
