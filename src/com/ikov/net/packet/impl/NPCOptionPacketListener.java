@@ -739,15 +739,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					TeleportHandler.teleportPlayer(player,new Position(2911, 4832), player.getSpellbook().getTeleportType());
 					break;
 				case 2127:
-					//Store Caption
-					for(int caption_index = 41869; caption_index > 41469; caption_index -= 4) {
-						player.getPacketSender().sendString(caption_index, "");
-					}
-					//Store Owner
-					for(int owner_name_index = 41868; owner_name_index > 41468; owner_name_index -= 4) {
-						player.getPacketSender().sendString(owner_name_index, "");
-					}
-					player.getPacketSender().sendInterface(41409);
+					PlayerOwnedShops.openItemSearch(player);
 					break;
 				case 3101:
 					DialogueManager.start(player, 95);

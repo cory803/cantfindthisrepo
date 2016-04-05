@@ -13,7 +13,7 @@ public class ActionHandler {
 	/**
 	 * A map containing all the available actions.
 	 */
-	private HashMap<Object, Action> actions = new HashMap<Object, Action>();
+	private HashMap<Integer, ButtonAction> actions = new HashMap<Integer, ButtonAction>();
 
 	/**
 	 * The instance.
@@ -24,12 +24,12 @@ public class ActionHandler {
 	 * Submits a new action into the actions map.
 	 * 
 	 * @param key
-	 *            the identifier of this action.
+	 *            the id of the button
 	 * @param action
 	 *            the action
 	 */
-	public void submit(Object key, Action action) {
-		actions.put(key, action);
+	public void submit(int id, ButtonAction action) {
+		actions.put(id, action);
 	}
 
 	/**
@@ -38,7 +38,7 @@ public class ActionHandler {
 	 * @param key
 	 * @return
 	 */
-	public Action getAction(Object key) {
+	public ButtonAction getAction(Object key) {
 		return actions.get(key);
 	}
 

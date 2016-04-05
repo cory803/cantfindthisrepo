@@ -3,11 +3,11 @@ package com.ikov.model.actions;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
- * Represents an action performed by the player.
+ * Represents a button click performed by the player.
  * @author Blake
  *
  */
-public interface Action {
+public interface ButtonAction {
 	
 	public void handle(Player player);
 

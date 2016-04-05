@@ -46,14 +46,6 @@ public class PosOffers {
 		return offers;
 	}
 	
-	public boolean containsItem(int itemId) {
-		for (PosOffer e : offers) {
-			if (e.getItemId() == itemId)
-				return true;
-		}
-		return false;
-	}
-	
 	public PosOffer forId(int id) {
 		for (PosOffer e : offers) {
 			if(e == null) {

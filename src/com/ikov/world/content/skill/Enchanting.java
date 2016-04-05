@@ -1,7 +1,7 @@
 package com.ikov.world.content.skill;
 
 import com.ikov.model.Skill;
-import com.ikov.model.actions.Action;
+import com.ikov.model.actions.ButtonAction;
 import com.ikov.model.actions.ActionHandler;
 import com.ikov.model.Item;
 import com.ikov.world.entity.impl.player.Player;
@@ -111,7 +111,7 @@ public class Enchanting {
 	
 	static {
 		for (Data d : Data.values()) {
-			ActionHandler.getActionHandler().submit(d.getButtonId(), new Action() {
+			ActionHandler.getActionHandler().submit(d.getButtonId(), new ButtonAction() {
 
 				@Override
 				public void handle(Player player) {

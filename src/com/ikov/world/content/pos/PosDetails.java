@@ -6,12 +6,22 @@ package com.ikov.world.content.pos;
  */
 public class PosDetails {
 	
+	private int buttonId;
 	private String owner;
 	private String caption;
 	
-	public PosDetails(String owner, String caption) {
+	public PosDetails(int buttonId, String owner, String caption) {
+		this.buttonId = buttonId;
 		this.owner = owner;
 		this.caption = caption;
+	}
+	
+	/**
+	 * Gets the button id.
+	 * @return the button id
+	 */
+	public int getButtonId() {
+		return buttonId;
 	}
 
 	/**

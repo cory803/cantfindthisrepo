@@ -57,7 +57,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		int id = packet.readShortA();
 		Item item = new Item(id);
 		if(GameSettings.DEBUG_MODE) {
-			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: First Action - "+id+" - "+interfaceId+" - "+slot+"");
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: First ButtonAction - "+id+" - "+interfaceId+" - "+slot+"");
 		}
 		switch (interfaceId) {
 		case GrandExchange.COLLECT_ITEM_PURCHASE_INTERFACE:
@@ -199,7 +199,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		int id = packet.readLEShortA();
 		int slot = packet.readLEShort();
 		if(GameSettings.DEBUG_MODE) {
-			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Second Action - "+id+" - "+interfaceId+" - "+slot+"");
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Second ButtonAction - "+id+" - "+interfaceId+" - "+slot+"");
 		}
 		Item item = new Item(id);
 		switch (interfaceId) {
@@ -300,7 +300,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		int id = packet.readShortA();
 		int slot = packet.readShortA();
 		if(GameSettings.DEBUG_MODE) {
-			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Third Action - "+id+" - "+interfaceId+" - "+slot+"");
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Third ButtonAction - "+id+" - "+interfaceId+" - "+slot+"");
 		}
 		Item item1 = new Item(id);
 		switch (interfaceId) {
@@ -438,7 +438,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		int interfaceId = packet.readShort();
 		int id = packet.readShortA();
 		if(GameSettings.DEBUG_MODE) {
-			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Fourth Action - "+id+" - "+interfaceId+" - "+slot+"");
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Fourth ButtonAction - "+id+" - "+interfaceId+" - "+slot+"");
 		}
 		switch (interfaceId) {
 		case Trading.INTERFACE_ID:
@@ -540,7 +540,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		int interfaceId = packet.readShortA();
 		int id = packet.readLEShort();
 		if(GameSettings.DEBUG_MODE) {
-			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Fifth Action - "+id+" - "+interfaceId+" - "+slot+"");
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Fifth ButtonAction - "+id+" - "+interfaceId+" - "+slot+"");
 		}
 		switch (interfaceId) {
 		case Trading.INTERFACE_ID:
@@ -644,7 +644,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		int slot = packet.readShortA();
 		int id = packet.readShortA();
 		if(GameSettings.DEBUG_MODE) {
-			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Sixth Action - "+id+" - "+interfaceId+" - "+slot+"");
+			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in ItemContainerActionPacketListener: Sixth ButtonAction - "+id+" - "+interfaceId+" - "+slot+"");
 		}
 		switch (interfaceId) {
 		case Bank.INTERFACE_ID:

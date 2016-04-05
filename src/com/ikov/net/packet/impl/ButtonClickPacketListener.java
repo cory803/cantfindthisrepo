@@ -4,7 +4,7 @@ import com.ikov.GameSettings;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
-import com.ikov.model.actions.Action;
+import com.ikov.model.actions.ButtonAction;
 import com.ikov.model.actions.ActionHandler;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Bank.BankSearchAttributes;
@@ -83,7 +83,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Clicked button: "+id);
 		}
 		
-		Action action = ActionHandler.getActionHandler().getAction(id);
+		ButtonAction action = ActionHandler.getActionHandler().getAction(id);
 		if (action != null) {
 			action.handle(player);
 			return;
