@@ -35,11 +35,11 @@ public class ActionHandler {
 	/**
 	 * Gets an action from the map.
 	 * 
-	 * @param key
+	 * @param buttonId
 	 * @return
 	 */
-	public ButtonAction getAction(Object key) {
-		return actions.get(key);
+	public ButtonAction getAction(int buttonId) {
+		return actions.get(buttonId);
 	}
 
 	/**
