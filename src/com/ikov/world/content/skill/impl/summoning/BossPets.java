@@ -41,8 +41,7 @@ public class BossPets {
 		PET_YELLOW_ROCK_CRAB(5512, 5556, 13006),
 		PET_ORANGE_ROCK_CRAB(5513, 5557, 13007),
 		PET_PURPLE_ROCK_CRAB(5514, 5558, 13008),
-		PET_RACCOON(6914, 5559, 12487)
-		;
+		PET_RACCOON(5559, 5559, 12487);
 		
 		BossPet(int npcId, int spawnNpcId, int itemId) {
 			this.npcId = npcId;
