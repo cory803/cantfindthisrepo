@@ -85,7 +85,7 @@ public enum SlayerTasks {
 	KRIL_TSUTSAROTH(SlayerMaster.SUMONA, 6203, "K'ril Tsutsaroth can be found in the Godwars Dungeon.", 68000, new Position(2925, 5332, 2)),
 	COMMANDER_ZILYANA(SlayerMaster.SUMONA, 6247, "Commander Zilyana can be found in the Godwars Dungeon.", 68000, new Position(2908, 5265, 0)),
 	KREE_ARRA(SlayerMaster.SUMONA, 6222, "Kree'Arra can be found in the Godwars Dungeon.", 68000, new Position(2839, 5295, 2)),
-	TORMENTED_DEMON(SlayerMaster.SUMONA, 8349, "Tormented Demons can be found using the Boss teleport.", 40000, new Position(2602, 5713)),
+	TORMENTED_DEMON(SlayerMaster.SUMONA, 8349, "Tormented Demons can be found using the Boss teleport.", 40000, new Position(2718, 9820)),
 	KING_BLACK_DRAGON(SlayerMaster.SUMONA, 50, "The King Black Dragon can be found using the Boss teleport.", 26000, new Position(2273, 4680, 1)),
 	DAGANNOTH_SUPREME(SlayerMaster.SUMONA, 2881, "The Dagannoth Kings can be found using the Boss teleport.", 26000, new Position(1908, 4367)),
 	DAGANNOTH_REX(SlayerMaster.SUMONA, 2883, "The Dagannoth Kings can be found using the Boss teleport.", 26000, new Position(1908, 4367)),
