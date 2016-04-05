@@ -7,6 +7,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Stream;
 
+import com.ikov.model.actions.ButtonAction;
+import com.ikov.model.actions.ActionHandler;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.input.Input;
 import com.ikov.world.content.pos.PlayerOwnedShops;
@@ -15,44 +17,37 @@ import com.ikov.world.content.pos.PosOffer;
 import com.ikov.world.content.pos.PosOffers;
 import com.ikov.world.entity.impl.player.Player;
 
-public class PosItemToBuy extends Input {
+public class PosItemSearch extends Input {
 
+	private static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
+	
 	@Override
 	public void handleSyntax(Player player, String syntax) {
 		if(syntax.length() <= 1) {
 			player.getPacketSender().sendMessage("Invalid syntax entered.");
 			return;
 		}
-		int start_button = 23666;
+		int start_button = -24062;
 		int start_owner_name = 41468;
 		int start_caption = 41469;
 		int index = 0;
-		
-		int[][] search_results_values = new int[100][3];
-		//0 = start_button
-		//1 = start_owner_name
-		//2 = start_caption
-
-		String[][] search_results_strings = new String[100][2];
-		//0 = owner_name
-		//1 = owner_caption
 		
 		String itemName = syntax;
 		if (itemName.length() < 3) {
 			player.getPacketSender().sendMessage("Your search must contain atleast 3 characters.");
 			return;
 		}
-		
-		Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
+		reset();
 		for (PosOffers o : PlayerOwnedShops.SHOPS) {
 			if (o == null)
 				continue;
-
+			
 			for (int q = 0; q < o.getOffers().size(); q++) {
 				if (o.getOffers().get(q) != null && !o.getOwner().equalsIgnoreCase(player.getUsername())) {
 					ItemDefinition def = ItemDefinition.forId(o.getOffers().get(q).getItemId());
 					if (def != null && def.getName().toLowerCase().contains(itemName)) {
-						foundOffers.put(new PosDetails(o.getOwner(), o.getCaption()), new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(), o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
+						foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()), new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(), o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
+						start_button += 4;
 					}
 				}
 			}
@@ -71,18 +66,11 @@ public class PosItemToBuy extends Input {
 			}
 			PosDetails pd = entry.getKey();
 			PosOffer p = entry.getValue();
-
 			String item_name = ItemDefinition.forId(p.getItemId()).getName();
-			start_button += 4;
 			start_caption += 4;
 			start_owner_name += 4;
-			search_results_values[index][0] = start_button;
-			search_results_values[index][1] = start_owner_name;
-			search_results_values[index][2] = start_caption;
-			search_results_strings[index][0] = pd.getOwner();
-			search_results_strings[index][1] = "Found: " + item_name + " for " + formatAmount(p.getPrice()) + "";
-			player.getPacketSender().sendString(search_results_values[index][1], search_results_strings[index][0]);
-			player.getPacketSender().sendString(search_results_values[index][2], search_results_strings[index][1]);
+			player.getPacketSender().sendString(start_owner_name, pd.getOwner());
+			player.getPacketSender().sendString(start_caption, "Found: " + item_name + " for " + formatAmount(p.getPrice()));
 			index++;
 		}
 		
@@ -92,7 +80,6 @@ public class PosItemToBuy extends Input {
 		for (int i = start_caption + 4; i<41869; i++)
 			player.getPacketSender().sendString(i, "");
 		
-		player.getPacketSender().sendMessage("Does nothing yet");
 	}
 	
 	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
@@ -122,6 +109,38 @@ public class PosItemToBuy extends Input {
 			format = amount / 1000000000000000000L + "QT";
 		}
 		return format;
+	}
+	
+	public static PosDetails forId(int i) {
+		for (Map.Entry<PosDetails, PosOffer> map : foundOffers.entrySet()) {
+			PosDetails pd = map.getKey();
+			if (pd.getButtonId() == i)
+				return pd;
+		}
+		return null;
+	}
+	
+	public static void reset() {
+		foundOffers.clear();
+	}
+	
+	static {
+		for (int i = -24062; i < -23666; i += 4) {
+			final int buttonId = i;
+			ActionHandler.getActionHandler().submit(i, new ButtonAction() {
+
+				@Override
+				public void handle(Player player) {
+					if (foundOffers.size() > 0) {
+						PosDetails pd = forId(buttonId);
+						if (pd != null) {
+							PlayerOwnedShops.openShop(pd.getOwner(), player);
+						}
+					}
+				}
+
+			});
+		}
 	}
 	
 }

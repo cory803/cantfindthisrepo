@@ -9,7 +9,7 @@ import java.io.FileOutputStream;
 import com.ikov.model.Item;
 import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 import com.ikov.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
-import com.ikov.model.input.impl.PosItemToBuy;
+import com.ikov.model.input.impl.PosItemSearch;
 import com.ikov.model.input.impl.PosSearchShop;
 import com.ikov.world.entity.impl.player.Player;
 
@@ -87,7 +87,7 @@ public class PlayerOwnedShops {
 				player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
 				return true;
 			case -24073: //Search by Item
-				player.setInputHandling(new PosItemToBuy());
+				player.setInputHandling(new PosItemSearch());
 				player.getPacketSender().sendEnterInputPrompt("Enter the name of the item you wish to buy:");
 				return true;
 		}
@@ -161,6 +161,17 @@ public class PlayerOwnedShops {
 				break;
 			}
 		}
+	}
+	
+	public static void openItemSearch(Player player) {
+		PosItemSearch.reset();
+		for(int caption_index = 41869; caption_index > 41469; caption_index -= 4) {
+			player.getPacketSender().sendString(caption_index, "");
+		}
+		for(int owner_name_index = 41868; owner_name_index > 41468; owner_name_index -= 4) {
+			player.getPacketSender().sendString(owner_name_index, "");
+		}
+		player.getPacketSender().sendInterface(41409);
 	}
 	
 }

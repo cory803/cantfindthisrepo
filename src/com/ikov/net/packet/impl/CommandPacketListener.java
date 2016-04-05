@@ -1,8 +1,6 @@
 package com.ikov.net.packet.impl;
 
 import com.ikov.commands.Commands;
-import com.ikov.model.actions.Action;
-import com.ikov.model.actions.ActionHandler;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
@@ -25,11 +23,6 @@ public class CommandPacketListener implements PacketListener {
 			return;
 		}
 		try {
-			Action action = ActionHandler.getActionHandler().getAction(command);
-			if (action != null) {
-				action.handle(player);
-				return;
-			}
 			Commands.initiate_commands(player, parts, command);
 		} catch (Exception exception) {
 			player.getPacketSender().sendMessage("Error executing that command.");
