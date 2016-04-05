@@ -607,9 +607,7 @@ public enum CombatSpecial {
 
 	/**
 	 * Create a new {@link CombatSpecial}.
-	 * 
-	 * @param identifers
-	 *            the weapon ID's that perform this special when activated.
+	 * 			the weapon ID's that perform this special when activated.
 	 * @param drainAmount
 	 *            the amount of special energy this attack will drain.
 	 * @param strengthBonus

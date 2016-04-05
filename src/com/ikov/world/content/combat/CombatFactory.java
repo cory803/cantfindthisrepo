@@ -315,7 +315,6 @@ public final class CombatFactory {
 	 * 
 	 * @param entity
 	 *            the entity that will be poisoned, if not already.
-	 * @param poisonType
 	 *            the venom type that this entity is being inflicted with.
 	 */
 	public static void venomEntity(Character entity, Optional<VenomType> venomType) {
@@ -369,7 +368,6 @@ public final class CombatFactory {
 	 * 
 	 * @param entity
 	 *            the entity that will be venomed, if not already.
-	 * @param poisonType
 	 *            the venom type that this entity is being inflicted with.
 	 */
 	public static void venomEntity(Character entity, VenomType venomType) {
@@ -926,8 +924,6 @@ public final class CombatFactory {
 
 	/**
 	 * A series of checks performed before the entity attacks the victim.
-	 * 
-	 * @param builder
 	 *            the builder to perform the checks with.
 	 * @return true if the entity passed the checks, false if they did not.
 	 */
@@ -1168,13 +1164,26 @@ public final class CombatFactory {
 
 		if(builder.getVictim().isPlayer()) {
 			Player victim = (Player) builder.getVictim();
-			if(victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13738 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13740 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13742 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13744) {
+			if(victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13740) {
 				container.allHits(context -> {
 					if(context.getHit().getDamage() > 0) {
 						if(victim.getSkillManager().getCurrentLevel(Skill.PRAYER) > 0) {
 							int prayerLost = (int) (context.getHit().getDamage() * 0.09);
 							if(victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
 								context.getHit().incrementAbsorbedDamage((int)(context.getHit().getDamage() - (context.getHit().getDamage() * 0.65)));
+								victim.getSkillManager().setCurrentLevel(Skill.PRAYER, victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
+							}
+						}
+					}
+				});
+			}
+			if(victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13742) {
+				container.allHits(context -> {
+					if(context.getHit().getDamage() > 0) {
+						if(victim.getSkillManager().getCurrentLevel(Skill.PRAYER) > 0) {
+							int prayerLost = (int) (context.getHit().getDamage() * 0.07);
+							if(victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
+								context.getHit().incrementAbsorbedDamage((int)(context.getHit().getDamage() - (context.getHit().getDamage() * 0.45)));
 								victim.getSkillManager().setCurrentLevel(Skill.PRAYER, victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
 							}
 						}
@@ -1304,10 +1313,6 @@ public final class CombatFactory {
 
 	/**
 	 * Handles various armor effects for the attacker and victim.
-	 * 
-	 * @param builder
-	 *            the attacker's combat builder.
-	 * @param container
 	 *            the attacker's combat container.
 	 * @param damage
 	 *            the total amount of damage dealt.
@@ -1399,10 +1404,6 @@ public final class CombatFactory {
 
 	/**
 	 * Handles various prayer effects for the attacker and victim.
-	 * 
-	 * @param builder
-	 *            the attacker's combat builder.
-	 * @param container
 	 *            the attacker's combat container.
 	 * @param damage
 	 *            the total amount of damage dealt.
