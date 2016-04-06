@@ -11,8 +11,9 @@ public enum SlayerMaster {
 	VANNAKA(1, 1597, new Position(3145, 9912)),
 	DURADEL(50, 8275, new Position(2826, 2958)),
 	KURADEL(80, 9085, new Position(1748, 5326)),
-	SUMONA(92, 7780, new Position(3068, 3518));
-	
+	SUMONA(92, 7780, new Position(3068, 3518)),
+	NASTROTH(80, 5532, new Position(9999, 9999));
+
 	private SlayerMaster(int slayerReq, int npcId, Position telePosition) {
 		this.slayerReq = slayerReq;
 		this.npcId = npcId;

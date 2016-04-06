@@ -95,9 +95,12 @@ public enum SlayerTasks {
 	KALPHITE_QUEEN(SlayerMaster.SUMONA, 1160, "The Kalphite Queen can be found using the Boss teleport.", 31000, new Position(3476, 9502)),
 	PHOENIX(SlayerMaster.SUMONA, 8549, "The Phoenix can be found using the Boss teleport.", 21000, new Position(2839, 9557)),
 	CORPOREAL_BEAST(SlayerMaster.SUMONA, 8133, "The Corporeal Beast can be found using the Boss teleport.", 80000, new Position(2885, 4375)),
-	BANDOS_AVATAR(SlayerMaster.SUMONA, 4540, "The Bandos Avatar can be found using the Boss teleport.", 34000, new Position(2891, 4767));
+	BANDOS_AVATAR(SlayerMaster.SUMONA, 4540, "The Bandos Avatar can be found using the Boss teleport.", 34000, new Position(2891, 4767)),
 
-	;
+	WILDERNESS_NECHRYAEL(SlayerMaster.NASTROTH, 5532, "Wilderness Nechryaels can be found in the Wilderness Slayer area.", 29200, new Position(3448, 3564, 2)),
+	WILDERNESS_DARK_BEAST(SlayerMaster.NASTROTH, 5518, "Wilderness Dark Beasts can be found in the Wilderness Slayer area.", 32000, new Position(3448, 3564, 2)),
+	WILDERNESS_ABYSSAL_DEMONS(SlayerMaster.NASTROTH, 5533, "Wilderness Abyssal Demons can be found in the Wilderness Slayer Area.", 31200, new Position(3448, 3564, 2));
+
 	/*
 	 * @param taskMaster
 	 * @param npcId
@@ -151,7 +154,7 @@ public enum SlayerTasks {
 
 	public static int[] getNewTaskData(SlayerMaster master) {
 		int slayerTaskId = 1, slayerTaskAmount = 20;
-		int easyTasks = 0, mediumTasks = 0, hardTasks = 0, eliteTasks = 0;
+		int easyTasks = 0, mediumTasks = 0, hardTasks = 0, eliteTasks = 0, wildernessTasks = 0;
 
 		/*
 		 * Calculating amount of tasks
@@ -165,6 +168,8 @@ public enum SlayerTasks {
 				hardTasks++;
 			else if(task.getTaskMaster() == SlayerMaster.SUMONA)
 				eliteTasks++;
+			else if(task.getTaskMaster() == SlayerMaster.NASTROTH)
+				wildernessTasks++;
 		}
 
 		/*
@@ -184,6 +189,9 @@ public enum SlayerTasks {
 		} else if(master == SlayerMaster.SUMONA) {
 			slayerTaskId = 1 + easyTasks + mediumTasks + hardTasks + Misc.getRandom(eliteTasks - 1);
 			slayerTaskAmount = Misc.exclusiveRandom(5, 25);
+		} else if(master == SlayerMaster.NASTROTH) {
+			slayerTaskId = 1 + easyTasks + mediumTasks + hardTasks + Misc.getRandom(wildernessTasks - 1);
+			slayerTaskAmount = Misc.exclusiveRandom(45, 75);
 		}
 		return new int[] {slayerTaskId, slayerTaskAmount};
 	}
