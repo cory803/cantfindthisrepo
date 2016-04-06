@@ -12,6 +12,7 @@ import com.ikov.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopMan
 import com.ikov.model.input.impl.PosItemSearch;
 import com.ikov.model.input.impl.PosSearchShop;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.model.definitions.ItemDefinition;
 
 public class PlayerOwnedShops {
 	
@@ -142,6 +143,7 @@ public class PlayerOwnedShops {
 			PosOffers o = SHOPS[i];
 			if (o != null) {
 				if(o.getOwner().toLowerCase().equals(username.toLowerCase())) {
+					//player.getPacketSender().sendString(3903, "Shop caption");
 					PlayerOwnedShopManager.getShops().get(PlayerOwnedShopContainer.getIndex(o.getOwner())).open(player, username.toLowerCase());
 					if(i == SHOPS.length)
 						player.getPacketSender().sendMessage("This shop does not exist!");
@@ -161,6 +163,41 @@ public class PlayerOwnedShops {
 				break;
 			}
 		}
+	}
+	
+	public static void collectCoinsOnLogin(Player player) {
+		for (PosOffers o : SHOPS) {
+			if (o == null)
+				continue;
+			if(o.getOwner().toLowerCase().equals(player.getUsername().toLowerCase())) {
+				if(o.getCoinsToCollect() >= 1) {
+					player.setMoneyInPouch((player.getMoneyInPouch() + (o.getCoinsToCollect())));
+					player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
+					player.getPacketSender().sendMessage("Your items have sold for <col=CA024B>"+formatAmount(o.getCoinsToCollect())+"</col>");
+					o.resetCoinsCollect();
+				}
+			}
+		}
+	}
+	
+	public static final String formatAmount(long amount) {
+		String format = "Too high!";
+		if (amount >= 0 && amount < 100000) {
+			format = String.valueOf(amount);
+		} else if (amount >= 100000 && amount < 1000000) {
+			format = amount / 1000 + "K";
+		} else if (amount >= 1000000 && amount < 10000000000L) {
+			format = amount / 1000000 + "M";
+		} else if (amount >= 10000000000L && amount < 1000000000000L) {
+			format = amount / 1000000000 + "B";
+		} else if (amount >= 10000000000000L && amount < 10000000000000000L) {
+			format = amount / 1000000000000L + "T";
+		} else if (amount >= 10000000000000000L && amount < 1000000000000000000L) {
+			format = amount / 1000000000000000L + "QD";
+		} else if (amount >= 1000000000000000000L && amount < Long.MAX_VALUE) {
+			format = amount / 1000000000000000000L + "QT";
+		}
+		return format;
 	}
 	
 	public static void openItemSearch(Player player) {

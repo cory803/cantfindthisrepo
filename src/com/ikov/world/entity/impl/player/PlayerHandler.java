@@ -54,6 +54,7 @@ import com.ikov.world.content.grandexchange.GrandExchange;
 import com.ikov.world.content.minigames.impl.Barrows;
 import com.ikov.world.content.skill.impl.hunter.Hunter;
 import com.ikov.world.content.skill.impl.slayer.Slayer;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 
 public class PlayerHandler {
 
@@ -357,6 +358,7 @@ public class PlayerHandler {
 				}
 			}
 		}
+		PlayerOwnedShops.collectCoinsOnLogin(player);
 		PlayerLogs.log(player.getUsername(), "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress());
 	}
 

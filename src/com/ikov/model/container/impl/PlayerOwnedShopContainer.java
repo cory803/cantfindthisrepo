@@ -335,7 +335,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				owner.getPacketSender().sendMessage(formatAmount(total) + " Coins has been added to your money pouch!");
 				MoneyPouch.depositVote(owner, total);
 			} else {
-				//TODO: increase coins to collect & save?
+				o.addCoinsToCollect(total);
 			}
 			if(usePouch) {
 				player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch()); //Update the money pouch
