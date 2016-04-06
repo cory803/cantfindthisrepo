@@ -240,14 +240,16 @@ public class Members {
 			}
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
-			if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
+		if(!player.getLastAuthTime().elapsed(30000)) {
+			player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds attempting to vote again.");
+			return;
+		} if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
 				player.getPacketSender().sendMessage("You can't redeem a vote in your current location.");
+				player.getLastAuthTime().reset();
 				return;
-			} if(!player.getLastAuthTime().elapsed(30000)) {
-					player.getPacketSender().sendMessage("You must wait another "+Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS)+" seconds attempting to vote again.");
-					return;
 			} if (player.isDying()) {
 				player.getPacketSender().sendMessage("You can't redeem votes whilst dying");
+				player.getLastAuthTime().reset();
 				return;
 			}
 			if (player.voteCount >= 10) {
@@ -264,6 +266,7 @@ public class Members {
 						if (player.getVotesClaimed() == 100) {
 							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
 						}
+						player.getLastAuthTime().reset();
 						player.setVotesClaimed(1);
 						player.voteCount++;
 						player.getPacketSender().sendMessage("You have claimed " + player.voteCount + " of your 10 votes today. If you abuse the system your ");
@@ -276,11 +279,11 @@ public class Members {
 						PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " has claimed an auth code " + authCode + "!");
 					} else {
 						player.getPacketSender().sendMessage("The authcode you have entered is invalid. Please try again.");
-						player.getLastVengeance().reset();
+						player.getLastAuthTime().reset();
 					}
 				} catch (Exception e) {
 					player.getPacketSender().sendMessage("Error connecting to the database. Please try again later.");
-					player.getLastVengeance().reset();
+					player.getLastAuthTime().reset();
 					e.printStackTrace();
 				}
 				return;
