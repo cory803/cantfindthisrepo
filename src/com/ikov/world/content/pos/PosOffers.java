@@ -14,10 +14,10 @@ public class PosOffers {
 	private String owner_name;
 	private String caption;
 	private int shopItems;
-	private int coins_to_collect;
+	private long coins_to_collect;
 	private List<PosOffer> offers = new ArrayList<PosOffer>();
 	
-	public PosOffers(String owner, String caption, int shopItems, int coins_to_collect, PosOffer[] offers) {
+	public PosOffers(String owner, String caption, int shopItems, long coins_to_collect, PosOffer[] offers) {
 		this.owner_name = owner;
 		this.caption = caption;
 		this.shopItems = shopItems;
@@ -38,8 +38,16 @@ public class PosOffers {
 		return shopItems;
 	}
 
-	public int getCoinsToCollect() {
+	public long getCoinsToCollect() {
 		return coins_to_collect;
+	}
+	
+	public void resetCoinsCollect() {
+		this.coins_to_collect = 0;
+	}
+	
+	public void addCoinsToCollect(long i) {
+		this.coins_to_collect += i;
 	}
 	
 	public List<PosOffer> getOffers() {
@@ -69,7 +77,7 @@ public class PosOffers {
 		out.writeUTF(getOwner());
 		out.writeUTF(getCaption());
 		out.writeInt(getOffers().size());
-		out.writeInt(getCoinsToCollect());
+		out.writeLong(getCoinsToCollect());
 		for(int i2 = 0; i2 < getOffers().size(); i2++) {
 			if(getOffers().get(i2) == null) {
 				out.writeInt(-1);

@@ -25,6 +25,7 @@ public class PosOffer implements Comparable<PosOffer> {
 	public int getItemId() {
 		return itemId;
 	}
+	
 
 	/**
 	 * Gets the amount
@@ -58,6 +59,10 @@ public class PosOffer implements Comparable<PosOffer> {
 	 */
 	public int getSoldAmount() {
 		return soldAmount;
+	}
+	
+	public void setSoldAmount(int amount) {
+		this.soldAmount = amount;
 	}
 
 	/**
