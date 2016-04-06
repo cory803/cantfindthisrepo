@@ -3,6 +3,7 @@ package com.ikov.world.entity.impl.player;
 import java.util.concurrent.TimeUnit;
 
 import com.ikov.GameServer;
+import com.ikov.model.*;
 import com.ikov.world.content.grandexchange.*;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.GameSettings;
@@ -16,11 +17,7 @@ import com.ikov.engine.task.impl.PlayerSkillsTask;
 import com.ikov.engine.task.impl.PlayerSpecialAmountTask;
 import com.ikov.engine.task.impl.PrayerRenewalPotionTask;
 import com.ikov.engine.task.impl.StaffOfLightSpecialAttackTask;
-import com.ikov.model.Flag;
-import com.ikov.model.Locations;
 import com.ikov.model.Locations.Location;
-import com.ikov.model.PlayerRights;
-import com.ikov.model.Skill;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Equipment;
@@ -98,6 +95,12 @@ public class PlayerHandler {
 		WeaponInterfaces.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
 		CombatSpecial.updateBar(player);
 		BonusManager.update(player);
+
+		//Here we are checking if a player is at coords 2602, 5713 (Old tormented demon spawn, and will be moving them to home)
+		if(player.getPosition().equals(new Position(2602, 5713))) {
+			player.moveTo(new Position(3087, 3502));
+			System.out.println("Moved player "+player.getUsername()+" for being in a bad area.");
+		}
 
 		//Skills
 		player.getSummoning().login();

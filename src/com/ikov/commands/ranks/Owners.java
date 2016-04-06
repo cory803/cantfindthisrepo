@@ -82,6 +82,9 @@ public class Owners {
 			if(authAmount >= 4) {
 				player.getPacketSender().sendMessage("You can't give more than 3 Auths at a time!");
 				return;
+			} if(authAmount == 0) {
+				player.getPacketSender().sendMessage("You can't give 0 Vote Rewards");
+				return;
 			} else {
 				GameSettings.AUTH_AMOUNT = authAmount;
 				player.getPacketSender().sendMessage("Auths amount set to "+GameSettings.AUTH_AMOUNT+".");
