@@ -79,6 +79,13 @@ public class NPCOptionPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
+		case 2290: //ironman npc
+			if(player.getGameMode() == GameMode.NORMAL) {
+				return;
+			}
+			DialogueManager.start(player, 216);
+			player.setDialogueActionId(217);
+			break;
 		/**
 		 * Talking to bankers behind bank booths
 		 */

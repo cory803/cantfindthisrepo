@@ -4,6 +4,7 @@ import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.input.impl.ToxicStaffZulrahScales;
 import com.ikov.engine.task.impl.BonusExperienceTask;
+import com.ikov.util.Logs;
 import com.ikov.util.Misc;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
@@ -22,6 +23,7 @@ import com.ikov.model.input.impl.ChangePassword;
 import com.ikov.model.input.impl.DonateToWell;
 import com.ikov.model.input.impl.EnterYellTag;
 import com.ikov.model.Animation;
+import com.ikov.model.Flag;
 import com.ikov.model.movement.MovementQueue;
 import java.io.File;
 import com.ikov.util.Misc;
@@ -46,6 +48,7 @@ import com.ikov.world.content.LoyaltyProgramme;
 import com.ikov.world.content.MemberScrolls;
 import com.ikov.world.content.MoneyPouch;
 import com.ikov.world.content.PkSets;
+import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.Scoreboards;
 import com.ikov.world.content.dialogue.impl.AgilityTicketExchange;
@@ -937,6 +940,19 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 217:
+				player.setDialogueActionId(219);
+				DialogueManager.start(player, 218);
+				break;
+			case 219:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.setGameMode(GameMode.NORMAL);
+				player.getPacketSender().sendRights();
+				player.getUpdateFlag().flag(Flag.APPEARANCE);
+				player.getPacketSender().sendMessage("@red@You have made your account a normal account. You are no longer an iron man.");
+				PlayerLogs.log(player.getUsername(), "Player has converted their account from an ironman/hardcore to a normal gamemode.");
+				player.save();
+				break;
 			case 212:
 				Position position222 = new Position(2979, 3599, 0);
 				TeleportHandler.teleportPlayer(player, position222, player.getSpellbook().getTeleportType());
@@ -1208,6 +1224,11 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 217:
+			case 219:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.getPacketSender().sendMessage("You decided to keep your game mode how it is and not adjust to a normal player.");
+				break;
 			case 203:
 			case 204:
 			case 205:
