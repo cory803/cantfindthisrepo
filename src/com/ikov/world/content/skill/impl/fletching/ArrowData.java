@@ -8,7 +8,8 @@ public enum ArrowData {
 		STEEL(53, 41, 886, 400, 30),
 		MITHRIL(53, 42, 888, 800, 45),
 		ADAMANT(53, 43, 890, 1800, 60),
-		RUNE(53, 44, 892, 4200, 75);
+		RUNE(53, 44, 892, 4200, 75),
+		DRAGON(53, 11237, 11212, 6300, 90);
 
 		public int item1, item2, outcome, xp, levelReq;
 		private ArrowData(int item1, int item2, int outcome, int xp, int levelReq) {

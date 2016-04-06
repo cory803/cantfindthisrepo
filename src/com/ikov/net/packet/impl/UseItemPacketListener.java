@@ -133,6 +133,8 @@ public class UseItemPacketListener implements PacketListener {
 			Fletching.openBowStringSelection(player, usedWith.getId() == 1777 ? itemUsedWith.getId() : usedWith.getId());
 		if (usedWith.getId() == 53 || itemUsedWith.getId() == 53 || usedWith.getId() == 52 || itemUsedWith.getId() == 52)
 			Fletching .makeArrows(player, usedWith.getId(), itemUsedWith.getId());
+		if (usedWith.getId() == 314 || itemUsedWith.getId() == 314)
+			Fletching.makeBolts(player, usedWith.getId(), itemUsedWith.getId());
 		if (itemUsedWith.getId() == 1755 || usedWith.getId() == 1755)
 			Gems.selectionInterface(player, usedWith.getId() == 1755 ? itemUsedWith.getId() : usedWith.getId());
 		if (usedWith.getId() == 1733 || itemUsedWith.getId() == 1733)
