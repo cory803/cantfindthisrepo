@@ -38,9 +38,9 @@ public enum BoltData {
     }
 
     public static BoltData forBolt(int id) {
-        for (BoltData ar : BoltData.values()) {
-            if (ar.getItem2() == id) {
-                return ar;
+        for (BoltData blt : BoltData.values()) {
+            if (blt.getItem2() == id) {
+                return blt;
             }
         }
         return null;

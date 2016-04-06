@@ -382,4 +382,27 @@ public class Fletching {
 		}
 	}
 
+	public static int getTipPrimary(int item1, int item) {
+		return item1 == 1755 ? item : item1;
+	}
+
+	public static void makeTip(final Player player, int item1, int item2) {
+		player.getSkillManager().stopSkilling();
+		BoltTipData tip = BoltTipData.forTip(getTipPrimary(item1, item2));
+		if (tip != null) {
+			if (player.getSkillManager().getCurrentLevel(Skill.FLETCHING) >= tip.getLevelReq()) {
+				if (player.getInventory().getAmount(tip.getItem()) >= 1) {
+					player.getInventory().delete(new Item(tip.getItem()).setAmount(1), player.getInventory().getSlot(tip.getItem()), true);
+					player.getInventory().add(tip.getOutcome(), 15);
+					player.getSkillManager().addExperience(Skill.FLETCHING, (int) (tip.getXp() * 15));
+					Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
+				} else {
+					player.getPacketSender().sendMessage("You must have at least 15 of each supply to make bolts.");
+				}
+			} else {
+				player.getPacketSender().sendMessage("You need a Fletching level of at least "+tip.getLevelReq()+" to fletch this.");
+			}
+		}
+	}
+
 }
