@@ -73,13 +73,12 @@ public class ItemForging {
 		AMULET_OF_POWER(new Item[] {new Item(2357), new Item(1691)}, new Item(1731), new int[] {12, 70, 4500}),
 		AMULET_OF_DEFENCE(new Item[] {new Item(2357), new Item(1605)}, new Item(1729), new int[] {12, 31, 2100}),
 		AMULET_OF_FURY(new Item[] {new Item(2357), new Item(6573)}, new Item(6585), new int[] {12, 90, 175000}),
-		
-		ONYX_BOLTS(new Item[] {new Item(2363), new Item(6573)}, new Item(9245, 15), new int[] {9, 90, 20000}),
-		DRAGONSTONE_BOLTS(new Item[] {new Item(2363), new Item(1615)}, new Item(9244, 15), new int[] {9, 80, 10000}),
-		DIAMOND_BOLTS(new Item[] {new Item(2361), new Item(1601)}, new Item(9243, 15), new int[] {9, 70, 8000}),
-		RUBY_BOLTS(new Item[] {new Item(2361), new Item(1603)}, new Item(9242, 15), new int[] {9, 60, 6000}),
-		EMERALD_BOLTS(new Item[] {new Item(2359), new Item(1605)}, new Item(9241, 15), new int[] {9, 40, 2000}),
-		SAPPHIRE_BOLTS(new Item[] {new Item(2359), new Item(1607)}, new Item(9240, 15), new int[] {9, 30, 1000}),
+
+		DRAGONSTONE_BOLTS(new Item[] {new Item(9144, 15), new Item(9193, 15)}, new Item(9341, 15), new int[] {9, 80, 5000}),
+		DIAMOND_BOLTS(new Item[] {new Item(9143, 15), new Item(9192, 15)}, new Item(9340, 15), new int[] {9, 70, 4000}),
+		RUBY_BOLTS(new Item[] {new Item(9143, 15), new Item(9191, 15)}, new Item(9239, 15), new int[] {9, 60, 2000}),
+		EMERALD_BOLTS(new Item[] {new Item(9142, 15), new Item(9190, 15)}, new Item(9238, 15), new int[] {9, 40, 1000}),
+		SAPPHIRE_BOLTS(new Item[] {new Item(9142, 15), new Item(9189, 15)}, new Item(9337, 15), new int[] {9, 30, 500}),
 		
 		TOKKUL(new Item[] {new Item(6570), new Item(6522)}, new Item(6529, 1000), new int[] {12, 95, 10000}),
 		

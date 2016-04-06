@@ -75,10 +75,10 @@ public class UseItemPacketListener implements PacketListener {
 				|| itemUsedSlot > player.getInventory().capacity()
 				|| usedWithSlot > player.getInventory().capacity())
 			return;
-			
+
 		Item usedWith = player.getInventory().getItems()[usedWithSlot];
 		Item itemUsedWith = player.getInventory().getItems()[itemUsedSlot];
-		
+
 		if(GameSettings.DEBUG_MODE) {
 			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in UseItemPacketListener "+usedWith+" - "+itemUsedWith+"");
 		}
@@ -89,7 +89,7 @@ public class UseItemPacketListener implements PacketListener {
 			}
 			player.setDialogueActionId(184);
 			DialogueManager.start(player, 184);
-		}	
+		}
 		if((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080) || (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
 			boolean already_has = false;
 			for(int i = 0; i < 9; i++) {
@@ -118,7 +118,7 @@ public class UseItemPacketListener implements PacketListener {
 
 		if (itemUsedWith.getId() == 2946 || usedWith.getId() == 2946)
 			Firemaking.lightFire(player, itemUsedWith.getId() == 2946 ? usedWith.getId() : itemUsedWith.getId(), false, 1);
-		
+
 		if (itemUsedWith.getDefinition().getName().contains("(") && usedWith.getDefinition().getName().contains("("))
 			PotionCombinating.combinePotion(player, usedWith.getId(), itemUsedWith.getId());
 		if (usedWith.getId() == Herblore.VIAL || itemUsedWith.getId() == Herblore.VIAL){
@@ -136,7 +136,23 @@ public class UseItemPacketListener implements PacketListener {
 		if (usedWith.getId() == 314 || itemUsedWith.getId() == 314)
 			Fletching.makeBolts(player, usedWith.getId(), itemUsedWith.getId());
 		if (itemUsedWith.getId() == 1755 || usedWith.getId() == 1755)
+			if(itemUsedWith.getId() == 1611 || usedWith.getId() == 1611) {
+				Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
+			}if(itemUsedWith.getId() == 1613 || usedWith.getId() == 1613) {
+				Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
+			}if(itemUsedWith.getId() == 1607 || usedWith.getId() == 1607) {
+				Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
+			}if(itemUsedWith.getId() == 1605 || usedWith.getId() == 1605) {
+				Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
+			}if (itemUsedWith.getId() == 1603 || usedWith.getId() == 1603) {
+				Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
+			}if (itemUsedWith.getId() == 1601 || usedWith.getId() == 1601) {
+				Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
+			}if (itemUsedWith.getId() == 1615 || usedWith.getId() == 1615) {
+				Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
+			} else {
 			Gems.selectionInterface(player, usedWith.getId() == 1755 ? itemUsedWith.getId() : usedWith.getId());
+		}
 		if (usedWith.getId() == 1733 || itemUsedWith.getId() == 1733)
 			LeatherMaking.craftLeatherDialogue(player, usedWith.getId(), itemUsedWith.getId());
 		Herblore.handleSpecialPotion(player, itemUsedWith.getId(), usedWith.getId());
@@ -146,6 +162,7 @@ public class UseItemPacketListener implements PacketListener {
 					"ItemOnItem - [usedItem, usedWith] : [" + usedWith.getId()
 					+ ", " + itemUsedWith + "]");
 	}
+
 
 	private static void itemOnObject(Player player, Packet packet) {
 		packet.readShort();
