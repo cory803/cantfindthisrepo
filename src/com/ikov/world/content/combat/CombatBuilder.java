@@ -221,7 +221,7 @@ public class CombatBuilder {
 	}
 
 	public boolean isBeingAttacked() {
-		return !character.getLastCombat().elapsed(5000);
+		return !character.getLastCombat().elapsed(3000);
 	}
 
 	public Character getCharacter() {
