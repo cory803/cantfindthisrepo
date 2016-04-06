@@ -22,7 +22,7 @@ public class GameSettings {
 	public static int ANTI_FLOOD = 0;
 	public static boolean PLAYERS_ONLINE = false;
 	public static boolean DATABASE_LOGGING = false;
-	public static boolean VOTING_CONNECTIONS = false;
+	public static boolean VOTING_CONNECTIONS = true;
 	public static boolean STORE_CONNECTIONS = false;
 	public static boolean HIGHSCORE_CONNECTIONS = false;
 	public static boolean YELL_STATUS = false;

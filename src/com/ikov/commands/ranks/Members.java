@@ -26,12 +26,12 @@ import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
 import java.util.concurrent.TimeUnit;
 
 public class Members {
-	
+
 	/**
 	* @Author Jonathan Sirens
 	* Initiates Command
 	**/
-	
+
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if (command[0].equalsIgnoreCase("changelevel")) {
 			/*if(player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
@@ -87,9 +87,9 @@ public class Members {
 				default:
 					player.getPacketSender().sendMessage("The command syntax example - use a skill below: ::changelevel prayer 52");
 					player.getPacketSender().sendMessage("You can only adjust prayer, defence and attack stats.");
-			}*/ 
+			}*/
 					player.getPacketSender().sendMessage("Currently Disabled.");
-			
+
 		}
 		if(player.isJailed()) {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
@@ -122,7 +122,7 @@ public class Members {
 			}
 			DialogueManager.start(player, 212);
 			player.setDialogueActionId(212);
-		}	
+		}
 		if (command[0].equalsIgnoreCase("easts")) {
 			if(Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
@@ -238,7 +238,7 @@ public class Members {
 			} else {
 			CombatFactory.skullPlayer(player);
 			}
-		}		
+		}
 		if (command[0].equalsIgnoreCase("auth")) {
 			if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
 				player.getPacketSender().sendMessage("You can't redeem a vote in your current location.");
@@ -252,11 +252,6 @@ public class Members {
 			}
 			if (player.voteCount >= 10) {
 				PlayerPunishment.voteBan(player.getUsername());
-			}
-			if (!GameSettings.VOTING_CONNECTIONS || PlayerPunishment.isVoteBanned(player.getUsername())) {
-				player.getPacketSender().sendMessage("There was an error whilst dealing with your request");
-				player.getPacketSender().sendMessage("If this problem continues, please post on the forums");
-				player.getLastVengeance().reset();
 			} else {
 				String authCode = command[1];
 				try {
