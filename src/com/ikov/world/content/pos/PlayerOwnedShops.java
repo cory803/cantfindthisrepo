@@ -173,6 +173,7 @@ public class PlayerOwnedShops {
 				if(o.getCoinsToCollect() >= 1) {
 					player.setMoneyInPouch((player.getMoneyInPouch() + (o.getCoinsToCollect())));
 					player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
+					player.getPacketSender().sendString(1, ":moneypouchearning:"+o.getCoinsToCollect());
 					player.getPacketSender().sendMessage("Your items have sold for <col=CA024B>"+formatAmount(o.getCoinsToCollect())+"</col>");
 					o.resetCoinsCollect();
 				}

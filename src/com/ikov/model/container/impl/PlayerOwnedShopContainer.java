@@ -297,6 +297,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						if(usePouch) {
 							player.setMoneyInPouch((player.getMoneyInPouch() - value));
 						} else {
+							player.getPacketSender().sendString(1, ":moneypouchloss:"+value);
 							player.getInventory().delete(995, value, false);
 						}
 						super.switchItem(to, new Item(item.getId(), 1), slot, false, false);
@@ -317,6 +318,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 							if(usePouch) {
 								player.setMoneyInPouch((player.getMoneyInPouch() - (value * canBeBought)));
 							} else {
+								player.getPacketSender().sendString(1, ":moneypouchloss:"+value * canBeBought);
 								player.getInventory().delete(995, value * canBeBought, false);
 							}
 
@@ -332,6 +334,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			}
 			Player owner = World.getPlayerByName(o.getOwner());
 			if (owner != null) {
+				owner.getPacketSender().sendString(1, ":moneypouchearning:"+total);
 				owner.getPacketSender().sendMessage(formatAmount(total) + " Coins has been added to your money pouch!");
 				MoneyPouch.depositVote(owner, total);
 			} else {
