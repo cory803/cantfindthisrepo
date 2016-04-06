@@ -342,28 +342,6 @@ public class UseItemPacketListener implements PacketListener {
 		if(target == null)
 			return;
 		switch (itemId) {
-		case 962:
-			if(!player.getInventory().contains(962))
-				return;
-			player.setPositionToFace(target.getPosition());
-			player.performGraphic(new Graphic(1006));
-			player.performAnimation(new Animation(451));
-			player.getPacketSender().sendMessage("You pull the Christmas cracker...");
-			target.getPacketSender().sendMessage(""+player.getUsername()+" pulls a Christmas cracker on you..");
-			player.getInventory().delete(962, 1);
-			player.getPacketSender().sendMessage("The cracker explodes and you receive a Party hat!");
-			player.getInventory().add(1038 + Misc.getRandom(10), 1);			
-			target.getPacketSender().sendMessage(""+player.getUsername()+" has received a Party hat!");
-			/*	if(Misc.getRandom(1) == 1) {
-				target.getPacketSender().sendMessage("The cracker explodes and you receive a Party hat!");
-				target.getInventory().add((1038 + Misc.getRandom(5)*2), 1);
-				player.getPacketSender().sendMessage(""+target.getUsername()+" has received a Party hat!");
-			} else {
-				player.getPacketSender().sendMessage("The cracker explodes and you receive a Party hat!");
-				player.getInventory().add((1038 + Misc.getRandom(5)*2), 1);			
-				target.getPacketSender().sendMessage(""+player.getUsername()+" has received a Party hat!");
-			}*/
-			break;
 		case 11211:
 			boolean continue_command = false;
 			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
