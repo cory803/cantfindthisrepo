@@ -183,7 +183,7 @@ public class Members {
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
 		if(!player.getLastAuthTime().elapsed(30000)) {
-			player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds attempting to redeem an auth.");
+			player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds before attempting to redeem an auth.");
 			return;
 		} if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
 				player.getPacketSender().sendMessage("You can't redeem a vote in your current location.");
@@ -232,11 +232,11 @@ public class Members {
 			}
 		}
 		if (command[0].equals("forumrank")) {
-			if(player.getForumConnections() > 0) {
-				player.getPacketSender().sendMessage("You have just used this command, please relog and try again!");
+			if(!player.getForumDelay().elapsed(30000)) {
+				player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds before attempting this.");
 				return;
-			}
-			if(!GameSettings.FORUM_DATABASE_CONNECTIONS) {
+			} if(!GameSettings.FORUM_DATABASE_CONNECTIONS) {
+				player.getForumDelay().reset();
 				player.getPacketSender().sendMessage("This is currently disabled, try again in 30 minutes!");
 				return;
 			}
@@ -253,24 +253,29 @@ public class Members {
 					&& current_rank_id != ForumDatabase.validating
 					&& current_rank_id != ForumDatabase.members) {
 						player.getPacketSender().sendMessage("You have a rank on the forum that is not supported with this command.");
+						player.getForumDelay().reset();
 						return;
 					} else if(current_rank_id == ForumDatabase.banned) {
 						player.getPacketSender().sendMessage("Your forum account is banned.");
+						player.getForumDelay().reset();
 						return;
 					}
 					player.setForumConnectionsRank(player.getDonorRights());
 					if(ForumDatabase.check_has_username(player.getUsername())) {
 						ForumDatabase.update_donator_rank(player.getUsername(), player.getDonorRights());
 						player.getPacketSender().sendMessage("Your in-game rank has been added to your forum account.");
+						player.getForumDelay().reset();
 					} else {
 						player.getPacketSender().sendMessage("We noticed you don't have a forum account! You should make one at <col=ff0000><shad=0>::register");
+						player.getForumDelay().reset();
 					}
 					ForumDatabase.destroy_connection();
 				} catch (Exception e) {
 					System.out.println(e);
 				}
 			} else {
-				player.getPacketSender().sendMessage("Staff members are not aloud to use this command.");
+				player.getPacketSender().sendMessage("Staff members are not allowed to use this command.");
+				player.getForumDelay().reset();
 			}
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
