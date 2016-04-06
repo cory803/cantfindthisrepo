@@ -117,13 +117,14 @@ public class PointsHandler {
 	}
 
 	public void setPkPoints(int points, boolean add) {
-		if(add) {
-			if(GameSettings.DOUBLE_POINTS) {
+		if (add) {
+			if (GameSettings.DOUBLE_POINTS) {
 				points *= 2;
+			} if (p.getDonorRights() >= 1) {
+				this.pkPoints += points * 2;
+			} else {
+				this.pkPoints = points;
 			}
-			this.pkPoints += points;
-		} else {
-			this.pkPoints = points;
 		}
 	}
 	

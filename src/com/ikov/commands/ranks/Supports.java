@@ -20,13 +20,6 @@ public class Supports {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		if(wholeCommand.startsWith("unjail")) {
-			String jail_punishee = wholeCommand.substring(7);
-			Player punishee = World.getPlayerByName(jail_punishee);
-			punishee.setJailed(false);
-			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
-			punishee.moveTo(new Position(3087, 3502, 0));
-		}
 		if(wholeCommand.startsWith("jail")) {
 				String jail_punishee = wholeCommand.substring(5);
 				Player punishee = World.getPlayerByName(jail_punishee);
@@ -114,22 +107,6 @@ public class Supports {
 				PlayerPunishment.mute(mute_player);
 				player.getPacketSender().sendMessage("Player "+mute_player+" was successfully muted!");
 				other.getPacketSender().sendMessage("You have been muted! Please appeal on the forums.");
-			}
-		}
-		if(command[0].equalsIgnoreCase("unmute")) {
-			String mute_player = wholeCommand.substring(7);
-			if(!PlayerSaving.playerExists(mute_player)) {
-				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
-				return;
-			} else {
-				if(!PlayerPunishment.isMuted(mute_player)) {
-					player.getPacketSender().sendMessage("Player "+mute_player+" is not muted.");
-					return;
-				}
-				Player other = World.getPlayerByName(mute_player);
-				PlayerPunishment.unMute(mute_player);
-				player.getPacketSender().sendMessage("Player "+mute_player+" was successfully unmuted!");
-				other.getPacketSender().sendMessage("You have been unmuted!");
 			}
 		}
 		if (command[0].equals("staffzone")) {
