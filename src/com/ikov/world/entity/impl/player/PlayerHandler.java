@@ -260,9 +260,6 @@ public class PlayerHandler {
 
 		player.getPacketSender().updateSpecialAttackOrb().sendIronmanMode(player.getGameMode().ordinal());
 
-		if(player.getRights() == PlayerRights.SUPPORT || player.getRights() == PlayerRights.MODERATOR || player.getRights() == PlayerRights.ADMINISTRATOR)
-			World.sendMessage("<img=4><col=6600CC> "+Misc.formatText(player.getRights().toString().toLowerCase())+" "+player.getUsername()+" has just logged in, feel free to message them for support.");
-		
 		GrandExchange.onLogin(player);
 		GrandExchange.updateSlotStates(player);
 		if(!player.hasDoneGrandExchangeReturn()) {
