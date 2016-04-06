@@ -25,7 +25,7 @@ public class MoneyPouch {
 	 */
 	public static boolean depositMoney(Player plr, int amount) {
 		Locale locale = new Locale("en", "US");
-		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
+		NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
 		if(amount <= 0)
 			return false;
 		if(plr.getInterfaceId() > 0) {
@@ -69,7 +69,7 @@ public class MoneyPouch {
 	 */
 	public static boolean withdrawMoney(Player plr, long amount) {
 		Locale locale = new Locale("en", "US");
-		NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(locale);
+		NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
 		if(amount <= 0)
 			return false;
 		if(plr.getMoneyInPouch() <= 0) {
@@ -93,7 +93,7 @@ public class MoneyPouch {
 			plr.setMoneyInPouch(plr.getMoneyInPouch() - amount);
 			plr.getInventory().add(995, (int) amount);
 			plr.getPacketSender().sendString(8135, ""+plr.getMoneyInPouch());
-			plr.getPacketSender().sendMessage("You withdraw "+currencyFormatter.format(amount)+" coins from your pouch.");
+			plr.getPacketSender().sendMessage("You've withdrawn "+currencyFormatter.format(amount)+" coins from your pouch.");
 			if(allowWithdraw)
 				plr.getPacketSender().sendItemContainer(plr.getInventory(), 3322);
 			return true;
