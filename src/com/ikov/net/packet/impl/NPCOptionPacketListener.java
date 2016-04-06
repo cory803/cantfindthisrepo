@@ -81,6 +81,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		switch (npc.getId()) {
 		case 2290: //ironman npc
 			if(player.getGameMode() == GameMode.NORMAL) {
+				DialogueManager.sendStatement(player, "I am not an iron man so I cannot change my mode.");
 				return;
 			}
 			DialogueManager.start(player, 216);
