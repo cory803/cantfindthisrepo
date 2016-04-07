@@ -177,11 +177,10 @@ public class PuroPuro {
 	/**
 	 * Catches an Impling
 	 * @param player	The player catching an Imp
-	 * @param npc	The NPC (Impling) to catch
 	 */
 	public static void catchImpling(Player player, final NPC imp) {
 		ImpData implingData = ImpData.forId(imp.getId());
-		if(player.getInterfaceId() > 0 || player == null || imp == null || implingData == null || !imp.isRegistered() || !player.getClickDelay().elapsed(2000))
+		if(player.getInterfaceId() > 0 || player == null || imp == null || implingData == null || !imp.isRegistered() || !player.getClickDelay().elapsed(1000))
 			return;
 		if(player.getSkillManager().getCurrentLevel(Skill.HUNTER) < implingData.levelReq) {
 			player.getPacketSender().sendMessage("You need a Hunter level of at least "+implingData.levelReq+" to catch this impling.");
@@ -272,10 +271,9 @@ public class PuroPuro {
 	/**
 	 * Handles Impling Jars looting
 	 * @param player	The player looting the jar
-	 * @param itemId	The jar the player is looting
 	 */
 	public static void lootJar(final Player player, Item jar, JarData jarData) {
-		if(player == null || jar == null || jarData == null || !player.getClickDelay().elapsed(2000))
+		if(player == null || jar == null || jarData == null)
 			return;
 		if(player.getInventory().getFreeSlots() < 2) {
 			player.getPacketSender().sendMessage("You need at least 2 free inventory space to loot this.");
