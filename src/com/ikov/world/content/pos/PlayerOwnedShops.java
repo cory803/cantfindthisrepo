@@ -13,6 +13,7 @@ import com.ikov.model.input.impl.PosItemSearch;
 import com.ikov.model.input.impl.PosSearchShop;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.model.definitions.ItemDefinition;
+import com.ikov.world.content.PlayerLogs;
 
 public class PlayerOwnedShops {
 	
@@ -28,14 +29,22 @@ public class PlayerOwnedShops {
 			}
 			DataInputStream in = new DataInputStream(new FileInputStream(file));
 			int count = in.readInt();
+			System.out.println("POS Count: "+count);
 			if (count > 0) {
 				for (int i = 0; i < count; i++) {
 					String owner_name = in.readUTF();
+					System.out.println("Owner name: "+owner_name+"");
 					String store_caption = in.readUTF();
+					System.out.println("caption name: "+store_caption+"");
 					int shopItems = in.readInt();
+					System.out.println("shopitems: "+shopItems+"");
 					int coins_to_collect = in.readInt();
 					PosOffer[] sell_offers = new PosOffer[shopItems];
 					for(int i2 = 0; i2 < shopItems; i2++) {
+						int item_id = in.readInt();
+						int amount = in.readInt();
+						int soldAmount = in.readInt();
+						long price = in.readLong();
 						sell_offers[i2] = new PosOffer(in.readInt(), in.readInt(), in.readInt(), in.readLong());
 					}
 					SHOPS[i] = new PosOffers(owner_name, store_caption, shopItems, coins_to_collect, sell_offers);
@@ -61,7 +70,7 @@ public class PlayerOwnedShops {
 				l.save(out);
 			}
 			out.close();
-			System.out.println("[POS] Saved!");
+			System.out.println("Player owned shops have been saved...");
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -145,6 +154,7 @@ public class PlayerOwnedShops {
 				if(o.getOwner().toLowerCase().equals(username.toLowerCase())) {
 					//player.getPacketSender().sendString(3903, "Shop caption");
 					PlayerOwnedShopManager.getShops().get(PlayerOwnedShopContainer.getIndex(o.getOwner())).open(player, username.toLowerCase());
+					PlayerLogs.log(player.getUsername(), "Opened the player owned shop: "+username+"");
 					if(i == SHOPS.length)
 						player.getPacketSender().sendMessage("This shop does not exist!");
 					break;
@@ -175,6 +185,7 @@ public class PlayerOwnedShops {
 					player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
 					player.getPacketSender().sendString(1, ":moneypouchearning:"+o.getCoinsToCollect());
 					player.getPacketSender().sendMessage("Your items have sold for <col=CA024B>"+formatAmount(o.getCoinsToCollect())+"</col>");
+					PlayerLogs.log(player.getUsername(), "Player owned shop items sold for: "+formatAmount(o.getCoinsToCollect())+"");
 					o.resetCoinsCollect();
 				}
 			}

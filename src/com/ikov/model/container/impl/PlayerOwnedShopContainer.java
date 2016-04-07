@@ -214,8 +214,8 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				if(inventorySpace) {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), -1);
 					//player.getInventory().add(new Item(995, itemValue), false);
+					PlayerLogs.log(player.getUsername(), "Player owned shop sold item: ID: "+itemToSell.getId()+" AMOUNT: "+amountToSell+" PRICE: "+price+"");
 					PlayerOwnedShops.soldItem(player, index, itemToSell.getId(), amountToSell, price);
-					player.save();
 				} else {
 					player.getPacketSender().sendMessage("Please free some inventory space before doing that.");
 					break;
@@ -224,6 +224,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				if(inventorySpace) {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), amountToSell);
 					//player.getInventory().add(new Item(995, itemValue * amountToSell), false);
+					PlayerLogs.log(player.getUsername(), "Player owned shop sold item: ID: "+itemToSell.getId()+" AMOUNT: "+amountToSell+" PRICE: "+price+"");
 					PlayerOwnedShops.soldItem(player, index, itemToSell.getId(), amountToSell, price);
 					break;
 				} else {
@@ -299,6 +300,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						} else {
 							player.getPacketSender().sendString(1, ":moneypouchloss:"+value);
 							player.getInventory().delete(995, value, false);
+							PlayerLogs.log(player.getUsername(), "Player owned shop removed coins from inventory: "+value+" for purchasing item: "+item.getId()+", "+item.getAmount()+"");
 						}
 						super.switchItem(to, new Item(item.getId(), 1), slot, false, false);
 						playerCurrencyAmount -= value;
@@ -320,6 +322,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 							} else {
 								player.getPacketSender().sendString(1, ":moneypouchloss:"+value * canBeBought);
 								player.getInventory().delete(995, value * canBeBought, false);
+								PlayerLogs.log(player.getUsername(), "Player owned shop removed coins from inventory: "+value * canBeBought+" for purchasing item: "+item.getId()+", "+item.getAmount()+"");
 							}
 
 						super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
@@ -334,10 +337,12 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			}
 			Player owner = World.getPlayerByName(o.getOwner());
 			if (owner != null) {
+				PlayerLogs.log(owner.getUsername(), "Player owned shop recieved coins to money pouch: "+formatAmount(total)+"");
 				owner.getPacketSender().sendString(1, ":moneypouchearning:"+total);
 				owner.getPacketSender().sendMessage(formatAmount(total) + " Coins has been added to your money pouch!");
 				MoneyPouch.depositVote(owner, total);
 			} else {
+				PlayerLogs.log(player.getUsername(), "Player owned shop added coins for global extraction: "+formatAmount(total)+" for "+o.getOwner()+"");
 				o.addCoinsToCollect(total);
 			}
 			if(usePouch) {
@@ -348,11 +353,12 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				if (item.getAmount() >= offer.getAmount()) {
 					if (o.removeOffer(o.forId(item.getId()))) {
 						super.switchItem(to, new Item(item.getId(), offer.getAmount()), slot, false, false);
+						PlayerLogs.log(player.getUsername(), "Player owned shop removed from shop: "+item.getDefinition().getName()+"");
 						player.getPacketSender().sendMessage("The item <col=CA024B>" + item.getDefinition().getName() + "</col> has been removed from your shop.");
 					}
 				} else {
 					offer.decreaseAmount(item.getAmount());
-					//System.out.println("Left " + offer.getAmount());
+					PlayerLogs.log(player.getUsername(), "Player owned shop decreased amount from shop: "+item.getDefinition().getName()+"");
 					super.switchItem(to, new Item(item.getId(), item.getAmount()), slot, false, false);
 				}
 			}

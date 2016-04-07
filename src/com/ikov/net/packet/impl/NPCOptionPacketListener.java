@@ -53,6 +53,7 @@ import com.ikov.world.content.skill.impl.summoning.SummoningData;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.model.input.impl.PosSearchShop;
 
 public class NPCOptionPacketListener implements PacketListener {
 
@@ -217,8 +218,9 @@ public class NPCOptionPacketListener implements PacketListener {
 					}
 					break;
 				case 2127:
-					player.setDialogueActionId(214);
-					DialogueManager.start(player, 214);
+					player.getPacketSender().sendMessage("Still in development :)");
+					//player.setDialogueActionId(214);
+					//DialogueManager.start(player, 214);
 					break;
 				case 291:
 					if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
@@ -747,7 +749,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					TeleportHandler.teleportPlayer(player,new Position(2911, 4832), player.getSpellbook().getTeleportType());
 					break;
 				case 2127:
-					PlayerOwnedShops.openItemSearch(player);
+					player.getPacketSender().sendMessage("Still in development :)");
+					//PlayerOwnedShops.openItemSearch(player);
 					break;
 				case 3101:
 					DialogueManager.start(player, 95);
@@ -854,7 +857,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(40).open(player);
 					break;
 				case 2127:
-					PlayerOwnedShops.openShop(player.getUsername(), player);
+					player.getPacketSender().sendMessage("Still in development :)");
+					//PlayerOwnedShops.openShop(player.getUsername(), player);
 					break;
 				case 605:
 					//LoyaltyProgramme.open(player);
@@ -941,6 +945,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					break;
 				case 2253:
 					ShopManager.getShops().get(8).open(player);
+					break;
+				case 2127:
+					player.getPacketSender().sendMessage("Still in development :)");
+					//player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
+					//player.setInputHandling(new PosSearchShop());
 					break;
 				case 1597:
 				case 9085:

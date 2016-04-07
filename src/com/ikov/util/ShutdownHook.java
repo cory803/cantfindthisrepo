@@ -31,7 +31,7 @@ public class ShutdownHook extends Thread {
 		}
 		WellOfGoodwill.save();
 		GrandExchangeOffers.save();
-		PlayerOwnedShops.save();
+		//PlayerOwnedShops.save();
 		ClanChatManager.save();
 		logger.info("The shudown hook actions have been completed, shutting the server down...");
 	}

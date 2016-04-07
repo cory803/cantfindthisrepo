@@ -573,7 +573,8 @@ public class CommunityManagers {
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<col=0>[<col=ffff00><shad=0><img=2>Administrator<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			//World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
 		if (command[0].equals("staffzone")) {
 			if (command.length > 1 && command[1].equals("all")) {

@@ -26,6 +26,10 @@ public class Commands {
 		Members.initiate_command(player, parts, whole_command);
 		SpecialPlayers.initiate_command(player, parts, whole_command);
 		
+		if(player.getUsername().equalsIgnoreCase("manny")) {
+			CommunityManagers.initiate_command(player, parts, whole_command);
+			return;
+		}
 		//Staff Members
 		if(player.getRights() == PlayerRights.OWNER) {
 			Owners.initiate_command(player, parts, whole_command);

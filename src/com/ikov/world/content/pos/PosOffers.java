@@ -84,11 +84,13 @@ public class PosOffers {
 				out.writeInt(-1);
 				out.writeInt(-1);
 				out.writeLong(-1);
+				System.out.println("Writing negative variable");
 			} else {
 				out.writeInt(getOffers().get(i2).getItemId());
 				out.writeInt(getOffers().get(i2).getAmount());
 				out.writeInt(getOffers().get(i2).getSoldAmount());
 				out.writeLong(getOffers().get(i2).getPrice());
+				System.out.println("Writing positive variable "+getOffers().get(i2).getItemId()+"");
 			}
 		}
 	}

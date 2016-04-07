@@ -77,7 +77,7 @@ public final class GameLoader {
 		serviceLoader.execute(() -> ItemDefinition.init());
 		serviceLoader.execute(() -> Lottery.init());
 		serviceLoader.execute(() -> GrandExchangeOffers.init());
-		serviceLoader.execute(() -> PlayerOwnedShops.init());
+		//serviceLoader.execute(() -> PlayerOwnedShops.init());
 		serviceLoader.execute(() -> Scoreboards.init());
 		serviceLoader.execute(() -> WellOfGoodwill.init());
 		serviceLoader.execute(() -> ClanChatManager.init());
@@ -88,7 +88,7 @@ public final class GameLoader {
 		serviceLoader.execute(() -> NPCDrops.parseDrops().load());
 		serviceLoader.execute(() -> WeaponInterfaces.parseInterfaces().load());
 		serviceLoader.execute(() -> ShopManager.parseShops().load());
-		serviceLoader.execute(() -> PlayerOwnedShopManager.load());
+		//serviceLoader.execute(() -> PlayerOwnedShopManager.load());
 		serviceLoader.execute(() -> DialogueManager.parseDialogues().load());
 		serviceLoader.execute(() -> NPC.init());
 	}

@@ -358,7 +358,7 @@ public class PlayerHandler {
 				}
 			}
 		}
-		PlayerOwnedShops.collectCoinsOnLogin(player);
+	//	PlayerOwnedShops.collectCoinsOnLogin(player);
 		PlayerLogs.log(player.getUsername(), "Login from host "+player.getHostAddress()+", Computer Address: "+player.getComputerAddress());
 	}
 

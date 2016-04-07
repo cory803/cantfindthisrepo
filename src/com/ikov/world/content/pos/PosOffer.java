@@ -40,7 +40,6 @@ public class PosOffer implements Comparable<PosOffer> {
 	 * @param item_amount
 	 */
 	public void increaseAmount(int item_amount) {
-		System.out.println("Increase " + itemId + "; amount by " + item_amount);
 		this.amount += item_amount;
 	}
 	
@@ -49,7 +48,6 @@ public class PosOffer implements Comparable<PosOffer> {
 	 * @param item_amount
 	 */
 	public void decreaseAmount(int item_amount) {
-		System.out.println("Decrease " + itemId + "; amount by " + item_amount);
 		this.amount -= item_amount;
 	}
 	
