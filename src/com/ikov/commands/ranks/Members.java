@@ -201,7 +201,11 @@ public class Members {
 				try {
 					boolean success = AuthService.provider().redeemNow(authCode);
 					if (success) {
-						player.getBank(player.getCurrentBankTab()).add(10944, GameSettings.AUTH_AMOUNT);
+						if(player.getInventory().isFull()) {
+							player.getBank(player.getCurrentBankTab()).add(10944, GameSettings.AUTH_AMOUNT);
+						} else {
+							player.getInventory().add(10944, GameSettings.AUTH_AMOUNT);
+						}
 						player.getPacketSender().sendMessage("You have had "+GameSettings.AUTH_AMOUNT+" x Auth Rewards added to your bank.");
 						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 						player.getLastVengeance().reset();
@@ -300,14 +304,6 @@ public class Members {
 			player.save();
 			player.getPacketSender().sendMessage("Your progress has been saved.");
 		}
-		if (command[0].equals("vote")) {
-			if(!GameSettings.VOTING_CONNECTIONS) {
-				player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
-				return;
-			}
-			player.getPacketSender().sendString(1, "www.ikov2.org/vote/");
-			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/vote/");
-		}	
 		if (command[0].equals("help") || command[0].equals("support")) {
 			player.getPacketSender().sendString(1, "wwwikov2.org/forum/index.php?app=core&module=global&section=register");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/?app=tickets");

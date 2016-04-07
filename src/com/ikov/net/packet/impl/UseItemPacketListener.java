@@ -79,36 +79,36 @@ public class UseItemPacketListener implements PacketListener {
 		Item usedWith = player.getInventory().getItems()[usedWithSlot];
 		Item itemUsedWith = player.getInventory().getItems()[itemUsedSlot];
 
-		if(GameSettings.DEBUG_MODE) {
-			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in UseItemPacketListener "+usedWith+" - "+itemUsedWith+"");
+		if (GameSettings.DEBUG_MODE) {
+			PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " in UseItemPacketListener " + usedWith + " - " + itemUsedWith + "");
 		}
-		if((usedWith.getId() == 21076 && itemUsedWith.getId() == 21074) || (usedWith.getId() == 21074 && itemUsedWith.getId() == 21076)) {
-			if(player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 59) {
+		if ((usedWith.getId() == 21076 && itemUsedWith.getId() == 21074) || (usedWith.getId() == 21074 && itemUsedWith.getId() == 21076)) {
+			if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 59) {
 				player.getPacketSender().sendMessage("You need a Crafting level of at least 59 to make that item.");
 				return;
 			}
 			player.setDialogueActionId(184);
 			DialogueManager.start(player, 184);
 		}
-		if((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080) || (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
+		if ((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080) || (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
 			boolean already_has = false;
-			for(int i = 0; i < 9; i++) {
-				for(Item item : player.getBank(i).getItems()) {
-					if(item != null && item.getId() > 0 && item.getId() == 21077)
+			for (int i = 0; i < 9; i++) {
+				for (Item item : player.getBank(i).getItems()) {
+					if (item != null && item.getId() > 0 && item.getId() == 21077)
 						already_has = true;
 				}
 			}
-			if(player.getInventory().contains(21077) || player.getEquipment().contains(21077) || already_has) {
+			if (player.getInventory().contains(21077) || player.getEquipment().contains(21077) || already_has) {
 				player.getPacketSender().sendMessage("You already have a Toxic staff of the dead.");
 			}
-			if(player.getToxicStaffCharges() >= 11000) {
+			if (player.getToxicStaffCharges() >= 11000) {
 				player.getPacketSender().sendMessage("You already have 11,000 charges on your Toxic staff (uncharged).");
 				return;
 			}
 			player.setDialogueActionId(186);
 			DialogueManager.start(player, 186);
 		}
-		if(usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
+		if (usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
 			player.getPacketSender().sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");
 			return;
 		}
@@ -121,18 +121,19 @@ public class UseItemPacketListener implements PacketListener {
 
 		if (itemUsedWith.getDefinition().getName().contains("(") && usedWith.getDefinition().getName().contains("("))
 			PotionCombinating.combinePotion(player, usedWith.getId(), itemUsedWith.getId());
-		if (usedWith.getId() == Herblore.VIAL || itemUsedWith.getId() == Herblore.VIAL){
+		if (usedWith.getId() == Herblore.VIAL || itemUsedWith.getId() == Herblore.VIAL) {
 			if (Herblore.makeUnfinishedPotion(player, usedWith.getId()) || Herblore.makeUnfinishedPotion(player, itemUsedWith.getId()))
 				return;
 		}
 		if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId()) || Herblore.finishPotion(player, itemUsedWith.getId(), usedWith.getId()))
 			return;
-		if (usedWith.getId() == 946 || itemUsedWith.getId() == 946)
+		if (usedWith.getId() == 946 || itemUsedWith.getId() == 946) {
 			Fletching.openSelection(player, usedWith.getId() == 946 ? itemUsedWith.getId() : usedWith.getId());
-		if (usedWith.getId() == 1777 || itemUsedWith.getId() == 1777)
+			return;
+		}	if (usedWith.getId() == 1777 || itemUsedWith.getId() == 1777)
 			Fletching.openBowStringSelection(player, usedWith.getId() == 1777 ? itemUsedWith.getId() : usedWith.getId());
 		if (usedWith.getId() == 53 || itemUsedWith.getId() == 53 || usedWith.getId() == 52 || itemUsedWith.getId() == 52)
-			Fletching .makeArrows(player, usedWith.getId(), itemUsedWith.getId());
+			Fletching.makeArrows(player, usedWith.getId(), itemUsedWith.getId());
 		if (usedWith.getId() == 314 || itemUsedWith.getId() == 314)
 			Fletching.makeBolts(player, usedWith.getId(), itemUsedWith.getId());
 		if (itemUsedWith.getId() == 1755 || usedWith.getId() == 1755)
@@ -342,6 +343,28 @@ public class UseItemPacketListener implements PacketListener {
 		if(target == null)
 			return;
 		switch (itemId) {
+		case 962:
+			if(!player.getInventory().contains(962))
+				return;
+			player.setPositionToFace(target.getPosition());
+			player.performGraphic(new Graphic(1006));
+			player.performAnimation(new Animation(451));
+			player.getPacketSender().sendMessage("You pull the Christmas cracker...");
+			target.getPacketSender().sendMessage(""+player.getUsername()+" pulls a Christmas cracker on you..");
+			player.getInventory().delete(962, 1);
+			player.getPacketSender().sendMessage("The cracker explodes and you receive a Party hat!");
+			player.getInventory().add(1038 + Misc.getRandom(10), 1);
+			target.getPacketSender().sendMessage(""+player.getUsername()+" has received a Party hat!");
+			/*	if(Misc.getRandom(1) == 1) {
+				target.getPacketSender().sendMessage("The cracker explodes and you receive a Party hat!");
+				target.getInventory().add((1038 + Misc.getRandom(5)*2), 1);
+				player.getPacketSender().sendMessage(""+target.getUsername()+" has received a Party hat!");
+			} else {
+				player.getPacketSender().sendMessage("The cracker explodes and you receive a Party hat!");
+				player.getInventory().add((1038 + Misc.getRandom(5)*2), 1);
+				target.getPacketSender().sendMessage(""+player.getUsername()+" has received a Party hat!");
+			}*/
+			break;
 		case 11211:
 			boolean continue_command = false;
 			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
