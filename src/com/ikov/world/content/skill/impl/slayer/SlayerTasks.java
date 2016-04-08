@@ -58,7 +58,7 @@ public enum SlayerTasks {
 	JUNGLE_STRYKEWYRM(SlayerMaster.DURADEL, 9467, "Strykewyrms can be found in the Strykewyrm Cavern", 10874, new Position(2731, 5095)),
 	DESERT_STRYKEWYRM(SlayerMaster.DURADEL, 9465, "Strykewyrms can be found in the Strykewyrm Cavern.", 11120, new Position(2731, 5095)),
 	ABYSSAL_DEMON(SlayerMaster.DURADEL, 1615, "Abyssal Demons can be found in Slayer Tower.", 15600, new Position(3418, 3564, 2)),
-	DARK_BEAST(SlayerMaster.DURADEL, 1615, "Dark Beasts can be found in Slayer Tower.", 16000, new Position(3423, 3550, 2)),
+	DARK_BEAST(SlayerMaster.DURADEL, 2783, "Dark Beasts can be found in Slayer Tower.", 16000, new Position(3423, 3550, 2)),
 	MONKEY_GUARD(SlayerMaster.KURADEL, 1459, "Monkey Guards can be found in the Training Teleport", 14000, new Position(2795, 2775)),
 	FROST_DRAGON(SlayerMaster.KURADEL, 51, "Frost Dragons can be found in the deepest of Wilderness.", 22570, new Position(2968, 3902)),
 	
