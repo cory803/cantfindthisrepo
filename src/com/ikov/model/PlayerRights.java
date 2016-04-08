@@ -1,5 +1,7 @@
 package com.ikov.model;
 
+import java.util.Arrays;
+
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
@@ -11,70 +13,31 @@ import com.google.common.collect.Sets;
 
 public enum PlayerRights {
 
-	/*
-	 * A regular member of the server.
-	 */
 	PLAYER(-1, null, 1, 1),
-	/*
-	 * A moderator who has more privilege than other regular members and donators.
-	 */
 	MODERATOR(-1, "<col=20B2AA><shad=0>", 1, 1),
-
-	/*
-	 * The second-highest-privileged member of the server.
-	 */
-	ADMINISTRATOR(-1, "<col=FFFF64><shad=0>", 1, 1),
-
-	/*
-	 * The highest-privileged member of the server
-	 */
-	OWNER(-1, "<col=B40404>", 1, 1),
-	
-	/*
-	 * A member who has the ability to help people better.
-	 */
+	ADMINISTRATOR(-1, "<col=FFFF64><shad=0>", 1, 1, MODERATOR),
+	OWNER(-1, "<col=B40404>", 1, 1, ADMINISTRATOR, MODERATOR),
 	SUPPORT(-1, "<col=FF0000><shad=0>", 1, 1),
-	
-	/*
-	 * A member who is a YouTuber.
-	 */
 	YOUTUBER(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	
-	/*
-	 * A member who is a Global Moderator.
-	 */
 	GLOBAL_MOD(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	
-	/*
-	 * A member of staff who is a Community Manager
-	 */
 	COMMUNITY_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	
-	/*
-	 * A member of staff who is a Wiki Editor
-	 */
 	WIKI_EDITOR(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	
-	/*
-	 * A member of staff who is a Wiki Editor
-	 */
 	WIKI_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	
-	/*
-	 * A member who manages all Staff Members
-	 */
 	STAFF_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1);
 
-	PlayerRights(int yellDelaySeconds, String yellHexColorPrefix, double loyaltyPointsGainModifier, double experienceGainModifier) {
+	PlayerRights(int yellDelaySeconds, String yellHexColorPrefix, double loyaltyPointsGainModifier, double experienceGainModifier, PlayerRights...inherited) {
 		this.yellDelay = yellDelaySeconds;
 		this.yellHexColorPrefix = yellHexColorPrefix;
 		this.loyaltyPointsGainModifier = loyaltyPointsGainModifier;
 		this.experienceGainModifier = experienceGainModifier;
+		this.inherited = inherited;
 	}
-
+	
 	private static final ImmutableSet<PlayerRights> YT = Sets.immutableEnumSet(YOUTUBER);
 	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER, GLOBAL_MOD, COMMUNITY_MANAGER, WIKI_EDITOR, WIKI_MANAGER, STAFF_MANAGER);
 	private static final ImmutableSet<PlayerRights> CC = Sets.immutableEnumSet(OWNER);	
+	
+	private final PlayerRights[] inherited;
 	
 	/*
 	 * The yell delay for the rank
@@ -107,6 +70,10 @@ public enum PlayerRights {
 	
 	public double getExperienceGainModifier() {
 		return experienceGainModifier;
+	}
+	
+	public boolean inherits(PlayerRights rights) {
+		return equals(rights) || Arrays.asList(inherited).contains(rights);
 	}
 
 	public boolean isStaff() {
