@@ -222,7 +222,7 @@ public class CustomObjects {
 		{21764, 3345, 9646, 0, 0},
 		
 		//Anvil @ Donator Zone
-		{2782, 2540, 3891, 0, 0},
+		{4306, 2540, 3891, 0, 0},
 		
 		//Mining Rocks @ Donator Zone
 		{11942, 2528, 3893, 0, 0},

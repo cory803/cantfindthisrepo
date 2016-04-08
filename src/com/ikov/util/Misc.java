@@ -81,6 +81,11 @@ public class Misc {
 		return (h < 10 ? "0" + h : h) + "h";
 	}
 
+	public static int getHoursPlayedNumeric(long totalPlayTime) {
+		final int sec = (int) (totalPlayTime / 1000), h = sec / 3600;
+		return h;
+	}
+
 	public static int getMinutesPassed(long t) {
 		int seconds=(int) ((t/1000)%60);
 		int minutes=(int) (((t-seconds)/1000)/60);
@@ -517,7 +522,6 @@ public class Misc {
 
 	/**
 	 * Reads string from a data input stream.
-	 * @param inputStream 	The input stream to read string from.
 	 * @return 				The String value.
 	 */
 	public static String readString(ChannelBuffer buffer) {

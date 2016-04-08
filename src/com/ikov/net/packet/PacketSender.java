@@ -142,7 +142,6 @@ public class PacketSender {
 
 	/**
 	 * Sends a configuration button's state.
-	 * @param configId	The id of the configuration button.
 	 * @param state		The state to set it to.
 	 * @return			The PacketSender instance.
 	 */
@@ -260,8 +259,7 @@ public class PacketSender {
 	}
 	
 	/**
-	 * Sends some information to the client about screen fading. 
-	 * @param text		the text that will be displayed in the center of the screen
+	 * Sends some information to the client about screen fading.
 	 * @param state		the state should be either 0, -1, or 1. 
 	 * @param seconds	the amount of time in seconds it takes for the fade
 	 * to transition.

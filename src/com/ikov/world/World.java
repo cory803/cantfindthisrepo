@@ -31,7 +31,7 @@ import com.ikov.world.entity.updating.UpdateSequence;
  * Thanks to lare96 for help with parallel updating system
  */
 public class World {
-	
+
 	/**
 	 * Is global yell enabled?
 	 */

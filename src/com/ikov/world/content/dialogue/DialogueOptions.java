@@ -458,21 +458,25 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(3239 + Misc.getRandom(2), 3619 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
 				break;
 			case 13:
-				player.getPacketSender().sendInterfaceRemoval();
-				boolean usePouch = player.getMoneyInPouch() >= 75000000;
-				if(!usePouch && player.getInventory().getAmount(995) < 75000000) {
-					player.getPacketSender().sendMessage("You do not have enough coins.");
-					return;
+				if(Misc.getHoursPlayedNumeric(player.getTotalPlayTime()) >= 500) {
+					player.getPacketSender().sendInterfaceRemoval();
+					boolean usePouch = player.getMoneyInPouch() >= 75000000;
+					if (!usePouch && player.getInventory().getAmount(995) < 75000000) {
+						player.getPacketSender().sendMessage("You do not have enough coins.");
+						return;
+					}
+					if (usePouch) {
+						player.setMoneyInPouch(player.getMoneyInPouch() - 75000000);
+						player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
+					} else
+						player.getInventory().delete(995, 75000000);
+					player.getInventory().add(14021, 1);
+					player.getPacketSender().sendMessage("You've purchased a Veteran cape.");
+					DialogueManager.start(player, 122);
+					player.setDialogueActionId(76);
+				} else {
+					player.getPacketSender().sendMessage("You've played "+Misc.getHoursPlayedNumeric(player.getTotalPlayTime())+"/500 Hours.");
 				}
-				if(usePouch) {
-					player.setMoneyInPouch(player.getMoneyInPouch() - 75000000);
-					player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
-				} else
-					player.getInventory().delete(995, 75000000);
-				player.getInventory().add(14021, 1);
-				player.getPacketSender().sendMessage("You've purchased a Veteran cape.");
-				DialogueManager.start(player, 122);
-				player.setDialogueActionId(76);
 				break;
 			case 14:
 				TeleportHandler.teleportPlayer(player, new Position(2713, 9564), player.getSpellbook().getTeleportType());

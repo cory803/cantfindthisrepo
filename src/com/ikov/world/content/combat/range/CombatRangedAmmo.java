@@ -269,8 +269,8 @@ public class CombatRangedAmmo {
 
 		LONGBOW(10, 6),
 		SHORTBOW(10, 4),
-		CROSSBOW(9, 6),
-		ARMADYL_CROSSBOW(11, 6),
+		CROSSBOW(7, 6),
+		ARMADYL_CROSSBOW(9, 6),
 		THROW(3, 3),
 		DART(3, 3),
 		BLOWPIPE(5, 3),

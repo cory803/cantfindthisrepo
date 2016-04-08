@@ -83,6 +83,7 @@ public class Herblore {
 					String name = ItemDefinition.forId(pot.getFinishedPotion()).getName();
 					player.getPacketSender().sendMessage("You combine the ingredients to make "+Misc.anOrA(name)+" "+name+".");
 					Achievements.finishAchievement(player, AchievementData.MIX_A_POTION);
+					player.getLastResource().reset();
 					this.stop();
 				}
 			});

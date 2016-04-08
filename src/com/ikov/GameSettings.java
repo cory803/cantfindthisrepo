@@ -25,7 +25,7 @@ public class GameSettings {
 	public static boolean VOTING_CONNECTIONS = true;
 	public static boolean STORE_CONNECTIONS = false;
 	public static boolean HIGHSCORE_CONNECTIONS = false;
-	public static boolean YELL_STATUS = false;
+	public static boolean YELL_STATUS = true;
 	public static boolean ITEM_SPAWN_TACTICAL = false;
 	public static boolean DOUBLE_VOTE_TOKENS = false;
 	public static boolean DOUBLE_EXP = false;
