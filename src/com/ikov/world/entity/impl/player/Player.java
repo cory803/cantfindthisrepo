@@ -373,6 +373,7 @@ public class Player extends Character {
 	private final Stopwatch lastItemPickup = new Stopwatch();
 	private final Stopwatch lastVengeance = new Stopwatch();
 	private final Stopwatch lastAuth = new Stopwatch();
+	private final Stopwatch lastResource = new Stopwatch();
 	private final Stopwatch emoteDelay = new Stopwatch();
 	private final Stopwatch specialRestoreTimer = new Stopwatch();
 	private final Stopwatch lastSummon = new Stopwatch();
@@ -1713,6 +1714,10 @@ public class Player extends Character {
 
 	public Stopwatch getLastAuthTime() {
 		return lastAuth;
+	}
+
+	public Stopwatch getLastResource() {
+		return lastResource;
 	}
 
 	public Stopwatch getTolerance() {

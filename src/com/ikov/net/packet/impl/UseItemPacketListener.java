@@ -126,7 +126,7 @@ public class UseItemPacketListener implements PacketListener {
 				return;
 		}
 		if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId()) || Herblore.finishPotion(player, itemUsedWith.getId(), usedWith.getId()))
-			return;
+		return;
 		if (usedWith.getId() == 946 || itemUsedWith.getId() == 946) {
 			Fletching.openSelection(player, usedWith.getId() == 946 ? itemUsedWith.getId() : usedWith.getId());
 			return;
