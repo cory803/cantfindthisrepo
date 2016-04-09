@@ -111,6 +111,11 @@ public class GameObject extends Entity {
 	private int picked;
 
 	/**
+	 * Value that handles the object's 'Cuts'
+	 */
+	private int cut;
+
+	/**
 	 * Gets the object's definition.
 	 * @return	definition.
 	 */
@@ -174,5 +179,17 @@ public class GameObject extends Entity {
 	
 	public void incrementPickAmount() {
 		this.picked++;
+	}
+
+	public int getCutAmount() {
+		return this.cut;
+	}
+
+	public void setCutAmount(int amountcut) {
+		this.cut = amountcut;
+	}
+
+	public void incrementCutAmount() {
+		this.cut++;
 	}
 }

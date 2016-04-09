@@ -7,6 +7,7 @@ import com.ikov.model.GameObject;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.util.Misc;
+import com.ikov.world.content.EvilTrees;
 import com.ikov.world.content.Achievements;
 import com.ikov.world.content.CustomObjects;
 import com.ikov.world.content.Sounds;
@@ -59,6 +60,17 @@ public class Woodcutting {
 									cycle = 0;
 									BirdNests.dropNest(player);
 									this.stop();
+									if (object.getId() == 11434) {
+										if (EvilTrees.SPAWNED_TREE == null || EvilTrees.SPAWNED_TREE.getTreeObject().getCutAmount() >= EvilTrees.MAX_CUT_AMOUNT) {
+											player.getPacketSender().sendClientRightClickRemoval();
+											player.getSkillManager().stopSkilling();
+											return;
+										} else {
+											EvilTrees.SPAWNED_TREE.getTreeObject().incrementCutAmount();
+										}
+									} else {
+										player.performAnimation(new Animation(65535));
+									}
 									if (!t.isMulti() || Misc.getRandom(10) == 2) {
 										treeRespawn(player, object);
 										player.getPacketSender().sendMessage("You've chopped the tree down.");

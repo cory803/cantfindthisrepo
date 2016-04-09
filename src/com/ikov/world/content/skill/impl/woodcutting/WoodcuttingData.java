@@ -70,7 +70,8 @@ public class WoodcuttingData {
 		MAPLE(45, 7935, 1517, new int[] { 1307, 4677 }, 7, true),
 		MAHOGANY(50, 8112, 6332, new int[] { 9034 }, 7, true),
 		YEW(60, 8417, 1515, new int[] { 1309 }, 8, true),
-		MAGIC(75, 9127, 1513, new int[] { 1306 }, 9, true);
+		MAGIC(75, 9127, 1513, new int[] { 1306 }, 9, true),
+		EVIL_TREE(80, 2750, 14666, new int[] { 11434 }, 9, true);
 
 		private int[] objects;
 		private int req, xp, log, ticks;

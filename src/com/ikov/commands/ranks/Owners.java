@@ -8,6 +8,7 @@ import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.Animation;
+import com.ikov.world.content.*;
 import com.ikov.world.content.skill.impl.dungeoneering.*;
 import com.ikov.util.ForumDatabase;
 import java.sql.*;
@@ -32,16 +33,8 @@ import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.util.Logs;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
-import com.ikov.world.content.Achievements;
-import com.ikov.world.content.BonusManager;
-import com.ikov.world.content.CrystalChest;
-import com.ikov.world.content.WellOfGoodwill;
 import com.ikov.world.content.Achievements.AchievementData;
 import com.ikov.world.content.DropLog.DropLogEntry;
-import com.ikov.world.content.Lottery;
-import com.ikov.world.content.PlayerLogs;
-import com.ikov.world.content.PlayerPunishment;
-import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
@@ -1194,6 +1187,10 @@ public class Owners {
 		}
 		if(command[0].equals("star")) {
 			ShootingStar.despawn(true);
+			player.getPacketSender().sendMessage("star method called.");
+		}
+		if(command[0].equals("tree")) {
+			EvilTrees.despawn(true);
 			player.getPacketSender().sendMessage("star method called.");
 		}
 		if(command[0].equals("save")) {

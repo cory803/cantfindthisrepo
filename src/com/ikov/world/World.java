@@ -13,6 +13,7 @@ import com.ikov.GameServer;
 import com.ikov.GameSettings;
 import com.ikov.model.PlayerRights;
 import com.ikov.util.Misc;
+import com.ikov.world.content.EvilTrees;
 import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.minigames.impl.FightPit;
 import com.ikov.world.content.minigames.impl.PestControl;
@@ -164,6 +165,7 @@ public class World {
         FightPit.sequence();
 		PestControl.sequence();
 		ShootingStar.sequence();
+		//EvilTrees.sequence();
 		long player_start = System.currentTimeMillis();
 		long minigameCycle = player_start - minigame_start;
 

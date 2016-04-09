@@ -182,7 +182,7 @@ public class Members {
 			}
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
-			if(!player.getLastAuthTime().elapsed(30000)) {
+			/*if(!player.getLastAuthTime().elapsed(30000)) {
 				player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds before attempting to redeem an auth.");
 				return;
 			} 
@@ -240,7 +240,8 @@ public class Members {
 					e.printStackTrace();
 				}
 				return;
-			}
+			}*/
+			player.getPacketSender().sendMessage("Currently Disabled");
 		}
 		if (command[0].equals("forumrank")) {
 			if(!player.getForumDelay().elapsed(30000)) {
