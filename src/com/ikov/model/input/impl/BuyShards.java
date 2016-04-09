@@ -42,5 +42,4 @@ public class BuyShards extends EnterAmount {
 			player.getPacketSender().sendMessage("You need <col=ff0000>"+Misc.formatAmount((long) amount * ItemDefinition.forId(18016).getValue())+"</col> in order to purchase these Spirit shards.");
 		}
 	}
-
 }
