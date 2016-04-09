@@ -38,7 +38,7 @@ public class PlayerOwnedShops {
 					System.out.println("caption name: "+store_caption+"");
 					int shopItems = in.readInt();
 					System.out.println("shopitems: "+shopItems+"");
-					int coins_to_collect = in.readInt();
+					int coins_to_collect = (int) in.readLong();
 					PosOffer[] sell_offers = new PosOffer[shopItems];
 					for(int i2 = 0; i2 < shopItems; i2++) {
 						sell_offers[i2] = new PosOffer(in.readInt(), in.readInt(), in.readInt(), in.readLong());
