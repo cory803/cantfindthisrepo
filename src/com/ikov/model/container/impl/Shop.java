@@ -346,7 +346,11 @@ public class Shop extends ItemContainer {
 		if(amountBuying == 0)
 			return this;
 		if(amountBuying > 5000) {
-			player.getPacketSender().sendMessage("You can only buy 5000 "+ItemDefinition.forId(item.getId()).getName()+"s at a time.");
+			if(ItemDefinition.forId(item.getId()).getName().endsWith("s")) {
+				player.getPacketSender().sendMessage("You can only buy 5000 "+ItemDefinition.forId(item.getId()).getName()+" at a time.");
+			} else {
+				player.getPacketSender().sendMessage("You can only buy 5000 "+ItemDefinition.forId(item.getId()).getName()+"s at a time.");
+			}
 			return this;
 		}
 		boolean customShop = getCurrency().getId() == -1;
