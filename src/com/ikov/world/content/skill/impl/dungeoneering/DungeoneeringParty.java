@@ -6,12 +6,16 @@ import com.ikov.GameSettings;
 import com.ikov.model.Flag;
 import com.ikov.model.GroundItem;
 import com.ikov.model.Locations.Location;
+import com.ikov.world.content.BonusManager;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
+import com.ikov.model.container.impl.Equipment;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.model.definitions.WeaponInterfaces;
+import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.world.content.dialogue.impl.DungPartyInvitation;
 import com.ikov.world.entity.impl.GroundItemManager;
 import com.ikov.world.entity.impl.npc.NPC;
@@ -167,6 +171,10 @@ public class DungeoneeringParty {
 				}
 				p.getSkillManager().addExperience(Skill.DUNGEONEERING, exp);
 				p.getPointsHandler().setDungeoneeringTokens(tokens, true);
+				p.getEquipment().refreshItems();
+				WeaponInterfaces.assign(p, p.getEquipment().get(Equipment.WEAPON_SLOT));
+				WeaponAnimations.assign(p, p.getEquipment().get(Equipment.WEAPON_SLOT));
+				BonusManager.update(p);
 				p.getPacketSender().sendMessage("<img=4> <col=660000>You've received some Dungeoneering experience and "+tokens+" Dungeoneering tokens.");
 				PlayerPanel.refreshPanel(p);
 			}
