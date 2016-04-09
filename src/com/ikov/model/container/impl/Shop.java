@@ -1095,6 +1095,8 @@ public class Shop extends ItemContainer {
 				case 10940:
 				case 10933:
 					return new Object[]{20, "agility tickets"};
+				case 20786:
+					return new Object[]{100, "agility tickets"};
 				}
 			} else if(shop == STARDUST_EXCHANGE_STORE) {
 				switch(item) {
