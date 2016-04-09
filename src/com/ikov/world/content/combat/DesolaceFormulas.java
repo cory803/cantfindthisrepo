@@ -325,7 +325,6 @@ public class DesolaceFormulas {
 
 	/**
 	 * Calculates a player's magic defence level
-	 * @param player			The player to calculate magic defence level for
 	 * @return			The player's magic defence level
 	 */
 	public static int getMagicDefence(Player plr) {
@@ -357,7 +356,6 @@ public class DesolaceFormulas {
 
 	/**
 	 * Calculates a player's magic max hit
-	 * @param player			The player to calculate magic max hit for
 	 * @return			The player's magic max hit damage
 	 */
 	public static int getMagicMaxhit(Character c) {
@@ -405,9 +403,13 @@ public class DesolaceFormulas {
 			case 19780:
 				damage = maxHit = 750;
 				break;
-			case 11730:
-				damage = maxHit = 310;
-				break;
+				case 11730:
+					damage = maxHit = 310;
+					break;
+				case 13905:
+				case 13907:
+					damage = maxHit = 485;
+					break;
 			}
 		} else {
 			damageMultiplier += 0.25;

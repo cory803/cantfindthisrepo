@@ -117,6 +117,16 @@ public enum CombatSpecial {
 					true);
 		}
 	},
+	VESTAS_SPEAR(new int[] { 13905, 13907 }, 50, 1.50, 1.10, CombatType.MELEE, WeaponInterface.SPEAR) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			player.performAnimation(new Animation(10499));
+			player.performGraphic(new Graphic(1835, GraphicHeight.MIDDLE));
+
+			return new CombatContainer(player, target, 1, CombatType.MELEE,
+					true);
+		}
+	},
 	BARRELSCHEST_ANCHOR(new int[] { 10887 }, 50, 1.21, 1.30, CombatType.MELEE, WeaponInterface.WARHAMMER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
