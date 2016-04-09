@@ -35,7 +35,7 @@ public class PickupItemPacketListener implements PacketListener {
 			return;
 		if(player.getConstitution() <= 0 || player.isTeleporting())
 			return;
-				
+		player.getCombatBuilder().reset(true);		
 		if(GameSettings.DEBUG_MODE) {
 			PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" in PickupItemPacketListener: "+itemId+"");
 		}
@@ -46,6 +46,7 @@ public class PickupItemPacketListener implements PacketListener {
 					player.getMovementQueue().reset();
 					return;
 				}
+				player.getCombatBuilder().reset(true);
 				boolean canPickup = player.getInventory().getFreeSlots() > 0 || (player.getInventory().getFreeSlots() == 0 && ItemDefinition.forId(itemId).isStackable() && player.getInventory().contains(itemId));
 				if(!canPickup) {
 					player.getInventory().full();
