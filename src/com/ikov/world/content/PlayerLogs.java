@@ -32,8 +32,6 @@ public class PlayerLogs {
 	 * 
 	 * @param file
 	 *            - File to write data to
-	 * @param ORE_DATA
-	 *            - Data to written
 	 * @throws IOException
 	 */
 	public static void log(String file, String writable) {

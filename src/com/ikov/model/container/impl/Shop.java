@@ -696,8 +696,12 @@ public class Shop extends ItemContainer {
 				case 10499:
 					return new Object[]{3, "Voting points"};
 				//iron man shop end
-				case 21047: //kraken whip
-					return new Object[]{100, "Voting points"};
+					case 21047: //kraken whip
+						return new Object[]{100, "Voting points"};
+				case 18744: // Guthix Halo
+				case 18745: // Saradomin Halo
+				case 18746: // Zamorak Halo
+				return new Object[]{125, "Voting points"};
 				case 6500:
 				case 19336:
 				case 19337:
