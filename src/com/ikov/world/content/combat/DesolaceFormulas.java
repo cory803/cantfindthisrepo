@@ -66,11 +66,16 @@ public class DesolaceFormulas {
 				} else if (npc.getDefenceWeakened()[2]) {
 					base += (int) ((0.30) * (base));
 				}
+				if(npc.getId() == plr.getSlayer().getSlayerTask().getNpcId()) {
+					if(plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 15492) {
+						base *= 1.20;
+					}
+				}
 
-				/** SLAYER HELMET **/
+			/** SLAYER HELMET **/
 				if(npc.getId() == plr.getSlayer().getSlayerTask().getNpcId()) {
 					if(plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
-						base *= 1.12;
+						base *= 1.10;
 					}
 				}
 			}
