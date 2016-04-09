@@ -5,6 +5,8 @@ import com.ikov.model.Position;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.world.content.dialogue.DialogueManager;
 import com.ikov.world.entity.impl.player.Player;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.PlayerRights;
 
 public class JewelryTeleporting {
 
@@ -17,7 +19,7 @@ public class JewelryTeleporting {
 	}
 
 	public static void teleport(Player player, Position location) {
-		if(!TeleportHandler.checkReqs(player, location)) {
+		if(!TeleportHandler.checkReqs(player, location, true)) {
 			return;
 		}
 		if(!player.getClickDelay().elapsed(4500) || player.getMovementQueue().isLockMovement())
