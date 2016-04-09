@@ -3,7 +3,7 @@ package com.ikov.commands;
 import com.ikov.model.PlayerRights;
 import com.ikov.world.entity.impl.player.Player;
 
-public class DonatorCommand extends Command {
+public abstract class DonatorCommand extends Command {
 	
 	private int donatorRights;
 	
@@ -17,10 +17,6 @@ public class DonatorCommand extends Command {
 	}
 
 	@Override
-	public boolean execute(Player player, String input) throws Exception {
-		if (player.getDonorRights() >= getDonorRights())
-			return true;
-		return false;
-	}
+	public abstract boolean execute(Player player, String input) throws Exception;
 
 }

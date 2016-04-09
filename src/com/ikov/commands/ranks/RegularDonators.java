@@ -67,19 +67,6 @@ public class RegularDonators {
 			World.sendYell("<img=7> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getYellTimer().reset();
 		}
-		if (command[0].equals("dzone")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
-				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
-				return;
-			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			Position position = new Position(2514, 3860, 0);
-			player.moveTo(position);
-			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
-		}
 	}
 	
 }
