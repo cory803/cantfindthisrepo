@@ -12,6 +12,7 @@ import com.ikov.model.Hit;
 import com.ikov.model.Hitmask;
 import com.ikov.model.Item;
 import com.ikov.model.Position;
+import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.model.Projectile;
 import com.ikov.model.Skill;
 import com.ikov.model.container.impl.Equipment;
@@ -294,6 +295,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		// If we are at 0 ammo remove the item from the equipment completely.
 		if (player.getEquipment().get(slot).getAmount() == 0) {
 			player.getPacketSender().sendMessage("You have no ammunition!");
+			player.getEquipment().refreshItems();
+			WeaponInterfaces.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+			WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 		

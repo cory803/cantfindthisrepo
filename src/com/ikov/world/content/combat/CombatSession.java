@@ -110,6 +110,7 @@ public class CombatSession {
 
 				// An attack is going to be made for sure, set the last attacker
 				// for this victim.
+
 				builder.getVictim().getCombatBuilder().setLastAttacker(builder.getCharacter());
 				builder.getVictim().getLastCombat().reset();
 
