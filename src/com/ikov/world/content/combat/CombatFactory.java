@@ -1123,10 +1123,11 @@ public final class CombatFactory {
 		boolean sameSpot = attacker.equals(victim) && !a.getMovementQueue().isMoving() && !b.getMovementQueue().isMoving();
 		boolean goodDistance = !sameSpot && Locations.goodDistance(attacker.getX(), attacker.getY(), victim.getX(), victim.getY(), distance);
 		boolean projectilePathBlocked = false;
-		if(a.isPlayer() && (strategy.getCombatType().equals(CombatType.RANGED) || (strategy.getCombatType().equals(CombatType.MAGIC)) && (((Player)a).getCastSpell() != null || ((Player)a).getAutocastSpell() != null) && !(((Player)a).getCastSpell() instanceof CombatAncientSpell)) || a.isNpc() && strategy.getCombatType() == CombatType.MELEE) {
-			if (!PathFinder.isProjectilePathClear(a.getPosition(), b.getPosition())) {
+		if (a.isPlayer()
+				&& (strategy.getCombatType() == CombatType.RANGED || strategy.getCombatType() == CombatType.MAGIC && ((Player) a).getCastSpell() != null
+				&& !(((Player) a).getCastSpell() instanceof CombatAncientSpell)) || a.isNpc() && strategy.getCombatType() == CombatType.MELEE) {
+			if (!RegionClipping.canProjectileAttack(b, a))
 				projectilePathBlocked = true;
-			}			
 		}
 		if(!projectilePathBlocked && goodDistance) {
 			if(strategy.getCombatType() == CombatType.MELEE && RegionClipping.isInDiagonalBlock(b, a)) {
