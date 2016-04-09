@@ -79,7 +79,7 @@ public class DesolaceFormulas {
 		if(victim.isPlayer()) {
 			Player p = (Player) victim;
 			if(p.hasStaffOfLightEffect()) {
-				maxHit = maxHit/2;
+				maxHit = maxHit / 2;
 				p.performGraphic(new Graphic(2319));
 			}
 		}

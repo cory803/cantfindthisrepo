@@ -43,7 +43,27 @@ public class Misc {
 		System.arraycopy(b, 0, c, aLen, bLen);
 		return c;
 	}
-
+	
+	public static final String formatAmount(long amount) {
+		String format = "Too high!";
+		if (amount >= 0 && amount < 100000) {
+			format = String.valueOf(amount);
+		} else if (amount >= 100000 && amount < 1000000) {
+			format = amount / 1000 + "K";
+		} else if (amount >= 1000000 && amount < 10000000000L) {
+			format = amount / 1000000 + "M";
+		} else if (amount >= 10000000000L && amount < 1000000000000L) {
+			format = amount / 1000000000 + "B";
+		} else if (amount >= 10000000000000L && amount < 10000000000000000L) {
+			format = amount / 1000000000000L + "T";
+		} else if (amount >= 10000000000000000L && amount < 1000000000000000000L) {
+			format = amount / 1000000000000000L + "QD";
+		} else if (amount >= 1000000000000000000L && amount < Long.MAX_VALUE) {
+			format = amount / 1000000000000000000L + "QT";
+		}
+		return format;
+	}	
+	
 	public static List<Player> getCombinedPlayerList(Player p) {
 		List<Player> plrs = new LinkedList<Player>();
 		for(Player localPlayer : p.getLocalPlayers()) {

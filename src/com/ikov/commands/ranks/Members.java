@@ -182,14 +182,21 @@ public class Members {
 			}
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
-		if(!player.getLastAuthTime().elapsed(30000)) {
-			player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds before attempting to redeem an auth.");
-			return;
-		} if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
+			if(!player.getLastAuthTime().elapsed(30000)) {
+				player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds before attempting to redeem an auth.");
+				return;
+			} 
+			if (!GameSettings.VOTING_CONNECTIONS) {
+				player.getPacketSender().sendMessage("Voting connections are currently turned off, try again in 30 minutes!");
+				player.getLastAuthTime().reset();
+				return;
+			}
+			if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
 				player.getPacketSender().sendMessage("You can't redeem a vote in your current location.");
 				player.getLastAuthTime().reset();
 				return;
-			} if (player.isDying()) {
+			} 
+			if (player.isDying()) {
 				player.getPacketSender().sendMessage("You can't redeem votes whilst dying");
 				player.getLastAuthTime().reset();
 				return;

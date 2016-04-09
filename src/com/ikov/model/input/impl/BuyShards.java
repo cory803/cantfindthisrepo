@@ -5,58 +5,41 @@ import com.ikov.model.input.EnterAmount;
 import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.player.Player;
 
+/**
+* Handles purchasing spirit shards
+* @Jonathan Sirens
+**/
+
 public class BuyShards extends EnterAmount {
 
 	@Override
 	public void handleAmount(Player player, int amount) {
-		boolean use_pouch = false;
-		if(amount > 85880000) {
-			use_pouch = true;
+		//Sets the amount available to purchase from pouch to whatever your inventory actually can hold
+		if(player.getInventory().getAmount(18016) + (long) amount > Integer.MAX_VALUE) {
+			amount = Integer.MAX_VALUE - player.getInventory().getAmount(18016);
 		}
-		if(amount > 2147000000) {
-			amount = 2147000000;
-		}
-		if(use_pouch) {
+		
+		if(player.getInventory().getAmount(995) < (long) amount * ItemDefinition.forId(18016).getValue()) {
 			player.getPacketSender().sendInterfaceRemoval();
-			long cost = ItemDefinition.forId(18016).getValue() * amount;
-			long moneyAmount = player.getMoneyInPouch();
-			long canBeBought = moneyAmount / (ItemDefinition.forId(18016).getValue());
-			long totalShards = player.getInventory().getAmount(18016) + canBeBought;
-			if(totalShards > 2147000000) {
-				player.getPacketSender().sendMessage("You already have the max amount of spirit shards!");
-				return;
-			}
-			if(canBeBought >= amount)
-				canBeBought = amount;
-			if(canBeBought == 0) {
-				player.getPacketSender().sendMessage("You do not have enough money in your @red@money pouch@bla@ to buy that amount.");
-				return;
-			}
-			for(int i = 0; i < 25; i++) {
-				player.setMoneyInPouch((player.getMoneyInPouch() - canBeBought));
-			}
+			
+			//If Money Pouch has enough money, purchase the spirit shards from cash in money pouch
+			player.setMoneyInPouch((player.getMoneyInPouch() - ((long) amount * ItemDefinition.forId(18016).getValue())));
+			player.getInventory().add(18016, amount);
+			player.getPacketSender().sendMessage("You have purchased <col=ff0000>"+Misc.formatAmount(amount)+"</col> Spirit shards for <col=ff0000>"+Misc.formatAmount((long) amount * ItemDefinition.forId(18016).getValue())+"</col> coins from your money pouch.");
 			player.getPacketSender().sendString(8135, ""+player.getMoneyInPouch());
-			player.getInventory().add(18016, (int) canBeBought);
-			player.getPacketSender().sendMessage("You've bought "+canBeBought+" Spirit Shards for coins from your money pouch.");
-		} else {
+		} else if(player.getInventory().getAmount(995) >= (long) amount * ItemDefinition.forId(18016).getValue()) {
+			if(!player.getInventory().hasRoomFor(18016, amount)) {
+				player.getPacketSender().sendMessage("You do not have enough inventory space to hold <col=ff0000>"+Misc.formatAmount(amount)+"</col> Spirit shards.");
+				return;
+			}
 			player.getPacketSender().sendInterfaceRemoval();
-			int cost = ItemDefinition.forId(18016).getValue() * amount;
-			long moneyAmount = player.getInventory().getAmount(995);
-			long canBeBought = moneyAmount / (ItemDefinition.forId(18016).getValue());
-			if(canBeBought >= amount)
-				canBeBought = amount;
-			if(canBeBought == 0) {
-				player.getPacketSender().sendMessage("You do not have enough money in your @red@inventory@bla@ to buy that amount.");
-				return;
-			}
-			cost = ItemDefinition.forId(18016).getValue() * (int) canBeBought;
-			if(player.getInventory().getAmount(995) < cost) {
-				player.getPacketSender().sendMessage("You do not have enough money in your @red@inventory@bla@ to buy that amount.");
-				return;
-			}
-			player.getInventory().delete(995, (int) cost);
-			player.getInventory().add(18016, (int) canBeBought);
-			player.getPacketSender().sendMessage("You've bought "+canBeBought+" Spirit Shards for "+Misc.insertCommasToNumber(""+(int)cost)+" coins.");
+			
+			//If Inventory has enough money, purchase the spirit shards from cash in inventory
+			player.getInventory().delete(995, amount * ItemDefinition.forId(18016).getValue());
+			player.getInventory().add(18016, amount);
+			player.getPacketSender().sendMessage("You have purchased <col=ff0000>"+Misc.formatAmount(amount)+"</col> Spirit shards for <col=ff0000>"+Misc.formatAmount((long) amount * ItemDefinition.forId(18016).getValue())+"</col> coins from your inventory.");
+		} else {
+			player.getPacketSender().sendMessage("You need <col=ff0000>"+Misc.formatAmount((long) amount * ItemDefinition.forId(18016).getValue())+"</col> in order to purchase these Spirit shards.");
 		}
 	}
 
