@@ -17,6 +17,7 @@ import com.ikov.world.content.Digging;
 import com.ikov.world.content.Effigies;
 import com.ikov.world.content.ExperienceLamps;
 import com.ikov.model.VoteTokens;
+import com.ikov.world.content.CompletionistCapes;
 import com.ikov.world.content.Gambling;
 import com.ikov.world.content.MemberScrolls;
 import com.ikov.world.content.MoneyPouch;
@@ -391,6 +392,19 @@ public class ItemActionPacketListener implements PacketListener {
 		if (SummoningData.isPouch(player, itemId, 2))
 			return;
 		switch(itemId) {
+		case 14022:
+		case 21085:
+		case 21086:
+		case 21087:
+		case 21093:
+		case 21094:
+		case 21095:
+		case 21096:
+		case 21097:
+		case 21098:
+		case 21099:
+			CompletionistCapes.openInterface(player, itemId);
+			break;
 		case 6500:
 			if(player.getCombatBuilder().isAttacking() || player.getCombatBuilder().isBeingAttacked()) {
 				player.getPacketSender().sendMessage("You cannot configure this right now.");

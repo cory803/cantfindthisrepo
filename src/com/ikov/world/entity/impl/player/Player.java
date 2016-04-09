@@ -116,6 +116,8 @@ public class Player extends Character {
 		ge_return = abb;
 	}
 	
+	public int completionist_clicked = 0;
+	
 	@Override
 	public void appendDeath() {
 		if(!isDying) {

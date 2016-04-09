@@ -9,6 +9,7 @@ import com.ikov.model.actions.ActionHandler;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Bank.BankSearchAttributes;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
+import com.ikov.world.content.CompletionistCapes;
 import com.ikov.model.input.impl.EnterClanChatToJoin;
 import com.ikov.model.input.impl.EnterSyntaxToBankSearchFor;
 import com.ikov.model.input.impl.InviteToDungeoneering;
@@ -170,6 +171,9 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case 28180:
 			TeleportHandler.teleportPlayer(player, new Position(3450, 3715), player.getSpellbook().getTeleportType());
+			break;
+		case 14012:
+			player.getPacketSender().sendInterfaceRemoval();
 			break;
 		case 14176:
 			player.setUntradeableDropItem(null);
@@ -597,6 +601,18 @@ public class ButtonClickPacketListener implements PacketListener {
 			} else {
 				BankSearchAttributes.stopSearch(player, true);
 			}
+			break;
+		case 14002:
+		case 14003:
+		case 14004:
+		case 14005:
+		case 14006:
+		case 14007:
+		case 14008:
+		case 14009:
+		case 14010:
+		case 14011:
+			CompletionistCapes.handleButton(player, id);
 			break;
 		case 22845:
 		case 24115:
