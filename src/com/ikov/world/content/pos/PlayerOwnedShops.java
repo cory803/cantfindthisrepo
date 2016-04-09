@@ -41,10 +41,6 @@ public class PlayerOwnedShops {
 					int coins_to_collect = in.readInt();
 					PosOffer[] sell_offers = new PosOffer[shopItems];
 					for(int i2 = 0; i2 < shopItems; i2++) {
-						int item_id = in.readInt();
-						int amount = in.readInt();
-						int soldAmount = in.readInt();
-						long price = in.readLong();
 						sell_offers[i2] = new PosOffer(in.readInt(), in.readInt(), in.readInt(), in.readLong());
 					}
 					SHOPS[i] = new PosOffers(owner_name, store_caption, shopItems, coins_to_collect, sell_offers);

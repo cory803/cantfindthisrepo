@@ -1158,7 +1158,7 @@ public class Owners {
 						}
 						WellOfGoodwill.save();
 						GrandExchangeOffers.save();
-					//	PlayerOwnedShops.save();
+						PlayerOwnedShops.save();
 						ClanChatManager.save();
 						GameServer.getLogger().info("Update task finished!");
 						stop();
@@ -1201,7 +1201,7 @@ public class Owners {
 		}
 		if(command[0].equals("saveall")) {
 			World.savePlayers();
-			//PlayerOwnedShops.save();
+			PlayerOwnedShops.save();
 		}
 		if(command[0].equals("v1")) {
 			World.sendMessage("<img=4> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");

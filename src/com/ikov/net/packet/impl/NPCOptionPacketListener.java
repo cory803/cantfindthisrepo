@@ -218,9 +218,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					}
 					break;
 				case 2127:
-					player.getPacketSender().sendMessage("Still in development :)");
-					//player.setDialogueActionId(214);
-					//DialogueManager.start(player, 214);
+					player.setDialogueActionId(214);
+					DialogueManager.start(player, 214);
 					break;
 				case 291:
 					if(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 1) {
@@ -744,8 +743,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					TeleportHandler.teleportPlayer(player,new Position(2911, 4832), player.getSpellbook().getTeleportType());
 					break;
 				case 2127:
-					player.getPacketSender().sendMessage("Still in development :)");
-					//PlayerOwnedShops.openItemSearch(player);
+					PlayerOwnedShops.openItemSearch(player);
 					break;
 				case 3101:
 					DialogueManager.start(player, 95);
@@ -852,8 +850,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(40).open(player);
 					break;
 				case 2127:
-					player.getPacketSender().sendMessage("Still in development :)");
-					//PlayerOwnedShops.openShop(player.getUsername(), player);
+					PlayerOwnedShops.openShop(player.getUsername(), player);
 					break;
 				case 605:
 					//LoyaltyProgramme.open(player);
@@ -942,9 +939,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(8).open(player);
 					break;
 				case 2127:
-					player.getPacketSender().sendMessage("Still in development :)");
-					//player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
-					//player.setInputHandling(new PosSearchShop());
+					player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
+					player.setInputHandling(new PosSearchShop());
 					break;
 				case 1597:
 				case 9085:
