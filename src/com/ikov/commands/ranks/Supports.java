@@ -191,23 +191,6 @@ public class Supports {
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
 			World.sendYell("<col=0>[<col=589fe1><shad=0><img=4>Support<img=4></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
-		if(command[0].equalsIgnoreCase("kick")) {
-			String player2 = wholeCommand.substring(5);
-			Player playerToKick = World.getPlayerByName(player2);
-			if (World.getPlayerByName(player2).getLocation() == Location.DUEL_ARENA) {
-				player.getPacketSender().sendMessage("Why are you trying to move a player out of duel arena?");
-				return;
-			}
-			if (playerToKick.getLocation() == Location.DUEL_ARENA) {
-				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
-				return;
-			}
-			if(playerToKick.getLocation() != Location.WILDERNESS) {
-				World.deregister(playerToKick);
-				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");
-			}
-		}		
 	}
 	
 }

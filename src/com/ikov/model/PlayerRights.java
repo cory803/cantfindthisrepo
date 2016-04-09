@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
+import com.ikov.util.Misc;
 
 
 /**
@@ -33,9 +34,7 @@ public enum PlayerRights {
 		this.inherited = inherited;
 	}
 	
-	private static final ImmutableSet<PlayerRights> YT = Sets.immutableEnumSet(YOUTUBER);
-	private static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER, GLOBAL_MOD, COMMUNITY_MANAGER, WIKI_EDITOR, WIKI_MANAGER, STAFF_MANAGER);
-	private static final ImmutableSet<PlayerRights> CC = Sets.immutableEnumSet(OWNER);	
+	public static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR, OWNER, GLOBAL_MOD, COMMUNITY_MANAGER, STAFF_MANAGER);
 	
 	private final PlayerRights[] inherited;
 	
@@ -73,21 +72,17 @@ public enum PlayerRights {
 	}
 	
 	public boolean inherits(PlayerRights rights) {
-		return equals(rights) || Arrays.asList(inherited).contains(rights);
+		return equals(rights) || Arrays.asList(inherited).contains(rights) || rights.equals(PLAYER) || equals(MODERATOR) && rights.equals(SUPPORT);
 	}
 
 	public boolean isStaff() {
 		return STAFF.contains(this);
 	}
 	
-	public boolean isYouTuber() {
-		return YT.contains(this);
+	public String getFormatedName() {
+		return Misc.toTitleCase(toString());
 	}
-	
-	public boolean ownerInCC() {
-		return CC.contains(this);
-	}
-	
+
 	/**
 	 * Gets the rank for a certain id.
 	 * 

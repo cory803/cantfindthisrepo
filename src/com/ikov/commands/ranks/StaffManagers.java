@@ -602,19 +602,6 @@ public class StaffManagers {
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
 			World.sendYell("<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
-		if(command[0].equalsIgnoreCase("kick")) {
-			String player2 = wholeCommand.substring(5);
-			Player playerToKick = World.getPlayerByName(player2);
-			if(playerToKick.getLocation() == Location.DUNGEONEERING) {
-				player.getPacketSender().sendMessage("This player is in dung....");
-				return;
-			}
-			if(playerToKick.getLocation() != Location.WILDERNESS) {
-				World.deregister(playerToKick);
-				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");
-			}
-		}
 	}
 	
 }

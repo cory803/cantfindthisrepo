@@ -1249,18 +1249,6 @@ public class CommunityManagers {
 			BonusManager.update(player);
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
-		if(command[0].equalsIgnoreCase("kick")) {
-			String player2 = wholeCommand.substring(5);
-			Player playerToKick = World.getPlayerByName(player2);
-			if(playerToKick == null) {
-				player.getPacketSender().sendMessage("Player "+player2+" couldn't be found on Ikov.");
-				return;
-			} else if(playerToKick.getLocation() != Location.WILDERNESS) {
-				World.deregister(playerToKick);
-				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");
-			}
-		}
 	}
 	
 }
