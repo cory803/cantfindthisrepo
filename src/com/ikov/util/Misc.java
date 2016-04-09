@@ -164,6 +164,17 @@ public class Misc {
 		}
 		return str;
 	}
+	
+	public static String toTitleCase(String str) {
+		str = str.toLowerCase();
+	    String[] arr = str.split(" ");
+	    StringBuffer sb = new StringBuffer();
+	    for (int i = 0; i < arr.length; i++) {
+	        sb.append(Character.toUpperCase(arr[i].charAt(0)))
+	            .append(arr[i].substring(1)).append(" ");
+	    }          
+	    return sb.toString().trim();
+	}  
 
 	public static String format(int num) {
 		return NumberFormat.getInstance().format(num);
@@ -584,5 +595,29 @@ public class Misc {
 			}
 		}
 		return false;
+	}
+	
+	public static String findCommand(String message) {
+		if (!message.contains(" ") && !message.contains("-")) {
+			return message;
+		} else if (!message.contains(" ")) {
+			return message.substring(0, message.indexOf("-"));
+		} else if (!message.contains("-")) {
+			return message.substring(0, message.indexOf(" "));
+		}
+		int seperatorIndex = message.indexOf(" ") < message.indexOf("-") ? message.indexOf(" ") : message.indexOf("-");
+		return message.substring(0, seperatorIndex);
+	}
+	
+	public static String findInput(String message) {
+		if (!message.contains(" ") && !message.contains("-")) {
+			return "";
+		} else if (!message.contains(" ")) {
+			return message.substring(message.indexOf("-") + 1);
+		} else if (!message.contains("-")) {
+			return message.substring(message.indexOf(" ") + 1);
+		}
+		int seperatorIndex = message.indexOf(" ") < message.indexOf("-") ? message.indexOf(" ") : message.indexOf("-");
+		return message.substring(seperatorIndex + 1);
 	}
 }
