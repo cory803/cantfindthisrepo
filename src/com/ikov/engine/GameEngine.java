@@ -59,7 +59,7 @@ public final class GameEngine implements Runnable {
 			e.printStackTrace();
 			World.savePlayers();
 			GrandExchangeOffers.save();
-			//PlayerOwnedShops.save();
+			PlayerOwnedShops.save();
 			ClanChatManager.save();
 		}
 	}

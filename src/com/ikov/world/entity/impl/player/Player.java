@@ -865,6 +865,20 @@ public class Player extends Character {
 		this.donatorRights = donorRights;
 	}
 	
+	public String getDonorRight() {
+		switch (donatorRights) {
+		case 2:
+			return "Super Donator";
+		case 3:
+			return "Extreme Donator";
+		case 4:
+			return "Legendary Donator";
+		case 5:
+			return "Uber Donator";
+		}
+		return "Donator";
+	}
+	
 	public PlayerRights getRights() {
 		return rights;
 	}

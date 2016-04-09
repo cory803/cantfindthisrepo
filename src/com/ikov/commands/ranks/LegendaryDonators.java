@@ -32,34 +32,6 @@ public class LegendaryDonators {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
 		}
-		if (command[0].equals("ezone")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
-				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
-				return;
-			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			Position position = new Position(3362, 9640, 0);
-			int ran = Misc.getRandom(3);
-			switch(ran) {
-				case 0:
-					position = new Position(3363, 9641, 0);
-				break;
-				case 1:
-					position = new Position(3364, 9640, 0);
-				break;
-				case 2:
-					position = new Position(3363, 9639, 0);
-				break;
-				case 3:
-					position = new Position(3362, 9640, 0);
-				break;
-			}
-			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
-			player.getPacketSender().sendMessage("<img=9><col=00ff00><shad=0> Welcome to the Extreme Donator Zone!");
-		}
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(player.getRights() != PlayerRights.PLAYER) {
 				return;
@@ -106,62 +78,6 @@ public class LegendaryDonators {
 			}
 			World.sendYell("<img=10> <col=0>[<col=3E0069>Legendary<col=0>] "+player.getUsername()+": "+yellMessage);	
 			player.getYellTimer().reset();
-		}
-		if (command[0].equals("ancients")) {
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			player.setSpellbook(MagicSpellbook.ANCIENT);
-			player.getPacketSender().sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId()).sendMessage("Your magic spellbook is changed to ancients..");
-			Autocasting.resetAutocast(player, true);
-		}	
-		if (command[0].equals("togglepray")) {
-			if(player.getSkillManager().getMaxLevel(Skill.DEFENCE) < 30) {
-				player.getPacketSender().sendMessage("You need a Defence level of at least 30 to use this altar.");
-				return;
-			}
-			if(player.getPrayerbook() == Prayerbook.NORMAL) {
-				player.getPacketSender().sendMessage("You sense a surge of power flow through your body!");
-				player.setPrayerbook(Prayerbook.CURSES);
-			} else {
-				player.getPacketSender().sendMessage("You sense a surge of purity flow through your body!");
-				player.setPrayerbook(Prayerbook.NORMAL);
-			}
-			player.getPacketSender().sendTabInterface(GameSettings.PRAYER_TAB, player.getPrayerbook().getInterfaceId());
-			PrayerHandler.deactivateAll(player);
-			CurseHandler.deactivateAll(player);
-		}
-		if (command[0].equals("moderns")) {
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			player.setSpellbook(MagicSpellbook.NORMAL);
-			player.getPacketSender().sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId()).sendMessage("Your magic spellbook is changed to moderns..");
-			Autocasting.resetAutocast(player, true);
-		}
-		if (command[0].equals("lunars")) {
-			if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			player.setSpellbook(MagicSpellbook.LUNAR);
-			player.getPacketSender().sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId()).sendMessage("Your magic spellbook is changed to lunars..");
-			Autocasting.resetAutocast(player, true);
-		}
-		if (command[0].equals("dzone")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
-				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
-				return;
-			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
-			Position position = new Position(2514, 3860, 0);
-			player.moveTo(position);
-			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}
 	}
 	
