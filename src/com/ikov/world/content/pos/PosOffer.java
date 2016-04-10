@@ -41,6 +41,7 @@ public class PosOffer implements Comparable<PosOffer> {
 	 */
 	public void increaseAmount(int item_amount) {
 		this.amount += item_amount;
+		PlayerOwnedShops.save();
 	}
 	
 	/**
@@ -49,6 +50,7 @@ public class PosOffer implements Comparable<PosOffer> {
 	 */
 	public void decreaseAmount(int item_amount) {
 		this.amount -= item_amount;
+		PlayerOwnedShops.save();
 	}
 	
 	/**
@@ -61,6 +63,7 @@ public class PosOffer implements Comparable<PosOffer> {
 	
 	public void setSoldAmount(int amount) {
 		this.soldAmount = amount;
+		PlayerOwnedShops.save();
 	}
 
 	/**

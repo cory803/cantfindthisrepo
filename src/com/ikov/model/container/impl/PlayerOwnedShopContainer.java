@@ -355,6 +355,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						super.switchItem(to, new Item(item.getId(), offer.getAmount()), slot, false, false);
 						PlayerLogs.log(player.getUsername(), "Player owned shop removed from shop: "+item.getDefinition().getName()+"");
 						player.getPacketSender().sendMessage("The item <col=CA024B>" + item.getDefinition().getName() + "</col> has been removed from your shop.");
+						PlayerOwnedShops.save();
 					}
 				} else {
 					offer.decreaseAmount(item.getAmount());
