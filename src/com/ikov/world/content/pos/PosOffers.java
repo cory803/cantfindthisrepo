@@ -44,12 +44,10 @@ public class PosOffers {
 	
 	public void resetCoinsCollect() {
 		this.coins_to_collect = 0;
-		PlayerOwnedShops.save();
 	}
 	
 	public void addCoinsToCollect(long i) {
 		this.coins_to_collect += i;
-		PlayerOwnedShops.save();
 	}
 	
 	public List<PosOffer> getOffers() {

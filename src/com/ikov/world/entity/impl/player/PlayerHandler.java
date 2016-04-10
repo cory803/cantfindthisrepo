@@ -348,6 +348,7 @@ public class PlayerHandler {
 		if(player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
 		}
+		PlayerOwnedShops.collectCoinsOnLogin(player);
 		if(!player.getBankPinAttributes().hasBankPin()) {
 			if(player.getLocation() != Location.WILDERNESS) {
 				if(player.newPlayer()) {

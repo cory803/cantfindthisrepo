@@ -108,8 +108,6 @@ public class PlayerOwnedShops {
 					player.getPacketSender().sendMessage("You have sucessfully placed your <col=CA024B>" + ItemDefinition.forId(item_id).getName() + "</col> for sale for <col=CA024B>" + formatAmount(price) + "</col>");
 				else
 					player.getPacketSender().sendMessage("Shop full!");
-				
-				PlayerOwnedShops.save();
 			}
 		} else {
 			System.out.println("Error: Shop null");
