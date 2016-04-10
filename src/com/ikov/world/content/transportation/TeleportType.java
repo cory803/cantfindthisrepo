@@ -5,7 +5,7 @@ import com.ikov.model.Graphic;
 import com.ikov.util.Misc;
 public enum TeleportType {
 
-	NORMAL(3, new Animation(8939, 20), new Animation(8941), null, null),
+	NORMAL(3, new Animation(8939), new Animation(8941), new Graphic(1576), new Graphic(1577)),
 	ANCIENT(5, new Animation(9599), new Animation(8941), new Graphic(1681, 0), null),
 	LUNAR(4, new Animation(9606), new Animation(9013), new Graphic(1685), null),
 	TELE_TAB(2, new Animation(4731), Animations.DEFAULT_RESET_ANIMATION, new Graphic(678), null),
