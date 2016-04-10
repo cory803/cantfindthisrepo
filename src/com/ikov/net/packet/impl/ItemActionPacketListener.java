@@ -406,13 +406,7 @@ public class ItemActionPacketListener implements PacketListener {
 			CompletionistCapes.openInterface(player, itemId);
 			break;
 		case 6500:
-			if(player.getCombatBuilder().isAttacking() || player.getCombatBuilder().isBeingAttacked()) {
-				player.getPacketSender().sendMessage("You cannot configure this right now.");
-				return;
-			}
-			player.getPacketSender().sendInterfaceRemoval();
-			DialogueManager.start(player, 101);
-			player.setDialogueActionId(60);
+				player.getPacketSender().sendMessage("You're already gaining EXP and picking up charms! don't be greedy");
 			break;
 		case 1712:
 		case 1710:
@@ -494,7 +488,7 @@ public class ItemActionPacketListener implements PacketListener {
 			DialogueManager.start(player, player.getGameMode() == GameMode.NORMAL ? 108 : 109);
 			break;
 		case 6500:
-			CharmingImp.sendConfig(player);
+			player.getPacketSender().sendMessage("You're currently gain experience and picking up charms.");
 			break;
 		case 4155:
 			player.getPacketSender().sendInterfaceRemoval();
