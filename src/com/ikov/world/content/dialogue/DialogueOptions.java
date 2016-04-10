@@ -4,8 +4,10 @@ import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
 import com.ikov.model.input.impl.ToxicStaffZulrahScales;
 import com.ikov.engine.task.impl.BonusExperienceTask;
+import com.ikov.model.input.impl.PosSearchShop;
 import com.ikov.util.Logs;
 import com.ikov.util.Misc;
+import com.ikov.world.content.pos.PlayerOwnedShops;
 import com.ikov.world.content.dialogue.impl.Tutorial;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
@@ -758,6 +760,14 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 214:
+				if(!player.getRights().isStaff()) {
+					player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+					player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+					return;
+				}
+				PlayerOwnedShops.openShop(player.getUsername(), player);
+				break;
 			case 136:
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(2845, 5335, 2), player.getSpellbook().getTeleportType());
@@ -808,6 +818,14 @@ public class DialogueOptions {
 			case 136:
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(2891, 5356, 2), player.getSpellbook().getTeleportType());
+				break;
+			case 214:
+				if(!player.getRights().isStaff()) {
+					player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+					player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+					return;
+				}
+				PlayerOwnedShops.openItemSearch(player);
 				break;
 			case 5:
 				DialogueManager.start(player, MemberScrolls.getTotalFunds(player));
@@ -866,6 +884,15 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(2917, 5272, 0), player.getSpellbook().getTeleportType());
 				break;
+			case 214:
+				if(!player.getRights().isStaff()) {
+					player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+					player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+					return;
+				}
+				player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
+				player.setInputHandling(new PosSearchShop());
+				break;
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
 				if(player.getDonorRights() == 0) {
@@ -914,6 +941,15 @@ public class DialogueOptions {
 			}
 		} else if(id == FOURTH_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 214:
+				if(!player.getRights().isStaff()) {
+					player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+					player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+					return;
+				}
+				player.getPacketSender().sendInterfaceRemoval();
+				player.getPacketSender().sendMessage("This option is still being worked on.");
+				break;
 			case 5:
 			case 8:
 			case 9:

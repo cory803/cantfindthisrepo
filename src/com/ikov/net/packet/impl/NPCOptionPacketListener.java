@@ -181,11 +181,11 @@ public class NPCOptionPacketListener implements PacketListener {
 							}
 							break;
 						case 2127:
-						if(!player.getRights().isStaff()) {
-							player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
-							player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
-							return;
-						}
+							if(!player.getRights().isStaff()) {
+								player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+								player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+								return;
+							}
 							player.setDialogueActionId(214);
 							DialogueManager.start(player, 214);
 							break;
