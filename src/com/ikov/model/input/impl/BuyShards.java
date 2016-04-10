@@ -6,9 +6,9 @@ import com.ikov.util.Misc;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
-* Handles purchasing spirit shards
-* @Jonathan Sirens
-**/
+ * Handles purchasing spirit shards
+ * @Jonathan Sirens
+ **/
 
 public class BuyShards extends EnterAmount {
 
@@ -18,14 +18,18 @@ public class BuyShards extends EnterAmount {
 			player.getPacketSender().sendMessage("You can't buy this amount of Spirit shards.");
 			return;
 		}
+		if(player.getMoneyInPouch() < 0) {
+			player.getPacketSender().sendMessage("Your money pouch is negative.");
+			return;
+		}
 		//Sets the amount available to purchase from pouch to whatever your inventory actually can hold
 		if(player.getInventory().getAmount(18016) + (long) amount > Integer.MAX_VALUE) {
 			amount = Integer.MAX_VALUE - player.getInventory().getAmount(18016);
 		}
-		
-		if(player.getInventory().getAmount(995) >= (long) amount * ItemDefinition.forId(18016).getValue()) {
+
+		if((long) player.getMoneyInPouch() >= (long) amount * ItemDefinition.forId(18016).getValue()) {
 			player.getPacketSender().sendInterfaceRemoval();
-			
+
 			//If Money Pouch has enough money, purchase the spirit shards from cash in money pouch
 			player.setMoneyInPouch((player.getMoneyInPouch() - ((long) amount * ItemDefinition.forId(18016).getValue())));
 			player.getInventory().add(18016, amount);
@@ -37,7 +41,7 @@ public class BuyShards extends EnterAmount {
 				return;
 			}
 			player.getPacketSender().sendInterfaceRemoval();
-			
+
 			//If Inventory has enough money, purchase the spirit shards from cash in inventory
 			player.getInventory().delete(995, amount * ItemDefinition.forId(18016).getValue());
 			player.getInventory().add(18016, amount);

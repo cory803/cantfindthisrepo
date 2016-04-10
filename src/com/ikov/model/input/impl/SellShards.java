@@ -9,9 +9,9 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 /**
-* Handles selling spirit shards
-* @Jonathan Sirens
-**/
+ * Handles selling spirit shards
+ * @Jonathan Sirens
+ **/
 
 public class SellShards extends EnterAmount {
 
@@ -21,7 +21,10 @@ public class SellShards extends EnterAmount {
 			player.getPacketSender().sendMessage("You can't sell this amount of Spirit shards.");
 			return;
 		}
-		
+		if(player.getMoneyInPouch() < 0) {
+			player.getPacketSender().sendMessage("Your money pouch is negative.");
+			return;
+		}
 		//Sets the amount that you actually have in your inventory of Spirit shards
 		if(player.getInventory().getAmount(18016) < amount) {
 			amount = player.getInventory().getAmount(18016);
@@ -33,7 +36,7 @@ public class SellShards extends EnterAmount {
 		}
 		if((long) player.getInventory().getAmount(995) + ((long) amount * ItemDefinition.forId(18016).getValue()) > Integer.MAX_VALUE) {
 			player.getPacketSender().sendInterfaceRemoval();
-			
+
 			//If the inventory doesn't have enough room, sell shards to pouch
 			player.setMoneyInPouch((player.getMoneyInPouch() + ((long) amount * ItemDefinition.forId(18016).getValue())));
 			player.getInventory().delete(18016, amount);
@@ -45,7 +48,7 @@ public class SellShards extends EnterAmount {
 				return;
 			}
 			player.getPacketSender().sendInterfaceRemoval();
-			
+
 			//If inventory can hold the coins, sell the spirit shards for coins to inventory
 			player.getInventory().delete(18016, amount);
 			player.getInventory().add(995, amount * ItemDefinition.forId(18016).getValue());
