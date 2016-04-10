@@ -111,6 +111,8 @@ public class PlayerOwnedShops {
 					player.getPacketSender().sendMessage("You have sucessfully placed your <col=CA024B>" + ItemDefinition.forId(item_id).getName() + "</col> for sale for <col=CA024B>" + formatAmount(price) + "</col>");
 				else
 					player.getPacketSender().sendMessage("Shop full!");
+				
+				PlayerOwnedShops.save();
 			}
 		} else {
 			System.out.println("Error: Shop null");
@@ -185,6 +187,7 @@ public class PlayerOwnedShops {
 					player.getPacketSender().sendMessage("Your items have sold for <col=CA024B>"+formatAmount(o.getCoinsToCollect())+"</col>");
 					PlayerLogs.log(player.getUsername(), "Player owned shop items sold for: "+formatAmount(o.getCoinsToCollect())+"");
 					o.resetCoinsCollect();
+					save();
 				}
 			}
 		}
