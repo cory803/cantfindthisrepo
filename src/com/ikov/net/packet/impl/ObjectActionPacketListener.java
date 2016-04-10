@@ -9,6 +9,7 @@ import com.ikov.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.ikov.model.Animation;
 import com.ikov.model.Direction;
 import com.ikov.model.DwarfCannon;
+import com.ikov.world.ChaosTunnelHandler;
 import com.ikov.world.content.PlayerLogs;
 
 import com.ikov.model.Flag;
@@ -144,6 +145,9 @@ public class ObjectActionPacketListener implements PacketListener {
 					return;
 				}
 				if(Barrows.handleObject(player, gameObject)) {
+					return;
+				}
+				if (ChaosTunnelHandler.handleObjects(player, gameObject)) {
 					return;
 				}
 				if(player.getLocation() == Location.WILDERNESS && WildernessObelisks.handleObelisk(gameObject.getId())) {
