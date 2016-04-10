@@ -181,6 +181,11 @@ public class NPCOptionPacketListener implements PacketListener {
 							}
 							break;
 						case 2127:
+						if(!player.getRights().isStaff()) {
+							player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+							player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+							return;
+						}
 							player.setDialogueActionId(214);
 							DialogueManager.start(player, 214);
 							break;
@@ -708,6 +713,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					TeleportHandler.teleportPlayer(player,new Position(2911, 4832), player.getSpellbook().getTeleportType());
 					break;
 				case 2127:
+					if(!player.getRights().isStaff()) {
+						player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+						player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+						return;
+					}
 					PlayerOwnedShops.openItemSearch(player);
 					break;
 				case 3101:
@@ -815,6 +825,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(40).open(player);
 					break;
 				case 2127:
+					if(!player.getRights().isStaff()) {
+						player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+						player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+						return;
+					}
 					PlayerOwnedShops.openShop(player.getUsername(), player);
 					break;
 				case 605:
@@ -904,6 +919,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(8).open(player);
 					break;
 				case 2127:
+					if(!player.getRights().isStaff()) {
+						player.getPacketSender().sendMessage("Player Owned Shops are currently in beta for staff to test bugs.");
+						player.getPacketSender().sendMessage("If there are no major bugs that take a long time to fix, it could be out in 24 hours.");
+						return;
+					}
 					player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
 					player.setInputHandling(new PosSearchShop());
 					break;
