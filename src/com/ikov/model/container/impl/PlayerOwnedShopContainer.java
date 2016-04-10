@@ -267,7 +267,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			return this;
 		
 		PosOffer offer = o.forId(item.getId());
-		if (offer != null)
+		if (offer != null && offer.getAmount() > 0)
 			value = (int) offer.getPrice();
 		
 		playerCurrencyAmount = player.getInventory().getAmount(995);
@@ -326,7 +326,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 
 						super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
 						playerCurrencyAmount -= value;
-						total += value;
+						total += value * canBeBought;
 						offer.decreaseAmount(amountBuying);
 						break;
 					} else {
@@ -335,6 +335,8 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				}
 				amountBuying--;
 			}
+			if (offer.getAmount() == 0)
+				o.removeOffer(offer);
 			Player owner = World.getPlayerByName(o.getOwner());
 			if (owner != null) {
 				PlayerLogs.log(owner.getUsername(), "Player owned shop recieved coins to money pouch: "+formatAmount(total)+"");
