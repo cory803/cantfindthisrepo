@@ -22,6 +22,7 @@ public class CompletionistCapes {
 	public static void handleButton(Player player, int buttonId) {
 		if(!player.getInventory().contains(player.completionist_clicked) || player.completionist_clicked == 0) {
 			player.getPacketSender().sendMessage("What happened to your cape?");
+			return;
 		}
 		player.getInventory().delete(player.completionist_clicked, 1);
 		switch(buttonId) {
