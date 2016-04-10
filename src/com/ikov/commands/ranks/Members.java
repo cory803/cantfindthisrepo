@@ -182,66 +182,8 @@ public class Members {
 			}
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
-			/*if(!player.getLastAuthTime().elapsed(30000)) {
-				player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds before attempting to redeem an auth.");
-				return;
-			} 
-			if (!GameSettings.VOTING_CONNECTIONS) {
-				player.getPacketSender().sendMessage("Voting connections are currently turned off, try again in 30 minutes!");
-				player.getLastAuthTime().reset();
-				return;
-			}
-			if (player.getLocation() == Location.DUNGEONEERING || (player.getLocation() == Location.WILDERNESS) || (player.getLocation() == Location.DUEL_ARENA)) {
-				player.getPacketSender().sendMessage("You can't redeem a vote in your current location.");
-				player.getLastAuthTime().reset();
-				return;
-			} 
-			if (player.isDying()) {
-				player.getPacketSender().sendMessage("You can't redeem votes whilst dying");
-				player.getLastAuthTime().reset();
-				return;
-			}
-			if (player.voteCount >= 10) {
-				PlayerPunishment.voteBan(player.getUsername());
-			} else {
-				String authCode = command[1];
-				try {
-					boolean success = AuthService.provider().redeemNow(authCode);
-					if (success) {
-						if(player.getInventory().isFull()) {
-							player.getBank(player.getCurrentBankTab()).add(10944, GameSettings.AUTH_AMOUNT);
-						} else {
-							player.getInventory().add(10944, GameSettings.AUTH_AMOUNT);
-						}
-						player.getPacketSender().sendMessage("You have had "+GameSettings.AUTH_AMOUNT+" x Auth Rewards added to your bank.");
-						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
-						player.getLastVengeance().reset();
-						if (player.getVotesClaimed() == 100) {
-							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
-						}
-						player.getLastAuthTime().reset();
-						player.setVotesClaimed(1);
-						player.voteCount++;
-						player.getPacketSender().sendMessage("You have claimed " + player.voteCount + " of your 10 votes today. If you abuse the system your ");
-						player.getPacketSender().sendMessage("account will be banned from voting.");
-						GameSettings.AUTHS_CLAIMED++;
-						if (GameSettings.AUTHS_CLAIMED == 25) {
-							World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
-							GameSettings.AUTHS_CLAIMED = 0;
-						}
-						PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " has claimed an auth code " + authCode + "!");
-					} else {
-						player.getPacketSender().sendMessage("The authcode you have entered is invalid. Please try again.");
-						player.getLastAuthTime().reset();
-					}
-				} catch (Exception e) {
-					player.getPacketSender().sendMessage("Error connecting to the database. Please try again later.");
-					player.getLastAuthTime().reset();
-					e.printStackTrace();
-				}
-				return;
-			}*/
-			player.getPacketSender().sendMessage("Currently Disabled");
+			player.getPacketSender().sendMessage("Voting has been disabled until we move to a new system.");
+			player.getPacketSender().sendMessage("We have confirmed the lag and mass disconnections is due to our old vote system.");
 		}
 		if (command[0].equals("forumrank")) {
 			if(!player.getForumDelay().elapsed(30000)) {
@@ -289,14 +231,6 @@ public class Members {
 				player.getPacketSender().sendMessage("Staff members are not allowed to use this command.");
 				player.getForumDelay().reset();
 			}
-		}
-		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
-			if(!GameSettings.STORE_CONNECTIONS) {
-				player.getPacketSender().sendMessage("The Store is currently turned off, please try again in 30 minutes!");
-				return;
-			}
-			player.getPacketSender().sendString(1, "www.ikov2.org/store/");
-			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/store/");
 		}
 		if (wholeCommand.equalsIgnoreCase("wiki")) {
 			player.getPacketSender().sendString(1, "www.ikov-2.wikia.com/wiki/Ikov_2_Wikia");
