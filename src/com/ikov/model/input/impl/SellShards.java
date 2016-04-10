@@ -17,6 +17,11 @@ public class SellShards extends EnterAmount {
 
 	@Override
 	public void handleAmount(Player player, int amount) {
+		if(amount < 1) {
+			player.getPacketSender().sendMessage("You can't sell this amount of Spirit shards.");
+			return;
+		}
+		
 		//Sets the amount that you actually have in your inventory of Spirit shards
 		if(player.getInventory().getAmount(18016) < amount) {
 			amount = player.getInventory().getAmount(18016);

@@ -14,6 +14,10 @@ public class BuyShards extends EnterAmount {
 
 	@Override
 	public void handleAmount(Player player, int amount) {
+		if(amount < 1) {
+			player.getPacketSender().sendMessage("You can't buy this amount of Spirit shards.");
+			return;
+		}
 		//Sets the amount available to purchase from pouch to whatever your inventory actually can hold
 		if(player.getInventory().getAmount(18016) + (long) amount > Integer.MAX_VALUE) {
 			amount = Integer.MAX_VALUE - player.getInventory().getAmount(18016);
