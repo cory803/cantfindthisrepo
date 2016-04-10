@@ -97,7 +97,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		PosOffer offer = o.forId(item.getId());
 		if (offer != null)
 			finalValue = offer.getPrice();
-		
 		if (item.getId() < 0)
 			return;
 		if (player != null && finalValue > 0) {
@@ -461,7 +460,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				for(int i = 0; i < o.getOffers().size(); i++) {
 					items[i] = new Item(o.getOffers().get(i).getItemId(), o.getOffers().get(i).getAmount());
 				}
-				System.out.println("Added " + o.getOwner() + " ; " + getIndex(o.getOwner()));
 				pos_shops.put(getIndex(o.getOwner()), new PlayerOwnedShopContainer(null, o.getOwner(), items));
 			}
 		}
