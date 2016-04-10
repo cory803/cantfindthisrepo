@@ -175,7 +175,7 @@ public enum Skill {
 	public static final int CONSTITUTION_MODIFIER = 190;
 	public static final int RANGED_MODIFIER = 260;
 	public static final int PRAYER_MODIFIER = 50;
-	public static final int MAGIC_MODIFIER = 290;
+	public static final int MAGIC_MODIFIER = 390;
 	public static final int HERBLORE_MODIFIER = 5;
 	public static final int CRAFTING_MODIFIER = 3;
 	public static final int RUNECRAFTING_MODIFIER = 3;

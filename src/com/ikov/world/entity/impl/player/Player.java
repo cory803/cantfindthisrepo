@@ -277,6 +277,16 @@ public class Player extends Character {
 
 		return CombatStrategies.getDefaultMeleeStrategy();
 	}
+	
+	public boolean xpRate = true;
+	
+	public void setXpRate(boolean bbb) {
+		xpRate = bbb;
+	}
+	
+	public boolean getXpRate() {
+		return xpRate;
+	}
 
 	public void process() {
 		process.sequence();

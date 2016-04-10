@@ -709,8 +709,11 @@ public class DialogueOptions {
 				player.setDialogueActionId(0);
 				DialogueManager.start(player, 0);
 				break;
-			case 9:
 			case 10:
+				DialogueManager.start(player, 217);
+				player.setDialogueActionId(220);
+				break;
+			case 9:
 			case 11:
 			case 13:
 			case 17:
@@ -948,6 +951,10 @@ public class DialogueOptions {
 			case 217:
 				player.setDialogueActionId(219);
 				DialogueManager.start(player, 218);
+				break;
+			case 220:
+				DialogueManager.start(player, 218);
+				player.setXpRate(false);
 				break;
 			case 216:
 				if(player.newPlayer()) {
@@ -1241,6 +1248,10 @@ public class DialogueOptions {
 			case 219:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("You decided to keep your game mode how it is and not adjust to a normal player.");
+				break;
+			case 220:
+				DialogueManager.start(player, 219);
+				player.setXpRate(true);
 				break;
 			case 216:
 				player.setPlayerLocked(false);

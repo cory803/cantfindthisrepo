@@ -148,6 +148,10 @@ public class PlayerLoading {
 				player.setMoneyInPouch(reader.get("money-pouch").getAsLong());
 			}
 			
+			if (reader.has("xp-rate")) {
+				player.setXpRate(reader.get("xp-rate").getAsBoolean());
+			}		
+			
 			if (reader.has("given-starter")) {
 				player.setReceivedStarter(reader.get("given-starter").getAsBoolean());
 			}	
