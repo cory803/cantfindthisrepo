@@ -107,7 +107,7 @@ public class PlayerOwnedShops {
 			if (offer != null) {
 				offer.increaseAmount(1);
 			} else {
-				if (o.addOffer(new PosOffer(item_id, 1, 0, price)))
+				if (o.addOffer(new PosOffer(item_id, item_amount, 0, price)))
 					player.getPacketSender().sendMessage("You have sucessfully placed your <col=CA024B>" + ItemDefinition.forId(item_id).getName() + "</col> for sale for <col=CA024B>" + formatAmount(price) + "</col>");
 				else
 					player.getPacketSender().sendMessage("Shop full!");
