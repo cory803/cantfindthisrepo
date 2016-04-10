@@ -304,7 +304,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						playerCurrencyAmount -= value;
 						total += value;
 						offer.decreaseAmount(amountBuying);
-						PlayerOwnedShops.save();
 					} else {
 						break;
 					}
@@ -327,6 +326,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
 						playerCurrencyAmount -= value;
 						total += value;
+						offer.decreaseAmount(amountBuying);
 						break;
 					} else {
 						break;
