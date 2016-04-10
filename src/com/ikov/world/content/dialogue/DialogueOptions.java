@@ -6,6 +6,7 @@ import com.ikov.model.input.impl.ToxicStaffZulrahScales;
 import com.ikov.engine.task.impl.BonusExperienceTask;
 import com.ikov.util.Logs;
 import com.ikov.util.Misc;
+import com.ikov.world.content.dialogue.impl.Tutorial;
 import com.ikov.model.GameMode;
 import com.ikov.model.GameObject;
 import com.ikov.model.Hit;
@@ -948,6 +949,14 @@ public class DialogueOptions {
 				player.setDialogueActionId(219);
 				DialogueManager.start(player, 218);
 				break;
+			case 216:
+				if(player.newPlayer()) {
+					player.setPlayerLocked(true);
+					DialogueManager.tutorialDialogue(player);
+				} else {
+					player.setPlayerLocked(false);
+				}
+			break;
 			case 219:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.setGameMode(GameMode.NORMAL);
@@ -1233,6 +1242,10 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("You decided to keep your game mode how it is and not adjust to a normal player.");
 				break;
+			case 216:
+				player.setPlayerLocked(false);
+				player.getPacketSender().sendInterfaceRemoval();
+			break;
 			case 203:
 			case 204:
 			case 205:

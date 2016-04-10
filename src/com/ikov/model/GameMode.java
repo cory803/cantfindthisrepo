@@ -63,7 +63,8 @@ public enum GameMode {
 		}
 		if(player.newPlayer()) {
 			player.setPlayerLocked(true);
-			DialogueManager.start(player, Tutorial.get(player, 0));
+			DialogueManager.start(player, 216);
+			player.setDialogueActionId(216);
 		} else {
 			player.setPlayerLocked(false);
 		}
