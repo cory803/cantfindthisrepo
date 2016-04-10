@@ -55,7 +55,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 22;
+			return 5;
 		}
 
 		@Override
@@ -135,7 +135,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 37;
+			return 13;
 		}
 
 		@Override
@@ -183,7 +183,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 45;
+			return 7;
 		}
 
 		@Override
@@ -236,7 +236,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 67;
+			return 9;
 		}
 
 		@Override
@@ -317,7 +317,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 80;
+			return 21;
 		}
 
 		@Override
@@ -365,7 +365,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 111;
+			return 11;
 		}
 
 		@Override
@@ -418,7 +418,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 134;
+			return 13;
 		}
 
 		@Override
@@ -499,7 +499,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 168;
+			return 29;
 		}
 
 		@Override
@@ -555,7 +555,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 197;
+			return 30;
 		}
 
 		@Override
@@ -603,7 +603,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 239;
+			return 16;
 		}
 
 		@Override
@@ -656,7 +656,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 273;
+			return 19;
 		}
 
 		@Override
@@ -709,7 +709,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 321;
+			return 22;
 		}
 
 		@Override
@@ -762,7 +762,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 377;
+			return 24;
 		}
 
 		@Override
@@ -815,7 +815,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 412;
+			return 25;
 		}
 
 		@Override
@@ -867,7 +867,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 482;
+			return 28;
 		}
 
 		@Override
@@ -920,7 +920,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 562;
+			return 30;
 		}
 
 		@Override
@@ -980,7 +980,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 612;
+			return 60;
 		}
 
 		@Override
@@ -1028,7 +1028,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 677;
+			return 30;
 		}
 
 		@Override
@@ -1080,7 +1080,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 712;
+			return 31;
 		}
 
 		@Override
@@ -1123,7 +1123,7 @@ public enum CombatSpells {
 
 		@Override
 		public int maximumHit() {
-			return 169;
+			return 34;
 		}
 
 		@Override
@@ -1185,7 +1185,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 787;
+			return 35;
 		}
 
 		@Override
@@ -1237,7 +1237,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 787;
+			return 35;
 		}
 
 		@Override
@@ -1289,7 +1289,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 787;
+			return 35;
 		}
 
 		@Override
@@ -1342,7 +1342,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 954;
+			return 36;
 		}
 
 		@Override
@@ -1394,7 +1394,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1101;
+			return 37;
 		}
 
 		@Override
@@ -1475,7 +1475,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1234;
+			return 76;
 		}
 
 		@Override
@@ -1523,7 +1523,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1345;
+			return 40;
 		}
 
 		@Override
@@ -1605,7 +1605,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1456;
+			return 83;
 		}
 
 		@Override
@@ -1653,7 +1653,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1450;
+			return 42;
 		}
 
 		@Override
@@ -1714,7 +1714,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1517;
+			return 89;
 		}
 
 		@Override
@@ -1790,7 +1790,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1627;
+			return 90;
 		}
 
 		@Override
@@ -1866,7 +1866,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1850;
+			return 80;
 		}
 
 		@Override
@@ -1926,7 +1926,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 565;
+			return 30;
 		}
 
 		@Override
@@ -1994,7 +1994,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 624;
+			return 31;
 		}
 
 		@Override
@@ -2055,7 +2055,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 702;
+			return 33;
 		}
 
 		@Override
@@ -2113,7 +2113,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 766;
+			return 34;
 		}
 
 		@Override
@@ -2170,7 +2170,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 854;
+			return 36;
 		}
 
 		@Override
@@ -2237,7 +2237,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 955;
+			return 37;
 		}
 
 		@Override
@@ -2297,7 +2297,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1011;
+			return 39;
 		}
 
 		@Override
@@ -2354,7 +2354,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1237;
+			return 40;
 		}
 
 		@Override
@@ -2412,7 +2412,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1345;
+			return 42;
 		}
 
 		@Override
@@ -2480,7 +2480,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1456;
+			return 43;
 		}
 
 		@Override
@@ -2541,7 +2541,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1652;
+			return 45;
 		}
 
 		@Override
@@ -2597,7 +2597,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 1782;
+			return 46;
 		}
 
 		@Override
@@ -2654,7 +2654,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 2103;
+			return 48;
 		}
 
 		@Override
@@ -2721,7 +2721,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 2624;
+			return 48;
 		}
 
 		@Override
@@ -2781,7 +2781,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 3100;
+			return 51;
 		}
 
 		@Override
@@ -2838,7 +2838,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 3450;
+			return 52;
 		}
 
 		@Override

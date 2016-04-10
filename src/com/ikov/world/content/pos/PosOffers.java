@@ -44,12 +44,10 @@ public class PosOffers {
 	
 	public void resetCoinsCollect() {
 		this.coins_to_collect = 0;
-		PlayerOwnedShops.save();
 	}
 	
 	public void addCoinsToCollect(long i) {
 		this.coins_to_collect += i;
-		PlayerOwnedShops.save();
 	}
 	
 	public List<PosOffer> getOffers() {
@@ -86,13 +84,13 @@ public class PosOffers {
 				out.writeInt(-1);
 				out.writeInt(-1);
 				out.writeLong(-1);
-				System.out.println("Writing negative variable");
+				//System.out.println("Writing negative variable");
 			} else {
 				out.writeInt(getOffers().get(i2).getItemId());
 				out.writeInt(getOffers().get(i2).getAmount());
 				out.writeInt(getOffers().get(i2).getSoldAmount());
 				out.writeLong(getOffers().get(i2).getPrice());
-				System.out.println("Writing positive variable "+getOffers().get(i2).getItemId()+"");
+				//System.out.println("Writing positive variable "+getOffers().get(i2).getItemId()+"");
 			}
 		}
 	}

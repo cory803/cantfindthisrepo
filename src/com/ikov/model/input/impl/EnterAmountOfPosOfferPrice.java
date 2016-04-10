@@ -21,7 +21,7 @@ public class EnterAmountOfPosOfferPrice extends EnterAmount {
 
 	@Override
 	public void handleAmount(Player player, int price) {
-		if (price <= 0 || price >= Integer.MAX_VALUE) {
+		if (price <= 0 || price >= Long.MAX_VALUE) {
 			player.getPacketSender().sendMessage("Please enter a valid price.");
 			return;
 		}

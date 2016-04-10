@@ -97,7 +97,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		PosOffer offer = o.forId(item.getId());
 		if (offer != null)
 			finalValue = offer.getPrice();
-		
 		if (item.getId() < 0)
 			return;
 		if (player != null && finalValue > 0) {
@@ -171,7 +170,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		if(amountToSell == 0)
 			return;
 		int itemId = itemToSell.getId();
-		if (!itemToSell.sellable() || !itemToSell.tradeable()) {
+		if (!itemToSell.tradeable()) {
 			player.getPacketSender().sendMessage("You can't sell this item.");
 			return;
 		}
@@ -215,7 +214,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), -1);
 					//player.getInventory().add(new Item(995, itemValue), false);
 					PlayerLogs.log(player.getUsername(), "Player owned shop sold item: ID: "+itemToSell.getId()+" AMOUNT: "+amountToSell+" PRICE: "+price+"");
-					PlayerOwnedShops.soldItem(player, index, itemToSell.getId(), amountToSell, price);
+					PlayerOwnedShops.soldItem(player, index, itemToSell.getId(), 1, price);
 				} else {
 					player.getPacketSender().sendMessage("Please free some inventory space before doing that.");
 					break;
@@ -235,6 +234,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			amountToSell--;
 			count++;
 		}
+		PlayerOwnedShops.save();
 		player.getInventory().refreshItems();
 		refreshItems();
 		publicRefresh();
@@ -267,7 +267,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			return this;
 		
 		PosOffer offer = o.forId(item.getId());
-		if (offer != null)
+		if (offer != null && offer.getAmount() > 0)
 			value = (int) offer.getPrice();
 		
 		playerCurrencyAmount = player.getInventory().getAmount(995);
@@ -298,13 +298,13 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						if(usePouch) {
 							player.setMoneyInPouch((player.getMoneyInPouch() - value));
 						} else {
-							player.getPacketSender().sendString(1, ":moneypouchloss:"+value);
 							player.getInventory().delete(995, value, false);
 							PlayerLogs.log(player.getUsername(), "Player owned shop removed coins from inventory: "+value+" for purchasing item: "+item.getId()+", "+item.getAmount()+"");
 						}
 						super.switchItem(to, new Item(item.getId(), 1), slot, false, false);
 						playerCurrencyAmount -= value;
 						total += value;
+						offer.decreaseAmount(1);
 					} else {
 						break;
 					}
@@ -320,14 +320,14 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 							if(usePouch) {
 								player.setMoneyInPouch((player.getMoneyInPouch() - (value * canBeBought)));
 							} else {
-								player.getPacketSender().sendString(1, ":moneypouchloss:"+value * canBeBought);
 								player.getInventory().delete(995, value * canBeBought, false);
 								PlayerLogs.log(player.getUsername(), "Player owned shop removed coins from inventory: "+value * canBeBought+" for purchasing item: "+item.getId()+", "+item.getAmount()+"");
 							}
 
 						super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
 						playerCurrencyAmount -= value;
-						total += value;
+						total += value * canBeBought;
+						offer.decreaseAmount(amountBuying);
 						break;
 					} else {
 						break;
@@ -335,6 +335,8 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				}
 				amountBuying--;
 			}
+			if (offer.getAmount() == 0)
+				o.removeOffer(offer);
 			Player owner = World.getPlayerByName(o.getOwner());
 			if (owner != null) {
 				PlayerLogs.log(owner.getUsername(), "Player owned shop recieved coins to money pouch: "+formatAmount(total)+"");
@@ -355,7 +357,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						super.switchItem(to, new Item(item.getId(), offer.getAmount()), slot, false, false);
 						PlayerLogs.log(player.getUsername(), "Player owned shop removed from shop: "+item.getDefinition().getName()+"");
 						player.getPacketSender().sendMessage("The item <col=CA024B>" + item.getDefinition().getName() + "</col> has been removed from your shop.");
-						PlayerOwnedShops.save();
 					}
 				} else {
 					offer.decreaseAmount(item.getAmount());
@@ -364,6 +365,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				}
 			}
 		}
+		PlayerOwnedShops.save();
 		player.getInventory().refreshItems();
 		refreshItems();
 		publicRefresh();
@@ -461,7 +463,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 				for(int i = 0; i < o.getOffers().size(); i++) {
 					items[i] = new Item(o.getOffers().get(i).getItemId(), o.getOffers().get(i).getAmount());
 				}
-				System.out.println("Added " + o.getOwner() + " ; " + getIndex(o.getOwner()));
 				pos_shops.put(getIndex(o.getOwner()), new PlayerOwnedShopContainer(null, o.getOwner(), items));
 			}
 		}

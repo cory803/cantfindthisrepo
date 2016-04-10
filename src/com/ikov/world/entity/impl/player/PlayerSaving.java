@@ -54,6 +54,7 @@ public class PlayerSaving {
 			object.addProperty("loyalty-rank", new Integer(player.getLoyaltyRank()));
 			object.addProperty("online-status", player.getRelations().getStatus().name());
 			object.addProperty("jailed-status", new Boolean(player.isJailed()));
+			object.addProperty("xp-rate", new Boolean(player.getXpRate()));
 			object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
 			object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
 			object.addProperty("yell-mute", new Boolean(player.isYellMute()));

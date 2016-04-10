@@ -12,7 +12,8 @@ public class EnterAmountToSellToPos extends EnterAmount {
 	
 	@Override
 	public void handleAmount(Player player, int amount) {
-		player.getPlayerOwnedShop().sellItem(player, getSlot(), amount, 0);
+		if (player.isPlayerOwnedShopping())
+			player.getPlayerOwnedShop().sellItem(player, getSlot(), amount, 0);
 	}
 
 }

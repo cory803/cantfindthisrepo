@@ -268,8 +268,13 @@ public class DwarfMultiCannon {
 		Achievements.doProgress(player, AchievementData.DEAL_EASY_DAMAGE_USING_RANGED, dmg.getDamage());
 		Achievements.doProgress(player, AchievementData.DEAL_MEDIUM_DAMAGE_USING_RANGED, dmg.getDamage());
 		Achievements.doProgress(player, AchievementData.DEAL_HARD_DAMAGE_USING_RANGED, dmg.getDamage());
-		player.getSkillManager().addExperience(Skill.RANGED, (int) (((dmg.getDamage() * .50)  * Skill.RANGED.getExperienceMultiplier())));
-		player.getSkillManager().addExperience(Skill.CONSTITUTION, (int) (dmg.getDamage() * .30) * Skill.CONSTITUTION.getExperienceMultiplier());
+		if(player.getXpRate()) {
+			player.getSkillManager().addExperience(Skill.RANGED, (int) (((dmg.getDamage() * .50)  * Skill.RANGED.getExperienceMultiplier())));
+			player.getSkillManager().addExperience(Skill.CONSTITUTION, (int) (dmg.getDamage() * .30) * Skill.CONSTITUTION.getExperienceMultiplier());
+		} else {
+			player.getSkillManager().addExperience(Skill.RANGED, (int) (((dmg.getDamage() * .50))));
+			player.getSkillManager().addExperience(Skill.CONSTITUTION, (int) (dmg.getDamage() * .30));
+		}
 		if(!n.getCombatBuilder().isAttacking()) {
 			if(n.getMovementCoordinator().getCoordinateState() == CoordinateState.HOME)
 				n.getCombatBuilder().attack(player);

@@ -352,7 +352,7 @@ public class Tutorial {
 
 				@Override
 				public void specialAction() {
-					p.moveTo(new Position(3423, 2914));
+					p.moveTo(new Position(2514, 3860));
 				}
 
 				@Override
@@ -386,7 +386,7 @@ public class Tutorial {
 
 				@Override
 				public void specialAction() {
-					p.moveTo(new Position(2514, 3860));
+					p.moveTo(new Position(2573, 3899));
 				}
 
 				@Override

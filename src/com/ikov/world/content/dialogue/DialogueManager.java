@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.ikov.model.definitions.NpcDefinition;
 import com.ikov.GameSettings;
 import com.ikov.util.JsonLoader;
+import com.ikov.world.content.dialogue.impl.Tutorial;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
@@ -130,6 +131,25 @@ public class DialogueManager {
 			return;
 		}
 		Dialogue next = player.getDialogue().nextDialogue();
+		if (next == null)
+			next = dialogues.get(player.getDialogue().nextDialogueId());
+		if (next == null || next.id() < 0) {
+			player.getPacketSender().sendInterfaceRemoval();
+			return;
+		}
+		start(player, next);
+	}
+	
+	/**
+	 * Handles the clicking of 'click here to continue', option1, option2 and so on.
+	 * @param player	The player who will continue the dialogue.
+	 */
+	public static void tutorialDialogue(Player player) {
+		if (player.getDialogue() == null) {
+			player.getPacketSender().sendInterfaceRemoval();
+			return;
+		}
+		Dialogue next = Tutorial.get(player, 0);
 		if (next == null)
 			next = dialogues.get(player.getDialogue().nextDialogueId());
 		if (next == null || next.id() < 0) {
