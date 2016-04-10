@@ -69,6 +69,7 @@ public class PosItemSearch extends Input {
 			String item_name = ItemDefinition.forId(p.getItemId()).getName();
 			start_caption += 4;
 			start_owner_name += 4;
+			pd.setButtonId(-24062 + (4 * index));
 			player.getPacketSender().sendString(start_owner_name, pd.getOwner());
 			player.getPacketSender().sendString(start_caption, "Found: " + item_name + " for " + formatAmount(p.getPrice()));
 			index++;

@@ -23,6 +23,10 @@ public class PosDetails {
 	public int getButtonId() {
 		return buttonId;
 	}
+	
+	public void setButtonId(int ii) {
+		this.buttonId = ii;
+	}
 
 	/**
 	 * Gets the caption.
