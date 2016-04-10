@@ -298,13 +298,14 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 						if(usePouch) {
 							player.setMoneyInPouch((player.getMoneyInPouch() - value));
 						} else {
-							player.getPacketSender().sendString(1, ":moneypouchloss:"+value);
 							player.getInventory().delete(995, value, false);
 							PlayerLogs.log(player.getUsername(), "Player owned shop removed coins from inventory: "+value+" for purchasing item: "+item.getId()+", "+item.getAmount()+"");
 						}
 						super.switchItem(to, new Item(item.getId(), 1), slot, false, false);
 						playerCurrencyAmount -= value;
 						total += value;
+						offer.decreaseAmount(amountBuying);
+						PlayerOwnedShops.save();
 					} else {
 						break;
 					}
@@ -320,7 +321,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 							if(usePouch) {
 								player.setMoneyInPouch((player.getMoneyInPouch() - (value * canBeBought)));
 							} else {
-								player.getPacketSender().sendString(1, ":moneypouchloss:"+value * canBeBought);
 								player.getInventory().delete(995, value * canBeBought, false);
 								PlayerLogs.log(player.getUsername(), "Player owned shop removed coins from inventory: "+value * canBeBought+" for purchasing item: "+item.getId()+", "+item.getAmount()+"");
 							}
