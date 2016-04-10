@@ -14,6 +14,7 @@ import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.Skill;
 import com.ikov.model.container.ItemContainer;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 import com.ikov.model.container.impl.Shop;
 import com.ikov.net.packet.Packet.PacketType;
 import com.ikov.world.content.CustomObjects;
@@ -499,6 +500,10 @@ public class PacketSender {
 		if(player.isShopping()) {
 			sendClientRightClickRemoval().sendItemsOnInterface(Shop.INTERFACE_ID, new Item[]{new Item(-1)});
 			player.setShopping(false);
+		}
+		if (player.isPlayerOwnedShopping()) {
+			sendClientRightClickRemoval().sendItemsOnInterface(PlayerOwnedShopContainer.INTERFACE_ID, new Item[]{new Item(-1)});
+			player.setPlayerOwnedShopping(false);
 		}
 		if(player.getPriceChecker().isOpen()) {
 			player.getPriceChecker().exit();

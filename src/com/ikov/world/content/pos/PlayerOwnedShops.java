@@ -97,7 +97,6 @@ public class PlayerOwnedShops {
 	}
 	
 	public static void soldItem(Player player, int index, int item_id, int item_amount, long price) {
-		System.out.println("" + item_id + ", " + item_amount);
 		PosOffers o = SHOPS[index];
 		if (o != null) {
 			PosOffer offer = o.forId(item_id);
