@@ -191,7 +191,12 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			player.getPacketSender().sendMessage("You can't sell items to this shop.");
 			return;
 		}
-
+		
+		if (o.getOffers().size() >= 40) {
+			player.getPacketSender().sendMessage("Shop full!");
+			return;
+		}
+		
 		PosOffer offer = o.forId(itemId);
 		if (offer != null)
 			price = offer.getPrice();
@@ -204,7 +209,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			player.getPacketSender().sendEnterAmountPrompt("Enter the price of the item:");
 			return;
 		}
-			
+		
 		for (int i = amountToSell; i > 0; i--) {
 			itemToSell = new Item(itemId);
 			if(this.full(itemToSell.getId()) || !player.getInventory().contains(itemToSell.getId()) || !player.isPlayerOwnedShopping())
