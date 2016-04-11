@@ -76,7 +76,7 @@ public class ItemForging {
 
 		DRAGONSTONE_BOLTS(new Item[] {new Item(9144, 15), new Item(9193, 15)}, new Item(9341, 15), new int[] {9, 80, 5000}),
 		DIAMOND_BOLTS(new Item[] {new Item(9143, 15), new Item(9192, 15)}, new Item(9340, 15), new int[] {9, 70, 4000}),
-		RUBY_BOLTS(new Item[] {new Item(9143, 15), new Item(9191, 15)}, new Item(9239, 15), new int[] {9, 60, 2000}),
+		RUBY_BOLTS(new Item[] {new Item(9143, 15), new Item(9191, 15)}, new Item(9339, 15), new int[] {9, 60, 2000}),
 		EMERALD_BOLTS(new Item[] {new Item(9142, 15), new Item(9190, 15)}, new Item(9238, 15), new int[] {9, 40, 1000}),
 		SAPPHIRE_BOLTS(new Item[] {new Item(9142, 15), new Item(9189, 15)}, new Item(9337, 15), new int[] {9, 30, 500}),
 		
