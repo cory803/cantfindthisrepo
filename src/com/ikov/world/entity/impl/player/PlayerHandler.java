@@ -200,6 +200,10 @@ public class PlayerHandler {
 		if(player.getMinutesBonusExp() >= 0) {
 			TaskManager.submit(new BonusExperienceTask(player));
 		}
+		if(player.getPointsHandler().getPkPoints() < 0) {
+			player.getPointsHandler().setPkPoints(0, false);
+			System.out.println("The user "+player.getUsername()+" logged in with negative PK Points, resetting to 0.");
+		}
 
 		//Update appearance
 		player.getUpdateFlag().flag(Flag.APPEARANCE);
