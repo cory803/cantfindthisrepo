@@ -34,10 +34,6 @@ public class PlayerOwnedShops {
 					String owner_name = in.readUTF();
 					String store_caption = in.readUTF();
 					int shopItems = in.readInt();
-					if (shopItems > 40) {
-						System.out.println(owner_name + " has more than 40 items in pos.");
-						shopItems = 40;
-					}
 					int coins_to_collect = (int) in.readLong();
 					PosOffer[] sell_offers = new PosOffer[shopItems];
 					for(int i2 = 0; i2 < shopItems; i2++) {
@@ -139,6 +135,13 @@ public class PlayerOwnedShops {
 	}
 	
 	public static void openShop(String username, Player player) {
+		int[] stock = new int[40];
+		int[] stockAmount = new int[40];
+		for(int i = 0; i < stock.length; i++) {
+			stock[i] = -1;
+			stockAmount[i] = 1;
+		}
+		
 		for (int i = 0; i < SHOPS.length; i++) {
 			PosOffers o = SHOPS[i];
 			if (o != null) {
@@ -152,7 +155,7 @@ public class PlayerOwnedShops {
 				}
 			} else {
 				if (player.getUsername().equalsIgnoreCase(username)) {
-					PosOffer[] offers = new PosOffer[0];
+					PosOffer[] offers = new PosOffer[40];
 					SHOPS[i] = new PosOffers(player.getUsername(), player.getUsername() + "'s store", offers.length, 0, offers);
 					Item[] default_items = new Item[0];
 					PlayerOwnedShopManager.getShops().put(i, new PlayerOwnedShopContainer(null, player.getUsername(), default_items));

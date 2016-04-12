@@ -213,10 +213,6 @@ public class Trading {
 				boolean itemInTrade = false;
 				for (Item item : offeredItems) {
 					if (item.getId() == itemId) {
-						if (item.getAmount() + amount >= Integer.MAX_VALUE || item.getAmount() + amount < 0) {
-							player.getPacketSender().sendMessage("You can't trade that much at a time.");
-							return;
-						}
 						itemInTrade = true;
 						item.setAmount(item.getAmount() + amount);
 						player.getInventory().delete(itemId, amount);
