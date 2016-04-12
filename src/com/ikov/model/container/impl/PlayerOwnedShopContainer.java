@@ -191,6 +191,11 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			player.getPacketSender().sendMessage("You can't sell items to this shop.");
 			return;
 		}
+		
+		if (o.getOffers().size() >= 40) {
+			player.getPacketSender().sendMessage("Shop full!");
+			return;
+		}
 
 		PosOffer offer = o.forId(itemId);
 		if (offer != null)
