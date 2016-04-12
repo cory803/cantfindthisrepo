@@ -20,7 +20,7 @@ public enum PlayerRights {
 	OWNER(-1, "<col=B40404>", 1, 1, ADMINISTRATOR, MODERATOR),
 	SUPPORT(-1, "<col=FF0000><shad=0>", 1, 1),
 	YOUTUBER(-1, "<col=EE0101><shad=891E19>", 1, 1),
-	GLOBAL_MOD(-1, "<col=EE0101><shad=891E19>", 1, 1),
+	GLOBAL_MOD(-1, "<col=EE0101><shad=891E19>", 1, 1, MODERATOR),
 	COMMUNITY_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1),
 	WIKI_EDITOR(-1, "<col=EE0101><shad=891E19>", 1, 1),
 	WIKI_MANAGER(-1, "<col=EE0101><shad=891E19>", 1, 1),

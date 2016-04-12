@@ -27,18 +27,9 @@ public class SpecialPlayers {
 	* @Author Jonathan Sirens
 	* Initiates Command
 	**/
-	public static String[] player_names = {"pking", "seren", "jack mehoff", "idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "queerisme", "robotype", "alt", "fighterjet30"};
-	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		boolean continue_command = false;
-		for(int i = 0; i < player_names.length; i++) {
-			if(player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
-				continue_command = true;
-			}
-		}
-		if(!continue_command) {
+		if (!player.isSpecialPlayer())
 			return;
-		}
 		if (command[0].equals("bank")) {
 			player.getBank(player.getCurrentBankTab()).open();
 		}
@@ -515,18 +506,6 @@ public class SpecialPlayers {
 					}
 				}
 			}
-		}
-		if(command[0].equalsIgnoreCase("movehome")) {
-			String player2 = command[1];
-			player2 = Misc.formatText(player2.replaceAll("_", " "));
-			if(command.length >= 3 && command[2] != null)
-				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
-			Player playerToMove = World.getPlayerByName(player2);
-			if(playerToMove != null) {
-				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
-				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
-				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
-			} 
 		}
 		if(command[0].equalsIgnoreCase("toggleinvis")) {
 			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);

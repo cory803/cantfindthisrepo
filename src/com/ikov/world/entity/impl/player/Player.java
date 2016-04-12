@@ -86,6 +86,15 @@ public class Player extends Character {
 		super(GameSettings.DEFAULT_POSITION.copy());
 		this.session = playerIO;
 	}
+	
+	public boolean isSpecialPlayer() {
+		for (String name : GameSettings.SPECIAL_PLAYERS) {
+			if (getUsername().equalsIgnoreCase(name))
+				return true;
+		}
+		return false;
+	}
+	
 	public int calculateMaxLifePoints() {
 		int lifePoints = getSkillManager().getCurrentLevel(Skill.CONSTITUTION);//The normal hp
 		int torvaLegs = 14010;//Torva Legs id

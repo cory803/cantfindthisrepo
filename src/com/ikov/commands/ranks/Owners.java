@@ -608,23 +608,6 @@ public class Owners {
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
 			World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
 		}
-		if (command[0].equals("staffzone")) {
-			if (command.length > 1 && command[1].equals("all")) {
-				for (Player players : World.getPlayers()) {
-					if (players != null) {
-						if (players.getRights().isStaff()) {
-							TeleportHandler.teleportPlayer(players, new Position(2846, 5147), TeleportType.NORMAL);
-						}
-					}
-				}
-			} else {
-				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
-			}
-		}
-		if(command[0].equalsIgnoreCase("saveall")) {
-			World.savePlayers();
-			player.getPacketSender().sendMessage("Saved players!");
-		}
 		if(command[0].equalsIgnoreCase("teleto")) {
 			String playerToTele = wholeCommand.substring(7);
 			Player player2 = World.getPlayerByName(playerToTele);
@@ -644,18 +627,6 @@ public class Owners {
 					}
 				}
 			}
-		}
-		if(command[0].equalsIgnoreCase("movehome")) {
-			String player2 = command[1];
-			player2 = Misc.formatText(player2.replaceAll("_", " "));
-			if(command.length >= 3 && command[2] != null)
-				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
-			Player playerToMove = World.getPlayerByName(player2);
-			if(playerToMove != null) {
-				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
-				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
-				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
-			} 
 		}
 		if(command[0].equalsIgnoreCase("toggleinvis")) {
 			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);
@@ -1195,10 +1166,6 @@ public class Owners {
 		}
 		if(command[0].equals("save")) {
 			player.save();
-		}
-		if(command[0].equals("saveall")) {
-			World.savePlayers();
-			PlayerOwnedShops.save();
 		}
 		if(command[0].equals("v1")) {
 			World.sendMessage("<img=4> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");

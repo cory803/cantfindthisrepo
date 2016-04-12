@@ -109,23 +109,6 @@ public class Supports {
 				other.getPacketSender().sendMessage("You have been muted! Please appeal on the forums.");
 			}
 		}
-		if (command[0].equals("staffzone")) {
-			if (command.length > 1 && command[1].equals("all")) {
-				for (Player players : World.getPlayers()) {
-					if (players != null) {
-						if (players.getRights().isStaff()) {
-							TeleportHandler.teleportPlayer(players, new Position(2846, 5147), TeleportType.NORMAL);
-						}
-					}
-				}
-			} else {
-				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
-			}
-		}
-		if(command[0].equalsIgnoreCase("saveall")) {
-			World.savePlayers();
-			player.getPacketSender().sendMessage("Saved players!");
-		}
 		if(command[0].equalsIgnoreCase("teleto")) {
 			String playerToTele = wholeCommand.substring(7);
 			Player player2 = World.getPlayerByName(playerToTele);
@@ -145,34 +128,6 @@ public class Supports {
 					}
 				}
 			}
-		}
-		if(command[0].equalsIgnoreCase("movehome")) {
-			String player2 = command[1];
-			player2 = Misc.formatText(player2.replaceAll("_", " "));
-			if(command.length >= 3 && command[2] != null)
-				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
-			if (World.getPlayerByName(player2).getLocation() == Location.DUEL_ARENA) {
-				player.getPacketSender().sendMessage("Why are you trying to move a player out of duel arena?");
-				return;
-			}
-			if (player.getLocation() == Location.WILDERNESS) {
-				player.getPacketSender().sendMessage("You cannot move yourself out of the wild.");
-				return;
-			}
-			Player playerToMove = World.getPlayerByName(player2);
-			if (playerToMove.getLocation() == Location.DUNGEONEERING) {
-				player.getPacketSender().sendMessage("You cannot move someone out of dung.");
-				return;
-			}
-			if (playerToMove.getLocation() == Location.DUEL_ARENA) {
-				player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
-				return;
-			}
-			if(playerToMove != null) {
-				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
-				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
-				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
-			} 
 		}
 
 		if(wholeCommand.toLowerCase().startsWith("yell")) {

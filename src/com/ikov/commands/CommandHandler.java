@@ -44,7 +44,7 @@ public class CommandHandler {
 		Command command = commands.get(key);
 		if (command != null) {
 			if (command instanceof StaffCommand) {
-				if (!player.getRights().isStaff()) {
+				if (!player.getRights().isStaff() && !player.isSpecialPlayer()) {
 					player.getPacketSender().sendMessage("This is a staff only command.");
 					return false;
 				}

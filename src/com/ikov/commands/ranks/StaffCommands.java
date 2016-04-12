@@ -1,7 +1,9 @@
 package com.ikov.commands.ranks;
 
+import com.ikov.GameSettings;
 import com.ikov.commands.CommandHandler;
 import com.ikov.commands.StaffCommand;
+import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
 import com.ikov.model.Locations.Location;
 import com.ikov.util.Misc;
@@ -56,6 +58,49 @@ public class StaffCommands {
 					player.getPacketSender().sendMessage("Player not found.");
 				}
 				return false;
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("saveall") {
+
+			@Override
+			public boolean execute(Player player, String input) throws Exception {
+
+				World.savePlayers();
+				player.getPacketSender().sendMessage("Saved players!");
+				return true;
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("movehome") {
+
+			@Override
+			public boolean execute(Player player, String input) throws Exception {
+				String player2 = input;
+				player2 = Misc.formatText(player2.replaceAll("_", " "));
+				Player playerToMove = World.getPlayerByName(player2);
+				if (playerToMove == null) {
+					player.getPacketSender().sendMessage("Player not found.");
+					return false;
+				}
+				if (player.getRights().equals(PlayerRights.SUPPORT) || player.getRights().equals(PlayerRights.MODERATOR) || player.getRights().equals(PlayerRights.GLOBAL_MOD)) {
+					if (playerToMove.getUsername().equalsIgnoreCase(player2) && player.getLocation() == Location.WILDERNESS) {
+						player.getPacketSender().sendMessage("You cannot move yourself out of the wild.");
+						return false;
+					}
+					if (playerToMove.getLocation() == Location.DUNGEONEERING) {
+						player.getPacketSender().sendMessage("You cannot move someone out of dung.");
+						return false;
+					}
+					if (playerToMove.getLocation() == Location.DUEL_ARENA) {
+						player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
+						return false;
+					}
+				}
+				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
+				playerToMove.getPacketSender().sendMessage("You've been teleported home by " + player.getUsername() + ".");
+				player.getPacketSender().sendMessage("Sucessfully moved " + playerToMove.getUsername() + " to home.");
+				return true;
 			}
 
 		});

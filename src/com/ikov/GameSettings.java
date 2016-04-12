@@ -5,6 +5,7 @@ import java.math.BigInteger;
 import com.ikov.model.Position;
 import com.ikov.net.security.ConnectionHandler;
 import com.ikov.world.entity.impl.npc.NPC;
+
 import java.util.ArrayList;
 
 public class GameSettings {
@@ -140,10 +141,9 @@ public class GameSettings {
 
 	
 	public static final int MAX_STARTERS_PER_IP = 1;
-	/**
-	 * Test
-	 * Test
-	 */
+
+	public static final String[] SPECIAL_PLAYERS = {"pking", "seren", "jack mehoff", "idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme", "homobeans", "queerisme", "robotype", "alt", "fighterjet30"};
+	
 	/**
 	 * Untradeable items
 	 * Items which cannot be traded or staked

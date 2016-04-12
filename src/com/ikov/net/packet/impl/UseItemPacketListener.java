@@ -367,11 +367,8 @@ public class UseItemPacketListener implements PacketListener {
 			break;
 		case 11211:
 			boolean continue_command = false;
-			for(int i = 0; i < SpecialPlayers.player_names.length; i++) {
-				if(SpecialPlayers.player_names[i].toLowerCase().equals(player.getUsername().toLowerCase())) {
-					continue_command = true;
-				}
-			}
+			if (player.isSpecialPlayer())
+				continue_command = true;
 			if(!continue_command && player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.COMMUNITY_MANAGER && player.getRights() != PlayerRights.ADMINISTRATOR) {
 				return;
 			}
