@@ -2112,5 +2112,46 @@
         "line4": "Set my store caption.",
         "next": -1,
         "npcId": -1
+    },
+	{
+        "id": 216,
+        "type": "NPC_STATEMENT",
+        "anim": "PLAIN_TALKING",
+        "lines": 4,
+        "line1": "Hey, I'm here to help make iron man and",
+        "line2": "hardcore-ironman normal players. If you'd like",
+        "line3": "I can change your game mode, but it cannot",
+        "line4": "be undone. You will keep your items + stats.",
+        "next": 217,
+        "npcId": 2290
+    },
+	{
+        "id": 217,
+        "type": "OPTION",
+        "lines": 2,
+        "line1": "Please make my game mode a normal player",
+        "line2": "I want my game mode to stay how it is",
+        "next": -1,
+        "npcId": -1
+    },
+	{
+        "id": 218,
+        "type": "NPC_STATEMENT",
+        "anim": "PLAIN_TALKING",
+        "lines": 3,
+        "line1": "Remember this CANNOT be undone. You will",
+        "line2": "forever be a normal player, would you still",
+        "line3": "like to change your game mode?",
+        "next": 219,
+        "npcId": 2290
+    },
+	{
+        "id": 219,
+        "type": "OPTION",
+        "lines": 2,
+        "line1": "Yes change my game mode to a normal player",
+        "line2": "No!! I changed my mind keep my game mode",
+        "next": -1,
+        "npcId": -1
     }
 ]
