@@ -405,15 +405,28 @@ public class DesolaceFormulas {
 		
 		if(specialAttack) {
 			switch (p.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()) {
-			case 19780:
-				damage = maxHit = 750;
-				break;
+
+				case 19780:
+					if(p.getCurrentlyCasting() != null) {
+						damage = maxHit = spell.maximumHit();
+					} else {
+						damage = maxHit = 750;
+					}
+					break;
 				case 11730:
-					damage = maxHit = 310;
+					if(p.getCurrentlyCasting() != null) {
+						damage = maxHit = spell.maximumHit();
+					} else {
+						damage = maxHit = 310;
+					}
 					break;
 				case 13905:
 				case 13907:
-					damage = maxHit = 485;
+					if(p.getCurrentlyCasting() != null) {
+						damage = maxHit = spell.maximumHit();
+					} else {
+						damage = maxHit = 485;
+					}
 					break;
 			}
 		} else {

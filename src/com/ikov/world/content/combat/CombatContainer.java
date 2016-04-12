@@ -161,9 +161,7 @@ public class CombatContainer {
 
 	/**
 	 * Performs an action on every single hit in this container.
-	 * 
-	 * @param action
-	 *            the action to perform on every single hit.
+	 * the action to perform on every single hit.
 	 */
 	protected final void allHits(Consumer<ContainerHit> c) {
 		Arrays.stream(hits).filter(Objects::nonNull).forEach(c);
