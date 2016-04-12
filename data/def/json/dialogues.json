@@ -188,7 +188,7 @@
 		"line2": "Buy PvP Sets",
 		"line3": "Show PvP Stats",
         "line4": "Open Pk Points Store",
-        "line5": "Cancel",
+        "line5": "Toggle Combat Experience Rate",
         "next": -1,
         "npcId": -1
     },
@@ -2115,22 +2115,19 @@
     },
 	{
         "id": 216,
-        "type": "NPC_STATEMENT",
-        "anim": "PLAIN_TALKING",
-        "lines": 4,
-        "line1": "Hey, I'm here to help make iron man and",
-        "line2": "hardcore-ironman normal players. If you'd like",
-        "line3": "I can change your game mode, but it cannot",
-        "line4": "be undone. You will keep your items + stats.",
-        "next": 217,
-        "npcId": 2290
+        "type": "OPTION",
+        "lines": 2,
+        "line1": "Take Tutorial",
+        "line2": "Skip Tutorial",
+        "next": -1,
+        "npcId": -1
     },
 	{
         "id": 217,
         "type": "OPTION",
         "lines": 2,
-        "line1": "Please make my game mode a normal player",
-        "line2": "I want my game mode to stay how it is",
+        "line1": "Pre-Eoc Rate",
+        "line2": "Ikov Rate",
         "next": -1,
         "npcId": -1
     },
@@ -2138,20 +2135,24 @@
         "id": 218,
         "type": "NPC_STATEMENT",
         "anim": "PLAIN_TALKING",
-        "lines": 3,
-        "line1": "Remember this CANNOT be undone. You will",
-        "line2": "forever be a normal player, would you still",
-        "line3": "like to change your game mode?",
-        "next": 219,
-        "npcId": 2290
+        "lines": 4,
+        "line1": "I have set your experience rate to that of",
+        "line2": "pre-eoc RuneScape's rate. If you ever want",
+        "line3": "to change it back come speak to me!",
+        "line4": "-This only affects combat-",
+        "next": -1,
+        "npcId": 6537
     },
 	{
         "id": 219,
-        "type": "OPTION",
-        "lines": 2,
-        "line1": "Yes change my game mode to a normal player",
-        "line2": "No!! I changed my mind keep my game mode",
+        "type": "NPC_STATEMENT",
+        "anim": "PLAIN_TALKING",
+        "lines": 4,
+        "line1": "I have set your experience rate to that of",
+        "line2": "a Ikov beginner. If you ever want",
+        "line3": "to change it to pre-eoc come speak to me!",
+        "line4": "-This only affects combat-",
         "next": -1,
-        "npcId": -1
+        "npcId": 6537
     }
 ]
