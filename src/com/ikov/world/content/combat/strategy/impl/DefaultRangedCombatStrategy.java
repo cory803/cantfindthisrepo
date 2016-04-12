@@ -66,15 +66,15 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			return true;
 		}
 
-		if(Dueling.checkRule(player, DuelRule.NO_RANGED)) {
+		if (Dueling.checkRule(player, DuelRule.NO_RANGED)) {
 			player.getPacketSender().sendMessage("Ranged-attacks have been turned off in this duel!");
 			player.getCombatBuilder().reset(true);
 			return false;
 		}
 
 		// Check the ammo before proceeding.
-		if(!checkAmmo(player)) {
-			if(player.isSpecialActivated()) {
+		if (!checkAmmo(player)) {
+			if (player.isSpecialActivated()) {
 				player.setSpecialActivated(false);
 				CombatSpecial.updateBar(player);
 			}
@@ -113,7 +113,8 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 			entity.performAnimation(new Animation(npc.getDefinition().getAttackAnimation()));
 
-			entity.performGraphic(new Graphic(ammo.getStartGfxId(), ammo.getStartHeight() >= 43 ? GraphicHeight.HIGH : GraphicHeight.MIDDLE));
+			entity.performGraphic(new Graphic(ammo.getStartGfxId(),
+					ammo.getStartHeight() >= 43 ? GraphicHeight.HIGH : GraphicHeight.MIDDLE));
 
 			fireProjectile(npc, victim, ammo, false);
 
@@ -122,25 +123,29 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 		Player player = (Player) entity;
 		final boolean dBow = CombatFactory.darkBow(player);
-			
+
 		player.setFireAmmo(0);
 
 		startAnimation(player);
 
 		AmmunitionData ammo = RangedWeaponData.getAmmunitionData(player);
-		if(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
+		if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
 			ammo = AmmunitionData.DRAGON_DART;
 		}
 		if (!player.isSpecialActivated()) {
 
-			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player) && !CombatFactory.zaryteBow(player)) {
+			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player)
+					&& !CombatFactory.zaryteBow(player)) {
 				decrementAmmo(player, victim.getPosition());
-				if(dBow || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW && player.isSpecialActivated() && player.getCombatSpecial() != null && player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW) {
+				if (dBow || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW
+						&& player.isSpecialActivated() && player.getCombatSpecial() != null
+						&& player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW) {
 					decrementAmmo(player, victim.getPosition());
 				}
 			}
 
-			player.performGraphic(new Graphic(ammo.getStartGfxId(), ammo.getStartGfxId() == 2138 ? GraphicHeight.LOW : ammo.getStartHeight() >= 43 ? GraphicHeight.HIGH : GraphicHeight.MIDDLE));
+			player.performGraphic(new Graphic(ammo.getStartGfxId(), ammo.getStartGfxId() == 2138 ? GraphicHeight.LOW
+					: ammo.getStartHeight() >= 43 ? GraphicHeight.HIGH : GraphicHeight.MIDDLE));
 
 			fireProjectile(player, victim, ammo, dBow);
 		}
@@ -148,8 +153,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		CombatContainer container = new CombatContainer(entity, victim, dBow ? 2 : 1, CombatType.RANGED, true);
 
 		/** CROSSBOW BOLTS EFFECT **/
-		if(player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition() != null && player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition().getName().toLowerCase().contains("crossbow")) {
-			if(Misc.getRandom(12) >= 10) {
+		if (player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition() != null && player.getEquipment()
+				.get(Equipment.WEAPON_SLOT).getDefinition().getName().toLowerCase().contains("crossbow")) {
+			if (Misc.getRandom(12) >= 10) {
 				container.setModifiedDamage(getModifiedDamage(player, victim, container));
 			}
 		}
@@ -158,12 +164,21 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	}
 
 	public static void fireProjectile(Character e, Character victim, final AmmunitionData ammo, boolean dBow) {
-		TaskManager.submit(new Task(1, e.getCombatBuilder(), false) { //TODO FIX THIS PROJECTILE, SHOULDNT BE A TASK
+		TaskManager.submit(new Task(1, e.getCombatBuilder(), false) { // TODO
+																		// FIX
+																		// THIS
+																		// PROJECTILE,
+																		// SHOULDNT
+																		// BE A
+																		// TASK
 			@Override
 			protected void execute() {
-				new Projectile(e, victim, ammo.getProjectileId(), ammo.getProjectileDelay()+16, ammo.getProjectileSpeed(), ammo.getStartHeight(), ammo.getEndHeight(), 0).sendProjectile();
-				if(dBow) {
-					new Projectile(e, victim, ammo.getProjectileId(), ammo.getProjectileDelay()+32, ammo.getProjectileSpeed(), ammo.getStartHeight() - 2, ammo.getEndHeight(), 0).sendProjectile();
+				new Projectile(e, victim, ammo.getProjectileId(), ammo.getProjectileDelay() + 16,
+						ammo.getProjectileSpeed(), ammo.getStartHeight(), ammo.getEndHeight(), 0).sendProjectile();
+				if (dBow) {
+					new Projectile(e, victim, ammo.getProjectileId(), ammo.getProjectileDelay() + 32,
+							ammo.getProjectileSpeed(), ammo.getStartHeight() - 2, ammo.getEndHeight(), 0)
+									.sendProjectile();
 				}
 				stop();
 			}
@@ -188,22 +203,21 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		Player player = (Player) entity;
 
 		int distance = 5;
-		if(player.getRangedWeaponData() != null)
+		if (player.getRangedWeaponData() != null)
 			distance = player.getRangedWeaponData().getType().getDistanceRequired();
 
 		return distance + (player.getFightType().getStyle() == FightStyle.DEFENSIVE ? 2 : 0);
 	}
 
 	/**
-	 * Starts the performAnimation for the argued {@link Player} in the current combat
-	 * hook.
+	 * Starts the performAnimation for the argued {@link Player} in the current
+	 * combat hook.
 	 * 
 	 * @param player
 	 *            the player to start the performAnimation for.
 	 */
 	private void startAnimation(Player player) {
-		if (player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition().getName().startsWith(
-				"Karils")) {
+		if (player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition().getName().startsWith("Karils")) {
 			player.performAnimation(new Animation(2075));
 		} else {
 			player.performAnimation(new Animation(WeaponAnimations.getAttackAnimation(player)));
@@ -221,27 +235,36 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	 */
 	private boolean checkAmmo(Player player) {
 		RangedWeaponData data = player.getRangedWeaponData();
-		if(data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.BLOWPIPE || player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171)
+		if (data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.BLOWPIPE
+				|| player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171)
 			return true;
-		Item ammunition = player.getEquipment().getItems()[data.getType() == RangedWeaponType.THROW ? Equipment.WEAPON_SLOT : Equipment.AMMUNITION_SLOT];
-		boolean darkBow = data.getType() == RangedWeaponType.DARK_BOW && ammunition.getAmount() < 2 || data == RangedWeaponData.MAGIC_SHORTBOW && player.isSpecialActivated() && player.getCombatSpecial() != null && player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW && ammunition.getAmount() < 2;
-		if(ammunition.getId() == -1 || ammunition.getAmount() < 1 || darkBow) {
-			player.getPacketSender().sendMessage(darkBow ? "You need at least 2 arrows to fire this bow." : "You don't have any ammunition to fire.");
+		Item ammunition = player.getEquipment().getItems()[data.getType() == RangedWeaponType.THROW
+				? Equipment.WEAPON_SLOT : Equipment.AMMUNITION_SLOT];
+		boolean darkBow = data.getType() == RangedWeaponType.DARK_BOW && ammunition.getAmount() < 2
+				|| data == RangedWeaponData.MAGIC_SHORTBOW && player.isSpecialActivated()
+						&& player.getCombatSpecial() != null
+						&& player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW && ammunition.getAmount() < 2;
+		if (ammunition.getId() == -1 || ammunition.getAmount() < 1 || darkBow) {
+			player.getPacketSender().sendMessage(darkBow ? "You need at least 2 arrows to fire this bow."
+					: "You don't have any ammunition to fire.");
 			player.getCombatBuilder().reset(true);
 			return false;
 		}
 		boolean properEquipment = false;
-		for(AmmunitionData ammo : data.getAmmunitionData()) {
-			for(int i : ammo.getItemIds()) {
-				if(i == ammunition.getId()) {
+		for (AmmunitionData ammo : data.getAmmunitionData()) {
+			for (int i : ammo.getItemIds()) {
+				if (i == ammunition.getId()) {
 					properEquipment = true;
 					break;
 				}
 			}
 		}
-		if(!properEquipment) {
-			String ammoName = ammunition.getDefinition().getName(), weaponName = player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getDefinition().getName(), add = !ammoName.endsWith("s") && !ammoName.endsWith("(e)") ? "s" : "";
-			player.getPacketSender().sendMessage("You can not use "+ammoName+""+add+" with "+Misc.anOrA(weaponName)+" "+weaponName+".");
+		if (!properEquipment) {
+			String ammoName = ammunition.getDefinition().getName(),
+					weaponName = player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getDefinition().getName(),
+					add = !ammoName.endsWith("s") && !ammoName.endsWith("(e)") ? "s" : "";
+			player.getPacketSender().sendMessage("You can not use " + ammoName + "" + add + " with "
+					+ Misc.anOrA(weaponName) + " " + weaponName + ".");
 			player.getCombatBuilder().reset(true);
 			return false;
 		}
@@ -254,6 +277,10 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	 * 
 	 * @param player
 	 *            the player to decrement ammo for.
+	 */
+	/**
+	 * @param player
+	 * @param pos
 	 */
 	public static void decrementAmmo(Player player, Position pos) {
 
@@ -269,7 +296,18 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		// Set the ammo we are currently using.
 		player.setFireAmmo(player.getEquipment().get(slot).getId());
 		final boolean ardy = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748;
-		final boolean avas = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 10499;
+		final boolean compCapes = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 14022 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21094 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21093 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21096 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21097 ||
+						  			player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21098 ||
+						  			player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21095 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21087 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21086 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21085 ||
+									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21099;
+		final boolean avas = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 10499 || compCapes;
 		if(avas) { //Avas
 			if(Misc.getRandom(8) == 1 || Misc.getRandom(8) == 2 || Misc.getRandom(8) == 3 || Misc.getRandom(8) == 4 || Misc.getRandom(8) == 5 || Misc.getRandom(8) == 6 || Misc.getRandom(8) == 7)
 			return;
@@ -311,22 +349,22 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	}
 
 	private static final int getModifiedDamage(Player player, Character target, CombatContainer container) {
-		if(container == null || container.getHits().length < 1)
+		if (container == null || container.getHits().length < 1)
 			return 0;
 		ContainerHit hit = container.getHits()[0];
-		if(!hit.isAccurate())
+		if (!hit.isAccurate())
 			return 0;
 		int damage = container.getHits()[0].getHit().getDamage();
 		int ammo = player.getFireAmmo();
-		if(ammo == -1) {
+		if (ammo == -1) {
 			return damage;
 		}
-		if(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
+		if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
 			return damage;
 		}
 		double multiplier = 1;
-		Player pTarget = target.isPlayer() ? ((Player)target) : null;
-		switch(ammo) {
+		Player pTarget = target.isPlayer() ? ((Player) target) : null;
+		switch (ammo) {
 		case 9236: // Lucky Lightning
 			target.performGraphic(new Graphic(749));
 			multiplier = 1.3;
@@ -341,24 +379,30 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			break;
 		case 9239: // Down To Earth
 			target.performGraphic(new Graphic(757));
-			if(pTarget != null) {
-				pTarget.getSkillManager().setCurrentLevel(Skill.MAGIC, pTarget.getSkillManager().getCurrentLevel(Skill.MAGIC) - 3);
+			if (pTarget != null) {
+				pTarget.getSkillManager().setCurrentLevel(Skill.MAGIC,
+						pTarget.getSkillManager().getCurrentLevel(Skill.MAGIC) - 3);
 				pTarget.getPacketSender().sendMessage("Your Magic level has been reduced.");
 			}
 			break;
 		case 9240: // Clear Mind
 			target.performGraphic(new Graphic(751));
-			if(pTarget != null) {
-				pTarget.getSkillManager().setCurrentLevel(Skill.PRAYER, pTarget.getSkillManager().getCurrentLevel(Skill.PRAYER) - 40);
-				if(pTarget.getSkillManager().getCurrentLevel(Skill.PRAYER) < 0) {
+			if (pTarget != null) {
+				pTarget.getSkillManager().setCurrentLevel(Skill.PRAYER,
+						pTarget.getSkillManager().getCurrentLevel(Skill.PRAYER) - 40);
+				if (pTarget.getSkillManager().getCurrentLevel(Skill.PRAYER) < 0) {
 					pTarget.getSkillManager().setCurrentLevel(Skill.PRAYER, 0);
 				}
 				pTarget.getPacketSender().sendMessage("Your Prayer level has been leeched.");
-				player.getSkillManager().setCurrentLevel(Skill.PRAYER, pTarget.getSkillManager().getCurrentLevel(Skill.PRAYER) + 40);
-				if(player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager().getMaxLevel(Skill.PRAYER)) {
-					player.getSkillManager().setCurrentLevel(Skill.PRAYER, player.getSkillManager().getMaxLevel(Skill.PRAYER));
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER,
+						pTarget.getSkillManager().getCurrentLevel(Skill.PRAYER) + 40);
+				if (player.getSkillManager().getCurrentLevel(Skill.PRAYER) > player.getSkillManager()
+						.getMaxLevel(Skill.PRAYER)) {
+					player.getSkillManager().setCurrentLevel(Skill.PRAYER,
+							player.getSkillManager().getMaxLevel(Skill.PRAYER));
 				} else {
-					player.getPacketSender().sendMessage("Your enchanced bolts leech some Prayer points from your opponent..");
+					player.getPacketSender()
+							.sendMessage("Your enchanced bolts leech some Prayer points from your opponent..");
 				}
 			}
 			break;
@@ -367,15 +411,17 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			CombatFactory.poisonEntity(target, PoisonType.MILD);
 			break;
 		case 9242:
-			if(player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)/200 < 10) {
+			if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)
+					- player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) / 200 < 10) {
 				break;
 			}
 			int priceDamage = (int) (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) * 0.08);
-			if(priceDamage < 0) {
+			if (priceDamage < 0) {
 				return damage;
 			}
-			int dmg2 = (int) ((int) ((int) target.getConstitution() * 0.065) > 1000 ? 650 + Misc.getRandom(50) : ((int) target.getConstitution() * 0.065));
-			if(dmg2 <= 0) {
+			int dmg2 = (int) ((int) ((int) target.getConstitution() * 0.065) > 1000 ? 650 + Misc.getRandom(50)
+					: ((int) target.getConstitution() * 0.065));
+			if (dmg2 <= 0) {
 				return damage;
 			}
 			target.performGraphic(new Graphic(754));
@@ -387,10 +433,13 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			break;
 		case 9244:
 			target.performGraphic(new Graphic(756));
-			if(pTarget != null && (pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 1540 || pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283 || pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284 || pTarget.getFireImmunity() > 0)) {
+			if (pTarget != null && (pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 1540
+					|| pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283
+					|| pTarget.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284
+					|| pTarget.getFireImmunity() > 0)) {
 				return damage;
 			}
-			if(damage < 300 && Misc.getRandom(3) <= 1) {
+			if (damage < 300 && Misc.getRandom(3) <= 1) {
 				damage = 300 + Misc.getRandom(150);
 			}
 			multiplier = 1.25;
@@ -399,12 +448,13 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			target.performGraphic(new Graphic(753));
 			multiplier = 1.26;
 			int heal = (int) (damage * 0.25) + 10;
-			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)+heal);
-			if(player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) >= 1120) {
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
+					player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) + heal);
+			if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) >= 1120) {
 				player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 1120);
 			}
 			player.getSkillManager().updateSkill(Skill.CONSTITUTION);
-			if(damage < 250 && Misc.getRandom(3) <= 1) {
+			if (damage < 250 && Misc.getRandom(3) <= 1) {
 				damage += 150 + Misc.getRandom(80);
 			}
 			break;
