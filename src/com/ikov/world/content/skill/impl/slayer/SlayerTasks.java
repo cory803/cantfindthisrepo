@@ -75,7 +75,7 @@ public enum SlayerTasks {
 	AVIANSIE(SlayerMaster.KURADEL, 6246, "Aviansies can be found in the Godwars Dungeon.", 14600, new Position(2868, 5268, 2)),
 	NECHRYAEL(SlayerMaster.KURADEL, 1613, "Nechryaels can be found in Slayer Tower.", 14600, new Position(3448, 3564, 2)),
 	ABYSSAL_DEMON2(SlayerMaster.KURADEL, 1615, "Abyssal Demons can be found in Slayer Tower.", 15600, new Position(3418, 3564, 2)),
-	DARK_BEAST2(SlayerMaster.KURADEL, 1615, "Dark Beasts can be found in Slayer Tower.", 16000, new Position(3423, 3550, 2)),
+	DARK_BEAST2(SlayerMaster.KURADEL, 2783, "Dark Beasts can be found in Slayer Tower.", 16000, new Position(3423, 3550, 2)),
 	GARGOYLE2(SlayerMaster.KURADEL, 1610, "Gargoyles can be found in Slayer Tower.", 10400, new Position(3438, 3534, 2)),
 	ABERRANT_SPECTRE2(SlayerMaster.KURADEL, 1604, "Aberrant Spectres can be found in Slayer Tower.", 10400, new Position(3432, 3553, 1)),
 	HELLHOUND2(SlayerMaster.KURADEL, 49, "Hellhounds can be found in Taverly Dungeon.", 9400, new Position(2870, 9848)),
