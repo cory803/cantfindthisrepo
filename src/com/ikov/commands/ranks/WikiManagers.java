@@ -23,22 +23,6 @@ public class WikiManagers {
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		String other_player_name = "invalid_name_process";
-		if(wholeCommand.toLowerCase().startsWith("yell")) {
-			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
-				player.getPacketSender().sendMessage("You are muted and cannot yell.");
-				return;
-			}
-			if(World.isGlobalYell() == false) {
-				player.getPacketSender().sendMessage("An admin has temporarily disabled the global yell channel.");
-				return;
-			}
-			if(!GameSettings.YELL_STATUS) {
-				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
-				return;
-			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=31a4ff><shad=0><img=16>Wiki Manager<img=16></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
-		}
 		switch(command[0].toLowerCase()) {
 			case "forumpromote":
 				if(!GameSettings.FORUM_DATABASE_CONNECTIONS) {

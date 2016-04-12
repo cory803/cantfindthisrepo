@@ -559,23 +559,6 @@ public class CommunityManagers {
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
 			}
 		}
-		if(wholeCommand.toLowerCase().startsWith("yell")) {
-			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
-				player.getPacketSender().sendMessage("You are muted and cannot yell.");
-				return;
-			}
-			if(player.isYellMute()) {
-				player.getPacketSender().sendMessage("You are muted from yelling and cannot yell.");
-				return;
-			}
-			if(!GameSettings.YELL_STATUS) {
-				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
-				return;
-			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ffff00><shad=0><img=2>Administrator<img=2></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
-			//World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
-		}
 		if(command[0].equalsIgnoreCase("teleto")) {
 			String playerToTele = wholeCommand.substring(7);
 			Player player2 = World.getPlayerByName(playerToTele);

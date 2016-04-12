@@ -28,6 +28,7 @@ public class CommandPacketListener implements PacketListener {
 				return;
 			Commands.initiate_commands(player, parts, command);
 		} catch (Exception exception) {
+			exception.printStackTrace();
 			player.getPacketSender().sendMessage("Error executing that command.");
 		}
 	}

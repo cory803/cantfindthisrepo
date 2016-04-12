@@ -2,14 +2,12 @@ package com.ikov.commands;
 
 import java.util.HashMap;
 
-import com.ikov.GameSettings;
 import com.ikov.commands.impl.ChangePasswordCommand;
+import com.ikov.commands.impl.YellCommand;
 import com.ikov.commands.ranks.DonatorCommands;
 import com.ikov.commands.ranks.StaffCommands;
 import com.ikov.model.PlayerRights;
-import com.ikov.world.World;
 import com.ikov.world.content.PlayerLogs;
-import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.entity.impl.player.Player;
 
 public class CommandHandler {
@@ -41,7 +39,7 @@ public class CommandHandler {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return false;
 		}
-		Command command = commands.get(key);
+		Command command = commands.get(key.toLowerCase());
 		if (command != null) {
 			if (command instanceof StaffCommand) {
 				if (!player.getRights().isStaff() && !player.isSpecialPlayer()) {
@@ -77,6 +75,7 @@ public class CommandHandler {
 		DonatorCommands.init();
 		StaffCommands.init();
 		submit(new ChangePasswordCommand("changepass"), new ChangePasswordCommand("changepassword"));
+		submit(new YellCommand("y"), new YellCommand("yell"));
 	}
 
 }

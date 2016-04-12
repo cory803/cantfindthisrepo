@@ -74,7 +74,7 @@ public class SkillManager {
 		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
 			return this;
 
-		experience *= player.getRights().getExperienceGainModifier();
+		experience *= 1;
 		
 		
 		if((WellOfGoodwill.isActive()) && (player.getDonorRights() > 0)) {

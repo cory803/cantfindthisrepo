@@ -1,11 +1,19 @@
 package com.ikov.commands;
 
+import com.ikov.commands.ranks.Administrators;
+import com.ikov.commands.ranks.CommunityManagers;
+import com.ikov.commands.ranks.GlobalModerators;
+import com.ikov.commands.ranks.Members;
+import com.ikov.commands.ranks.Moderators;
+import com.ikov.commands.ranks.Owners;
+import com.ikov.commands.ranks.SpecialPlayers;
+import com.ikov.commands.ranks.StaffManagers;
+import com.ikov.commands.ranks.Supports;
+import com.ikov.commands.ranks.WikiManagers;
 import com.ikov.model.PlayerRights;
 import com.ikov.world.content.BankPin;
-import com.ikov.world.entity.impl.player.Player;
-import com.ikov.commands.ranks.*;
-import com.ikov.util.Logs;
 import com.ikov.world.content.PlayerLogs;
+import com.ikov.world.entity.impl.player.Player;
 
 /**
  * Initiates a command for each rank/file.
@@ -49,32 +57,13 @@ public class Commands {
 		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			CommunityManagers.initiate_command(player, parts, whole_command);
 		}
-		if(player.getRights() == PlayerRights.WIKI_EDITOR) {
-			WikiEditors.initiate_command(player, parts, whole_command);
-		}
 		if(player.getRights() == PlayerRights.WIKI_MANAGER) {
 			WikiManagers.initiate_command(player, parts, whole_command);
 		}
 		if(player.getRights() == PlayerRights.STAFF_MANAGER) {
 			StaffManagers.initiate_command(player, parts, whole_command);
 		}
-		
-		//Donator Ranks
-		if(player.getDonorRights() == 1) {
-			RegularDonators.initiate_command(player, parts, whole_command);
-		}	
-		if(player.getDonorRights() == 2) {
-			SuperDonators.initiate_command(player, parts, whole_command);
-		}
-		if(player.getDonorRights() == 3) {
-			ExtremeDonators.initiate_command(player, parts, whole_command);
-		}
-		if(player.getDonorRights() == 4) {
-			LegendaryDonators.initiate_command(player, parts, whole_command);
-		}
-		if(player.getDonorRights() == 5) {
-			UberDonators.initiate_command(player, parts, whole_command);
-		}
+
 	}
 }
 

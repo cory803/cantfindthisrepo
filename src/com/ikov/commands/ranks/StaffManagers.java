@@ -561,18 +561,6 @@ public class StaffManagers {
 			String last_ip = PlayerPunishment.getLastIpAddress(player_name);
 			player.getPacketSender().sendMessage(player_name + "'s ip address is "+last_ip);
 		}
-		if(wholeCommand.toLowerCase().startsWith("yell")) {
-			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
-				player.getPacketSender().sendMessage("You are muted and cannot yell.");
-				return;
-			}
-			if(!GameSettings.YELL_STATUS) {
-				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
-				return;
-			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
-		}
 	}
 	
 }

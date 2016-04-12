@@ -886,6 +886,8 @@ public class Player extends Character {
 	
 	public String getDonorRight() {
 		switch (donatorRights) {
+		case 1:
+			return "Donator";
 		case 2:
 			return "Super Donator";
 		case 3:
@@ -895,7 +897,7 @@ public class Player extends Character {
 		case 5:
 			return "Uber Donator";
 		}
-		return "Donator";
+		return "";
 	}
 	
 	public PlayerRights getRights() {
