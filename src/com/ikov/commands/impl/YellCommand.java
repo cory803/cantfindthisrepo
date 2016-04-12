@@ -87,31 +87,31 @@ public class YellCommand extends Command {
 			}
 			break;
 		case ADMINISTRATOR:
-			title = "<col=0>[<col=ffff00><shad=0><img=2>Administrator<img=2></shad><col=0>]";
+			title = "<img=2> <col=0>[<col=ffff00>Admin<col=0>]";
 			break;
 		case COMMUNITY_MANAGER:
-			title = "<col=0>[<col=ffff00><shad=0><img=2>Administrator<img=2></shad><col=0>]";
+			title = "<img=2> <col=0>[<col=ffff00>Admin<col=0>]";
 			break;
 		case GLOBAL_MOD:
-			title = "<col=0>[<col=00ff00><shad=0><img=6>Global Mod<img=6></shad><col=0>]";
+			title = "<img=6> <col=0>[<col=00ff00><shad=0>Global Mod</shad><col=0>]";
 			break;
 		case MODERATOR:
-			title = "<col=0>[<col=31a4ff><shad=0><img=1>Moderator<img=1></shad><col=0>]";
+			title = "<img=1> <col=0>[<col=517AA7>Moderator<col=0>]";
 			break;
 		case OWNER:
-			title = "<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>]";
+			title = "<img=3> <col=0>[<col=e30000>OWNER<col=0>]";
 			break;
 		case STAFF_MANAGER:
-			title = "<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>]";
+			title = "<img=17> <col=0>[<col=000000><shad=ffffff>Staff Manager</shad><col=0>]";
 			break;
 		case SUPPORT:
-			title = "<col=0>[<col=589fe1><shad=0><img=4>Support<img=4></shad><col=0>]";
+			title = "<img=4> <col=0>[<col=ffffff><shad=0>Support</shad><col=0>]";
 			break;
 		case WIKI_EDITOR:
-			title = "<col=0>[<col=ff7f00><shad=0><img=15>Wiki Editor<img=15></shad><col=0>]";
+			title = "<img=15> <col=0>[<col=ff7f00><shad=0>Wiki Editor</shad><col=0>]";
 			break;
 		case WIKI_MANAGER:
-			title = "<col=0>[<col=31a4ff><shad=0><img=16>Wiki Manager<img=16></shad><col=0>]";
+			title = "<img=16> <col=0>[<col=31a4ff><shad=0>Wiki Manager</shad><col=0>]";
 			break;
 		case YOUTUBER:
 			break;
