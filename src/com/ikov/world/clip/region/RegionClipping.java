@@ -1,14 +1,17 @@
 package com.ikov.world.clip.region;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.zip.GZIPInputStream;
 
-import com.google.common.io.Files;
 import com.ikov.model.GameObject;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.Position;
@@ -75,13 +78,36 @@ public final class RegionClipping {
         this.objects = objects;
         this.terrain = terrain;
       }
+
+      byte[] degzip(Path path) throws IOException {
+        byte[] bytes = Files.readAllBytes(path);
+        if (bytes.length == 0) {
+          return bytes;
+        }
+
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
+          byte[] buffer = new byte[Byte.BYTES * 1024];
+
+          while (true) {
+            int read = gzip.read(buffer);
+            if (read == -1) {
+              break;
+            }
+
+            os.write(buffer, 0, read);
+          }
+        }
+        return os.toByteArray();
+      }
     }
 
     GameObjectDefinition.init();
 
+    Path path = Paths.get("data", "clipping");
+
     // Decodes map definitions
-    File file = new File("./data/clipping/map_index");
-    ByteStream stream = new ByteStream(Files.toByteArray(file));
+    ByteStream stream = new ByteStream(Files.readAllBytes(path.resolve("map_index")));
     Map<Integer, MapDefinition> definitions = new HashMap<>();
     int size = stream.getUShort();
     for (int i = 0; i < size; i++) {
@@ -92,20 +118,26 @@ public final class RegionClipping {
       regions.computeIfAbsent(id, RegionClipping::new);
     }
 
-    Path path = Paths.get("data", "clipping", "maps");
-
     // Decodes terrain and objects
     for (MapDefinition definition : definitions.values()) {
       int id = definition.id;
 
-      try {
-        byte[] objects = Misc.getBuffer(path.resolve(definition.objects + ".gz"));
-        byte[] terrain = Misc.getBuffer(path.resolve(definition.terrain + ".gz"));
+      byte[] objects = definition.degzip(path.resolve("maps").resolve(definition.objects + ".gz"));
+      byte[] terrain = definition.degzip(path.resolve("maps").resolve(definition.terrain + ".gz"));
 
-        loadMaps(id, new ByteStream(objects), new ByteStream(terrain));
-      } catch (IOException cause) {
-        cause.printStackTrace(); // Delegate away from logic thread
+      if (objects.length == 0) {
+        System.out.println("Objects for region: [id, file] - [" + id + ", " + definition.objects
+            + "] do not exist.");
+        return;
       }
+
+      if (terrain.length == 0) {
+        System.out.println("Terrain for region: [id, file] - [" + id + ", " + definition.terrain
+            + "] does not exist.");
+        return;
+      }
+
+      loadMaps(id, new ByteStream(objects), new ByteStream(terrain));
     }
   }
 

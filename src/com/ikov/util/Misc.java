@@ -470,27 +470,6 @@ public class Misc {
 		}
 	}
 
-  public static byte[] getBuffer(Path path) throws IOException {
-    byte[] bytes = Files.readAllBytes(path);
-    if (bytes.length == 0) {
-      throw new IOException("No data found for " + path);
-    }
-    ByteArrayOutputStream os = new ByteArrayOutputStream();
-    try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
-      byte[] buffer = new byte[Byte.BYTES * 1024];
-
-      while (true) {
-        int read = gzip.read(buffer);
-        if (read == -1) {
-          break;
-        }
-
-        os.write(buffer, 0, read);
-      }
-    }
-    return os.toByteArray();
-  }
-
 	public static int getTimeLeft(long start, int timeAmount, TimeUnit timeUnit) {
 		start -= timeUnit.toMillis(timeAmount);
 		long elapsed = System.currentTimeMillis() - start;
