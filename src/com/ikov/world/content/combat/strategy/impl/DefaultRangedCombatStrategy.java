@@ -295,18 +295,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		}
 		// Set the ammo we are currently using.
 		player.setFireAmmo(player.getEquipment().get(slot).getId());
+		int[] compIds = { 14022, 21085, 21086, 21087, 21094, 21093, 21095, 21096, 21097, 21098, 21099 };
+		final boolean compCapes = player.getEquipment().containsAny(compIds);
 		final boolean ardy = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748;
-		final boolean compCapes = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 14022 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21094 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21093 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21096 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21097 ||
-						  			player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21098 ||
-						  			player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21095 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21087 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21086 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21085 ||
-									player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21099;
 		final boolean avas = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 10499 || compCapes;
 		if(avas) { //Avas
 			if(Misc.getRandom(8) == 1 || Misc.getRandom(8) == 2 || Misc.getRandom(8) == 3 || Misc.getRandom(8) == 4 || Misc.getRandom(8) == 5 || Misc.getRandom(8) == 6 || Misc.getRandom(8) == 7)
