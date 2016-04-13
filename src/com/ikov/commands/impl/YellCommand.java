@@ -18,7 +18,7 @@ public class YellCommand extends Command {
 	}
 
 	@Override
-	public boolean execute(Player player, String input) throws Exception {
+	public boolean execute(Player player, String key, String input) throws Exception {
 		if (!GameSettings.YELL_STATUS) {
 			player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 			return false;

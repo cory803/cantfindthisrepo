@@ -42,6 +42,14 @@ public abstract class Command {
 	
 	/**
 	 * Creates a new command.
+	 * @param rights the rights required to execute this command.
+	 */
+	public Command(PlayerRights rights) {
+		this.rights = rights;
+	}
+	
+	/**
+	 * Creates a new command.
 	 * @param name the command's name.
 	 * @param rights the rights required to execute this command.
 	 */
@@ -57,6 +65,15 @@ public abstract class Command {
 	 * @return {@code true} if sucessful 
 	 * @throws Exception
 	 */
-	public abstract boolean execute(Player player, String input) throws Exception;
+	public abstract boolean execute(Player player, String key, String input) throws Exception;
+	
+	/**
+	 * Checks if the executor meets the requirements.
+	 * @param player the executor of this command
+	 * @return {@code true} if the requirements are met 
+	 */
+	public boolean meetsRequirements(Player player) {
+		return true;
+	}
 
 }

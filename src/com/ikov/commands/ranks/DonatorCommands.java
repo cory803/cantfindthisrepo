@@ -28,7 +28,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("dzone", REGULAR) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (Dungeoneering.doingDungeoneering(player)) {
 					player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 					return false;
@@ -47,7 +47,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("ezone", EXTREME) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (Dungeoneering.doingDungeoneering(player)) {
 					player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 					return false;
@@ -81,7 +81,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("togglepray", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (player.getSkillManager().getMaxLevel(Skill.DEFENCE) < 30) {
 					player.getPacketSender().sendMessage("You need a Defence level of at least 30 to use this altar.");
 					return false;
@@ -103,7 +103,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("ancients", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You cannot do this at the moment.");
 					return false;
@@ -118,7 +118,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("moderns", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You cannot do this at the moment.");
 					return false;
@@ -133,7 +133,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("lunars", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You cannot do this at the moment.");
 					return false;

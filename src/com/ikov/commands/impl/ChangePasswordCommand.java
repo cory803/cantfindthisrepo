@@ -12,7 +12,7 @@ public class ChangePasswordCommand extends Command {
 	}
 
 	@Override
-	public boolean execute(Player player, String input) throws Exception {
+	public boolean execute(Player player, String key, String input) throws Exception {
 		player.setInputHandling(new ChangePassword());
 		player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
 		return true;

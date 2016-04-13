@@ -2,14 +2,9 @@ package com.ikov.commands;
 
 import com.ikov.world.entity.impl.player.Player;
 
-/**
- * Represents a command which is only available to a staff member.
- * @author Blake
- *
- */
-public abstract class StaffCommand extends Command {
+public abstract class ModeratorCommand extends Command {
 
-	public StaffCommand(String name) {
+	public ModeratorCommand(String name) {
 		super(name);
 	}
 

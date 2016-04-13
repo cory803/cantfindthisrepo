@@ -15,10 +15,10 @@ public enum PlayerRights {
 	SUPPORT(),
 	YOUTUBER(),
 	GLOBAL_MOD(MODERATOR),
-	COMMUNITY_MANAGER(),
+	COMMUNITY_MANAGER(ADMINISTRATOR, MODERATOR),
 	WIKI_EDITOR(),
 	WIKI_MANAGER(),
-	STAFF_MANAGER();
+	STAFF_MANAGER(ADMINISTRATOR, MODERATOR);
 
 	PlayerRights(PlayerRights...inherited) {
 		this.inherited = inherited;
@@ -32,8 +32,22 @@ public enum PlayerRights {
 	
 	private final PlayerRights[] inherited;
 	
+	/**
+	 * Checks if the rights have been inherited including itself.
+	 * @param rights the rights
+	 * @return {@code true} if the rights are being inherited
+	 */
 	public boolean inherits(PlayerRights rights) {
 		return equals(rights) || Arrays.asList(inherited).contains(rights) || rights.equals(PLAYER) || equals(MODERATOR) && rights.equals(SUPPORT);
+	}
+	
+	/**
+	 * Checks if the rights have been inherited not including itself.
+	 * @param rights the rights
+	 * @return {@code true} if the rights are being inherited
+	 */
+	public boolean inherited(PlayerRights rights) {
+		return Arrays.asList(inherited).contains(rights) || rights.equals(PLAYER) || equals(MODERATOR) && rights.equals(SUPPORT);
 	}
 	
 	public String getFormatedName() {
