@@ -3,11 +3,11 @@ package com.ikov.commands.ranks;
 import com.ikov.GameSettings;
 import com.ikov.commands.CommandHandler;
 import com.ikov.commands.DonatorCommand;
+import com.ikov.model.Locations.Location;
 import com.ikov.model.MagicSpellbook;
 import com.ikov.model.Position;
 import com.ikov.model.Prayerbook;
 import com.ikov.model.Skill;
-import com.ikov.model.Locations.Location;
 import com.ikov.util.Misc;
 import com.ikov.world.content.combat.magic.Autocasting;
 import com.ikov.world.content.combat.prayer.CurseHandler;
@@ -28,7 +28,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("dzone", REGULAR) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (Dungeoneering.doingDungeoneering(player)) {
 					player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 					return false;
@@ -47,7 +47,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("ezone", EXTREME) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (Dungeoneering.doingDungeoneering(player)) {
 					player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 					return false;
@@ -81,7 +81,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("togglepray", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (player.getSkillManager().getMaxLevel(Skill.DEFENCE) < 30) {
 					player.getPacketSender().sendMessage("You need a Defence level of at least 30 to use this altar.");
 					return false;
@@ -103,7 +103,7 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("ancients", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
+			public boolean execute(Player player, String key, String input) throws Exception {
 				if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You cannot do this at the moment.");
 					return false;
@@ -118,8 +118,8 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("moderns", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
-				if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			public boolean execute(Player player, String key, String input) throws Exception {
+				if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You cannot do this at the moment.");
 					return false;
 				}
@@ -133,8 +133,8 @@ public class DonatorCommands {
 		CommandHandler.submit(new DonatorCommand("lunars", LEGENDARY) {
 
 			@Override
-			public boolean execute(Player player, String input) throws Exception {
-				if(player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			public boolean execute(Player player, String key, String input) throws Exception {
+				if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You cannot do this at the moment.");
 					return false;
 				}

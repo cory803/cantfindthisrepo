@@ -1,51 +1,43 @@
 package com.ikov.commands.ranks;
 
-import com.ikov.GameSettings;
-import com.ikov.model.input.impl.ChangePassword;
-import com.ikov.model.Locations.Location;
-import com.ikov.model.Store;
-import com.ikov.world.content.combat.CombatFactory;
-import com.ikov.world.content.PlayerLogs;
-import com.ikov.model.Position;
-import com.ikov.util.ForumDatabase;
-import com.rspserver.mvh.*;
-import com.ikov.world.content.PlayerPunishment;
-import com.ikov.world.World;
-import com.ikov.world.content.Achievements;
-import com.ikov.world.content.Command;
-import com.ikov.world.content.transportation.TeleportHandler;
-import com.ikov.world.content.dialogue.DialogueManager;
-import com.ikov.world.content.PlayersOnlineInterface;
-import com.ikov.world.content.Achievements.AchievementData;
-import com.ikov.util.Misc;
-import com.ikov.world.content.clan.ClanChatManager;
-import com.ikov.world.content.combat.DesolaceFormulas;
-import com.ikov.world.entity.impl.player.Player;
-import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
-
 import java.util.concurrent.TimeUnit;
+
+import com.ikov.GameSettings;
+import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
+import com.ikov.model.Store;
+import com.ikov.util.ForumDatabase;
+import com.ikov.util.Misc;
+import com.ikov.world.content.Command;
+import com.ikov.world.content.PlayersOnlineInterface;
+import com.ikov.world.content.clan.ClanChatManager;
+import com.ikov.world.content.combat.CombatFactory;
+import com.ikov.world.content.combat.DesolaceFormulas;
+import com.ikov.world.content.dialogue.DialogueManager;
+import com.ikov.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.ikov.world.content.transportation.TeleportHandler;
+import com.ikov.world.entity.impl.player.Player;
 
 public class Members {
 
 	/**
-	* @Author Jonathan Sirens
-	* Initiates Command
-	**/
+	 * @Author Jonathan Sirens Initiates Command
+	 **/
 
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		if(player.isJailed()) {
+		if (!player.getRights().isStaff() && player.isJailed()) {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
 		}
 		if (command[0].equalsIgnoreCase("time")) {
-			player.forceChat("[IKOV] "+player.getUsername()+" has played for ["+Misc.getHoursPlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed()))+"]");
+			player.forceChat("[IKOV] " + player.getUsername() + " has played for [" + Misc.getHoursPlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed())) + "]");
 		}
 		if (command[0].equalsIgnoreCase("mb")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -54,11 +46,11 @@ public class Members {
 			player.getPacketSender().sendMessage("Teleporting you to mage bank!");
 		}
 		if (command[0].equalsIgnoreCase("wests")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -66,11 +58,11 @@ public class Members {
 			player.setDialogueActionId(212);
 		}
 		if (command[0].equalsIgnoreCase("easts")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -78,7 +70,7 @@ public class Members {
 			player.setDialogueActionId(213);
 		}
 		if (command[0].equalsIgnoreCase("commands")) {
-			if(player.getLocation() == Location.DUNGEONEERING) {
+			if (player.getLocation() == Location.DUNGEONEERING) {
 				player.getPacketSender().sendMessage("You cannot open the commands in dungeoneering.");
 				return;
 			}
@@ -86,99 +78,68 @@ public class Members {
 			Command.open(player);
 		}
 		if (command[0].equals("stuck")) {
-			if(player.getTeleblockTimer() > 0) {
+			if (player.getTeleblockTimer() > 0) {
 				player.getPacketSender().sendMessage("You cannot teleport with this command while teleblocked.");
 				return;
 			}
-			if(player.getCombatBuilder().isBeingAttacked() || player.getCombatBuilder().isAttacking()) {
+			if (player.getCombatBuilder().isBeingAttacked() || player.getCombatBuilder().isAttacking()) {
 				player.getPacketSender().sendMessage("You cannot use this command while in combat!");
 				return;
 			}
-			if(!player.getStuckDelay().elapsed(300000)) {
+			if (!player.getStuckDelay().elapsed(300000)) {
 				player.getPacketSender().sendMessage("You have not waited the entire 5 minutes to be able to use this command again.");
 				return;
 			}
 			boolean route_found = false;
-			Position[] obstacle_pipe = {
-				new Position(3004, 3938, 0), new Position(3004, 3939, 0),
-				new Position(3004, 3940, 0), new Position(3004, 3941, 0),
-				new Position(3004, 3942, 0), new Position(3004, 3943, 0),
-				new Position(3004, 3944, 0), new Position(3004, 3945, 0),
-				new Position(3004, 3946, 0), new Position(3004, 3947, 0),
-				new Position(3004, 3948, 0), new Position(3004, 3949, 0),
-				new Position(3003, 3948, 0), new Position(3003, 3947, 0),
-				new Position(3003, 3946, 0), new Position(3003, 3945, 0),
-				new Position(3003, 3944, 0), new Position(3003, 3943, 0),
-				new Position(3003, 3942, 0), new Position(3003, 3941, 0),
-				new Position(3003, 3940, 0), new Position(3003, 3939, 0),
-				new Position(3005, 3939, 0), new Position(3005, 3940, 0),
-				new Position(3005, 3941, 0), new Position(3005, 3942, 0),
-				new Position(3005, 3943, 0), new Position(3005, 3944, 0),
-				new Position(3005, 3945, 0), new Position(3005, 3946, 0),
-				new Position(3005, 3947, 0), new Position(3005, 3948, 0)
-			};
-			for(Position p : obstacle_pipe) {
-				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+			Position[] obstacle_pipe = { new Position(3004, 3938, 0), new Position(3004, 3939, 0), new Position(3004, 3940, 0), new Position(3004, 3941, 0), new Position(3004, 3942, 0), new Position(3004, 3943, 0), new Position(3004, 3944, 0), new Position(3004, 3945, 0),
+					new Position(3004, 3946, 0), new Position(3004, 3947, 0), new Position(3004, 3948, 0), new Position(3004, 3949, 0), new Position(3003, 3948, 0), new Position(3003, 3947, 0), new Position(3003, 3946, 0), new Position(3003, 3945, 0), new Position(3003, 3944, 0),
+					new Position(3003, 3943, 0), new Position(3003, 3942, 0), new Position(3003, 3941, 0), new Position(3003, 3940, 0), new Position(3003, 3939, 0), new Position(3005, 3939, 0), new Position(3005, 3940, 0), new Position(3005, 3941, 0), new Position(3005, 3942, 0),
+					new Position(3005, 3943, 0), new Position(3005, 3944, 0), new Position(3005, 3945, 0), new Position(3005, 3946, 0), new Position(3005, 3947, 0), new Position(3005, 3948, 0) };
+			for (Position p : obstacle_pipe) {
+				if (p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
 					player.getStuckDelay().reset();
 					route_found = true;
 					player.moveTo(new Position(3004, 3937, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the obstacle pipe!");
 				}
 			}
-			Position[] ropeswing = {
-				new Position(3006, 3954, 0), new Position(3005, 3954, 0),
-				new Position(3006, 3955, 0), new Position(3005, 3955, 0),
-				new Position(3006, 3956, 0), new Position(3005, 3956, 0),
-				new Position(3006, 3957, 0), new Position(3005, 3957, 0),
-				new Position(3004, 3954, 0),
-				new Position(3004, 3955, 0),
-				new Position(3004, 3956, 0),
-				new Position(3004, 3957, 0)
-			};
-			for(Position p : ropeswing) {
-				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+			Position[] ropeswing = { new Position(3006, 3954, 0), new Position(3005, 3954, 0), new Position(3006, 3955, 0), new Position(3005, 3955, 0), new Position(3006, 3956, 0), new Position(3005, 3956, 0), new Position(3006, 3957, 0), new Position(3005, 3957, 0), new Position(3004, 3954, 0),
+					new Position(3004, 3955, 0), new Position(3004, 3956, 0), new Position(3004, 3957, 0) };
+			for (Position p : ropeswing) {
+				if (p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
 					player.getStuckDelay().reset();
 					route_found = true;
 					player.moveTo(new Position(3005, 3953, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the rope swing!");
 				}
 			}
-			Position[] strange_floor = {
-				new Position(2997, 3960, 0), new Position(2998, 3960, 0),
-				new Position(2999, 3960, 0), new Position(3000, 3960, 0),
-				new Position(3001, 3960, 0)
-			};
-			for(Position p : strange_floor) {
-				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+			Position[] strange_floor = { new Position(2997, 3960, 0), new Position(2998, 3960, 0), new Position(2999, 3960, 0), new Position(3000, 3960, 0), new Position(3001, 3960, 0) };
+			for (Position p : strange_floor) {
+				if (p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
 					player.getStuckDelay().reset();
 					route_found = true;
 					player.moveTo(new Position(3002, 3960, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the strange floor!");
 				}
 			}
-			Position[] log_balance = {
-				new Position(3002, 3945, 0), new Position(3001, 3945, 0),
-				new Position(3000, 3945, 0), new Position(2999, 3945, 0),
-				new Position(2998, 3945, 0), new Position(2997, 3945, 0),
-				new Position(2996, 3945, 0), new Position(2995, 3945, 0),
-			};
-			for(Position p : strange_floor) {
-				if(p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
+			Position[] log_balance = { new Position(3002, 3945, 0), new Position(3001, 3945, 0), new Position(3000, 3945, 0), new Position(2999, 3945, 0), new Position(2998, 3945, 0), new Position(2997, 3945, 0), new Position(2996, 3945, 0), new Position(2995, 3945, 0), };
+			for (Position p : strange_floor) {
+				if (p.getX() == player.getPosition().getX() && p.getY() == player.getPosition().getY()) {
 					player.getStuckDelay().reset();
 					route_found = true;
 					player.moveTo(new Position(3002, 3945, 0));
 					player.getPacketSender().sendMessage("You have been moved outside of the log balance!");
 				}
 			}
-			if(!route_found)
+			if (!route_found)
 				player.getPacketSender().sendMessage("We have been unable to find a stuck tile for you to move off of!");
 		}
 		if (command[0].equals("skull")) {
-			if(player.getSkullTimer() > 0) {
+			if (player.getSkullTimer() > 0) {
 				player.getPacketSender().sendMessage("You are already skulled!");
 				return;
 			} else {
-			CombatFactory.skullPlayer(player);
+				CombatFactory.skullPlayer(player);
 			}
 		}
 		if (command[0].equalsIgnoreCase("auth")) {
@@ -186,36 +147,32 @@ public class Members {
 			player.getPacketSender().sendMessage("We have confirmed the lag and mass disconnections is due to our old vote system.");
 		}
 		if (command[0].equals("forumrank")) {
-			if(!player.getForumDelay().elapsed(30000)) {
+			if (!player.getForumDelay().elapsed(30000)) {
 				player.getPacketSender().sendMessage("You must wait another " + Misc.getTimeLeft(player.getLastAuthTime().getTime(), 30, TimeUnit.SECONDS) + " seconds before attempting this.");
 				return;
-			} if(!GameSettings.FORUM_DATABASE_CONNECTIONS) {
+			}
+			if (!GameSettings.FORUM_DATABASE_CONNECTIONS) {
 				player.getForumDelay().reset();
 				player.getPacketSender().sendMessage("This is currently disabled, try again in 30 minutes!");
 				return;
 			}
-			if(!player.getRights().isStaff()) {
+			if (!player.getRights().isStaff()) {
 				try {
 					ForumDatabase.connect();
 					player.addForumConnections(60);
 					int current_rank_id = ForumDatabase.getCurrentMemberID(player.getUsername());
-					if(current_rank_id != ForumDatabase.regular_donator 
-					&& current_rank_id != ForumDatabase.super_donator
-					&& current_rank_id != ForumDatabase.extreme_donator
-					&& current_rank_id != ForumDatabase.legendary_donator
-					&& current_rank_id != ForumDatabase.uber_donator
-					&& current_rank_id != ForumDatabase.validating
-					&& current_rank_id != ForumDatabase.members) {
+					if (current_rank_id != ForumDatabase.regular_donator && current_rank_id != ForumDatabase.super_donator && current_rank_id != ForumDatabase.extreme_donator && current_rank_id != ForumDatabase.legendary_donator && current_rank_id != ForumDatabase.uber_donator
+							&& current_rank_id != ForumDatabase.validating && current_rank_id != ForumDatabase.members) {
 						player.getPacketSender().sendMessage("You have a rank on the forum that is not supported with this command.");
 						player.getForumDelay().reset();
 						return;
-					} else if(current_rank_id == ForumDatabase.banned) {
+					} else if (current_rank_id == ForumDatabase.banned) {
 						player.getPacketSender().sendMessage("Your forum account is banned.");
 						player.getForumDelay().reset();
 						return;
 					}
 					player.setForumConnectionsRank(player.getDonorRights());
-					if(ForumDatabase.check_has_username(player.getUsername())) {
+					if (ForumDatabase.check_has_username(player.getUsername())) {
 						ForumDatabase.update_donator_rank(player.getUsername(), player.getDonorRights());
 						player.getPacketSender().sendMessage("Your in-game rank has been added to your forum account.");
 						player.getForumDelay().reset();
@@ -236,11 +193,11 @@ public class Members {
 			player.getPacketSender().sendString(1, "www.ikov-2.wikia.com/wiki/Ikov_2_Wikia");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/wiki/");
 		}
-		if(command[0].equalsIgnoreCase("attacks")) {
+		if (command[0].equalsIgnoreCase("attacks")) {
 			int attack = DesolaceFormulas.getMeleeAttack(player);
 			int range = DesolaceFormulas.getRangedAttack(player);
 			int magic = DesolaceFormulas.getMagicAttack(player);
-			player.getPacketSender().sendMessage("@bla@Melee attack: @or2@"+attack+"@bla@, ranged attack: @or2@"+range+"@bla@, magic attack: @or2@"+magic);
+			player.getPacketSender().sendMessage("@bla@Melee attack: @or2@" + attack + "@bla@, ranged attack: @or2@" + range + "@bla@, magic attack: @or2@" + magic);
 		}
 		if (command[0].equals("save")) {
 			player.save();
@@ -258,9 +215,9 @@ public class Members {
 		if (command[0].equals("forum") || command[0].equals("forums")) {
 			player.getPacketSender().sendString(1, "www.ikov2.org/forum/");
 			player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/");
-		}	
+		}
 		if (command[0].equals("scores") || command[0].equals("hiscores") || command[0].equals("highscores")) {
-			if(!GameSettings.HIGHSCORE_CONNECTIONS) {
+			if (!GameSettings.HIGHSCORE_CONNECTIONS) {
 				player.getPacketSender().sendMessage("Hiscores is currently turned off, please try again in 30 minutes!");
 				return;
 			}
@@ -269,28 +226,29 @@ public class Members {
 		}
 		if (command[0].equals("thread")) {
 			int thread = Integer.parseInt(command[1]);
-			player.getPacketSender().sendString(1, "www.ikov2.org/forum/index.php?/topic/"+thread+"-threadcommand/");
+			player.getPacketSender().sendString(1, "www.ikov2.org/forum/index.php?/topic/" + thread + "-threadcommand/");
 			player.getPacketSender().sendMessage("Attempting to open: Thread " + thread);
 		}
 		if (command[0].equals("Farming2")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
 			Position position = new Position(2816, 3463, 0);
-			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());;
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
+			;
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
 		if (command[0].equals("home")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -299,11 +257,11 @@ public class Members {
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
 		if (command[0].equals("train")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -312,11 +270,11 @@ public class Members {
 			player.getPacketSender().sendMessage("Teleporting you to rock crabs!");
 		}
 		if (command[0].equals("edge")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -328,41 +286,41 @@ public class Members {
 			player.getPacketSender().sendMessage("Teamspeak address: ts3.ikov2.org");
 		}
 		if (command[0].equals("market")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
 			int random = Misc.getRandom(3);
-			switch(random) {
+			switch (random) {
 			case 0:
 				TeleportHandler.teleportPlayer(player, new Position(3212, 3429, 0), player.getSpellbook().getTeleportType());
-			break;
+				break;
 			case 1:
 				TeleportHandler.teleportPlayer(player, new Position(3213, 3429, 0), player.getSpellbook().getTeleportType());
-			break;
+				break;
 			case 2:
 				TeleportHandler.teleportPlayer(player, new Position(3213, 3428, 0), player.getSpellbook().getTeleportType());
-			break;
+				break;
 			case 3:
 				TeleportHandler.teleportPlayer(player, new Position(3212, 3428, 0), player.getSpellbook().getTeleportType());
-			break;
+				break;
 			}
 			player.getPacketSender().sendMessage("Welcome to the Market!");
 		}
-		if(command[0].equals("claim")) {
-			if(!GameSettings.STORE_CONNECTIONS) {
+		if (command[0].equals("claim")) {
+			if (!GameSettings.STORE_CONNECTIONS) {
 				player.getPacketSender().sendMessage("The store is currently offline! Try again in 30 minutes.");
 				return;
 			}
 			player.getPacketSender().sendMessage("Checking for any store purchases...");
 			Store.start_store_process(player);
 		}
-		if(command[0].equals("empty")) {
-			if(player.getLocation() == Location.WILDERNESS) {
+		if (command[0].equals("empty")) {
+			if (player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You can't use this command in the wilderness!");
 				return;
 			}
@@ -371,11 +329,11 @@ public class Members {
 			player.getInventory().resetItems().refreshItems();
 		}
 		if (command[0].equals("gamble")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -383,13 +341,13 @@ public class Members {
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Welcome to the Gambling Area, make sure you always use a middle man for high bets!");
 			player.getPacketSender().sendMessage("Recording your stake will only get the player banned if they scam.");
-		}	
-		if(command[0].equals("players")) {
+		}
+		if (command[0].equals("players")) {
 			player.getPacketSender().sendInterfaceRemoval();
 			PlayersOnlineInterface.showInterface(player);
 		}
-		if(command[0].equalsIgnoreCase("[cn]")) {
-			if(player.getInterfaceId() == 40172) {
+		if (command[0].equalsIgnoreCase("[cn]")) {
+			if (player.getInterfaceId() == 40172) {
 				ClanChatManager.setName(player, wholeCommand.substring(wholeCommand.indexOf(command[1])));
 			}
 		}

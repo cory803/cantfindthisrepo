@@ -5,6 +5,7 @@ import com.ikov.commands.Commands;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.util.Misc;
+import com.ikov.world.content.BankPin;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
@@ -18,6 +19,10 @@ public class CommandPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 		String command = Misc.readString(packet.getBuffer());
 		String[] parts = command.toLowerCase().split(" ");
 		if(command.contains("\r") || command.contains("\n")) {

@@ -39,7 +39,7 @@ public abstract class Command {
 	public Command(String name) {
 		this.name = name;
 	}
-	
+
 	/**
 	 * Creates a new command.
 	 * @param name the command's name.
@@ -57,6 +57,15 @@ public abstract class Command {
 	 * @return {@code true} if sucessful 
 	 * @throws Exception
 	 */
-	public abstract boolean execute(Player player, String input) throws Exception;
+	public abstract boolean execute(Player player, String key, String input) throws Exception;
+	
+	/**
+	 * Checks if the executor meets the requirements.
+	 * @param player the executor of this command
+	 * @return {@code true} if the requirements are met 
+	 */
+	public boolean meetsRequirements(Player player) {
+		return true;
+	}
 
 }

@@ -64,7 +64,7 @@ public class Zulrah {
 			if(player.getRegionInstance() != null) {
 				player.getRegionInstance().getNpcsList().remove(n);
 			}
-			Achievements.doProgress(player, AchievementData.UNLOCK_ALL_LOYALTY_TITLES);
+//			Achievements.doProgress(player, AchievementData.UNLOCK_ALL_LOYALTY_TITLES);
 			leave_pit(player, true);
 		}
 	}

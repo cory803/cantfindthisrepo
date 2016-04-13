@@ -17,6 +17,6 @@ public abstract class DonatorCommand extends Command {
 	}
 
 	@Override
-	public abstract boolean execute(Player player, String input) throws Exception;
+	public abstract boolean execute(Player player, String key, String input) throws Exception;
 
 }

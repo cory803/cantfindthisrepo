@@ -110,7 +110,7 @@ public class Achievements {
 		DEFEAT_10000_MONSTERS(Difficulty.ELITE, "Defeat 10,000 Monsters", 37108, new int[]{49, 10000}),
 		DEFEAT_500_BOSSES(Difficulty.ELITE, "Defeat 500 Boss Monsters", 37109, new int[]{50, 500}),
 		VOTE_100_TIMES(Difficulty.ELITE, "Vote 100 Times", 37110, new int[]{51, 100}),
-		UNLOCK_ALL_LOYALTY_TITLES(Difficulty.ELITE, "Kill Zulrah 50 Times", 37111, new int[]{52, 50}),
+//		UNLOCK_ALL_LOYALTY_TITLES(Difficulty.ELITE, "Kill Zulrah 50 Times", 37111, new int[]{52, 50}),
 		;
 
 		AchievementData(Difficulty difficulty, String interfaceLine, int interfaceFrame, int[] progressData) {
