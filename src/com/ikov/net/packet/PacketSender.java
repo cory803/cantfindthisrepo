@@ -718,8 +718,6 @@ public class PacketSender {
 	public PacketSender sendString(int id, String string) {
 		if(id == 18250 && string.length() < 2)
 			return this;
-		if(!player.getFrameUpdater().shouldUpdate(string, id))
-			return this;
 		PacketBuilder out = new PacketBuilder(126, PacketType.SHORT);
 		out.putString(string);
 		out.putShort(id);

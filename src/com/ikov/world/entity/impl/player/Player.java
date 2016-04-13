@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+
 import com.ikov.GameSettings;
 import com.ikov.engine.task.Task;
 import com.ikov.engine.task.TaskManager;
@@ -29,9 +30,9 @@ import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Bank.BankSearchAttributes;
 import com.ikov.model.container.impl.Equipment;
 import com.ikov.model.container.impl.Inventory;
+import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 import com.ikov.model.container.impl.PriceChecker;
 import com.ikov.model.container.impl.Shop;
-import com.ikov.model.container.impl.PlayerOwnedShopContainer;
 import com.ikov.model.definitions.WeaponAnimations;
 import com.ikov.model.definitions.WeaponInterfaces;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
@@ -39,7 +40,6 @@ import com.ikov.model.input.Input;
 import com.ikov.net.PlayerSession;
 import com.ikov.net.SessionState;
 import com.ikov.net.packet.PacketSender;
-import com.ikov.util.FrameUpdater;
 import com.ikov.util.Stopwatch;
 import com.ikov.world.content.Achievements.AchievementAttributes;
 import com.ikov.world.content.BankPin.BankPinAttributes;
@@ -425,7 +425,6 @@ public class Player extends Character {
 	private final PointsHandler pointsHandler = new PointsHandler(this);
 	private final PacketSender packetSender = new PacketSender(this);
 	private final Appearance appearance = new Appearance(this);
-	private final FrameUpdater frameUpdater = new FrameUpdater();
 	private PlayerRights rights = PlayerRights.PLAYER;
 	private int donatorRights = 0;
 	private SkillManager skillManager = new SkillManager(this);
@@ -870,10 +869,6 @@ public class Player extends Character {
 	public Player setComputerAddress(String add) {
 		this.computer_address = add;
 		return this;
-	}
-
-	public FrameUpdater getFrameUpdater() {
-		return this.frameUpdater;
 	}
 
 	public int getDonorRights() {
