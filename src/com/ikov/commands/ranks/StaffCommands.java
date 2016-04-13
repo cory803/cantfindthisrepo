@@ -40,7 +40,7 @@ public class StaffCommands {
 			public boolean execute(Player player, String input) throws Exception {
 				Player playerToKick = World.getPlayerByName(input);
 				if (playerToKick != null) {
-					if(playerToKick.getLocation() == Location.DUNGEONEERING) {
+					if (playerToKick.getLocation() == Location.DUNGEONEERING) {
 						player.getPacketSender().sendMessage("This player is in dung....");
 						return false;
 					}
@@ -101,6 +101,79 @@ public class StaffCommands {
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by " + player.getUsername() + ".");
 				player.getPacketSender().sendMessage("Sucessfully moved " + playerToMove.getUsername() + " to home.");
 				return true;
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("jail") {
+
+			@Override
+			public boolean execute(Player player, String input) throws Exception {
+				String playerName = input;
+				Player punishee = World.getPlayerByName(playerName);
+				if (punishee != null) {
+					int cellAmounts = Misc.inclusiveRandom(1, 10);
+					switch (cellAmounts) {
+					case 1:
+						punishee.moveTo(new Position(1969, 5011, 0));
+						break;
+					case 2:
+						punishee.moveTo(new Position(1969, 5008, 0));
+						break;
+					case 3:
+						punishee.moveTo(new Position(1969, 5005, 0));
+						break;
+					case 4:
+						punishee.moveTo(new Position(1969, 5002, 0));
+						break;
+					case 5:
+						punishee.moveTo(new Position(1969, 4999, 0));
+						break;
+					case 6:
+						punishee.moveTo(new Position(1980, 5011, 0));
+						break;
+					case 7:
+						punishee.moveTo(new Position(1980, 5008, 0));
+						break;
+					case 8:
+						punishee.moveTo(new Position(1980, 5005, 0));
+						break;
+					case 9:
+						punishee.moveTo(new Position(1980, 5002, 0));
+						break;
+					case 10:
+						punishee.moveTo(new Position(1980, 4999, 0));
+						break;
+					}
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					player.getPacketSender().sendMessage("You have sent the player " + playerName + " to jail for breaking the rules.");
+				} else {
+					player.getPacketSender().sendMessage("Player " + playerName + " not found.");
+					return false;
+				}
+				return true;
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("unjail") {
+
+			@Override
+			public boolean execute(Player player, String input) throws Exception {
+				String playerName = input;
+				Player punishee = World.getPlayerByName(playerName);
+				if (punishee != null) {
+					if (punishee.isJailed()) {
+						punishee.setJailed(false);
+						punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
+						punishee.moveTo(new Position(3087, 3502, 0));
+						return true;
+					} else {
+						player.getPacketSender().sendMessage("Player " + playerName + " is not in jail.");
+					}
+				} else {
+					player.getPacketSender().sendMessage("Player " + playerName + " not found.");
+				}
+				return false;
 			}
 
 		});

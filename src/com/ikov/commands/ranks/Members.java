@@ -33,7 +33,7 @@ public class Members {
 	**/
 
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		if(player.isJailed()) {
+		if(!player.getRights().isStaff() && player.isJailed()) {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
 		}

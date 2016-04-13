@@ -35,10 +35,6 @@ public class CommandHandler {
 	 * @return
 	 */
 	public static boolean processed(Player player, String key, String input) {
-		if(player.isJailed()) {
-			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
-			return false;
-		}
 		Command command = commands.get(key.toLowerCase());
 		if (command != null) {
 			if (command instanceof StaffCommand) {

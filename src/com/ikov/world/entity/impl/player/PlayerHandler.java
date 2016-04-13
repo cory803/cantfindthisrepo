@@ -355,9 +355,7 @@ public class PlayerHandler {
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 		if(!player.getBankPinAttributes().hasBankPin()) {
 			if(player.getLocation() != Location.WILDERNESS) {
-				if(player.newPlayer()) {
-					
-				} else {
+				if(!player.newPlayer() && !player.getRights().equals(PlayerRights.OWNER)) {
 					player.setDialogueActionId(181);
 					DialogueManager.start(player, 181);
 				}
