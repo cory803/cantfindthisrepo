@@ -18,6 +18,4 @@ public class ChangePasswordCommand extends Command {
 		return true;
 	}
 
-	
-	
 }

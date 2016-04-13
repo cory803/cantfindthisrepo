@@ -3,10 +3,10 @@ package com.ikov.commands;
 import java.util.HashMap;
 
 import com.ikov.commands.impl.ChangePasswordCommand;
+import com.ikov.commands.impl.PunishmentCommand;
 import com.ikov.commands.impl.YellCommand;
 import com.ikov.commands.ranks.AdministratorCommands;
 import com.ikov.commands.ranks.DonatorCommands;
-import com.ikov.commands.ranks.ModeratorCommands;
 import com.ikov.commands.ranks.StaffCommands;
 import com.ikov.model.PlayerRights;
 import com.ikov.world.content.PlayerLogs;
@@ -51,11 +51,6 @@ public class CommandHandler {
 						return false;
 					}
 				}
-			} else if (command instanceof ModeratorCommand) {
-				if (!player.getRights().inherits(PlayerRights.MODERATOR) && !player.isSpecialPlayer()) {
-					player.getPacketSender().sendMessage("This command requires moderator rights.");
-					return false;
-				}
 			} else if (command instanceof DonatorCommand) {
 				if (player.getDonorRights() < ((DonatorCommand) command).getDonorRights()) {
 					player.getPacketSender().sendMessage("This command requires " + player.getDonorRight().toLowerCase() + " rights.");
@@ -63,7 +58,7 @@ public class CommandHandler {
 				}
 			} else {
 				PlayerRights rights = command.getRights();
-				if (!player.getRights().inherits(rights)) {
+				if (rights != null && !player.getRights().inherits(rights)) {
 					player.getPacketSender().sendMessage("This command requires " + command.getRights().toString().toLowerCase() + " rights.");
 					return false;
 				}
@@ -83,10 +78,21 @@ public class CommandHandler {
 	static {
 		DonatorCommands.init();
 		StaffCommands.init();
-		ModeratorCommands.init();
 		AdministratorCommands.init();
 		submit(new ChangePasswordCommand("changepass"), new ChangePasswordCommand("changepassword"));
 		submit(new YellCommand("y"), new YellCommand("yell"));
+		submit(new PunishmentCommand("kick", PlayerRights.SUPPORT));
+		submit(new PunishmentCommand("mute", PlayerRights.SUPPORT), new PunishmentCommand("unmute", PlayerRights.MODERATOR));
+		submit(new PunishmentCommand("jail", PlayerRights.SUPPORT), new PunishmentCommand("unjail", PlayerRights.SUPPORT));
+		submit(new PunishmentCommand("ban", PlayerRights.MODERATOR), new PunishmentCommand("unban", PlayerRights.MODERATOR));
+		submit(new PunishmentCommand("banvote", PlayerRights.MODERATOR), new PunishmentCommand("unbanvote", PlayerRights.MODERATOR));
+		submit(new PunishmentCommand("ipban", PlayerRights.MODERATOR), new PunishmentCommand("unipban", PlayerRights.MODERATOR));
+		submit(new PunishmentCommand("ipmute", PlayerRights.MODERATOR), new PunishmentCommand("unipmute", PlayerRights.MODERATOR));
+		submit(new PunishmentCommand("silenceyell", PlayerRights.MODERATOR), new PunishmentCommand("unsilenceyell", PlayerRights.MODERATOR));
+		submit(new PunishmentCommand("serialban", PlayerRights.MODERATOR, true), new PunishmentCommand("unserialban", PlayerRights.MODERATOR, true));
+		submit(new PunishmentCommand("macban", PlayerRights.MODERATOR, true), new PunishmentCommand("unmacban", PlayerRights.MODERATOR, true));
+		submit(new PunishmentCommand("cpuban", PlayerRights.MODERATOR, true), new PunishmentCommand("uncpuban", PlayerRights.MODERATOR, true));
+		System.out.println("Loaded " + commands.size() + " commands!");
 	}
 
 }

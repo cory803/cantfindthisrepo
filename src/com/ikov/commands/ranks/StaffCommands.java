@@ -3,12 +3,13 @@ package com.ikov.commands.ranks;
 import com.ikov.GameSettings;
 import com.ikov.commands.CommandHandler;
 import com.ikov.commands.StaffCommand;
+import com.ikov.model.Flag;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
+import com.ikov.model.Skill;
 import com.ikov.util.Misc;
 import com.ikov.world.World;
-import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.content.transportation.TeleportHandler;
 import com.ikov.world.content.transportation.TeleportType;
@@ -34,33 +35,6 @@ public class StaffCommands {
 				}
 				return true;
 			}
-		});
-		CommandHandler.submit(new StaffCommand("kick") {
-
-			@Override
-			public boolean execute(Player player, String key, String input) throws Exception {
-				Player playerToKick = World.getPlayerByName(input);
-				if (playerToKick != null) {
-					if (playerToKick.getLocation() == Location.DUNGEONEERING) {
-						player.getPacketSender().sendMessage("This player is in dung....");
-						return false;
-					}
-					if (playerToKick.getLocation() == Location.DUEL_ARENA) {
-						player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
-						return false;
-					}
-					if (playerToKick.getLocation() != Location.WILDERNESS) {
-						World.deregister(playerToKick);
-						player.getPacketSender().sendMessage("Kicked " + playerToKick.getUsername() + ".");
-						PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " just kicked " + playerToKick.getUsername() + "!");
-						return true;
-					}
-				} else {
-					player.getPacketSender().sendMessage("Player not found.");
-				}
-				return false;
-			}
-
 		});
 		CommandHandler.submit(new StaffCommand("saveall") {
 
@@ -101,101 +75,6 @@ public class StaffCommands {
 				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by " + player.getUsername() + ".");
 				player.getPacketSender().sendMessage("Sucessfully moved " + playerToMove.getUsername() + " to home.");
-				return true;
-			}
-
-		});
-		CommandHandler.submit(new StaffCommand("jail") {
-
-			@Override
-			public boolean execute(Player player, String key, String input) throws Exception {
-				String playerName = input;
-				Player punishee = World.getPlayerByName(playerName);
-				if (punishee != null) {
-					int cellAmounts = Misc.inclusiveRandom(1, 10);
-					switch (cellAmounts) {
-					case 1:
-						punishee.moveTo(new Position(1969, 5011, 0));
-						break;
-					case 2:
-						punishee.moveTo(new Position(1969, 5008, 0));
-						break;
-					case 3:
-						punishee.moveTo(new Position(1969, 5005, 0));
-						break;
-					case 4:
-						punishee.moveTo(new Position(1969, 5002, 0));
-						break;
-					case 5:
-						punishee.moveTo(new Position(1969, 4999, 0));
-						break;
-					case 6:
-						punishee.moveTo(new Position(1980, 5011, 0));
-						break;
-					case 7:
-						punishee.moveTo(new Position(1980, 5008, 0));
-						break;
-					case 8:
-						punishee.moveTo(new Position(1980, 5005, 0));
-						break;
-					case 9:
-						punishee.moveTo(new Position(1980, 5002, 0));
-						break;
-					case 10:
-						punishee.moveTo(new Position(1980, 4999, 0));
-						break;
-					}
-					punishee.setJailed(true);
-					punishee.forceChat("Ahh shit... They put me in jail.");
-					player.getPacketSender().sendMessage("You have sent the player " + playerName + " to jail for breaking the rules.");
-				} else {
-					player.getPacketSender().sendMessage("Player " + playerName + " not found.");
-					return false;
-				}
-				return true;
-			}
-
-		});
-		CommandHandler.submit(new StaffCommand("unjail") {
-
-			@Override
-			public boolean execute(Player player, String key, String input) throws Exception {
-				String playerName = input;
-				Player punishee = World.getPlayerByName(playerName);
-				if (punishee != null) {
-					if (punishee.isJailed()) {
-						punishee.setJailed(false);
-						punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
-						punishee.moveTo(new Position(3087, 3502, 0));
-						return true;
-					} else {
-						player.getPacketSender().sendMessage("Player " + playerName + " is not in jail.");
-					}
-				} else {
-					player.getPacketSender().sendMessage("Player " + playerName + " not found.");
-				}
-				return false;
-			}
-
-		});
-		CommandHandler.submit(new StaffCommand("mute") {
-
-			@Override
-			public boolean execute(Player player, String key, String input) throws Exception {
-				String playerName = Misc.formatText(input);
-				Player punishee = World.getPlayerByName(playerName);
-				if (!PlayerSaving.playerExists(playerName)) {
-					player.getPacketSender().sendMessage("Player " + playerName + " does not exist.");
-					return false;
-				}
-				if (PlayerPunishment.isMuted(playerName)) {
-					player.getPacketSender().sendMessage("Player " + playerName + " already has an active mute.");
-					return false;
-				}
-				if (punishee != null)
-					punishee.getPacketSender().sendMessage("You have been muted! Please appeal on the forums.");
-				PlayerPunishment.mute(playerName);
-				player.getPacketSender().sendMessage("Player " + playerName + " was successfully muted!");
 				return true;
 			}
 
@@ -317,6 +196,157 @@ public class StaffCommands {
 				if (player.getRights().inherited(PlayerRights.MODERATOR) || player.isSpecialPlayer())
 					return true;
 				return false;
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("getip") {
+
+			@Override
+			public boolean execute(Player player, String key, String input) throws Exception {
+				String player_name = input;
+				String last_ip = PlayerPunishment.getLastIpAddress(player_name);
+				player.getPacketSender().sendMessage(player_name + "'s ip address is " + last_ip);
+				return true;
+			}
+
+			@Override
+			public boolean meetsRequirements(Player player) {
+				return player.getRights().inherits(PlayerRights.ADMINISTRATOR) || player.isSpecialPlayer();
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("hp") {
+
+			@Override
+			public boolean execute(Player player, String key, String input) throws Exception {
+				player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
+				return true;
+			}
+
+			@Override
+			public boolean meetsRequirements(Player player) {
+				return player.getRights().inherits(PlayerRights.ADMINISTRATOR) || player.isSpecialPlayer();
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("toggleinvis") {
+
+			@Override
+			public boolean execute(Player player, String key, String input) throws Exception {
+				player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);
+				player.getUpdateFlag().flag(Flag.APPEARANCE);
+				return true;
+			}
+
+			@Override
+			public boolean meetsRequirements(Player player) {
+				return player.getRights().inherits(PlayerRights.ADMINISTRATOR) || player.isSpecialPlayer();
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("giverights") {
+
+			@Override
+			public boolean execute(Player player, String key, String input) throws Exception {
+				String[] command = input.split(" ");
+				String rights = command[0];
+				Player target = World.getPlayerByName(command[1]);
+				if (target == null) {
+					player.getPacketSender().sendMessage("This player is not online.");
+					return false;
+				}
+				if (!player.getRights().equals(PlayerRights.OWNER) && target.getRights() != PlayerRights.MODERATOR && target.getRights() != PlayerRights.SUPPORT && target.getRights() != PlayerRights.PLAYER) {
+					player.getPacketSender().sendMessage("You can't use this command on this person.");
+					return false;
+				}
+				switch (rights) {
+				case "demote":
+				case "derank":
+					target.setRights(PlayerRights.PLAYER);
+					target.getPacketSender().sendMessage("You have been demoted...");
+					target.getPacketSender().sendRights();
+					break;
+				case "ss":
+				case "serversupport":
+				case "support":
+					target.setRights(PlayerRights.SUPPORT);
+					target.getPacketSender().sendMessage("Your player rights has been changed to support.");
+					target.getPacketSender().sendRights();
+					break;
+				case "mod":
+				case "moderator":
+					target.setRights(PlayerRights.MODERATOR);
+					target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
+					target.getPacketSender().sendRights();
+					break;
+				default:
+					player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
+				}
+				return false;
+			}
+
+			@Override
+			public boolean meetsRequirements(Player player) {
+				return player.getRights().inherited(PlayerRights.ADMINISTRATOR);
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("tele") {
+
+			@Override
+			public boolean execute(Player player, String key, String input) throws Exception {
+				String[] command = input.split(" ");
+				int x = Integer.valueOf(command[0]), y = Integer.valueOf(command[1]);
+				int z = player.getPosition().getZ();
+				if (command.length > 2)
+					z = Integer.valueOf(command[2]);
+				Position position = new Position(x, y, z);
+				player.moveTo(position);
+				player.getPacketSender().sendMessage("Teleporting to " + position.toString());
+				return true;
+			}
+
+			@Override
+			public boolean meetsRequirements(Player player) {
+				return player.getRights().inherits(PlayerRights.MODERATOR) || player.isSpecialPlayer();
+			}
+
+		});
+		CommandHandler.submit(new StaffCommand("teletome") {
+
+			@Override
+			public boolean execute(Player player, String key, String input) throws Exception {
+				String playerName = input;
+				Player player2 = World.getPlayerByName(playerName);
+				if (player2 == null) {
+					player.getPacketSender().sendMessage("Player " + playerName + " not found.");
+					return false;
+				}
+				if (player2.getLocation() == Location.DUNGEONEERING) {
+					player.getPacketSender().sendMessage("You cannot teleport a player out of dung.");
+					return false;
+				}
+				if (player.getLocation() == Location.WILDERNESS) {
+					player.getPacketSender().sendMessage("You cannot teleport a player into the wild.");
+					return false;
+				}
+				if (player2.getLocation() == Location.DUEL_ARENA) {
+					player.getPacketSender().sendMessage("You cannot do this to someone in duel arena.");
+					return false;
+				}
+				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+				if (canTele) {
+					TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
+					player.getPacketSender().sendMessage("Teleporting player to you: " + player2.getUsername() + "");
+					player2.getPacketSender().sendMessage("You're being teleported to " + player.getUsername() + "...");
+				} else
+					player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
+				return true;
+			}
+
+			@Override
+			public boolean meetsRequirements(Player player) {
+				return player.getRights().inherits(PlayerRights.MODERATOR) || player.isSpecialPlayer();
 			}
 
 		});

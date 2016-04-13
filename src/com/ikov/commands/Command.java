@@ -39,15 +39,7 @@ public abstract class Command {
 	public Command(String name) {
 		this.name = name;
 	}
-	
-	/**
-	 * Creates a new command.
-	 * @param rights the rights required to execute this command.
-	 */
-	public Command(PlayerRights rights) {
-		this.rights = rights;
-	}
-	
+
 	/**
 	 * Creates a new command.
 	 * @param name the command's name.

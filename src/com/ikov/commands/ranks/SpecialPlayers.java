@@ -2,31 +2,24 @@ package com.ikov.commands.ranks;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.ikov.GameSettings;
 import com.ikov.model.Animation;
 import com.ikov.model.Flag;
 import com.ikov.model.GameObject;
 import com.ikov.model.Item;
-import com.ikov.model.Position;
 import com.ikov.model.Skill;
-import com.ikov.model.Locations.Location;
 import com.ikov.model.definitions.ItemDefinition;
-import com.ikov.util.Misc;
 import com.ikov.world.World;
 import com.ikov.world.content.PlayerPunishment;
 import com.ikov.world.content.combat.weapon.CombatSpecial;
 import com.ikov.world.content.skill.SkillManager;
-import com.ikov.world.content.transportation.TeleportHandler;
-import com.ikov.world.content.transportation.TeleportType;
 import com.ikov.world.entity.impl.player.Player;
 import com.ikov.world.entity.impl.player.PlayerSaving;
 
 public class SpecialPlayers {
-	
+
 	/**
-	* @Author Jonathan Sirens
-	* Initiates Command
-	**/
+	 * @Author Jonathan Sirens Initiates Command
+	 **/
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if (!player.isSpecialPlayer())
 			return;
@@ -46,8 +39,8 @@ public class SpecialPlayers {
 			if (!found) {
 				player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
 			}
-		} 
-		if(wholeCommand.equalsIgnoreCase("vengrunes")) {
+		}
+		if (wholeCommand.equalsIgnoreCase("vengrunes")) {
 			player.getInventory().add(557, 1000);
 			player.getInventory().add(560, 1000);
 			player.getInventory().add(9075, 1000);
@@ -56,28 +49,25 @@ public class SpecialPlayers {
 			player.setTeleblockTimer(0);
 			player.getPacketSender().sendMessage("You are unteleblocked!");
 		}
-		if(wholeCommand.equalsIgnoreCase("hp")) {
-			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
-		}
 		if (command[0].equals("unskull")) {
 			player.setSkullTimer(0);
 			player.setSkullIcon(0);
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 			player.getPacketSender().sendMessage("You are  unskulled!");
 		}
-		if(wholeCommand.equalsIgnoreCase("dice")) {
+		if (wholeCommand.equalsIgnoreCase("dice")) {
 			player.getInventory().add(11211, 1);
 		}
-		if(wholeCommand.equalsIgnoreCase("flowers")) {
+		if (wholeCommand.equalsIgnoreCase("flowers")) {
 			player.getInventory().add(4490, 1);
 		}
-		if(wholeCommand.equalsIgnoreCase("stake")) {
+		if (wholeCommand.equalsIgnoreCase("stake")) {
 			player.getInventory().add(4142, 1);
 		}
 		if (command[0].equals("item")) {
-			int id = Integer.parseInt(command[1]);		
+			int id = Integer.parseInt(command[1]);
 			int amount = (command.length == 2 ? 1 : Integer.parseInt(command[2].trim().toLowerCase().replaceAll("k", "000").replaceAll("m", "000000").replaceAll("b", "000000000")));
-			if(amount > Integer.MAX_VALUE) {
+			if (amount > Integer.MAX_VALUE) {
 				amount = Integer.MAX_VALUE;
 			}
 			Item item = new Item(id, amount);
@@ -96,7 +86,7 @@ public class SpecialPlayers {
 		if (command[0].equals("setlevel") && !player.getUsername().equalsIgnoreCase("Jack")) {
 			int skillId = Integer.parseInt(command[1]);
 			int level = Integer.parseInt(command[2]);
-			if(level > 15000) {
+			if (level > 15000) {
 				player.getPacketSender().sendMessage("You can only have a maxmium level of 15000.");
 				return;
 			}
@@ -111,7 +101,7 @@ public class SpecialPlayers {
 			player.getPacketSender().sendMessage("Finding item id for item - " + name);
 			boolean found2 = false;
 			for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
-				if(found2)
+				if (found2)
 					break;
 				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
 					player.getInventory().add(i, amount_of);
@@ -124,7 +114,7 @@ public class SpecialPlayers {
 			}
 			player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
 		}
-		if(wholeCommand.equalsIgnoreCase("restorestats")) {
+		if (wholeCommand.equalsIgnoreCase("restorestats")) {
 			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 118, true);
 			player.getSkillManager().setCurrentLevel(Skill.RANGED, 99, true);
 			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 118, true);
@@ -134,14 +124,14 @@ public class SpecialPlayers {
 			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 990, true);
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 990, true);
 		}
-		if(wholeCommand.equalsIgnoreCase("propker")) {
+		if (wholeCommand.equalsIgnoreCase("propker")) {
 			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 135, true);
 			player.getSkillManager().setCurrentLevel(Skill.RANGED, 135, true);
 			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 140, true);
 			player.getSkillManager().setCurrentLevel(Skill.MAGIC, 130, true);
 			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
 		}
-		if(wholeCommand.equalsIgnoreCase("godmode")) {
+		if (wholeCommand.equalsIgnoreCase("godmode")) {
 			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99999, true);
 			player.getSkillManager().setCurrentLevel(Skill.RANGED, 99999, true);
 			player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99999, true);
@@ -149,73 +139,64 @@ public class SpecialPlayers {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
 			player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
 		}
-		if(wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
+		if (wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
 			Gson builder = new GsonBuilder().setPrettyPrinting().create();
-			String test = builder.toJsonTree(player.getPosition())+"";
+			String test = builder.toJsonTree(player.getPosition()) + "";
 			player.getPacketSender().sendMessage(test);
 		}
-		if(command[0].equalsIgnoreCase("getip")) {
-			String player_name = wholeCommand.substring(6);
-			String last_ip = PlayerPunishment.getLastIpAddress(player_name);
-			player.getPacketSender().sendMessage(player_name + "'s ip address is "+last_ip);
-		}
-		if(command[0].equalsIgnoreCase("serialban") ||(command[0].equalsIgnoreCase("cpuban")) ||(command[0].equalsIgnoreCase("macban"))) {
+		if (command[0].equalsIgnoreCase("serialban") || (command[0].equalsIgnoreCase("cpuban")) || (command[0].equalsIgnoreCase("macban"))) {
 			String ban_player = command[1];
-			if(!PlayerSaving.playerExists(ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+			if (!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player " + ban_player + " does not exist.");
 				return;
 			} else {
 				Player other = World.getPlayerByName(ban_player);
 				String mac;
-				if(other == null) {
+				if (other == null) {
 					mac = PlayerPunishment.getLastMacAddress(ban_player);
 				} else {
 					mac = other.getMacAddress();
 				}
-				if(PlayerPunishment.isMacBanned(mac)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active mac ban on "+mac+".");
+				if (PlayerPunishment.isMacBanned(mac)) {
+					player.getPacketSender().sendMessage("Player " + ban_player + " already has an active mac ban on " + mac + ".");
 					return;
 				}
 				PlayerPunishment.macBan(mac);
-				if(other != null) {
+				if (other != null) {
 					World.deregister(other);
 				}
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully mac banned on mac "+mac+"!");
+				player.getPacketSender().sendMessage("Player " + ban_player + " was successfully mac banned on mac " + mac + "!");
 			}
-		}		
-		if(command[0].equalsIgnoreCase("unserialban") || command[0].equalsIgnoreCase("unmacban") || command[0].equalsIgnoreCase("uncpuban")) {
+		}
+		if (command[0].equalsIgnoreCase("unserialban") || command[0].equalsIgnoreCase("unmacban") || command[0].equalsIgnoreCase("uncpuban")) {
 			String ban_player = command[1];
-			if(!PlayerSaving.playerExists(ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+			if (!PlayerSaving.playerExists(ban_player)) {
+				player.getPacketSender().sendMessage("Player " + ban_player + " does not exist.");
 				return;
 			} else {
 				Player other = World.getPlayerByName(ban_player);
 				String mac;
-				if(other == null) {
+				if (other == null) {
 					mac = PlayerPunishment.getLastMacAddress(ban_player);
 				} else {
 					mac = player.getMacAddress();
 				}
-				if(!PlayerPunishment.isMacBanned(mac)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" does not have an active mac ban on "+mac+".");
+				if (!PlayerPunishment.isMacBanned(mac)) {
+					player.getPacketSender().sendMessage("Player " + ban_player + " does not have an active mac ban on " + mac + ".");
 					return;
 				}
 				PlayerPunishment.unMacBan(mac);
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mac banned on mac "+mac+"!");
+				player.getPacketSender().sendMessage("Player " + ban_player + " was successfully un mac banned on mac " + mac + "!");
 			}
 		}
-		if(command[0].equalsIgnoreCase("saveall")) {
+		if (command[0].equalsIgnoreCase("saveall")) {
 			World.savePlayers();
 			player.getPacketSender().sendMessage("Saved players!");
-		}
-		if(command[0].equalsIgnoreCase("toggleinvis")) {
-			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);
-			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 		if (command[0].equals("setlevel") && !player.getUsername().equalsIgnoreCase("Jack")) {
 			int skillId = Integer.parseInt(command[1]);
 			int level = Integer.parseInt(command[2]);
-			if(level > 15000) {
+			if (level > 15000) {
 				player.getPacketSender().sendMessage("You can only have a maxmium level of 15000.");
 				return;
 			}
@@ -224,17 +205,17 @@ public class SpecialPlayers {
 			player.getPacketSender().sendMessage("You have set your " + skill.getName() + " level to " + level);
 		}
 
-		if(command[0].equals("spec")) {
+		if (command[0].equals("spec")) {
 			player.setSpecialPercentage(100);
 			CombatSpecial.updateBar(player);
 		}
-		if(command[0].equals("playnpc")) {
+		if (command[0].equals("playnpc")) {
 			player.setNpcTransformationId(Integer.parseInt(command[1]));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
-		} else if(command[0].equals("playobject")) {
+		} else if (command[0].equals("playobject")) {
 			player.getPacketSender().sendObjectAnimation(new GameObject(2283, player.getPosition().copy()), new Animation(751));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 	}
-	
+
 }

@@ -1,12 +1,9 @@
 package com.ikov.commands;
 
-import com.ikov.commands.ranks.Administrators;
 import com.ikov.commands.ranks.CommunityManagers;
-import com.ikov.commands.ranks.GlobalModerators;
 import com.ikov.commands.ranks.Members;
 import com.ikov.commands.ranks.Owners;
 import com.ikov.commands.ranks.SpecialPlayers;
-import com.ikov.commands.ranks.StaffManagers;
 import com.ikov.commands.ranks.WikiManagers;
 import com.ikov.model.PlayerRights;
 import com.ikov.world.content.PlayerLogs;
@@ -35,20 +32,11 @@ public class Commands {
 		if (player.getRights() == PlayerRights.OWNER) {
 			Owners.initiate_command(player, parts, whole_command);
 		}
-		if (player.getRights() == PlayerRights.ADMINISTRATOR) {
-			Administrators.initiate_command(player, parts, whole_command);
-		}
-		if (player.getRights() == PlayerRights.GLOBAL_MOD) {
-			GlobalModerators.initiate_command(player, parts, whole_command);
-		}
 		if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
 			CommunityManagers.initiate_command(player, parts, whole_command);
 		}
 		if (player.getRights() == PlayerRights.WIKI_MANAGER) {
 			WikiManagers.initiate_command(player, parts, whole_command);
-		}
-		if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-			StaffManagers.initiate_command(player, parts, whole_command);
 		}
 
 	}
