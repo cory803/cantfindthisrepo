@@ -1,6 +1,7 @@
 package com.ikov.util;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,9 +9,12 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.NumberFormat;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.LinkedList;
@@ -466,35 +470,26 @@ public class Misc {
 		}
 	}
 
-	public static byte[] getBuffer(File f) throws Exception
-	{
-		if(!f.exists())
-			return null;
-		byte[] buffer = new byte[(int) f.length()];
-		DataInputStream dis = new DataInputStream(new FileInputStream(f));
-		dis.readFully(buffer);
-		dis.close();
-		byte[] gzipInputBuffer = new byte[999999];
-		int bufferlength = 0;
-		GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(buffer));
-		do {
-			if(bufferlength == gzipInputBuffer.length)
-			{
-				System.out.println("Error inflating data.\nGZIP buffer overflow.");
-				break;
-			}
-			int readByte = gzip.read(gzipInputBuffer, bufferlength, gzipInputBuffer.length - bufferlength);
-			if(readByte == -1)
-				break;
-			bufferlength += readByte;
-		} while(true);
-		byte[] inflated = new byte[bufferlength];
-		System.arraycopy(gzipInputBuffer, 0, inflated, 0, bufferlength);
-		buffer = inflated;
-		if(buffer.length < 10)
-			return null;
-		return buffer;
-	}
+  public static byte[] getBuffer(Path path) throws IOException {
+    byte[] bytes = Files.readAllBytes(path);
+    if (bytes.length == 0) {
+      throw new IOException("No data found for " + path);
+    }
+    ByteArrayOutputStream os = new ByteArrayOutputStream();
+    try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
+      byte[] buffer = new byte[Byte.BYTES * 1024];
+
+      while (true) {
+        int read = gzip.read(buffer);
+        if (read == -1) {
+          break;
+        }
+
+        os.write(buffer, 0, read);
+      }
+    }
+    return os.toByteArray();
+  }
 
 	public static int getTimeLeft(long start, int timeAmount, TimeUnit timeUnit) {
 		start -= timeUnit.toMillis(timeAmount);

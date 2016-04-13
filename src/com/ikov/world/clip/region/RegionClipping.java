@@ -1,13 +1,17 @@
 package com.ikov.world.clip.region;
 
-import java.io.DataInputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.util.ArrayList;
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
+import com.google.common.io.Files;
 import com.ikov.model.GameObject;
-import com.ikov.model.Position;
 import com.ikov.model.Locations.Location;
+import com.ikov.model.Position;
 import com.ikov.model.definitions.GameObjectDefinition;
 import com.ikov.util.Misc;
 import com.ikov.world.clip.stream.ByteStream;
@@ -22,30 +26,15 @@ import com.ikov.world.entity.impl.Character;
  */
 public final class RegionClipping {
 
-	private static RegionClipping[] regionArray;
-	private static final ArrayList<Integer> loadedRegions = new ArrayList<Integer>();
-
-	private final class RegionData {
-
-		private int mapGround;
-		private int mapObject;
-
-		public RegionData(int mapGround, int mapObject) {
-			this.mapGround = mapGround;
-			this.mapObject = mapObject;
-		}
-	}
+	private static final Map<Integer, RegionClipping> regions = new ConcurrentHashMap<>();
 
 	private int id;
-	private int[][][] clips = new int[4][][];
 
+	private int[][][] clips = new int[4][][];
 	public GameObject[][][] gameObjects = new GameObject[4][][];
 
-	private RegionData regionData;
-
-	public RegionClipping(int id, int map, int mapObj) {
+	public RegionClipping(int id) {
 		this.id = id;
-		regionData = new RegionData(map, mapObj);
 	}
 
 	public int getId() {
@@ -57,7 +46,6 @@ public final class RegionClipping {
 		int regionAbsY = (id & 0xff) * 64;
 		if (height < 0 || height >= 4)
 			height = 0;
-		loadRegion(x, y);
 		if (clips[height] == null) {
 			clips[height] = new int[64][64];
 		}
@@ -69,161 +57,141 @@ public final class RegionClipping {
 		int regionAbsY = (id & 0xff) * 64;
 		if (height < 0 || height >= 4)
 			height = 0;
-		loadRegion(x, y);
 		if (clips[height] == null) {
 			clips[height] = new int[64][64];
 		}
 		clips[height][x - regionAbsX][y - regionAbsY] |= shift;
 	}
 
-	public static void init() {
-		try {
-			GameObjectDefinition.init();
-			final File file = new File("./data/clipping/map_index");
-			final byte[] buffer = new byte[(int) file.length()];
-			final DataInputStream input = new DataInputStream(
-					new FileInputStream(file));
-			input.readFully(buffer);
-			input.close();
-			final ByteStream stream = new ByteStream(buffer);
-			int size = stream.getUShort();
-			regionArray = new RegionClipping[size];
-			for (int i = 0; i < size; i++) {
-				int regionId = stream.getUShort();
-				regionArray[i] = new RegionClipping(regionId,
-						stream.getUShort(), stream.getUShort());
-			}
+  public static void init() throws IOException {
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+    class MapDefinition {
+      private final int id;
+      private final int objects;
+      private final int terrain;
 
-	public static RegionClipping get(int regionId) {
-		for (RegionClipping r : regionArray) {
-			if (r.id == regionId) {
-				return r;
-			}
-		}
-		return null;
-	}
+      public MapDefinition(int id, int objects, int terrain) {
+        this.id = id;
+        this.objects = objects;
+        this.terrain = terrain;
+      }
+    }
 
-	public static void loadRegion(int x, int y) {
-		int regionId = -1;
-		try {
-			int regionX = x >> 3;
-			int regionY = y >> 3;
-			regionId = (regionX / 8 << 8) + regionY / 8;
-			RegionClipping r = get(regionId);
-			if (r == null)
-				return;
-			if (loadedRegions.contains(regionId))
-				return;
-			int mapGround = r.regionData.mapGround;
-			int mapObjects = r.regionData.mapObject;
-			byte[] objectData = Misc.getBuffer(new File("./data/clipping/maps/"
-					+ mapObjects + ".gz"));
-			byte[] groundData = Misc.getBuffer(new File("./data/clipping/maps/"
-					+ mapGround + ".gz"));
-			if (objectData == null || groundData == null) {
-				loadedRegions.add(regionId);
-				return;
-			}
-			loadedRegions.add(regionId);
-			loadMaps(regionId, new ByteStream(objectData), new ByteStream(
-					groundData));
-		} catch (Exception e) {
-			loadedRegions.add(regionId);
-			// e.printStackTrace();
-			System.out.println("Error loading regionId: " + regionId);
-		}
-	}
+    GameObjectDefinition.init();
+
+    // Decodes map definitions
+    File file = new File("./data/clipping/map_index");
+    ByteStream stream = new ByteStream(Files.toByteArray(file));
+    Map<Integer, MapDefinition> definitions = new HashMap<>();
+    int size = stream.getUShort();
+    for (int i = 0; i < size; i++) {
+      int id = stream.getUShort();
+      int terrain = stream.getUShort();
+      int objects = stream.getUShort();
+      definitions.put(id, new MapDefinition(id, objects, terrain));
+      regions.computeIfAbsent(id, RegionClipping::new);
+    }
+
+    Path path = Paths.get("data", "clipping", "maps");
+
+    // Decodes terrain and objects
+    for (MapDefinition definition : definitions.values()) {
+      int id = definition.id;
+
+      try {
+        byte[] objects = Misc.getBuffer(path.resolve(definition.objects + ".gz"));
+        byte[] terrain = Misc.getBuffer(path.resolve(definition.terrain + ".gz"));
+
+        loadMaps(id, new ByteStream(objects), new ByteStream(terrain));
+      } catch (IOException cause) {
+        cause.printStackTrace(); // Delegate away from logic thread
+      }
+    }
+  }
 
 	private static void loadMaps(int regionId, ByteStream objectStream,
 								 ByteStream groundStream) {
-		int absX = (regionId >> 8) * 64;
-		int absY = (regionId & 0xff) * 64;
-		byte[][][] heightMap = new byte[4][64][64];
-		for (int z = 0; z < 4; z++) {
-			for (int tileX = 0; tileX < 64; tileX++) {
-				for (int tileY = 0; tileY < 64; tileY++) {
-					while (true) {
-						int tileType = groundStream.getUByte();
-						if (tileType == 0) {
-							break;
-						} else if (tileType == 1) {
-							groundStream.getUByte();
-							break;
-						} else if (tileType <= 49) {
-							groundStream.getUByte();
-						} else if (tileType <= 81) {
-							heightMap[z][tileX][tileY] = (byte) (tileType - 49);
-						}
-					}
-				}
-			}
-		}
-		for (int i = 0; i < 4; i++) {
-			for (int i2 = 0; i2 < 64; i2++) {
-				for (int i3 = 0; i3 < 64; i3++) {
-					if ((heightMap[i][i2][i3] & 1) == 1) {
-						int height = i;
-						if ((heightMap[1][i2][i3] & 2) == 2) {
-							height--;
-						}
-						if (height >= 0 && height <= 3) {
-							addClipping(absX + i2, absY + i3, height, 0x200000);
-						}
-					}
-				}
-			}
-		}
-		int objectId = -1;
-		int incr;
-		while ((incr = objectStream.getUSmart()) != 0) {
-			objectId += incr;
-			int location = 0;
-			int incr2;
-			while ((incr2 = objectStream.getUSmart()) != 0) {
-				location += incr2 - 1;
-				int localX = location >> 6 & 0x3f;
-				int localY = location & 0x3f;
-				int height = location >> 12;
-				int objectData = objectStream.getUByte();
-				int type = objectData >> 2;
-				int direction = objectData & 0x3;
-				if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
-					continue;
-				}
-				if ((heightMap[1][localX][localY] & 2) == 2) {
-					height--;
-				}
-				if (height >= 0 && height <= 3)
-					addObject(objectId, absX + localX, absY + localY, height,
-							type, direction); // Add object to clipping
-			}
-		}
+      int absX = (regionId >> 8) * 64;
+      int absY = (regionId & 0xff) * 64;
+      byte[][][] heightMap = new byte[4][64][64];
+      for (int z = 0; z < 4; z++) {
+      	for (int tileX = 0; tileX < 64; tileX++) {
+      		for (int tileY = 0; tileY < 64; tileY++) {
+      			while (true) {
+      				int tileType = groundStream.getUByte();
+      				if (tileType == 0) {
+      					break;
+      				} else if (tileType == 1) {
+      					groundStream.getUByte();
+      					break;
+      				} else if (tileType <= 49) {
+      					groundStream.getUByte();
+      				} else if (tileType <= 81) {
+      					heightMap[z][tileX][tileY] = (byte) (tileType - 49);
+      				}
+      			}
+      		}
+      	}
+      }
+      for (int i = 0; i < 4; i++) {
+      	for (int i2 = 0; i2 < 64; i2++) {
+      		for (int i3 = 0; i3 < 64; i3++) {
+      			if ((heightMap[i][i2][i3] & 1) == 1) {
+      				int height = i;
+      				if ((heightMap[1][i2][i3] & 2) == 2) {
+      					height--;
+      				}
+      				if (height >= 0 && height <= 3) {
+      					addClipping(absX + i2, absY + i3, height, 0x200000);
+      				}
+      			}
+      		}
+      	}
+      }
+      int objectId = -1;
+      int incr;
+      while ((incr = objectStream.getUSmart()) != 0) {
+      	objectId += incr;
+      	int location = 0;
+      	int incr2;
+      	while ((incr2 = objectStream.getUSmart()) != 0) {
+      		location += incr2 - 1;
+      		int localX = location >> 6 & 0x3f;
+      		int localY = location & 0x3f;
+      		int height = location >> 12;
+      		int objectData = objectStream.getUByte();
+      		int type = objectData >> 2;
+      		int direction = objectData & 0x3;
+      		if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
+      			continue;
+      		}
+      		if ((heightMap[1][localX][localY] & 2) == 2) {
+      			height--;
+      		}
+      		if (height >= 0 && height <= 3)
+      			addObject(objectId, absX + localX, absY + localY, height,
+      					type, direction); // Add object to clipping
+      	}
+      }
 	}
 
 	public static void addClipping(int x, int y, int height, int shift) {
 		// System.out.println("Added clip at "+x+" and "+y+"");
-		RegionClipping.loadRegion(x, y);
 		int regionX = x >> 3;
 		int regionY = y >> 3;
 		int regionId = (regionX / 8 << 8) + regionY / 8;
-		RegionClipping r = get(regionId);
+		RegionClipping r = regions.get(regionId);
 		if (r != null) {
 			r.addClip(x, y, height, shift);
 		}
 	}
 
 	public static void removeClipping(int x, int y, int height, int shift) {
-		RegionClipping.loadRegion(x, y);
 		int regionX = x >> 3;
 		int regionY = y >> 3;
 		int regionId = (regionX / 8 << 8) + regionY / 8;
 
-		RegionClipping r = get(regionId);
+		RegionClipping r = regions.get(regionId);
 		if (r != null) {
 			r.removeClip(x, y, height, shift);
 		}
@@ -233,8 +201,7 @@ public final class RegionClipping {
 		int regionX = position.getX() >> 3;
 		int regionY = position.getY() >> 3;
 		int regionId = ((regionX / 8) << 8) + (regionY / 8);
-		loadRegion(position.getX(), position.getY());
-		return get(regionId);
+		return regions.get(regionId);
 	}
 
 	public static int[] getObjectInformation(Position position) {
@@ -247,7 +214,6 @@ public final class RegionClipping {
 			int regionAbsY = (clipping.id & 0xff) * 64;
 			if (height < 0 || height >= 4)
 				height = 0;
-			RegionClipping.loadRegion(x, y);
 			if (clipping.gameObjects == null
 					|| clipping.gameObjects[height] == null
 					|| clipping.gameObjects[height][x - regionAbsX] == null
@@ -484,7 +450,6 @@ public final class RegionClipping {
 		if (def == null) {
 			return;
 		}
-		RegionClipping.loadRegion(x, y);
 		switch (objectId) {
 			case 14233: // pest control gates
 			case 14235: // pest control gates
@@ -544,7 +509,6 @@ public final class RegionClipping {
 	}
 
 	public static int getClipping(int x, int y, int height) {
-		loadRegion(x, y);
 		int regionX = x >> 3;
 		int regionY = y >> 3;
 		int regionId = ((regionX / 8) << 8) + (regionY / 8);
@@ -552,7 +516,7 @@ public final class RegionClipping {
 			height = 0;
 		else if (height == -1 || Location.inLocation(x, y, Location.PURO_PURO))
 			return 0;
-		RegionClipping r = get(regionId);
+		RegionClipping r = regions.get(regionId);
 		if (r != null) {
 			return r.getClip(x, y, height);
 		}
@@ -563,7 +527,6 @@ public final class RegionClipping {
 		// height %= 4;
 		int regionAbsX = (id >> 8) * 64;
 		int regionAbsY = (id & 0xff) * 64;
-		loadRegion(x, y);
 		if (clips[height] == null) {
 			clips[height] = new int[64][64];
 		}

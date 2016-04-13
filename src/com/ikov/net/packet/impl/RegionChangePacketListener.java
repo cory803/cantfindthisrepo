@@ -19,8 +19,6 @@ public class RegionChangePacketListener implements PacketListener {
 	@Override
 	public void handleMessage(Player player, Packet packet) {
 		if(player.isAllowRegionChangePacket()) {
-			RegionClipping.loadRegion(player.getPosition().getX(), player.getPosition().getY());
-			player.getPacketSender().sendMapRegion();
 			CustomObjects.handleRegionChange(player);
 			GroundItemManager.handleRegionChange(player);
 			Sounds.handleRegionChange(player);
