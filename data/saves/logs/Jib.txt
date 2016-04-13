@@ -1,0 +1,23 @@
+[11/23/15 12:12AM]	Login from host 77.101.62.24, serial number: To Be Filled By O.E.M.20130528004111.000000+060	
+[11/23/15 12:13AM]	Login from host 77.101.62.24, serial number: To Be Filled By O.E.M.20130528004111.000000+060	
+[11/23/15 12:15AM]	Login from host 77.101.62.24, serial number: To Be Filled By O.E.M.20130528004111.000000+060	
+[11/23/15 12:32AM]	Player dropping item: 317, amount: 1	
+[11/23/15 12:32AM]	Player dropping item: 309, amount: 1	
+[11/23/15 12:32AM]	Player dropping item: 309, amount: 1	
+[11/23/15 12:32AM]	Player dropping item: 309, amount: 1	
+[11/23/15 12:33AM]	Player dropping item: 309, amount: 1	
+[11/23/15 12:33AM]	Player dropping item: 309, amount: 1	
+[11/23/15 12:33AM]	Player dropping item: 313, amount: 10	
+[11/23/15 12:35AM]	Player dropping item: 321, amount: 1	
+[11/23/15 12:38AM]	Player dropping item: 314, amount: 284	
+[11/23/15 12:45AM]	Player dropping item: 316, amount: 48	
+[11/23/15 12:45AM]	Player dropping item: 382, amount: 1	
+[11/23/15 12:45AM]	Player dropping item: 330, amount: 18	
+[11/23/15 12:45AM]	Player dropping item: 320, amount: 13	
+[11/23/15 12:45AM]	Player dropping item: 334, amount: 31	
+[11/23/15 12:50AM]	Player dropping item: 1191, amount: 1	
+[11/23/15 12:50AM]	Player dropping item: 1323, amount: 1	
+[11/23/15 01:01AM]	Player dropping item: 1153, amount: 1	
+[11/23/15 01:01AM]	Player dropping item: 1115, amount: 1	
+[11/23/15 01:01AM]	Player dropping item: 1067, amount: 1	
+[11/23/15 01:03AM]	Player dropping item: 1061, amount: 1	

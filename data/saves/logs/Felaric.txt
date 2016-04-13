@@ -1,0 +1,10 @@
+[11/22/15 04:44PM]	Login from host 88.115.166.135, serial number: PTNCTE200714203966960020140605001331.000000+180	
+[11/22/15 04:54PM]	Player dropping item: 2485, amount: 1	
+[11/22/15 04:55PM]	Player dropping item: 313, amount: 9	
+[11/22/15 05:00PM]	Player dropping item: 411, amount: 1	
+[11/22/15 05:01PM]	Player dropping item: 439, amount: 3	
+[11/22/15 05:05PM]	Player dropping item: 45, amount: 2	
+[11/22/15 05:24PM]	Login from host 88.115.166.135, serial number: PTNCTE200714203966960020140605001331.000000+180	
+[11/22/15 05:47PM]	Login from host 88.115.166.135, serial number: PTNCTE200714203966960020140605001331.000000+180	
+[11/22/15 05:51PM]	Login from host 88.115.166.135, serial number: PTNCTE200714203966960020140605001331.000000+180	
+[11/22/15 06:01PM]	Login from host 88.115.166.135, serial number: PTNCTE200714203966960020140605001331.000000+180	

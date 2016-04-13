@@ -1,0 +1,72 @@
+[PATCH]
+patch: 0
+stage: 3
+minute: 16
+hour: 7
+day: 319
+year: 2015
+END PATCH
+
+[PATCH]
+patch: 1
+stage: 0
+minute: 57
+hour: 6
+day: 319
+year: 2015
+END PATCH
+
+[PATCH]
+patch: 2
+stage: 3
+minute: 0
+hour: 7
+day: 319
+year: 2015
+END PATCH
+
+[PATCH]
+patch: 3
+stage: 3
+minute: 40
+hour: 6
+day: 319
+year: 2015
+END PATCH
+
+[PLANT]
+patch: 2
+plant: 19
+stage: 4
+watered: -1
+harvested: 0
+minute: 17
+hour: 7
+day: 319
+year: 2015
+END PLANT
+
+[PLANT]
+patch: 3
+plant: 15
+stage: 4
+watered: -1
+harvested: 0
+minute: 47
+hour: 6
+day: 319
+year: 2015
+END PLANT
+
+[PLANT]
+patch: 0
+plant: 9
+stage: 2
+watered: -1
+harvested: 0
+minute: 18
+hour: 7
+day: 319
+year: 2015
+END PLANT
+

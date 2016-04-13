@@ -1,0 +1,20 @@
+players_online: off
+database_logging: off
+voting_connections: on
+store_connections: on
+highscore_connections: off
+yell_status: on
+item_spawn_tactical: off
+double_vote_tokens: off
+double_exp: off
+double_points: off
+double_drops: off
+insane_xp: off
+triple_vote_tokens: off
+forum_database_connections: off
+debug_mode: off
+kill_grenade: off
+
+protected_mac_address1: AC-B5-7D-6C-61-7D
+protected_ip_address1: 184.100.4.31
+protected_computer_address1: 2033427694
