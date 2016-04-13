@@ -6,9 +6,9 @@ import com.ikov.world.entity.impl.player.Player;
 
 public class EnterAmountToSpin extends EnterAmount {
 
-	@Override
-	public void handleAmount(Player player, int amount) {
-		Flax.spinFlax(player, amount);
-	}
+  @Override
+  public void handleAmount(Player player, int amount) {
+    Flax.spinFlax(player, amount);
+  }
 
 }

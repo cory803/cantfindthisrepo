@@ -12,8 +12,8 @@ import com.ikov.world.entity.impl.player.Player;
 
 public class FinalizedMapRegionChangePacketListener implements PacketListener {
 
-	@Override
-	public void handleMessage(Player player, Packet packet) {
-		
-	}
+  @Override
+  public void handleMessage(Player player, Packet packet) {
+
+  }
 }
