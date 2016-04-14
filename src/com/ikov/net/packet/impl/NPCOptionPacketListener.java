@@ -352,7 +352,8 @@ public class NPCOptionPacketListener implements PacketListener {
 							EnergyHandler.rest(player);
 							break;
 						case 1396:
-							ShopManager.getShops().get(78).open(player);
+							DialogueManager.start(player, 220);
+							player.setDialogueActionId(221);
 							break;
 						case 653:
 							if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {

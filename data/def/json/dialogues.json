@@ -2154,5 +2154,27 @@
         "line4": "-This only affects combat-",
         "next": -1,
         "npcId": 6537
+    },
+	{
+        "id": 220,
+        "type": "NPC_STATEMENT",
+        "anim": "PLAIN_TALKING",
+        "lines": 4,
+        "line1": "Hello adventurer my name is Miner Mangus.",
+        "line2": "I can tell you the location of the current",
+        "line3": "shooting star for 1 million coins or I can",
+        "line4": "open the star dust exchange.",
+        "next": 221,
+        "npcId": 1396
+    },
+	{
+        "id": 221,
+        "type": "OPTION",
+        "lines": 3,
+        "line1": "Location of Shooting star (1m)",
+        "line2": "Open your shop",
+        "line3": "Cancel",
+        "next": -1,
+        "npcId": -1
     }
 ]
