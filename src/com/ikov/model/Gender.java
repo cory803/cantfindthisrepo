@@ -7,7 +7,6 @@ package com.ikov.model;
  */
 
 public enum Gender {
-	
-	MALE,
-	FEMALE;
+
+  MALE, FEMALE;
 }

@@ -1,0 +1,2450 @@
+[11/18/15 12:07AM]	Login from host 184.100.19.124, serial number: null	
+[11/18/15 12:09AM]	Login from host 184.100.19.124, serial number: 31W3B4220150505092902.000000-420	
+[11/21/15 09:59PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/21/15 10:00PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/21/15 10:03PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/21/15 10:07PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/21/15 10:08PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 04:02AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 08:23AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 08:36AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:07AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:09AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:11AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:14AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:28AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:42AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:47AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:07AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 09:51PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:04PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:06PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:18PM]	Player dropping item: 20000, amount: 1	
+[11/22/15 10:34PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:37PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:40PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:42PM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/23/15 03:23AM]	Login from host 184.100.18.50, serial number: 31W3B4220150505092902.000000-420	
+[11/23/15 03:47AM]	Player dropping item: 19000, amount: 1	
+[11/22/15 10:33PM]	Login from host 127.0.0.1, serial number: 31W3B4220150505092902.000000-420	
+[11/22/15 10:51PM]	Login from host 127.0.0.1, serial number: 31W3B4220150505092902.000000-420	
+[11/24/15 11:36PM]	Login from host 127.0.0.1, serial number: 31W3B4220150505092902.000000-420	
+[1/16/16 09:57PM]	Player dropping item: 20001, amount: 1	
+[1/16/16 09:58PM]	Player dropping item: 386, amount: 100	
+[1/16/16 09:58PM]	Player dropping item: 1061, amount: 1	
+[1/16/16 09:58PM]	Player dropping item: 1007, amount: 1	
+[1/16/16 09:58PM]	Player dropping item: 1351, amount: 1	
+[1/16/16 09:58PM]	Player dropping item: 1265, amount: 1	
+[1/17/16 02:45AM]	Jonny received a Purple halloween mask from Rock Crab	
+[1/17/16 02:46AM]	Jonny received a White halloween mask from Rock Crab	
+[1/17/16 02:52AM]	Player dropping item: 989, amount: 1	
+[1/22/16 09:19PM]	Player dropping item: 11211, amount: 1	
+[1/22/16 10:17PM]	Player dropping item: 13008, amount: 1	
+[1/22/16 10:17PM]	Player dropping item: 227, amount: 1	
+[1/22/16 10:18PM]	Player dropping item: 227, amount: 1	
+[1/22/16 10:18PM]	Player dropping item: 227, amount: 1	
+[1/24/16 04:05AM]	Player dropping item: 21051, amount: 1	
+[1/24/16 04:05AM]	Player dropping item: 557, amount: 10001	
+[1/24/16 04:06AM]	Player dropping item: 565, amount: 9988	
+[1/24/16 04:48AM]	Player dropping item: 555, amount: 99964	
+[2/14/16 06:31PM]	Player dropping item: Letter (4204), amount: 1	
+[2/14/16 06:37PM]	Player dropping item: Pet Rock crab (13001), amount: 1	
+[2/14/16 06:46PM]	Player dropping item: Pet Rock crab (13002), amount: 1	
+[2/15/16 08:15PM]	Player dropping item: Pet Rock crab (13003), amount: 1	
+[2/15/16 08:16PM]	Player dropping item: Pet Rock crab (13007), amount: 1	
+[2/15/16 08:16PM]	Player dropping item: Pet Rock crab (13006), amount: 1	
+[2/15/16 08:16PM]	Player dropping item: Pet Rock crab (13005), amount: 1	
+[2/15/16 08:16PM]	Player dropping item: Pet Rock crab (13004), amount: 1	
+[2/15/16 08:21PM]	Player dropping item: Helm (class 4) (14373), amount: 1	
+[2/15/16 08:21PM]	Player looting item: Helm (class 4) (14373), amount: 1	
+[2/15/16 09:12PM]	Player dropping item: Pickaxe (class 4) (14128), amount: 1	
+[2/15/16 09:12PM]	Player looting item: Pickaxe (class 4) (14128), amount: 1	
+[2/19/16 10:26PM]	Player dropping item: Water rune (555), amount: 9994 from the computer address: null	
+[2/20/16 12:19AM]	Player dropping item: Hatchet (class 2) (14134), amount: 1 from the computer address: null	
+[2/20/16 12:19AM]	Player looting item: Hatchet (class 2) (14134), amount: 1 from the computer address: null	
+[2/20/16 01:50AM]	Player looting item: Armadyl crossbow (21075), amount: 1 from the computer address: null	
+[2/20/16 01:52AM]	Player dropping item: Dungeoneering master cape (19709), amount: 1 from the computer address: null	
+[2/20/16 01:53AM]	Player looting item: Armadyl crossbow (21075), amount: 1 from the computer address: null	
+[2/23/16 11:44AM]	Player looting item: Toxic blowpipe (12926), amount: 1 from the computer address: null	
+[2/23/16 12:00PM]	Player looting item: Toxic blowpipe (12926), amount: 1 from the computer address: null	
+[2/23/16 12:00PM]	Player looting item: Toxic blowpipe (12926), amount: 1 from the computer address: null	
+[2/25/16 07:54PM]	Player dropping item: Logs (1511), amount: 1 from the computer address: null	
+[2/25/16 07:54PM]	Player looting item: Logs (1511), amount: 1 from the computer address: null	
+[2/25/16 07:54PM]	Player dropping item: Logs (1511), amount: 1 from the computer address: null	
+[2/25/16 07:55PM]	Player looting item: Logs (1511), amount: 1 from the computer address: null	
+[2/25/16 07:55PM]	Player dropping item: Logs (1511), amount: 1 from the computer address: null	
+[2/25/16 07:55PM]	Player looting item: Logs (1511), amount: 1 from the computer address: null	
+[2/25/16 07:55PM]	Player dropping item: Logs (1511), amount: 1 from the computer address: null	
+[2/26/16 07:32PM]	Player dropping item: Rune knife (p++) (5667), amount: 1 from the computer address: null	
+[2/26/16 07:37PM]	Player dropping item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[2/26/16 07:37PM]	Player dropping item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[2/26/16 07:38PM]	Player dropping item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/3/16 10:46AM]	Player dropping item: Shortbow (u) (50), amount: 1 from the computer address: null	
+[3/3/16 10:49AM]	Player dropping item: Damaged Hammer (17401), amount: 1 from the computer address: null	
+[3/3/16 12:57PM]	Player dropping item: Rocktail (15272), amount: 1 from the computer address: null	
+[3/3/16 12:57PM]	Player dropping item: Rocktail (15272), amount: 1 from the computer address: null	
+[3/3/16 09:42PM]	Player dropping item: Rune crossbow (9185), amount: 1 from the computer address: null	
+[3/5/16 02:37AM]	Player dropping item: Unarmed (21080), amount: 1 from the computer address: null	
+[3/5/16 02:37AM]	Player dropping item: Unarmed (21080), amount: 1 from the computer address: null	
+[3/5/16 02:57AM]	Player dropping item: Zulrah's scales (21080), amount: 101 from the computer address: null	
+[3/5/16 02:58AM]	Player dropping item: Zulrah's scales (21080), amount: 7 from the computer address: null	
+[3/5/16 10:27AM]	Player dropping item: Zulrah's scales (21080), amount: 100005 from the computer address: null	
+[3/5/16 10:28AM]	Player dropping item: Zulrah's scales (21080), amount: 1 from the computer address: null	
+[3/5/16 10:28AM]	Player dropping item: Zulrah's scales (21080), amount: 1 from the computer address: null	
+[3/5/16 10:36AM]	Player dropping item: Zulrah's scales (21080), amount: 20011 from the computer address: null	
+[3/5/16 11:06AM]	Player dropping item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/5/16 11:20AM]	Player dropping item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/5/16 11:21AM]	Player looting item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/5/16 11:22AM]	Player dropping item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/5/16 11:22AM]	Player looting item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/5/16 11:25AM]	Player dropping item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/5/16 11:25AM]	Player looting item: Toxic staff of the dead (21077), amount: 1 from the computer address: null	
+[3/8/16 10:09AM]	Player dropping item: Skeleton mask (9925), amount: 1 from the computer address: null	
+[3/8/16 10:10AM]	Player dropping item: Skeleton mask (9925), amount: 1 from the computer address: null	
+[3/8/16 10:10AM]	Player dropping item: Skeleton mask (10728), amount: 1 from the computer address: null	
+[3/10/16 05:25PM]	Player has bought the store item: Const. master cape (21053), amount: 1	
+[3/12/16 12:00AM]	Player has sold item: Yellow partyhat (1040), amount: 1 to the store.	
+[3/12/16 12:01AM]	Player has sold item: Abyssal whip (4151), amount: 1 to the store.	
+[3/13/16 11:05PM]	Player has bought the store item: Logs (1511), amount: 1	
+[3/13/16 11:05PM]	Player has bought the store item: Tinderbox (590), amount: 1	
+[3/13/16 11:06PM]	Player has bought the store item: Raw dusk eel (17801), amount: 1	
+[3/13/16 11:06PM]	Player has bought the store item: Logs (1511), amount: 1	
+[3/13/16 11:06PM]	Player has bought the store item: Tinderbox (590), amount: 1	
+[3/13/16 11:06PM]	Player has bought the store item: Logs (1511), amount: 5	
+[3/13/16 11:20PM]	Player has bought the store item: Logs (1511), amount: 1	
+[3/13/16 11:20PM]	Player has bought the store item: Tinderbox (590), amount: 1	
+[3/13/16 11:20PM]	Player has bought the store item: Logs (1511), amount: 1	
+[3/13/16 11:21PM]	Player has bought the store item: Raw salve eel (17811), amount: 1	
+[3/13/16 11:28PM]	Player has bought the store item: Tinderbox (590), amount: 1	
+[3/13/16 11:28PM]	Player has bought the store item: Logs (1511), amount: 5	
+[3/13/16 11:28PM]	Player has bought the store item: Raw salve eel (17811), amount: 5	
+[3/13/16 11:45PM]	Player dropping item: Coins (995), amount: 2100000000 from the computer address: null	
+[3/17/16 06:26PM]	Player killed by Mysterio for item: Id: Mithril seeds(299), amount: 991	
+[3/17/16 06:26PM]	Player killed by Mysterio for item: Id: Armadyl godsword(11694), amount: 1	
+[3/19/16 10:01AM]	Player has bought the store item: Ranging flask (6) (14152), amount: 1	
+[3/19/16 10:01AM]	Player has bought the store item: Ranging flask (6) (14152), amount: 5	
+[3/19/16 10:02AM]	Player has bought the store item: Magic flask (6) (14403), amount: 1	
+[3/19/16 10:02AM]	Player has bought the store item: Saradomin brew flask (6) (14128), amount: 1	
+[3/19/16 10:02AM]	Player has bought the store item: Coif (class 3) (14415), amount: 1	
+[3/19/16 10:02AM]	Player has bought the store item: Super defence flask (6) (14164), amount: 1	
+[3/19/16 10:15AM]	Player has bought the store item: Saradomin brew flask (6) (14128), amount: 1	
+[3/19/16 10:30AM]	Player dropping item: Saradomin brew flask (3) (14122), amount: 1 from the computer address: null	
+[3/19/16 10:47AM]	Player has bought the store item: Saradomin brew flask (6) (14128), amount: 1	
+[3/19/16 11:41AM]	Player has bought the store item: Super strength flask (6) (14176), amount: 1	
+[3/19/16 11:45AM]	Player has bought the store item: Steel titan pouch (12790), amount: 1000	
+[3/19/16 11:45AM]	Player has sold item: Steel titan pouch (12790), amount: 10 to the store.	
+[3/19/16 11:45AM]	Player has sold item: Steel titan pouch (12790), amount: 8 to the store.	
+[3/19/16 11:45AM]	Player has bought the store item: Steel titan pouch (12790), amount: 1000	
+[3/19/16 11:45AM]	Player has sold item: Steel titan pouch (12790), amount: 10 to the store.	
+[3/19/16 11:45AM]	Player has sold item: Steel titan pouch (12790), amount: 5 to the store.	
+[3/19/16 11:45AM]	Player has bought the store item: Steel titan pouch (12790), amount: 100	
+[3/19/16 11:45AM]	Player has sold item: Steel titan pouch (12790), amount: 10 to the store.	
+[3/19/16 11:45AM]	Player has sold item: Steel titan pouch (12790), amount: 3 to the store.	
+[3/19/16 01:12PM]	Player has bought the store item: Ranging flask (6) (14152), amount: 1	
+[3/19/16 01:13PM]	Player has bought the store item: Golden tinderbox (2946), amount: 1	
+[3/19/16 01:13PM]	Player has bought the store item: Golden tinderbox (2946), amount: 1	
+[3/19/16 01:13PM]	Player has bought the store item: Maple logs (1517), amount: 1	
+[3/19/16 01:13PM]	Player has bought the store item: Yew logs (1515), amount: 1	
+[3/19/16 01:22PM]	Player has bought the store item: Cannonball (2), amount: 1000	
+[3/19/16 03:59PM]	Player dropping item: Coins (995), amount: 78126883 from the computer address: null	
+[3/19/16 05:17PM]	Player has bought the store item: Super strength flask (6) (14176), amount: 1	
+[3/19/16 05:17PM]	Player has bought the store item: Super attack flask (6) (14188), amount: 1	
+[3/19/16 05:17PM]	Player has bought the store item: Coif (class 3) (14415), amount: 1	
+[3/19/16 05:30PM]	Player has bought the store item: Super attack flask (6) (14188), amount: 1	
+[3/19/16 05:38PM]	Player has bought the store item: Ranging flask (6) (14152), amount: 10	
+[3/19/16 06:31PM]	Player has bought the store item: Saradomin brew flask (6) (14427), amount: 1	
+[3/19/16 06:31PM]	Player has bought the store item: Saradomin brew flask (6) (14427), amount: 1	
+[3/19/16 06:32PM]	Player dropping item: Saradomin brew flask (6) (14427), amount: 1 from the computer address: null	
+[3/19/16 06:32PM]	Player looting item: Saradomin brew flask (6) (14427), amount: 1 from the computer address: null	
+[3/19/16 06:45PM]	Player has bought the store item: Super restore flask (6) (14415), amount: 1	
+[3/19/16 08:05PM]	Player has bought the store item: Saradomin brew flask (6) (14427), amount: 1	
+[3/19/16 09:49PM]	Player dropping item: Shark (386), amount: 14 from the computer address: null	
+[3/19/16 09:49PM]	Player looting item: Shark (386), amount: 14 from the computer address: null	
+[3/19/16 10:16PM]	Player dropping item: Spirit shards (18016), amount: 2000000000 from the computer address: null	
+[3/19/16 10:17PM]	Player dropping item: Spirit shards (18016), amount: 1000000000 from the computer address: null	
+[3/21/16 10:07PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:07PM]	Jonny has done command home!	
+[3/21/16 10:08PM]	Jonny has done command npc 947!	
+[3/21/16 10:08PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:08PM]	Jonny has done command home!	
+[3/21/16 10:09PM]	Jonny has done command npc 947!	
+[3/21/16 10:09PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:09PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:11PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:13PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:13PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:13PM]	Jonny has done command npc 947!	
+[3/21/16 10:13PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:13PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:14PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:14PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:14PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:15PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:15PM]	Jonny has done command npc 947!	
+[3/21/16 10:15PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:16PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:28PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:28PM]	Jonny has done command npc 947!	
+[3/21/16 10:29PM]	Jonny has done command item 14484 28!	
+[3/21/16 10:29PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:29PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:30PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:30PM]	Jonny has done command npc 947!	
+[3/21/16 10:31PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[3/21/16 10:31PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:31PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:33PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:36PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:36PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:36PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:37PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:37PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:38PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:39PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:39PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:59PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:59PM]	Player dropping item: Coins (995), amount: 611640035 from the computer address: null	
+[3/21/16 10:59PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:01PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:03PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:03PM]	Jonny has done command npc 947!	
+[3/21/16 11:03PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:03PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:04PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:04PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:04PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:04PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:05PM]	Jonny has done command bank!	
+[3/21/16 11:05PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:06PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:06PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:07PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:07PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:07PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:07PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:22PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:22PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:44PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:44PM]	Jonny has done command yell yo	
+[3/21/16 11:46PM]	Jonny has done command npc 947	
+[3/21/16 11:46PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:47PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:47PM]	Jonny has done command empty	
+[3/21/16 11:47PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:47PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:48PM]	Player dropping item: Coins (995), amount: 1500000000 from the computer address: null	
+[3/21/16 11:48PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:48PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:49PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:49PM]	Jonny has done command item 14484 1	
+[3/21/16 11:49PM]	Jonny has done command npc 947	
+[3/21/16 11:50PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:50PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:57PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:57PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:57PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:57PM]	Jonny has done command item 14484 10	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Coins(995), amount: 2	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Completionist Cape(21085), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Abyssal vine whip(21372), amount: 1	
+[3/22/16 12:04AM]	Player killed by Dc Blitz for item: Id: Unarmed(14119), amount: 1	
+[3/22/16 12:27AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:28AM]	Jonny has done command npc 947	
+[3/22/16 12:28AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:29AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:37AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:37AM]	Jonny has done command npc 947	
+[3/22/16 12:37AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:38AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:44AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:44AM]	Jonny has done command npc 947	
+[3/22/16 12:45AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:45AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:50AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:51AM]	Jonny has done command item 995 500m	
+[3/22/16 12:51AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:52AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:52AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:53AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:53AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:53AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:53AM]	Jonny has done command item 1040 1	
+[3/22/16 12:54AM]	Jonny has done command find magic flask	
+[3/22/16 12:54AM]	Jonny has done command item 14152 1	
+[3/22/16 12:56AM]	Jonny has done command dzone	
+[3/22/16 12:58AM]	Jonny has done command find grimy	
+[3/22/16 12:58AM]	Jonny has done command find grimy	
+[3/22/16 01:03AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 01:03AM]	Jonny has done command dzone	
+[3/22/16 01:11AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 01:11AM]	Player dropping item: Grimy guam (200), amount: 3 from the computer address: null	
+[3/22/16 01:11AM]	Player dropping item: Grimy ranarr (208), amount: 5 from the computer address: null	
+[3/22/16 01:11AM]	Player dropping item: Grimy dwarf weed (218), amount: 2 from the computer address: null	
+[3/22/16 01:11AM]	Player dropping item: Grimy marrentill (202), amount: 2 from the computer address: null	
+[3/22/16 01:12AM]	Jonny has done command teleto dc blitz	
+[3/22/16 01:12AM]	Jonny has done command spawn dragon scim:1	
+[3/22/16 01:13AM]	Jonny has done command spec	
+[3/22/16 01:17AM]	Jonny has done command setlevel 5 1	
+[3/22/16 01:18AM]	Jonny has done command setlevel 5 99	
+[3/22/16 01:20AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 01:26AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 01:26AM]	Jonny has done command spawn third-age mage hat	
+[3/22/16 01:26AM]	Jonny has done command spawn third-age mage hat:1	
+[3/22/16 01:27AM]	Jonny has done command dzone	
+[3/22/16 01:29AM]	Jonny has done command npc 536	
+[3/22/16 01:29AM]	Jonny has done command ezone	
+[3/22/16 01:31AM]	Jonny has done command item 10388 1	
+[3/22/16 01:36AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:13AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:14AM]	Jonny has done command npc 947	
+[3/22/16 02:14AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:14AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:15AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:15AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:17AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:17AM]	Jonny has done command npc 947	
+[3/22/16 02:18AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:18AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:20AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:20AM]	Jonny has done command npc 947	
+[3/22/16 02:20AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:20AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:05AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:05AM]	Jonny has done command npc 947	
+[3/22/16 09:06AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:06AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:16AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:16AM]	Jonny has done command npc 947	
+[3/22/16 09:16AM]	Jonny has done command item 995 500m	
+[3/22/16 09:16AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:17AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:17AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:19AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:20AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:20AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:27AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:27AM]	Jonny has done command npc 947	
+[3/22/16 09:27AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:27AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:28AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:28AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:34AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:34AM]	Jonny has done command npc 947	
+[3/22/16 09:34AM]	Jonny has done command item 995 500m	
+[3/22/16 09:35AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:35AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:36AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:36AM]	Jonny has done command npc 947	
+[3/22/16 09:37AM]	Jonny has done command item 995 500m	
+[3/22/16 09:37AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:38AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:38AM]	Jonny has done command item 995 1b	
+[3/22/16 09:38AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:38AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 09:46AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 09:33AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 09:33AM]	Jonny has done command spawn tokhaar:1	
+[3/23/16 09:42AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 09:43AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 09:43AM]	Jonny has done command item 7629 1	
+[3/23/16 09:44AM]	Player dropping item: Scroll of $100 (7629), amount: 1 from the computer address: null	
+[3/23/16 09:44AM]	Player looting item: Scroll of $100 (7629), amount: 1 Owner: Jonny	
+[3/23/16 09:51AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 09:52AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 10:17AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 10:18AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 10:19AM]	Player has bought the store item: Bronze hatchet (1351), amount: 1	
+[3/23/16 10:19AM]	Player has sold item: Bronze hatchet (1351), amount: 1 to the store.	
+[3/23/16 10:20AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 10:21AM]	Jonny has done command item 14484 1	
+[3/23/16 10:21AM]	Jonny has done command item 1040 1	
+[3/23/16 10:22AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 10:22AM]	Player has sold item: $125 Payment Scroll (7629), amount: 1 to the store.	
+[3/23/16 10:22AM]	Jonny has done command item 1 1	
+[3/23/16 10:22AM]	Player has bought the store item: Bronze hatchet (1351), amount: 1	
+[3/23/16 10:30AM]	Jonny has done command interface 24500	
+[3/23/16 10:37AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 10:37AM]	Jonny has done command interface 24500	
+[3/23/16 10:37AM]	Jonny has clicked button 24526	
+[3/23/16 10:37AM]	Jonny has clicked button 24514	
+[3/23/16 10:37AM]	Jonny has clicked button 24514	
+[3/23/16 11:32AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/23/16 11:32AM]	Jonny in NPCOptionPacketListener: 5093 - FIRST_CLICK_OPCODE	
+[3/23/16 11:32AM]	Jonny in NPCOptionPacketListener: 5093 - FIRST_CLICK_OPCODE	
+[3/23/16 11:32AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[3/23/16 11:32AM]	Jonny in EquipPacketListener: 21085 from Inventory	
+[3/23/16 11:32AM]	Jonny in EquipPacketListener: 1351 from Inventory	
+[3/23/16 11:32AM]	Jonny in EquipPacketListener: 19111 from Inventory	
+[3/23/16 11:32AM]	Jonny in ItemContainerActionPacketListener: First Action - 10342 - 1688 - 0	
+[3/23/16 11:32AM]	Jonny in ItemContainerActionPacketListener: First Action - 19111 - 1688 - 1	
+[3/23/16 11:32AM]	Jonny in ItemContainerActionPacketListener: First Action - 14119 - 1688 - 7	
+[3/23/16 11:32AM]	Jonny in ItemContainerActionPacketListener: First Action - 1351 - 1688 - 3	
+[3/26/16 03:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 03:58PM]	Jonny has done command interface 41410	
+[3/26/16 03:59PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 03:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 03:59PM]	Jonny has done command interface 41410	
+[3/26/16 03:59PM]	Jonny has done command interface 41409	
+[3/26/16 03:59PM]	Jonny has done command interface 41409	
+[3/26/16 04:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 04:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 04:01PM]	Jonny has done command interface 41409	
+[3/26/16 04:47PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 04:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 04:48PM]	Jonny has done command interface 41409	
+[3/26/16 04:48PM]	Jonny has done command interface 41410	
+[3/26/16 04:48PM]	Jonny has done command interface 41409	
+[3/26/16 05:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:11PM]	Jonny has done command interface 41409	
+[3/26/16 05:12PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:13PM]	Jonny has done command interface 41409	
+[3/26/16 05:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:13PM]	Jonny has done command interface 41409	
+[3/26/16 05:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:38PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:39PM]	Jonny has done command interface 1151	
+[3/26/16 05:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:43PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 05:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 07:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 07:40PM]	Jonny has done command godmode	
+[3/26/16 07:41PM]	Jonny has done command lunars	
+[3/26/16 07:41PM]	Jonny has done command lunars	
+[3/26/16 08:07PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:07PM]	Jonny has done command interface 30000	
+[3/26/16 08:07PM]	Jonny has done command inter 30000	
+[3/26/16 08:08PM]	Jonny has done command interface 9075	
+[3/26/16 08:08PM]	Jonny has done command inter 9075	
+[3/26/16 08:08PM]	Jonny has done command inter 1	
+[3/26/16 08:08PM]	Jonny has done command inter 500	
+[3/26/16 08:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:13PM]	Jonny has done command interface 29999	
+[3/26/16 08:15PM]	Jonny has done command interface 30000	
+[3/26/16 08:15PM]	Jonny has done command interface 29999	
+[3/26/16 08:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:20PM]	Jonny has done command interface 29999	
+[3/26/16 08:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:24PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:25PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:29PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 08:30PM]	Jonny has done command moderns	
+[3/26/16 08:30PM]	Jonny has done command lunars	
+[3/26/16 09:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:03PM]	Jonny has done command ancients	
+[3/26/16 09:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:05PM]	Jonny has done command inter 12855	
+[3/26/16 09:05PM]	Jonny has done command interface 12855	
+[3/26/16 09:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:12PM]	Jonny has done command moderns	
+[3/26/16 09:12PM]	Jonny has done command ancients	
+[3/26/16 09:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:38PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:39PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:39PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:41PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:43PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:46PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:47PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:48PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:48PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:49PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:51PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:53PM]	Jonny has done command item 13943 1	
+[3/26/16 09:57PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 09:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:37PM]	Jonny has done command lunars	
+[3/26/16 10:37PM]	Jonny has done command spawn earth rune:1000	
+[3/26/16 10:37PM]	Jonny has done command spawn death rune:1000	
+[3/26/16 10:37PM]	Jonny has done command spawn astral rune:10000	
+[3/26/16 10:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:41PM]	Jonny has done command lunars	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Coins(995), amount: 105000005	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Iron platebody(1115), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Iron platelegs(1067), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Armadyl godsword(11694), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Shortbow(841), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Bronze arrow(882), amount: 1000	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Leather cowl(1167), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Dragon claws(14484), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Leather chaps(1095), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Leather vambraces(1063), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Wizard hat(579), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Dragon claws(14484), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Blue skirt(1011), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Staff(1379), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Air rune(556), amount: 1000	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Mind rune(558), amount: 1000	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Earth rune(557), amount: 1000	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Water rune(555), amount: 1000	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Bronze hatchet(1351), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Bronze pickaxe(1265), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Amulet of glory (4)(1712), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Combat bracelet (4)(11118), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Cape(1007), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Leather boots(1061), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Dragon claws(14484), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Armadyl godsword(11694), amount: 1	
+[3/26/16 10:41PM]	Player killed Mysterio for item: Id: Leather body(1129), amount: 1	
+[3/26/16 10:41PM]	Player looting item: Armadyl godsword (11694), amount: 1 Owner: Jonny	
+[3/26/16 10:41PM]	Player looting item: Armadyl godsword (11694), amount: 1 Owner: Jonny	
+[3/26/16 10:41PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[3/26/16 10:41PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[3/26/16 10:42PM]	Jonny has done command spawn earth rune:1000	
+[3/26/16 10:42PM]	Jonny has done command spawn astral rune:1000	
+[3/26/16 10:42PM]	Jonny has done command spawn death rune:1000	
+[3/26/16 10:42PM]	Jonny has done command lunars	
+[3/26/16 10:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:45PM]	Jonny has done command spawn explosive pot:1	
+[3/26/16 10:46PM]	Player killed by Mysterio for item: Id: Toolkit(1), amount: 1	
+[3/26/16 10:46PM]	Player killed by Mysterio for item: Id: Coins(995), amount: 106250004	
+[3/26/16 10:46PM]	Player killed by Mysterio for item: Id: Completionist Cape(21085), amount: 1	
+[3/26/16 10:46PM]	Player killed by Mysterio for item: Id: Unarmed(14119), amount: 1	
+[3/26/16 10:46PM]	Jonny has done command spawn explosive pot:1	
+[3/26/16 11:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:09PM]	Jonny has done command spawn explosive pot:1	
+[3/26/16 11:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:16PM]	Jonny has done command item 4045 1	
+[3/26/16 11:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:20PM]	Jonny has done command item 4045 1	
+[3/26/16 11:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:21PM]	Jonny has done command item 4045 1	
+[3/26/16 11:22PM]	Jonny has done command item 995 500m	
+[3/26/16 11:22PM]	Jonny has done command item 4045 1	
+[3/26/16 11:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:30PM]	Jonny has done command item 995 500m	
+[3/26/16 11:30PM]	Jonny has done command item 4045 20	
+[3/27/16 12:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 12:30AM]	Jonny has done command item 4045 10	
+[3/27/16 11:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:07AM]	Jonny has done command hp	
+[3/27/16 11:07AM]	Jonny has done command stuck	
+[3/27/16 11:07AM]	Jonny has done command stuck	
+[3/27/16 11:07AM]	Jonny has done command stuck	
+[3/27/16 11:07AM]	Jonny has done command noclip	
+[3/27/16 11:08AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:09AM]	Jonny has done command noclip	
+[3/27/16 11:09AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:09AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:09AM]	Jonny has done command noclip	
+[3/27/16 11:38AM]	Jonny has done command spawn earth rune:1	
+[3/27/16 11:50AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:51AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:52AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:53AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:53AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:55AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:55AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 12:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 12:48PM]	Jonny has done command noclip	
+[3/27/16 12:48PM]	Jonny has done command stuck	
+[3/27/16 12:48PM]	Jonny has done command stuck	
+[3/27/16 12:48PM]	Jonny has done command stuck	
+[3/27/16 12:49PM]	Jonny has done command tele 3006 3954	
+[3/27/16 12:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 12:50PM]	Jonny has done command stuck	
+[3/27/16 12:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 12:57PM]	Jonny has done command noclip	
+[3/27/16 12:57PM]	Jonny has done command stuck	
+[3/27/16 12:57PM]	Jonny has done command stuck	
+[3/27/16 12:57PM]	Jonny has done command stuck	
+[3/27/16 02:18PM]	Login from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:18PM]	Logout from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:20PM]	Login from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:20PM]	Logout from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:21PM]	Login from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:21PM]	Logout from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:22PM]	Login from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:22PM]	Logout from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:24PM]	Login from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:24PM]	Logout from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:25PM]	Login from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:25PM]	Logout from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:28PM]	Login from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 02:28PM]	Logout from host 127.0.0.1, Computer Address: 1450243657	
+[3/27/16 04:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 04:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 04:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 04:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 04:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 04:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 04:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 04:41PM]	Jonny has done command spawn blood rune:1000	
+[3/27/16 04:41PM]	Jonny has done command item 555 1000	
+[3/27/16 04:41PM]	Jonny has done command item 560 1000	
+[3/27/16 04:41PM]	Jonny has done command npc 1	
+[3/27/16 05:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 05:08PM]	Jonny has done command moderns	
+[3/27/16 05:08PM]	Jonny has done command home	
+[3/27/16 05:08PM]	Jonny has done command tele 1928 5003	
+[3/27/16 05:08PM]	Jonny has done command moders	
+[3/27/16 05:08PM]	Jonny has done command moderns	
+[3/27/16 05:09PM]	Jonny has done command lunrs	
+[3/27/16 05:09PM]	Jonny has done command lunars	
+[3/27/16 05:09PM]	Jonny has done command ancients	
+[3/27/16 05:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 05:14PM]	Jonny has done command market	
+[3/27/16 05:15PM]	Jonny has done command mypos	
+[3/27/16 05:23PM]	Jonny has done command mypos	
+[3/27/16 05:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 05:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 05:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 05:36PM]	Jonny has done command moderns	
+[3/27/16 05:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 05:53PM]	Jonny has done command ancients	
+[3/27/16 05:54PM]	Jonny has done command moderns	
+[3/27/16 05:56PM]	Jonny has done command ancients	
+[3/27/16 05:58PM]	Jonny has done command interface 41409	
+[3/27/16 05:59PM]	Jonny has done command moderns	
+[3/27/16 06:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:04PM]	Jonny has done command ancients	
+[3/27/16 06:04PM]	Jonny has done command moderns	
+[3/27/16 06:05PM]	Jonny has done command ancients	
+[3/27/16 06:05PM]	Jonny has done command moderns	
+[3/27/16 06:05PM]	Jonny has done command ancients	
+[3/27/16 06:05PM]	Jonny has done command moderns	
+[3/27/16 06:05PM]	Jonny has done command ancients	
+[3/27/16 06:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:07PM]	Jonny has done command ancients	
+[3/27/16 06:07PM]	Jonny has done command moderns	
+[3/27/16 06:07PM]	Jonny has done command ancients	
+[3/27/16 06:07PM]	Jonny has done command moderns	
+[3/27/16 06:08PM]	Jonny has done command tele 2755 2784	
+[3/27/16 06:08PM]	Jonny has done command mypos	
+[3/27/16 06:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:09PM]	Jonny has done command lunars	
+[3/27/16 06:15PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:19PM]	Player dropping item: Earth rune (557), amount: 1 from the computer address: null	
+[3/27/16 06:20PM]	Player dropping item: Blood rune (565), amount: 988 from the computer address: null	
+[3/27/16 06:20PM]	Player dropping item: Death rune (560), amount: 984 from the computer address: null	
+[3/27/16 06:20PM]	Player dropping item: Water rune (555), amount: 979 from the computer address: null	
+[3/27/16 06:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:25PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:29PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:31PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:35PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:36PM]	Jonny has done command moderns	
+[3/27/16 06:36PM]	Jonny has done command lunars	
+[3/27/16 06:38PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:41PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:42PM]	Jonny has done command moderns	
+[3/27/16 06:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:43PM]	Jonny has done command moderns	
+[3/27/16 06:43PM]	Jonny has done command lunars	
+[3/27/16 06:45PM]	Jonny has done command moderns	
+[3/27/16 06:45PM]	Jonny has done command lunars	
+[3/27/16 06:45PM]	Jonny has done command moderns	
+[3/27/16 06:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:47PM]	Jonny has done command moderns	
+[3/27/16 06:47PM]	Jonny has done command lunars	
+[3/27/16 06:48PM]	Jonny has done command moderns	
+[3/27/16 06:49PM]	Jonny has done command lunars	
+[3/27/16 06:49PM]	Jonny has done command moderns	
+[3/27/16 06:49PM]	Jonny has done command lunars	
+[3/27/16 06:49PM]	Jonny has done command moderns	
+[3/27/16 06:50PM]	Jonny has done command lunars	
+[3/27/16 06:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 06:53PM]	Jonny has done command interface 41409	
+[3/27/16 06:53PM]	Jonny has done command interface 41409	
+[3/27/16 07:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 07:49PM]	Jonny has done command voteban jonny	
+[3/27/16 07:49PM]	Jonny has done command banvote jonny	
+[3/27/16 07:49PM]	Jonny has done command auth 13153	
+[3/27/16 07:50PM]	Jonny has done command auth asdfasdf	
+[3/27/16 08:26PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:32PM]	Jonny has done command item 555 5000	
+[3/27/16 08:32PM]	Jonny has done command item 560 5000	
+[3/27/16 08:32PM]	Jonny has done command item 565 5000	
+[3/27/16 08:32PM]	Jonny has done command ancients	
+[3/27/16 08:32PM]	Jonny has done command npc 1	
+[3/27/16 08:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:35PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:41PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:41PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:46PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:49PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:55PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:57PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 08:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 09:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 09:23PM]	Jonny has done command forumpromote jonny	
+[3/27/16 09:33PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 09:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:11PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:12PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:17PM]	Jonny has done command interface 39011	
+[3/27/16 11:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:20PM]	Jonny has done command inter 39011	
+[3/27/16 11:20PM]	Jonny has done command interface 39011	
+[3/27/16 11:20PM]	Jonny has done command interface 39000	
+[3/27/16 11:20PM]	Jonny has done command interface 39012	
+[3/27/16 11:20PM]	Jonny has done command interface 39011	
+[3/27/16 11:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:21PM]	Jonny has done command interface 39010	
+[3/27/16 11:21PM]	Jonny has done command interface 39014	
+[3/27/16 11:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:22PM]	Jonny has done command interface 39010	
+[3/27/16 11:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:23PM]	Jonny has done command interface 43000	
+[3/27/16 11:51PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:31AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:31AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:31AM]	Jonny has done command interface 43000	
+[3/28/16 12:43AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:43AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:43AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:49AM]	Jonny has done command interface 43000	
+[3/28/16 01:05AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:06AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:08AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:28AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:29AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:29AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:31AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:31AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:50AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:55AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:55AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:58AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:59AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:59AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:04AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:04AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:50AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:52AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:52AM]	Jonny has done command dzone	
+[3/28/16 02:53AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:53AM]	Jonny has done command Dzone	
+[3/28/16 02:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:57AM]	Jonny has done command dzone	
+[3/28/16 03:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 03:01AM]	Jonny has done command dzone	
+[3/28/16 03:03AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 03:03AM]	Jonny has done command dzone	
+[3/28/16 03:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 03:06AM]	Jonny has done command dzone	
+[3/28/16 01:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:53PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:12PM]	Jonny has done command teletome mysterio	
+[3/28/16 02:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:14PM]	Jonny has done command teletome dc blitz	
+[3/28/16 02:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 11:20AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:24PM]	Jonny has done command interface 41409	
+[3/29/16 12:25PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:26PM]	Jonny has done command interface 41409	
+[3/29/16 12:26PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:26PM]	Jonny has done command interface 41409	
+[3/29/16 12:27PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:27PM]	Jonny has done command interface 41409	
+[3/29/16 12:30PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:37PM]	Jonny has done command interface 41409	
+[3/29/16 12:43PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:43PM]	Jonny has done command interface 41409	
+[3/29/16 12:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 12:44PM]	Jonny has done command interface 41409	
+[3/29/16 01:07PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 01:09PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 01:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 01:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 01:20PM]	Player set account-pin to: 1-1-2-6 from ip: 127.0.0.1 and mac: 362460699	
+[3/29/16 01:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 01:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:03PM]	Jonny has done command find fixed device	
+[3/29/16 02:03PM]	Jonny has done command item 6082 1	
+[3/29/16 02:05PM]	Jonny has done command train	
+[3/29/16 02:06PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:07PM]	Jonny has done command anim 2323	
+[3/29/16 02:07PM]	Jonny has done command anim 2323	
+[3/29/16 02:08PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:08PM]	Jonny has done command find ornate katana	
+[3/29/16 02:08PM]	Jonny has done command item 14018 1	
+[3/29/16 02:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:19PM]	Jonny has done command dzone	
+[3/29/16 02:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:23PM]	Jonny has done command interface 43000	
+[3/29/16 02:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:25PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:26PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:39PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 02:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:05PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:05PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:33PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:33PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:56PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 03:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:05PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:05PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:05PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:09PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 04:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 05:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 05:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 05:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 05:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 05:19PM]	Jonny has done command inter 49000	
+[3/29/16 05:19PM]	Jonny has done command interface 49000	
+[3/29/16 07:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 07:27PM]	Jonny has done command npc 1093	
+[3/29/16 07:27PM]	Jonny has done command find raw rock	
+[3/29/16 07:27PM]	Jonny has done command item 15271 400	
+[3/29/16 07:28PM]	Player dropping item: Raw rocktail (15271), amount: 385 from the computer address: null	
+[3/29/16 07:28PM]	Player looting item: Raw rocktail (15271), amount: 385 Owner: Jonny	
+[3/29/16 07:28PM]	Player dropping item: Raw rocktail (15270), amount: 1 from the computer address: null	
+[3/29/16 07:28PM]	Player dropping item: Raw rocktail (15270), amount: 1 from the computer address: null	
+[3/29/16 07:28PM]	Player dropping item: Raw rocktail (15270), amount: 1 from the computer address: null	
+[3/29/16 07:28PM]	Player dropping item: Raw rocktail (15270), amount: 1 from the computer address: null	
+[3/29/16 07:28PM]	Player dropping item: Raw rocktail (15270), amount: 1 from the computer address: null	
+[3/29/16 07:37PM]	Jonny has done command find dragon bolt	
+[3/29/16 07:37PM]	Jonny has done command item 9193 1	
+[3/29/16 07:37PM]	Jonny has done command item 9341 1000	
+[3/29/16 07:38PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 07:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 07:39PM]	Jonny has done command interface 49000	
+[3/29/16 07:40PM]	Jonny has done command spawn earth rune:1000	
+[3/29/16 07:40PM]	Jonny has done command interface 49000	
+[3/29/16 07:41PM]	Jonny has done command moderns	
+[3/29/16 08:31PM]	Jonny has done command interface 49000	
+[3/29/16 08:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:34PM]	Jonny has done command interface 49000	
+[3/29/16 08:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:34PM]	Jonny has done command interface 49000	
+[3/29/16 08:35PM]	Jonny has done command item 4 1	
+[3/29/16 08:35PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:36PM]	Jonny has done command interface 49000	
+[3/29/16 08:39PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:39PM]	Jonny has done command interface 49000	
+[3/29/16 08:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:45PM]	Jonny has done command interface 49000	
+[3/29/16 08:58PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 08:58PM]	Jonny has done command interface 49000	
+[3/29/16 09:00PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:00PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:01PM]	Jonny has done command interface 49000	
+[3/29/16 09:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:02PM]	Jonny has done command interface 49000	
+[3/29/16 09:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:03PM]	Jonny has done command interface 4900	
+[3/29/16 09:03PM]	Jonny has done command interface 49000	
+[3/29/16 09:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:04PM]	Jonny has done command interface 49000	
+[3/29/16 09:05PM]	Jonny has done command interface 49000	
+[3/29/16 09:06PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:06PM]	Jonny has done command interface 49000	
+[3/29/16 09:06PM]	Jonny has done command spawn air rune:1000	
+[3/29/16 09:09PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:09PM]	Jonny has done command interface 49000	
+[3/29/16 09:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:10PM]	Jonny has done command interface 49000	
+[3/29/16 09:17PM]	Jonny has done command find cosmic rune	
+[3/29/16 09:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:20PM]	Jonny has done command interface 49000	
+[3/29/16 09:20PM]	Jonny has done command find cosmic rune	
+[3/29/16 09:20PM]	Jonny has done command spawn cosmic rune:100	
+[3/29/16 09:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:21PM]	Jonny has done command interface 49000	
+[3/29/16 09:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:22PM]	Jonny has done command interface 49000	
+[3/29/16 09:22PM]	Player dropping item: Cosmic rune (564), amount: 100 from the computer address: null	
+[3/29/16 09:22PM]	Jonny has done command interface 49000	
+[3/29/16 09:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:23PM]	Jonny has done command interface 49000	
+[3/29/16 09:28PM]	Jonny has done command item 554 1	
+[3/29/16 09:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:28PM]	Jonny has done command interface 49000	
+[3/29/16 09:29PM]	Jonny has done command find water rune	
+[3/29/16 09:29PM]	Jonny has done command item 555 10000	
+[3/29/16 09:30PM]	Jonny has done command find air	
+[3/29/16 09:30PM]	Jonny has done command find air rune	
+[3/29/16 09:30PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:31PM]	Jonny has done command interface 49000	
+[3/29/16 09:31PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:32PM]	Jonny has done command interface 49000	
+[3/29/16 09:32PM]	Jonny has done command spawn cosmic rune:1000	
+[3/29/16 09:32PM]	Jonny has done command spawn cosmic rune:1000	
+[3/29/16 09:33PM]	Jonny has done command interface 49000	
+[3/29/16 09:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:35PM]	Jonny has done command interface 49000	
+[3/29/16 09:35PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:36PM]	Jonny has done command interface 49000	
+[3/29/16 09:36PM]	Jonny has done command item 995 1000	
+[3/29/16 09:36PM]	Jonny has done command item 995 4000	
+[3/29/16 09:36PM]	Jonny has done command item 995 5k	
+[3/29/16 09:36PM]	Jonny has done command item 995 500m	
+[3/29/16 09:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:38PM]	Jonny has done command interface 49000	
+[3/29/16 09:41PM]	Jonny has done command interface 49000	
+[3/29/16 09:41PM]	Jonny has done command reset	
+[3/29/16 09:41PM]	Jonny has done command inerface 49000	
+[3/29/16 09:41PM]	Jonny has done command interface 49000	
+[3/29/16 09:46PM]	Jonny has done command reset	
+[3/29/16 09:47PM]	Jonny has done command npc 4707	
+[3/29/16 09:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/29/16 09:50PM]	Jonny has done command npc 4707	
+[3/29/16 11:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/30/16 07:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/30/16 07:56AM]	Jonny has done command interface 41409	
+[3/30/16 08:00AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/30/16 08:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/30/16 08:00AM]	Jonny has done command interface 41409	
+[3/30/16 12:23PM]	Jonny has done command interface 49000	
+[3/30/16 12:24PM]	Jonny has done command interface 41409	
+[3/30/16 11:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/30/16 11:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/30/16 11:35PM]	Jonny has done command spawn rune crossbow:1	
+[3/30/16 11:35PM]	Jonny has done command master	
+[3/30/16 11:36PM]	Jonny has done command spawn dark bow:1	
+[3/30/16 11:36PM]	Jonny has done command spawn rune arrow:1000	
+[3/30/16 11:36PM]	Jonny has done command find rune arrow	
+[3/30/16 11:36PM]	Jonny has done command item 892 1000	
+[3/31/16 12:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 12:47AM]	Jonny has done command tele 2561 3311	
+[3/31/16 12:48AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 12:49AM]	Jonny has done command tele 2561 3311	
+[3/31/16 12:50AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 12:50AM]	Jonny has done command tele 2561 3311	
+[3/31/16 12:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 12:56AM]	Player dropping item: Cosmic rune (564), amount: 2000 from the computer address: null	
+[3/31/16 12:56AM]	Player looting item: Cosmic rune (564), amount: 2000 Owner: Jonny	
+[3/31/16 12:56AM]	Player dropping item: Cosmic rune (564), amount: 2000 from the computer address: null	
+[3/31/16 01:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:01AM]	Player dropping item: Rune arrowtips (44), amount: 1000 from the computer address: null	
+[3/31/16 01:01AM]	Player looting item: Rune arrowtips (44), amount: 1000 Owner: Jonny	
+[3/31/16 01:01AM]	Jonny has done command wests	
+[3/31/16 01:01AM]	Player looting item: Rune arrow (892), amount: 2 Owner: Jonny	
+[3/31/16 01:01AM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Dc Blitz	
+[3/31/16 01:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:13AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:13AM]	Jonny has done command yell hi	
+[3/31/16 01:42AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:42AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:42AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:44AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:44AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:45AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:45AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:46AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:46AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:47AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:52AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 01:53AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:02AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:06AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:08AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:10AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:10AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:11AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:11AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:11AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:11AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:11AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:11AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:12AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:13AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:13AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:14AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:14AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:17AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:17AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:17AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:17AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:17AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:18AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:18AM]	Jonny has done command train	
+[3/31/16 02:18AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:19AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:19AM]	Jonny has done command item 2 1	
+[3/31/16 02:19AM]	Jonny has done command item 4 1	
+[3/31/16 02:19AM]	Jonny has done command item 3 1	
+[3/31/16 02:19AM]	Jonny has done command item 5 1	
+[3/31/16 02:19AM]	Jonny has done command item 6 1	
+[3/31/16 02:19AM]	Jonny has done command item 7 1	
+[3/31/16 02:19AM]	Jonny has done command item 8 1	
+[3/31/16 02:19AM]	Jonny has done command item 10 1	
+[3/31/16 02:19AM]	Jonny has done command item 12 1	
+[3/31/16 02:19AM]	Jonny has done command item 2 1000	
+[3/31/16 02:27AM]	Jonny has done command mypos	
+[3/31/16 02:27AM]	Jonny has done command mypos	
+[3/31/16 02:28AM]	Jonny has done command mypos	
+[3/31/16 02:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:30AM]	Jonny has done command wests	
+[3/31/16 02:31AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:31AM]	Jonny has done command wests	
+[3/31/16 02:31AM]	Jonny has done command easts	
+[3/31/16 02:31AM]	Jonny has done command mb	
+[3/31/16 02:31AM]	Jonny has done command mb	
+[3/31/16 02:31AM]	Jonny has done command mb	
+[3/31/16 02:31AM]	Jonny has done command mb	
+[3/31/16 02:31AM]	Jonny has done command mb	
+[3/31/16 02:31AM]	Jonny has done command home	
+[3/31/16 02:32AM]	Jonny has done command edge	
+[3/31/16 02:32AM]	Jonny has done command home	
+[3/31/16 02:32AM]	Jonny has done command wests	
+[3/31/16 02:32AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:32AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:32AM]	Jonny has done command wests	
+[3/31/16 02:33AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:33AM]	Jonny has done command wests	
+[3/31/16 02:37AM]	Jonny has done command find zaryte bow	
+[3/31/16 02:37AM]	Jonny has done command item 20171 1	
+[3/31/16 02:39AM]	Jonny has done command item 20172 1	
+[3/31/16 02:42AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:42AM]	Jonny has done command item 20171 1	
+[3/31/16 02:44AM]	Jonny has done command find rune arrow	
+[3/31/16 02:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 02:56AM]	Jonny has done command npc 1265	
+[3/31/16 03:02AM]	Jonny has done command gfx 1066	
+[3/31/16 03:02AM]	Jonny has done command wests	
+[3/31/16 03:02AM]	Jonny has done command gfx 1066	
+[3/31/16 03:06AM]	Jonny has done command gfx 250	
+[3/31/16 03:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 03:10AM]	Jonny has done command teleto dc blitz	
+[3/31/16 03:12AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 03:22AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 03:23AM]	Jonny has done command dzone	
+[3/31/16 03:25AM]	Jonny has done command find cosmic rune	
+[3/31/16 03:25AM]	Jonny has done command find air rune	
+[3/31/16 03:30AM]	Jonny has done command find earth rune	
+[3/31/16 03:31AM]	Jonny has done command find nature rune	
+[3/31/16 03:32AM]	Jonny has done command find fire rune	
+[3/31/16 03:32AM]	Jonny has done command find blood rune	
+[3/31/16 03:33AM]	Jonny has done command find law rune	
+[3/31/16 03:33AM]	Jonny has done command find soul rune	
+[3/31/16 03:33AM]	Jonny has done command find death rune	
+[3/31/16 03:34AM]	Jonny has done command find opal bolt	
+[3/31/16 03:35AM]	Jonny has done command find sapphire bolt	
+[3/31/16 03:36AM]	Jonny has done command find jade bolt	
+[3/31/16 03:36AM]	Jonny has done command find jade	
+[3/31/16 03:36AM]	Jonny has done command find pearl bolt	
+[3/31/16 03:36AM]	Jonny has done command find emerald bolt	
+[3/31/16 03:37AM]	Jonny has done command find red topaz bolt	
+[3/31/16 03:37AM]	Jonny has done command find topaz bolt	
+[3/31/16 03:37AM]	Jonny has done command find ruby bolt	
+[3/31/16 03:38AM]	Jonny has done command find diamond bolt	
+[3/31/16 03:38AM]	Jonny has done command find dragon bolt	
+[3/31/16 03:38AM]	Jonny has done command find onyx bolt	
+[3/31/16 08:04AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:05AM]	Jonny has done command spawn cosmic rune:1000	
+[3/31/16 08:05AM]	Jonny has done command spawn opal bolt:1000	
+[3/31/16 08:05AM]	Jonny has done command fine opal bolt	
+[3/31/16 08:05AM]	Jonny has done command find opal bolt	
+[3/31/16 08:06AM]	Jonny has done command item 879 1000	
+[3/31/16 08:07AM]	Jonny has done command gfx 116	
+[3/31/16 08:09AM]	Jonny has done command anim 4462	
+[3/31/16 08:10AM]	Jonny has done command gfx 759	
+[3/31/16 08:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:22AM]	Jonny has done command interface 41409	
+[3/31/16 08:32AM]	Jonny has done command noclip	
+[3/31/16 08:32AM]	Jonny has done command mypos	
+[3/31/16 08:32AM]	Jonny has done command mypos	
+[3/31/16 08:33AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:33AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:33AM]	Jonny has done command noclip	
+[3/31/16 08:33AM]	Jonny has done command mypos	
+[3/31/16 08:34AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:34AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:34AM]	Jonny has done command mypos	
+[3/31/16 08:34AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:35AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:35AM]	Jonny has done command mypos	
+[3/31/16 08:35AM]	Jonny has done command mypos	
+[3/31/16 08:35AM]	Jonny has done command mypos	
+[3/31/16 08:35AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:36AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:37AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:37AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:40AM]	Jonny has done command mypos	
+[3/31/16 08:40AM]	Jonny has done command noclip	
+[3/31/16 08:40AM]	Jonny has done command noclip	
+[3/31/16 08:40AM]	Jonny has done command mypos	
+[3/31/16 08:41AM]	Jonny has done command mypos	
+[3/31/16 08:41AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:41AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:43AM]	Jonny has done command mypos	
+[3/31/16 08:44AM]	Jonny has done command mypos	
+[3/31/16 08:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:44AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:45AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:46AM]	Jonny has done command mypos	
+[3/31/16 08:46AM]	Jonny has done command mypos	
+[3/31/16 08:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 08:48AM]	Jonny has done command mypos	
+[3/31/16 08:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:19AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:59AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:00AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:05AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:07AM]	Jonny has done command time	
+[3/31/16 10:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:08AM]	Jonny has done command spawn fire rune:1000	
+[3/31/16 10:09AM]	Jonny has done command spawn nature rune:1000	
+[3/31/16 10:14AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:20AM]	Jonny has done command find dragonfire shield	
+[3/31/16 10:37AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:37AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 10:38AM]	Jonny has done command item 14004 1	
+[3/31/16 11:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:01AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:01AM]	Jonny has done command npc 1265	
+[3/31/16 11:01AM]	Jonny has done command item 11283 1	
+[3/31/16 11:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:14AM]	Jonny has done command train	
+[3/31/16 11:14AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:32AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:32AM]	Jonny has done command train	
+[3/31/16 11:32AM]	Jonny has done command spawn dragon spear:1	
+[3/31/16 11:34AM]	Jonny has done command market	
+[3/31/16 11:36AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:36AM]	Jonny has done command npc 1265	
+[3/31/16 11:36AM]	Jonny has done command spawn dragon spear:1	
+[3/31/16 11:48AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:48AM]	Jonny has done command teleto dc blitz	
+[3/31/16 11:49AM]	Jonny has done command spec	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Saradomin body(10386), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Coins(995), amount: 94020756	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Zamorak body(10370), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Zamorak chaps(10372), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Ornate Katana(14018), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Cosmic rune(564), amount: 2000	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Saradomin chaps(10388), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Dragon claws(14484), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Guthix body(10378), amount: 1	
+[3/31/16 11:50AM]	Player killed Dc Blitz for item: Id: Guthix chaps(10380), amount: 1	
+[3/31/16 11:55AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:56AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 11:56AM]	Jonny has done command yell hi	
+[3/31/16 09:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:18PM]	Jonny has done command item 21088 1	
+[3/31/16 09:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:18PM]	Jonny has done command item 21088 1	
+[3/31/16 09:25PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/31/16 09:43PM]	Jonny has done command market	
+[3/31/16 11:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 03:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 03:50PM]	Jonny has done command test555	
+[4/1/16 03:50PM]	Jonny has done command test5555	
+[4/1/16 03:50PM]	Jonny has done command test555	
+[4/1/16 03:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 03:52PM]	Jonny has done command test555	
+[4/1/16 03:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 03:53PM]	Jonny has done command test555	
+[4/1/16 03:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 03:55PM]	Jonny has done command test555	
+[4/1/16 03:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 03:59PM]	Jonny has done command test555	
+[4/1/16 04:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:04PM]	Jonny has done command test555	
+[4/1/16 04:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:06PM]	Jonny has done command test555	
+[4/1/16 04:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:08PM]	Jonny has done command test555	
+[4/1/16 04:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:09PM]	Jonny has done command test555	
+[4/1/16 04:10PM]	Jonny has done command update 30	
+[4/1/16 04:11PM]	Jonny has done command update 50	
+[4/1/16 04:11PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:14PM]	Jonny has done command interface 41409	
+[4/1/16 04:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:21PM]	Jonny has done command interface 41409	
+[4/1/16 04:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:21PM]	Jonny has done command interface 41409	
+[4/1/16 04:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:24PM]	Jonny has done command interface 41409	
+[4/1/16 04:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:25PM]	Jonny has done command interface 41409	
+[4/1/16 04:28PM]	Jonny has done command market	
+[4/1/16 04:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:32PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 04:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:46PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 05:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:00PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:35PM]	Jonny has done command update 30	
+[4/1/16 06:35PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:38PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 07:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 07:47PM]	Player has sold item: Air rune (556), amount: 0 to the store.	
+[4/1/16 07:48PM]	Jonny has done command market	
+[4/1/16 07:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 10:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 10:04PM]	Player has sold item: Opal bolts (e) (9236), amount: 0 to the store.	
+[4/1/16 10:04PM]	Player has sold item: Opal bolts (e) (9236), amount: 0 to the store.	
+[4/1/16 10:04PM]	Player has sold item: Opal bolts (e) (9236), amount: 0 to the store.	
+[4/1/16 10:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 10:05PM]	Player has sold item: Rune arrow (892), amount: 0 to the store.	
+[4/1/16 10:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 10:12PM]	Jonny has done command market	
+[4/1/16 10:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 10:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:24PM]	Jonny has done command update 30	
+[4/1/16 11:25PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:39PM]	Jonny has done command update 30	
+[4/1/16 11:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:46PM]	Jonny has done command update 30	
+[4/1/16 11:46PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:47PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:49PM]	Jonny has done command update 34	
+[4/1/16 11:49PM]	Jonny has done command update 2	
+[4/1/16 11:49PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:54PM]	Jonny has done command update 5	
+[4/1/16 11:54PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:55PM]	Jonny has done command update 5	
+[4/1/16 11:55PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:56PM]	Jonny has done command update 1	
+[4/1/16 11:56PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:58PM]	Jonny has done command update 1	
+[4/1/16 11:58PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:01AM]	Jonny has done command update 1	
+[4/2/16 12:01AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:16AM]	Jonny has done command update 5	
+[4/2/16 12:16AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:17AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:20AM]	Jonny has done command update 4	
+[4/2/16 12:20AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:20AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:21AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:21AM]	Jonny has done command update 	
+[4/2/16 12:21AM]	Jonny has done command update 3	
+[4/2/16 12:21AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:22AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:22AM]	Jonny has done command update 3	
+[4/2/16 12:22AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:23AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:23AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:24AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:24AM]	Jonny has done command update 5	
+[4/2/16 12:24AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:28AM]	Jonny has done command update 2	
+[4/2/16 12:28AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:28AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:29AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:29AM]	Jonny has done command update 1	
+[4/2/16 12:29AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:29AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:31AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:32AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:33AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:38AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:40AM]	Jonny has done command update 3	
+[4/2/16 12:40AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:41AM]	Jonny has done command spawn dragonfire shield:1	
+[4/2/16 12:41AM]	Jonny has done command update 2	
+[4/2/16 12:41AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:42AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:46AM]	Jonny has done command update 1	
+[4/2/16 12:46AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:46AM]	Jonny has done command update 1	
+[4/2/16 12:46AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:48AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:48AM]	Jonny has done command update 1	
+[4/2/16 12:48AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:48AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:49AM]	Jonny has done command update 1	
+[4/2/16 12:49AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:49AM]	Jonny has done command update 1	
+[4/2/16 12:49AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:53AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:55AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:59AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:27AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:31AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:35AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:36AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:41AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:58AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:59AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:59AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:35AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:47AM]	Jonny has done command item 4151 2	
+[4/2/16 11:47AM]	Jonny has done command item 1050 1	
+[4/2/16 11:48AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:48AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:57AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:01PM]	Jonny has done command item 4151 3	
+[4/2/16 12:03PM]	Jonny has done command item 4151 5	
+[4/2/16 12:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:12PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 12:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 01:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 01:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 01:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 01:56PM]	Jonny has done command update 3	
+[4/2/16 01:56PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 08:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 08:51PM]	Jonny has done command item 18016 2000m	
+[4/2/16 08:51PM]	Jonny has done command item 18016 1000m	
+[4/2/16 09:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:01PM]	Jonny has done command item 18016 1	
+[4/2/16 09:01PM]	Jonny has done command item 18016 2000m	
+[4/2/16 09:01PM]	Jonny has done command item 18016 2000m	
+[4/2/16 09:01PM]	Jonny has done command item 18016 1000m	
+[4/2/16 09:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:37PM]	Jonny has done command market	
+[4/2/16 09:37PM]	Jonny has done command market	
+[4/2/16 09:37PM]	Jonny has done command update 2	
+[4/2/16 09:37PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:42PM]	Jonny has done command update 2	
+[4/2/16 09:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:43PM]	Jonny has done command update 1	
+[4/2/16 09:43PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:48PM]	Jonny has done command update 5	
+[4/2/16 09:48PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:50PM]	Jonny has done command update 2	
+[4/2/16 09:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 09:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:16PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 11:32PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:00AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:00AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:11AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:11AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:11AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:12AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 10:26AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 10:29AM]	Jonny has done command item 995 1000m	
+[4/3/16 10:29AM]	Jonny has done command item 995 1000m	
+[4/3/16 11:54AM]	Jonny has done command mypos	
+[4/3/16 11:55AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 11:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 11:56AM]	Jonny has done command market	
+[4/3/16 11:58AM]	Jonny has done command update 2	
+[4/3/16 11:58AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 11:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 11:58AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/3/16 12:10PM]	Jonny has done command item 18016 100	
+[4/3/16 12:11PM]	Jonny has done command find chaotic rap	
+[4/3/16 12:11PM]	Jonny has done command find chaotic crossbow	
+[4/3/16 12:12PM]	Jonny has done command find dragon defender	
+[4/3/16 12:12PM]	Jonny has done command find steadfast	
+[4/3/16 12:12PM]	Jonny has done command find tokhaar	
+[4/5/16 11:12AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 11:13AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:47PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:47PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 07:52PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:09PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:09PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:29PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:55PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 08:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:17PM]	Jonny has done command gamble	
+[4/5/16 09:17PM]	Jonny has done command noclip	
+[4/5/16 09:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:24PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:27PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:30PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:31PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/5/16 09:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 07:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 08:12AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 08:12AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 08:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 02:52PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 02:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:05PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:27PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 03:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:49PM]	Opened the player owned shop: Jonny	
+[4/6/16 04:49PM]	Player owned shop sold item: ID: 44 AMOUNT: 1 PRICE: 50000000	
+[4/6/16 04:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:49PM]	Opened the player owned shop: Jonny	
+[4/6/16 04:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:51PM]	Opened the player owned shop: Jonny	
+[4/6/16 04:51PM]	Player owned shop sold item: ID: 566 AMOUNT: 1 PRICE: 50000000	
+[4/6/16 04:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:52PM]	Opened the player owned shop: Jonny	
+[4/6/16 04:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:56PM]	Opened the player owned shop: Jonny	
+[4/6/16 04:56PM]	Player owned shop sold item: ID: 556 AMOUNT: 1 PRICE: 999	
+[4/6/16 04:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 04:56PM]	Opened the player owned shop: Jonny	
+[4/6/16 05:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 05:02PM]	Opened the player owned shop: Jonny	
+[4/6/16 05:02PM]	Player owned shop sold item: ID: 44 AMOUNT: 1 PRICE: 25000000	
+[4/6/16 05:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 05:02PM]	Opened the player owned shop: Jonny	
+[4/6/16 05:02PM]	Player owned shop sold item: ID: 44 AMOUNT: 993 PRICE: 25000000	
+[4/6/16 05:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 05:02PM]	Opened the player owned shop: Jonny	
+[4/6/16 05:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 05:03PM]	Opened the player owned shop: Jonny	
+[4/6/16 05:03PM]	Player owned shop sold item: ID: 44 AMOUNT: 1 PRICE: 1000000	
+[4/6/16 05:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 05:03PM]	Opened the player owned shop: Jonny	
+[4/6/16 05:03PM]	Player owned shop sold item: ID: 44 AMOUNT: 1 PRICE: 1000000	
+[4/6/16 05:03PM]	Jonny has done command update 25	
+[4/6/16 05:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 05:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 05:04PM]	Opened the player owned shop: Jonny	
+[4/6/16 05:57PM]	Jonny has done command item 18016 1	
+[4/6/16 06:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:02PM]	Opened the player owned shop: Jonny	
+[4/6/16 06:02PM]	Player owned shop sold item: ID: 566 AMOUNT: 1 PRICE: 1000000	
+[4/6/16 06:02PM]	Player owned shop removed from shop: Soul rune	
+[4/6/16 06:02PM]	Player owned shop sold item: ID: 566 AMOUNT: 1 PRICE: 1000000	
+[4/6/16 06:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:06PM]	Jonny has done command save11	
+[4/6/16 06:06PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:26PM]	Opened the player owned shop: Jonny	
+[4/6/16 06:26PM]	Player owned shop sold item: ID: 556 AMOUNT: 1 PRICE: 1000000	
+[4/6/16 06:26PM]	Jonny has done command save11	
+[4/6/16 06:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:35PM]	Opened the player owned shop: Jonny	
+[4/6/16 06:35PM]	Player owned shop sold item: ID: 18016 AMOUNT: 1 PRICE: 99	
+[4/6/16 06:35PM]	Jonny has done command save11	
+[4/6/16 06:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 06:36PM]	Opened the player owned shop: Jonny	
+[4/6/16 06:36PM]	Opened the player owned shop: Jonny	
+[4/6/16 06:41PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 07:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 07:37PM]	Jonny has done command gamble	
+[4/6/16 07:37PM]	Jonny has done command noclip	
+[4/6/16 07:37PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 07:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 07:37PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 09:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:00PM]	Jonny has done command market	
+[4/6/16 10:01PM]	Opened the player owned shop: Jonny	
+[4/6/16 10:01PM]	Player owned shop sold item: ID: 44 AMOUNT: 1 PRICE: 1000000	
+[4/6/16 10:01PM]	Jonny has done command update 5	
+[4/6/16 10:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:01PM]	Opened the player owned shop: Jonny	
+[4/6/16 10:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:04PM]	Opened the player owned shop: Jonny	
+[4/6/16 10:04PM]	Player owned shop sold item: ID: 566 AMOUNT: 1 PRICE: 8	
+[4/6/16 10:04PM]	Jonny has done command update 3	
+[4/6/16 10:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:05PM]	Opened the player owned shop: Jonny	
+[4/6/16 10:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:06PM]	Opened the player owned shop: Jonny	
+[4/6/16 10:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 10:21PM]	Jonny has done command gamble	
+[4/6/16 10:21PM]	Jonny has done command noclip	
+[4/6/16 10:21PM]	Jonny has done command noclip	
+[4/6/16 10:22PM]	Jonny has done command noclip	
+[4/6/16 11:15PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 11:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/6/16 11:15PM]	Jonny has done command spawn pink partyhat:1	
+[4/8/16 05:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 05:52PM]	Jonny has done command spawn zuriel's hood:1	
+[4/8/16 08:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:15PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:15PM]	Player dropping item: Spirit shards (18016), amount: 41002929 from the computer address: null	
+[4/8/16 08:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:21PM]	Jonny has done command item 995 500m	
+[4/8/16 08:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:22PM]	Jonny has done command item 995 500m	
+[4/8/16 08:23PM]	Jonny has done command item 995 475m	
+[4/8/16 08:23PM]	Jonny has done command item 995 488m	
+[4/8/16 08:24PM]	Jonny has done command item 995 500m'	
+[4/8/16 08:24PM]	Jonny has done command item 995 500m	
+[4/8/16 08:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 08:58PM]	Jonny has done command item 995 150m	
+[4/8/16 08:59PM]	Jonny has done command empty	
+[4/8/16 08:59PM]	Jonny has done command item 995 150m	
+[4/8/16 09:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 09:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 09:50PM]	Jonny has done command item 995 2b	
+[4/8/16 09:50PM]	Jonny has done command item 995 2147m	
+[4/8/16 09:51PM]	Jonny has done command item 18016 1800m	
+[4/8/16 09:51PM]	Jonny has done command item 995 2147m	
+[4/8/16 09:51PM]	Jonny has done command item 18016 100m	
+[4/8/16 09:51PM]	Jonny has done command item 995 2147m	
+[4/8/16 10:36PM]	Jonny has done command npc 1265	
+[4/8/16 10:36PM]	Jonny has done command item 14484 28	
+[4/8/16 10:37PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:37PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:37PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:37PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:37PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:37PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:37PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:37PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 10:43PM]	Jonny has done command npc 1265	
+[4/8/16 10:43PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:43PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:43PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 10:45PM]	Jonny has done command npc 1265	
+[4/8/16 10:46PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 10:47PM]	Jonny has done command npc 1265	
+[4/8/16 10:47PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:47PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:47PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:47PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:48PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:48PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:48PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:48PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:48PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 10:52PM]	Jonny has done command npc 1265	
+[4/8/16 10:52PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 10:53PM]	Jonny has done command npc 1265	
+[4/8/16 10:53PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:53PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:53PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 10:55PM]	Jonny has done command npc 1265	
+[4/8/16 10:55PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:56PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:56PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:56PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:56PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:56PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:56PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:56PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:56PM]	Jonny has done command npc 1265	
+[4/8/16 10:57PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:57PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[4/8/16 10:57PM]	Player looting item: Dragon claws (14484), amount: 1 Owner: Jonny	
+[4/8/16 10:59PM]	Jonny has done command train	
+[4/8/16 10:59PM]	Jonny has done command spawn rune knife:1000	
+[4/8/16 10:59PM]	Player dropping item: Rune knife (868), amount: 999 from the computer address: null	
+[4/8/16 10:59PM]	Player looting item: Rune knife (868), amount: 1 Owner: Jonny	
+[4/8/16 10:59PM]	Player looting item: Rune knife (868), amount: 1 Owner: Jonny	
+[4/8/16 11:00PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:00PM]	Jonny has done command spawn rune knife:1	
+[4/8/16 11:00PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:06PM]	Jonny has done command spawn rune knife:1	
+[4/8/16 11:06PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:07PM]	Jonny has done command spawn rune knife:1	
+[4/8/16 11:07PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:07PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:07PM]	Jonny has done command spawn rune knife:1	
+[4/8/16 11:08PM]	Jonny has done command spawn rune knife:1	
+[4/8/16 11:09PM]	Jonny has done command spawn rune knife:3	
+[4/8/16 11:09PM]	Jonny has done command spawn rune knife:5	
+[4/8/16 11:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:12PM]	Jonny has done command spawn rune knife:1	
+[4/8/16 11:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:20PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:21PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:22PM]	Jonny has done command spawn rune knife:3	
+[4/8/16 11:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:24PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:25PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:27PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:28PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:29PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:31PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:32PM]	Player looting item: Rune knife (868), amount: 2 Owner: Jonny	
+[4/8/16 11:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:33PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:33PM]	Jonny has done command spawn rune knife:2	
+[4/8/16 11:40PM]	Jonny has done command spawn primal rapier:1	
+[4/8/16 11:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:46PM]	Jonny has done command spawn primal rapier:1	
+[4/8/16 11:46PM]	Jonny has done command train	
+[4/8/16 11:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:49PM]	Jonny has done command spawn primal rapier:1	
+[4/8/16 11:51PM]	Jonny has done command wests	
+[4/8/16 11:51PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:52PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:55PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:56PM]	Jonny has done command spawn charming imp:1	
+[4/8/16 11:58PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:59PM]	Jonny has done command item 9952 1	
+[4/8/16 11:59PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/8/16 11:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:02AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:02AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:02AM]	Jonny has done command item 21087 1	
+[4/9/16 12:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:13AM]	Jonny has done command item 21095 1	
+[4/9/16 12:13AM]	Jonny has done command item 21094 1	
+[4/9/16 12:13AM]	Jonny has done command item 21093 1	
+[4/9/16 12:13AM]	Jonny has done command item 21092 1	
+[4/9/16 12:13AM]	Jonny has done command item 21092 1	
+[4/9/16 12:14AM]	Jonny has done command item 21094 1	
+[4/9/16 12:14AM]	Jonny has done command item 21093 1	
+[4/9/16 12:14AM]	Jonny has done command item 21092 1	
+[4/9/16 12:14AM]	Jonny has done command item 21091 1	
+[4/9/16 12:16AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:16AM]	Jonny has done command item 21086 1	
+[4/9/16 12:16AM]	Jonny has done command item 21087 1	
+[4/9/16 12:16AM]	Jonny has done command item 21088 1	
+[4/9/16 12:16AM]	Jonny has done command item 21089 1	
+[4/9/16 12:17AM]	Jonny has done command item 21090 1	
+[4/9/16 12:17AM]	Jonny has done command item 21091 1	
+[4/9/16 12:17AM]	Jonny has done command item 21092 1	
+[4/9/16 12:17AM]	Jonny has done command item 21093 1	
+[4/9/16 12:17AM]	Jonny has done command item 21094 1	
+[4/9/16 12:17AM]	Jonny has done command item 21095 1	
+[4/9/16 12:17AM]	Jonny has done command item 21096 1	
+[4/9/16 12:17AM]	Jonny has done command item 21097 1	
+[4/9/16 12:17AM]	Jonny has done command item 21098 1	
+[4/9/16 12:17AM]	Jonny has done command item 21099 1	
+[4/9/16 12:37AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:37AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:37AM]	Jonny has done command interface 14000	
+[4/9/16 12:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:40AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:43AM]	Jonny has done command find completionist	
+[4/9/16 12:52AM]	Jonny has done command interface 14000	
+[4/9/16 12:54AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:55AM]	Player dropping item: Completionist Cape (21094), amount: 1 from the computer address: null	
+[4/9/16 12:55AM]	Player looting item: Completionist Cape (21094), amount: 1 Owner: Jonny	
+[4/9/16 12:55AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:58AM]	Jonny has clicked button in ButtonClickPacketListener 14002	
+[4/9/16 12:58AM]	Jonny has clicked button in ButtonClickPacketListener 14012	
+[4/9/16 12:58AM]	Jonny in EquipPacketListener: 21094 from Inventory	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14002	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14012	
+[4/9/16 12:59AM]	Jonny in EquipPacketListener: 21094 from Inventory	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14003	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14004	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14004	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14004	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14004	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14004	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14003	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14003	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14003	
+[4/9/16 12:59AM]	Jonny has clicked button in ButtonClickPacketListener 14012	
+[4/9/16 01:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:01AM]	Jonny has done command empty	
+[4/9/16 01:01AM]	Jonny has clicked button in ButtonClickPacketListener 14012	
+[4/9/16 01:01AM]	Jonny has done command empty	
+[4/9/16 01:01AM]	Jonny has done command home	
+[4/9/16 01:01AM]	Jonny has done command empty	
+[4/9/16 01:01AM]	Jonny has done command find completionis cape	
+[4/9/16 01:01AM]	Jonny has done command find completionist cape	
+[4/9/16 01:02AM]	Jonny has done command item 14022 1	
+[4/9/16 01:03AM]	Jonny has done command item 21093 1	
+[4/9/16 01:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:07AM]	Player dropping item: Completionist Cape (21093), amount: 1 from the computer address: null	
+[4/9/16 01:08AM]	Jonny has done command item 14003 1	
+[4/9/16 01:08AM]	Jonny has done command item 14003 1	
+[4/9/16 01:08AM]	Jonny has done command item 21097 1	
+[4/9/16 01:09AM]	Jonny has done command item 21093 1	
+[4/9/16 01:09AM]	Jonny has done command item 21094 1	
+[4/9/16 01:09AM]	Jonny has done command item 21095 1	
+[4/9/16 01:09AM]	Jonny has done command item 21096 1	
+[4/9/16 01:10AM]	Jonny has done command item 21085 1	
+[4/9/16 01:10AM]	Jonny has done command item 21085 1	
+[4/9/16 01:11AM]	Jonny has done command item 21086 1	
+[4/9/16 01:12AM]	Jonny has done command item 21087 1	
+[4/9/16 01:13AM]	Jonny has done command item 21093 1	
+[4/9/16 01:13AM]	Jonny has done command item 21094 1	
+[4/9/16 01:14AM]	Jonny has done command item 21095 1	
+[4/9/16 01:14AM]	Jonny has done command item 21096 1	
+[4/9/16 01:14AM]	Jonny has done command item 21097 1	
+[4/9/16 01:15AM]	Jonny has done command item 21098 1	
+[4/9/16 01:15AM]	Jonny has done command item 21099 1	
+[4/9/16 01:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:17AM]	Jonny has done command empty	
+[4/9/16 01:17AM]	Jonny has done command empty	
+[4/9/16 01:17AM]	Jonny has done command item 14011 1	
+[4/9/16 01:17AM]	Jonny has done command spawn complet:1	
+[4/9/16 01:17AM]	Jonny has done command spawn completionist cape:1	
+[4/9/16 01:19AM]	Jonny has done command item 20935 1	
+[4/9/16 01:20AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:20AM]	Jonny has done command item 10944 1	
+[4/9/16 01:20AM]	Jonny has done command item 10944 5	
+[4/9/16 01:35AM]	Jonny has done command spawn charming imp:1	
+[4/9/16 01:35AM]	Jonny has done command reset	
+[4/9/16 01:35AM]	Jonny has done command setlevel 23 50	
+[4/9/16 01:36AM]	Player has bought the store item: Pouch (12155), amount: 1	
+[4/9/16 01:36AM]	Player has bought the store item: Pouch (12155), amount: 10	
+[4/9/16 01:36AM]	Player has bought the store item: Pouch (12155), amount: 10	
+[4/9/16 01:36AM]	Player has bought the store item: Pouch (12155), amount: 10	
+[4/9/16 01:36AM]	Player has bought the store item: Spirit shards (18016), amount: 10	
+[4/9/16 01:36AM]	Player has bought the store item: Spirit shards (18016), amount: 10	
+[4/9/16 01:36AM]	Player has bought the store item: Spirit shards (18016), amount: 10	
+[4/9/16 01:36AM]	Player has bought the store item: Spirit shards (18016), amount: 1000	
+[4/9/16 01:38AM]	Player has bought the store item: Wolf bones (2859), amount: 5	
+[4/9/16 01:38AM]	Player has bought the store item: Wolf bones (2859), amount: 5	
+[4/9/16 01:38AM]	Jonny has done command spawn gold charm:500	
+[4/9/16 01:39AM]	Jonny has done command setlevel 23 10	
+[4/9/16 01:39AM]	Jonny has done command spawn wolf bone:10	
+[4/9/16 01:40AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:41AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:41AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:41AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:41AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:42AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:42AM]	Player dropping item: Spirit wolf pouch (12047), amount: 1 from the computer address: null	
+[4/9/16 01:42AM]	Player dropping item: Spirit wolf pouch (12047), amount: 1 from the computer address: null	
+[4/9/16 01:42AM]	Player dropping item: Spirit wolf pouch (12047), amount: 1 from the computer address: null	
+[4/9/16 09:42AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:43AM]	Jonny has done command empty	
+[4/9/16 09:43AM]	Jonny has done command bank	
+[4/9/16 09:54AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:21AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:31AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:31AM]	Jonny has done command item 1706 1	
+[4/9/16 10:31AM]	Jonny has done command mypos	
+[4/9/16 10:31AM]	Jonny has done command tele 3088 3650	
+[4/9/16 10:31AM]	Jonny has done command tele 3088 3800	
+[4/9/16 10:31AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:31AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:33AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:36AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:37AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:38AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:38AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:41AM]	Jonny has done command master	
+[4/9/16 10:41AM]	Jonny has done command hp	
+[4/9/16 12:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:12PM]	Jonny has done command market	
+[4/9/16 12:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:41PM]	Opened the player owned shop: Jonny	
+[4/9/16 12:42PM]	Opened the player owned shop: Jonny	
+[4/9/16 12:42PM]	Player owned shop sold item: ID: 21092 AMOUNT: 1 PRICE: 1000000	
+[4/9/16 12:42PM]	Jonny has done command update 3	
+[4/9/16 12:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:43PM]	Opened the player owned shop: Jonny	
+[4/9/16 12:43PM]	Jonny has done command item 14484 2	
+[4/9/16 12:43PM]	Opened the player owned shop: Jonny	
+[4/9/16 12:43PM]	Jonny has done command item 5698 5	
+[4/9/16 12:45PM]	Jonny has done command update 3	
+[4/9/16 12:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 12:45PM]	Opened the player owned shop: Jonny	
+[4/9/16 12:45PM]	Player owned shop sold item: ID: 5698 AMOUNT: 1 PRICE: 1000000	
+[4/9/16 12:45PM]	Jonny has done command update 5	
+[4/9/16 12:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 01:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 06:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 06:19PM]	Jonny has done command market	
+[4/9/16 06:19PM]	Opened the player owned shop: Jonny	
+[4/9/16 06:19PM]	Opened the player owned shop: dc blitz	
+[4/9/16 06:19PM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/9/16 06:19PM]	Player owned shop added coins for global extraction: 1M for Dc Blitz	
+[4/9/16 06:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 06:20PM]	Jonny has done command market	
+[4/9/16 06:20PM]	Opened the player owned shop: Jonny	
+[4/9/16 06:20PM]	Opened the player owned shop: dc blitz	
+[4/9/16 06:20PM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/9/16 06:20PM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/9/16 06:20PM]	Player owned shop added coins for global extraction: 15M for Dc Blitz	
+[4/9/16 06:20PM]	Player owned shop added coins for global extraction: 1M for Dc Blitz	
+[4/9/16 06:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 06:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 06:20PM]	Opened the player owned shop: dc blitz	
+[4/9/16 06:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 06:30PM]	Opened the player owned shop: Jonny	
+[4/9/16 06:31PM]	Opened the player owned shop: Jonny	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 5698 AMOUNT: 4 PRICE: 1000000	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 5698 AMOUNT: 3 PRICE: 1000000	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 5698 AMOUNT: 2 PRICE: 1000000	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 5698 AMOUNT: 1 PRICE: 1000000	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 569 AMOUNT: 1 PRICE: 500	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 569 AMOUNT: 1 PRICE: 500	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 569 AMOUNT: 3 PRICE: 500	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 569 AMOUNT: 2 PRICE: 500	
+[4/9/16 06:31PM]	Player owned shop sold item: ID: 569 AMOUNT: 1 PRICE: 500	
+[4/9/16 07:10PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:11PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:11PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:11PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:12PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:18PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:18PM]	Player owned shop decreased amount from shop: Fire orb	
+[4/9/16 07:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:20PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:20PM]	Player owned shop removed from shop: Dragon dagger (p++)	
+[4/9/16 07:20PM]	Player owned shop sold item: ID: 5698 AMOUNT: 5 PRICE: 1	
+[4/9/16 07:20PM]	Player owned shop sold item: ID: 5698 AMOUNT: 4 PRICE: 1	
+[4/9/16 07:20PM]	Player owned shop sold item: ID: 5698 AMOUNT: 3 PRICE: 1	
+[4/9/16 07:20PM]	Player owned shop sold item: ID: 5698 AMOUNT: 2 PRICE: 1	
+[4/9/16 07:20PM]	Player owned shop sold item: ID: 5698 AMOUNT: 1 PRICE: 1	
+[4/9/16 07:20PM]	Player owned shop removed from shop: Dragon dagger (p++)	
+[4/9/16 07:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:21PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:22PM]	Opened the player owned shop: Jonny	
+[4/9/16 07:22PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 150000000	
+[4/9/16 07:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 08:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 08:11PM]	Opened the player owned shop: Jonny	
+[4/9/16 08:11PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 08:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:42PM]	Opened the player owned shop: mysterio	
+[4/9/16 09:42PM]	Player owned shop added coins for global extraction: 10M for Mysterio	
+[4/9/16 09:42PM]	Jonny has done command update 5	
+[4/9/16 09:43PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:43PM]	Opened the player owned shop: mysterio	
+[4/9/16 09:43PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:43PM]	Jonny has done command spawn water rune:500	
+[4/9/16 09:44PM]	Jonny has done command spawn armadyl godsword:5	
+[4/9/16 09:44PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:44PM]	Player owned shop sold item: ID: 11694 AMOUNT: 5 PRICE: 5000000	
+[4/9/16 09:44PM]	Player owned shop sold item: ID: 11694 AMOUNT: 4 PRICE: 5000000	
+[4/9/16 09:44PM]	Player owned shop sold item: ID: 11694 AMOUNT: 3 PRICE: 5000000	
+[4/9/16 09:44PM]	Player owned shop sold item: ID: 11694 AMOUNT: 2 PRICE: 5000000	
+[4/9/16 09:44PM]	Player owned shop sold item: ID: 11694 AMOUNT: 1 PRICE: 5000000	
+[4/9/16 09:44PM]	Player owned shop sold item: ID: 555 AMOUNT: 5 PRICE: 5000000	
+[4/9/16 09:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:45PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:45PM]	Player owned shop removed from shop: Water rune	
+[4/9/16 09:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:46PM]	Opened the player owned shop: dc blitz	
+[4/9/16 09:46PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:46PM]	Player owned shop sold item: ID: 555 AMOUNT: 1 PRICE: 1000000	
+[4/9/16 09:46PM]	Player owned shop removed from shop: Water rune	
+[4/9/16 09:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:51PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:54PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:54PM]	Player owned shop sold item: ID: 555 AMOUNT: 10 PRICE: 1	
+[4/9/16 09:54PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:57PM]	Opened the player owned shop: dc blitz	
+[4/9/16 09:57PM]	Player owned shop added coins for global extraction: 10 for Dc Blitz	
+[4/9/16 09:57PM]	Player owned shop added coins for global extraction: 10 for Dc Blitz	
+[4/9/16 09:57PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:57PM]	Player owned shop sold item: ID: 555 AMOUNT: 5 PRICE: 1	
+[4/9/16 09:57PM]	Player owned shop sold item: ID: 555 AMOUNT: 5 PRICE: 1	
+[4/9/16 09:57PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:59PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:59PM]	Jonny has done command item 11694 5	
+[4/9/16 09:59PM]	Jonny has done command item 11694 5	
+[4/9/16 09:59PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 10 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 9 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 8 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 7 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 6 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 5 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 4 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 3 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 2 PRICE: 10	
+[4/9/16 09:59PM]	Player owned shop sold item: ID: 11694 AMOUNT: 1 PRICE: 10	
+[4/9/16 09:59PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:08PM]	Opened the player owned shop: dc blitz	
+[4/9/16 10:08PM]	Player owned shop added coins for global extraction: 10 for Dc Blitz	
+[4/9/16 10:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:08PM]	Opened the player owned shop: dc blitz	
+[4/9/16 10:09PM]	Opened the player owned shop: Jonny	
+[4/9/16 10:09PM]	Player owned shop sold item: ID: 555 AMOUNT: 1 PRICE: 1	
+[4/9/16 10:10PM]	Player owned shop sold item: ID: 557 AMOUNT: 5 PRICE: 1	
+[4/9/16 10:10PM]	Player owned shop sold item: ID: 555 AMOUNT: 5 PRICE: 1	
+[4/9/16 10:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:10PM]	Opened the player owned shop: Jonny	
+[4/9/16 10:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:14PM]	Opened the player owned shop: Jonny	
+[4/9/16 10:14PM]	Player owned shop sold item: ID: 555 AMOUNT: 10 PRICE: 10	
+[4/9/16 10:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:43PM]	Jonny has done command item 18016 1000m	
+[4/9/16 10:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 10:56PM]	Jonny has done command item 18016 40m	
+[4/9/16 10:56PM]	Jonny has done command item 18016 82m	
+[4/9/16 11:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:24PM]	Jonny has done command market	
+[4/9/16 11:25PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:25PM]	Player owned shop sold item: ID: 555 AMOUNT: 10 PRICE: 10	
+[4/9/16 11:25PM]	Player owned shop removed from shop: Water rune	
+[4/9/16 11:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:26PM]	Jonny has done command market	
+[4/9/16 11:27PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:27PM]	Player owned shop sold item: ID: 555 AMOUNT: 10 PRICE: 1000000	
+[4/9/16 11:27PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:29PM]	Jonny has done command update 4	
+[4/9/16 11:29PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:30PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:40PM]	Jonny has done command item 14484 10	
+[4/9/16 11:40PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 1000000	
+[4/9/16 11:40PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1000000	
+[4/9/16 11:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:41PM]	Jonny has done command update 5	
+[4/9/16 11:41PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:41PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:55PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:55PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:57PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:57PM]	Opened the player owned shop: dc blitz	
+[4/9/16 11:57PM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/9/16 11:57PM]	Player owned shop added coins for global extraction: 1 for Dc Blitz	
+[4/9/16 11:58PM]	Jonny has done command update 3	
+[4/9/16 11:58PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 11:58PM]	Opened the player owned shop: Jonny	
+[4/9/16 11:58PM]	Opened the player owned shop: dc blitz	
+[4/10/16 12:01AM]	Jonny has done command tele 2514 3860	
+[4/10/16 12:01AM]	Jonny has done command tele 3423 2914	
+[4/10/16 12:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:10AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:39AM]	Jonny has done command train	
+[4/10/16 12:40AM]	Jonny has done command ancients 	
+[4/10/16 12:40AM]	Jonny has done command item 555 10000	
+[4/10/16 12:40AM]	Jonny has done command item 560 10000	
+[4/10/16 12:40AM]	Jonny has done command item 565 10000	
+[4/10/16 12:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:54AM]	Jonny has done command train	
+[4/10/16 12:56AM]	Jonny has done command spawn rune crossbow:1	
+[4/10/16 12:56AM]	Jonny has done command spawn dragon bolts (e):5000	
+[4/10/16 12:56AM]	Jonny has done command home	
+[4/10/16 12:56AM]	Jonny has done command tran	
+[4/10/16 12:56AM]	Jonny has done command train	
+[4/10/16 12:57AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:57AM]	Jonny has done command market	
+[4/10/16 12:57AM]	Opened the player owned shop: Jonny	
+[4/10/16 12:57AM]	Jonny has done command item 14484 5	
+[4/10/16 12:57AM]	Opened the player owned shop: Jonny	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 10 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 9 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 8 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 7 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 6 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1000000	
+[4/10/16 12:58AM]	Player owned shop sold item: ID: 560 AMOUNT: 10 PRICE: 1000000	
+[4/10/16 12:58AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:58AM]	Player owned shop items sold for: 6M	
+[4/10/16 12:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 12:58AM]	Opened the player owned shop: Jonny	
+[4/10/16 12:59AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:00AM]	Player owned shop items sold for: 5M	
+[4/10/16 01:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:00AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:00AM]	Player owned shop items sold for: 1M	
+[4/10/16 01:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:00AM]	Opened the player owned shop: Jonny	
+[4/10/16 01:00AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:01AM]	Opened the player owned shop: dc blitz	
+[4/10/16 01:01AM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/10/16 01:01AM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/10/16 01:01AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:01AM]	Opened the player owned shop: dc blitz	
+[4/10/16 01:01AM]	Player owned shop added coins for global extraction: 1 for Dc Blitz	
+[4/10/16 01:01AM]	Player owned shop added coins for global extraction: 1 for Dc Blitz	
+[4/10/16 01:01AM]	Player owned shop added coins for global extraction: 1 for Dc Blitz	
+[4/10/16 01:01AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:03AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:13AM]	Opened the player owned shop: Jonny	
+[4/10/16 01:13AM]	Opened the player owned shop: dc blitz	
+[4/10/16 01:13AM]	Opened the player owned shop: Jonny	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 10 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 9 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 8 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 7 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 6 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 1000000	
+[4/10/16 01:13AM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1000000	
+[4/10/16 01:14AM]	Player owned shop sold item: ID: 555 AMOUNT: 10 PRICE: 1000000	
+[4/10/16 01:14AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:14AM]	Opened the player owned shop: Jonny	
+[4/10/16 01:14AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:15AM]	Player owned shop items sold for: 7M	
+[4/10/16 01:15AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:18AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:18AM]	Opened the player owned shop: Jonny	
+[4/10/16 01:19AM]	Opened the player owned shop: dc blitz	
+[4/10/16 01:19AM]	Player owned shop added coins for global extraction: 2 for Dc Blitz	
+[4/10/16 01:19AM]	Player owned shop added coins for global extraction: 1M for Dc Blitz	
+[4/10/16 01:19AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:19AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:19AM]	Opened the player owned shop: dc blitz	
+[4/10/16 01:19AM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/10/16 01:19AM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/10/16 01:19AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:20AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:20AM]	Opened the player owned shop: Jonny	
+[4/10/16 01:20AM]	Player owned shop removed from shop: Dragon claws	
+[4/10/16 01:20AM]	Player owned shop removed from shop: Water rune	
+[4/10/16 01:20AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:20AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:21AM]	Jonny has done command empty	
+[4/10/16 01:21AM]	Opened the player owned shop: dc blitz	
+[4/10/16 01:21AM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/10/16 01:21AM]	Player owned shop added coins for global extraction: 5M for Dc Blitz	
+[4/10/16 01:21AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:21AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 01:21AM]	Opened the player owned shop: Jonny	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop removed from shop: Dragon claws	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 1000000	
+[4/10/16 01:21AM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1000000	
+[4/10/16 01:22AM]	Opened the player owned shop: Jonny	
+[4/10/16 10:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/10/16 10:43AM]	Jonny has done command home	

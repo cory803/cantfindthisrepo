@@ -1,0 +1,6 @@
+[11/22/15 03:56PM]	Login from host 2.90.46.99, serial number: F9KWC1220140825092414.000000+180	
+[11/22/15 04:23PM]	Login from host 77.30.102.219, serial number: F9KWC1220140825092414.000000+180	
+[11/22/15 04:42PM]	Player dropping item: 25, amount: 2	
+[11/22/15 04:58PM]	Login from host 77.30.102.219, serial number: F9KWC1220140825092414.000000+180	
+[11/22/15 09:28PM]	Login from host 77.30.102.219, serial number: F9KWC1220140825092414.000000+180	
+[11/23/15 12:04AM]	Login from host 77.30.102.219, serial number: F9KWC1220140825092414.000000+180	

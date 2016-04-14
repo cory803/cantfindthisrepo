@@ -11,137 +11,141 @@ import com.ikov.world.entity.impl.npc.NPC;
 import com.ikov.world.entity.impl.player.Player;
 
 /**
- * A {@link Task} implementation that handles every combat 'hook' or 'turn'
- * during a combat session.
+ * A {@link Task} implementation that handles every combat 'hook' or 'turn' during a combat session.
  * 
  * @author lare96
  */
 public class CombatSession {
 
-	/** The builder assigned to this task. */
-	private CombatBuilder builder;
+  /** The builder assigned to this task. */
+  private CombatBuilder builder;
 
-	/**
-	 * Create a new {@link CombatSession}.
-	 * 
-	 * @param builder
-	 *            the builder assigned to this task.
-	 */
-	public CombatSession(CombatBuilder builder) {
-		this.builder = builder;
-	}
-	
-	public void process() {
+  /**
+   * Create a new {@link CombatSession}.
+   * 
+   * @param builder the builder assigned to this task.
+   */
+  public CombatSession(CombatBuilder builder) {
+    this.builder = builder;
+  }
 
-		if (builder.isCooldown()) {
-			builder.cooldown--;
-			builder.attackTimer--;
+  public void process() {
 
-			if (builder.cooldown == 0) {
-				builder.reset(true);
-			}
-			return;
-		}
+    if (builder.isCooldown()) {
+      builder.cooldown--;
+      builder.attackTimer--;
 
-		if (!CombatFactory.checkHook(builder.getCharacter(), builder.getVictim())) {
-			return;
-		}
+      if (builder.cooldown == 0) {
+        builder.reset(true);
+      }
+      return;
+    }
 
-		// If the entity is an player we redetermine the combat strategy before
-		// attacking.
-		if (builder.getCharacter().isPlayer()) {
-			builder.determineStrategy();
-		}
+    if (!CombatFactory.checkHook(builder.getCharacter(), builder.getVictim())) {
+      return;
+    }
 
-		// Decrement the attack timer.
-		builder.attackTimer--;
+    // If the entity is an player we redetermine the combat strategy before
+    // attacking.
+    if (builder.getCharacter().isPlayer()) {
+      builder.determineStrategy();
+    }
 
-		// The attack timer is below 1, we can attack.
-		if (builder.attackTimer < 1) {
-			// Check if the attacker is close enough to attack.
-			if (!CombatFactory.checkAttackDistance(builder)) {
-				if(builder.getCharacter().isNpc() && builder.getVictim().isPlayer()) {
-					if(builder.getLastAttack().elapsed(4500)) {
-						((NPC)builder.getCharacter()).setFindNewTarget(true);
-					}
-				}
-				return;
-			}
+    // Decrement the attack timer.
+    builder.attackTimer--;
 
-			// Check if the attack can be made on this hook
-			if (!builder.getStrategy().canAttack(builder.getCharacter(), builder.getVictim())) {
-				builder.getCharacter().getCombatBuilder().reset(builder.getCharacter().isNpc() ? true : false);
-				return;
-			}
+    // The attack timer is below 1, we can attack.
+    if (builder.attackTimer < 1) {
+      // Check if the attacker is close enough to attack.
+      if (!CombatFactory.checkAttackDistance(builder)) {
+        if (builder.getCharacter().isNpc() && builder.getVictim().isPlayer()) {
+          if (builder.getLastAttack().elapsed(4500)) {
+            ((NPC) builder.getCharacter()).setFindNewTarget(true);
+          }
+        }
+        return;
+      }
 
-			// Do all combat calculations here, we create the combat containers
-			// using the attacking entity's combat strategy.
+      // Check if the attack can be made on this hook
+      if (!builder.getStrategy().canAttack(builder.getCharacter(), builder.getVictim())) {
+        builder.getCharacter().getCombatBuilder()
+            .reset(builder.getCharacter().isNpc() ? true : false);
+        return;
+      }
 
-			builder.getStrategy().customContainerAttack(builder.getCharacter(), builder.getVictim());
-			CombatContainer container = builder.getContainer();
+      // Do all combat calculations here, we create the combat containers
+      // using the attacking entity's combat strategy.
 
-			builder.getCharacter().setEntityInteraction(builder.getVictim());
+      builder.getStrategy().customContainerAttack(builder.getCharacter(), builder.getVictim());
+      CombatContainer container = builder.getContainer();
 
-			if (builder.getCharacter().isPlayer()) {
-				Player player = (Player) builder.getCharacter();
-				player.getPacketSender().sendInterfaceRemoval();
+      builder.getCharacter().setEntityInteraction(builder.getVictim());
 
-				if (player.isSpecialActivated() && player.getCastSpell() == null) {
-					container = player.getCombatSpecial().container(player, builder.getVictim());
-					boolean magicShortbowSpec = player.getCombatSpecial() != null && player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW;
-					CombatSpecial.drain(player, player.getCombatSpecial().getDrainAmount());
+      if (builder.getCharacter().isPlayer()) {
+        Player player = (Player) builder.getCharacter();
+        player.getPacketSender().sendInterfaceRemoval();
 
-					Sounds.sendSound(player, Sounds.specialSounds(player.getEquipment().get(Equipment.WEAPON_SLOT).getId()));
+        if (player.isSpecialActivated() && player.getCastSpell() == null) {
+          container = player.getCombatSpecial().container(player, builder.getVictim());
+          boolean magicShortbowSpec = player.getCombatSpecial() != null
+              && player.getCombatSpecial() == CombatSpecial.MAGIC_SHORTBOW;
+          CombatSpecial.drain(player, player.getCombatSpecial().getDrainAmount());
 
-					if (player.getCombatSpecial().getCombatType() == CombatType.RANGED) {
-						DefaultRangedCombatStrategy.decrementAmmo(player, builder.getVictim().getPosition());
-						if(CombatFactory.darkBow(player) || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW && magicShortbowSpec) {
-							DefaultRangedCombatStrategy.decrementAmmo(player, builder.getVictim().getPosition());
-						}
-					}
-				}
-			}
+          Sounds.sendSound(player,
+              Sounds.specialSounds(player.getEquipment().get(Equipment.WEAPON_SLOT).getId()));
 
-			// If there is no hit type the combat turn is ignored.
-			if (container != null && container.getCombatType() != null) {
-				// If we have hit splats to deal, we filter them through combat
-				// prayer effects now. If not then we still send the hit tasks
-				// next to handle any effects.
+          if (player.getCombatSpecial().getCombatType() == CombatType.RANGED) {
+            DefaultRangedCombatStrategy.decrementAmmo(player, builder.getVictim().getPosition());
+            if (CombatFactory.darkBow(player)
+                || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW
+                    && magicShortbowSpec) {
+              DefaultRangedCombatStrategy.decrementAmmo(player, builder.getVictim().getPosition());
+            }
+          }
+        }
+      }
 
-				// An attack is going to be made for sure, set the last attacker
-				// for this victim.
+      // If there is no hit type the combat turn is ignored.
+      if (container != null && container.getCombatType() != null) {
+        // If we have hit splats to deal, we filter them through combat
+        // prayer effects now. If not then we still send the hit tasks
+        // next to handle any effects.
 
-				builder.getVictim().getCombatBuilder().setLastAttacker(builder.getCharacter());
-				builder.getVictim().getLastCombat().reset();
+        // An attack is going to be made for sure, set the last attacker
+        // for this victim.
 
-				// Start cooldown if we're using magic and not autocasting.
-				if (container.getCombatType() == CombatType.MAGIC && builder.getCharacter().isPlayer()) {
-					Player player = (Player) builder.getCharacter();
+        builder.getVictim().getCombatBuilder().setLastAttacker(builder.getCharacter());
+        builder.getVictim().getLastCombat().reset();
 
-					if (!player.isAutocast()) {
-						if (!player.isSpecialActivated())
-							player.getCombatBuilder().cooldown = 10;
-						player.setCastSpell(null);
-						player.getMovementQueue().setFollowCharacter(null);
-						builder.determineStrategy();
-					}
-				}
+        // Start cooldown if we're using magic and not autocasting.
+        if (container.getCombatType() == CombatType.MAGIC && builder.getCharacter().isPlayer()) {
+          Player player = (Player) builder.getCharacter();
 
-			/*	if(container.getHitDelay() == 0) { //An instant attack
-					new CombatHitTask(builder, container).handleAttack();
-				} else {
-					TaskManager.submit(new CombatHitTask(builder, container, container.getHitDelay(), false));
-				}
-				*/
-				builder.getHitQueue().append(new CombatHit(builder, container, container.getHitDelay()));
+          if (!player.isAutocast()) {
+            if (!player.isSpecialActivated())
+              player.getCombatBuilder().cooldown = 10;
+            player.setCastSpell(null);
+            player.getMovementQueue().setFollowCharacter(null);
+            builder.determineStrategy();
+          }
+        }
 
-				builder.setContainer(null); //Fetch a brand new container on next attack
-			}
+        /*
+         * if(container.getHitDelay() == 0) { //An instant attack new CombatHitTask(builder,
+         * container).handleAttack(); } else { TaskManager.submit(new CombatHitTask(builder,
+         * container, container.getHitDelay(), false)); }
+         */
+        builder.getHitQueue().append(new CombatHit(builder, container, container.getHitDelay()));
 
-			// Reset the attacking entity.
-			builder.attackTimer = builder.getStrategy() != null ? builder.getStrategy().attackDelay(builder.getCharacter()) : builder.getCharacter().getAttackSpeed();
-			builder.getLastAttack().reset();
-			builder.getCharacter().setEntityInteraction(builder.getVictim());
-		}
-	}
+        builder.setContainer(null); // Fetch a brand new container on next attack
+      }
+
+      // Reset the attacking entity.
+      builder.attackTimer =
+          builder.getStrategy() != null ? builder.getStrategy().attackDelay(builder.getCharacter())
+              : builder.getCharacter().getAttackSpeed();
+      builder.getLastAttack().reset();
+      builder.getCharacter().setEntityInteraction(builder.getVictim());
+    }
+  }
 }

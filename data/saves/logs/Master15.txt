@@ -1,0 +1,172 @@
+[11/22/15 07:03AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/22/15 07:27AM]	Player dropping item: 385, amount: 1	
+[11/22/15 07:30AM]	Player dropping item: 25, amount: 3	
+[11/22/15 07:30AM]	Player dropping item: 2485, amount: 1	
+[11/22/15 07:32AM]	Master15 received a Pet Baby blue dragon from Baby Blue Dragon	
+[11/22/15 07:55AM]	Player dropping item: 1777, amount: 1	
+[11/22/15 07:56AM]	Player dropping item: 1627, amount: 1	
+[11/22/15 07:56AM]	Player dropping item: 1777, amount: 1	
+[11/22/15 07:56AM]	Player dropping item: 1609, amount: 1	
+[11/22/15 08:05AM]	Player dropping item: 1351, amount: 1	
+[11/22/15 08:10AM]	Player dropping item: 1139, amount: 1	
+[11/22/15 09:20AM]	Player dropping item: 385, amount: 1	
+[11/22/15 09:20AM]	Player dropping item: 385, amount: 1	
+[11/22/15 09:40AM]	Player dropping item: 385, amount: 1	
+[11/22/15 09:49AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 09:57AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:03AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:12AM]	Player dropping item: 16703, amount: 1	
+[11/22/15 10:14AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/22/15 10:15AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:18AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:23AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:28AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:34AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:36AM]	Player dropping item: 16709, amount: 1	
+[11/22/15 10:39AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:47AM]	Player dropping item: 17489, amount: 1	
+[11/22/15 10:52AM]	Player dropping item: 4131, amount: 1	
+[11/22/15 10:59AM]	Player dropping item: 385, amount: 1	
+[11/22/15 11:01AM]	Player dropping item: 229, amount: 1	
+[11/22/15 11:17AM]	Gave item in trade to Archer. Id: 2497, amount: 1	
+[11/22/15 11:17AM]	Gave item in trade to Archer. Id: 2503, amount: 1	
+[11/22/15 11:17AM]	Gave item in trade to Archer. Id: 9185, amount: 1	
+[11/22/15 11:17AM]	Gave item in trade to Archer. Id: 9144, amount: 68	
+[11/22/15 11:17AM]	Gave item in trade to Archer. Id: 2491, amount: 1	
+[11/22/15 11:17AM]	Gave item in trade to Archer. Id: 3024, amount: 1	
+[11/22/15 11:17AM]	Gave item in trade to Archer. Id: 3026, amount: 1	
+[11/22/15 11:35AM]	Player dropping item: 385, amount: 1	
+[11/22/15 11:40AM]	Player dropping item: 556, amount: 478	
+[11/22/15 11:40AM]	Player dropping item: 229, amount: 1	
+[11/22/15 12:08PM]	Player dropping item: 12059, amount: 1	
+[11/22/15 12:08PM]	Player dropping item: 12047, amount: 1	
+[11/22/15 12:08PM]	Player dropping item: 12059, amount: 1	
+[11/22/15 12:09PM]	Player dropping item: 12059, amount: 1	
+[11/22/15 12:09PM]	Player dropping item: 12047, amount: 1	
+[11/22/15 12:09PM]	Player dropping item: 12047, amount: 1	
+[11/22/15 12:09PM]	Player dropping item: 12059, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12099, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12049, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12049, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12818, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12049, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12049, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12049, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12818, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12818, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12818, amount: 1	
+[11/22/15 12:12PM]	Player dropping item: 12818, amount: 1	
+[11/22/15 12:13PM]	Player dropping item: 2134, amount: 1	
+[11/22/15 12:16PM]	Player dropping item: 1147, amount: 1	
+[11/22/15 01:06PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:07PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:08PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:13PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:13PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:23PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:29PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:35PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:36PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:43PM]	Player dropping item: 17489, amount: 1	
+[11/22/15 01:53PM]	Player dropping item: 15271, amount: 19	
+[11/22/15 01:55PM]	Player dropping item: 385, amount: 1	
+[11/22/15 02:04PM]	Player dropping item: 5280, amount: 1	
+[11/22/15 02:05PM]	Player dropping item: 533, amount: 35	
+[11/22/15 02:11PM]	Player dropping item: 995, amount: 43780	
+[11/22/15 05:52PM]	Player dropping item: 385, amount: 1	
+[11/22/15 05:55PM]	Player dropping item: 443, amount: 4	
+[11/22/15 06:01PM]	Player dropping item: 385, amount: 1	
+[11/22/15 06:49PM]	Player dropping item: 1442, amount: 1	
+[11/22/15 06:57PM]	Player dropping item: 249, amount: 1	
+[11/22/15 06:57PM]	Player dropping item: 209, amount: 1	
+[11/22/15 06:58PM]	Player dropping item: 203, amount: 1	
+[11/22/15 07:09PM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/22/15 07:09PM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/22/15 07:14PM]	Player dropping item: 229, amount: 1	
+[11/22/15 07:17PM]	Player dropping item: 229, amount: 1	
+[11/22/15 07:45PM]	Player dropping item: 213, amount: 1	
+[11/22/15 07:49PM]	Player dropping item: 1619, amount: 1	
+[11/22/15 08:10PM]	Player dropping item: 385, amount: 1	
+[11/22/15 08:10PM]	Player dropping item: 206, amount: 17	
+[11/22/15 08:19PM]	Player dropping item: 229, amount: 1	
+[11/22/15 08:37PM]	Player dropping item: 221, amount: 1	
+[11/22/15 08:37PM]	Player dropping item: 221, amount: 1	
+[11/22/15 08:37PM]	Player dropping item: 221, amount: 1	
+[11/22/15 08:37PM]	Player dropping item: 221, amount: 1	
+[11/22/15 08:51PM]	Player dropping item: 1623, amount: 1	
+[11/22/15 09:04PM]	Player dropping item: 12031, amount: 1	
+[11/22/15 09:11PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:14PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:15PM]	Player dropping item: 1444, amount: 1	
+[11/22/15 09:22PM]	Player dropping item: 1123, amount: 1	
+[11/22/15 09:24PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:24PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:30PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:30PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:30PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:39PM]	Player dropping item: 385, amount: 1	
+[11/22/15 09:41PM]	Player dropping item: 1127, amount: 1	
+[11/22/15 09:41PM]	Player dropping item: 385, amount: 1	
+[11/22/15 09:42PM]	Player dropping item: 7937, amount: 50	
+[11/22/15 09:47PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:49PM]	Player dropping item: 229, amount: 1	
+[11/22/15 09:56PM]	Player dropping item: 2361, amount: 1	
+[11/22/15 10:06PM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/22/15 11:12PM]	Player dropping item: 229, amount: 1	
+[11/23/15 12:44AM]	Player dropping item: 265, amount: 1	
+[11/23/15 12:44AM]	Player dropping item: 249, amount: 1	
+[11/23/15 12:46AM]	Player dropping item: 385, amount: 1	
+[11/23/15 12:48AM]	Player dropping item: 261, amount: 1	
+[11/23/15 12:51AM]	Player dropping item: 267, amount: 1	
+[11/23/15 12:51AM]	Player dropping item: 1114, amount: 22	
+[11/23/15 12:51AM]	Player dropping item: 1215, amount: 1	
+[11/23/15 01:20AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:23AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:36AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:38AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:44AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:45AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:46AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:53AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:55AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 01:57AM]	Player dropping item: 555, amount: 1	
+[11/23/15 02:00AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 02:08AM]	Login from host 207.255.199.122, serial number: MP338CH20131002103052.000000-240	
+[11/23/15 02:11AM]	Player dropping item: 5301, amount: 1	
+[11/23/15 02:34AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 02:34AM]	Player dropping item: 16693, amount: 1	
+[11/23/15 02:39AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 02:50AM]	Player dropping item: 16953, amount: 1	
+[11/23/15 02:54AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:03AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:07AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:16AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:21AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:26AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:30AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:35AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:39AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:44AM]	Player dropping item: 17489, amount: 1	
+[11/23/15 03:50AM]	Player dropping item: 16699, amount: 1	
+[11/23/15 04:29AM]	Player dropping item: 229, amount: 1	
+[11/23/15 04:47AM]	Player dropping item: 385, amount: 1	
+[11/23/15 05:07AM]	Player dropping item: 385, amount: 1	
+[11/23/15 05:18AM]	Receiving item from trade. Id: 11726, amount: 1	
+[11/23/15 05:32AM]	Player dropping item: 1942, amount: 1	
+[11/23/15 05:32AM]	Player dropping item: 1942, amount: 1	
+[11/23/15 05:32AM]	Player dropping item: 5331, amount: 1	
+[11/23/15 05:40AM]	Player dropping item: 1942, amount: 1	
+[11/23/15 05:40AM]	Player dropping item: 1942, amount: 1	
+[11/23/15 05:40AM]	Player dropping item: 1942, amount: 1	
+[11/23/15 05:41AM]	Player dropping item: 5318, amount: 1	
+[11/23/15 05:41AM]	Player dropping item: 5318, amount: 15	
+[11/23/15 05:44AM]	Player dropping item: 385, amount: 1	
+[11/23/15 05:56AM]	Player dropping item: 6371, amount: 1	
+[11/23/15 06:00AM]	Player dropping item: 229, amount: 1	
+[11/23/15 06:01AM]	Player dropping item: 448, amount: 56	
+[11/23/15 06:01AM]	Player dropping item: 592, amount: 1	
+[11/23/15 06:02AM]	Player dropping item: 229, amount: 1	
+[11/23/15 06:17AM]	Player dropping item: 229, amount: 1	
+[11/23/15 06:18AM]	Player dropping item: 372, amount: 113	
+[11/23/15 06:20AM]	Player dropping item: 18831, amount: 5	
+[11/23/15 06:21AM]	Player dropping item: 229, amount: 1	

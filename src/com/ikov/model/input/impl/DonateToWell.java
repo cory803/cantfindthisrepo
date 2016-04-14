@@ -6,9 +6,9 @@ import com.ikov.world.entity.impl.player.Player;
 
 public class DonateToWell extends EnterAmount {
 
-	@Override
-	public void handleAmount(Player player, int amount) {
-		WellOfGoodwill.donate(player, amount);
-	}
+  @Override
+  public void handleAmount(Player player, int amount) {
+    WellOfGoodwill.donate(player, amount);
+  }
 
 }

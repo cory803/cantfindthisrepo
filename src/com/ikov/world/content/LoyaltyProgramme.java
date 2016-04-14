@@ -6,100 +6,103 @@ import com.ikov.world.entity.impl.player.Player;
 
 public class LoyaltyProgramme {
 
-	public enum LoyaltyTitles {
+  public enum LoyaltyTitles {
 
-		NONE(0, 0, 0) {
-			@Override
-			boolean canBuy(Player p, boolean sendMessage) {
-				return true;
-			}
-		},		
-		
-		//New
-		DONATOR(0, 43095, -22444) {
-			@Override
-			boolean canBuy(Player p, boolean sendMessage) {
-				return true;
-			}
-		};
+    NONE(0, 0, 0) {
+      @Override
+      boolean canBuy(Player p, boolean sendMessage) {
+        return true;
+      }
+    },
 
-		private LoyaltyTitles(int cost, int frame, int button) {
-			this.cost = cost;
-			this.frame = frame;
-			this.button = button;
-		}
+    // New
+    DONATOR(0, 43095, -22444) {
+      @Override
+      boolean canBuy(Player p, boolean sendMessage) {
+        return true;
+      }
+    };
 
-		private int cost;
-		private int frame;
-		private int button;
-		abstract boolean canBuy(Player p, boolean sendMessage);
+    private LoyaltyTitles(int cost, int frame, int button) {
+      this.cost = cost;
+      this.frame = frame;
+      this.button = button;
+    }
 
-		public static LoyaltyTitles getTitle(int button) {
-			for(LoyaltyTitles t : LoyaltyTitles.values()) {
-				if(t.button == button)
-					return t;
-			}
-			return null;
-		}
-	}
+    private int cost;
+    private int frame;
+    private int button;
 
-	public static void unlock(Player player, LoyaltyTitles title) {
-		if(player.getUnlockedLoyaltyTitles()[title.ordinal()])
-			return;
-		player.setUnlockedLoyaltyTitle(title.ordinal());
-		player.getPacketSender().sendMessage("You've unlocked the "+Misc.formatText(title.name().toLowerCase())+" loyalty title!");
-	}
+    abstract boolean canBuy(Player p, boolean sendMessage);
 
-	public static boolean handleButton(Player player, int button) {
-		LoyaltyTitles title = LoyaltyTitles.getTitle(button);
-		if(title != null) {
-			if(title.canBuy(player, true)) {
-				if(player.getLoyaltyTitle() == title) {
-					player.getPacketSender().sendMessage("You are already using this title.");
-					return true;
-				}
-				if(player.getPointsHandler().getLoyaltyPoints() >= title.cost) {
-					player.setLoyaltyTitle(title);
-					player.getPointsHandler().setLoyaltyPoints(-title.cost, true);
-					player.getPointsHandler().refreshPanel();
-					player.getPacketSender().sendMessage("You've changed your title.");
-					player.getUpdateFlag().flag(Flag.APPEARANCE);
-				} else {
-					player.getPacketSender().sendMessage("You need at least "+title.cost+" Loyalty Points to buy this title.");
-				}
-			}
-			return true;
-		}
-		return false;
-	}
+    public static LoyaltyTitles getTitle(int button) {
+      for (LoyaltyTitles t : LoyaltyTitles.values()) {
+        if (t.button == button)
+          return t;
+      }
+      return null;
+    }
+  }
 
-	public static void reset(Player player) {
-		player.setLoyaltyTitle(LoyaltyTitles.NONE);
-		player.getUpdateFlag().flag(Flag.APPEARANCE);
-	}
+  public static void unlock(Player player, LoyaltyTitles title) {
+    if (player.getUnlockedLoyaltyTitles()[title.ordinal()])
+      return;
+    player.setUnlockedLoyaltyTitle(title.ordinal());
+    player.getPacketSender().sendMessage(
+        "You've unlocked the " + Misc.formatText(title.name().toLowerCase()) + " loyalty title!");
+  }
 
-	public static void incrementPoints(Player player) {
-		double pts = 1;
-		if(WellOfGoodwill.bonusLoyaltyPoints(player))
-			pts *= 1.5;
-		if(player.getDonorRights() == 1)
-			pts *= 1.1;
-		if(player.getDonorRights() == 2)
-			pts *= 1.2;
-		if(player.getDonorRights() == 3)
-			pts *= 1.3;	
-		if(player.getDonorRights() == 4)
-			pts *= 1.4;
-		if(player.getDonorRights() == 5)
-			pts *= 1.5;
-		player.getPointsHandler().incrementLoyaltyPoints(pts);
-		player.getAchievementAttributes().incrementTotalLoyaltyPointsEarned(pts);
-		
-		int totalPoints = (int)player.getPointsHandler().getLoyaltyPoints();
-		
-		if(player.getInterfaceId() == 43000) {
-			player.getPacketSender().sendString(43120, "Your Loyalty Points: "+totalPoints);
-		}
-		player.getPacketSender().sendString(55081, "@red@Loyalty Points: @gre@"+(int)totalPoints);
-	}
+  public static boolean handleButton(Player player, int button) {
+    LoyaltyTitles title = LoyaltyTitles.getTitle(button);
+    if (title != null) {
+      if (title.canBuy(player, true)) {
+        if (player.getLoyaltyTitle() == title) {
+          player.getPacketSender().sendMessage("You are already using this title.");
+          return true;
+        }
+        if (player.getPointsHandler().getLoyaltyPoints() >= title.cost) {
+          player.setLoyaltyTitle(title);
+          player.getPointsHandler().setLoyaltyPoints(-title.cost, true);
+          player.getPointsHandler().refreshPanel();
+          player.getPacketSender().sendMessage("You've changed your title.");
+          player.getUpdateFlag().flag(Flag.APPEARANCE);
+        } else {
+          player.getPacketSender().sendMessage(
+              "You need at least " + title.cost + " Loyalty Points to buy this title.");
+        }
+      }
+      return true;
+    }
+    return false;
+  }
+
+  public static void reset(Player player) {
+    player.setLoyaltyTitle(LoyaltyTitles.NONE);
+    player.getUpdateFlag().flag(Flag.APPEARANCE);
+  }
+
+  public static void incrementPoints(Player player) {
+    double pts = 1;
+    if (WellOfGoodwill.bonusLoyaltyPoints(player))
+      pts *= 1.5;
+    if (player.getDonorRights() == 1)
+      pts *= 1.1;
+    if (player.getDonorRights() == 2)
+      pts *= 1.2;
+    if (player.getDonorRights() == 3)
+      pts *= 1.3;
+    if (player.getDonorRights() == 4)
+      pts *= 1.4;
+    if (player.getDonorRights() == 5)
+      pts *= 1.5;
+    player.getPointsHandler().incrementLoyaltyPoints(pts);
+    player.getAchievementAttributes().incrementTotalLoyaltyPointsEarned(pts);
+
+    int totalPoints = (int) player.getPointsHandler().getLoyaltyPoints();
+
+    if (player.getInterfaceId() == 43000) {
+      player.getPacketSender().sendString(43120, "Your Loyalty Points: " + totalPoints);
+    }
+    player.getPacketSender().sendString(55081, "@red@Loyalty Points: @gre@" + (int) totalPoints);
+  }
 }

@@ -1,0 +1,244 @@
+[2/18/16 11:18PM]	Player dropping item: Water rune (555), amount: 9994	
+[2/18/16 11:18PM]	Player looting item: Water rune (555), amount: 9994	
+[2/25/16 08:58PM]	Player dropping item: Unarmed (21077), amount: 1 from the computer address: null	
+[2/25/16 08:58PM]	Player looting item: Unarmed (21077), amount: 1 from the computer address: null	
+[3/5/16 03:07AM]	Player dropping item: Zulrah's scales (21080), amount: 8 from the computer address: null	
+[3/17/16 06:26PM]	Player dropping item: Iron scimitar (1323), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player killed Jonny for item: Id: Mithril seeds(299), amount: 991	
+[3/17/16 06:26PM]	Player killed Jonny for item: Id: Armadyl godsword(11694), amount: 1	
+[3/17/16 06:26PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player dropping item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player dropping item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player dropping item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player dropping item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player dropping item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player dropping item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:26PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:27PM]	Player dropping item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:27PM]	Player looting item: Armadyl godsword (11694), amount: 1 from the computer address: null	
+[3/17/16 06:29PM]	Player dropping item: Wizard robe (577), amount: 1 from the computer address: null	
+[3/21/16 10:33PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:33PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:34PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:34PM]	Mysterio has done command item 995 600000000!	
+[3/21/16 10:35PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:35PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:36PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:38PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:39PM]	Mysterio has done command item 995 600m!	
+[3/21/16 10:39PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:39PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:58PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:58PM]	Mysterio has done command npc 947!	
+[3/21/16 10:58PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:59PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 10:59PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:00PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:00PM]	Mysterio has done command item 995 600m!	
+[3/21/16 11:00PM]	Player dropping item: Iron full helm (1153), amount: 1 from the computer address: null	
+[3/21/16 11:00PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[3/21/16 11:00PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[3/21/16 11:00PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:03PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:03PM]	Mysterio has done command npc 947!	
+[3/21/16 11:03PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:04PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:04PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:05PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:06PM]	Mysterio has done command item 995 500m!	
+[3/21/16 11:06PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:06PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:07PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:07PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:17PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:22PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:22PM]	Mysterio has done command npc 947!	
+[3/21/16 11:22PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:23PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:23PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[3/21/16 11:23PM]	Player dropping item: Dragon claws (14484), amount: 1 from the computer address: null	
+[3/21/16 11:33PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:33PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:33PM]	Player dropping item: Shark (386), amount: 100 from the computer address: null	
+[3/21/16 11:33PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:46PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:46PM]	Mysterio has done command item 995 500m	
+[3/21/16 11:46PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:50PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:50PM]	Mysterio has done command item 995 600m	
+[3/21/16 11:50PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:50PM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/21/16 11:50PM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:28AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:28AM]	Mysterio has done command item 995 600m	
+[3/22/16 12:28AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:29AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:29AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:37AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:38AM]	Mysterio has done command item 995 600m	
+[3/22/16 12:38AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:44AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:45AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:45AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:45AM]	Mysterio has done command item 995 600m	
+[3/22/16 12:45AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:50AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:50AM]	Mysterio has done command npc 947	
+[3/22/16 12:50AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:51AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:51AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:51AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:52AM]	Mysterio has done command item 995 500m	
+[3/22/16 12:52AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:52AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:52AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:52AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 12:53AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:14AM]	Login from host 127.0.0.1, Computer Address: 455532813	
+[3/22/16 02:14AM]	Logout from host 127.0.0.1, Computer Address: 455532813	
+[3/26/16 07:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 07:40PM]	Player dropping item: Iron kiteshield (1191), amount: 1 from the computer address: null	
+[3/26/16 07:40PM]	Mysterio has done command spawn 1	
+[3/26/16 07:40PM]	Mysterio has done command spawn explosive pot:1	
+[3/26/16 07:40PM]	Mysterio has done command godode	
+[3/26/16 07:40PM]	Mysterio has done command godmode	
+[3/26/16 07:41PM]	Mysterio has done command spawn explosive:1	
+[3/26/16 10:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:41PM]	Mysterio has done command spawn explosive pot:1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Coins(995), amount: 105000005	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Iron platebody(1115), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Iron platelegs(1067), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Armadyl godsword(11694), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Shortbow(841), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Bronze arrow(882), amount: 1000	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Leather cowl(1167), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Dragon claws(14484), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Leather chaps(1095), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Leather vambraces(1063), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Wizard hat(579), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Dragon claws(14484), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Blue skirt(1011), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Staff(1379), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Air rune(556), amount: 1000	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Mind rune(558), amount: 1000	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Earth rune(557), amount: 1000	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Water rune(555), amount: 1000	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Bronze hatchet(1351), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Bronze pickaxe(1265), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Amulet of glory (4)(1712), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Combat bracelet (4)(11118), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Cape(1007), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Leather boots(1061), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Dragon claws(14484), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Armadyl godsword(11694), amount: 1	
+[3/26/16 10:41PM]	Player killed by Jonny for item: Id: Leather body(1129), amount: 1	
+[3/26/16 10:42PM]	Mysterio has done command spawn explosive pot:1	
+[3/26/16 10:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 10:44PM]	Mysterio has done command spawn earth rune:1000	
+[3/26/16 10:44PM]	Mysterio has done command spawn death rune:10000	
+[3/26/16 10:44PM]	Mysterio has done command spawn astral rune:10000	
+[3/26/16 10:44PM]	Mysterio has done command lunars	
+[3/26/16 10:44PM]	Mysterio has done command lunars	
+[3/26/16 10:45PM]	Mysterio has done command spawn explosive;1	
+[3/26/16 10:45PM]	Mysterio has done command spawn explosive:1	
+[3/26/16 10:46PM]	Player killed Jonny for item: Id: Toolkit(1), amount: 1	
+[3/26/16 10:46PM]	Player killed Jonny for item: Id: Coins(995), amount: 106250004	
+[3/26/16 10:46PM]	Player killed Jonny for item: Id: Completionist Cape(21085), amount: 1	
+[3/26/16 10:46PM]	Player killed Jonny for item: Id: Unarmed(14119), amount: 1	
+[3/26/16 11:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/26/16 11:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 12:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 10:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/27/16 11:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 12:31AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:05AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:08AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:09AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:28AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:29AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:29AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:31AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:47AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:50AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:50AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:51AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:52AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:52AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:52AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:55AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:59AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:59AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 01:59AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:04AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:04AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:05AM]	Mysterio has done command yell hi	
+[3/28/16 02:05AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:05AM]	Mysterio has done command yell hi	
+[3/28/16 02:06AM]	Mysterio has done command find cannon	
+[3/28/16 02:06AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[3/28/16 02:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 06:39PM]	Mysterio has done command market	
+[4/1/16 11:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/1/16 11:56PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/2/16 10:39PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 07:23PM]	Opened the player owned shop: Mysterio	
+[4/9/16 07:24PM]	Opened the player owned shop: Dc Blitz	
+[4/9/16 07:24PM]	Opened the player owned shop: Dc Blitz	
+[4/9/16 07:24PM]	Opened the player owned shop: Jonny	
+[4/9/16 08:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 08:12PM]	Opened the player owned shop: Mysterio	
+[4/9/16 08:12PM]	Opened the player owned shop: Dc Blitz	
+[4/9/16 08:28PM]	Opened the player owned shop: Mysterio	
+[4/9/16 08:28PM]	Opened the player owned shop: Mysterio	
+[4/9/16 08:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:41PM]	Opened the player owned shop: Jonny	
+[4/9/16 09:41PM]	Opened the player owned shop: Dc Blitz	
+[4/9/16 09:42PM]	Opened the player owned shop: Mysterio	
+[4/9/16 09:42PM]	Player owned shop sold item: ID: 557 AMOUNT: 10 PRICE: 10000000	
+[4/9/16 09:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/9/16 09:44PM]	Opened the player owned shop: Mysterio	
+[4/9/16 09:45PM]	Opened the player owned shop: jonny	
+[4/9/16 09:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
