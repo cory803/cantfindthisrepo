@@ -55,7 +55,6 @@ import com.ikov.world.content.PkSets;
 import com.ikov.world.content.PlayerLogs;
 import com.ikov.world.content.PlayerPanel;
 import com.ikov.world.content.Scoreboards;
-import com.ikov.world.content.ShootingStar;
 import com.ikov.world.content.dialogue.impl.AgilityTicketExchange;
 import com.ikov.world.content.dialogue.impl.Mandrith;
 import com.ikov.world.content.minigames.impl.Graveyard;
@@ -1409,22 +1408,6 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
-			case 221:
-				if(player.getMoneyInPouch() > 1000000) {
-					if(ShootingStar.CRASHED_STAR == null) {
-						DialogueManager.sendStatement(player, "There is currently no shooting star that has crashed");
-						player.getPacketSender().sendMessage("There is currently no shooting star that has crashed");
-						player.getPacketSender().sendMessage("The miner did not want to jew you; so he has refunded your money pouch.");
-					} else {
-						DialogueManager.sendStatement(player, "A shooting star has crashed at "+ShootingStar.CRASHED_STAR.getStarLocation()+".");
-						player.getPacketSender().sendMessage("A shooting star has crashed at "+ShootingStar.CRASHED_STAR.getStarLocation()+".");
-						player.setMoneyInPouch(player.getMoneyInPouch()-1000000);
-						player.getPacketSender().sendMessage("The miner took 1m out of your money pouch for the information.");
-					}
-				} else {
-					player.getPacketSender().sendMessage("You do not have enough money in your money pouch.");
-				}
-				break;
 			case 186:
 				if(player.getInventory().contains(21079)) {
 					player.getInventory().delete(new Item(21079, 1));
@@ -1578,9 +1561,6 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
-			case 221:
-				ShopManager.getShops().get(78).open(player);
-				break;
 			case 186:
 				player.getPacketSender().sendEnterAmountPrompt("How many scales would you like to put on your Toxic staff?");
 				player.setInputHandling(new ToxicStaffZulrahScales());
@@ -1790,9 +1770,6 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
-			case 221:
-				player.getPacketSender().sendInterfaceRemoval();
-				break;
 			case 182:
 			case 181:
 			case 183:
