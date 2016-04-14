@@ -10,6 +10,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.ikov.GamePanel;
 import com.ikov.GameServer;
 import com.ikov.engine.task.TaskManager;
+import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.world.World;
 import com.ikov.world.content.clan.ClanChatManager;
 import com.ikov.world.content.grandexchange.GrandExchangeOffers;
@@ -51,6 +52,7 @@ public final class GameEngine implements Runnable {
       panel.addGeneral();
     } catch (Throwable e) {
       e.printStackTrace();
+      World.logError("game_engine_error_log.txt", (Exception) e);
       World.savePlayers();
       GrandExchangeOffers.save();
       PlayerOwnedShops.save();
