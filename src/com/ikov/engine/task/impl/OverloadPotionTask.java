@@ -49,6 +49,15 @@ public class OverloadPotionTask extends Task {
 				player.getSkillManager().setCurrentLevel(Skill.forId(i), player.getSkillManager().getMaxLevel(i));
 			}
 			player.setOverloadPotionTimer(0);
+			
+			//ovl effect runs out - 500 HP restored
+			int currentHP = player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
+			int maxHP = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
+			if(currentHP + 500 <= maxHP) {
+				player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, currentHP+500, true);
+			} else {
+				player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, maxHP, true);
+			}
 			stop();
 		}
 	}
