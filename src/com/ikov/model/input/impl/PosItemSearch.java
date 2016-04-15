@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Stream;
 
-import com.ikov.model.actions.ActionHandler;
-import com.ikov.model.actions.ButtonAction;
 import com.ikov.model.definitions.ItemDefinition;
 import com.ikov.model.input.Input;
 import com.ikov.world.content.pos.PlayerOwnedShops;
@@ -127,25 +125,6 @@ public class PosItemSearch extends Input {
 
   public static void reset() {
     foundOffers.clear();
-  }
-
-  static {
-    for (int i = -24062; i < -23666; i += 4) {
-      final int buttonId = i;
-      ActionHandler.getActionHandler().submit(i, new ButtonAction() {
-
-        @Override
-        public void handle(Player player) {
-          if (foundOffers.size() > 0) {
-            PosDetails pd = forId(buttonId);
-            if (pd != null) {
-              PlayerOwnedShops.openShop(pd.getOwner(), player);
-            }
-          }
-        }
-
-      });
-    }
   }
 
 }

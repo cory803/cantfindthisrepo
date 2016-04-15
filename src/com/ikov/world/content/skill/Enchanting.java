@@ -4,8 +4,6 @@ import com.ikov.model.Animation;
 import com.ikov.model.Graphic;
 import com.ikov.model.Item;
 import com.ikov.model.Skill;
-import com.ikov.model.actions.ActionHandler;
-import com.ikov.model.actions.ButtonAction;
 import com.ikov.world.entity.impl.player.Player;
 
 
@@ -79,7 +77,7 @@ public class Enchanting {
     }
   }
 
-  public static void enchantButtons(Player player, int buttonId) {
+  public static boolean enchantButtons(Player player, int buttonId) {
     int magicLevel = player.getSkillManager().getCurrentLevel(Skill.MAGIC);
     for (Data d : Data.values()) {
       if (d.getButtonId() == buttonId) {
@@ -104,8 +102,12 @@ public class Enchanting {
           player.getPacketSender().sendMessage(
               "You need a magic level of " + d.getLevelRequired() + " to enchant these bolts.");
         }
+
+        return true;
       }
     }
+
+    return false;
   }
 
   public static void update_interface(Player player) {
@@ -115,19 +117,6 @@ public class Enchanting {
       if (magic_level < d.getLevelRequired()) {
         player.getPacketSender().sendString(d.getStringId(), "@red@Magic " + d.getLevelRequired());
       }
-    }
-  }
-
-  static {
-    for (Data d : Data.values()) {
-      ActionHandler.getActionHandler().submit(d.getButtonId(), new ButtonAction() {
-
-        @Override
-        public void handle(Player player) {
-          enchantButtons(player, d.getButtonId());
-        }
-
-      });
     }
   }
 

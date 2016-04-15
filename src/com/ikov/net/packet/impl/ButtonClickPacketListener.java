@@ -4,14 +4,13 @@ import com.ikov.GameSettings;
 import com.ikov.model.Locations.Location;
 import com.ikov.model.PlayerRights;
 import com.ikov.model.Position;
-import com.ikov.model.actions.ActionHandler;
-import com.ikov.model.actions.ButtonAction;
 import com.ikov.model.container.impl.Bank;
 import com.ikov.model.container.impl.Bank.BankSearchAttributes;
 import com.ikov.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.ikov.model.input.impl.EnterClanChatToJoin;
 import com.ikov.model.input.impl.EnterSyntaxToBankSearchFor;
 import com.ikov.model.input.impl.InviteToDungeoneering;
+import com.ikov.model.input.impl.PosItemSearch;
 import com.ikov.net.packet.Packet;
 import com.ikov.net.packet.PacketListener;
 import com.ikov.world.World;
@@ -51,7 +50,9 @@ import com.ikov.world.content.minigames.impl.Nomad;
 import com.ikov.world.content.minigames.impl.PestControl;
 import com.ikov.world.content.minigames.impl.RecipeForDisaster;
 import com.ikov.world.content.pos.PlayerOwnedShops;
+import com.ikov.world.content.pos.PosDetails;
 import com.ikov.world.content.skill.ChatboxInterfaceSkillAction;
+import com.ikov.world.content.skill.Enchanting;
 import com.ikov.world.content.skill.impl.construction.Construction;
 import com.ikov.world.content.skill.impl.crafting.LeatherMaking;
 import com.ikov.world.content.skill.impl.crafting.Tanning;
@@ -84,18 +85,22 @@ public class ButtonClickPacketListener implements PacketListener {
       player.getPacketSender().sendMessage("Clicked button: " + id);
     }
 
-    ButtonAction action = ActionHandler.getActionHandler().getAction(id);
-    if (action != null) {
-      action.handle(player);
-      return;
-    }
-
     if (checkHandlers(player, id))
       return;
     if (GameSettings.DEBUG_MODE) {
       PlayerLogs.log(player.getUsername(), "" + player.getUsername()
           + " has clicked button in ButtonClickPacketListener " + id + "");
     }
+
+    if (Enchanting.enchantButtons(player, id)) {
+      return;
+    }
+
+    PosDetails pd = PosItemSearch.forId(id);
+    if (pd != null) {
+      PlayerOwnedShops.openShop(pd.getOwner(), player);
+    }
+
     switch (id) {
       case -10426:
         // player.setMusicActive(!player.musicActive());
