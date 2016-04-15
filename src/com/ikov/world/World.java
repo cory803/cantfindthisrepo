@@ -1,5 +1,8 @@
 package com.ikov.world;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.Queue;
@@ -197,6 +200,44 @@ public class World {
     long entityUpdateCycle = end - player_start;
     // long cycleTime = end - start;
     GameServer.getPanel().addWorldCycle(loginCycle, logoutCycle, minigameCycle, entityUpdateCycle);
+  }
+  
+  public static void logError(String name, Exception ex) {
+    try {
+      BufferedWriter bw = new BufferedWriter(new FileWriter(name, true));
+      bw.write("Date: " + new Date().toString());
+      bw.newLine();
+      if (ex.getCause() != null) {
+        bw.write("cause: " + ex.getCause().toString());
+        bw.newLine();
+      }
+      if (ex.getClass() != null) {
+        bw.write(ex.getClass().getSimpleName().toString());
+      }
+      if (ex.getMessage() != null) {
+        bw.write(": " + ex.getMessage());
+        bw.newLine();
+      }
+      if (ex.getStackTrace() == null)
+        ex.fillInStackTrace();
+      if (ex.getStackTrace() != null) {
+        for (StackTraceElement s : ex.getStackTrace()) {
+          bw.write("  at " + s.getClassName() + "." + s.getMethodName());
+          if (s.getFileName() != null)
+            bw.write("(" + s.getFileName() + ":" + s.getLineNumber() + ")");
+          else
+            bw.write("(Unknown Source)");
+          bw.newLine();
+        }
+      }
+      bw.newLine();
+      bw.write("================================");
+      bw.newLine();
+      bw.flush();
+      bw.close();
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 
   public static Queue<Player> getLoginQueue() {
