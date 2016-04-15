@@ -2,9 +2,15 @@ package com.ikov.model.definitions;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.ikov.model.container.impl.Equipment;
 
 /**
@@ -15,11 +21,6 @@ import com.ikov.model.container.impl.Equipment;
  */
 
 public class ItemDefinition {
-
-  /**
-   * The directory in which item definitions are found.
-   */
-  private static final String FILE_DIRECTORY = "./data/def/txt/items.txt";
 
   /**
    * The max amount of items that will be loaded.
@@ -35,77 +36,11 @@ public class ItemDefinition {
    * Loading all item definitions
    */
   public static void init() {
-    ItemDefinition definition = definitions[0];
     try {
-      File file = new File(FILE_DIRECTORY);
-      BufferedReader reader = new BufferedReader(new FileReader(file));
-      String line;
-      while ((line = reader.readLine()) != null) {
-        if (line.contains("inish")) {
-          definitions[definition.id] = definition;
-          continue;
-        }
-        String[] args = line.split(": ");
-        if (args.length <= 1)
-          continue;
-        String token = args[0], value = args[1];
-        if (line.contains("Bonus[")) {
-          String[] other = line.split("]");
-          int index = Integer.valueOf(line.substring(6, other[0].length()));
-          double bonus = Double.valueOf(value);
-          definition.bonus[index] = bonus;
-          continue;
-        }
-        if (line.contains("Requirement[")) {
-          String[] other = line.split("]");
-          int index = Integer.valueOf(line.substring(12, other[0].length()));
-          int requirement = Integer.valueOf(value);
-          definition.requirement[index] = requirement;
-          continue;
-        }
-        switch (token.toLowerCase()) {
-          case "item id":
-            int id = Integer.valueOf(value);
-            definition = new ItemDefinition();
-            definition.id = id;
-            break;
-          case "name":
-            if (value == null)
-              continue;
-            definition.name = value;
-            break;
-          case "examine":
-            definition.description = value;
-            break;
-          case "value":
-            int price = Integer.valueOf(value);
-            definition.value = price;
-            break;
-          case "charges":
-            int charge = Integer.valueOf(value);
-            definition.charges = charge;
-            break;
-          case "stackable":
-            definition.stackable = Boolean.valueOf(value);
-            break;
-          case "noted":
-            definition.noted = Boolean.valueOf(value);
-            break;
-          case "double-handed":
-            definition.isTwoHanded = Boolean.valueOf(value);
-            break;
-          case "equipment type":
-            definition.equipmentType = EquipmentType.valueOf(value);
-            break;
-          case "is weapon":
-            definition.weapon = Boolean.valueOf(value);
-            break;
-          case "has charges":
-            definition.has_charges = Boolean.valueOf(value);
-            break;
-        }
-      }
-      reader.close();
+      Gson gson = new Gson();
+      definitions = gson.fromJson(
+          Files.newBufferedReader(Paths.get("data", "def", "json", "item_definitions.json")),
+          ItemDefinition[].class);
     } catch (IOException e) {
       e.printStackTrace();
     }
