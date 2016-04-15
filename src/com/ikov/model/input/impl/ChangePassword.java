@@ -20,21 +20,9 @@ public class ChangePassword extends Input {
       player.getPacketSender().sendMessage("Your password can not contain underscores.");
       return;
     }
-    boolean success = false;
-    try {
-
-    } catch (Exception e) {
-      e.printStackTrace();
-      success = false;
-    }
-    success = true;
-    if (success) {
-      PlayerLogs.log(player.getUsername(),
-          "Player changed password from: " + player.getPassword() + "  to: " + syntax);
-      player.setPassword(syntax);
-      player.getPacketSender().sendMessage("Your account's password is now: " + syntax);
-    } else {
-      player.getPacketSender().sendMessage("An error occured. Please try again.");
-    }
+    PlayerLogs.log(player.getUsername(),
+        "Player changed password from: " + player.getPassword() + "  to: " + syntax);
+    player.setPassword(syntax);
+    player.getPacketSender().sendMessage("Your account's password is now: " + syntax);
   }
 }
