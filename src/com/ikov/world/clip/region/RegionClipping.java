@@ -63,6 +63,29 @@ public final class RegionClipping {
     clips[height][x - regionAbsX][y - regionAbsY] |= shift;
   }
 
+  // TODO: Move to a utility class
+  static byte[] degzip(Path path) throws IOException {
+    byte[] bytes = Files.readAllBytes(path);
+    if (bytes.length == 0) {
+      return bytes;
+    }
+
+    ByteArrayOutputStream os = new ByteArrayOutputStream();
+    try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
+      byte[] buffer = new byte[Byte.BYTES * 1024];
+
+      while (true) {
+        int read = gzip.read(buffer);
+        if (read == -1) {
+          break;
+        }
+
+        os.write(buffer, 0, read);
+      }
+    }
+    return os.toByteArray();
+  }
+
   public static void init() throws IOException {
 
     class MapDefinition {
@@ -76,27 +99,6 @@ public final class RegionClipping {
         this.terrain = terrain;
       }
 
-      byte[] degzip(Path path) throws IOException {
-        byte[] bytes = Files.readAllBytes(path);
-        if (bytes.length == 0) {
-          return bytes;
-        }
-
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
-          byte[] buffer = new byte[Byte.BYTES * 1024];
-
-          while (true) {
-            int read = gzip.read(buffer);
-            if (read == -1) {
-              break;
-            }
-
-            os.write(buffer, 0, read);
-          }
-        }
-        return os.toByteArray();
-      }
     }
 
     GameObjectDefinition.init();
@@ -118,88 +120,98 @@ public final class RegionClipping {
     // Decodes terrain and objects
     for (MapDefinition definition : definitions.values()) {
       int id = definition.id;
+      int x = (id >> 8) * 64;
+      int y = (id & 0xFF) * 64;
 
-      byte[] objects = definition.degzip(path.resolve("maps").resolve(definition.objects + ".gz"));
-      byte[] terrain = definition.degzip(path.resolve("maps").resolve(definition.terrain + ".gz"));
+      byte[] objects = degzip(path.resolve("maps").resolve(definition.objects + ".gz"));
+      byte[] terrain = degzip(path.resolve("maps").resolve(definition.terrain + ".gz"));
 
       if (objects.length == 0) {
-        System.out.println("Objects for region: [id, file] - [" + id + ", " + definition.objects
-            + "] do not exist.");
-        return;
+        System.out.println("Objects for region: [x, y, id, file] - [" + x + ", " + y + ", " + id
+            + ", " + definition.objects + "] do not exist.");
+        continue;
       }
 
       if (terrain.length == 0) {
-        System.out.println("Terrain for region: [id, file] - [" + id + ", " + definition.terrain
-            + "] does not exist.");
-        return;
+        System.out.println("Terrain for region: [x, y, id, file] - [" + x + ", " + y + ", " + id
+            + ", " + definition.terrain + "] does not exist.");
+        continue;
       }
 
-      loadMaps(id, new ByteStream(objects), new ByteStream(terrain));
+      loadMaps(x, y, new ByteStream(objects), new ByteStream(terrain));
     }
+
+    System.out.println("Loaded " + definitions.size() + " map definitions.");
   }
 
-  private static void loadMaps(int regionId, ByteStream objectStream, ByteStream groundStream) {
-    int absX = (regionId >> 8) * 64;
-    int absY = (regionId & 0xff) * 64;
+  private static void loadMaps(int absX, int absY, ByteStream objectStream,
+      ByteStream groundStream) {
     byte[][][] heightMap = new byte[4][64][64];
-    for (int z = 0; z < 4; z++) {
-      for (int tileX = 0; tileX < 64; tileX++) {
-        for (int tileY = 0; tileY < 64; tileY++) {
-          while (true) {
-            int tileType = groundStream.getUByte();
-            if (tileType == 0) {
-              break;
-            } else if (tileType == 1) {
-              groundStream.getUByte();
-              break;
-            } else if (tileType <= 49) {
-              groundStream.getUByte();
-            } else if (tileType <= 81) {
-              heightMap[z][tileX][tileY] = (byte) (tileType - 49);
+    try {
+      for (int z = 0; z < 4; z++) {
+        for (int tileX = 0; tileX < 64; tileX++) {
+          for (int tileY = 0; tileY < 64; tileY++) {
+            while (true) {
+              int tileType = groundStream.getUByte();
+              if (tileType == 0) {
+                break;
+              } else if (tileType == 1) {
+                groundStream.getUByte();
+                break;
+              } else if (tileType <= 49) {
+                groundStream.getUByte();
+              } else if (tileType <= 81) {
+                heightMap[z][tileX][tileY] = (byte) (tileType - 49);
+              }
             }
           }
         }
       }
-    }
-    for (int i = 0; i < 4; i++) {
-      for (int i2 = 0; i2 < 64; i2++) {
-        for (int i3 = 0; i3 < 64; i3++) {
-          if ((heightMap[i][i2][i3] & 1) == 1) {
-            int height = i;
-            if ((heightMap[1][i2][i3] & 2) == 2) {
-              height--;
-            }
-            if (height >= 0 && height <= 3) {
-              addClipping(absX + i2, absY + i3, height, 0x200000);
+      for (int i = 0; i < 4; i++) {
+        for (int i2 = 0; i2 < 64; i2++) {
+          for (int i3 = 0; i3 < 64; i3++) {
+            if ((heightMap[i][i2][i3] & 1) == 1) {
+              int height = i;
+              if ((heightMap[1][i2][i3] & 2) == 2) {
+                height--;
+              }
+              if (height >= 0 && height <= 3) {
+                addClipping(absX + i2, absY + i3, height, 0x200000);
+              }
             }
           }
         }
       }
-    }
-    int objectId = -1;
-    int incr;
-    while ((incr = objectStream.getUSmart()) != 0) {
-      objectId += incr;
-      int location = 0;
-      int incr2;
-      while ((incr2 = objectStream.getUSmart()) != 0) {
-        location += incr2 - 1;
-        int localX = location >> 6 & 0x3f;
-        int localY = location & 0x3f;
-        int height = location >> 12;
-        int objectData = objectStream.getUByte();
-        int type = objectData >> 2;
-        int direction = objectData & 0x3;
-        if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
-          continue;
+      int objectId = -1;
+      int incr;
+      while ((incr = objectStream.getUSmart()) != 0) {
+        objectId += incr;
+        int location = 0;
+        int incr2;
+        while ((incr2 = objectStream.getUSmart()) != 0) {
+          location += incr2 - 1;
+          int localX = location >> 6 & 0x3f;
+          int localY = location & 0x3f;
+          int height = location >> 12;
+          int objectData = objectStream.getUByte();
+          int type = objectData >> 2;
+          int direction = objectData & 0x3;
+          if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
+            continue;
+          }
+          if ((heightMap[1][localX][localY] & 2) == 2) {
+            height--;
+          }
+          if (height >= 0 && height <= 3)
+            addObject(objectId, absX + localX, absY + localY, height, type, direction); // Add
+                                                                                        // object
+                                                                                        // to
+                                                                                        // clipping
         }
-        if ((heightMap[1][localX][localY] & 2) == 2) {
-          height--;
-        }
-        if (height >= 0 && height <= 3)
-          addObject(objectId, absX + localX, absY + localY, height, type, direction); // Add object
-                                                                                      // to clipping
       }
+    } catch (Exception cause) {
+      System.out.println("Unable to load maps in region: "
+          + ((((absX >> 3) / 8) << 8) + ((absY >> 3) / 8)) + " pos: " + absX + ", " + absY);
     }
   }
 
