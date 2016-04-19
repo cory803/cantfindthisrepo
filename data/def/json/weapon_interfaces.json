@@ -880,6 +880,11 @@
     "interface": "MACE"
   },
   {
+    "hash": 21100,
+    "item-id": 21100,
+    "interface": "MACE"
+  },
+  {
     "hash": 1422,
     "item-id": 1422,
     "interface": "MACE"
@@ -907,6 +912,16 @@
   {
     "hash": 4503,
     "item-id": 4503,
+    "interface": "SWORD"
+  },
+  {
+    "hash": 21091,
+    "item-id": 21091,
+    "interface": "SWORD"
+  },
+  {
+    "hash": 21089,
+    "item-id": 21089,
     "interface": "SWORD"
   },
   {
