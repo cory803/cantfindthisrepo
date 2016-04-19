@@ -223,7 +223,7 @@ public class Members {
     }
     if (wholeCommand.equalsIgnoreCase("wiki")) {
       player.getPacketSender().sendString(1, "www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
-      player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/wiki/");
+      player.getPacketSender().sendMessage("Attempting to open: www.rune.live/wiki/");
     }
     if (command[0].equalsIgnoreCase("attacks")) {
       int attack = DesolaceFormulas.getMeleeAttack(player);
@@ -238,20 +238,20 @@ public class Members {
     }
     if (command[0].equals("help") || command[0].equals("support")) {
       player.getPacketSender().sendString(1,
-          "wwwikov2.org/forum/index.php?app=core&module=global&section=register");
-      player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/?app=tickets");
+          "wwwrune.live/forum/index.php?app=core&module=global&section=register");
+      player.getPacketSender().sendMessage("Attempting to open: www.rune.live/forum/?app=tickets");
       player.getPacketSender()
           .sendMessage("Please note this requires you to register on the forums, type ::register!");
     }
     if (command[0].equals("register")) {
       player.getPacketSender().sendString(1,
-          "www.ikov2.org/forum/index.php?app=core&module=global&section=register");
+          "www.rune.live/forum/index.php?app=core&module=global&section=register");
       player.getPacketSender().sendMessage(
-          "Attempting to open: www.ikov2.org/forum/index.php?app=core&module=global&section=register");
+          "Attempting to open: www.rune.live/forum/index.php?app=core&module=global&section=register");
     }
     if (command[0].equals("forum") || command[0].equals("forums")) {
-      player.getPacketSender().sendString(1, "www.ikov2.org/forum/");
-      player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/forum/");
+      player.getPacketSender().sendString(1, "www.rune.live/forum/");
+      player.getPacketSender().sendMessage("Attempting to open: www.rune.live/forum/");
     }
     if (command[0].equals("scores") || command[0].equals("hiscores")
         || command[0].equals("highscores")) {
@@ -260,13 +260,13 @@ public class Members {
             .sendMessage("Hiscores is currently turned off, please try again in 30 minutes!");
         return;
       }
-      player.getPacketSender().sendString(1, "www.ikov2.org/hiscores/");
-      player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/hiscores/");
+      player.getPacketSender().sendString(1, "www.rune.live/hiscores/");
+      player.getPacketSender().sendMessage("Attempting to open: www.rune.live/hiscores/");
     }
     if (command[0].equals("thread")) {
       int thread = Integer.parseInt(command[1]);
       player.getPacketSender().sendString(1,
-          "www.ikov2.org/forum/index.php?/topic/" + thread + "-threadcommand/");
+          "www.rune.live/forum/index.php?/topic/" + thread + "-threadcommand/");
       player.getPacketSender().sendMessage("Attempting to open: Thread " + thread);
     }
     if (command[0].equals("Farming2")) {
@@ -322,7 +322,7 @@ public class Members {
       player.getPacketSender().sendMessage("Teleporting you to edgeville!");
     }
     if (command[0].equals("teamspeak")) {
-      player.getPacketSender().sendMessage("Teamspeak address: ts3.ikov2.org");
+      player.getPacketSender().sendMessage("Teamspeak address: ts3.rune.live");
     }
     if (command[0].equals("market")) {
       if (Dungeoneering.doingDungeoneering(player)) {

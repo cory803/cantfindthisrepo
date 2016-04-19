@@ -263,24 +263,24 @@ public class ButtonClickPacketListener implements PacketListener {
         DialogueManager.start(player, 65);
         break;
       case -10436:
-        player.getPacketSender().sendString(1, "www.ikov2.org/");
-        player.getPacketSender().sendMessage("Attempting to open: ikov2.org/");
+        player.getPacketSender().sendString(1, "www.rune.live/");
+        player.getPacketSender().sendMessage("Attempting to open: rune.live/");
         break;
       case -10435:
-        player.getPacketSender().sendString(1, "www.ikov2.org/forum");
-        player.getPacketSender().sendMessage("Attempting to open: ikov2.org/forum");
+        player.getPacketSender().sendString(1, "www.rune.live/forum");
+        player.getPacketSender().sendMessage("Attempting to open: rune.live/forum");
         break;
       case -10434:
-        player.getPacketSender().sendString(1, "www.ikov2.org/vote");
-        player.getPacketSender().sendMessage("Attempting to open: ikov2.org/vote");
+        player.getPacketSender().sendString(1, "www.rune.live/vote");
+        player.getPacketSender().sendMessage("Attempting to open: rune.live/vote");
         break;
       case -10433:
-        player.getPacketSender().sendString(1, "www.ikov2.org/store/");
-        player.getPacketSender().sendMessage("Attempting to open: ikov2.org/store");
+        player.getPacketSender().sendString(1, "www.rune.live/store/");
+        player.getPacketSender().sendMessage("Attempting to open: rune.live/store");
         break;
       case -10432:
-        player.getPacketSender().sendString(1, "www.ikov2.org/apply");
-        player.getPacketSender().sendMessage("Attempting to open: www.ikov2.org/apply");
+        player.getPacketSender().sendString(1, "www.rune.live/apply");
+        player.getPacketSender().sendMessage("Attempting to open: www.rune.live/apply");
         break;
       case -10431:
         player.getPacketSender().sendString(1, "www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
@@ -288,9 +288,9 @@ public class ButtonClickPacketListener implements PacketListener {
             .sendMessage("Attempting to open: www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
         break;
       case -10430:
-        player.getPacketSender().sendString(1, "www.ikov2.org/forum/?app=tickets");
+        player.getPacketSender().sendString(1, "www.rune.live/forum/?app=tickets");
         player.getPacketSender()
-            .sendMessage("Attempting to open: www.ikov2.org/forum/?app=tickets");
+            .sendMessage("Attempting to open: www.rune.live/forum/?app=tickets");
         break;
       case -10329:
         RecipeForDisaster.openQuestLog(player);

@@ -1009,7 +1009,7 @@ public class NPCOptionPacketListener implements PacketListener {
                 if (player.getDonorRights() == 0) {
                   player.getPacketSender()
                       .sendMessage("You need to be a member to teleport to this zone.")
-                      .sendMessage("To become a member, visit ikov2.org and purchase a scroll.");
+                      .sendMessage("To become a member, visit rune.live and purchase a scroll.");
                   return;
                 }
                 TeleportHandler.teleportPlayer(player, new Position(3424, 2919),

@@ -946,7 +946,7 @@ public class DialogueOptions {
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
 				if(player.getDonorRights() == 0) {
-					player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit ikov2.org and purchase a scroll.");
+					player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.").sendMessage("To become a member, visit rune.live and purchase a scroll.");
 					return;
 				}
 				TeleportHandler.teleportPlayer(player, new Position(3424, 2919), player.getSpellbook().getTeleportType());
@@ -1024,7 +1024,7 @@ public class DialogueOptions {
 				}
 				break;
 			case 45:
-				player.getPacketSender().sendString(1, "http://ikov2.org/forum/index.php?/topic/51-ironman-mode/");
+				player.getPacketSender().sendString(1, "http://rune.live/forum/index.php?/topic/51-ironman-mode/");
 				break;
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
