@@ -5,4 +5,5 @@ hs_err_pid*
 *.project
 *.classpath
 
+punishments/
 characters/
