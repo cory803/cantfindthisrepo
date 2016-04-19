@@ -90,6 +90,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
         item = slot < 0 ? null : player.getEquipment().getItems()[slot];
         if (item == null || item.getId() != id)
           return;
+        
         if (player.getLocation() == Location.DUEL_ARENA) {
           if (player.getDueling().selectedDuelRules[DuelRule.LOCK_WEAPON.ordinal()]) {
             if (item.getDefinition().getEquipmentSlot() == Equipment.WEAPON_SLOT

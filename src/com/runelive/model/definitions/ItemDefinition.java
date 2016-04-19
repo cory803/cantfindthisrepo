@@ -1,15 +1,14 @@
 package com.runelive.model.definitions;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 
+import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.runelive.model.container.impl.Equipment;
 
 /**
@@ -36,7 +35,7 @@ public class ItemDefinition {
    */
   public static void init() {
     try {
-      Gson gson = new Gson();
+      Gson gson = new GsonBuilder().setPrettyPrinting().create();
       definitions = gson.fromJson(
           Files.newBufferedReader(Paths.get("data", "def", "json", "item_definitions.json")),
           ItemDefinition[].class);
@@ -237,6 +236,26 @@ public class ItemDefinition {
 
   public int[] getRequirement() {
     return requirement;
+  }
+
+  private final List<String> actions = Lists.newArrayList("", "", "", "", "");
+
+  public void setAction(int index, String action) {
+    actions.set(index, action);
+  }
+
+  public boolean hasAction(String action) {
+    return actions.contains(action);
+  }
+
+  public String getAction(int index) {
+    return actions.get(index);
+  }
+
+  public boolean isWearable() {
+    String action = Strings.nullToEmpty(getAction(1)).toLowerCase();
+    return action.equals("wear") || action.equals("wield") || action.equals("equip")
+        || action.equals("hold") || action.equals("ride");
   }
 
   private enum EquipmentType {
