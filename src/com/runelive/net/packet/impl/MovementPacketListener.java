@@ -2,6 +2,7 @@ package com.runelive.net.packet.impl;
 
 import com.runelive.model.Animation;
 import com.runelive.model.Position;
+import com.runelive.model.movement.MovementQueue;
 import com.runelive.model.movement.PathFinder;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
@@ -57,38 +58,45 @@ public class MovementPacketListener implements PacketListener {
     final Position[] positions = new Position[steps + 1];
     positions[0] = new Position(firstStepX, firstStepY, player.getPosition().getZ());
 
-    boolean newWalking = false;
+    boolean invalidStep = false;
 
-    if (newWalking) {
-      if (steps > 0)
-        PathFinder.findPath(player.getCharacter(), positions[(steps)].getX(),
-            positions[(steps)].getY(), true, 16, 16);
-      else
-        PathFinder.findPath(player.getCharacter(), firstStepX, firstStepY, true, 16, 16);
-    } else {
-      boolean invalidStep = false;
-
-      for (int i = 0; i < steps; i++) {
-        positions[i + 1] = new Position(path[i][0] + firstStepX, path[i][1] + firstStepY,
-            player.getPosition().getZ());
-        int distance = player.getPosition().getDistance(positions[i + 1]);
-        if (distance < -22 || distance > 22) {
-          invalidStep = true;
-          break;
-        }
+    for (int i = 0; i < steps; i++) {
+      positions[i + 1] = new Position(path[i][0] + firstStepX, path[i][1] + firstStepY,
+          player.getPosition().getZ());
+      int distance = player.getPosition().getDistance(positions[i + 1]);
+      if (distance < -22 || distance > 22) {
+        invalidStep = true;
+        break;
       }
+    }
 
-      if (invalidStep) {
-        player.getMovementQueue().reset();
-        // System.out.println(""+player.getUsername()+" invalid step at
-        // "+player.getLocation().toString());
+    if (invalidStep) {
+      player.getMovementQueue().reset();
+      // System.out.println(""+player.getUsername()+" invalid step at
+      // "+player.getLocation().toString());
+      return;
+    }
+
+    for (int index = 0; index < positions.length; index++) {
+      Position last = index == 0 ? player.getPosition() : positions[index - 1];
+      Position next = positions[index];
+      Position dest = positions[steps];
+
+      if (!MovementQueue.canWalk(last, next, player.getSize())) {
+        System.out
+            .println("Unable to traverse from: " + last + " to " + next + ", rewriting path.");
+        // Try to rewrite the path if the clients path was malformed or bad
+        if (!PathFinder.findPath(player, dest.getX(), dest.getY(), true, 16, 16)
+            || !player.getMovementQueue().isMoving()) {
+          player.getPacketSender().sendMessage("You can't reach that!");
+        }
         return;
       }
+    }
 
-      if (player.getMovementQueue().addFirstStep(positions[0])) {
-        for (int i = 1; i < positions.length; i++) {
-          player.getMovementQueue().addStep(positions[i]);
-        }
+    if (player.getMovementQueue().addFirstStep(positions[0])) {
+      for (int i = 1; i < positions.length; i++) {
+        player.getMovementQueue().addStep(positions[i]);
       }
     }
 

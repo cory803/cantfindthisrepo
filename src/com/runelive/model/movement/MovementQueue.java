@@ -194,7 +194,6 @@ public final class MovementQueue {
     return RegionClipping.canMove(from, to, size, size);
   }
 
-
   /*
    * public boolean checkBarricade(int x, int y) { Position position = character.getPosition();
    * if(character.isPlayer()) { if(Locations.inSoulWars((Player)character)) {

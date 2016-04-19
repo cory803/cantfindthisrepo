@@ -276,7 +276,7 @@ public class Position {
 
   @Override
   public String toString() {
-    return "Position values: [x, y, z] - [" + x + ", " + y + ", " + z + "].";
+    return "Position [x=" + x + ", y=" + y + ", z=" + z + "]";
   }
 
   @Override
