@@ -1,7 +1,6 @@
 package com.runelive.model.definitions;
 
-import com.runelive.world.clip.stream.ByteStreamExt;
-import com.runelive.world.clip.stream.MemoryArchive;
+import java.nio.ByteBuffer;
 
 
 // Decompiled by Jad v1.5.8f. Copyright 2001 Pavel Kouznetsov.
@@ -69,7 +68,7 @@ public final class GameObjectDefinition {
       object.unwalkable = false;
       return object;
     }
-    dataBuffer667.currentOffset = streamIndices667[id];
+    dataBuffer667.position(streamIndices667[id]);
     object.id = id;
     object.nullLoader();
     try {
@@ -98,7 +97,7 @@ public final class GameObjectDefinition {
       return null;
     }
 
-    dataBuffer525.currentOffset = streamIndices525[i];
+    dataBuffer525.position(streamIndices525[i]);
     /* Removing doors etc */
     boolean removeObject = i == 7332 || i == 7326 || i == 7325 || i == 7385 || i == 7331
         || i == 7385 || i == 7320 || i == 7317 || i == 7323 || i == 7354 || i == 1536 || i == 1537
@@ -188,26 +187,26 @@ public final class GameObjectDefinition {
     childrenIDs = null;
   }
 
-  private static ByteStreamExt dataBuffer525;
-  private static ByteStreamExt dataBuffer667;
+  private static ByteBuffer dataBuffer525;
+  private static ByteBuffer dataBuffer667;
 
   public static int totalObjects667;
 
   public static void init() {
-    dataBuffer525 = new ByteStreamExt(getBuffer("loc.dat"));
-    ByteStreamExt idxBuffer525 = new ByteStreamExt(getBuffer("loc.idx"));
+    dataBuffer525 = ByteBuffer.wrap(getBuffer("loc.dat"));
+    ByteBuffer idxBuffer525 = ByteBuffer.wrap(getBuffer("loc.idx"));
 
-    dataBuffer667 = new ByteStreamExt(getBuffer("667loc.dat"));
-    ByteStreamExt idxBuffer667 = new ByteStreamExt(getBuffer("667loc.idx"));
+    dataBuffer667 = ByteBuffer.wrap(getBuffer("667loc.dat"));
+    ByteBuffer idxBuffer667 = ByteBuffer.wrap(getBuffer("667loc.idx"));
 
-    int totalObjects525 = idxBuffer525.readUnsignedWord();
-    totalObjects667 = idxBuffer667.readUnsignedWord();
+    int totalObjects525 = idxBuffer525.getShort() & 0xFFFF;
+    totalObjects667 = idxBuffer667.getShort() & 0xFFFF;
 
     streamIndices525 = new int[totalObjects525];
     int i = 2;
     for (int j = 0; j < totalObjects525; j++) {
       streamIndices525[j] = i;
-      i += idxBuffer525.readUnsignedWord();
+      i += idxBuffer525.getShort() & 0xFFFF;
     }
 
     streamIndices667 = new int[totalObjects667];
@@ -215,7 +214,7 @@ public final class GameObjectDefinition {
     i = 2;
     for (int j = 0; j < totalObjects667; j++) {
       streamIndices667[j] = i;
-      i += idxBuffer667.readUnsignedWord();
+      i += idxBuffer667.getShort() & 0xFFFF;
     }
 
     cache = new GameObjectDefinition[20];
@@ -242,53 +241,63 @@ public final class GameObjectDefinition {
     }
     return null;
   }
+  
+  private String getString(ByteBuffer buffer) {
+    StringBuilder builder = new StringBuilder();
+    char character;
+    while ((character = (char) buffer.get()) != 10) {
+      builder.append(character);
+    }
 
-  private void readValues(ByteStreamExt buffer) {
+    return builder.toString();
+  }
+
+  private void readValues(ByteBuffer buffer) {
     int i = -1;
     label0: do {
       int opcode;
       do {
-        opcode = buffer.readUnsignedByte();
+        opcode = buffer.get() & 0xFF;
         if (opcode == 0)
           break label0;
         if (opcode == 1) {
-          int k = buffer.readUnsignedByte();
+          int k = buffer.get() & 0xFF;
           if (k > 0)
             if (modelArray == null || lowMem) {
               objectModelType = new int[k];
               modelArray = new int[k];
               for (int k1 = 0; k1 < k; k1++) {
-                modelArray[k1] = buffer.readUnsignedWord();
-                objectModelType[k1] = buffer.readUnsignedByte();
+                modelArray[k1] = buffer.getShort() & 0xFFFF;
+                objectModelType[k1] = buffer.get() & 0xFF;
               }
             } else {
-              buffer.currentOffset += k * 3;
+              buffer.position(buffer.position() + k * 3);
             }
         } else if (opcode == 2)
-          name = buffer.readString();
+          name = getString(buffer);
         else if (opcode == 3)
-          description = buffer.readBytes();
+          description = getString(buffer);
         else if (opcode == 5) {
-          int l = buffer.readUnsignedByte();
+          int l = buffer.get() & 0xFF;
           if (l > 0)
             if (modelArray == null || lowMem) {
               objectModelType = null;
               modelArray = new int[l];
               for (int l1 = 0; l1 < l; l1++)
-                modelArray[l1] = buffer.readUnsignedWord();
+                modelArray[l1] = buffer.getShort() & 0xFFFF;
             } else {
               ;// buffer.currentOffset += l * 2;
             }
         } else if (opcode == 14)
-          tileSizeX = buffer.readUnsignedByte();
+          tileSizeX = buffer.get() & 0xFF;
         else if (opcode == 15)
-          tileSizeY = buffer.readUnsignedByte();
+          tileSizeY = buffer.get() & 0xFF;
         else if (opcode == 17)
           unwalkable = false;
         else if (opcode == 18)
           impenetrable = false;
         else if (opcode == 19) {
-          i = buffer.readUnsignedByte();
+          i = buffer.get() & 0xFF;
           if (i == 1)
             interactive = true;
         } else if (opcode == 21)
@@ -298,51 +307,51 @@ public final class GameObjectDefinition {
         else if (opcode == 23)
           aBoolean764 = true;
         else if (opcode == 24) {
-          anInt781 = buffer.readUnsignedWord();
+          anInt781 = buffer.getShort() & 0xFFFF;
           if (anInt781 == 65535)
             anInt781 = -1;
         } else if (opcode == 28)
-          anInt775 = buffer.readUnsignedByte();
+          anInt775 = buffer.get() & 0xFF;
         else if (opcode == 29)
-          aByte737 = buffer.readSignedByte();
+          aByte737 = buffer.get();
         else if (opcode == 39)
-          aByte742 = buffer.readSignedByte();
+          aByte742 = buffer.get();
         else if (opcode >= 30 && opcode < 39) {
           if (actions == null)
             actions = new String[10];
-          actions[opcode - 30] = buffer.readString();
+          actions[opcode - 30] = getString(buffer);
           if (actions[opcode - 30].equalsIgnoreCase("hidden"))
             actions[opcode - 30] = null;
         } else if (opcode == 40) {
-          int i1 = buffer.readUnsignedByte();
+          int i1 = buffer.get() & 0xFF;
           modifiedModelColors = new int[i1];
           originalModelColors = new int[i1];
           for (int i2 = 0; i2 < i1; i2++) {
-            modifiedModelColors[i2] = buffer.readUnsignedWord();
-            originalModelColors[i2] = buffer.readUnsignedWord();
+            modifiedModelColors[i2] = buffer.getShort() & 0xFFFF;
+            originalModelColors[i2] = buffer.getShort() & 0xFFFF;
           }
         } else if (opcode == 60)
-          anInt746 = buffer.readUnsignedWord();
+          anInt746 = buffer.getShort() & 0xFFFF;
         else if (opcode == 62)
           aBoolean751 = true;
         else if (opcode == 64)
           aBoolean779 = false;
         else if (opcode == 65)
-          anInt748 = buffer.readUnsignedWord();
+          anInt748 = buffer.getShort() & 0xFFFF;
         else if (opcode == 66)
-          anInt772 = buffer.readUnsignedWord();
+          anInt772 = buffer.getShort() & 0xFFFF;
         else if (opcode == 67)
-          anInt740 = buffer.readUnsignedWord();
+          anInt740 = buffer.getShort() & 0xFFFF;
         else if (opcode == 68)
-          anInt758 = buffer.readUnsignedWord();
+          anInt758 = buffer.getShort() & 0xFFFF;
         else if (opcode == 69)
-          anInt768 = buffer.readUnsignedByte();
+          anInt768 = buffer.get() & 0xFF;
         else if (opcode == 70)
-          anInt738 = buffer.readSignedWord();
+          anInt738 = buffer.getShort();
         else if (opcode == 71)
-          anInt745 = buffer.readSignedWord();
+          anInt745 = buffer.getShort();
         else if (opcode == 72)
-          anInt783 = buffer.readSignedWord();
+          anInt783 = buffer.getShort();
         else if (opcode == 73)
           aBoolean736 = true;
         else if (opcode == 74) {
@@ -350,20 +359,20 @@ public final class GameObjectDefinition {
         } else {
           if (opcode != 75)
             continue;
-          anInt760 = buffer.readUnsignedByte();
+          anInt760 = buffer.get() & 0xFF;
         }
         continue label0;
       } while (opcode != 77);
-      anInt774 = buffer.readUnsignedWord();
+      anInt774 = buffer.getShort() & 0xFFFF;
       if (anInt774 == 65535)
         anInt774 = -1;
-      anInt749 = buffer.readUnsignedWord();
+      anInt749 = buffer.getShort() & 0xFFFF;
       if (anInt749 == 65535)
         anInt749 = -1;
-      int j1 = buffer.readUnsignedByte();
+      int j1 = buffer.get() & 0xFF;
       childrenIDs = new int[j1 + 1];
       for (int j2 = 0; j2 <= j1; j2++) {
-        childrenIDs[j2] = buffer.readUnsignedWord();
+        childrenIDs[j2] = buffer.getShort() & 0xFFFF;
         if (childrenIDs[j2] == 65535)
           childrenIDs[j2] = -1;
       }
@@ -382,52 +391,52 @@ public final class GameObjectDefinition {
       anInt760 = unwalkable ? 1 : 0;
   }
 
-  private void readValues667(ByteStreamExt buffer) {
+  private void readValues667(ByteBuffer buffer) {
     int i = -1;
     label0: do {
       int opcode;
       do {
-        opcode = buffer.readUnsignedByte();
+        opcode = buffer.get() & 0xFF;
         if (opcode == 0)
           break label0;
         if (opcode == 1) {
-          int k = buffer.readUnsignedByte();
+          int k = buffer.get() & 0xFF;
           if (k > 0)
             if (modelArray == null || lowMem) {
               objectModelType = new int[k];
               modelArray = new int[k];
               for (int k1 = 0; k1 < k; k1++) {
-                modelArray[k1] = buffer.readUnsignedWord();
-                objectModelType[k1] = buffer.readUnsignedByte();
+                modelArray[k1] = buffer.getShort() & 0xFFFF;
+                objectModelType[k1] = buffer.get() & 0xFF;
               }
             } else {
-              buffer.currentOffset += k * 3;
+              buffer.position(buffer.position() + k * 3);
             }
         } else if (opcode == 2)
-          name = buffer.readString();
+          name = getString(buffer);
         else if (opcode == 3)
-          description = buffer.readBytes();
+          description = getString(buffer);
         else if (opcode == 5) {
-          int l = buffer.readUnsignedByte();
+          int l = buffer.get() & 0xFF;
           if (l > 0)
             if (modelArray == null || lowMem) {
               objectModelType = null;
               modelArray = new int[l];
               for (int l1 = 0; l1 < l; l1++)
-                modelArray[l1] = buffer.readUnsignedWord();
+                modelArray[l1] = buffer.getShort() & 0xFFFF;
             } else {
               ;// buffer.offset += l * 2;
             }
         } else if (opcode == 14)
-          tileSizeX = buffer.readUnsignedByte();
+          tileSizeX = buffer.get() & 0xFF;
         else if (opcode == 15)
-          tileSizeY = buffer.readUnsignedByte();
+          tileSizeY = buffer.get() & 0xFF;
         else if (opcode == 17)
           unwalkable = false;
         else if (opcode == 18)
           impenetrable = false;
         else if (opcode == 19) {
-          i = buffer.readUnsignedByte();
+          i = buffer.get() & 0xFF;
           if (i == 1)
             interactive = true;
         } else if (opcode == 21) {
@@ -437,48 +446,48 @@ public final class GameObjectDefinition {
         } else if (opcode == 23)
           aBoolean764 = true;
         else if (opcode == 24) {
-          buffer.readUnsignedWord();
+          buffer.getShort();
         } else if (opcode == 28)
-          buffer.readUnsignedByte();
+          buffer.get();
         else if (opcode == 29)
-          aByte737 = buffer.readSignedByte();
+          aByte737 = buffer.get();
         else if (opcode == 39)
-          aByte742 = buffer.readSignedByte();
+          aByte742 = buffer.get();
         else if (opcode >= 30 && opcode < 39) {
           if (actions == null)
             actions = new String[10];
-          actions[opcode - 30] = buffer.readString();
+          actions[opcode - 30] = getString(buffer);
           if (actions[opcode - 30].equalsIgnoreCase("hidden")
               || actions[opcode - 30].equalsIgnoreCase("null"))
             actions[opcode - 30] = null;
         } else if (opcode == 40) {
-          int i1 = buffer.readUnsignedByte();
+          int i1 = buffer.get() & 0xFF;
           for (int i2 = 0; i2 < i1; i2++) {
-            buffer.readUnsignedWord();
-            buffer.readUnsignedWord();
+            buffer.getShort();
+            buffer.getShort();
           }
         } else if (opcode == 60)
-          buffer.readUnsignedWord();
+          buffer.getShort();
         else if (opcode == 62)
           aBoolean751 = true;
         else if (opcode == 64)
           aBoolean779 = false;
         else if (opcode == 65)
-          anInt748 = buffer.readUnsignedWord();
+          anInt748 = buffer.getShort() & 0xFFFF;
         else if (opcode == 66)
-          anInt772 = buffer.readUnsignedWord();
+          anInt772 = buffer.getShort() & 0xFFFF;
         else if (opcode == 67)
-          anInt740 = buffer.readUnsignedWord();
+          anInt740 = buffer.getShort() & 0xFFFF;
         else if (opcode == 68)
-          buffer.readUnsignedWord();
+          buffer.getShort();
         else if (opcode == 69)
-          anInt768 = buffer.readUnsignedByte();
+          anInt768 = buffer.get() & 0xFF;
         else if (opcode == 70)
-          anInt738 = buffer.readSignedWord();
+          anInt738 = buffer.getShort();
         else if (opcode == 71)
-          anInt745 = buffer.readSignedWord();
+          anInt745 = buffer.getShort();
         else if (opcode == 72)
-          anInt783 = buffer.readSignedWord();
+          anInt783 = buffer.getShort();
         else if (opcode == 73)
           aBoolean736 = true;
         else if (opcode == 74) {
@@ -486,20 +495,20 @@ public final class GameObjectDefinition {
         } else {
           if (opcode != 75)
             continue;
-          anInt760 = buffer.readUnsignedByte();
+          anInt760 = buffer.get() & 0xFF;
         }
         continue label0;
       } while (opcode != 77);
-      anInt774 = buffer.readUnsignedWord();
+      anInt774 = buffer.getShort() & 0xFFFF;
       if (anInt774 == 65535)
         anInt774 = -1;
-      anInt749 = buffer.readUnsignedWord();
+      anInt749 = buffer.getShort() & 0xFFFF;
       if (anInt749 == 65535)
         anInt749 = -1;
-      int j1 = buffer.readUnsignedByte();
+      int j1 = buffer.get() & 0xFF;
       childrenIDs = new int[j1 + 1];
       for (int j2 = 0; j2 <= j1; j2++) {
-        childrenIDs[j2] = buffer.readUnsignedWord();
+        childrenIDs[j2] = buffer.getShort() & 0xFFFF;
         if (childrenIDs[j2] == 65535)
           childrenIDs[j2] = -1;
       }
@@ -572,7 +581,7 @@ public final class GameObjectDefinition {
   public int anInt774;
   public int anInt775;
   public int[] objectModelType;
-  public byte description[];
+  public String description;
   public boolean interactive;
   public boolean aBoolean779;
   public int anInt781;
@@ -580,7 +589,6 @@ public final class GameObjectDefinition {
   public int anInt783;
   public int[] modifiedModelColors;
   public String actions[];
-  public static MemoryArchive archive;
 
   public int actionCount() {
     return interactive ? 1 : 0;

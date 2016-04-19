@@ -3,6 +3,7 @@ package com.runelive.world.clip.region;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,7 +16,6 @@ import com.runelive.model.GameObject;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.definitions.GameObjectDefinition;
-import com.runelive.world.clip.stream.ByteStream;
 import com.runelive.world.entity.impl.Character;
 
 /**
@@ -86,6 +86,22 @@ public final class RegionClipping {
     return os.toByteArray();
   }
 
+  /**
+   * Reads a 'smart' (either a {@code byte} or {@code short} depending on the value) from the
+   * specified buffer.
+   * 
+   * @param buffer The buffer.
+   * @return The 'smart'.
+   */
+  // TODO: Move to a utility class
+  public static int readSmart(ByteBuffer buffer) {
+    int peek = buffer.get(buffer.position()) & 0xFF;
+    if (peek < 128) {
+      return buffer.get() & 0xFF;
+    }
+    return (buffer.getShort() & 0xFFFF) - 32768;
+  }
+
   public static void init() throws IOException {
 
     class MapDefinition {
@@ -106,13 +122,13 @@ public final class RegionClipping {
     Path path = Paths.get("data", "clipping");
 
     // Decodes map definitions
-    ByteStream stream = new ByteStream(Files.readAllBytes(path.resolve("map_index")));
+    ByteBuffer buffer = ByteBuffer.wrap(Files.readAllBytes(path.resolve("map_index")));
     Map<Integer, MapDefinition> definitions = new HashMap<>();
-    int size = stream.getUShort();
+    int size = buffer.getShort() & 0xFFFF;
     for (int i = 0; i < size; i++) {
-      int id = stream.getUShort();
-      int terrain = stream.getUShort();
-      int objects = stream.getUShort();
+      int id = buffer.getShort() & 0xFFFF;
+      int terrain = buffer.getShort() & 0xFFFF;
+      int objects = buffer.getShort() & 0xFFFF;
       definitions.put(id, new MapDefinition(id, objects, terrain));
       regions.computeIfAbsent(id, RegionClipping::new);
     }
@@ -138,28 +154,28 @@ public final class RegionClipping {
         continue;
       }
 
-      loadMaps(x, y, new ByteStream(objects), new ByteStream(terrain));
+      loadMaps(x, y, ByteBuffer.wrap(objects), ByteBuffer.wrap(terrain));
     }
 
     System.out.println("Loaded " + definitions.size() + " map definitions.");
   }
 
-  private static void loadMaps(int absX, int absY, ByteStream objectStream,
-      ByteStream groundStream) {
+  private static void loadMaps(int absX, int absY, ByteBuffer objectStream,
+      ByteBuffer groundStream) {
     byte[][][] heightMap = new byte[4][64][64];
     try {
       for (int z = 0; z < 4; z++) {
         for (int tileX = 0; tileX < 64; tileX++) {
           for (int tileY = 0; tileY < 64; tileY++) {
             while (true) {
-              int tileType = groundStream.getUByte();
+              int tileType = groundStream.get() & 0xFF;
               if (tileType == 0) {
                 break;
               } else if (tileType == 1) {
-                groundStream.getUByte();
+                groundStream.get();
                 break;
               } else if (tileType <= 49) {
-                groundStream.getUByte();
+                groundStream.get();
               } else if (tileType <= 81) {
                 heightMap[z][tileX][tileY] = (byte) (tileType - 49);
               }
@@ -184,16 +200,16 @@ public final class RegionClipping {
       }
       int objectId = -1;
       int incr;
-      while ((incr = objectStream.getUSmart()) != 0) {
+      while ((incr = readSmart(objectStream)) != 0) {
         objectId += incr;
         int location = 0;
         int incr2;
-        while ((incr2 = objectStream.getUSmart()) != 0) {
+        while ((incr2 = readSmart(objectStream)) != 0) {
           location += incr2 - 1;
           int localX = location >> 6 & 0x3f;
           int localY = location & 0x3f;
           int height = location >> 12;
-          int objectData = objectStream.getUByte();
+          int objectData = objectStream.get() & 0xFF;
           int type = objectData >> 2;
           int direction = objectData & 0x3;
           if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
@@ -301,9 +317,10 @@ public final class RegionClipping {
     boolean waterRcAltar = id == 2480 && pos.getX() == 3483 && pos.getY() == 4835;
     boolean crystalChest = id == 172 && pos.getX() == 3077 && pos.getY() == 3497;
     boolean wellOfGoodwill = id == 884 && pos.getX() == 3084 && pos.getY() == 3502;
-    if (well || mageBankLever || lawAltar || trees || wellOfGoodwill || chaosTunnels || lunar || barrows || rfd
-        || lumbridgeCastle || barbCourseRopeswing || catherbyAquariums || freeForAllPortal
-        || warriorsGuild || fightPit || godwars || barrows || waterRcAltar || crystalChest)
+    if (well || mageBankLever || lawAltar || trees || wellOfGoodwill || chaosTunnels || lunar
+        || barrows || rfd || lumbridgeCastle || barbCourseRopeswing || catherbyAquariums
+        || freeForAllPortal || warriorsGuild || fightPit || godwars || barrows || waterRcAltar
+        || crystalChest)
       return true;
     int[] info = getObjectInformation(object.getPosition());
     if (info != null) {
