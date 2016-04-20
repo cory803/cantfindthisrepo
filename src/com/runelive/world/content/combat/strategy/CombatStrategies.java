@@ -48,6 +48,8 @@ public class CombatStrategies {
     STRATEGIES.put(6252, defaultRangedStrategy);
     STRATEGIES.put(27, defaultRangedStrategy);
 
+    STRATEGIES.put(8776, new DwarvenHandCannoneer());
+    STRATEGIES.put(8771, new ChaosDwogre());
     STRATEGIES.put(2745, new Jad());
     STRATEGIES.put(2044, new Zulrah_Red());
     STRATEGIES.put(2043, new Zulrah_Green());
