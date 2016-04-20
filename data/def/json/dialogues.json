@@ -392,7 +392,7 @@
         "lines": 4,
         "line1": "Please! You must help me, adventurer!",
         "line2": "The Culinaromancer is back!",
-        "line3": "He's going to destroy IKov!",
+        "line3": "He's going to destroy RuneLive!",
         "line4": "Will you help defeat him?",
         "next": 44,
         "npcId": 3385
@@ -806,7 +806,7 @@
         "type": "NPC_STATEMENT",
         "anim": "NORMAL",
         "lines": 2,
-        "line1": "Welcome to @red@Ikov@bla@ adventurer!",
+        "line1": "Welcome to @red@RuneLive@bla@ adventurer!",
         "line2": "Can I help you in any way?",
         "next": 82,
         "npcId": 945
@@ -1813,8 +1813,8 @@
         "lines": 4,
         "line1": "Usually this happens due to another rsps's database",
         "line2": "being released that you have played before and hackers",
-        "line3": "will use your password from that server to hack you on Ikov.",
-        "line4": "on Ikov. Make sure your always secure!",
+        "line3": "will use your password from that server to hack you on RuneLive.",
+        "line4": "on RuneLive. Make sure your always secure!",
         "next": 182,
         "npcId": 945
     },
@@ -2127,7 +2127,7 @@
         "type": "OPTION",
         "lines": 2,
         "line1": "Pre-Eoc Rate",
-        "line2": "Ikov Rate",
+        "line2": "RuneLive Rate",
         "next": -1,
         "npcId": -1
     },
@@ -2149,7 +2149,7 @@
         "anim": "PLAIN_TALKING",
         "lines": 4,
         "line1": "I have set your experience rate to that of",
-        "line2": "a Ikov beginner. If you ever want",
+        "line2": "a RuneLive beginner. If you ever want",
         "line3": "to change it to pre-eoc come speak to me!",
         "line4": "-This only affects combat-",
         "next": -1,

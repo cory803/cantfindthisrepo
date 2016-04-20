@@ -1398,21 +1398,20 @@ public class ObjectActionPacketListener implements PacketListener {
                 break;
               case 15644:
               case 15641:
-                switch (player.getPosition().getZ()) {
+                switch(player.getPosition().getZ()) {
                   case 0:
                     player.moveTo(new Position(2855, player.getPosition().getY() >= 3546 ? 3545 : 3546));
                     break;
                   case 2:
-                    if (player.getPosition().getX() == 2846) {
-                      if (player.getInventory().getAmount(8851) < 70 && !Skillcape_Data.ATTACK.isWearingCape(player) || !Skillcape_Data.MASTER_ATTACK.isWearingCape(player)) {
+                    if(player.getPosition().getX() == 2846) {
+                      if(player.getInventory().getAmount(8851) < 70) {
                         player.getPacketSender().sendMessage("You need at least 70 tokens to enter this area.");
                         return;
                       }
                       DialogueManager.start(player, WarriorsGuild.warriorsGuildDialogue(player));
                       player.moveTo(new Position(2847, player.getPosition().getY(), 2));
-                      if(!Skillcape_Data.ATTACK.isWearingCape(player))
-                        WarriorsGuild.handleTokenRemoval(player);
-                    } else if (player.getPosition().getX() == 2847) {
+                      WarriorsGuild.handleTokenRemoval(player);
+                    } else if(player.getPosition().getX() == 2847) {
                       WarriorsGuild.resetCyclopsCombat(player);
                       player.moveTo(new Position(2846, player.getPosition().getY(), 2));
                       player.getMinigameAttributes().getWarriorsGuildAttributes().setEnteredTokenRoom(false);
