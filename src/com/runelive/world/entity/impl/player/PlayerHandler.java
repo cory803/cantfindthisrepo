@@ -56,6 +56,7 @@ import com.runelive.world.content.minigames.impl.Barrows;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.skill.impl.hunter.Hunter;
 import com.runelive.world.content.skill.impl.slayer.Slayer;
+import com.runelive.world.entity.impl.npc.NPC;
 
 public class PlayerHandler {
 
@@ -404,7 +405,10 @@ public class PlayerHandler {
       if (!player.isRegistered()) {
         return true;
       }
-
+      if(player.spawnedCerberus) {
+        NPC n = new NPC(5866, new Position(1240, 1253, player.getPosition().getZ())).setSpawnedFor(player);
+        World.deregister(n);
+      }
       boolean exception = GameServer.isUpdating()
           || World.getLogoutQueue().contains(player) && player.getLogoutTimer().elapsed(90000);
       if (player.logout() || exception) {
