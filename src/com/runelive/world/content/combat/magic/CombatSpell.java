@@ -93,7 +93,7 @@ public abstract class CombatSpell extends Spell {
    * 
    * @return the ending graphic played when the spell hits the victim.
    */
-  public abstract Optional<Graphic> endGraphic();
+  public abstract Optional<Graphic> endGraphic(Character cast);
 
   /**
    * Fired when the spell hits the victim.

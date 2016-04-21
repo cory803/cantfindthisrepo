@@ -38,7 +38,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2700, GraphicHeight.MIDDLE));
     }
 
@@ -122,7 +122,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(104));
     }
 
@@ -162,7 +162,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2708, GraphicHeight.MIDDLE));
     }
 
@@ -212,7 +212,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2723, GraphicHeight.MIDDLE));
     }
 
@@ -296,7 +296,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(107));
     }
 
@@ -336,7 +336,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2737, GraphicHeight.MIDDLE));
     }
 
@@ -386,7 +386,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2700, GraphicHeight.MIDDLE));
     }
 
@@ -471,7 +471,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(110));
     }
 
@@ -524,7 +524,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(181, GraphicHeight.HIGH));
     }
 
@@ -564,7 +564,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2709, GraphicHeight.MIDDLE));
     }
 
@@ -614,7 +614,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2724, GraphicHeight.MIDDLE));
     }
 
@@ -664,7 +664,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2738, GraphicHeight.MIDDLE));
     }
 
@@ -714,7 +714,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(147));
     }
 
@@ -764,7 +764,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2700, GraphicHeight.MIDDLE));
     }
 
@@ -814,7 +814,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2710, GraphicHeight.MIDDLE));
     }
 
@@ -864,7 +864,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(89));
     }
 
@@ -927,7 +927,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(180, GraphicHeight.HIGH));
     }
 
@@ -967,7 +967,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(329));
     }
 
@@ -1017,7 +1017,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2725, GraphicHeight.MIDDLE));
     }
 
@@ -1067,7 +1067,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2739, GraphicHeight.MIDDLE));
     }
 
@@ -1117,7 +1117,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(76));
     }
 
@@ -1167,7 +1167,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(77));
     }
 
@@ -1217,7 +1217,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(78));
     }
 
@@ -1267,7 +1267,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2700, GraphicHeight.MIDDLE));
     }
 
@@ -1317,7 +1317,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2711, GraphicHeight.MIDDLE));
     }
 
@@ -1401,7 +1401,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(169));
     }
 
@@ -1441,7 +1441,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2726, GraphicHeight.MIDDLE));
     }
 
@@ -1526,7 +1526,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(172));
     }
 
@@ -1566,7 +1566,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(2740, GraphicHeight.MIDDLE));
     }
 
@@ -1629,7 +1629,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(179, GraphicHeight.HIGH));
     }
 
@@ -1703,7 +1703,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(107));
     }
 
@@ -1776,7 +1776,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(1843));
     }
 
@@ -1829,7 +1829,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(385));
     }
 
@@ -1897,7 +1897,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(379));
     }
 
@@ -1956,7 +1956,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(373));
     }
 
@@ -2011,7 +2011,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(361));
     }
 
@@ -2066,7 +2066,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(389));
     }
 
@@ -2134,7 +2134,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(382));
     }
 
@@ -2193,7 +2193,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(376));
     }
 
@@ -2248,7 +2248,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(363));
     }
 
@@ -2303,7 +2303,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(387));
     }
 
@@ -2371,7 +2371,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(381));
     }
 
@@ -2430,7 +2430,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(375));
     }
 
@@ -2485,7 +2485,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(367));
     }
 
@@ -2540,7 +2540,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(391));
     }
 
@@ -2608,7 +2608,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(383));
     }
 
@@ -2667,7 +2667,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(377));
     }
 
@@ -2722,8 +2722,12 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
-      return Optional.of(new Graphic(369));
+    public Optional<Graphic> endGraphic(Character cast) {
+		if(cast.isFrozen()) {
+			return Optional.of(new Graphic(1677, GraphicHeight.MIDDLE));
+		} else {
+			return Optional.of(new Graphic(369));
+		}
     }
 
     @Override
@@ -2767,7 +2771,7 @@ public enum CombatSpells {
     }
 
     @Override
-    public Optional<Graphic> endGraphic() {
+    public Optional<Graphic> endGraphic(Character cast) {
       return Optional.of(new Graphic(502, GraphicHeight.MIDDLE));
     }
 

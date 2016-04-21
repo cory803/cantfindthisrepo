@@ -193,7 +193,7 @@ public class HitQueue {
         // Finish the magic spell with the correct end graphic.
         if (container.getCombatType() == CombatType.MAGIC
             && attacker.getCurrentlyCasting() != null) {
-          attacker.getCurrentlyCasting().endGraphic().ifPresent(victim::performGraphic);
+          attacker.getCurrentlyCasting().endGraphic(victim).ifPresent(victim::performGraphic);
           attacker.getCurrentlyCasting().finishCast(attacker, victim, true, damage);
           attacker.setCurrentlyCasting(null);
         }
