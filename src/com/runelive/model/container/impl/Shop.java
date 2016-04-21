@@ -760,7 +760,6 @@ public class Shop extends ItemContainer {
           case 18745: // Saradomin Halo
           case 18746: // Zamorak Halo
             return new Object[] {125, "Voting points"};
-          case 6500:
           case 19336:
           case 19337:
           case 19338:
@@ -1258,6 +1257,8 @@ public class Shop extends ItemContainer {
             return new Object[] {75000, "Dungeoneering tokens"};
           case 19669:
             return new Object[] {50000, "Dungeoneering tokens"};
+          case 6500:
+            return new Object[] {75000, "Dungeoneering tokens"};
         }
       } else if (shop == PRESTIGE_STORE) {
         switch (item) {
