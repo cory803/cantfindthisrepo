@@ -1421,7 +1421,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 break;
               case 28714:
                 player.performAnimation(new Animation(828));
-                player.delayedMoveTo(new Position(3089, 3492), 2);
+                player.delayedMoveTo(new Position(3216, 3437), 2);
                 break;
               case 1746:
                 player.performAnimation(new Animation(827));

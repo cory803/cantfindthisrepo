@@ -18,7 +18,7 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class WellOfGoodwill {
 
-  private static final int AMOUNT_NEEDED = 100000000; // 100m
+  private static final int AMOUNT_NEEDED = 300000000; // 300m
   private static final int LEAST_DONATE_AMOUNT_ACCEPTED = 1000000; // 1m
   private static final int BONUSES_DURATION = 120; // 2 hours in minutes
 
