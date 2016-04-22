@@ -741,7 +741,7 @@
         }
     },
 	{
-        "npc-id": 5507,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2723,
@@ -767,7 +767,7 @@
         }
     },
 	{
-        "npc-id": 5509,
+        "npc-id": 1265,
 		"face": WEST,
         "position": {
         	"x": 2719,
@@ -780,7 +780,7 @@
         }
     },
 	{
-        "npc-id": 5510,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2719,
@@ -793,7 +793,7 @@
         }
     },
 	{
-        "npc-id": 5511,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2719,
@@ -806,7 +806,7 @@
         }
     },
 	{
-        "npc-id": 5512,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2716,
@@ -819,7 +819,7 @@
         }
     },
 	{
-        "npc-id": 5513,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2715,
@@ -832,7 +832,7 @@
         }
     },
 	{
-        "npc-id": 5514,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2713,
@@ -845,7 +845,7 @@
         }
     },
 	{
-        "npc-id": 5507,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2711,
@@ -858,7 +858,7 @@
         }
     },
 	{
-        "npc-id": 5508,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2708,
@@ -871,7 +871,7 @@
         }
     },
 	{
-        "npc-id": 5509,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2707,
@@ -884,7 +884,7 @@
         }
     },
 	{
-        "npc-id": 5510,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2704,
@@ -897,7 +897,7 @@
         }
     },
 	{
-        "npc-id": 5511,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2701,
@@ -910,7 +910,7 @@
         }
     },
 	{
-        "npc-id": 5512,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2699,
@@ -923,7 +923,7 @@
         }
     },
 	{
-        "npc-id": 5513,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2703,
@@ -936,7 +936,7 @@
         }
     },
 	{
-        "npc-id": 5514,
+        "npc-id": 1265,
 		"face": EAST,
         "position": {
         	"x": 2699,
@@ -1430,7 +1430,7 @@
         }
     },
 	{
-        "npc-id": 5507,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2709,
@@ -1495,7 +1495,7 @@
         }
     },
 	{
-        "npc-id": 5508,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2714,
@@ -1508,7 +1508,7 @@
         }
     },
 	{
-        "npc-id": 5509,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2715,
@@ -1521,7 +1521,7 @@
         }
     },
 	{
-        "npc-id": 5510,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2708,
@@ -1534,7 +1534,7 @@
         }
     },
 	{
-        "npc-id": 5511,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2700,
@@ -1547,7 +1547,7 @@
         }
     },
 	{
-        "npc-id": 5512,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2695,
@@ -1560,7 +1560,7 @@
         }
     },
 	{
-        "npc-id": 5513,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2698,
@@ -1573,7 +1573,7 @@
         }
     },
 	{
-        "npc-id": 5514,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2710,
@@ -1586,7 +1586,7 @@
         }
     },
 	{
-        "npc-id": 5507,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2704,
@@ -1599,7 +1599,7 @@
         }
     },
 	{
-        "npc-id": 5508,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2698,
@@ -1612,7 +1612,7 @@
         }
     },
 	{
-        "npc-id": 5509,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2693,
@@ -1625,7 +1625,7 @@
         }
     },
 	{
-        "npc-id": 5510,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2696,
@@ -1638,7 +1638,7 @@
         }
     },
 	{
-        "npc-id": 5511,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2723,
@@ -1651,7 +1651,7 @@
         }
     },
 	{
-        "npc-id": 5512,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2724,
@@ -1664,7 +1664,7 @@
         }
     },
 	{
-        "npc-id": 5513,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2721,
@@ -1678,7 +1678,7 @@
     },
 	
 	{
-        "npc-id": 5514,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2714,
@@ -1691,7 +1691,7 @@
         }
     },
 	{
-        "npc-id": 5507,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2708,
@@ -1704,7 +1704,7 @@
         }
     },
 	{
-        "npc-id": 5508,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2687,
@@ -1717,7 +1717,7 @@
         }
     },
 	{
-        "npc-id": 5509,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2687,
@@ -1730,7 +1730,7 @@
         }
     },
 	{
-        "npc-id": 5510,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2684,
@@ -1743,7 +1743,7 @@
         }
     },
 	{
-        "npc-id": 5511,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2678,
@@ -1756,7 +1756,7 @@
         }
     },
 	{
-        "npc-id": 5512,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2674,
@@ -1769,7 +1769,7 @@
         }
     },
 	{
-        "npc-id": 5513,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2672,
@@ -1782,7 +1782,7 @@
         }
     },
 	{
-        "npc-id": 5514,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2681,
@@ -1795,7 +1795,7 @@
         }
     },
 	{
-        "npc-id": 5507,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2677,
@@ -1808,7 +1808,7 @@
         }
     },
 	{
-        "npc-id": 5508,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2671,
@@ -1821,7 +1821,7 @@
         }
     },
 	{
-        "npc-id": 5509,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2677,
@@ -1834,7 +1834,7 @@
         }
     },
 	{
-        "npc-id": 5510,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2680,
@@ -1847,7 +1847,7 @@
         }
     },
 	{
-        "npc-id": 5511,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2680,
@@ -1860,7 +1860,7 @@
         }
     },
 	{
-        "npc-id": 5513,
+        "npc-id": 1265,
 		"face": SOUTH,
         "position": {
         	"x": 2717,

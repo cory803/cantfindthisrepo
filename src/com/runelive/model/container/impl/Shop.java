@@ -1174,6 +1174,8 @@ public class Shop extends ItemContainer {
         switch (item) {
           case 18337:
             return new Object[] {350, "zombie fragments"};
+          case 10499:
+            return new Object[] {200, "zombie fragments"};
           case 10551:
             return new Object[] {500, "zombie fragments"};
           case 10548:
