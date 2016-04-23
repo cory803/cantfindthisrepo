@@ -2449,4 +2449,8 @@
 [4/10/16 10:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/10/16 10:43AM]	Jonny has done command home	
 [4/20/16 05:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
-                                                                            
+                                                                            [4/23/16 01:00PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 01:00PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 01:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 01:01PM]	Jonny has done command spawn mime mask;1	
+[4/23/16 01:01PM]	Jonny has done command spawn mime mask:1	
