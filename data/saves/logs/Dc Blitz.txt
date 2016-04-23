@@ -618,3 +618,8 @@
 [4/10/16 01:21AM]	Player owned shop items sold for: 10M	
 [4/10/16 01:21AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/10/16 01:21AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/20/16 05:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/20/16 05:33PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/20/16 05:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/20/16 05:33PM]	Dc Blitz has done command market	
+[4/20/16 05:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
