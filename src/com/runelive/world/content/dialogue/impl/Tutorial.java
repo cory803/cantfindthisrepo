@@ -73,7 +73,7 @@ public class Tutorial {
             return new String[] {"You can earn money doing many different things in",
                 "RuneLive. For example, see those Thieving stalls infront of ",
                 "you? You can steal items from them and sell them to the",
-                "merchant whose standing over there."};
+                "General Store."};
           };
 
           @Override
@@ -83,7 +83,7 @@ public class Tutorial {
 
           @Override
           public void specialAction() {
-            p.moveTo(new Position(3096, 3503));
+            p.moveTo(new Position(2659, 3303));
           }
 
           @Override
@@ -141,7 +141,7 @@ public class Tutorial {
 
           @Override
           public String[] dialogue() {
-            return new String[] {"Or sell items on the Grand Exchange."};
+            return new String[] {"Or sell items in the Player Owned shops."};
           };
 
           @Override
@@ -151,7 +151,7 @@ public class Tutorial {
 
           @Override
           public void specialAction() {
-            p.moveTo(new Position(3167, 3489));
+            p.moveTo(new Position(3210, 3436));
             p.setDirection(Direction.WEST);
           }
 
