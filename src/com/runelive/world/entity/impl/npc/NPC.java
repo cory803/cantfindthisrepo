@@ -210,6 +210,9 @@ public class NPC extends Character {
 
   public int getAggressionDistance() {
     int distance = getMovementCoordinator().getCoordinator().getRadius();
+	if(distance == 0) {
+		distance = 7;
+	}
     /*
      * switch(id) { }
      */

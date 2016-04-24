@@ -1066,8 +1066,7 @@ public final class CombatFactory {
         if (n.getPosition().isWithinDistance(victim.getPosition(), 1)) {
           return true;
         }
-        if (!n.getPosition().isWithinDistance(n.getDefaultPosition(),
-            10 + n.getMovementCoordinator().getCoordinator().getRadius())) {
+        if (!n.getPosition().isWithinDistance(n.getDefaultPosition(), 10 + n.getMovementCoordinator().getCoordinator().getRadius())) {
           n.getMovementQueue().reset();
           n.getMovementCoordinator().setCoordinateState(CoordinateState.AWAY);
           return false;
