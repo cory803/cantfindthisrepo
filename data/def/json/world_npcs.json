@@ -1313,11 +1313,11 @@
         }
     },
 	{
-        "npc-id": 308,
+        "npc-id": 558,
 		"face": NORTH,
         "position": {
-        	"x": 2344,
-        	"y": 3697,
+        	"x": 2855,
+        	"y": 3442,
         	"z": 0
         },
          "walking-policy": {
@@ -1329,8 +1329,8 @@
         "npc-id": 316,
 		"face": SOUTH,
         "position": {
-        	"x": 2340,
-        	"y": 3702,
+        	"x": 2855,
+        	"y": 3423,
         	"z": 0
         },
          "walking-policy": {
@@ -1342,8 +1342,8 @@
         "npc-id": 316,
 		"face": SOUTH,
         "position": {
-        	"x": 2341,
-        	"y": 3702,
+        	"x": 2853,
+        	"y": 3423,
         	"z": 0
         },
          "walking-policy": {
@@ -1355,8 +1355,8 @@
         "npc-id": 312,
 		"face": SOUTH,
         "position": {
-        	"x": 2343,
-        	"y": 3702,
+        	"x": 2846,
+        	"y": 3429,
         	"z": 0
         },
          "walking-policy": {
@@ -1368,8 +1368,8 @@
         "npc-id": 312,
 		"face": SOUTH,
         "position": {
-        	"x": 2344,
-        	"y": 3702,
+        	"x": 2844,
+        	"y": 3429,
         	"z": 0
         },
          "walking-policy": {
@@ -1381,8 +1381,8 @@
         "npc-id": 313,
 		"face": SOUTH,
         "position": {
-        	"x": 2346,
-        	"y": 3702,
+        	"x": 2838,
+        	"y": 3431,
         	"z": 0
         },
          "walking-policy": {
@@ -1394,8 +1394,8 @@
         "npc-id": 313,
 		"face": SOUTH,
         "position": {
-        	"x": 2571,
-        	"y": 3889,
+        	"x": 2836,
+        	"y": 3431,
         	"z": 0
         },
          "walking-policy": {
@@ -1407,8 +1407,8 @@
         "npc-id": 318,
 		"face": SOUTH,
         "position": {
-        	"x": 2349,
-        	"y": 3702,
+        	"x": 2860,
+        	"y": 3426,
         	"z": 0
         },
          "walking-policy": {
@@ -1420,8 +1420,8 @@
         "npc-id": 318,
 		"face": SOUTH,
         "position": {
-        	"x": 2563,
-        	"y": 3891,
+        	"x": 2859,
+        	"y": 3426,
         	"z": 0
         },
          "walking-policy": {

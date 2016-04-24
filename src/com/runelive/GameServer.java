@@ -8,8 +8,6 @@ import java.util.logging.Logger;
 
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
 import com.runelive.util.ShutdownHook;
-import com.rspserver.mvh.AuthService;
-import com.rspserver.mvh.Motivote;
 
 /**
  * The starting point of strattus.
@@ -48,7 +46,6 @@ public class GameServer {
       logger.info("Starting configuration settings...");
       ServerTimeUpdateTask.start_configuration_process();
       logger.info("Starting voting...");
-      AuthService.setProvider(new Motivote("qypFds9A0q2TAccrVXeAJvA8SGusjyxm"));
       logger.info("Finished starting configuration settings...");
       logger.info("The loader has finished loading utility tasks.");
       logger.info("RuneLive is now online on port " + GameSettings.GAME_PORT + "!");

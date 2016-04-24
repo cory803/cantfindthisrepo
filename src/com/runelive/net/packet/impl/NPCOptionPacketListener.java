@@ -609,7 +609,7 @@ public class NPCOptionPacketListener implements PacketListener {
               case 1685:
                 ShopManager.getShops().get(19).open(player);
                 break;
-              case 308:
+              case 558:
                 ShopManager.getShops().get(18).open(player);
                 break;
               case 802:
@@ -730,6 +730,9 @@ public class NPCOptionPacketListener implements PacketListener {
           @Override
           public void execute() {
             switch (npc.getId()) {
+              case 558:
+                ShopManager.getShops().get(18).open(player);
+                break;
               case 4646:
                 if (player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 8) {
                   if (!player.getInventory().isFull()) {

@@ -13,17 +13,21 @@ import com.runelive.world.content.Emotes.Skillcape_Data;
  */
 public enum CookingData {
 
-  SHRIMP(317, 315, 7954, 1, 1150, 33, "shrimp"), ANCHOVIES(321, 319, 323, 1, 1490, 34,
-      "anchovies"), TROUT(335, 333, 343, 15, 2600, 50, "trout"), COD(341, 339, 343, 18, 2684, 54,
-          "cod"), SALMON(331, 329, 343, 25, 3480, 58, "salmon"), TUNA(359, 361, 367, 30, 4350, 58,
-              "tuna"), LOBSTER(377, 379, 381, 40, 6510, 74, "lobster"), BASS(363, 365, 367, 40,
-                  8500, 75, "bass"), SWORDFISH(371, 373, 375, 45, 11600, 86, "swordfish"), MONKFISH(
-                      7944, 7946, 7948, 62, 13380, 91,
-                      "monkfish"), SHARK(383, 385, 387, 80, 18120, 94, "shark"), SEA_TURTLE(395,
-                          397, 399, 82, 21357, 105, "sea turtle"), MANTA_RAY(389, 391, 393, 91,
-                              23300, 99, "manta ray"), ROCKTAIL(15270, 15272, 15274, 92, 32524, 93,
-                                  "rocktail"), KARAMBWAN(3142, 3144, 3148, 30, 13434, 90,
-                                      "karambwan"),
+  SHRIMP(317, 315, 7954, 1, 1500, 33, "shrimp"),
+  ANCHOVIES(321, 319, 323, 1, 1500, 34, "anchovies"),
+  TROUT(335, 333, 343, 15, 3500, 50, "trout"),
+  COD(341, 339, 343, 18, 3750, 54, "cod"),
+  SALMON(331, 329, 343, 25, 3750, 58, "salmon"),
+  TUNA(359, 361, 367, 30, 5000, 58, "tuna"),
+  LOBSTER(377, 379, 381, 40, 6000, 74, "lobster"),
+  BASS(363, 365, 367, 40, 8000, 75, "bass"),
+  SWORDFISH(371, 373, 375, 45, 7000, 86, "swordfish"),
+  MONKFISH(7944, 7946, 7948, 62, 7500, 91, "monkfish"),
+  SHARK(383, 385, 387, 80, 10500, 94, "shark"),
+  SEA_TURTLE(395, 397, 399, 82, 10550, 105, "sea turtle"),
+  MANTA_RAY(389, 391, 393, 91, 10550, 99, "manta ray"),
+  ROCKTAIL(15270, 15272, 15274, 92, 11250, 93, "rocktail"),
+  KARAMBWAN(3142, 3144, 3148, 30, 9500, 90, "karambwan"),
 
 
   HEIM_CRAB(17797, 18159, 18179, 5, 50, 40, "heim crab"), RED_EYE(17799, 18161, 18181, 10, 75, 45,
