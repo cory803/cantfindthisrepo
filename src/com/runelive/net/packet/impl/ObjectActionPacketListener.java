@@ -1385,14 +1385,17 @@ public class ObjectActionPacketListener implements PacketListener {
                 }
                 break;
               case 1738:
-                if (player.getLocation() == Location.LUMBRIDGE
-                    && player.getPosition().getZ() == 0) {
-                  player.moveTo(
-                      new Position(player.getPosition().getX(), player.getPosition().getY(), 1));
-                } else {
-                  player.moveTo(new Position(2840, 3539, 2));
+                if (player.getLocation() == Location.LUMBRIDGE && player.getPosition().getZ() == 0) {
+					player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY(), 1));
+                } else if(player.getLocation() != Location.WARRIORS_GUILD && player.getPosition().getZ() == 0) {
+					player.moveTo(new Position(2729, 3462, 1));
+				} else {
+					player.moveTo(new Position(2840, 3539, 2));
                 }
                 break;
+				case 1740:
+					player.moveTo(new Position(2729, 3462, 0));
+					break;
               case 15638:
                 player.moveTo(new Position(2840, 3539, 0));
                 break;
