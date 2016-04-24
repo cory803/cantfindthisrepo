@@ -47,7 +47,7 @@ public class PosItemSearch extends Input {
             foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()),
                 new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(),
                     o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
-            start_button += 4;
+            //start_button += 4;
           }
         }
       }
