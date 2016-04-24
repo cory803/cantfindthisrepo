@@ -88,7 +88,7 @@ public class Herblore {
         public void execute() {
           player.getInventory().delete(pot.getUnfinishedPotion(), 1).delete(pot.getItemNeeded(), 1)
               .add(pot.getFinishedPotion(), 1);
-          player.getSkillManager().addExperience(Skill.HERBLORE, (pot.getExpGained() * 100));
+          player.getSkillManager().addExperience(Skill.HERBLORE, (pot.getExpGained() * 50));
           String name = ItemDefinition.forId(pot.getFinishedPotion()).getName();
           player.getPacketSender().sendMessage(
               "You combine the ingredients to make " + Misc.anOrA(name) + " " + name + ".");
@@ -105,15 +105,12 @@ public class Herblore {
   }
 
   enum SpecialPotion {
-    EXTREME_ATTACK(new Item[] {new Item(145), new Item(261)}, new Item(15309), 88,
-        4430), EXTREME_STRENGTH(new Item[] {new Item(157), new Item(267)}, new Item(15313), 88,
-            4753), EXTREME_DEFENCE(new Item[] {new Item(163), new Item(2481)}, new Item(15317), 90,
-                5002), EXTREME_MAGIC(new Item[] {new Item(3042), new Item(9594)}, new Item(15321),
-                    91, 5408), EXTREME_RANGED(new Item[] {new Item(169), new Item(12539, 5)},
-                        new Item(15325), 92,
-                        5924), OVERLOAD(new Item[] {new Item(15309), new Item(15313),
-                            new Item(15317), new Item(15321), new Item(15325)}, new Item(15333), 96,
-                            13103);
+    EXTREME_ATTACK(new Item[] {new Item(145), new Item(261)}, new Item(15309), 88, 11000),
+    EXTREME_STRENGTH(new Item[] {new Item(157), new Item(267)}, new Item(15313), 88, 11500),
+    EXTREME_DEFENCE(new Item[] {new Item(163), new Item(2481)}, new Item(15317), 90, 12000),
+    EXTREME_MAGIC(new Item[] {new Item(3042), new Item(9594)}, new Item(15321), 91, 12500),
+    EXTREME_RANGED(new Item[] {new Item(169), new Item(12539, 5)}, new Item(15325), 92, 13000),
+    OVERLOAD(new Item[] {new Item(15309), new Item(15313), new Item(15317), new Item(15321), new Item(15325)}, new Item(15333), 96, 15000);
 
     SpecialPotion(Item[] ingridients, Item product, int lvlReq, int exp) {
       this.ingridients = ingridients;
