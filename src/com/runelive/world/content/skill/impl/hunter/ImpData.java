@@ -12,7 +12,7 @@ public enum ImpData {
   /**
    * Gourmet Impling.
    */
-  GOURMET("Gourmet Impling", 11244, 6980, 34, 6057),
+  GOURMET("Gourmet Impling", 11242, 6980, 34, 6057),
   /**
    * Earth Impling.
    */
