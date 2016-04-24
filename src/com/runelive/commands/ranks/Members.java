@@ -222,7 +222,7 @@ public class Members {
       }
     }
     if (wholeCommand.equalsIgnoreCase("wiki")) {
-      player.getPacketSender().sendString(1, "www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
+      player.getPacketSender().sendString(1, "www.runelive.wikia.com/wiki/RuneLive_Wiki");
       player.getPacketSender().sendMessage("Attempting to open: www.rune.live/wiki/");
     }
     if (command[0].equalsIgnoreCase("attacks")) {

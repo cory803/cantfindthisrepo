@@ -91,10 +91,14 @@ public class Owners {
             "When redeeming auths you will now redeem " + GameSettings.AUTH_AMOUNT + " x rewards!");
       }
     }  
-	if (command[0].equals("wikinpcdrop")) {
+	if (command[0].equals("wikidrop")) {
       int npcid = Integer.parseInt(command[1]);
       WikiExport.exportDropTable(npcid);
 	  player.getPacketSender().sendMessage("Exporting npc id: "+npcid+" wiki drop table...");
+    }
+	if (command[0].equals("wikidropall")) {
+      WikiExport.exportAllDropTables();
+	  player.getPacketSender().sendMessage("Exporting all drop tables into a wiki format located at wiki/");
     }
     if (command[0].equals("antiflood")) {
       int flood = Integer.parseInt(command[1]);

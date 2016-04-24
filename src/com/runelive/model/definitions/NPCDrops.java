@@ -217,6 +217,13 @@ public class NPCDrops {
         amount = count[0] + Misc.getRandom(count[1]);
       return new Item(id, amount);
     }
+ 
+    public int getCount1() {
+      return count[0];
+    } 
+	public int getCount2() {
+      return count[count.length];
+    }
   }
 
   public enum DropChance {
