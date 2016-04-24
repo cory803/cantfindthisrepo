@@ -55,13 +55,13 @@ public class RunecraftingData {
   }
 
   public enum RuneData {
-    AIR_RUNE(556, 1, 120, 2478, false), MIND_RUNE(558, 2, 140, 2479, false), WATER_RUNE(555, 5, 150,
-        2480, false), EARTH_RUNE(557, 9, 170, 2481, false), FIRE_RUNE(554, 14, 210, 2482,
-            false), BODY_RUNE(559, 20, 245, 2483, false), COSMIC_RUNE(564, 27, 350, 2484,
-                true), CHAOS_RUNE(562, 35, 450, 2487, true), ASTRAL_RUNE(9075, 40, 480, 17010,
-                    true), NATURE_RUNE(561, 44, 510, 2486, true), LAW_RUNE(563, 54, 712, 2485,
-                        true), DEATH_RUNE(560, 65, 957, 2488, true), BLOOD_RUNE(565, 75, 1390,
-                            30624, true), ARMADYL_RUNE(21083, 77, 1410, 47120, true);
+    AIR_RUNE(556, 1, 200, 2478, false), MIND_RUNE(558, 2, 220, 2479, false), WATER_RUNE(555, 5, 240, 2480, false),
+    EARTH_RUNE(557, 9, 260, 2481, false), FIRE_RUNE(554, 14, 280, 2482, false),
+    BODY_RUNE(559, 20, 300, 2483, false), COSMIC_RUNE(564, 27, 320, 2484, true),
+    CHAOS_RUNE(562, 35, 340, 2487, true), ASTRAL_RUNE(9075, 40, 348, 17010, true),
+    NATURE_RUNE(561, 44, 360, 2486, true), LAW_RUNE(563, 54, 380, 2485, true),
+    DEATH_RUNE(560, 65, 400, 2488, true), BLOOD_RUNE(565, 75, 952, 30624, true),
+    ARMADYL_RUNE(21083, 77, 1410, 1188, true);
 
     RuneData(int rune, int levelReq, int xpReward, int altarObjectID, boolean pureRequired) {
       this.runeID = rune;
