@@ -96,12 +96,9 @@ public class Mining {
                     Achievements.doProgress(player, AchievementData.MINE_25_RUNITE_ORES);
                     Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
                   }
-                  int multiplier = (Skillcape_Data.MINING.isWearingCape(player) || Skillcape_Data.MASTER_MINING.isWearingCape(player) && Misc.inclusiveRandom(0, 9) == 0) ? 2 : 1;
+                  int multiplier = (Skillcape_Data.MINING.isWearingCape(player) && Misc.inclusiveRandom(0, 9) == 0) ? 2 : 1;
                   if (o.getItemId() != -1) {
                     player.getInventory().add(o.getItemId(), 1 * multiplier);
-                  }
-                  if (o.getItemId() != -1) {
-                    player.getInventory().add(o.getItemId(), 1);
                   }
                   player.getSkillManager().addExperience(Skill.MINING,
                       (int) (o.getXpAmount() * 1.4));
