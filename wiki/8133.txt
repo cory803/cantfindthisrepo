@@ -1,0 +1,188 @@
+
+{{DropsTableHeader|Name=Misc}}
+{{DropsLine|Name=Gold charm|Quantity=13|Rarity=common}}
+{{DropsLine|Name=Green charm|Quantity=13|Rarity=COMMON}}
+{{DropsLine|Name=Crimson charm|Quantity=13|Rarity=COMMON}}
+{{DropsLine|Name=Blue charm|Quantity=13|Rarity=UNCOMMON}}
+{{DropsLine|Name=Pure essence|Quantity=2000|Rarity=UNCOMMON}}
+{{DropsLine|Name=Regen bracelet|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Onyx bolts (e)|Quantity=350|Rarity=UNCOMMON}}
+{{DropsLine|Name=Cannonball|Quantity=2500|Rarity=UNCOMMON}}
+{{DropsLine|Name=Green dragonhide|Quantity=100|Rarity=UNCOMMON}}
+{{DropsLine|Name=Antipoison++ (3)|Quantity=20|Rarity=UNCOMMON}}
+{{DropsLine|Name=Tuna potato|Quantity=30|Rarity=UNCOMMON}}
+{{DropsLine|Name=Cosmic rune|Quantity=250|Rarity=UNCOMMON}}
+{{DropsLine|Name=Death rune|Quantity=120|Rarity=UNCOMMON}}
+{{DropsLine|Name=Law rune|Quantity=150|Rarity=UNCOMMON}}
+{{DropsLine|Name=Watermelon seed|Quantity=24|Rarity=UNCOMMON}}
+{{DropsLine|Name=Soul rune|Quantity=100|Rarity=UNCOMMON}}
+{{DropsLine|Name=Long, sharp claws|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe top|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe bottom|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic air staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic earth staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic water staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Raw shark|Quantity=70|Rarity=UNCOMMON}}
+{{DropsLine|Name=Whiteberry seed|Quantity=120|Rarity=COMMON}}
+{{DropsLine|Name=Adamant arrow|Quantity=250|Rarity=COMMON}}
+{{DropsLine|Name=Nature talisman|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Teak plank|Quantity=100|Rarity=COMMON}}
+{{DropsLine|Name=Adamant bar|Quantity=60|Rarity=COMMON}}
+{{DropsLine|Name=Runite bolts|Quantity=250|Rarity=COMMON}}
+{{DropsLine|Name=Adamantite ore|Quantity=65|Rarity=COMMON}}
+{{DropsLine|Name=Rune javelin|Quantity=50|Rarity=COMMON}}
+{{DropsLine|Name=Shield right half|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Dragon dagger|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut dragonstone|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Uncut diamond|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut ruby|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut emerald|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut sapphire|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Onyx bolts|Quantity=100|Rarity=COMMON}}
+{{DropsLine|Name=Rune bar|Quantity=15|Rarity=COMMON}}
+{{DropsLine|Name=Clean snapdragon|Quantity=10|Rarity=UNCOMMON}}
+{{DropsLine|Name=Clean torstol|Quantity=27|Rarity=UNCOMMON}}
+{{DropsLine|Name=Clean toadflax|Quantity=20|Rarity=UNCOMMON}}
+{{DropsLine|Name=Big bones|Quantity=300|Rarity=UNCOMMON}}
+{{DropsLine|Name=Pure essence|Quantity=250|Rarity=UNCOMMON}}
+{{DropsLine|Name=Regen bracelet|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Onyx bolts (e)|Quantity=125|Rarity=UNCOMMON}}
+{{DropsLine|Name=Cannonball|Quantity=250|Rarity=UNCOMMON}}
+{{DropsLine|Name=Green dragonhide|Quantity=10|Rarity=UNCOMMON}}
+{{DropsLine|Name=Antipoison++ (3)|Quantity=20|Rarity=UNCOMMON}}
+{{DropsLine|Name=Tuna potato|Quantity=30|Rarity=UNCOMMON}}
+{{DropsLine|Name=Cosmic rune|Quantity=25|Rarity=UNCOMMON}}
+{{DropsLine|Name=Death rune|Quantity=120|Rarity=UNCOMMON}}
+{{DropsLine|Name=Law rune|Quantity=150|Rarity=UNCOMMON}}
+{{DropsLine|Name=Watermelon seed|Quantity=24|Rarity=UNCOMMON}}
+{{DropsLine|Name=Soul rune|Quantity=100|Rarity=UNCOMMON}}
+{{DropsLine|Name=Long, sharp claws|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe top|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe bottom|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic air staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic earth staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic water staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Raw shark|Quantity=70|Rarity=UNCOMMON}}
+{{DropsLine|Name=Whiteberry seed|Quantity=120|Rarity=COMMON}}
+{{DropsLine|Name=Adamant arrow|Quantity=250|Rarity=COMMON}}
+{{DropsLine|Name=Nature talisman|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Teak plank|Quantity=100|Rarity=COMMON}}
+{{DropsLine|Name=Adamant bar|Quantity=25|Rarity=COMMON}}
+{{DropsLine|Name=Runite bolts|Quantity=125|Rarity=COMMON}}
+{{DropsLine|Name=Adamantite ore|Quantity=65|Rarity=COMMON}}
+{{DropsLine|Name=Rune javelin|Quantity=5|Rarity=COMMON}}
+{{DropsLine|Name=Shield right half|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Dragon dagger|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut dragonstone|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Uncut diamond|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut ruby|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut emerald|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut sapphire|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Onyx bolts|Quantity=100|Rarity=COMMON}}
+{{DropsLine|Name=Rune bar|Quantity=15|Rarity=COMMON}}
+{{DropsLine|Name=Clean snapdragon|Quantity=10|Rarity=UNCOMMON}}
+{{DropsLine|Name=Clean torstol|Quantity=27|Rarity=UNCOMMON}}
+{{DropsLine|Name=Clean toadflax|Quantity=20|Rarity=UNCOMMON}}
+{{DropsLine|Name=Big bones|Quantity=300|Rarity=UNCOMMON}}
+{{DropsLine|Name=Pure essence|Quantity=250|Rarity=UNCOMMON}}
+{{DropsLine|Name=Regen bracelet|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Onyx bolts (e)|Quantity=125|Rarity=UNCOMMON}}
+{{DropsLine|Name=Cannonball|Quantity=250|Rarity=UNCOMMON}}
+{{DropsLine|Name=Green dragonhide|Quantity=100|Rarity=UNCOMMON}}
+{{DropsLine|Name=Antipoison++ (3)|Quantity=20|Rarity=UNCOMMON}}
+{{DropsLine|Name=Tuna potato|Quantity=30|Rarity=UNCOMMON}}
+{{DropsLine|Name=Cosmic rune|Quantity=250|Rarity=UNCOMMON}}
+{{DropsLine|Name=Death rune|Quantity=120|Rarity=UNCOMMON}}
+{{DropsLine|Name=Law rune|Quantity=150|Rarity=UNCOMMON}}
+{{DropsLine|Name=Watermelon seed|Quantity=24|Rarity=UNCOMMON}}
+{{DropsLine|Name=Soul rune|Quantity=100|Rarity=UNCOMMON}}
+{{DropsLine|Name=Long, sharp claws|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe top|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe bottom|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic air staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic earth staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic water staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Raw shark|Quantity=70|Rarity=UNCOMMON}}
+{{DropsLine|Name=Whiteberry seed|Quantity=120|Rarity=COMMON}}
+{{DropsLine|Name=Adamant arrow|Quantity=250|Rarity=COMMON}}
+{{DropsLine|Name=Nature talisman|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Teak plank|Quantity=100|Rarity=COMMON}}
+{{DropsLine|Name=Adamant bar|Quantity=25|Rarity=COMMON}}
+{{DropsLine|Name=Runite bolts|Quantity=125|Rarity=COMMON}}
+{{DropsLine|Name=Adamantite ore|Quantity=65|Rarity=COMMON}}
+{{DropsLine|Name=Rune javelin|Quantity=5|Rarity=COMMON}}
+{{DropsLine|Name=Shield right half|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Dragon dagger|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut dragonstone|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Uncut diamond|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut ruby|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut emerald|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Uncut sapphire|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Onyx bolts|Quantity=100|Rarity=COMMON}}
+{{DropsLine|Name=Rune bar|Quantity=15|Rarity=COMMON}}
+{{DropsLine|Name=Clean snapdragon|Quantity=10|Rarity=UNCOMMON}}
+{{DropsLine|Name=Clean torstol|Quantity=27|Rarity=UNCOMMON}}
+{{DropsLine|Name=Clean toadflax|Quantity=20|Rarity=UNCOMMON}}
+{{DropsLine|Name=Big bones|Quantity=300|Rarity=UNCOMMON}}
+{{DropsLine|Name=Green dragonhide|Quantity=1000|Rarity=UNCOMMON}}
+{{DropsLine|Name=Antipoison++ (3)|Quantity=200|Rarity=UNCOMMON}}
+{{DropsLine|Name=Tuna potato|Quantity=300|Rarity=UNCOMMON}}
+{{DropsLine|Name=Cosmic rune|Quantity=2500|Rarity=UNCOMMON}}
+{{DropsLine|Name=Death rune|Quantity=1200|Rarity=UNCOMMON}}
+{{DropsLine|Name=Law rune|Quantity=1500|Rarity=UNCOMMON}}
+{{DropsLine|Name=Watermelon seed|Quantity=24|Rarity=UNCOMMON}}
+{{DropsLine|Name=Soul rune|Quantity=100|Rarity=UNCOMMON}}
+{{DropsLine|Name=Long, sharp claws|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe top|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic robe bottom|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic air staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic earth staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mystic water staff|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Raw shark|Quantity=700|Rarity=COMMON}}
+{{DropsLine|Name=Whiteberry seed|Quantity=1200|Rarity=common}}
+{{DropsLine|Name=Adamant arrow|Quantity=2500|Rarity=common}}
+{{DropsLine|Name=Nature talisman|Quantity=1|Rarity=common}}
+{{DropsLine|Name=Teak plank|Quantity=1000|Rarity=common}}
+{{DropsLine|Name=Adamant bar|Quantity=160|Rarity=common}}
+{{DropsLine|Name=Runite bolts|Quantity=1250|Rarity=common}}
+{{DropsLine|Name=Adamantite ore|Quantity=650|Rarity=common}}
+{{DropsLine|Name=Rune javelin|Quantity=50|Rarity=common}}
+{{DropsLine|Name=Tooth half of a key|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Loop half of a key|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Shield right half|Quantity=1|Rarity=common}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=common}}
+{{DropsLine|Name=Dragon dagger|Quantity=1|Rarity=common}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=common}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=common}}
+{{DropsLine|Name=Uncut dragonstone|Quantity=10|Rarity=COMMON}}
+{{DropsLine|Name=Uncut diamond|Quantity=40|Rarity=common}}
+{{DropsLine|Name=Uncut ruby|Quantity=70|Rarity=common}}
+{{DropsLine|Name=Uncut emerald|Quantity=100|Rarity=common}}
+{{DropsLine|Name=Uncut sapphire|Quantity=150|Rarity=common}}
+{{DropsLine|Name=Onyx bolts|Quantity=1000|Rarity=common}}
+{{DropsLine|Name=Rune bar|Quantity=150|Rarity=common}}
+{{DropsLine|Name=Clean snapdragon|Quantity=100|Rarity=COMMON}}
+{{DropsLine|Name=Clean torstol|Quantity=270|Rarity=COMMON}}
+{{DropsLine|Name=Clean toadflax|Quantity=200|Rarity=COMMON}}
+{{DropsLine|Name=Big bones|Quantity=3000|Rarity=COMMON}}
+{{DropsLine|Name=Pure essence|Quantity=2500|Rarity=COMMON}}
+{{DropsLine|Name=Regen bracelet|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Onyx bolts (e)|Quantity=125|Rarity=COMMON}}
+{{DropsLine|Name=Cannonball|Quantity=2500|Rarity=COMMON}}
+
+{{DropsTableHeader|Name=Rare Drops}}
+{{DropsLine|Name=Pet Corporeal beast|Quantity=1|Rarity=rare}}
+{{DropsLine|Name=Elysian sigil|Quantity=1|Rarity=rare}}
+{{DropsLine|Name=Divine sigil|Quantity=1|Rarity=rare}}
+{{DropsLine|Name=Arcane sigil|Quantity=1|Rarity=rare}}
+{{DropsLine|Name=Spectral sigil|Quantity=1|Rarity=rare}}
+{{DropsLine|Name=Holy elixir|Quantity=1|Rarity=rare}}

@@ -1,0 +1,26 @@
+
+{{DropsTableHeader|Name=100%}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+{{DropsTableHeader|Name=Misc}}
+{{DropsLine|Name=Coins|Quantity=2|Rarity=common}}
+{{DropsLine|Name=Grimy guam|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Grimy marrentill|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Grimy tarromin|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Grimy harralander|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Grimy cadantine|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Bronze arrow|Quantity=7|Rarity=COMMON}}
+{{DropsLine|Name=Chaos rune|Quantity=2|Rarity=COMMON}}
+{{DropsLine|Name=Fire rune|Quantity=6|Rarity=COMMON}}
+{{DropsLine|Name=Fire rune|Quantity=4|Rarity=COMMON}}
+{{DropsLine|Name=Earth talisman|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Copper ore|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Tin ore|Quantity=1|Rarity=COMMON}}
+{{DropsLine|Name=Fishing bait|Quantity=7|Rarity=COMMON}}
+{{DropsLine|Name=Bronze med helm|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mind rune|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Mind rune|Quantity=1|Rarity=UNCOMMON}}
+{{DropsLine|Name=Air rune|Quantity=3|Rarity=UNCOMMON}}
+{{DropsLine|Name=Red vine worm|Quantity=1|Rarity=UNCOMMON}}
+
+{{DropsTableHeader|Name=Rare Drops}}

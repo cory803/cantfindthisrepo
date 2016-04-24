@@ -49,6 +49,7 @@ import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerSaving;
+import com.runelive.util.WikiExport;
 
 public class Owners {
 
@@ -89,6 +90,11 @@ public class Owners {
         World.sendMessage(
             "When redeeming auths you will now redeem " + GameSettings.AUTH_AMOUNT + " x rewards!");
       }
+    }  
+	if (command[0].equals("wikinpcdrop")) {
+      int npcid = Integer.parseInt(command[1]);
+      WikiExport.exportDropTable(npcid);
+	  player.getPacketSender().sendMessage("Exporting npc id: "+npcid+" wiki drop table...");
     }
     if (command[0].equals("antiflood")) {
       int flood = Integer.parseInt(command[1]);

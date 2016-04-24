@@ -2454,3 +2454,76 @@
 [4/23/16 01:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/23/16 01:01PM]	Jonny has done command spawn mime mask;1	
 [4/23/16 01:01PM]	Jonny has done command spawn mime mask:1	
+[4/23/16 01:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 06:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 06:53PM]	Jonny has done command item 16755 1	
+[4/23/16 06:58PM]	Jonny has done command myos	
+[4/23/16 06:58PM]	Jonny has done command mypos	
+[4/23/16 06:58PM]	Jonny has done command tele 2730 3462 1	
+[4/23/16 06:58PM]	Jonny has done command mypos	
+[4/23/16 06:59PM]	Jonny has done command tele 2729 3462 0	
+[4/23/16 06:59PM]	Jonny has done command mypos	
+[4/23/16 07:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 07:45PM]	Jonny has done command item 2 1	
+[4/23/16 07:45PM]	Jonny has done command item 3 1	
+[4/23/16 07:45PM]	Jonny has done command item 4 1	
+[4/23/16 07:45PM]	Jonny has done command item 5 1	
+[4/23/16 07:45PM]	Jonny has done command find cannon	
+[4/23/16 07:45PM]	Jonny has done command find cannon	
+[4/23/16 07:45PM]	Jonny has done command find cannon	
+[4/23/16 07:45PM]	Jonny has done command item 6 1	
+[4/23/16 07:45PM]	Jonny has done command item 7 1	
+[4/23/16 07:45PM]	Jonny has done command item 8 1	
+[4/23/16 07:45PM]	Jonny has done command item 9 1	
+[4/23/16 07:45PM]	Jonny has done command item 10 1	
+[4/23/16 07:45PM]	Jonny has done command item 12 1	
+[4/23/16 07:45PM]	Jonny has done command ezone 	
+[4/23/16 07:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 07:57PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 08:12PM]	Jonny has done command find earth imp	
+[4/23/16 08:12PM]	Jonny has done command home	
+[4/23/16 08:13PM]	Jonny has done command find earth imp	
+[4/23/16 08:13PM]	Jonny has done command find gourmet	
+[4/23/16 08:13PM]	Jonny has done command find gour	
+[4/23/16 08:13PM]	Jonny has done command item 11242 1	
+[4/23/16 08:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 08:20PM]	Jonny has done command spawn rake:1	
+[4/23/16 08:24PM]	Jonny has done command item 5329 1	
+[4/23/16 08:24PM]	Jonny has done command tele 3059 3309	
+[4/23/16 08:24PM]	Jonny has done command tele 3055 3302	
+[4/23/16 08:29PM]	Jonny has done command tele 3054 3307	
+[4/23/16 09:30PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 10:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 10:46PM]	Jonny has done command spawn compl:1	
+[4/23/16 10:46PM]	Jonny has done command spawn completionist cape:1	
+[4/23/16 10:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 10:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/23/16 11:02PM]	Jonny has done command market	
+[4/24/16 12:48AM]	Jonny has done command item 592 1	
+[4/24/16 12:50AM]	Jonny has done command item 12703 1	
+[4/24/16 12:55AM]	Jonny has done command item 1516 1	
+[4/24/16 12:56AM]	Jonny has done command item 443 1	
+[4/24/16 12:58AM]	Jonny has done command item 1357 1	
+[4/24/16 01:21AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 01:22AM]	Jonny has done command wikinpcdrop 5866	
+[4/24/16 01:23AM]	Jonny has done command wikinpcexport 5866	
+[4/24/16 01:23AM]	Jonny has done command wikinpcdrop 5866	
+[4/24/16 01:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 01:43AM]	Jonny has done command wikinpcdrop 5866	
+[4/24/16 01:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 01:45AM]	Jonny has done command wikinpcdrop 5866	
+[4/24/16 01:52AM]	Jonny has done command wikinpcdrop 1	
+[4/24/16 01:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 01:57AM]	Jonny has done command wikinpcdrop 5866	
+[4/24/16 01:59AM]	Jonny has done command wikinpcdrop 1	
+[4/24/16 02:11AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 02:11AM]	Jonny has done command wikinpcdrop 5866	
+[4/24/16 02:12AM]	Jonny has done command wikinpcdrop 566	
+[4/24/16 02:12AM]	Jonny has done command wikinpcdrops 5866	
+[4/24/16 02:12AM]	Jonny has done command wikinpcdrop 5866	
+[4/24/16 02:13AM]	Jonny has done command wikinpcdrop 1	
+[4/24/16 02:13AM]	Jonny has done command wikinpcdrop 8133	
+[4/24/16 02:14AM]	Jonny has done command wikinpcdrop 6260	
+[4/24/16 02:15AM]	Jonny has done command wikinpcdrop 4000	
+[4/24/16 02:16AM]	Jonny has done command wikinpcdrop 2642	
+[4/24/16 02:17AM]	Jonny has done command wikinpcdrop 50	
