@@ -92,7 +92,7 @@ public class DialogueOptions {
 				int random = Misc.getRandom(3);
 				switch(random) {
 					case 0:
-						TeleportHandler.teleportPlayer(player, new Position(3212, 3429, 0), player.getSpellbook().getTeleportType());
+						TeleportHandler.teleportPlayer(player, new Position(3087, 3502, 0), player.getSpellbook().getTeleportType());
 					break;
 					case 1:
 						TeleportHandler.teleportPlayer(player, new Position(3213, 3429, 0), player.getSpellbook().getTeleportType());

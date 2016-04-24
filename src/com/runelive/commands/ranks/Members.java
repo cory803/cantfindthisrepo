@@ -291,8 +291,8 @@ public class Members {
         player.getPacketSender().sendMessage("You cannot do this at the moment.");
         return;
       }
-      Position position = new Position(3087, 3502, 0);
-      TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
+      TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION.copy(),
+              player.getSpellbook().getTeleportType());
       player.getPacketSender().sendMessage("Teleporting you home!");
     }
     if (command[0].equals("train")) {

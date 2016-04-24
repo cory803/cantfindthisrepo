@@ -523,12 +523,12 @@
         "npc-id": 653,
 		"face": SOUTH,
         "position": {
-        	"x": 3082,
-        	"y": 3506,
+        	"x": 3220,
+        	"y": 3434,
         	"z": 0
         },
          "walking-policy": {
-        	"coordinate": false,
+        	"coordinate": true,
         	"radius": 2
         }
     },
@@ -962,7 +962,7 @@
         }
     },
     {
-        "npc-id": 705,
+        "npc-id": 961,
 		"face": SOUTH,
         "position": {
         	"x": 3229,
@@ -1027,7 +1027,7 @@
         }
     },
 	{
-        "npc-id": 961, //Healer Edge
+        "npc-id": 705, //Healer Edge
 		"face": SOUTH,
         "position": {
         	"x": 3231,
@@ -6686,8 +6686,8 @@
         "npc-id": 3147,
 		"face": SOUTH,
         "position": {
-        	"x": 3083,
-        	"y": 3506,
+        	"x": 2503,
+        	"y": 3860,
         	"z": 0
         },
          "walking-policy": {
@@ -6959,8 +6959,8 @@
         "npc-id": 6139,
 		"face": EAST,
         "position": {
-        	"x": 3090,
-        	"y": 3495,
+        	"x": 3208,
+        	"y": 3438,
         	"z": 0
         },
          "walking-policy": {
