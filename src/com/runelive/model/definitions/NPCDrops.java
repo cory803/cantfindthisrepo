@@ -153,6 +153,15 @@ public class NPCDrops {
     public int getId() {
       return id;
     }
+	
+    /**
+     * Gets the chance of a drop.
+     * 
+     * @return The drop chance.
+     */
+    public int getChanceId() {
+      return chance;
+    }
 
     /**
      * Gets the chance.
@@ -193,7 +202,7 @@ public class NPCDrops {
         default:
           return DropChance.ALWAYS; // 100% <-> 1/1
       }
-    }
+    }    
 
     /**
      * Gets the item
@@ -467,7 +476,7 @@ public class NPCDrops {
 
     private static List<Integer> ITEM_LIST;
 
-    private static final int[] TO_ANNOUNCE = new int[] {1543, 1545, 1546, 21074, 21077, 21075,
+    public static final int[] TO_ANNOUNCE = new int[] {1543, 1545, 1546, 21074, 21077, 21075,
         21076, 21078, 21079, 1547, 1548, 6571, 14484, 4224, 11702, 11704, 11706, 11708, 11704,
         11724, 11726, 11728, 11718, 11720, 11722, 11730, 11716, 14876, 11286, 13427, 6731, 6737,
         6735, 4151, 21372, 2513, 15259, 13902, 13890, 13884, 13861, 13858, 13864, 13905, 13887,
