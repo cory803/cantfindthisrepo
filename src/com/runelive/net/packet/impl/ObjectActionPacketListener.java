@@ -1640,13 +1640,36 @@ public class ObjectActionPacketListener implements PacketListener {
             if (player.getFarming().click(player, x, y, 1))
               return;
             switch (gameObject.getId()) {
-              case 4705:
+                case 4705:
                 Stalls.stealFromStall(player, 75, 22500, new Item(995, Misc.getRandom(40000)),
                     "You stole some coins.", true);
                 break;
               case 4706:
                 Stalls.stealFromStall(player, 75, 17500, new Item(995, Misc.getRandom(45000)),
                     "You stole some coins.", true);
+                break;
+
+              case 2560:
+                Stalls.stealFromStall2(player, 1, 1200, 950, 1000, "You steal some silk and 1,000 Coins.");
+                break;
+
+              case 2561:
+                Stalls.stealFromStall2(player, 15, 1400, 379, 1250, "You steal a lobster and 1,250 Coins.");
+                break;
+
+              case 2563:
+                Stalls.stealFromStall2(player, 25, 1800, 948, 2250, "You steal some Bear fur and 2,250 Coins.");
+                break;
+              case 2564:
+                Stalls.stealFromStall2(player, 60, 3450, 2007, 2700, "You steal some spices and 2,700 Coins.");
+                break;
+              case 2565:
+                Stalls.stealFromStall2(player, 50, 2700, 2354, 2150, "You steal a Silver Bar and 3,150 Coins.");
+                break;
+              case 2562:
+                double c = Math.random() * 100;
+                int reward = c >= 70 ? 1623 : c >= 45 ? 1621 : c >= 35 ? 1619 : c >= 25 ? 1619 : c >= 18 ? 1617 : c >= 12 ? 1617 : c >= 5 ? 1631 : 1631;
+                Stalls.stealFromStall2(player, 80, 4100, reward, 3500, "You steal the closest gem and 3,500 Coins.");
                 break;
               case 2274:
                 player.setRevsWarning(true);
@@ -1729,7 +1752,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 } else if (ran == 600) {
                   player.getInventory().add(15387, 1);
                 }
-                Stalls.stealFromStall(player, 1, 5100, 18199, "You steal a banana.");
+                Stalls.stealFromStall(player, 1, 1500, 18199, "You steal a banana.");
                 break;
               case 4874:
                 ran = Misc.getRandom(800);
@@ -1738,7 +1761,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 } else if (ran == 600) {
                   player.getInventory().add(15387, 1);
                 }
-                Stalls.stealFromStall(player, 30, 6130, 15009, "You steal a golden ring.");
+                Stalls.stealFromStall(player, 30, 2250, 15009, "You steal a golden ring.");
                 break;
               case 4876:
                 ran = Misc.getRandom(800);
