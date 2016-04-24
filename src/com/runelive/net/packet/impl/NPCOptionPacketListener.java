@@ -730,7 +730,7 @@ public class NPCOptionPacketListener implements PacketListener {
           @Override
           public void execute() {
             switch (npc.getId()) {
-              case 558:
+              case 308:
                 ShopManager.getShops().get(18).open(player);
                 break;
               case 4646:
