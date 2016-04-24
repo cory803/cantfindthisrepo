@@ -15,12 +15,12 @@ public class Gems {
 
   enum GEM_DATA {
 
-    OPAL(1625, 1609, 8, 647, new Animation(886)), JADE(1627, 1611, 13, 1280,
-        new Animation(886)), RED_TOPAZ(1629, 1613, 16, 1490, new Animation(887)), SAPPHIRE(1623,
-            1607, 20, 2400, new Animation(888)), EMERALD(1621, 1605, 27, 3600,
-                new Animation(889)), RUBY(1619, 1603, 34, 5200, new Animation(892)), DIAMOND(1617,
-                    1601, 43, 7000, new Animation(886)), DRAGONSTONE(1631, 1615, 55, 9800,
-                        new Animation(885)), ONYX(6571, 6573, 67, 58513, new Animation(885));
+    OPAL(1625, 1609, 8, 750, new Animation(886)), JADE(1627, 1611, 13, 1000,
+        new Animation(886)), RED_TOPAZ(1629, 1613, 16, 1250, new Animation(887)), SAPPHIRE(1623,
+            1607, 20, 2500, new Animation(888)), EMERALD(1621, 1605, 27, 3350,
+                new Animation(889)), RUBY(1619, 1603, 34, 4250, new Animation(892)), DIAMOND(1617,
+                    1601, 43, 5350, new Animation(886)), DRAGONSTONE(1631, 1615, 55, 6850,
+                        new Animation(885)), ONYX(6571, 6573, 67, 8350, new Animation(885));
 
     GEM_DATA(int uncutGem, int cutGem, int levelReq, int xpReward, Animation animation) {
       this.uncutGem = uncutGem;

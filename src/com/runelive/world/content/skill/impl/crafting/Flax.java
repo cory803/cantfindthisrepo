@@ -39,7 +39,7 @@ public class Flax {
           stop();
           return;
         }
-        player.getSkillManager().addExperience(Skill.CRAFTING, 324);
+        player.getSkillManager().addExperience(Skill.CRAFTING, 150);
         player.performAnimation(new Animation(896));
         player.getInventory().delete(FLAX_ID, 1);
         player.getInventory().add(1777, 1);

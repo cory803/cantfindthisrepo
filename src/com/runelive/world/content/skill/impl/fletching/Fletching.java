@@ -268,7 +268,7 @@ public class Fletching {
         player.getInventory().delete(log, 1);
         player.getInventory().add(product, shafts ? 15 : 1);
         player.getSkillManager().addExperience(Skill.FLETCHING,
-            shafts ? 80 : (int) (bow.getXp() * 15));
+            shafts ? 80 : (int) (bow.getXp()));
         Sounds.sendSound(player, Sound.FLETCH_ITEM);
         amount++;
         if (amount >= amountToMake)
@@ -321,7 +321,7 @@ public class Fletching {
             player.getInventory().delete(log, 1);
             player.getInventory().add(g.Strung(), 1);
             player.getPacketSender().sendMessage("You attach the Bow string on to the bow.");
-            player.getSkillManager().addExperience(Skill.FLETCHING, (int) g.getXP() * 10);
+            player.getSkillManager().addExperience(Skill.FLETCHING, (int) g.getXP());
             amountMade++;
             if (amountMade >= amount)
               stop();
@@ -352,7 +352,7 @@ public class Fletching {
           player.getInventory().delete(new Item(arr.getItem2()).setAmount(15),
               player.getInventory().getSlot(arr.getItem2()), true);
           player.getInventory().add(arr.getOutcome(), 15);
-          player.getSkillManager().addExperience(Skill.FLETCHING, (int) (arr.getXp() * 15));
+          player.getSkillManager().addExperience(Skill.FLETCHING, (int) (arr.getXp()));
           Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
           if (arr == ArrowData.RUNE) {
             Achievements.doProgress(player, AchievementData.FLETCH_450_RUNE_ARROWS, 15);
@@ -385,7 +385,7 @@ public class Fletching {
           player.getInventory().delete(new Item(bolt.getItem2()).setAmount(15),
               player.getInventory().getSlot(bolt.getItem2()), true);
           player.getInventory().add(bolt.getOutcome(), 15);
-          player.getSkillManager().addExperience(Skill.FLETCHING, (int) (bolt.getXp() * 15));
+          player.getSkillManager().addExperience(Skill.FLETCHING, (int) (bolt.getXp()));
           Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
           if (bolt == BoltData.RUNE) {
             Achievements.doProgress(player, AchievementData.FLETCH_450_RUNE_ARROWS, 15);
@@ -415,7 +415,7 @@ public class Fletching {
           player.getInventory().delete(new Item(tip.getItem()).setAmount(1),
               player.getInventory().getSlot(tip.getItem()), true);
           player.getInventory().add(tip.getOutcome(), 15);
-          player.getSkillManager().addExperience(Skill.FLETCHING, (int) (tip.getXp() * 15));
+          player.getSkillManager().addExperience(Skill.FLETCHING, (int) (tip.getXp()));
           Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
         } else {
           player.getPacketSender()

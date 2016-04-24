@@ -7,10 +7,17 @@ public class Logdata {
 
   public static enum logData {
 
-    LOG(1511, 1, 4125, 30), ACHEY(2862, 1, 4125, 30), OAK(1521, 15, 5890, 40), WILLOW(1519, 30,
-        7952, 45), TEAK(6333, 35, 8120, 45), ARCTIC_PINE(10810, 42, 8560, 45), MAPLE(1517, 45, 8680,
-            45), MAHOGANY(6332, 50, 8930, 45), EUCALYPTUS(12581, 58, 9870,
-                45), YEW(1515, 60, 9960, 50), MAGIC(1513, 75, 13477, 50);
+    LOG(1511, 1, 2000, 30),
+    ACHEY(2862, 1, 2000, 30),
+    OAK(1521, 15, 3000, 40),
+    WILLOW(1519, 30, 4500, 45),
+    TEAK(6333, 35, 5250, 45),
+    ARCTIC_PINE(10810, 42, 6250, 45),
+    MAPLE(1517, 45, 6750, 45),
+    MAHOGANY(6332, 50, 7900, 45),
+    EUCALYPTUS(12581, 58, 8500, 45),
+    YEW(1515, 60, 10100, 50),
+    MAGIC(1513, 75, 12150, 50);
 
     private int logId, level, burnTime;
     private int xp;
