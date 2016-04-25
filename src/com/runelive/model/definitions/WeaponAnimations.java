@@ -138,6 +138,7 @@ public final class WeaponAnimations {
       case 21005: // whip
       case 21006: // whip
       case 21007: // whip
+      case 21371: // whip
         playerStandIndex = 11973;
         playerWalkIndex = 11975;
         playerRunIndex = 1661;
