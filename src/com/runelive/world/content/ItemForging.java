@@ -145,6 +145,11 @@ public class ItemForging {
                                         new Item[] {new Item(19352), new Item(1187)},
                                         new Item(19340), new int[] {1, -1, 0}),
 
+    ABYSSAL_VINE_WHIP_RED(new Item[] {new Item(21369), new Item(4151)}, new Item(21371), new int[] {18, 75, 10000}),
+    ABYSSAL_VINE_WHIP_YELLOW(new Item[] {new Item(21369), new Item(15441)}, new Item(21372), new int[] {18, 75, 10000}),
+    ABYSSAL_VINE_WHIP_WHITE(new Item[] {new Item(21369), new Item(15443)}, new Item(21374), new int[] {18, 75, 10000}),
+    ABYSSAL_VINE_WHIP_BLUE(new Item[] {new Item(21369), new Item(15442)}, new Item(21373), new int[] {18, 75, 10000}),
+    ABYSSAL_VINE_WHIP_GREEN(new Item[] {new Item(21369), new Item(15444)}, new Item(21375), new int[] {18, 75, 10000}),
     FULL_SLAYER_HELMET(new Item[] {new Item(13263), new Item(15490), new Item(15488)},
         new Item(15492), new int[] {18, 75, 0}),
 

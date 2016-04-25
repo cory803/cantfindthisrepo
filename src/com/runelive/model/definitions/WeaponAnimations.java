@@ -123,7 +123,6 @@ public final class WeaponAnimations {
         playerRunIndex = 13220;
         break;
       case 4151:
-      case 21372:
       case 21047:
       case 13444:
       case 15441: // whip
@@ -139,6 +138,10 @@ public final class WeaponAnimations {
       case 21006: // whip
       case 21007: // whip
       case 21371: // whip
+      case 21372: // whip
+      case 21373: // whip
+      case 21374: // whip
+      case 21375: // whip
         playerStandIndex = 11973;
         playerWalkIndex = 11975;
         playerRunIndex = 1661;
@@ -325,7 +328,6 @@ public final class WeaponAnimations {
       case 10887:
         return 5865;
       case 4151:
-      case 21372:
       case 13444:
       case 21047:
       case 15441: // whip
@@ -380,7 +382,6 @@ public final class WeaponAnimations {
       case 4153:
         return 1666;
       case 4151:
-      case 21372:
       case 21000: // whip
       case 21001: // whip
       case 21002: // whip
