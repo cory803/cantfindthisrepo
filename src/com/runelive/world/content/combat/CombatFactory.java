@@ -960,10 +960,10 @@ public final class CombatFactory {
           entity.getCombatBuilder().reset(true);
           return false;
         }
-      } else if (npc.getId() == 6222) { // Kree'arra
+      } else if (npc.getId() == 6222 || npc.getId() == 6230 || npc.getId() == 6231 || npc.getId() == 6223 || npc.getId() == 6235 || npc.getId() == 6237) { // Kree'arra
         if (entity.getCombatBuilder().getStrategy().getCombatType() == CombatType.MELEE) {
           ((Player) entity).getPacketSender()
-              .sendMessage("Kree'arra is resistant to melee attacks.");
+              .sendMessage("You cannot attack this monster with Melee.");
           entity.getCombatBuilder().reset(true);
           return false;
         }

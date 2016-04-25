@@ -78,6 +78,10 @@ public class MoneyPouch {
     NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
     if (amount <= 0)
       return false;
+    if (plr.getLocation() == Location.WILDERNESS || plr.getCombatBuilder().isAttacking() || plr.getCombatBuilder().isBeingAttacked()) {
+      plr.getPacketSender().sendMessage("You cannot do this now.");
+      return false;
+    }
     if (plr.getMoneyInPouch() <= 0) {
       plr.getPacketSender().sendMessage("Your money pouch is empty.");
       return false;
