@@ -2,6 +2,7 @@ package com.runelive.world.content;
 
 import com.runelive.model.Flag;
 import com.runelive.model.Item;
+import com.runelive.model.Locations;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.world.entity.impl.player.Player;
@@ -11,7 +12,8 @@ public class ItemDegrading {
     public static boolean handleItemDegrading(Player p, DegradingItem d) {
         if (d == null || p == null)
             return false;
-
+        if(p.getLocation().equals(Locations.Location.DUEL_ARENA))
+            return false;
         int equipId = p.getEquipment().getItems()[d.equipSlot].getId();
         if (equipId == d.nonDeg || equipId == d.deg) {
             int maxCharges = d.degradingCharges;
@@ -45,8 +47,7 @@ public class ItemDegrading {
         }
     }
 
-  public static int getAndIncrementCharge(Player p, DegradingItem d,
-                                          boolean reset) {
+  public static int getAndIncrementCharge(Player p, DegradingItem d, boolean reset) {
     switch (d) {
       case BRAWLING_GLOVES_COOKING:
       case BRAWLING_GLOVES_FIREMAKING:

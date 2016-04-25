@@ -89,21 +89,7 @@ public class DialogueOptions {
 		if(id == FIRST_OPTION_OF_FIVE) {
 			switch(player.getDialogueActionId()) {
 			case 178:
-				int random = Misc.getRandom(3);
-				switch(random) {
-					case 0:
 						TeleportHandler.teleportPlayer(player, new Position(3087, 3502, 0), player.getSpellbook().getTeleportType());
-					break;
-					case 1:
-						TeleportHandler.teleportPlayer(player, new Position(3213, 3429, 0), player.getSpellbook().getTeleportType());
-					break;
-					case 2:
-						TeleportHandler.teleportPlayer(player, new Position(3213, 3428, 0), player.getSpellbook().getTeleportType());
-					break;
-					case 3:
-						TeleportHandler.teleportPlayer(player, new Position(3212, 3428, 0), player.getSpellbook().getTeleportType());
-					break;
-				}
 				break;
 			case 179:
 				TeleportHandler.teleportPlayer(player, new Position(3092, 3248, 0), player.getSpellbook().getTeleportType());

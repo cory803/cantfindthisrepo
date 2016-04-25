@@ -17,6 +17,12 @@ public class WikiExport {
    * Dumps random data for the wiki
    * 
    */
+   
+ public static void exportAllDropTables() {
+	 for(int i = 1; i < 14500; i++) {
+		 exportDropTable(i);
+	 }
+ }
 
   public static void exportDropTable(int npcId) {
 	NPCDrops npcDrops = NPCDrops.forId(npcId);
@@ -44,7 +50,11 @@ public class WikiExport {
 	}
 	for(int i = 0; i < NPC_DROP_ALWAYS.size(); i++) {
 		Item dropItem = NPC_DROP_ALWAYS.get(i).getItem();
-		dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+dropItem.getAmount()+"|Rarity=always}}", ""+npcId+"");
+		if(NPC_DROP_ALWAYS.get(i).getCount().length > 1) {
+			dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+NPC_DROP_ALWAYS.get(i).getCount1()+"-"+NPC_DROP_ALWAYS.get(i).getCount2()+"|Rarity=always}}", ""+npcId+"");
+		} else {
+			dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+dropItem.getAmount()+"|Rarity=always}}", ""+npcId+"");
+		}
 	}
 	if(NPC_DROP_MISC.size() > 0) {
 		dumpData("", ""+npcId+"");
@@ -52,11 +62,22 @@ public class WikiExport {
 	}
 	for(int i = 0; i < NPC_DROP_MISC.size(); i++) {
 		Item dropItem = NPC_DROP_MISC.get(i).getItem();
-		String chance = NPC_DROP_MISC.get(i).getChance();
-		if(NPC_DROP_MISC.get(i).getChanceId() == 2) {
-			dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+dropItem.getAmount()+"|Rarity=common}}", ""+npcId+"");
+		String chance = ""+NPC_DROP_MISC.get(i).getChance()+"";
+		if(NPC_DROP_MISC.get(i) == null) {
+			continue;
+		}
+		if(NPC_DROP_MISC.get(i).getCount().length > 1) {
+			if(NPC_DROP_MISC.get(i).getChanceId() == 2) {
+				dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+NPC_DROP_ALWAYS.get(i).getCount1()+"-"+NPC_DROP_ALWAYS.get(i).getCount2()+"|Rarity=common}}", ""+npcId+"");
+			} else {
+				dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+NPC_DROP_ALWAYS.get(i).getCount1()+"-"+NPC_DROP_ALWAYS.get(i).getCount2()+"|Rarity="+chance.toLowerCase()+"}}", ""+npcId+"");
+			}
 		} else {
-			dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+dropItem.getAmount()+"|Rarity="+chance.toLowerCase()+"}}", ""+npcId+"");
+			if(NPC_DROP_MISC.get(i).getChanceId() == 2) {
+				dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+dropItem.getAmount()+"|Rarity=common}}", ""+npcId+"");
+			} else {
+				dumpData("{{DropsLine|Name="+ItemDefinition.forId(dropItem.getId()).getName()+"|Quantity="+dropItem.getAmount()+"|Rarity="+chance.toLowerCase()+"}}", ""+npcId+"");
+			}
 		}
 	}
 	for(int i = 0; i < NPC_DROP_RARE.size(); i++) {
@@ -68,8 +89,19 @@ public class WikiExport {
 		}
 	} 
 	if(NPC_DROP_RARE.size() > 0) {
-		dumpData("", ""+npcId+"");
-		dumpData("{{DropsTableHeader|Name=Rare Drops}}", ""+npcId+"");
+		for(int i = 0; i < NPC_DROP_RARE.size(); i++) {
+			Item dropItem = NPC_DROP_RARE.get(i).getItem();
+			boolean yeah = false;
+			for(int i2 = 0; i2 < ItemDropAnnouncer.TO_ANNOUNCE.length; i2++) {
+				if(ItemDropAnnouncer.TO_ANNOUNCE[i2] == dropItem.getId()) {
+					yeah = true;
+				}
+			}
+			if(yeah && i == NPC_DROP_RARE.size()) {
+				dumpData("", ""+npcId+"");
+				dumpData("{{DropsTableHeader|Name=Rare Drops}}", ""+npcId+"");
+			}
+		}
 	}
 	for(int i = 0; i < NPC_DROP_RARE.size(); i++) {
 		Item dropItem = NPC_DROP_RARE.get(i).getItem();

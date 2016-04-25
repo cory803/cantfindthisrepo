@@ -2527,3 +2527,9 @@
 [4/24/16 02:15AM]	Jonny has done command wikinpcdrop 4000	
 [4/24/16 02:16AM]	Jonny has done command wikinpcdrop 2642	
 [4/24/16 02:17AM]	Jonny has done command wikinpcdrop 50	
+[4/24/16 09:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 09:44AM]	Jonny has done command wikidropall	
+[4/24/16 09:45AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 09:45AM]	Jonny has done command wikidropall	
+[4/24/16 09:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/24/16 09:46AM]	Jonny has done command wikidropall	

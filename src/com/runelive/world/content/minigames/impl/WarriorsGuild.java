@@ -128,7 +128,7 @@ public class WarriorsGuild {
         armour = null;
       }
     } else if (npc.getId() == 4291 && player.getPosition().getZ() == 2) {
-      if (Misc.getRandom(10) <= 4 || player.getRights().isStaff()) {
+      if (Misc.getRandom(12) == 11) {
         GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(getDefender(player)),
             npc.getPosition().copy(), player.getUsername(), false, 100, false, -1));
       }
@@ -157,8 +157,6 @@ public class WarriorsGuild {
 
   /**
    * Warriors guild dialogue, handles what Kamfreena says.
-   * 
-   * @param Player The player to show the dialogue for acording to their stats.
    */
   public static Dialogue warriorsGuildDialogue(final Player player) {
     return new Dialogue() {
