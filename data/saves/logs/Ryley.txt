@@ -17,3 +17,11 @@
 [4/14/16 09:39PM]	Logout from host 127.0.0.1, Computer Address: 340132781	
 [4/14/16 09:40PM]	Login from host 127.0.0.1, Computer Address: 340132781	
 [4/18/16 01:03AM]	Logout from host 127.0.0.1, Computer Address: 340132781	
+[4/24/16 01:26PM]	Login from host 127.0.0.1, Computer Address: 340132781	
+[4/24/16 01:27PM]	Logout from host 127.0.0.1, Computer Address: 340132781	
+[4/24/16 01:27PM]	Login from host 127.0.0.1, Computer Address: 340132781	
+[4/24/16 01:27PM]	Ryley has done command bank	
+[4/24/16 01:27PM]	Ryley has done command item 11694	
+[4/24/16 01:27PM]	Ryley has done command bank	
+[4/24/16 01:27PM]	Ryley has done command item 11695	
+[4/24/16 01:27PM]	Ryley has done command bank	

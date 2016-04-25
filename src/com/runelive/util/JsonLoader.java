@@ -45,6 +45,7 @@ public abstract class JsonLoader {
       Gson builder = new GsonBuilder().create();
 
       for (int i = 0; i < array.size(); i++) {
+        if (array.get(i).isJsonNull()) continue;
         JsonObject reader = (JsonObject) array.get(i);
         load(reader, builder);
       }

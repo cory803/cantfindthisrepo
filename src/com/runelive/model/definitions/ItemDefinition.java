@@ -1,15 +1,11 @@
 package com.runelive.model.definitions;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-
 import com.google.common.base.Strings;
-import com.google.common.collect.Lists;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import com.runelive.model.container.impl.Equipment;
+import com.runelive.util.JsonLoader;
 
 /**
  * This file manages every item definition, which includes their name, description, value, skill
@@ -33,15 +29,57 @@ public class ItemDefinition {
   /**
    * Loading all item definitions
    */
-  public static void init() {
-    try {
-      Gson gson = new GsonBuilder().setPrettyPrinting().create();
-      definitions = gson.fromJson(
-          Files.newBufferedReader(Paths.get("data", "def", "json", "item_definitions.json")),
-          ItemDefinition[].class);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
+  public static JsonLoader init() {
+    return new JsonLoader() {
+
+      @Override
+      public void load(JsonObject reader, Gson builder) {
+        try {
+          int id = reader.get("id").getAsInt();
+          ItemDefinition definition = new ItemDefinition();
+          definition.charges = reader.get("charges").getAsInt();
+          definition.name = reader.get("name").getAsString();
+          definition.description = reader.get("description").getAsString();
+          definition.stackable = reader.get("stackable").getAsBoolean();
+          definition.value = reader.get("value").getAsInt();
+          definition.noted = reader.get("noted").getAsBoolean();
+          definition.isTwoHanded = reader.get("isTwoHanded").getAsBoolean();
+          definition.has_charges = reader.get("has_charges").getAsBoolean();
+          definition.weapon = reader.get("weapon").getAsBoolean();
+          definition.equipmentType = EquipmentType.valueOf(reader.get("equipmentType").getAsString());
+
+          if (reader.has("bonus")) {
+            JsonArray bonus = reader.get("bonus").getAsJsonArray();
+            for (int index = 0; index < definition.bonus.length; index++) {
+              definition.bonus[index] = bonus.get(index).getAsDouble();
+            }
+          }
+
+          if (reader.has("req")) {
+            JsonArray req = reader.get("requirement").getAsJsonArray();
+            for (int index = 0; index < definition.requirement.length; index++) {
+              definition.requirement[index] = req.get(index).getAsInt();
+            }
+          }
+
+          if (reader.has("actions")) {
+            JsonArray actions = reader.get("actions").getAsJsonArray();
+            for (int index = 0; index < definition.actions.length; index++) {
+              definition.actions[index] = actions.get(index).getAsString();
+            }
+          }
+
+          definitions[id] = definition;
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+      }
+
+      @Override
+      public String filePath() {
+        return "data/def/json/item_definitions.json";
+      }
+    };
   }
 
   public static ItemDefinition[] getDefinitions() {
@@ -55,8 +93,13 @@ public class ItemDefinition {
    * @return definitions[id].
    */
   public static ItemDefinition forId(int id) {
-    return (id < 0 || id > definitions.length || definitions[id] == null) ? new ItemDefinition()
-        : definitions[id];
+    if (id < 0 || id > definitions.length) {
+      throw new IndexOutOfBoundsException("Definition for id: " + id + " is out of bounds.");
+    }
+    if (definitions[id] == null) {
+      throw new NullPointerException("Definition for id: " + id + " does not exist.");
+    }
+    return definitions[id];
   }
 
   /**
@@ -238,18 +281,18 @@ public class ItemDefinition {
     return requirement;
   }
 
-  private final List<String> actions = Lists.newArrayList("", "", "", "", "");
+  private String[] actions = new String[5];
 
-  public void setAction(int index, String action) {
-    actions.set(index, action);
+  public String[] getActions() {
+    return actions;
   }
 
-  public boolean hasAction(String action) {
-    return actions.contains(action);
+  public void setAction(int index, String action) {
+    actions[index] = action;
   }
 
   public String getAction(int index) {
-    return actions.get(index);
+    return actions[index];
   }
 
   public boolean isWearable() {

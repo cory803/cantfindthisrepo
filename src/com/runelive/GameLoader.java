@@ -67,7 +67,7 @@ public final class GameLoader {
     ConnectionHandler.init();
     RegionClipping.init();
     CustomObjects.init();
-    ItemDefinition.init();
+    ItemDefinition.init().load();
     Lottery.init();
     GrandExchangeOffers.init();
     PlayerOwnedShops.init();
