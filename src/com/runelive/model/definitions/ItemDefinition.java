@@ -94,10 +94,12 @@ public class ItemDefinition {
    */
   public static ItemDefinition forId(int id) {
     if (id < 0 || id > definitions.length) {
-      throw new IndexOutOfBoundsException("Definition for id: " + id + " is out of bounds.");
+      if(id != -1) System.out.println("Definition for id: " + id + " is out of bounds.");
+      return new ItemDefinition();
     }
     if (definitions[id] == null) {
-      throw new NullPointerException("Definition for id: " + id + " does not exist.");
+      if(id != -1) System.out.println("Definition for id: " + id + " does not exist.");
+      return new ItemDefinition();
     }
     return definitions[id];
   }
