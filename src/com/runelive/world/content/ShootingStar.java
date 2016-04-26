@@ -103,7 +103,7 @@ public class ShootingStar {
         LAST_LOCATION = locationData;
         CRASHED_STAR = new CrashedStar(new GameObject(38660, locationData.spawnPos), locationData);
         CustomObjects.spawnGlobalObject(CRASHED_STAR.starObject);
-        World.sendMessage("<icon=1><shad=FF8C38>A shooting star has just crashed "
+        World.sendMessage("<icon=0><shad=FF8C38>A shooting star has just crashed "
             + locationData.clue + "!");
         World.getPlayers()
             .forEach(p -> p.getPacketSender().sendString(39162, "@or2@Crashed star: @yel@"
