@@ -74,7 +74,7 @@ public class EvilTrees {
         SPAWNED_TREE = new EvilTree(new GameObject(11434, locationData.spawnPos), locationData);
         CustomObjects.spawnGlobalObject(SPAWNED_TREE.treeObject);
         World.sendMessage(
-            "<icon=0><shad=FF8C38The evil tree has grown " + locationData.clue + "!");
+            "<icon=0><shad=FF8C38>The evil tree has grown " + locationData.clue + "!");
         World.getPlayers()
             .forEach(p -> p.getPacketSender().sendString(39163, "@or2@Evil Tree: @yel@"
                 + EvilTrees.SPAWNED_TREE.getTreeLocation().playerPanelFrame + ""));
