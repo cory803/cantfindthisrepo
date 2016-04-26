@@ -5,6 +5,7 @@ hs_err_pid*
 *.project
 *.classpath
 
+errorlogs/
 punishments/
 characters/
 housing/
@@ -15,3 +16,5 @@ data/saves/logs/Dc Blitz.txt
 config.txt
 .idea/
 *.iml
+data/saves/logs/Duk.txt
+data/saves/logs/Duke.txt
