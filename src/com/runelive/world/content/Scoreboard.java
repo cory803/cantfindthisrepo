@@ -188,7 +188,7 @@ public final class Scoreboard {
 			Streak tournamentStreak = new Streak(player.getUsername(), 1);
 			int index4 = TOURNAMENT.lastIndexOf(tournamentStreak );
 			if (index4 != -1) {
-				TOURNAMENT.set(index4, new Streak(player.getUsername(), player.getSkillManager().getTotalExp()));
+				TOURNAMENT.set(index4, new Streak(player.getUsername(), player.getPointsHandler().getTournamentPoints()));
 			} else {
 				TOURNAMENT.add(tournamentStreak );
 			}

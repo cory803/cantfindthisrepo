@@ -13,6 +13,7 @@ public class PlayerPanel {
     public static void refreshPanel(Player player) {
 		Scoreboard.update(player, 1);
 		Scoreboard.update(player, 2);
+		Scoreboard.update(player, 4);
         player.getPacketSender().sendString(55072, "---------------------------------");
         player.getPacketSender().sendString(55074, "---------------------------------");
 

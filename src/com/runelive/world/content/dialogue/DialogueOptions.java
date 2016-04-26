@@ -644,7 +644,7 @@ public class DialogueOptions {
 				ShopManager.getShops().get(26).open(player);
 				break;
 			case 11:
-				//Scoreboards.open(player, Scoreboards.TOP_ACHIEVER);
+				Scoreboard.open(player, 4);
 				break;
 			case 12:
 				TeleportHandler.teleportPlayer(player, new Position(3372 + Misc.getRandom(2), 3686 + Misc.getRandom(2), 0), player.getSpellbook().getTeleportType());

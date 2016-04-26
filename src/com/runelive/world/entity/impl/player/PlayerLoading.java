@@ -154,6 +154,10 @@ public class PlayerLoading {
       if (reader.has("money-pouch")) {
         player.setMoneyInPouch(reader.get("money-pouch").getAsLong());
       }
+	  
+      if (reader.has("tournament-points")) {
+        player.getPointsHandler().setTournamentPoints(reader.get("tournament-points").getAsLong(), false);
+      }
 
       if (reader.has("xp-rate")) {
         player.setXpRate(reader.get("xp-rate").getAsBoolean());

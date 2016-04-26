@@ -2,6 +2,7 @@ package com.runelive.world.content;
 
 import com.runelive.GameSettings;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.util.Misc;
 
 public class PointsHandler {
 
@@ -20,25 +21,25 @@ public class PointsHandler {
   }
 
   public PointsHandler refreshPanel() {
-    p.getPacketSender().sendString(55079, "@red@Prestige Points: @gre@" + prestigePoints);
-    p.getPacketSender().sendString(55080, "@red@Commendations: @gre@ " + commendations);
-    p.getPacketSender().sendString(55081, "@red@Loyalty Points: @gre@" + (int) loyaltyPoints);
-    p.getPacketSender().sendString(55082, "@red@Dung. Tokens: @gre@ " + dungTokens);
-    p.getPacketSender().sendString(55083, "@red@Voting Points: @gre@ " + votingPoints);
-    p.getPacketSender().sendString(55084, "@red@Slayer Points: @gre@" + slayerPoints);
-    p.getPacketSender().sendString(55085, "@red@Pk Points: @gre@" + pkPoints);
+    p.getPacketSender().sendString(55079, "@red@Prestige Points: @gre@" + Misc.format(prestigePoints));
+    p.getPacketSender().sendString(55080, "@red@Commendations: @gre@ " + Misc.format(commendations));
+    p.getPacketSender().sendString(55081, "@red@Loyalty Points: @gre@" + Misc.format((int) loyaltyPoints));
+    p.getPacketSender().sendString(55082, "@red@Dung. Tokens: @gre@ " + Misc.format(dungTokens));
+    p.getPacketSender().sendString(55083, "@red@Voting Points: @gre@ " + Misc.format(votingPoints));
+    p.getPacketSender().sendString(55084, "@red@Slayer Points: @gre@" + Misc.format(slayerPoints));
+    p.getPacketSender().sendString(55085, "@red@Pk Points: @gre@" + Misc.format(pkPoints));
     p.getPacketSender().sendString(55086,
-        "@red@Wilderness Killstreak: @gre@" + p.getPlayerKillingAttributes().getPlayerKillStreak());
+        "@red@Wilderness Killstreak: @gre@" + Misc.format(p.getPlayerKillingAttributes().getPlayerKillStreak()));
     p.getPacketSender().sendString(55087,
-        "@red@Wilderness Kills: @gre@" + p.getPlayerKillingAttributes().getPlayerKills());
+        "@red@Wilderness Kills: @gre@" + Misc.format(p.getPlayerKillingAttributes().getPlayerKills()));
     p.getPacketSender().sendString(55088,
-        "@red@Wilderness Deaths: @gre@" + p.getPlayerKillingAttributes().getPlayerDeaths());
+        "@red@Wilderness Deaths: @gre@" + Misc.format(p.getPlayerKillingAttributes().getPlayerDeaths()));
     p.getPacketSender().sendString(55089,
-        "@red@Arena Victories: @gre@" + p.getDueling().arenaStats[0]);
+        "@red@Arena Victories: @gre@" + Misc.format(p.getDueling().arenaStats[0]));
     p.getPacketSender().sendString(55090,
-        "@red@Arena Losses: @gre@" + p.getDueling().arenaStats[1]); 
+        "@red@Arena Losses: @gre@" + Misc.format(p.getDueling().arenaStats[1])); 
 	p.getPacketSender().sendString(55091,
-        "@red@Tournament Points: @gre@" + tournamentPoints);
+        "@red@Tourny Points: @gre@" + Misc.format(tournamentPoints));
 
     return this;
   }
@@ -50,7 +51,7 @@ public class PointsHandler {
   private int pkPoints;
   private double loyaltyPoints;
   private int votingPoints;
-  private int tournamentPoints;
+  private long tournamentPoints;
   private int achievementPoints;
 
   public int getPrestigePoints() {
@@ -68,17 +69,6 @@ public class PointsHandler {
     }
   }
   
-  public void setTournamentPoints(int points, boolean add) {
-    if (add) {
-      if (GameSettings.DOUBLE_POINTS) {
-        points *= 2;
-      }
-      this.tournamentPoints += points;
-    } else {
-      this.tournamentPoints = points;
-    }
-  }
-
   public int getSlayerPoints() {
     return slayerPoints;
   }
@@ -113,7 +103,7 @@ public class PointsHandler {
     return (int) this.loyaltyPoints;
   }
   
-  public int getTournamentPoints() {
+  public long getTournamentPoints() {
     return this.tournamentPoints;
   }
 
@@ -125,6 +115,17 @@ public class PointsHandler {
       this.loyaltyPoints += points;
     } else {
       this.loyaltyPoints = points;
+    }
+  }
+  
+  public void setTournamentPoints(long points, boolean add) {
+    if (add) {
+      if (GameSettings.DOUBLE_POINTS) {
+        points *= 2;
+      }
+      this.tournamentPoints += points;
+    } else {
+      this.tournamentPoints = points;
     }
   }
 
@@ -139,7 +140,7 @@ public class PointsHandler {
     if (GameSettings.DOUBLE_POINTS) {
       amount *= 2;
     }
-    this.tournamentPoints += amount;
+    this.prestigePoints += amount;
   }
 
   public int getPkPoints() {

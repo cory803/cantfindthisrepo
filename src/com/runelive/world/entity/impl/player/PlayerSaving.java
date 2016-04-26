@@ -64,6 +64,7 @@ public class PlayerSaving {
       object.addProperty("yell-mute", new Boolean(player.isYellMute()));
       object.addProperty("ge-return", new Boolean(player.hasDoneGrandExchangeReturn()));
       object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));
+      object.addProperty("tournament-points", new Long(player.getPointsHandler().getTournamentPoints()));
       object.addProperty("donated", new Long(player.getAmountDonated()));
       object.addProperty("credits", new Long(player.getCredits()));
       object.addProperty("quest-points", new Integer(player.getQuestPoints()));
