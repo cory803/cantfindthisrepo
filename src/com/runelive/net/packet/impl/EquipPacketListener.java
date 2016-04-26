@@ -81,7 +81,7 @@ public class EquipPacketListener implements PacketListener {
             return;
           }
         }
-        if (player.getLocation() != Location.DUNGEONEERING) {
+        if (player.getLocation() != Location.DUNGEONEERING && !player.isCanWearDungItems()) {
           if (item.getDefinition().getName().contains("Primal")) {
             player.getInventory().setItem(slot, new Item(-1, 0)).refreshItems();
             player.getPacketSender()

@@ -222,6 +222,10 @@ public class PlayerLoading {
             .incrementTotalLoyaltyPointsEarned(reader.get("total-loyalty-points").getAsDouble());
       }
 
+      if (reader.has("dung-items")) {
+        player.setCanWearDungItems(reader.get("dung-items").getAsBoolean());
+      }
+
       if (reader.has("Can-Vote")) {
         player.setCanVote(reader.get("Can-Vote").getAsBoolean());
       }

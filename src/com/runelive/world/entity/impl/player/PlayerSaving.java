@@ -83,6 +83,7 @@ public class PlayerSaving {
           new Integer(player.getPointsHandler().getLoyaltyPoints()));
       object.addProperty("total-loyalty-points",
           new Double(player.getAchievementAttributes().getTotalLoyaltyPointsEarned()));
+      object.addProperty("dung-items", new Boolean(player.isCanWearDungItems()));
       object.addProperty("Can-Vote", new Boolean(player.isCanVote()));
       object.addProperty("revs-warning", new Boolean(player.getRevsWarning()));
       object.addProperty("votes-claimed", new Integer(player.getVotesClaimed()));
