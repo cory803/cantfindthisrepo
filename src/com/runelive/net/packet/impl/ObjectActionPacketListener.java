@@ -6,6 +6,7 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.WalkToTask;
 import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.runelive.model.*;
+import com.runelive.world.content.Scoreboard;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.GameObjectDefinition;
@@ -144,6 +145,8 @@ public class ObjectActionPacketListener implements PacketListener {
             if (Barrows.handleObject(player, gameObject)) {
               return;
             }
+			//if (Scoreboard.isGameObject(player, gameObject))
+				//return;
             if (ChaosTunnelHandler.handleObjects(player, gameObject)) {
               return;
             }

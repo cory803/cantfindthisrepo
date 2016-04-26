@@ -11,7 +11,8 @@ import com.runelive.world.entity.impl.player.Player;
 public class PlayerPanel {
 
     public static void refreshPanel(Player player) {
-
+		Scoreboard.update(player, 1);
+		Scoreboard.update(player, 2);
         player.getPacketSender().sendString(55072, "---------------------------------");
         player.getPacketSender().sendString(55074, "---------------------------------");
 
@@ -46,30 +47,30 @@ public class PlayerPanel {
         /**
          * Slayer
          */
-        player.getPacketSender().sendString(55092, "@whi@ ~ Slayer ~");
-        player.getPacketSender().sendString(55093, "@red@Master:  @gre@" + Misc.formatText(
+        player.getPacketSender().sendString(55093, "@whi@ ~ Slayer ~");
+        player.getPacketSender().sendString(55094, "@red@Master:  @gre@" + Misc.formatText(
                 player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " ")));
         if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK)
-            player.getPacketSender().sendString(55094,
+            player.getPacketSender().sendString(55095,
                     "@red@Task:  @gre@"
                             + Misc.formatText(
                             player.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " "))
                             + "");
         else
-            player.getPacketSender().sendString(55094,
+            player.getPacketSender().sendString(55095,
                     "@red@Task:  @gre@"
                             + Misc.formatText(
                             player.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " "))
                             + "s");
-        player.getPacketSender().sendString(55095,
-                "@red@Task Streak:  @gre@" + player.getSlayer().getTaskStreak() + "");
         player.getPacketSender().sendString(55096,
+                "@red@Task Streak:  @gre@" + player.getSlayer().getTaskStreak() + "");
+        player.getPacketSender().sendString(55097,
                 "@red@Task Amount:  @gre@" + player.getSlayer().getAmountToSlay() + "");
         if (player.getSlayer().getDuoPartner() != null)
-            player.getPacketSender().sendString(55097,
+            player.getPacketSender().sendString(55098,
                     "@red@Duo Partner:  @gre@" + player.getSlayer().getDuoPartner() + "");
         else
-            player.getPacketSender().sendString(55097, "@red@Duo Partner: @gre@None");
+            player.getPacketSender().sendString(55098, "@red@Duo Partner: @gre@None");
 
         /**
          * Quests
@@ -86,28 +87,28 @@ public class PlayerPanel {
         /**
          * Links
          */
-        player.getPacketSender().sendString(55099, "@whi@ ~ Links ~");
-        player.getPacketSender().sendString(55100, "@gre@Website");
-        player.getPacketSender().sendString(55101, "@gre@Forum");
-        player.getPacketSender().sendString(55102, "@gre@Vote");
-        player.getPacketSender().sendString(55103, "@gre@Store");
-        player.getPacketSender().sendString(55104, "@gre@Apply");
-        player.getPacketSender().sendString(55105, "@gre@Wiki");
-        player.getPacketSender().sendString(55106, "@gre@Support");
+        player.getPacketSender().sendString(55100, "@whi@ ~ Links ~");
+        player.getPacketSender().sendString(55101, "@gre@Website");
+        player.getPacketSender().sendString(55102, "@gre@Forum");
+        player.getPacketSender().sendString(55103, "@gre@Vote");
+        player.getPacketSender().sendString(55104, "@gre@Store");
+        player.getPacketSender().sendString(55105, "@gre@Apply");
+        player.getPacketSender().sendString(55106, "@gre@Wiki");
+        player.getPacketSender().sendString(55107, "@gre@Support");
 
-        player.getPacketSender().sendString(55108, "@whi@~ Configurations ~");
-        player.getPacketSender().sendString(55109,
-                "@or1@Yell channel: " + (player.yellToggle() ? "@gre@ON" : "@red@OFF") + "");
+        player.getPacketSender().sendString(55109, "@whi@~ Configurations ~");
         player.getPacketSender().sendString(55110,
-                "@or1@Game Music:  " + (player.musicActive() ? "@gre@ON" : "@red@OFF") + "");
+                "@or1@Yell channel: " + (player.yellToggle() ? "@gre@ON" : "@red@OFF") + "");
         player.getPacketSender().sendString(55111,
+                "@or1@Game Music:  " + (player.musicActive() ? "@gre@ON" : "@red@OFF") + "");
+        player.getPacketSender().sendString(55112,
                 "@or1@Game Sounds:  " + (player.soundsActive() ? "@gre@ON" : "@red@OFF") + "");
-        player.getPacketSender().sendString(55112, "@or1@Hide Familiars:  @red@OFF");
-        player.getPacketSender().sendString(55113,
+        player.getPacketSender().sendString(55113, "@or1@Hide Familiars:  @red@OFF");
+        player.getPacketSender().sendString(55114,
                 "@or1@Exp Lock:  " + (player.experienceLocked() ? "@red@Locked" : "@gre@Unlocked") + "");
 
-        player.getPacketSender().sendString(55115, "@whi@~ Other ~");
-        player.getPacketSender().sendString(55119, "@red@Open Drop Log");
+        player.getPacketSender().sendString(55116, "@whi@~ Other ~");
+        player.getPacketSender().sendString(55121, "@red@Open Drop Log");
 
 
     }

@@ -6,6 +6,8 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
 import java.util.concurrent.TimeUnit;
 
+import java.io.IOException;
+import com.runelive.world.content.Scoreboard;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.runelive.GamePanel;
 import com.runelive.GameServer;

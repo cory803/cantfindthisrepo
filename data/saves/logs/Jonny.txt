@@ -2533,3 +2533,45 @@
 [4/24/16 09:45AM]	Jonny has done command wikidropall	
 [4/24/16 09:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/24/16 09:46AM]	Jonny has done command wikidropall	
+[4/26/16 07:32AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:38AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:41AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:50AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:54AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:57AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:57AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 08:00AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 08:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 08:14AM]	Jonny has done command edge	
+[4/26/16 08:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 08:16AM]	Jonny has done command edge	
+[4/26/16 08:16AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:20AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:23AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:41AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:43AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:45AM]	Jonny has done command update 5	
+[4/26/16 09:45AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:46AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:47AM]	Jonny has done command update 3	
+[4/26/16 09:47AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 09:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 10:48AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 10:50AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:03AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:05AM]	Jonny has done command npc 1265	
+[4/26/16 11:05AM]	Jonny has done command godmode	
+[4/26/16 11:07AM]	Jonny has done command update 1	
+[4/26/16 11:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:12AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:12AM]	Jonny has done command npc 1265	
+[4/26/16 11:12AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:40AM]	Jonny has done command update 3	
+[4/26/16 11:40AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 11:40AM]	Logout from host 127.0.0.1, Computer Address: 362460699	

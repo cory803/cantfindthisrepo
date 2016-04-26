@@ -103,7 +103,7 @@ public class ButtonClickPacketListener implements PacketListener {
     }
 
     switch (id) {
-      case -10426:
+      case -10425:
         // player.setMusicActive(!player.musicActive());
         DialogueManager.sendStatement(player,
             "You can adjust the music volume in the settings tab.");
@@ -111,10 +111,10 @@ public class ButtonClickPacketListener implements PacketListener {
         player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
         PlayerPanel.refreshPanel(player);
         break;
-      case -10424:
+      case -10423:
         player.getPacketSender().sendMessage("This is still being developed.");
         break;
-      case -10425:
+      case -10424:
         // player.setSoundsActive(!player.soundsActive());
         DialogueManager.sendStatement(player,
             "You can adjust the sound volume in the settings tab.");
@@ -125,10 +125,10 @@ public class ButtonClickPacketListener implements PacketListener {
       case -26370:
         player.getPacketSender().sendMessage("Coming soon...");
         break;
-      case -10417:
+      case -10415:
         DropLog.open(player);
         break;
-      case -10419:
+      case -10417:
         KillsTracker.open(player);
         break;
       case -10465:
@@ -205,11 +205,11 @@ public class ButtonClickPacketListener implements PacketListener {
       case 1013:
         player.getSkillManager().setTotalGainedExp(0);
         break;
-      case -10427:
+      case -10426:
         player.setYellToggle(!player.yell_toggle);
         PlayerPanel.refreshPanel(player);
         break;
-      case -10418:
+      case -10416:
         if (player.getPlayerKillingAttributes().getTarget() != null) {
           int my_x = player.getPosition().getX();
           int other_x = player.getPlayerKillingAttributes().getTarget().getPosition().getX();
@@ -262,32 +262,32 @@ public class ButtonClickPacketListener implements PacketListener {
         player.setDialogueActionId(36);
         DialogueManager.start(player, 65);
         break;
-      case -10436:
+      case -10435:
         player.getPacketSender().sendString(1, "www.rune.live/");
         player.getPacketSender().sendMessage("Attempting to open: rune.live/");
         break;
-      case -10435:
+      case -10434:
         player.getPacketSender().sendString(1, "www.rune.live/forum");
         player.getPacketSender().sendMessage("Attempting to open: rune.live/forum");
         break;
-      case -10434:
+      case -10433:
         player.getPacketSender().sendString(1, "www.rune.live/vote");
         player.getPacketSender().sendMessage("Attempting to open: rune.live/vote");
         break;
-      case -10433:
+      case -10432:
         player.getPacketSender().sendString(1, "www.rune.live/store/");
         player.getPacketSender().sendMessage("Attempting to open: rune.live/store");
         break;
-      case -10432:
+      case -10431:
         player.getPacketSender().sendString(1, "www.rune.live/apply");
         player.getPacketSender().sendMessage("Attempting to open: www.rune.live/apply");
         break;
-      case -10431:
+      case -10430:
         player.getPacketSender().sendString(1, "www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
         player.getPacketSender()
             .sendMessage("Attempting to open: www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
         break;
-      case -10430:
+      case -10429:
         player.getPacketSender().sendString(1, "www.rune.live/forum/?app=tickets");
         player.getPacketSender()
             .sendMessage("Attempting to open: www.rune.live/forum/?app=tickets");
@@ -696,7 +696,7 @@ public class ButtonClickPacketListener implements PacketListener {
           player.setRunning(!player.isRunning());
         player.getPacketSender().sendRunStatus();
         break;
-      case -10423:
+      case -10422:
       case -26369:
       case 27658:
       case 15004:

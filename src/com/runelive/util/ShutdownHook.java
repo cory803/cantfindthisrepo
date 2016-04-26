@@ -10,6 +10,8 @@ import com.runelive.world.content.grandexchange.GrandExchangeOffers;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerHandler;
+import com.runelive.world.content.Scoreboard;
+import java.io.IOException;
 
 public class ShutdownHook extends Thread {
 
@@ -31,6 +33,11 @@ public class ShutdownHook extends Thread {
     }
     WellOfGoodwill.save();
     GrandExchangeOffers.save();
+	try {
+		Scoreboard.save();
+	} catch(IOException e) {
+		
+	}
     PlayerOwnedShops.save();
     ClanChatManager.save();
     logger.info("The shudown hook actions have been completed, shutting the server down...");

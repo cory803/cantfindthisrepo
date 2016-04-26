@@ -2,7 +2,9 @@ package com.runelive.world.content.dialogue;
 
 import java.io.File;
 
+import com.runelive.world.content.Scoreboard;
 import com.runelive.GameSettings;
+import com.runelive.world.content.Scoreboard;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.BonusExperienceTask;
@@ -44,7 +46,6 @@ import com.runelive.world.content.MemberScrolls;
 import com.runelive.world.content.PkSets;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PlayerPanel;
-import com.runelive.world.content.Scoreboards;
 import com.runelive.world.content.WellOfGoodwill;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.ShootingStar;
@@ -149,7 +150,7 @@ public class DialogueOptions {
 				Artifacts.sellArtifacts(player);
 				break;
 			case 11:
-				Scoreboards.open(player, Scoreboards.TOP_KILLSTREAKS);
+				Scoreboard.open(player, 2);
 				break;
 			case 12:
 				TeleportHandler.teleportPlayer(player, new Position(3087, 3517), player.getSpellbook().getTeleportType());
@@ -319,7 +320,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, 100);
 				break;
 			case 11:
-				Scoreboards.open(player, Scoreboards.TOP_PKERS);
+				Scoreboard.open(player, 1); //Top Pkers
 				break;
 			case 12:
 				TeleportHandler.teleportPlayer(player, new Position(2980 + Misc.getRandom(3), 3596 + Misc.getRandom(3)), player.getSpellbook().getTeleportType());
@@ -478,7 +479,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, Mandrith.getDialogue(player));
 				break;
 			case 11:
-				Scoreboards.open(player, Scoreboards.TOP_TOTAL_EXP);
+				Scoreboard.open(player, 3);
 				break;
 			case 12:
 				TeleportHandler.teleportPlayer(player, new Position(3239 + Misc.getRandom(2), 3619 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
@@ -643,7 +644,7 @@ public class DialogueOptions {
 				ShopManager.getShops().get(26).open(player);
 				break;
 			case 11:
-				Scoreboards.open(player, Scoreboards.TOP_ACHIEVER);
+				//Scoreboards.open(player, Scoreboards.TOP_ACHIEVER);
 				break;
 			case 12:
 				TeleportHandler.teleportPlayer(player, new Position(3372 + Misc.getRandom(2), 3686 + Misc.getRandom(2), 0), player.getSpellbook().getTeleportType());

@@ -1,5 +1,6 @@
 package com.runelive.commands.ranks;
 
+import java.io.IOException;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.runelive.GameServer;
@@ -8,6 +9,7 @@ import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
+import com.runelive.world.content.Scoreboard;
 import com.runelive.world.content.skill.impl.dungeoneering.*;
 import com.runelive.util.ForumDatabase;
 import java.sql.*;
@@ -1131,6 +1133,11 @@ public class Owners {
 						WellOfGoodwill.save();
 						GrandExchangeOffers.save();
 						PlayerOwnedShops.save();
+						try {
+							Scoreboard.save();
+						} catch(IOException e) {
+							
+						}
 						ClanChatManager.save();
 						GameServer.getLogger().info("Update task finished!");
 						stop();

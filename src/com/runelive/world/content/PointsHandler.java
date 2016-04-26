@@ -36,7 +36,9 @@ public class PointsHandler {
     p.getPacketSender().sendString(55089,
         "@red@Arena Victories: @gre@" + p.getDueling().arenaStats[0]);
     p.getPacketSender().sendString(55090,
-        "@red@Arena Losses: @gre@" + p.getDueling().arenaStats[1]);
+        "@red@Arena Losses: @gre@" + p.getDueling().arenaStats[1]); 
+	p.getPacketSender().sendString(55091,
+        "@red@Tournament Points: @gre@" + tournamentPoints);
 
     return this;
   }
@@ -48,6 +50,7 @@ public class PointsHandler {
   private int pkPoints;
   private double loyaltyPoints;
   private int votingPoints;
+  private int tournamentPoints;
   private int achievementPoints;
 
   public int getPrestigePoints() {
@@ -62,6 +65,17 @@ public class PointsHandler {
       this.prestigePoints += points;
     } else {
       this.prestigePoints = points;
+    }
+  }
+  
+  public void setTournamentPoints(int points, boolean add) {
+    if (add) {
+      if (GameSettings.DOUBLE_POINTS) {
+        points *= 2;
+      }
+      this.tournamentPoints += points;
+    } else {
+      this.tournamentPoints = points;
     }
   }
 
@@ -98,6 +112,10 @@ public class PointsHandler {
   public int getLoyaltyPoints() {
     return (int) this.loyaltyPoints;
   }
+  
+  public int getTournamentPoints() {
+    return this.tournamentPoints;
+  }
 
   public void setLoyaltyPoints(int points, boolean add) {
     if (add) {
@@ -115,6 +133,13 @@ public class PointsHandler {
       amount *= 2;
     }
     this.loyaltyPoints += amount;
+  }
+
+  public void incrementPrestigePoints(double amount) {
+    if (GameSettings.DOUBLE_POINTS) {
+      amount *= 2;
+    }
+    this.tournamentPoints += amount;
   }
 
   public int getPkPoints() {

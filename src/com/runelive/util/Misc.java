@@ -172,6 +172,10 @@ public class Misc {
   public static String format(int num) {
     return NumberFormat.getInstance().format(num);
   }
+  
+  public static String format(long num) {
+    return NumberFormat.getInstance().format(num);
+  }
 
   public static String formatText(String s) {
     for (int i = 0; i < s.length(); i++) {

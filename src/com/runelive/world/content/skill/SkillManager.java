@@ -23,6 +23,7 @@ import com.runelive.world.content.WellOfGoodwill;
 import com.runelive.world.content.combat.prayer.CurseHandler;
 import com.runelive.world.content.combat.prayer.PrayerHandler;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.world.content.Scoreboard;
 
 /**
  * Represents a player's skills in the game, also manages calculations such as combat level and
@@ -205,6 +206,7 @@ public class SkillManager {
     }
     updateSkill(skill);
     this.totalGainedExp += experience;
+	Scoreboard.update(player, 3);
     return this;
   }
 

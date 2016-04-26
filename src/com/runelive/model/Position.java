@@ -299,5 +299,13 @@ public class Position {
     Position p = Misc.delta(this, other);
     return p.x <= 14 && p.x >= -15 && p.y <= 14 && p.y >= -15;
   }
-
+	/**
+	 * Checks if {@code position} has the same values as this position.
+	 * @param position	The position to check.
+	 * @return			The values of {@code position} are the same as this position's.
+	 */
+	public boolean sameAs(int otherX, int otherY) {
+		return x == otherX && y == otherY;
+	}
+	
 }
