@@ -5,6 +5,7 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Flag;
 import com.runelive.model.GameMode;
+import com.runelive.world.content.PlayerPanel;
 import com.runelive.model.Graphic;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Skill;
@@ -24,6 +25,7 @@ import com.runelive.world.content.combat.prayer.CurseHandler;
 import com.runelive.world.content.combat.prayer.PrayerHandler;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.Scoreboard;
+import com.runelive.GameSettings;
 
 /**
  * Represents a player's skills in the game, also manages calculations such as combat level and
@@ -78,8 +80,22 @@ public class SkillManager {
       return this;
 
     experience *= 1;
-
-
+	if(skill != Skill.CONSTITUTION) {
+		if(GameSettings.TOURNAMENT_MODE) {
+			int tourneyPoints = 0;
+			if((experience/ 1000 / 2) + 10 > 80) {
+				tourneyPoints = 80;
+			} else {
+				tourneyPoints = Misc.random(10 + experience / 1000 / 2, 100);
+			}
+			player.getPointsHandler().incrementTournamentPoints(tourneyPoints);
+			if(player.tourneyToggle())
+				player.getPacketSender().sendMessage("You have recieved <col=ff0000>"+tourneyPoints+"</col> Tournament Points</col>");
+			
+			PlayerPanel.refreshPanel(player);
+		}
+	}
+	
     if ((WellOfGoodwill.isActive()) && (player.getDonorRights() > 0)) {
       experience *= 1.5;
     } else if (WellOfGoodwill.isActive()) {

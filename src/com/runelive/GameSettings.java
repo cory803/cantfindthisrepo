@@ -37,6 +37,7 @@ public class GameSettings {
   public static boolean FORUM_DATABASE_CONNECTIONS = false;
   public static boolean KILL_GRENADE = false;
   public static boolean POS_ENABLED = false;
+  public static boolean TOURNAMENT_MODE = false;
 
   public static int gambler_timer_1 = 0;
   public static int gambler_timer_2 = 0;

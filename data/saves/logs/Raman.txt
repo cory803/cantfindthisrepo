@@ -11,3 +11,12 @@
 [4/26/16 12:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/26/16 12:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/26/16 12:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 12:27PM]	Raman has done command npc 1265	
+[4/26/16 12:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 12:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 12:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 12:40PM]	Raman has done command train	
+[4/26/16 12:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 12:41PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 01:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 01:09PM]	Logout from host 127.0.0.1, Computer Address: 362460699	

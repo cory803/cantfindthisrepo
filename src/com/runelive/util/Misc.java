@@ -31,6 +31,7 @@ public class Misc {
 
   private static ZonedDateTime zonedDateTime;
   public static final int HALF_A_DAY_IN_MILLIS = 43200000;
+  protected static final java.util.Random random = new java.util.Random();
 
   public static ContainerHit[] concat(ContainerHit[] a, ContainerHit[] b) {
     int aLen = a.length;
@@ -191,7 +192,17 @@ public class Misc {
     }
     return s.replace("_", " ");
   }
-
+  
+	/**
+	* Returns a linearly distributed pseudorandom integer.
+	* @param min The inclusive lower bound.
+	* @param max The exclusive upper bound.
+	* @return Random integer min <= n < max.
+	*/
+	public static int random(final int min, final int max) {
+		return min + (max == min ? 0 : random.nextInt(max - min));
+	}
+		
   public static String getTotalAmount(int j) {
     if (j >= 10000 && j < 10000000) {
       return j / 1000 + "K";

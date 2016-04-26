@@ -104,7 +104,7 @@ public class PlayerPanel {
                 "@or1@Game Music:  " + (player.musicActive() ? "@gre@ON" : "@red@OFF") + "");
         player.getPacketSender().sendString(55112,
                 "@or1@Game Sounds:  " + (player.soundsActive() ? "@gre@ON" : "@red@OFF") + "");
-        player.getPacketSender().sendString(55113, "@or1@Hide Familiars:  @red@OFF");
+        player.getPacketSender().sendString(55113, "@or1@Display Tourney:  " + (player.tourneyToggle() ? "@gre@ON" : "@red@OFF") + "");
         player.getPacketSender().sendString(55114,
                 "@or1@Exp Lock:  " + (player.experienceLocked() ? "@red@Locked" : "@gre@Unlocked") + "");
 

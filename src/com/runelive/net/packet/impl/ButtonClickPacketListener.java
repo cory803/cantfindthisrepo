@@ -112,7 +112,8 @@ public class ButtonClickPacketListener implements PacketListener {
         PlayerPanel.refreshPanel(player);
         break;
       case -10423:
-        player.getPacketSender().sendMessage("This is still being developed.");
+        player.setTourneyToggle(!player.tourney_toggle);
+        PlayerPanel.refreshPanel(player);
         break;
       case -10424:
         // player.setSoundsActive(!player.soundsActive());

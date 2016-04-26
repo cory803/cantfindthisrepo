@@ -158,36 +158,40 @@ public final class Scoreboard {
 	public static void update(Player player, int type) {
 		switch (type) {
 		case 1:
-			Streak streak = new Streak(player.getUsername(), 1);
+			Streak streak = new Streak(player.getUsername(), 0);
 			int index = PKERS.lastIndexOf(streak);
 			if (index != -1) {
+				if(player.getPlayerKillingAttributes().getPlayerKills() > 0)
 				PKERS.set(index, new Streak(player.getUsername(), player.getPlayerKillingAttributes().getPlayerKills()));
 			} else {
 				PKERS.add(streak);
 			}
 			break;	
 		case 2:
-			Streak killstreak_streak = new Streak(player.getUsername(), 1);
+			Streak killstreak_streak = new Streak(player.getUsername(), 0);
 			int index2 = KILLSTREAKS.lastIndexOf(killstreak_streak);
 			if (index2 != -1) {
+				if(player.getPlayerKillingAttributes().getPlayerKillStreak() > 0)
 				KILLSTREAKS.set(index2, new Streak(player.getUsername(), player.getPlayerKillingAttributes().getPlayerKillStreak()));
 			} else {
 				KILLSTREAKS.add(killstreak_streak);
 			}
 			break;
 		case 3:
-			Streak topexp_streak = new Streak(player.getUsername(), 1);
+			Streak topexp_streak = new Streak(player.getUsername(), 0);
 			int index3 = TOP_EXP.lastIndexOf(topexp_streak);
 			if (index3 != -1) {
+				if(player.getSkillManager().getTotalExp() > 0)
 				TOP_EXP.set(index3, new Streak(player.getUsername(), player.getSkillManager().getTotalExp()));
 			} else {
 				TOP_EXP.add(topexp_streak);
 			}
 			break;
 		case 4:
-			Streak tournamentStreak = new Streak(player.getUsername(), 1);
+			Streak tournamentStreak = new Streak(player.getUsername(), 0);
 			int index4 = TOURNAMENT.lastIndexOf(tournamentStreak );
 			if (index4 != -1) {
+				if(player.getPointsHandler().getTournamentPoints() > 0)
 				TOURNAMENT.set(index4, new Streak(player.getUsername(), player.getPointsHandler().getTournamentPoints()));
 			} else {
 				TOURNAMENT.add(tournamentStreak );
@@ -219,7 +223,7 @@ public final class Scoreboard {
 		
 		@Override
 		public int compare(Streak o1, Streak o2) {
-			if(o2.longamt >= 0) {
+			if(TOURNAMENT.contains(o2) || TOP_EXP.contains(o2)) {
 				return Long.compare(o2.longamt, o1.longamt);
 			}
 			return Integer.compare(o2.kills, o1.kills);

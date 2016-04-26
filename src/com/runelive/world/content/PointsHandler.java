@@ -39,7 +39,7 @@ public class PointsHandler {
     p.getPacketSender().sendString(55090,
         "@red@Arena Losses: @gre@" + Misc.format(p.getDueling().arenaStats[1])); 
 	p.getPacketSender().sendString(55091,
-        "@red@Tourny Points: @gre@" + Misc.format(tournamentPoints));
+        "@red@Tourney Points: @gre@" + Misc.format(tournamentPoints));
 
     return this;
   }
@@ -134,6 +134,10 @@ public class PointsHandler {
       amount *= 2;
     }
     this.loyaltyPoints += amount;
+  }
+  
+  public void incrementTournamentPoints(long amount) {
+    this.tournamentPoints += amount;
   }
 
   public void incrementPrestigePoints(double amount) {

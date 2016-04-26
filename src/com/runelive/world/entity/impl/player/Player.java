@@ -857,6 +857,8 @@ public class Player extends Character {
 	}
 
 	public boolean yell_toggle = true;
+	
+	public boolean tourney_toggle = false;
 
 	public String getLastBankSerial() {
 		return last_bank_serial;
@@ -865,9 +867,17 @@ public class Player extends Character {
 	public boolean yellToggle() {
 		return yell_toggle;
 	}
+	
+	public boolean tourneyToggle() {
+		return tourney_toggle;
+	}
 
 	public void setYellToggle(boolean new_yell) {
 		yell_toggle = new_yell;
+	}
+	
+	public void setTourneyToggle(boolean new_yell) {
+		tourney_toggle = new_yell;
 	}
 
 	public String getLastBankIp() {

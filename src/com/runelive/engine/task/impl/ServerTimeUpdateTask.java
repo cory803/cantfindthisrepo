@@ -198,12 +198,13 @@ public class ServerTimeUpdateTask extends Task {
                   GameSettings.KILL_GRENADE = true;
                 } else {
                   GameSettings.KILL_GRENADE = false;
-                }              } else if (line.contains("kill_grenade")) {
+                }             
+			} else if (line.contains("tournament_mode")) {
                 args = line.split(": ");
                 if (args[1].toLowerCase().equals("on")) {
-                  GameSettings.KILL_GRENADE = true;
+                  GameSettings.TOURNAMENT_MODE = true;
                 } else {
-                  GameSettings.KILL_GRENADE = false;
+                  GameSettings.TOURNAMENT_MODE = false;
                 }
               } else if (line.contains("database_logging_time")) {
                 args = line.split(": ");

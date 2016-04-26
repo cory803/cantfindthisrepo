@@ -61,6 +61,7 @@ public class PlayerSaving {
       object.addProperty("xp-rate", new Boolean(player.getXpRate()));
       object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
       object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
+      object.addProperty("tourney-toggle", new Boolean(player.tourneyToggle()));
       object.addProperty("yell-mute", new Boolean(player.isYellMute()));
       object.addProperty("ge-return", new Boolean(player.hasDoneGrandExchangeReturn()));
       object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));
