@@ -49,22 +49,6 @@ public class ItemDegrading {
 
   public static int getAndIncrementCharge(Player p, DegradingItem d, boolean reset) {
     switch (d) {
-      case BRAWLING_GLOVES_COOKING:
-      case BRAWLING_GLOVES_FIREMAKING:
-      case BRAWLING_GLOVES_FISHING:
-      case BRAWLING_GLOVES_HUNTER:
-      case BRAWLING_GLOVES_MINING:
-      case BRAWLING_GLOVES_PRAYER:
-      case BRAWLING_GLOVES_SMITHING:
-      case BRAWLING_GLOVES_THIEVING:
-      case BRAWLING_GLOVES_WOODCUTTING:
-      case BRAWLING_GLOVES_AGILITY:
-        int index = d.ordinal() - 16;
-        if (reset) {
-          return p.getBrawlerChargers()[index] = 0;
-        } else {
-          return p.getBrawlerChargers()[index]++;
-        }
       case RING_OF_RECOIL:
         if (reset) {
           return p.setRecoilCharges(0);
@@ -205,18 +189,7 @@ public class ItemDegrading {
 
     CORRUPT_MORRIGANS_COIF(13950, 13952, Equipment.HEAD_SLOT, 200), CORRUPT_MORRIGANS_LEATHER_BODY(
             13944, 13946, Equipment.BODY_SLOT,
-            200), CORRUPT_MORRIGANS_LEATHER_CHAPS(13944, 13946, Equipment.LEG_SLOT, 200),
-
-    BRAWLING_GLOVES_SMITHING(13855, 13855, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_PRAYER(
-            13848, 13848, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_COOKING(
-            13857, 13857, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_FISHING(
-            13856, 13856, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_THIEVING(
-            13854, 13854, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_HUNTER(
-            13853, 13853, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_MINING(
-            13852, 13852, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_FIREMAKING(
-            13851, 13851, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_WOODCUTTING(
-            13850, 13850, Equipment.HANDS_SLOT, 600), BRAWLING_GLOVES_AGILITY(
-            13849, 13849, Equipment.HANDS_SLOT, 600);
+            200), CORRUPT_MORRIGANS_LEATHER_CHAPS(13944, 13946, Equipment.LEG_SLOT, 200);
 
     DegradingItem(int nonDeg, int deg, int equipSlot, int degradingCharges) {
       this.nonDeg = nonDeg;
