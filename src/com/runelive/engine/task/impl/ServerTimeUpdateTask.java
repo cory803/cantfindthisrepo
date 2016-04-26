@@ -246,27 +246,27 @@ public class ServerTimeUpdateTask extends Task {
       switch (random) {
         case 1:
           World.sendMessage(
-              "<img=4> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
+              "<icon=2> <shad=FFFF00>Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
           break;
         case 2:
           World.sendMessage(
-              "<img=4> @blu@If you need any help join the @bla@'@dre@RuneLive@bla@'@blu@ clan chat!");
+              "<icon=2><shad=FFFF00>If you need any help join the @bla@'@dre@RuneLive@bla@'@blu@ clan chat!");
           break;
         case 3:
           World.sendMessage(
-              "<img=4> @blu@Do not forget to register on the forums with the command @dre@::register@blu@!");
+              "<icon=2><shad=FFFF00>Do not forget to register on the forums with the command @dre@::register@blu@!");
           break;
         case 4:
           World.sendMessage(
-              "<img=4> @blu@Did you know that? There is a @dre@::market@blu@ for the GE!");
+              "<icon=2><shad=FFFF00>Did you know that? There is a @dre@::market@blu@ for the GE!");
           break;
         case 5:
           World.sendMessage(
-              "<img=4> @blu@Remember to read all the ingame and forum rules on the forums @dre@::forums@blu@!");
+              "<icon=2><shad=FFFF00>Remember to read all the ingame and forum rules on the forums @dre@::forums@blu@!");
           break;
         default:
           World.sendMessage(
-              "<img=4> @blu@Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
+              "<icon=2><shad=FFFF00>Don't forget to vote every 12 hours by typing @dre@::vote@blu@!");
       }
 
     }
@@ -275,7 +275,7 @@ public class ServerTimeUpdateTask extends Task {
       if (Locations.PLAYERS_IN_WILD > Locations.PLAYERS_IN_DUEL_ARENA
           && Locations.PLAYERS_IN_WILD > PestControl.TOTAL_PLAYERS
           || Misc.getRandom(3) == 1 && Locations.PLAYERS_IN_WILD >= 2) {
-        World.sendMessage("<img=4> @blu@There are currently " + Locations.PLAYERS_IN_WILD
+        World.sendMessage("<icon=2><shad=FFFF00>There are currently " + Locations.PLAYERS_IN_WILD
             + " players roaming the Wilderness!");
       }
       tick = 0;

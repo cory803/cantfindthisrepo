@@ -113,16 +113,14 @@ public class SkillManager {
     int amount_for_announcement = 500000000;
     if (player.getSkillManager().getExperience(skill) < amount_for_announcement
         && player.getSkillManager().getExperience(skill) + experience >= amount_for_announcement) {
-      World.sendMessage("<img=2><col=006251>News: " + player.getUsername()
-          + " has just achieved <col=0062A8>500 million<col=006251> experience in <col=0062A8>"
-          + skillName + "<col=006251>!");
+      World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
+          + " has just achieved 500 million experience in " + skillName + "!");
     }
 
     amount_for_announcement = 1000000000;
     if (player.getSkillManager().getExperience(skill) < amount_for_announcement
         && player.getSkillManager().getExperience(skill) + experience >= amount_for_announcement) {
-      World.sendMessage("<img=2><col=006251>News: " + player.getUsername()
-          + " has just achieved 1 billion experience in " + skillName + "!");
+      World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername() + " has just achieved 1 billion experience in " + skillName + "!");
     }
 
     boolean maxed_out = true;
@@ -134,7 +132,7 @@ public class SkillManager {
       }
     }
     if (!player.hasAnnouncedMax() && maxed_out) {
-      World.sendMessage("<img=2><col=006251>News: " + player.getUsername()
+      World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
           + " has just achieved the maximum level in all skills!");
       player.setAnnounceMax(true);
     }
