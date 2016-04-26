@@ -40,13 +40,10 @@ public class Cerberus implements CombatStrategy {
             return true;
         }
         int random = Misc.getRandom(10);
-        if (random <= 1 && Locations.goodDistance(cerberus.getPosition().getX(), cerberus.getPosition().getY(),
-                victim.getPosition().getX(), victim.getPosition().getY(), 3)) {
+        if (random <= 1 && Locations.goodDistance(cerberus.getPosition().getX(), cerberus.getPosition().getY(), victim.getPosition().getX(), victim.getPosition().getY(), 3)) {
             cerberus.performAnimation(anim2);
-            cerberus.getCombatBuilder()
-                    .setContainer(new CombatContainer(cerberus, victim, 1, 2, CombatType.MELEE, true));
-        } else if (random >= 3 || !Locations.goodDistance(cerberus.getPosition().getX(),
-                cerberus.getPosition().getY(), victim.getPosition().getX(), victim.getPosition().getY(), 14)) {
+            cerberus.getCombatBuilder().setContainer(new CombatContainer(cerberus, victim, 1, 2, CombatType.MELEE, true));
+        } else if (random >= 3 || !Locations.goodDistance(cerberus.getPosition().getX(), cerberus.getPosition().getY(), victim.getPosition().getX(), victim.getPosition().getY(), 14)) {
             cerberus.getCombatBuilder().setContainer(new CombatContainer(cerberus, victim, 1, 6, CombatType.MAGIC, true));
             cerberus.performAnimation(anim3);
             cerberus.performGraphic(gfx3);
@@ -67,8 +64,7 @@ public class Cerberus implements CombatStrategy {
                 }
             });
         } else {
-            cerberus.getCombatBuilder()
-                    .setContainer(new CombatContainer(cerberus, victim, 1, 5, CombatType.RANGED, true));
+            cerberus.getCombatBuilder().setContainer(new CombatContainer(cerberus, victim, 1, 5, CombatType.RANGED, true));
             cerberus.performAnimation(anim4);
             cerberus.performGraphic(gfx2);
             cerberus.setChargingAttack(true);

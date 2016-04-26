@@ -625,7 +625,7 @@ public class ButtonClickPacketListener implements PacketListener {
       case 27022:
         if (!player.isBanking())
           return;
-        if (player.getBankSearchingAttribtues().isSearchingBank())
+        if (player.getBankSearchingAttributes().isSearchingBank())
           BankSearchAttributes.stopSearch(player, true);
         int bankId = id - 27014;
         boolean empty = bankId > 0 ? Bank.isEmpty(player.getBank(bankId)) : false;
@@ -641,8 +641,8 @@ public class ButtonClickPacketListener implements PacketListener {
       case 22004:
         if (!player.isBanking())
           return;
-        if (!player.getBankSearchingAttribtues().isSearchingBank()) {
-          player.getBankSearchingAttribtues().setSearchingBank(true);
+        if (!player.getBankSearchingAttributes().isSearchingBank()) {
+          player.getBankSearchingAttributes().setSearchingBank(true);
           player.setInputHandling(new EnterSyntaxToBankSearchFor());
           player.getPacketSender().sendEnterInputPrompt("What would you like to search for?");
         } else {

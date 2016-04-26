@@ -534,7 +534,7 @@ public class PacketSender {
      * sendClientRightClickRemoval(); player.getAdvancedSkills().getSummoning().setStoring(false); }
      * if(player.isPriceChecking()) { sendClientRightClickRemoval();
      * PriceChecker.closePriceChecker(player); }
-     * if(player.getBankSearchingAttribtues().isSearchingBank())
+     * if(player.getBankSearchingAttributes().isSearchingBank())
      * BankSearchAttributes.stopSearch(player, false); if(player.isBanking()) {
      * sendClientRightClickRemoval(); player.setBanking(false); }
      */

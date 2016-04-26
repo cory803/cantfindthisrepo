@@ -1612,7 +1612,7 @@ public class Player extends Character {
     return lastSummon;
   }
 
-  public BankSearchAttributes getBankSearchingAttribtues() {
+  public BankSearchAttributes getBankSearchingAttributes() {
     return bankSearchAttributes;
   }
 

@@ -17,9 +17,9 @@ public class EnterAmountToRemoveFromBank extends EnterAmount {
     if (!player.isBanking())
       return;
     int tab = Bank.getTabForItem(player, getItem());
-    int item = player.getBankSearchingAttribtues().isSearchingBank()
-        && player.getBankSearchingAttribtues().getSearchedBank() != null
-            ? player.getBankSearchingAttribtues().getSearchedBank().getItems()[getSlot()].getId()
+    int item = player.getBankSearchingAttributes().isSearchingBank()
+        && player.getBankSearchingAttributes().getSearchedBank() != null
+            ? player.getBankSearchingAttributes().getSearchedBank().getItems()[getSlot()].getId()
             : player.getBank(tab).getItems()[getSlot()].getId();
     if (item != getItem())
       return;

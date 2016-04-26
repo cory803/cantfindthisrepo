@@ -35,14 +35,14 @@ public class SwitchItemSlotPacketListener implements PacketListener {
         if (player.isBanking() && player.getInterfaceId() == 5292) {
           if (fromSlot == toSlot)
             return;
-          if (player.getBankSearchingAttribtues().isSearchingBank()) {
+          if (player.getBankSearchingAttributes().isSearchingBank()) {
             if (player.swapMode()) {
-              player.getBankSearchingAttribtues().getSearchedBank().shiftSwap(fromSlot, toSlot);
+              player.getBankSearchingAttributes().getSearchedBank().shiftSwap(fromSlot, toSlot);
             } else {
-              player.getBankSearchingAttribtues().getSearchedBank().swap(fromSlot, toSlot)
+              player.getBankSearchingAttributes().getSearchedBank().swap(fromSlot, toSlot)
                   .sortItems();
             }
-            player.getBankSearchingAttribtues().getSearchedBank().open();
+            player.getBankSearchingAttributes().getSearchedBank().open();
           } else {
             if (player.swapMode()) {
               player.getBank(player.getCurrentBankTab()).shiftSwap(fromSlot, toSlot);
@@ -68,7 +68,7 @@ public class SwitchItemSlotPacketListener implements PacketListener {
             .getBank(player.getCurrentBankTab()).getAmount(item.getId()) < item.getAmount())
           return;
         if (toBankTab) {
-          if (player.getBankSearchingAttribtues().isSearchingBank()) {
+          if (player.getBankSearchingAttributes().isSearchingBank()) {
             player.getPacketSender().sendMessage("You cannot do that right now.");
             return;
           }

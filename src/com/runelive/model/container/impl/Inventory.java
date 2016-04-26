@@ -72,8 +72,8 @@ public class Inventory extends ItemContainer {
       refreshItems();
       to.refreshItems();
     }
-    if (to instanceof Bank && getPlayer().getBankSearchingAttribtues().isSearchingBank()
-        && getPlayer().getBankSearchingAttribtues().getSearchedBank() != null) {
+    if (to instanceof Bank && getPlayer().getBankSearchingAttributes().isSearchingBank()
+        && getPlayer().getBankSearchingAttributes().getSearchedBank() != null) {
       BankSearchAttributes.addItemToBankSearch(getPlayer(), item);
     }
     return this;
