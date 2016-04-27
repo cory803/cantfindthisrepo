@@ -22,3 +22,5 @@
 [4/26/16 01:08PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [4/26/16 01:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/26/16 01:09PM]	James has done command edge	
+[4/26/16 05:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 05:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	

@@ -644,7 +644,11 @@ public class DialogueOptions {
 				ShopManager.getShops().get(26).open(player);
 				break;
 			case 11:
-				Scoreboard.open(player, 4);
+				if(GameSettings.TOURNAMENT_MODE) {
+					Scoreboard.open(player, 4);
+				} else {
+					player.getPacketSender().sendMessage("There currently is no tournament mode open!");
+				}	
 				break;
 			case 12:
 				TeleportHandler.teleportPlayer(player, new Position(3372 + Misc.getRandom(2), 3686 + Misc.getRandom(2), 0), player.getSpellbook().getTeleportType());
