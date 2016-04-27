@@ -1,6 +1,8 @@
 package com.runelive.commands.ranks;
 
 import com.runelive.GameSettings;
+import com.runelive.world.content.Achievements;
+import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Store;
@@ -303,6 +305,9 @@ public class Members {
 						player.getInventory().add(10944, 3);
 					else
 						player.getInventory().add(10944, 1);
+
+					Achievements.doProgress(player, AchievementData.ASSEMBLE_5_GODSWORDS);
+					player.getPacketSender().sendMessage("You have claimed your auth code!");
 				} else {
 					player.getPacketSender().sendMessage("This is an invalid auth code!");
 				}
