@@ -28,3 +28,26 @@
 [4/26/16 06:05PM]	James has done command item 1040 1	
 [4/26/16 06:05PM]	James has done command item 1044 1	
 [4/26/16 06:05PM]	James has done command item 10944 1	
+[4/26/16 06:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 06:13PM]	James has done command item 1 1	
+[4/26/16 06:13PM]	James has done command item 10944 1	
+[4/26/16 06:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:13PM]	James has done command auth 111	
+[4/26/16 07:13PM]	James has done command auth aaa	
+[4/26/16 07:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:15PM]	James has done command auth aaaaa	
+[4/26/16 07:21PM]	James has done command auth 19b490e3a	
+[4/26/16 07:21PM]	James has done command auth 19b490e3a	
+[4/26/16 07:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:22PM]	James has done command auth affa	
+[4/26/16 07:23PM]	James has done command auth 19b490e3a	
+[4/26/16 07:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:28PM]	James has done command auth aaaa	
+[4/26/16 07:28PM]	James has done command auth 19b490e3a	
+[4/26/16 07:28PM]	James has done command auth 19b49Oe3a	
+[4/26/16 07:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:30PM]	James has done command auth 19b490e3a	
+[4/26/16 07:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/26/16 07:30PM]	James has done command auth 19b490e3a	
+[4/26/16 07:31PM]	James has done command auth 19b490e3a	

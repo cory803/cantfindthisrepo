@@ -19,8 +19,8 @@ import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.motivoters.motivote.service.MotivoteRS;
 
 public class Members {
-	
-	private final static MotivoteRS motivote = new MotivoteRS("example", "api_key");
+
+	private static final MotivoteRS motivote = new MotivoteRS("runelive", "ebac47c6e0cd6d66f1c9b7b5ce9138b3");
 	
 	/**
 	* @Author Jonathan Sirens
@@ -293,7 +293,7 @@ public class Members {
 				player.getPacketSender().sendMessage("Voting connections are currently turned off, try again in 30 minutes!");
 				return;
 			}
-			String auth = wholeCommand.replace("redeem ", "");
+			String auth = wholeCommand.replace("auth ", "");
 			try {
 				boolean success = motivote.redeemVote(auth);
 				if (success) {
