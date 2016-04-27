@@ -31,10 +31,10 @@ public class Commands {
 		}
 
 		//Staff Members
-		if(player.getRights() == PlayerRights.OWNER || !player.getUsername().equals("vados")) {
+		if(player.getRights() == PlayerRights.OWNER) {
 			Owners.initiate_command(player, parts, whole_command);
 		}
-		if(player.getRights() == PlayerRights.ADMINISTRATOR || !player.getUsername().equals("vados")) {
+		if(player.getRights() == PlayerRights.ADMINISTRATOR) {
 			Administrators.initiate_command(player, parts, whole_command);
 		}
 		if(player.getRights() == PlayerRights.MODERATOR) {
