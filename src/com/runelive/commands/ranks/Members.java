@@ -16,8 +16,11 @@ import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.DesolaceFormulas;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
+import com.motivoters.motivote.service.MotivoteRS;
 
 public class Members {
+	
+	private final static MotivoteRS motivote = new MotivoteRS("example", "api_key");
 	
 	/**
 	* @Author Jonathan Sirens
@@ -284,6 +287,29 @@ public class Members {
 		if (wholeCommand.equalsIgnoreCase("wiki")) {
 			player.getPacketSender().sendString(1, "www.runelive-2.wikia.com/wiki/runelive_2_Wikia");
 			player.getPacketSender().sendMessage("Attempting to open: www.rune.live/wiki/");
+		}
+		if (wholeCommand.startsWith("auth")) {
+			if(!GameSettings.VOTING_CONNECTIONS) {
+				player.getPacketSender().sendMessage("Voting connections are currently turned off, try again in 30 minutes!");
+				return;
+			}
+			String auth = wholeCommand.replace("redeem ", "");
+			try {
+				boolean success = motivote.redeemVote(auth);
+				if (success) {
+					if(GameSettings.DOUBLE_VOTE_TOKENS)
+						player.getInventory().add(10944, 2);
+					else if(GameSettings.TRIPLE_VOTE_TOKENS)
+						player.getInventory().add(10944, 3);
+					else
+						player.getInventory().add(10944, 1);
+				} else {
+					player.getPacketSender().sendMessage("This is an invalid auth code!");
+				}
+			} catch (Exception ex) {
+				ex.printStackTrace();
+				player.getPacketSender().sendMessage("Unable to check auth, please try again later.");
+			}
 		}
 		if(command[0].equalsIgnoreCase("attacks")) {
 			int attack = DesolaceFormulas.getMeleeAttack(player);
