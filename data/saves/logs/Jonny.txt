@@ -2615,3 +2615,29 @@
 [4/27/16 11:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/27/16 11:18PM]	Jonny has done command dzone	
 [4/27/16 11:18PM]	Player has bought the store item: Super attack flask (6) (14189), amount: 1	
+[4/27/16 11:19PM]	Jonny has done command find max cape	
+[4/27/16 11:24PM]	Jonny has done command setlevel 20 50	
+[4/27/16 11:24PM]	Jonny has done command setlevel 21 50	
+[4/27/16 11:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 11:26PM]	Jonny has done command master	
+[4/27/16 11:27PM]	Jonny has done command setlevel 21 1	
+[4/27/16 11:27PM]	Jonny has done command setlevel 22 1	
+[4/27/16 11:27PM]	Jonny has done command setlevel 20 50	
+[4/27/16 11:27PM]	Jonny has done command setlevel 20 99	
+[4/27/16 11:27PM]	Jonny has done command setlevel 22 99	
+[4/27/16 11:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 11:28PM]	Jonny has done command master	
+[4/27/16 11:28PM]	Jonny has done command setlevel 21 1	
+[4/27/16 11:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 11:28PM]	Jonny has done command master	
+[4/27/16 11:28PM]	Jonny has done command setlevel 21 1	
+[4/27/16 11:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 11:29PM]	Jonny has done command master	
+[4/27/16 11:29PM]	Jonny has done command setlevel 21 1	
+[4/27/16 11:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 11:30PM]	Jonny has done command master	
+[4/27/16 11:30PM]	Jonny has done command setlevel 21 1	
+[4/27/16 11:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 11:32PM]	Jonny has done command master	
+[4/27/16 11:32PM]	Jonny has done command setlevel 21 1	
+[4/27/16 11:32PM]	Jonny has done command setlevel 5 1	
