@@ -227,11 +227,14 @@ public class Barrows {
             return true;
           }
           resetBarrows(player);
-          player.getInventory().add(randomRunes(), 25 + Misc.getRandom(70));
+          player.getInventory().add(randomRunes(), 25 + Misc.getRandom(100));
+          player.getInventory().add(randomRunes(), 25 + Misc.getRandom(200));
+          player.getInventory().add(randomRunes(), 25 + Misc.getRandom(300));
+          player.getInventory().add(995, Misc.inclusiveRandom(1500, 25000));
           if (Misc.getRandom(100) >= 87) {
             int b = randomBarrows();
             player.getInventory().add(b, 1);
-            World.sendMessage("<img=4><col=009966> " + player.getUsername() + " has just received "
+            World.sendMessage("<icon=1><col=FF8C38> " + player.getUsername() + " has just received "
                 + ItemDefinition.forId(b).getName() + " from the Barrows minigame!");
           }
           player.getPacketSender().sendCameraShake(3, 2, 3, 2);
@@ -303,15 +306,6 @@ public class Barrows {
    * @param obj The object (coffin) being searched
    * @param coffinId The coffin's array index
    * @param npcId The NPC Id of the NPC to spawn after searching
-   * @param constitution NPC stat
-   * @param attackLevel NPC stat
-   * @param strengthLevel NPC stat
-   * @param defenceLevel NPC stat
-   * @param absorbMelee NPC stat
-   * @param absorbRanged NPC stat
-   * @param absorbMagic NPC stat
-   * @param getCombatAttributes().getAttackDelay() NPC attackspeed
-   * @param maxhit NPC Maxhit
    */
   public static void searchCoffin(final Player player, final int obj, final int coffinId, int npcId,
       Position spawnPos) {
@@ -358,7 +352,6 @@ public class Barrows {
    * Deregisters an NPC located in the Barrows minigame
    * 
    * @param player The player that's the reason for deregister
-   * @param barrowBrother The NPC to deregister
    * @param killed Did player kill the NPC?
    */
   public static void killBarrowsNpc(Player player, NPC n, boolean killed) {
