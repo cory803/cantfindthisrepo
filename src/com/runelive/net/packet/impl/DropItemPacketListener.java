@@ -114,7 +114,7 @@ public class DropItemPacketListener implements PacketListener {
           PlayerLogs.log(player.getUsername(),
               "Player dropping item: " + item.getDefinition().getName() + " (" + item.getId()
                   + "), amount: " + item.getAmount() + " from the computer address: "
-                  + player.getLastComputerAddress());
+                  + player.getComputerAddress());
           player.save();
         }
         Sounds.sendSound(player, Sound.DROP_ITEM);

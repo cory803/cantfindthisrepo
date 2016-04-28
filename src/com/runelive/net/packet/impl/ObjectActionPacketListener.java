@@ -867,7 +867,7 @@ public class ObjectActionPacketListener implements PacketListener {
                     && player.getMinigameAttributes().getGodwarsDungeonAttributes()
                         .getKillcount()[index] < killcount_amount)) {
                   player.getPacketSender().sendMessage("You need " + Misc.anOrA(bossRoom) + " "
-                      + bossRoom + " killcount of at least 20 to enter this room.");
+                      + bossRoom + " killcount of at least "+killcount_amount+" to enter this room.");
                   return;
                 }
                 player.moveTo(movePos);
