@@ -100,8 +100,8 @@ public class ItemDefinition {
             return new ItemDefinition();
         }
         if (definitions[id] == null) {
-            if (id != -1)
-                System.out.println("Definition for id: " + id + " does not exist.");
+          //  if (id != -1)
+               // System.out.println("Definition for id: " + id + " does not exist.");
             return new ItemDefinition();
         }
         return definitions[id];

@@ -83,8 +83,8 @@ public class MovementPacketListener implements PacketListener {
       Position dest = positions[steps];
 
       if (!MovementQueue.canWalk(last, next, player.getSize())) {
-        System.out
-            .println("Unable to traverse from: " + last + " to " + next + ", rewriting path.");
+      //  System.out
+           // .println("Unable to traverse from: " + last + " to " + next + ", rewriting path.");
         // Try to rewrite the path if the clients path was malformed or bad
         if (!PathFinder.findPath(player, dest.getX(), dest.getY(), true, 16, 16)
             || !player.getMovementQueue().isMoving()) {
