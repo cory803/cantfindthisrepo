@@ -199,7 +199,7 @@ public class ItemDefinition {
      * @return value.
      */
     public int getValue() {
-        return isNoted() ? ItemDefinition.forId(getId() - 1).value : value;
+        return value;
     }
 
     /**
