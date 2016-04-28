@@ -223,7 +223,7 @@ public final class Scoreboard {
 		
 		@Override
 		public int compare(Streak o1, Streak o2) {
-			if(TOURNAMENT.contains(o2) || TOP_EXP.contains(o2)) {
+			if(o2.longamt > 0) {
 				return Long.compare(o2.longamt, o1.longamt);
 			}
 			return Integer.compare(o2.kills, o1.kills);

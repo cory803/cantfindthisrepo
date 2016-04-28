@@ -1,2 +1,12 @@
 [4/9/16 10:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/9/16 10:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:02PM]	Empty has done command edge	
+[4/27/16 10:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/27/16 10:06PM]	Empty has done command train	
+[4/27/16 10:07PM]	Logout from host 127.0.0.1, Computer Address: 362460699	

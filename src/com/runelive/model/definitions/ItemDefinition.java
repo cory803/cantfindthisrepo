@@ -55,7 +55,7 @@ public class ItemDefinition {
                         }
                     }
 
-                    if (reader.has("req")) {
+                    if (reader.has("requirement")) {
                         JsonArray req = reader.get("requirement").getAsJsonArray();
                         for (int index = 0; index < definition.requirement.length; index++) {
                             definition.requirement[index] = req.get(index).getAsInt();
