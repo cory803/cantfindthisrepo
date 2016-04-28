@@ -61,6 +61,17 @@ public class SkillManager {
     skills.experience[Skill.CONSTITUTION.ordinal()] = 1184;
     skills.level[Skill.PRAYER.ordinal()] = skills.maxLevel[Skill.PRAYER.ordinal()] = 10;
   }
+  
+  public boolean maxStats() {
+    for (int i = 0; i < Skill.values().length; i++) {
+      if (i == 21)
+        continue;
+      if (player.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
+		return false;
+      }
+    }
+	return true;
+  }
 
   /**
    * Adds experience to {@code skill} by the {@code experience} amount.

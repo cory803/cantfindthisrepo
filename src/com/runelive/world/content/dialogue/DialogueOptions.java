@@ -655,6 +655,10 @@ public class DialogueOptions {
 				break;
 			case 13:
 				player.getPacketSender().sendInterfaceRemoval();
+				if(!player.getSkillManager().maxStats()) {
+					player.getPacketSender().sendMessage("You must have 99's in every skill in order to purchase the max cape!");
+					return;
+				}
 				boolean usePouch = player.getMoneyInPouch() >= 50000000;
 				if(!usePouch && player.getInventory().getAmount(995) < 50000000) {
 					player.getPacketSender().sendMessage("You do not have enough coins.");

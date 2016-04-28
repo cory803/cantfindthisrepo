@@ -226,7 +226,7 @@ public class GroundItemManager {
       PlayerLogs.log(p.getUsername(),
           "Player looting item: " + item.getDefinition().getName() + " (" + item.getId()
               + "), amount: " + item.getAmount() + " Owner: " + gt.getOwner() + " from the computer address: "
-                  + player.getComputerAddress()+"");
+                  + p.getComputerAddress()+"");
     }
   }
 
