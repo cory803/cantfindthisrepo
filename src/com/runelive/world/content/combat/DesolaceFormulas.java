@@ -490,7 +490,7 @@ public class DesolaceFormulas {
     }
     if (id == 18365)
       return 3;
-    else if (id == 18349) // CCbow and rapier
+    else if (id == 18349 || id == 21091) // CCbow and rapier
       return 4;
     if (id == 18353) // cmaul
       return 7;// chaotic maul
@@ -503,7 +503,7 @@ public class DesolaceFormulas {
       return 4;// gs
     if (id == 20003)
       return 4;// gs
-    if (id == 18349)
+    if (id == 18349 || id == 21100)
       return 5;// chaotic rapier
     if (id == 18353) // cmaul
       return 7;// chaotic maul
@@ -562,6 +562,7 @@ public class DesolaceFormulas {
         return 4;
 
       case 16403: // long primal
+      case 21089:
         return 5;
     }
 

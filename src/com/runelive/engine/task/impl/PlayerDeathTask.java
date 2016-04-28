@@ -77,9 +77,6 @@ public class PlayerDeathTask extends Task {
               && loc != Location.FIGHT_CAVES && loc != Location.RECIPE_FOR_DISASTER
               && loc != Location.GRAVEYARD) {
             Player killer = player.getCombatBuilder().getKiller(true);
-            if(killer.getGameMode().equals(GameMode.IRONMAN) || killer.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
-                dropItems = false;
-            }
             // final boolean doubleDeath = player.isDying() && killer.getConstitution() <= 0;
             // if(killer.getLocation() == Location.WILDERNESS || killer.getLocation() ==
             // Location.WILDKEY_ZONE) {
