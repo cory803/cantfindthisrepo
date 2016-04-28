@@ -55,19 +55,19 @@ public class WoodcuttingData {
   }
 
   public static enum Trees {
-    NORMAL(1, 25, 1511, new int[] {1276, 1277, 1278, 1279, 1280, 1282, 1283, 1284, 1285, 1286, 1289, 1290, 1291,
+    NORMAL(1, 1000, 1511, new int[] {1276, 1277, 1278, 1279, 1280, 1282, 1283, 1284, 1285, 1286, 1289, 1290, 1291,
             1315, 1316, 1318, 1319, 1330, 1331, 1332, 1365, 1383, 1384, 3033, 3034, 3035, 3036,
             3881, 3882, 3883, 5902, 5903, 5904}, 4, false),
-    ACHEY(1, 25, 2862, new int[] {2023}, 4, false),
-    OAK(15, 37, 1521, new int[] {1281, 3037}, 5, true),
-    WILLOW(30, 67, 1519, new int[] {1308, 5551, 5552, 5553}, 6, true),
-    TEAK(35, 85, 6333, new int[] {9036}, 7, true),
+    ACHEY(1, 1000, 2862, new int[] {2023}, 4, false),
+    OAK(15, 1480, 1521, new int[] {1281, 3037}, 5, true),
+    WILLOW(30, 2680, 1519, new int[] {1308, 5551, 5552, 5553}, 6, true),
+    TEAK(35, 3400, 6333, new int[] {9036}, 7, true),
     DRAMEN(36, 6581, 771, new int[] {1292}, 7, true),
-    MAPLE(45, 100, 1517, new int[] {1307, 4677}, 7, true),
-    MAHOGANY(50, 125, 6332, new int[] {9034}, 7, true),
-    YEW(60, 175, 1515, new int[] {1309}, 8, true),
-    MAGIC(75, 250, 1513, new int[] {1306}, 9, true),
-    EVIL_TREE(80, 275, 14666, new int[] {11434}, 9, true);
+    MAPLE(45, 4000, 1517, new int[] {1307, 4677}, 7, true),
+    MAHOGANY(50, 5000, 6332, new int[] {9034}, 7, true),
+    YEW(60, 6160, 1515, new int[] {1309}, 8, true),
+    MAGIC(75, 10000, 1513, new int[] {1306}, 9, true),
+    EVIL_TREE(80, 11000, 14666, new int[] {11434}, 9, true);
 
     private int[] objects;
     private int req, xp, log, ticks;
