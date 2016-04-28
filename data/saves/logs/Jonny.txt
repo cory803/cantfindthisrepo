@@ -2592,3 +2592,6 @@
 [4/27/16 10:10PM]	Jonny has done command reset	
 [4/27/16 10:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/27/16 10:10PM]	Jonny has done command reset	
+[4/27/16 11:00PM]	Jonny has done command find black d'hide	
+[4/27/16 11:00PM]	Jonny has done command item 2491 1	
+[4/27/16 11:00PM]	Jonny has done command master	
