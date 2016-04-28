@@ -17,8 +17,8 @@ public class BankPin {
       player.getBankPinAttributes().getBankPin()[i] = -1;
       player.getBankPinAttributes().getEnteredBankPin()[i] = -1;
     }
-    PlayerLogs.log(player.getUsername(), "Player deleted account-pin to: from ip: "
-        + player.getLastIpAddress() + " and mac: " + player.getComputerAddress());
+    PlayerLogs.log(player.getUsername(), "Player deleted account-pin from ip: "
+        + player.getHostAddress() + " and mac: " + player.getComputerAddress());
     player.getPacketSender().sendMessage("Your account-pin was deleted.").sendInterfaceRemoval();
   }
 

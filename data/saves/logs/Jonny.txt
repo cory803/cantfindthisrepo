@@ -2649,3 +2649,4 @@
 [4/28/16 12:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/28/16 12:00AM]	Jonny has done command item 15450 1	
 [4/28/16 12:25AM]	Jonny has done command spawn aqua partyhat:1	
+[4/28/16 12:30AM]	Logout from host 127.0.0.1, Computer Address: 362460699	

@@ -306,7 +306,7 @@ public class Members {
 					else
 						player.getInventory().add(10944, 1);
 
-					Achievements.doProgress(player, AchievementData.ASSEMBLE_5_GODSWORDS);
+					Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 					player.getPacketSender().sendMessage("You have claimed your auth code!");
 				} else {
 					player.getPacketSender().sendMessage("This is an invalid auth code!");
