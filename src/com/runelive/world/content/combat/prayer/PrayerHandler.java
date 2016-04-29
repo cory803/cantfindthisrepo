@@ -386,6 +386,8 @@ public class PrayerHandler {
     TaskManager.submit(new Task(1, player, true) {
       @Override
       public void execute() {
+        if ((player.getDonorRights() == 5) && player.getLocation() != Location.WILDERNESS)
+          return;
         if (player.getSkillManager().getCurrentLevel(Skill.PRAYER) <= 0) {
           for (int i = 0; i < player.getPrayerActive().length; i++) {
             if (player.getPrayerActive()[i])
