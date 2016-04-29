@@ -93,6 +93,9 @@ public class NPCOptionPacketListener implements PacketListener {
           player.setDialogueActionId(189);
         }
         break;
+      case 308:
+        ShopManager.getShops().get(18).open(player);
+        break;
       case 2290: // ironman npc
         if (player.getGameMode() == GameMode.NORMAL) {
           DialogueManager.sendStatement(player, "I am not an iron man so I cannot change my mode.");
@@ -570,6 +573,7 @@ public class NPCOptionPacketListener implements PacketListener {
               case 316:
               case 313:
               case 312:
+              case 309:
               case 2859:
                 player.setEntityInteraction(npc);
                 Fishing.setupFishing(player, Fishing.forSpot(npc.getId(), false));
