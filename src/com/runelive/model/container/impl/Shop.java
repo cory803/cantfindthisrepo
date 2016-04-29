@@ -1172,8 +1172,6 @@ public class Shop extends ItemContainer {
         }
       } else if (shop == GRAVEYARD_STORE) {
         switch (item) {
-          case 18337:
-            return new Object[] {350, "zombie fragments"};
           case 10499:
             return new Object[] {200, "zombie fragments"};
           case 10551:
@@ -1260,6 +1258,8 @@ public class Shop extends ItemContainer {
           case 19669:
             return new Object[] {50000, "Dungeoneering tokens"};
           case 6500:
+            return new Object[] {75000, "Dungeoneering tokens"};
+          case 18337:
             return new Object[] {75000, "Dungeoneering tokens"};
         }
       } else if (shop == PRESTIGE_STORE) {
