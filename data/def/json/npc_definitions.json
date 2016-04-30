@@ -68373,7 +68373,8 @@
 "attackBonus": 260,
 "defenceMelee": 85,
 "defenceRange": 260,
-"defenceMage": 0
+"defenceMage": 0,
+"slayerLevel": 72
 },
 {
 "id": 3069,
