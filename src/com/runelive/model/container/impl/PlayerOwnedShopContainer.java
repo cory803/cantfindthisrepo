@@ -1,6 +1,8 @@
 package com.runelive.model.container.impl;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import com.runelive.model.Item;
@@ -96,9 +98,11 @@ public class PlayerOwnedShopContainer extends ItemContainer {
     if (item.getId() < 0)
       return;
     if (player != null && finalValue > 0) {
+      Locale locale = new Locale("en", "US");
+      NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
       player.getPacketSender()
           .sendMessage("<col=CA024B>" + ItemDefinition.forId(item.getId()).getName()
-              + "</col> is for sale for: <col=CA024B>" + formatAmount(finalValue) + " each.");
+              + "</col> is for sale for: <col=CA024B>" + currencyFormatter.format(finalValue) + " GP [" + formatAmount(finalValue) + "] each.");
       return;
     }
   }
