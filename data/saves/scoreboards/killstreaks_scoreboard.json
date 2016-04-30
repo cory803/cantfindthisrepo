@@ -8,5 +8,15 @@
     "username": "Empty",
     "kills": 0,
     "longamt": 0
+  },
+  {
+    "username": "Networking",
+    "kills": 0,
+    "longamt": 0
+  },
+  {
+    "username": "Vados",
+    "kills": 1,
+    "longamt": 0
   }
 ]

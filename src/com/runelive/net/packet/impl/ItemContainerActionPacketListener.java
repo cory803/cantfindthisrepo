@@ -10,6 +10,7 @@ import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.PriceChecker;
 import com.runelive.model.container.impl.Shop;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.model.input.impl.EnterAmountToBank;
@@ -28,6 +29,7 @@ import com.runelive.model.input.impl.EnterAmountToStore;
 import com.runelive.model.input.impl.EnterAmountToTrade;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
+import com.runelive.util.Misc;
 import com.runelive.world.content.BonusManager;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.Trading;
@@ -38,6 +40,7 @@ import com.runelive.world.content.grandexchange.GrandExchange;
 import com.runelive.world.content.grandexchange.GrandExchangeOffer;
 import com.runelive.world.content.minigames.impl.Dueling;
 import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
+import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.content.skill.impl.smithing.EquipmentMaking;
 import com.runelive.world.content.skill.impl.smithing.SmithingData;
 import com.runelive.world.content.transportation.JewelryTeleporting;
@@ -357,6 +360,15 @@ public class ItemContainerActionPacketListener implements PacketListener {
                         break;
                     case 11126:
                         player.getPacketSender().sendMessage("Your bracelet has run out of charges.");
+                        break;
+                    case 13263:
+                    case 15492:
+                        final SlayerTasks task = player.getSlayer().getSlayerTask();
+                        if(player.getSlayer().getSlayerTask() != null && player.getSlayer().getAmountToSlay() >= 1) {
+                            player.getPacketSender().sendMessage("Your current task is to kill " + (player.getSlayer().getAmountToSlay()) +" x "+task.toString().toLowerCase().replaceAll("_", " ")+"'s.");
+                        } else {
+                            player.getPacketSender().sendMessage("You currently do not have a slayer task assigned");
+                        }
                         break;
                     case 11283:
                         int charges = player.getDfsCharges();
