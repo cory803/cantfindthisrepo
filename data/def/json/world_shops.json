@@ -1484,14 +1484,6 @@
        "id": 59,
        "name": "Regular Donator Store",
        "items": [
-        {
-          "id": 392,
-          "amount": 2000000000
-        }, 
-        {
-          "id": 15273,
-          "amount": 2000000000
-        }, 
 		{
           "id": 14177,
           "amount": 2000000000
