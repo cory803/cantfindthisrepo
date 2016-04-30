@@ -93,6 +93,13 @@ public class NPCOptionPacketListener implements PacketListener {
           player.setDialogueActionId(189);
         }
         break;
+      case 590:
+        if(player.getDonorRights() >= 3) {
+          ShopManager.getShops().get(113).open(player);
+        } else {
+          player.getPacketSender().sendMessage("You need to be an Extreme donator or higher, to access this shop!");
+        }
+        break;
       case 308:
         ShopManager.getShops().get(18).open(player);
         break;
@@ -734,6 +741,13 @@ public class NPCOptionPacketListener implements PacketListener {
           @Override
           public void execute() {
             switch (npc.getId()) {
+              case 590:
+                if(player.getDonorRights() >= 3) {
+                  ShopManager.getShops().get(113).open(player);
+                } else {
+                  player.getPacketSender().sendMessage("You need to be an Extreme donator or higher, to access this shop!");
+                }
+                break;
               case 308:
                 ShopManager.getShops().get(18).open(player);
                 break;

@@ -136,8 +136,6 @@ public class Locations {
                 true) {},
         DAGANNOTH_DUNGEON(new int[]{2886, 2938}, new int[]{4431, 4477}, true, true, true, false, true,
                 true) {},
-        WILDYKEY_LOBBY(new int[]{3350, 3358}, new int[]{3870, 3875}, true, true, true, false, true,
-                true) {},
         JAIL(new int[]{1967, 1982}, new int[]{4997, 5013}, false, false, false, false, false, false) {
             @Override
             public void process(Player player) {
