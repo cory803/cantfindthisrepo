@@ -166,6 +166,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
       return;
     }
     Item itemToSell = player.getInventory().getItems()[slot];
+    int shopContainsAmount = player.getPlayerOwnedShop().getAmount(itemToSell.getId());
     if (!player.getInventory().contains(itemToSell.getId()) || itemToSell.getId() == 995)
       return;
     if (this.full(itemToSell.getId()))
@@ -178,6 +179,14 @@ public class PlayerOwnedShopContainer extends ItemContainer {
     if (!itemToSell.tradeable()) {
       player.getPacketSender().sendMessage("You can't sell this item.");
       return;
+    }
+    if (amountToSell > 1000000000) {
+    	player.getPacketSender().sendMessage("You cannot have more than 1b of an item in the store.");
+    	return;
+    }
+    if (shopContainsAmount + amountToSell > 1000000000) {
+    	player.getPacketSender().sendMessage("You can only have @blu@1b@bla@ of an item in your shop. @red@Please try again with a smaller amount.");
+    	return;
     }
     int count = 0;
     boolean inventorySpace = false;
