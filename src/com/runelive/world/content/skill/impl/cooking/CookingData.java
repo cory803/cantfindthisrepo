@@ -26,17 +26,18 @@ public enum CookingData {
   SHARK(383, 385, 387, 80, 10500, 94, "shark"),
   SEA_TURTLE(395, 397, 399, 82, 10550, 105, "sea turtle"),
   MANTA_RAY(389, 391, 393, 91, 10550, 99, "manta ray"),
-  ROCKTAIL(15270, 15272, 15274, 92, 11250, 93, "rocktail"),
+  ROCKTAIL(15270, 15272, 15274, 92, 11250, 99, "rocktail"),
+  CAVEFISH(15264, 15266, 15268, 88, 8560, 94, "cavefish"),
   KARAMBWAN(3142, 3144, 3148, 30, 9500, 90, "karambwan"),
-
-
-  HEIM_CRAB(17797, 18159, 18179, 5, 50, 40, "heim crab"), RED_EYE(17799, 18161, 18181, 10, 75, 45,
-      "red-eye"), DUSK_EEL(17801, 18163, 18183, 12, 82, 47, "dusk eel"), GIANT_FLATFISH(17803,
-          18165, 18185, 15, 90, 50, "giant flatfish"), SHORT_FINNED_EEL(17805, 18167, 18187, 18,
-              114, 54, "short-finned eel"), WEB_SNIPPER(17807, 18169, 18189, 30, 211, 60,
-                  "web snipper"), BOULDABASS(17809, 18171, 18191, 40, 288, 75,
-                      "bouldabass"), SALVE_EEL(17811, 18173, 18193, 60, 415, 81,
-                          "salve eel"), BLUE_CRAB(17813, 18175, 18195, 75, 1066, 92, "blue crab"),;
+  HEIM_CRAB(17797, 18159, 18179, 5, 50, 40, "heim crab"),
+  RED_EYE(17799, 18161, 18181, 10, 75, 45, "red-eye"),
+  DUSK_EEL(17801, 18163, 18183, 12, 82, 47, "dusk eel"),
+  GIANT_FLATFISH(17803, 18165, 18185, 15, 90, 50, "giant flatfish"),
+  SHORT_FINNED_EEL(17805, 18167, 18187, 18, 114, 54, "short-finned eel"),
+  WEB_SNIPPER(17807, 18169, 18189, 30, 211, 60, "web snipper"),
+  BOULDABASS(17809, 18171, 18191, 40, 288, 75, "bouldabass"),
+  SALVE_EEL(17811, 18173, 18193, 60, 415, 81, "salve eel"),
+  BLUE_CRAB(17813, 18175, 18195, 75, 1066, 92, "blue crab");
 
   int rawItem, cookedItem, burntItem, levelReq, xp, stopBurn;
   String name;

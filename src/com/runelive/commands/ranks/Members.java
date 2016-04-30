@@ -387,7 +387,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			Position position = new Position(3087, 3502, 0);
+			Position position = new Position(3212, 3428, 0);
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you home!");
 		}
@@ -416,6 +416,19 @@ public class Members {
 			Position position = new Position(3087, 3502, 0);
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you to edgeville!");
+		}
+		if (command[0].equals("duel")) {
+			if(Dungeoneering.doingDungeoneering(player)) {
+				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
+				return;
+			}
+			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+				player.getPacketSender().sendMessage("You cannot do this at the moment.");
+				return;
+			}
+			Position position = new Position(3370, 3267, 0);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
+			player.getPacketSender().sendMessage("Teleporting you to the duel arena!");
 		}
 		if (command[0].equals("teamspeak")) {
 			player.getPacketSender().sendMessage("Teamspeak address: ts3.rune.live");
