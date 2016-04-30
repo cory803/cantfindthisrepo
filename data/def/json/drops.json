@@ -55852,6 +55852,580 @@
 },
 {
   "npcIds": [
+    3068
+  ],
+  "drops": [
+    {
+      "id": 6812,
+      "count": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "id": 2485,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 2485,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 2485,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1315,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1317,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1319,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1197,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1123,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 2361,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1163,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1432,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1079,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1093,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1127,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+    {
+      "id": 1303,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1149,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+    {
+      "id": 11335,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1315,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1317,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1319,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1197,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1123,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 2361,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1163,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1432,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1079,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1093,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1373,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1127,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1303,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1149,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": -1,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 11236,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 11236,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 565,
+      "count": [
+        27
+      ],
+      "chance": 3
+    },
+    {
+      "id": 565,
+      "count": [
+        27
+      ],
+      "chance": 3
+    },
+    {
+      "id": 565,
+      "count": [
+        27
+      ],
+      "chance": 3
+    },
+    {
+      "id": 566,
+      "count": [
+        10
+      ],
+      "chance": 3
+    },
+    {
+      "id": 892,
+      "count": [
+        8
+      ],
+      "chance": 4
+    },
+    {
+      "id": 9144,
+      "count": [
+        18
+      ],
+      "chance": 4
+    },
+    {
+      "id": 892,
+      "count": [
+        8
+      ],
+      "chance": 4
+    },
+    {
+      "id": 9144,
+      "count": [
+        18
+      ],
+      "chance": 4
+    },
+    {
+      "id": 892,
+      "count": [
+        8
+      ],
+      "chance": 4
+    },
+    {
+      "id": 9144,
+      "count": [
+        18
+      ],
+      "chance": 4
+    },
+    {
+      "id": 2366,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+    {
+      "id": 2368,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+    {
+      "id": 985,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+    {
+      "id": 987,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+    {
+      "id": 1617,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1619,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1621,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1623,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 1631,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 18778,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+    {
+      "id": 995,
+      "count": [
+        3000
+      ],
+      "chance": 1
+    }
+  ]
+},
+{
+  "npcIds": [
     6104,
     6105,
     6107

@@ -101,11 +101,11 @@ public class Item {
         String name = getDefinition().getName().toLowerCase();
         if (name.contains("clue scroll"))
             return false;
-        if (name.contains("overload") || name.contains("extreme"))
+        if (name.contains("overload") || name.contains("extreme") || name.contains("renewal"))
             return false;
         if (name.toLowerCase().contains("(deg)") || name.toLowerCase().contains("brawling"))
             return false;
-        if (name.toLowerCase().contains("chaotic"))
+        if (name.toLowerCase().contains("chaotic") || name.toLowerCase().contains("eagle-eye") || name.toLowerCase().contains("farseer ki"))
             return false;
         for (int i : GameSettings.UNTRADEABLE_ITEMS) {
             if (id == i)

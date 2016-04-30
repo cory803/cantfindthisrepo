@@ -630,13 +630,12 @@ public class ObjectActionPacketListener implements PacketListener {
                 player.getPacketSender().sendMessage("You step through the portal..");
                 break;
               case 47180:
-                if (player.getDonorRights() == 0) {
-                  player.getPacketSender().sendMessage("You are not a donator... Get out of here!");
-                  player.moveTo(new Position(3087, 3502, 0));
-                  return;
+              if(player.getDonorRights() >= 3) {
+                  player.getPacketSender().sendMessage("You activate the device..");
+                  player.moveTo(new Position(2793, 3794));
+                } else {
+                player.getPacketSender().sendMessage("You need to be an Extreme Donator to use this.");
                 }
-                player.getPacketSender().sendMessage("You activate the device..");
-                player.moveTo(new Position(2586, 3912));
                 break;
               case 10091:
               case 8702:
