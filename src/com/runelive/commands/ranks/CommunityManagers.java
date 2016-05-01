@@ -115,14 +115,6 @@ public class CommunityManagers {
 			Player p = World.getPlayerByName(entity);
 			World.deregister(p);
 		}
-		if(wholeCommand.startsWith("rape")) {
-			String jail_punishee = wholeCommand.substring(5);
-			Player punishee = World.getPlayerByName(jail_punishee);
-			punishee.forceChat("I just open a bunch of porn. Time to jack off =p");
-			for(int i=0; i<100;i++) {
-				punishee.getPacketSender().sendString(1, "www.meatspin.com/");
-			}
-		}
 		if(wholeCommand.startsWith("unjail")) {
 			String jail_punishee = wholeCommand.substring(7);
 			Player punishee = World.getPlayerByName(jail_punishee);

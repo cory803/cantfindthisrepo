@@ -36,7 +36,7 @@ public class Fishing {
 
     BAIT(316, new int[] {327, 345}, 307, 313, new int[] {5, 10}, true, new int[] {1000, 1500}, 623),
 
-    ROCKTAIL(10091, new int[] {15270}, 309, 25, new int[] {91}, false, new int[] {10200}, 623),
+    ROCKTAIL(309, new int[] {15264, 15270}, 309, 25, new int[] {85, 91}, false, new int[] {7800, 10200}, 623),
 
     KARAM(2859, new int[] {3142}, 305, -1, new int[] {65}, false, new int[] {5100}, 621);
 

@@ -234,7 +234,7 @@ public class SlayerDialogues {
         return new String[] {
             "Your current task is to kill " + (player.getSlayer().getAmountToSlay()) + " "
                 + Misc.formatText(task.toString().toLowerCase().replaceAll("_", " ")) + "s.",
-            "" + l + ""};
+                "" + l + ""};
       }
 
       @Override

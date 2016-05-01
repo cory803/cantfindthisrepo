@@ -1172,8 +1172,6 @@ public class Shop extends ItemContainer {
         }
       } else if (shop == GRAVEYARD_STORE) {
         switch (item) {
-          case 18337:
-            return new Object[] {350, "zombie fragments"};
           case 10499:
             return new Object[] {200, "zombie fragments"};
           case 10551:
@@ -1261,24 +1259,26 @@ public class Shop extends ItemContainer {
             return new Object[] {50000, "Dungeoneering tokens"};
           case 6500:
             return new Object[] {75000, "Dungeoneering tokens"};
+          case 18337:
+            return new Object[] {75000, "Dungeoneering tokens"};
         }
       } else if (shop == PRESTIGE_STORE) {
         switch (item) {
           case 14018:
-            return new Object[] {90, "Prestige points"};
+            return new Object[]{90, "Prestige points"};
           case 19335:
-            return new Object[] {30, "Prestige points"};
+            return new Object[]{30, "Prestige points"};
           case 15220:
           case 15020:
           case 15019:
           case 15018:
-            return new Object[] {20, "Prestige points"};
+            return new Object[]{20, "Prestige points"};
           case 20000:
           case 20001:
           case 20002:
-            return new Object[] {50, "Prestige points"};
+            return new Object[]{50, "Prestige points"};
           case 4084:
-            return new Object[] {170, "Prestige points"};
+            return new Object[]{170, "Prestige points"};
           case 13855:
           case 13848:
           case 13856:
@@ -1289,7 +1289,7 @@ public class Shop extends ItemContainer {
           case 13850:
           case 13849:
           case 13857:
-            return new Object[] {5, "Prestige points"};
+            return new Object[]{5, "Prestige points"};
           case 10400:
           case 10402:
           case 10416:
@@ -1300,14 +1300,14 @@ public class Shop extends ItemContainer {
           case 10414:
           case 10404:
           case 10406:
-            return new Object[] {2, "Prestige points"};
+            return new Object[]{2, "Prestige points"};
           case 13852:
           case 14595:
           case 14603:
-            return new Object[] {5, "Prestige points"};
+            return new Object[]{5, "Prestige points"};
           case 14602:
           case 14605:
-            return new Object[] {3, "Prestige points"};
+            return new Object[]{3, "Prestige points"};
         }
       } else if (shop == SLAYER_STORE) {
         switch (item) {
@@ -1396,4 +1396,5 @@ public class Shop extends ItemContainer {
   private static final int PRESTIGE_STORE = 46;
   private static final int SLAYER_STORE = 47;
   private static final int IRON_SLAYER_STORE = 85;
+  private static final int EXTREME_DONATOR_STORE = 113;
 }

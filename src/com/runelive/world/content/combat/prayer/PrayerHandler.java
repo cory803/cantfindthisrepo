@@ -386,8 +386,9 @@ public class PrayerHandler {
     TaskManager.submit(new Task(1, player, true) {
       @Override
       public void execute() {
-        if ((player.getDonorRights() > 0) && player.getLocation() != Location.WILDERNESS)
+        if ((player.getDonorRights() == 5) && player.getLocation() != Location.WILDERNESS) {
           return;
+        }
         if (player.getSkillManager().getCurrentLevel(Skill.PRAYER) <= 0) {
           for (int i = 0; i < player.getPrayerActive().length; i++) {
             if (player.getPrayerActive()[i])
@@ -399,13 +400,6 @@ public class PrayerHandler {
           return;
         }
         double drainAmount = getDrain(player);
-        if (player.getLocation() != Location.WILDERNESS) {
-          if (player.getDonorRights() >= 3
-              || player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748) {
-            drainAmount = 0;
-          }
-        }
-
         if (drainAmount <= 0) {
           this.stop();
           return;

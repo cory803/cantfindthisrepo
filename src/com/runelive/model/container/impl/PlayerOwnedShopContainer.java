@@ -1,6 +1,8 @@
 package com.runelive.model.container.impl;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import com.runelive.model.Item;
@@ -96,9 +98,11 @@ public class PlayerOwnedShopContainer extends ItemContainer {
     if (item.getId() < 0)
       return;
     if (player != null && finalValue > 0) {
+      Locale locale = new Locale("en", "US");
+      NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
       player.getPacketSender()
           .sendMessage("<col=CA024B>" + ItemDefinition.forId(item.getId()).getName()
-              + "</col> is for sale for: <col=CA024B>" + formatAmount(finalValue) + " each.");
+              + "</col> is for sale for: <col=CA024B>" + currencyFormatter.format(finalValue) + " GP [" + formatAmount(finalValue) + "] each.");
       return;
     }
   }
@@ -162,6 +166,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
       return;
     }
     Item itemToSell = player.getInventory().getItems()[slot];
+    int shopContainsAmount = player.getPlayerOwnedShop().getAmount(itemToSell.getId());
     if (!player.getInventory().contains(itemToSell.getId()) || itemToSell.getId() == 995)
       return;
     if (this.full(itemToSell.getId()))
@@ -174,6 +179,14 @@ public class PlayerOwnedShopContainer extends ItemContainer {
     if (!itemToSell.tradeable()) {
       player.getPacketSender().sendMessage("You can't sell this item.");
       return;
+    }
+    if (amountToSell > 1000000000) {
+    	player.getPacketSender().sendMessage("You cannot have more than 1b of an item in the store.");
+    	return;
+    }
+    if (shopContainsAmount + amountToSell > 1000000000) {
+    	player.getPacketSender().sendMessage("You can only have @blu@1b@bla@ of an item in your shop. @red@Please try again with a smaller amount.");
+    	return;
     }
     int count = 0;
     boolean inventorySpace = false;

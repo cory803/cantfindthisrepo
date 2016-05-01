@@ -1,9 +1,7 @@
 package com.runelive.model.input.impl;
 
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.text.NumberFormat;
+import java.util.*;
 import java.util.Map.Entry;
 import java.util.stream.Stream;
 
@@ -21,6 +19,8 @@ public class PosItemSearch extends Input {
 
   @Override
   public void handleSyntax(Player player, String syntax) {
+    Locale locale = new Locale("en", "US");
+    NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
     if (syntax.length() <= 1) {
       player.getPacketSender().sendMessage("Invalid syntax entered.");
       return;
@@ -72,7 +72,7 @@ public class PosItemSearch extends Input {
       pd.setButtonId(-24062 + (4 * index));
       player.getPacketSender().sendString(start_owner_name, pd.getOwner());
       player.getPacketSender().sendString(start_caption,
-          "Found: " + item_name + " for " + formatAmount(p.getPrice()));
+          "Found: " + item_name + " for " + currencyFormatter.format(p.getPrice()) + " GP");
       index++;
     }
 

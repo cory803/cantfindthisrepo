@@ -1,20 +1,21 @@
 hs_err_pid*
 *.class
-
 .settings/
 *.project
 *.classpath
-
 errorlogs/
 punishments/
 characters/
 housing/
 data/saves/edgeville-well.txt
 *.bat
-data/saves/logs/Jonny.txt
-data/saves/logs/Dc Blitz.txt
 config.txt
 .idea/
 *.iml
-data/saves/logs/Duk.txt
-data/saves/logs/Duke.txt
+/bin/
+*.jar
+BootServer.bat
+data/saves/logs/
+data/saves/pos/shops.dat
+data/saves/pos/shops.dat
+data/saves/pos/shops.dat
