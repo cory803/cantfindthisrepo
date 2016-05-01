@@ -464,6 +464,10 @@ public class Members {
 				player.getPacketSender().sendMessage("The store is currently offline! Try again in 30 minutes.");
 				return;
 			}
+			if(player.getLocation().equals(Location.DUNGEONEERING) || player.getLocation().equals(Location.WILDERNESS)) {
+				player.getPacketSender().sendMessage("You cannot do this here, you'll lose your scroll!");
+				return;
+			}
 			player.getPacketSender().sendMessage("Checking for any store purchases...");
 			Store.start_store_process(player);
 		}

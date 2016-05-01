@@ -405,34 +405,37 @@ public class ObjectActionPacketListener implements PacketListener {
                 }
                 break;
               case 3565:
-                if (player.getPosition().getX() <= 3349) {
-                  TaskManager.submit(new Task(1, player, true) {
-                    int tick = 1;
+                if(player.getSkillManager().getCurrentLevel(Skill.AGILITY) >= 50) {
+                  if (player.getPosition().getX() <= 3349) {
+                    TaskManager.submit(new Task(1, player, true) {
+                      int tick = 1;
 
-                    @Override
-                    public void execute() {
-                      tick++;
-                      player.performAnimation(new Animation(769));
-                      if (tick == 3) {
-                        player.moveTo(new Position(3352, player.getPosition().getY()));
-                      } else if (tick >= 4) {
-                        stop();
+                      @Override
+                      public void execute() {
+                        tick++;
+                        player.performAnimation(new Animation(769));
+                        if (tick == 3) {
+                          player.moveTo(new Position(3352, player.getPosition().getY()));
+                        } else if (tick >= 4) {
+                          stop();
+                        }
                       }
-                    }
 
-                    @Override
-                    public void stop() {
-                      setEventRunning(false);
-                      Agility.addExperience(player, 100);
-                      player.getPacketSender()
-                          .sendMessage("You jump over the wall and enter the safe zone.");
-                      player.getPacketSender().sendMessage(
-                          "@red@You will lose your items when you enter the portal of death.");
-                    }
-                  });
-                } else if (player.getPosition().getX() > 3350) {
-                  DialogueManager.start(player, 142);
-                  player.setDialogueActionId(142);
+                      @Override
+                      public void stop() {
+                        setEventRunning(false);
+                        Agility.addExperience(player, 100);
+                        player.getPacketSender()
+                                .sendMessage("You jump over the walle.");
+                      }
+                    });
+                  } else if (player.getPosition().getX() > 3350) {
+                    DialogueManager.start(player, 142);
+                    player.setDialogueActionId(142);
+                  } else {
+                    player.getPacketSender().sendMessage("You need an Agility level of at least 50 to get past this obstacle.");
+                    player.getPacketSender().sendMessage("or an wilderness key!");
+                  }
                 }
                 break;
               case 38660:
