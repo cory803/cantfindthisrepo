@@ -255,6 +255,11 @@ public class BankPin {
       this.bankPin = bankPin;
       return this;
     }
+	
+    public BankPinAttributes setBankPin(int index, int bankPin) {
+      this.bankPin[index] = bankPin;
+      return this;
+    }
 
     public int[] getEnteredBankPin() {
       return enteredBankPin;

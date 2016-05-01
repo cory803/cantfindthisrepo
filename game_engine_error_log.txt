@@ -1,0 +1,92 @@
+Date: Thu Apr 28 17:51:53 PDT 2016
+NullPointerException  at com.runelive.world.entity.impl.player.PlayerHandler.handleLogin(PlayerHandler.java:286)
+  at com.runelive.world.World.sequence(World.java:161)
+  at com.runelive.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Thu Apr 28 17:52:31 PDT 2016
+NullPointerException  at com.runelive.world.entity.impl.player.PlayerHandler.handleLogin(PlayerHandler.java:286)
+  at com.runelive.world.World.sequence(World.java:161)
+  at com.runelive.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Thu Apr 28 17:54:00 PDT 2016
+NullPointerException  at com.runelive.world.entity.impl.player.PlayerHandler.handleLogin(PlayerHandler.java:286)
+  at com.runelive.world.World.sequence(World.java:161)
+  at com.runelive.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Fri Apr 29 17:55:27 PDT 2016
+NullPointerException  at com.runelive.net.login.LoginDecoder.login(LoginDecoder.java:207)
+  at com.runelive.world.World.sequence(World.java:164)
+  at com.runelive.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Fri Apr 29 17:55:29 PDT 2016
+NullPointerException  at com.runelive.net.login.LoginDecoder.login(LoginDecoder.java:207)
+  at com.runelive.world.World.sequence(World.java:164)
+  at com.runelive.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Fri Apr 29 17:55:31 PDT 2016
+NullPointerException  at com.runelive.net.login.LoginDecoder.login(LoginDecoder.java:207)
+  at com.runelive.world.World.sequence(World.java:164)
+  at com.runelive.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Sat Apr 30 20:32:58 PDT 2016
+NullPointerException  at com.runelive.world.content.BankPin$BankPinAttributes.onDifferent(BankPin.java:244)
+  at com.runelive.world.entity.impl.player.PlayerHandler.handleLogin(PlayerHandler.java:377)
+  at com.runelive.world.World.sequence(World.java:167)
+  at com.runelive.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================

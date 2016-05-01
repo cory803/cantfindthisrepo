@@ -8,7 +8,7 @@ import com.runelive.world.content.BonusManager;
  * @author lare96
  */
 public enum FightType {
-
+  
   STAFF_BASH(401, 43, 0, BonusManager.ATTACK_CRUSH, FightStyle.ACCURATE), STAFF_POUND(406, 43, 1,
       BonusManager.ATTACK_CRUSH, FightStyle.AGGRESSIVE), STAFF_FOCUS(406, 43, 2,
           BonusManager.ATTACK_CRUSH, FightStyle.DEFENSIVE), WARHAMMER_POUND(401, 43, 0,
@@ -396,7 +396,14 @@ public enum FightType {
   public int getAnimation() {
     return animation;
   }
-
+  public static FightType forId(int id) {
+    for (FightType book : FightType.values()) {
+      if (book.ordinal() == id) {
+        return book;
+      }
+    }
+    return STAFF_BASH;
+  }
   /**
    * Gets the parent config id.
    * 

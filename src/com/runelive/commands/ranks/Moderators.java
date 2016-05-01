@@ -35,7 +35,7 @@ public class Moderators {
 		}
 		if (command[0].equals("unbanvote")) {
 			String vote_player = wholeCommand.substring(10);
-			if(!PlayerSaving.playerExists(vote_player)) {
+			if(!PlayerSaving.accountExists(player, vote_player)) {
 				player.getPacketSender().sendMessage("Player "+vote_player+" does not exist.");
 				return;
 			} else {
@@ -51,7 +51,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("banvote")) {
 			String vote_player = wholeCommand.substring(8);
-			if(!PlayerSaving.playerExists(vote_player)) {
+			if(!PlayerSaving.accountExists(player, vote_player)) {
 				player.getPacketSender().sendMessage("Player "+vote_player+" does not exist.");
 				return;
 			} else {
@@ -77,7 +77,7 @@ public class Moderators {
 		if(wholeCommand.startsWith("silenceyell")) {
 			String yellmute = wholeCommand.substring(12);
 			Player punishee = World.getPlayerByName(yellmute);
-			if(!PlayerSaving.playerExists(yellmute)) {
+			if(!PlayerSaving.accountExists(player, yellmute)) {
 				player.getPacketSender().sendMessage("Player "+yellmute+" does not exist.");
 				return;
 			}
@@ -89,7 +89,7 @@ public class Moderators {
 		if(wholeCommand.startsWith("unsilenceyell")) {
 			String yellmute = wholeCommand.substring(14);
 			Player punishee = World.getPlayerByName(yellmute);
-			if(!PlayerSaving.playerExists(yellmute)) {
+			if(!PlayerSaving.accountExists(player, yellmute)) {
 				player.getPacketSender().sendMessage("Player "+yellmute+" does not exist.");
 				return;
 			}
@@ -108,7 +108,7 @@ public class Moderators {
 		if(wholeCommand.startsWith("jail")) {
 				String jail_punishee = wholeCommand.substring(5);
 				Player punishee = World.getPlayerByName(jail_punishee);
-				if(!PlayerSaving.playerExists(jail_punishee)) {
+				if(!PlayerSaving.accountExists(player, jail_punishee)) {
 					player.getPacketSender().sendMessage("Player "+jail_punishee+" does not exist.");
 					return;
 				} else {
@@ -180,7 +180,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);
-			if(!PlayerSaving.playerExists(ban_player)) {
+			if(!PlayerSaving.accountExists(player, ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;
 			} else {
@@ -198,7 +198,7 @@ public class Moderators {
 		}	
 		if(command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
-			if(!PlayerSaving.playerExists(mute_player)) {
+			if(!PlayerSaving.accountExists(player, mute_player)) {
 				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
 				return;
 			} else {
@@ -214,7 +214,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("ipmute")) {
 			String mute_player = wholeCommand.substring(7);
-			if(!PlayerSaving.playerExists(mute_player)) {
+			if(!PlayerSaving.accountExists(player, mute_player)) {
 				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
 				return;
 			} else {
@@ -230,7 +230,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("unipmute")) {
 			String mute_player = wholeCommand.substring(9);
-			if(!PlayerSaving.playerExists(mute_player)) {
+			if(!PlayerSaving.accountExists(player, mute_player)) {
 				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
 				return;
 			} else {
@@ -246,7 +246,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("unmute")) {
 			String mute_player = wholeCommand.substring(7);
-			if(!PlayerSaving.playerExists(mute_player)) {
+			if(!PlayerSaving.accountExists(player, mute_player)) {
 				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
 				return;
 			} else {
@@ -262,7 +262,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("ipban")) {
 			String ban_player = wholeCommand.substring(6);
-			if(!PlayerSaving.playerExists(ban_player)) {
+			if(!PlayerSaving.accountExists(player, ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;
 			} else {
@@ -287,7 +287,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("unipban")) {
 			String ban_player = wholeCommand.substring(8);
-			if(!PlayerSaving.playerExists(ban_player)) {
+			if(!PlayerSaving.accountExists(player, ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;
 			} else {
@@ -308,7 +308,7 @@ public class Moderators {
 		}
 		if(command[0].equalsIgnoreCase("unban")) {
 			String ban_player = wholeCommand.substring(6);
-			if(!PlayerSaving.playerExists(ban_player)) {
+			if(!PlayerSaving.accountExists(player, ban_player)) {
 				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
 				return;
 			} else {

@@ -61,6 +61,7 @@ import com.runelive.world.entity.impl.npc.NPC;
 public class PlayerHandler {
 
   public static void handleLogin(Player player) {
+	  player.setLoginQue(false);
     // Register the player
     System.out.println("[World] Registering player - [username, host] : [" + player.getUsername()
         + ", " + player.getHostAddress() + "]");

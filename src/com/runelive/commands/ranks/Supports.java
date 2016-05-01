@@ -30,7 +30,7 @@ public class Supports {
 		if(wholeCommand.startsWith("jail")) {
 				String jail_punishee = wholeCommand.substring(5);
 				Player punishee = World.getPlayerByName(jail_punishee);
-				if(!PlayerSaving.playerExists(jail_punishee)) {
+				if(!PlayerSaving.accountExists(player, jail_punishee)) {
 					player.getPacketSender().sendMessage("Player "+jail_punishee+" does not exist.");
 					return;
 				} else {
@@ -102,7 +102,7 @@ public class Supports {
 		}
 		if(command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
-			if(!PlayerSaving.playerExists(mute_player)) {
+			if(!PlayerSaving.accountExists(player, mute_player)) {
 				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
 				return;
 			} else {
@@ -118,7 +118,7 @@ public class Supports {
 		}
 		if(command[0].equalsIgnoreCase("unmute")) {
 			String mute_player = wholeCommand.substring(7);
-			if(!PlayerSaving.playerExists(mute_player)) {
+			if(!PlayerSaving.accountExists(player, mute_player)) {
 				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
 				return;
 			} else {

@@ -34,7 +34,6 @@ public class ConnectionHandler {
 
     String host = msg.getHost();
     String computer_address = msg.getComputerAddress();
-
     if (PlayerPunishment.isPlayerBanned(player.getUsername())) {
       return LoginResponses.LOGIN_DISABLED_ACCOUNT;
     }

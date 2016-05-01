@@ -12,6 +12,8 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
+import com.runelive.util.CharacterConversion;
+import com.runelive.world.entity.impl.player.PlayerLoading;
 import com.runelive.GameSettings;
 import com.runelive.model.GameMode;
 import com.runelive.model.PlayerRights;
@@ -151,64 +153,66 @@ public final class LoginDecoder extends FrameDecoder {
     Player player = new Player(session).setUsername(msg.getUsername())
         .setLongUsername(NameUtils.stringToLong(msg.getUsername())).setPassword(msg.getPassword())
         .setHostAddress(msg.getHost()).setComputerAddress(msg.getComputerAddress());
-
+	//CharacterConversion.convert(channel);
     session.setPlayer(player);
-
-    int response = LoginResponses.getResponse(player, msg);
-	
-    final boolean newAccount = response == LoginResponses.NEW_ACCOUNT;
-    if (newAccount) {
-      player.setNewPlayer(true);
-      response = LoginResponses.LOGIN_SUCCESSFUL;
-    }
-    int rank = player.getRights().ordinal();
-    if (rank == 0) {
-      if (player.getDonorRights() == 1) {
-        rank = 7;
-      }
-      if (player.getDonorRights() == 2) {
-        rank = 8;
-      }
-      if (player.getDonorRights() == 3) {
-        rank = 9;
-      }
-      if (player.getDonorRights() == 4) {
-        rank = 10;
-      }
-      if (player.getDonorRights() == 5) {
-        rank = 11;
-      }
-    }
-    if (player.getGameMode() == GameMode.IRONMAN) {
-      rank = 12;
-    }
-    if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-      rank = 13;
-    }
-    if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
-      rank = 14;
-    }
-    if (player.getRights() == PlayerRights.WIKI_EDITOR) {
-      rank = 15;
-    }
-    if (player.getRights() == PlayerRights.WIKI_MANAGER) {
-      rank = 16;
-    }
-    if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-      rank = 17;
-    }
-    if (response == LoginResponses.LOGIN_SUCCESSFUL) {
-      channel.write(new PacketBuilder().put((byte) 2).put((byte) rank).put((byte) 0).toPacket());
-
-      if (!World.getLoginQueue().contains(player)) {
-        World.getLoginQueue().add(player);
-      }
-
-      return player;
-    } else {
-      sendReturnCode(channel, response);
-      return null;
-    }
+    int loadGame = PlayerLoading.loadGame(player);
+	try {
+		while (!World.getLoginQueue().contains(player) && !player.getLoginQue()) {
+		}
+	} finally {
+		if(World.getLoginQueue().contains(player) || player.getLoginQue()) {
+			player.setResponse(LoginResponses.getResponse(player, msg));
+			final boolean newAccount = player.getResponse() == LoginResponses.NEW_ACCOUNT;
+			if (newAccount) {
+			  player.setNewPlayer(true);
+			  player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
+			}
+			if (player.getResponse() == LoginResponses.LOGIN_SUCCESSFUL) {
+				int rank = player.getRights().ordinal();
+				if (rank == 0) {
+				  if (player.getDonorRights() == 1) {
+					rank = 7;
+				  }
+				  if (player.getDonorRights() == 2) {
+					rank = 8;
+				  }
+				  if (player.getDonorRights() == 3) {
+					rank = 9;
+				  }
+				  if (player.getDonorRights() == 4) {
+					rank = 10;
+				  }
+				  if (player.getDonorRights() == 5) {
+					rank = 11;
+				  }
+				}
+				if (player.getGameMode() == GameMode.IRONMAN) {
+				  rank = 12;
+				}
+				if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+				  rank = 13;
+				}
+				if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+				  rank = 14;
+				}
+				if (player.getRights() == PlayerRights.WIKI_EDITOR) {
+				  rank = 15;
+				}
+				if (player.getRights() == PlayerRights.WIKI_MANAGER) {
+				  rank = 16;
+				}
+				if (player.getRights() == PlayerRights.STAFF_MANAGER) {
+				  rank = 17;
+				}
+				channel.write(new PacketBuilder().put((byte) 2).put((byte) rank).put((byte) 0).toPacket());
+				return player;
+			} else {
+				 sendReturnCode(channel, player.getResponse());
+				 return null;
+			}
+		}
+	}
+	return player;
   }
 
   public static void sendReturnCode(final Channel channel, final int code) {

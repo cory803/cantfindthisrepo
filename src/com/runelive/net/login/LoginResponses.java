@@ -11,7 +11,7 @@ import com.runelive.world.entity.impl.player.PlayerLoading;
 public final class LoginResponses {
 
   public static final int getResponse(Player player, LoginDetailsMessage msg) {
-    int playerLoadingResponse = PlayerLoading.getResult(player);
+    int playerLoadingResponse = player.getResponse();
     if (World.getPlayers().isFull()) {
       return LOGIN_WORLD_FULL;
     }
@@ -28,8 +28,7 @@ public final class LoginResponses {
     if (player.getUsername().startsWith(" ")) {
       return USERNAME_STARTS_WITH_SPACE;
     }
-    if (!GameSettings.client_version.equals(msg.getClientVersion())
-        && !GameSettings.client_version.equals("invalid_connection")) {
+    if (!GameSettings.client_version.equals(msg.getClientVersion()) && !GameSettings.client_version.equals("invalid_connection") && !msg.getClientVersion().equals("invalid_connection")) {
       return OLD_CLIENT_VERSION;
     }
     if (World.getPlayerByName(player.getUsername()) != null) {

@@ -325,7 +325,7 @@ public class Achievements {
     // UNLOCK_ALL_LOYALTY_TITLES(Difficulty.ELITE, "Kill Zulrah 50 Times", 37111, new int[]{52,
     // 50}),
     ;
-
+public static int SIZE = AchievementData.values().length;
     AchievementData(Difficulty difficulty, String interfaceLine, int interfaceFrame,
         int[] progressData) {
       this.difficulty = difficulty;

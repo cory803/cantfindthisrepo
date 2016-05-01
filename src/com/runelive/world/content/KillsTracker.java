@@ -110,9 +110,9 @@ public class KillsTracker {
       this.boss = boss;
     }
 
-    private String npcName;
-    private int amount;
-    private boolean boss;
+    public String npcName;
+    public int amount;
+    public boolean boss;
   }
 
 }
