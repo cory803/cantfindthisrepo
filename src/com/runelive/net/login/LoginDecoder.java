@@ -155,7 +155,11 @@ public final class LoginDecoder extends FrameDecoder {
         .setHostAddress(msg.getHost()).setComputerAddress(msg.getComputerAddress());
 	//CharacterConversion.convert(channel);
     session.setPlayer(player);
-    int loadGame = PlayerLoading.loadGame(player);
+	int loadGame = 0;
+	if(GameSettings.MYSQL_PLAYER_LOADING)
+		loadGame = PlayerLoading.loadGame(player);
+	if(GameSettings.JSON_PLAYER_LOADING)
+		loadGame = PlayerLoading.getResult(player);
 	try {
 		while (!World.getLoginQueue().contains(player) && !player.getLoginQue()) {
 		}

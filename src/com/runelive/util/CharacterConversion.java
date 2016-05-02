@@ -44,7 +44,6 @@ public class CharacterConversion {
 		System.out.println(""+player.getPassword());
 		PlayerSaving.createNewAccount(player);
 		PlayerSaving.saveGame(player);
-		//PlayerLoading.loadGame(player);
 	}
 	
 }

@@ -177,6 +177,34 @@ public class ServerTimeUpdateTask extends Task {
                   GameSettings.POS_ENABLED = true;
                 } else {
                   GameSettings.POS_ENABLED = false;
+                } 
+			  } else if (line.contains("json_player_loading")) {
+                args = line.split(": ");
+                if (args[1].toLowerCase().equals("on")) {
+                  GameSettings.JSON_PLAYER_LOADING = true;
+                } else {
+                  GameSettings.JSON_PLAYER_LOADING = false;
+                }
+			  } else if (line.contains("json_player_saving")) {
+                args = line.split(": ");
+                if (args[1].toLowerCase().equals("on")) {
+                  GameSettings.JSON_PLAYER_SAVING = true;
+                } else {
+                  GameSettings.JSON_PLAYER_SAVING = false;
+                }
+			  } else if (line.contains("mysql_player_saving")) {
+                args = line.split(": ");
+                if (args[1].toLowerCase().equals("on")) {
+                  GameSettings.MYSQL_PLAYER_SAVING = true;
+                } else {
+                  GameSettings.MYSQL_PLAYER_SAVING = false;
+                }
+			  } else if (line.contains("mysql_player_loading")) {
+                args = line.split(": ");
+                if (args[1].toLowerCase().equals("on")) {
+                  GameSettings.MYSQL_PLAYER_LOADING = true;
+                } else {
+                  GameSettings.MYSQL_PLAYER_LOADING = false;
                 }
               } else if (line.contains("forum_database_connections")) {
                 args = line.split(": ");

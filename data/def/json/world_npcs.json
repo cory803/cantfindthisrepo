@@ -26,8 +26,6 @@
         }
     },
 	{
-<<<<<<< HEAD
-=======
         "npc-id": 3068,
 		"face": WEST,
         "position": {
@@ -249,7 +247,6 @@
         }
     },
 	{
->>>>>>> origin/master
         "npc-id": 5866,
 		"face": SOUTH,
         "position": {

@@ -365,7 +365,10 @@ public class Player extends Character {
 		if (session.getState() != SessionState.LOGGED_IN && session.getState() != SessionState.LOGGING_OUT) {
 			return;
 		}
-		PlayerSaving.saveGame(this);
+		if(GameSettings.MYSQL_PLAYER_SAVING)
+			PlayerSaving.saveGame(this);
+		if(GameSettings.JSON_PLAYER_SAVING)
+			PlayerSaving.save(this);
 	}
 
 	public boolean logout() {

@@ -743,7 +743,11 @@ public class PlayerLoading {
         in.close();
         fileIn.close();
       }
-
+	player.setResponse(2);
+	player.setLoginQue(true);
+	if (!World.getLoginQueue().contains(player)) {
+		World.getLoginQueue().add(player);
+	}
     } catch (Exception e) {
       e.printStackTrace();
       return LoginResponses.LOGIN_SUCCESSFUL;
