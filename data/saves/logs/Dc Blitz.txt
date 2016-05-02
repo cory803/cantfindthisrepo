@@ -635,3 +635,5 @@
 [4/26/16 11:38AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/26/16 11:39AM]	Dc Blitz has done command train	
 [4/26/16 11:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[4/29/16 08:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[4/29/16 08:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	

@@ -11,11 +11,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 
+import com.runelive.net.login.LoginResponses;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.model.PlayerRights;
 import com.runelive.util.Misc;
+import com.runelive.net.login.LoginDecoder;
 import com.runelive.world.content.ShootingStar;
 import com.runelive.world.content.minigames.impl.FightPit;
 import com.runelive.world.content.minigames.impl.PestControl;
@@ -33,6 +35,8 @@ import com.runelive.world.entity.updating.UpdateSequence;
  * @author Gabriel Hannason Thanks to lare96 for help with parallel updating system
  */
 public class World {
+	
+	public static long currentServerTime;
 
   /**
    * Is global yell enabled?
@@ -156,7 +160,13 @@ public class World {
       Player player = logins.poll();
       if (player == null)
         break;
-      PlayerHandler.handleLogin(player);
+		if(player.getResponse() == 2) {
+			if(logouts.contains(player)) {	
+				player.setResponse(LoginResponses.LOGIN_ACCOUNT_ONLINE);
+			} else {
+				PlayerHandler.handleLogin(player);
+			}
+		}
     }
     long logout_start = System.currentTimeMillis();
     long loginCycle = logout_start - start;

@@ -7,6 +7,7 @@ import com.runelive.world.entity.impl.player.Player;
 public class LoyaltyProgramme {
 
   public enum LoyaltyTitles {
+	  
 
     NONE(0, 0, 0) {
       @Override
@@ -34,7 +35,22 @@ public class LoyaltyProgramme {
     private int button;
 
     abstract boolean canBuy(Player p, boolean sendMessage);
-
+	
+  /**
+   * Gets the rank for a certain id.
+   * 
+   * @param id The id (ordinal()) of the rank.
+   * @return rights.
+   */
+  public static LoyaltyTitles forId(int id) {
+    for (LoyaltyTitles rights : LoyaltyTitles.values()) {
+      if (rights.ordinal() == id) {
+        return rights;
+      }
+    }
+    return null;
+  }
+  
     public static LoyaltyTitles getTitle(int button) {
       for (LoyaltyTitles t : LoyaltyTitles.values()) {
         if (t.button == button)

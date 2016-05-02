@@ -10,6 +10,7 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.PlayerDeathTask;
 import com.runelive.engine.task.impl.WalkToTask;
+import com.runelive.net.login.LoginDetailsMessage;
 import com.runelive.model.Animation;
 import com.runelive.model.Appearance;
 import com.runelive.model.CharacterAnimations;
@@ -22,6 +23,10 @@ import com.runelive.model.Item;
 import com.runelive.model.MagicSpellbook;
 import com.runelive.model.PlayerInteractingOption;
 import com.runelive.model.PlayerRelations;
+import org.jboss.netty.channel.Channel;
+import org.jboss.netty.channel.ChannelFuture;
+import org.jboss.netty.channel.ChannelFutureListener;
+import org.jboss.netty.channel.ChannelHandlerContext;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Prayerbook;
@@ -126,6 +131,8 @@ public class Player extends Character {
 			lifePoints += 7;
 		return lifePoints;
 	}
+	
+	public boolean synchronizedLogout = false;
 
 	public boolean ge_return = false;
 
@@ -315,21 +322,40 @@ public class Player extends Character {
 
 		return CombatStrategies.getDefaultMeleeStrategy();
 	}
-
+	public boolean accountExists = false;
+	public int responseId = -1;
 	public boolean xpRate = true;
+	public boolean loginQue = false;
+	
+	
+	public boolean getLoginQue() {
+		return loginQue;
+	}
 
 	public void setXpRate(boolean bbb) {
 		xpRate = bbb;
+	}
+	
+	public void setLoginQue(boolean bbb) {
+		loginQue = bbb;
+	}
+	
+	public void setResponse(int a2) {
+		responseId = a2;
 	}
 
 	public boolean getXpRate() {
 		return xpRate;
 	}
+	
+	public int getResponse() {
+		return responseId;
+	}
 
 	public void process() {
 		process.sequence();
 	}
-
+	public boolean saveFile;
 	public void dispose() {
 		save();
 		packetSender.sendLogout();
@@ -339,7 +365,10 @@ public class Player extends Character {
 		if (session.getState() != SessionState.LOGGED_IN && session.getState() != SessionState.LOGGING_OUT) {
 			return;
 		}
-		PlayerSaving.save(this);
+		if(GameSettings.MYSQL_PLAYER_SAVING)
+			PlayerSaving.saveGame(this);
+		if(GameSettings.JSON_PLAYER_SAVING)
+			PlayerSaving.save(this);
 	}
 
 	public boolean logout() {
@@ -444,7 +473,9 @@ public class Player extends Character {
 	private final List<Player> localPlayers = new LinkedList<Player>();
 	private final List<NPC> localNpcs = new LinkedList<NPC>();
 
-	private PlayerSession session;
+	public PlayerSession session;
+	public LoginDetailsMessage logindetailsmessage;
+	public Channel channel;
 	private final PlayerProcess process = new PlayerProcess(this);
 	private final PlayerKillingAttributes playerKillingAttributes = new PlayerKillingAttributes(this);
 	private final MinigameAttributes minigameAttributes = new MinigameAttributes();
@@ -767,6 +798,22 @@ public class Player extends Character {
 
 	public PlayerSession getSession() {
 		return session;
+	}
+	
+	public LoginDetailsMessage getLoginDetailsMessage() {
+		return logindetailsmessage;
+	}
+	
+	public Channel getChannel() {
+		return channel;
+	}
+	
+	public void setChannel(Channel channell) {
+		this.channel = channell;
+	}	
+	
+	public void setLoginDetailsMessage(LoginDetailsMessage channell) {
+		this.logindetailsmessage = channell;
 	}
 
 	public Inventory getInventory() {
@@ -1804,6 +1851,10 @@ public class Player extends Character {
 	public void setUnlockedLoyaltyTitles(boolean[] unlockedLoyaltyTitles) {
 		this.unlockedLoyaltyTitles = unlockedLoyaltyTitles;
 	}
+	
+	public void setUnlockedLoyaltyTitles(int index, boolean unlockedLoyaltyTitles) {
+		this.unlockedLoyaltyTitles[index] = unlockedLoyaltyTitles;
+	}
 
 	public void setUnlockedLoyaltyTitle(int index) {
 		unlockedLoyaltyTitles[index] = true;
@@ -2263,6 +2314,10 @@ public class Player extends Character {
 	public void setCrossedObstacles(boolean[] crossedObstacles) {
 		this.crossedObstacles = crossedObstacles;
 	}
+	
+	public void setCrossedObstacles(int index, boolean crossedObstacles) {
+		this.crossedObstacles[index] = crossedObstacles;
+	}
 
 	public int getSkillAnimation() {
 		return skillAnimation;
@@ -2455,6 +2510,10 @@ public class Player extends Character {
 
 	public void setBrawlerCharges(int[] brawlerCharges) {
 		this.brawlerCharges = brawlerCharges;
+	}
+	
+	public void setBrawlerCharges(int brawlerCharges, int index) {
+		this.brawlerCharges[index] = brawlerCharges;
 	}
 
 	public int getRecoilCharges() {

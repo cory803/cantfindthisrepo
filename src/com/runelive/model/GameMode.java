@@ -79,4 +79,20 @@ public enum GameMode {
       player.setPlayerLocked(false);
     }
   }
+  
+   /**
+   * Gets the mode for a certain id.
+   * 
+   * @param id The id (ordinal()) of the mode.
+   * @return gamemode.
+   */
+  public static GameMode forId(int id) {
+    for (GameMode rights : GameMode.values()) {
+      if (rights.ordinal() == id) {
+        return rights;
+      }
+    }
+    return null;
+  }
+  
 }

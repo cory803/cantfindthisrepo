@@ -11,9 +11,12 @@ import java.util.logging.Logger;
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
 import com.runelive.util.ErrorFile;
 import com.runelive.util.ShutdownHook;
+import com.runelive.net.mysql.ThreadedSQL;
+import com.runelive.net.mysql.MySQLDatabaseConfiguration;
+import com.runelive.net.mysql.DatabaseInformation;
 
 /**
- * The starting point of strattus.
+ * The starting point of RuneLive.
  *
  * @author Gabriel
  * @author Samy
@@ -25,7 +28,12 @@ public class GameServer {
     private static final Logger logger = Logger.getLogger("RuneLive");
     private static boolean updating;
     private static long startTime;
+    private static ThreadedSQL sql = null;
 
+    public static ThreadedSQL getSQLPool() {
+        return sql;
+    }
+	
     public static void main(String[] params) {
         try {
             System.setErr(new PrintStream(new ErrorFile("errorlogs", "ErrorLog"), true));
@@ -49,6 +57,13 @@ public class GameServer {
                 // GameSettings.client_version = "invalid_connection";
                 e.printStackTrace();
             }
+			MySQLDatabaseConfiguration config = new MySQLDatabaseConfiguration();
+			config.setHost(DatabaseInformation.host);
+			config.setPort(DatabaseInformation.port);
+			config.setUsername(DatabaseInformation.username);
+			config.setPassword(DatabaseInformation.password);
+			config.setDatabase(DatabaseInformation.database);
+			sql = new ThreadedSQL(config, 4);
             loader.init();
             loader.finish();
             logger.info("Starting configuration settings...");

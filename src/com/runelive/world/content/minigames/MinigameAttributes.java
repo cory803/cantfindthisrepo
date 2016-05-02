@@ -165,6 +165,9 @@ public class MinigameAttributes {
     public void setBarrowsData(int[][] barrowsData) {
       this.barrowsData = barrowsData;
     }
+    public void setBarrowsData(int index1, int index2, int barrowsData) {
+      this.barrowsData[index1][index2] = barrowsData;
+    }
   }
   public class CurseQuestAttributes {
     private int wavesCompleted;
@@ -316,6 +319,10 @@ public class MinigameAttributes {
     public void setKillcount(int[] killcount) {
       this.killcount = killcount;
     }
+	
+    public void setKillcount(int killcount, int index) {
+      this.killcount[index] = killcount;
+    }
 
     public boolean hasEnteredRoom() {
       return enteredRoom;
@@ -357,6 +364,10 @@ public class MinigameAttributes {
 
     public void setBoundItems(int[] boundItems) {
       this.boundItems = boundItems;
+    }
+	
+    public void setBoundItems(int index, int boundItems) {
+      this.boundItems[index] = boundItems;
     }
 
     public long getLastInvitation() {

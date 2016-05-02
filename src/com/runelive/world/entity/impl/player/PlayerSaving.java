@@ -7,15 +7,100 @@ import java.io.ObjectOutputStream;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.logging.Level;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.runelive.GameServer;
 import com.runelive.util.Misc;
+import com.runelive.net.mysql.ThreadedSQLCallback;
+import com.runelive.world.World;
 
 public class PlayerSaving {
+	
+  
+	public static boolean accountExists(Player player, String name) {
+		GameServer.getSQLPool().executeQuery("Select username from `accounts` as acc where username = '" + name + "' limit 1", new ThreadedSQLCallback() {
+			@Override
+			public void queryComplete(ResultSet rs) throws SQLException {
+				if (rs.next()) {
+					player.accountExists = true;
+				}
+			}
+			@Override
+			public void queryError(SQLException e) {
+				e.printStackTrace();
+			}
+		});
+		return player.accountExists;
+	}
+	
+	public static void createNewAccount(Player p) {
+	GameServer.getSQLPool().executeQuery("INSERT INTO `accounts` (username, password) values ('"+p.getUsername()+"', '"+p.getPassword()+"')", new ThreadedSQLCallback() {
+		@Override
+		public void queryError(SQLException e) {
+			p.setResponse(3);
+			e.printStackTrace();
+		}
+		@Override
+		public void queryComplete(ResultSet result) throws SQLException {
+			p.setNewPlayer(true);
+			p.setResponse(2);
+			if (!World.getLoginQueue().contains(p)) {
+				World.getLoginQueue().add(p);
+			}
+			p.setLoginQue(true);
+		}
+	});
+		/*
+		@Override
+		public void queryComplete(ResultSet result) throws SQLException {
+			Server.getSQLPool().executeQuery("Select ID from `accounts` where PlayerName = '" + p.getUsername() + "'", new ThreadedSQLCallback() {
+				@Override
+				public void queryComplete(ResultSet rs) throws SQLException {
+					if (rs.next()) {
+						p.sqlId = rs.getInt("ID");
+						if (p.returnCode == -1) {
+							p.displayedUsername = Misc.formatPlayerName(playerName);
+							p.displayedNameHash = Misc.playerNameToInt64(p.displayedUsername);
+							p.originalNameHash = p.displayedNameHash;
+							p.formattedName = p.displayedUsername;
+							p.returnCode = 0;
+						}
+					}
+				}
 
+				@Override
+				public void queryError(SQLException e) {
+					//p.returnCode = 3;
+					e.printStackTrace();
+				}
+			});
+		}
+		*/
+    }
+	
+    public static void saveGame(Player player) {
+        if (player == null || player.getUsername() == null) {
+            return;
+        }
+        final Player p = player;
+        GameServer.getSQLPool().executeLogoutQuery(p, new ThreadedSQLCallback() {
+            @Override
+            public void queryComplete(ResultSet result) throws SQLException {
+
+            }
+
+            @Override
+            public void queryError(SQLException e) {
+                e.printStackTrace();
+            }
+
+        });
+    }
+	
   public static void save(Player player) {
     if (player.newPlayer())
       return;
@@ -139,8 +224,7 @@ public class PlayerSaving {
       object.addProperty("effigy", new Integer(player.getEffigy()));
       object.addProperty("summon-npc", new Integer(player.getSummoning().getFamiliar() != null
           ? player.getSummoning().getFamiliar().getSummonNpc().getId() : -1));
-      object.addProperty("summon-death", new Integer(player.getSummoning().getFamiliar() != null
-          ? player.getSummoning().getFamiliar().getDeathTimer() : -1));
+      object.addProperty("summon-death", new Integer(player.getSummoning().getFamiliar() != null ? player.getSummoning().getFamiliar().getDeathTimer() : -1));
       object.addProperty("process-farming", new Boolean(player.shouldProcessFarming()));
       object.addProperty("clanchat",
           player.getClanChatName() == null ? "null" : player.getClanChatName().trim());
