@@ -364,8 +364,8 @@ public class ItemContainerActionPacketListener implements PacketListener {
                     case 13263:
                     case 15492:
                         final SlayerTasks task = player.getSlayer().getSlayerTask();
-                        if(player.getSlayer().getSlayerTask() != null && player.getSlayer().getAmountToSlay() >= 1) {
-                            player.getPacketSender().sendMessage("Your current task is to kill " + (player.getSlayer().getAmountToSlay()) +" x "+task.toString().toLowerCase().replaceAll("_", " ")+"'s.");
+                        if (player.getSlayer().getSlayerTask() != null && player.getSlayer().getAmountToSlay() >= 1) {
+                            player.getPacketSender().sendMessage("Your current task is to kill " + (player.getSlayer().getAmountToSlay()) + " x " + task.toString().toLowerCase().replaceAll("_", " ") + "'s.");
                         } else {
                             player.getPacketSender().sendMessage("You currently do not have a slayer task assigned");
                         }
@@ -460,32 +460,38 @@ public class ItemContainerActionPacketListener implements PacketListener {
                             true);
                 }
                 break;
+
             case 1119: // smithing interface row 1
             case 1120: // row 2
             case 1121: // row 3
             case 1122: // row 4
             case 1123: // row 5
-                int barsRequired = SmithingData.getBarAmount(item1);
-                Item bar = new Item(player.getSelectedSkillingItem(), barsRequired);
-                int x = 10;
-                if (x > (player.getInventory().getAmount(bar.getId()) / barsRequired))
-                    x = (player.getInventory().getAmount(bar.getId()) / barsRequired);
-                EquipmentMaking.smithItem(player, new Item(player.getSelectedSkillingItem(), barsRequired),
-                        new Item(item1.getId(), SmithingData.getItemAmount(item1)), x);
-                break;
-        }
-
-        if (BeastOfBurden.beastOfBurdenSlot(interfaceId) >= 0) {
-            if (player.getInterfaceId() == BeastOfBurden.INTERFACE_ID
-                    && player.getSummoning().getBeastOfBurden() != null) {
-                player.getSummoning().getBeastOfBurden().switchItem(player.getInventory(), new Item(id, 10),
-                        BeastOfBurden.beastOfBurdenSlot(interfaceId), false, true);
-            }
-        } else if (PriceChecker.priceCheckerSlot(interfaceId) >= 0) {
-            if (player.getPriceChecker().isOpen()) {
-                player.getPriceChecker().switchItem(player.getInventory(), new Item(id, 10),
-                        PriceChecker.priceCheckerSlot(interfaceId), false, true);
-            }
+                for (int i : GameSettings.SMITHABLE_ITEMS) {
+                    if (player.getSelectedSkillingItem() == i) {
+                        int barsRequired = SmithingData.getBarAmount(item1);
+                        Item bar = new Item(player.getSelectedSkillingItem(), barsRequired);
+                        int x = 10;
+                        if (x > (player.getInventory().getAmount(bar.getId()) / barsRequired))
+                            x = (player.getInventory().getAmount(bar.getId()) / barsRequired);
+                        EquipmentMaking.smithItem(player, new Item(player.getSelectedSkillingItem(), barsRequired),
+                                new Item(item1.getId(), SmithingData.getItemAmount(item1)), x);
+                        break;
+                    } else {
+                        player.getPacketSender().sendMessage("You cannot make this item");
+                    }
+                    if (BeastOfBurden.beastOfBurdenSlot(interfaceId) >= 0) {
+                        if (player.getInterfaceId() == BeastOfBurden.INTERFACE_ID
+                                && player.getSummoning().getBeastOfBurden() != null) {
+                            player.getSummoning().getBeastOfBurden().switchItem(player.getInventory(), new Item(id, 10),
+                                    BeastOfBurden.beastOfBurdenSlot(interfaceId), false, true);
+                        }
+                    } else if (PriceChecker.priceCheckerSlot(interfaceId) >= 0) {
+                        if (player.getPriceChecker().isOpen()) {
+                            player.getPriceChecker().switchItem(player.getInventory(), new Item(id, 10),
+                                    PriceChecker.priceCheckerSlot(interfaceId), false, true);
+                        }
+                    }
+                }
         }
     }
 
