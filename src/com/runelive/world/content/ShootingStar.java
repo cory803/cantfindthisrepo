@@ -12,7 +12,7 @@ public class ShootingStar {
 
   private static final int TIME = 1800000;
   public static final int MAXIMUM_MINING_AMOUNT = 600;
-
+  public static String star;
   private static Stopwatch timer = new Stopwatch().reset();
   public static CrashedStar CRASHED_STAR = null;
   private static LocationData LAST_LOCATION = null;
@@ -105,6 +105,7 @@ public class ShootingStar {
         CustomObjects.spawnGlobalObject(CRASHED_STAR.starObject);
         World.sendMessage("<icon=0><shad=FF8C38>A shooting star has just crashed "
             + locationData.clue + "!");
+        star = locationData.clue;
         World.getPlayers()
             .forEach(p -> p.getPacketSender().sendString(39162, "@or2@Crashed star: @yel@"
                 + ShootingStar.CRASHED_STAR.getStarLocation().playerPanelFrame + ""));

@@ -485,7 +485,7 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, new Position(3239 + Misc.getRandom(2), 3619 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
 				break;
 			case 13:
-				if(Misc.getHoursPlayedNumeric(player.getTotalPlayTime()) >= 500) {
+				if(Misc.getHoursPlayedNumeric(player.getTotalPlayTime()) >= 2000) {
 					player.getPacketSender().sendInterfaceRemoval();
 					boolean usePouch = player.getMoneyInPouch() >= 75000000;
 					if (!usePouch && player.getInventory().getAmount(995) < 75000000) {
@@ -502,7 +502,8 @@ public class DialogueOptions {
 					DialogueManager.start(player, 122);
 					player.setDialogueActionId(76);
 				} else {
-					player.getPacketSender().sendMessage("You've played "+Misc.getHoursPlayedNumeric(player.getTotalPlayTime())+"/500 Hours.");
+					player.getPacketSender().sendMessage("You've played "+Misc.getHoursPlayedNumeric(player.getTotalPlayTime())+"/2000 Hours.");
+					player.getPacketSender().sendInterfaceRemoval();
 				}
 				break;
 			case 14:
@@ -1454,8 +1455,8 @@ public class DialogueOptions {
 						player.getPacketSender().sendMessage("There is currently no shooting star that has crashed");
 						player.getPacketSender().sendMessage("The miner did not want to jew you; so he has refunded your money pouch.");
 					} else {
-						DialogueManager.sendStatement(player, "A shooting star has crashed at "+ShootingStar.CRASHED_STAR.getStarLocation()+".");
-						player.getPacketSender().sendMessage("A shooting star has crashed at "+ShootingStar.CRASHED_STAR.getStarLocation()+".");
+						DialogueManager.sendStatement(player, "A shooting star has crashed at "+ShootingStar.star+".");
+						player.getPacketSender().sendMessage("A shooting star has crashed at "+ShootingStar.star+".");
 						player.setMoneyInPouch(player.getMoneyInPouch()-1000000);
 						player.getPacketSender().sendMessage("The miner took 1m out of your money pouch for the information.");
 					}
