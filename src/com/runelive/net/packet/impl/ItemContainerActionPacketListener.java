@@ -183,19 +183,19 @@ public class ItemContainerActionPacketListener implements PacketListener {
             case 1121: // row 3
             case 1122: // row 4
             case 1123: // row 5
-                for (int i : GameSettings.SMITHABLE_ITEMS) {
-                    if (player.getSelectedSkillingItem() == i) {
                         int barsRequired = SmithingData.getBarAmount(item);
                         Item bar = new Item(player.getSelectedSkillingItem(), barsRequired);
                         int x = 1;
                         if (x > (player.getInventory().getAmount(bar.getId()) / barsRequired))
                             x = (player.getInventory().getAmount(bar.getId()) / barsRequired);
+                        for (int i : GameSettings.SMITHABLE_ITEMS) {
+                            if (item.getId() == i) {
                         EquipmentMaking.smithItem(player, new Item(player.getSelectedSkillingItem(), barsRequired),
                                 new Item(item.getId(), SmithingData.getItemAmount(item)), x);
                         break;
-                    }
-                }
-
+                            }
+                        }
+                        
                 if (BeastOfBurden.beastOfBurdenSlot(interfaceId) >= 0) {
                     if (player.getInterfaceId() == BeastOfBurden.INTERFACE_ID
                             && player.getSummoning().getBeastOfBurden() != null) {
@@ -304,17 +304,18 @@ public class ItemContainerActionPacketListener implements PacketListener {
             case 1121: // row 3
             case 1122: // row 4
             case 1123: // row 5
-                for (int i : GameSettings.SMITHABLE_ITEMS) {
-                    if (player.getSelectedSkillingItem() == i) {
                         int barsRequired = SmithingData.getBarAmount(item);
                         Item bar = new Item(player.getSelectedSkillingItem(), barsRequired);
                         int x = 5;
                         if (x > (player.getInventory().getAmount(bar.getId()) / barsRequired))
                             x = (player.getInventory().getAmount(bar.getId()) / barsRequired);
+                        for (int i : GameSettings.SMITHABLE_ITEMS) {
+                            if (item.getId() == i) {
                         EquipmentMaking.smithItem(player, new Item(player.getSelectedSkillingItem(), barsRequired),
                                 new Item(item.getId(), SmithingData.getItemAmount(item)), x);
                         break;
-                    }
+                            }
+                        }
 
 
                     if (BeastOfBurden.beastOfBurdenSlot(interfaceId) >= 0) {
@@ -329,7 +330,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
                                     PriceChecker.priceCheckerSlot(interfaceId), false, true);
                         }
                     }
-                }
         }
     }
 
@@ -475,19 +475,19 @@ public class ItemContainerActionPacketListener implements PacketListener {
             case 1121: // row 3
             case 1122: // row 4
             case 1123: // row 5
-                for (int i : GameSettings.SMITHABLE_ITEMS) {
-                    if (player.getSelectedSkillingItem() == i) {
                         int barsRequired = SmithingData.getBarAmount(item1);
                         Item bar = new Item(player.getSelectedSkillingItem(), barsRequired);
                         int x = 10;
                         if (x > (player.getInventory().getAmount(bar.getId()) / barsRequired))
                             x = (player.getInventory().getAmount(bar.getId()) / barsRequired);
+                        for (int i : GameSettings.SMITHABLE_ITEMS) {
+                            if (item1.getId() == i) {
                         EquipmentMaking.smithItem(player, new Item(player.getSelectedSkillingItem(), barsRequired),
                                 new Item(item1.getId(), SmithingData.getItemAmount(item1)), x);
                         break;
-                    } else {
-                        player.getPacketSender().sendMessage("You cannot make this item");
-                    }
+                            }
+                        }
+                        
                     if (BeastOfBurden.beastOfBurdenSlot(interfaceId) >= 0) {
                         if (player.getInterfaceId() == BeastOfBurden.INTERFACE_ID
                                 && player.getSummoning().getBeastOfBurden() != null) {
@@ -500,7 +500,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
                                     PriceChecker.priceCheckerSlot(interfaceId), false, true);
                         }
                     }
-                }
         }
     }
     /**
