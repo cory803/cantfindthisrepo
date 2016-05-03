@@ -1006,7 +1006,7 @@ public class SmithingData {
         reqLvl = 15;
         break;
 
-      case 15298: // iron Hatchet
+      case 1349: // iron Hatchet
         xp = 1250;
         reqLvl = 16;
         break;
@@ -1372,7 +1372,6 @@ public class SmithingData {
         xp = 12500;
         reqLvl = 68;
         break;
-
       case 1211: // Adamant Dagger
         xp = 3100;
         reqLvl = 70;

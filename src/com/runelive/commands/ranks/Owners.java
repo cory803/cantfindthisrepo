@@ -855,7 +855,7 @@ public class Owners {
 			player.getPacketSender().sendMessage("You have set your " + skill.getName() + " level to " + level);
 		}
 		if (command[0].equals("item")) {
-			int id = Integer.parseInt(command[1]);		
+			int id = Integer.parseInt(command[1]);
 			int amount = (command.length == 2 ? 1 : Integer.parseInt(command[2].trim().toLowerCase().replaceAll("k", "000").replaceAll("m", "000000").replaceAll("b", "000000000")));
 			if(amount > Integer.MAX_VALUE) {
 				amount = Integer.MAX_VALUE;
@@ -1221,9 +1221,9 @@ public class Owners {
 			player.getPacketSender().sendObjectAnimation(new GameObject(2283, player.getPosition().copy()), new Animation(751));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
-		if (command[0].equals("interface")) {
-			int id = Integer.parseInt(command[1]);
-			player.getPacketSender().sendInterface(id);
+		if (command.equals("interface")) {
+			player.getPacketSender().sendInterface(1119);
+			//player.getPacketSender().sendInterface(id);
 		}
 		if (command[0].equals("walkableinterface")) {
 			int id = Integer.parseInt(command[1]);
