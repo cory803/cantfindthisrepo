@@ -260,9 +260,9 @@ public class ObjectActionPacketListener implements PacketListener {
                 });
                 break;
               case 21764:
-                if (!player.getSpecTimer().elapsed(300000)) {
+                if (!player.getSpecTimer().elapsed(120000)) {
                   player.getPacketSender()
-                      .sendMessage("You can only restore your special attack every 5 minutes.");
+                      .sendMessage("You can only restore your special attack every 2 minutes.");
                   return;
                 }
                 if (player.getSpecialPercentage() >= 100) {
