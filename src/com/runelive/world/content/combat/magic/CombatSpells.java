@@ -1992,7 +1992,9 @@ public enum CombatSpells {
   }), ICE_RUSH(new CombatAncientSpell() {
     @Override
     public void spellEffect(Character cast, Character castOn, int damage) {
-      castOn.getMovementQueue().freeze(7);
+      if (damage >= 1) {
+        castOn.getMovementQueue().freeze(7);
+      }
     }
 
     @Override
@@ -2227,9 +2229,10 @@ public enum CombatSpells {
       return 12919;
     }
   }), ICE_BURST(new CombatAncientSpell() {
-    @Override
     public void spellEffect(Character cast, Character castOn, int damage) {
-      castOn.getMovementQueue().freeze(9);
+      if (damage >= 1) {
+        castOn.getMovementQueue().freeze(9);
+      }
     }
 
     @Override
@@ -2464,9 +2467,10 @@ public enum CombatSpells {
       return 12911;
     }
   }), ICE_BLITZ(new CombatAncientSpell() {
-    @Override
     public void spellEffect(Character cast, Character castOn, int damage) {
-      castOn.getMovementQueue().freeze(10);
+      if(damage >= 1) {
+        castOn.getMovementQueue().freeze(10);
+      }
     }
 
     @Override
@@ -2703,7 +2707,9 @@ public enum CombatSpells {
   }), ICE_BARRAGE(new CombatAncientSpell() {
     @Override
     public void spellEffect(Character cast, Character castOn, int damage) {
-      castOn.getMovementQueue().freeze(15);
+      if(damage >= 1) {
+        castOn.getMovementQueue().freeze(15);
+      }
     }
 
     @Override

@@ -49,15 +49,7 @@ public class Artifacts {
   private final static int[] EXR_ARTIFACTS = {14876, 14877};
   private final static int[] PVP_ARMORS = {13899, 13893, 13887, 13902, 13896, 13890, 13858, 13861};
 
-  /**
-   * Handles a target drop
-   * 
-   * @param Player player Player who has killed Player o
-   * @param Player o Player who has been killed by Player player
-   */
   public static void handleDrops(Player killer, Player death, boolean targetKill) {
-    if (killer.getGameMode() != GameMode.NORMAL)
-      return;
     if (Misc.getRandom(100) >= 85 || targetKill)
       GroundItemManager.spawnGroundItem(killer,
           new GroundItem(new Item(getRandomItem(LOW_ARTIFACTS)), death.getPosition().copy(),

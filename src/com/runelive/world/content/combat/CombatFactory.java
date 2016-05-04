@@ -1735,6 +1735,9 @@ public final class CombatFactory {
         t.setHasVengeance(false);
         t.forceChat("Taste Vengeance!");
         int returnDamage = (int) (damage * 0.75);
+        if(damage >= t.getConstitution()) {
+          returnDamage = 0;
+        }
         if (attacker.getConstitution() < returnDamage)
           returnDamage = attacker.getConstitution();
         attacker.dealDamage(new Hit(returnDamage, Hitmask.RED, CombatIcon.DEFLECT));

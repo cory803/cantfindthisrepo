@@ -55,7 +55,7 @@ public class FightCave {
         player.getRegionInstance().getNpcsList().remove(n);
       leaveCave(player, true);
       DialogueManager.start(player, 37);
-      player.getInventory().add(6570, 1).add(6529, 1000 + Misc.getRandom(2000));
+      player.getInventory().add(6570, 1).add(6529, Misc.inclusiveRandom(12000, 15000));
     }
   }
 

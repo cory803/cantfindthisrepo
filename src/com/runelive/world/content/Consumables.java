@@ -53,7 +53,7 @@ public class Consumables {
      * @param player The player to heal
      */
     public static void handleHealAction(Player player) {
-        if (!player.getFoodTimer().elapsed(1300))
+        if (!player.getFoodTimer().elapsed(900))
             return;
         for (Item item : player.getInventory().getItems()) {
             if (item != null) {
@@ -83,7 +83,7 @@ public class Consumables {
         // player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
         // return;
         // }
-        if (food != null && player.getComboFoodDelay().elapsed(1000) && food.hasComboDelay()) {
+        if (food != null && player.getComboFoodDelay().elapsed(900) && food.hasComboDelay()) {
             player.getComboFoodDelay().reset();
             player.getPacketSender().sendInterfaceRemoval();
             player.performAnimation(new Animation(829));
@@ -101,8 +101,8 @@ public class Consumables {
             player.getPacketSender().sendMessage("You " + e + " the " + food.name + ".");
             player.setConstitution(player.getConstitution() + heal);
         }
-        if (food != null && player.getFoodTimer().elapsed(1100) && !food.hasComboDelay()) {
-            player.getCombatBuilder().incrementAttackTimer(2).cooldown(false);
+        if (food != null && player.getFoodTimer().elapsed(900) && !food.hasComboDelay()) {
+            //player.getCombatBuilder().incrementAttackTimer(2).cooldown(false);
             player.getCombatBuilder().setDistanceSession(null);
             player.setCastSpell(null);
             player.getFoodTimer().reset();

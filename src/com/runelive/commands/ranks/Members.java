@@ -20,6 +20,8 @@ import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.motivoters.motivote.service.MotivoteRS;
 
+import java.text.DecimalFormat;
+
 public class Members {
 
 	private static final MotivoteRS motivote = new MotivoteRS("runelive", "ebac47c6e0cd6d66f1c9b7b5ce9138b3");
@@ -91,6 +93,11 @@ public class Members {
 		if(player.isJailed()) {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
+		}
+		if (command[0].equalsIgnoreCase("kdr")) {
+			int KDR = player.getPlayerKillingAttributes().getPlayerKills() / player.getPlayerKillingAttributes().getPlayerDeaths();
+			DecimalFormat df = new DecimalFormat("#.00");
+			player.forceChat("[RuneLive] My Kill to Death ration is "+player.getPlayerKillingAttributes().getPlayerKills()+" kills to "+player.getPlayerKillingAttributes().getPlayerDeaths()+" deaths, which is "+df.format(KDR)+" K/D.");
 		}
 		if (command[0].equalsIgnoreCase("time")) {
 			player.forceChat("[runelive] "+player.getUsername()+" has played for ["+Misc.getHoursPlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed()))+"]");
