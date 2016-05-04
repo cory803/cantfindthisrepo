@@ -1,41 +1,18 @@
 package com.runelive.world.entity.impl.player;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.ObjectInputStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.runelive.GameSettings;
-import com.runelive.world.content.Achievements.AchievementData;
-
-import java.sql.SQLException;
-import java.sql.ResultSet;
-
-import com.runelive.world.content.KillsTracker;
-import com.runelive.model.Skill;
-import com.runelive.world.World;
-import com.runelive.model.PlayerRelations.PrivateChatStatus;
-import com.runelive.model.PlayerRights;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.runelive.GameServer;
+import com.runelive.GameSettings;
 import com.runelive.engine.task.impl.FamiliarSpawnTask;
-import com.runelive.model.GameMode;
-import com.runelive.model.Gender;
-import com.runelive.model.Item;
-import com.runelive.model.MagicSpellbook;
+import com.runelive.model.*;
 import com.runelive.model.PlayerRelations.PrivateChatStatus;
-import com.runelive.model.PlayerRights;
-import com.runelive.model.Position;
-import com.runelive.model.Prayerbook;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.net.login.LoginResponses;
+import com.runelive.net.mysql.ThreadedSQLCallback;
+import com.runelive.world.World;
 import com.runelive.world.content.DropLog;
 import com.runelive.world.content.DropLog.DropLogEntry;
 import com.runelive.world.content.KillsTracker;
@@ -49,9 +26,18 @@ import com.runelive.world.content.skill.impl.construction.Portal;
 import com.runelive.world.content.skill.impl.construction.Room;
 import com.runelive.world.content.skill.impl.slayer.SlayerMaster;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
-import com.runelive.GameServer;
-import com.runelive.net.mysql.ThreadedSQLCallback;
-import com.runelive.world.content.LoyaltyProgramme.LoyaltyTitles;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.ObjectInputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerLoading {
 
@@ -77,9 +63,6 @@ public class PlayerLoading {
 
         // Now read the properties from the json parser.
         try (FileReader fileReader = new FileReader(file)) {
-            JsonParser fileParser = new JsonParser();
-            //Gson builder = new GsonBuilder().create();
-            //JsonObject reader = (JsonObject) fileParser.parse(fileReader);
             final String pass = player.getPassword();
 
             decodeJson(player, new String(Files.readAllBytes(path)));
@@ -133,7 +116,7 @@ public class PlayerLoading {
                 in.close();
                 fileIn.close();
             }
-            player.setResponse(2);
+            player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
             player.setLoginQue(true);
             if (!World.getLoginQueue().contains(player)) {
                 World.getLoginQueue().add(player);

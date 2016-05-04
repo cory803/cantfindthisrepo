@@ -109,8 +109,7 @@ public class ThreadedSQL {
         });
     }
 	
-    public static String UpdateQuery = 
-	"update `accounts` set staffrights = ?, donorrights = ?, json = ? Where username = ? limit 1;";
+    public static String UpdateQuery = "UPDATE `accounts` SET staffrights = ?, donorrights = ?, json = ? WHERE username = ? LIMIT 1;";
 
     /**
      * Executed a PreparedStatement query.
