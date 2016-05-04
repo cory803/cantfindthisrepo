@@ -167,6 +167,9 @@ public final class LoginDecoder extends FrameDecoder {
         }
         if (GameSettings.JSON_PLAYER_LOADING) {
             loadGame = PlayerLoading.getResult(player);
+            if (loadGame != LoginResponses.LOGIN_SUCCESSFUL) {
+                player.setResponse(loadGame);
+            }
         }
         try {
             while (!World.getLoginQueue().contains(player) && !player.getLoginQue()) {

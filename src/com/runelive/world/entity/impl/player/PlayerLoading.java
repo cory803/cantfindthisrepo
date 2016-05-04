@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.runelive.GameSettings;
 import com.runelive.world.content.Achievements.AchievementData;
 
 import java.sql.SQLException;
@@ -56,7 +57,8 @@ public class PlayerLoading {
 
     public static int getResult(Player player) {
         if (player.getUsername().contains(":") || player.getUsername().contains("\"")) {
-            return LoginResponses.NEW_ACCOUNT;
+            player.setLoginQue(true);
+            return LoginResponses.LOGIN_REJECT_SESSION;
         }
         // Create the path and file objects.
         Path path = Paths.get("./characters/", player.getUsername() + ".json");
@@ -65,7 +67,12 @@ public class PlayerLoading {
         // If the file doesn't exist, we're logging in for the first
         // time and can skip all of this.
         if (!file.exists()) {
-            return LoginResponses.NEW_ACCOUNT;
+            player.setNewPlayer(true);
+            if (!World.getLoginQueue().contains(player)) {
+                World.getLoginQueue().add(player);
+            }
+            player.setLoginQue(true);
+            return LoginResponses.LOGIN_SUCCESSFUL;
         }
 
         // Now read the properties from the json parser.
@@ -73,7 +80,32 @@ public class PlayerLoading {
             JsonParser fileParser = new JsonParser();
             //Gson builder = new GsonBuilder().create();
             //JsonObject reader = (JsonObject) fileParser.parse(fileReader);
+            final String pass = player.getPassword();
+
             decodeJson(player, new String(Files.readAllBytes(path)));
+
+            if (GameSettings.HASH_PASSWORDS) {
+                String salt = player.getSalt();
+                String password = player.getPassword();
+                String hashedPassword = player.getHashedPassword();
+                if (salt.isEmpty() || hashedPassword.isEmpty()) {
+                    if (!password.equals(pass)) {
+                        player.setLoginQue(true);
+                        return LoginResponses.LOGIN_INVALID_CREDENTIALS;
+                    }
+                } else {
+                    String hashPass = PlayerSaving.hashPassword(salt, pass);
+                    if (!hashPass.equals(hashedPassword)) {
+                        player.setLoginQue(true);
+                        return LoginResponses.LOGIN_INVALID_CREDENTIALS;
+                    }
+                }
+            } else {
+                if (!player.getPassword().equals(pass)) {
+                    player.setLoginQue(true);
+                    return LoginResponses.LOGIN_INVALID_CREDENTIALS;
+                }
+            }
 
             File rooms = new File("./housing/rooms/" + player.getUsername() + ".ser");
             if (rooms.exists()) {
@@ -122,17 +154,37 @@ public class PlayerLoading {
             public void queryComplete(ResultSet rs) throws SQLException {
                 int bankItems = 0;
                 if (rs.next()) {
-                    String Pass = rs.getString("password");
-                    if (player.getPassword().equalsIgnoreCase(Pass)) {
+                    boolean matches = false;
+                    String password = rs.getString("password");
+                    String salt = "not-set";
+                    if (GameSettings.HASH_PASSWORDS) {
+                        salt = rs.getString("salt");
+                        if (salt == null || salt.isEmpty() || salt.equalsIgnoreCase("not-set")) {//check old unhashed password.
+                            matches = player.getPassword().equals(password);//see if passwords match.
+                            player.setSalt(PlayerSaving.generateSalt());//set player salt
+                            PlayerSaving.updatePassword(player, PlayerSaving.hashPassword(player.getSalt(), player.getPassword()), player.getSalt());//update password in db to hashed version w/ new salt
+                        } else {
+                            String hashedPlayerPassword = PlayerSaving.hashPassword(salt, player.getPassword());//hash players input password w/ salt from db
+                            matches = password.equals(hashedPlayerPassword);//check if hashed pass in db matches player's input password
+                        }
+                    } else {
+                        matches = player.getPassword().equals(password);
+                    }
+                    if (matches) {
                         System.out.println("Loading passed");
 
                         player.setUsername(rs.getString("username"));
-                        player.setPassword(rs.getString("password"));
                         player.setRights(PlayerRights.forId(rs.getInt("staffrights")));
                         player.setDonorRights(rs.getInt("donorrights"));
+
                         decodeJson(player, (rs.getString("json")));
 
-                        player.setResponse(2);
+                        if (GameSettings.HASH_PASSWORDS) {
+                            player.setSalt(salt);
+                            player.setHashedPassword(PlayerSaving.hashPassword(salt, player.getPassword()));
+                        }
+
+                        player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
                         if (!World.getLoginQueue().contains(player)) {
                             World.getLoginQueue().add(player);
                         }
@@ -184,10 +236,17 @@ public class PlayerLoading {
 
         if (reader.has("password")) {
             String password = reader.get("password").getAsString();
-            //if (!player.getPassword().equals(password)) {
-            //  return LoginResponses.LOGIN_INVALID_CREDENTIALS;
-            // }
             player.setPassword(password);
+        }
+
+        if (reader.has("player-salt")) {
+            String salt = reader.get("player-salt").getAsString();
+            player.setSalt(salt);
+        }
+
+        if (reader.has("password-hash")) {
+            String pass = reader.get("password-hash").getAsString();
+            player.setHashedPassword(pass);
         }
 
         if (reader.has("email")) {
@@ -226,7 +285,7 @@ public class PlayerLoading {
             player.setLastIpAddress(reader.get("last-ip-address").getAsString());
         }
 /*
-		if (reader.has("last-serial-address")) {
+        if (reader.has("last-serial-address")) {
             String str = reader.get("last-serial-address").getAsString();
             long serial = -1;
             try {

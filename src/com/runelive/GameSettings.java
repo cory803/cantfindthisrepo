@@ -13,6 +13,7 @@ public class GameSettings {
    * The game port
    */
   public static final int GAME_PORT = 59018;
+  public static final boolean HASH_PASSWORDS = false;
 
   /**
    * The game client_version

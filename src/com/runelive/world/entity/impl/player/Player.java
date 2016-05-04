@@ -432,6 +432,8 @@ public class Player extends Character {
 	private String emailAddress;
 	private String hostAddress;
 	private String clanChatName;
+	private String salt = "";
+	private String hashedPassword;
 
 	/*** LONGS **/
 	private Long longUsername;
@@ -834,6 +836,22 @@ public class Player extends Character {
 
 	public String getUsername() {
 		return username;
+	}
+
+	public String getHashedPassword() {
+		return this.hashedPassword;
+	}
+
+	public String getSalt() {
+		return this.salt;
+	}
+
+	public void setHashedPassword(String pass) {
+		this.hashedPassword = pass;
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 
 	public void setLastLogin(long last_login) {

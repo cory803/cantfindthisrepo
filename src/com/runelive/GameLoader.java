@@ -42,51 +42,51 @@ import com.runelive.world.entity.impl.npc.NPC;
  */
 public final class GameLoader {
 
-  private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor(
-      new ThreadFactoryBuilder().setNameFormat("GameThread").build());
-  private final GameEngine engine;
-  private final int port;
+    private final ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor(
+            new ThreadFactoryBuilder().setNameFormat("GameThread").build());
+    private final GameEngine engine;
+    private final int port;
 
-  protected GameLoader(int port) {
-    this.port = port;
-    this.engine = new GameEngine();
-  }
+    protected GameLoader(int port) {
+        this.port = port;
+        this.engine = new GameEngine();
+    }
 
-  public void finish() throws IOException, InterruptedException {
-    ExecutorService networkExecutor = Executors.newCachedThreadPool();
-    ServerBootstrap serverBootstrap =
-        new ServerBootstrap(new NioServerSocketChannelFactory(networkExecutor, networkExecutor));
-    serverBootstrap.setPipelineFactory(new PipelineFactory(new HashedWheelTimer()));
-    serverBootstrap.bind(new InetSocketAddress(port));
-    executor.scheduleAtFixedRate(engine, 0, GameSettings.ENGINE_PROCESSING_CYCLE_RATE,
-        TimeUnit.MILLISECONDS);
-    TaskManager.submit(new ServerTimeUpdateTask());
-  }
+    public void finish() throws IOException, InterruptedException {
+        ExecutorService networkExecutor = Executors.newCachedThreadPool();
+        ServerBootstrap serverBootstrap =
+                new ServerBootstrap(new NioServerSocketChannelFactory(networkExecutor, networkExecutor));
+        serverBootstrap.setPipelineFactory(new PipelineFactory(new HashedWheelTimer()));
+        serverBootstrap.bind(new InetSocketAddress(port));
+        executor.scheduleAtFixedRate(engine, 0, GameSettings.ENGINE_PROCESSING_CYCLE_RATE,
+                TimeUnit.MILLISECONDS);
+        TaskManager.submit(new ServerTimeUpdateTask());
+    }
 
-  public void init() throws IOException {
-    ConnectionHandler.init();
-    RegionClipping.init();
-    CustomObjects.init();
-    ItemDefinition.init().load();
-    Lottery.init();
-    GrandExchangeOffers.init();
-    PlayerOwnedShops.init();
-    WellOfGoodwill.init();
-    ClanChatManager.init();
-    CombatPoisonData.init();
-    CombatVenomData.init();
-    CombatStrategies.init();
-    Scoreboard.load();
-    NpcDefinition.parseNpcs().load();
-    NPCDrops.parseDrops().load();
-    WeaponInterfaces.parseInterfaces().load();
-    ShopManager.parseShops().load();
-    PlayerOwnedShopManager.load();
-    DialogueManager.parseDialogues().load();
-    NPC.init();
-  }
+    public void init() throws IOException {
+        ConnectionHandler.init();
+        RegionClipping.init();
+        CustomObjects.init();
+        ItemDefinition.init().load();
+        Lottery.init();
+        GrandExchangeOffers.init();
+        PlayerOwnedShops.init();
+        WellOfGoodwill.init();
+        ClanChatManager.init();
+        CombatPoisonData.init();
+        CombatVenomData.init();
+        CombatStrategies.init();
+        Scoreboard.load();
+        NpcDefinition.parseNpcs().load();
+        NPCDrops.parseDrops().load();
+        WeaponInterfaces.parseInterfaces().load();
+        ShopManager.parseShops().load();
+        PlayerOwnedShopManager.load();
+        DialogueManager.parseDialogues().load();
+        NPC.init();
+    }
 
-  public GameEngine getEngine() {
-    return engine;
-  }
+    public GameEngine getEngine() {
+        return engine;
+    }
 }

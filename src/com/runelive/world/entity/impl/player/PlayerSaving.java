@@ -1,11 +1,11 @@
 package com.runelive.world.entity.impl.player;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.util.Random;
 import java.util.logging.Level;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,15 +14,18 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.runelive.GameServer;
+import com.runelive.GameSettings;
+import com.runelive.util.MD5;
 import com.runelive.util.Misc;
 import com.runelive.net.mysql.ThreadedSQLCallback;
 import com.runelive.world.World;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class PlayerSaving {
 
 
     public static boolean accountExists(Player player, String name) {
-        GameServer.getSQLPool().executeQuery("Select username from `accounts` as acc where username = '" + name + "' limit 1", new ThreadedSQLCallback() {
+        GameServer.getSQLPool().executeQuery("SELECT username FROM `accounts` as acc WHERE username = '" + name + "' LIMIT 1", new ThreadedSQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 if (rs.next()) {
@@ -38,8 +41,30 @@ public class PlayerSaving {
         return player.accountExists;
     }
 
+    public static void updatePassword(Player p, String password, String salt) {
+        GameServer.getSQLPool().executeQuery("UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(), new ThreadedSQLCallback() {
+            @Override
+            public void queryError(SQLException e) {
+                System.err.println("Error updating password for " + p.getUsername() + ": " + password);
+                e.printStackTrace();
+            }
+
+            @Override
+            public void queryComplete(ResultSet result) throws SQLException {
+                //password updated!
+            }
+        });
+    }
+
     public static void createNewAccount(Player p) {
-        GameServer.getSQLPool().executeQuery("INSERT INTO `accounts` (username, password) values ('" + p.getUsername() + "', '" + p.getPassword() + "')", new ThreadedSQLCallback() {
+        String query = "INSERT INTO `accounts` (username, password) VALUES ('" + p.getUsername() + "', '" + p.getPassword() + "')";
+        if (GameSettings.HASH_PASSWORDS) {
+            if (p.getSalt().isEmpty()) {
+                p.setSalt(PlayerSaving.generateSalt());
+            }
+            query = "INSERT INTO `accounts` (username, password, salt) VALUES ('" + p.getUsername() + "', '" + p.getPassword() + ", " + p.getSalt() + "')";
+        }
+        GameServer.getSQLPool().executeQuery(query, new ThreadedSQLCallback() {
             @Override
             public void queryError(SQLException e) {
                 p.setResponse(3);
@@ -103,6 +128,25 @@ public class PlayerSaving {
         });
     }
 
+    public static String generateSalt() {
+        final Random r = new SecureRandom();
+        byte[] salt = new byte[32];
+        r.nextBytes(salt);
+        return Base64.encode(salt);
+    }
+
+    public static String hashPassword(String salt, String password) {
+        try {
+            return MD5.MD5(MD5.MD5(salt) + MD5.MD5(password.trim()));
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        System.err.println("FAILED TO HASH PASSWORD! CRUCIAL ERROR! [salt: " + salt + ", password: " + password + "]");
+        return password;
+    }
+
     public static void save(Player player) {
         if (player.newPlayer())
             return;
@@ -155,7 +199,15 @@ public class PlayerSaving {
         JsonObject object = new JsonObject();
         object.addProperty("total-play-time-ms", player.getTotalPlayTime());
         object.addProperty("username", player.getUsername().trim());
-        object.addProperty("password", player.getPassword().trim());
+        if (GameSettings.HASH_PASSWORDS) {
+            if (player.getSalt().isEmpty()) {
+                player.setSalt(generateSalt());
+            }
+            object.addProperty("player-salt", player.getSalt());
+            object.addProperty("password-hash", hashPassword(player.getSalt(), player.getPassword()));
+        } else {
+            object.addProperty("password", player.getPassword().trim());
+        }
         object.addProperty("email", player.getEmailAddress() == null ? "null" : player.getEmailAddress().trim());
         object.addProperty("yell-tag", player.getYellTag());
         object.addProperty("staff-rights", player.getRights().name());
