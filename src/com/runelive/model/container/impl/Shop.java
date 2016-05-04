@@ -742,6 +742,11 @@ public class Shop extends ItemContainer {
           case 1275:
           case 1359:
             return new Object[] {5, "Voting points"};
+          case 22215:
+          case 22216:
+          case 22217:
+          case 22218:
+            return new Object[] {10, "Voting points"};
           case 4587:
           case 1215:
           case 1540:
@@ -1169,6 +1174,14 @@ public class Shop extends ItemContainer {
             return new Object[] {5, "stardust"};
           case 9185:
             return new Object[] {250, "stardust"};
+          case 20787:
+          case 20788:
+            return new Object[] {500, "stardust"};
+          case 20789:
+            return new Object[] {1000, "stardust"};
+          case 20791:
+          case 20790:
+            return new Object[] {2500, "stardust"};
         }
       } else if (shop == GRAVEYARD_STORE) {
         switch (item) {

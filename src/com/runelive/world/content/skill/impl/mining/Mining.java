@@ -6,6 +6,7 @@ import com.runelive.model.Animation;
 import com.runelive.model.GameObject;
 import com.runelive.model.Locations;
 import com.runelive.model.Skill;
+import com.runelive.model.container.impl.Equipment;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
@@ -101,8 +102,16 @@ public class Mining {
                     player.getInventory().add(o.getItemId(), 1 * multiplier);
                   }
                   player.getSkillManager().addExperience(Skill.MINING,
-                      (int) (o.getXpAmount() * 1.4));
+                          (int) (o.getXpAmount() * 1.4));
                   if (o == Ores.CRASHED_STAR) {
+                    if (goldenMiningArmour(player)) {
+                    int bonus = Misc.inclusiveRandom(1, 2);
+                    if(bonus == 1) {
+                      player.forceChat("*CLINK* What was that?");
+                      player.getPacketSender().sendMessage("A big chunk of the star lands on your golden armour.");
+                      player.getInventory().add(13727, 1);
+                    }
+                  }
                     player.getPacketSender().sendMessage("You mine the crashed star..");
                   } else {
                     player.getPacketSender().sendMessage("You mine some ore.");
@@ -144,6 +153,13 @@ public class Mining {
         player.getPacketSender().sendMessage("You don't have a pickaxe to mine this rock with.");
       }
     }
+  }
+  public static boolean goldenMiningArmour(Player player) {
+    return player.getEquipment().get(Equipment.HEAD_SLOT).getId() == 20789
+            && player.getEquipment().get(Equipment.BODY_SLOT).getId() == 20791
+            && player.getEquipment().get(Equipment.LEG_SLOT).getId() == 20790
+            && player.getEquipment().get(Equipment.FEET_SLOT).getId() == 20788
+            && player.getEquipment().get(Equipment.HANDS_SLOT).getId() == 20787;
   }
 
   public static void oreRespawn(final Player player, final GameObject oldOre, Ores o) {

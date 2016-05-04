@@ -74,8 +74,7 @@ public class PlayerDeathTask extends Task {
               && loc != Location.DUEL_ARENA && loc != Location.FREE_FOR_ALL_ARENA
               && loc != Location.FREE_FOR_ALL_WAIT && loc != Location.SOULWARS
               && loc != Location.FIGHT_PITS && loc != Location.FIGHT_PITS_WAIT_ROOM
-              && loc != Location.FIGHT_CAVES && loc != Location.RECIPE_FOR_DISASTER
-              && loc != Location.GRAVEYARD) {
+              && loc != Location.FIGHT_CAVES && loc != Location.RECIPE_FOR_DISASTER) {
             Player killer = player.getCombatBuilder().getKiller(true);
             // final boolean doubleDeath = player.isDying() && killer.getConstitution() <= 0;
             // if(killer.getLocation() == Location.WILDERNESS || killer.getLocation() ==
@@ -90,7 +89,6 @@ public class PlayerDeathTask extends Task {
               playerItems.addAll(player.getInventory().getValidItems());
               playerItems.addAll(player.getEquipment().getValidItems());
               final Position position = player.getPosition();
-              if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
                 spawnItems = true;
                 for (Item item : playerItems) {
                   if (!item.tradeable() || itemsToKeep.contains(item)) {
@@ -137,7 +135,6 @@ public class PlayerDeathTask extends Task {
                 player.getEquipment().resetItems().refreshItems();
               }
             }
-          } else
             dropItems = false;
           player.getPacketSender().sendInterfaceRemoval();
           player.setEntityInteraction(null);

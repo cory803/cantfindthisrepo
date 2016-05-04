@@ -618,17 +618,18 @@ public class Dueling {
 		duelingStatus = 5;
 		player.getMovementQueue().reset().setLockMovement(true);
 		player.getPacketSender().sendInterfaceRemoval();
+		int INSTANCED_DUEL_LEAVEL = player.getIndex() + playerToDuel.getIndex() * 4;
 		if (selectedDuelRules[DuelRule.OBSTACLES.ordinal()]) {
 			if (selectedDuelRules[DuelRule.NO_MOVEMENT.ordinal()]) {
 				player.moveTo(duelTelePos);
 			} else {
-				player.moveTo(new Position(3366 + Misc.getRandom(12), 3246 + Misc.getRandom(6), 0));
+				player.moveTo(new Position(3366 + Misc.getRandom(12), 3246 + Misc.getRandom(6), INSTANCED_DUEL_LEAVEL));
 			}
 		} else {
 			if (selectedDuelRules[DuelRule.NO_MOVEMENT.ordinal()]) {
 				player.moveTo(duelTelePos);
 			} else {
-				player.moveTo(new Position(3335 + Misc.getRandom(12), 3246 + Misc.getRandom(6), 0));
+				player.moveTo(new Position(3335 + Misc.getRandom(12), 3246 + Misc.getRandom(6), INSTANCED_DUEL_LEAVEL));
 			}
 		}
 		player.restart();
