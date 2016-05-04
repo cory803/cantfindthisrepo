@@ -225,11 +225,18 @@ public class PlayerLoading {
         if (reader.has("last-ip-address")) {
             player.setLastIpAddress(reader.get("last-ip-address").getAsString());
         }
-
-        if (reader.has("last-serial-address")) {
-            player.setLastSerialAddress(reader.get("last-serial-address").getAsLong());
+/*
+		if (reader.has("last-serial-address")) {
+            String str = reader.get("last-serial-address").getAsString();
+            long serial = -1;
+            try {
+                serial = Long.parseLong(str);
+            } catch (NumberFormatException e) {
+                
+            }
+            player.setLastSerialAddress(serial);
         }
-
+*/
         if (reader.has("last-mac-address")) {
             player.setLastMacAddress(reader.get("last-mac-address").getAsString());
         }
