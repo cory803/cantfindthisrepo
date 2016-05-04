@@ -426,7 +426,7 @@ public class Player extends Character {
 	/*** STRINGS ***/
 	private String username;
 	private String password;
-	private String serial_number;
+	private long serial_number;
 	private String mac_address;
 	private String computer_address;
 	private String emailAddress;
@@ -641,7 +641,7 @@ public class Player extends Character {
 	private boolean jailed = false;
 	private long last_login = -1;
 	private String last_ip_address;
-	private String last_serial_address;
+	private long last_serial_address;
 	private String last_mac_address;
 	private String last_computer_address;
 
@@ -848,7 +848,7 @@ public class Player extends Character {
 		isDoingTutorial = doing_it;
 	}
 
-	public void setLastSerialAddress(String last_serial) {
+	public void setLastSerialAddress(long last_serial) {
 		last_serial_address = last_serial;
 	}
 
@@ -872,7 +872,7 @@ public class Player extends Character {
 		return last_ip_address;
 	}
 
-	public String getLastSerialAddress() {
+	public long getLastSerialAddress() {
 		return last_serial_address;
 	}
 
@@ -974,7 +974,7 @@ public class Player extends Character {
 		return this;
 	}
 
-	public String getSerialNumber() {
+	public long getSerialNumber() {
 		return serial_number;
 	}
 
@@ -986,7 +986,7 @@ public class Player extends Character {
 		return computer_address;
 	}
 
-	public Player setSerialNumber(String serial_number) {
+	public Player setSerialNumber(long serial_number) {
 		this.serial_number = serial_number;
 		return this;
 	}
