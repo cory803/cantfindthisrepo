@@ -37,7 +37,175 @@
         	"coordinate": false,
         	"radius": -1
         }
+    },{
+        "npc-id": 3385,
+		"face": EAST,
+        "position": {
+        	"x": 3079,
+        	"y": 3498,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 1
+        }
     },
+    {
+        "npc-id": 705,
+		"face": SOUTH,
+        "position": {
+        	"x": 3099,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 946, //Mage Varrock
+		"face": SOUTH,
+        "position": {
+        	"x": 3097,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 1861, //Archer Varrock
+		"face": SOUTH,
+        "position": {
+        	"x": 3098,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 1685, //Pure Edge
+		"face": SOUTH,
+        "position": {
+        	"x": 3096,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 961, //Healer Edge
+		"face": SOUTH,
+        "position": {
+        	"x": 3095,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 2253,
+		"face": SOUTH,
+        "position": {
+        	"x": 3094,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 520,
+		"face": NORTH_EAST,
+        "position": {
+        	"x": 3218,
+        	"y": 3415,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 1
+        }
+    },
+	{
+        "npc-id": 3299,
+		"face": SOUTH_EAST,
+        "position": {
+        	"x": 3052,
+        	"y": 3304,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 1
+        }
+    },
+	{
+        "npc-id": 6139,
+		"face": SOUTH,
+        "position": {
+        	"x": 3095,
+        	"y": 3497,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 653,
+		"face": SOUTH,
+        "position": {
+        	"x": 3081,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 2676,
+		"face": SOUTH,
+        "position": {
+        	"x": 3093,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": 0
+        }
+    },
+	{
+        "npc-id": 2579,
+		"face": SOUTH,
+        "position": {
+        	"x": 3092,
+        	"y": 3506,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+	}, //end
 	{
         "npc-id": 309,
 		"face": WEST,
