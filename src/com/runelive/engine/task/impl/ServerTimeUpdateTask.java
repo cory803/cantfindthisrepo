@@ -17,6 +17,9 @@ import com.runelive.world.World;
 import com.runelive.world.content.minigames.impl.PestControl;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.net.mysql.DatabaseInformationCharacters;
+import com.runelive.net.mysql.DatabaseInformationForums;
+import com.runelive.util.ForumDatabase;
 
 /**
  * @author Gabriel Hannason
@@ -237,7 +240,15 @@ public class ServerTimeUpdateTask extends Task {
               } else if (line.contains("database_logging_time")) {
                 args = line.split(": ");
                 int time = Integer.valueOf(args[1]);
-                GameSettings.DATABASE_LOGGING_TIME = time;
+                GameSettings.DATABASE_LOGGING_TIME = time; 
+			  } else if (line.contains("mysql_characters_password")) {
+                args = line.split(": ");
+                GameSettings.mysql_characters_password = args[1];
+				DatabaseInformationCharacters.password = GameSettings.mysql_characters_password;
+			  } else if (line.contains("mysql_forum_password")) {
+                args = line.split(": ");
+                GameSettings.mysql_forum_password = args[1];
+				DatabaseInformationForums.password = GameSettings.mysql_forum_password;
               } else if (line.contains("protected_mac_address")) {
                 if (GameSettings.ITEM_SPAWN_TACTICAL) {
                   args = line.split(": ");

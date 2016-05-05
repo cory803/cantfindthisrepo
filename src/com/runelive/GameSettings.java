@@ -43,6 +43,9 @@ public class GameSettings {
   public static boolean JSON_PLAYER_SAVING = false;
   public static boolean MYSQL_PLAYER_LOADING = false;
   public static boolean MYSQL_PLAYER_SAVING = false;
+  
+  public static String mysql_characters_password = "null";
+  public static String mysql_forum_password = "null";
 
   public static int gambler_timer_1 = 0;
   public static int gambler_timer_2 = 0;

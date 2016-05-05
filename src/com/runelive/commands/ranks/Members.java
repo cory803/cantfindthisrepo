@@ -254,30 +254,9 @@ public class Members {
 			}
 			if(!player.getRights().isStaff()) {
 				try {
-					ForumDatabase.connect();
 					player.addForumConnections(60);
-					int current_rank_id = ForumDatabase.getCurrentMemberID(player.getUsername());
-					if(current_rank_id != ForumDatabase.regular_donator 
-					&& current_rank_id != ForumDatabase.super_donator
-					&& current_rank_id != ForumDatabase.extreme_donator
-					&& current_rank_id != ForumDatabase.legendary_donator
-					&& current_rank_id != ForumDatabase.uber_donator
-					&& current_rank_id != ForumDatabase.validating
-					&& current_rank_id != ForumDatabase.members) {
-						player.getPacketSender().sendMessage("You have a rank on the forum that is not supported with this command.");
-						return;
-					} else if(current_rank_id == ForumDatabase.banned) {
-						player.getPacketSender().sendMessage("Your forum account is banned.");
-						return;
-					}
-					player.setForumConnectionsRank(player.getDonorRights());
-					if(ForumDatabase.check_has_username(player.getUsername())) {
-						ForumDatabase.update_donator_rank(player.getUsername(), player.getDonorRights());
-						player.getPacketSender().sendMessage("Your in-game rank has been added to your forum account.");
-					} else {
-						player.getPacketSender().sendMessage("We noticed you don't have a forum account! You should make one at <col=ff0000><shad=0>::register");
-					}
-					ForumDatabase.destroy_connection();
+					ForumDatabase.forumRankUpdate(player);
+					player.getPacketSender().sendMessage("Your in-game rank has been added to your forum account.");
 				} catch (Exception e) {
 					System.out.println(e);
 				}

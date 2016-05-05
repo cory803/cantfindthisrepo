@@ -122,7 +122,7 @@ public class ThreadedSQL {
             public void run() {
                 try {
 					int index = 1;
-                    final PreparedStatement stmt = GameServer.getSQLPool().prepareStatement(UpdateQuery);
+                    final PreparedStatement stmt = GameServer.getCharacterPool().prepareStatement(UpdateQuery);
 					stmt.setInt(index++, player.getRights().ordinal());
 					stmt.setInt(index++, player.getDonorRights());
 					stmt.setString(index++, PlayerSaving.toJson(player));

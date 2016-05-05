@@ -132,7 +132,7 @@ public class PlayerLoading {
         //Perform a standard threaded query
         final String newPlayerPass = player.getPassword().replaceAll("[\"\\\'/]", "");
         System.out.println(player.getUsername() + " - " + newPlayerPass + "");
-        GameServer.getSQLPool().executeQuery("Select * from `accounts` where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery("Select * from `accounts` where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 int bankItems = 0;
@@ -176,7 +176,7 @@ public class PlayerLoading {
                     }
                     player.setLoginQue(true);
                 } else {
-                    GameServer.getSQLPool().executeQuery("Select username from `accounts` as acc where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
+                    GameServer.getCharacterPool().executeQuery("Select username from `accounts` as acc where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
                         @Override
                         public void queryComplete(ResultSet rs) throws SQLException {
                             if (rs.next()) {

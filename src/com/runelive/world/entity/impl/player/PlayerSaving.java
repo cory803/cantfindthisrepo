@@ -25,7 +25,7 @@ public class PlayerSaving {
 
 
     public static boolean accountExists(Player player, String name) {
-        GameServer.getSQLPool().executeQuery("SELECT username FROM `accounts` as acc WHERE username = '" + name + "' LIMIT 1", new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE username = '" + name + "' LIMIT 1", new ThreadedSQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 if (rs.next()) {
@@ -42,7 +42,7 @@ public class PlayerSaving {
     }
 
     public static void updatePassword(Player p, String password, String salt) {
-        GameServer.getSQLPool().executeQuery("UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(), new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery("UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(), new ThreadedSQLCallback() {
             @Override
             public void queryError(SQLException e) {
                 System.err.println("Error updating password for " + p.getUsername() + ": " + password);
@@ -64,7 +64,7 @@ public class PlayerSaving {
             }
             query = "INSERT INTO `accounts` (username, password, salt) VALUES ('" + p.getUsername() + "', '" + p.getPassword() + ", " + p.getSalt() + "')";
         }
-        GameServer.getSQLPool().executeQuery(query, new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery(query, new ThreadedSQLCallback() {
             @Override
             public void queryError(SQLException e) {
                 p.setResponse(3);
@@ -114,7 +114,7 @@ public class PlayerSaving {
             return;
         }
         final Player p = player;
-        GameServer.getSQLPool().executeLogoutQuery(p, new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeLogoutQuery(p, new ThreadedSQLCallback() {
             @Override
             public void queryComplete(ResultSet result) throws SQLException {
 

@@ -13,7 +13,8 @@ import com.runelive.util.ErrorFile;
 import com.runelive.util.ShutdownHook;
 import com.runelive.net.mysql.ThreadedSQL;
 import com.runelive.net.mysql.MySQLDatabaseConfiguration;
-import com.runelive.net.mysql.DatabaseInformation;
+import com.runelive.net.mysql.DatabaseInformationCharacters;
+import com.runelive.net.mysql.DatabaseInformationForums;
 
 /**
  * The starting point of RuneLive.
@@ -28,10 +29,15 @@ public class GameServer {
     private static final Logger logger = Logger.getLogger("RuneLive");
     private static boolean updating;
     private static long startTime;
-    private static ThreadedSQL sql = null;
+    private static ThreadedSQL characters_sql = null;
+    private static ThreadedSQL forums_sql = null;
 
-    public static ThreadedSQL getSQLPool() {
-        return sql;
+    public static ThreadedSQL getCharacterPool() {
+        return characters_sql;
+    }
+	
+    public static ThreadedSQL getForumPool() {
+        return forums_sql;
     }
 	
     public static void main(String[] params) {
@@ -48,7 +54,7 @@ public class GameServer {
             System.out.println("Fetching client version...");
             try {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(
-                        new URL("https://dl.dropboxusercontent.com/u/344464529/IKov/update.txt").openStream()));
+                        new URL("https://dl.dropboxusercontent.com/u/344464529/RuneLive/update.txt").openStream()));
                 for (int i = 0; i < 1; i++) {
                     GameSettings.client_version = reader.readLine();
                 }
@@ -57,20 +63,26 @@ public class GameServer {
                 // GameSettings.client_version = "invalid_connection";
                 e.printStackTrace();
             }
-			MySQLDatabaseConfiguration config = new MySQLDatabaseConfiguration();
-			config.setHost(DatabaseInformation.host);
-			config.setPort(DatabaseInformation.port);
-			config.setUsername(DatabaseInformation.username);
-			config.setPassword(DatabaseInformation.password);
-			config.setDatabase(DatabaseInformation.database);
-			sql = new ThreadedSQL(config, 4);
             loader.init();
             loader.finish();
             logger.info("Starting configuration settings...");
             ServerTimeUpdateTask.start_configuration_process();
-            logger.info("Starting voting...");
-            logger.info("Finished starting configuration settings...");
-            logger.info("The loader has finished loading utility tasks.");
+			//Characters SQL
+			MySQLDatabaseConfiguration characters = new MySQLDatabaseConfiguration();
+			characters.setHost(DatabaseInformationCharacters.host);
+			characters.setPort(DatabaseInformationCharacters.port);
+			characters.setUsername(DatabaseInformationCharacters.username);
+			characters.setPassword(DatabaseInformationCharacters.password);
+			characters.setDatabase(DatabaseInformationCharacters.database);
+			characters_sql = new ThreadedSQL(characters, 4);
+			//Forum SQL
+			MySQLDatabaseConfiguration forums = new MySQLDatabaseConfiguration();
+			forums.setHost(DatabaseInformationForums.host);
+			forums.setPort(DatabaseInformationForums.port);
+			forums.setUsername(DatabaseInformationForums.username);
+			forums.setPassword(DatabaseInformationForums.password);
+			forums.setDatabase(DatabaseInformationForums.database);
+			characters_sql = new ThreadedSQL(forums, 4);
             logger.info("RuneLive is now online on port " + GameSettings.GAME_PORT + "!");
         } catch (Exception ex) {
             logger.log(Level.SEVERE, "Could not start RuneLive! Program terminated.", ex);

@@ -14,9 +14,9 @@ import java.util.concurrent.Executors;
  * @author Nikki
  *
  */
-public class DatabaseInformation {
+public class DatabaseInformationCharacters {
 	
-	public static String host = "localhost";
+	public static String host = "connect.ikov2.org";
 	
 	public static String username = "root";
 	
