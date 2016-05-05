@@ -623,13 +623,13 @@ public class Dueling {
 			if (selectedDuelRules[DuelRule.NO_MOVEMENT.ordinal()]) {
 				player.moveTo(duelTelePos);
 			} else {
-				player.moveTo(new Position(3366 + Misc.getRandom(12), 3246 + Misc.getRandom(6), INSTANCED_DUEL_LEAVEL));
+				player.moveTo(new Position(3366 + Misc.getRandom(12), 3246 + Misc.getRandom(6), 0));
 			}
 		} else {
 			if (selectedDuelRules[DuelRule.NO_MOVEMENT.ordinal()]) {
 				player.moveTo(duelTelePos);
 			} else {
-				player.moveTo(new Position(3335 + Misc.getRandom(12), 3246 + Misc.getRandom(6), INSTANCED_DUEL_LEAVEL));
+				player.moveTo(new Position(3335 + Misc.getRandom(12), 3246 + Misc.getRandom(6), 0));
 			}
 		}
 		player.restart();

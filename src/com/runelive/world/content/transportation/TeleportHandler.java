@@ -95,6 +95,10 @@ public class TeleportHandler {
   public static void teleportPlayer(final Player player,
                                     final Position targetLocation, final TeleportType teleportType)
   {
+    if(player.getLocation() == Location.DUNGEONEERING || player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
+      player.getPacketSender().sendMessage("You cannot do this now");
+      return;
+    }
     teleportPlayer(player, targetLocation, teleportType, false);
   }
 
