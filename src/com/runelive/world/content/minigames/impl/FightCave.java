@@ -35,12 +35,12 @@ public class FightCave {
       @Override
       public void execute() {
         if (player.getRegionInstance() == null || !player.isRegistered()
-            || player.getLocation() != Location.FIGHT_CAVES) {
+                || player.getLocation() != Location.FIGHT_CAVES) {
           stop();
           return;
         }
         NPC n = new NPC(JAD_NPC_ID, new Position(2399, 5083, player.getPosition().getZ()))
-            .setSpawnedFor(player);
+                .setSpawnedFor(player);
         World.register(n);
         player.getRegionInstance().getNpcsList().add(n);
         n.getCombatBuilder().attack(player);
@@ -55,8 +55,17 @@ public class FightCave {
         player.getRegionInstance().getNpcsList().remove(n);
       leaveCave(player, true);
       DialogueManager.start(player, 37);
-      player.getInventory().add(6570, 1).add(6529, Misc.inclusiveRandom(12000, 15000));
+      if (player.getDonorRights() == 1) {
+        player.getInventory().add(6570, 1).add(6529, 2000 + Misc.getRandom(4000));
+        if (player.getDonorRights() == 2) {
+          player.getInventory().add(6570, 1).add(6529, 4000 + Misc.getRandom(8000));
+          if (player.getDonorRights() >= 3) {
+            player.getInventory().add(6570, 1).add(6529, 8000 + Misc.getRandom(16000));
+          } else {
+            player.getInventory().add(6570, 1).add(6529, 2000 + Misc.getRandom(4000));
+          }
+        }
+      }
     }
   }
-
 }

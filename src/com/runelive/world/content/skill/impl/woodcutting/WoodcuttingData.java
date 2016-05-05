@@ -67,6 +67,7 @@ public class WoodcuttingData {
     MAHOGANY(50, 5000, 6332, new int[] {9034}, 7, true),
     YEW(60, 6160, 1515, new int[] {1309}, 8, true),
     MAGIC(75, 10000, 1513, new int[] {1306}, 9, true),
+    CURSED_MAGIC(75, 10000, 1514, new int[] {37821}, 9, true),
     EVIL_TREE(80, 11000, 14666, new int[] {11434}, 9, true);
 
     private int[] objects;

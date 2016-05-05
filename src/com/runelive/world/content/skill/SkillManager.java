@@ -106,7 +106,22 @@ public class SkillManager {
 			PlayerPanel.refreshPanel(player);
 		}
 	}
-	
+    if(player.getLocation() == Location.WILDERNESS) {
+      if(skill != Skill.ATTACK) {
+        experience *= 1;
+      } if(skill != Skill.STRENGTH) {
+          experience *= 1;
+      } if(skill != Skill.DEFENCE) {
+        experience *= 1;
+      } if(skill != Skill.MAGIC) {
+        experience *= 1;
+      } if(skill != Skill.RANGED) {
+        experience *= 1;
+      } if(skill != Skill.PRAYER) {
+        experience *= 1;
+      } else
+      experience *= 1.5;
+    }
     if ((WellOfGoodwill.isActive()) && (player.getDonorRights() > 0)) {
       experience *= 1.5;
     } else if (WellOfGoodwill.isActive()) {

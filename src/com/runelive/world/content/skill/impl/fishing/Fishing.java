@@ -4,6 +4,7 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.model.Direction;
+import com.runelive.model.Locations;
 import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
@@ -180,6 +181,9 @@ public class Fishing {
               "You catch " + Misc.anOrA(def) + " " + def.toLowerCase().replace("_", " ") + ".");
           if (s.getBait() != -1)
             p.getInventory().delete(s.getBait(), 1);
+          if(p.getLocation() == Locations.Location.WILDERNESS) {
+            p.getInventory().add(s.getRawFish()[fishIndex]+1, 1);
+          }
           p.getInventory().add(s.getRawFish()[fishIndex], 1);
           if (s.getRawFish()[fishIndex] == 331) {
             Achievements.finishAchievement(p, AchievementData.FISH_A_SALMON);
