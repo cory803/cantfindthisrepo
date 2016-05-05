@@ -263,6 +263,14 @@ public class PlayerLoading {
         if (reader.has("last-login")) {
             player.setLastLogin(reader.get("last-login").getAsLong());
         }
+		
+        if (reader.has("arena-victories")) {
+            player.getDueling().arenaStats[0] = reader.get("arena-victories").getAsInt();
+        }	
+		
+        if (reader.has("arena-losses")) {
+            player.getDueling().arenaStats[1] = reader.get("arena-losses").getAsInt();
+        }
 
         if (reader.has("last-ip-address")) {
             player.setLastIpAddress(reader.get("last-ip-address").getAsString());

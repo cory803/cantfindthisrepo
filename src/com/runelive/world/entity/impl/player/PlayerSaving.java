@@ -283,6 +283,8 @@ public class PlayerSaving {
         object.addProperty("veng-cast", new Boolean(player.hasVengeance()));
         object.addProperty("last-veng", new Long(player.getLastVengeance().elapsed()));
         object.addProperty("fight-type", player.getFightType().name());
+        object.addProperty("arena-victories", new Integer(player.getDueling().arenaStats[0]));
+        object.addProperty("arena-losses", new Integer(player.getDueling().arenaStats[1]));
         object.addProperty("sol-effect", new Integer(player.getStaffOfLightEffect()));
         object.addProperty("skull-timer", new Integer(player.getSkullTimer()));
         object.addProperty("accept-aid", new Boolean(player.isAcceptAid()));

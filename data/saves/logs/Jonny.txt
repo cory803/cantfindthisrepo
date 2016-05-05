@@ -4781,3 +4781,88 @@
 [5/4/16 12:02AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
 [5/4/16 12:02AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [5/4/16 12:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:31PM]	Jonny has clicked button in ButtonClickPacketListener 13053	
+[5/4/16 07:31PM]	Jonny has clicked button in ButtonClickPacketListener 8656	
+[5/4/16 07:31PM]	Jonny in NPCOptionPacketListener: 948 - FIRST_CLICK_OPCODE	
+[5/4/16 07:31PM]	Jonny in ItemContainerActionPacketListener: Second Action - 1273 - 3900 - 5	
+[5/4/16 07:31PM]	Player has bought the store item: Mithril pickaxe (1273), amount: 1	
+[5/4/16 07:31PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/4/16 07:31PM]	Jonny in ObjectActionPacketListener: 11933 - FIRST_CLICK_OPCODE	
+[5/4/16 07:32PM]	Jonny has done command anim 625	
+[5/4/16 07:32PM]	Jonny has done command anim 13661	
+[5/4/16 07:32PM]	Jonny has done command anim 10226	
+[5/4/16 07:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:37PM]	Jonny has done command anim 625	
+[5/4/16 07:38PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:39PM]	Jonny has done command anim 625	
+[5/4/16 07:39PM]	Jonny has done command anim 10226	
+[5/4/16 07:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:41PM]	Jonny has done command anim 625	
+[5/4/16 07:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 07:42PM]	Jonny has done command anim 625	
+[5/4/16 07:43PM]	Jonny has done command anim 627	
+[5/4/16 07:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:09PM]	Jonny has done command anim 6572	
+[5/4/16 08:09PM]	Jonny has done command anim 6573	
+[5/4/16 08:10PM]	Jonny has done command anim 6746	
+[5/4/16 08:11PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:11PM]	Jonny has done command anim 625	
+[5/4/16 08:11PM]	Jonny has done command anim 626	
+[5/4/16 08:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:18PM]	Jonny has done command anim 625	
+[5/4/16 08:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:20PM]	Jonny has done command anim 625	
+[5/4/16 08:21PM]	Jonny has done command anim 625	
+[5/4/16 08:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:21PM]	Jonny has done command anim 625	
+[5/4/16 08:21PM]	Jonny has done command anim 625	
+[5/4/16 08:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:22PM]	Jonny has done command anim 625	
+[5/4/16 08:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:23PM]	Jonny has done command anim 625	
+[5/4/16 08:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:25PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:27PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/4/16 08:27PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:27PM]	Jonny in ItemContainerActionPacketListener: First Action - 11783 - 5382 - 5	
+[5/4/16 08:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:28PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:31PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:31PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:32PM]	Jonny has done command data	
+[5/4/16 08:32PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:32PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:33PM]	Jonny has done command data	
+[5/4/16 08:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:35PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:39PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:40PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:40PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/4/16 08:40PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/4/16 08:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:40PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:40PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:40PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/4/16 08:41PM]	Jonny has done command data	
+[5/4/16 08:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 08:51PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
