@@ -44,7 +44,7 @@ public class ForumDatabase {
   public static int wiki_editor = 34;
 
   public static void forumRankUpdate(Player player) {
-	GameServer.getForumPool().executeQuery("SELECT `member_group_id` FROM `members` WHERE `name` = '" + player.getUsername() + "' LIMIT 1", new ThreadedSQLCallback() {
+	GameServer.getForumPool().executeQuery("Select * from `members` WHERE `name` = '" + player.getUsername() + "' LIMIT 1", new ThreadedSQLCallback() {
 		@Override
 		public void queryComplete(ResultSet rs) throws SQLException {
 			if (rs.next()) {

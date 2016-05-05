@@ -455,7 +455,7 @@ public class Members {
 				return;
 			}
 			player.getPacketSender().sendMessage("Checking for any store purchases...");
-			Store.start_store_process(player);
+			Store.claimItem(player);
 		}
 		if(command[0].equals("empty")) {
 			if(player.getLocation() == Location.WILDERNESS) {
