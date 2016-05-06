@@ -13,6 +13,7 @@ import com.runelive.net.mysql.ThreadedSQLCallback;
 
 public class PlayerPunishment {
 
+  /*
   public static boolean isPlayerBanned(String username) {
 	boolean continuation = false;
 	GameServer.getCharacterPool().executeQuery("Select * from `playerbans` WHERE `username` = '" + username.toLowerCase() + "'", new ThreadedSQLCallback() {
@@ -33,7 +34,15 @@ public class PlayerPunishment {
 	}.init(continuation));
     return false;
   }
+  */
 
+  public static boolean isPlayerBanned(String name) {
+    if (new File(PLAYER_BAN_DIRECTORY + name.toLowerCase()).exists()) {
+      return true;
+    }
+    return false;
+  }
+  
   public static boolean isIpBanned(String ip) {
     if (new File(IP_BAN_DIRECTORY + ip.toLowerCase()).exists()) {
       return true;
