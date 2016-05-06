@@ -13,6 +13,45 @@
         }
     },
 	{
+        "npc-id": 3019,
+		"face": WEST,
+        "position": {
+        	"x": 3050,
+        	"y": 3704,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 2724,
+		"face": WEST,
+        "position": {
+        	"x": 3045,
+        	"y": 3702,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 2722,
+		"face": WEST,
+        "position": {
+        	"x": 3051,
+        	"y": 3697,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
         "npc-id": 655,
 		"face": WEST,
         "position": {
@@ -17381,6 +17420,58 @@
         }
     },
 	{
+        "npc-id": 13465,
+		"face": SOUTH,
+        "position": {
+        	"x": 3042,
+        	"y": 3689,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 3
+        }
+    },
+	{
+        "npc-id": 13469,
+		"face": SOUTH,
+        "position": {
+        	"x": 3025,
+        	"y": 3695,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 3
+        }
+    },
+	{
+        "npc-id": 13479,
+		"face": SOUTH,
+        "position": {
+        	"x": 3036,
+        	"y": 3683,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 3
+        }
+    },
+	{
+        "npc-id": 13474,
+		"face": SOUTH,
+        "position": {
+        	"x": 3037,
+        	"y": 3670,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 3
+        }
+    },
+	{
         "npc-id": 13478,
 		"face": SOUTH,
         "position": {
@@ -18062,6 +18153,19 @@
         "position": {
         	"x": 2707,
         	"y": 3462,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 501,
+		"face": SOUTH,
+        "position": {
+        	"x": 3038,
+        	"y": 3708,
         	"z": 0
         },
          "walking-policy": {

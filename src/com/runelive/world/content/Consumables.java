@@ -1845,9 +1845,9 @@ public class Consumables {
                             continue;
                         if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
                                 .getMaxLevel(i)) {
-                            double restoreMod = i == 5 ? 0.29 : 0.18;
+                            double restoreMod = i == 5 ? 0.25 : 0.18;
                             int toRestore = (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod));
+                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod + 8));
                             player.getSkillManager().setCurrentLevel(Skill.forId((i)), toRestore);
                             if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
                                     .getSkillManager().getMaxLevel(Skill.forId(i)))
@@ -1865,9 +1865,9 @@ public class Consumables {
                             continue;
                         if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
                                 .getMaxLevel(i)) {
-                            double restoreMod = i == 5 ? 0.29 : 0.18;
+                            double restoreMod = i == 5 ? 0.25 : 0.18;
                             int toRestore = (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod));
+                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod + 8));
                             player.getSkillManager().setCurrentLevel(Skill.forId((i)), toRestore);
                             if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
                                     .getSkillManager().getMaxLevel(Skill.forId(i)))
@@ -1885,9 +1885,9 @@ public class Consumables {
                             continue;
                         if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
                                 .getMaxLevel(i)) {
-                            double restoreMod = i == 5 ? 0.29 : 0.18;
+                            double restoreMod = i == 5 ? 0.25 : 0.18;
                             int toRestore = (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod));
+                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod + 8));
                             player.getSkillManager().setCurrentLevel(Skill.forId((i)), toRestore);
                             if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
                                     .getSkillManager().getMaxLevel(Skill.forId(i)))
@@ -1905,9 +1905,9 @@ public class Consumables {
                             continue;
                         if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
                                 .getMaxLevel(i)) {
-                            double restoreMod = i == 5 ? 0.29 : 0.18;
+                            double restoreMod = i == 5 ? 0.25 : 0.18;
                             int toRestore = (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod));
+                                    + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * restoreMod + 8));
                             player.getSkillManager().setCurrentLevel(Skill.forId((i)), toRestore);
                             if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
                                     .getSkillManager().getMaxLevel(Skill.forId(i)))

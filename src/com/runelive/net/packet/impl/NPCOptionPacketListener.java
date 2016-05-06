@@ -3,6 +3,7 @@ package com.runelive.net.packet.impl;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.engine.task.impl.WalkToTask;
 import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.runelive.model.Animation;
@@ -78,40 +79,6 @@ public class NPCOptionPacketListener implements PacketListener {
       PlayerLogs.log(player.getUsername(), "" + player.getUsername()
           + " in NPCOptionPacketListener: " + npc.getId() + " - FIRST_CLICK_OPCODE");
     }
-
-    switch (npc.getId()) {
-      /** Construction **/
-      case 4247:
-        if(player.getHouseRooms()[0][0][0] == null)
-        {
-          DialogueManager.start(player, 187);
-          player.setDialogueActionId(188);
-        }
-        else
-        {
-          DialogueManager.start(player, 201);
-          player.setDialogueActionId(189);
-        }
-        break;
-      case 590:
-        if(player.getDonorRights() >= 3) {
-          ShopManager.getShops().get(113).open(player);
-        } else {
-          player.getPacketSender().sendMessage("You need to be an Extreme donator or higher, to access this shop!");
-        }
-        break;
-      case 308:
-        ShopManager.getShops().get(18).open(player);
-        break;
-      case 2290: // ironman npc
-        if (player.getGameMode() == GameMode.NORMAL) {
-          DialogueManager.sendStatement(player, "I am not an iron man so I cannot change my mode.");
-          return;
-        }
-        DialogueManager.start(player, 216);
-        player.setDialogueActionId(217);
-        break;
-    }
     player.setWalkToTask(
         new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
           @Override
@@ -129,6 +96,51 @@ public class NPCOptionPacketListener implements PacketListener {
               return;
             }
             switch (npc.getId()) {
+			case 501:
+				DialogueManager.start(player, 224);
+				player.setDialogueActionId(224);
+				for(Item item: player.getInventory().getItems()) {
+					ItemDefinition def = ItemDefinition.forId(item.getId() + 1);
+					if(def.getName().toLowerCase().startsWith("raw")) {
+						if(def.isNoted()) {
+							int notedId = item.getId() + 1;
+							player.getInventory().delete(item.getId(), 1);
+							player.getInventory().add(notedId, 1);
+						}
+					}
+				}
+				break;
+			  /** Construction **/
+			  case 4247:
+				if(player.getHouseRooms()[0][0][0] == null)
+				{
+				  DialogueManager.start(player, 187);
+				  player.setDialogueActionId(188);
+				}
+				else
+				{
+				  DialogueManager.start(player, 201);
+				  player.setDialogueActionId(189);
+				}
+				break;
+			  case 590:
+				if(player.getDonorRights() >= 3) {
+				  ShopManager.getShops().get(113).open(player);
+				} else {
+				  player.getPacketSender().sendMessage("You need to be an Extreme donator or higher, to access this shop!");
+				}
+				break;
+			  case 308:
+				ShopManager.getShops().get(18).open(player);
+				break;
+			  case 2290: // ironman npc
+				if (player.getGameMode() == GameMode.NORMAL) {
+				  DialogueManager.sendStatement(player, "I am not an iron man so I cannot change my mode.");
+				  return;
+				}
+				DialogueManager.start(player, 216);
+				player.setDialogueActionId(217);
+				break;
               case 1285:
                 DialogueManager.start(player, 210);
                 player.setDialogueActionId(210);
@@ -581,6 +593,9 @@ public class NPCOptionPacketListener implements PacketListener {
               case 313:
               case 312:
               case 309:
+              case 2724:
+              case 3019:
+              case 2722:
               case 2859:
                 player.setEntityInteraction(npc);
                 Fishing.setupFishing(player, Fishing.forSpot(npc.getId(), false));
