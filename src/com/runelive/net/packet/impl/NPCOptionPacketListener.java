@@ -581,6 +581,9 @@ public class NPCOptionPacketListener implements PacketListener {
               case 313:
               case 312:
               case 309:
+              case 2724:
+              case 3019:
+              case 2722:
               case 2859:
                 player.setEntityInteraction(npc);
                 Fishing.setupFishing(player, Fishing.forSpot(npc.getId(), false));

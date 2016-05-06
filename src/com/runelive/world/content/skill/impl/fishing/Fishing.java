@@ -39,7 +39,13 @@ public class Fishing {
 
     ROCKTAIL(309, new int[] {15264, 15270}, 309, 25, new int[] {85, 91}, false, new int[] {7800, 10200}, 623),
 
-    KARAM(2859, new int[] {3142}, 305, -1, new int[] {65}, false, new int[] {5100}, 621);
+    KARAM(2859, new int[] {3142}, 305, -1, new int[] {65}, false, new int[] {5100}, 621),
+	
+	WILDERNESS_ROCKTAIL(2724, new int[] {15264, 15270}, 309, 25, new int[] {83, 89}, false, new int[] {8800, 11200}, 623),
+	
+	WILDERNESS_MONKFISH(3019, new int[] {7944, 3142, 389}, 305, -1, new int[] {60, 63, 79}, false, new int[] {7000, 6100, 13300}, 621),
+	
+	WILDERNESS_KARAM(2722, new int[] {3142}, 305, -1, new int[] {65}, false, new int[] {5100}, 621);
 
     int npcId, equipment, bait, anim;
     int[] rawFish, fishingReqs, xp;

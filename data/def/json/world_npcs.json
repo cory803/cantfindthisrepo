@@ -13,6 +13,45 @@
         }
     },
 	{
+        "npc-id": 3019,
+		"face": WEST,
+        "position": {
+        	"x": 3050,
+        	"y": 3704,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 2724,
+		"face": WEST,
+        "position": {
+        	"x": 3045,
+        	"y": 3702,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
+        "npc-id": 2722,
+		"face": WEST,
+        "position": {
+        	"x": 3051,
+        	"y": 3697,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
         "npc-id": 655,
 		"face": WEST,
         "position": {

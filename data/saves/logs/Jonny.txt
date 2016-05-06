@@ -5106,3 +5106,289 @@
 [5/6/16 02:50AM]	Jonny has done command item 19890 1	
 [5/6/16 02:50AM]	Jonny has done command find scroll	
 [5/6/16 02:50AM]	Jonny has done command item 15355 1	
+[5/6/16 03:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:07AM]	Jonny in ItemActionPacketListener: 15355	
+[5/6/16 03:07AM]	Jonny has done command wests	
+[5/6/16 03:07AM]	Jonny in ItemActionPacketListener: 15355	
+[5/6/16 03:09AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:09AM]	Jonny has done command tele 3176 2987	
+[5/6/16 03:09AM]	Jonny has done command data	
+[5/6/16 03:11AM]	Jonny has done command mypos	
+[5/6/16 03:13AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:15AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:15AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:16AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:16AM]	Jonny has done command mypos	
+[5/6/16 03:17AM]	Jonny has done command edge	
+[5/6/16 03:18AM]	Jonny has done command mypos	
+[5/6/16 03:18AM]	Jonny has done command tele 3086 3600	
+[5/6/16 03:20AM]	Jonny in ObjectActionPacketListener: 14852 - FIRST_CLICK_OPCODE	
+[5/6/16 03:21AM]	Jonny has done command tele 3086 3500	
+[5/6/16 03:23AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 03:23AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:24AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:24AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:24AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:25AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:25AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 03:26AM]	Jonny has done command mypos	
+[5/6/16 08:47AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:47AM]	Jonny in ItemActionPacketListener: 15355	
+[5/6/16 08:53AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:53AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:54AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:55AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:56AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:57AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:57AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:57AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:59AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 08:59AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:13AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:14AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:14AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:19AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:19AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:20AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:22AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:25AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:25AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:26AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:26AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:27AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:27AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:28AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:29AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:29AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:29AM]	Jonny has clicked button in ButtonClickPacketListener 8662	
+[5/6/16 09:30AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:30AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/6/16 09:30AM]	Jonny has done command edge	
+[5/6/16 09:30AM]	Jonny has done command myps	
+[5/6/16 09:30AM]	Jonny has done command mypos	
+[5/6/16 09:31AM]	Jonny has done command tele 3087 3600	
+[5/6/16 09:31AM]	Jonny has done command tele 3070 3600	
+[5/6/16 09:31AM]	Jonny has done command tele 3070 3680	
+[5/6/16 09:35AM]	Jonny has done command noclip	
+[5/6/16 09:35AM]	Jonny has done command mypos	
+[5/6/16 09:35AM]	Jonny has done command tele 3050 3704	
+[5/6/16 09:35AM]	Jonny has done command npc 18620	
+[5/6/16 09:35AM]	Jonny has done command npc 8647	
+[5/6/16 09:36AM]	Jonny has done command npc 7045	
+[5/6/16 09:36AM]	Jonny has done command njpc 2722	
+[5/6/16 09:36AM]	Jonny has done command npc 2722	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:36AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:38AM]	Jonny has done command mypos	
+[5/6/16 09:38AM]	Jonny has done command tele 3045 3702 0	
+[5/6/16 09:38AM]	Jonny has done command mypos	
+[5/6/16 09:39AM]	Jonny has done command mypos	
+[5/6/16 09:39AM]	Jonny has done command tele 3051 3697	
+[5/6/16 09:39AM]	Jonny has done command mypos	
+[5/6/16 09:39AM]	Jonny has done command tele 3052 3697	
+[5/6/16 09:39AM]	Jonny has done command mypos	
+[5/6/16 09:39AM]	Jonny has done command tele 3046 3699	
+[5/6/16 09:40AM]	Jonny has done command telemypos	
+[5/6/16 09:40AM]	Jonny has done command mypos	
+[5/6/16 09:40AM]	Jonny has done command tele 3051 3697	
+[5/6/16 09:40AM]	Jonny has done command mypos	
+[5/6/16 09:41AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:42AM]	Jonny has done command tele 3051 3697	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2859 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2859 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2859 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2859 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2859 - FIRST_CLICK_OPCODE	
+[5/6/16 09:42AM]	Jonny in NPCOptionPacketListener: 2859 - FIRST_CLICK_OPCODE	
+[5/6/16 09:46AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:46AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:46AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:46AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:46AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:46AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:47AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:47AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:47AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:47AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:47AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:47AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:47AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 09:51AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:51AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:51AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:51AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:51AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:52AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:53AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 09:53AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 09:53AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:53AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:53AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:53AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:53AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 09:53AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 10:08AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:10AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:10AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 10:11AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 10:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:14AM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 10:14AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 10:14AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 10:14AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 10:15AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 10:15AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 10:15AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 10:15AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 10:15AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 10:16AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 10:16AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:16AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 10:18AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 10:18AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:18AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:34AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:23AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:24AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:24AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:24AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:24AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:24AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:24AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:27AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:27AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:28AM]	Jonny has done command item 925 1	
+[5/6/16 11:28AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:30AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:32AM]	Jonny has done command find raw rock	
+[5/6/16 11:33AM]	Jonny has done command item 309 1	
+[5/6/16 11:33AM]	Jonny has done command find fishing rod	
+[5/6/16 11:33AM]	Jonny has done command find bait	
+[5/6/16 11:34AM]	Jonny has done command find rocktail	
+[5/6/16 11:36AM]	Jonny has done command anim 623	
+[5/6/16 11:36AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:36AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:37AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:38AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:38AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:38AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:38AM]	Jonny has done command item 309 1	
+[5/6/16 11:38AM]	Jonny has done command item 309 1	
+[5/6/16 11:39AM]	Jonny has done command item 15264 1	
+[5/6/16 11:39AM]	Jonny has done command item 15265 1	
+[5/6/16 11:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 11:40AM]	Jonny has done command spawn red vine worm:50	
+[5/6/16 11:40AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:40AM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 11:40AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:41AM]	Jonny in ItemActionPacketListener: 15272	
+[5/6/16 11:41AM]	Jonny has done command find cavefish	
+[5/6/16 11:42AM]	Jonny has done command item 15271 1	
+[5/6/16 11:42AM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 11:44AM]	Jonny in ItemActionPacketListener: 15272	
+[5/6/16 11:44AM]	Jonny has done command item 15264 1	
+[5/6/16 11:44AM]	Player dropping item: Raw cavefish (15264), amount: 1 from the computer address: 362460699	
+[5/6/16 12:07PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:07PM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 12:07PM]	Player dropping item: Rocktail (15272), amount: 1 from the computer address: 362460699	
+[5/6/16 12:07PM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 12:08PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 12:08PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 12:08PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 12:08PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 12:08PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 12:08PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 12:09PM]	Jonny in ItemActionPacketListener: 15272	
+[5/6/16 12:09PM]	Player dropping item: Rocktail (15272), amount: 1 from the computer address: 362460699	
+[5/6/16 12:10PM]	Jonny has done command item 7944 1	
+[5/6/16 12:10PM]	Jonny has done command item 3142 1	
+[5/6/16 12:10PM]	Player dropping item: Raw rocktail (15270), amount: 1 from the computer address: 362460699	
+[5/6/16 12:10PM]	Player dropping item: Raw monkfish (7944), amount: 1 from the computer address: 362460699	
+[5/6/16 12:10PM]	Jonny has done command item 389 1	
+[5/6/16 12:10PM]	Jonny has done command item 389 1	
+[5/6/16 12:11PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 12:12PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 12:23PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 12:30PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:05PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:05PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:06PM]	Jonny in ItemActionPacketListener: 10943	
+[5/6/16 01:06PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/6/16 01:06PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:06PM]	Jonny in ItemActionPacketListener: 7629	
+[5/6/16 01:06PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/6/16 01:06PM]	Jonny in ItemActionPacketListener: 7629	
+[5/6/16 01:06PM]	Jonny in ItemActionPacketListener: 10943	
+[5/6/16 01:06PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/6/16 01:06PM]	Jonny in ItemActionPacketListener: 10943	
+[5/6/16 01:06PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:06PM]	Jonny in NPCOptionPacketListener: 2724 - FIRST_CLICK_OPCODE	
+[5/6/16 01:07PM]	Jonny in NPCOptionPacketListener: 3019 - FIRST_CLICK_OPCODE	
+[5/6/16 01:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:08PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:08PM]	Player dropping item: Abyssal whip (4151), amount: 1 from the computer address: 362460699	
+[5/6/16 01:08PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:08PM]	Player dropping item: $125 Payment Scroll (7629), amount: 1 from the computer address: 362460699	
+[5/6/16 01:08PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:08PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:08PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:09PM]	Jonny has done command empty	
+[5/6/16 01:09PM]	Jonny has done command empty	
+[5/6/16 01:09PM]	Jonny has done command clea	
+[5/6/16 01:09PM]	Jonny in EquipPacketListener: 6889 from Inventory	
+[5/6/16 01:09PM]	Jonny has done command spawn big fishing net:1	
+[5/6/16 01:09PM]	Jonny in NPCOptionPacketListener: 2722 - FIRST_CLICK_OPCODE	
+[5/6/16 01:09PM]	Player dropping item: $125 Payment Scroll (7629), amount: 1 from the computer address: 362460699	
+[5/6/16 01:09PM]	Jonny in PickupItemPacketListener: 7629	
+[5/6/16 01:09PM]	Player looting item: $125 Payment Scroll (7629), amount: 1 Owner: Jonny from the computer address: 362460699	
