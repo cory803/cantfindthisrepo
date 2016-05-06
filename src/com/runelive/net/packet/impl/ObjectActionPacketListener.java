@@ -205,6 +205,25 @@ public class ObjectActionPacketListener implements PacketListener {
                   }
                 });
                 break;
+              case 1734:
+                if(player.getPosition().getX() == 3045 && player.getPosition().getY() == 10323) {
+                  player.moveTo(new Position(3045, 3927, 0));
+                } else if(player.getPosition().getX() == 3044 && player.getPosition().getY() == 10323) {
+                  player.moveTo(new Position(3044, 3927, 0));
+                } else {
+                  player.getPacketSender().sendMessage("I can't climb them from here.");
+
+              }
+                break;
+              case 1733:
+                if(player.getPosition().getX() == 3045 || player.getPosition().getY() == 3927) {
+                  player.moveTo(new Position(3045, 10323, 0));
+                } else if(player.getPosition().getX() == 3044 || player.getPosition().getY() == 3927) {
+                  player.moveTo(new Position(3044, 10323, 0));
+                } else {
+                  player.getPacketSender().sendMessage("I can't climb them from here.");
+                }
+                break;
               case 51:
                 player.getPacketSender()
                     .sendMessage("There is no way I could squeeze through that...");

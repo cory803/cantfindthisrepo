@@ -229,8 +229,8 @@ public class Locations {
             }
         },
         // 3653
-        WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653},
-                new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472}, false, true, true, true, true,
+        WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059},
+                new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472, 10303, 10351}, false, true, true, true, true,
                 true) {
             @Override
             public void process(Player player) {

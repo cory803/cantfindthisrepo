@@ -1737,10 +1737,12 @@ public final class CombatFactory {
         int returnDamage = (int) (damage * 0.75);
         if(damage >= t.getConstitution()) {
           returnDamage = 0;
-        }
+          attacker.dealDamage(new Hit(returnDamage, Hitmask.NONE, CombatIcon.BLUE_SHIELD));
+        } else {
         if (attacker.getConstitution() < returnDamage)
           returnDamage = attacker.getConstitution();
         attacker.dealDamage(new Hit(returnDamage, Hitmask.RED, CombatIcon.DEFLECT));
+        }
       }
     }
   }

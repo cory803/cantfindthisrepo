@@ -91,6 +91,117 @@ public class Item {
     }
 
     /**
+     * untradeable item costs in wild.
+     * @param id
+     * @return
+     */
+
+    public static boolean specialCase(int id) {
+        switch (id) {
+            // PvP armour & weapons
+            case 13889:
+            case 13895:
+            case 13901:
+            case 13907:
+            case 13913:
+            case 13919:
+            case 13925:
+            case 13931:
+            case 13860:
+            case 13863:
+            case 13866:
+            case 13869:
+            case 13934:
+            case 13937:
+            case 13940:
+            case 13943:
+            case 13872:
+            case 13875:
+            case 13878:
+            case 13946:
+            case 13949:
+            case 13952:
+            case 13886:
+            case 13892:
+            case 13898:
+            case 13904:
+            case 13910:
+            case 13916:
+            case 13922:
+                return true;
+        }
+
+        return false;
+    }
+
+    public static final int[][] brokenBarrows = {{4708, 4860}, {4710, 4866}, {4712, 4872},
+            {4714, 4878}, {4716, 4884}, {4720, 4896}, {4718, 4890}, {4720, 4896}, {4722, 4902},
+            {4732, 4932}, {4734, 4938}, {4736, 4944}, {4738, 4950}, {4724, 4908}, {4726, 4914},
+            {4728, 4920}, {4730, 4926}, {4745, 4956}, {4747, 4926}, {4749, 4968}, {4751, 4994},
+            {4753, 4980}, {4755, 4986}, {4757, 4992}, {4759, 4998}};
+
+    public static int getUntradePrice(int id) {
+        switch (id) {
+            case 6570:
+                return 500_000;
+
+            case 18349:
+            case 18351:
+            case 18353:
+            case 18355:
+            case 18357:
+                return 2_000_000;
+
+            case 19111:
+                return 1_000_000;
+
+            case 8844:
+            case 8845:
+            case 8846:
+            case 8847:
+            case 8848:
+                return 100_000;
+
+            case 8849:
+            case 8850:
+                return 150_000;
+
+            case 13889:
+            case 13895:
+            case 13901:
+            case 13907:
+            case 13913:
+            case 13919:
+            case 13925:
+            case 13931:
+            case 13860:
+            case 13863:
+            case 13866:
+            case 13869:
+            case 13934:
+            case 13937:
+            case 13940:
+            case 13943:
+            case 13872:
+            case 13875:
+            case 13878:
+            case 13946:
+            case 13949:
+            case 13952:
+            case 13886:
+            case 13892:
+            case 13898:
+            case 13904:
+            case 13910:
+            case 13916:
+            case 13922:
+                return 750_000;
+        }
+
+        return 0;
+    }
+
+    /**
      * Gets item's definition.
      */
     public ItemDefinition getDefinition() {
