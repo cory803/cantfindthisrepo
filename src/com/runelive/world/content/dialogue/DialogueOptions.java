@@ -1060,22 +1060,6 @@ public class DialogueOptions {
 				TeleportHandler.teleportPlayer(player, position223, player.getSpellbook().getTeleportType());
 				player.getPacketSender().sendMessage("Teleporting you to east wilderness (<col=ff0000>dangerous</col>)");
 				break;
-			case 203:
-				MemberScrolls.handleScroll(player, 10943);
-				player.getPacketSender().sendInterfaceRemoval();
-				break;
-			case 204:
-				MemberScrolls.handleScroll(player, 10934);
-				player.getPacketSender().sendInterfaceRemoval();
-				break;
-			case 205:
-				MemberScrolls.handleScroll(player, 10935);
-				player.getPacketSender().sendInterfaceRemoval();
-				break;
-			case 206:
-				MemberScrolls.handleScroll(player, 7629);
-				player.getPacketSender().sendInterfaceRemoval();
-				break;
 			case 210:
 				if(!GameSettings.KILL_GRENADE) {
 					player.getPacketSender().sendMessage("This feature is currently turned off :)");

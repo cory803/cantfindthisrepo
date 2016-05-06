@@ -5,6 +5,7 @@ import com.runelive.world.content.dialogue.DialogueExpression;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.dialogue.DialogueType;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.model.Store;
 
 public class MemberScrolls {
 
@@ -56,65 +57,22 @@ public class MemberScrolls {
     }
   }
 
-  public static boolean handleScroll(Player player, int item) {
+  public static boolean handleScroll(Player player, String name) {
+	int item = player.currentScroll;
     int funds = 0;
-    int credits = 0;
+    int tokens = 0;
     switch (item) {
       case 10943:
-        funds = 10;
-        player.getInventory().delete(10943, 1);
-        player.incrementAmountDonated(funds);
-        player.getPacketSender().sendMessage("Your account has gained funds worth $" + funds
-            + ". Your total is now at $" + player.getAmountDonated() + ".");
-        MemberScrolls.checkForRankUpdate(player);
-        credits = 10000;
-        player.addCredits(credits);
-        player.getPacketSender()
-            .sendMessage("Your account has gained 10,000 credits. Your total is now at "
-                + player.getCredits() + ".");
-        PlayerPanel.refreshPanel(player);
+		Store.addTokensFromScroll(player, name, 8, item);
         break;
       case 10934:
-        funds = 25;
-        player.getInventory().delete(10934, 1);
-        player.incrementAmountDonated(funds);
-        player.getPacketSender().sendMessage("Your account has gained funds worth $" + funds
-            + ". Your total is now at $" + player.getAmountDonated() + ".");
-        MemberScrolls.checkForRankUpdate(player);
-        credits = 27875;
-        player.addCredits(credits);
-        player.getPacketSender()
-            .sendMessage("Your account has gained 27,875 credits. Your total is now at "
-                + player.getCredits() + ".");
-        PlayerPanel.refreshPanel(player);
+        Store.addTokensFromScroll(player, name, 20, item);
         break;
       case 10935:
-        funds = 50;
-        player.getInventory().delete(10935, 1);
-        player.incrementAmountDonated(funds);
-        player.getPacketSender().sendMessage("Your account has gained funds worth $" + funds
-            + ". Your total is now at $" + player.getAmountDonated() + ".");
-        MemberScrolls.checkForRankUpdate(player);
-        credits = 55750;
-        player.addCredits(credits);
-        player.getPacketSender()
-            .sendMessage("Your account has gained 55,750 credits. Your total is now at "
-                + player.getCredits() + ".");
-        PlayerPanel.refreshPanel(player);
+        Store.addTokensFromScroll(player, name, 40, item);
         break;
       case 7629:
-        funds = 125;
-        player.getInventory().delete(7629, 1);
-        player.incrementAmountDonated(funds);
-        player.getPacketSender().sendMessage("Your account has gained funds worth $" + funds
-            + ". Your total is now at $" + player.getAmountDonated() + ".");
-        MemberScrolls.checkForRankUpdate(player);
-        credits = 137500;
-        player.addCredits(credits);
-        player.getPacketSender()
-            .sendMessage("Your account has gained 137,500 credits. Your total is now at "
-                + player.getCredits() + ".");
-        PlayerPanel.refreshPanel(player);
+        Store.addTokensFromScroll(player, name, 100, item);
         break;
     }
     return false;

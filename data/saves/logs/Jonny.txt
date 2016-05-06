@@ -4868,3 +4868,225 @@
 [5/4/16 08:51PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
 [5/4/16 09:58PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
 [5/4/16 09:59PM]	Jonny in ExamineItemPacketListener: 14189	
+[5/4/16 10:04PM]	Jonny has done command spawn pack yak:1	
+[5/4/16 10:04PM]	Jonny has done command dzone	
+[5/4/16 10:04PM]	Jonny in NPCOptionPacketListener: 536 - SECOND_CLICK_OPCODE	
+[5/4/16 10:04PM]	Jonny in ItemContainerActionPacketListener: Second Action - 12435 - 3900 - 11	
+[5/4/16 10:04PM]	Player has bought the store item: Winter storage scroll (12435), amount: 1	
+[5/4/16 10:04PM]	Jonny in ItemContainerActionPacketListener: Third Action - 12435 - 3900 - 11	
+[5/4/16 10:04PM]	Player has bought the store item: Winter storage scroll (12435), amount: 5	
+[5/4/16 10:04PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/4/16 10:04PM]	Jonny in UseItemPacketListener Item[14189, 1] - Item[12435, 6]	
+[5/4/16 10:04PM]	Jonny in UseItemPacketListener Item[13740, 1] - Item[12435, 6]	
+[5/4/16 10:06PM]	Jonny in ExamineItemPacketListener: 12435	
+[5/4/16 10:09PM]	Jonny has done command find winter storage	
+[5/4/16 10:14PM]	Jonny has done command anim 7660	
+[5/4/16 11:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:14PM]	Jonny has done command interface 43500	
+[5/4/16 11:14PM]	Jonny has done command inter 43500	
+[5/4/16 11:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:17PM]	Jonny has done command interface 43500	
+[5/4/16 11:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:18PM]	Jonny has done command interface 43500	
+[5/4/16 11:25PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:25PM]	Jonny has done command interface 43500	
+[5/4/16 11:28PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/4/16 11:28PM]	Jonny has done command rsi	
+[5/4/16 11:28PM]	Jonny has done command interface 43500	
+[5/4/16 11:29PM]	Jonny has done command rsi	
+[5/4/16 11:29PM]	Jonny has done command interface 43500	
+[5/4/16 11:29PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/4/16 11:29PM]	Jonny has done command interface 43500	
+[5/4/16 11:29PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:29PM]	Jonny has done command interface 43500	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:29PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:30PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:30PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:30PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:30PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:30PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:34PM]	Jonny has done command interface 43500	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:34PM]	Jonny has clicked button in ButtonClickPacketListener -22034	
+[5/4/16 11:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:37PM]	Jonny has done command interface 43500	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22033	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22033	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22033	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22033	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22033	
+[5/4/16 11:37PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/4/16 11:37PM]	Jonny has done command interface 43500	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22026	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22026	
+[5/4/16 11:37PM]	Jonny has clicked button in ButtonClickPacketListener -22026	
+[5/5/16 10:01AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/5/16 11:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 11:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 03:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 03:31PM]	Jonny has done command claim	
+[5/5/16 08:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:04PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/5/16 08:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:04PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/5/16 08:04PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:26PM]	Jonny has done command claim	
+[5/5/16 08:27PM]	Jonny has done command claim	
+[5/5/16 08:27PM]	Jonny has done command claim	
+[5/5/16 08:27PM]	Jonny has done command claim	
+[5/5/16 08:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:29PM]	Jonny has done command claim	
+[5/5/16 08:29PM]	Jonny has done command claim	
+[5/5/16 08:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:31PM]	Jonny has done command claim	
+[5/5/16 08:32PM]	Jonny has done command claim	
+[5/5/16 08:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:33PM]	Jonny has done command claim	
+[5/5/16 08:33PM]	Jonny has done command bank	
+[5/5/16 08:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:38PM]	Jonny has done command claim	
+[5/5/16 08:38PM]	Jonny has done command claim	
+[5/5/16 08:39PM]	Jonny has done command claim	
+[5/5/16 08:39PM]	Jonny has done command bank	
+[5/5/16 08:40PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/5/16 08:40PM]	Jonny has done command claim	
+[5/5/16 08:42PM]	Jonny has done command claim	
+[5/5/16 08:42PM]	Jonny has done command claim	
+[5/5/16 08:43PM]	Jonny has done command claim	
+[5/5/16 08:43PM]	Jonny has done command claim	
+[5/5/16 08:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:46PM]	Jonny has done command claim	
+[5/5/16 08:47PM]	Jonny has done command claim	
+[5/5/16 08:47PM]	Jonny has done command claim	
+[5/5/16 08:47PM]	Jonny has done command claim	
+[5/5/16 08:47PM]	Jonny has done command claim	
+[5/5/16 08:47PM]	Jonny has done command claim	
+[5/5/16 08:47PM]	Jonny has done command claim	
+[5/5/16 08:48PM]	Jonny has done command claim	
+[5/5/16 08:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:49PM]	Jonny has done command claim	
+[5/5/16 08:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:53PM]	Jonny has done command claim	
+[5/5/16 08:53PM]	Jonny has done command claim	
+[5/5/16 08:53PM]	Jonny has done command claim	
+[5/5/16 08:53PM]	Jonny has done command claim	
+[5/5/16 08:54PM]	Jonny has done command claim	
+[5/5/16 08:54PM]	Jonny has done command claim	
+[5/5/16 08:54PM]	Jonny has done command empty	
+[5/5/16 08:54PM]	Jonny has done command claim	
+[5/5/16 08:54PM]	Jonny has done command claim	
+[5/5/16 08:55PM]	Jonny has done command claim	
+[5/5/16 08:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 08:57PM]	Jonny has done command claim	
+[5/5/16 08:57PM]	Jonny has done command claim	
+[5/5/16 08:57PM]	Jonny has done command claim	
+[5/5/16 08:57PM]	Jonny has done command claim	
+[5/5/16 08:57PM]	Jonny in NPCOptionPacketListener: 494 - FIRST_CLICK_OPCODE	
+[5/5/16 08:57PM]	Jonny has clicked button in ButtonClickPacketListener 22004	
+[5/5/16 08:57PM]	Jonny in EnterInputPacketListener: mage's book	
+[5/5/16 08:58PM]	Jonny has clicked button in ButtonClickPacketListener 22004	
+[5/5/16 08:58PM]	Jonny has clicked button in ButtonClickPacketListener 22004	
+[5/5/16 08:58PM]	Jonny in EnterInputPacketListener: arcane spiri	
+[5/5/16 08:58PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/5/16 08:58PM]	Jonny has done command claim	
+[5/5/16 08:58PM]	Jonny in NPCOptionPacketListener: 494 - FIRST_CLICK_OPCODE	
+[5/5/16 08:58PM]	Jonny has clicked button in ButtonClickPacketListener 22004	
+[5/5/16 08:58PM]	Jonny has clicked button in ButtonClickPacketListener 22004	
+[5/5/16 08:58PM]	Jonny in EnterInputPacketListener: arcane	
+[5/5/16 08:58PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/5/16 08:58PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/5/16 08:58PM]	Jonny has done command claim	
+[5/5/16 08:59PM]	Jonny has done command claim	
+[5/5/16 09:02PM]	Jonny in ObjectActionPacketListener: 4706 - SECOND_CLICK	
+[5/5/16 09:02PM]	Jonny in ObjectActionPacketListener: 4706 - SECOND_CLICK	
+[5/5/16 09:02PM]	Jonny in ObjectActionPacketListener: 4706 - SECOND_CLICK	
+[5/5/16 09:02PM]	Jonny in ObjectActionPacketListener: 4706 - SECOND_CLICK	
+[5/5/16 09:02PM]	Jonny in ObjectActionPacketListener: 4706 - SECOND_CLICK	
+[5/5/16 10:07PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:07PM]	Jonny has done command credits	
+[5/5/16 10:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:08PM]	Jonny has done command credits	
+[5/5/16 10:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:17PM]	Jonny has done command forumaccexists	
+[5/5/16 10:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:18PM]	Jonny has done command forumaccexists	
+[5/5/16 10:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:22PM]	Jonny has done command forumaccexists	
+[5/5/16 10:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:41PM]	Jonny has done command item 10943 15	
+[5/5/16 10:41PM]	Jonny in ItemActionPacketListener: 10943	
+[5/5/16 10:41PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/5/16 10:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:42PM]	Jonny has done command item 10943 10	
+[5/5/16 10:42PM]	Jonny in ItemActionPacketListener: 10943	
+[5/5/16 10:42PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/5/16 10:43PM]	Jonny in ItemActionPacketListener: 10943	
+[5/5/16 10:43PM]	Jonny in EnterInputPacketListener: jonny	
+[5/5/16 10:44PM]	Jonny in ItemActionPacketListener: 10943	
+[5/5/16 10:44PM]	Jonny in EnterInputPacketListener: asd.fkal;sdf	
+[5/5/16 10:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/5/16 10:49PM]	Jonny in ItemActionPacketListener: 10943	
+[5/5/16 10:49PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/5/16 10:49PM]	Jonny in ItemActionPacketListener: 10943	
+[5/5/16 10:49PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/6/16 12:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:10AM]	Jonny in ItemActionPacketListener: 10943	
+[5/6/16 12:10AM]	Jonny in EnterInputPacketListener: jonny	
+[5/6/16 12:11AM]	Jonny in ItemActionPacketListener: 10943	
+[5/6/16 12:11AM]	Jonny in EnterInputPacketListener: jonny	
+[5/6/16 12:11AM]	Jonny in ItemActionPacketListener: 10943	
+[5/6/16 12:11AM]	Jonny in EnterInputPacketListener: asdfasdf	
+[5/6/16 12:11AM]	Jonny in ItemActionPacketListener: 10943	
+[5/6/16 12:11AM]	Jonny in EnterInputPacketListener: Grenade	
+[5/6/16 12:11AM]	Jonny has done command item 7629 10	
+[5/6/16 12:11AM]	Jonny in ItemActionPacketListener: 7629	
+[5/6/16 12:11AM]	Jonny in EnterInputPacketListener: Jonny	
+[5/6/16 12:34AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:35AM]	Jonny has done command claim	
+[5/6/16 12:36AM]	Jonny has done command claim	
+[5/6/16 12:36AM]	Jonny has done command forumrank	
+[5/6/16 12:37AM]	Jonny has done command forumrank	
+[5/6/16 12:37AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 12:37AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:37AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:38AM]	Jonny has done command forumrank	
+[5/6/16 12:39AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 12:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:39AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 12:39AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 12:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:39AM]	Jonny has done command forumrank	
+[5/6/16 12:40AM]	Jonny has done command forumrank	
+[5/6/16 12:40AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 12:40AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 12:40AM]	Jonny has done command forumrank	

@@ -2176,5 +2176,29 @@
         "line3": "Cancel",
         "next": -1,
         "npcId": -1
+    },
+	{
+        "id": 222,
+        "type": "OPTION",
+        "lines": 5,
+        "line1": "Advertising",
+        "line2": "Hacking Accounts",
+        "line3": "Scamming",
+        "line4": "Flaming",
+        "line5": "Next page...",
+        "next": -1,
+        "npcId": -1
+    },
+	{
+        "id": 223,
+        "type": "OPTION",
+        "lines": 5,
+        "line1": "Botting",
+        "line2": "Real World Trading",
+        "line3": "Store Purchase Dispute",
+        "line4": "Bug Abuse",
+        "line5": "Other",
+        "next": -1,
+        "npcId": -1
     }
 ]

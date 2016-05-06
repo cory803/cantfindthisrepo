@@ -258,7 +258,7 @@ public class Members {
 					ForumDatabase.forumRankUpdate(player);
 					player.getPacketSender().sendMessage("Your in-game rank has been added to your forum account.");
 				} catch (Exception e) {
-					System.out.println(e);
+					e.printStackTrace();
 				}
 			} else {
 				player.getPacketSender().sendMessage("Staff members are not aloud to use this command.");

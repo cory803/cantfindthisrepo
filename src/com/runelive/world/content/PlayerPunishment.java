@@ -5,12 +5,32 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.runelive.GameServer;
+import com.runelive.net.mysql.ThreadedSQLCallback;
+
 public class PlayerPunishment {
 
   public static boolean isPlayerBanned(String username) {
-    if (new File(PLAYER_BAN_DIRECTORY + username.toLowerCase()).exists()) {
-      return true;
-    }
+	boolean continuation = false;
+	GameServer.getCharacterPool().executeQuery("Select * from `playerbans` WHERE `username` = '" + username.toLowerCase() + "'", new ThreadedSQLCallback() {
+		boolean continuation;
+		@Override
+		public void queryComplete(ResultSet rs) throws SQLException {
+			continuation = true;
+		}
+
+		@Override
+		public void queryError(SQLException e) {
+			e.printStackTrace();
+		}
+		private ThreadedSQLCallback init(boolean var){
+			continuation = var;
+			return this;
+		}
+	}.init(continuation));
     return false;
   }
 

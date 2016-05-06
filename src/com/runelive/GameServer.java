@@ -82,7 +82,7 @@ public class GameServer {
 			forums.setUsername(DatabaseInformationForums.username);
 			forums.setPassword(DatabaseInformationForums.password);
 			forums.setDatabase(DatabaseInformationForums.database);
-			characters_sql = new ThreadedSQL(forums, 4);
+			forums_sql = new ThreadedSQL(forums, 4);
             logger.info("RuneLive is now online on port " + GameSettings.GAME_PORT + "!");
         } catch (Exception ex) {
             logger.log(Level.SEVERE, "Could not start RuneLive! Program terminated.", ex);
