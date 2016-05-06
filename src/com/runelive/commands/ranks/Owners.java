@@ -10,6 +10,7 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.world.content.Scoreboard;
+import com.runelive.model.Store;
 import com.runelive.world.content.skill.impl.dungeoneering.*;
 import com.runelive.util.ForumDatabase;
 import java.sql.*;
@@ -54,6 +55,7 @@ import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerSaving;
+import com.runelive.world.content.dialogue.DialogueManager;
 
 public class Owners {
 	
@@ -81,6 +83,10 @@ public class Owners {
 		}
 		if (command[0].equals("saveplayer")) {
 			PlayerSaving.saveGame(player);
+		}	
+		if (command[0].equals("tokens")) {
+			Store.addTokens(command[1], Integer.parseInt(command[2]));
+			player.getPacketSender().sendMessage("You have added "+command[2]+" tokens to the account "+command[1]+".");
 		}	
 		if (command[0].equals("createplayer")) {
 			PlayerSaving.createNewAccount(player);
@@ -253,48 +259,10 @@ public class Owners {
 				player.getPacketSender().sendMessage("Punishments[=(check warning point), !(Clear all warning points");
 			}
 		}
-		if (command[0].equalsIgnoreCase("authtest")) {
-			boolean can_continue = true;
-			if (player.voteCount > 4) {
-				player.setCanVote(false);
-			}
-			if(player.isCanVote() == false) {
-				player.getPacketSender().sendMessage("You have been banned from voting for abusing the system. Appeal online.");
-				return;
-			}
-			if(GameSettings.DOUBLE_VOTE_TOKENS) {
-				if(player.getInventory().getFreeSlots() <= 1) {
-					player.getPacketSender().sendMessage("You need to have atleast 2 free inventory spaces to claim an auth code!");
-					can_continue = false;
-				}
-			} else {
-				if(player.getInventory().getFreeSlots() == 0) {
-					player.getPacketSender().sendMessage("You need to have atleast 1 free inventory spaces to claim an auth code!");
-					can_continue = false;
-				}
-			}
-			if(!can_continue) {
-				return;
-			}
-						if(GameSettings.DOUBLE_VOTE_TOKENS) {
-							player.getInventory().add(10944, 2);
-						} else {
-							player.getInventory().add(10944, 1);	
-						}
-						player.setVotesClaimed(1);
-						player.voteCount++;
-						player.getPacketSender().sendMessage("You have claimed "+player.voteCount+" of your 5 votes today. If you abuse the system your ");
-						player.getPacketSender().sendMessage("account will be banned from voting.");
-						Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
-						if (player.getVotesClaimed() == 100) {
-							Achievements.finishAchievement(player, AchievementData.VOTE_100_TIMES);
-						}
-						GameSettings.AUTHS_CLAIMED++;
-						if(GameSettings.AUTHS_CLAIMED == 25) {
-							World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
-							GameSettings.AUTHS_CLAIMED = 0;
-						}
-			}
+		if(command[0].equalsIgnoreCase("punish")) {
+			DialogueManager.start(player, 222);
+			player.setDialogueActionId(222);
+		}
 		if(command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);
 			if(!PlayerSaving.accountExists(player, ban_player)) {
@@ -312,25 +280,6 @@ public class Owners {
 				}
 				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned!");
 			}
-		}
-		if(command[0].equalsIgnoreCase("fixnull")) {
-			String ban_player = command[1];
-			if(!PlayerSaving.accountExists(player, ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
-				return;
-			} else {
-				Player other = World.getPlayerByName(ban_player);
-				other.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 1, true);
-				if(other != null) {
-					World.deregister(other);
-				}
-				player.getPacketSender().sendMessage("Player "+ban_player+"'s null was successfully fixed!");
-			}
-		}	
-		if(command[0].equalsIgnoreCase("getip")) {
-			String player_name = wholeCommand.substring(6);
-			String last_ip = PlayerPunishment.getLastIpAddress(player_name);
-			player.getPacketSender().sendMessage(player_name + "'s ip address is "+last_ip);
 		}
 		if(command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
@@ -1221,9 +1170,10 @@ public class Owners {
 			player.getPacketSender().sendObjectAnimation(new GameObject(2283, player.getPosition().copy()), new Animation(751));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
-		if (command.equals("interface")) {
-			player.getPacketSender().sendInterface(1119);
-			//player.getPacketSender().sendInterface(id);
+		if (command[0].equals("interface")) {
+			int id = Integer.parseInt(command[1]);
+			player.getPacketSender().sendInterface(id);
+			player.getPacketSender().sendMessage("Opening interface "+id+"...");
 		}
 		if (command[0].equals("walkableinterface")) {
 			int id = Integer.parseInt(command[1]);

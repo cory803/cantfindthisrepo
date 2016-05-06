@@ -412,6 +412,10 @@ public class Members {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
+			if(player.getLocation == Location.DUEL_ARENA) {
+				player.getPacketSender().sendMessage("You can't do this right now.");
+				return;
+			}
 			Position position = new Position(3370, 3267, 0);
 			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("Teleporting you to the duel arena!");
