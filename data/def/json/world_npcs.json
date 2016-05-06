@@ -18109,6 +18109,19 @@
         }
     },
 	{
+        "npc-id": 501,
+		"face": SOUTH,
+        "position": {
+        	"x": 3038,
+        	"y": 3708,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
         "npc-id": 494,
 		"face": SOUTH,
         "position": {

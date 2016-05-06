@@ -2200,5 +2200,15 @@
         "line5": "Other",
         "next": -1,
         "npcId": -1
+    },
+    {
+        "id": 224,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 2,
+        "line1": "Hello, my name is Queen Revenant!",
+        "line2": "I have noted all your raw fish.",
+        "next": -1,
+        "npcId": 501
     }
 ]

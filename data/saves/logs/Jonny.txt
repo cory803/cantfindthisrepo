@@ -5392,3 +5392,41 @@
 [5/6/16 01:09PM]	Player dropping item: $125 Payment Scroll (7629), amount: 1 from the computer address: 362460699	
 [5/6/16 01:09PM]	Jonny in PickupItemPacketListener: 7629	
 [5/6/16 01:09PM]	Player looting item: $125 Payment Scroll (7629), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/6/16 01:11PM]	Jonny has done command npc 601	
+[5/6/16 01:11PM]	Jonny in NPCOptionPacketListener: 601 - SECOND_CLICK_OPCODE	
+[5/6/16 01:11PM]	Jonny in NPCOptionPacketListener: 601 - FIRST_CLICK_OPCODE	
+[5/6/16 01:11PM]	Jonny in NPCOptionPacketListener: 601 - FIRST_CLICK_OPCODE	
+[5/6/16 01:11PM]	Jonny in NPCOptionPacketListener: 601 - FIRST_CLICK_OPCODE	
+[5/6/16 01:11PM]	Jonny in NPCOptionPacketListener: 601 - FIRST_CLICK_OPCODE	
+[5/6/16 01:11PM]	Jonny in NPCOptionPacketListener: 601 - FIRST_CLICK_OPCODE	
+[5/6/16 01:12PM]	Jonny has done command npc 602	
+[5/6/16 01:12PM]	Jonny has done command npc 501	
+[5/6/16 01:12PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:12PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:12PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:12PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:13PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:13PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:13PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:13PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:13PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:13PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:13PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:14PM]	Jonny has done command mypos	
+[5/6/16 01:18PM]	Jonny has done command find raw	
+[5/6/16 01:18PM]	Jonny has done command tele 1928 5003	
+[5/6/16 01:18PM]	Jonny has done command np 494	
+[5/6/16 01:19PM]	Jonny has done command bank	
+[5/6/16 01:19PM]	Jonny has clicked button in ButtonClickPacketListener 22008	
+[5/6/16 01:19PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/6/16 01:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 14889 - 5382 - 63	
+[5/6/16 01:19PM]	Jonny has done command find raw rock	
+[5/6/16 01:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:23PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:23PM]	Jonny has done command spawn raw rocktail:3	
+[5/6/16 01:23PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:24PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:25PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:25PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
