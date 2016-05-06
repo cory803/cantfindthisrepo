@@ -412,7 +412,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
-			if(player.getLocation == Location.DUEL_ARENA) {
+			if(player.getLocation() == Location.DUEL_ARENA) {
 				player.getPacketSender().sendMessage("You can't do this right now.");
 				return;
 			}

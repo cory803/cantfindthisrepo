@@ -3,6 +3,7 @@ package com.runelive.net.packet.impl;
 import java.text.DecimalFormat;
 
 import com.runelive.GameSettings;
+import com.runelive.model.Locations.Location;
 import com.runelive.model.GameMode;
 import com.runelive.model.input.impl.EnterForumAccountTokens;
 import com.runelive.model.GameObject;
@@ -121,6 +122,27 @@ public class ItemActionPacketListener implements PacketListener {
                 ConstructionConstants.FALADOR_X,
                 ConstructionConstants.FALADOR_Y), TeleportType.TELE_TAB);
         break;
+      case 15355:
+		if (player.getLocation() != Location.WILDERNESS && player.getLocation() != Location.WILDKEY_ZONE) {
+			player.getPacketSender().sendMessage("The scroll reads... Thee must be in wilderness!");
+			return;
+		}
+		int wildyScrollCoins = 100000;
+		if(player.getDonorRights() == 1) {
+			wildyScrollCoins = 125000;
+		} else if(player.getDonorRights() == 2) {
+			wildyScrollCoins = 150000;
+		} else if(player.getDonorRights() == 3) {
+			wildyScrollCoins = 175000;
+		} else if(player.getDonorRights() == 4) {
+			wildyScrollCoins = 200000;
+		} else if(player.getDonorRights() == 5) {
+			wildyScrollCoins = 250000;
+		}
+		player.getInventory().delete(15355,1);
+		player.getInventory().add(995, wildyScrollCoins);
+		player.getPacketSender().sendMessage("The scroll reads... Thee must have coins!");
+		break;
       case 8010:
         if(!TeleportHandler.checkReqs(player, null))
           break;

@@ -263,6 +263,9 @@ public class NPCDrops {
 
     if (drops.getDropList().length > 0 && p.getPosition().getZ() >= 0
         && p.getPosition().getZ() < 4) {
+		if(p.getLocation() == Location.WILDERNESS || p.getLocation() == Location.WILDKEY_ZONE) {
+			wildernessScrollDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
+		}
       casketDrop(p, npc.getDefinition().getCombatLevel(), npcPos);
       if (npc.getLocation() == Location.WILDERNESS)
         wildKeys(p, npc.getDefinition().getCombatLevel(), npcPos);
@@ -460,6 +463,13 @@ public class NPCDrops {
     if (Misc.getRandom(combat <= 50 ? 1300 : 1000) < chance) {
       GroundItemManager.spawnGroundItem(player,
           new GroundItem(new Item(7956), pos, player.getUsername(), false, 150, true, 200));
+    }
+  }
+  
+  public static void wildernessScrollDrop(Player player, int combat, Position pos) {
+    int chance = 50;
+    if (Misc.getRandom(chance) == 3) {
+      GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(15355), pos, player.getUsername(), false, 150, true, 200));
     }
   }
 

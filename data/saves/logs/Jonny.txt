@@ -5098,3 +5098,11 @@
 [5/6/16 12:46AM]	Jonny has done command ban jonny	
 [5/6/16 12:46AM]	Jonny has done command ban Jonny	
 [5/6/16 12:46AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 02:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 02:49AM]	Jonny in ItemActionPacketListener: 7629	
+[5/6/16 02:49AM]	Jonny in EnterInputPacketListener: Jonny	
+[5/6/16 02:50AM]	Jonny has done command spawn scroll	
+[5/6/16 02:50AM]	Jonny has done command find scroll	
+[5/6/16 02:50AM]	Jonny has done command item 19890 1	
+[5/6/16 02:50AM]	Jonny has done command find scroll	
+[5/6/16 02:50AM]	Jonny has done command item 15355 1	
