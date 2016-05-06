@@ -456,6 +456,7 @@ public class Player extends Character {
 	private final Stopwatch forumDelay = new Stopwatch();
 	private final Stopwatch lastItemPickup = new Stopwatch();
 	private final Stopwatch lastVengeance = new Stopwatch();
+	private final Stopwatch lastRoll = new Stopwatch();
 	private final Stopwatch lastAuth = new Stopwatch();
 	private final Stopwatch lastResource = new Stopwatch();
 	private final Stopwatch emoteDelay = new Stopwatch();
@@ -1916,6 +1917,10 @@ public class Player extends Character {
 
 	public Stopwatch getLastVengeance() {
 		return lastVengeance;
+	}
+
+	public Stopwatch getLastRoll() {
+		return lastRoll;
 	}
 
 	public Stopwatch getLastAuthTime() {

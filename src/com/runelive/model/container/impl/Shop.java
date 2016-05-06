@@ -898,60 +898,52 @@ public class Shop extends ItemContainer {
         }
       } else if (shop == PKING_REWARDS_STORE) {
         switch (item) {
-          case 6918:
-          case 6914:
-          case 6889:
-          case 2579:
-            return new Object[] {25, "Pk points"};
-          case 20171:
-            return new Object[] {1500, "Pk points"};
-          case 6916:
-          case 6924:
-            return new Object[] {30, "Pk points"};
-          case 6920:
-          case 6922:
-            return new Object[] {20, "Pk points"};
-          case 2581:
-          case 11730:
-            return new Object[] {100, "Pk points"};
-          case 2577:
-            return new Object[] {100, "Pk points"};
-          case 15486:
-          case 19111:
-            return new Object[] {250, "Pk points"};
-          case 13879:
-          case 13883:
-          case 15243:
-          case 15332:
-            return new Object[] {4, "Pk points"};
+          case 15126:
           case 15241:
-          case 17273:
-            return new Object[] {200, "Pk points"};
-          case 10548:
-          case 10547:
-          case 10551:
-            return new Object[] {150, "Pk points"};
-          case 6570:
-          case 20072:
-          case 11235:
+          case 21371:
+          case 21372:
+          case 21373:
+          case 21374:
+          case 21375:
+            return new Object[] {1500, "Pk points"};
           case 4151:
           case 13262:
-            return new Object[] {80, "Pk points"};
-          case 11696:
-          case 11698:
-          case 11700:
-            return new Object[] {500, "Pk points"};
-          case 14484:
-          case 19780:
             return new Object[] {750, "Pk points"};
-          case 11728:
-          case 15018:
-          case 15019:
-          case 15020:
-          case 15220:
-            return new Object[] {50, "Pk points"};
-          case 11694:
-            return new Object[] {600, "Pk points"};
+          case 8850:
+          case 10551:
+          case 6570:
+            return new Object[] {500, "Pk points"};
+          case 6585:
+          case 15345:
+          case 13876:
+          case 13870:
+          case 13873:
+          case 13864:
+          case 13858:
+          case 13861:
+          case 13867:
+          case 11283:
+          case 19111:
+            return new Object[] {1000, "Pk points"};
+          case 13879:
+            return new Object[] {25, "Pk points"};
+          case 13883:
+            return new Object[] {20, "Pk points"};
+          case 15349:
+          case 13905:
+          case 13887:
+          case 13893:
+          case 13899:
+            return new Object[] {3000, "Pk points"};
+          case 19748:
+          case 19780:
+            return new Object[] {4000, "Pk points"};
+          case 13896:
+          case 13884:
+          case 13890:
+          case 13902:
+          case 15347:
+            return new Object[] {2000, "Pk points"};
         }
       } else if (shop == CREDIT_STORE_1) {
         switch (item) {
@@ -1333,6 +1325,10 @@ public class Shop extends ItemContainer {
           case 10887:
           case 15241:
             return new Object[] {300, "Slayer points"};
+          case 15490:
+          case 15488:
+          case 21369:
+            return new Object[] {125, "Slayer points"};
           case 11235:
           case 4151:
           case 15486:

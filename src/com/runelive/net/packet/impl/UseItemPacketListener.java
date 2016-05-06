@@ -21,6 +21,7 @@ import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.clip.region.RegionClipping;
 import com.runelive.world.content.BankPin;
+import com.runelive.world.content.Gamble;
 import com.runelive.world.content.ItemForging;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.dialogue.DialogueManager;
@@ -45,6 +46,8 @@ import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.skill.impl.construction.sawmill.Plank;
 import com.runelive.world.content.skill.impl.construction.sawmill.SawmillOperator;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * This packet listener is called when a player 'uses' an item on another entity.
@@ -335,6 +338,23 @@ public class UseItemPacketListener implements PacketListener {
     }
 
     switch (npc.getId()) {
+      case 4249:
+        if (!player.getLastRoll().elapsed(5000)) {
+          player.getPacketSender()
+                  .sendMessage("You must wait another "
+                          + Misc.getTimeLeft(player.getLastRoll().getTime(), 5, TimeUnit.SECONDS)
+                          + " seconds before you can gamble again.");
+        } else {
+          if (itemDef.isStackable() || itemDef.isNoted() || !new Item(item_id).tradeable()) {
+            player.getPacketSender().sendMessage("You cannot gamble this item");
+          } else if (player.getInventory().contains(item_id) && player.getInventory().getFreeSlots() >= 2) {
+            player.getInventory().delete(item_id, 1, true);
+            Gamble.gambleRoll(player, item_id);
+          } else {
+            player.getPacketSender().sendMessage("You either do not have this item or not enough inventory spaces");
+          }
+        }
+    break;
       case 4250:
         if(item_id == 1511 || item_id == 1521 || item_id == 6333 || item_id == 6332) {
           Plank plank = Plank.forId(item_id);

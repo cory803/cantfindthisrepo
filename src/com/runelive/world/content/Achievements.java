@@ -434,6 +434,9 @@ public static int SIZE = AchievementData.values().length;
     }
   }
 
+  public static int MYSTERY_BOX = 6199;
+  public static int LEGENDARY_MYSTERY_BOX = 15501;
+
   public static void finishAchievement(Player player, AchievementData achievement) {
     if (player.getAchievementAttributes().getCompletion()[achievement.ordinal()])
       return;
@@ -444,7 +447,22 @@ public static int SIZE = AchievementData.values().length;
             + Misc.formatText(achievement.toString().toLowerCase() + "."))
         .sendString(37001, "Achievements: " + player.getPointsHandler().getAchievementPoints() + "/"
             + AchievementData.values().length);
-
+    if (achievement.getDifficulty() == Difficulty.EASY) {
+      player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 2);
+      player.getPacketSender().sendMessage("2 x Mystery Boxes have been placed into your bank!");
+    } else if (achievement.getDifficulty() == Difficulty.MEDIUM) {
+      player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 2);
+      player.getBank(player.getCurrentBankTab()).add(LEGENDARY_MYSTERY_BOX, 1);
+      player.getPacketSender().sendMessage("2 x Mystery Boxes & 1 x Legendary Mystery Box, have been placed into your bank!");
+    } else if (achievement.getDifficulty() == Difficulty.HARD) {
+      player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 2);
+      player.getBank(player.getCurrentBankTab()).add(LEGENDARY_MYSTERY_BOX, 2);
+      player.getPacketSender().sendMessage("2 x Mystery Boxes & 2 x Legendary Mystery Box, have been placed into your bank!");
+    } else if (achievement.getDifficulty() == Difficulty.ELITE) {
+      player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 1);
+      player.getBank(player.getCurrentBankTab()).add(LEGENDARY_MYSTERY_BOX, 4);
+      player.getPacketSender().sendMessage("1 x Mystery Box & 4 x Legendary Mystery Box, have been placed into your bank!");
+    }
     if (achievement.getDifficulty() == Difficulty.HARD) {
       doProgress(player, AchievementData.COMPLETE_ALL_HARD_TASKS);
     }

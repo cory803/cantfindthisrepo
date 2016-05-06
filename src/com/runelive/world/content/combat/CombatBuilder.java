@@ -193,12 +193,16 @@ public class CombatBuilder {
    * @param amount the amount of damage to add for the argued entity.
    */
   public void addDamage(Character entity, int amount) {
+    Player player = (Player) entity;
 
     if (amount < 1 || entity.isNpc()) {
       return;
     }
 
-    Player player = (Player) entity;
+    if(player.isTeleporting()) {
+      return;
+    }
+
     if (damageMap.containsKey(player)) {
       damageMap.get(player).incrementDamage(amount);
       return;
