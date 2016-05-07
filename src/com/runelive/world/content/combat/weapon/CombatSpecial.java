@@ -163,7 +163,7 @@ public enum CombatSpecial {
     @Override
     public CombatContainer container(Player player, Character target) {
       player.performAnimation(new Animation(10505));
-      player.performGraphic(new Graphic(1840));
+      player.performGraphic(new Graphic(1225));
       return new CombatContainer(player, target, 1, CombatType.MELEE, true) {
         @Override
         public void onHit(int damage, boolean accurate) {
