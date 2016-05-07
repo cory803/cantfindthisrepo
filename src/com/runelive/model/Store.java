@@ -44,6 +44,7 @@ public class Store {
 					player.incrementAmountDonated(credits);
 					MemberScrolls.checkForRankUpdate(player);
 					PlayerPanel.refreshPanel(player);
+					player.save();
 				} 
 				if(!hasGrabbed) {
 					player.getPacketSender().sendMessage("You currently don't have anything in your collection box!");
@@ -103,6 +104,7 @@ public class Store {
 									MemberScrolls.checkForRankUpdate(player);
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 8 tokens.");
 									PlayerPanel.refreshPanel(player);
+									player.save();
 									break;
 								case 10934:
 									player.getInventory().delete(item, 1);
@@ -111,6 +113,7 @@ public class Store {
 									MemberScrolls.checkForRankUpdate(player);
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 20 tokens.");
 									PlayerPanel.refreshPanel(player);
+									player.save();
 									break;
 								case 10935:
 									player.getInventory().delete(item, 1);
@@ -119,6 +122,7 @@ public class Store {
 									MemberScrolls.checkForRankUpdate(player);
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 40 tokens.");
 									PlayerPanel.refreshPanel(player);
+									player.save();
 									break;
 								case 7629:
 									player.getInventory().delete(item, 1);
@@ -127,6 +131,7 @@ public class Store {
 									MemberScrolls.checkForRankUpdate(player);
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 100 tokens.");
 									PlayerPanel.refreshPanel(player);
+									player.save();
 									break;
 							}
 						}
