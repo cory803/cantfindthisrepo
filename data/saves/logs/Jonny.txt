@@ -5438,3 +5438,50 @@
 [5/6/16 01:43PM]	Jonny has done command mypos	
 [5/6/16 01:44PM]	Jonny has done command mypos	
 [5/6/16 01:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:47PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
+[5/6/16 01:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:49PM]	Jonny has done command tele 1928 5003	
+[5/6/16 01:49PM]	Jonny has done command gamble	
+[5/6/16 01:49PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 01:49PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:49PM]	Jonny has done command gamble	
+[5/6/16 01:49PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 01:49PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 01:49PM]	Jonny in NPCOptionPacketListener: 4002 - FIRST_CLICK_OPCODE	
+[5/6/16 01:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:50PM]	Jonny has done command gamble	
+[5/6/16 01:50PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 01:52PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 01:52PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 01:52PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 01:52PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:53PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 01:53PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 01:54PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 02:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 02:17PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 02:20PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 02:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 02:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 02:23PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 04:50PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 05:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:19PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 05:19PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 05:19PM]	Jonny in NPCOptionPacketListener: 2633 - FIRST_CLICK_OPCODE	
+[5/6/16 05:19PM]	Jonny has done command changepassword howie1	
+[5/6/16 05:19PM]	Player changed password from: underme  to: howie1	
+[5/6/16 05:19PM]	Jonny in EnterInputPacketListener: howie1	
+[5/6/16 05:19PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 05:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:23PM]	Jonny has done command changepassword	
+[5/6/16 05:23PM]	Player changed password from: test  to: iii	
+[5/6/16 05:23PM]	Jonny in EnterInputPacketListener: iii	
+[5/6/16 05:23PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/6/16 05:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
