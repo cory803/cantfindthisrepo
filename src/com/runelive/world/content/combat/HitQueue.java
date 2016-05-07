@@ -120,6 +120,9 @@ public class HitQueue {
       if (container.getHits().length != 0 && container.getCombatType() != CombatType.MAGIC
           || container.isAccurate()) {
 
+        if(victim.isTeleporting() && attacker.isPlayer() || attacker.isNpc()) {
+          damage = 0;
+        }
         /** PRAYERS **/
         CombatFactory.applyPrayerProtection(container, builder);
 

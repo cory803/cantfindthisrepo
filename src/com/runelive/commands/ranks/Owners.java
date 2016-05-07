@@ -9,7 +9,7 @@ import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
-import com.runelive.world.content.Scoreboard;
+import com.runelive.world.content.*;
 import com.runelive.model.Store;
 import com.runelive.world.content.skill.impl.dungeoneering.*;
 import com.runelive.util.ForumDatabase;
@@ -35,16 +35,8 @@ import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.util.Logs;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.Achievements;
-import com.runelive.world.content.BonusManager;
-import com.runelive.world.content.CrystalChest;
-import com.runelive.world.content.WellOfGoodwill;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.DropLog.DropLogEntry;
-import com.runelive.world.content.Lottery;
-import com.runelive.world.content.PlayerLogs;
-import com.runelive.world.content.PlayerPunishment;
-import com.runelive.world.content.ShootingStar;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.grandexchange.GrandExchangeOffers;
@@ -67,6 +59,25 @@ public class Owners {
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
+		}
+		if(wholeCommand.startsWith("debugdice")) {
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			Gamble.debugRoll(player);
+			player.getPacketSender().sendMessage("You have finished rolling! do ::debugstats to see!");
+		}
+		if(wholeCommand.startsWith("debugstats")) {
+			player.getPacketSender().sendMessage("You have "+player.debugRollWins+" wins to "+player.debugRollLosses+" losses.");
+			player.getPacketSender().sendMessage("Your debug stats have been reset");
+			player.debugRollWins = 0;
+			player.debugRollLosses = 0;
 		}
 		if(wholeCommand.startsWith("globalyell")) {
 			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");

@@ -110,6 +110,9 @@ public class Player extends Character {
 		return false;
 	}
 
+	public int debugRollWins;
+	public int debugRollLosses;
+
 	public int calculateMaxLifePoints() {
 		int lifePoints = getSkillManager().getCurrentLevel(Skill.CONSTITUTION);// The
 																				// normal
