@@ -2215,8 +2215,10 @@
         "id": 323,
         "type": "NPC_STATEMENT",
         "anim": "NORMAL",
-        "lines": 1,
+        "lines": 3,
         "line1": "My head looks like Vados's ballsack.",
+        "line2": "I know, now shut up.",
+        "line3": "I will eat my rice & meatballs in peace ",
         "next": -1,
         "npcId": 594
     },
