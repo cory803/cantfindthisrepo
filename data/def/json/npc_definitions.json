@@ -68378,7 +68378,7 @@
 },
 {
 "id": 3069,
-"name": "Skeletal Wyvern",
+"name": "Wilderness Skeletal Wyvern",
 "examine": "A very dangerous pile of animated wyvern bones.",
 "combat": 140,
 "size": 3,
@@ -68387,16 +68387,17 @@
 "retreats": false,
 "poisonous": false,
 "respawn": 10,
-"maxHit": 1,
-"hitpoints": 200,
+"maxHit": 320,
+"hitpoints": 2500,
 "attackSpeed": 7,
-"attackAnim": 422,
-"defenceAnim": 404,
-"deathAnim": 2304,
+"attackAnim": 1593,
+"defenceAnim": 1590,
+"deathAnim": 1591,
 "attackBonus": 260,
-"defenceMelee": 260,
+"defenceMelee": 85,
 "defenceRange": 260,
-"defenceMage": 0
+"defenceMage": 0,
+"slayerLevel": 72
 },
 {
 "id": 3070,

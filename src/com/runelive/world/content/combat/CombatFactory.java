@@ -943,7 +943,7 @@ public final class CombatFactory {
       }
       if(npc.getId() == 3068) {
         Player player = ((Player) entity);
-        if((player.getLocation() != Location.WILDERNESS || ((Player) entity).getSlayer().getSlayerTask().getNpcId() != 3068)) {
+        if(((Player) entity).getSlayer().getSlayerTask().getNpcId() != 3068) {
           ((Player) entity).getPacketSender().sendMessage("You must be on a slayer task to kill this monster, or in the wilderness.");
           entity.getCombatBuilder().reset(true);
           return false;

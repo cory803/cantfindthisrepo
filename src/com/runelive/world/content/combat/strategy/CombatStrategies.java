@@ -91,6 +91,7 @@ public class CombatStrategies {
     STRATEGIES.put(5362, dragonStrategy);
     STRATEGIES.put(5363, dragonStrategy);
     STRATEGIES.put(3068, dragonStrategy);
+    STRATEGIES.put(3069, dragonStrategy);
 
     Aviansie aviansieStrategy = new Aviansie();
     STRATEGIES.put(6246, aviansieStrategy);

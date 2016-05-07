@@ -75,6 +75,8 @@ public class Dragon implements CombatStrategy {
       anim = 13152;
     else if (npc == 3068)
       anim = 1589;
+    else if (npc == 3069)
+      anim = 1589;
     return anim;
   }
 
