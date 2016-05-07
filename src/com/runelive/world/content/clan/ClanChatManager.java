@@ -352,7 +352,6 @@ public class ClanChatManager {
     for (Player memberPlayer : clan.getMembers()) {
       if (memberPlayer != null) {
         if (memberPlayer.getRelations().getIgnoreList().contains(player.getLongUsername())) {
-          System.out.println("YE");
           continue;
         }
         // continue;

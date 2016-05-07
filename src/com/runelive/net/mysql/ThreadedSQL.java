@@ -178,7 +178,7 @@ public class ThreadedSQL {
     public PreparedStatement prepareStatement(String string) throws SQLException {
         DatabaseConnection conn = pool.nextFree();
         if (conn == null) {
-            System.out.println("[BURAK] WTFFF MAN CONNECTIE IS NULL" + string);
+            System.out.println("Connection null: " + string);
             return null;
         }
         Connection c = conn.getConnection();
@@ -231,7 +231,7 @@ public class ThreadedSQL {
      */
     private void query(String query, ThreadedSQLCallback callback, DatabaseConnection conn) throws SQLException {
         if (conn == null) {
-            System.out.println("[BURAK] WTFFF MAN CONNECTIE IS NULL" + query);
+            System.out.println("Connection null: " + query);
             return;
         }
         Connection c = conn.getConnection();

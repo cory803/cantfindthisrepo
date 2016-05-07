@@ -102,7 +102,7 @@ public class ConnectionPool<T extends DatabaseConnection> {
 			if (!connection.isFresh()) {
                             // DISCARD, since the connection is bad
                            // connection.close();
-                            System.out.println("CLOSED: "+currentConnections);
+                            //System.out.println("CLOSED: "+currentConnections);
                             currentConnections--;
                             pool.remove(connection);
                             return nextFree();

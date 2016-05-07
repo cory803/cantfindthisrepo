@@ -208,7 +208,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
         for (int i2 = 0; i2 < o.getOffers().size(); i2++) {
             if (o.getOffers().get(i2) != null) {
                 if (o.getOffers().get(i2).getItemId() >= 1) {
-                    System.out.println("" + o.getOffers().get(i2).getItemId());
                     size++;
                 }
                 if (o.getOffers().get(i2).getItemId() == itemId) {
@@ -220,8 +219,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
             player.getPacketSender().sendMessage("Shop full!");
             return;
         }
-
-        System.out.println("Shop size: " + size);
 
         PosOffer offer = o.forId(itemId);
         if (offer != null)
