@@ -809,6 +809,10 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 227:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(2976, 3921, 0), player.getSpellbook().getTeleportType());
+			break;
 			case 214:
 				if(!GameSettings.POS_ENABLED) {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
@@ -863,6 +867,10 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 227:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(3293, 3926, 0), player.getSpellbook().getTeleportType());
+			break;
 			case 136:
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(2891, 5356, 2), player.getSpellbook().getTeleportType());
@@ -927,6 +935,10 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+			case 227:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(3300, 3888, 0), player.getSpellbook().getTeleportType());
+			break;
 			case 136:
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(2917, 5272, 0), player.getSpellbook().getTeleportType());
@@ -991,6 +1003,10 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("This option is still being worked on.");
 				break;
+			case 227:
+				player.getPacketSender().sendInterfaceRemoval();
+				TeleportHandler.teleportPlayer(player, new Position(3154, 3923, 0), player.getSpellbook().getTeleportType());
+			break;
 			case 5:
 			case 8:
 			case 9:

@@ -2231,5 +2231,26 @@
         "line5": "Burthorpe",
         "next": -1,
         "npcId": -1
+    },
+	{
+        "id": 226,
+        "type": "OPTION",
+        "lines": 4,
+        "line1": "Ice Plateau",
+        "line2": "Wilderness Castle",
+        "line3": "Greater Demons",
+        "line4": "Wilderness Lever",
+        "next": -1,
+        "npcId": -1
+    },
+	{
+        "id": 227,
+        "type": "NPC_STATEMENT",
+        "anim": "MANIC_FACE",
+        "lines": 2,
+        "line1": "Be careful!",
+        "line2": "All of these locations teleport you to deep wilderness.",
+        "next": 226,
+        "npcId": 945
     }
 ]
