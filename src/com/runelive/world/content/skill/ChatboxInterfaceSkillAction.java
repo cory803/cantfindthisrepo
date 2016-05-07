@@ -7,11 +7,13 @@ import com.runelive.model.input.impl.EnterAmountToCook;
 import com.runelive.model.input.impl.EnterAmountToFletch;
 import com.runelive.model.input.impl.EnterAmountToSpin;
 import com.runelive.world.content.skill.impl.cooking.Cooking;
+import com.runelive.world.content.skill.impl.cooking.CookingWilderness;
 import com.runelive.world.content.skill.impl.crafting.Flax;
 import com.runelive.world.content.skill.impl.crafting.Gems;
 import com.runelive.world.content.skill.impl.fletching.Fletching;
 import com.runelive.world.content.skill.impl.prayer.BonesOnAltar;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.model.Locations.Location;
 
 public class ChatboxInterfaceSkillAction {
 
@@ -24,10 +26,15 @@ public class ChatboxInterfaceSkillAction {
       player.getPacketSender().sendInterfaceRemoval();
       return;
     }
+	if(player.getLocation() == Location.WILDERNESS) {
+		if (player.getInputHandling() instanceof EnterAmountToCook)
+			CookingWilderness.cook(player, player.getSelectedSkillingItem(), amount);
+	} else {
+		if (player.getInputHandling() instanceof EnterAmountToCook)
+			Cooking.cook(player, player.getSelectedSkillingItem(), amount);
+	}
     if (player.getInputHandling() instanceof EnterAmountOfGemsToCut)
       Gems.cutGem(player, amount, player.getSelectedSkillingItem());
-    else if (player.getInputHandling() instanceof EnterAmountToCook)
-      Cooking.cook(player, player.getSelectedSkillingItem(), amount);
     else if (player.getInputHandling() instanceof EnterAmountToSpin)
       Flax.spinFlax(player, amount);
     else if (player.getInputHandling() instanceof EnterAmountOfBonesToSacrifice)
