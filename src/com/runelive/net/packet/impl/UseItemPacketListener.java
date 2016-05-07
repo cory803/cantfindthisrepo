@@ -29,6 +29,8 @@ import com.runelive.world.content.minigames.impl.WarriorsGuild;
 import com.runelive.world.content.skill.impl.construction.ConstructionActions;
 import com.runelive.world.content.skill.impl.cooking.Cooking;
 import com.runelive.world.content.skill.impl.cooking.CookingData;
+import com.runelive.world.content.skill.impl.cooking.CookingWilderness;
+import com.runelive.world.content.skill.impl.cooking.CookingWildernessData;
 import com.runelive.world.content.skill.impl.crafting.Gems;
 import com.runelive.world.content.skill.impl.crafting.LeatherMaking;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
@@ -204,7 +206,7 @@ public class UseItemPacketListener implements PacketListener {
       return;
     final GameObject gameObject =
         new GameObject(objectId, new Position(objectX, objectY, player.getPosition().getZ()));
-    if (objectId > 0 && objectId != 6 && objectId != 1765
+    if (objectId > 0 && objectId != 6 && objectId != 1765 && objectId != 9682
         && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
       // player.getPacketSender().sendMessage("An error occured. Error code:
       // "+objectId).sendMessage("Please report the error to a staff member.");
@@ -215,11 +217,18 @@ public class UseItemPacketListener implements PacketListener {
         gameObject.getSize(), new FinalizedMovementTask() {
           @Override
           public void execute() {
+			if(gameObject.getPosition().getX() == 3036 && gameObject.getPosition().getY() == 3708) {
+				if (CookingWildernessData.forFish(item.getId() - 1) != null && CookingWildernessData.isRange(objectId)) {
+				  player.setPositionToFace(gameObject.getPosition());
+				  CookingWilderness.selectionInterface(player, CookingWildernessData.forFish(item.getId() - 1));
+				  return;
+				}
+			}
             if (CookingData.forFish(item.getId()) != null && CookingData.isRange(objectId)) {
               player.setPositionToFace(gameObject.getPosition());
               Cooking.selectionInterface(player, CookingData.forFish(item.getId()));
               return;
-            }
+            } 
             if (ConstructionActions.handleItemOnObject(player, objectId, item.getId()))
               return;
             if (Prayer.isBone(itemId) && objectId == 409) {

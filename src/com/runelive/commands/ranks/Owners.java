@@ -73,6 +73,10 @@ public class Owners {
 			Gamble.debugRoll(player);
 			player.getPacketSender().sendMessage("You have finished rolling! do ::debugstats to see!");
 		}
+		if(wholeCommand.startsWith("test11")) {
+			player.getPacketSender().sendMessage(""+player.getLocation());
+			player.getPacketSender().sendMessage(""+player.getWildernessLevel());
+		}
 		if(wholeCommand.startsWith("debugstats")) {
 			player.getPacketSender().sendMessage("You have "+player.debugRollWins+" wins to "+player.debugRollLosses+" losses.");
 			player.getPacketSender().sendMessage("Your debug stats have been reset");

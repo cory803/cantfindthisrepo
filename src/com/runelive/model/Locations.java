@@ -116,8 +116,6 @@ public class Locations {
                 }
             }
         },
-        KING_BLACK_DRAGON(new int[]{2251, 2292}, new int[]{4673, 4717}, true, true, true, true, true,
-                true) {},
         SLASH_BASH(new int[]{2504, 2561}, new int[]{9401, 9473}, true, true, true, true, true,
                 true) {},
         BANDOS_AVATAR(new int[]{2877, 2928}, new int[]{4734, 4787}, true, true, true, true, true,
@@ -229,18 +227,21 @@ public class Locations {
             }
         },
         // 3653
-        WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059},
-                new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472, 10303, 10351}, false, true, true, true, true,
+        WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059, 3008, 3070, 2250, 2295},
+                new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729}, false, true, true, true, true,
                 true) {
             @Override
             public void process(Player player) {
                 int x = player.getPosition().getX();
                 int y = player.getPosition().getY();
                 boolean ghostTown = x >= 3650 && y <= 3538;
+                boolean inKBD = x >= 2250 && x <= 2295 && y >= 4675 && y <= 4729;
                 boolean notInTown = y > 3507 && x < 3681;
                 boolean safeSpot = x == 3650 && y == 3472;
                 if (ghostTown && !safeSpot && !notInTown) {
                     player.setWildernessLevel(60);
+                } else if(inKBD) {
+                    player.setWildernessLevel(20);
                 } else {
                     player.setWildernessLevel(((((y > 6400 ? y - 6400 : y) - 3520) / 8) + 1));
                 }
@@ -991,7 +992,9 @@ public class Locations {
                         || x >= 2896 && x <= 2927 && y >= 3595 && y <= 3630
                         || x >= 2892 && x <= 2932 && y >= 4435 && y <= 4464
                         || x >= 2256 && x <= 2287 && y >= 4680 && y <= 4711
+						|| x >= 2250 && x <= 2295 && y >= 4675 && y <= 4729 //in kbd
                         || x >= 2516 && x <= 2595 && y >= 4926 && y <= 5003 // gwd
+                        || x >= 3008 && x <= 3070 && y >= 10235 && y <= 10300 // kbd poison spiders
                         || x >= 2560 && x <= 2630 && y >= 5710 && y <= 5753)
                     return true;
             } else {

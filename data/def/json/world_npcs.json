@@ -14781,6 +14781,110 @@
         }
     },
 	{
+        "npc-id": 134,
+		"face": SOUTH,
+        "position": {
+        	"x": 3062,
+        	"y": 10262,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 134,
+		"face": SOUTH,
+        "position": {
+        	"x": 3062,
+        	"y": 10262,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 110,
+		"face": SOUTH,
+        "position": {
+        	"x": 3050,
+        	"y": 10256,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 110,
+		"face": SOUTH,
+        "position": {
+        	"x": 3050,
+        	"y": 10266,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 110,
+		"face": SOUTH,
+        "position": {
+        	"x": 3053,
+        	"y": 10274,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 110,
+		"face": SOUTH,
+        "position": {
+        	"x": 3039,
+        	"y": 10261,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 110,
+		"face": SOUTH,
+        "position": {
+        	"x": 3032,
+        	"y": 10254,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 110,
+		"face": SOUTH,
+        "position": {
+        	"x": 3035,
+        	"y": 10246,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
         "npc-id": 58,
 		"face": SOUTH,
         "position": {
