@@ -503,7 +503,7 @@ public class ObjectActionPacketListener implements PacketListener {
                   @Override
                   public void stop() {
                     setEventRunning(false);
-                    player.moveTo(new Position(3067, 10256, 0));
+                    player.moveTo(new Position(3055, 10271, 0));
                   }
                 });
                 break;
@@ -783,12 +783,50 @@ public class ObjectActionPacketListener implements PacketListener {
                       .sendMessage("A magical spell is blocking you from teleporting.");
                   return;
                 }
-                if (gameObject.getPosition().getX() == 2539
-                    && gameObject.getPosition().getY() == 4712) {
+                if (gameObject.getPosition().getX() == 2539 && gameObject.getPosition().getY() == 4712) {
                   player.setDirection(Direction.SOUTH);
-                  TeleportHandler.teleportPlayer(player, new Position(3090, 3956),
-                      TeleportType.LEVER);
-                }
+                  TeleportHandler.teleportPlayer(player, new Position(2272, 4680), TeleportType.LEVER);
+                } else if(gameObject.getPosition().getX() == 3067 && gameObject.getPosition().getY() == 10253) {
+					TaskManager.submit(new Task(1, player, true) {
+                    int tick = 1;
+
+                    @Override
+                    public void execute() {
+                      tick++;
+                      player.performAnimation(new Animation(2140));
+                      if (tick >= 2) {
+                        stop();
+                      }
+                    }
+
+                    @Override
+                    public void stop() {
+                      setEventRunning(false);
+                      TeleportHandler.teleportPlayer(player, new Position(2272, 4680, 0),
+                          TeleportType.LEVER);
+                    }
+                  });
+				} else if(gameObject.getPosition().getX() == 2272 && gameObject.getPosition().getY() == 4680) {
+                  TaskManager.submit(new Task(1, player, true) {
+                    int tick = 1;
+
+                    @Override
+                    public void execute() {
+                      tick++;
+                      player.performAnimation(new Animation(2140));
+                      if (tick >= 2) {
+                        stop();
+                      }
+                    }
+
+                    @Override
+                    public void stop() {
+                      setEventRunning(false);
+                      TeleportHandler.teleportPlayer(player, new Position(3067, 10253),
+                          TeleportType.LEVER);
+                    }
+                  });
+				}
                 break;
               case 5959:
                 if (player.getTeleblockTimer() > 0) {
