@@ -158,8 +158,31 @@ public enum CombatSpecial {
       return new CombatContainer(player, target, 1, CombatType.MELEE, true);
     }
   },
-  STATIUS_WARHAMMER(new int[] {13902}, 30, 1.25, 1.23, CombatType.MELEE,
-      WeaponInterface.WARHAMMER) {
+  STATIUS_WARHAMMER(new int[] {13902}, 30, 1.35, 1.25, CombatType.MELEE,
+          WeaponInterface.WARHAMMER) {
+    @Override
+    public CombatContainer container(Player player, Character target) {
+      player.performAnimation(new Animation(10505));
+      player.performGraphic(new Graphic(1840));
+      return new CombatContainer(player, target, 1, CombatType.MELEE, true) {
+        @Override
+        public void onHit(int damage, boolean accurate) {
+          if (target.isPlayer() && accurate) {
+            Player t = (Player) target;
+            int currentDef = t.getSkillManager().getCurrentLevel(Skill.DEFENCE);
+            int defDecrease = (int) (currentDef * 0.11);
+            if ((currentDef - defDecrease) <= 0 || currentDef <= 0)
+              return;
+            // t.getSkillManager().setCurrentLevel(Skill.DEFENCE, defDecrease);
+            //t.getPacketSender().sendMessage("Your opponent has reduced your Defence level.");
+            player.getPacketSender().sendMessage("Your hammer forces some of your opponent'sdefences to break.");
+          }
+        }
+      };
+    }
+  },
+  DRAGON_WARHAMMER(new int[] {13576}, 30, 1.25, 1.23, CombatType.MELEE,
+          WeaponInterface.WARHAMMER) {
     @Override
     public CombatContainer container(Player player, Character target) {
       player.performAnimation(new Animation(10505));
