@@ -789,7 +789,7 @@ public class Developers {
 						player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
 				}
 			} catch (Exception e) {
-				System.out.println(e);
+				e.printStackTrace();
 			}
 		}
 		if (command[0].equals("maxcb")) {

@@ -53,6 +53,5 @@ public class InstancedCerberus {
                 }
             }
         });
-        System.out.println("Player "+player.getUsername()+" already has a Cerberus spawned.");
     }
 }

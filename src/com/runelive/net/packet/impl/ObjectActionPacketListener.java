@@ -555,6 +555,10 @@ public class ObjectActionPacketListener implements PacketListener {
                   });
                 }
                 break;
+			case 398:
+				DialogueManager.start(player, 227);
+				player.setDialogueActionId(227);
+			break;
               case 1766:// poison spider ladder KBD
                 if (player.getTeleblockTimer() > 0) {
                   player.getPacketSender()
@@ -785,7 +789,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 }
                 if (gameObject.getPosition().getX() == 2539 && gameObject.getPosition().getY() == 4712) {
                   player.setDirection(Direction.SOUTH);
-                  TeleportHandler.teleportPlayer(player, new Position(2272, 4680), TeleportType.LEVER);
+                  TeleportHandler.teleportPlayer(player, new Position(3090, 3956), TeleportType.LEVER);
                 } else if(gameObject.getPosition().getX() == 3067 && gameObject.getPosition().getY() == 10253) {
 					TaskManager.submit(new Task(1, player, true) {
                     int tick = 1;

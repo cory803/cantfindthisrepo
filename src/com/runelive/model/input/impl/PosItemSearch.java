@@ -36,7 +36,7 @@ public class PosItemSearch extends Input {
       return;
     }
     reset();
-    for (PosOffers o : PlayerOwnedShops.SHOPS) {
+    for (PosOffers o : PlayerOwnedShops.SHOPS_ARRAYLIST) {
       if (o == null)
         continue;
 

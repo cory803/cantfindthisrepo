@@ -5763,3 +5763,147 @@
 [5/6/16 10:31PM]	Jonny has clicked button in ButtonClickPacketListener 2798	
 [5/6/16 10:31PM]	Jonny in NPCOptionPacketListener: 501 - FIRST_CLICK_OPCODE	
 [5/6/16 10:31PM]	Jonny has clicked button in ButtonClickPacketListener 2798	
+[5/6/16 10:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:35PM]	Jonny has done command spawn dragon warhammer:1	
+[5/6/16 10:35PM]	Jonny has done command spawn dragon hammer:1	
+[5/6/16 10:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 10:37PM]	Jonny has done command spawn dragon warhammer:1	
+[5/6/16 10:37PM]	Jonny in EquipPacketListener: 13576 from Inventory	
+[5/6/16 10:37PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/6/16 10:37PM]	Jonny has done command train	
+[5/6/16 10:37PM]	Jonny has clicked button in ButtonClickPacketListener 7462	
+[5/7/16 12:03AM]	Jonny has done command item 15272 10	
+[5/7/16 12:03AM]	Jonny has done command propker	
+[5/7/16 12:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/7/16 12:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/7/16 12:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/7/16 12:03AM]	Jonny has clicked button in ButtonClickPacketListener 7462	
+[5/7/16 12:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/7/16 08:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:06AM]	Jonny has done command npc 1	
+[5/7/16 08:06AM]	Jonny has clicked button in ButtonClickPacketListener 7462	
+[5/7/16 08:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:08AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/7/16 08:15AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:16AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:16AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/7/16 08:16AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:16AM]	Opened the player owned shop: Kostikas	
+[5/7/16 08:16AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/7/16 08:18AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:18AM]	Jonny in NPCOptionPacketListener: 2127 - FIRST_CLICK_OPCODE	
+[5/7/16 08:18AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:18AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/7/16 08:18AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:18AM]	Opened the player owned shop: Suricato	
+[5/7/16 08:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:30AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:30AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/7/16 08:30AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:30AM]	Opened the player owned shop: Grannysboy	
+[5/7/16 08:35AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:35AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:35AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/7/16 08:35AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:35AM]	Opened the player owned shop: Kostikas	
+[5/7/16 08:39AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/7/16 08:39AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:39AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:39AM]	Jonny in EnterInputPacketListener: dragon claw	
+[5/7/16 08:39AM]	Jonny has clicked button in ButtonClickPacketListener -24058	
+[5/7/16 08:39AM]	Opened the player owned shop: Mrbenz94	
+[5/7/16 08:39AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/7/16 08:39AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:39AM]	Jonny in EnterInputPacketListener: dragon claw	
+[5/7/16 08:39AM]	Jonny has clicked button in ButtonClickPacketListener -24026	
+[5/7/16 08:39AM]	Opened the player owned shop: Vayne Magnet	
+[5/7/16 08:40AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/7/16 08:40AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:44AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:44AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/7/16 08:44AM]	Jonny has clicked button in ButtonClickPacketListener -24058	
+[5/7/16 08:44AM]	Opened the player owned shop: Kostikas	
+[5/7/16 08:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:51AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:51AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/7/16 08:51AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:53AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:53AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:53AM]	Jonny in EnterInputPacketListener: dragon claw	
+[5/7/16 08:53AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 08:56AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:56AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/7/16 08:56AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:56AM]	Opened the player owned shop: Suricato	
+[5/7/16 08:56AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/7/16 08:56AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 08:56AM]	Jonny in EnterInputPacketListener: dragon claw	
+[5/7/16 08:56AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 08:56AM]	Opened the player owned shop: Fadedaway	
+[5/7/16 09:00AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:00AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/7/16 09:00AM]	Jonny in EnterInputPacketListener: dragon claw	
+[5/7/16 09:00AM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/7/16 09:00AM]	Opened the player owned shop: Fadedaway	
+[5/7/16 09:01AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/7/16 09:01AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/7/16 09:01AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:10AM]	Jonny has done command edge	
+[5/7/16 09:10AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:13AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:13AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:13AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:16AM]	Jonny has done command edge	
+[5/7/16 09:16AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:16AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:18AM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/7/16 09:19AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/7/16 09:19AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:20AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:22AM]	Jonny has done command mypos	
+[5/7/16 09:23AM]	Jonny in ObjectActionPacketListener: 1733 - FIRST_CLICK_OPCODE	
+[5/7/16 09:23AM]	Jonny in ObjectActionPacketListener: 1733 - FIRST_CLICK_OPCODE	
+[5/7/16 09:23AM]	Jonny in ObjectActionPacketListener: 1734 - FIRST_CLICK_OPCODE	
+[5/7/16 09:23AM]	Jonny in ObjectActionPacketListener: 1734 - FIRST_CLICK_OPCODE	
+[5/7/16 09:25AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/7/16 09:25AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:25AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:26AM]	Jonny has done command mypos	
+[5/7/16 09:26AM]	Jonny has done command noclip	
+[5/7/16 09:26AM]	Jonny has done command mypos	
+[5/7/16 09:26AM]	Jonny has done command tele 3286 3901	
+[5/7/16 09:26AM]	Jonny has clicked button in ButtonClickPacketListener 152	
+[5/7/16 09:27AM]	Jonny has done command mypos	
+[5/7/16 09:27AM]	Jonny has done command tele 3086 3500	
+[5/7/16 09:27AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:28AM]	Jonny has done command mb	
+[5/7/16 09:28AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/7/16 09:28AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:28AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:28AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:28AM]	Jonny has done command mb	
+[5/7/16 09:28AM]	Jonny in ObjectActionPacketListener: 5960 - FIRST_CLICK_OPCODE	
+[5/7/16 09:29AM]	Jonny has done command tele tele 2539 4712	
+[5/7/16 09:29AM]	Jonny has done command tele 2539 4712	
+[5/7/16 09:30AM]	Jonny has done command tele 2561 3311	
+[5/7/16 09:30AM]	Jonny has done command tele 3153 3923	
+[5/7/16 09:30AM]	Jonny has done command mypos	
+[5/7/16 09:32AM]	Jonny in ObjectActionPacketListener: 5959 - FIRST_CLICK_OPCODE	
+[5/7/16 09:32AM]	Jonny has done command tele 3090 3956	
+[5/7/16 09:32AM]	Jonny has done command mypos	
+[5/7/16 09:32AM]	Jonny in ObjectActionPacketListener: 5959 - FIRST_CLICK_OPCODE	
+[5/7/16 09:32AM]	Jonny in ObjectActionPacketListener: 5960 - FIRST_CLICK_OPCODE	
+[5/7/16 09:32AM]	Jonny in ObjectActionPacketListener: 5960 - FIRST_CLICK_OPCODE	
+[5/7/16 09:33AM]	Jonny in ObjectActionPacketListener: 5960 - FIRST_CLICK_OPCODE	
+[5/7/16 09:33AM]	Jonny in ObjectActionPacketListener: 5960 - FIRST_CLICK_OPCODE	
+[5/7/16 09:33AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/7/16 09:33AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:34AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:34AM]	Jonny has done command edge	
+[5/7/16 09:34AM]	Jonny has done command tele 3086 3500	
+[5/7/16 09:34AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
