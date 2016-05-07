@@ -88,7 +88,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
         if (item.getId() == 995)
             return;
         long finalValue = 0;
-        PosOffers o = PlayerOwnedShops.SHOPS[index];
+        PosOffers o = PlayerOwnedShops.SHOPS_ARRAYLIST.get(index);
         if (o == null)
             return;
 
@@ -133,11 +133,10 @@ public class PlayerOwnedShopContainer extends ItemContainer {
      * @param player The player to open the shop for
      * @return The shop instance
      */
-    public PlayerOwnedShopContainer open(Player player, String owner) {
+    public PlayerOwnedShopContainer open(Player player, String owner, int i) {
         setPlayer(player);
         getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
-        getPlayer().setPlayerOwnedShop(PlayerOwnedShopManager.getShops().get(getIndex(owner)))
-                .setInterfaceId(INTERFACE_ID).setPlayerOwnedShopping(true);
+        getPlayer().setPlayerOwnedShop(PlayerOwnedShopManager.getShops().get(i)).setInterfaceId(INTERFACE_ID).setPlayerOwnedShopping(true);
         refreshItems();
         return this;
     }
@@ -198,7 +197,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
             inventorySpace = true;
         if (player.getInventory().getFreeSlots() > 0 || player.getInventory().getAmount(995) > 0)
             inventorySpace = true;
-        PosOffers o = PlayerOwnedShops.SHOPS[index];
+        PosOffers o = PlayerOwnedShops.SHOPS_ARRAYLIST.get(index);
         if (o == null)
             return;
         if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
@@ -303,7 +302,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 
         int value = 0;
 
-        PosOffers o = PlayerOwnedShops.SHOPS[index];
+        PosOffers o = PlayerOwnedShops.SHOPS_ARRAYLIST.get(index);
         if (o == null)
             return this;
 
@@ -521,7 +520,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
         }
 
         public static void load() {
-            for (PosOffers o : PlayerOwnedShops.SHOPS) {
+            for (PosOffers o : PlayerOwnedShops.SHOPS_ARRAYLIST) {
                 if (o == null) {
                     continue;
                 }
@@ -529,8 +528,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
                 for (int i = 0; i < o.getOffers().size(); i++) {
                     items[i] = new Item(o.getOffers().get(i).getItemId(), o.getOffers().get(i).getAmount());
                 }
-                pos_shops.put(getIndex(o.getOwner()),
-                        new PlayerOwnedShopContainer(null, o.getOwner(), items));
+                pos_shops.put(getIndex(o.getOwner()), new PlayerOwnedShopContainer(null, o.getOwner(), items));
             }
         }
     }

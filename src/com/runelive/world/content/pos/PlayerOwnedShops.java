@@ -17,7 +17,8 @@ import java.util.concurrent.Executors;
  
 public class PlayerOwnedShops {
  
-    public static final PosOffers[] SHOPS = new PosOffers[5000];
+    public static ArrayList<PosOffers> SHOPS_ARRAYLIST = new ArrayList<PosOffers>();
+    public static ArrayList<String> SHOPS_TO_SEARCH = new ArrayList<String>();
  
     public static void init() {
         try {
@@ -41,8 +42,8 @@ public class PlayerOwnedShops {
                     for (int i2 = 0; i2 < shopItems; i2++) {
                         sell_offers[i2] = new PosOffer(in.readInt(), in.readInt(), in.readInt(), in.readLong());
                     }
-                    SHOPS[i] =
-                            new PosOffers(owner_name, store_caption, shopItems, coins_to_collect, sell_offers);
+                    SHOPS_ARRAYLIST.add(new PosOffers(owner_name, store_caption, shopItems, coins_to_collect, sell_offers));
+                    SHOPS_TO_SEARCH.add(owner_name.toLowerCase());
                 }
             }
             in.close();
@@ -85,7 +86,7 @@ public class PlayerOwnedShops {
         try {
             file = new RandomAccessFile(pos + "/shops.dat", "rw");
             file.writeInt(getCount());
-            for (PosOffers offer : SHOPS) {
+            for (PosOffers offer : SHOPS_ARRAYLIST) {
                 if (offer == null) {
                     continue;
                 }
@@ -128,14 +129,7 @@ public class PlayerOwnedShops {
     }
  
     private static int getCount() {
-        int count = 0;
-        for (int i = 0; i < SHOPS.length; i++) {
-            if (SHOPS[i] == null) {
-                continue;
-            }
-            count++;
-        }
-        return count;
+        return SHOPS_ARRAYLIST.size();
     }
  
     public static boolean posButtons(Player player, int buttonId) {
@@ -157,7 +151,7 @@ public class PlayerOwnedShops {
     }
  
     public static void soldItem(Player player, int index, int item_id, int item_amount, long price) {
-        PosOffers o = SHOPS[index];
+        PosOffers o = SHOPS_ARRAYLIST.get(index);
         if (o != null) {
             PosOffer offer = o.forId(item_id);
             if (offer != null) {
@@ -177,19 +171,12 @@ public class PlayerOwnedShops {
     }
  
     public static int getIndex(String name) {
-        for (int i = 0; i < SHOPS.length; i++) {
-            PosOffers p = SHOPS[i];
-            if (p != null) {
-                if (p.getOwner().equalsIgnoreCase(name))
-                    return i;
-            }
-        }
-        return -1;
+        return SHOPS_TO_SEARCH.indexOf(name.toLowerCase());
     }
  
     public static int getFreeIndex() {
-        for (int i = 0; i < SHOPS.length; i++) {
-            PosOffers p = SHOPS[i];
+        for (int i = 0; i < SHOPS_ARRAYLIST.size(); i++) {
+            PosOffers p = SHOPS_ARRAYLIST.get(i);
             if (p == null) {
                 return i;
             }
@@ -204,39 +191,33 @@ public class PlayerOwnedShops {
             stock[i] = -1;
             stockAmount[i] = 1;
         }
- 
-        for (int i = 0; i < SHOPS.length; i++) {
-            PosOffers o = SHOPS[i];
-            if (o != null) {
-                if (o.getOwner().toLowerCase().equals(username.toLowerCase())) {
-                    // player.getPacketSender().sendString(3903, "Shop caption");
-                    PlayerOwnedShopManager.getShops().get(PlayerOwnedShopContainer.getIndex(o.getOwner()))
-                            .open(player, username.toLowerCase());
-                    PlayerLogs.log(player.getUsername(), "Opened the player owned shop: " + username + "");
-                    if (i == SHOPS.length)
-                        player.getPacketSender().sendMessage("This shop does not exist!");
-                    break;
-                }
-            } else {
-                if (player.getUsername().equalsIgnoreCase(username)) {
-                    PosOffer[] offers = new PosOffer[40];
-                    SHOPS[i] = new PosOffers(player.getUsername(), player.getUsername() + "'s store",
-                            offers.length, 0, offers);
-                    Item[] default_items = new Item[0];
-                    PlayerOwnedShopManager.getShops().put(i,
-                            new PlayerOwnedShopContainer(null, player.getUsername(), default_items));
-                    openShop(player.getUsername(), player);
-                    break;
-                } else {
-                    player.getPacketSender().sendMessage("This shop does not exist!");
-                }
-                break;
-            }
-        }
+		int i = getIndex(username.toLowerCase());
+		if(i >= 0) {
+			String name = SHOPS_TO_SEARCH.get(i);
+			if (name.equals(username.toLowerCase())) {
+				// player.getPacketSender().sendString(3903, "Shop caption");
+				PlayerOwnedShopManager.getShops().get(i).open(player, username.toLowerCase(), i);
+				PlayerLogs.log(player.getUsername(), "Opened the player owned shop: " + username + "");
+				if (i == SHOPS_ARRAYLIST.size())
+					player.getPacketSender().sendMessage("This shop does not exist!");
+			}
+		} else {
+			if (player.getUsername().equalsIgnoreCase(username)) {
+				PosOffer[] offers = new PosOffer[40];
+				SHOPS_ARRAYLIST.add(new PosOffers(player.getUsername(), player.getUsername() + "'s store", offers.length, 0, offers));
+				SHOPS_TO_SEARCH.add(player.getUsername().toLowerCase());
+				Item[] default_items = new Item[0];
+				PlayerOwnedShopManager.getShops().put(SHOPS_ARRAYLIST.size(),
+						new PlayerOwnedShopContainer(null, player.getUsername(), default_items));
+				openShop(player.getUsername(), player);
+			} else {
+				player.getPacketSender().sendMessage("This shop does not exist!");
+			}
+		}
     }
  
     public static void collectCoinsOnLogin(Player player) {
-        for (PosOffers o : SHOPS) {
+        for (PosOffers o : SHOPS_ARRAYLIST) {
             if (o == null)
                 continue;
             if (o.getOwner().toLowerCase().equals(player.getUsername().toLowerCase())) {
