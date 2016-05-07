@@ -2219,5 +2219,17 @@
         "line2": "No! Keep me out of there!",
         "next": -1,
         "npcId": -1
+    },
+	{
+        "id": 180,
+        "type": "OPTION",
+        "lines": 5,
+        "line1": "Al Kharid",
+        "line2": "Yanille",
+        "line3": "Shilo Village",
+        "line4": "Neitiznot",
+        "line5": "Burthorpe",
+        "next": -1,
+        "npcId": -1
     }
 ]

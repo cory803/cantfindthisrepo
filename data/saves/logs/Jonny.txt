@@ -5505,3 +5505,56 @@
 [5/6/16 05:37PM]	Jonny in NPCOptionPacketListener: 946 - THIRD_CLICK_OPCODE	
 [5/6/16 05:37PM]	Jonny has changed close interface in CloseInterfacePacketListener	
 [5/6/16 05:37PM]	Jonny in NPCOptionPacketListener: 946 - THIRD_CLICK_OPCODE	
+[5/6/16 05:40PM]	Jonny in NPCOptionPacketListener: 946 - SECOND_CLICK_OPCODE	
+[5/6/16 05:40PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/6/16 05:40PM]	Jonny in NPCOptionPacketListener: 946 - THIRD_CLICK_OPCODE	
+[5/6/16 05:40PM]	Jonny in ItemContainerActionPacketListener: First Action - 19476 - 3900 - 15	
+[5/6/16 05:40PM]	Jonny in ItemContainerActionPacketListener: First Action - 19476 - 3900 - 15	
+[5/6/16 05:40PM]	Jonny in ItemContainerActionPacketListener: First Action - 19476 - 3900 - 15	
+[5/6/16 05:40PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/6/16 05:40PM]	Jonny in NPCOptionPacketListener: 1385 - FIRST_CLICK_OPCODE	
+[5/6/16 05:51PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:52PM]	Jonny has done command changepassword	
+[5/6/16 05:52PM]	Player changed password from: iii  to: underme	
+[5/6/16 05:52PM]	Jonny in EnterInputPacketListener: underme	
+[5/6/16 05:52PM]	Jonny has done command item 21102 1	
+[5/6/16 05:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:53PM]	Jonny has done command item 21102 1	
+[5/6/16 05:53PM]	Jonny in EquipPacketListener: 21102 from Inventory	
+[5/6/16 05:53PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:05PM]	Jonny has done command tele 1245 1245	
+[5/6/16 06:06PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:06PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:07PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:08PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:11PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:15PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:16PM]	Jonny has clicked button in ButtonClickPacketListener 1541	
+[5/6/16 06:17PM]	Jonny has clicked button in ButtonClickPacketListener 1174	
+[5/6/16 06:17PM]	Jonny has clicked button in ButtonClickPacketListener 1174	
+[5/6/16 06:18PM]	Jonny has clicked button in ButtonClickPacketListener 1174	
+[5/6/16 06:20PM]	Jonny has done command tele 3276 3166	
+[5/6/16 06:20PM]	Jonny has done command tele 2606 3093	
+[5/6/16 06:21PM]	Jonny has done command tele 2929 3559	
+[5/6/16 06:21PM]	Jonny has done command tele 2336 3803	
+[5/6/16 06:21PM]	Jonny has done command tele 2852 2962	
+[5/6/16 06:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 06:22PM]	Jonny has clicked button in ButtonClickPacketListener 1541	
+[5/6/16 06:22PM]	Jonny has clicked button in ButtonClickPacketListener 1174	
+[5/6/16 06:22PM]	Jonny has clicked button in ButtonClickPacketListener 1174	
+[5/6/16 06:22PM]	Jonny has clicked button in ButtonClickPacketListener 1174	
+[5/6/16 06:22PM]	Jonny has clicked button in ButtonClickPacketListener 1174	

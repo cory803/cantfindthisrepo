@@ -24,5 +24,6 @@ public class ChangePassword extends Input {
         "Player changed password from: " + player.getPassword() + "  to: " + syntax);
     player.setPassword(syntax);
     player.getPacketSender().sendMessage("Your account's password is now: " + syntax);
+	player.save();
   }
 }
