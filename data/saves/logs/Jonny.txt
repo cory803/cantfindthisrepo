@@ -5485,3 +5485,23 @@
 [5/6/16 05:23PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
 [5/6/16 05:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [5/6/16 05:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:26PM]	Jonny has done command FID TA	
+[5/6/16 05:26PM]	Jonny has done command find ta	
+[5/6/16 05:26PM]	Jonny has done command find teleport tab	
+[5/6/16 05:28PM]	Jonny has done command tem item 13604 1	
+[5/6/16 05:28PM]	Jonny has done command item 13604 1	
+[5/6/16 05:30PM]	Jonny has done command tele 3037 3670	
+[5/6/16 05:31PM]	Jonny has done command mypos	
+[5/6/16 05:31PM]	Jonny has done command mypos	
+[5/6/16 05:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:32PM]	Jonny has done command item 19476 1000	
+[5/6/16 05:32PM]	Jonny in ItemActionPacketListener: 19476	
+[5/6/16 05:33PM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/6/16 05:37PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/6/16 05:37PM]	Jonny in ItemActionPacketListener: 19476	
+[5/6/16 05:37PM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/6/16 05:37PM]	Jonny in NPCOptionPacketListener: 946 - SECOND_CLICK_OPCODE	
+[5/6/16 05:37PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/6/16 05:37PM]	Jonny in NPCOptionPacketListener: 946 - THIRD_CLICK_OPCODE	
+[5/6/16 05:37PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/6/16 05:37PM]	Jonny in NPCOptionPacketListener: 946 - THIRD_CLICK_OPCODE	

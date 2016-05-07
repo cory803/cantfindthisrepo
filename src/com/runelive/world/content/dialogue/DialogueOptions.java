@@ -1025,6 +1025,13 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 225:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.getInventory().delete(19476, 1);
+				TeleportHandler.teleportPlayer(player, new Position(
+                ConstructionConstants.BANDITCAMPWILD_X,
+                ConstructionConstants.BANDITCAMPWILD_Y), TeleportType.TELE_TAB);
+				break;
 			case 217:
 				player.setDialogueActionId(219);
 				DialogueManager.start(player, 218);
@@ -1309,6 +1316,9 @@ public class DialogueOptions {
 			case 219:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("You decided to keep your game mode how it is and not adjust to a normal player.");
+				break;
+			case 225:
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 220:
 				DialogueManager.start(player, 219);

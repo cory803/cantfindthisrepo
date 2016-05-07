@@ -2210,5 +2210,14 @@
         "line2": "I have noted all your raw fish.",
         "next": -1,
         "npcId": 501
+    },
+	{
+        "id": 225,
+        "type": "OPTION",
+        "lines": 2,
+        "line1": "Yes, I want to teleport to the Wilderness.",
+        "line2": "No! Keep me out of there!",
+        "next": -1,
+        "npcId": -1
     }
 ]

@@ -113,6 +113,12 @@ public class ItemActionPacketListener implements PacketListener {
         TeleportHandler.teleportPlayer(player, new Position(
                 ConstructionConstants.LUMBY_X,
                 ConstructionConstants.LUMBY_Y), TeleportType.TELE_TAB);
+        break; 
+		case 19476:
+        if(!TeleportHandler.checkReqs(player, null))
+          break;
+        player.setDialogueActionId(225);
+        DialogueManager.start(player, 225);
         break;
       case 8009:
         if(!TeleportHandler.checkReqs(player, null))

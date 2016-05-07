@@ -29,6 +29,8 @@ public class ConstructionConstants {
 	public static final String ARDOUGNE = "";
 	public static final int KHARYRLL_X = 3492;
 	public static final int KHARYRLL_Y = 3471;
+	public static final int BANDITCAMPWILD_X = 3038;
+	public static final int BANDITCAMPWILD_Y = 3651;
 
 	public static final int EDGEVILLE_X = 3087;
 	public static final int EDGEVILLE_Y = 3500;
