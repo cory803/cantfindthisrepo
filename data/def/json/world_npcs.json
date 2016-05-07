@@ -42,6 +42,32 @@
         "npc-id": 3069,
 		"face": WEST,
         "position": {
+        	"x": 3201,
+        	"y": 3817,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 3069,
+		"face": WEST,
+        "position": {
+        	"x": 3188,
+        	"y": 3887,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 2
+        }
+    },
+	{
+        "npc-id": 3069,
+		"face": WEST,
+        "position": {
         	"x": 3205,
         	"y": 3835,
         	"z": 0
