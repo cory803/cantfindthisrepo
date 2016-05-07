@@ -2211,6 +2211,25 @@
         "next": -1,
         "npcId": 501
     },
+    {
+        "id": 323,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 1,
+        "line1": "My head looks like Vados's ballsack.",
+        "next": -1,
+        "npcId": 594
+    },
+    {
+        "id": 324,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 2,
+        "line1": "Clean cut",
+        "line1": "I like it, very good.",
+        "next": -1,
+        "npcId": 594
+    },
 	{
         "id": 225,
         "type": "OPTION",
