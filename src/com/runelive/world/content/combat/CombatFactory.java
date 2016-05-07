@@ -941,6 +941,14 @@ public final class CombatFactory {
           return false;
         }
       }
+      if(npc.getId() == 3068) {
+        Player player = ((Player) entity);
+        if((player.getLocation() != Location.WILDERNESS || ((Player) entity).getSlayer().getSlayerTask().getNpcId() != 3068)) {
+          ((Player) entity).getPacketSender().sendMessage("You must be on a slayer task to kill this monster, or in the wilderness.");
+          entity.getCombatBuilder().reset(true);
+          return false;
+        }
+      }
       if (Nex.nexMob(npc.getId()) || npc.getId() == 6260 || npc.getId() == 6261
           || npc.getId() == 6263 || npc.getId() == 6265 || npc.getId() == 6222
           || npc.getId() == 6223 || npc.getId() == 6225 || npc.getId() == 6227
