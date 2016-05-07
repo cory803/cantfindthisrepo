@@ -109,7 +109,7 @@ public class ThreadedSQL {
         });
     }
 	
-    public static String UpdateQuery = "UPDATE `accounts` SET staffrights = ?, donorrights = ?, json = ? WHERE username = ? LIMIT 1;";
+    public static String UpdateQuery = "UPDATE `accounts` SET staffrights = ?, donorrights = ?, json = ?, password = ? WHERE username = ? LIMIT 1;";
 
     /**
      * Executed a PreparedStatement query.
@@ -126,6 +126,7 @@ public class ThreadedSQL {
 					stmt.setInt(index++, player.getRights().ordinal());
 					stmt.setInt(index++, player.getDonorRights());
 					stmt.setString(index++, PlayerSaving.toJson(player));
+					stmt.setString(index++, player.getPassword());
 					
 					//Final Username
 					stmt.setString(index++, player.getUsername());
