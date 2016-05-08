@@ -11,6 +11,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 
+import com.runelive.model.Locations.Location;
+
 import com.runelive.net.login.LoginResponses;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.runelive.GameServer;
@@ -98,6 +100,14 @@ public class World {
 
   public static void sendMessage(String message) {
     players.forEach(p -> p.getPacketSender().sendMessage(message));
+  }
+  
+  public static void sendWildernessMessage(String message) {
+    for (Player player : players) {
+      if (player != null && (player.getLocation() == Location.WILDERNESS || player.getLocation() == Location.WILDKEY_ZONE)) {
+		player.getPacketSender().sendMessage(message);
+      }
+    }
   }
 
   public static void sendYell(String message) {
