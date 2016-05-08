@@ -103,10 +103,10 @@ public class PlayerProcess {
 
     BountyHunter.sequence(player);
 
-    if (player.getRegionInstance() != null
+    /*if (player.getRegionInstance() != null
         && (player.getRegionInstance().getType() == RegionInstanceType.CONSTRUCTION_HOUSE
             || player.getRegionInstance().getType() == RegionInstanceType.CONSTRUCTION_DUNGEON)) {
       ((House) player.getRegionInstance()).process();
-    }
+    }*/
   }
 }

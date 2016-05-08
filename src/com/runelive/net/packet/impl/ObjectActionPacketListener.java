@@ -83,10 +83,9 @@ public class ObjectActionPacketListener implements PacketListener {
     final int y = packet.readUnsignedShortA();
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
-    if (id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 2213 && id != 411 && id != 21772 && id != 881
-        && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)&& player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
-      player.getPacketSender().sendMessage("An error occured. Error code: " + id)
-          .sendMessage("Please report the error to a staff member.");
+    if (id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 1276 && id != 2213 && id != 411 && id != 21772 && id != 881
+        && !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
+      //player.getPacketSender().sendMessage("An error occured. Error code: " + id).sendMessage("Please report the error to a staff member.");
       return;
     }
     int distanceX = (player.getPosition().getX() - position.getX());
