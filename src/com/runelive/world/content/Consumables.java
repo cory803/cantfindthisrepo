@@ -1738,6 +1738,22 @@ public class Consumables {
                 case 149:
                     drinkStatPotion(player, itemId, 229, slot, 0, true); // Super Attack pot 1
                     break;
+
+		/*
+         * Super combat potions
+         */
+                case 11517:
+                    drinkStatPotion(player, itemId, 11519, slot, 100, true);
+                    break;
+                case 11519:
+                    drinkStatPotion(player, itemId, 11521, slot, 100, true);
+                    break;
+                case 11521:
+                    drinkStatPotion(player, itemId, 11523, slot, 100, true); 
+                    break;
+                case 11523:
+                    drinkStatPotion(player, itemId, 229, slot, 100, true);
+                    break;
         /*
          * Super Anti poison potions
          */
@@ -2734,9 +2750,15 @@ public class Consumables {
         }
         player.getInventory().refreshItems();
         boolean cbPot = potion == 9739 || potion == 9741 || potion == 9743 || potion == 9745;
-        Skill sk = Skill.forId(skill);
-        player.getSkillManager().setCurrentLevel(sk, player.getSkillManager().getCurrentLevel(sk)
-                + getBoostedStat(player, skill, super_pot, cbPot), true);
+		if(skill == 100) {
+			player.getSkillManager().setCurrentLevel(Skill.forId(0), player.getSkillManager().getCurrentLevel(Skill.forId(0)) + getBoostedStat(player, 0, super_pot, cbPot));
+			player.getSkillManager().setCurrentLevel(Skill.forId(1), player.getSkillManager().getCurrentLevel(Skill.forId(1)) + getBoostedStat(player, 1, super_pot, cbPot));
+			player.getSkillManager().setCurrentLevel(Skill.forId(2), player.getSkillManager().getCurrentLevel(Skill.forId(2)) + getBoostedStat(player, 2, super_pot, cbPot));
+		} else {
+			Skill sk = Skill.forId(skill);
+			player.getSkillManager().setCurrentLevel(sk, player.getSkillManager().getCurrentLevel(sk)
+					+ getBoostedStat(player, skill, super_pot, cbPot), true);
+		}
     }
 
     public static boolean drinkOverload(final Player player, int slot, int replacePotion) {
