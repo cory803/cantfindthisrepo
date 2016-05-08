@@ -637,3 +637,41 @@
 [4/26/16 11:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [4/29/16 08:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [4/29/16 08:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:38AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:38AM]	Dc Blitz has done command wests	
+[5/8/16 08:39AM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 08:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Saradomin brew flask (6)(14427), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Saradomin brew flask (6)(14427), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Super restore flask (6)(14415), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Super restore flask (6)(14415), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Super attack flask (6)(14188), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Super strength flask (6)(14176), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Astral rune(9075), amount: 396	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Super restore flask (6)(14415), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Dragon halberd(3204), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Death rune(560), amount: 198	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Earth rune(557), amount: 390	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rune full helm(1163), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Amulet of glory (1)(1706), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rune platebody(1127), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rune kiteshield(1201), amount: 1	
+[5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rune platelegs(1079), amount: 1	
