@@ -171,15 +171,24 @@ public class Herblore {
     }
     if (!p.getClickDelay().elapsed(500))
       return;
+  
+	StringBuilder herbItemsDontHave = new StringBuilder();
+	boolean messageIt = false;
     for (Item ingridients : specialPotData.getIngridients()) {
       if (!p.getInventory().contains(ingridients.getId())
           || p.getInventory().getAmount(ingridients.getId()) < ingridients.getAmount()) {
-        p.getPacketSender().sendMessage("You do not have all ingridients for this potion.");
-        p.getPacketSender()
-            .sendMessage("Remember: You can purchase an Ingridient's book from the Druid Spirit.");
-        return;
+			  herbItemsDontHave.append(""+ingridients.getAmount()+"x "+ItemDefinition.forId(ingridients.getId()).name+", ");
+			messageIt = true;
       }
     }
+	if(messageIt) {
+		herbItemsDontHave.deleteCharAt(herbItemsDontHave.length() - 1);
+		herbItemsDontHave.deleteCharAt(herbItemsDontHave.length() - 1);
+		p.getPacketSender().sendMessage("You do not have all ingridients for this potion.");
+		p.getPacketSender().sendMessage("You are missing: "+herbItemsDontHave.toString()+"");
+        p.getPacketSender().sendMessage("<col=ff0000>Remember: You can purchase an Ingridient's book from the Druid Spirit.");
+		return;
+	}
     for (Item ingridients : specialPotData.getIngridients())
       p.getInventory().delete(ingridients);
     p.getInventory().add(specialPotData.getProduct());

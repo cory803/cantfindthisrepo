@@ -141,8 +141,7 @@ public class UseItemPacketListener implements PacketListener {
               || Herblore.makeUnfinishedPotion(player, itemUsedWith.getId()))
         return;
     }
-    if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId())
-            || Herblore.finishPotion(player, itemUsedWith.getId(), usedWith.getId()))
+    if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId()))
       return;
     if (usedWith.getId() == 946 || itemUsedWith.getId() == 946) {
       Fletching.openSelection(player,
@@ -185,7 +184,6 @@ public class UseItemPacketListener implements PacketListener {
         }
         if (usedWith.getId() == 1733 || itemUsedWith.getId() == 1733)
           LeatherMaking.craftLeatherDialogue(player, usedWith.getId(), itemUsedWith.getId());
-        Herblore.handleSpecialPotion(player, itemUsedWith.getId(), usedWith.getId());
         ItemForging.forgeItem(player, itemUsedWith.getId(), usedWith.getId());
         if (player.getRights() == PlayerRights.OWNER)
           player.getPacketSender().sendMessage(
