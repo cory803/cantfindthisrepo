@@ -69,11 +69,11 @@ public class PlayerKillingAttributes {
     player.getLocation() == Location.WILDERNESS) {
       if (!killedPlayers.contains(o.getUsername()))
         killedPlayers.add(o.getUsername());
+	
+	  this.playerKills += 1;
+	  this.playerKillStreak += 1;
       player.getPacketSender().sendMessage(getRandomKillMessage(o.getUsername()));
-      player.getPointsHandler().setPkPoints(5, true);
-      this.playerKills += 1;
-      this.playerKillStreak += 1;
-      player.getPacketSender().sendMessage("You've received five Pk points.");
+	  Killstreak.kill(player, o, getPlayerKillStreak());
       Artifacts.handleDrops(player, o, targetKilled);
       if (player.getAppearance().getBountyHunterSkull() < 4)
         player.getAppearance()
