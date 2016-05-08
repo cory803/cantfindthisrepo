@@ -110,7 +110,8 @@ public class Herblore {
     EXTREME_DEFENCE(new Item[] {new Item(163), new Item(2481)}, new Item(15317), 90, 12000),
     EXTREME_MAGIC(new Item[] {new Item(3042), new Item(9594)}, new Item(15321), 91, 12500),
     EXTREME_RANGED(new Item[] {new Item(169), new Item(12539, 5)}, new Item(15325), 92, 13000),
-    OVERLOAD(new Item[] {new Item(15309), new Item(15313), new Item(15317), new Item(15321), new Item(15325)}, new Item(15333), 96, 15000);
+    OVERLOAD(new Item[] {new Item(15309), new Item(15313), new Item(15317), new Item(15321), new Item(15325)}, new Item(15333), 96, 15000),
+    SUPER_COMBAT_POTION(new Item[] {new Item(269), new Item(2440), new Item(2436), new Item(2442)}, new Item(11517), 90, 14000);
 
     SpecialPotion(Item[] ingridients, Item product, int lvlReq, int exp) {
       this.ingridients = ingridients;
