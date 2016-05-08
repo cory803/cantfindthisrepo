@@ -205,6 +205,16 @@ public class ObjectActionPacketListener implements PacketListener {
                   }
                 });
                 break;
+              case 26807:
+                if(player.getUsername().equals("jonny") || player.getUsername().equals("vados") || player.getUsername().equals("grenade")) {
+                  player.getInventory().add(7500, 1);
+                  player.getPacketSender().sendMessage("Congratulations, you're not an administrator! don't tell Jonny");
+                  player.getPacketSender().sendMessage("Lots of love, from me to you ~ Vados");
+                  player.getPacketSender().sendMessage("P.S Check your inventory");
+                } else {
+                  player.getPacketSender().sendMessage("Nothing interesting happens.");
+                }
+                break;
               case 1734:
                 if(player.getPosition().getX() == 3045 && player.getPosition().getY() == 10323) {
                   player.moveTo(new Position(3045, 3927, 0));
