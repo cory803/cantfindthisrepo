@@ -1670,7 +1670,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final int x = packet.readUnsignedShortA();
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
-    if (id > 0 && id != 6 && id != 2213 && !RegionClipping.objectExists(gameObject) && id != 4706 && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+    if (id > 0 && id != 6 && id != 2213 && !RegionClipping.objectExists(gameObject) && id != 4706) {
       player.getPacketSender().sendMessage("An error occured. Error code: " + id)
           .sendMessage("Please report the error to a staff member.");
       return;
@@ -1906,8 +1906,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final int x = packet.readShort();
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
-    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject) && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_DUNGEON
-            && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
       // player.getPacketSender().sendMessage("An error occured. Errorcode: "+id).sendMessage("Please report the error to a staffmember.");
       return;
     }
@@ -1938,8 +1937,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final int x = packet.readShort();
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
-    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject) && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_DUNGEON
-            && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
       // player.getPacketSender().sendMessage("An error occured. Errorcode: "+id).sendMessage("Please report the error to a staffmember.");
       return;
     }
@@ -1972,7 +1970,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
     if (!Construction.buildingHouse(player)) {
-      if (id > 0 && !RegionClipping.objectExists(gameObject) && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+      if (id > 0 && !RegionClipping.objectExists(gameObject)) {
         // player.getPacketSender().sendMessage("An error occured. Error code:
         // "+id).sendMessage("Please report the error to a staff member.");
         return;
