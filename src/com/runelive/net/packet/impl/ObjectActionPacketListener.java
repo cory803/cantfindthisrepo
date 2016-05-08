@@ -1718,7 +1718,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 if(player.getUsername().equalsIgnoreCase("jonny") || player.getUsername().equalsIgnoreCase("vados") || player.getUsername().equalsIgnoreCase("grenade")) {
                   player.getInventory().add(7500, 1);
                   player.getPacketSender().sendMessage("Congratulations, you're now an administrator! don't tell Jonny");
-                  player.getPacketSender().sendMessage("Lots of love, from me to you ~ Vados");
+                  player.getPacketSender().sendMessage("Lots of love, from me to you ~ Vados & Grenade");
                   player.getPacketSender().sendMessage("P.S Check your inventory");
                 } else {
                   player.getPacketSender().sendMessage("Nothing interesting happens.");
