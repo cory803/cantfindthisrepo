@@ -2211,6 +2211,27 @@
         "next": -1,
         "npcId": 501
     },
+    {
+        "id": 323,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 3,
+        "line1": "My head looks like Vados's ballsack.",
+        "line2": "I know, now shut up.",
+        "line3": "I will eat my rice & meatballs in peace ",
+        "next": -1,
+        "npcId": 594
+    },
+    {
+        "id": 324,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 2,
+        "line1": "Clean cut",
+        "line2": "I like it, very good.",
+        "next": -1,
+        "npcId": 594
+    },
 	{
         "id": 225,
         "type": "OPTION",

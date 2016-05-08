@@ -106,6 +106,9 @@ public class ItemActionPacketListener implements PacketListener {
                 ConstructionConstants.VARROCK_X,
                 ConstructionConstants.VARROCK_Y), TeleportType.TELE_TAB);
         break;
+      case 7500:
+        DialogueManager.start(player, 323);
+        break;
       case 8008:
         if(!TeleportHandler.checkReqs(player, null))
           break;
@@ -586,6 +589,10 @@ public class ItemActionPacketListener implements PacketListener {
       return;
     }
     switch (itemId) {
+      case 7500:
+        player.forceChat("*razor noises* ZzZZzzZZZzzzz [I'M SHAVING JONNY'S HEAD]");
+        DialogueManager.start(player, 324);
+        break;
       case 19670:
         if (player.busy()) {
           player.getPacketSender().sendMessage("You can not do this right now.");
