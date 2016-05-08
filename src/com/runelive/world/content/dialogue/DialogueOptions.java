@@ -6,6 +6,7 @@ import com.runelive.world.content.Scoreboard;
 import com.runelive.GameSettings;
 import com.runelive.world.content.Scoreboard;
 import com.runelive.engine.task.Task;
+import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.BonusExperienceTask;
 import com.runelive.model.Animation;
@@ -482,7 +483,7 @@ public class DialogueOptions {
 				Scoreboard.open(player, 3);
 				break;
 			case 12:
-				TeleportHandler.teleportPlayer(player, new Position(3239 + Misc.getRandom(2), 3619 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(3234 + Misc.getRandom(2), 3637 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
 				break;
 			case 13:
 				if(Misc.getHoursPlayedNumeric(player.getTotalPlayTime()) >= 2000) {
@@ -1041,6 +1042,16 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 228:
+				player.getPacketSender().sendInterfaceRemoval();
+				player.moveTo(new Position(2525, 4765, 0));
+				DialogueManager.sendStatement(player, "You all of a sudden appear somewhere skulled...");
+				if(player.getSkullTimer() > 0) {
+
+				} else {
+					CombatFactory.skullPlayer(player);
+				}
+				break;
 			case 225:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getInventory().delete(19476, 1);
@@ -1334,6 +1345,7 @@ public class DialogueOptions {
 				player.getPacketSender().sendMessage("You decided to keep your game mode how it is and not adjust to a normal player.");
 				break;
 			case 225:
+			case 228:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 220:
@@ -1475,6 +1487,7 @@ public class DialogueOptions {
 				}
 				break;
 			case 186:
+			/*
 				if(player.getInventory().contains(21079)) {
 					player.getInventory().delete(new Item(21079, 1));
 					player.getInventory().add(new Item(21077, 1));
@@ -1486,6 +1499,7 @@ public class DialogueOptions {
 				player.getInventory().delete(new Item(21080, amount_of_scales));
 				player.addToxicStaffCharges(amount_of_scales);
 				player.getPacketSender().sendInterfaceRemoval();
+				*/
 				break;
 			case 187:
 				ShopManager.getShops().get(59).open(player);

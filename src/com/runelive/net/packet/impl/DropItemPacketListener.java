@@ -52,6 +52,7 @@ public class DropItemPacketListener implements PacketListener {
     }
     player.getPacketSender().sendInterfaceRemoval();
     player.getCombatBuilder().cooldown(false);
+	/*
     if (item.getId() == 21077) {
       if (player.getInventory().contains(21080) || player.getInventory().getFreeSlots() == 1) {
         player.getInventory().delete(new Item(21077, 1));
@@ -66,6 +67,7 @@ public class DropItemPacketListener implements PacketListener {
       }
       return;
     }
+	*/
     if (item != null && item.getId() != -1 && item.getAmount() >= 1) {
       if (item.tradeable() && !ItemBinding.isBoundItem(item.getId())
           && !player.getGameMode().equals(GameMode.IRONMAN)

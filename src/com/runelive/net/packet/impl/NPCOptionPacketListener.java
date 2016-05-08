@@ -148,6 +148,10 @@ public class NPCOptionPacketListener implements PacketListener {
               case 4707: // bolt enchanter
                 Enchanting.update_interface(player);
                 break;
+				case 5030:
+				    player.setDialogueActionId(228);
+					DialogueManager.start(player, 228);
+				break;
               case 1093: // unnoter
                 if (player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
                   DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");
@@ -798,6 +802,15 @@ public class NPCOptionPacketListener implements PacketListener {
                   BossSystem.startInstance(player, player.getLastBoss(), player.isBossSolo());
                 }
                 break;
+			case 5030:
+				player.moveTo(new Position(2525, 4765, 0));
+				DialogueManager.sendStatement(player, "You all of a sudden appear somewhere skulled...");
+				if(player.getSkullTimer() > 0) {
+
+				} else {
+					CombatFactory.skullPlayer(player);
+				}
+				break;
               case 536:
                 ShopManager.getShops().get(59).open(player);
                 break;

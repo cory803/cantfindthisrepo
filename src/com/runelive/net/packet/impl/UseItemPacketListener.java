@@ -96,6 +96,7 @@ public class UseItemPacketListener implements PacketListener {
       player.setDialogueActionId(184);
       DialogueManager.start(player, 184);
     }
+	/*
     if ((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080)
             || (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
       boolean already_has = false;
@@ -117,6 +118,7 @@ public class UseItemPacketListener implements PacketListener {
       player.setDialogueActionId(186);
       DialogueManager.start(player, 186);
     }
+	*/
     if (usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
       player.getPacketSender()
               .sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");

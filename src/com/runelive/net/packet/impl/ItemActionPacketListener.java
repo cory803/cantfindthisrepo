@@ -639,10 +639,12 @@ public class ItemActionPacketListener implements PacketListener {
         }
         break;
       case 21077:
+	  /*
         double charges = (double) player.getToxicStaffCharges() / 110;
         DecimalFormat double_decimal_format = new DecimalFormat("#.00");
         player.getPacketSender().sendMessage("Your Toxic staff of the dead has "
             + double_decimal_format.format(charges) + "% of it's charges left.");
+			*/
         break;
       case 15262:
         if (!player.getClickDelay().elapsed(1300))
