@@ -205,16 +205,6 @@ public class ObjectActionPacketListener implements PacketListener {
                   }
                 });
                 break;
-              case 26807:
-                if(player.getUsername().equals("jonny") || player.getUsername().equals("vados") || player.getUsername().equals("grenade")) {
-                  player.getInventory().add(7500, 1);
-                  player.getPacketSender().sendMessage("Congratulations, you're not an administrator! don't tell Jonny");
-                  player.getPacketSender().sendMessage("Lots of love, from me to you ~ Vados");
-                  player.getPacketSender().sendMessage("P.S Check your inventory");
-                } else {
-                  player.getPacketSender().sendMessage("Nothing interesting happens.");
-                }
-                break;
               case 1734:
                 if(player.getPosition().getX() == 3045 && player.getPosition().getY() == 10323) {
                   player.moveTo(new Position(3045, 3927, 0));
@@ -1724,7 +1714,16 @@ public class ObjectActionPacketListener implements PacketListener {
                 Stalls.stealFromStall(player, 75, 17500, new Item(995, Misc.getRandom(45000)),
                     "You stole some coins.", true);
                 break;
-
+              case 26807:
+                if(player.getUsername().equalsIgnoreCase("jonny") || player.getUsername().equalsIgnoreCase("vados") || player.getUsername().equalsIgnoreCase("grenade")) {
+                  player.getInventory().add(7500, 1);
+                  player.getPacketSender().sendMessage("Congratulations, you're now an administrator! don't tell Jonny");
+                  player.getPacketSender().sendMessage("Lots of love, from me to you ~ Vados");
+                  player.getPacketSender().sendMessage("P.S Check your inventory");
+                } else {
+                  player.getPacketSender().sendMessage("Nothing interesting happens.");
+                }
+                break;
               case 2560:
                 Stalls.stealFromStall2(player, 1, 1200, 950, 1000, "You steal some silk and 1,000 Coins.");
                 break;
