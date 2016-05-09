@@ -946,7 +946,7 @@ public class Shop extends ItemContainer {
             return new Object[] {2000, "Pk points"};  
 		case 11517:
 		case 11525:
-            return new Object[] {1, "Pk points"};
+            return new Object[] {2, "Pk points"};
         }
       } else if (shop == CREDIT_STORE_1) {
         switch (item) {
