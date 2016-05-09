@@ -100,36 +100,28 @@ public class Store {
 							switch(item) {
 								case 10943:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(10);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $10. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 10 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
 									break;
 								case 10934:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(25);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $25. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 25 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
 									break;
 								case 10935:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(50);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $50. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 50 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
 									break;
 								case 7629:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(125);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $125. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 125 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
