@@ -41,7 +41,7 @@ public class Store {
 							player.getPacketSender().sendMessage("<col=ff0000>"+amounts[i]+"x "+ItemDefinition.forId(Integer.parseInt(item_ids[i])).name+" has been added to your inventory.");
 						}
 						int itemId = Integer.parseInt(item_ids[i]);
-						if(itemId != 7629 && iitemId != 10934 && itemId != 10935 && itemId != 10943)
+						if(itemId != 7629 && itemId != 10934 && itemId != 10935 && itemId != 10943)
 							player.incrementAmountDonated(credits);
 					}
 					MemberScrolls.checkForRankUpdate(player);
