@@ -678,3 +678,9 @@
 [5/8/16 05:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/8/16 05:18PM]	Dc Blitz has done command wests	
 [5/8/16 05:19PM]	Dc Blitz in ItemActionPacketListener: 11525	
+[5/8/16 05:20PM]	Dc Blitz has done command edge	
+[5/8/16 05:21PM]	Dc Blitz in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/8/16 05:21PM]	Dc Blitz in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/8/16 05:21PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 11283 - 3900 - 37	
+[5/8/16 05:21PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/8/16 05:21PM]	Dc Blitz has done command find anti-venom	
