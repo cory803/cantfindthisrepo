@@ -1402,6 +1402,12 @@ public class ObjectActionPacketListener implements PacketListener {
               case 6704:
                 player.moveTo(new Position(3577, 3282, 0));
                 break;
+			case 5013:
+                player.moveTo(new Position(2838, 10124, 0));
+                break;
+			case 5998:
+                player.moveTo(new Position(2798, 10134, 0));
+                break;
               case 6706:
                 player.moveTo(new Position(3554, 3283, 0));
                 break;
@@ -1495,6 +1501,15 @@ public class ObjectActionPacketListener implements PacketListener {
                 player.performAnimation(new Animation(827));
                 player.delayedMoveTo(new Position(2209, 5348), 2);
                 break;
+			case 1756:
+                player.performAnimation(new Animation(827));
+                player.delayedMoveTo(new Position(2777, 10161), 2);
+                break;	
+			case 2268:
+                player.performAnimation(new Animation(828));
+                player.delayedMoveTo(new Position(3229, 3610), 2);
+                break;
+				
               case 19191:
               case 19189:
               case 19180:

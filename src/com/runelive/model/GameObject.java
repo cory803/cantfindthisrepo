@@ -167,6 +167,8 @@ public class GameObject extends Entity {
         return 5;
       case 1767:
         return 9;
+	  case 5013:
+		return 1;
     }
 
     if (definition.getSizeX() == 1)

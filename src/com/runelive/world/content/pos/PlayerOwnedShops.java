@@ -198,6 +198,7 @@ public class PlayerOwnedShops {
 				// player.getPacketSender().sendString(3903, "Shop caption");
 				PlayerOwnedShopManager.getShops().get(i).open(player, username.toLowerCase(), i);
 				PlayerLogs.log(player.getUsername(), "Opened the player owned shop: " + username + "");
+				player.setPlayerOwnedShopping(true);
 				if (i == SHOPS_ARRAYLIST.size())
 					player.getPacketSender().sendMessage("This shop does not exist!");
 			}

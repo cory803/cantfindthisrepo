@@ -96,6 +96,7 @@ public class UseItemPacketListener implements PacketListener {
       player.setDialogueActionId(184);
       DialogueManager.start(player, 184);
     }
+	/*
     if ((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080)
             || (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
       boolean already_has = false;
@@ -117,6 +118,7 @@ public class UseItemPacketListener implements PacketListener {
       player.setDialogueActionId(186);
       DialogueManager.start(player, 186);
     }
+	*/
     if (usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
       player.getPacketSender()
               .sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");
@@ -139,8 +141,7 @@ public class UseItemPacketListener implements PacketListener {
               || Herblore.makeUnfinishedPotion(player, itemUsedWith.getId()))
         return;
     }
-    if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId())
-            || Herblore.finishPotion(player, itemUsedWith.getId(), usedWith.getId()))
+    if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId()))
       return;
     if (usedWith.getId() == 946 || itemUsedWith.getId() == 946) {
       Fletching.openSelection(player,
@@ -183,7 +184,6 @@ public class UseItemPacketListener implements PacketListener {
         }
         if (usedWith.getId() == 1733 || itemUsedWith.getId() == 1733)
           LeatherMaking.craftLeatherDialogue(player, usedWith.getId(), itemUsedWith.getId());
-        Herblore.handleSpecialPotion(player, itemUsedWith.getId(), usedWith.getId());
         ItemForging.forgeItem(player, itemUsedWith.getId(), usedWith.getId());
         if (player.getRights() == PlayerRights.OWNER)
           player.getPacketSender().sendMessage(

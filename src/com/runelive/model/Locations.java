@@ -227,8 +227,8 @@ public class Locations {
             }
         },
         // 3653
-        WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059, 3008, 3070, 2250, 2295},
-                new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729}, false, true, true, true, true,
+        WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059, 3008, 3070, 2250, 2295, 2760, 2800, 2830, 2885},
+                new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729, 10120, 10180, 10105, 10150}, false, true, true, true, true,
                 true) {
             @Override
             public void process(Player player) {
@@ -236,12 +236,16 @@ public class Locations {
                 int y = player.getPosition().getY();
                 boolean ghostTown = x >= 3650 && y <= 3538;
                 boolean inKBD = x >= 2250 && x <= 2295 && y >= 4675 && y <= 4729;
+                boolean chaosTempleDungeon1 = x >= 2760 && x <= 2800 && y >= 10120 && y <= 10180;
+                boolean chaosTempleDungeon2 = x >= 2830 && x <= 2885 && y >= 10105 && y <= 10150;
                 boolean notInTown = y > 3507 && x < 3681;
                 boolean safeSpot = x == 3650 && y == 3472;
                 if (ghostTown && !safeSpot && !notInTown) {
                     player.setWildernessLevel(60);
                 } else if(inKBD) {
                     player.setWildernessLevel(20);
+                }  else if(chaosTempleDungeon1 || chaosTempleDungeon2) {
+                    player.setWildernessLevel(12);
                 } else {
                     player.setWildernessLevel(((((y > 6400 ? y - 6400 : y) - 3520) / 8) + 1));
                 }
@@ -528,7 +532,7 @@ public class Locations {
                 true) {},
         CERBERUS_CAVE(new int[]{1223, 1262}, new int[]{1226, 1280}, false, true, true, true, true,
                 true) {},
-        BOSS_SYSTEM(new int[]{2350, 2450}, new int[]{9800, 10000}, true, true, true, false, false,
+        BOSS_SYSTEM(new int[]{2845, 2865}, new int[]{9626, 9650}, true, true, true, false, false,
                 false) {
             @Override
             public void process(Player player) {
@@ -1001,7 +1005,8 @@ public class Locations {
                 if (gc.getLocation() != WILDERNESS) {
                     // rock crabs
                     if (x >= 2656 && x <= 2732 && y >= 3711 && y <= 3742
-                            || x >= 2885 && x <= 2920 && y >= 4375 && y <= 4415) {
+                            || x >= 2885 && x <= 2920 && y >= 4375 && y <= 4415
+							|| x >= 2505 && x <= 2550 && y >= 4760 && y <= 4795) {
                         return true;
                     }
                 }

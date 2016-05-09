@@ -373,10 +373,10 @@ public class ClanChatManager {
             img = 11;
           }
         }
-        if (player.getGameMode() == GameMode.IRONMAN) {
+        if (player.getGameMode() == GameMode.IRONMAN && !player.getRights().isStaff()) {
           img = 12;
         }
-        if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+        if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
           img = 13;
         }
         if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {

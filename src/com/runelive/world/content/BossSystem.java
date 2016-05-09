@@ -43,7 +43,7 @@ public class BossSystem {
   public static void startInstance(Player player, int bossID, boolean isSolo) {
     if (!isSolo) {
       final ClanChat clan = player.getCurrentClanChat();
-      player.moveTo(new Position(2392, 9903, player.getIndex() * 4));
+      player.moveTo(new Position(2861, 9640, player.getIndex() * 4));
       for (Player member : clan.getMembers()) {
         if (member != null) {
           ClanChatRank rank = clan.getRank(member);
@@ -56,7 +56,7 @@ public class BossSystem {
             if (others != null) {
               if (move_in) {
                 if (others.getLocation() == Location.BOSS_SYSTEM) {
-                  others.moveTo(new Position(2392, 9903, floor));
+                  others.moveTo(new Position(2861, 9640, floor));
                   others.setBossSolo(false);
                 }
               }
@@ -65,7 +65,7 @@ public class BossSystem {
         }
       }
     } else {
-      player.moveTo(new Position(2392, 9903, player.getIndex() * 4));
+      player.moveTo(new Position(2861, 9640, player.getIndex() * 4));
     }
     player.setRegionInstance(new RegionInstance(player, RegionInstanceType.BOSS_SYSTEM));
     spawnBoss(player, bossID);
@@ -76,7 +76,7 @@ public class BossSystem {
     if (!player.isBossSolo()) {
       Locations.Location.BOSS_SYSTEM.leave(player);
       final ClanChat clan = player.getCurrentClanChat();
-      player.moveTo(new Position(2392, 9903, player.getIndex() * 4));
+      player.moveTo(new Position(2861, 9640, player.getIndex() * 4));
       for (Player member : clan.getMembers()) {
         if (member != null) {
           ClanChatRank rank = clan.getRank(member);
@@ -111,7 +111,7 @@ public class BossSystem {
           return;
         }
         player.setBossingSystem(true);
-        NPC n = new NPC(bossID, new Position(2392, 9894, player.getPosition().getZ()))
+        NPC n = new NPC(bossID, new Position(2854, 9637, player.getPosition().getZ()))
             .setSpawnedFor(player);
         World.register(n);
         player.getRegionInstance().getNpcsList().add(n);

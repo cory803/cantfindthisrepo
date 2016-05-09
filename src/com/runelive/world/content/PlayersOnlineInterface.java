@@ -100,10 +100,10 @@ public class PlayersOnlineInterface {
           rankId = 11;
         }
       }
-      if (p.getGameMode() == GameMode.IRONMAN) {
+      if (p.getGameMode() == GameMode.IRONMAN && !p.getRights().isStaff()) {
         rankId = 12;
       }
-      if (p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+      if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
         rankId = 13;
       }
       if (p.getRights() == PlayerRights.COMMUNITY_MANAGER) {
@@ -230,9 +230,9 @@ public class PlayersOnlineInterface {
         break;
     }
     if (value == 0) {
-      if (p.getGameMode() == GameMode.IRONMAN) {
+      if (p.getGameMode() == GameMode.IRONMAN && !p.getRights().isStaff()) {
         value = 1;
-      } else if (p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+      } else if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
         value = 2;
       }
     }

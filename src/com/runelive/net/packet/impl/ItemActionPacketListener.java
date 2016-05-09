@@ -179,22 +179,22 @@ public class ItemActionPacketListener implements PacketListener {
       case 10943:
 		player.currentScroll = 10943;
         player.setInputHandling(new EnterForumAccountTokens());
-        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 8 tokens to:");
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 10 tokens to:");
         break;
       case 10934:
 		player.currentScroll = 10934;
         player.setInputHandling(new EnterForumAccountTokens());
-        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 20 tokens to:");
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 25 tokens to:");
         break;
       case 10935:
 		player.currentScroll = 10935;
         player.setInputHandling(new EnterForumAccountTokens());
-        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 40 tokens to:");
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 50 tokens to:");
         break;
       case 7629:
 		player.currentScroll = 7629;
         player.setInputHandling(new EnterForumAccountTokens());
-        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 100 tokens to:");
+        player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 125 tokens to:");
         break;
       case 739:
         if (player.getInventory().contains(739)) {
@@ -639,10 +639,12 @@ public class ItemActionPacketListener implements PacketListener {
         }
         break;
       case 21077:
+	  /*
         double charges = (double) player.getToxicStaffCharges() / 110;
         DecimalFormat double_decimal_format = new DecimalFormat("#.00");
         player.getPacketSender().sendMessage("Your Toxic staff of the dead has "
             + double_decimal_format.format(charges) + "% of it's charges left.");
+			*/
         break;
       case 15262:
         if (!player.getClickDelay().elapsed(1300))

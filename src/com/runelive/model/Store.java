@@ -40,8 +40,10 @@ public class Store {
 							player.getInventory().add(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]));
 							player.getPacketSender().sendMessage("<col=ff0000>"+amounts[i]+"x "+ItemDefinition.forId(Integer.parseInt(item_ids[i])).name+" has been added to your inventory.");
 						}
+						int itemId = Integer.parseInt(item_ids[i]);
+						if(itemId != 7629 && itemId != 10934 && itemId != 10935 && itemId != 10943)
+							player.incrementAmountDonated(credits);
 					}
-					player.incrementAmountDonated(credits);
 					MemberScrolls.checkForRankUpdate(player);
 					PlayerPanel.refreshPanel(player);
 					player.save();
@@ -99,37 +101,29 @@ public class Store {
 							switch(item) {
 								case 10943:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(10);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $10. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
-									player.getPacketSender().sendMessage("The forum account "+name+" has gained 8 tokens.");
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
+									player.getPacketSender().sendMessage("The forum account "+name+" has gained 10 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
 									break;
 								case 10934:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(25);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $25. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
-									player.getPacketSender().sendMessage("The forum account "+name+" has gained 20 tokens.");
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
+									player.getPacketSender().sendMessage("The forum account "+name+" has gained 25 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
 									break;
 								case 10935:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(50);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $50. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
-									player.getPacketSender().sendMessage("The forum account "+name+" has gained 40 tokens.");
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
+									player.getPacketSender().sendMessage("The forum account "+name+" has gained 50 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
 									break;
 								case 7629:
 									player.getInventory().delete(item, 1);
-									player.incrementAmountDonated(125);
-									player.getPacketSender().sendMessage("Your account has gained funds worth $125. Your total is now at $" + player.getAmountDonated() + ".");
-									MemberScrolls.checkForRankUpdate(player);
-									player.getPacketSender().sendMessage("The forum account "+name+" has gained 100 tokens.");
+									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
+									player.getPacketSender().sendMessage("The forum account "+name+" has gained 125 tokens.");
 									PlayerPanel.refreshPanel(player);
 									player.save();
 									break;

@@ -210,7 +210,7 @@
         "lines": 5,
         "line1": "Edgeville Wilderness Ditch",
         "line2": "West Wilderness",
-        "line3": "Chaos Altar",
+        "line3": "Chaos Temple",
         "line4": "East Wilderness",
         "line5": "Mage Bank",
         "next": -1,
@@ -2273,5 +2273,24 @@
         "line2": "All of these locations teleport you to deep wilderness.",
         "next": 226,
         "npcId": 945
+    },
+	{
+        "id": 228,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 2,
+        "line1": "Hello, my name is Cain!",
+        "line2": "I can bring you to Venenatis, would you like to go?",
+        "next": 229,
+        "npcId": 5030
+    },
+	{
+        "id": 229,
+        "type": "OPTION",
+        "lines": 2,
+        "line1": "Yes, bring me to Venenatis!",
+        "line2": "I am not ready to fight.",
+        "next": -1,
+        "npcId": -1
     }
 ]

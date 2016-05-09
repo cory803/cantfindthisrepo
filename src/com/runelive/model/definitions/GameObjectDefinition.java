@@ -49,7 +49,7 @@ public final class GameObjectDefinition {
         || id == 24376 || id == 24378 || id == 40108 || id == 59 || id == 2069 || id == 36846
         || id == 57264 || id == 23983 || id == 632 || id == 24265 || id == 24271 || id == 24272
         || id == 24274 || id == 24273 || id == 24275 || id == 24266 || id == 24267 || id == 24268
-        || id == 24269 || id == 24270;
+        || id == 24269 || id == 24270 || id == 8985;
   }
 
   private static GameObjectDefinition forId667(int id) {
@@ -110,7 +110,7 @@ public final class GameObjectDefinition {
         || i == 15514 || i == 25891 || i == 26082 || i == 26081 || i == 1530 || i == 16776
         || i == 16778 || i == 28589 || i == 1533 || i == 17089 || i == 1600 || i == 1601
         || i == 11707 || i == 24376 || i == 24378 || i == 40108 || i == 59 || i == 2069
-        || i == 36846;
+        || i == 36846 || i == 8985;
     if (removeObject) {
       class46.unwalkable = false;
       return class46;
