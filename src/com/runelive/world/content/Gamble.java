@@ -28,11 +28,13 @@ public class Gamble {
     }
     public static void debugRoll(Player player) {
         int ROLL_MOB = Misc.inclusiveRandom(1, 70) + 4 + Misc.inclusiveRandom(3, 26);
-        int ROLL_PLAYER = Misc.inclusiveRandom(1, 70) - 3 + Misc.inclusiveRandom(0, 30);
+        int ROLL_PLAYER = Misc.inclusiveRandom(4, 66) - 3 + Misc.inclusiveRandom(0, 30);
         if (ROLL_PLAYER > ROLL_MOB) {
             player.debugRollWins++;
+            player.getPacketSender().sendMessage("Congratulations! You've won, the gambler rolled @dre@" + ROLL_MOB + " @bla@& you rolled @dre@" + ROLL_PLAYER + ".");
         } else {
             player.debugRollLosses++;
+            player.getPacketSender().sendMessage("Unlucky, you've lost! the gambler rolled @dre@" + ROLL_MOB + " @bla@& you rolled @dre@" + ROLL_PLAYER + ".");
         }
     }
 }
