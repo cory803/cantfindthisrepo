@@ -6,6 +6,7 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.PlayerSpecialAmountTask;
 import com.runelive.engine.task.impl.StaffOfLightSpecialAttackTask;
+import com.runelive.engine.task.impl.ToxicStaffOfDeadSpecialAttackTask;
 import com.runelive.model.Animation;
 import com.runelive.model.Graphic;
 import com.runelive.model.GraphicHeight;
@@ -205,7 +206,7 @@ public enum CombatSpecial {
       };
     }
   },
-  MAGIC_SHORTBOW(new int[] {861}, 55, 1, 1.2, CombatType.RANGED, WeaponInterface.SHORTBOW) {
+  MAGIC_SHORTBOW(new int[] {861}, 55, 1.2, 1.3, CombatType.RANGED, WeaponInterface.SHORTBOW) {
     @Override
     public CombatContainer container(Player player, Character target) {
 
@@ -301,8 +302,8 @@ public enum CombatSpecial {
       return new CombatContainer(player, target, 1, CombatType.RANGED, true);
     }
   },
-  DARK_BOW(new int[] {11235, 21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023}, 55, 1.45,
-      1.22, CombatType.RANGED, WeaponInterface.LONGBOW) {
+  DARK_BOW(new int[] {11235, 21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023}, 55, 1.75,
+      1.5, CombatType.RANGED, WeaponInterface.LONGBOW) {
     @Override
     public CombatContainer container(Player player, Character target) {
       player.performAnimation(new Animation(426));
@@ -411,9 +412,9 @@ public enum CombatSpecial {
       player.performAnimation(new Animation(7083));
       CombatSpecial.drain(player, STAFF_OF_DEAD.drainAmount);
       player.setStaffOfLightEffect(100);
-      TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
+      TaskManager.submit(new ToxicStaffOfDeadSpecialAttackTask(player));
       player.getPacketSender()
-          .sendMessage("You are shielded by the gods of the Staff of the dead!");
+          .sendMessage("You are shielded by the darkness of the Staff of the dead!");
       player.getCombatBuilder().cooldown(true);
     }
 
@@ -620,7 +621,7 @@ public enum CombatSpecial {
       };
     }
   },
-  DRAGON_CLAWS(new int[] {14484}, 50, 1.5, 1.6, CombatType.MELEE, WeaponInterface.CLAWS) {
+  DRAGON_CLAWS(new int[] {14484}, 50, 1.6, 1.8, CombatType.MELEE, WeaponInterface.CLAWS) {
     @Override
     public CombatContainer container(Player player, Character target) {
       player.performAnimation(new Animation(10961));

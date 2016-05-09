@@ -440,6 +440,21 @@ public class DesolaceFormulas {
             damage = maxHit = 310;
           }
           break;
+        case 11235:
+        case 21016:
+        case 21017:
+        case 21018:
+        case 21019:
+        case 21020:
+        case 21021:
+        case 21022:
+        case 21023:
+          if (EquipmentBonus.wearingVoid(p, CombatType.RANGED)) {
+            damage = maxHit = 480;
+          } else {
+            damage = maxHit = 420;
+          }
+          break;
         case 13905:
         case 13907:
           if (p.getCurrentlyCasting() != null) {

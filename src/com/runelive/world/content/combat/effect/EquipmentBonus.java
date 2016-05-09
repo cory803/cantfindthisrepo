@@ -23,6 +23,15 @@ public class EquipmentBonus {
         && player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == helmet;
   }
 
+  public static void berserkerBuff(int damage, int accuracy) {
+    if(BERSERKER_BUFF != null) {
+      damage *= 1.5;
+    } else if(BERSERKER_I_BUFF != null) {
+      damage *= 1.5;
+      accuracy *= 1.2;
+    }
+  }
+
   public static void voidEffect(int damage, int accuracy) {
     if (VOID_ARMOUR != null) {
       damage *= 1.10;
@@ -44,6 +53,12 @@ public class EquipmentBonus {
   private static final int MELEE_VOID_HELM = 11665;
 
   private static final int VOID_KNIGHT_DEFLECTOR = 19712;
+
+  public static final int[][] BERSERKER_BUFF =
+          {{Equipment.AMULET_SLOT, 11128}, {Equipment.RING_SLOT, 6737}, {Equipment.WEAPON_SLOT, 6528}};
+
+  public static final int[][] BERSERKER_I_BUFF =
+          {{Equipment.AMULET_SLOT, 11128}, {Equipment.RING_SLOT, 15220}, {Equipment.WEAPON_SLOT, 6528}};
 
   public static final int[][] VOID_ARMOUR =
       {{Equipment.BODY_SLOT, 8839}, {Equipment.LEG_SLOT, 8840}, {Equipment.HANDS_SLOT, 8842}};
