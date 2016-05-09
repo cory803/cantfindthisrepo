@@ -40,7 +40,8 @@ public class Store {
 							player.getInventory().add(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]));
 							player.getPacketSender().sendMessage("<col=ff0000>"+amounts[i]+"x "+ItemDefinition.forId(Integer.parseInt(item_ids[i])).name+" has been added to your inventory.");
 						}
-						if(item_ids[i] != 7629 && item_ids[i] != 10934 && item_ids[i] != 10935 && item_ids[i] != 10943)
+						int itemId = Integer.parseInt(item_ids[i]);
+						if(itemId != 7629 && iitemId != 10934 && itemId != 10935 && itemId != 10943)
 							player.incrementAmountDonated(credits);
 					}
 					MemberScrolls.checkForRankUpdate(player);
