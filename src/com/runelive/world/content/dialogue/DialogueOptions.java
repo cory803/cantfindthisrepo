@@ -692,7 +692,7 @@ public class DialogueOptions {
 					Locations.Location.BOSS_SYSTEM.leave(player);
 					player.getPacketSender().sendInterfaceRemoval();
 				} else {
-					TeleportHandler.teleportPlayer(player, new Position(2392, 9903), player.getSpellbook().getTeleportType());
+					TeleportHandler.teleportPlayer(player, new Position(2861, 9640), player.getSpellbook().getTeleportType());
 				}
 				break;
 			case 38:

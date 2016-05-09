@@ -532,7 +532,7 @@ public class Locations {
                 true) {},
         CERBERUS_CAVE(new int[]{1223, 1262}, new int[]{1226, 1280}, false, true, true, true, true,
                 true) {},
-        BOSS_SYSTEM(new int[]{2350, 2450}, new int[]{9800, 10000}, true, true, true, false, false,
+        BOSS_SYSTEM(new int[]{2845, 2865}, new int[]{9626, 9650}, true, true, true, false, false,
                 false) {
             @Override
             public void process(Player player) {

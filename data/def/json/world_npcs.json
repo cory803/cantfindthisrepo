@@ -1052,11 +1052,11 @@
         }
     },
 	{
-        "npc-id": 4375,
-		"face": SOUTH,
+        "npc-id": 198,
+		"face": WEST,
         "position": {
-        	"x": 2392,
-        	"y": 9905,
+        	"x": 2863,
+        	"y": 9640,
         	"z": 0
         },
          "walking-policy": {

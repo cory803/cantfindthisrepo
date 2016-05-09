@@ -405,7 +405,7 @@ public class NPCOptionPacketListener implements PacketListener {
                   DialogueManager.start(player, 144);
                 }
                 break;
-              case 4375:
+              case 198:
                 player.setDialogueActionId(133);
                 DialogueManager.start(player, 133);
                 break;
@@ -788,7 +788,7 @@ public class NPCOptionPacketListener implements PacketListener {
                       .sendMessage("The king has no reason to drain his energy on you.");
                 }
                 break;
-              case 4375:
+              case 198:
                 if (player.getLastBoss() == 0) {
                   player.getPacketSender()
                       .sendMessage("You have not spawned a boss since your last login!");
