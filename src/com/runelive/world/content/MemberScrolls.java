@@ -63,16 +63,16 @@ public class MemberScrolls {
     int tokens = 0;
     switch (item) {
       case 10943:
-		Store.addTokensFromScroll(player, name, 8, item);
+		Store.addTokensFromScroll(player, name, 10, item);
         break;
       case 10934:
-        Store.addTokensFromScroll(player, name, 20, item);
+        Store.addTokensFromScroll(player, name, 25, item);
         break;
       case 10935:
-        Store.addTokensFromScroll(player, name, 40, item);
+        Store.addTokensFromScroll(player, name, 50, item);
         break;
       case 7629:
-        Store.addTokensFromScroll(player, name, 100, item);
+        Store.addTokensFromScroll(player, name, 125, item);
         break;
     }
     return false;
