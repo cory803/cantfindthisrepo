@@ -675,3 +675,6 @@
 [5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rune platebody(1127), amount: 1	
 [5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rune kiteshield(1201), amount: 1	
 [5/8/16 08:40AM]	Player killed by Jonny for item: Id: Rune platelegs(1079), amount: 1	
+[5/8/16 05:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 05:18PM]	Dc Blitz has done command wests	
+[5/8/16 05:19PM]	Dc Blitz in ItemActionPacketListener: 11525	

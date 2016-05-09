@@ -1956,7 +1956,7 @@ public class Consumables {
                     player.getInventory().refreshItems();
                     PoisonImmunityTask.makeImmune(player, 518);
                     player.getPacketSender()
-                            .sendMessage("You're now immune to any kind of poison for another 518 seconds.");
+                            .sendMessage("You're now immune to poison for another 518 seconds.");
                     break;
                 case 5945: // Antipoison+ pot 3
                     player.performAnimation(new Animation(829));
@@ -1964,7 +1964,7 @@ public class Consumables {
                     player.getInventory().refreshItems();
                     PoisonImmunityTask.makeImmune(player, 518);
                     player.getPacketSender()
-                            .sendMessage("You're now immune to any kind of poison for another 518 seconds.");
+                            .sendMessage("You're now immune to poison for another 518 seconds.");
                     break;
                 case 5947: // Antipoison+ pot 2
                     player.performAnimation(new Animation(829));
@@ -1972,7 +1972,7 @@ public class Consumables {
                     player.getInventory().refreshItems();
                     PoisonImmunityTask.makeImmune(player, 518);
                     player.getPacketSender()
-                            .sendMessage("You're now immune to any kind of poison for another 518 seconds.");
+                            .sendMessage("You're now immune to poison for another 518 seconds.");
                     break;
                 case 5949: // Antipoison+ pot 1
                     player.performAnimation(new Animation(829));
@@ -1980,7 +1980,67 @@ public class Consumables {
                     player.getInventory().refreshItems();
                     PoisonImmunityTask.makeImmune(player, 518);
                     player.getPacketSender()
-                            .sendMessage("You're now immune to any kind of poison for another 518 seconds.");
+                            .sendMessage("You're now immune to poison for another 518 seconds.");
+                    break;  
+					
+				/*
+				 * Anti-venom potions
+				 */
+                case 11525: // Anti-venom pot 4
+					if(player.getVenomDamage() == 0 && player.getPoisonDamage() == 0) {
+						player.getPacketSender().sendMessage("<col=ff0000>You currently do not have any venom/poison effect.");
+						return;
+					}
+                    player.performAnimation(new Animation(829));
+                    player.getInventory().getItems()[slot] = new Item(11527, 1);
+                    player.getInventory().refreshItems();
+					player.setPoisonDamage(0);
+					player.setVenomDamage(0);
+					player.getPacketSender().sendConstitutionOrbPoison(false);
+					player.getPacketSender().sendConstitutionOrbVenom(false);
+                    player.getPacketSender().sendMessage("<col=2E3A34>You're now free from any venom/poison effect!");
+                    break;
+                case 11527: // Anti-venom pot 3
+					if(player.getVenomDamage() == 0 && player.getPoisonDamage() == 0) {
+						player.getPacketSender().sendMessage("<col=ff0000>You currently do not have any venom/poison effect.");
+						return;
+					}
+					player.performAnimation(new Animation(829));
+                    player.getInventory().getItems()[slot] = new Item(11529, 1);
+                    player.getInventory().refreshItems();
+					player.setPoisonDamage(0);
+					player.setVenomDamage(0);
+					player.getPacketSender().sendConstitutionOrbPoison(false);
+					player.getPacketSender().sendConstitutionOrbVenom(false);
+                    player.getPacketSender().sendMessage("<col=2E3A34>You're now free from any venom/poison effect!");
+                    break;
+                case 11529: // Anti-venom pot 2
+					if(player.getVenomDamage() == 0 && player.getPoisonDamage() == 0) {
+						player.getPacketSender().sendMessage("<col=ff0000>You currently do not have any venom/poison effect.");
+						return;
+					}
+					player.performAnimation(new Animation(829));
+                    player.getInventory().getItems()[slot] = new Item(11531, 1);
+                    player.getInventory().refreshItems();
+					player.setPoisonDamage(0);
+					player.setVenomDamage(0);
+					player.getPacketSender().sendConstitutionOrbPoison(false);
+					player.getPacketSender().sendConstitutionOrbVenom(false);
+                    player.getPacketSender().sendMessage("<col=2E3A34>You're now free from any venom/poison effect!");
+                    break;
+                case 11531: // Anti-venom pot 1
+					if(player.getVenomDamage() == 0 && player.getPoisonDamage() == 0) {
+						player.getPacketSender().sendMessage("<col=ff0000>You currently do not have any venom/poison effect.");
+						return;
+					}
+					player.performAnimation(new Animation(829));
+                    player.getInventory().getItems()[slot] = new Item(229, 1);
+                    player.getInventory().refreshItems();
+					player.setPoisonDamage(0);
+					player.setVenomDamage(0);
+					player.getPacketSender().sendConstitutionOrbPoison(false);
+					player.getPacketSender().sendConstitutionOrbVenom(false);
+                    player.getPacketSender().sendMessage("<col=2E3A34>You're now free from any venom/poison effect!");
                     break;
         /*
          * Ranging potions
