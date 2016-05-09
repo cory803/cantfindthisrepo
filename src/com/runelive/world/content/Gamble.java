@@ -16,7 +16,7 @@ public class Gamble {
         player.getLastRoll().reset();
         ItemDefinition itemDef = ItemDefinition.forId(item_id);
         int ROLL_MOB = Misc.inclusiveRandom(1, 70) + 4 + Misc.inclusiveRandom(3, 26);
-        int ROLL_PLAYER = Misc.inclusiveRandom(4, 70) - 3 + Misc.inclusiveRandom(0, 30);
+        int ROLL_PLAYER = Misc.inclusiveRandom(4, 66) - 3 + Misc.inclusiveRandom(0, 30);
         if (ROLL_PLAYER > ROLL_MOB) {
             player.forceChat("Yes I've won! 2 x " + itemDef.forId(item_id).getName() + "");
             player.getInventory().add(item_id, 2);
