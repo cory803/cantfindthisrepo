@@ -285,11 +285,6 @@ public class ObjectActionPacketListener implements PacketListener {
                       .sendMessage("You can only restore your special attack every 2 minutes.");
                   return;
                 }
-                if (player.getSpecialPercentage() >= 100) {
-                  player.getPacketSender().sendMessage(
-                      "Your special attack is already full. You do not need to drink from here.");
-                  return;
-                }
                 player.performAnimation(new Animation(1327));
                 player.setSpecialPercentage(100);
                 CombatSpecial.updateBar(player);
