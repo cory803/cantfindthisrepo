@@ -108,7 +108,10 @@ public class PlayerPanel {
         player.getPacketSender().sendString(55114,
                 "@or1@Exp Lock:  " + (player.experienceLocked() ? "@red@Locked" : "@gre@Unlocked") + "");
 
-        player.getPacketSender().sendString(55116, "@whi@~ Other ~");
+        player.getPacketSender().sendString(55115,
+                "@or1@Login IP's:  " + (player.showIpAddress() ? "@gre@Enabled" : "@red@Disabled") + "");
+
+        player.getPacketSender().sendString(55117, "@whi@~ Other ~");
         player.getPacketSender().sendString(55121, "@red@Open Drop Log");
 
 

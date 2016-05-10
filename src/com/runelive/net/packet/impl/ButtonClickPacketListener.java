@@ -706,6 +706,12 @@ public class ButtonClickPacketListener implements PacketListener {
         player.getPacketSender().sendMessage("Your experience is now " + type + ".");
         PlayerPanel.refreshPanel(player);
         break;
+      case -10421:
+        player.setShowIpAddressOnLogin(!player.showIpAddress());
+        String mode = player.showIpAddress() ? "Disabled" : "Enabled";
+        player.getPacketSender().sendMessage("Your IP address shown on login has been: " + mode + ".");
+        PlayerPanel.refreshPanel(player);
+        break;
       case 27651:
       case 21341:
       case 15001:

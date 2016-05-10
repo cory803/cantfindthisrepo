@@ -230,13 +230,20 @@ public class PlayerHandler {
 
     long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin());
 
-    if (player.getLastIpAddress() != null && player.getLastLogin() != -1) {
+    if (player.getLastIpAddress() != null && player.getLastLogin() != -1 && player.showIpAddress()) {
       if (days > 0) {
         player.getPacketSender().sendMessage("You last logged in @blu@" + days + "@bla@ "
             + (days > 1 ? "days" : "day") + " ago from @blu@" + player.getLastIpAddress());
       } else {
         player.getPacketSender()
             .sendMessage("You last logged in earlier today from @blu@" + player.getLastIpAddress());
+      }
+    } else if((player.getLastIpAddress() != null && player.getLastLogin() != -1 && !player.showIpAddress())) {
+      if (days > 0) {
+        player.getPacketSender().sendMessage("You last logged in @blu@" + days + "@bla@ "
+                + (days > 1 ? "days" : "day") + " ago.");
+      } else {
+        player.getPacketSender().sendMessage("You last logged in earlier today.");
       }
     }
 

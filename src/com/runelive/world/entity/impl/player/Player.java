@@ -621,6 +621,7 @@ public class Player extends Character {
 	private boolean isDying;
 	private boolean isRunning = true, isResting;
 	private boolean experienceLocked;
+	private boolean showIpAddressOnLogin;
 	private boolean clientExitTaskActive;
 	private boolean drainingPrayer;
 	private boolean shopping;
@@ -747,7 +748,6 @@ public class Player extends Character {
 	public void setJailed(boolean jailed) {
 		this.jailed = jailed;
 	}
-
 	public boolean isPassedRandom() {
 		return passedRandom;
 	}
@@ -1634,6 +1634,14 @@ public class Player extends Character {
 
 	public void setExperienceLocked(boolean experienceLocked) {
 		this.experienceLocked = experienceLocked;
+	}
+
+	public boolean showIpAddress() {
+		return showIpAddressOnLogin;
+	}
+
+	public void setShowIpAddressOnLogin(boolean showIpAddressOnLogin) {
+		this.showIpAddressOnLogin = showIpAddressOnLogin;
 	}
 
 	public void setClientExitTaskActive(boolean clientExitTaskActive) {
