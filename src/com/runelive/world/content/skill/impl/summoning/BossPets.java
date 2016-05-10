@@ -101,7 +101,7 @@ public class BossPets {
       }
       return false;
     } else {
-      player.getPacketSender().sendMessage("you need atleast 1 free inventory space to pickup your pet.");
+      player.getPacketSender().sendMessage("You need atleast 1 free inventory space to pickup your pet.");
       return false;
     }
   }
