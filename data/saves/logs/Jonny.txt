@@ -5907,3 +5907,671 @@
 [5/7/16 09:34AM]	Jonny has done command edge	
 [5/7/16 09:34AM]	Jonny has done command tele 3086 3500	
 [5/7/16 09:34AM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 05:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 05:37PM]	Jonny has done command edge	
+[5/7/16 08:34PM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 08:36PM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:54PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 09:54PM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:55PM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 09:55PM]	Jonny has done command npc 86	
+[5/7/16 09:58PM]	Jonny has done command mypos	
+[5/7/16 09:59PM]	Jonny has done command mypos	
+[5/7/16 10:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:01PM]	Jonny in ObjectActionPacketListener: 398 - FIRST_CLICK_OPCODE	
+[5/7/16 10:02PM]	Jonny has done command tele 1928 5003	
+[5/7/16 10:02PM]	Jonny has done command mb	
+[5/7/16 10:02PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/7/16 10:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:03PM]	Jonny has done command mb	
+[5/7/16 10:03PM]	Jonny in ObjectActionPacketListener: 5960 - FIRST_CLICK_OPCODE	
+[5/7/16 10:03PM]	Jonny in ObjectActionPacketListener: 5959 - FIRST_CLICK_OPCODE	
+[5/7/16 10:03PM]	Jonny in ObjectActionPacketListener: 5960 - FIRST_CLICK_OPCODE	
+[5/7/16 10:04PM]	Jonny has done command mypos	
+[5/7/16 10:04PM]	Jonny has done command mypos	
+[5/7/16 10:05PM]	Jonny has done command mypos	
+[5/7/16 10:06PM]	Jonny in ObjectActionPacketListener: 5959 - FIRST_CLICK_OPCODE	
+[5/7/16 10:06PM]	Jonny in ObjectActionPacketListener: 5959 - FIRST_CLICK_OPCODE	
+[5/7/16 10:06PM]	Jonny in ObjectActionPacketListener: 5959 - FIRST_CLICK_OPCODE	
+[5/7/16 10:27PM]	Jonny has done command item 21102 1	
+[5/7/16 10:27PM]	Jonny in EquipPacketListener: 21102 from Inventory	
+[5/7/16 10:31PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:32PM]	Jonny in EquipPacketListener: 21102 from Inventory	
+[5/7/16 10:33PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:33PM]	Jonny in EquipPacketListener: 21102 from Inventory	
+[5/7/16 10:38PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:54PM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/7/16 10:55PM]	Jonny has done command edge	
+[5/7/16 10:55PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/7/16 10:55PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/7/16 10:55PM]	Jonny has done command edge	
+[5/7/16 10:55PM]	Jonny in ObjectActionPacketListener: 1276 - FIRST_CLICK_OPCODE	
+[5/7/16 10:55PM]	Jonny in NPCOptionPacketListener: 2579 - SECOND_CLICK_OPCODE	
+[5/7/16 10:55PM]	Jonny in ObjectActionPacketListener: 884 - FIRST_CLICK_OPCODE	
+[5/7/16 10:55PM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/7/16 10:55PM]	Jonny in ItemContainerActionPacketListener: First Action - 13896 - 3900 - 0	
+[5/7/16 10:56PM]	Jonny in ItemContainerActionPacketListener: First Action - 13876 - 3900 - 8	
+[5/7/16 10:56PM]	Jonny in ItemContainerActionPacketListener: First Action - 13876 - 3900 - 8	
+[5/7/16 10:56PM]	Jonny in ItemContainerActionPacketListener: First Action - 6585 - 3900 - 17	
+[5/8/16 08:17AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:17AM]	Jonny has clicked button in ButtonClickPacketListener 14881	
+[5/8/16 08:17AM]	Jonny has clicked button in ButtonClickPacketListener 14879	
+[5/8/16 08:17AM]	Jonny has clicked button in ButtonClickPacketListener 14882	
+[5/8/16 08:17AM]	Jonny has clicked button in ButtonClickPacketListener 14878	
+[5/8/16 08:17AM]	Jonny has done command find black halloween	
+[5/8/16 08:36AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:37AM]	Jonny has clicked button in ButtonClickPacketListener 14873	
+[5/8/16 08:37AM]	Jonny has clicked button in ButtonClickPacketListener 14881	
+[5/8/16 08:37AM]	Jonny has clicked button in ButtonClickPacketListener 14876	
+[5/8/16 08:37AM]	Jonny has clicked button in ButtonClickPacketListener 14878	
+[5/8/16 08:37AM]	Jonny in ItemActionPacketListener: 10944	
+[5/8/16 08:37AM]	Jonny in NPCOptionPacketListener: 494 - FIRST_CLICK_OPCODE	
+[5/8/16 08:37AM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/8/16 08:37AM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/8/16 08:37AM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/8/16 08:38AM]	Jonny has done command wests	
+[5/8/16 08:38AM]	Jonny has done command propker	
+[5/8/16 08:38AM]	Jonny has done command item 15272 1	
+[5/8/16 08:38AM]	Jonny in ItemActionPacketListener: 15272	
+[5/8/16 08:39AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 08:39AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:40AM]	Jonny has done command godmode	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Saradomin brew flask (6)(14427), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Saradomin brew flask (6)(14427), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Super restore flask (6)(14415), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Super restore flask (6)(14415), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Super attack flask (6)(14188), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Super strength flask (6)(14176), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Astral rune(9075), amount: 396	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Super restore flask (6)(14415), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Dragon halberd(3204), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Death rune(560), amount: 198	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Earth rune(557), amount: 390	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rune full helm(1163), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Amulet of glory (1)(1706), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rune platebody(1127), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rune kiteshield(1201), amount: 1	
+[5/8/16 08:40AM]	Player killed Dc Blitz for item: Id: Rune platelegs(1079), amount: 1	
+[5/8/16 08:40AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 08:40AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:49AM]	Jonny has done command edge	
+[5/8/16 08:50AM]	Jonny in NPCOptionPacketListener: 2579 - FIRST_CLICK_OPCODE	
+[5/8/16 08:50AM]	Jonny in ObjectActionPacketListener: 1276 - FIRST_CLICK_OPCODE	
+[5/8/16 08:53AM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 08:56AM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 08:57AM]	Jonny has done command mypos	
+[5/8/16 08:59AM]	Jonny has done command mypos	
+[5/8/16 08:59AM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 08:59AM]	Jonny in ObjectActionPacketListener: 411 - FIRST_CLICK_OPCODE	
+[5/8/16 08:59AM]	Jonny in ObjectActionPacketListener: 411 - FIRST_CLICK_OPCODE	
+[5/8/16 08:59AM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 08:59AM]	Jonny has done command mypos	
+[5/8/16 09:00AM]	Jonny has done command mypos	
+[5/8/16 09:00AM]	Jonny has done command mypos	
+[5/8/16 09:02AM]	Jonny has done command mypos	
+[5/8/16 09:04AM]	Jonny has done command mypos	
+[5/8/16 09:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 09:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 09:17AM]	Jonny has done command object 2268	
+[5/8/16 09:17AM]	Jonny has done command object 1751	
+[5/8/16 09:17AM]	Jonny has done command object 11	
+[5/8/16 09:17AM]	Jonny has done command object 101	
+[5/8/16 09:19AM]	Jonny has done command object 5802	
+[5/8/16 09:19AM]	Jonny has done command object 5802	
+[5/8/16 09:19AM]	Jonny has done command object 4712	
+[5/8/16 09:19AM]	Jonny has done command object 100	
+[5/8/16 09:19AM]	Jonny has done command object 100	
+[5/8/16 09:19AM]	Jonny has done command object 1570	
+[5/8/16 09:19AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/8/16 09:20AM]	Jonny in ObjectActionPacketListener: 1746 - FIRST_CLICK_OPCODE	
+[5/8/16 09:20AM]	Jonny has done command object 1747	
+[5/8/16 09:20AM]	Jonny has done command object 1747	
+[5/8/16 09:20AM]	Jonny has done command object 1746	
+[5/8/16 09:21AM]	Jonny has done command object 1756	
+[5/8/16 09:21AM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 09:22AM]	Jonny has done command mypos	
+[5/8/16 09:22AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 09:23AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 10:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 10:16AM]	Jonny has done command tele 2772 9341	
+[5/8/16 10:16AM]	Jonny in ObjectActionPacketListener: 2909 - FIRST_CLICK_OPCODE	
+[5/8/16 10:17AM]	Jonny has done command tele 2738 5081	
+[5/8/16 10:17AM]	Jonny has done command tele 2738 5081	
+[5/8/16 10:18AM]	Jonny has done command tele 2715 9889	
+[5/8/16 10:19AM]	Jonny has done command tele 3207 9377	
+[5/8/16 10:19AM]	Jonny has done command tele 3168 9572	
+[5/8/16 10:19AM]	Jonny has done command teke 2884 9798	
+[5/8/16 10:19AM]	Jonny has done command tele 2884 9798	
+[5/8/16 10:19AM]	Jonny has done command tele 2843 9636	
+[5/8/16 10:20AM]	Jonny has done command tee 2596 4435	
+[5/8/16 10:20AM]	Jonny has done command tele 2596 4435	
+[5/8/16 10:21AM]	Jonny has done command mypos	
+[5/8/16 10:25AM]	Jonny has done command mypos	
+[5/8/16 10:34AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 10:35AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 10:39AM]	Jonny has done command mypos	
+[5/8/16 12:20PM]	Jonny has done command tele 2713 9459	
+[5/8/16 12:20PM]	Jonny has done command tele 2400 9504	
+[5/8/16 12:20PM]	Jonny has done command tele 3243 5483	
+[5/8/16 12:21PM]	Jonny has done command tele 3240 5468	
+[5/8/16 12:21PM]	Jonny has done command tele 3079 9885	
+[5/8/16 12:22PM]	Jonny has done command tele 2776 10162	
+[5/8/16 12:22PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 12:22PM]	Jonny has done command tele 2838 10126	
+[5/8/16 12:24PM]	Jonny has done command tele 2525 4776	
+[5/8/16 12:24PM]	Jonny has done command mypos	
+[5/8/16 12:26PM]	Jonny has done command playnpc 5030	
+[5/8/16 12:27PM]	Jonny has done command mypos	
+[5/8/16 12:29PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 12:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 12:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 12:33PM]	Jonny has done command npc 2001	
+[5/8/16 12:33PM]	Jonny has done command npc 2000	
+[5/8/16 12:34PM]	Jonny has done command mypos	
+[5/8/16 12:35PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 12:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 12:36PM]	Jonny has done command mypos	
+[5/8/16 12:37PM]	Jonny has done command tele 2375 4705	
+[5/8/16 12:38PM]	Jonny has done command tele 2772 9341	
+[5/8/16 12:38PM]	Jonny has done command tele 2776 10162	
+[5/8/16 12:39PM]	Jonny has done command object 1765	
+[5/8/16 12:39PM]	Jonny has done command object 2268	
+[5/8/16 12:39PM]	Jonny has done command mypos	
+[5/8/16 12:40PM]	Jonny has done command mypos	
+[5/8/16 12:41PM]	Jonny has done command anim 828	
+[5/8/16 12:41PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 12:41PM]	Jonny has done command mypos	
+[5/8/16 12:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 12:42PM]	Jonny in ObjectActionPacketListener: 2268 - FIRST_CLICK_OPCODE	
+[5/8/16 12:42PM]	Jonny in ObjectActionPacketListener: 2268 - FIRST_CLICK_OPCODE	
+[5/8/16 12:43PM]	Jonny has done command mypos	
+[5/8/16 12:43PM]	Jonny in ObjectActionPacketListener: 2268 - FIRST_CLICK_OPCODE	
+[5/8/16 12:43PM]	Jonny in ObjectActionPacketListener: 2268 - FIRST_CLICK_OPCODE	
+[5/8/16 12:43PM]	Jonny in ObjectActionPacketListener: 2268 - FIRST_CLICK_OPCODE	
+[5/8/16 12:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 12:44PM]	Jonny in ObjectActionPacketListener: 2268 - FIRST_CLICK_OPCODE	
+[5/8/16 12:44PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 01:02PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:02PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:03PM]	Jonny has done command tele 2776 10162	
+[5/8/16 01:03PM]	Jonny has done command tele 2838 10126	
+[5/8/16 01:03PM]	Jonny has done command mypos	
+[5/8/16 01:03PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:04PM]	Jonny has done command 1mypos	
+[5/8/16 01:04PM]	Jonny has done command mypos	
+[5/8/16 01:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:05PM]	Jonny in ObjectActionPacketListener: 2268 - FIRST_CLICK_OPCODE	
+[5/8/16 01:05PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 01:06PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:06PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:06PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:06PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:06PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:06PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:07PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:07PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:07PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:07PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:07PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:07PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:09PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:09PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:10PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:10PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:10PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 01:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:10PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:10PM]	Jonny has done command mypos	
+[5/8/16 01:11PM]	Jonny has done command mypos	
+[5/8/16 01:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:12PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:12PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:16PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:16PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:17PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:17PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:20PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:20PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:20PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:20PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:23PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in ObjectActionPacketListener: 5998 - FIRST_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in NPCOptionPacketListener: 5030 - FIRST_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 01:23PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 01:24PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:24PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 01:30PM]	Jonny has done command tele 2525 4776	
+[5/8/16 01:33PM]	Jonny has done command mypos	
+[5/8/16 01:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:34PM]	Jonny in NPCOptionPacketListener: 5030 - FIRST_CLICK_OPCODE	
+[5/8/16 01:35PM]	Jonny has done command anim 770	
+[5/8/16 01:35PM]	Jonny has done command anim 529	
+[5/8/16 01:35PM]	Jonny has done command anim 1119	
+[5/8/16 01:36PM]	Jonny has done command anim 4367	
+[5/8/16 01:36PM]	Jonny has done command anim 4366	
+[5/8/16 01:36PM]	Jonny has done command anim 7299	
+[5/8/16 01:37PM]	Jonny has done command anim 11125	
+[5/8/16 01:37PM]	Jonny has done command anim 1125	
+[5/8/16 01:37PM]	Jonny has done command anim 2239	
+[5/8/16 01:37PM]	Jonny has done command anim 1114	
+[5/8/16 01:37PM]	Jonny has done command anim 7299	
+[5/8/16 01:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:41PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 01:42PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 01:42PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:42PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 01:43PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 01:43PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 01:43PM]	Jonny in ObjectActionPacketListener: 5014 - FIRST_CLICK_OPCODE	
+[5/8/16 01:43PM]	Jonny has done command mypos	
+[5/8/16 01:43PM]	Jonny has done command tee 2760 10129	
+[5/8/16 01:44PM]	Jonny has done command tele 2770 10129	
+[5/8/16 01:44PM]	Jonny has done command tele 2760 10129	
+[5/8/16 01:44PM]	Jonny has done command tele 2760 10120	
+[5/8/16 01:44PM]	Jonny has done command tele 3229 3609	
+[5/8/16 01:44PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 01:45PM]	Jonny has done command mypos	
+[5/8/16 01:45PM]	Jonny has done command tle 2800 10180	
+[5/8/16 01:45PM]	Jonny has done command tele 2800 10180	
+[5/8/16 01:46PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 01:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:47PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 01:47PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 01:49PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:50PM]	Jonny has done command mypos	
+[5/8/16 01:50PM]	Jonny has done command tele 2820 10110	
+[5/8/16 01:51PM]	Jonny has done command tele 2830 10110	
+[5/8/16 01:51PM]	Jonny has done command tele 2832 10110	
+[5/8/16 01:51PM]	Jonny has done command tele 2830 10112	
+[5/8/16 01:51PM]	Jonny has done command tele 2798 10135	
+[5/8/16 01:51PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:52PM]	Jonny has done command mypos	
+[5/8/16 01:53PM]	Jonny has done command tele 2885 10145	
+[5/8/16 01:53PM]	Jonny has done command tele 2885 10150	
+[5/8/16 01:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 01:54PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 01:54PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 01:55PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 01:55PM]	Jonny in NPCOptionPacketListener: 5030 - FIRST_CLICK_OPCODE	
+[5/8/16 01:55PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 01:57PM]	Jonny has done command mypos	
+[5/8/16 01:57PM]	Jonny has done command mypos	
+[5/8/16 01:57PM]	Jonny has done command tele 2500 4768	
+[5/8/16 01:57PM]	Jonny has done command tele 2505 4760	
+[5/8/16 01:58PM]	Jonny has done command mypos	
+[5/8/16 01:58PM]	Jonny has done command tele 2516 4768	
+[5/8/16 01:58PM]	Jonny has done command mypos	
+[5/8/16 01:58PM]	Jonny has done command tele 2537 4795	
+[5/8/16 01:58PM]	Jonny has done command tele 2550 4795	
+[5/8/16 01:58PM]	Jonny has done command mypos	
+[5/8/16 02:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 02:02PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 02:02PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 02:02PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 02:02PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 02:02PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 02:03PM]	Jonny has done command item 4151 1	
+[5/8/16 02:03PM]	Jonny in EquipPacketListener: 4151 from Inventory	
+[5/8/16 02:06PM]	Jonny has done command item 12926 1	
+[5/8/16 02:06PM]	Jonny in EquipPacketListener: 12926 from Inventory	
+[5/8/16 02:06PM]	Jonny in ItemContainerActionPacketListener: First Action - 12926 - 1688 - 3	
+[5/8/16 02:06PM]	Jonny in EquipPacketListener: 12926 from Inventory	
+[5/8/16 02:07PM]	Jonny has clicked button in ButtonClickPacketListener 15001	
+[5/8/16 02:07PM]	Jonny has clicked button in ButtonClickPacketListener 15210	
+[5/8/16 02:07PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 02:07PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 02:07PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 02:08PM]	Jonny has done command spawn ranging flask:1	
+[5/8/16 02:08PM]	Jonny in ItemActionPacketListener: 14142	
+[5/8/16 02:08PM]	Jonny has done command spawn super defence:1	
+[5/8/16 02:08PM]	Jonny in ItemActionPacketListener: 163	
+[5/8/16 02:09PM]	Jonny has clicked button in ButtonClickPacketListener 7637	
+[5/8/16 02:11PM]	Jonny has done command find dragon warhammer	
+[5/8/16 02:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:17PM]	Jonny has done command item 11517 1	
+[5/8/16 03:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:19PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:29PM]	Jonny has clicked button in ButtonClickPacketListener 14881	
+[5/8/16 03:29PM]	Jonny has clicked button in ButtonClickPacketListener 14873	
+[5/8/16 03:29PM]	Jonny has clicked button in ButtonClickPacketListener 14882	
+[5/8/16 03:29PM]	Jonny has clicked button in ButtonClickPacketListener 14875	
+[5/8/16 03:29PM]	Jonny has done command find super combat pot	
+[5/8/16 03:29PM]	Jonny has done command item 149 1	
+[5/8/16 03:29PM]	Jonny has done command item 2436 1	
+[5/8/16 03:32PM]	Jonny has done command find super combat	
+[5/8/16 03:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:40PM]	Jonny has done command find super combat pot	
+[5/8/16 03:40PM]	Jonny has done command item 11517 1	
+[5/8/16 03:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11517	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11519	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11521	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11521	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11521	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11523	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11523	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11523	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11523	
+[5/8/16 03:40PM]	Jonny in ItemActionPacketListener: 11523	
+[5/8/16 03:41PM]	Jonny has done command find super combat pot	
+[5/8/16 03:44PM]	Jonny has done command find super strength	
+[5/8/16 03:44PM]	Jonny has done command find super strength pot	
+[5/8/16 03:44PM]	Jonny has done command find super strength pot	
+[5/8/16 03:44PM]	Jonny has done command find super strength (4)	
+[5/8/16 03:44PM]	Jonny has done command find super attack (4)	
+[5/8/16 03:45PM]	Jonny has done command find super defence pot	
+[5/8/16 03:45PM]	Jonny has done command find super defence	
+[5/8/16 03:45PM]	Jonny has done command find torstol	
+[5/8/16 03:45PM]	Jonny has done command find super combat pot	
+[5/8/16 03:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 03:47PM]	Jonny has done command item 11517 20	
+[5/8/16 03:47PM]	Jonny in ItemActionPacketListener: 11517	
+[5/8/16 03:47PM]	Jonny has done command item 11518 5	
+[5/8/16 03:49PM]	Jonny has done command find torstol:1	
+[5/8/16 03:49PM]	Jonny has done command find super combat torstol:1	
+[5/8/16 03:49PM]	Jonny has done command find super combat	
+[5/8/16 03:49PM]	Jonny has done command find torstol	
+[5/8/16 03:49PM]	Jonny has done command item 269 5	
+[5/8/16 03:49PM]	Jonny in UseItemPacketListener Item[2436, 1] - Item[269, 1]	
+[5/8/16 04:00PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:00PM]	Jonny has clicked button in ButtonClickPacketListener 14879	
+[5/8/16 04:01PM]	Jonny has clicked button in ButtonClickPacketListener 14873	
+[5/8/16 04:01PM]	Jonny has clicked button in ButtonClickPacketListener 14882	
+[5/8/16 04:01PM]	Jonny has clicked button in ButtonClickPacketListener 14878	
+[5/8/16 04:01PM]	Jonny has done command spawn torstol:1	
+[5/8/16 04:01PM]	Jonny has done command find torstol	
+[5/8/16 04:01PM]	Jonny has done command item 269 5	
+[5/8/16 04:01PM]	Jonny has done command find super attack (4)	
+[5/8/16 04:01PM]	Jonny has done command item 2436 5	
+[5/8/16 04:01PM]	Jonny in UseItemPacketListener Item[2436, 1] - Item[269, 1]	
+[5/8/16 04:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:03PM]	Jonny has clicked button in ButtonClickPacketListener 8861	
+[5/8/16 04:03PM]	Jonny has clicked button in ButtonClickPacketListener 14881	
+[5/8/16 04:03PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 04:03PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:03PM]	Jonny has clicked button in ButtonClickPacketListener 14873	
+[5/8/16 04:03PM]	Jonny has clicked button in ButtonClickPacketListener 14881	
+[5/8/16 04:03PM]	Jonny has clicked button in ButtonClickPacketListener 14882	
+[5/8/16 04:03PM]	Jonny has clicked button in ButtonClickPacketListener 14878	
+[5/8/16 04:03PM]	Jonny has done command spawn torstol:1	
+[5/8/16 04:03PM]	Jonny has done command find torstol	
+[5/8/16 04:03PM]	Jonny has done command spawn 269:1	
+[5/8/16 04:03PM]	Jonny has done command item 269:1	
+[5/8/16 04:03PM]	Jonny has done command item 269 1	
+[5/8/16 04:03PM]	Jonny has done command find super strength (4):1	
+[5/8/16 04:03PM]	Jonny has done command find super strength (4)	
+[5/8/16 04:03PM]	Jonny has done command item 2440 1	
+[5/8/16 04:04PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:05PM]	Jonny has done command find super attack potion (4)	
+[5/8/16 04:05PM]	Jonny has done command find super attack (4)	
+[5/8/16 04:05PM]	Jonny has done command item 2436 1	
+[5/8/16 04:05PM]	Jonny has done command find super defence (4)	
+[5/8/16 04:05PM]	Jonny has done command item 2442 1	
+[5/8/16 04:05PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:05PM]	Jonny in ItemActionPacketListener: 11517	
+[5/8/16 04:06PM]	Jonny has done command item 2440 1	
+[5/8/16 04:06PM]	Jonny has done command item 269 1	
+[5/8/16 04:06PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:12PM]	Jonny has done command spawn snapdragon:1	
+[5/8/16 04:13PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 04:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:14PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:15PM]	Jonny has done command Reset	
+[5/8/16 04:15PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:23PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:23PM]	Jonny has done command master	
+[5/8/16 04:23PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:23PM]	Jonny in ItemActionPacketListener: 2440	
+[5/8/16 04:23PM]	Jonny has done command spawn super strength (4):1	
+[5/8/16 04:23PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:23PM]	Jonny in UseItemPacketListener Item[269, 1] - Item[2440, 1]	
+[5/8/16 04:23PM]	Jonny in UseItemPacketListener Item[157, 1] - Item[269, 1]	
+[5/8/16 04:23PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:23PM]	Jonny in UseItemPacketListener Item[269, 1] - Item[2440, 1]	
+[5/8/16 04:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:25PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:27PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:27PM]	Jonny in UseItemPacketListener Item[269, 1] - Item[2440, 1]	
+[5/8/16 04:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:28PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:29PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:29PM]	Jonny in UseItemPacketListener Item[269, 1] - Item[2440, 1]	
+[5/8/16 04:29PM]	Jonny has done command master	
+[5/8/16 04:29PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:29PM]	Jonny in UseItemPacketListener Item[269, 1] - Item[2440, 1]	
+[5/8/16 04:35PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 04:35PM]	Jonny has done command item 11525 1	
+[5/8/16 04:36PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 04:36PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 04:36PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 04:36PM]	Jonny in NPCOptionPacketListener: 5030 - FIRST_CLICK_OPCODE	
+[5/8/16 04:37PM]	Jonny has done command hp	
+[5/8/16 04:37PM]	Jonny in ItemActionPacketListener: 11519	
+[5/8/16 04:38PM]	Jonny has done command home	
+[5/8/16 04:38PM]	Jonny has done command spawn chaotic staff:1	
+[5/8/16 04:38PM]	Jonny has done command spawn toxic staff of the dead:1	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:38PM]	Jonny in ItemContainerActionPacketListener: First Action - 21025 - 1688 - 0	
+[5/8/16 04:38PM]	Jonny has clicked button in ButtonClickPacketListener 15001	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:38PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 18355 from Inventory	
+[5/8/16 04:39PM]	Jonny in EquipPacketListener: 21077 from Inventory	
+[5/8/16 04:39PM]	Jonny has clicked button in ButtonClickPacketListener 15210	
+[5/8/16 04:39PM]	Jonny in UseItemPacketListener Item[2440, 1] - Item[269, 1]	
+[5/8/16 04:39PM]	Jonny in ItemActionPacketListener: 11521	
+[5/8/16 04:40PM]	Jonny has done command item 11524 1	
+[5/8/16 04:40PM]	Jonny has done command item 11526 1	
+[5/8/16 05:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 05:09PM]	Jonny has clicked button in ButtonClickPacketListener 14873	
+[5/8/16 05:09PM]	Jonny has clicked button in ButtonClickPacketListener 14881	
+[5/8/16 05:09PM]	Jonny has clicked button in ButtonClickPacketListener 14880	
+[5/8/16 05:09PM]	Jonny has clicked button in ButtonClickPacketListener 14875	
+[5/8/16 05:09PM]	Jonny has done command find anti-venom	
+[5/8/16 05:09PM]	Jonny has done command item 11525 1	
+[5/8/16 05:09PM]	Jonny in EquipPacketListener: 21025 from Inventory	
+[5/8/16 05:09PM]	Jonny in ItemActionPacketListener: 11525	
+[5/8/16 05:09PM]	Jonny in ItemActionPacketListener: 11525	
+[5/8/16 05:14PM]	Jonny has done command find anti-venom	
+[5/8/16 05:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 05:15PM]	Jonny in ItemActionPacketListener: 11525	
+[5/8/16 05:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 05:18PM]	Jonny in ItemActionPacketListener: 11525	
+[5/8/16 05:18PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/8/16 05:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 05:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 05:18PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 05:18PM]	Jonny has done command giveitem 11525 5 dc blitz	
+[5/8/16 05:18PM]	Jonny has done command wests	
+[5/8/16 05:19PM]	Jonny has clicked button in ButtonClickPacketListener 1159	
+[5/8/16 05:21PM]	Jonny has done command find super comb	
+[5/8/16 05:24PM]	Jonny has done command find anti-venom	
+[5/8/16 05:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 05:25PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 05:25PM]	Jonny in ObjectActionPacketListener: 1756 - FIRST_CLICK_OPCODE	
+[5/8/16 05:25PM]	Jonny in ObjectActionPacketListener: 5013 - FIRST_CLICK_OPCODE	
+[5/8/16 05:26PM]	Jonny in NPCOptionPacketListener: 5030 - SECOND_CLICK_OPCODE	
+[5/8/16 05:26PM]	Jonny has done command godmode	
+[5/8/16 05:26PM]	Jonny in PickupItemPacketListener: 7956	
+[5/8/16 05:26PM]	Player looting item: Casket (7956), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/8/16 05:26PM]	Jonny in ItemActionPacketListener: 7956	
+[5/8/16 06:03PM]	Jonny has clicked button in ButtonClickPacketListener 1541	
+[5/8/16 06:03PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:05PM]	Jonny has done command tele 2715 9889	
+[5/8/16 06:05PM]	Jonny has done command tele 2843 9636	
+[5/8/16 06:05PM]	Jonny has done command mypos	
+[5/8/16 06:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:15PM]	Jonny has done command mypos	
+[5/8/16 06:15PM]	Jonny has done command tele 2847 9636	
+[5/8/16 06:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:17PM]	Jonny has done command mypos	
+[5/8/16 06:17PM]	Jonny has done command tele 2847 9636	
+[5/8/16 06:21PM]	Jonny has done command pnpc 4370	
+[5/8/16 06:21PM]	Jonny has done command playnpc 4370	
+[5/8/16 06:21PM]	Jonny has done command playnpc 4200	
+[5/8/16 06:22PM]	Jonny has done command npc 3634	
+[5/8/16 06:22PM]	Jonny has done command npc 198	
+[5/8/16 06:22PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:22PM]	Jonny has done command npc 1410	
+[5/8/16 06:22PM]	Jonny has done command npc 2589	
+[5/8/16 06:24PM]	Jonny has done command mypos	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:25PM]	Jonny in NPCOptionPacketListener: 494 - FIRST_CLICK_OPCODE	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 1541	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:25PM]	Jonny has done command mypos	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 1167	
+[5/8/16 06:26PM]	Jonny has done command tele 2863 9640	
+[5/8/16 06:26PM]	Jonny has done command mypos	
+[5/8/16 06:27PM]	Jonny has done command mypos	
+[5/8/16 06:30PM]	Jonny has done command mypos	
+[5/8/16 06:30PM]	Jonny has done command tele 2830 9629	
+[5/8/16 06:31PM]	Jonny has done command tele 2845 9626	
+[5/8/16 06:31PM]	Jonny has done command mypos	
+[5/8/16 06:31PM]	Jonny has done command mypos	
+[5/8/16 06:31PM]	Jonny has done command tele 2860 9634	
+[5/8/16 06:31PM]	Jonny has done command mypos	
+[5/8/16 06:31PM]	Jonny has done command tele 2865 9650	
+[5/8/16 06:31PM]	Jonny has done command mypos	
+[5/8/16 06:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:32PM]	Jonny has clicked button in ButtonClickPacketListener 14879	
+[5/8/16 06:32PM]	Jonny has clicked button in ButtonClickPacketListener 14873	
+[5/8/16 06:32PM]	Jonny has clicked button in ButtonClickPacketListener 14876	
+[5/8/16 06:32PM]	Jonny has clicked button in ButtonClickPacketListener 14878	
+[5/8/16 06:32PM]	Jonny has clicked button in ButtonClickPacketListener 1541	
+[5/8/16 06:32PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:33PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:33PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:33PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:33PM]	Jonny in PickupItemPacketListener: 536	
+[5/8/16 06:33PM]	Player looting item: Dragon bones (536), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/8/16 06:33PM]	Jonny in PickupItemPacketListener: 995	
+[5/8/16 06:33PM]	Player looting item: Coins (995), amount: 60000 Owner: Jonny from the computer address: 362460699	
+[5/8/16 06:33PM]	Jonny in PickupItemPacketListener: 1748	
+[5/8/16 06:33PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:34PM]	Jonny has done command mypos	
+[5/8/16 06:34PM]	Jonny has done command mypos	
+[5/8/16 06:34PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:34PM]	Jonny has done command mypos	
+[5/8/16 06:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:36PM]	Jonny has clicked button in ButtonClickPacketListener 14873	
+[5/8/16 06:36PM]	Jonny has clicked button in ButtonClickPacketListener 14879	
+[5/8/16 06:36PM]	Jonny has clicked button in ButtonClickPacketListener 14875	
+[5/8/16 06:36PM]	Jonny has clicked button in ButtonClickPacketListener 14875	
+[5/8/16 06:36PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:36PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:36PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:37PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/8/16 06:37PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/8/16 06:37PM]	Jonny in NPCOptionPacketListener: 198 - FIRST_CLICK_OPCODE	
+[5/8/16 06:41PM]	Player dropping item: Toxic blowpipe (12926), amount: 1 from the computer address: 362460699	
+[5/8/16 06:41PM]	Jonny in PickupItemPacketListener: 12926	
+[5/8/16 06:41PM]	Player looting item: Toxic blowpipe (12926), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/8/16 06:41PM]	Jonny has clicked button in ButtonClickPacketListener 1170	
+[5/8/16 06:42PM]	Jonny has clicked button in ButtonClickPacketListener 7455	
+[5/8/16 06:45PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:45PM]	Jonny has done command npc 2005	
+[5/8/16 06:45PM]	Jonny in NPCOptionPacketListener: 2005 - FIRST_CLICK_OPCODE	
+[5/8/16 06:45PM]	Jonny in NPCOptionPacketListener: 2005 - FIRST_CLICK_OPCODE	
+[5/8/16 06:46PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:53PM]	Jonny has done command item 5514 1	
+[5/8/16 06:53PM]	Jonny has done command item 5558 1	
+[5/8/16 06:53PM]	Player dropping item: Pink partyhat (21025), amount: 1 from the computer address: 362460699	
+[5/8/16 06:53PM]	Jonny has done command item 13008	
+[5/8/16 06:53PM]	Player dropping item: Pink partyhat (21025), amount: 1 from the computer address: 362460699	
+[5/8/16 06:54PM]	Jonny has done command nnpc 5514	
+[5/8/16 06:54PM]	Jonny has done command npc 5514	
+[5/8/16 06:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 06:55PM]	Jonny has done command item 21103 1	
+[5/8/16 06:55PM]	Jonny has done command item 21103 1	
+[5/8/16 06:55PM]	Jonny has done command market	
+[5/8/16 07:05PM]	Jonny has done command find scrll of	
+[5/8/16 07:05PM]	Jonny has done command find scroll of	
+[5/8/16 07:05PM]	Jonny has done command find payment scroll	
+[5/8/16 08:54PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/8/16 08:54PM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/8/16 08:54PM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/8/16 08:54PM]	Jonny has clicked button in ButtonClickPacketListener -24062	
+[5/8/16 08:54PM]	Opened the player owned shop: Suricato	
+[5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: First Action - 15259 - 3900 - 3	
+[5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: First Action - 15259 - 3900 - 3	
+[5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: First Action - 15259 - 3900 - 3	
+[5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: First Action - 15259 - 3900 - 3	
+[5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: First Action - 15126 - 3900 - 2	
+[5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: First Action - 4151 - 3900 - 0	
+[5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: Second Action - 4151 - 3900 - 0	
+[5/8/16 08:54PM]	Player owned shop added coins for global extraction: 10M for Suricato	
+[5/8/16 08:54PM]	Jonny has changed close interface in CloseInterfacePacketListener	

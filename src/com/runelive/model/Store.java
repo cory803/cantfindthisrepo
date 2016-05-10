@@ -32,6 +32,7 @@ public class Store {
 					String[] item_ids = rs.getString("item_ids").split(",");
 					String[] amounts = rs.getString("amounts").split(",");
 					int credits = rs.getInt("credits");
+					boolean alreadyGotAmountClaimed = false;
 					for(int i = 0; i < item_ids.length; i++) {
 						if (!player.getInventory().hasRoomFor(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]))) {
 							player.getBank(0).add(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]));
@@ -41,8 +42,12 @@ public class Store {
 							player.getPacketSender().sendMessage("<col=ff0000>"+amounts[i]+"x "+ItemDefinition.forId(Integer.parseInt(item_ids[i])).name+" has been added to your inventory.");
 						}
 						int itemId = Integer.parseInt(item_ids[i]);
-						if(itemId != 7629 && itemId != 10934 && itemId != 10935 && itemId != 10943)
-							player.incrementAmountDonated(credits);
+						if(!alreadyGotAmountClaimed) {
+							if(itemId != 7629 && itemId != 10934 && itemId != 10935 && itemId != 10943) {
+								player.incrementAmountDonated(credits);
+								alreadyGotAmountClaimed = true;
+							}
+						}
 					}
 					MemberScrolls.checkForRankUpdate(player);
 					PlayerPanel.refreshPanel(player);
