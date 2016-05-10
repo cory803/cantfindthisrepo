@@ -47,11 +47,11 @@ public class BossPets {
             5514,
             5558,
             13008),
-            PET_RACCOON(5559, 5559,12487),
-            HELLPUPPY(5866, 5870, 12703),
-          CHINCHOMPA(5081, 5081, 11975),
-          VENENATIS(2000, 2005, 21103),
-          SEAGULL(2707, 2707, 11976);
+    PET_RACCOON(5559, 5559, 12487),
+    HELLPUPPY(5866, 5870, 12703),
+    CHINCHOMPA(5081, 5081, 11975),
+    VENENATIS(2000, 2005, 21103),
+    SEAGULL(2707, 2707, 11976);
 
     BossPet(int npcId, int spawnNpcId, int itemId) {
       this.npcId = npcId;
@@ -82,23 +82,27 @@ public class BossPets {
 
   public static boolean pickup(Player player, NPC npc) {
     BossPet pet = BossPet.forSpawnId(npc.getId());
-    if (pet != null) {
-      if (player.getSummoning().getFamiliar() != null
-          && player.getSummoning().getFamiliar().getSummonNpc() != null
-          && player.getSummoning().getFamiliar().getSummonNpc().isRegistered()) {
-        if (player.getSummoning().getFamiliar().getSummonNpc().getId() == pet.spawnNpcId
-            && player.getSummoning().getFamiliar().getSummonNpc().getIndex() == npc.getIndex()) {
-          player.getSummoning().unsummon(true, true);
-          player.getPacketSender().sendMessage("You pick up your pet.");
-          return true;
+    if (player.getInventory().getFreeSlots() >= 1) {
+      if (pet != null) {
+        if (player.getSummoning().getFamiliar() != null
+                && player.getSummoning().getFamiliar().getSummonNpc() != null
+                && player.getSummoning().getFamiliar().getSummonNpc().isRegistered()) {
+          if (player.getSummoning().getFamiliar().getSummonNpc().getId() == pet.spawnNpcId
+                  && player.getSummoning().getFamiliar().getSummonNpc().getIndex() == npc.getIndex()) {
+            player.getSummoning().unsummon(true, true);
+            player.getPacketSender().sendMessage("You pick up your pet.");
+            return true;
+          } else {
+            player.getPacketSender().sendMessage("This is not your pet to pick up.");
+          }
         } else {
           player.getPacketSender().sendMessage("This is not your pet to pick up.");
         }
-      } else {
-        player.getPacketSender().sendMessage("This is not your pet to pick up.");
       }
+      return false;
+    } else {
+      player.getPacketSender().sendMessage("you need atleast 1 free inventory space to pickup your pet.");
+      return false;
     }
-    return false;
   }
-
 }
