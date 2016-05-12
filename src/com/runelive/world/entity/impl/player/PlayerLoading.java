@@ -158,7 +158,12 @@ public class PlayerLoading {
                         player.setRights(PlayerRights.forId(rs.getInt("staffrights")));
                         player.setDonorRights(rs.getInt("donorrights"));
 
-                        decodeJson(player, (rs.getString("json")));
+                        final String jsonString = rs.getString("json");
+                        if (jsonString != null) {
+                            decodeJson(player, jsonString);
+                        } else {
+                            System.err.println("Json is NULL for existing account: " + player.getUsername());
+                        }
 
                         if (GameSettings.HASH_PASSWORDS) {
                             player.setSalt(salt);

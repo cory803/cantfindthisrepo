@@ -131,9 +131,13 @@ public final class LoginDecoder extends FrameDecoder {
                 String computer_address = Misc.readString(rsaBuffer);
                 String mac_address = "not-set";
                 long serial = -1L;
-                if (Double.parseDouble(client_version) >= 2.40) {
-                    mac_address = Misc.readString(rsaBuffer);
-                    serial = rsaBuffer.readLong();
+                try {
+                    if (Double.parseDouble(client_version) >= 2.40) {
+                        mac_address = Misc.readString(rsaBuffer);
+                        serial = rsaBuffer.readLong();
+                    }
+                } catch (NumberFormatException e) {
+                    System.err.println("Invalid client version: " + client_version + ", player: " + username);
                 }
 
                 if (username.length() > 12 || password.length() > 20) {

@@ -12,6 +12,7 @@ import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.entity.impl.player.Player;
  
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
  
@@ -86,7 +87,9 @@ public class PlayerOwnedShops {
         try {
             file = new RandomAccessFile(pos + "/shops.dat", "rw");
             file.writeInt(getCount());
-            for (PosOffers offer : SHOPS_ARRAYLIST) {
+            Iterator<PosOffers> it = SHOPS_ARRAYLIST.iterator();
+            while (it.hasNext()) {
+                PosOffers offer = it.next();
                 if (offer == null) {
                     continue;
                 }
