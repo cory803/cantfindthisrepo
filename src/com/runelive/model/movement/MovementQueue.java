@@ -249,7 +249,7 @@ public final class MovementQueue {
             return;
           } else {
             if (!followCharacter.getMovementQueue().isRunToggled()) {
-              if (character.getPosition().isWithinDistance(followCharacter.getPosition(), 2)) {
+              if (character.getPosition().isWithinDistance(followCharacter.getPosition(), 1)) {
                 runPoint = null;
               }
             }

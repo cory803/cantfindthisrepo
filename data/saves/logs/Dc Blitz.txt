@@ -760,3 +760,38 @@
 [5/12/16 10:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/12/16 10:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/12/16 10:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:30PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/12/16 10:31PM]	Dc Blitz in ObjectActionPacketListener: 1286 - FIRST_CLICK_OPCODE	
+[5/12/16 10:32PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:35PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/12/16 10:38PM]	Dc Blitz has done command mypos	
+[5/12/16 10:38PM]	Dc Blitz has done command tele 2977 3800	
+[5/12/16 10:38PM]	Dc Blitz has done command item 8008 5	
+[5/12/16 10:38PM]	Dc Blitz in ItemActionPacketListener: 8008	
+[5/12/16 10:38PM]	Dc Blitz has done command tele 2977 3800	
+[5/12/16 10:39PM]	Dc Blitz has done command teletome jonny	
+[5/12/16 10:39PM]	Dc Blitz in EquipPacketListener: 16127 from Inventory	
+[5/12/16 10:39PM]	Dc Blitz has done command item 4151	
+[5/12/16 10:39PM]	Dc Blitz in EquipPacketListener: 4151 from Inventory	
+[5/12/16 10:43PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/12/16 10:43PM]	Dc Blitz in ItemActionPacketListener: 8008	
+[5/12/16 10:43PM]	Dc Blitz has done command teleto jonny	
+[5/12/16 10:44PM]	Dc Blitz in EquipPacketListener: 11118 from Inventory	
+[5/12/16 10:44PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 10:44PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 10:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:47PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:18AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:18AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:18AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:20AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:21AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:22AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:23AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:24AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:24AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:24AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:25AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	

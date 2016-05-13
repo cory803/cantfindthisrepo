@@ -1119,14 +1119,13 @@ public final class CombatFactory {
     // We're moving so increase the distance.
     if (!movement.isMovementDone() && !otherMovement.isMovementDone() && !movement.isLockMovement()
         && !a.isFrozen()) {
-      distance += 1;
-
+		distance -= 1;
       // We're running so increase the distance even more.
       // XXX: Might have to change this back to 1 or even remove it, not
       // sure what it's like on actual runescape. Are you allowed to
       // attack when the entity is trying to run away from you?
       if (movement.isRunToggled()) {
-        distance += 2;
+        distance += 1;
       }
     }
 

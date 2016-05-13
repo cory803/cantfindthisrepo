@@ -169,6 +169,7 @@ public class Supports {
 				}
 			}
 		}
+		
 		if(command[0].equalsIgnoreCase("movehome")) {
 			String player2 = command[1];
 			player2 = Misc.formatText(player2.replaceAll("_", " "));
