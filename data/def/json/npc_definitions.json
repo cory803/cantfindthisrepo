@@ -129016,7 +129016,7 @@
 "combat": 318,
 "size": 3,
 "attackable": true,
-"aggressive": true,
+"aggressive": false,
 "retreats": false,
 "poisonous": true,
 "respawn": 10,
