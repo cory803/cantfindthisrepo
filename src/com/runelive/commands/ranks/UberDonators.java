@@ -15,6 +15,7 @@ import com.runelive.util.Misc;
 import com.runelive.model.Skill;
 import com.runelive.world.World;
 import com.runelive.world.content.PlayerPunishment;
+import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 
@@ -99,16 +100,8 @@ public class UberDonators {
 			player.getPacketSender().sendMessage("<img=9><col=00ff00><shad=0> Welcome to the Extreme Donator Zone!");
 		}
 		if (command[0].equals("dzone")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
-				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
-				return;
-			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
-				player.getPacketSender().sendMessage("You cannot do this at the moment.");
-				return;
-			}
 			Position position = new Position(2514, 3860, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}
 		if (command[0].equals("ancients")) {

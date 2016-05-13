@@ -10,6 +10,7 @@ import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.world.World;
 import com.runelive.world.content.PlayerPunishment;
+import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 
@@ -77,7 +78,7 @@ public class SuperDonators {
 				return;
 			}
 			Position position = new Position(2514, 3860, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}
 	}

@@ -105,7 +105,7 @@ public class ExtremeDonators {
 				return;
 			}
 			Position position = new Position(2514, 3860, 0);
-			player.moveTo(position);
+			TeleportHandler.teleportPlayer(player, position, player.getSpellbook().getTeleportType());
 			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}
 	}
