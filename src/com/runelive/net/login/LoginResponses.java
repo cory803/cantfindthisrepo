@@ -15,10 +15,6 @@ public final class LoginResponses {
     if (World.getPlayers().isFull()) {
       return LOGIN_WORLD_FULL;
     }
-    if (GameSettings.ANTI_FLOOD >= 1 && playerLoadingResponse == NEW_ACCOUNT) {
-      System.out.println("Anti-Flood enabled!");
-      return LOGIN_SERVER_OFFLINE;
-    }
     if (GameServer.isUpdating()) {
       return LOGIN_GAME_UPDATE;
     }

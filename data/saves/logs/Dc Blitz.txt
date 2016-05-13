@@ -684,3 +684,9 @@
 [5/8/16 05:21PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 11283 - 3900 - 37	
 [5/8/16 05:21PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
 [5/8/16 05:21PM]	Dc Blitz has done command find anti-venom	
+[5/11/16 06:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/11/16 06:14PM]	Dc Blitz has clicked button in ButtonClickPacketListener 3651	
+[5/11/16 06:14PM]	Dc Blitz has changed their appearance in ChangeAppearancePacketListener	
+[5/11/16 06:14PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/11/16 06:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	

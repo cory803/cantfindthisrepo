@@ -6575,3 +6575,198 @@
 [5/8/16 08:54PM]	Jonny in ItemContainerActionPacketListener: Second Action - 4151 - 3900 - 0	
 [5/8/16 08:54PM]	Player owned shop added coins for global extraction: 10M for Suricato	
 [5/8/16 08:54PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/11/16 06:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/11/16 06:14PM]	Jonny has clicked button in ButtonClickPacketListener 3651	
+[5/11/16 06:14PM]	Jonny has changed their appearance in ChangeAppearancePacketListener	
+[5/11/16 06:14PM]	Jonny in EquipPacketListener: 1323 from Inventory	
+[5/11/16 06:14PM]	Jonny in EquipPacketListener: 1115 from Inventory	
+[5/11/16 06:14PM]	Jonny in EquipPacketListener: 1191 from Inventory	
+[5/11/16 06:14PM]	Jonny in EquipPacketListener: 1153 from Inventory	
+[5/11/16 06:14PM]	Jonny in EquipPacketListener: 1067 from Inventory	
+[5/11/16 06:14PM]	Jonny in EquipPacketListener: 841 from Inventory	
+[5/11/16 06:14PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/11/16 06:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/11/16 06:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/11/16 06:14PM]	Jonny has done command claim	
+[5/11/16 06:17PM]	Jonny has done command claim	
+[5/11/16 06:17PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:17PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:17PM]	Jonny in ItemContainerActionPacketListener: First Action - 1115 - 1688 - 4	
+[5/11/16 06:18PM]	Jonny in ItemContainerActionPacketListener: First Action - 1067 - 1688 - 7	
+[5/11/16 06:18PM]	Jonny has done command claim	
+[5/11/16 06:18PM]	Jonny has done command claim	
+[5/11/16 06:18PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:18PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:18PM]	Jonny has done command claim	
+[5/11/16 06:18PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:18PM]	Jonny in ItemContainerActionPacketListener: Second Action - 10943 - 5064 - 5	
+[5/11/16 06:18PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/11/16 06:18PM]	Jonny in ItemContainerActionPacketListener: Fourth Action - 10943 - 5382 - 0	
+[5/11/16 06:18PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:18PM]	Jonny has done command empty	
+[5/11/16 06:19PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 556 - 5382 - 14	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 882 - 5382 - 5	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: Third Action - 882 - 5382 - 5	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1167 - 5382 - 6	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1129 - 5382 - 7	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1063 - 5382 - 9	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1265 - 5382 - 18	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1265 - 5382 - 18	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1063 - 5382 - 8	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1129 - 5382 - 6	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1063 - 5382 - 8	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1095 - 5382 - 7	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1095 - 5382 - 6	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1011 - 5382 - 8	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1007 - 5382 - 16	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 579 - 5382 - 6	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 16127 - 5382 - 17	
+[5/11/16 06:19PM]	Jonny in ItemContainerActionPacketListener: First Action - 1379 - 5382 - 7	
+[5/11/16 06:19PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:19PM]	Jonny has done command claim	
+[5/11/16 06:19PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:19PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:19PM]	Jonny has done command claim	
+[5/11/16 06:20PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:20PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/11/16 06:22PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:22PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 1115 - 5382 - 2	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 1067 - 5382 - 3	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 1323 - 5382 - 4	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 20171 - 5382 - 24	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 13879 - 5382 - 21	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 13883 - 5382 - 20	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 13879 - 5382 - 21	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 11724 - 5382 - 32	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 11235 - 5382 - 23	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 14011 - 5382 - 35	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 11694 - 5382 - 26	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 13738 - 5382 - 16	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 1061 - 5382 - 13	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 15486 - 5382 - 27	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 11724 - 5382 - 32	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 14010 - 5382 - 38	
+[5/11/16 06:22PM]	Jonny in ItemContainerActionPacketListener: First Action - 20171 - 5382 - 23	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 19780 - 5382 - 23	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 14011 - 5382 - 33	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 11694 - 5382 - 24	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 15486 - 5382 - 25	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 14014 - 5382 - 35	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 11726 - 5382 - 26	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 14009 - 5382 - 36	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 13744 - 5382 - 14	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 13740 - 5382 - 17	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 10943 - 5382 - 27	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 14014 - 5382 - 34	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 14008 - 5382 - 37	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 1129 - 5382 - 46	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 13738 - 5382 - 15	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 558 - 5382 - 7	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 14013 - 5382 - 29	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 1265 - 5382 - 43	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 14016 - 5382 - 31	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 9922 - 5382 - 24	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 6914 - 5382 - 17	
+[5/11/16 06:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 1265 - 5064 - 26	
+[5/11/16 06:23PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:23PM]	Jonny has done command claim	
+[5/11/16 06:23PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:24PM]	Jonny in ItemContainerActionPacketListener: First Action - 11694 - 5064 - 14	
+[5/11/16 06:24PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:24PM]	Jonny has done command claim	
+[5/11/16 06:24PM]	Jonny has done command claim	
+[5/11/16 06:24PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:24PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/11/16 06:25PM]	Jonny in ItemContainerActionPacketListener: First Action - 1129 - 5382 - 58	
+[5/11/16 06:25PM]	Jonny in ItemContainerActionPacketListener: First Action - 16127 - 5382 - 48	
+[5/11/16 06:25PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:25PM]	Jonny has done command claim	
+[5/11/16 06:26PM]	Jonny has done command claim	
+[5/11/16 06:27PM]	Jonny has done command claim	
+[5/11/16 06:27PM]	Jonny has done command claim	
+[5/11/16 06:27PM]	Jonny has done command empty	
+[5/11/16 06:28PM]	Jonny has done command tokens jonny 50k	
+[5/11/16 06:28PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/11/16 06:28PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/11/16 06:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/11/16 06:28PM]	Jonny has done command tokens jonny 50000	
+[5/11/16 06:28PM]	Jonny has done command claim	
+[5/11/16 06:29PM]	Jonny has done command empty	
+[5/11/16 06:29PM]	Jonny has done command claim	
+[5/11/16 06:30PM]	Jonny has done command claim	
+[5/11/16 06:30PM]	Jonny has done command empty	
+[5/11/16 06:31PM]	Jonny has done command claim	
+[5/11/16 06:32PM]	Jonny has done command claim	
+[5/11/16 06:32PM]	Jonny has done command empty	
+[5/11/16 06:32PM]	Jonny has done command claim	
+[5/11/16 06:33PM]	Jonny has done command claim	
+[5/11/16 06:34PM]	Jonny has done command claim	
+[5/11/16 06:34PM]	Jonny has done command claim	
+[5/11/16 06:34PM]	Jonny has done command claim	
+[5/11/16 06:34PM]	Jonny has done command claim	
+[5/11/16 06:34PM]	Jonny has done command empty	
+[5/11/16 06:34PM]	Jonny has done command claim	
+[5/11/16 06:34PM]	Jonny has done command claim	
+[5/11/16 06:34PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:34PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/11/16 06:54PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:54PM]	Jonny has done command claim	
+[5/11/16 06:54PM]	Jonny has done command claim	
+[5/11/16 06:54PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:54PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:55PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 06:55PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/11/16 06:55PM]	Jonny has clicked button in ButtonClickPacketListener 27005	
+[5/11/16 06:55PM]	Jonny in ItemContainerActionPacketListener: First Action - 7629 - 5382 - 57	
+[5/11/16 06:55PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 06:55PM]	Jonny in ItemActionPacketListener: 7629	
+[5/11/16 06:55PM]	Jonny in EnterInputPacketListener: Jonny	
+[5/11/16 07:03PM]	Jonny has done command claim	
+[5/11/16 07:03PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 07:03PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 07:03PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/11/16 07:03PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/11/16 07:03PM]	Jonny in ItemContainerActionPacketListener: First Action - 7629 - 5382 - 57	
+[5/11/16 07:03PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/11/16 07:03PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/11/16 07:04PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 07:06PM]	Jonny has done command claim	
+[5/11/16 10:52PM]	Jonny in ItemActionPacketListener: 10934	
+[5/11/16 10:52PM]	Jonny in EnterInputPacketListener:  	
+[5/11/16 10:52PM]	Jonny in ItemActionPacketListener: 10934	
+[5/11/16 10:52PM]	Jonny in ItemActionPacketListener: 10934	
+[5/11/16 10:52PM]	Jonny in EnterInputPacketListener: '	
+[5/11/16 10:52PM]	Jonny in ItemActionPacketListener: 10934	
+[5/11/16 10:52PM]	Jonny in EnterInputPacketListener: *	
+[5/11/16 10:53PM]	Jonny in ItemActionPacketListener: 10934	
+[5/12/16 03:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:13PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 03:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:13PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 03:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:14PM]	Jonny has done command kick jonny	
+[5/12/16 03:14PM]	Jonny just kicked Jonny!	
+[5/12/16 03:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:14PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 03:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 03:18PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 03:18PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 05:48PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 05:50PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 05:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 05:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
