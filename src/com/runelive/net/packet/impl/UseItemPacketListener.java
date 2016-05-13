@@ -133,6 +133,10 @@ public class UseItemPacketListener implements PacketListener {
       Firemaking.lightFire(player,
               itemUsedWith.getId() == 2946 ? usedWith.getId() : itemUsedWith.getId(), false, 1);
 
+    if (itemUsedWith.getId() == 13403 || usedWith.getId() == 13403)
+      Firemaking.lightFire(player,
+              itemUsedWith.getId() == 13403 ? usedWith.getId() : itemUsedWith.getId(), false, 1);
+
     if (itemUsedWith.getDefinition().getName().contains("(")
             && usedWith.getDefinition().getName().contains("("))
       PotionCombinating.combinePotion(player, usedWith.getId(), itemUsedWith.getId());
