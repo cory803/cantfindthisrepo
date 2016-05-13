@@ -690,3 +690,73 @@
 [5/11/16 06:14PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
 [5/11/16 06:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [5/12/16 03:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:24PM]	Dc Blitz has clicked button in ButtonClickPacketListener 3651	
+[5/12/16 07:24PM]	Dc Blitz has changed their appearance in ChangeAppearancePacketListener	
+[5/12/16 07:24PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:24PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:25PM]	Dc Blitz has done command master	
+[5/12/16 07:25PM]	Dc Blitz has done command empty	
+[5/12/16 07:25PM]	Dc Blitz has done command wests	
+[5/12/16 07:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:28PM]	Dc Blitz has done command wests	
+[5/12/16 07:29PM]	Dc Blitz has done command master	
+[5/12/16 07:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 08:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 08:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Coins(995), amount: 5000000	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Iron full helm(1153), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Iron platebody(1115), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Iron platelegs(1067), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Iron scimitar(1323), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Iron kiteshield(1191), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Shortbow(841), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Bronze arrow(882), amount: 1000	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Leather cowl(1167), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Leather body(1129), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Leather chaps(1095), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Leather vambraces(1063), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Wizard hat(579), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Wizard robe(577), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Blue skirt(1011), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Staff(1379), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Air rune(556), amount: 1000	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Mind rune(558), amount: 1000	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Earth rune(557), amount: 1000	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Water rune(555), amount: 1000	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Bronze hatchet(1351), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Bronze pickaxe(1265), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Leather boots(1061), amount: 1	
+[5/12/16 08:25PM]	Player killed by Jonny for item: Id: Shark(386), amount: 100	
+[5/12/16 09:05PM]	Dc Blitz has done command wests	
+[5/12/16 09:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:06PM]	Dc Blitz has done command wests	
+[5/12/16 09:07PM]	Dc Blitz has done command hp	
+[5/12/16 09:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:08PM]	Dc Blitz has done command wests	
+[5/12/16 09:13PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 09:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:23PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/12/16 09:24PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/12/16 09:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:31PM]	Dc Blitz has done command hp	
+[5/12/16 09:31PM]	Dc Blitz has done command hp	
+[5/12/16 09:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:12PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/12/16 10:12PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/12/16 10:13PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/12/16 10:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	

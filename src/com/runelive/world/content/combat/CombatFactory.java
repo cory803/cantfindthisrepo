@@ -1134,16 +1134,10 @@ public final class CombatFactory {
      * Clipping checks and diagonal blocking by gabbe
      */
 
-    boolean sameSpot = attacker.equals(victim) && !a.getMovementQueue().isMoving()
-        && !b.getMovementQueue().isMoving();
-    boolean goodDistance = !sameSpot && Locations.goodDistance(attacker.getX(), attacker.getY(),
-        victim.getX(), victim.getY(), distance);
+    boolean sameSpot = attacker.equals(victim) && !a.getMovementQueue().isMoving() && !b.getMovementQueue().isMoving();
+    boolean goodDistance = !sameSpot && Locations.goodDistance(attacker.getX(), attacker.getY(), victim.getX(), victim.getY(), distance);
     boolean projectilePathBlocked = false;
-    if (a.isPlayer()
-        && (strategy.getCombatType() == CombatType.RANGED
-            || strategy.getCombatType() == CombatType.MAGIC && ((Player) a).getCastSpell() != null
-                && !(((Player) a).getCastSpell() instanceof CombatAncientSpell))
-        || a.isNpc() && strategy.getCombatType() == CombatType.MELEE) {
+    if (a.isPlayer() && (strategy.getCombatType() == CombatType.RANGED || strategy.getCombatType() == CombatType.MAGIC && ((Player) a).getCastSpell() != null && !(((Player) a).getCastSpell() instanceof CombatAncientSpell)) || a.isNpc() && strategy.getCombatType() == CombatType.MELEE) {
       if (!RegionClipping.canProjectileAttack(b, a))
         projectilePathBlocked = true;
     }
@@ -1155,7 +1149,13 @@ public final class CombatFactory {
         a.getMovementQueue().reset();
       return true;
     } else if (projectilePathBlocked || !goodDistance) {
-      a.getMovementQueue().setFollowCharacter(b);
+		switch(strategy.getCombatType()) {
+			case RANGED:
+			case MAGIC:
+				PathFinder.findPath(a, victim.getX(), victim.getY() + 4, true, 4, 4);
+			break;
+		}
+		a.getMovementQueue().setFollowCharacter(b);
       return false;
     }
     // Check if we're within the required distance.

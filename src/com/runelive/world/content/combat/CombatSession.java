@@ -63,8 +63,16 @@ public class CombatSession {
             ((NPC) builder.getCharacter()).setFindNewTarget(true);
           }
         }
-        return;
+		if(builder.getCharacter().isPlayer()) {
+			builder.getCharacter().getMovementQueue().setFollowCharacter(builder.getVictim());
+		}
       }
+	  
+	  if (!builder.getCharacter().getPosition().isWithinDistance(builder.getVictim().getPosition(), 14)) {
+		  builder.getCharacter().getMovementQueue().setFollowCharacter(null);
+		  return;
+		  
+	  }
 
       // Check if the attack can be made on this hook
       if (!builder.getStrategy().canAttack(builder.getCharacter(), builder.getVictim())) {

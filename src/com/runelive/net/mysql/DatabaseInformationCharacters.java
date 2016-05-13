@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 /**
  * The RuneLive Database Informations
  *
- * @author Nikki
+ * @author Jonny
  *
  */
 public class DatabaseInformationCharacters {

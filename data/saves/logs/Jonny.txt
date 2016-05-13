@@ -6892,3 +6892,81 @@
 [5/12/16 07:20PM]	Jonny in ItemActionPacketListener: 15272	
 [5/12/16 07:21PM]	Jonny has done command item 3024 5	
 [5/12/16 07:21PM]	Jonny in ItemActionPacketListener: 3024	
+[5/12/16 07:24PM]	Jonny has done command wests	
+[5/12/16 07:25PM]	Jonny has done command edge	
+[5/12/16 07:25PM]	Jonny has done command ancients	
+[5/12/16 07:25PM]	Jonny has done command wests	
+[5/12/16 07:25PM]	Jonny has done command item 555 150000	
+[5/12/16 07:25PM]	Jonny has done command item 560 150000	
+[5/12/16 07:25PM]	Jonny has done command item 565 15000	
+[5/12/16 07:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:28PM]	Jonny has done command wests	
+[5/12/16 07:28PM]	Jonny has done command item 555 15000	
+[5/12/16 07:28PM]	Jonny has done command item 560 15000	
+[5/12/16 07:28PM]	Jonny has done command item 565 15000	
+[5/12/16 07:28PM]	Jonny has done command ancients	
+[5/12/16 07:28PM]	Jonny has done command edge	
+[5/12/16 07:28PM]	Jonny has done command ancients	
+[5/12/16 07:28PM]	Jonny has done command wests	
+[5/12/16 07:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 08:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 08:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Coins(995), amount: 5000000	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Iron full helm(1153), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Iron platebody(1115), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Iron platelegs(1067), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Iron scimitar(1323), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Iron kiteshield(1191), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Shortbow(841), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Bronze arrow(882), amount: 1000	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Leather cowl(1167), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Leather body(1129), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Leather chaps(1095), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Leather vambraces(1063), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Wizard hat(579), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Wizard robe(577), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Blue skirt(1011), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Staff(1379), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Air rune(556), amount: 1000	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Mind rune(558), amount: 1000	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Earth rune(557), amount: 1000	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Water rune(555), amount: 1000	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Bronze hatchet(1351), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Bronze pickaxe(1265), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Leather boots(1061), amount: 1	
+[5/12/16 08:25PM]	Player killed Dc Blitz for item: Id: Shark(386), amount: 100	
+[5/12/16 09:03PM]	Jonny has clicked button in ButtonClickPacketListener 25841	
+[5/12/16 09:05PM]	Jonny has clicked button in ButtonClickPacketListener 26003	
+[5/12/16 09:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:06PM]	Jonny has done command spawn rune crossbow:1	
+[5/12/16 09:06PM]	Jonny has done command find dragon bolt	
+[5/12/16 09:06PM]	Jonny has done command item 9244 500	
+[5/12/16 09:06PM]	Jonny in EquipPacketListener: 9185 from Inventory	
+[5/12/16 09:06PM]	Jonny in EquipPacketListener: 9244 from Inventory	
+[5/12/16 09:08PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:08PM]	Jonny has done command item 10944 250	
+[5/12/16 09:08PM]	Jonny has done command spawn rune crossbow:1	
+[5/12/16 09:08PM]	Jonny has done command item 9185 1	
+[5/12/16 09:08PM]	Jonny has done command find dragon bolt	
+[5/12/16 09:08PM]	Jonny has done command item 9244 1000	
+[5/12/16 09:08PM]	Jonny in EquipPacketListener: 9244 from Inventory	
+[5/12/16 09:08PM]	Jonny in EquipPacketListener: 9185 from Inventory	
+[5/12/16 09:13PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 09:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:30PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:55PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 09:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:04PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:13PM]	Jonny has clicked button in ButtonClickPacketListener 152	
+[5/12/16 10:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:26PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 10:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
