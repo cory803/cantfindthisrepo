@@ -46,6 +46,7 @@ public class GameSettings {
   
   public static String mysql_characters_password = "null";
   public static String mysql_forum_password = "null";
+  public static String connection_address = "localhost";
 
   public static int gambler_timer_1 = 0;
   public static int gambler_timer_2 = 0;

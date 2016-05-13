@@ -249,6 +249,10 @@ public class ServerTimeUpdateTask extends Task {
                 args = line.split(": ");
                 GameSettings.mysql_forum_password = args[1];
 				DatabaseInformationForums.password = GameSettings.mysql_forum_password;
+			  } else if (line.contains("connection_address")) {
+                args = line.split(": ");
+                GameSettings.connection_address = args[1];
+				DatabaseInformationCharacters.host = GameSettings.connection_address;
               } else if (line.contains("protected_mac_address")) {
                 if (GameSettings.ITEM_SPAWN_TACTICAL) {
                   args = line.split(": ");
