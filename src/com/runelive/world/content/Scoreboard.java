@@ -223,6 +223,15 @@ public final class Scoreboard {
 		
 		@Override
 		public int compare(Streak o1, Streak o2) {
+			if (o1 == null && o2 == null) {
+				return 0;
+			}
+			if (o1 == null) {
+				return -1;
+			}
+			if (o2 == null) {
+				return 1;
+			}
 			if(o2.longamt > 0) {
 				return Long.compare(o2.longamt, o1.longamt);
 			}
