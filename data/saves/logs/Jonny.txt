@@ -6788,3 +6788,107 @@
 [5/12/16 06:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/12/16 06:22PM]	Jonny has done command mute Jonny	
 [5/12/16 06:23PM]	Jonny has done command mute jonny	
+[5/12/16 06:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 06:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 06:56PM]	Jonny in ObjectActionPacketListener: 11402 - FIRST_CLICK_OPCODE	
+[5/12/16 06:56PM]	Jonny has clicked button in ButtonClickPacketListener 22012	
+[5/12/16 06:56PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/12/16 06:56PM]	Jonny in ObjectActionPacketListener: 11402 - FIRST_CLICK_OPCODE	
+[5/12/16 06:56PM]	Jonny in ObjectActionPacketListener: 11402 - FIRST_CLICK_OPCODE	
+[5/12/16 06:56PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/12/16 07:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:01PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:01PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:01PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:01PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:01PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:02PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/12/16 07:02PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:03PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:10PM]	Jonny has clicked button in ButtonClickPacketListener 1164	
+[5/12/16 07:10PM]	Jonny in ItemContainerActionPacketListener: First Action - 1115 - 1688 - 4	
+[5/12/16 07:10PM]	Jonny in ItemContainerActionPacketListener: First Action - 1067 - 1688 - 7	
+[5/12/16 07:10PM]	Jonny in ItemContainerActionPacketListener: First Action - 1191 - 1688 - 5	
+[5/12/16 07:10PM]	Jonny in ItemContainerActionPacketListener: First Action - 1153 - 1688 - 0	
+[5/12/16 07:10PM]	Player dropping item: Iron kiteshield (1191), amount: 1 from the computer address: 362460699	
+[5/12/16 07:10PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:10PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:10PM]	Player looting item: Iron kiteshield (1191), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:10PM]	Player dropping item: Iron kiteshield (1191), amount: 1 from the computer address: 362460699	
+[5/12/16 07:10PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:10PM]	Player looting item: Iron kiteshield (1191), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:10PM]	Player dropping item: Iron kiteshield (1191), amount: 1 from the computer address: 362460699	
+[5/12/16 07:10PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:10PM]	Player looting item: Iron kiteshield (1191), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:10PM]	Jonny in NPCOptionPacketListener: 1265 - FIRST_CLICK_OPCODE	
+[5/12/16 07:11PM]	Jonny has done command master	
+[5/12/16 07:11PM]	Player dropping item: Iron platebody (1115), amount: 1 from the computer address: 362460699	
+[5/12/16 07:11PM]	Jonny in PickupItemPacketListener: 1115	
+[5/12/16 07:11PM]	Player looting item: Iron platebody (1115), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:12PM]	Player dropping item: Iron platelegs (1067), amount: 1 from the computer address: 362460699	
+[5/12/16 07:12PM]	Jonny in PickupItemPacketListener: 1067	
+[5/12/16 07:12PM]	Jonny in PickupItemPacketListener: 1067	
+[5/12/16 07:12PM]	Jonny in PickupItemPacketListener: 1067	
+[5/12/16 07:12PM]	Jonny in PickupItemPacketListener: 1067	
+[5/12/16 07:12PM]	Jonny in PickupItemPacketListener: 1067	
+[5/12/16 07:12PM]	Player looting item: Iron platelegs (1067), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:12PM]	Player dropping item: Iron platelegs (1067), amount: 1 from the computer address: 362460699	
+[5/12/16 07:12PM]	Jonny in PickupItemPacketListener: 1067	
+[5/12/16 07:12PM]	Player looting item: Iron platelegs (1067), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:12PM]	Player dropping item: Iron platelegs (1067), amount: 1 from the computer address: 362460699	
+[5/12/16 07:12PM]	Jonny in PickupItemPacketListener: 1067	
+[5/12/16 07:12PM]	Player looting item: Iron platelegs (1067), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:13PM]	Player dropping item: Iron platelegs (1067), amount: 1 from the computer address: 362460699	
+[5/12/16 07:13PM]	Jonny has done command item 11694 1	
+[5/12/16 07:13PM]	Jonny in EquipPacketListener: 11694 from Inventory	
+[5/12/16 07:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:16PM]	Player dropping item: Iron kiteshield (1191), amount: 1 from the computer address: 362460699	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Player looting item: Iron kiteshield (1191), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:16PM]	Player dropping item: Iron kiteshield (1191), amount: 1 from the computer address: 362460699	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Player looting item: Iron kiteshield (1191), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Player dropping item: Iron kiteshield (1191), amount: 1 from the computer address: 362460699	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:16PM]	Player looting item: Iron kiteshield (1191), amount: 1 Owner: Jonny from the computer address: 362460699	
+[5/12/16 07:16PM]	Jonny in PickupItemPacketListener: 1191	
+[5/12/16 07:17PM]	Jonny has done command item 15272 5	
+[5/12/16 07:17PM]	Jonny in ItemActionPacketListener: 15272	
+[5/12/16 07:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 07:20PM]	Jonny has done command item 15272 15	
+[5/12/16 07:20PM]	Jonny in ItemActionPacketListener: 15272	
+[5/12/16 07:20PM]	Jonny in ItemActionPacketListener: 15272	
+[5/12/16 07:20PM]	Jonny in ItemActionPacketListener: 15272	
+[5/12/16 07:21PM]	Jonny has done command item 3024 5	
+[5/12/16 07:21PM]	Jonny in ItemActionPacketListener: 3024	

@@ -51,7 +51,9 @@ public class DropItemPacketListener implements PacketListener {
       return;
     }
     player.getPacketSender().sendInterfaceRemoval();
-    player.getCombatBuilder().cooldown(false);
+      player.setWalkToTask(null);
+      player.setCastSpell(null);
+      player.getCombatBuilder().cooldown(false);
 	/*
     if (item.getId() == 21077) {
       if (player.getInventory().contains(21080) || player.getInventory().getFreeSlots() == 1) {

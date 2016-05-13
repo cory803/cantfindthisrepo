@@ -79,10 +79,9 @@ public class Consumables {
             player.getPacketSender().sendMessage("Food has been disabled in this duel.");
             return;
         }
-        // if(ClanWars.Rules.COMBAT_FOOD.getToggle() == false) {
-        // player.getPacketSender().sendMessage("You cannot eat food in this clan battle.");
-        // return;
-        // }
+		  player.setWalkToTask(null);
+		  player.setCastSpell(null);
+		  player.getCombatBuilder().cooldown(false);
         if (food != null && player.getComboFoodDelay().elapsed(900) && food.hasComboDelay()) {
             player.getComboFoodDelay().reset();
             player.getPacketSender().sendInterfaceRemoval();

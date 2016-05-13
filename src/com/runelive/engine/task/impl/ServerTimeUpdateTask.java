@@ -243,8 +243,10 @@ public class ServerTimeUpdateTask extends Task {
                 GameSettings.DATABASE_LOGGING_TIME = time; 
 			  } else if (line.contains("mysql_characters_password")) {
                 args = line.split(": ");
-                GameSettings.mysql_characters_password = args[1];
-				DatabaseInformationCharacters.password = GameSettings.mysql_characters_password;
+				if(args.length > 1) {
+					GameSettings.mysql_characters_password = args[1];
+					DatabaseInformationCharacters.password = GameSettings.mysql_characters_password;
+				}
 			  } else if (line.contains("mysql_forum_password")) {
                 args = line.split(": ");
                 GameSettings.mysql_forum_password = args[1];
