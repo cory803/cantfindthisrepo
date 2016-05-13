@@ -795,3 +795,26 @@
 [5/13/16 12:24AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
 [5/13/16 12:24AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
 [5/13/16 12:25AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 12:31AM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/13/16 12:31AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:35AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:39AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:43AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:44AM]	Dc Blitz has done command tele 2992 3896	
+[5/13/16 12:44AM]	Dc Blitz has done command tele 2992 3894	
+[5/13/16 12:45AM]	Dc Blitz has done command tele mypos	
+[5/13/16 12:45AM]	Dc Blitz has done command mypos	
+[5/13/16 12:48AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:48AM]	Dc Blitz has done command mypos	
+[5/13/16 12:49AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:52AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:53AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:54AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:55AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 12:57AM]	Dc Blitz has done command mypos	
+[5/13/16 12:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 01:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 01:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
