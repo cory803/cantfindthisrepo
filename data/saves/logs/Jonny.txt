@@ -6770,3 +6770,18 @@
 [5/12/16 05:50PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
 [5/12/16 05:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [5/12/16 05:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 05:51PM]	Jonny has clicked button in ButtonClickPacketListener 25841	
+[5/12/16 05:56PM]	Jonny has clicked button in ButtonClickPacketListener 26003	
+[5/12/16 05:56PM]	Jonny has done command train	
+[5/12/16 05:56PM]	Jonny has done command ancients	
+[5/12/16 05:56PM]	Jonny has done command item 555 10000	
+[5/12/16 05:56PM]	Jonny has done command item 560 10000	
+[5/12/16 05:56PM]	Jonny has done command item 565 10000	
+[5/12/16 05:56PM]	Jonny has done command master	
+[5/12/16 05:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/12/16 05:58PM]	Jonny has done command train	
+[5/12/16 05:58PM]	Jonny has done command item 555 15000	
+[5/12/16 05:58PM]	Jonny has done command item 560 15000	
+[5/12/16 05:58PM]	Jonny has done command item 565 15000	
+[5/12/16 05:58PM]	Jonny has done command ancients	
+[5/12/16 05:58PM]	Jonny has done command master	
