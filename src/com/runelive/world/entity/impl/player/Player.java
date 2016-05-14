@@ -146,6 +146,7 @@ public class Player extends Character {
 	}
 
 	public boolean spawnedCerberus = false;
+	public boolean zulrahIsSpawned = false;
 
 	public void setDoneGrandExchangeReturn(boolean abb) {
 		ge_return = abb;

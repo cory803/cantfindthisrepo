@@ -352,7 +352,7 @@ public class UseItemPacketListener implements PacketListener {
 
     switch (npc.getId()) {
       case 4249:
-        if (!player.getLastRoll().elapsed(5000)) {
+        /*if (!player.getLastRoll().elapsed(5000)) {
           player.getPacketSender()
                   .sendMessage("You must wait another "
                           + Misc.getTimeLeft(player.getLastRoll().getTime(), 5, TimeUnit.SECONDS)
@@ -366,7 +366,8 @@ public class UseItemPacketListener implements PacketListener {
           } else {
             player.getPacketSender().sendMessage("You either do not have this item or not enough inventory spaces");
           }
-        }
+        }*/
+        player.getPacketSender().sendMessage("This feature is disabled.");
     break;
       case 4250:
         if(item_id == 1511 || item_id == 1521 || item_id == 6333 || item_id == 6332) {

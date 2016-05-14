@@ -60,7 +60,9 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
-
+		if(wholeCommand.equalsIgnoreCase("zulrah")) {
+			Zulrah.enter_pit(player);
+		}
 		if(wholeCommand.startsWith("dd")) {
 			Gamble.debugRoll(player);
 			Gamble.debugRoll(player);
