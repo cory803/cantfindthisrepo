@@ -196,45 +196,45 @@ public class Achievements {
                                                                                                                                                                         null),
 
     FILL_WELL_OF_GOODWILL_250M(Difficulty.HARD, "Pour 250M Into The Well", 37070,
-        new int[] {25, 250000000}), CUT_5000_MAGIC_LOGS(Difficulty.HARD, "Cut 5000 Magic Logs",
-            37071, new int[] {26, 5000}), BURN_2500_MAGIC_LOGS(Difficulty.HARD,
+        new int[] {25, 250000000}), CUT_5000_MAGIC_LOGS(Difficulty.HARD, "Cut 2500 Magic Logs",
+            37071, new int[] {26, 2500}), BURN_2500_MAGIC_LOGS(Difficulty.HARD,
                 "Burn 2500 Magic Logs", 37072,
-                new int[] {27, 2500}), FISH_2000_ROCKTAILS(Difficulty.HARD, "Fish 2000 Rocktails",
-                    37073, new int[] {28, 2000}), COOK_1000_ROCKTAILS(Difficulty.HARD,
+                new int[] {27, 2500}), FISH_2000_ROCKTAILS(Difficulty.HARD, "Fish 1500 Rocktails",
+                    37073, new int[] {28, 2500}), COOK_1000_ROCKTAILS(Difficulty.HARD,
                         "Cook 1000 Rocktails", 37074, new int[] {29, 1000}), MINE_2000_RUNITE_ORES(
-                            Difficulty.HARD, "Mine 2000 Runite Ores", 37075,
-                            new int[] {30, 2000}), SMELT_1000_RUNE_BARS(Difficulty.HARD,
+                            Difficulty.HARD, "Mine 1000 Runite Ores", 37075,
+                            new int[] {30, 1000}), SMELT_1000_RUNE_BARS(Difficulty.HARD,
                                 "Smelt 1000 Rune Bars", 37076,
                                 new int[] {31, 1000}), HARVEST_1000_TORSTOLS(Difficulty.HARD,
                                     "Harvest 1000 Torstols", 37077,
                                     new int[] {32, 1000}), INFUSE_500_STEEL_TITAN_POUCHES(
                                         Difficulty.HARD, "Infuse 500 Steel Titans", 37078,
                                         new int[] {33, 500}), CRAFT_1000_DIAMOND_GEMS(
-                                            Difficulty.HARD, "Craft 1000 Diamond Gems", 37079,
-                                            new int[] {34, 1000}), CATCH_100_KINGLY_IMPLINGS(
+                                            Difficulty.HARD, "Craft 750 Diamond Gems", 37079,
+                                            new int[] {34, 750}), CATCH_100_KINGLY_IMPLINGS(
                                                 Difficulty.HARD, "Catch 100 Kingly Imps", 37080,
                                                 new int[] {35, 100}), FLETCH_5000_RUNE_ARROWS(
                                                     Difficulty.HARD, "Fletch 5000 Rune Arrows",
                                                     37081,
                                                     new int[] {36, 5000}), STEAL_5000_SCIMITARS(
-                                                        Difficulty.HARD, "Steal 5000 Scimitars",
+                                                        Difficulty.HARD, "Steal 2000 Scimitars",
                                                         37082,
                                                         new int[] {37,
-                                                            5000}), RUNECRAFT_8000_BLOOD_RUNES(
+                                                            2000}), RUNECRAFT_8000_BLOOD_RUNES(
                                                                 Difficulty.HARD,
-                                                                "Runecraft 8000 Blood Runes", 37083,
+                                                                "Runecraft 6000 Blood Runes", 37083,
                                                                 new int[] {38,
-                                                                    8000}), BURY_500_FROST_DRAGON_BONES(
+                                                                    6000}), BURY_500_FROST_DRAGON_BONES(
                                                                         Difficulty.HARD,
                                                                         "Bury 500 Frost Dragon Bones",
                                                                         37084,
                                                                         new int[] {39,
                                                                             500}), FIRE_5000_CANNON_BALLS(
                                                                                 Difficulty.HARD,
-                                                                                "Fire 5000 Cannon Balls",
+                                                                                "Fire 3000 Cannon Balls",
                                                                                 37085,
                                                                                 new int[] {40,
-                                                                                    5000}), MIX_100_OVERLOAD_POTIONS(
+                                                                                    3000}), MIX_100_OVERLOAD_POTIONS(
                                                                                         Difficulty.HARD,
                                                                                         "Mix 100 Overload Potions",
                                                                                         37086,
@@ -252,23 +252,23 @@ public class Achievements {
                                                                                                         42,
                                                                                                         5}), DEAL_HARD_DAMAGE_USING_MELEE(
                                                                                                             Difficulty.HARD,
-                                                                                                            "Deal 10M Melee Damage",
+                                                                                                            "Deal 5M Melee Damage",
                                                                                                             37089,
                                                                                                             new int[] {
                                                                                                                 43,
-                                                                                                                10000000}), DEAL_HARD_DAMAGE_USING_RANGED(
+                                                                                                                5000000}), DEAL_HARD_DAMAGE_USING_RANGED(
                                                                                                                     Difficulty.HARD,
-                                                                                                                    "Deal 10M Ranged Damage",
+                                                                                                                    "Deal 5M Ranged Damage",
                                                                                                                     37090,
                                                                                                                     new int[] {
                                                                                                                         44,
-                                                                                                                        10000000}), DEAL_HARD_DAMAGE_USING_MAGIC(
+                                                                                                                        5000000}), DEAL_HARD_DAMAGE_USING_MAGIC(
                                                                                                                             Difficulty.HARD,
-                                                                                                                            "Deal 10M Magic Damage",
+                                                                                                                            "Deal 5M Magic Damage",
                                                                                                                             37091,
                                                                                                                             new int[] {
                                                                                                                                 45,
-                                                                                                                                10000000}), DEFEAT_JAD(
+                                                                                                                                5000000}), DEFEAT_JAD(
                                                                                                                                     Difficulty.HARD,
                                                                                                                                     "Defeat Jad",
                                                                                                                                     37092,
