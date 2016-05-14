@@ -1187,9 +1187,24 @@ public final class CombatFactory {
               int prayerLost = (int) (context.getHit().getDamage() * 0.09);
               if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
                 context.getHit().incrementAbsorbedDamage(
-                    (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.65)));
+                    (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.70)));
                 victim.getSkillManager().setCurrentLevel(Skill.PRAYER,
                     victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
+              }
+            }
+          }
+        });
+      }
+      if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 21104) {
+        container.allHits(context -> {
+          if (context.getHit().getDamage() > 0) {
+            if (victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > 0) {
+              int prayerLost = (int) (context.getHit().getDamage() * 0.20);
+              if (victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) >= prayerLost) {
+                context.getHit().incrementAbsorbedDamage(
+                    (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.90)));
+                victim.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
+                    victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) - prayerLost);
               }
             }
           }
@@ -1202,7 +1217,7 @@ public final class CombatFactory {
               int prayerLost = (int) (context.getHit().getDamage() * 0.07);
               if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
                 context.getHit().incrementAbsorbedDamage(
-                    (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.45)));
+                    (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.70)));
                 victim.getSkillManager().setCurrentLevel(Skill.PRAYER,
                     victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
               }

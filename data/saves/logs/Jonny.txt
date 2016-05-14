@@ -7009,3 +7009,89 @@
 [5/13/16 12:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/13/16 01:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/13/16 01:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Super restore (3)(3026), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Iron full helm(1153), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Water rune(555), amount: 15000	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Death rune(560), amount: 14786	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Blood rune(565), amount: 14572	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Vote Reward Book(10944), amount: 250	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Iron scimitar(1323), amount: 1	
+[5/13/16 01:49AM]	Player killed by Dc Blitz for item: Id: Dragon bolts (e)(9244), amount: 671	
+[5/13/16 11:26AM]	Jonny in NPCOptionPacketListener: 2579 - SECOND_CLICK_OPCODE	
+[5/13/16 11:30AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/13/16 11:30AM]	Jonny has done command teleto dc blitz	
+[5/13/16 11:31AM]	Jonny has clicked button in ButtonClickPacketListener 152	
+[5/13/16 11:35AM]	Jonny has clicked button in ButtonClickPacketListener 152	
+[5/13/16 11:41AM]	Jonny has done command find divine	
+[5/13/16 11:42AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 11:42AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 11:43AM]	Jonny has done command item 13740 1	
+[5/13/16 11:46AM]	Jonny in EquipPacketListener: 13740 from Inventory	
+[5/13/16 11:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 11:56AM]	Jonny has done command find imperial	
+[5/13/16 11:56AM]	Jonny has done command item 21103 1	
+[5/13/16 11:56AM]	Jonny has done command item 21104 1	
+[5/13/16 11:57AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 11:57AM]	Jonny has done command item 21104 1	
+[5/13/16 11:57AM]	Jonny in EquipPacketListener: 21104 from Inventory	
+[5/13/16 04:24PM]	Jonny has done command anim 6754	
+[5/13/16 05:23PM]	Jonny has done command spawn saradomin brew flask:1	
+[5/13/16 05:50PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 05:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 05:53PM]	Jonny in ExamineItemPacketListener: 21104	
+[5/13/16 05:53PM]	Jonny in ItemContainerActionPacketListener: First Action - 21104 - 1688 - 5	
+[5/13/16 05:53PM]	Jonny in EquipPacketListener: 21104 from Inventory	
+[5/13/16 06:02PM]	Jonny has done command find arcane spirit 	
+[5/13/16 06:02PM]	Jonny has done command item 13738 1	
+[5/13/16 06:02PM]	Jonny has done command find divie spirit	
+[5/13/16 06:02PM]	Jonny has done command find divine spirit	
+[5/13/16 06:02PM]	Jonny has done command item 13740 1	
+[5/13/16 06:02PM]	Jonny in ItemContainerActionPacketListener: First Action - 21104 - 1688 - 5	
+[5/13/16 06:02PM]	Jonny in EquipPacketListener: 13740 from Inventory	
+[5/13/16 06:02PM]	Jonny in EquipPacketListener: 21104 from Inventory	
+[5/13/16 06:02PM]	Jonny in EquipPacketListener: 13740 from Inventory	
+[5/13/16 06:02PM]	Jonny has clicked button in ButtonClickPacketListener 15001	
+[5/13/16 06:02PM]	Jonny in EquipPacketListener: 13738 from Inventory	
+[5/13/16 06:02PM]	Jonny in EquipPacketListener: 13740 from Inventory	
+[5/13/16 06:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 06:16PM]	Jonny has done command find divine spirit	
+[5/13/16 06:16PM]	Jonny has done command item 13740 1	
+[5/13/16 06:16PM]	Jonny in EquipPacketListener: 13740 from Inventory	
+[5/13/16 06:16PM]	Jonny has clicked button in ButtonClickPacketListener 15001	
+[5/13/16 08:10PM]	Jonny has clicked button in ButtonClickPacketListener 1013	
+[5/13/16 08:10PM]	Jonny has clicked button in ButtonClickPacketListener 15210	
+[5/13/16 08:13PM]	Jonny in ExamineItemPacketListener: 21104	
+[5/13/16 10:17PM]	Jonny has done command item 13742 1	
+[5/13/16 10:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 10:22PM]	Jonny in EquipPacketListener: 21104 from Inventory	
+[5/13/16 10:22PM]	Jonny in EquipPacketListener: 9185 from Inventory	
+[5/13/16 10:22PM]	Jonny has done command item 4151 1	
+[5/13/16 10:22PM]	Jonny in EquipPacketListener: 4151 from Inventory	
+[5/13/16 10:23PM]	Jonny has done command edge	
+[5/13/16 10:23PM]	Jonny in EquipPacketListener: 21104 from Inventory	
+[5/13/16 10:23PM]	Jonny has done command edge	
+[5/13/16 10:23PM]	Jonny has done command item 4151 1	
+[5/13/16 10:23PM]	Jonny has done command edge	
+[5/13/16 10:23PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/13/16 10:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 10:23PM]	Jonny has done command edge	
+[5/13/16 10:23PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/13/16 10:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 10:24PM]	Jonny in EquipPacketListener: 4151 from Inventory	

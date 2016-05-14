@@ -818,3 +818,32 @@
 [5/13/16 12:58AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/13/16 01:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/13/16 01:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Super restore (3)(3026), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Iron full helm(1153), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Super restore (4)(3024), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Water rune(555), amount: 15000	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Death rune(560), amount: 14786	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Blood rune(565), amount: 14572	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Vote Reward Book(10944), amount: 250	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Iron scimitar(1323), amount: 1	
+[5/13/16 01:49AM]	Player killed Jonny for item: Id: Dragon bolts (e)(9244), amount: 671	
+[5/13/16 11:31AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/13/16 11:42AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/13/16 10:23PM]	Dc Blitz has done command edge	
+[5/13/16 10:23PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1174	
+[5/13/16 10:24PM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
