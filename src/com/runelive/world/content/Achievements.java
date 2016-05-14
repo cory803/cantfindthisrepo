@@ -1,5 +1,6 @@
 package com.runelive.world.content;
 
+import com.runelive.model.GameMode;
 import com.runelive.util.Misc;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -451,18 +452,18 @@ public static int SIZE = AchievementData.values().length;
             || !achievement.equals(AchievementData.FILL_WELL_OF_GOODWILL_50M)
             || !achievement.equals(AchievementData.FILL_WELL_OF_GOODWILL_250M)
             || !achievement.equals(AchievementData.ENTER_THE_LOTTERY_THREE_TIMES)) {
-      if (achievement.getDifficulty() == Difficulty.EASY) {
+      if (achievement.getDifficulty() == Difficulty.EASY && !player.getGameMode().equals(GameMode.HARDCORE_IRONMAN) || !player.getGameMode().equals(GameMode.IRONMAN)) {
         player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 2);
         player.getPacketSender().sendMessage("2 x Mystery Boxes have been placed into your bank!");
-      } else if (achievement.getDifficulty() == Difficulty.MEDIUM) {
+      } else if (achievement.getDifficulty() == Difficulty.MEDIUM && !player.getGameMode().equals(GameMode.HARDCORE_IRONMAN) || !player.getGameMode().equals(GameMode.IRONMAN)) {
         player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 2);
         player.getBank(player.getCurrentBankTab()).add(LEGENDARY_MYSTERY_BOX, 1);
         player.getPacketSender().sendMessage("2 x Mystery Boxes & 1 x Legendary Mystery Box, have been placed into your bank!");
-      } else if (achievement.getDifficulty() == Difficulty.HARD) {
+      } else if (achievement.getDifficulty() == Difficulty.HARD && !player.getGameMode().equals(GameMode.HARDCORE_IRONMAN) || !player.getGameMode().equals(GameMode.IRONMAN)) {
         player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 2);
         player.getBank(player.getCurrentBankTab()).add(LEGENDARY_MYSTERY_BOX, 2);
         player.getPacketSender().sendMessage("2 x Mystery Boxes & 2 x Legendary Mystery Box, have been placed into your bank!");
-      } else if (achievement.getDifficulty() == Difficulty.ELITE) {
+      } else if (achievement.getDifficulty() == Difficulty.ELITE && !player.getGameMode().equals(GameMode.HARDCORE_IRONMAN) || !player.getGameMode().equals(GameMode.IRONMAN)) {
         player.getBank(player.getCurrentBankTab()).add(MYSTERY_BOX, 1);
         player.getBank(player.getCurrentBankTab()).add(LEGENDARY_MYSTERY_BOX, 4);
         player.getPacketSender().sendMessage("1 x Mystery Box & 4 x Legendary Mystery Box, have been placed into your bank!");
