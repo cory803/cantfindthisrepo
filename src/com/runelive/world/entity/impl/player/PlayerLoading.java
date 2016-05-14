@@ -54,6 +54,7 @@ public class PlayerLoading {
         // time and can skip all of this.
         if (!file.exists()) {
             player.setNewPlayer(true);
+			player.setResponse(2);
             if (!World.getLoginQueue().contains(player)) {
                 World.getLoginQueue().add(player);
             }
