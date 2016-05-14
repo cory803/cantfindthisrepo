@@ -149,6 +149,10 @@ public class NPCOptionPacketListener implements PacketListener {
                 Enchanting.update_interface(player);
                 break;
 				case 5030:
+					if(player.getTeleblockTimer() > 0) {
+						player.getPacketSender().sendMessage("You cannot sail with Captain Cain while teleport blocked!");
+						return;
+					}
 				    player.setDialogueActionId(228);
 					DialogueManager.start(player, 228);
 				break;
@@ -802,6 +806,10 @@ public class NPCOptionPacketListener implements PacketListener {
                 }
                 break;
 			case 5030:
+				if(player.getTeleblockTimer() > 0) {
+					player.getPacketSender().sendMessage("You cannot sail with Captain Cain while teleport blocked!");
+					return;
+				}
 				player.moveTo(new Position(2525, 4765, 0));
 				DialogueManager.sendStatement(player, "You all of a sudden appear somewhere skulled...");
 				if(player.getSkullTimer() > 0) {
