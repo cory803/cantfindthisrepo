@@ -7095,3 +7095,4 @@
 [5/13/16 10:23PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [5/13/16 10:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/13/16 10:24PM]	Jonny in EquipPacketListener: 4151 from Inventory	
+[5/14/16 09:34AM]	Login from host 127.0.0.1, Computer Address: 362460699	

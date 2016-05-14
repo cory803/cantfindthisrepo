@@ -185,8 +185,7 @@ public class PlayerDeathTask extends Task {
   }
 
   public static NPC getDeathNpc(Player player) {
-    NPC death = new NPC(2862,
-        new Position(player.getPosition().getX() + 1, player.getPosition().getY() + 1));
+    NPC death = new NPC(2862, new Position(player.getPosition().getX() + 1, player.getPosition().getY() + 1, player.getPosition().getZ()));
     World.register(death);
     death.setEntityInteraction(player);
     death.performAnimation(new Animation(401));
