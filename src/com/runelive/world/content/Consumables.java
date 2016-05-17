@@ -66,6 +66,8 @@ public class Consumables {
     }
 
     public static void handleSuperRestore(Player player) {
+        player.performAnimation(new Animation(829));
+        player.getInventory().refreshItems();
         for (int i = 0; i <= 24; i++) {
             if (i == 3)
                 continue;
@@ -779,39 +781,27 @@ public class Consumables {
          * Super Restore Flask
          */
                 case 14415:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14413, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
                 case 14413:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14411, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
                 case 14411:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14409, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
                 case 14409:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14407, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
                 case 14407:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14405, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
                 case 14405:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(EMPTY_FLASK, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
         /*
@@ -1784,27 +1774,19 @@ public class Consumables {
          * Super Restore potions
          */
                 case 3024:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(3026, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
                 case 3026:
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(3028, 1);
-                    player.getInventory().refreshItems();
+                    player.getInventory().getItems()[slot] = new Item(3028, 1);;
                     handleSuperRestore(player);
                     break;
                 case 3028:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(3030, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
                 case 3030:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
                     handleSuperRestore(player);
                     break;
         /*
