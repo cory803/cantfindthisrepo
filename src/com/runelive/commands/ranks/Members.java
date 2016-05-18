@@ -281,7 +281,12 @@ public class Members {
 				player.getPacketSender().sendMessage("Voting connections are currently turned off, try again in 30 minutes!");
 				return;
 			}
+			if(!player.getVoteTimer().elapsed(30000)) {
+				player.getPacketSender().sendMessage("You have to wait 30 seconds in order to use ::auth!");
+				return;
+			}
 			String auth = wholeCommand.replace("auth ", "");
+			player.getVoteTimer().reset();
 			try {
 				boolean success = motivote.redeemVote(auth);
 				if (success) {
