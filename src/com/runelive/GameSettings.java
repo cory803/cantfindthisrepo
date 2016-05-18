@@ -82,12 +82,12 @@ public class GameSettings {
   /**
    * The maximum amount of players that can be logged in on a single game sequence.
    */
-  public static final int LOGIN_THRESHOLD = 100;
+  public static final int LOGIN_THRESHOLD = 300;
 
   /**
    * The maximum amount of players that can be logged in on a single game sequence.
    */
-  public static final int LOGOUT_THRESHOLD = 100;
+  public static final int LOGOUT_THRESHOLD = 300;
 
   /**
    * The maximum amount of players who can receive rewards on a single game sequence.
