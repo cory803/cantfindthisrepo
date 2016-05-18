@@ -65,6 +65,89 @@ public class Consumables {
         player.getPacketSender().sendMessage("You do not have any items that can heal you in your inventory.");
     }
 
+    public static void doTheBrew(Player player) {
+        player.performAnimation(new Animation(829));
+        int[] decrease = {0, 2, 4, 6};
+        double amount = player.getEquipment().wearingNexAmours() ? 1.22 : 1.17;
+        int bonus = player.getEquipment().wearingNexAmours() ? getBrewStat(player, 3, .21)
+                : getBrewStat(player, 3, .15);
+        player.getInventory().refreshItems();
+        for (int tD : decrease) {
+            player.getSkillManager().setCurrentLevel(Skill.forId(tD),
+                    player.getSkillManager().getCurrentLevel(Skill.forId(tD))
+                            - getBrewStat(player, tD, .10));
+            if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
+                player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
+            player.getSkillManager().updateSkill(Skill.forId(tD));
+        }
+        player.getSkillManager().setCurrentLevel(Skill.forId(1),
+                player.getSkillManager().getCurrentLevel(Skill.forId(1))
+                        + getBrewStat(player, 1, .20));
+        if (player.getSkillManager().getCurrentLevel(
+                Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
+            player.getSkillManager().setCurrentLevel(Skill.forId(1),
+                    (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
+        }
+        player.getSkillManager().updateSkill(Skill.forId(1));
+        player.getSkillManager().setCurrentLevel(Skill.forId(3),
+                player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
+        if (player.getSkillManager().getCurrentLevel(Skill
+                .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
+            player.getSkillManager().setCurrentLevel(Skill.forId(3),
+                    (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
+        }
+    }
+
+    public static void handleSpecRestore(Player player) {
+        if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+            player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
+            return;
+        }
+        if (!player.getSpecialRestoreTimer().elapsed(30000)) {
+            player.getPacketSender()
+                    .sendMessage("This potion can only be used once every 30 seconds.");
+            return;
+        }
+        player.performAnimation(new Animation(829));
+        player.getInventory().refreshItems();
+        player.setSpecialPercentage(player.getSpecialPercentage() + 25);
+        if (player.getSpecialPercentage() > 100)
+            player.setSpecialPercentage(100);
+        CombatSpecial.updateBar(player);
+        player.getSpecialRestoreTimer().reset();
+    }
+
+    public static void handleNormalRestore(Player player) {
+        player.performAnimation(new Animation(829));
+        player.getInventory().refreshItems();
+        for (int i = 0; i <= 24; i++) {
+            if (i == 3 || i == 5)
+                continue;
+            if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
+                    .getMaxLevel(i)) {
+                player.getSkillManager().setCurrentLevel(Skill.forId((i)),
+                        (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
+                                + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * 0.11)));
+                if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
+                        .getSkillManager().getMaxLevel(Skill.forId(i)))
+                    player.getSkillManager().setCurrentLevel(Skill.forId(i),
+                            player.getSkillManager().getMaxLevel(Skill.forId(i)));
+            }
+        }
+    }
+
+    public static void handleSuperEnergyRestore(Player player) {
+        player.getInventory().refreshItems();
+        player.setRunEnergy(player.getRunEnergy() + 40);
+        if (player.getRunEnergy() > 100)
+            player.setRunEnergy(100);
+    }
+    public static void handleEnergyRestore(Player player) {
+        player.getInventory().refreshItems();
+        player.setRunEnergy(player.getRunEnergy() + 15);
+        if (player.getRunEnergy() > 100)
+            player.setRunEnergy(100);
+    }
     public static void handleSuperRestore(Player player) {
         player.performAnimation(new Animation(829));
         player.getInventory().refreshItems();
@@ -296,10 +379,6 @@ public class Consumables {
         // return;
         // }
         if (player.getPotionTimer().elapsed(900)) {
-            int[] decrease = {0, 2, 4, 6};
-            double amount = player.getEquipment().wearingNexAmours() ? 1.22 : 1.17;
-            int bonus = player.getEquipment().wearingNexAmours() ? getBrewStat(player, 3, .21)
-                    : getBrewStat(player, 3, .15);
             switch (itemId) {
         /*
          * Braverly Potion - Kings Quest
@@ -391,80 +470,20 @@ public class Consumables {
          * Restore potion
          */
                 case 2430:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(127, 1);
-                    player.getInventory().refreshItems();
-                    for (int i = 0; i <= 24; i++) {
-                        if (i == 3 || i == 5)
-                            continue;
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
-                                .getMaxLevel(i)) {
-                            player.getSkillManager().setCurrentLevel(Skill.forId((i)),
-                                    (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                            + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * 0.11)));
-                            if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
-                                    .getSkillManager().getMaxLevel(Skill.forId(i)))
-                                player.getSkillManager().setCurrentLevel(Skill.forId(i),
-                                        player.getSkillManager().getMaxLevel(Skill.forId(i)));
-                        }
-                    }
+                    handleNormalRestore(player);
                     break;
                 case 127:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(129, 1);
-                    player.getInventory().refreshItems();
-                    for (int i = 0; i <= 24; i++) {
-                        if (i == 3 || i == 5)
-                            continue;
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
-                                .getMaxLevel(i)) {
-                            player.getSkillManager().setCurrentLevel(Skill.forId((i)),
-                                    (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                            + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * 0.11)));
-                            if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
-                                    .getSkillManager().getMaxLevel(Skill.forId(i)))
-                                player.getSkillManager().setCurrentLevel(Skill.forId(i),
-                                        player.getSkillManager().getMaxLevel(Skill.forId(i)));
-                        }
-                    }
+                    handleNormalRestore(player);
                     break;
-                case 129:
-                    player.performAnimation(new Animation(829));
+                case 129:;
                     player.getInventory().getItems()[slot] = new Item(131, 1);
-                    player.getInventory().refreshItems();
-                    for (int i = 0; i <= 24; i++) {
-                        if (i == 3 || i == 5)
-                            continue;
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
-                                .getMaxLevel(i)) {
-                            player.getSkillManager().setCurrentLevel(Skill.forId((i)),
-                                    (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                            + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * 0.11)));
-                            if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
-                                    .getSkillManager().getMaxLevel(Skill.forId(i)))
-                                player.getSkillManager().setCurrentLevel(Skill.forId(i),
-                                        player.getSkillManager().getMaxLevel(Skill.forId(i)));
-                        }
-                    }
+                    handleNormalRestore(player);
                     break;
                 case 131:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    for (int i = 0; i <= 24; i++) {
-                        if (i == 3 || i == 5)
-                            continue;
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) < player.getSkillManager()
-                                .getMaxLevel(i)) {
-                            player.getSkillManager().setCurrentLevel(Skill.forId((i)),
-                                    (int) (player.getSkillManager().getCurrentLevel(Skill.forId(i))
-                                            + (player.getSkillManager().getMaxLevel(Skill.forId(i)) * 0.11)));
-                            if (player.getSkillManager().getCurrentLevel(Skill.forId(i)) > player
-                                    .getSkillManager().getMaxLevel(Skill.forId(i)))
-                                player.getSkillManager().setCurrentLevel(Skill.forId(i),
-                                        player.getSkillManager().getMaxLevel(Skill.forId(i)));
-                        }
-                    }
+                    handleNormalRestore(player);
                     break;
         /*
          * Antifire potions
@@ -474,14 +493,8 @@ public class Consumables {
                     player.getInventory().getItems()[slot] = new Item(2454, 1);
                     player.getInventory().refreshItems();
                     FireImmunityTask.makeImmune(player, 360, 50);
-                    player.getPacketSender()
-                            .sendMessage("You're now 50% immune to any kind of fire for another 6 minutes.");
                     break;
                 case 2454: // Antifire pot 3
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(2456, 1);
-                    player.getInventory().refreshItems();
-                    FireImmunityTask.makeImmune(player, 360, 50);
                     player.getPacketSender()
                             .sendMessage("You're now 50% immune to any kind of fire for another 6 minutes.");
                     break;
@@ -540,40 +553,36 @@ public class Consumables {
          * Restore energy
          */
                 case 3016: // Super energy 4
-                case 3008: // Energy potion 4
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(itemId + 2, 1);
-                    player.getInventory().refreshItems();
-                    player.setRunEnergy(player.getRunEnergy() + (itemId == 3008 ? 15 : 40));
-                    if (player.getRunEnergy() > 100)
-                        player.setRunEnergy(100);
+                    handleSuperEnergyRestore(player);
+                    break;
+                case 3008: // Energy potion 4
+                    player.getInventory().getItems()[slot] = new Item(itemId + 2, 1);
+                    handleEnergyRestore(player);
                     break;
                 case 3018: // Super energy 3
-                case 3010: // Energy potion 3
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(itemId + 2, 1);
-                    player.getInventory().refreshItems();
-                    player.setRunEnergy(player.getRunEnergy() + (itemId == 3010 ? 15 : 40));
-                    if (player.getRunEnergy() > 100)
-                        player.setRunEnergy(100);
+                    handleSuperEnergyRestore(player);
+                    break;
+                case 3010: // Energy potion 3
+                    player.getInventory().getItems()[slot] = new Item(itemId + 2, 1);
+                    handleEnergyRestore(player);
                     break;
                 case 3020: // Super energy 2
-                case 3012: // Energy potion 2
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(itemId + 2, 1);
-                    player.getInventory().refreshItems();
-                    player.setRunEnergy(player.getRunEnergy() + (itemId == 3012 ? 15 : 40));
-                    if (player.getRunEnergy() > 100)
-                        player.setRunEnergy(100);
+                    handleSuperEnergyRestore(player);
+                    break;
+                case 3012: // Energy potion 2
+                    player.getInventory().getItems()[slot] = new Item(itemId + 2, 1);
+                    handleEnergyRestore(player);
                     break;
                 case 3022:
-                case 3014: // Energy potion 1
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    player.setRunEnergy(player.getRunEnergy() + (itemId == 3014 ? 15 : 40));
-                    if (player.getRunEnergy() > 100)
-                        player.setRunEnergy(100);
+                    handleSuperEnergyRestore(player);
+                    break;
+                case 3014: // Energy potion 1
+                    player.getInventory().getItems()[slot] = new Item(229, 1);
+                    handleEnergyRestore(player);
                     break;
         /*
          * Combat potions
@@ -660,122 +669,29 @@ public class Consumables {
                         player.getSkillManager().setCurrentLevel(Skill.PRAYER,
                                 player.getSkillManager().getMaxLevel(Skill.PRAYER));
                     break;
-        /*
-         * Spec Restore Flask
-         */
                 case 14385:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14383, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 14383:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14381, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 14381:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14379, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 14379:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14377, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 14377:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14375, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 14375:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(EMPTY_FLASK, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
         /*
          * Super Restore Flask
@@ -835,76 +751,22 @@ public class Consumables {
          * Extreme Range Flask
          */
                 case 14325:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(14323, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 14325, 14323, slot, 4);
                     break;
                 case 14323:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(14321, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 14323, 14321, slot, 4);
                     break;
                 case 14321:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(14319, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 14321, 14319, slot, 4);
                     break;
                 case 14319:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(14317, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 14319, 14317, slot, 4);
                     break;
                 case 14317:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(14315, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 14317, 14315, slot, 4);
                     break;
                 case 14315:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(EMPTY_FLASK, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 14315, -1, slot, 4);
                     break;
         /*
          * Extreme Magic Flask
@@ -1252,178 +1114,28 @@ public class Consumables {
          * Saradomin Brew Flask
          */
                 case 14427: // Sara Brew Flask 6
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14425, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
                 case 14425: // Sara Brew Flask 5
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14423, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
                 case 14423: // Sara Brew Flask 4
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14421, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
                 case 14421: // Sara Brew Flask 3
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14419, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
                 case 14419: // Sara Brew Flask 2
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(14417, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
                 case 14417: // Sara Brew Flask 1
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(EMPTY_FLASK, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
         /*
          * Super Defense Flask
@@ -2108,455 +1820,114 @@ public class Consumables {
          * Saradomin brews
          */
                 case 6685:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(6687, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
                 case 6687:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(6689, 1);
-                    player.getInventory().refreshItems();
-                    decrease = new int[]{0, 2, 4, 6};
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
-                case 6689:
-                    player.performAnimation(new Animation(829));
+                case 6689:;
                     player.getInventory().getItems()[slot] = new Item(6691, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
                 case 6691:
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    for (int tD : decrease) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(tD),
-                                player.getSkillManager().getCurrentLevel(Skill.forId(tD))
-                                        - getBrewStat(player, tD, .10));
-                        if (player.getSkillManager().getCurrentLevel(Skill.forId(tD)) < 0)
-                            player.getSkillManager().setCurrentLevel(Skill.forId(tD), 1);
-                        player.getSkillManager().updateSkill(Skill.forId(tD));
-                    }
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getBrewStat(player, 1, .20));
-                    if (player.getSkillManager().getCurrentLevel(
-                            Skill.forId(1)) > (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2 + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(1)) * 1.2));
-                    }
-                    player.getSkillManager().updateSkill(Skill.forId(1));
-                    player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
-                    if (player.getSkillManager().getCurrentLevel(Skill
-                            .forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
-                        player.getSkillManager().setCurrentLevel(Skill.forId(3),
-                                (int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
-                    }
+                    doTheBrew(player);
                     break;
         /*
          * Restore potions
          */
                 case 15300:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(15301, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 15301:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(15302, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 15302:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(15303, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
                 case 15303:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("This potion cannot be used in the Wilderness.");
-                        return;
-                    }
-                    if (!player.getSpecialRestoreTimer().elapsed(30000)) {
-                        player.getPacketSender()
-                                .sendMessage("This potion can only be used once every 30 seconds.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
                     player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    player.setSpecialPercentage(player.getSpecialPercentage() + 25);
-                    if (player.getSpecialPercentage() > 100)
-                        player.setSpecialPercentage(100);
-                    CombatSpecial.updateBar(player);
-                    player.getSpecialRestoreTimer().reset();
+                    handleSpecRestore(player);
                     break;
         /*
          * Extreme Attack potions
          */
                 case 15308:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15309, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(0),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(0))
-                                    + getExtremePotionBoost(player, 0));
+                    drinkExtremePotion(player, 15308, 15309, slot, 0);
                     break;
                 case 15309:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15310, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(0),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(0))
-                                    + getExtremePotionBoost(player, 0));
+                    drinkExtremePotion(player, 15309, 15310, slot, 0);
                     break;
                 case 15310:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15311, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(0),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(0))
-                                    + getExtremePotionBoost(player, 0));
+                    drinkExtremePotion(player, 15310, 15311, slot, 0);
                     break;
                 case 15311:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(0),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(0))
-                                    + getExtremePotionBoost(player, 0));
+                    drinkExtremePotion(player, 15311, 229, slot, 0);
                     break;
         /*
          * Extreme Strength potion
          */
                 case 15312:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15313, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(2),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(2))
-                                    + getExtremePotionBoost(player, 2));
+                    drinkExtremePotion(player, 15312, 15313, slot, 2);
                     break;
                 case 15313:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15314, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(2),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(2))
-                                    + getExtremePotionBoost(player, 2));
+                    drinkExtremePotion(player, 15313, 15314, slot, 2);
                     break;
                 case 15314:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15315, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(2),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(2))
-                                    + getExtremePotionBoost(player, 2));
+                    drinkExtremePotion(player, 15314, 15315, slot, 2);
                     break;
                 case 15315:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(2),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(2))
-                                    + getExtremePotionBoost(player, 2));
+                    drinkExtremePotion(player, 15315, 229, slot, 2);
                     break;
         /*
          * Extreme Defence potions
          */
                 case 15316:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15317, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getExtremePotionBoost(player, 1));
+                    drinkExtremePotion(player, 15316, 15317, slot, 1);
                     break;
                 case 15317:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15318, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getExtremePotionBoost(player, 1));
+                    drinkExtremePotion(player, 15317, 15318, slot, 1);
                     break;
                 case 15318:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15319, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getExtremePotionBoost(player, 1));
+                    drinkExtremePotion(player, 15318, 15319, slot, 1);
                     break;
                 case 15319:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(1),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(1))
-                                    + getExtremePotionBoost(player, 1));
+                    drinkExtremePotion(player, 15319, 229, slot, 1);
                     break;
         /*
          * Extreme Magic potions
          */
                 case 15320:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15321, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(6),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(6))
-                                    + getExtremePotionBoost(player, 6));
+                    drinkExtremePotion(player, 15320, 15321, slot, 6);
                     break;
                 case 15321:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15322, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(6),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(6))
-                                    + getExtremePotionBoost(player, 6));
+                    drinkExtremePotion(player, 15321, 15322, slot, 6);
                     break;
                 case 15322:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15323, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(6),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(6))
-                                    + getExtremePotionBoost(player, 6));
+                    drinkExtremePotion(player, 15322, 15323, slot, 6);
                     break;
                 case 15323:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(6),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(6))
-                                    + getExtremePotionBoost(player, 6));
+                    drinkExtremePotion(player, 15323, 229, slot, 6);
                     break;
         /*
          * Extreme Ranging potions
          */
                 case 15324:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15325, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 15234, 15325, slot, 4);
                     break;
                 case 15325:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15326, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 15325, 15326, slot, 4);
                     break;
                 case 15326:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(15327, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 15326, 15327, slot, 4);
                     break;
                 case 15327:
-                    if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                        player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
-                        return;
-                    }
-                    player.performAnimation(new Animation(829));
-                    player.getInventory().getItems()[slot] = new Item(229, 1);
-                    player.getInventory().refreshItems();
-                    player.getSkillManager().setCurrentLevel(Skill.forId(4),
-                            player.getSkillManager().getCurrentLevel(Skill.forId(4))
-                                    + getExtremePotionBoost(player, 4));
+                    drinkExtremePotion(player, 15327, 229, slot, 4);
                     break;
         /*
          * Prayer Renewal potion
@@ -2677,6 +2048,17 @@ public class Consumables {
                     + getBoostedStat(player, skill, super_pot, cbPot), true);
         }
     }
+
+    public static void drinkExtremePotion(final Player player, int potion, int replacePotion, int slot, int skill) {
+        if (player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+            player.getPacketSender().sendMessage("You cannot use this potion in the Wilderness.");
+            return;
+        }
+        player.getInventory().getItems()[slot] = new Item(replacePotion, 1);
+        player.getInventory().refreshItems();
+        player.performAnimation(new Animation(829));
+        player.getSkillManager().setCurrentLevel(Skill.forId(skill), player.getSkillManager().getCurrentLevel(Skill.forId(skill)) + getExtremePotionBoost(player, skill));
+        }
 
     public static boolean drinkOverload(final Player player, int slot, int replacePotion) {
         if (player.getLocation() == Location.WILDERNESS || player.getLocation() == Location.WILDKEY_ZONE
