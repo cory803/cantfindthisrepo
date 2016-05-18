@@ -15,6 +15,7 @@ import com.runelive.engine.task.impl.PrayerRenewalPotionTask;
 import com.runelive.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.runelive.model.Flag;
 import com.runelive.model.Locations;
+import com.runelive.world.content.PlayerLogs;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
@@ -417,8 +418,8 @@ public class PlayerHandler {
                 NPC n = new NPC(5866, new Position(1240, 1253, player.getPosition().getZ())).setSpawnedFor(player);
                 World.deregister(n);
             }
-            boolean exception = GameServer.isUpdating()
-                    || World.getLogoutQueue().contains(player) && player.getLogoutTimer().elapsed(90000);
+            boolean exception = GameServer.isUpdating() || World.getLogoutQueue().contains(player) && player.getLogoutTimer().elapsed(90000);
+			PlayerLogs.log("global_log", ""+player.getUsername()+" logging out - Exception: "+exception+", Player log out: "+player.logout()+", GameServer isUpdating: " +GameServer.isUpdating()+", World LogoutQueueContainsPlayer: "+World.getLogoutQueue().contains(player)+", LogoutTimer: "+player.getLogoutTimer().elapsed(90000)+"");
             if (player.logout() || exception) {
                 System.out.println("[World] Deregistering player - [username, host] : ["
                         + player.getUsername() + ", " + player.getHostAddress() + "]");
