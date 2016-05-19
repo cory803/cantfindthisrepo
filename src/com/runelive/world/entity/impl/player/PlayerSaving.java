@@ -25,8 +25,7 @@ public class PlayerSaving {
 
 
     public static boolean accountExists(Player player, String name) {
-		name = name.substring(0, 1).toUpperCase() + name.substring(1);
-        GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE username = '" + name + "' LIMIT 1", new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE LOWER (`username`) = LOWER('" + name + "') LIMIT 1", new ThreadedSQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 if (rs.next()) {
