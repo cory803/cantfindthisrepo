@@ -1735,12 +1735,12 @@ public class Owners {
 				player.getPacketSender().sendMessage("You have banned "+other.getUsername()+" from voting.");
 			}
 		}
-		if (command[0].equals("givedonor")) {
+		if (command[0].equals("givedonor") || command[0].equals("givedonator")) {
 			String rights = command[1];
 			Player target = World.getPlayerByName(command[2]);
 			target.setDonorRights(Integer.parseInt(rights));
 			target.getPacketSender().sendMessage("You have been given donator status. Relog to see it.");
-			player.getPacketSender().sendMessage("You gave them donor... Why you so nice?!");
+			player.getPacketSender().sendMessage("You have given "+command[1]+" donator rights "+command[2]+".");
 		}
 		if (command[0].equals("giverights")) {
 				try {
@@ -1750,7 +1750,8 @@ public class Owners {
 			case "demote":
 			case "derank":
 				target.setRights(PlayerRights.PLAYER);
-				target.getPacketSender().sendMessage("You have been demoted... Dumb Shit.");
+				target.getPacketSender().sendMessage("Your player rights has been changed to player.");
+				player.getPacketSender().sendMessage("You have demoted "+command[2]+" to player.");
 				target.getPacketSender().sendRights();
 				break;
 			case "ss":
@@ -1758,12 +1759,23 @@ public class Owners {
 			case "support":
 				target.setRights(PlayerRights.SUPPORT);
 				target.getPacketSender().sendMessage("Your player rights has been changed to support.");
+				player.getPacketSender().sendMessage("You have demoted "+command[2]+" to support.");
 				target.getPacketSender().sendRights();
 				break;
 			case "mod":
 			case "moderator":
 				target.setRights(PlayerRights.MODERATOR);
 				target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
+				player.getPacketSender().sendMessage("You have demoted "+command[2]+" to moderator.");
+				target.getPacketSender().sendRights();
+				break;
+			case "globalmod":
+			case "gmod":
+			case "global_mod":
+			case "globalmoderator":
+				target.setRights(PlayerRights.GLOBAL_MOD);
+				target.getPacketSender().sendMessage("Your player rights has been changed to global moderator.");
+				player.getPacketSender().sendMessage("You have demoted "+command[2]+" to global moderator.");
 				target.getPacketSender().sendRights();
 				break;
 			default:
