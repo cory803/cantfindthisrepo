@@ -165,20 +165,7 @@ public class SkillManager {
         && player.getSkillManager().getExperience(skill) + experience >= amount_for_announcement) {
       World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername() + " has just achieved 1 billion experience in " + skillName + "!");
     }
-
-    boolean maxed_out = true;
-    for (int i = 0; i < Skill.values().length; i++) {
-      if (i == 21)
-        continue;
-      if (player.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
-        maxed_out = false;
-      }
-    }
-    if (!player.hasAnnouncedMax() && maxed_out) {
-      World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
-          + " has just achieved the maximum level in all skills!");
-      player.setAnnounceMax(true);
-    }
+	
     /*
      * Adds the experience to the skill's experience.
      */
@@ -221,6 +208,11 @@ public class SkillManager {
         player.getPacketSender()
             .sendMessage("Well done! You've achieved the highest possible level in this skill!");
         Achievements.doProgress(player, AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS);
+		if(player.getAchievementAttributes().getCompletion()[AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS.ordinal()]) {
+		      World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
+          + " has just achieved the maximum level in all skills!");
+		}
+		  
         TaskManager.submit(new Task(2, player, true) {
           int localGFX = 1634;
 

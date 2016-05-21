@@ -493,6 +493,7 @@ public class Shop extends ItemContainer {
             }
           } else {
             if (id == PKING_REWARDS_STORE) {
+			value = value / 2;
               player.getPointsHandler().setPkPoints(-value, true);
             } else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
               player.getPointsHandler().setVotingPoints(-value, true);

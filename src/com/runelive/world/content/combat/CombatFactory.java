@@ -1142,7 +1142,7 @@ public final class CombatFactory {
     }
     if (!projectilePathBlocked && goodDistance) {
       if (strategy.getCombatType() == CombatType.MELEE && RegionClipping.isInDiagonalBlock(b, a)) {
-        PathFinder.findPath(a, victim.getX(), victim.getY() + 1, true, 1, 1);
+        PathFinder.findPath(a, victim.getX(), victim.getY(), true, 1, 1);
         return false;
       } else
         a.getMovementQueue().reset();

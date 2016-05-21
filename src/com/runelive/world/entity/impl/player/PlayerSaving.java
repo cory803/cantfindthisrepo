@@ -19,6 +19,7 @@ import com.runelive.util.MD5;
 import com.runelive.util.Misc;
 import com.runelive.net.mysql.ThreadedSQLCallback;
 import com.runelive.world.World;
+import com.runelive.world.content.PlayerLogs;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class PlayerSaving {
@@ -68,6 +69,11 @@ public class PlayerSaving {
             @Override
             public void queryError(SQLException e) {
                 p.setResponse(3);
+				if (!World.getLoginQueue().contains(p)) {
+					World.getLoginQueue().add(p);
+				}
+				p.setLoginQue(true);
+				PlayerLogs.log("global_log", ""+p.getUsername()+" has caught block 6");
                 e.printStackTrace();
             }
 

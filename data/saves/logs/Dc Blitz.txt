@@ -870,3 +870,83 @@
 [5/20/16 11:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/20/16 11:49PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
 [5/20/16 11:49PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:06AM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:06AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:07AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:07AM]	Opened the player owned shop: jonny	
+[5/21/16 12:07AM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/21/16 12:07AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:07AM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:07AM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 12:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:14AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:14AM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:14AM]	Opened the player owned shop: Dc Blitz	
+[5/21/16 12:14AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:14AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:14AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:14AM]	Dc Blitz in EnterInputPacketListener: Jonny	
+[5/21/16 12:14AM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 21104 - 3900 - 1	
+[5/21/16 12:14AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 21104 - 3900 - 1	
+[5/21/16 12:15AM]	Dc Blitz has done command item 995 15000000	
+[5/21/16 12:15AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 21104 - 3900 - 1	
+[5/21/16 12:15AM]	Player owned shop removed coins from inventory: 5000000 for purchasing item: 21104, 1	
+[5/21/16 12:15AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:15AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:15AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:15AM]	Dc Blitz in EnterInputPacketListener: Jonny	
+[5/21/16 12:15AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 13742 - 3900 - 1	
+[5/21/16 12:15AM]	Player owned shop removed coins from inventory: 5000000 for purchasing item: 13742, 1	
+[5/21/16 12:15AM]	Player owned shop added coins for global extraction: 5M for Jonny	
+[5/21/16 12:15AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 1 - 3900 - 1	
+[5/21/16 12:15AM]	Player owned shop removed coins from inventory: 5000000 for purchasing item: 1, 1	
+[5/21/16 12:15AM]	Player owned shop added coins for global extraction: 5M for Jonny	
+[5/21/16 12:16AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:16AM]	Dc Blitz has done command update 1	
+[5/21/16 12:16AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:17AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:17AM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:17AM]	Opened the player owned shop: Dc Blitz	
+[5/21/16 12:17AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:17AM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:17AM]	Opened the player owned shop: Dc Blitz	
+[5/21/16 12:17AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:17AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:17AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:17AM]	Dc Blitz in EnterInputPacketListener: Jonny	
+[5/21/16 12:17AM]	Dc Blitz has done command item 995 500m	
+[5/21/16 12:17AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:17AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:17AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:17AM]	Dc Blitz in EnterInputPacketListener: Jonny	
+[5/21/16 12:17AM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 2347 - 3900 - 1	
+[5/21/16 12:17AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:17AM]	Dc Blitz has done command item 995 500m	
+[5/21/16 12:17AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:17AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:17AM]	Dc Blitz in EnterInputPacketListener: Jonny	
+[5/21/16 12:17AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 2347 - 3900 - 1	
+[5/21/16 12:17AM]	Player owned shop removed coins from inventory: 750000000 for purchasing item: 2347, 1	
+[5/21/16 12:17AM]	Player owned shop added coins for global extraction: 750M for Jonny	
+[5/21/16 12:18AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 555 - 3900 - 0	
+[5/21/16 12:18AM]	Player owned shop removed coins from inventory: 1000000 for purchasing item: 555, 1	
+[5/21/16 12:37AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:37AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/21/16 12:37AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/21/16 12:38AM]	Dc Blitz has clicked button in ButtonClickPacketListener 150	
+[5/21/16 12:39AM]	Dc Blitz has clicked button in ButtonClickPacketListener 152	
+[5/21/16 12:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 01:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 01:03AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/21/16 01:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 01:09AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1195	
+[5/21/16 01:09AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/21/16 01:09AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1195	
+[5/21/16 01:09AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/21/16 01:09AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1195	
+[5/21/16 11:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:13AM]	Logout from host 127.0.0.1, Computer Address: 362460699	

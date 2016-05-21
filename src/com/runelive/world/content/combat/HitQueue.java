@@ -114,7 +114,12 @@ public class HitQueue {
           context.setAccurate(true);
         });
       }
-
+	  if(attacker.isPlayer()) {
+		   Player atk = (Player) attacker;
+		   if(atk.isTeleporting()) {
+			   return;
+		   }
+	  }
       // Now we send the hitsplats if needed! We can't send the hitsplats
       // there are none to send, or if we're using magic and it splashed.
       if (container.getHits().length != 0 && container.getCombatType() != CombatType.MAGIC

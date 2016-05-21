@@ -211,8 +211,7 @@ public class PlayerOwnedShops {
 				SHOPS_ARRAYLIST.add(new PosOffers(player.getUsername(), player.getUsername() + "'s store", offers.length, 0, offers));
 				SHOPS_TO_SEARCH.add(player.getUsername().toLowerCase());
 				Item[] default_items = new Item[0];
-				PlayerOwnedShopManager.getShops().put(SHOPS_ARRAYLIST.size(),
-						new PlayerOwnedShopContainer(null, player.getUsername(), default_items));
+				PlayerOwnedShopManager.getShops().put(SHOPS_ARRAYLIST.size() - 1, new PlayerOwnedShopContainer(null, player.getUsername(), default_items));
 				openShop(player.getUsername(), player);
 			} else {
 				player.getPacketSender().sendMessage("This shop does not exist!");

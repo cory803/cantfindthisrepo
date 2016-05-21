@@ -7439,3 +7439,185 @@
 [5/20/16 11:48PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
 [5/20/16 11:48PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [5/20/16 11:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:05AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:06AM]	Jonny in EnterInputPacketListener: dc blitz	
+[5/21/16 12:06AM]	Opened the player owned shop: grenade	
+[5/21/16 12:06AM]	Jonny in EnterInputPacketListener: grenade	
+[5/21/16 12:06AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:06AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:06AM]	Opened the player owned shop: hero	
+[5/21/16 12:06AM]	Jonny in EnterInputPacketListener: hero	
+[5/21/16 12:06AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:06AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:06AM]	Jonny in EnterInputPacketListener: abyssal whip	
+[5/21/16 12:06AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:06AM]	Jonny in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/21/16 12:06AM]	Opened the player owned shop: killer204	
+[5/21/16 12:06AM]	Jonny in EnterInputPacketListener: killer204	
+[5/21/16 12:06AM]	Jonny in ItemContainerActionPacketListener: First Action - 4151 - 3900 - 1	
+[5/21/16 12:06AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:06AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:06AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:06AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:06AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 12:06AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:07AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:07AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:07AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:07AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:07AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:07AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:07AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 12:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:13AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:13AM]	Jonny in NPCOptionPacketListener: 2127 - FIRST_CLICK_OPCODE	
+[5/21/16 12:13AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:13AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:14AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:14AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:14AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:14AM]	Jonny in ItemContainerActionPacketListener: Second Action - 21104 - 3823 - 1	
+[5/21/16 12:14AM]	Player owned shop sold item: ID: 21104 AMOUNT: 1 PRICE: 5000000	
+[5/21/16 12:14AM]	Jonny in EnterInputPacketListener: 5000000	
+[5/21/16 12:15AM]	Player owned shop recieved coins to money pouch: 5M	
+[5/21/16 12:15AM]	Jonny in ItemContainerActionPacketListener: Second Action - 13742 - 3823 - 2	
+[5/21/16 12:15AM]	Player owned shop sold item: ID: 13742 AMOUNT: 1 PRICE: 5000000	
+[5/21/16 12:15AM]	Jonny in EnterInputPacketListener: 5000000	
+[5/21/16 12:15AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:15AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 12:15AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:15AM]	Player owned shop items sold for: 5M	
+[5/21/16 12:15AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:15AM]	Jonny has done command item 1 1	
+[5/21/16 12:15AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:15AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:15AM]	Jonny in ItemContainerActionPacketListener: Second Action - 1 - 3823 - 0	
+[5/21/16 12:15AM]	Player owned shop sold item: ID: 1 AMOUNT: 1 PRICE: 5000000	
+[5/21/16 12:15AM]	Jonny in EnterInputPacketListener: 5000000	
+[5/21/16 12:15AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:15AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 12:15AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:16AM]	Player owned shop items sold for: 5M	
+[5/21/16 12:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:16AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 12:16AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:16AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:16AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:16AM]	Jonny has done command item 995 2000m	
+[5/21/16 12:16AM]	Jonny has done command item 995 2000m	
+[5/21/16 12:16AM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/21/16 12:16AM]	Jonny in ItemContainerActionPacketListener: First Action - 2347 - 5382 - 25	
+[5/21/16 12:16AM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/21/16 12:16AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:16AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:16AM]	Jonny in ItemContainerActionPacketListener: Second Action - 2347 - 3823 - 1	
+[5/21/16 12:16AM]	Player owned shop sold item: ID: 2347 AMOUNT: 1 PRICE: 750000000	
+[5/21/16 12:16AM]	Jonny in EnterInputPacketListener: 750000000	
+[5/21/16 12:17AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:17AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 12:17AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:17AM]	Player owned shop items sold for: 750M	
+[5/21/16 12:17AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:18AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 12:18AM]	Opened the player owned shop: Jonny	
+[5/21/16 12:18AM]	Jonny in ItemContainerActionPacketListener: First Action - 555 - 3900 - 0	
+[5/21/16 12:18AM]	Player owned shop recieved coins to money pouch: 1M	
+[5/21/16 12:37AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:37AM]	Jonny has clicked button in ButtonClickPacketListener 13095	
+[5/21/16 12:37AM]	Jonny has clicked button in ButtonClickPacketListener 13095	
+[5/21/16 12:38AM]	Jonny has done command item 555 15000	
+[5/21/16 12:38AM]	Jonny has done command item 560 1000	
+[5/21/16 12:38AM]	Jonny has done command item 565 10000	
+[5/21/16 12:38AM]	Jonny has clicked button in ButtonClickPacketListener 152	
+[5/21/16 12:38AM]	Jonny has clicked button in ButtonClickPacketListener 152	
+[5/21/16 12:38AM]	Jonny has done command hp	
+[5/21/16 12:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:46AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/21/16 12:46AM]	Jonny has done command edge	
+[5/21/16 12:46AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:46AM]	Jonny in ItemContainerActionPacketListener: First Action - 21374 - 3900 - 28	
+[5/21/16 12:46AM]	Jonny in ItemContainerActionPacketListener: First Action - 11517 - 3900 - 38	
+[5/21/16 12:47AM]	Jonny in ItemContainerActionPacketListener: Second Action - 11517 - 3900 - 38	
+[5/21/16 12:47AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:48AM]	Jonny has clicked button in ButtonClickPacketListener 13079	
+[5/21/16 12:48AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/21/16 12:48AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/21/16 12:48AM]	Jonny in NPCOptionPacketListener: 653 - FIRST_CLICK_OPCODE	
+[5/21/16 12:48AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:48AM]	Jonny has done command item 10944 1	
+[5/21/16 12:48AM]	Jonny in ItemActionPacketListener: 10944	
+[5/21/16 12:48AM]	Jonny in ItemActionPacketListener: 10944	
+[5/21/16 12:48AM]	Jonny in ObjectActionPacketListener: 6552 - FIRST_CLICK_OPCODE	
+[5/21/16 12:48AM]	Jonny in NPCOptionPacketListener: 653 - FIRST_CLICK_OPCODE	
+[5/21/16 12:48AM]	Jonny in ItemContainerActionPacketListener: First Action - 6199 - 3900 - 0	
+[5/21/16 12:48AM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3900 - 0	
+[5/21/16 12:48AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:50AM]	Jonny has clicked button in ButtonClickPacketListener 13079	
+[5/21/16 12:51AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 11517 - 3900 - 38	
+[5/21/16 12:51AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:51AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 6585 - 3900 - 17	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 21371 - 3900 - 25	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 4151 - 3900 - 24	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 13890 - 3900 - 2	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 13884 - 3900 - 1	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 15347 - 3900 - 21	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 11283 - 3900 - 37	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 15243 - 3900 - 30	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 19780 - 3900 - 31	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 15126 - 3900 - 18	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 6585 - 3900 - 17	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: Second Action - 6585 - 3900 - 17	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 13899 - 3900 - 6	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 13905 - 3900 - 7	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 13867 - 3900 - 15	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 19748 - 3900 - 23	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 19780 - 3900 - 31	
+[5/21/16 12:51AM]	Jonny in ItemContainerActionPacketListener: First Action - 13262 - 3900 - 36	
+[5/21/16 12:52AM]	Jonny in ItemContainerActionPacketListener: First Action - 8850 - 3900 - 35	
+[5/21/16 12:52AM]	Jonny in ItemContainerActionPacketListener: Second Action - 8850 - 3900 - 35	
+[5/21/16 12:52AM]	Jonny in ItemContainerActionPacketListener: First Action - 11525 - 3900 - 39	
+[5/21/16 12:52AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:52AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 12:52AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:54AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:54AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:55AM]	Jonny in ItemContainerActionPacketListener: First Action - 8850 - 3900 - 35	
+[5/21/16 12:55AM]	Jonny in ItemContainerActionPacketListener: Second Action - 8850 - 3900 - 35	
+[5/21/16 12:55AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:55AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:55AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:55AM]	Jonny in ItemContainerActionPacketListener: Second Action - 8850 - 3900 - 35	
+[5/21/16 12:56AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:56AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:56AM]	Jonny in ItemContainerActionPacketListener: Second Action - 8850 - 3900 - 35	
+[5/21/16 12:56AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 12:57AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 12:57AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 12:57AM]	Jonny in ItemContainerActionPacketListener: Second Action - 8850 - 3900 - 35	
+[5/21/16 12:57AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 01:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 01:01AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 01:01AM]	Jonny in ItemContainerActionPacketListener: First Action - 8850 - 3900 - 35	
+[5/21/16 01:01AM]	Jonny in ItemContainerActionPacketListener: Second Action - 8850 - 3900 - 35	
+[5/21/16 01:01AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 01:01AM]	Jonny in NPCOptionPacketListener: 6537 - FIRST_CLICK_OPCODE	
+[5/21/16 01:03AM]	Jonny has clicked button in ButtonClickPacketListener 13095	
+[5/21/16 01:03AM]	Jonny has done command item 15272 20	
+[5/21/16 01:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/21/16 01:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/21/16 01:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/21/16 01:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/21/16 01:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/21/16 01:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/21/16 01:03AM]	Jonny in ItemActionPacketListener: 15272	
+[5/21/16 01:04AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/21/16 01:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 01:08AM]	Jonny has clicked button in ButtonClickPacketListener 13095	
+[5/21/16 01:37AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 01:37AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:03AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:03AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:03AM]	Logout from host 127.0.0.1, Computer Address: 362460699	

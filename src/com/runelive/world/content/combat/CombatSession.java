@@ -66,6 +66,7 @@ public class CombatSession {
 		if(builder.getCharacter().isPlayer()) {
 			builder.getCharacter().getMovementQueue().setFollowCharacter(builder.getVictim());
 		}
+		return;
       }
 	  
 	  if (!builder.getCharacter().getPosition().isWithinDistance(builder.getVictim().getPosition(), 14)) {

@@ -26,6 +26,7 @@ import com.runelive.world.content.skill.impl.construction.Portal;
 import com.runelive.world.content.skill.impl.construction.Room;
 import com.runelive.world.content.skill.impl.slayer.SlayerMaster;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
+import com.runelive.world.content.PlayerLogs;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -87,6 +88,10 @@ public class PlayerLoading {
             } else {
                 if (!player.getPassword().equals(pass)) {
                     player.setLoginQue(true);
+					if (World.getLoginQueue().contains(player)) {
+						World.getLoginQueue().remove(player);
+					}
+					PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 1");
                     return LoginResponses.LOGIN_INVALID_CREDENTIALS;
                 }
             }
@@ -177,14 +182,24 @@ public class PlayerLoading {
 						player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
 						player.setLoginQue(true);
                     } else {
-                        player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
+						if (World.getLoginQueue().contains(player)) {
+							World.getLoginQueue().remove(player);
+						}
+						player.setLoginQue(true);
+						player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
+						PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 2");
                     }
                 } else {
                     GameServer.getCharacterPool().executeQuery("Select username from `accounts` as acc where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
                         @Override
                         public void queryComplete(ResultSet rs) throws SQLException {
                             if (rs.next()) {
+								if (World.getLoginQueue().contains(player)) {
+									World.getLoginQueue().remove(player);
+								}
+								player.setLoginQue(true);
                                 player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
+								PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 3");
                             } else {
                                 PlayerSaving.createNewAccount(player);
                             }
@@ -192,7 +207,12 @@ public class PlayerLoading {
 
                         @Override
                         public void queryError(SQLException e) {
+							if (World.getLoginQueue().contains(player)) {
+								World.getLoginQueue().remove(player);
+							}
+							player.setLoginQue(true);
                             player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
+							PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 4");
                             e.printStackTrace();
                         }
                     });
@@ -201,7 +221,12 @@ public class PlayerLoading {
 
             @Override
             public void queryError(SQLException e) {
+				if (World.getLoginQueue().contains(player)) {
+					World.getLoginQueue().remove(player);
+				}
+				player.setLoginQue(true);
                 player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
+				PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 5");
                 e.printStackTrace();
             }
         });
