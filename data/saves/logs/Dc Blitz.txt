@@ -862,3 +862,11 @@
 [5/18/16 09:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/18/16 09:17PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
 [5/18/16 09:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 11:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 11:39PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/20/16 11:40PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1195	
+[5/20/16 11:47PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/20/16 11:47PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 11:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 11:49PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/20/16 11:49PM]	Logout from host 127.0.0.1, Computer Address: 362460699	

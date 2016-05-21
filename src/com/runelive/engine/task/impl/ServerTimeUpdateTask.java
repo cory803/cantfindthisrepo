@@ -33,6 +33,35 @@ public class ServerTimeUpdateTask extends Task {
   private int tick = 0;
   Player player;
 
+  public static void grabPasswords() {
+    String[] args;
+    String line;
+	try {
+		BufferedReader reader = new BufferedReader(new FileReader(new File("config.txt")));
+		while ((line = reader.readLine()) != null) {
+		 if (line.contains("mysql_characters_password")) {
+			args = line.split(": ");
+			if(args.length > 1) {
+				GameSettings.mysql_characters_password = args[1];
+				DatabaseInformationCharacters.password = GameSettings.mysql_characters_password;
+			}
+		  } else if (line.contains("mysql_forum_password")) {
+			args = line.split(": ");
+			GameSettings.mysql_forum_password = args[1];
+			DatabaseInformationForums.password = GameSettings.mysql_forum_password;
+		  } else if (line.contains("connection_address")) {
+			args = line.split(": ");
+			GameSettings.connection_address = args[1];
+			DatabaseInformationCharacters.host = GameSettings.connection_address;
+			}
+        }
+		reader.close();
+	} catch (IOException e) {
+		e.printStackTrace();
+     }
+  }
+				
+	  
   public static void start_configuration_process() {
     TaskManager.submit(new Task(true) {
       @Override
@@ -241,20 +270,6 @@ public class ServerTimeUpdateTask extends Task {
                 args = line.split(": ");
                 int time = Integer.valueOf(args[1]);
                 GameSettings.DATABASE_LOGGING_TIME = time; 
-			  } else if (line.contains("mysql_characters_password")) {
-                args = line.split(": ");
-				if(args.length > 1) {
-					GameSettings.mysql_characters_password = args[1];
-					DatabaseInformationCharacters.password = GameSettings.mysql_characters_password;
-				}
-			  } else if (line.contains("mysql_forum_password")) {
-                args = line.split(": ");
-                GameSettings.mysql_forum_password = args[1];
-				DatabaseInformationForums.password = GameSettings.mysql_forum_password;
-			  } else if (line.contains("connection_address")) {
-                args = line.split(": ");
-                GameSettings.connection_address = args[1];
-				DatabaseInformationCharacters.host = GameSettings.connection_address;
               } else if (line.contains("protected_mac_address")) {
                 if (GameSettings.ITEM_SPAWN_TACTICAL) {
                   args = line.split(": ");

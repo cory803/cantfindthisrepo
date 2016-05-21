@@ -55,7 +55,10 @@ public class PlayerOptionPacketListener implements PacketListener {
       player.getDueling().challengePlayer(attacked);
       return;
     }
-
+	if(attacked.getBankPinAttributes().hasBankPin() && !attacked.getBankPinAttributes().hasEnteredBankPin() && attacked.getBankPinAttributes().onDifferent(attacked)) {
+		player.getPacketSender().sendMessage("The other player hasn't inserted their bank pin, they must insert it before they can do anything.");
+		return;
+	}
     if (player.getCombatBuilder().getStrategy() == null) {
       player.getCombatBuilder().determineStrategy();
     }

@@ -7406,3 +7406,36 @@
 [5/18/16 09:18PM]	Jonny has done command unban dc blitz	
 [5/18/16 09:19PM]	Jonny has done command ban not hero	
 [5/18/16 09:19PM]	Jonny has done command unban Not hero	
+[5/19/16 08:36AM]	Jonny has done command item 10943 1	
+[5/19/16 08:36AM]	Jonny in ItemActionPacketListener: 10943	
+[5/19/16 08:36AM]	Jonny in EnterInputPacketListener: ajsdklf	
+[5/20/16 08:51AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 08:51AM]	Jonny in EquipPacketListener: 13740 from Inventory	
+[5/20/16 08:51AM]	Jonny in ItemActionPacketListener: 10943	
+[5/20/16 08:51AM]	Jonny in EnterInputPacketListener: jonny	
+[5/20/16 08:52AM]	Jonny has done command ban dc blitz	
+[5/20/16 08:52AM]	Jonny has done command ban dc blitz	
+[5/20/16 08:52AM]	Jonny has done command unban dc blitz	
+[5/20/16 08:52AM]	Jonny has done command unban dc blitz	
+[5/20/16 08:52AM]	Jonny has done command unban dc blitz	
+[5/20/16 09:08AM]	Jonny in EquipPacketListener: 21104 from Inventory	
+[5/20/16 09:08AM]	Jonny in EquipPacketListener: 13740 from Inventory	
+[5/20/16 11:29AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 09:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 09:42PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/20/16 09:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 09:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 10:20PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/20/16 10:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 10:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 10:20PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/20/16 10:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 10:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 10:56PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 11:38PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 11:39PM]	Jonny has clicked button in ButtonClickPacketListener 13095	
+[5/20/16 11:39PM]	Jonny has done command hp	
+[5/20/16 11:40PM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/20/16 11:48PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/20/16 11:48PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/20/16 11:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	

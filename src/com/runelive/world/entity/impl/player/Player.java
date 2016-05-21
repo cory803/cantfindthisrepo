@@ -476,6 +476,7 @@ public class Player extends Character {
 
 	/*** INSTANCES ***/
 	private final CopyOnWriteArrayList<KillsEntry> killsTracker = new CopyOnWriteArrayList<KillsEntry>();
+	public final ArrayList<String> playersAttacked = new ArrayList<String>();
 	private final CopyOnWriteArrayList<DropLogEntry> dropLog = new CopyOnWriteArrayList<DropLogEntry>();
 	private ArrayList<HouseFurniture> houseFurniture = new ArrayList<HouseFurniture>();
 	private ArrayList<Portal> housePortals = new ArrayList<>();

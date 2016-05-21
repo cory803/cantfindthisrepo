@@ -46,6 +46,12 @@ public class GameServer {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+		logger.info("Grabbing MYSQL passwords...");
+		ServerTimeUpdateTask.grabPasswords();
+		logger.info("Grabbed MYSQL character connection: "+DatabaseInformationCharacters.host+"");
+		logger.info("Grabbed MYSQL character password: "+DatabaseInformationCharacters.password+"");
+		logger.info("Grabbed MYSQL forum connection: "+DatabaseInformationForums.host+"");
+		logger.info("Grabbed MYSQL forum password: "+DatabaseInformationForums.password+"");
         startTime = System.currentTimeMillis();
         Runtime.getRuntime().addShutdownHook(new ShutdownHook());
         try {
@@ -63,10 +69,7 @@ public class GameServer {
                 // GameSettings.client_version = "invalid_connection";
                 e.printStackTrace();
             }
-            loader.init();
-            loader.finish();
-            logger.info("Starting configuration settings...");
-            ServerTimeUpdateTask.start_configuration_process();
+			System.out.println("Connecting to MYSQL character database...");
 			//Characters SQL
 			MySQLDatabaseConfiguration characters = new MySQLDatabaseConfiguration();
 			characters.setHost(DatabaseInformationCharacters.host);
@@ -75,6 +78,7 @@ public class GameServer {
 			characters.setPassword(DatabaseInformationCharacters.password);
 			characters.setDatabase(DatabaseInformationCharacters.database);
 			characters_sql = new ThreadedSQL(characters, 4);
+			System.out.println("Connecting to MYSQL forum database...");
 			//Forum SQL
 			MySQLDatabaseConfiguration forums = new MySQLDatabaseConfiguration();
 			forums.setHost(DatabaseInformationForums.host);
@@ -83,6 +87,10 @@ public class GameServer {
 			forums.setPassword(DatabaseInformationForums.password);
 			forums.setDatabase(DatabaseInformationForums.database);
 			forums_sql = new ThreadedSQL(forums, 4);
+            loader.init();
+            loader.finish();
+			logger.info("Starting Configurations...");
+			ServerTimeUpdateTask.start_configuration_process();
             logger.info("RuneLive is now online on port " + GameSettings.GAME_PORT + "!");
         } catch (Exception ex) {
             logger.log(Level.SEVERE, "Could not start RuneLive! Program terminated.", ex);

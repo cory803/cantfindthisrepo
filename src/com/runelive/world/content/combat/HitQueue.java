@@ -273,9 +273,15 @@ public class HitQueue {
           boolean multiRetaliate = player.getCombatBuilder().isBeingAttacked()
               && player.getCombatBuilder().getLastAttacker() != victim && Location.inMulti(player);
           boolean lastAttacker = player.getCombatBuilder().getLastAttacker() != victim;
-          if (victim.isPlayer() && /** soloRetaliate || multiRetaliate || **/
-              lastAttacker) {
-            CombatFactory.skullPlayer(player);
+		  if(victim.isPlayer()) {
+			  Player vic = (Player) victim;
+			  if(!player.playersAttacked.contains(vic.getUsername()))
+				player.playersAttacked.add(vic.getUsername());
+		  }
+          if (victim.isPlayer() && /** soloRetaliate || multiRetaliate || **/lastAttacker) {
+			  Player vic = (Player) victim;
+			if(!vic.playersAttacked.contains(player.getUsername()))
+				CombatFactory.skullPlayer(player);
           }
           // }
         }

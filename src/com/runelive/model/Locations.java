@@ -111,7 +111,7 @@ public class Locations {
                 true) {
             @Override
             public void process(Player player) {
-                if (player.getDonorRights() == 0) {
+                if (player.getDonorRights() == 0 && !player.newPlayer()) {
                     player.moveTo(new Position(3086, 3502));
                 }
             }

@@ -293,38 +293,7 @@ public class PlayerHandler {
 
         player.getPacketSender().updateSpecialAttackOrb()
                 .sendIronmanMode(player.getGameMode().ordinal());
-
-        GrandExchange.onLogin(player);
-        GrandExchange.updateSlotStates(player);
-        if (!player.hasDoneGrandExchangeReturn()) {
-            for (int i = 0; i < 6; i++) {
-                GrandExchangeOffer offer = player.getGrandExchangeSlots()[i].getOffer();
-                if (offer != null) {
-                    player.getPacketSender().sendMessage(
-                            "Hi, The Grand Exchange has been disabled while we work on Player Owned Shops.");
-                    player.getPacketSender().sendMessage(
-                            "An offer that you had in The Grand Exchange has been added to your bank.");
-                    GrandExchangeSlot slot = player.getGrandExchangeSlots()[i];
-                    if (slot.getState() == GrandExchangeSlotState.FINISHED_SALE) {
-                        player.getBank(0).add(995, offer.getCoinsCollect());
-                    } else if (slot.getState() == GrandExchangeSlotState.PENDING_PURCHASE) {
-                        player.getBank(0).add(995, offer.getPricePerItem() * offer.getAmount());
-                    } else {
-                        player.getBank(0).add(offer.getId(), offer.getAmount());
-                    }
-                    if (offer.getId() == 995) {
-                        offer.setCoinsCollect(0);
-                    } else {
-                        offer.setItemCollect(0);
-                    }
-                    GrandExchangeOffers.setOffer(offer.getIndex(), null);
-                    player.getGrandExchangeSlots()[i].setOffer(null);
-                    player.getGrandExchangeSlots()[i].setState(GrandExchangeSlotState.EMPTY);
-                }
-            }
-            player.setDoneGrandExchangeReturn(true);
-            player.save();
-        }
+				
         if (player.getPointsHandler().getAchievementPoints() == 0) {
             Achievements.setPoints(player);
         }

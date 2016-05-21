@@ -171,14 +171,14 @@ public class PlayerLoading {
                             player.setHashedPassword(PlayerSaving.hashPassword(salt, player.getPassword()));
                         }
 
-                        player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
                         if (!World.getLoginQueue().contains(player)) {
                             World.getLoginQueue().add(player);
                         }
+						player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
+						player.setLoginQue(true);
                     } else {
                         player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
                     }
-                    player.setLoginQue(true);
                 } else {
                     GameServer.getCharacterPool().executeQuery("Select username from `accounts` as acc where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
                         @Override
