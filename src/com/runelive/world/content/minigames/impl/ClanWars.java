@@ -166,11 +166,11 @@ public class ClanWars {
     if (duelRule == DuelRule.LOCK_WEAPON && selectedRules[duelRule.ordinal()]) {
       player.getPacketSender()
           .sendMessage(
-              "@red@Warning! The rule 'Lock Weapon' has been enabled. You will not be able to change")
+              "@red@Warning! The rule 'Same Weapon' has been enabled. You will not be able to change")
           .sendMessage("@red@weapon during the duel!");
       playerToChallenge.getPacketSender()
           .sendMessage(
-              "@red@Warning! The rule 'Lock Weapon' has been enabled. You will not be able to change")
+              "@red@Warning! The rule 'Same Weapon' has been enabled. You will not be able to change")
           .sendMessage("@red@weapon during the duel!");
     }
   }

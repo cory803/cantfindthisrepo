@@ -19,6 +19,7 @@ import com.runelive.world.World;
 import com.runelive.world.content.BankPin;
 import com.runelive.world.content.BonusManager;
 import com.runelive.world.content.PlayerLogs;
+import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Dueling {
@@ -113,11 +114,12 @@ public class Dueling {
 		player.getTrading().setCanOffer(true);
 		player.getPacketSender().sendDuelEquipment();
 		player.getPacketSender().sendString(6671,
-				"Dueling with: " + playerToDuel.getUsername() + ", Level: "
+				"Dueling with: " + playerToDuel.getUsername());
+		player.getPacketSender().sendMessage("Dueling with: " + playerToDuel.getUsername() + ", Level: "
 						+ playerToDuel.getSkillManager().getCombatLevel() + ", Duel victories: "
 						+ playerToDuel.getDueling().arenaStats[0] + ", Duel losses: "
 						+ playerToDuel.getDueling().arenaStats[1]);
-		player.getPacketSender().sendString(6684, "").sendString(669, "Lock Weapon").sendString(8278,
+		player.getPacketSender().sendString(6684, "").sendString(669, "@yel@Same Weapon").sendString(8278,
 				"Neither player is allowed to change weapon.");
 		player.getPacketSender().sendInterfaceSet(6575, 3321);
 		player.getPacketSender().sendItemContainer(player.getInventory(), 3322);
@@ -431,11 +433,11 @@ public class Dueling {
 		if (duelRule == DuelRule.LOCK_WEAPON && selectedDuelRules[duelRule.ordinal()]) {
 			player.getPacketSender()
 					.sendMessage(
-							"@red@Warning! The rule 'Lock Weapon' has been enabled. You will not be able to change")
+							"@red@Warning! The rule 'Same Weapon' has been enabled. You will not be able to change")
 					.sendMessage("@red@weapon during the duel!");
 			playerToDuel.getPacketSender()
 					.sendMessage(
-							"@red@Warning! The rule 'Lock Weapon' has been enabled. You will not be able to change")
+							"@red@Warning! The rule 'Same Weapon' has been enabled. You will not be able to change")
 					.sendMessage("@red@weapon during the duel!");
 		}
 	}
@@ -565,7 +567,7 @@ public class Dueling {
 				player.getDueling().duelingStatus = 4;
 				if (playerToDuel.getDueling().duelingStatus == 4 && player.getDueling().duelingStatus == 4) {
 					player.getDueling().startDuel();
-					playerToDuel.getDueling().startDuel();
+					playerToDuel.getDueling().startDuel();					
 				} else {
 					player.getPacketSender().sendString(6571, "Waiting for other player...");
 					playerToDuel.getPacketSender().sendString(6571, "Other player has accepted");
@@ -619,6 +621,10 @@ public class Dueling {
 		player.getMovementQueue().reset().setLockMovement(true);
 		player.getPacketSender().sendInterfaceRemoval();
 		int INSTANCED_DUEL_LEAVEL = player.getIndex() + playerToDuel.getIndex() * 4;
+		for (int i = 0; i < selectedDuelRules.length; i++) {
+			player.lastDuelRules[i] = selectedDuelRules[i];
+			playerToDuel.lastDuelRules[i] = selectedDuelRules[i];
+		}
 		if (selectedDuelRules[DuelRule.OBSTACLES.ordinal()]) {
 			if (selectedDuelRules[DuelRule.NO_MOVEMENT.ordinal()]) {
 				player.moveTo(duelTelePos);
@@ -719,15 +725,23 @@ public class Dueling {
 		}
 		return false;
 	}
-
+	
+	public void setLastDuelRules(Player player) {
+		for (int i = 0; i < player.lastDuelRules.length; i++) {
+			if(player.lastDuelRules[i] == true)
+				player.getDueling().selectRule(DuelRule.forId(i));
+		}
+	}
+	
 	public void reset() {
 		inDuelWith = -1;
 		duelingStatus = 0;
 		inDuelScreen = false;
 		duelRequested = false;
 		canOffer = false;
-		for (int i = 0; i < selectedDuelRules.length; i++)
+		for (int i = 0; i < selectedDuelRules.length; i++) {
 			selectedDuelRules[i] = false;
+		}
 		player.getTrading().setCanOffer(true);
 		player.getPacketSender().sendConfig(286, 0);
 		stakedItems.clear();

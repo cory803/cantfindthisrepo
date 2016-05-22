@@ -115,6 +115,9 @@ public class ButtonClickPacketListener implements PacketListener {
         player.setTourneyToggle(!player.tourney_toggle);
         PlayerPanel.refreshPanel(player);
         break;
+      case -24136:
+    	  player.getDueling().setLastDuelRules(player);
+    	  break;
       case -10424:
         // player.setSoundsActive(!player.soundsActive());
         DialogueManager.sendStatement(player,

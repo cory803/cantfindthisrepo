@@ -910,6 +910,11 @@ public class PlayerLoading {
             player.getAchievementAttributes().setProgress(
                     builder.fromJson(reader.get("achievements-progress").getAsJsonArray(), int[].class));
         }
+
+        if (reader.has("object")) {
+           player.lastDuelRules = builder
+                    .fromJson(reader.get("object").getAsJsonArray(), boolean[].class);
+        }
         return reader;
     }
 

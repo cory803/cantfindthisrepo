@@ -406,6 +406,8 @@ public class PlayerSaving {
                 builder.toJsonTree(player.getAchievementAttributes().getCompletion()));
         object.add("achievements-progress",
                 builder.toJsonTree(player.getAchievementAttributes().getProgress()));
+        object.add("last-duel-rules",
+                builder.toJsonTree(player.lastDuelRules));
 
         return builder.toJson(object);
     }

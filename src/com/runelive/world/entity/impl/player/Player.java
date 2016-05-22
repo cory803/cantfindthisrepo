@@ -74,6 +74,7 @@ import com.runelive.world.content.dialogue.Dialogue;
 import com.runelive.world.content.grandexchange.GrandExchangeSlot;
 import com.runelive.world.content.minigames.MinigameAttributes;
 import com.runelive.world.content.minigames.impl.Dueling;
+import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.content.skill.impl.construction.ConstructionData;
 import com.runelive.world.content.skill.impl.construction.HouseFurniture;
@@ -258,7 +259,8 @@ public class Player extends Character {
 	public boolean isPlayer() {
 		return true;
 	}
-
+	
+	public boolean[] lastDuelRules = new boolean[DuelRule.values().length];
 	public String yell_tag = "invalid_yell_tag_set";
 
 	public void setYellTag(String tag) {

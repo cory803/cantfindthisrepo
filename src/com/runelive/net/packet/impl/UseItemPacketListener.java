@@ -143,7 +143,6 @@ public class UseItemPacketListener implements PacketListener {
 	          player.getPacketSender().sendMessage("You need a Herblore level of at least 83 to make this potion.");
 	          return;
 	        }
-    		player.getSkillManager().addExperience(Skill.HERBLORE, 2000);
     		player.performAnimation(new Animation(363));
             player.getInventory().delete(new Item(14207)).delete(new Item(6685)).add(new Item(14423, 1)).add(new Item(229, 1));
     	} else if(usedWith.getId() == 3024 || itemUsedWith.getId() == 3024) {
@@ -151,7 +150,6 @@ public class UseItemPacketListener implements PacketListener {
   	          player.getPacketSender().sendMessage("You need a Herblore level of at least 65 to make this potion.");
   	          return;
   	        }
-      		player.getSkillManager().addExperience(Skill.HERBLORE, 950);
       		player.performAnimation(new Animation(363));
       		player.getInventory().delete(new Item(14207)).delete(new Item(3024)).add(new Item(14411, 1)).add(new Item(229, 1));
     	} else if(usedWith.getId() == 2436 || itemUsedWith.getId() == 2436) {
@@ -159,7 +157,6 @@ public class UseItemPacketListener implements PacketListener {
     	          player.getPacketSender().sendMessage("You need a Herblore level of at least 47 to make this potion.");
     	          return;
     	    }
-    		player.getSkillManager().addExperience(Skill.HERBLORE, 700);
     		player.performAnimation(new Animation(363));
     		player.getInventory().delete(new Item(14207)).delete(new Item(2436)).add(new Item(14184, 1)).add(new Item(229, 1));
       	} else if(usedWith.getId() == 2440 || itemUsedWith.getId() == 2440) {
@@ -167,7 +164,6 @@ public class UseItemPacketListener implements PacketListener {
   	          player.getPacketSender().sendMessage("You need a Herblore level of at least 57 to make this potion.");
   	          return;
   	      	}
-	  		player.getSkillManager().addExperience(Skill.HERBLORE, 850);
 	  		player.performAnimation(new Animation(363));
 	  		player.getInventory().delete(new Item(14207)).delete(new Item(2440)).add(new Item(14172, 1)).add(new Item(229, 1));
     	} else if(usedWith.getId() == 2444 || itemUsedWith.getId() == 2444) {
@@ -175,7 +171,6 @@ public class UseItemPacketListener implements PacketListener {
     	          player.getPacketSender().sendMessage("You need a Herblore level of at least 74 to make this potion.");
     	          return;
     	    }
-  	  		player.getSkillManager().addExperience(Skill.HERBLORE, 1350);
   	  		player.performAnimation(new Animation(363));
   	  		player.getInventory().delete(new Item(14207)).delete(new Item(2444)).add(new Item(14148, 1)).add(new Item(229, 1));
       	} else if(usedWith.getId() == 3040 || itemUsedWith.getId() == 3040) {
@@ -183,7 +178,6 @@ public class UseItemPacketListener implements PacketListener {
   	          player.getPacketSender().sendMessage("You need a Herblore level of at least 78 to make this potion.");
   	          return;
   	      	}
-	  		player.getSkillManager().addExperience(Skill.HERBLORE, 1500);
 	  		player.performAnimation(new Animation(363));
 	  		player.getInventory().delete(new Item(14207)).delete(new Item(3040)).add(new Item(14399, 1)).add(new Item(229, 1));
     	} else if(usedWith.getId() == 15332 || itemUsedWith.getId() == 15332) {
@@ -191,7 +185,6 @@ public class UseItemPacketListener implements PacketListener {
     	          player.getPacketSender().sendMessage("You need a Herblore level of at least 98 to make this potion.");
     	          return;
     	     }
-  	  		player.getSkillManager().addExperience(Skill.HERBLORE, 3500);
   	  		player.performAnimation(new Animation(363));
   	  		player.getInventory().delete(new Item(14207)).delete(new Item(15332)).add(new Item(14297, 1)).add(new Item(229, 1));
       	}

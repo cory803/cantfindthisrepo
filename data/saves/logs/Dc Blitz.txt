@@ -1380,3 +1380,82 @@
 [5/22/16 02:42AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/22/16 02:44AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/22/16 02:51AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:13PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:13PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/22/16 12:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:13PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:18PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:20PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:22PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:22PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:22PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:22PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:23PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:42PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1541	
+[5/22/16 12:42PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/22/16 12:42PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 12:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:46PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 12:46PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:47PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:53PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 12:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:03PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:05PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/22/16 01:05PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 01:11PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:15PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/22/16 01:15PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 01:16PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 01:16PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:16PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:16PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:26PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:29PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 01:30PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:30PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:30PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:30PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:30PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 01:33PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 01:33PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 01:59PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/22/16 01:59PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 02:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 02:01PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 02:02PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:02PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 14484 - 3322 - 8	
+[5/22/16 02:02PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:02PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:02PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:02PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 02:05PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 02:06PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:06PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:06PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:06PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:06PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:07PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:07PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:07PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:08PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	

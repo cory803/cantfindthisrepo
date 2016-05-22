@@ -114,7 +114,7 @@ public class CombatBuilder {
       return;
 
 
-    cooldown = 10;
+    cooldown = 5;
 
     character.getMovementQueue().setFollowCharacter(null);
     character.setEntityInteraction(null);
