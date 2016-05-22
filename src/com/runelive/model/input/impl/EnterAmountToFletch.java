@@ -24,7 +24,11 @@ public class EnterAmountToFletch extends EnterAmount {
   }
 
   @Override
-  public void handleAmount(Player player, int amount) {
+  public void handleAmount(Player player, long value) {
+	int amount = (int) value;
+	if(value > Integer.MAX_VALUE) {
+		amount = Integer.MAX_VALUE;
+	}
     final int log = player.getSelectedSkillingItem();
     if (log > 0) {
       if (button == SHAFTS_BUTTON && log == 1511) {

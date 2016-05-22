@@ -7621,3 +7621,282 @@
 [5/21/16 10:03AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/21/16 10:03AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
 [5/21/16 10:03AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 08:25PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 08:25PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 08:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 08:34PM]	Jonny has done command nulltest	
+[5/21/16 08:34PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 08:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 08:50PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 08:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 08:52PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 08:52PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 08:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 08:52PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 08:52PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 09:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 09:21PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 09:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 09:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 09:40PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 09:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 09:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 09:41PM]	Jonny in NPCOptionPacketListener: 2127 - FIRST_CLICK_OPCODE	
+[5/21/16 09:41PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 09:41PM]	Opened the player owned shop: Jonny	
+[5/21/16 09:41PM]	Jonny in ItemContainerActionPacketListener: Sixth Action - 15272 - 3823 - 20	
+[5/21/16 09:41PM]	Jonny in ItemContainerActionPacketListener: Fifth Action - 15272 - 3823 - 20	
+[5/21/16 09:41PM]	Jonny in EnterInputPacketListener: 12	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 12 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 11 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 10 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 9 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 8 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 7 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 6 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 5 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 4 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 3 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 2 PRICE: 500	
+[5/21/16 09:41PM]	Player owned shop sold item: ID: 15272 AMOUNT: 1 PRICE: 500	
+[5/21/16 09:41PM]	Jonny in EnterInputPacketListener: 500	
+[5/21/16 09:41PM]	Player owned shop recieved coins to money pouch: 5000	
+[5/21/16 09:41PM]	Player owned shop recieved coins to money pouch: 1000	
+[5/21/16 09:42PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 09:42PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 09:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:09PM]	Jonny has done command item 14484 10	
+[5/21/16 10:09PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:09PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:09PM]	Jonny in ItemContainerActionPacketListener: Fifth Action - 14484 - 3823 - 17	
+[5/21/16 10:09PM]	Jonny in EnterInputPacketListener: 10	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 10 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 9 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 8 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 7 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 6 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 500000000	
+[5/21/16 10:09PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 500000000	
+[5/21/16 10:09PM]	Jonny in EnterInputPacketListener: 500000000	
+[5/21/16 10:09PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:09PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:09PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:16PM]	Player owned shop items sold for: 2000M	
+[5/21/16 10:16PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:16PM]	Jonny has done command item 14484 10	
+[5/21/16 10:16PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:16PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:16PM]	Jonny in ItemContainerActionPacketListener: Fourth Action - 14484 - 3823 - 12	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 10 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 9 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 8 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 7 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 6 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 500000000	
+[5/21/16 10:16PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 500000000	
+[5/21/16 10:16PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:16PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:16PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:17PM]	Player owned shop items sold for: 4000M	
+[5/21/16 10:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:17PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:17PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:17PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:17PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:20PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:20PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:20PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:20PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:20PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:20PM]	Jonny in ItemContainerActionPacketListener: Second Action - 555 - 3900 - 0	
+[5/21/16 10:20PM]	Player owned shop decreased amount from shop: Water rune	
+[5/21/16 10:20PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:27PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:27PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:27PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:28PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:28PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:28PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3823 - 6	
+[5/21/16 10:28PM]	Jonny in EnterInputPacketListener: 2147483647	
+[5/21/16 10:28PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3823 - 6	
+[5/21/16 10:28PM]	Jonny in EnterInputPacketListener: 2000000000	
+[5/21/16 10:28PM]	Jonny in ItemContainerActionPacketListener: First Action - 6199 - 3823 - 6	
+[5/21/16 10:28PM]	Jonny in ItemContainerActionPacketListener: First Action - 6199 - 3823 - 6	
+[5/21/16 10:28PM]	Jonny in ItemContainerActionPacketListener: First Action - 6199 - 3823 - 6	
+[5/21/16 10:28PM]	Jonny in ItemContainerActionPacketListener: First Action - 6199 - 3823 - 6	
+[5/21/16 10:28PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:28PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/21/16 10:28PM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/21/16 10:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:32PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:32PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:32PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:32PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:32PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:32PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 10:32PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:32PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:32PM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 10:33PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:33PM]	Jonny in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/21/16 10:33PM]	Opened the player owned shop: jonny	
+[5/21/16 10:33PM]	Jonny in EnterInputPacketListener: jonny	
+[5/21/16 10:33PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:33PM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 10:33PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:33PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:33PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:33PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3823 - 6	
+[5/21/16 10:33PM]	Jonny in EnterInputPacketListener: 5000000	
+[5/21/16 10:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:36PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:36PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:36PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3823 - 6	
+[5/21/16 10:40PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:40PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:40PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:40PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:40PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3823 - 6	
+[5/21/16 10:44PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:44PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:44PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:44PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3823 - 6	
+[5/21/16 10:44PM]	Player owned shop sold item: ID: 6199 AMOUNT: 1 PRICE: 4294971411759478	
+[5/21/16 10:44PM]	Jonny in EnterInputPacketListener: 4294971411759478	
+[5/21/16 10:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:45PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:46PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:46PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:46PM]	Jonny in ItemContainerActionPacketListener: Second Action - 4753 - 3823 - 5	
+[5/21/16 10:46PM]	Jonny in ItemContainerActionPacketListener: First Action - 6199 - 3900 - 1	
+[5/21/16 10:46PM]	Jonny in ItemContainerActionPacketListener: Second Action - 4753 - 3823 - 5	
+[5/21/16 10:46PM]	Jonny in EnterInputPacketListener: 85000000	
+[5/21/16 10:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:47PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:47PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:47PM]	Jonny in ItemContainerActionPacketListener: Second Action - 4753 - 3823 - 5	
+[5/21/16 10:47PM]	Player owned shop sold item: ID: 4753 AMOUNT: 1 PRICE: 5000000	
+[5/21/16 10:47PM]	Jonny in EnterInputPacketListener: 5000000	
+[5/21/16 10:49PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:49PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 10:49PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 10:49PM]	Opened the player owned shop: Jonny	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: Second Action - 15272 - 3823 - 21	
+[5/21/16 10:49PM]	Player owned shop sold item: ID: 15272 AMOUNT: 1 PRICE: 5000000	
+[5/21/16 10:49PM]	Jonny in EnterInputPacketListener: 5000000	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: Second Action - 15272 - 3900 - 3	
+[5/21/16 10:49PM]	Player owned shop removed from shop: Rocktail	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: Second Action - 15272 - 3823 - 5	
+[5/21/16 10:49PM]	Player owned shop sold item: ID: 15272 AMOUNT: 1 PRICE: 5000000000	
+[5/21/16 10:49PM]	Jonny in EnterInputPacketListener: 5000000000	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 10:49PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 10:49PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 10:50PM]	Jonny in WithdrawMoneyFromPouchPacketListener 0	
+[5/21/16 10:50PM]	Jonny in NPCOptionPacketListener: 6139 - FIRST_CLICK_OPCODE	
+[5/21/16 10:50PM]	Jonny in WithdrawMoneyFromPouchPacketListener 0	
+[5/21/16 10:51PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:23PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:23PM]	Jonny in ObjectActionPacketListener: 2213 - FIRST_CLICK_OPCODE	
+[5/21/16 11:23PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 11:23PM]	Opened the player owned shop: Jonny	
+[5/21/16 11:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 11:23PM]	Jonny in ItemContainerActionPacketListener: Second Action - 15272 - 3900 - 3	
+[5/21/16 11:23PM]	Player owned shop removed from shop: Rocktail	
+[5/21/16 11:23PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 11:23PM]	Jonny in WithdrawMoneyFromPouchPacketListener 500000000	
+[5/21/16 11:23PM]	Jonny in WithdrawMoneyFromPouchPacketListener 1000000000	
+[5/21/16 11:23PM]	Jonny in WithdrawMoneyFromPouchPacketListener 2147483647	
+[5/21/16 11:23PM]	Jonny in WithdrawMoneyFromPouchPacketListener 2147483647	
+[5/21/16 11:23PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 11:23PM]	Opened the player owned shop: Jonny	
+[5/21/16 11:23PM]	Jonny in ItemContainerActionPacketListener: Second Action - 15272 - 3823 - 0	
+[5/21/16 11:23PM]	Player owned shop sold item: ID: 15272 AMOUNT: 1 PRICE: 7000000000	
+[5/21/16 11:23PM]	Jonny in EnterInputPacketListener: 7000000000	
+[5/21/16 11:23PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 11:23PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 11:23PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 11:23PM]	Opened the player owned shop: Jonny	
+[5/21/16 11:23PM]	Jonny in ItemContainerActionPacketListener: Second Action - 11517 - 3823 - 4	
+[5/21/16 11:23PM]	Player owned shop sold item: ID: 11517 AMOUNT: 1 PRICE: 5000000000	
+[5/21/16 11:23PM]	Jonny in EnterInputPacketListener: 5000000000	
+[5/21/16 11:23PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 11:23PM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/21/16 11:24PM]	Jonny in EnterInputPacketListener: super combat	
+[5/21/16 11:24PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 11:24PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 11:24PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:27PM]	Jonny in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/21/16 11:27PM]	Opened the player owned shop: dc blitz	
+[5/21/16 11:27PM]	Jonny in EnterInputPacketListener: dc blitz	
+[5/21/16 11:27PM]	Jonny in ItemContainerActionPacketListener: First Action - 14484 - 3900 - 0	
+[5/21/16 11:27PM]	Jonny in ItemContainerActionPacketListener: Second Action - 14484 - 3900 - 0	
+[5/21/16 11:27PM]	Player owned shop added coins for global extraction: 705M for Dc Blitz	
+[5/21/16 11:27PM]	Jonny in ItemContainerActionPacketListener: First Action - 14484 - 3900 - 0	
+[5/21/16 11:27PM]	Jonny in ItemContainerActionPacketListener: Second Action - 14484 - 3900 - 0	
+[5/21/16 11:27PM]	Player owned shop added coins for global extraction: 705M for Dc Blitz	
+[5/21/16 11:33PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:33PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 11:33PM]	Opened the player owned shop: Jonny	
+[5/21/16 11:33PM]	Jonny in ItemContainerActionPacketListener: First Action - 11517 - 3900 - 4	
+[5/21/16 11:33PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 11:33PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 11:33PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:43PM]	Player owned shop items sold for: 410M	
+[5/21/16 11:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:46PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 11:46PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:47PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 11:47PM]	Opened the player owned shop: Jonny	
+[5/21/16 11:47PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 11:47PM]	Jonny in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/21/16 11:47PM]	Opened the player owned shop: Dc Blitz	
+[5/21/16 11:47PM]	Jonny in EnterInputPacketListener: Dc Blitz	
+[5/21/16 11:47PM]	Jonny in ItemContainerActionPacketListener: First Action - 13742 - 3900 - 0	
+[5/21/16 11:47PM]	Jonny in ItemContainerActionPacketListener: Second Action - 13742 - 3900 - 0	
+[5/21/16 11:47PM]	Player owned shop added coins for global extraction: 8000M for Dc Blitz	
+[5/21/16 11:47PM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/21/16 11:47PM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/21/16 11:47PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:47PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 11:47PM]	Opened the player owned shop: Jonny	
+[5/21/16 11:47PM]	Jonny in ItemContainerActionPacketListener: First Action - 4753 - 3900 - 2	
+[5/21/16 11:47PM]	Jonny in ItemContainerActionPacketListener: First Action - 15272 - 3900 - 3	
+[5/21/16 11:48PM]	Player owned shop recieved coins to money pouch: 7000M	
+[5/21/16 11:48PM]	Player owned shop recieved coins to money pouch: 5M	
+[5/21/16 11:48PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3900 - 1	
+[5/21/16 11:48PM]	Player owned shop removed from shop: Mystery box	
+[5/21/16 11:52PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/21/16 11:52PM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/21/16 11:52PM]	Opened the player owned shop: Jonny	
+[5/21/16 11:52PM]	Jonny in ItemContainerActionPacketListener: Second Action - 14484 - 3823 - 4	
+[5/21/16 11:52PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 15	
+[5/21/16 11:52PM]	Jonny in EnterInputPacketListener: 15	
+[5/21/16 11:52PM]	Jonny in ItemContainerActionPacketListener: Second Action - 14484 - 3823 - 4	
+[5/21/16 11:52PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 15	
+[5/21/16 11:52PM]	Jonny in ItemContainerActionPacketListener: Second Action - 6199 - 3823 - 8	
+[5/21/16 11:52PM]	Player owned shop sold item: ID: 6199 AMOUNT: 1 PRICE: 15000000	
+[5/21/16 11:52PM]	Jonny in EnterInputPacketListener: 15000000	
+[5/21/16 11:52PM]	Player owned shop recieved coins to money pouch: 15	
+[5/21/16 11:52PM]	Player owned shop recieved coins to money pouch: 15M	
+[5/21/16 11:52PM]	Player owned shop recieved coins to money pouch: 15	

@@ -18,14 +18,11 @@ import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.DesolaceFormulas;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.motivoters.motivote.service.MotivoteRS;
 
 import java.text.DecimalFormat;
 
 public class Members {
 
-	private static final MotivoteRS motivote = new MotivoteRS("runelive", "ebac47c6e0cd6d66f1c9b7b5ce9138b3");
-	
 	/**
 	* @Author Jonathan Sirens
 	* Initiates Command
@@ -285,6 +282,7 @@ public class Members {
 				player.getPacketSender().sendMessage("You have to wait 30 seconds in order to use ::auth!");
 				return;
 			}
+			/*
 			String auth = wholeCommand.replace("auth ", "");
 			player.getVoteTimer().reset();
 			try {
@@ -306,6 +304,7 @@ public class Members {
 				ex.printStackTrace();
 				player.getPacketSender().sendMessage("Unable to check auth, please try again later.");
 			}
+			*/
 		}
 		if(command[0].equalsIgnoreCase("attacks")) {
 			int attack = DesolaceFormulas.getMeleeAttack(player);

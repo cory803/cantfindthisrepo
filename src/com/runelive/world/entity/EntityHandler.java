@@ -9,6 +9,7 @@ import com.runelive.world.clip.region.RegionClipping;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.net.login.LoginResponses;
 
 public class EntityHandler {
 
@@ -18,7 +19,9 @@ public class EntityHandler {
       PlayerSession session = player.getSession();
       if (session.getState() == SessionState.LOGGING_IN
           && !World.getLoginQueue().contains(player)) {
-        World.getLoginQueue().add(player);
+			player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
+			player.setLoginQue(true);
+			World.getLoginQueue().add(player);
       }
     }
     if (entity.isNpc()) {

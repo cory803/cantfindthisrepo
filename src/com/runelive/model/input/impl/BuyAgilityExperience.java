@@ -6,8 +6,12 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class BuyAgilityExperience extends EnterAmount {
 
-  @Override
-  public void handleAmount(Player player, int amount) {
+	  @Override
+	  public void handleAmount(Player player, long value) {
+		int amount = (int) value;
+		if(value > Integer.MAX_VALUE) {
+			amount = Integer.MAX_VALUE;
+		}
     player.getPacketSender().sendInterfaceRemoval();
     int ticketAmount = player.getInventory().getAmount(2996);
     if (ticketAmount == 0) {

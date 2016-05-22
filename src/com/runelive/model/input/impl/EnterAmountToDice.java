@@ -15,7 +15,11 @@ public class EnterAmountToDice extends EnterAmount {
   }
 
   @Override
-  public void handleAmount(Player player, int amount) {
+  public void handleAmount(Player player, long value) {
+	int amount = (int) value;
+	if(value > Integer.MAX_VALUE) {
+		amount = Integer.MAX_VALUE;
+	}
     if (amount > 100) {
       player.getPacketSender().sendMessage("You can't roll over 100.");
       return;

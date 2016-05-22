@@ -18,10 +18,14 @@ public class EnterAmountOfPosOfferPrice extends EnterAmount {
   }
 
   @Override
-  public void handleAmount(Player player, int price) {
+  public void handleAmount(Player player, long price) {
     if (price <= 0 || price >= Long.MAX_VALUE) {
       player.getPacketSender().sendMessage("Please enter a valid price.");
       return;
+    }
+    if(price > 100000000000L) {
+    	player.getPacketSender().sendMessage("You can only put a item in your shop under 100B.");
+    	return;
     }
     player.getPlayerOwnedShop().sellItem(player, getSlot(), getItemAmount(), price);
   }

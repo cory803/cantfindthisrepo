@@ -12,7 +12,11 @@ public class EnterAmountToBuyFromPos extends EnterAmount {
   }
 
   @Override
-  public void handleAmount(Player player, int amount) {
+  public void handleAmount(Player player, long value) {
+	int amount = (int) value;
+	if(value > Integer.MAX_VALUE) {
+		amount = Integer.MAX_VALUE;
+	}
     if (player.isPlayerOwnedShopping() && getItem() > 0 && getSlot() >= 0) {
       PlayerOwnedShopContainer shop = player.getPlayerOwnedShop();
       if (shop != null) {

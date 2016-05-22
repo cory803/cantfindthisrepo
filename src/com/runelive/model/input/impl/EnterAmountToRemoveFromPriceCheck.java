@@ -13,7 +13,11 @@ public class EnterAmountToRemoveFromPriceCheck extends EnterAmount {
   }
 
   @Override
-  public void handleAmount(Player player, int amount) {
+  public void handleAmount(Player player, long value) {
+	int amount = (int) value;
+	if(value > Integer.MAX_VALUE) {
+		amount = Integer.MAX_VALUE;
+	}
     if (!player.getPriceChecker().isOpen() || player.getInterfaceId() != PriceChecker.INTERFACE_ID)
       return;
     if (!player.getPriceChecker().contains(getItem()))

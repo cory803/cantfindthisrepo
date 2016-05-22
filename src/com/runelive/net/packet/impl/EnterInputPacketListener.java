@@ -35,7 +35,7 @@ public class EnterInputPacketListener implements PacketListener {
         player.setInputHandling(null);
         break;
       case ENTER_AMOUNT_OPCODE:
-        int amount = packet.readInt();
+        long amount = packet.readLong();
         if (amount <= 0)
           return;
         if (player.getInputHandling() != null)

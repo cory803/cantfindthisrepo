@@ -13,7 +13,8 @@ import com.runelive.world.entity.impl.player.Player;
  * @author Goml Perfected by Gabbe
  */
 public class MoneyPouch {
-  public static void depositVote(Player plr, int amount) {
+	
+  public static void depositVote(Player plr, long amount) {
     plr.setMoneyInPouch(plr.getMoneyInPouch() + amount);
     plr.getPacketSender().sendString(8135, "" + plr.getMoneyInPouch());
   }

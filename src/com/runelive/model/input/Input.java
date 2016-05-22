@@ -12,5 +12,10 @@ public class Input {
   public void handleAmount(Player player, int amount) {
 
   }
+  
+
+  public void handleAmount(Player player, long amount) {
+
+  }
 
 }

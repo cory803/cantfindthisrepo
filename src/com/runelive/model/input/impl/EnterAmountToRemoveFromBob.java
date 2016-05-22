@@ -12,7 +12,11 @@ public class EnterAmountToRemoveFromBob extends EnterAmount {
   }
 
   @Override
-  public void handleAmount(Player player, int amount) {
+  public void handleAmount(Player player, long value) {
+	int amount = (int) value;
+	if(value > Integer.MAX_VALUE) {
+		amount = Integer.MAX_VALUE;
+	}
     if (player.getSummoning().getBeastOfBurden() == null
         || player.getInterfaceId() != BeastOfBurden.INTERFACE_ID)
       return;

@@ -1156,12 +1156,21 @@ public class Owners {
 			Player p = World.getPlayerByName(entity);
 			World.deregister(p);
 		}
+		if(wholeCommand.startsWith("nulltest")) {
+			player.setRegistered(false);
+			System.out.println("No longer registered:");
+		}
 		if(wholeCommand.startsWith("unjail")) {
 			String jail_punishee = wholeCommand.substring(7);
 			Player punishee = World.getPlayerByName(jail_punishee);
 			punishee.setJailed(false);
 			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
 			punishee.moveTo(new Position(3087, 3502, 0));
+		}	
+		if(command[0].equals("unregister")) {
+			Player other = World.getPlayerByName(command[1]);
+			other.setRegistered(true);
+			player.getPacketSender().sendMessage("Unregistered him...");
 		}
 		if(wholeCommand.startsWith("jail")) {
 				String jail_punishee = wholeCommand.substring(5);

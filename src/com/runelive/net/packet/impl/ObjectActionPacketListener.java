@@ -451,7 +451,9 @@ public class ObjectActionPacketListener implements PacketListener {
                     player.getPacketSender().sendMessage("You need an Agility level of at least 50 to get past this obstacle.");
                     player.getPacketSender().sendMessage("or an wilderness key!");
                   }
-                }
+                } else {
+					player.getPacketSender().sendMessage("You need 50 agility in order to cross this...");
+				}
                 break;
               case 38660:
                 if (ShootingStar.CRASHED_STAR != null) {

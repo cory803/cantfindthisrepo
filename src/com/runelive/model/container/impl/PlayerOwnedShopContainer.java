@@ -229,8 +229,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
         if (price == 0) {
             player.setHasNext(true);
             player.setInputHandling(new EnterAmountOfPosOfferPrice(slot, amountToSell)); // Enter the
-            // price of the
-            // item
             player.getPacketSender().sendEnterAmountPrompt("Enter the price of the item:");
             return;
         }
@@ -280,8 +278,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
      * Buying an item from a pos
      */
     @Override
-    public PlayerOwnedShopContainer switchItem(ItemContainer to, Item item, int slot, boolean sort,
-                                               boolean refresh) {
+    public PlayerOwnedShopContainer switchItem(ItemContainer to, Item item, int slot, boolean sort, boolean refresh) {
         final Player player = getPlayer();
         if (player == null)
             return this;
@@ -295,9 +292,9 @@ public class PlayerOwnedShopContainer extends ItemContainer {
         if (amountBuying == 0)
             return this;
         boolean usePouch = false;
-        int playerCurrencyAmount = 0;
+        long playerCurrencyAmount = 0;
 
-        int value = 0;
+        long value = 0;
 
         PosOffers o = PlayerOwnedShops.SHOPS_ARRAYLIST.get(index);
         if (o == null)
@@ -305,22 +302,27 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 
         PosOffer offer = o.forId(item.getId());
         if (offer != null && offer.getAmount() > 0)
-            value = (int) offer.getPrice();
-
+            value = offer.getPrice();
+        	
+        if(value > Integer.MAX_VALUE) {
+        	usePouch = true;
+        }
+        
         playerCurrencyAmount = player.getInventory().getAmount(995);
         String currencyName = ItemDefinition.forId(currency.getId()).getName().toLowerCase();
         if (player.getMoneyInPouch() >= value) {
-            playerCurrencyAmount = player.getMoneyInPouchAsInt();
+            playerCurrencyAmount = player.getMoneyInPouch();
             if (!(player.getInventory().getFreeSlots() == 0
                     && player.getInventory().getAmount(995) == value)) {
                 usePouch = true;
             }
         }
+        
         if (value <= 0) {
             return this;
         }
         if (!player.getUsername().equalsIgnoreCase(o.getOwner())) {
-            if (!hasInventorySpace(player, item, 995, value)) {
+            if (!hasInventorySpace(player, item, 995, (int) value)) {
                 player.getPacketSender().sendMessage("You do not have any free inventory slots.");
                 return this;
             }
@@ -332,14 +334,14 @@ public class PlayerOwnedShopContainer extends ItemContainer {
                 return this;
             }
 
-            int total = 0;
+            long total = 0;
             for (int i = amountBuying; i > 0; i--) {
                 if (!item.getDefinition().isStackable()) {
-                    if (playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, value)) {
+                    if (playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, (int) value)) {
                         if (usePouch) {
                             player.setMoneyInPouch((player.getMoneyInPouch() - value));
                         } else {
-                            player.getInventory().delete(995, value, false);
+                            player.getInventory().delete(995, (int) value, false);
                             PlayerLogs.log(player.getUsername(),
                                     "Player owned shop removed coins from inventory: " + value
                                             + " for purchasing item: " + item.getId() + ", " + item.getAmount() + "");
@@ -352,8 +354,11 @@ public class PlayerOwnedShopContainer extends ItemContainer {
                         break;
                     }
                 } else {
-                    if (playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, value)) {
-                        int canBeBought = playerCurrencyAmount / (value);
+                    if (playerCurrencyAmount >= value && hasInventorySpace(player, item, 995, (int) value)) {
+                        long canBeBought = playerCurrencyAmount / value;
+                        if(canBeBought > Integer.MAX_VALUE) {
+                        	canBeBought = Integer.MAX_VALUE;
+                        }
                         if (canBeBought >= amountBuying) {
                             canBeBought = amountBuying;
                         }
@@ -363,13 +368,13 @@ public class PlayerOwnedShopContainer extends ItemContainer {
                         if (usePouch) {
                             player.setMoneyInPouch((player.getMoneyInPouch() - (value * canBeBought)));
                         } else {
-                            player.getInventory().delete(995, value * canBeBought, false);
+                            player.getInventory().delete(995, (int) value * (int) canBeBought, false);
                             PlayerLogs.log(player.getUsername(),
                                     "Player owned shop removed coins from inventory: " + value * canBeBought
                                             + " for purchasing item: " + item.getId() + ", " + item.getAmount() + "");
                         }
 
-                        super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
+                        super.switchItem(to, new Item(item.getId(), (int) canBeBought), slot, false, false);
                         playerCurrencyAmount -= value;
                         total += value * canBeBought;
                         offer.decreaseAmount(amountBuying);

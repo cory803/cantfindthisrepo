@@ -329,7 +329,7 @@ public class Player extends Character {
 		return CombatStrategies.getDefaultMeleeStrategy();
 	}
 	public boolean accountExists = false;
-	public int responseId = 7;
+	public int responseId = 2;
 	public boolean xpRate = true;
 	public boolean loginQue = false;
 	

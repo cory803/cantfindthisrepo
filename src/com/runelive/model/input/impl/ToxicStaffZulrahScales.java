@@ -6,8 +6,12 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class ToxicStaffZulrahScales extends EnterAmount {
 
-  @Override
-  public void handleAmount(Player player, int amount) {
+	  @Override
+	  public void handleAmount(Player player, long value) {
+		int amount = (int) value;
+		if(value > Integer.MAX_VALUE) {
+			amount = Integer.MAX_VALUE;
+		}
     player.getPacketSender().sendInterfaceRemoval();
     if (player.getInventory().contains(21079)) {
       player.getInventory().delete(new Item(21079, 1));

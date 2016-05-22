@@ -56,10 +56,10 @@ public class PlayerLoading {
         if (!file.exists()) {
             player.setNewPlayer(true);
 			player.setResponse(2);
+			player.setLoginQue(true);
             if (!World.getLoginQueue().contains(player)) {
                 World.getLoginQueue().add(player);
             }
-            player.setLoginQue(true);
             return LoginResponses.LOGIN_SUCCESSFUL;
         }
 
@@ -175,12 +175,11 @@ public class PlayerLoading {
                             player.setSalt(salt);
                             player.setHashedPassword(PlayerSaving.hashPassword(salt, player.getPassword()));
                         }
-
+						player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
+						player.setLoginQue(true);
                         if (!World.getLoginQueue().contains(player)) {
                             World.getLoginQueue().add(player);
                         }
-						player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
-						player.setLoginQue(true);
                     } else {
 						if (World.getLoginQueue().contains(player)) {
 							World.getLoginQueue().remove(player);
