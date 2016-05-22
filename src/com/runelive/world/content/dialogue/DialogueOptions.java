@@ -1232,7 +1232,11 @@ public class DialogueOptions {
 				break;
 			case 33:
 				player.getPacketSender().sendInterfaceRemoval();
-				player.getSlayer().resetSlayerTask();
+				if(player.getPointsHandler().getSlayerPoints() < 5) {
+					player.getPacketSender().sendMessage("You do not have enough Slayer points in order to do this!");
+				} else {
+					player.getSlayer().resetSlayerTask();
+				}
 				break;
 			case 34:
 				player.getPacketSender().sendInterfaceRemoval();

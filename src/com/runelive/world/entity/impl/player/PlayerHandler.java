@@ -213,7 +213,10 @@ public class PlayerHandler {
             System.out.println("The user " + player.getUsername()
                     + " logged in with negative PK Points, resetting to 0.");
         }
-
+        if(player.getPointsHandler().getSlayerPoints() < 0) {
+        	player.getPointsHandler().setSlayerPoints(0, false);
+        	player.getPacketSender().sendMessage("You have logged in with negative Slayer points, they have been set to 0.");
+        }
         // Update appearance
         player.getUpdateFlag().flag(Flag.APPEARANCE);
 

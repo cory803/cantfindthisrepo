@@ -8096,3 +8096,113 @@
 [5/22/16 10:25AM]	Jonny has done command find pure essence	
 [5/22/16 10:25AM]	Jonny has done command item 7936 100	
 [5/22/16 10:25AM]	Jonny in ObjectActionPacketListener: 17010 - FIRST_CLICK_OPCODE	
+[5/22/16 10:28AM]	Jonny has clicked button in ButtonClickPacketListener 13079	
+[5/22/16 10:29AM]	Jonny has done command market	
+[5/22/16 10:29AM]	Jonny has done command mypos	
+[5/22/16 10:29AM]	Jonny has done command tele 3218 3435	
+[5/22/16 10:29AM]	Jonny has done command mypos	
+[5/22/16 10:30AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 10:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 10:40AM]	Jonny has clicked button in ButtonClickPacketListener 13079	
+[5/22/16 10:40AM]	Jonny has clicked button in ButtonClickPacketListener 13079	
+[5/22/16 10:41AM]	Jonny has done command mypos	
+[5/22/16 10:42AM]	Jonny has clicked button in ButtonClickPacketListener 8659	
+[5/22/16 10:42AM]	Jonny in ObjectActionPacketListener: 6189 - SECOND_CLICK	
+[5/22/16 10:42AM]	Jonny in ObjectActionPacketListener: 6189 - SECOND_CLICK	
+[5/22/16 10:42AM]	Jonny in ObjectActionPacketListener: 6189 - SECOND_CLICK	
+[5/22/16 10:43AM]	Jonny has done command reset	
+[5/22/16 10:44AM]	Jonny has done command find vial	
+[5/22/16 10:44AM]	Jonny has done command find vial	
+[5/22/16 10:44AM]	Jonny has done command anim 896	
+[5/22/16 10:45AM]	Jonny has done command find molten	
+[5/22/16 10:45AM]	Jonny has done command item 1775 1	
+[5/22/16 10:47AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 10:47AM]	Jonny has clicked button in ButtonClickPacketListener 8659	
+[5/22/16 10:47AM]	Jonny has done command ite 299 1	
+[5/22/16 10:47AM]	Jonny has done command item 299 1	
+[5/22/16 10:47AM]	Jonny has done command item 229 1	
+[5/22/16 10:47AM]	Jonny has done command item 299 3	
+[5/22/16 10:47AM]	Jonny has done command item 299 3	
+[5/22/16 10:47AM]	Jonny has done command item 229 3	
+[5/22/16 10:49AM]	Jonny has done command find vial	
+[5/22/16 10:49AM]	Jonny has done command find molten	
+[5/22/16 10:52AM]	Jonny has done command find water	
+[5/22/16 10:52AM]	Jonny has done command find water	
+[5/22/16 10:55AM]	Jonny has done command find robust glass	
+[5/22/16 10:55AM]	Jonny has done command find robust	
+[5/22/16 10:55AM]	Jonny has done command find empty flask	
+[5/22/16 10:56AM]	Jonny has done command find potionflask	
+[5/22/16 10:56AM]	Jonny has done command find potion flask	
+[5/22/16 10:57AM]	Jonny has done command find robust glass	
+[5/22/16 10:57AM]	Jonny has done command find glass	
+[5/22/16 10:57AM]	Jonny has done command find glass	
+[5/22/16 11:02AM]	Jonny has done command find glassblo	
+[5/22/16 11:03AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 11:03AM]	Jonny has done command find glassblow	
+[5/22/16 11:03AM]	Jonny has done command item 1785 1	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1775, 1] - Item[1785, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1775, 1] - Item[1785, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1775, 1] - Item[1785, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1775, 1] - Item[1785, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1775, 1] - Item[1785, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1775, 1] - Item[1785, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1775, 1] - Item[1785, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1785, 1] - Item[1775, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1785, 1] - Item[1775, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1785, 1] - Item[1775, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1785, 1] - Item[1775, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1785, 1] - Item[1775, 1]	
+[5/22/16 11:03AM]	Jonny in UseItemPacketListener Item[1785, 1] - Item[14207, 1]	
+[5/22/16 11:04AM]	Player dropping item: Vial (229), amount: 1 from the computer address: 362460699	
+[5/22/16 11:04AM]	Jonny in ItemActionPacketListener: 14207	
+[5/22/16 11:04AM]	Jonny in ItemActionPacketListener: 14207	
+[5/22/16 11:04AM]	Jonny in ItemActionPacketListener: 14207	
+[5/22/16 11:04AM]	Jonny in ItemActionPacketListener: 14207	
+[5/22/16 11:04AM]	Jonny in ItemActionPacketListener: 14207	
+[5/22/16 11:04AM]	Jonny in ItemActionPacketListener: 14207	
+[5/22/16 11:18AM]	Jonny has done command find saradomin brew flask	
+[5/22/16 11:18AM]	Jonny has done command find saradomin brew	
+[5/22/16 11:19AM]	Jonny has done command find saradomin brew	
+[5/22/16 11:24AM]	Jonny has done command find super restore	
+[5/22/16 11:24AM]	Jonny has done command find super restore	
+[5/22/16 11:25AM]	Jonny has done command find super attack	
+[5/22/16 11:25AM]	Jonny has done command find super attack	
+[5/22/16 11:28AM]	Jonny has done command find super restore flask	
+[5/22/16 11:28AM]	Jonny has done command find super attack	
+[5/22/16 11:30AM]	Jonny has done command find super strength	
+[5/22/16 11:30AM]	Jonny has done command find super strength	
+[5/22/16 11:31AM]	Jonny has done command find ranging pot	
+[5/22/16 11:31AM]	Jonny has done command find ranging pot	
+[5/22/16 11:32AM]	Jonny has done command find ranging fask	
+[5/22/16 11:32AM]	Jonny has done command find ranging fask	
+[5/22/16 11:32AM]	Jonny has done command find ranging flask	
+[5/22/16 11:33AM]	Jonny has done command find magic potion	
+[5/22/16 11:33AM]	Jonny has done command find magic flask	
+[5/22/16 11:34AM]	Jonny has done command find ovrload	
+[5/22/16 11:34AM]	Jonny has done command find overload	
+[5/22/16 11:40AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 11:40AM]	Player dropping item: Potion flask (14207), amount: 1 from the computer address: 362460699	
+[5/22/16 11:40AM]	Player dropping item: Potion flask (14207), amount: 1 from the computer address: 362460699	
+[5/22/16 11:40AM]	Jonny has done command item 299 1	
+[5/22/16 11:40AM]	Jonny has done command empty	
+[5/22/16 11:40AM]	Jonny has done command spawn glassblow:1	
+[5/22/16 11:40AM]	Jonny has done command find vial	
+[5/22/16 11:40AM]	Jonny has done command find vial	
+[5/22/16 11:40AM]	Jonny has done command item 227 5	
+[5/22/16 11:40AM]	Jonny has done command item 229 5	
+[5/22/16 11:41AM]	Jonny in UseItemPacketListener Item[1785, 1] - Item[1775, 1]	
+[5/22/16 11:41AM]	Jonny has done command bank	
+[5/22/16 11:41AM]	Jonny has clicked button in ButtonClickPacketListener 5384	
+[5/22/16 11:41AM]	Jonny has clicked button in ButtonClickPacketListener 13035	
+[5/22/16 11:41AM]	Jonny has clicked button in ButtonClickPacketListener 13079	
+[5/22/16 11:41AM]	Jonny has clicked button in ButtonClickPacketListener 1195	
+[5/22/16 11:41AM]	Jonny in NPCOptionPacketListener: 1685 - FIRST_CLICK_OPCODE	
+[5/22/16 11:41AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:41AM]	Jonny in NPCOptionPacketListener: 705 - SECOND_CLICK_OPCODE	
+[5/22/16 11:41AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:41AM]	Jonny has clicked button in ButtonClickPacketListener 8861	
+[5/22/16 11:41AM]	Jonny has done command find super str	
+[5/22/16 11:42AM]	Jonny has done command find super str	
+[5/22/16 11:42AM]	Jonny has done command item 2440 1	
+[5/22/16 11:42AM]	Jonny in UseItemPacketListener Item[14207, 1] - Item[2440, 1]	
+[5/22/16 11:42AM]	Jonny has done command find potion flask	

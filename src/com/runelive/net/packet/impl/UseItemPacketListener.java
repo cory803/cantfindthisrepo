@@ -124,6 +124,78 @@ public class UseItemPacketListener implements PacketListener {
               .sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");
       return;
     }
+    if(usedWith.getId() == 1775 || itemUsedWith.getId() == 1775) {
+    	if(usedWith.getId() == 1785 || itemUsedWith.getId() == 1785) {
+	      if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 89) {
+	          player.getPacketSender()
+	                  .sendMessage("You need a Crafting level of at least 89 to make potion flasks.");
+	          return;
+	        }
+	      	player.performAnimation(new Animation(1249));
+    		player.getInventory().delete(new Item(1775)).add(new Item(14207));
+            player.getSkillManager().addExperience(Skill.CRAFTING, 2550);
+    		player.getPacketSender().sendMessage("You have created a potion flask!");
+    	}
+    }
+    if(usedWith.getId() == 14207 || itemUsedWith.getId() == 14207) {
+    	if(usedWith.getId() == 6685 || itemUsedWith.getId() == 6685) {
+  	      	if (player.getSkillManager().getCurrentLevel(Skill.HERBLORE) < 83) {
+	          player.getPacketSender().sendMessage("You need a Herblore level of at least 83 to make this potion.");
+	          return;
+	        }
+    		player.getSkillManager().addExperience(Skill.HERBLORE, 2000);
+    		player.performAnimation(new Animation(363));
+            player.getInventory().delete(new Item(14207)).delete(new Item(6685)).add(new Item(14423, 1)).add(new Item(229, 1));
+    	} else if(usedWith.getId() == 3024 || itemUsedWith.getId() == 3024) {
+  	      	if (player.getSkillManager().getCurrentLevel(Skill.HERBLORE) < 65) {
+  	          player.getPacketSender().sendMessage("You need a Herblore level of at least 65 to make this potion.");
+  	          return;
+  	        }
+      		player.getSkillManager().addExperience(Skill.HERBLORE, 950);
+      		player.performAnimation(new Animation(363));
+      		player.getInventory().delete(new Item(14207)).delete(new Item(3024)).add(new Item(14411, 1)).add(new Item(229, 1));
+    	} else if(usedWith.getId() == 2436 || itemUsedWith.getId() == 2436) {
+  	      	if (player.getSkillManager().getCurrentLevel(Skill.HERBLORE) < 47) {
+    	          player.getPacketSender().sendMessage("You need a Herblore level of at least 47 to make this potion.");
+    	          return;
+    	    }
+    		player.getSkillManager().addExperience(Skill.HERBLORE, 700);
+    		player.performAnimation(new Animation(363));
+    		player.getInventory().delete(new Item(14207)).delete(new Item(2436)).add(new Item(14184, 1)).add(new Item(229, 1));
+      	} else if(usedWith.getId() == 2440 || itemUsedWith.getId() == 2440) {
+  	      	if (player.getSkillManager().getCurrentLevel(Skill.HERBLORE) < 57) {
+  	          player.getPacketSender().sendMessage("You need a Herblore level of at least 57 to make this potion.");
+  	          return;
+  	      	}
+	  		player.getSkillManager().addExperience(Skill.HERBLORE, 850);
+	  		player.performAnimation(new Animation(363));
+	  		player.getInventory().delete(new Item(14207)).delete(new Item(2440)).add(new Item(14172, 1)).add(new Item(229, 1));
+    	} else if(usedWith.getId() == 2444 || itemUsedWith.getId() == 2444) {
+  	      	if (player.getSkillManager().getCurrentLevel(Skill.HERBLORE) < 74) {
+    	          player.getPacketSender().sendMessage("You need a Herblore level of at least 74 to make this potion.");
+    	          return;
+    	    }
+  	  		player.getSkillManager().addExperience(Skill.HERBLORE, 1350);
+  	  		player.performAnimation(new Animation(363));
+  	  		player.getInventory().delete(new Item(14207)).delete(new Item(2444)).add(new Item(14148, 1)).add(new Item(229, 1));
+      	} else if(usedWith.getId() == 3040 || itemUsedWith.getId() == 3040) {
+  	      	if (player.getSkillManager().getCurrentLevel(Skill.HERBLORE) < 78) {
+  	          player.getPacketSender().sendMessage("You need a Herblore level of at least 78 to make this potion.");
+  	          return;
+  	      	}
+	  		player.getSkillManager().addExperience(Skill.HERBLORE, 1500);
+	  		player.performAnimation(new Animation(363));
+	  		player.getInventory().delete(new Item(14207)).delete(new Item(3040)).add(new Item(14399, 1)).add(new Item(229, 1));
+    	} else if(usedWith.getId() == 15332 || itemUsedWith.getId() == 15332) {
+  	      	if (player.getSkillManager().getCurrentLevel(Skill.HERBLORE) < 98) {
+    	          player.getPacketSender().sendMessage("You need a Herblore level of at least 98 to make this potion.");
+    	          return;
+    	     }
+  	  		player.getSkillManager().addExperience(Skill.HERBLORE, 3500);
+  	  		player.performAnimation(new Animation(363));
+  	  		player.getInventory().delete(new Item(14207)).delete(new Item(15332)).add(new Item(14297, 1)).add(new Item(229, 1));
+      	}
+    }
     WeaponPoison.execute(player, itemUsedWith.getId(), usedWith.getId());
     if (itemUsedWith.getId() == 590 || usedWith.getId() == 590)
       Firemaking.lightFire(player,
@@ -193,7 +265,6 @@ public class UseItemPacketListener implements PacketListener {
           player.getPacketSender().sendMessage(
                   "ItemOnItem - [usedItem, usedWith] : [" + usedWith.getId() + ", " + itemUsedWith + "]");
       }
-
 
   private static void itemOnObject(Player player, Packet packet) {
     packet.readShort();
@@ -281,27 +352,43 @@ public class UseItemPacketListener implements PacketListener {
             }
             switch (objectId) {
               case 6189:
-                if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 80) {
-                  player.getPacketSender()
-                      .sendMessage("You need a Crafting level of at least 80 to make that item.");
-                  return;
-                }
-                if (player.getInventory().contains(6573)) {
-                  if (player.getInventory().contains(1597)) {
-                    if (player.getInventory().contains(1759)) {
-                      player.performAnimation(new Animation(896));
-                      player.getInventory().delete(new Item(1759)).delete(new Item(6573))
-                          .add(new Item(6585));
-                      player.getPacketSender().sendMessage(
-                          "You put the items into the furnace to forge an Amulet of Fury.");
-                    } else {
-                      player.getPacketSender()
-                          .sendMessage("You need some Ball of Wool to do this.");
-                    }
-                  } else {
-                    player.getPacketSender().sendMessage("You need a Necklace mould to do this.");
-                  }
-                }
+            	  if(itemId == 6573 || itemId == 1597 || itemId == 1759) {
+		                if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 80) {
+		                  player.getPacketSender()
+		                      .sendMessage("You need a Crafting level of at least 80 to make that item.");
+		                  return;
+		                }
+		                if (player.getInventory().contains(6573)) {
+		                  if (player.getInventory().contains(1597)) {
+		                    if (player.getInventory().contains(1759)) {
+		                      player.performAnimation(new Animation(896));
+		                      player.getInventory().delete(new Item(1759)).delete(new Item(6573))
+		                          .add(new Item(6585));
+		                      player.getPacketSender().sendMessage(
+		                          "You put the items into the furnace to forge an Amulet of Fury.");
+		                    } else {
+		                      player.getPacketSender()
+		                          .sendMessage("You need some Ball of Wool to do this.");
+		                    }
+		                  } else {
+		                    player.getPacketSender().sendMessage("You need a Necklace mould to do this.");
+		                  }
+		                }
+            	  } else if(itemId == 229) {
+            	      if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 47) {
+            	          player.getPacketSender()
+            	                  .sendMessage("You need a Crafting level of at least 47 to make molten glass.");
+            	          return;
+            	        }
+            		  if(player.getInventory().hasRoomFor(1775, 3)) {
+            			  player.performAnimation(new Animation(896));
+            			  player.getSkillManager().addExperience(Skill.CRAFTING, 980);
+	                      player.getInventory().delete(new Item(229)).add(new Item(1775, 4));
+	                      player.getPacketSender().sendMessage("You create some molten glass...");
+            		  } else {
+            			  player.getPacketSender().sendMessage("You do not have enough inventory space, you need atleast 3 slots!");
+            		  }
+            	  }
                 break;
               case 7836:
               case 7808:
