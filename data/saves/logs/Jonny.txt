@@ -7900,3 +7900,37 @@
 [5/21/16 11:52PM]	Player owned shop recieved coins to money pouch: 15	
 [5/21/16 11:52PM]	Player owned shop recieved coins to money pouch: 15M	
 [5/21/16 11:52PM]	Player owned shop recieved coins to money pouch: 15	
+[5/22/16 12:03AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:03AM]	Jonny has done command edge	
+[5/22/16 12:05AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:06AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:06AM]	Jonny has done command home	
+[5/22/16 12:07AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 12:10AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:10AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 12:10AM]	Opened the player owned shop: Jonny	
+[5/22/16 12:10AM]	Jonny in ItemContainerActionPacketListener: Second Action - 13742 - 3823 - 6	
+[5/22/16 12:10AM]	Player owned shop sold item: ID: 13742 AMOUNT: 1 PRICE: 5000000	
+[5/22/16 12:10AM]	Jonny in EnterInputPacketListener: 5000000	
+[5/22/16 12:10AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:10AM]	Jonny has clicked button in ButtonClickPacketListener 2458	
+[5/22/16 12:10AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:14AM]	Player owned shop items sold for: 5M	
+[5/22/16 12:14AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:14AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 12:14AM]	Opened the player owned shop: Jonny	
+[5/22/16 12:14AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:14AM]	Jonny in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 12:14AM]	Jonny in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 12:14AM]	Opened the player owned shop: Jonny	
+[5/22/16 12:14AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:14AM]	Jonny in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 12:14AM]	Opened the player owned shop: dc blitz	
+[5/22/16 12:14AM]	Jonny in EnterInputPacketListener: dc blitz	
+[5/22/16 12:14AM]	Jonny in ItemContainerActionPacketListener: Third Action - 14484 - 3900 - 0	
+[5/22/16 12:14AM]	Jonny has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:14AM]	Jonny in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 12:14AM]	Jonny in EnterInputPacketListener: dragon claw	
+[5/22/16 12:15AM]	Jonny has clicked button in ButtonClickPacketListener -24022	
+[5/22/16 12:15AM]	Opened the player owned shop: Host Dank	
+[5/22/16 12:15AM]	Jonny has changed close interface in CloseInterfacePacketListener	

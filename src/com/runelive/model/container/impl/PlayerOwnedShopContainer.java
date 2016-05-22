@@ -80,10 +80,6 @@ public class PlayerOwnedShopContainer extends ItemContainer {
     public void checkValue(Player player, int slot, boolean sellingItem) {
         this.setPlayer(player);
         Item shopItem = new Item(getItems()[slot].getId());
-        if (!player.isPlayerOwnedShopping()) {
-            player.getPacketSender().sendInterfaceRemoval();
-            return;
-        }
         Item item = sellingItem ? player.getInventory().getItems()[slot] : getItems()[slot];
         if (item.getId() == 995)
             return;
@@ -152,15 +148,14 @@ public class PlayerOwnedShopContainer extends ItemContainer {
         for (Player player : World.getPlayers()) {
             if (player == null)
                 continue;
-            if (player.getPlayerOwnedShop() != null && player.getPlayerOwnedShop().index == index
-                    && player.isPlayerOwnedShopping())
+            if (player.getPlayerOwnedShop() != null && player.getPlayerOwnedShop().index == index)
                 player.getPlayerOwnedShop().setItems(publicShop.getItems());
         }
     }
 
     public void sellItem(Player player, int slot, int amountToSell, long price) {
         this.setPlayer(player);
-        if (!player.isPlayerOwnedShopping() || player.isBanking()) {
+        if (player.isBanking()) {
             player.getPacketSender().sendInterfaceRemoval();
             return;
         }
@@ -235,8 +230,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 
         for (int i = amountToSell; i > 0; i--) {
             itemToSell = new Item(itemId);
-            if (this.full(itemToSell.getId()) || !player.getInventory().contains(itemToSell.getId())
-                    || !player.isPlayerOwnedShopping())
+            if (this.full(itemToSell.getId()) || !player.getInventory().contains(itemToSell.getId()))
                 break;
             if (!itemToSell.getDefinition().isStackable()) {
                 if (inventorySpace) {
@@ -475,7 +469,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
     @Override
     public PlayerOwnedShopContainer refreshItems() {
         for (Player player : World.getPlayers()) {
-            if (player == null || !player.isPlayerOwnedShopping() || player.getPlayerOwnedShop() == null
+            if (player == null || player.getPlayerOwnedShop() == null
                     || player.getPlayerOwnedShop().index != index)
                 continue;
             player.getPacketSender().sendItemContainer(player.getInventory(), INVENTORY_INTERFACE_ID);

@@ -1253,3 +1253,52 @@
 [5/21/16 11:52PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 6199 - 3900 - 2	
 [5/21/16 11:52PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 14484 - 3900 - 1	
 [5/21/16 11:52PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 14484 - 3900 - 1	
+[5/21/16 11:58PM]	Dc Blitz in ObjectActionPacketListener: 881 - FIRST_CLICK_OPCODE	
+[5/21/16 11:59PM]	Dc Blitz in ObjectActionPacketListener: 881 - FIRST_CLICK_OPCODE	
+[5/22/16 12:00AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 12:00AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/22/16 12:00AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1174	
+[5/22/16 12:00AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1167	
+[5/22/16 12:00AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1541	
+[5/22/16 12:00AM]	Dc Blitz has clicked button in ButtonClickPacketListener 7455	
+[5/22/16 12:00AM]	Dc Blitz in ObjectActionPacketListener: 57225 - FIRST_CLICK_OPCODE	
+[5/22/16 12:00AM]	Dc Blitz has clicked button in ButtonClickPacketListener 1195	
+[5/22/16 12:00AM]	Dc Blitz has done command edge	
+[5/22/16 12:01AM]	Dc Blitz has done command mypos	
+[5/22/16 12:01AM]	Dc Blitz has done command mypos	
+[5/22/16 12:01AM]	Dc Blitz has done command tele 3088 3509	
+[5/22/16 12:01AM]	Dc Blitz has done command mypos	
+[5/22/16 12:10AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 12:11AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 12:11AM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/22/16 12:11AM]	Dc Blitz in EnterInputPacketListener: elysian	
+[5/22/16 12:11AM]	Dc Blitz has clicked button in ButtonClickPacketListener -24062	
+[5/22/16 12:11AM]	Opened the player owned shop: Jonny	
+[5/22/16 12:11AM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 13742 - 3900 - 1	
+[5/22/16 12:11AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 13742 - 3900 - 1	
+[5/22/16 12:11AM]	Player owned shop added coins for global extraction: 5M for Jonny	
+[5/22/16 12:11AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:11AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 12:11AM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/22/16 12:11AM]	Dc Blitz in EnterInputPacketListener: elysian	
+[5/22/16 12:11AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:11AM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 12:13AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:14AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 14484 - 3823 - 8	
+[5/22/16 12:14AM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 14484 - 3823 - 8	
+[5/22/16 12:14AM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 14484 - 3823 - 8	
+[5/22/16 12:14AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:14AM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 12:14AM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 12:14AM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 14484 - 3823 - 8	
+[5/22/16 12:14AM]	Player owned shop sold item: ID: 14484 AMOUNT: 5 PRICE: 1000000	
+[5/22/16 12:14AM]	Player owned shop sold item: ID: 14484 AMOUNT: 4 PRICE: 1000000	
+[5/22/16 12:14AM]	Player owned shop sold item: ID: 14484 AMOUNT: 3 PRICE: 1000000	
+[5/22/16 12:14AM]	Player owned shop sold item: ID: 14484 AMOUNT: 2 PRICE: 1000000	
+[5/22/16 12:14AM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1000000	
+[5/22/16 12:14AM]	Dc Blitz in EnterInputPacketListener: 1000000	
+[5/22/16 12:14AM]	Player owned shop recieved coins to money pouch: 5M	
+[5/22/16 12:15AM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 12:16AM]	Dc Blitz has done command object 1	
+[5/22/16 12:16AM]	Dc Blitz has done command edge	
+[5/22/16 12:16AM]	Dc Blitz has done command home	
