@@ -19,6 +19,7 @@ import com.runelive.world.content.PlayerPanel;
 public class Store {
 
 	public static void claimItem(Player player) {
+		player.claimingStoreItems = true;
 		GameServer.getForumPool().executeQuery("Select * from `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new ThreadedSQLCallback() {
 			@Override
 			public void queryComplete(ResultSet rs) throws SQLException {
@@ -56,13 +57,14 @@ public class Store {
 					player.save();
 				} 
 				if(!hasGrabbed) {
+					player.claimingStoreItems = false;
 					player.getPacketSender().sendMessage("You currently don't have anything in your collection box!");
 					return;
 				}
 				GameServer.getForumPool().executeQuery("DELETE FROM `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new ThreadedSQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
-					
+						player.claimingStoreItems = false;
 					}
 
 					@Override

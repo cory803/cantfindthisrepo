@@ -140,7 +140,11 @@ public final class MovementQueue {
     if (character.getMovementQueue().isLockMovement() || character.isFrozen()) {
       return;
     }
-
+    if(character.isPlayer()) {
+    	if(((Player)character).isJailed()) {
+    		return;
+    	}
+    }
     if (points.size() >= MAXIMUM_SIZE)
       return;
 
@@ -161,6 +165,11 @@ public final class MovementQueue {
   public void addStep(Position step) {
     if (character.isFrozen() || lockMovement)
       return;
+    if(character.isPlayer()) {
+    	if(((Player)character).isJailed()) {
+    		return;
+    	}
+    }
     final Point last = getLast();
     final int x = step.getX();
     final int y = step.getY();
@@ -349,7 +358,11 @@ public final class MovementQueue {
           if (character.getMovementQueue().isLockMovement() || character.isFrozen()) {
             return;
           }
-
+          if(character.isPlayer()) {
+	      	if(((Player)character).isJailed()) {
+	    		return;
+	    	}
+          }
           // If we are on the same position as the leader then move
           // away.
 

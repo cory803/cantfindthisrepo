@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.GameSettings;
+import com.runelive.commands.ranks.SpecialPlayers;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.PlayerDeathTask;
@@ -95,7 +96,7 @@ public class Player extends Character {
 	}
 
 	public boolean isSpecialPlayer() {
-		for (String name : GameSettings.SPECIAL_PLAYERS) {
+		for (String name : SpecialPlayers.player_names) {
 			if (getUsername().equalsIgnoreCase(name))
 				return true;
 		}
@@ -110,6 +111,7 @@ public class Player extends Character {
 		return false;
 	}
 
+	public boolean claimingStoreItems = false;
 	public int debugRollWins;
 	public int debugRollLosses;
 

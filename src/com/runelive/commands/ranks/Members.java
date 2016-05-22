@@ -29,6 +29,10 @@ public class Members {
 	**/
 	
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
+		if(player.isJailed()) {
+			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
+			return;
+		}
 		if (command[0].equalsIgnoreCase("changelevel")) {
 			/*if(player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
 				player.getPacketSender().sendMessage("Please unequip all your items first.");
@@ -86,10 +90,6 @@ public class Members {
 			}*/ 
 					player.getPacketSender().sendMessage("Currently Disabled.");
 			
-		}
-		if(player.isJailed()) {
-			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
-			return;
 		}
 		if (command[0].equalsIgnoreCase("kdr")) {
 			int KDR = player.getPlayerKillingAttributes().getPlayerKills() / player.getPlayerKillingAttributes().getPlayerDeaths();
@@ -460,6 +460,10 @@ public class Members {
 			}
 			if(player.getLocation().equals(Location.DUNGEONEERING) || player.getLocation().equals(Location.WILDERNESS)) {
 				player.getPacketSender().sendMessage("You cannot do this here, you'll lose your scroll!");
+				return;
+			}
+			if(player.claimingStoreItems) {
+				player.getPacketSender().sendMessage("You already have a active store claim process going...");
 				return;
 			}
 			player.getPacketSender().sendMessage("Checking for any store purchases...");

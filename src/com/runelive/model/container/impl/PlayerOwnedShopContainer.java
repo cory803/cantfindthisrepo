@@ -130,10 +130,15 @@ public class PlayerOwnedShopContainer extends ItemContainer {
      * @return The shop instance
      */
     public PlayerOwnedShopContainer open(Player player, String owner, int i) {
-        setPlayer(player);
-        getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
-        getPlayer().setPlayerOwnedShop(PlayerOwnedShopManager.getShops().get(i)).setInterfaceId(INTERFACE_ID).setPlayerOwnedShopping(true);
-        refreshItems();
+        if(!player.getUsername().equalsIgnoreCase(owner)) {
+        	setPlayer(player);
+	        player.getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
+	        player.setPlayerOwnedShop(PlayerOwnedShopManager.getShops().get(i)).setInterfaceId(INTERFACE_ID).setPlayerOwnedShopping(true);
+    	} else {
+    		player.getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
+	        player.setPlayerOwnedShop(PlayerOwnedShopManager.getShops().get(i)).setInterfaceId(INTERFACE_ID).setPlayerOwnedShopping(true);
+    	}
+	    refreshItems();
         return this;
     }
 

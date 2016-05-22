@@ -149,11 +149,6 @@ public class GameSettings {
 
   public static final int MAX_STARTERS_PER_IP = 1;
 
-  public static final String[] SPECIAL_PLAYERS =
-          {"pking", "seren", "jack mehoff", "idbowprod", "dc blitz", "plunger", "spankymcbad", "xtreme",
-                  "homobeans", "queerisme", "robotype", "alt", "fighterjet30"};
-
-
   public static final String[] DEVELOPER =
           {"vados"};
 

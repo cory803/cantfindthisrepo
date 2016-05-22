@@ -564,6 +564,7 @@ public class ItemActionPacketListener implements PacketListener {
       case 1458:
       case 1456:
       case 1450:
+      case 21106:
         Runecrafting.handleTalisman(player, itemId);
         break;
     }

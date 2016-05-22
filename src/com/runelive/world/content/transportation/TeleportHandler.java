@@ -14,9 +14,12 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class TeleportHandler {
 
-  public static void teleportPlayer(final Player player,
-                                    final Position targetLocation, final TeleportType teleportType, final boolean isFromHouse) {
-    if (teleportType != TeleportType.LEVER) {
+  public static void teleportPlayer(final Player player, final Position targetLocation, final TeleportType teleportType, final boolean isFromHouse) {
+		if(player.isJailed()) {
+			player.getPacketSender().sendMessage("You can't teleport out of jail.");
+			return;
+		}
+	  if (teleportType != TeleportType.LEVER) {
       if (!checkReqs(player, targetLocation, isFromHouse)) {
         return;
       }
@@ -95,7 +98,11 @@ public class TeleportHandler {
   public static void teleportPlayer(final Player player,
                                     final Position targetLocation, final TeleportType teleportType)
   {
-    if(player.getLocation() == Location.DUNGEONEERING && Dungeoneering.doingDungeoneering(player) || player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
+		if(player.isJailed()) {
+			player.getPacketSender().sendMessage("You can't teleport out of jail.");
+			return;
+		}
+	  if(player.getLocation() == Location.DUNGEONEERING && Dungeoneering.doingDungeoneering(player) || player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
       player.getPacketSender().sendMessage("You cannot do this now");
       return;
     }

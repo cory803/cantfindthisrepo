@@ -15,7 +15,7 @@ public class RunecraftingData {
             new Position(2655, 4829)), FIRE_TALISMAN(1442, 14, new Position(2576,
                 4846)), BODY_TALISMAN(1446, 20, new Position(2522, 4833)), COSMIC_TALISMAN(1454, 27,
                     new Position(2163, 4833)), CHAOS_TALISMAN(1452, 35,
-                        new Position(2282, 4837)), ASTRAL_TALISMAN(-1, 40, null), NATURE_TALISMAN(
+                        new Position(2282, 4837)), ASTRAL_TALISMAN(21106, 40, new Position(2152, 3864)), NATURE_TALISMAN(
                             1462, 44, new Position(2400, 4834)), LAW_TALISMAN(1458, 54,
                                 new Position(2464, 4817)), DEATH_TALISMAN(1456, 65,
                                     new Position(2208, 4829)), BLOOD_TALISMAN(1450, 77,
