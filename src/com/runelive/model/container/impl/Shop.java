@@ -110,6 +110,7 @@ public class Shop extends ItemContainer {
       return this;
     }
     setPlayer(player);
+   	player.getPacketSender().sendString(41900, "");
     getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
     getPlayer().setShop(ShopManager.getShops().get(id)).setInterfaceId(INTERFACE_ID)
         .setShopping(true);
@@ -493,8 +494,7 @@ public class Shop extends ItemContainer {
             }
           } else {
             if (id == PKING_REWARDS_STORE) {
-			value = value / 2;
-              player.getPointsHandler().setPkPoints(-value, true);
+              player.getPointsHandler().setPkPoints(-value, true, true);
             } else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
               player.getPointsHandler().setVotingPoints(-value, true);
             } else if (id == DUNGEONEERING_STORE) {
@@ -539,7 +539,7 @@ public class Shop extends ItemContainer {
             }
           } else {
             if (id == PKING_REWARDS_STORE) {
-              player.getPointsHandler().setPkPoints(-value * canBeBought, true);
+              player.getPointsHandler().setPkPoints(-value * canBeBought, true, true);
             } else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
               player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
             } else if (id == DUNGEONEERING_STORE) {

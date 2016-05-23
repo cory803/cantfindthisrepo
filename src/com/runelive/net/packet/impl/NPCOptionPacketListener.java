@@ -856,7 +856,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 				player.getPacketSender().sendMessage("Featured shops are coming at a later date.");
-                PlayerOwnedShops.openItemSearch(player);
+                PlayerOwnedShops.openItemSearch(player, true);
                 break;
               case 3101:
                 DialogueManager.start(player, 95);
@@ -977,7 +977,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 				player.getPacketSender().sendMessage("Featured shops are coming at a later date.");
-                PlayerOwnedShops.openShop(player.getUsername(), player);
+				player.getPacketSender().sendString(41900, "");
+				PlayerOwnedShops.openShop(player.getUsername(), player);
                 break;
               case 605:
                 // LoyaltyProgramme.open(player);

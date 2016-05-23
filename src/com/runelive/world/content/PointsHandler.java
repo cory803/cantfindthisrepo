@@ -151,9 +151,9 @@ public class PointsHandler {
     return this.pkPoints;
   }
 
-  public void setPkPoints(int points, boolean add) {
+  public void setPkPoints(int points, boolean add, boolean purchasing) {
     if (add) {
-      if (p.getDonorRights() >= 1) {
+      if (p.getDonorRights() >= 1 && !purchasing) {
         this.pkPoints += points * 2;
       } else {
         this.pkPoints += points;

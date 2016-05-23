@@ -1459,3 +1459,359 @@
 [5/22/16 02:07PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
 [5/22/16 02:07PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
 [5/22/16 02:08PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24136	
+[5/22/16 02:16PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 02:16PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1164	
+[5/22/16 02:16PM]	Dc Blitz has done command find chaotic maul	
+[5/22/16 02:27PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 02:35PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 02:35PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1541	
+[5/22/16 02:35PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1195	
+[5/22/16 02:35PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 02:36PM]	Opened the player owned shop: jonny	
+[5/22/16 02:36PM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 02:36PM]	Dc Blitz in NPCOptionPacketListener: 946 - SECOND_CLICK_OPCODE	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:36PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 02:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 03:42PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 03:42PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:42PM]	Dc Blitz in EnterInputPacketListener: armadyl gods	
+[5/22/16 03:42PM]	Dc Blitz in EnterInputPacketListener: armadyl god	
+[5/22/16 03:42PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:42PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 03:42PM]	Dc Blitz in EnterInputPacketListener: armadyl god	
+[5/22/16 03:42PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 03:42PM]	Opened the player owned shop: jonny	
+[5/22/16 03:42PM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/22/16 03:42PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:42PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/22/16 03:42PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 03:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 03:43PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:43PM]	Dc Blitz in EnterInputPacketListener: armadyl god	
+[5/22/16 03:43PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24062	
+[5/22/16 03:43PM]	Opened the player owned shop: Jonny	
+[5/22/16 03:43PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 11694 - 3900 - 1	
+[5/22/16 03:43PM]	Player owned shop added coins for global extraction: 1 for Jonny	
+[5/22/16 03:43PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 03:43PM]	Dc Blitz in EnterInputPacketListener: armadyl god	
+[5/22/16 03:43PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:45PM]	Dc Blitz has clicked button in ButtonClickPacketListener -23636	
+[5/22/16 03:45PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:45PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:45PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:45PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 03:45PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 03:45PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 14484 - 3823 - 9	
+[5/22/16 03:45PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1	
+[5/22/16 03:45PM]	Dc Blitz in EnterInputPacketListener: 1	
+[5/22/16 03:45PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 14484 - 3823 - 10	
+[5/22/16 03:45PM]	Player owned shop sold item: ID: 14484 AMOUNT: 1 PRICE: 1	
+[5/22/16 03:47PM]	Player owned shop recieved coins to money pouch: 2	
+[5/22/16 03:48PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:48PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:52PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:52PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 03:52PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 03:52PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:52PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 03:52PM]	Opened the player owned shop: jonnyfff	
+[5/22/16 03:52PM]	Dc Blitz in EnterInputPacketListener: jonnyfff	
+[5/22/16 03:53PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 386 - 3900 - 0	
+[5/22/16 03:53PM]	Dc Blitz in EnterInputPacketListener: 1	
+[5/22/16 03:53PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:53PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:53PM]	Dc Blitz in EnterInputPacketListener: shark	
+[5/22/16 03:53PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24062	
+[5/22/16 03:53PM]	Opened the player owned shop: Jonnysfasdf	
+[5/22/16 03:53PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 386 - 3900 - 0	
+[5/22/16 03:53PM]	Player owned shop added coins for global extraction: 2500 for Jonnysfasdf	
+[5/22/16 03:53PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 386 - 3900 - 0	
+[5/22/16 03:53PM]	Player owned shop added coins for global extraction: 500 for Jonnysfasdf	
+[5/22/16 03:53PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 386 - 3900 - 0	
+[5/22/16 03:53PM]	Player owned shop added coins for global extraction: 500 for Jonnysfasdf	
+[5/22/16 03:53PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 386 - 3900 - 0	
+[5/22/16 03:53PM]	Player owned shop added coins for global extraction: 2500 for Jonnysfasdf	
+[5/22/16 03:53PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 386 - 3900 - 0	
+[5/22/16 03:53PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:54PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:54PM]	Dc Blitz in EnterInputPacketListener: shark	
+[5/22/16 03:54PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24062	
+[5/22/16 03:54PM]	Opened the player owned shop: Fappulous	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 384 - 3900 - 1	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 384 - 3900 - 1	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 14M for Fappulous	
+[5/22/16 03:54PM]	Dc Blitz in EnterInputPacketListener: 20000	
+[5/22/16 03:54PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:54PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:54PM]	Dc Blitz in EnterInputPacketListener: shark	
+[5/22/16 03:54PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24062	
+[5/22/16 03:54PM]	Opened the player owned shop: Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 13000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 6500 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 13000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 6500 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ExamineItemPacketListener: 384	
+[5/22/16 03:54PM]	Dc Blitz in ExamineItemPacketListener: 384	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 13000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 13000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 384 - 3900 - 2	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 13000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 1500 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fifth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 7500 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 15000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 5	
+[5/22/16 03:54PM]	Player owned shop added coins for global extraction: 9000 for Hulk209	
+[5/22/16 03:54PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:54PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 03:55PM]	Dc Blitz in EnterInputPacketListener: mithril ore	
+[5/22/16 03:55PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24062	
+[5/22/16 03:55PM]	Opened the player owned shop: Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 20000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 18000 for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Third Action - 448 - 3900 - 0	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 986 - 3900 - 1	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 70M for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 986 - 3900 - 1	
+[5/22/16 03:55PM]	Player owned shop added coins for global extraction: 21M for Shift	
+[5/22/16 03:55PM]	Dc Blitz in ItemContainerActionPacketListener: Fourth Action - 986 - 3900 - 1	
+[5/22/16 03:55PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 03:55PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 04:47PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 04:47PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 04:48PM]	Dc Blitz in EnterInputPacketListener: dragon calw	
+[5/22/16 04:48PM]	Dc Blitz in EnterInputPacketListener: dragon claw	
+[5/22/16 04:48PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24062	
+[5/22/16 04:48PM]	Opened the player owned shop: 99str Pk09	
+[5/22/16 04:59PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 05:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 05:05PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:05PM]	Opened the player owned shop: jonny	
+[5/22/16 05:05PM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/22/16 05:05PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 227 - 3900 - 1	
+[5/22/16 05:05PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 227 - 3900 - 1	
+[5/22/16 05:05PM]	Player owned shop added coins for global extraction: 500 for Jonny	
+[5/22/16 05:05PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:05PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/22/16 05:05PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 05:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: jonny	
+[5/22/16 05:06PM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/22/16 05:06PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 1775 - 3900 - 1	
+[5/22/16 05:06PM]	Dc Blitz in ItemContainerActionPacketListener: First Action - 1775 - 3900 - 1	
+[5/22/16 05:06PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 1775 - 3900 - 1	
+[5/22/16 05:06PM]	Player owned shop added coins for global extraction: 5 for Jonny	
+[5/22/16 05:06PM]	Dc Blitz in ExamineItemPacketListener: 555	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:06PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:06PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:06PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:07PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:07PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:07PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:07PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:07PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:07PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 05:07PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:07PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:07PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:09PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 05:28PM]	Dc Blitz in EnterInputPacketListener: dragon claw	
+[5/22/16 05:30PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:30PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:30PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:30PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 05:30PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 05:30PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 05:30PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 05:34PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 08:28PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 08:29PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 08:29PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 08:31PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 09:09PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:10PM]	Dc Blitz has clicked button in ButtonClickPacketListener 3420	
+[5/22/16 09:10PM]	Dc Blitz has clicked button in ButtonClickPacketListener 3546	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Glassblowing pipe(1785), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial of water(227), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial of water(227), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial of water(227), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial of water(227), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Super strength flask (4)(14172), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial(229), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial(229), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial(229), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial(229), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Molten glass(1775), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Molten glass(1775), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Vial(229), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Ice gloves(1580), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Ice gloves(1580), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Ice gloves(1580), amount: 1	
+[5/22/16 09:10PM]	Receiving item from trade from Jonny. Id: Royal shirt(15504), amount: 1	
+[5/22/16 09:10PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:10PM]	Dc Blitz has clicked button in ButtonClickPacketListener -20152	
+[5/22/16 09:10PM]	Dc Blitz has clicked button in ButtonClickPacketListener 3420	
+[5/22/16 09:13PM]	Dc Blitz has clicked button in ButtonClickPacketListener 3546	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Super combat potion (4)(11517), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Combat bracelet (4)(11118), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Verac's helm(4753), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Tinderbox(590), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Armadyl godsword(11694), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Shark(386), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Raw shark(384), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Mithril ore(448), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Tooth half of a key(986), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Vial of water(227), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Molten glass(1775), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Bloodbone spirit shield(21104), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Mystery box(6199), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Dragon claws(14484), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Elysian spirit shield(13742), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Glassblowing pipe(1785), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Logs(1511), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Logs(1511), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Logs(1511), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Logs(1511), amount: 1	
+[5/22/16 09:13PM]	Gave item in trade to Jonny. Id: Logs(1511), amount: 1	
+[5/22/16 09:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:17PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
+[5/22/16 09:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	

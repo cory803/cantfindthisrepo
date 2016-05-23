@@ -212,6 +212,7 @@ public class PlayerOwnedShops {
 				SHOPS_TO_SEARCH.add(player.getUsername().toLowerCase());
 				Item[] default_items = new Item[0];
 				PlayerOwnedShopManager.getShops().put(SHOPS_ARRAYLIST.size() - 1, new PlayerOwnedShopContainer(null, player.getUsername(), default_items));
+				player.getPacketSender().sendString(41900, "");
 				openShop(player.getUsername(), player);
 			} else {
 				player.getPacketSender().sendMessage("This shop does not exist!");
@@ -260,14 +261,16 @@ public class PlayerOwnedShops {
         return format;
     }
  
-    public static void openItemSearch(Player player) {
-        PosItemSearch.reset();
-        for (int caption_index = 41869; caption_index > 41469; caption_index -= 4) {
-            player.getPacketSender().sendString(caption_index, "");
-        }
-        for (int owner_name_index = 41868; owner_name_index > 41468; owner_name_index -= 4) {
-            player.getPacketSender().sendString(owner_name_index, "");
-        }
+    public static void openItemSearch(Player player, boolean wipe) {
+    	if(wipe) {
+	        PosItemSearch.reset(player);
+	        for (int caption_index = 41869; caption_index > 41469; caption_index -= 4) {
+	            player.getPacketSender().sendString(caption_index, "");
+	        }
+	        for (int owner_name_index = 41868; owner_name_index > 41468; owner_name_index -= 4) {
+	            player.getPacketSender().sendString(owner_name_index, "");
+	        }
+    	}
         player.getPacketSender().sendInterface(41409);
         displayFeaturedShops(player);
     }

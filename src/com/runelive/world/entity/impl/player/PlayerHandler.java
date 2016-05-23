@@ -209,7 +209,7 @@ public class PlayerHandler {
             TaskManager.submit(new BonusExperienceTask(player));
         }
         if (player.getPointsHandler().getPkPoints() < 0) {
-            player.getPointsHandler().setPkPoints(0, false);
+            player.getPointsHandler().setPkPoints(0, false, false);
             System.out.println("The user " + player.getUsername()
                     + " logged in with negative PK Points, resetting to 0.");
         }

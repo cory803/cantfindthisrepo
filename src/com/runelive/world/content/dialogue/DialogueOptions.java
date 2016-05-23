@@ -819,6 +819,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
+				player.getPacketSender().sendString(41900, "");
 				PlayerOwnedShops.openShop(player.getUsername(), player);
 				break;
 			case 136:
@@ -881,7 +882,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
-				PlayerOwnedShops.openItemSearch(player);
+				PlayerOwnedShops.openItemSearch(player, true);
 				break;
 			case 5:
 				DialogueManager.start(player, MemberScrolls.getTotalFunds(player));

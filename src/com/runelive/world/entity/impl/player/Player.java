@@ -1,8 +1,10 @@
 package com.runelive.world.entity.impl.player;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.GameSettings;
@@ -75,6 +77,8 @@ import com.runelive.world.content.grandexchange.GrandExchangeSlot;
 import com.runelive.world.content.minigames.MinigameAttributes;
 import com.runelive.world.content.minigames.impl.Dueling;
 import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
+import com.runelive.world.content.pos.PosDetails;
+import com.runelive.world.content.pos.PosOffer;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.content.skill.impl.construction.ConstructionData;
 import com.runelive.world.content.skill.impl.construction.HouseFurniture;
@@ -115,7 +119,8 @@ public class Player extends Character {
 	public boolean claimingStoreItems = false;
 	public int debugRollWins;
 	public int debugRollLosses;
-
+	public static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
+	
 	public int calculateMaxLifePoints() {
 		int lifePoints = getSkillManager().getCurrentLevel(Skill.CONSTITUTION);// The
 																				// normal

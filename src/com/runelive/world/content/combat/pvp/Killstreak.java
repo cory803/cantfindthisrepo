@@ -78,7 +78,7 @@ public class Killstreak {
 				World.sendMessage("<icon=2><shad=ff0000>"+player.getUsername()+" is currently on a "+killstreak+" killstreak bounty of 500 PK Points!");
 				break;
 		}
-		player.getPointsHandler().setPkPoints(pkPoints, true);
+		player.getPointsHandler().setPkPoints(pkPoints, true, false);
 		player.getPacketSender().sendMessage("You've received "+pkPoints+" PK Points!");
 	}
 }

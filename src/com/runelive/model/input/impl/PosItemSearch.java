@@ -15,8 +15,6 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class PosItemSearch extends Input {
 
-  private static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
-
   @Override
   public void handleSyntax(Player player, String syntax) {
     Locale locale = new Locale("en", "US");
@@ -35,7 +33,7 @@ public class PosItemSearch extends Input {
       player.getPacketSender().sendMessage("Your search must contain atleast 3 characters.");
       return;
     }
-    reset();
+    reset(player);
     for (PosOffers o : PlayerOwnedShops.SHOPS_ARRAYLIST) {
       if (o == null)
         continue;
@@ -44,7 +42,7 @@ public class PosItemSearch extends Input {
         if (o.getOffers().get(q) != null && !o.getOwner().equalsIgnoreCase(player.getUsername())) {
           ItemDefinition def = ItemDefinition.forId(o.getOffers().get(q).getItemId());
           if (def != null && def.getName().toLowerCase().contains(itemName)) {
-            foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()),
+        	  player.foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()),
                 new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(),
                     o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
             //start_button += 4;
@@ -53,14 +51,14 @@ public class PosItemSearch extends Input {
       }
     }
 
-    if (foundOffers.size() < 1) {
+    if (player.foundOffers.size() < 1) {
       player.getPacketSender().sendMessage("Your search did not return any offers.");
       return;
     }
 
-    foundOffers = sortByValue(foundOffers);
+    player.foundOffers = sortByValue(player.foundOffers);
 
-    for (Map.Entry<PosDetails, PosOffer> entry : foundOffers.entrySet()) {
+    for (Map.Entry<PosDetails, PosOffer> entry : player.foundOffers.entrySet()) {
       if (index >= 100) {
         break;
       }
@@ -114,8 +112,8 @@ public class PosItemSearch extends Input {
     return format;
   }
 
-  public static PosDetails forId(int i) {
-    for (Map.Entry<PosDetails, PosOffer> map : foundOffers.entrySet()) {
+  public static PosDetails forId(int i, Player player) {
+    for (Map.Entry<PosDetails, PosOffer> map : player.foundOffers.entrySet()) {
       PosDetails pd = map.getKey();
       if (pd.getButtonId() == i)
         return pd;
@@ -123,8 +121,8 @@ public class PosItemSearch extends Input {
     return null;
   }
 
-  public static void reset() {
-    foundOffers.clear();
+  public static void reset(Player player) {
+	  player.foundOffers.clear();
   }
 
 }

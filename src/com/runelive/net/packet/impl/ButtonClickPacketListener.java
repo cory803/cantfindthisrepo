@@ -97,8 +97,9 @@ public class ButtonClickPacketListener implements PacketListener {
       return;
     }
 
-    PosDetails pd = PosItemSearch.forId(id);
+    PosDetails pd = PosItemSearch.forId(id, player);
     if (pd != null) {
+    	player.getPacketSender().sendString(41900, "Back to Search Selection");
       PlayerOwnedShops.openShop(pd.getOwner(), player);
     }
 
@@ -143,6 +144,11 @@ public class ButtonClickPacketListener implements PacketListener {
       case 5384:
         player.getPacketSender().sendInterfaceRemoval();
         break;
+      case -20152:
+    	  for (int j = 0; j < player.getInventory().getItems().length; j++) {
+    		  player.getTrading().tradeItem(player.getInventory().get(j).getId(), 1, j);
+    	  }
+    	  break;
       case 1036:
         EnergyHandler.rest(player);
         break;
@@ -305,6 +311,9 @@ public class ButtonClickPacketListener implements PacketListener {
       case -10327:
         ClawQuest.openQuestLog(player);
         break;
+      case -23636:
+    	  PlayerOwnedShops.openItemSearch(player, false);
+    	  break;
       case -10326:
         FarmingQuest.openQuestLog(player);
         break;

@@ -452,7 +452,7 @@ public class PlayerLoading {
         }
 
         if (reader.has("pk-points")) {
-            player.getPointsHandler().setPkPoints(reader.get("pk-points").getAsInt(), false);
+            player.getPointsHandler().setPkPoints(reader.get("pk-points").getAsInt(), false, false);
         }
 
         if (reader.has("boss-points")) {

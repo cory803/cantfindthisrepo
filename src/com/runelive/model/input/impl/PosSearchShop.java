@@ -12,6 +12,7 @@ public class PosSearchShop extends Input {
       player.getPacketSender().sendMessage("Invalid syntax entered.");
       return;
     }
+    player.getPacketSender().sendString(41900, "");
     PlayerOwnedShops.openShop(syntax, player);
   }
 }
