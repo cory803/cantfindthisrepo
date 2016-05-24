@@ -414,9 +414,13 @@ public final class MovementQueue {
                                 offsetY = -1;
                                 break;
                             case WEST:
+                            case NORTH_WEST:
+                            case SOUTH_WEST:
                                 offsetX = -1;
                                 break;
                             case EAST:
+                            case SOUTH_EAST:
+                            case NORTH_EAST:
                                 offsetX = 1;
                                 break;
                         }
