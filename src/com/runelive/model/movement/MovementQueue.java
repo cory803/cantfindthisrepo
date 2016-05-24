@@ -410,12 +410,14 @@ public final class MovementQueue {
                         switch (dir) {
                             case NORTH_WEST:
                             case NORTH_EAST:
-                                offsetY = -size;
+                                offsetY = size;
+                                offsetX = size;
                                 break;
 
                             case SOUTH_WEST:
                             case SOUTH_EAST:
-                                offsetY = size;
+                                offsetY = -size;
+                                offsetX = -size;
                                 break;
                             case NORTH:
                                 offsetY = size;
