@@ -403,26 +403,19 @@ public final class MovementQueue {
                         character.getMovementQueue().walkStep(
                                 getMove(character.getPosition().getX(), followCharacter.getPosition().getX(), 1), getMove(character.getPosition().getY() - 1, followCharacter.getPosition().getY(), 1));
                     } else {
-                        Direction dir = Direction.direction(character.getPosition().getX(), followCharacter.getPosition().getX(), character.getPosition().getY(), followCharacter.getPosition().getY());
+                        /*Direction dir = Direction.direction(character.getPosition().getX(), followCharacter.getPosition().getX(), character.getPosition().getY(), followCharacter.getPosition().getY());
                         int offsetX = 0;
                         int offsetY = 0;
                         int size = character.getSize();
+                        System.out.println("Traveling in direction: " + dir.toString());
                         switch (dir) {
+                            case NORTH:
                             case NORTH_WEST:
                             case NORTH_EAST:
                                 offsetY = size;
-                                offsetX = size;
-                                break;
-
-                            case SOUTH_WEST:
-                            case SOUTH_EAST:
-                                offsetY = -size;
-                                offsetX = -size;
-                                break;
-                            case NORTH:
-                                offsetY = size;
                                 break;
                             case SOUTH:
+                            case SOUTH_EAST:
                                 offsetY = -size;
                                 break;
                             case WEST:
@@ -431,8 +424,9 @@ public final class MovementQueue {
                             case EAST:
                                 offsetX = size;
                                 break;
-                        }
-                        PathFinder.findPath(character, followCharacter.getPosition().getX() - offsetX, followCharacter.getPosition().getY() - offsetY, true, character.getSize(), character.getSize());
+                        }*/
+                        PathFinder.calculatePath(character, followCharacter.getPosition().getX(), followCharacter.getPosition().getY(), character.getSize(), character.getSize(), true);
+                        //PathFinder.findPath(character, followCharacter.getPosition().getX() - offsetX, followCharacter.getPosition().getY() - offsetY, true, character.getSize(), character.getSize());
                     }
                 }
 
