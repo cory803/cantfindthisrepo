@@ -1147,6 +1147,7 @@ public final class CombatFactory {
                 int offsetX = 0;
                 int offsetY = 0;
                 int size = a.getSize();
+                //fixed diagonals walking under target player in melee.
                 switch (dir) {
                     case SOUTH_WEST:
                     case SOUTH_EAST:
