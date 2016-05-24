@@ -748,6 +748,11 @@ public class PlayerLoading {
                     .setQuestParts(reader.get("claw-quest").getAsInt());
         }
 
+        if (reader.has("shrek1-quest")) {
+            player.getMinigameAttributes().getShrek1Attributes()
+                    .setQuestParts(reader.get("shrek1-quest").getAsInt());
+        }
+
         if (reader.has("farm-quest")) {
             player.getMinigameAttributes().getFarmQuestAttributes()
                     .setQuestParts(reader.get("farm-quest").getAsInt());

@@ -5,6 +5,7 @@ import com.runelive.world.content.minigames.impl.ClawQuest;
 import com.runelive.world.content.minigames.impl.FarmingQuest;
 import com.runelive.world.content.minigames.impl.Nomad;
 import com.runelive.world.content.minigames.impl.RecipeForDisaster;
+import com.runelive.world.content.minigames.impl.Shrek1;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -84,6 +85,8 @@ public class PlayerPanel {
                 ClawQuest.getQuestTabPrefix(player) + "The King's Task");
         player.getPacketSender().sendString(55210,
                 FarmingQuest.getQuestTabPrefix(player) + "Farmer's Expedition");
+        player.getPacketSender().sendString(55211,
+        		Shrek1.getQuestTabPrefix(player) + "Shrek Part I");
 
         /**
          * Links

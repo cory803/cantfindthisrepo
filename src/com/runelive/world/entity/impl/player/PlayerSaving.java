@@ -359,6 +359,8 @@ public class PlayerSaving {
                 player.getMinigameAttributes().getRecipeForDisasterAttributes().getQuestParts()));
         object.add("claw-quest", builder
                 .toJsonTree(player.getMinigameAttributes().getClawQuestAttributes().getQuestParts()));
+        object.add("shrek1-quest", builder
+                .toJsonTree(player.getMinigameAttributes().getShrek1Attributes().getQuestParts()));
         object.add("farm-quest", builder
                 .toJsonTree(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts()));
         object.addProperty("recipe-for-disaster-wave", new Integer(
