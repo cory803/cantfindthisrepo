@@ -281,8 +281,18 @@ public class MinigameAttributes {
 
   public class Shrek1Attributes {
     private int questParts = 0;
+    
+    private int doorKicks = 0;
+    
+    public int getDoorKicks() {
+		return doorKicks;
+	}
 
-    public int getQuestParts() {
+	public void setDoorKicks(int doorKicks) {
+		this.doorKicks = doorKicks;
+	}
+
+	public int getQuestParts() {
       return questParts;
     }
 

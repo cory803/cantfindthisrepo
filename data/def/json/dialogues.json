@@ -2292,5 +2292,109 @@
         "line2": "I am not ready to fight.",
         "next": -1,
         "npcId": -1
+    },
+	{
+        "id": 230,
+        "type": "NPC_STATEMENT",
+        "anim": "MANIC_FACE",
+        "lines": 1,
+        "line1": "I MUST FIND HIM I MUST FINE HIM!",
+        "next": 231,
+        "npcId": 241
+    },
+	{
+        "id": 231,
+        "type": "PLAYER_STATEMENT",
+        "anim": "SCARED",
+        "lines": 1,
+        "line1": "Excuse me Lord, but uhhh are you ok?",
+        "next": 232,
+        "npcId": -1
+    },
+	{
+        "id": 232,
+        "type": "NPC_STATEMENT",
+        "anim": "MANIC_FACE",
+        "lines": 1,
+        "line1": "DOES IT LOOK LIKE I AM 'OK'?!?",
+        "next": 233,
+        "npcId": 241
+    },
+	{
+        "id": 233,
+        "type": "PLAYER_STATEMENT",
+        "anim": "SCARED",
+        "lines": 1,
+        "line1": "Sorry, I was just trying to help...",
+        "next": 234,
+        "npcId": -1
+    },
+	{
+        "id": 234,
+        "type": "NPC_STATEMENT",
+        "anim": "MANIC_FACE",
+        "lines": 2,
+        "line1": "Hold on... You look familiar. Are you that warrior?",
+        "line2": "The warrior that goes city to city helping?",
+        "next": 235,
+        "npcId": 241
+    },
+	{
+        "id": 235,
+        "type": "PLAYER_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 2,
+        "line1": "I have helped many people. I could be the one",
+        "line2": "you're speaking of.",
+        "next": 236,
+        "npcId": -1
+    },
+	{
+        "id": 236,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 4,
+        "line1": "Well would you mind helping me? I've got",
+        "line2": "a serious problem with this ogre in the",
+        "line3": "Lumbridge Swamp. Kill him and bring back",
+        "line4": "his remains and I'll give you a reward.",
+        "next": 237,
+        "npcId": 241
+    },
+	{
+        "id": 237,
+        "type": "PLAYER_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 1,
+        "line1": "Of course I'll help!",
+        "next": 238,
+        "npcId": -1
+    },
+	{
+        "id": 238,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 2,
+        "line1": "Thanks adventurer, there is an ogre loose",
+        "line2": "somewhere in the lumbridge swamp. Kill him.",
+        "next": -1,
+        "npcId": 241
+    },
+    {
+        "id": 239,
+        "type": "STATEMENT",
+        "lines": 1,
+        "line1": "LEAVE NOW AT ONCE AND DON'T KNOCK AGAIN",
+        "next": -1,
+        "npcId": -1
+    },
+	{
+        "id": 240,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 1,
+        "line1": "I don't need to talk to you right now.",
+        "next": -1,
+        "npcId": 241
     }
 ]

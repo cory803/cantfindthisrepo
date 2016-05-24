@@ -157,7 +157,26 @@ public class ObjectActionPacketListener implements PacketListener {
             }
             switch (id) {
             case 2406:
-            	
+            	if (!player.getClickDelay().elapsed(3000))
+            	      return;
+            	if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 2) {
+	            	if (player.getMinigameAttributes().getShrek1Attributes().getDoorKicks() == 0) {
+	                	player.performAnimation(new Animation(2555));
+	                	player.getPacketSender().sendMessage("You kick the door as hard as you can.");
+	                	DialogueManager.start(player, 239);
+	                	player.getPacketSender().sendMessage("You hear a very intimidating voice from inside yelling.");
+	                	player.getMinigameAttributes().getShrek1Attributes().setDoorKicks(1);
+	            	} else if (player.getMinigameAttributes().getShrek1Attributes().getDoorKicks() == 1) {
+	            		//spawn shrek
+	            		
+	                	player.getMinigameAttributes().getShrek1Attributes().setDoorKicks(2);
+	            	} 
+            	} else {
+            		player.getPacketSender().sendMessage("Nothing interesting happens.");
+            	}
+            	//ok so player kicks door once - shrek says leave dont come back or else...
+            	//if player kicks door again he spawns - they fight - 100% drop ogres head
+            	player.getClickDelay().reset();
             	break;
             case 9299:
             	if(player.getSkillManager().getMaxLevel(Skill.AGILITY) < 50) {
