@@ -408,14 +408,19 @@ public final class MovementQueue {
                         int offsetY = 0;
                         int size = character.getSize();
                         switch (dir) {
-                            case NORTH:
                             case NORTH_WEST:
                             case NORTH_EAST:
+                                offsetY = -size;
+                                break;
+
+                            case SOUTH_WEST:
+                            case SOUTH_EAST:
+                                offsetY = size;
+                                break;
+                            case NORTH:
                                 offsetY = size;
                                 break;
                             case SOUTH:
-                            case SOUTH_WEST:
-                            case SOUTH_EAST:
                                 offsetY = -size;
                                 break;
                             case WEST:
