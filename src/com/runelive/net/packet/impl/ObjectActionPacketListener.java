@@ -156,6 +156,55 @@ public class ObjectActionPacketListener implements PacketListener {
               return;
             }
             switch (id) {
+            case 9299:
+            	if(player.getSkillManager().getMaxLevel(Skill.AGILITY) < 50) {
+            		player.getPacketSender().sendMessage("You need an agility of 50 or higher to use this shortcut.");
+            		return;
+            	}
+            	if(player.getPosition().getY() > 3190) {
+                    player.setDirection(Direction.SOUTH);
+                    player.performAnimation(new Animation(2240));
+                    TaskManager.submit(new Task(1, player, true) {
+                      int tick = 1;
+
+                      @Override
+                      public void execute() {
+                        tick++;
+                        if (tick == 4) {
+                          stop();
+                        }
+                      }
+
+                      @Override
+                      public void stop() {
+                        setEventRunning(false);
+                        player.moveTo(new Position(3240, 3190, 0));
+                        player.getPacketSender().sendMessage("You squeeze through the fence.");
+                      }
+                    });
+            	} else {
+                    player.setDirection(Direction.NORTH);
+                    player.performAnimation(new Animation(2240));
+                    TaskManager.submit(new Task(1, player, true) {
+                      int tick = 1;
+
+                      @Override
+                      public void execute() {
+                        tick++;
+                        if (tick == 4) {
+                          stop();
+                        }
+                      }
+
+                      @Override
+                      public void stop() {
+                        setEventRunning(false);
+                        player.moveTo(new Position(3240, 3191, 0));
+                        player.getPacketSender().sendMessage("You squeeze through the fence.");
+                      }
+                    });
+            	}
+            	break;
               case 21772:
                 player.moveTo(new Position(3236, 3458, 0));
                 break;
