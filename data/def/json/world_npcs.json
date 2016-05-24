@@ -1,5 +1,18 @@
 [
 	{
+        "npc-id": 241,
+		"face": WEST,
+        "position": {
+        	"x": 3215,
+        	"y": 3215,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 3
+        }
+    },
+	{
         "npc-id": 1093,
 		"face": WEST,
         "position": {

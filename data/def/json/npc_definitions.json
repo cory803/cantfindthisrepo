@@ -5325,8 +5325,8 @@
 },
 {
 "id": 241,
-"name": "Sir Kay",
-"examine": "One of the Knights of the Round Table.",
+"name": "Lord Lardquad",
+"examine": "This is Lord Lardquad. He can give me a quest.",
 "combat": 0,
 "size": 1,
 "attackable": false,
