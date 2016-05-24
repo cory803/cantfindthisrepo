@@ -156,6 +156,9 @@ public class ObjectActionPacketListener implements PacketListener {
               return;
             }
             switch (id) {
+            case 2406:
+            	
+            	break;
             case 9299:
             	if(player.getSkillManager().getMaxLevel(Skill.AGILITY) < 50) {
             		player.getPacketSender().sendMessage("You need an agility of 50 or higher to use this shortcut.");

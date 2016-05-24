@@ -315,10 +315,11 @@ public final class RegionClipping {
         boolean waterRcAltar = id == 2480 && pos.getX() == 3483 && pos.getY() == 4835;
         boolean crystalChest = id == 172 && pos.getX() == 3077 && pos.getY() == 3497;
         boolean wellOfGoodwill = id == 884 && pos.getX() == 3084 && pos.getY() == 3502;
+        boolean shreksDoor = id == 2406 && pos.getX() == 3202 && pos.getY() == 3169;
         if (well || mageBankLever || lawAltar || trees || wellOfGoodwill || chaosTunnels || lunar
                 || barrows || rfd || lumbridgeCastle || barbCourseRopeswing || catherbyAquariums
                 || freeForAllPortal || warriorsGuild || fightPit || godwars || barrows || waterRcAltar
-                || crystalChest)
+                || crystalChest || shreksDoor)
             return true;
         int[] info = getObjectInformation(object.getPosition());
         if (info != null) {
