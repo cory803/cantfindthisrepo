@@ -175,7 +175,12 @@ public class PathFinder {
 	}
 
 	public static void findPath(Character gc, int destX, int destY, boolean moveNear,
-			int xLength, int yLength) {
+								int xLength, int yLength) {
+		findPath(gc, destX, destY, moveNear, xLength, yLength, false);
+	}
+
+	public static void findPath(Character gc, int destX, int destY, boolean moveNear,
+			int xLength, int yLength, boolean ignoreLastStep) {
 		try {
 			if (destX == gc.getPosition().getLocalX() && destY == gc.getPosition().getLocalY() && !moveNear) {
 				return;
@@ -350,7 +355,10 @@ public class PathFinder {
 				else if ((j5 & 4) != 0)
 					curY--;
 			}
-			final int size = tail--;
+			int size = tail--;
+			if (ignoreLastStep) {
+				size -= 1;
+			}
 			int pathX = gc.getPosition().getRegionX() * 8 + tileQueueX.get(tail);
 			int pathY = gc.getPosition().getRegionY() * 8 + tileQueueY.get(tail);
 			gc.getMovementQueue().addFirstStep(new Position(pathX, pathY, gc.getPosition().getZ()));
