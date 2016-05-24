@@ -73,6 +73,10 @@ public final class MovementQueue {
      */
     private final Deque<Point> points = new ArrayDeque<Point>();
 
+    public Deque<Point> getPoints() {
+        return this.points;
+    }
+
     /**
      * The following task
      */
@@ -332,7 +336,6 @@ public final class MovementQueue {
             followTask = new Task(1, character, true) {
                 @Override
                 public void execute() {
-
                     // Check if we can still follow the leader.
                     if (followCharacter == null || followCharacter.getConstitution() <= 0
                             || !followCharacter.isRegistered() || character.getConstitution() <= 0
@@ -407,15 +410,11 @@ public final class MovementQueue {
                         int offsetX = 0;
                         int offsetY = 0;
                         int size = character.getSize();
-                        System.out.println("Traveling in direction: " + dir.toString());
                         switch (dir) {
                             case NORTH:
-                            case NORTH_WEST:
-                            case NORTH_EAST:
                                 offsetY = size;
                                 break;
                             case SOUTH:
-                            case SOUTH_EAST:
                                 offsetY = -size;
                                 break;
                             case WEST:
@@ -426,7 +425,7 @@ public final class MovementQueue {
                                 break;
                         }*/
                         //PathFinder.calculatePath(character, followCharacter.getPosition().getX(), followCharacter.getPosition().getY(), character.getSize(), character.getSize(), false);
-                        //PathFinder.findPath(character, followCharacter.getPosition().getX(), followCharacter.getPosition().getY(), true, character.getSize(), character.getSize(), true);
+                        //PathFinder.findPath(character, followCharacter.getPosition().getX() + offsetX, followCharacter.getPosition().getY() + offsetY, true, character.getSize(), character.getSize(), true);
                     }
                 }
 
