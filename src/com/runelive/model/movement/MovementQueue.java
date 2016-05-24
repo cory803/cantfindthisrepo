@@ -406,22 +406,23 @@ public final class MovementQueue {
                         Direction dir = Direction.direction(character.getPosition().getX(), followCharacter.getPosition().getX(), character.getPosition().getY(), followCharacter.getPosition().getY());
                         int offsetX = 0;
                         int offsetY = 0;
+                        int size = character.getSize();
                         switch (dir) {
                             case NORTH:
-                                offsetY = 1;
+                            case NORTH_WEST:
+                            case NORTH_EAST:
+                                offsetY = size;
                                 break;
                             case SOUTH:
-                                offsetY = -1;
+                            case SOUTH_WEST:
+                            case SOUTH_EAST:
+                                offsetY = -size;
                                 break;
                             case WEST:
-                            case NORTH_WEST:
-                            case SOUTH_WEST:
-                                offsetX = -1;
+                                offsetX = -size;
                                 break;
                             case EAST:
-                            case SOUTH_EAST:
-                            case NORTH_EAST:
-                                offsetX = 1;
+                                offsetX = size;
                                 break;
                         }
                         PathFinder.findPath(character, followCharacter.getPosition().getX() - offsetX, followCharacter.getPosition().getY() - offsetY, true, character.getSize(), character.getSize());
