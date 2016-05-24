@@ -161,7 +161,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
     CombatContainer container =
         new CombatContainer(entity, victim, dBow ? 2 : 1, CombatType.RANGED, true);
-
+		if(player.getEquipment().contains(12926)) {
+			 container.setModifiedDamage(container.getHits()[0].getHit().getDamage() * 2);
+		}
     /** CROSSBOW BOLTS EFFECT **/
     if (player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition() != null
         && player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition().getName().toLowerCase()
@@ -368,9 +370,6 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
     int damage = container.getHits()[0].getHit().getDamage();
     int ammo = player.getFireAmmo();
     if (ammo == -1) {
-      return damage;
-    }
-    if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
       return damage;
     }
     double multiplier = 1;

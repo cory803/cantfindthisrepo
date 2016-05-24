@@ -92,6 +92,7 @@ public class CombatVenomEffect extends Task {
     public static void init() {
       types.put(12926, VenomType.SUPER);
       types.put(21077, VenomType.SUPER);
+      types.put(21107, VenomType.SUPER);
     }
 
     /**

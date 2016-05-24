@@ -1815,3 +1815,184 @@
 [5/22/16 09:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/22/16 09:17PM]	Dc Blitz has clicked button in ButtonClickPacketListener 2458	
 [5/22/16 09:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:32PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:32PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:32PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:32PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:32PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:32PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:32PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:32PM]	Player killed Jonny for item: Id: Abyssal whip(4151), amount: 1	
+[5/22/16 09:32PM]	Player killed Jonny for item: Id: Serpentine helm(21107), amount: 1	
+[5/22/16 09:32PM]	Player killed Jonny for item: Id: Divine spirit shield(13740), amount: 1	
+[5/22/16 09:33PM]	Dc Blitz in PickupItemPacketListener: 21107	
+[5/22/16 09:33PM]	Player looting item: Serpentine helm (21107), amount: 1 Owner: Dc Blitz from the computer address: 362460699	
+[5/22/16 09:33PM]	Player dropping item: Serpentine helm (21107), amount: 1 from the computer address: 362460699	
+[5/22/16 09:33PM]	Dc Blitz in PickupItemPacketListener: 21107	
+[5/22/16 09:33PM]	Player looting item: Serpentine helm (21107), amount: 1 Owner: Dc Blitz from the computer address: 362460699	
+[5/22/16 09:34PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:34PM]	Dc Blitz has clicked button in ButtonClickPacketListener 150	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:34PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:35PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Shark(386), amount: 12	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Raw shark(384), amount: 14314	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Mithril ore(448), amount: 290	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Tooth half of a key(986), amount: 12	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:35PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/22/16 09:36PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 09:36PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:36PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:37PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:37PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:37PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:37PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/22/16 09:37PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1195	
+[5/22/16 09:44PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 11:39PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 11:39PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 11:39PM]	Dc Blitz in EnterInputPacketListener: toxic blow	
+[5/22/16 11:39PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24102	
+[5/22/16 11:39PM]	Opened the player owned shop: Jonny	
+[5/22/16 11:39PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:39PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 11:39PM]	Dc Blitz in EnterInputPacketListener: toxic blow	
+[5/22/16 11:39PM]	Dc Blitz has clicked button in ButtonClickPacketListener -24102	
+[5/22/16 11:39PM]	Opened the player owned shop: Jonny	
+[5/22/16 11:40PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:40PM]	Dc Blitz in NPCOptionPacketListener: 2127 - FOURTH_CLICK_OPCODE	
+[5/22/16 11:40PM]	Opened the player owned shop: jonny	
+[5/22/16 11:40PM]	Dc Blitz in EnterInputPacketListener: jonny	
+[5/22/16 11:41PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 11:41PM]	Dc Blitz in NPCOptionPacketListener: 2127 - THIRD_CLICK_OPCODE	
+[5/22/16 11:41PM]	Opened the player owned shop: Dc Blitz	
+[5/22/16 11:41PM]	Dc Blitz in ItemContainerActionPacketListener: Second Action - 386 - 3823 - 5	
+[5/22/16 11:41PM]	Player owned shop sold item: ID: 386 AMOUNT: 1 PRICE: 1	
+[5/22/16 11:41PM]	Dc Blitz in EnterInputPacketListener: 1	
+[5/22/16 11:41PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:42PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:43PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:43PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:44PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/22/16 11:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/22/16 11:46PM]	Dc Blitz in NPCOptionPacketListener: 2127 - SECOND_CLICK_OPCODE	
+[5/22/16 11:46PM]	Dc Blitz in EnterInputPacketListener: shark	
+[5/22/16 11:47PM]	Dc Blitz has changed close interface in CloseInterfacePacketListener	
+[5/23/16 08:18AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 12:02PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 12:02PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/23/16 12:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 12:05PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Shark(386), amount: 11	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Raw shark(384), amount: 14314	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Mithril ore(448), amount: 290	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Tooth half of a key(986), amount: 12	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Player killed by Jonny for item: Id: Rocktail(15272), amount: 1	
+[5/23/16 12:05PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/23/16 12:07PM]	Dc Blitz has clicked button in ButtonClickPacketListener 1170	
+[5/23/16 12:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 01:09PM]	Dc Blitz has done command mypos	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:11PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:15PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:15PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:15PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:15PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 01:19PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 09:31PM]	Dc Blitz has done command item 1595 1	
+[5/23/16 09:32PM]	Dc Blitz has done command wests	
+[5/23/16 09:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 09:47PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 09:50PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 09:53PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 10:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 10:06PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 10:10PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 10:12PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:12PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:12PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:12PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:12PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 10:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/23/16 10:14PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:15PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:16PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:17PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	
+[5/23/16 10:18PM]	Dc Blitz in ItemActionPacketListener: 15272	

@@ -246,7 +246,6 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
-				player.getPacketSender().sendMessage("Featured shops are coming at a later date.");
                 player.setDialogueActionId(214);
                 DialogueManager.start(player, 214);
                 break;
@@ -855,7 +854,6 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
-				player.getPacketSender().sendMessage("Featured shops are coming at a later date.");
                 PlayerOwnedShops.openItemSearch(player, true);
                 break;
               case 3101:
@@ -976,7 +974,6 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
-				player.getPacketSender().sendMessage("Featured shops are coming at a later date.");
 				player.getPacketSender().sendString(41900, "");
 				PlayerOwnedShops.openShop(player.getUsername(), player);
                 break;
@@ -1083,7 +1080,6 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
-				player.getPacketSender().sendMessage("Featured shops are coming at a later date.");
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 player.setInputHandling(new PosSearchShop());
                 break;

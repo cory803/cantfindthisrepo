@@ -63,7 +63,7 @@ public final class WeaponAnimations {
           12024;/*
                  * playerStandIndex = 8980; playerRunIndex = 1210; playerWalkIndex = 1146;
                  */
-    } else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21079) {
+    } else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21079 || item.getId() == 21108) {
       playerStandIndex = 809;
       playerRunIndex = 1210;
       playerWalkIndex = 1146;

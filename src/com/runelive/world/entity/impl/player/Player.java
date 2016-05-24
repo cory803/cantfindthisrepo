@@ -223,13 +223,16 @@ public class Player extends Character {
 		int speed = weapon.getSpeed();
 		String weapon = equipment.get(Equipment.WEAPON_SLOT).getDefinition().getName();
 		if (getCurrentlyCasting() != null) {
+			if(equipment.get(Equipment.WEAPON_SLOT).getId() == 21108) {
+				return 4;
+			}
 			if (getCurrentlyCasting() == CombatSpells.BLOOD_BLITZ.getSpell()
 					|| getCurrentlyCasting() == CombatSpells.SHADOW_BLITZ.getSpell()
 					|| getCurrentlyCasting() == CombatSpells.SMOKE_BLITZ.getSpell()
 					|| getCurrentlyCasting() == CombatSpells.ICE_BLITZ.getSpell()) {
 				return 5;
 			} else {
-				return 6;
+				return 5;
 			}
 		}
 		int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
@@ -305,9 +308,11 @@ public class Player extends Character {
 	@Override
 	public void venomVictim(Character victim, CombatType type) {
 		int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
-		if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE)
-				|| (weaponId == 21077 && type == CombatType.MAGIC)) {
+		int helmet = equipment.get(Equipment.HEAD_SLOT).getId();
+		if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) || (weaponId == 21077 && type == CombatType.MAGIC)) {
 			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.WEAPON_SLOT)));
+		} else if(helmet == 21107) {
+			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.HEAD_SLOT)));
 		}
 	}
 

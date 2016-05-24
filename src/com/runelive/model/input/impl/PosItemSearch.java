@@ -23,9 +23,9 @@ public class PosItemSearch extends Input {
       player.getPacketSender().sendMessage("Invalid syntax entered.");
       return;
     }
-    int start_button = -24062;
-    int start_owner_name = 41468;
-    int start_caption = 41469;
+    int start_button = -24102;
+    int start_owner_name = 41428;
+    int start_caption = 41429;
     int index = 0;
 
     String itemName = syntax;
@@ -67,18 +67,12 @@ public class PosItemSearch extends Input {
       String item_name = ItemDefinition.forId(p.getItemId()).getName();
       start_caption += 4;
       start_owner_name += 4;
-      pd.setButtonId(-24062 + (4 * index));
+      pd.setButtonId(-24102 + (4 * index));
       player.getPacketSender().sendString(start_owner_name, pd.getOwner());
       player.getPacketSender().sendString(start_caption,
           "Found: " + item_name + " for " + currencyFormatter.format(p.getPrice()) + " GP");
       index++;
     }
-
-    for (int i = start_owner_name + 4; i < 41868; i++)
-      player.getPacketSender().sendString(i, "");
-
-    for (int i = start_caption + 4; i < 41869; i++)
-      player.getPacketSender().sendString(i, "");
 
   }
 

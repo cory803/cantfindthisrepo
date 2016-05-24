@@ -140,11 +140,11 @@ public class PlayerOwnedShops {
             case -24062:
  
                 break;
-            case -24074: // Search by Name
+            case -24114: // Search by Name
                 player.setInputHandling(new PosSearchShop());
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 return true;
-            case -24073: // Search by Item
+            case -24113: // Search by Item
                 player.setInputHandling(new PosItemSearch());
                 player.getPacketSender()
                         .sendEnterInputPrompt("Enter the name of the item you wish to buy:");
@@ -264,10 +264,10 @@ public class PlayerOwnedShops {
     public static void openItemSearch(Player player, boolean wipe) {
     	if(wipe) {
 	        PosItemSearch.reset(player);
-	        for (int caption_index = 41869; caption_index > 41469; caption_index -= 4) {
+	        for (int caption_index = 41829; caption_index > 41429; caption_index -= 4) {
 	            player.getPacketSender().sendString(caption_index, "");
 	        }
-	        for (int owner_name_index = 41868; owner_name_index > 41468; owner_name_index -= 4) {
+	        for (int owner_name_index = 41828; owner_name_index > 41428; owner_name_index -= 4) {
 	            player.getPacketSender().sendString(owner_name_index, "");
 	        }
     	}

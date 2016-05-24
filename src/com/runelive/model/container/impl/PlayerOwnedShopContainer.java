@@ -481,11 +481,13 @@ public class PlayerOwnedShopContainer extends ItemContainer {
             player.getPacketSender().sendItemContainer(PlayerOwnedShopManager.getShops().get(index),
                     ITEM_CHILD_ID);
             player.getPacketSender().sendString(NAME_INTERFACE_CHILD_ID, name);
+            if(player.isPlayerOwnedShopping()) {
             if (player.getInputHandling() == null
                     || !(player.getInputHandling() instanceof EnterAmountToSellToShop
                     || player.getInputHandling() instanceof EnterAmountToBuyFromShop))
                 player.getPacketSender().sendInterfaceSet(INTERFACE_ID, INVENTORY_INTERFACE_ID - 1);
-        }
+            }
+            }
         return this;
     }
 
