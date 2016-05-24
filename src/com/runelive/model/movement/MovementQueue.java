@@ -425,7 +425,7 @@ public final class MovementQueue {
                                 offsetX = size;
                                 break;
                         }*/
-                        PathFinder.calculatePath(character, followCharacter.getPosition().getX(), followCharacter.getPosition().getY(), character.getSize(), character.getSize(), true);
+                        //PathFinder.calculatePath(character, followCharacter.getPosition().getX(), followCharacter.getPosition().getY(), character.getSize(), character.getSize(), false);
                         //PathFinder.findPath(character, followCharacter.getPosition().getX() - offsetX, followCharacter.getPosition().getY() - offsetY, true, character.getSize(), character.getSize());
                     }
                 }
