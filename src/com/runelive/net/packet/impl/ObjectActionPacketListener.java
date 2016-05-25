@@ -159,17 +159,29 @@ public class ObjectActionPacketListener implements PacketListener {
             case 2406:
             	if (!player.getClickDelay().elapsed(3000))
             	      return;
+            	player.getPacketSender().sendMessage("kicks: " + player.getMinigameAttributes().getShrek1Attributes().getDoorKicks());
             	if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 1) {
 	            	if (player.getMinigameAttributes().getShrek1Attributes().getDoorKicks() == 0) {
+	                	player.setDirection(Direction.EAST);
 	                	player.performAnimation(new Animation(2555));
-	                	player.getPacketSender().sendMessage("You kick the door as hard as you can.");
 	                	DialogueManager.start(player, 239);
 	                	player.getPacketSender().sendMessage("You hear a very intimidating voice from inside yelling.");
 	                	player.getMinigameAttributes().getShrek1Attributes().setDoorKicks(1);
 	            	} else if (player.getMinigameAttributes().getShrek1Attributes().getDoorKicks() == 1) {
+	                	player.setDirection(Direction.EAST);
+	                	player.performAnimation(new Animation(2555));
 	            		//spawn shrek
-	            		
-	                	player.getMinigameAttributes().getShrek1Attributes().setDoorKicks(2);
+	                	DialogueManager.sendStatement(player, "You upset the ogre and he came out!");
+	            	    TaskManager.submit(new Task(2, player, false) {
+	            	      @Override
+	            	      public void execute() {
+	            	        NPC n = new NPC(5872, new Position(3201, 3169, player.getPosition().getZ())).setSpawnedFor(player);
+	            	        World.register(n);
+	            	        n.getCombatBuilder().attack(player);
+	            	        stop();
+	            	      }
+	            	    });
+//	                	player.getMinigameAttributes().getShrek1Attributes().setDoorKicks(2);
 	            	} 
             	} else {
             		player.getPacketSender().sendMessage("Nothing interesting happens.");
