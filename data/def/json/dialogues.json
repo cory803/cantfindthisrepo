@@ -2396,5 +2396,14 @@
         "line1": "I don't need to talk to you right now.",
         "next": -1,
         "npcId": 241
+    },
+	{
+        "id": 241,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 1,
+        "line1": "Bring me back that Ogre's remains!",
+        "next": -1,
+        "npcId": 241
     }
 ]

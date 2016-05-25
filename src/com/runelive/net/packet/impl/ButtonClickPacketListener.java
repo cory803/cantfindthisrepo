@@ -49,6 +49,7 @@ import com.runelive.world.content.minigames.impl.FarmingQuest;
 import com.runelive.world.content.minigames.impl.Nomad;
 import com.runelive.world.content.minigames.impl.PestControl;
 import com.runelive.world.content.minigames.impl.RecipeForDisaster;
+import com.runelive.world.content.minigames.impl.Shrek1;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.pos.PosDetails;
 import com.runelive.world.content.skill.ChatboxInterfaceSkillAction;
@@ -104,6 +105,9 @@ public class ButtonClickPacketListener implements PacketListener {
     }
 
     switch (id) {
+      case -10325:
+			Shrek1.openQuestLog(player);
+    	break;
       case -10425:
         // player.setMusicActive(!player.musicActive());
         DialogueManager.sendStatement(player,

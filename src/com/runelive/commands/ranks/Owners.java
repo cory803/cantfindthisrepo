@@ -25,6 +25,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
+import com.runelive.world.content.minigames.impl.Shrek1;
 import com.runelive.world.content.minigames.impl.Zulrah;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Equipment;
@@ -62,6 +63,9 @@ public class Owners {
 		}
 		if(wholeCommand.equalsIgnoreCase("zulrah")) {
 			Zulrah.enter_pit(player);
+		}
+		if(wholeCommand.equalsIgnoreCase("lard")) {
+			Shrek1.openQuestLog(player);
 		}
 		if(wholeCommand.startsWith("dd")) {
 			Gamble.debugRoll(player);

@@ -159,7 +159,7 @@ public class ObjectActionPacketListener implements PacketListener {
             case 2406:
             	if (!player.getClickDelay().elapsed(3000))
             	      return;
-            	if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 2) {
+            	if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 1) {
 	            	if (player.getMinigameAttributes().getShrek1Attributes().getDoorKicks() == 0) {
 	                	player.performAnimation(new Animation(2555));
 	                	player.getPacketSender().sendMessage("You kick the door as hard as you can.");

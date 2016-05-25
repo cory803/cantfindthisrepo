@@ -29,8 +29,16 @@ public class Shrek1 {
 		    p.getPacketSender().sendString(i, "@str@" + questGuide[questGuideIndex] + "");
 		  questGuideIndex++;
 		}
-		if (p.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 0) {
-			p.getPacketSender().sendString(8152, "");
+		if (p.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 1) {
+			p.getPacketSender().sendString(8151, "I need to find the Ogre who is causing");
+			p.getPacketSender().sendString(8152, "issues in the Lumbridge Swamp and kill");
+			p.getPacketSender().sendString(8153, "it. The Lord said something about bringing");
+			p.getPacketSender().sendString(8154, "back his loot.");
+		} else if (p.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 2) {
+			p.getPacketSender().sendString(8151, "@str@I need to find the Ogre who is causing");
+			p.getPacketSender().sendString(8152, "@str@issues in the Lumbridge Swamp and kill");
+			p.getPacketSender().sendString(8153, "@str@it. The Lord said something about bringing");
+			p.getPacketSender().sendString(8154, "@str@back his loot.");
 		}
 	}
 
