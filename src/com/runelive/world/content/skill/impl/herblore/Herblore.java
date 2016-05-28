@@ -9,6 +9,7 @@ import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Herblore {
@@ -86,6 +87,9 @@ public class Herblore {
       player.performAnimation(ANIMATION);
       TaskManager.submit(new Task(1, player, false) {
         public void execute() {
+          if(player.dailyTask == 10 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+          }
           player.getInventory().delete(pot.getUnfinishedPotion(), 1).delete(pot.getItemNeeded(), 1)
               .add(pot.getFinishedPotion(), 1);
           player.getSkillManager().addExperience(Skill.HERBLORE, (pot.getExpGained() * 50));

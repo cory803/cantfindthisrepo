@@ -11,6 +11,7 @@ import com.runelive.net.packet.PacketListener;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.combat.magic.MagicSpells;
 import com.runelive.world.content.combat.magic.Spell;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 
@@ -75,6 +76,9 @@ public class MagicOnItemsPacketListener implements PacketListener {
               new Graphic(magicSpell == MagicSpells.HIGH_ALCHEMY ? 113 : 112, GraphicHeight.LOW));
           player.getSkillManager().addExperience(Skill.MAGIC, spell.baseExperience());
           player.getPacketSender().sendTab(GameSettings.MAGIC_TAB);
+          if(player.dailyTask == 11 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+          }
           break;
         case SUPERHEAT_ITEM:
           for (int i = 0; i < ORE_DATA.length; i++) {

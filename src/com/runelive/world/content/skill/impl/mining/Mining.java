@@ -16,6 +16,7 @@ import com.runelive.world.content.ShootingStar;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
 import com.runelive.world.content.skill.impl.mining.MiningData.Ores;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.Emotes.Skillcape_Data;
 
@@ -91,6 +92,9 @@ public class Mining {
                   }
                 }
                 if (cycle == reqCycle) {
+                  if(player.dailyTask == 9 && !player.completedDailyTask) {
+                    DailyTaskManager.doTaskProgress(player);
+                  }
                   if (o == Ores.Iron) {
                     Achievements.finishAchievement(player, AchievementData.MINE_SOME_IRON);
                   } else if (o == Ores.Runite) {

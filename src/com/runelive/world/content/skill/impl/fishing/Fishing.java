@@ -10,6 +10,7 @@ import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.Emotes.Skillcape_Data;
 
@@ -196,6 +197,9 @@ public class Fishing {
           } else if (s.getRawFish()[fishIndex] == 15270) {
             Achievements.doProgress(p, AchievementData.FISH_25_ROCKTAILS);
             Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
+          }
+          if(p.dailyTask == 0 && !p.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(p);
           }
           p.getSkillManager().addExperience(Skill.FISHING, s.getXp()[fishIndex]);
           setupFishing(p, s);

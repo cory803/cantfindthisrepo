@@ -8,6 +8,7 @@ import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.impl.EnterAmountToCook;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Cooking {
@@ -49,6 +50,9 @@ public class Cooking {
         } else {
           player.getInventory().add(fish.getCookedItem(), 1);
           player.getSkillManager().addExperience(Skill.COOKING, fish.getXp());
+          if(player.dailyTask == 6 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+          }
           if (fish == CookingData.SALMON) {
             Achievements.finishAchievement(player, AchievementData.COOK_A_SALMON);
           } else if (fish == CookingData.ROCKTAIL) {

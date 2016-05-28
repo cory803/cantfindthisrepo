@@ -57,6 +57,7 @@ import com.runelive.world.content.minigames.impl.Barrows;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.skill.impl.hunter.Hunter;
 import com.runelive.world.content.skill.impl.slayer.Slayer;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.net.login.LoginResponses;
 
@@ -252,7 +253,6 @@ public class PlayerHandler {
                 player.getPacketSender().sendMessage("You last logged in earlier today.");
             }
         }
-
         if (player.experienceLocked())
             player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
 
@@ -286,6 +286,7 @@ public class PlayerHandler {
             }
         }
 
+        DailyTaskManager.giveNewTask(player);
         PlayerPanel.refreshPanel(player);
 
 

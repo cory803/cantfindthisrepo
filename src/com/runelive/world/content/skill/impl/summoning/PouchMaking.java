@@ -9,6 +9,7 @@ import com.runelive.model.Skill;
 import com.runelive.model.input.impl.EnterAmountToInfuse;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -91,6 +92,9 @@ public class PouchMaking {
             player.getInventory().delete(pouch.getsecondIngredientId(), 1);
             player.getSkillManager().addExperience(Skill.SUMMONING, pouch.getExp() * 76);
             player.getInventory().add(pouch.getPouchId(), 1);
+            if(player.dailyTask == 7 && !player.completedDailyTask) {
+              DailyTaskManager.doTaskProgress(player);
+            }
             if (pouch == Pouch.SPIRIT_DREADFOWL)
               Achievements.finishAchievement(player, AchievementData.INFUSE_A_DREADFOWL_POUCH);
             else if (pouch == Pouch.STEEL_TITAN) {

@@ -413,6 +413,23 @@ public class ItemActionPacketListener implements PacketListener {
       case 292:
         IngridientsBook.readBook(player, 0, false);
         break;
+      case 21117:
+        int AchievementRewards[][] = {
+                {15501, 15272, 2503, 10499, 6326, 861, 1163, 1201, 6111, 544, 542, 5574, 5575, 5576, 1215, 3105, 13734, 7400, 2572, 11118}, // Common, 0
+                {15501, 11133, 15126, 10828, 3751, 3753, 10589, 10564, 6809, 4587, 1249, 3204, 1305, 1377, 1434, 6528, 7158, 4153, 6, 8, 10, 12, 4675, 6914, 6889}, // Uncommon, 1
+                {6739, 15259, 15332, 2579, 6920, 6922, 13879, 13883, 15241, 15243} // Rare, 2
+        };
+        double achievementGen = Math.random();
+        /**
+         * Chances 50% chance of Common Items - cheap gear, high-end consumables 40% chance of
+         * Uncommon Items - various high-end coin-bought gear 10% chance of Rare Items - Highest-end
+         * coin-bought gear, some voting-point/pk-point equipment
+         */
+        int rewardChance = achievementGen >= 0.5 ? 0 : achievementGen >= 0.20 ? 1 : 2;
+        rewardPos = Misc.getRandom(AchievementRewards[rewardChance].length - 1);
+        player.getInventory().delete(21117, 1);
+        player.getInventory().add(AchievementRewards[rewardChance][rewardPos], 1).refreshItems();
+        break;
       case 6199:
         int rewards2[][] = {
             {15501, 15272, 2503, 10499, 6326, 861, 1163, 1201, 6111, 544, 542, 5574, 5575, 5576,

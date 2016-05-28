@@ -7,6 +7,7 @@ import com.runelive.model.input.impl.ThievBots;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.Emotes.Skillcape_Data;
 
@@ -77,6 +78,9 @@ public class Stalls {
     else if (reward == 11998) {
       Achievements.doProgress(player, AchievementData.STEAL_140_SCIMITARS);
       Achievements.doProgress(player, AchievementData.STEAL_5000_SCIMITARS);
+    if(player.dailyTask == 2 && !player.completedDailyTask) {
+        DailyTaskManager.doTaskProgress(player);
+        }
     }
   }
 
@@ -106,6 +110,9 @@ public class Stalls {
         player.getPacketSender().sendInterfaceRemoval();
         player.getSkillManager().addExperience(Skill.THIEVING, xp);
         player.getClickDelay().reset();
+        if(player.dailyTask == 2 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+        }
         int amount = 1;
         if(Skillcape_Data.THIEVING.isWearingCape(player) && Misc.inclusiveRandom(0, 10) == 0)
         {
@@ -215,6 +222,9 @@ public class Stalls {
           player.getInventory().add(220, amount);
           break;
       }
+    }
+    if(player.dailyTask == 2 && !player.completedDailyTask) {
+        DailyTaskManager.doTaskProgress(player);
     }
     player.getPacketSender().sendInterfaceRemoval();
     player.getSkillManager().addExperience(Skill.THIEVING, xp);

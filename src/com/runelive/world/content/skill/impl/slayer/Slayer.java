@@ -12,6 +12,7 @@ import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
@@ -118,6 +119,9 @@ public class Slayer {
             } else if (slayerTask.getTaskMaster() == SlayerMaster.SUMONA) {
                 Achievements.finishAchievement(player, AchievementData.COMPLETE_AN_ELITE_SLAYER_TASK);
             }
+            if(player.dailyTask == 12 || player.dailyTask == 17 || player.dailyTask == 27 && !player.completedDailyTask) {
+                DailyTaskManager.doTaskProgress(player);
+            }
             lastTask = slayerTask;
             slayerTask = SlayerTasks.NO_TASK;
             amountToSlay = 0;
@@ -129,6 +133,11 @@ public class Slayer {
         }
 
         PlayerPanel.refreshPanel(player);
+    }
+
+    public void giveReward(Player p, int amountToGive) {
+        player.getPointsHandler().setSlayerPoints(amountToGive, true);
+        player.getPacketSender().sendMessage("You received " + amountToGive + " Slayer points.");
     }
 
     @SuppressWarnings("incomplete-switch")

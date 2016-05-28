@@ -12,6 +12,7 @@ import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -322,6 +323,9 @@ public class Fletching {
             player.getInventory().add(g.Strung(), 1);
             player.getPacketSender().sendMessage("You attach the Bow string on to the bow.");
             player.getSkillManager().addExperience(Skill.FLETCHING, (int) g.getXP());
+            if(player.dailyTask == 3 && !player.completedDailyTask) {
+              DailyTaskManager.doTaskProgress(player);
+            }
             amountMade++;
             if (amountMade >= amount)
               stop();
@@ -354,6 +358,9 @@ public class Fletching {
           player.getInventory().add(arr.getOutcome(), 15);
           player.getSkillManager().addExperience(Skill.FLETCHING, (int) (arr.getXp()));
           Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
+          if(player.dailyTask == 4 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+          }
           if (arr == ArrowData.RUNE) {
             Achievements.doProgress(player, AchievementData.FLETCH_450_RUNE_ARROWS, 15);
             Achievements.doProgress(player, AchievementData.FLETCH_5000_RUNE_ARROWS, 15);
@@ -386,6 +393,9 @@ public class Fletching {
               player.getInventory().getSlot(bolt.getItem2()), true);
           player.getInventory().add(bolt.getOutcome(), 15);
           player.getSkillManager().addExperience(Skill.FLETCHING, (int) (bolt.getXp()));
+          if(player.dailyTask == 4 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+          }
           Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
           if (bolt == BoltData.RUNE) {
             Achievements.doProgress(player, AchievementData.FLETCH_450_RUNE_ARROWS, 15);
@@ -417,6 +427,9 @@ public class Fletching {
           player.getInventory().add(tip.getOutcome(), 15);
           player.getSkillManager().addExperience(Skill.FLETCHING, (int) (tip.getXp()));
           Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
+          if(player.dailyTask == 5 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+          }
         } else {
           player.getPacketSender()
               .sendMessage("You must have at least 15 of each supply to make bolts.");

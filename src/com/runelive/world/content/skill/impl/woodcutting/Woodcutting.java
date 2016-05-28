@@ -17,6 +17,7 @@ import com.runelive.world.content.skill.impl.firemaking.Logdata;
 import com.runelive.world.content.skill.impl.firemaking.Logdata.logData;
 import com.runelive.world.content.skill.impl.woodcutting.WoodcuttingData.Hatchet;
 import com.runelive.world.content.skill.impl.woodcutting.WoodcuttingData.Trees;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Woodcutting {
@@ -97,6 +98,9 @@ public class Woodcutting {
                         Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
                       }
                     }
+                  }
+                  if(player.dailyTask == 1 && !player.completedDailyTask) {
+                    DailyTaskManager.doTaskProgress(player);
                   }
                   if (t == Trees.OAK) {
                     Achievements.finishAchievement(player, AchievementData.CUT_AN_OAK_TREE);

@@ -9,6 +9,7 @@ import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Smelting {
@@ -61,6 +62,9 @@ public class Smelting {
         if (barId == 2363) {
           Achievements.doProgress(player, AchievementData.SMELT_25_RUNE_BARS);
           Achievements.doProgress(player, AchievementData.SMELT_1000_RUNE_BARS);
+        }
+        if(player.dailyTask == 7) {
+          DailyTaskManager.doTaskProgress(player);
         }
       } else if (SmithingData.ironOreSuccess(player)) {
         Achievements.finishAchievement(player, AchievementData.SMELT_AN_IRON_BAR);

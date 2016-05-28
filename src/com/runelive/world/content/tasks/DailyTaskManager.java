@@ -1,14 +1,18 @@
 package com.runelive.world.content.tasks;
 
+import com.runelive.model.Item;
+import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.entity.impl.player.Player;
 
+import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 /**
- * Created by Dave on 27/05/2016.
+ * Created by Vados on 27/05/2016.
  */
 
 public class DailyTaskManager {
@@ -19,8 +23,6 @@ public class DailyTaskManager {
             int month = cal.get(Calendar.MONTH);
             return (month * 100 + day);
         }
-
-        private static int taskCount = 2;
 
         private static String dailyTask(int i){
             switch(i){
@@ -42,7 +44,7 @@ public class DailyTaskManager {
                 case 6:
                     return "Successfully cook 100 Fish.";
                 case 7:
-                    return "Infuse 100 Summoning Pouches.";
+                    return "Smith 100 bars (any).";
                 case 8:
                     return "Make 100 Summoning Scrolls.";
                 case 9:
@@ -108,31 +110,185 @@ public class DailyTaskManager {
             return "Error code ##INVALID TASK SET## out of bounds exception caught "+i+".";
         }
 
-    public static void addCoinsToPouch(Player player) {
-        long rewardCoins = Misc.inclusiveRandom(1_250_000, 2_500_000);
-        player.setMoneyInPouch((player.getMoneyInPouch() + ((long) rewardCoins)));
-        player.getPacketSender().sendMessage("<col=ff0000>"+ Misc.formatAmount((long)rewardCoins)+"</col> coins have been added to your money pouch.");
+    public static void giveCombatReward(int task, Player p) {
+        p.completedDailyTask = true;
+        p.dailyTaskProgress = 0;
+        p.dailyTask = 0;
+        int ACHIEVEMENT_BOX = 21117;
+        switch (task) {
+            case 0: // Easy
+                p.getBank(p.getCurrentBankTab()).add(18778, 1);
+                p.addBossPoints(80);
+                p.getPacketSender().sendMessage("@dre@You have received @blu@80xBoss Points@dre@ & @blu@1xStarved Effigy. ");
+                break;
+            case 1: //Medium
+                p.getBank(p.getCurrentBankTab()).add(18778, 1);
+                p.addBossPoints(100);
+                p.getPacketSender().sendMessage("@dre@You have received @blu@100xBoss Points@dre@ & @blu@1xStarved Effigy. ");
+                break;
+            case 2:
+                p.getBank(p.getCurrentBankTab()).add(18778, 1);
+                p.getBank(p.getCurrentBankTab()).add(ACHIEVEMENT_BOX, 1);
+                p.addBossPoints(125);
+                p.getPacketSender().sendMessage("@dre@You have received @blu@125xBoss Points, 1xStarved Effigy @dre@& @blu@ 1xAchievement Box.");
+                break;
+            case 3:
+                p.getBank(p.getCurrentBankTab()).add(18778, 2);
+                p.getBank(p.getCurrentBankTab()).add(ACHIEVEMENT_BOX, 2);
+                p.addBossPoints(150);
+                p.getPacketSender().sendMessage("@dre@You have received @blu@150xBoss Points, 2xStarved Effigy @dre@& @blu@ 2xAchievement Box.");
+                break;
+        }
     }
 
+    public static void addCoinsToPouch(Player player) {
+        Locale locale = new Locale("en", "US");
+        NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
+        long rewardCoins = Misc.inclusiveRandom(1_000_000, 3_000_000);
+        player.setMoneyInPouch((player.getMoneyInPouch() + ((long) rewardCoins)));
+        player.getPacketSender().sendMessage("<col=ff0000>"+  currencyFormatter.format(rewardCoins)+"</col> coins have been added to your money pouch.");
+    }
+
+    public static int SKILL_EXP = 500_000;
+
     public static void handleTaskReward(Player p) {
-        if(p.dailyTask == 0 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+        if (p.dailyTask == 0 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
             p.completedDailyTask = true;
             p.dailyTaskProgress = 0;
             p.dailyTask = 0;
             addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.FISHING, SKILL_EXP);
         }
+        if (p.dailyTask == 1 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.WOODCUTTING, SKILL_EXP);
+        }
+        if (p.dailyTask == 2 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.THIEVING, SKILL_EXP);
+        }
+        if (p.dailyTask == 3 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.FLETCHING, SKILL_EXP / 3);
+            p.getSkillManager().addExperience(Skill.WOODCUTTING, SKILL_EXP / 3);
+            p.getSkillManager().addExperience(Skill.CRAFTING, SKILL_EXP / 3);
+        }
+        if (p.dailyTask == 4 && p.dailyTaskProgress >= 1000 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.FLETCHING, SKILL_EXP / 2);
+            p.getSkillManager().addExperience(Skill.SMITHING, SKILL_EXP / 2);
+        }
+        if (p.dailyTask == 5 && p.dailyTaskProgress >= 1000 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.FLETCHING, SKILL_EXP / 2);
+            p.getSkillManager().addExperience(Skill.CRAFTING, SKILL_EXP / 2);
+        }
+        if (p.dailyTask == 6 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.COOKING, SKILL_EXP);
+        }
+        if (p.dailyTask == 7 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.SUMMONING, SKILL_EXP);
+        }
+        if (p.dailyTask == 8 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.SUMMONING, SKILL_EXP / 2);
+        }
+        if (p.dailyTask == 9 && p.dailyTaskProgress >= 1 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.MINING, SKILL_EXP);
+        }
+        if (p.dailyTask == 10 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.HERBLORE, SKILL_EXP);
+        }
+        if (p.dailyTask == 11 && p.dailyTaskProgress >= 200 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            addCoinsToPouch(p);
+            p.getSkillManager().addExperience(Skill.MAGIC, SKILL_EXP);
+        }
+        if (p.dailyTask == 12 && p.dailyTaskProgress >= 3 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            p.getSlayer().giveReward(p, 50);
+            p.getSkillManager().addExperience(Skill.SLAYER, SKILL_EXP / 2);
+        }
+        if (p.dailyTask == 17 && p.dailyTaskProgress >= 5 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            p.getSlayer().giveReward(p, 100);
+            p.getSkillManager().addExperience(Skill.SLAYER, SKILL_EXP);
+        }
+        if (p.dailyTask == 27 && p.dailyTaskProgress >= 10 && !p.completedDailyTask) {
+            p.completedDailyTask = true;
+            p.dailyTaskProgress = 0;
+            p.dailyTask = 0;
+            p.getSlayer().giveReward(p, 150);
+            p.getSkillManager().addExperience(Skill.SLAYER, SKILL_EXP * 2);
+        }
+        if (p.dailyTask == 13 || p.dailyTask == 14 || p.dailyTask == 15 || p.dailyTask == 16 || p.dailyTask == 22 || p.dailyTask == 23 && p.dailyTaskProgress >= 5 && !p.completedDailyTask) {
+            giveCombatReward(0, p);
+        }
+        if (p.dailyTask == 26 && p.dailyTaskProgress >= 5 && !p.completedDailyTask) {
+            giveCombatReward(1, p);
+        }
+        if (p.dailyTask == 18 || p.dailyTask == 19 || p.dailyTask == 20 || p.dailyTask == 21 || p.dailyTask == 24 || p.dailyTask == 25 && p.dailyTaskProgress >= 10 && !p.completedDailyTask) {
+            giveCombatReward(2, p);
+        }
+        if (p.dailyTask == 28 || p.dailyTask == 29 || p.dailyTask == 30 || p.dailyTask == 31 || p.dailyTask == 32 || p.dailyTask == 33 && p.dailyTaskProgress >= 15 && !p.completedDailyTask) {
+            giveCombatReward(3, p);
+        }
+        p.getPacketSender().sendMessage("@blu@Congratulations! You have completed your Daily Task for the day.");
     }
 
     public static void checkTaskProgress(Player p) {
         if(p.dailyTask == 0 && p.dailyTaskProgress >= 100) {
             handleTaskReward(p);
         } else if(p.dailyTask == 0 && p.dailyTaskProgress <= 99) {
-            p.getPacketSender().sendMessage("You have caught "+p.dailyTaskProgress+" / 100 Fish.");
+            p.getPacketSender().sendMessage("@dre@You have caught @blu@"+p.dailyTaskProgress+"@dre@/@blu@100 @dre@Fish out of your Daily Task.");
         }
     }
 
         public static void doTaskProgress(Player p) {
-            if(!p.completedDailyTask) {
+        if(p.dailyTask == 4 || p.dailyTask == 5 && !p.completedDailyTask) {
+            p.dailyTaskProgress += 15;
+            checkTaskProgress(p);
+        } if(p.dailyTask != 4 || p.dailyTask != 5 && !p.completedDailyTask) {
                 p.dailyTaskProgress++;
                 checkTaskProgress(p);
             }
@@ -147,7 +303,7 @@ public class DailyTaskManager {
                 }
             } else {
                 p.dailyTaskDate = getTodayDate();
-                p.dailyTask = Misc.inclusiveRandom(0, 2);
+                p.dailyTask = Misc.inclusiveRandom(0, 33);
                 p.getPacketSender().sendMessage("Your task for today is: "+dailyTask(p.dailyTask));
             }
         }
