@@ -149,10 +149,8 @@ public class ButtonClickPacketListener implements PacketListener {
         player.getPacketSender().sendInterfaceRemoval();
         break;
       case -20152:
-    	  if(player.getTrading().inTrade()) {
-	    	  for (int j = 0; j < player.getInventory().getItems().length; j++) {
-	    		  player.getTrading().tradeItem(player.getInventory().get(j).getId(), player.getInventory().get(j).getAmount(), j);
-	    	  }
+    	  for (int j = 0; j < player.getInventory().getItems().length; j++) {
+    		  player.getTrading().tradeItem(player.getInventory().get(j).getId(), 1, j);
     	  }
     	  break;
       case 1036:
