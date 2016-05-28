@@ -511,6 +511,9 @@ public class PlayerLoading {
             player.setExperienceLocked(reader.get("xp-locked").getAsBoolean());
         }
         if (reader.has("show-ip")) {
+            player.setExperienceLocked(reader.get("show-ip").getAsBoolean());
+        }
+        if (reader.has("show-ip")) {
             player.setShowIpAddressOnLogin(reader.get("show-ip").getAsBoolean());
         }
         if (reader.has("veng-cast")) {
