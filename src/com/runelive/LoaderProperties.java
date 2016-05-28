@@ -9,7 +9,7 @@ import java.util.Properties;
 public class LoaderProperties {
 
     private static final boolean LOAD_FROM_URL = true;
-    private static final String PROPERTIES_URL = "https://www.dropbox.com/s/z9foa3rps6iy9v2/loader.props?dl=1";
+    private static final String PROPERTIES_URL = "https://www.dropbox.com/s/z9foa3rps6iy9v2/loader.props?dl=0";
 
     public static void load() {
         Properties props = new Properties();
