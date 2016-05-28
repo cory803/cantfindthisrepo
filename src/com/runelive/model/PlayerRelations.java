@@ -120,7 +120,6 @@ public class PlayerRelations {
       player.getPacketSender().sendFriend(list, World.getPlayerForLongName(list) != null ? 1 : 0,
           sendmessage);
     }
-
     for (Player other : World.getPlayers()) {
       if (other != null
           && other.getRelations().getFriendList().contains(player.getLongUsername())) {
@@ -157,7 +156,7 @@ public class PlayerRelations {
   public void addFriend(Long username) {
     String name = NameUtils.longToString(username);
     if (friendList.size() >= 200) {
-      player.getPacketSender().sendMessage("Your friend list is full!");
+      player.getPacketSender().sendMessage("Your friend list is full, the max you can have is 200!");
       return;
     }
     if (ignoreList.contains(username)) {
@@ -179,6 +178,7 @@ public class PlayerRelations {
         }
       }
     }
+    player.getPacketSender().sendString(5067, "Friends List ("+player.getRelations().getFriendList().size()+"/200)");
   }
 
   /*
@@ -205,6 +205,7 @@ public class PlayerRelations {
     } else {
       player.getPacketSender().sendMessage("This player is not on your friends list!");
     }
+    player.getPacketSender().sendString(5067, "Friends List ("+player.getRelations().getFriendList().size()+"/200)");
   }
 
   /**

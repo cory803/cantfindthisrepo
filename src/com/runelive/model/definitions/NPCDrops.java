@@ -258,6 +258,7 @@ public class NPCDrops {
       return;
     final boolean goGlobal = p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4;
     final boolean ringOfWealth = p.getEquipment().get(Equipment.RING_SLOT).getId() == 2572;
+    final boolean ringOfWealthi = p.getEquipment().get(Equipment.RING_SLOT).getId() == 21110;
     final Position npcPos = npc.getPosition().copy();
     boolean[] dropsReceived = new boolean[12];
 
@@ -284,7 +285,7 @@ public class NPCDrops {
       if (dropChance == DropChance.ALWAYS) {
         drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
       } else {
-        if (shouldDrop(dropsReceived, dropChance, ringOfWealth)) {
+        if (shouldDrop(dropsReceived, dropChance, ringOfWealth, ringOfWealthi)) {
           drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
           dropsReceived[dropChance.ordinal()] = true;
         }
@@ -298,6 +299,7 @@ public class NPCDrops {
       return;
     final boolean goGlobal = p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4;
     final boolean ringOfWealth = p.getEquipment().get(Equipment.RING_SLOT).getId() == 2572;
+    final boolean ringOfWealthi = p.getEquipment().get(Equipment.RING_SLOT).getId() == 21110;
     final Position npcPos = new Position(npc.getPosition().getX(), npc.getPosition().getY(), 0);
     boolean[] dropsReceived = new boolean[12];
 
@@ -319,7 +321,7 @@ public class NPCDrops {
       if (dropChance == DropChance.ALWAYS) {
         drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
       } else {
-        if (shouldDrop(dropsReceived, dropChance, ringOfWealth)) {
+        if (shouldDrop(dropsReceived, dropChance, ringOfWealth, ringOfWealthi)) {
           drop(p, drops.getDropList()[i].getItem(), npc, npcPos, goGlobal);
           dropsReceived[dropChance.ordinal()] = true;
         }
@@ -327,10 +329,14 @@ public class NPCDrops {
     }
   }
 
-  public static boolean shouldDrop(boolean[] b, DropChance chance, boolean ringOfWealth) {
+  public static boolean shouldDrop(boolean[] b, DropChance chance, boolean ringOfWealth, boolean ringOfWealthi) {
     int random = chance.getRandom();
     if (ringOfWealth && random >= 60) {
-      random -= (random / 5);
+      random -= (random / 10);
+      random -= (random / 20);
+    } else if(ringOfWealth && random >= 60) {
+       random -= (random / 5);
+       random -= (random / 10);
     }
     return !b[chance.ordinal()] && Misc.getRandom(random) == 1;
   }

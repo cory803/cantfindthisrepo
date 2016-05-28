@@ -49,7 +49,7 @@ public class Shop extends ItemContainer {
     }
   }
 
-  private final int id;
+  public final int id;
 
   private String name;
 
@@ -110,7 +110,11 @@ public class Shop extends ItemContainer {
       return this;
     }
     setPlayer(player);
-   	player.getPacketSender().sendString(41900, "");
+    if(id == 44) {
+		player.getPacketSender().sendString(41900, "Buy experience");
+    } else {
+    	player.getPacketSender().sendString(41900, "");
+    }
     getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
     getPlayer().setShop(ShopManager.getShops().get(id)).setInterfaceId(INTERFACE_ID)
         .setShopping(true);
@@ -1343,6 +1347,8 @@ public class Shop extends ItemContainer {
             return new Object[] {200, "Slayer points"};
           case 2572:
             return new Object[] {500, "Slayer points"};
+          case 21110:
+        	  return new Object[] {1250, "Slayer points"};
         }
       } else if (shop == IRON_SLAYER_STORE) {
         switch (item) {

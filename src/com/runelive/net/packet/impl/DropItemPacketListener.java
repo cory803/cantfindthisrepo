@@ -71,11 +71,10 @@ public class DropItemPacketListener implements PacketListener {
     }
 	*/
     if (item != null && item.getId() != -1 && item.getAmount() >= 1) {
-      if (item.tradeable() && !ItemBinding.isBoundItem(item.getId())
-          && !player.getGameMode().equals(GameMode.IRONMAN)
-          && !player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
+      if (item.tradeable() && !ItemBinding.isBoundItem(item.getId())) {
         player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
         if (item.getId() == 4045) {
+        	
           if (player.isJailed()) {
             player.getPacketSender().sendMessage("You cannot do this while in Jail.");
             player.getMovementQueue().reset();
@@ -87,19 +86,6 @@ public class DropItemPacketListener implements PacketListener {
           player.performGraphic(new Graphic(1750));
           player.getPacketSender().sendMessage("The potion explodes in your face as you drop it!");
         } else {
-          if (player.getLocation() != Location.DUNGEONEERING && !player.isCanWearDungItems()) {
-            if (item.getDefinition().getName().contains("Primal")) {
-              player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
-              player.getPacketSender()
-                  .sendMessage("You cannot have primal outside of dungeoneering...");
-              return;
-            }
-          }
-          if (Dungeoneering.doingDungeoneering(player)
-              && player.getLocation() != Location.DUNGEONEERING) {
-            player.getPacketSender().sendMessage("You can't drop this item outside of a dungeon!");
-            return;
-          }
           if (player.getLocation() == Location.WILDERNESS
               && ItemDefinition.forId(item.getId()).getValue() >= 100000) {
             GroundItemManager.spawnGroundItemGlobally(player, new GroundItem(item,

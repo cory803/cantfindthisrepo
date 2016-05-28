@@ -670,6 +670,10 @@ public class Player extends Character {
 	private long last_serial_address;
 	private String last_mac_address;
 	private String last_computer_address;
+	public int dailyTaskDate = 0;
+	public int dailyTask = 0;
+	public int dailyTaskProgress = 0;
+	public boolean completedDailyTask = false;
 
 	// Zulrah
 	public boolean zulrah_rotating = false;
@@ -1651,6 +1655,14 @@ public class Player extends Character {
 
 	public void setExperienceLocked(boolean experienceLocked) {
 		this.experienceLocked = experienceLocked;
+	}
+
+	public boolean hasCompletedDailyTask() {
+		return completedDailyTask;
+	}
+
+	public void setTaskCompletion(boolean showIpAddressOnLogin) {
+		this.completedDailyTask = completedDailyTask;
 	}
 
 	public boolean showIpAddress() {

@@ -103,6 +103,9 @@ public class CombatStrategies {
     KalphiteQueen kalphiteQueenStrategy = new KalphiteQueen();
     STRATEGIES.put(1158, kalphiteQueenStrategy);
     STRATEGIES.put(1160, kalphiteQueenStrategy);
+    
+    Shrek shrekStrat = new Shrek();
+    STRATEGIES.put(5872, shrekStrat);
 
     Revenant revenantStrategy = new Revenant();
     STRATEGIES.put(13465, revenantStrategy);

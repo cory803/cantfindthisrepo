@@ -26,10 +26,6 @@ public class RegularDonators {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
 		}
-		if(!player.getYellTimer().elapsed(35000)) {
-			player.getPacketSender().sendMessage("Do not flood the yell channel. You must wait another "+Misc.getTimeLeft(0, 35, TimeUnit.SECONDS)+" seconds before yelling again.");
-			return;
-		}
 		if(wholeCommand.toLowerCase().startsWith("yell")) {
 			if(player.getRights() != PlayerRights.PLAYER) {
 				return;
@@ -48,6 +44,10 @@ public class RegularDonators {
 			}
 			if(!GameSettings.YELL_STATUS) {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
+				return;
+			}
+			if(!player.getYellTimer().elapsed(35000)) {
+				player.getPacketSender().sendMessage("Do not flood the yell channel. You must wait another "+Misc.getTimeLeft(0, 35, TimeUnit.SECONDS)+" seconds before yelling again.");
 				return;
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
