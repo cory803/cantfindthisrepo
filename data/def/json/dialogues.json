@@ -2295,6 +2295,14 @@
     },
 	{
         "id": 230,
+<<<<<<< HEAD
+        "type": "OPTION",
+        "lines": 2,
+        "line1": "Delete all my friends",
+		"line2": "Cancel",
+        "next": -1,
+        "npcId": -1
+=======
         "type": "NPC_STATEMENT",
         "anim": "MANIC_FACE",
         "lines": 1,
@@ -2405,5 +2413,6 @@
         "line1": "Bring me back that Ogre's remains!",
         "next": -1,
         "npcId": 241
+>>>>>>> f4ebaf65cc127fd7eb0a4ade0e4499ac91a5d934
     }
 ]
