@@ -120,23 +120,27 @@ public class DailyTaskManager {
                 p.getBank(p.getCurrentBankTab()).add(18778, 1);
                 p.addBossPoints(80);
                 p.getPacketSender().sendMessage("@dre@You have received @blu@80xBoss Points@dre@ & @blu@1xStarved Effigy. ");
+                addCoinsToPouch(p);
                 break;
             case 1: //Medium
                 p.getBank(p.getCurrentBankTab()).add(18778, 1);
                 p.addBossPoints(100);
                 p.getPacketSender().sendMessage("@dre@You have received @blu@100xBoss Points@dre@ & @blu@1xStarved Effigy. ");
+                addCoinsToPouch(p);
                 break;
             case 2:
                 p.getBank(p.getCurrentBankTab()).add(18778, 1);
                 p.getBank(p.getCurrentBankTab()).add(ACHIEVEMENT_BOX, 1);
                 p.addBossPoints(125);
                 p.getPacketSender().sendMessage("@dre@You have received @blu@125xBoss Points, 1xStarved Effigy @dre@& @blu@ 1xAchievement Box.");
+                addCoinsToPouch(p);
                 break;
             case 3:
                 p.getBank(p.getCurrentBankTab()).add(18778, 2);
                 p.getBank(p.getCurrentBankTab()).add(ACHIEVEMENT_BOX, 2);
                 p.addBossPoints(150);
                 p.getPacketSender().sendMessage("@dre@You have received @blu@150xBoss Points, 2xStarved Effigy @dre@& @blu@ 2xAchievement Box.");
+                addCoinsToPouch(p);
                 break;
         }
     }
@@ -277,13 +281,97 @@ public class DailyTaskManager {
     }
 
     public static void checkTaskProgress(Player p) {
-        if(p.dailyTask == 0 && p.dailyTaskProgress >= 100) {
+        if (p.dailyTask == 0 && p.dailyTaskProgress >= 100) {
             handleTaskReward(p);
-        } else if(p.dailyTask == 0 && p.dailyTaskProgress <= 99) {
-            p.getPacketSender().sendMessage("@dre@You have caught @blu@"+p.dailyTaskProgress+"@dre@/@blu@100 @dre@Fish out of your Daily Task.");
+        } else if (p.dailyTask == 0 && p.dailyTaskProgress <= 99) {
+            p.getPacketSender().sendMessage("@dre@You have caught @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@Fish out of your Daily Task.");
+        }
+        if (p.dailyTask == 1 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 1 && p.dailyTaskProgress <= 99) {
+            p.getPacketSender().sendMessage("@dre@You have cut @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@Logs out of your Daily Task.");
+        }
+        if (p.dailyTask == 2 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 2 && p.dailyTaskProgress <= 99) {
+            p.getPacketSender().sendMessage("@dre@You have stolen from @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@Stalls out of your Daily Task.");
+        }
+        if (p.dailyTask == 3 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 3 && p.dailyTaskProgress <= 99) {
+            p.getPacketSender().sendMessage("@dre@You have fletched @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@Long/Short bows out of your Daily Task.");
+        }
+        if (p.dailyTask == 4 || p.dailyTask == 5 && p.dailyTaskProgress >= 1000) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 4 || p.dailyTask == 5 && p.dailyTaskProgress <= 999) {
+            p.getPacketSender().sendMessage("@dre@You have made @blu@" + p.dailyTaskProgress + "@dre@/@blu@1,000 @dre@Ammo out of your Daily Task.");
+        }
+        if (p.dailyTask == 6 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 6 && p.dailyTaskProgress <= 100) {
+            p.getPacketSender().sendMessage("@dre@You have cooked @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@out of your Daily Task.");
+        }
+        if (p.dailyTask == 7 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 7 && p.dailyTaskProgress <= 100) {
+            p.getPacketSender().sendMessage("@dre@You have infused @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@pouches out of your Daily Task.");
+        }
+        if (p.dailyTask == 8 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 8 && p.dailyTaskProgress <= 100) {
+            p.getPacketSender().sendMessage("@dre@You have smelted @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@bars out of your Daily Task.");
+        }
+        if (p.dailyTask == 9 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 9 && p.dailyTaskProgress <= 100) {
+            p.getPacketSender().sendMessage("@dre@You have mined @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@rocks out of your Daily Task.");
+        }
+        if (p.dailyTask == 10 && p.dailyTaskProgress >= 100) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 10 && p.dailyTaskProgress <= 100) {
+            p.getPacketSender().sendMessage("@dre@You have mixed @blu@" + p.dailyTaskProgress + "@dre@/@blu@100 @dre@potions out of your Daily Task.");
+        }
+        if (p.dailyTask == 11 && p.dailyTaskProgress >= 200) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 11 && p.dailyTaskProgress <= 200) {
+            p.getPacketSender().sendMessage("@dre@You have casted alchemyt @blu@" + p.dailyTaskProgress + "@dre@/@blu@200 @dre@times out of your Daily Task.");
+        }
+        if (p.dailyTask == 12 && p.dailyTaskProgress >= 3) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 12 && p.dailyTaskProgress <= 3) {
+            p.getPacketSender().sendMessage("@dre@You have completed @blu@" + p.dailyTaskProgress + "@dre@/@blu@3 @dre@Slayer Tasks out of your Daily Task.");
+        }
+        if (p.dailyTask == 13 || p.dailyTask == 14 || p.dailyTask == 15 || p.dailyTask == 16 || p.dailyTask == 22 || p.dailyTask == 23 && p.dailyTaskProgress >= 5) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 13 || p.dailyTask == 14 || p.dailyTask == 15 || p.dailyTask == 16 || p.dailyTask == 22 || p.dailyTask == 23 && p.dailyTaskProgress <= 5) {
+            p.getPacketSender().sendMessage("@dre@You have killed @blu@" + p.dailyTaskProgress + "@dre@/@blu@5 @dre@of your Daily Boss Task.");
+        }
+        if (p.dailyTask == 17 && p.dailyTaskProgress >= 5) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 17 && p.dailyTaskProgress <= 5) {
+            p.getPacketSender().sendMessage("@dre@You have completed @blu@" + p.dailyTaskProgress + "@dre@/@blu@5 @dre@Slayer Tasks out of your Daily Task.");
+        }
+        if (p.dailyTask == 18 || p.dailyTask == 19 || p.dailyTask == 20 || p.dailyTask == 21 || p.dailyTask == 24 || p.dailyTask == 25 && p.dailyTaskProgress >= 10) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 18 || p.dailyTask == 19 || p.dailyTask == 20 || p.dailyTask == 21 || p.dailyTask == 24 || p.dailyTask == 25 && p.dailyTaskProgress <= 10) {
+            p.getPacketSender().sendMessage("@dre@You have killed @blu@" + p.dailyTaskProgress + "@dre@/@blu@10 @dre@of your Daily Boss Task.");
+        }
+        if (p.dailyTask == 26 && p.dailyTaskProgress >= 5) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 26 && p.dailyTaskProgress <= 5) {
+            p.getPacketSender().sendMessage("@dre@You have killed @blu@" + p.dailyTaskProgress + "@dre@/@blu@5 @dre@Nex's of your Daily Boss Task.");
+        }
+        if (p.dailyTask == 27 && p.dailyTaskProgress >= 10) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 27 && p.dailyTaskProgress <= 10) {
+            p.getPacketSender().sendMessage("@dre@You have completed @blu@" + p.dailyTaskProgress + "@dre@/@blu@10 @dre@ Slayer Tasks of your Daily Task.");
+        }
+        if (p.dailyTask == 28 || p.dailyTask == 29 || p.dailyTask == 30 || p.dailyTask == 31 || p.dailyTask == 32 || p.dailyTask == 33 && p.dailyTaskProgress >= 15) {
+            handleTaskReward(p);
+        } else if (p.dailyTask == 28 || p.dailyTask == 29 || p.dailyTask == 30 || p.dailyTask == 31 || p.dailyTask == 32 || p.dailyTask == 33 && p.dailyTaskProgress <= 15) {
+            p.getPacketSender().sendMessage("@dre@You have killed @blu@" + p.dailyTaskProgress + "@dre@/@blu@15 @dre@of your Daily Boss Task.");
         }
     }
-
         public static void doTaskProgress(Player p) {
         if(p.dailyTask == 4 || p.dailyTask == 5 && !p.completedDailyTask) {
             p.dailyTaskProgress += 15;
