@@ -73,7 +73,14 @@ public class PosItemSearch extends Input {
           "Found: " + item_name + " for " + currencyFormatter.format(p.getPrice()) + " GP");
       index++;
     }
-
+    
+    for (start_caption = start_caption; start_caption < 41834; start_caption = start_caption) {
+    	start_caption += 4;
+    	start_owner_name += 4;
+        player.getPacketSender().sendString(start_caption, "");
+        player.getPacketSender().sendString(start_owner_name, "");
+    }
+    
   }
 
   public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {

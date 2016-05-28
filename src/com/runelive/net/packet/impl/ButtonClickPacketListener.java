@@ -2,11 +2,14 @@ package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Locations.Location;
+import com.runelive.model.GameMode;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Bank.BankSearchAttributes;
 import com.runelive.model.definitions.WeaponInterfaces.WeaponInterface;
+import com.runelive.model.input.impl.BuyDungExperience;
+import com.runelive.model.input.impl.DonateToWell;
 import com.runelive.model.input.impl.EnterClanChatToJoin;
 import com.runelive.model.input.impl.EnterSyntaxToBankSearchFor;
 import com.runelive.model.input.impl.InviteToDungeoneering;
@@ -97,11 +100,15 @@ public class ButtonClickPacketListener implements PacketListener {
     if (Enchanting.enchantButtons(player, id)) {
       return;
     }
-
-    PosDetails pd = PosItemSearch.forId(id, player);
-    if (pd != null) {
-    	player.getPacketSender().sendString(41900, "Back to Search Selection");
-      PlayerOwnedShops.openShop(pd.getOwner(), player);
+ 
+    if(id >= -24102 && id <= -23706) {
+	    PosDetails pd = PosItemSearch.forId(id, player);
+	    if (pd != null) {
+	    	player.getPacketSender().sendString(41900, "Back to Search Selection");
+	      PlayerOwnedShops.openShop(pd.getOwner(), player);
+	    } else {
+	    	player.getPacketSender().sendMessage("This result didn't return a offer!");
+	    }
     }
 
     switch (id) {
@@ -116,6 +123,10 @@ public class ButtonClickPacketListener implements PacketListener {
         player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
         PlayerPanel.refreshPanel(player);
         break;
+      case 10882:
+          DialogueManager.start(player, 230);
+          player.setDialogueActionId(230);
+          break;
       case -10423:
         player.setTourneyToggle(!player.tourney_toggle);
         PlayerPanel.refreshPanel(player);
@@ -150,7 +161,7 @@ public class ButtonClickPacketListener implements PacketListener {
         break;
       case -20152:
     	  for (int j = 0; j < player.getInventory().getItems().length; j++) {
-    		  player.getTrading().tradeItem(player.getInventory().get(j).getId(), 1, j);
+    		  player.getTrading().tradeItem(player.getInventory().get(j).getId(), player.getInventory().get(j).getAmount(), j);
     	  }
     	  break;
       case 1036:
@@ -316,7 +327,16 @@ public class ButtonClickPacketListener implements PacketListener {
         ClawQuest.openQuestLog(player);
         break;
       case -23636:
-    	  PlayerOwnedShops.openItemSearch(player, false);
+    	  if(player.getShop() != null && player.getShop().id == 44 && player.isShopping()) {
+    		  player.setInputHandling(new BuyDungExperience());
+			  player.getPacketSender().sendEnterAmountPrompt("How much experience would you like to buy? 1 token = 3 exp");
+    	  } else {
+    		  if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+  				player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+  				return;
+  			}
+  			PlayerOwnedShops.openItemSearch(player, false);
+    	  }
     	  break;
       case -10326:
         FarmingQuest.openQuestLog(player);

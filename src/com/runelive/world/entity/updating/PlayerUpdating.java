@@ -527,6 +527,7 @@ public class PlayerUpdating {
     builder.putShort(target.getPrimaryHit().getAbsorb(), ValueType.A);
     builder.putShort(target.getConstitution(), ValueType.A);
     builder.putShort(target.getSkillManager().getMaxLevel(Skill.CONSTITUTION), ValueType.A);
+    System.out.println(""+target.getConstitution());
   }
 
   /**

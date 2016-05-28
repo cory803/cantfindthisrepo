@@ -1,7 +1,8 @@
 package com.runelive.world.content.pos;
  
 import java.io.*;
- 
+
+import com.runelive.model.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
@@ -21,6 +22,7 @@ public class PlayerOwnedShops {
     public static ArrayList<PosOffers> SHOPS_ARRAYLIST = new ArrayList<PosOffers>();
     public static ArrayList<String> SHOPS_TO_SEARCH = new ArrayList<String>();
  
+    
     public static void init() {
         try {
             // SHOPS[0] = new PosOffers("Jonny", "Jonny's Shop", 2, 0, new PosOffer[] {new PosOffer(4151,
@@ -141,10 +143,18 @@ public class PlayerOwnedShops {
  
                 break;
             case -24114: // Search by Name
+				if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+					return false;
+				}
                 player.setInputHandling(new PosSearchShop());
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 return true;
             case -24113: // Search by Item
+				if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+					return false;
+				}
                 player.setInputHandling(new PosItemSearch());
                 player.getPacketSender()
                         .sendEnterInputPrompt("Enter the name of the item you wish to buy:");
@@ -188,6 +198,10 @@ public class PlayerOwnedShops {
     }
  
     public static void openShop(String username, Player player) {
+		if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+			return;
+		}
         int[] stock = new int[40];
         int[] stockAmount = new int[40];
         for (int i = 0; i < stock.length; i++) {
@@ -264,12 +278,7 @@ public class PlayerOwnedShops {
     public static void openItemSearch(Player player, boolean wipe) {
     	if(wipe) {
 	        PosItemSearch.reset(player);
-	        for (int caption_index = 41829; caption_index > 41429; caption_index -= 4) {
-	            player.getPacketSender().sendString(caption_index, "");
-	        }
-	        for (int owner_name_index = 41828; owner_name_index > 41428; owner_name_index -= 4) {
-	            player.getPacketSender().sendString(owner_name_index, "");
-	        }
+	        player.getPacketSender().sendString(1, "[WIPEPOS]");
     	}
         player.getPacketSender().sendInterface(41409);
         displayFeaturedShops(player);

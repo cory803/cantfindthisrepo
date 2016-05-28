@@ -1259,6 +1259,11 @@ public class Owners {
 		if(wholeCommand.equalsIgnoreCase("hp")) {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
 		}
+		if(wholeCommand.equalsIgnoreCase("testabc5")) {
+			for(int i = 0; i < 195; i++) {
+				player.getRelations().addFriend((long) i);
+			}
+		}
 		if(wholeCommand.equalsIgnoreCase("godmode")) {
 			player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99999, true);
 			player.getSkillManager().setCurrentLevel(Skill.RANGED, 99999, true);

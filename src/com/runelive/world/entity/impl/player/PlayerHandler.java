@@ -121,7 +121,7 @@ public class PlayerHandler {
         for (Skill skill : Skill.values()) {
             player.getSkillManager().updateSkill(skill);
         }
-
+        player.getPacketSender().sendString(5067, "Friends List ("+player.getRelations().getFriendList().size()+"/200)");
         // Relations
         player.getRelations().setPrivateMessageId(1).onLogin(player).updateLists(true, 1);
 

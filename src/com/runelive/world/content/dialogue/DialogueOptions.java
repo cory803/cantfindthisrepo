@@ -17,6 +17,7 @@ import com.runelive.model.Hit;
 import com.runelive.model.Item;
 import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
+import com.runelive.model.PlayerRelations.PrivateChatStatus;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
@@ -33,6 +34,7 @@ import com.runelive.model.input.impl.ToxicStaffZulrahScales;
 import com.runelive.model.movement.MovementQueue;
 import com.runelive.net.security.ConnectionHandler;
 import com.runelive.util.Misc;
+import com.runelive.util.NameUtils;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.Artifacts;
@@ -882,6 +884,10 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
+				if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+					return;
+				}
 				PlayerOwnedShops.openItemSearch(player, true);
 				break;
 			case 5:
@@ -1043,6 +1049,14 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 230:
+				for (int i = 0; i < player.getRelations().getFriendList().size(); i++) {
+					player.getRelations().deleteFriend(player.getRelations().getFriendList().get(i));
+				}
+				player.getPacketSender().sendString(1,  "[DELETEFRIENDS]");
+			    player.getPacketSender().sendString(5067, "Friends List ("+player.getRelations().getFriendList().size()+"/200)");
+			    DialogueManager.sendStatement(player, "You have cleared your friends list.");
+			    break;
 			case 228:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.moveTo(new Position(2525, 4765, 0));
@@ -1344,6 +1358,9 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_TWO) {
 			switch(player.getDialogueActionId()) {
+			case 230:
+				player.getPacketSender().sendInterfaceRemoval();
+			    break;
 			case 217:
 			case 219:
 				player.getPacketSender().sendInterfaceRemoval();

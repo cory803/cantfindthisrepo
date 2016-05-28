@@ -865,7 +865,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
-                PlayerOwnedShops.openItemSearch(player, true);
+				if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+					return;
+				}
+				PlayerOwnedShops.openItemSearch(player, true);
                 break;
               case 3101:
                 DialogueManager.start(player, 95);
@@ -983,6 +987,10 @@ public class NPCOptionPacketListener implements PacketListener {
               case 2127:
 				if(!GameSettings.POS_ENABLED) {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
+					return;
+				}
+				if(player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 					return;
 				}
 				player.getPacketSender().sendString(41900, "");
