@@ -284,7 +284,7 @@ public class MinigameAttributes {
     
     private int doorKicks = 0;
     
-	public int getDoorKicks() {
+    public int getDoorKicks() {
 		return doorKicks;
 	}
 
