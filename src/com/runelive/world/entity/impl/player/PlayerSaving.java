@@ -229,6 +229,10 @@ public class PlayerSaving {
         object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
         object.add("position", builder.toJsonTree(player.getPosition()));
         object.addProperty("loyalty-rank", new Integer(player.getLoyaltyRank()));
+        object.addProperty("daily-task-date", new Integer(player.dailyTaskDate)); 
+        object.addProperty("daily-task", new Integer(player.dailyTask));
+        object.addProperty("daily-task-progress", new Integer(player.dailyTaskProgress));
+        object.addProperty("completed-daily-task", new Boolean(player.completedDailyTask));
         object.addProperty("online-status", player.getRelations().getStatus().name());
         object.addProperty("jailed-status", new Boolean(player.isJailed()));
         object.addProperty("xp-rate", new Boolean(player.getXpRate()));

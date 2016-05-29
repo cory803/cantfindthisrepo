@@ -338,7 +338,23 @@ public class PlayerLoading {
         if (reader.has("loyalty-rank")) {
             player.setLoyaltyRank(reader.get("loyalty-rank").getAsInt());
         }
+        
+        if (reader.has("daily-task-date")) {
+            player.dailyTaskDate = reader.get("daily-task-date").getAsInt();
+        }
 
+        if (reader.has("daily-task")) {
+            player.dailyTask = reader.get("daily-task").getAsInt();
+        }
+        
+        if (reader.has("daily-task-progress")) {
+            player.dailyTaskProgress = reader.get("daily-task-progress").getAsInt();
+        }   
+        
+        if (reader.has("completed-daily-task")) {
+            player.completedDailyTask = reader.get("completed-daily-task").getAsBoolean();
+        }
+        
         if (reader.has("online-status")) {
             player.getRelations()
                     .setStatus(PrivateChatStatus.valueOf(reader.get("online-status").getAsString()), false);

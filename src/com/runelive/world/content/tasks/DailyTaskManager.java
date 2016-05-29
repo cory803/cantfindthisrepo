@@ -351,7 +351,7 @@ public class DailyTaskManager {
         } else if (p.dailyTask == 17 && p.dailyTaskProgress <= 5) {
             p.getPacketSender().sendMessage("@dre@You have completed @blu@" + p.dailyTaskProgress + "@dre@/@blu@5 @dre@Slayer Tasks out of your Daily Task.");
         }
-        if (p.dailyTask == 18 || p.dailyTask == 19 || p.dailyTask == 20 || p.dailyTask == 21 || p.dailyTask == 24 || p.dailyTask == 25 && p.dailyTaskProgress >= 10) {
+        if (p.dailyTask == 18 || p.dailyTask == 19 || p.dailyTask == 21 || p.dailyTask == 24 || p.dailyTask == 25 && p.dailyTaskProgress >= 10) {
             handleTaskReward(p);
         } else if (p.dailyTask == 18 || p.dailyTask == 19 || p.dailyTask == 20 || p.dailyTask == 21 || p.dailyTask == 24 || p.dailyTask == 25 && p.dailyTaskProgress <= 10) {
             p.getPacketSender().sendMessage("@dre@You have killed @blu@" + p.dailyTaskProgress + "@dre@/@blu@10 @dre@of your Daily Boss Task.");
