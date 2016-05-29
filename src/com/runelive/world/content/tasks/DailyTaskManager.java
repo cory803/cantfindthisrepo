@@ -373,7 +373,10 @@ public class DailyTaskManager {
         }
     }
         public static void doTaskProgress(Player p) {
-        if(p.dailyTask != 4 || p.dailyTask != 5 && !p.completedDailyTask) {
+        if(p.dailyTask == 4 || p.dailyTask == 5 && !p.completedDailyTask) {
+            p.dailyTaskProgress += 15;
+            checkTaskProgress(p);
+        } if(p.dailyTask != 4 || p.dailyTask != 5 && !p.completedDailyTask) {
                 p.dailyTaskProgress++;
                 checkTaskProgress(p);
             }
