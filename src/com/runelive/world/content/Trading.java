@@ -212,18 +212,6 @@ public class Trading {
     Item itemToTrade = player.getInventory().getItems()[slot];
     if (itemToTrade.getId() != itemId)
       return;
-    if (player.getLocation() != Location.DUNGEONEERING) {
-      if (itemToTrade.getDefinition().getName().contains("Primal")) {
-    	if(player.isCanWearDungItems()) {
-    		player.getPacketSender().sendMessage("You cannot put primal items in a trade... Only you can wear these.");
-    		return;
-    	}
-        player.getInventory().setItem(slot, new Item(-1, 0)).refreshItems();
-        player.getPacketSender().sendMessage("You cannot have primal outside of dungeoneering...");
-        declineTrade(true);
-        return;
-      }
-    }
     if (player.getInventory().getAmount(itemId) < amount) {
       amount = player.getInventory().getAmount(itemId);
       if (amount == 0 || player.getInventory().getAmount(itemId) < amount) {

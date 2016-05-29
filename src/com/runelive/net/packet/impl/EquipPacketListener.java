@@ -81,14 +81,6 @@ public class EquipPacketListener implements PacketListener {
             return;
           }
         }
-        if (player.getLocation() != Location.DUNGEONEERING && !player.isCanWearDungItems()) {
-          if (item.getDefinition().getName().contains("Primal")) {
-            player.getInventory().setItem(slot, new Item(-1, 0)).refreshItems();
-            player.getPacketSender()
-                .sendMessage("You cannot have primal outside of dungeoneering.");
-            return;
-          }
-        }
         if (item.getId() == 21050) {
           if (player.getSkillManager().getExperience(Skill.ATTACK) < 500000000) {
             player.getPacketSender().sendMessage(
