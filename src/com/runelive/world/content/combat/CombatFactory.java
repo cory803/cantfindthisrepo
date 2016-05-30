@@ -1457,7 +1457,11 @@ public final class CombatFactory {
                     if (t2.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) <= t2.getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .1) {
                         if (!Emotes.Skillcape_Data.DEFENCE.isWearingCape(t2))
                             t2.getEquipment().delete(t2.getEquipment().getItems()[Equipment.RING_SLOT]);
-                        TeleportHandler.teleportPlayer(t2, GameSettings.DEFAULT_POSITION.copy(), TeleportType.RING_TELE);
+                        if(t2.homeLocation == 0) {
+                            TeleportHandler.teleportPlayer(t2, GameSettings.DEFAULT_POSITION_VARROCK.copy(), TeleportType.RING_TELE);
+                        } else {
+                            TeleportHandler.teleportPlayer(t2, GameSettings.DEFAULT_POSITION_EDGEVILLE.copy(), TeleportType.RING_TELE);
+                        }
                         t2.getPacketSender().sendMessage("Your " + (Emotes.Skillcape_Data.DEFENCE.isWearingCape(t2) ? "Defence skillcape" : "Ring of Life") + " tried to teleport you away, but was destroyed in the process.");
                     }
                 }

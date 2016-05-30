@@ -610,16 +610,20 @@ public class Developers {
 				}
 			}
 		}
-		if (command[0].equalsIgnoreCase("movehome")) {
+		if(command[0].equalsIgnoreCase("movehome")) {
 			String player2 = command[1];
 			player2 = Misc.formatText(player2.replaceAll("_", " "));
-			if (command.length >= 3 && command[2] != null)
-				player2 += " " + Misc.formatText(command[2].replaceAll("_", " "));
+			if(command.length >= 3 && command[2] != null)
+				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
 			Player playerToMove = World.getPlayerByName(player2);
-			if (playerToMove != null) {
-				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
-				playerToMove.getPacketSender().sendMessage("You've been teleported home by " + player.getUsername() + ".");
-				player.getPacketSender().sendMessage("Sucessfully moved " + playerToMove.getUsername() + " to home.");
+			if(playerToMove != null) {
+				if(playerToMove.homeLocation == 0) {
+					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
+				} else {
+					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
+				}
+				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
+				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
 			}
 		}
 		if (command[0].equalsIgnoreCase("toggleinvis")) {

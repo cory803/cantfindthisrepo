@@ -96,7 +96,7 @@ import com.runelive.world.content.skill.impl.construction.ConstructionData.House
 public class Player extends Character {
 
 	public Player(PlayerSession playerIO) {
-		super(GameSettings.DEFAULT_POSITION.copy());
+		super(GameSettings.DEFAULT_POSITION_VARROCK.copy());
 		this.session = playerIO;
 	}
 
@@ -673,6 +673,7 @@ public class Player extends Character {
 	public int dailyTaskDate = 0;
 	public int dailyTask = 0;
 	public int dailyTaskProgress = 0;
+	public int homeLocation = 0;
 	public boolean completedDailyTask = false;
 
 	// Zulrah
@@ -2416,7 +2417,6 @@ public class Player extends Character {
 	public Slayer getSlayer() {
 		return slayer;
 	}
-
 	public Summoning getSummoning() {
 		return summoning;
 	}
@@ -2589,8 +2589,16 @@ public class Player extends Character {
 		return this.recoilCharges;
 	}
 
+	public int getHomeLocation() {
+		return this.homeLocation;
+	}
+
 	public int setRecoilCharges(int recoilCharges) {
 		return this.recoilCharges = recoilCharges;
+	}
+
+	public int setHomeLocation(int homeLocation) {
+		return this.homeLocation = homeLocation;
 	}
 
 	public boolean voteMessageSent() {

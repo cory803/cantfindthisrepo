@@ -611,10 +611,14 @@ public class CommunityManagers {
 				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
 			Player playerToMove = World.getPlayerByName(player2);
 			if(playerToMove != null) {
-				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
+				if(playerToMove.homeLocation == 0) {
+					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
+				} else {
+					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
+				}
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
 				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
-			} 
+			}
 		}
 		if(command[0].equalsIgnoreCase("toggleinvis")) {
 			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);

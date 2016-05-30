@@ -1492,6 +1492,14 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+				case 250:
+					if(player.homeLocation != 0) {
+						player.homeLocation = 0;//Varrock
+						DialogueManager.sendStatement(player, "Your home & death location is now: Varrock.");
+					} else {
+						DialogueManager.sendStatement(player, "Varrock is already your home location.");
+					}
+					break;
 			case 221:
 				if(player.getMoneyInPouch() > 1000000) {
 					if(ShootingStar.CRASHED_STAR == null) {
@@ -1663,6 +1671,14 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+				case 250:
+					if(player.homeLocation != 1) {
+						player.homeLocation = 1;//Edgeville
+						DialogueManager.sendStatement(player, "Your home & death location is now: Edgeville.");
+					} else {
+						DialogueManager.sendStatement(player, "Your home location already is Edgeville.");
+					}
+					break;
 			case 221:
 				ShopManager.getShops().get(78).open(player);
 				break;
@@ -1875,6 +1891,9 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+				case 250://Do not change home
+					player.getPacketSender().sendInterfaceRemoval();
+					break;
 			case 221:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;

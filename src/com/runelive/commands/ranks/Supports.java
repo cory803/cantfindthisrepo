@@ -169,7 +169,7 @@ public class Supports {
 				}
 			}
 		}
-		
+
 		if(command[0].equalsIgnoreCase("movehome")) {
 			String player2 = command[1];
 			player2 = Misc.formatText(player2.replaceAll("_", " "));
@@ -193,10 +193,10 @@ public class Supports {
 				return;
 			}
 			if(playerToMove != null) {
-				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
+				playerToMove.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
 				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
-			} 
+			}
 		}
 
 		if(wholeCommand.toLowerCase().startsWith("yell")) {

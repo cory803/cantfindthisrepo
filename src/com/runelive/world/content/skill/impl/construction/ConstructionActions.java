@@ -46,7 +46,7 @@ public class ConstructionActions {
 			break;
 		case 13405:
 			p.getRegionInstance().remove(p);
-			TeleportHandler.teleportPlayer(p, GameSettings.DEFAULT_POSITION.copy(), TeleportType.NORMAL, true);
+			TeleportHandler.teleportPlayer(p, GameSettings.DEFAULT_POSITION_VARROCK.copy(), TeleportType.NORMAL, true);
 			break;
 		// Bookcases
 		case 13599:

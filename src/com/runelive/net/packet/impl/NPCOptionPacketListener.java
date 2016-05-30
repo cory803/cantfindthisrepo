@@ -29,6 +29,7 @@ import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.magic.CombatSpells;
+import com.runelive.world.content.dialogue.Dialogue;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.dialogue.impl.Denath;
 import com.runelive.world.content.dialogue.impl.ExplorerJack;
@@ -96,6 +97,10 @@ public class NPCOptionPacketListener implements PacketListener {
               return;
             }
             switch (npc.getId()) {
+              case 1385:
+                DialogueManager.start(player, 249);
+                player.setDialogueActionId(250);
+                break;
             case 241:
 				if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 0) {
 					DialogueManager.start(player, 230); // quest begins
@@ -773,6 +778,10 @@ public class NPCOptionPacketListener implements PacketListener {
           @Override
           public void execute() {
             switch (npc.getId()) {
+              case 1385:
+                DialogueManager.start(player, 250);
+                player.setDialogueActionId(250);
+                break;
               case 590:
                 if(player.getDonorRights() >= 3) {
                   ShopManager.getShops().get(113).open(player);

@@ -479,7 +479,7 @@ public class Tutorial {
 
           @Override
           public void specialAction() {
-            p.moveTo(GameSettings.DEFAULT_POSITION.copy());
+            p.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
             p.setDirection(Direction.SOUTH);
           }
 

@@ -33,7 +33,7 @@ public class Entity {
   /**
    * The default position the entity is in.
    */
-  private Position position = GameSettings.DEFAULT_POSITION.copy();
+  private Position position = GameSettings.DEFAULT_POSITION_VARROCK.copy();
 
   /**
    * The entity's first position in current map region.

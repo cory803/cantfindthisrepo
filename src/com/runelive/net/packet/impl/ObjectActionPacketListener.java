@@ -806,7 +806,7 @@ public class ObjectActionPacketListener implements PacketListener {
                     && gameObject.getPosition().getY() == 3931
                     || gameObject.getPosition().getX() == 3652
                         && gameObject.getPosition().getY() == 3488) {
-                  player.moveTo(GameSettings.DEFAULT_POSITION.copy());
+                  player.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
                   player.getPacketSender().sendMessage("The portal teleports you to Edgeville.");
                 }
                 break;

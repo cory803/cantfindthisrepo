@@ -166,7 +166,11 @@ public class PlayerDeathTask extends Task {
           loc.onDeath(player);
           if (loc != Location.DUNGEONEERING) {
             if (player.getPosition().equals(oldPosition))
-              player.moveTo(GameSettings.DEFAULT_POSITION.copy());
+              if(player.homeLocation == 0) {
+                player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
+              } else {
+                player.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
+              }
           }
           player = null;
           oldPosition = null;
@@ -178,8 +182,13 @@ public class PlayerDeathTask extends Task {
       setEventRunning(false);
       e.printStackTrace();
       if (player != null) {
-        player.moveTo(GameSettings.DEFAULT_POSITION.copy());
-        player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+        if(player.homeLocation == 0) {
+          player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
+          player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+        } else {
+          player.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
+          player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+        }
       }
     }
   }

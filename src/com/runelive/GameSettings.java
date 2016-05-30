@@ -144,7 +144,9 @@ public class GameSettings {
    * 
    * The default position
    */
-  public static final Position DEFAULT_POSITION = new Position(3212, 3428);
+  public static final Position DEFAULT_POSITION_VARROCK = new Position(3212, 3428);
+
+  public static final Position DEFAULT_POSITION_EDGEVILLE = new Position(3087, 3491);
 
 
   public static final int MAX_STARTERS_PER_IP = 1;

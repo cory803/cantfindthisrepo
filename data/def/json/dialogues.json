@@ -2405,5 +2405,26 @@
         "line1": "Bring me back that Ogre's remains!",
         "next": -1,
         "npcId": 241
-    }
+    },
+	{
+        "id": 249,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 3,
+        "line1": "Hello!",
+        "line2": "I can change your home location, would you",
+        "line3": "like your home location changed?",
+        "next": 250,
+        "npcId": 1385
+    },
+	{
+        "id": 250,
+        "type": "OPTION",
+        "lines": 3,
+        "line1": "Yes, Varrock please!",
+		"line2": "Yes, Edgeville please!",
+		"line3": "No thank you.",
+        "next": -1,
+        "npcId": -1
+	},
 ]

@@ -380,8 +380,13 @@ public class ButtonClickPacketListener implements PacketListener {
         break;
       case 30000:
       case 1195:
-        TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION.copy(),
-            player.getSpellbook().getTeleportType());
+        if(player.homeLocation == 0) {
+          TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION_VARROCK.copy(),
+                  player.getSpellbook().getTeleportType());
+        } else {
+          TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION_EDGEVILLE.copy(),
+                  player.getSpellbook().getTeleportType());
+        }
         break;
       case 1540:
       case 13061:

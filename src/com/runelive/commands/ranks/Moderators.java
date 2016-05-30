@@ -359,10 +359,10 @@ public class Moderators {
 				return;
 			}
 			if(playerToMove != null) {
-				playerToMove.moveTo(GameSettings.DEFAULT_POSITION.copy());
+				playerToMove.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
 				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
 				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
-			} 
+			}
 		}
 		if(command[0].equalsIgnoreCase("teletome")) {
 			String playerToTele = wholeCommand.substring(9);
