@@ -63,7 +63,7 @@ public final class WeaponAnimations {
           12024;/*
                  * playerStandIndex = 8980; playerRunIndex = 1210; playerWalkIndex = 1146;
                  */
-    } else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21079 || item.getId() == 21108) {
+    } else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21114 || item.getId() == 21079 || item.getId() == 21108) {
       playerStandIndex = 809;
       playerRunIndex = 1210;
       playerWalkIndex = 1146;
@@ -218,7 +218,7 @@ public final class WeaponAnimations {
         return 13048;
       return 13049;
     }
-    if (weaponName.equals("staff of light") || weaponId == 21005 || weaponId == 21010) {
+    if (weaponName.equals("staff of light") || weaponId == 21005 || weaponId == 21010 || weaponId == 21108 || weaponId == 21104) {
       if (prop.contains("stab"))
         return 13044;
       else if (prop.contains("lunge"))
@@ -399,6 +399,8 @@ public final class WeaponAnimations {
         return 11974;
       case 15486:
       case 21077:
+      case 21114:
+      case 21108:
       case 21079:
       case 15502:
       case 22209:

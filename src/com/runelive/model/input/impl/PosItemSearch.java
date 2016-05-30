@@ -7,6 +7,7 @@ import java.util.stream.Stream;
 
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.Input;
+import com.runelive.world.content.PlayerPunishment;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.pos.PosDetails;
 import com.runelive.world.content.pos.PosOffer;
@@ -39,7 +40,7 @@ public class PosItemSearch extends Input {
         continue;
 
       for (int q = 0; q < o.getOffers().size(); q++) {
-        if (o.getOffers().get(q) != null && !o.getOwner().equalsIgnoreCase(player.getUsername())) {
+        if (o.getOffers().get(q) != null && !o.getOwner().equalsIgnoreCase(player.getUsername()) && !PlayerPunishment.isPlayerBanned(o.getOwner())) {
           ItemDefinition def = ItemDefinition.forId(o.getOffers().get(q).getItemId());
           if (def != null && def.getName().toLowerCase().contains(itemName)) {
         	  player.foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()),

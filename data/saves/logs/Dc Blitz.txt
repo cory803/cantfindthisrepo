@@ -2002,3 +2002,6 @@
 [5/28/16 06:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [5/28/16 06:17PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [5/28/16 06:17PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:32PM]	Dc Blitz has done command teletome jonny	
+[5/29/16 01:59PM]	Logout from host 127.0.0.1, Computer Address: 362460699	

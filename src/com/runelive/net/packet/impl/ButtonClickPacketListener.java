@@ -32,6 +32,7 @@ import com.runelive.world.content.LoyaltyProgramme;
 import com.runelive.world.content.MoneyPouch;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.content.PlayerPunishment;
 import com.runelive.world.content.PlayersOnlineInterface;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
@@ -104,8 +105,12 @@ public class ButtonClickPacketListener implements PacketListener {
     if(id >= -24102 && id <= -23706) {
 	    PosDetails pd = PosItemSearch.forId(id, player);
 	    if (pd != null) {
-	    	player.getPacketSender().sendString(41900, "Back to Search Selection");
-	      PlayerOwnedShops.openShop(pd.getOwner(), player);
+	        if(PlayerPunishment.isPlayerBanned(pd.getOwner())) {
+	        	player.getPacketSender().sendMessage("This player is banned!");
+	        } else {
+		    	player.getPacketSender().sendString(41900, "Back to Search Selection");
+		    	PlayerOwnedShops.openShop(pd.getOwner(), player);
+	        }
 	    } else {
 	    	player.getPacketSender().sendMessage("This result didn't return a offer!");
 	    }

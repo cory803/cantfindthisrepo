@@ -2240,6 +2240,23 @@ public class Owners {
 			player.performGraphic(new Graphic(id));
 			player.getPacketSender().sendMessage("Sending graphic: " + id);
 		}
+		if (command[0].equals("gfxloop")) {
+			for(int i = Integer.parseInt(command[1]); i < Integer.parseInt(command[2]); i++) {
+				final int id = i;
+				TaskManager.submit(new Task(2, player, true) {
+					int tick = 0;
+					@Override
+					public void execute() {
+						if(tick == 4) {
+							player.performGraphic(new Graphic(id));
+							player.getPacketSender().sendMessage("Sending graphic: " + id);
+							stop();
+						}
+						tick ++;
+					}
+				});
+			}
+		}
 		if (command[0].equals("object")) {
 			int id = Integer.parseInt(command[1]);
 			player.getPacketSender().sendObject(new GameObject(id, player.getPosition(), 10, 3));

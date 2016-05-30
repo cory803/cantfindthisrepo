@@ -9215,3 +9215,164 @@
 [5/28/16 10:05PM]	Jonny has done command setlevel 5 1	
 [5/28/16 10:06PM]	Jonny has done command setlevel 6 1	
 [5/28/16 10:26PM]	Jonny has done command item 14484 1	
+[5/28/16 10:29PM]	Jonny has done command item 20159 1	
+[5/28/16 10:29PM]	Jonny has done command spawn virtus mask:1	
+[5/28/16 10:29PM]	Jonny has done command master	
+[5/28/16 10:31PM]	Jonny has done command spawn ahrim's hood:1	
+[5/28/16 10:31PM]	Jonny has done command item 4708 1	
+[5/28/16 10:37PM]	Jonny has done command item 1153 1	
+[5/28/16 10:41PM]	Jonny has done command spawn ahrim's robe top:1	
+[5/28/16 10:41PM]	Jonny has done command spawn ahrim's robe:1	
+[5/28/16 10:42PM]	Jonny has done command spawn mystic robe top:1	
+[5/28/16 10:42PM]	Jonny has done command spawn black d'hide:1	
+[5/28/16 10:42PM]	Jonny has done command spawn black d'hide chap:1	
+[5/28/16 10:46PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 10:51PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 10:51PM]	Jonny has done command item 21112 1	
+[5/28/16 10:52PM]	Jonny has done command item 21113 1	
+[5/28/16 10:52PM]	Jonny has done command spawn divine spirit shield:1	
+[5/28/16 10:59PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:00PM]	Jonny has done command item 21114 1	
+[5/28/16 11:01PM]	Jonny has done command spawn master wand:1	
+[5/28/16 11:02PM]	Jonny has done command spawn trident of the seas:1	
+[5/28/16 11:03PM]	Jonny has done command span staff of light:1	
+[5/28/16 11:04PM]	Jonny has done command spawn toxic staff:1	
+[5/28/16 11:05PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:15PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:15PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:21PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:24PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:43PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:44PM]	Jonny has done command anim 4550	
+[5/28/16 11:44PM]	Jonny has done command anim 4550	
+[5/28/16 11:44PM]	Jonny has done command anim 4550	
+[5/28/16 11:44PM]	Jonny has done command anim 4550	
+[5/28/16 11:44PM]	Jonny has done command anim 4550	
+[5/28/16 11:44PM]	Jonny has done command gfx 2034	
+[5/28/16 11:58PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:58PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/28/16 11:59PM]	Jonny has done command gfx 2034	
+[5/29/16 12:01AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:01AM]	Jonny has done command gfx 4552	
+[5/29/16 12:01AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:01AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:02AM]	Jonny has done command gfx 2035	
+[5/29/16 12:07AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:07AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:07AM]	Jonny has done command gfx 2034	
+[5/29/16 12:08AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:08AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:08AM]	Jonny has done command anim 2034	
+[5/29/16 12:08AM]	Jonny has done command gfx 2034	
+[5/29/16 12:10AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:11AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:11AM]	Jonny has done command gfx 2034	
+[5/29/16 12:12AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:12AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:13AM]	Jonny has done command gfx 2034	
+[5/29/16 12:14AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:14AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:14AM]	Jonny has done command gfx 2034	
+[5/29/16 12:16AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:16AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 12:17AM]	Jonny has done command gfx 2044	
+[5/29/16 12:17AM]	Jonny has done command gfx 2043	
+[5/29/16 12:17AM]	Jonny has done command gfx 2045	
+[5/29/16 12:17AM]	Jonny has done command gfx 2035	
+[5/29/16 12:17AM]	Jonny has done command gfx 2035	
+[5/29/16 12:18AM]	Jonny has done command gfx 2036	
+[5/29/16 12:18AM]	Jonny has done command gfx 2034	
+[5/29/16 12:18AM]	Jonny has done command gfx 2035	
+[5/29/16 12:20AM]	Jonny has done command gfx 2035	
+[5/29/16 12:20AM]	Jonny has done command gfx 2036	
+[5/29/16 12:20AM]	Jonny has done command gfx 2034	
+[5/29/16 12:22AM]	Jonny has done command gfx 2034	
+[5/29/16 12:24AM]	Jonny has done command anim 2036	
+[5/29/16 12:24AM]	Jonny has done command gfx 2036	
+[5/29/16 12:24AM]	Jonny has done command gfx 2035	
+[5/29/16 12:24AM]	Jonny has done command gfx 2034	
+[5/29/16 01:06AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 11:04AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 11:05AM]	Jonny has done command anim 15448	
+[5/29/16 11:05AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 11:05AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 11:05AM]	Jonny has done command anim 4550	
+[5/29/16 11:06AM]	Jonny has done command anim 4550	
+[5/29/16 11:26AM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:12PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:12PM]	Jonny has done command gfx 1677	
+[5/29/16 01:12PM]	Jonny has done command gfx 369	
+[5/29/16 01:13PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:13PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:14PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:14PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:14PM]	Jonny has done command gfx 2034	
+[5/29/16 01:14PM]	Jonny has done command gfx 2034	
+[5/29/16 01:14PM]	Jonny has done command gfx 2035	
+[5/29/16 01:14PM]	Jonny has done command gfx 2036	
+[5/29/16 01:15PM]	Jonny has done command gfx 2034	
+[5/29/16 01:15PM]	Jonny has done command gfx 2700	
+[5/29/16 01:15PM]	Jonny has done command gfx 89	
+[5/29/16 01:15PM]	Jonny has done command gfx 89	
+[5/29/16 01:16PM]	Jonny has done command gfx 87	
+[5/29/16 01:16PM]	Jonny has done command gfx 2711	
+[5/29/16 01:17PM]	Jonny has done command gfx 2712	
+[5/29/16 01:17PM]	Jonny has done command gfx 2700	
+[5/29/16 01:17PM]	Jonny has done command gfx 2701	
+[5/29/16 01:17PM]	Jonny has done command gfx 2700	
+[5/29/16 01:17PM]	Jonny has done command gfx 2700	
+[5/29/16 01:17PM]	Jonny has done command gfx 2702	
+[5/29/16 01:17PM]	Jonny has done command gfx 2703	
+[5/29/16 01:17PM]	Jonny has done command gfx 2704	
+[5/29/16 01:17PM]	Jonny has done command gfx 2705	
+[5/29/16 01:17PM]	Jonny has done command gfx 2706	
+[5/29/16 01:17PM]	Jonny has done command gfx 2707	
+[5/29/16 01:17PM]	Jonny has done command gfx 2708	
+[5/29/16 01:17PM]	Jonny has done command gfx 2709	
+[5/29/16 01:18PM]	Jonny has done command gfx 2710	
+[5/29/16 01:18PM]	Jonny has done command gfx 2711	
+[5/29/16 01:18PM]	Jonny has done command gfx 2699	
+[5/29/16 01:18PM]	Jonny has done command gfx 2688	
+[5/29/16 01:18PM]	Jonny has done command gfx 2689	
+[5/29/16 01:18PM]	Jonny has done command gfx 265	
+[5/29/16 01:18PM]	Jonny has done command gfx 2650	
+[5/29/16 01:18PM]	Jonny has done command gfx 2651	
+[5/29/16 01:18PM]	Jonny has done command gfx 2652	
+[5/29/16 01:18PM]	Jonny has done command gfx 2653	
+[5/29/16 01:18PM]	Jonny has done command gfx 2654	
+[5/29/16 01:18PM]	Jonny has done command gfx 2655	
+[5/29/16 01:20PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:20PM]	Jonny has done command gfxloop	
+[5/29/16 01:22PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:23PM]	Jonny has done command gfxloop	
+[5/29/16 01:24PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:24PM]	Jonny has done command gfxloop	
+[5/29/16 01:27PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:28PM]	Jonny has done command gfxloop 50 100	
+[5/29/16 01:28PM]	Jonny has done command gfx 1	
+[5/29/16 01:28PM]	Jonny has done command gfx 500	
+[5/29/16 01:28PM]	Jonny has done command gfx 2000	
+[5/29/16 01:29PM]	Jonny has done command gfx 2001	
+[5/29/16 01:29PM]	Jonny has done command gfx 2001	
+[5/29/16 01:29PM]	Jonny has done command gfx 2001	
+[5/29/16 01:29PM]	Jonny has done command gfx 2002	
+[5/29/16 01:29PM]	Jonny has done command gfx 2002	
+[5/29/16 01:29PM]	Jonny has done command gfx 2003	
+[5/29/16 01:29PM]	Jonny has done command gfx 2002	
+[5/29/16 01:31PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[5/29/16 01:31PM]	Jonny has done command train	
+[5/29/16 01:32PM]	Jonny has done command teleto dc blitz	
+[5/29/16 01:33PM]	Jonny has done command ancients	
+[5/29/16 01:33PM]	Jonny has done command ancients	
+[5/29/16 01:34PM]	Jonny has done command teleto dc blitz	
+[5/29/16 01:34PM]	Jonny has done command item 555 15000	
+[5/29/16 01:34PM]	Jonny has done command item 560 150000	
+[5/29/16 01:34PM]	Jonny has done command item 565 150000	
+[5/29/16 01:59PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
