@@ -108,8 +108,21 @@ public class NPCDeathTask extends Task {
             } else if (npc.getId() == 3200) {
               Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CHAOS_ELEMENTAL);
             } else if (npc.getId() == 8349) {
-              if(killer.dailyTask == 22 || killer.dailyTask == 24 || killer.dailyTask == 32 && !killer.completedDailyTask) {
+              if(killer.dailyTask == 22 && killer.dailyTaskProgress <= 4 && !killer.completedDailyTask) {
                 DailyTaskManager.doTaskProgress(killer);
+                if(killer.dailyTask == 22 && killer.dailyTaskProgress >= 5 && !killer.completedDailyTask) {
+                DailyTaskManager.handleTaskReward(killer);
+                }
+              } if(killer.dailyTask == 24 && killer.dailyTaskProgress <= 9 && !killer.completedDailyTask) {
+                DailyTaskManager.doTaskProgress(killer);
+                if(killer.dailyTask == 24 && killer.dailyTaskProgress >=  10 && !killer.completedDailyTask) {
+                  DailyTaskManager.handleTaskReward(killer);
+                }
+              }if(killer.dailyTask == 32 && killer.dailyTaskProgress <= 14 && !killer.completedDailyTask) {
+                DailyTaskManager.doTaskProgress(killer);
+                if(killer.dailyTask == 32 && killer.dailyTaskProgress >= 15 && !killer.completedDailyTask) {
+                  DailyTaskManager.handleTaskReward(killer);
+                }
               }
               Achievements.finishAchievement(killer, AchievementData.DEFEAT_A_TORMENTED_DEMON);
             } else if (npc.getId() == 3491) {
@@ -150,7 +163,7 @@ public class NPCDeathTask extends Task {
               }
               Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CORPOREAL_BEAST);
             } else if (npc.getId() == 13447) {
-              if(killer.dailyTask == 26 && !killer.completedDailyTask) {
+              if(killer.dailyTask == 26 || killer.dailyTask == 20 || killer.dailyTask == 30 && !killer.completedDailyTask) {
                 DailyTaskManager.doTaskProgress(killer);
               }
               Achievements.finishAchievement(killer, AchievementData.DEFEAT_NEX);
