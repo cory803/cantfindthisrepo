@@ -2423,8 +2423,18 @@
         "lines": 3,
         "line1": "Yes, Varrock please!",
 		"line2": "Yes, Edgeville please!",
-		"line3": "No thank you.",
+		"line3": "No",
         "next": -1,
         "npcId": -1
 	},
+	{
+        "id": 252,
+        "type": "OPTION",
+        "lines": 3,
+        "line1": "5,000 Vengeance Runes",
+		"line2": "5,000 Barrages Runes",
+		"line3": "10,000 of each elemental rune",
+        "next": -1,
+        "npcId": -1
+	}
 ]

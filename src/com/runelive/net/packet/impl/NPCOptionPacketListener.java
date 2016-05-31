@@ -1084,6 +1084,10 @@ public class NPCOptionPacketListener implements PacketListener {
           @Override
           public void execute() {
             switch (npc.getId()) {
+              case 946:
+                DialogueManager.start(player, 252);
+                player.setDialogueActionId(252);
+                break;
               case 2217:
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 break;

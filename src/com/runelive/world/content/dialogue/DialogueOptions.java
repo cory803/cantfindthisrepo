@@ -1,7 +1,10 @@
 package com.runelive.world.content.dialogue;
 
 import java.io.File;
+import java.text.NumberFormat;
+import java.util.Locale;
 
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.world.content.Scoreboard;
 import com.runelive.GameSettings;
 import com.runelive.world.content.Scoreboard;
@@ -79,6 +82,38 @@ import com.runelive.world.content.skill.impl.construction.ConstructionData.House
 import com.runelive.world.content.skill.impl.construction.ConstructionData.HouseTheme;
 
 public class DialogueOptions {
+
+	/**
+	 * 5k Vengeance
+	 */
+
+	public static int DEATH_RUNE = 560;
+	public static int DEATH_RUNE_PRICE = ItemDefinition.forId(DEATH_RUNE).getValue() * 5000;
+	public static int EARTH_RUNE = 557;
+	public static int EARTH_RUNE_PRICE = ItemDefinition.forId(EARTH_RUNE).getValue() * 5000;
+	public static int ASTRAL_RUNE = 9075;
+	public static int ASTRAL_RUNE_PRICE = ItemDefinition.forId(ASTRAL_RUNE).getValue() * 5000;
+
+	/**
+	 * 5k Barrage
+     */
+
+	public static int WATER_RUNE = 555;
+	public static int WATER_RUNE_PRICE = ItemDefinition.forId(WATER_RUNE).getValue() * 5000;
+	public static int BLOOD_RUNE = 565;
+	public static int BLOOD_RUNE_PRICE = ItemDefinition.forId(BLOOD_RUNE).getValue() * 5000;
+
+	/**
+	 * 10k Elemental Runes
+     */
+
+	public static int AIR_RUNE = 556;
+	public static int AIR_RUNE_PRICE = ItemDefinition.forId(AIR_RUNE).getValue() * 10000;
+	public static int FIRE_RUNE = 554;
+	public static int FIRE_RUNE_PRICE = ItemDefinition.forId(FIRE_RUNE).getValue() * 10000;
+	public static int EARTH_RUNE_PRICE2 = ItemDefinition.forId(EARTH_RUNE).getValue() * 10000;
+	public static int WATER_RUNE_PRICE2 = ItemDefinition.forId(WATER_RUNE).getValue() * 10000;
+
 
   // Last id used = 78
 
@@ -1500,6 +1535,31 @@ public class DialogueOptions {
 						DialogueManager.sendStatement(player, "Varrock is already your home location.");
 					}
 					break;
+				case 252://5k Veng Runes
+					int VENG_RUNE_PRICE = DEATH_RUNE_PRICE + EARTH_RUNE_PRICE + ASTRAL_RUNE_PRICE;
+					int AMT = 5000;
+					Locale locale = new Locale("en", "US");
+					NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
+					if(player.getInventory().getFreeSlots() >= 3) {
+						if(player.getMoneyInPouch() >= VENG_RUNE_PRICE) {
+							player.setMoneyInPouch(player.getMoneyInPouch() - VENG_RUNE_PRICE);
+							player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(VENG_RUNE_PRICE) + " coins have been withdrawn from your coin pouch.");
+							player.getInventory().add(DEATH_RUNE, AMT);
+							player.getInventory().add(ASTRAL_RUNE, AMT);
+							player.getInventory().add(EARTH_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT) + " x Death, Astral & Earth Runes have been added to your inventory.");
+						} else if(player.getInventory().getFreeSlots() <= 3) {
+							player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(ASTRAL_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(EARTH_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT) + " x Death, Astral & Earth Runes have been added to your bank.");
+						} else {
+							player.getPacketSender().sendMessage("You need at least "+currencyFormatter.format(VENG_RUNE_PRICE)+" coins in your money pouch to buy 5,000 Vengeance Runes");
+						}
+						player.getPacketSender().sendInterfaceRemoval();
+					}
+					break;
 			case 221:
 				if(player.getMoneyInPouch() > 1000000) {
 					if(ShootingStar.CRASHED_STAR == null) {
@@ -1677,6 +1737,31 @@ public class DialogueOptions {
 						DialogueManager.sendStatement(player, "Your home & death location is now: Edgeville.");
 					} else {
 						DialogueManager.sendStatement(player, "Your home location already is Edgeville.");
+					}
+					break;
+				case 252://5k Barrage Runes
+					int BARRAGE_RUNE_PRICE = DEATH_RUNE_PRICE + WATER_RUNE_PRICE + BLOOD_RUNE_PRICE;
+					int AMT = 5000;
+					Locale locale = new Locale("en", "US");
+					NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
+					if(player.getInventory().getFreeSlots() >= 3) {
+						if(player.getMoneyInPouch() >= BARRAGE_RUNE_PRICE) {
+							player.setMoneyInPouch(player.getMoneyInPouch() - BARRAGE_RUNE_PRICE);
+							player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(BARRAGE_RUNE_PRICE) + " coins have been withdrawn from your coin pouch.");
+							player.getInventory().add(DEATH_RUNE, AMT);
+							player.getInventory().add(BLOOD_RUNE, AMT);
+							player.getInventory().add(WATER_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT) + " x Death, Blood & Water Runes have been added to your inventory.");
+						} else if(player.getInventory().getFreeSlots() <= 3) {
+							player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(BLOOD_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT) + " x Death, Blood & Water Runes have been added to your bank.");
+						} else {
+							player.getPacketSender().sendMessage("You need at least "+currencyFormatter.format(BARRAGE_RUNE_PRICE)+" coins in your money pouch to buy 5,000 Vengeance Runes");
+						}
+						player.getPacketSender().sendInterfaceRemoval();
 					}
 					break;
 			case 221:
@@ -1891,6 +1976,33 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_THREE) {
 			switch(player.getDialogueActionId()) {
+				case 252://10k Elemental Runes
+					int ELEMENTAL_RUNE_PRICE = AIR_RUNE_PRICE + FIRE_RUNE_PRICE + WATER_RUNE_PRICE2 + EARTH_RUNE_PRICE2;
+					int AMT = 10000;
+					Locale locale = new Locale("en", "US");
+					NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
+					if(player.getInventory().getFreeSlots() >= 4) {
+						if(player.getMoneyInPouch() >= ELEMENTAL_RUNE_PRICE) {
+							player.setMoneyInPouch(player.getMoneyInPouch() - ELEMENTAL_RUNE_PRICE);
+							player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(ELEMENTAL_RUNE_PRICE) + " coins have been withdrawn from your coin pouch.");
+							player.getInventory().add(AIR_RUNE, AMT);
+							player.getInventory().add(FIRE_RUNE, AMT);
+							player.getInventory().add(WATER_RUNE, AMT);
+							player.getInventory().add(EARTH_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT) + " x Death, Astral & Earth Runes have been added to your inventory.");
+						} else if(player.getInventory().getFreeSlots() < 4) {
+							player.getBank(player.getCurrentBankTab()).add(AIR_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(FIRE_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(EARTH_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT) + " x Death, Astral & Earth Runes have been added to your bank.");
+						} else {
+							player.getPacketSender().sendMessage("You need at least "+currencyFormatter.format(ELEMENTAL_RUNE_PRICE)+" coins in your money pouch to buy 5,000 Vengeance Runes");
+						}
+						player.getPacketSender().sendInterfaceRemoval();
+					}
+					break;
 				case 250://Do not change home
 					player.getPacketSender().sendInterfaceRemoval();
 					break;
