@@ -291,6 +291,7 @@ public class PlayerSaving {
         object.addProperty("auto-retaliate", new Boolean(player.isAutoRetaliate()));
         object.addProperty("xp-locked", new Boolean(player.experienceLocked()));
         object.addProperty("show-ip", new Boolean(player.showIpAddress()));
+        object.addProperty("show-home", new Boolean(player.showHomeOnLogin()));
         object.addProperty("veng-cast", new Boolean(player.hasVengeance()));
         object.addProperty("last-veng", new Long(player.getLastVengeance().elapsed()));
         object.addProperty("fight-type", player.getFightType().name());

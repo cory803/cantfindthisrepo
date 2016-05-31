@@ -113,6 +113,8 @@ public class PlayerPanel {
 
         player.getPacketSender().sendString(55115,
                 "@or1@Login IP's:  " + (player.showIpAddress() ? "@gre@Enabled" : "@red@Disabled") + "");
+        player.getPacketSender().sendString(55116,
+                "@or1@Show home loc:  " + (player.showHomeOnLogin() ? "@gre@Enabled" : "@red@Disabled") + "");
 
         player.getPacketSender().sendString(55117, "@whi@~ Other ~");
         player.getPacketSender().sendString(55121, "@red@Open Drop Log");

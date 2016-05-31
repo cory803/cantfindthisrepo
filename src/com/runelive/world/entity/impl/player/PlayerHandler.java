@@ -65,7 +65,7 @@ public class PlayerHandler {
 
     public static void handleLogin(Player player) {
         player.setLoginQue(false);
-		player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
+        player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
         // Register the player
         System.out.println("[World] Registering player - [username, host] : [" + player.getUsername()
                 + ", " + player.getHostAddress() + "]");
@@ -121,7 +121,7 @@ public class PlayerHandler {
         for (Skill skill : Skill.values()) {
             player.getSkillManager().updateSkill(skill);
         }
-        player.getPacketSender().sendString(5067, "Friends List ("+player.getRelations().getFriendList().size()+"/200)");
+        player.getPacketSender().sendString(5067, "Friends List (" + player.getRelations().getFriendList().size() + "/200)");
         // Relations
         player.getRelations().setPrivateMessageId(1).onLogin(player).updateLists(true, 1);
 
@@ -214,9 +214,9 @@ public class PlayerHandler {
             System.out.println("The user " + player.getUsername()
                     + " logged in with negative PK Points, resetting to 0.");
         }
-        if(player.getPointsHandler().getSlayerPoints() < 0) {
-        	player.getPointsHandler().setSlayerPoints(0, false);
-        	player.getPacketSender().sendMessage("You have logged in with negative Slayer points, they have been set to 0.");
+        if (player.getPointsHandler().getSlayerPoints() < 0) {
+            player.getPointsHandler().setSlayerPoints(0, false);
+            player.getPacketSender().sendMessage("You have logged in with negative Slayer points, they have been set to 0.");
         }
         // Update appearance
         player.getUpdateFlag().flag(Flag.APPEARANCE);
@@ -233,6 +233,12 @@ public class PlayerHandler {
         } else {
             player.getPacketSender().sendMessage(
                     "@bla@Welcome to RuneLive! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
+        }
+
+        if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
+            player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.");
+        } else if (player.getHomeLocation() == 1 && player.showHomeOnLogin()) {
+            player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Edgeville@blu@.");
         }
 
         long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin());

@@ -529,6 +529,9 @@ public class PlayerLoading {
         if (reader.has("show-ip")) {
             player.setShowIpAddressOnLogin(reader.get("show-ip").getAsBoolean());
         }
+        if (reader.has("show-home")) {
+            player.setShowHomeOnLogin(reader.get("show-home").getAsBoolean());
+        }
         if (reader.has("veng-cast")) {
             player.setHasVengeance(reader.get("veng-cast").getAsBoolean());
         }

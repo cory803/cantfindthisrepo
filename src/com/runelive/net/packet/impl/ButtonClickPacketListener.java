@@ -758,6 +758,12 @@ public class ButtonClickPacketListener implements PacketListener {
         player.getPacketSender().sendMessage("Your IP address shown on login has been: " + mode + ".");
         PlayerPanel.refreshPanel(player);
         break;
+      case -10420:
+        player.setShowHomeOnLogin(!player.showHomeOnLogin());
+        String home = player.showHomeOnLogin() ? "Enabled" : "Disabled";
+        player.getPacketSender().sendMessage("Your Home Location appearing on login has been: " + home + ".");
+        PlayerPanel.refreshPanel(player);
+        break;
       case 27651:
       case 21341:
       case 15001:

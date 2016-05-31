@@ -639,6 +639,7 @@ public class Player extends Character {
 	private boolean isRunning = true, isResting;
 	private boolean experienceLocked;
 	private boolean showIpAddressOnLogin;
+	private boolean showHomeOnLogin = true;
 	private boolean clientExitTaskActive;
 	private boolean drainingPrayer;
 	private boolean shopping;
@@ -1662,12 +1663,20 @@ public class Player extends Character {
 		return completedDailyTask;
 	}
 
-	public void setTaskCompletion(boolean showIpAddressOnLogin) {
+	public void setTaskCompletion(boolean completedDailyTask) {
 		this.completedDailyTask = completedDailyTask;
 	}
 
 	public boolean showIpAddress() {
 		return showIpAddressOnLogin;
+	}
+
+	public void setShowHomeOnLogin(boolean showHomeOnLogin) {
+		this.showHomeOnLogin = showHomeOnLogin;
+	}
+
+	public boolean showHomeOnLogin() {
+		return showHomeOnLogin;
 	}
 
 	public void setShowIpAddressOnLogin(boolean showIpAddressOnLogin) {
