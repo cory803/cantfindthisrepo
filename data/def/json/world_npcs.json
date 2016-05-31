@@ -9282,6 +9282,19 @@
         }
     },
 	{
+        "npc-id": 6537,
+		"face": WEST,
+        "position": {
+        	"x": 3220,
+        	"y": 3423,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": false,
+        	"radius": -1
+        }
+    },
+	{
         "npc-id": 4249,
 		"face": WEST,
         "position": {
