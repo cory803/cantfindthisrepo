@@ -47,11 +47,12 @@ public class BossPets {
             5514,
             5558,
             13008),
-    PET_RACCOON(5559, 5559, 12487),
     HELLPUPPY(5866, 5870, 12703),
-    CHINCHOMPA(5081, 5081, 11975),
     VENENATIS(2000, 2005, 21103),
-    SEAGULL(2707, 2707, 11976);
+    PET_SEAGULL(2707, 2707, 7887),
+    PET_ROCK(8648, 8648, 21250),
+    PET_CHINCHOMPA(9579, 9579, 21251),
+    PET_RACCOON(5559, 5559, 12487);
 
     BossPet(int npcId, int spawnNpcId, int itemId) {
       this.npcId = npcId;

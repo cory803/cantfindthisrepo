@@ -6,7 +6,9 @@ import com.runelive.model.Animation;
 import com.runelive.model.GameObject;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
+import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.CustomObjects;
@@ -21,6 +23,20 @@ import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Woodcutting {
+
+  public static void rollPet(Player player) {
+    int PET_ID = 12487;
+    int PET_CHANCE = Misc.inclusiveRandom(1, 25_000);
+    if(PET_CHANCE == 1 && player.getInventory().getFreeSlots() >= 1) {
+      player.getInventory().add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You hit the tree with a strong force, that a baby raccoon fell into your inventory!");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Woodcutting skill!");
+    } else if(PET_CHANCE == 1 && player.getInventory().isFull()) {
+      player.getBank(player.getCurrentBankTab()).add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You hit the tree with a strong force, that a baby raccoon ran to the bank!");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Woodcutting skill!");
+    }
+  }
 
   public static void cutWood(final Player player, final GameObject object, boolean restarting) {
     if (!restarting)
@@ -61,6 +77,7 @@ public class Woodcutting {
                   player.getSkillManager().addExperience(Skill.WOODCUTTING, xp);
                   cycle = 0;
                   BirdNests.dropNest(player);
+                  rollPet(player);
                   this.stop();
                   if (object.getId() == 11434) {
                     if (EvilTrees.SPAWNED_TREE == null || EvilTrees.SPAWNED_TREE.getTreeObject()
@@ -78,9 +95,11 @@ public class Woodcutting {
                     treeRespawn(player, object);
                     player.getPacketSender().sendMessage("You've chopped the tree down.");
                     player.performAnimation(new Animation(65535));
+                    rollPet(player);
                   } else {
                     cutWood(player, object, true);
                     player.getPacketSender().sendMessage("You get some logs..");
+                    rollPet(player);
                   }
                   Sounds.sendSound(player, Sound.WOODCUT);
                   if (!(infernoAdze(player) && Misc.getRandom(5) <= 2)) {

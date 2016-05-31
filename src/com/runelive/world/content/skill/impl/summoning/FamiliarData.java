@@ -26,10 +26,7 @@ public enum FamiliarData {
                                               new Item(3138), new Item(12183, 51)), COMPOST_MOUND(
                                                   12091, 28, 49.8, 6872, 0.6, 6, 1, new Item(12159),
                                                   new Item(12155), new Item(6032),
-                                                  new Item(12183, 47)), GIANT_CHINCHOMPA(12800, 29,
-                                                      255.2, 7353, 2.9, 1, 1, new Item(12163),
-                                                      new Item(12155), new Item(10033),
-                                                      new Item(12183, 84)), VAMPIRE_BAT(12053, 31,
+                                                  new Item(12183, 47)), VAMPIRE_BAT(12053, 31,
                                                           136, 6835, 1.5, 4, 1, new Item(12160),
                                                           new Item(12155), new Item(3325),
                                                           new Item(12183, 81)), HONEY_BADGER(12065,

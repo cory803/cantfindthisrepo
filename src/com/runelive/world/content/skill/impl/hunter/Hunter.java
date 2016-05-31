@@ -10,14 +10,31 @@ import com.runelive.model.Locations;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.movement.MovementQueue;
 import com.runelive.util.Misc;
+import com.runelive.world.World;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.content.skill.impl.hunter.Trap.TrapState;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Hunter {
+
+  public static void rollPet(Player player) {
+    int PET_ID = 21251;
+    int PET_CHANCE = Misc.inclusiveRandom(1, 25_000);
+    if(PET_CHANCE == 1 && player.getInventory().getFreeSlots() >= 1) {
+      player.getInventory().add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You pick up the chinchompa to find you've caught it's mother aswell!");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Hunter skill!");
+    } else if(PET_CHANCE == 1 && player.getInventory().isFull()) {
+      player.getBank(player.getCurrentBankTab()).add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You pick up the Chinchompa, you hear it's mother run to the bank!!");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Hunter skill!");
+    }
+    System.out.println("The user "+player.getUsername()+" has rolled "+PET_CHANCE+" on the Fishing table.");
+  }
 
   /**
    * Registers a new Trap
@@ -314,10 +331,12 @@ public class Hunter {
                 client.getInventory().add(10033, 1);
                 client.getSkillManager().addExperience(Skill.HUNTER, exps[6]);
                 client.getPacketSender().sendMessage("You've succesfully caught a chinchompa!");
+                rollPet(client);
               } else if (theTrap.getGameObject().getId() == 19189) {
                 client.getInventory().add(10034, 1);
                 client.getSkillManager().addExperience(Skill.HUNTER, exps[7]);
                 client.getPacketSender().sendMessage("You've succesfully caught a red chinchompa!");
+                rollPet(client);
               }
             }
             deregister(theTrap);

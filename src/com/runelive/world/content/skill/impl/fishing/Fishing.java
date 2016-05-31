@@ -8,6 +8,7 @@ import com.runelive.model.Locations;
 import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
+import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.tasks.DailyTaskManager;
@@ -15,6 +16,20 @@ import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.Emotes.Skillcape_Data;
 
 public class Fishing {
+
+  public static void rollPet(Player player) {
+    int PET_ID = 7887;
+    int PET_CHANCE = Misc.inclusiveRandom(1, 25_000);
+    if(PET_CHANCE == 1 && player.getInventory().getFreeSlots() >= 1) {
+      player.getInventory().add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You find a weird looking item floating in the sea and quickly pick it up.");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Fishing skill!");
+    } else if(PET_CHANCE == 1 && player.getInventory().isFull()) {
+      player.getBank(player.getCurrentBankTab()).add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You find a weird looking item, if by magic it's been sent to your bank!");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Fishing skill!");
+    }
+  }
 
   public enum Spot {
 
@@ -186,6 +201,7 @@ public class Fishing {
             def = def.substring(0, def.length() - 1);
           p.getPacketSender().sendMessage(
               "You catch " + Misc.anOrA(def) + " " + def.toLowerCase().replace("_", " ") + ".");
+          rollPet(p);
           if (s.getBait() != -1)
             p.getInventory().delete(s.getBait(), 1);
           if(p.getLocation() == Locations.Location.WILDERNESS) {

@@ -7,6 +7,7 @@ import com.runelive.model.GameObject;
 import com.runelive.model.Locations;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
@@ -21,6 +22,20 @@ import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.Emotes.Skillcape_Data;
 
 public class Mining {
+
+  public static void rollPet(Player player) {
+    int PET_ID = 21250;
+    int PET_CHANCE = Misc.inclusiveRandom(1, 25_000);
+    if(PET_CHANCE == 1 && player.getInventory().getFreeSlots() >= 1) {
+      player.getInventory().add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You hit the rock with such a force, that a small chunk starts to move!");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Mining skill!");
+    } else if(PET_CHANCE == 1 && player.getInventory().isFull()) {
+      player.getBank(player.getCurrentBankTab()).add(PET_ID, 1);
+      player.getPacketSender().sendMessage("You hit the rock with such a force, that a small chunk, it's moved to your bank!");
+      World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(PET_ID).getName() + " from the Mining skill!");
+    }
+  }
 
   public static void startMining(final Player player, final GameObject oreObject) {
     player.getSkillManager().stopSkilling();
@@ -120,6 +135,7 @@ public class Mining {
                   } else {
                     player.getPacketSender().sendMessage("You mine some ore.");
                   }
+                  rollPet(player);
                   Sounds.sendSound(player, Sound.MINE_ITEM);
                   cycle = 0;
                   this.stop();
