@@ -20,12 +20,7 @@ import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.BankPin;
-import com.runelive.world.content.BossSystem;
-import com.runelive.world.content.EnergyHandler;
-import com.runelive.world.content.MemberScrolls;
-import com.runelive.world.content.PlayerLogs;
-import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.content.*;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.magic.CombatSpells;
@@ -568,10 +563,6 @@ public class NPCOptionPacketListener implements PacketListener {
                 player.setDialogueActionId(13);
                 DialogueManager.start(player, 24);
                 break;
-              case 6537:
-                player.setDialogueActionId(10);
-                DialogueManager.start(player, 19);
-                break;
               case 4249:
                 player.setDialogueActionId(9);
                 DialogueManager.start(player, 64);
@@ -778,6 +769,10 @@ public class NPCOptionPacketListener implements PacketListener {
           @Override
           public void execute() {
             switch (npc.getId()) {
+              case 6537:
+                player.setDialogueActionId(10);
+                DialogueManager.start(player, 19);
+                break;
               case 1385:
                 DialogueManager.start(player, 250);
                 player.setDialogueActionId(250);
@@ -984,6 +979,9 @@ public class NPCOptionPacketListener implements PacketListener {
           @Override
           public void execute() {
             switch (npc.getId()) {
+              case 6537:
+                Artifacts.sellArtifacts(player);
+                break;
               case 3101:
                 ShopManager.getShops().get(42).open(player);
                 break;
