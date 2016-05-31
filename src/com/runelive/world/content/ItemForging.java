@@ -6,6 +6,7 @@ import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -153,7 +154,16 @@ public class ItemForging {
     FULL_SLAYER_HELMET(new Item[] {new Item(13263), new Item(15490), new Item(15488)},
         new Item(15492), new int[] {18, 75, 0}),
 
-    ;
+      /**
+       * Hastas
+       */
+
+      BRONZE_HASTA(new Item[] {new Item(2349), new Item(1237)}, new Item(11367), new int[] {13, 18, 1750}),
+      IRON_HASTA(new Item[] {new Item(2351), new Item(1239)}, new Item(11369), new int[] {13, 33, 2250}),
+      STEEL_HASTA(new Item[] {new Item(2353), new Item(1241)}, new Item(11371), new int[] {13, 48, 4350}),
+      MITHRIL_HASTA(new Item[] {new Item(2359), new Item(1243)}, new Item(11373), new int[] {13, 68, 6250}),
+      ADAMANT_HASTA(new Item[] {new Item(2361), new Item(1245)}, new Item(11375), new int[] {13, 88, 7800}),
+      RUNE_HASTA(new Item[] {new Item(2363), new Item(1247)}, new Item(11377), new int[] {13, 96, 8700});
 
 
     ItemForgeData(Item[] requiredItems, Item product, int[] skillRequirement) {

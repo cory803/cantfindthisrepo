@@ -9,6 +9,8 @@ import com.runelive.engine.task.impl.CombatSkullEffect;
 import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.container.impl.Equipment;
+import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.model.movement.MovementQueue;
 import com.runelive.model.movement.PathFinder;
 import com.runelive.util.Misc;
@@ -722,6 +724,19 @@ public final class CombatFactory {
                 maxHit += (int) ((0.20) * (maxHit));
             } else if (npc.getDefenceWeakened()[2]) {
                 maxHit += (int) ((0.30) * (maxHit));
+            }
+            /** Hastas on dragons **/
+            if (NpcDefinition.forId(npc.getId()).getName().contains("dragon")) {
+                if (ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()).getName().endsWith("hasta")) {
+                    maxHit *= 1.17;
+                }
+            }
+
+            /** Zamorak Spear on Corpeareal Beast **/
+            if (NpcDefinition.forId(npc.getId()).getName().equalsIgnoreCase("Corporeal beast")) {
+                if (ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()).getName().equals("Zamorakian spear")) {
+                    maxHit *= 1.35;
+                }
             }
 
             /** SLAYER HELMET **/
