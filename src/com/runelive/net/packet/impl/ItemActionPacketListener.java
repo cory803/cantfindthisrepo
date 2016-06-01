@@ -54,6 +54,17 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class ItemActionPacketListener implements PacketListener {
 
+  public static void handleHasta(Player player) {
+    if(player.getInventory().contains(11716) && player.getMoneyInPouch() >= 150_000_000) {
+      player.setMoneyInPouch(player.getMoneyInPouch() - (long) 150_000_000);
+      player.getPacketSender().sendMessage("150,000,000 Coins have been removed from your Money Pouch");
+      player.getInventory().delete(11716, 1);
+      player.getInventory().add(21120, 1);
+    } else {
+      player.getPacketSender().sendMessage("You either do not have 150M in your pouch or a Zamorakian Spear.");
+    }
+  }
+
   private static void firstAction(final Player player, Packet packet) {
     int interfaceId = packet.readUnsignedShort();
     int slot = packet.readShort();
@@ -607,6 +618,9 @@ public class ItemActionPacketListener implements PacketListener {
       return;
     }
     switch (itemId) {
+      case 11716:
+      handleHasta(player);
+      break;
       case 7500:
         player.forceChat("*razor noises* ZzZZzzZZZzzzz [I'M SHAVING JONNY'S HEAD]");
         DialogueManager.start(player, 324);

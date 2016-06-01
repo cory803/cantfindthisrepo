@@ -1544,7 +1544,7 @@ public class DialogueOptions {
 						if(player.getMoneyInPouch() >= VENG_RUNE_PRICE) {
 							player.setMoneyInPouch(player.getMoneyInPouch() - VENG_RUNE_PRICE);
 							player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
-							player.getPacketSender().sendMessage("" + currencyFormatter.format(VENG_RUNE_PRICE) + " coins have been withdrawn from your coin pouch.");
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(VENG_RUNE_PRICE) + " coins have been removed from your coin pouch.");
 							player.getInventory().add(DEATH_RUNE, AMT);
 							player.getInventory().add(ASTRAL_RUNE, AMT);
 							player.getInventory().add(EARTH_RUNE, AMT);
@@ -1748,7 +1748,7 @@ public class DialogueOptions {
 						if(player.getMoneyInPouch() >= BARRAGE_RUNE_PRICE) {
 							player.setMoneyInPouch(player.getMoneyInPouch() - BARRAGE_RUNE_PRICE);
 							player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
-							player.getPacketSender().sendMessage("" + currencyFormatter.format(BARRAGE_RUNE_PRICE) + " coins have been withdrawn from your coin pouch.");
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(BARRAGE_RUNE_PRICE) + " coins have been removed from your coin pouch.");
 							player.getInventory().add(DEATH_RUNE, AMT);
 							player.getInventory().add(BLOOD_RUNE, AMT);
 							player.getInventory().add(WATER_RUNE, AMT);
@@ -1985,7 +1985,7 @@ public class DialogueOptions {
 						if(player.getMoneyInPouch() >= ELEMENTAL_RUNE_PRICE) {
 							player.setMoneyInPouch(player.getMoneyInPouch() - ELEMENTAL_RUNE_PRICE);
 							player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
-							player.getPacketSender().sendMessage("" + currencyFormatter.format(ELEMENTAL_RUNE_PRICE) + " coins have been withdrawn from your coin pouch.");
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(ELEMENTAL_RUNE_PRICE) + " coins have been removed from your coin pouch.");
 							player.getInventory().add(AIR_RUNE, AMT);
 							player.getInventory().add(FIRE_RUNE, AMT);
 							player.getInventory().add(WATER_RUNE, AMT);

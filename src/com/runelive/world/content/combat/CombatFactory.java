@@ -734,7 +734,7 @@ public final class CombatFactory {
 
             /** Zamorak Spear on Corpeareal Beast **/
             if (NpcDefinition.forId(npc.getId()).getName().equalsIgnoreCase("Corporeal beast")) {
-                if (ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()).getName().equals("Zamorakian spear")) {
+                if (ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()).getName().equals("Zamorakian spear") || ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()).getName().equals("Zamorakian hasta")) {
                     maxHit *= 1.35;
                 }
             }
