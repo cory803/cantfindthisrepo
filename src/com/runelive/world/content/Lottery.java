@@ -51,7 +51,7 @@ public class Lottery {
   /*
    * The amount of coins required to enter the lottery.
    */
-  private static final int PRICE_TO_ENTER = 1000000;
+  private static final int PRICE_TO_ENTER = 100_000_000;
 
   /*
    * Get's the amount of gold people have put in the pot.
@@ -60,13 +60,13 @@ public class Lottery {
     if (CONTESTERS.size() == 0) {
       return 0;
     }
-    return (CONTESTERS.size() * (PRICE_TO_ENTER - 250000));
+    return (CONTESTERS.size() * (PRICE_TO_ENTER - 25_000_000));
   }
 
   /*
    * The user who won the Lottery last
    */
-  private static String LAST_WINNER = "Gabbe";
+  private static String LAST_WINNER = "No-one";
 
   public static String getLastWinner() {
     return LAST_WINNER;
