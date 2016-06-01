@@ -423,7 +423,7 @@ public enum CombatSpecial {
       throw new UnsupportedOperationException("Dragon battleaxe does not have a special attack!");
     }
   },
-  DRAGON_SPEAR(new int[] {1249, 1263, 5716, 5730}, 25, 0, 0, CombatType.MELEE,
+  DRAGON_SPEAR(new int[] {1249, 1263, 5716, 5730, 11716, 21120}, 25, 0, 0, CombatType.MELEE,
       WeaponInterface.SPEAR) {
     @Override
     public CombatContainer container(Player player, Character target) {
