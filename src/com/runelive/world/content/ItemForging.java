@@ -163,8 +163,15 @@ public class ItemForging {
       STEEL_HASTA(new Item[] {new Item(2353), new Item(1241)}, new Item(11371), new int[] {13, 48, 4350}),
       MITHRIL_HASTA(new Item[] {new Item(2359), new Item(1243)}, new Item(11373), new int[] {13, 68, 6250}),
       ADAMANT_HASTA(new Item[] {new Item(2361), new Item(1245)}, new Item(11375), new int[] {13, 88, 7800}),
-      RUNE_HASTA(new Item[] {new Item(2363), new Item(1247)}, new Item(11377), new int[] {13, 96, 8700});
+      RUNE_HASTA(new Item[] {new Item(2363), new Item(1247)}, new Item(11377), new int[] {13, 96, 8700}),
 
+      /**
+       * Imbuing rings
+       */
+      BERSERKER_RING(new Item[] {new Item(7968), new Item(6737)}, new Item(15220), new int[] {1, -1, 0}),
+      ARCHERS_RING(new Item[] {new Item(7968), new Item(6733)}, new Item(15019), new int[] {1, -1, 0}),
+      SEERS_RING(new Item[] {new Item(7968), new Item(6731)}, new Item(15018), new int[]  {1, -1, 0}),
+      WARRIOR_RING(new Item[] {new Item(7968), new Item(6735)}, new Item(15020), new int[] {1, -1, 0});
 
     ItemForgeData(Item[] requiredItems, Item product, int[] skillRequirement) {
       this.requiredItems = requiredItems;

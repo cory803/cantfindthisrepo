@@ -1760,6 +1760,10 @@ public class Owners {
 			target.getPacketSender().sendMessage("You have been given donator status. Relog to see it.");
 			player.getPacketSender().sendMessage("You have given "+command[1]+" donator rights "+command[2]+".");
 		}
+
+		if(command[0].equalsIgnoreCase("boss")) {
+			ShopManager.getShops().get(84).open(player);
+		}
 		if (command[0].equals("giverights")) {
 				try {
 				String rights = command[1];
