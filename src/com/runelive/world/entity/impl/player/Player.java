@@ -383,8 +383,10 @@ public class Player extends Character {
 
 	public void save() {
 		if (session.getState() != SessionState.LOGGED_IN && session.getState() != SessionState.LOGGING_OUT) {
+			PlayerLogs.log(player.getUsername(), "Account not saved via: "+session.getState()+"");
 			return;
 		}
+        PlayerLogs.log(player.getUsername(), "Account saved.");
 		if(GameSettings.MYSQL_PLAYER_SAVING)
 			PlayerSaving.saveGame(this);
 		if(GameSettings.JSON_PLAYER_SAVING)
