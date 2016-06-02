@@ -150,7 +150,7 @@
         "type": "NPC_STATEMENT",
         "anim": "NORMAL",
         "lines": 4,
-        "line1": "It costs 100M coins to enter the lottery.",
+        "line1": "It costs 10M coins to enter the lottery.",
         "line2": "Every Friday, one of the contesters will win a portion",
         "line3": "of the pot of gold and another lottery will begin. If",
         "line4": "you have any questions, feel free to ask other contesters.",

@@ -1042,54 +1042,10 @@ public class Shop extends ItemContainer {
         }
       } else if (shop == BOSS_POINT_STORE) {
         switch (item) {
-          case 11710:
-          case 11712:
-          case 11714:
-          case 6585:
-          case 11235:
-          case 11732:
           case 4151:
             return new Object[] {150, "Boss Points"};
-          case 20171:
-            return new Object[] {1500, "Boss Points"};
-          case 11286:
-          case 13902:
-          case 13905:
-            return new Object[] {550, "Boss Points"};
-          case 13752:
-            return new Object[] {1000, "Boss Points"};
-          case 13746:
-            return new Object[] {1250, "Boss Points"};
-          case 13748:
-            return new Object[] {1450, "Boss Points"};
-          case 13750:
-            return new Object[] {1375, "Boss Points"};
-          case 11724:
-          case 11726:
-          case 13899:
-          case 11718:
-          case 11720:
-          case 11722:
-            return new Object[] {600, "Boss Points"};
-          case 11702:
-            return new Object[] {900, "Boss Points"};
-          case 14484:
-          case 11704:
-          case 11706:
-          case 11708:
-          case 13754:
-            return new Object[] {650, "Boss Points"};
-          case 15017:
-          case 15018:
-          case 15019:
-          case 15020:
-          case 15220:
+          case 7968:
             return new Object[] {250, "Boss Points"};
-          case 6731:
-          case 6733:
-          case 6735:
-          case 6737:
-            return new Object[] {100, "Boss Points"};
         }
       } else if (shop == CREDIT_STORE_3) {
         switch (item) {

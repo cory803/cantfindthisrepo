@@ -1,5 +1,6 @@
 package com.runelive.world.content;
 
+import com.runelive.model.Animation;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
 import com.runelive.model.Skill;
@@ -34,22 +35,26 @@ public class ItemForging {
     if (p.getSkillManager().getCurrentLevel(skill) >= skillReq) {
       for (Item reqItem : data.requiredItems) {
         if (!p.getInventory().contains(reqItem.getId())
-            || p.getInventory().getAmount(reqItem.getId()) < reqItem.getAmount()) {
+                || p.getInventory().getAmount(reqItem.getId()) < reqItem.getAmount()) {
           p.getPacketSender()
-              .sendMessage("You need " + Misc.anOrA(reqItem.getDefinition().getName()) + " "
-                  + reqItem.getDefinition().getName() + " to forge a new item.");
+                  .sendMessage("You need " + Misc.anOrA(reqItem.getDefinition().getName()) + " "
+                          + reqItem.getDefinition().getName() + " to forge a new item.");
           return;
         }
       }
-      p.performGraphic(new Graphic(2010));
-      for (Item reqItem : data.requiredItems) {
+      final String itemName = Misc.formatText(ItemDefinition.forId(data.product.getId()).getName().toLowerCase());
+        for (Item reqItem : data.requiredItems) {
+          if (reqItem.getId() == 7968) {
+            p.getPacketSender().sendMessage("You transfer the magic from the scroll to your ring and receive  " + Misc.anOrA(itemName) + " " + itemName + ".");
+            p.performAnimation(new Animation(12565));
+            return;
+        }
+        p.performGraphic(new Graphic(2010));
         if (reqItem.getId() == 1755 || reqItem.getId() == 1595)
           continue;
         p.getInventory().delete(reqItem);
       }
       p.getInventory().add(data.product, true);
-      final String itemName =
-          Misc.formatText(ItemDefinition.forId(data.product.getId()).getName().toLowerCase());
       p.getPacketSender().sendMessage("You make " + Misc.anOrA(itemName) + " " + itemName + ".");
       p.getClickDelay().reset();
       p.getSkillManager().addExperience(skill, data.skillRequirement[2]);
