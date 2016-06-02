@@ -55,6 +55,7 @@ import com.runelive.world.content.BonusManager;
 import com.runelive.world.content.DropLog.DropLogEntry;
 import com.runelive.world.content.KillsTracker.KillsEntry;
 import com.runelive.world.content.LoyaltyProgramme.LoyaltyTitles;
+import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PointsHandler;
 import com.runelive.world.content.Trading;
 import com.runelive.world.content.clan.ClanChat;
@@ -383,10 +384,10 @@ public class Player extends Character {
 
 	public void save() {
 		if (session.getState() != SessionState.LOGGED_IN && session.getState() != SessionState.LOGGING_OUT) {
-			PlayerLogs.log(player.getUsername(), "Account not saved via: "+session.getState()+"");
+			PlayerLogs.log(getUsername(), "Account not saved via: "+session.getState()+"");
 			return;
 		}
-        PlayerLogs.log(player.getUsername(), "Account saved.");
+        PlayerLogs.log(getUsername(), "Account saved.");
 		if(GameSettings.MYSQL_PLAYER_SAVING)
 			PlayerSaving.saveGame(this);
 		if(GameSettings.JSON_PLAYER_SAVING)
