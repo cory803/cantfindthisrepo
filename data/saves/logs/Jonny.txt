@@ -9412,3 +9412,5 @@
 [6/3/16 10:21PM]	Jonny has done command teleto dc blitz	
 [6/3/16 10:21PM]	Jonny has done command item 555 150000	
 [6/3/16 10:21PM]	Jonny has done command vengrunes	
+[6/3/16 10:22PM]	Account saved.	
+[6/3/16 10:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
