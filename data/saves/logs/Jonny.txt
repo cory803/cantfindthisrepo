@@ -9406,3 +9406,9 @@
 [6/3/16 09:43PM]	Account saved.	
 [6/3/16 09:43PM]	Account saved.	
 [6/3/16 09:43PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[6/3/16 10:01PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[6/3/16 10:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[6/3/16 10:21PM]	Jonny has done command lunars	
+[6/3/16 10:21PM]	Jonny has done command teleto dc blitz	
+[6/3/16 10:21PM]	Jonny has done command item 555 150000	
+[6/3/16 10:21PM]	Jonny has done command vengrunes	
