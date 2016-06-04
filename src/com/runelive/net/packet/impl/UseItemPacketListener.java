@@ -248,8 +248,10 @@ public class UseItemPacketListener implements PacketListener {
         if (itemUsedWith.getId() == 1615 || usedWith.getId() == 1615) {
           Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
         } else {
+        	if(itemUsedWith.getId() == 1755 || usedWith.getId() == 1755) {
           Gems.selectionInterface(player,
                   usedWith.getId() == 1755 ? itemUsedWith.getId() : usedWith.getId());
+        	}
         }
         if (usedWith.getId() == 1733 || itemUsedWith.getId() == 1733)
           LeatherMaking.craftLeatherDialogue(player, usedWith.getId(), itemUsedWith.getId());
