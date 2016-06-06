@@ -72,7 +72,7 @@ public class Developers {
 			player.setPoisonDamage(20);
 		}
 		if (command[0].equals("save11")) {
-			PlayerOwnedShops.save();
+			PlayerOwnedShops.saveShops();
 		}
 		if (command[0].equals("test555")) {
 			try {
@@ -1120,7 +1120,7 @@ public class Developers {
 						}
 						WellOfGoodwill.save();
 						GrandExchangeOffers.save();
-						PlayerOwnedShops.save();
+						PlayerOwnedShops.saveShops();
 						try {
 							Scoreboard.save();
 						} catch(IOException e) {

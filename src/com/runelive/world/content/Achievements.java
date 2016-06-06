@@ -201,7 +201,7 @@ public class Achievements {
             37071, new int[] {26, 2500}), BURN_2500_MAGIC_LOGS(Difficulty.HARD,
                 "Burn 2500 Magic Logs", 37072,
                 new int[] {27, 2500}), FISH_2000_ROCKTAILS(Difficulty.HARD, "Fish 1500 Rocktails",
-                    37073, new int[] {28, 2500}), COOK_1000_ROCKTAILS(Difficulty.HARD,
+                    37073, new int[] {28, 1500}), COOK_1000_ROCKTAILS(Difficulty.HARD,
                         "Cook 1000 Rocktails", 37074, new int[] {29, 1000}), MINE_2000_RUNITE_ORES(
                             Difficulty.HARD, "Mine 1000 Runite Ores", 37075,
                             new int[] {30, 1000}), SMELT_1000_RUNE_BARS(Difficulty.HARD,

@@ -35,15 +35,24 @@ public class PlayerOwnedShops {
             }
             DataInputStream in = new DataInputStream(new FileInputStream(file));
             int count = in.readInt();
+            //in.skipBytes(1);
+            System.out.println("Shop count: " + count);
             if (count > 0) {
                 for (int i = 0; i < count; i++) {
+                    System.out.println("Decoding shop " + i);
                     String owner_name = in.readUTF();
+                    System.out.println("\tOwner name: " + owner_name);
                     String store_caption = in.readUTF();
+                    System.out.println("\tStore caption: " + store_caption);
                     int shopItems = in.readInt();
+                    System.out.println("\tShop items: " + shopItems);
                     long coins_to_collect = in.readLong();
+                    System.out.println("\tCoins to collect: " + coins_to_collect);
                     PosOffer[] sell_offers = new PosOffer[shopItems];
                     for (int i2 = 0; i2 < shopItems; i2++) {
                         sell_offers[i2] = new PosOffer(in.readInt(), in.readInt(), in.readInt(), in.readLong());
+                        PosOffer off = sell_offers[i2];
+                        System.out.println("\t\tItem: " + off.getItemId() + ", " + off.getAmount() + ", " + off.getSoldAmount() + ", " + off.getPrice());
                     }
                     SHOPS_ARRAYLIST.add(new PosOffers(owner_name, store_caption, shopItems, coins_to_collect, sell_offers));
                     SHOPS_TO_SEARCH.add(owner_name.toLowerCase());

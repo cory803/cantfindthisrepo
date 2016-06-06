@@ -15,6 +15,7 @@ import com.runelive.net.mysql.ThreadedSQL;
 import com.runelive.net.mysql.MySQLDatabaseConfiguration;
 import com.runelive.net.mysql.DatabaseInformationCharacters;
 import com.runelive.net.mysql.DatabaseInformationForums;
+import com.runelive.net.mysql.DatabaseInformationVoting;
 
 /**
  * The starting point of RuneLive.
@@ -31,6 +32,7 @@ public class GameServer {
     private static long startTime;
     private static ThreadedSQL characters_sql = null;
     private static ThreadedSQL forums_sql = null;
+    private static ThreadedSQL voting_sql = null;
 
     public static ThreadedSQL getCharacterPool() {
         return characters_sql;
@@ -38,6 +40,11 @@ public class GameServer {
 	
     public static ThreadedSQL getForumPool() {
         return forums_sql;
+    }
+    
+	
+    public static ThreadedSQL getVotingPool() {
+        return voting_sql;
     }
 	
     public static void main(String[] params) {
@@ -88,6 +95,13 @@ public class GameServer {
 			forums.setPassword(DatabaseInformationForums.password);
 			forums.setDatabase(DatabaseInformationForums.database);
 			forums_sql = new ThreadedSQL(forums, 4);
+			MySQLDatabaseConfiguration voting = new MySQLDatabaseConfiguration();
+			voting.setHost(DatabaseInformationVoting.host);
+			voting.setPort(DatabaseInformationVoting.port);
+			voting.setUsername(DatabaseInformationVoting.username);
+			voting.setPassword(DatabaseInformationVoting.password);
+			voting.setDatabase(DatabaseInformationVoting.database);
+			voting_sql = new ThreadedSQL(voting, 4);
             loader.init();
             loader.finish();
 			logger.info("Starting Configurations...");

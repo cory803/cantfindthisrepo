@@ -6,6 +6,7 @@ import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Store;
+import com.runelive.model.Voting;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.model.Position;
 import com.runelive.util.ForumDatabase;
@@ -282,29 +283,8 @@ public class Members {
 				player.getPacketSender().sendMessage("You have to wait 30 seconds in order to use ::auth!");
 				return;
 			}
-			/*
-			String auth = wholeCommand.replace("auth ", "");
 			player.getVoteTimer().reset();
-			try {
-				boolean success = motivote.redeemVote(auth);
-				if (success) {
-					if(GameSettings.DOUBLE_VOTE_TOKENS)
-						player.getInventory().add(10944, 2);
-					else if(GameSettings.TRIPLE_VOTE_TOKENS)
-						player.getInventory().add(10944, 3);
-					else
-						player.getInventory().add(10944, 1);
-
-					Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
-					player.getPacketSender().sendMessage("You have claimed your auth code!");
-				} else {
-					player.getPacketSender().sendMessage("This is an invalid auth code!");
-				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
-				player.getPacketSender().sendMessage("Unable to check auth, please try again later.");
-			}
-			*/
+			Voting.useAuth(player, command[1]);
 		}
 		if(command[0].equalsIgnoreCase("attacks")) {
 			int attack = DesolaceFormulas.getMeleeAttack(player);

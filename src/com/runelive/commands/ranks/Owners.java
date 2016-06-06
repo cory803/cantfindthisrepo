@@ -2131,7 +2131,7 @@ public class Owners {
 						}
 						WellOfGoodwill.save();
 						GrandExchangeOffers.save();
-						PlayerOwnedShops.save();
+						PlayerOwnedShops.saveShops();
 						try {
 							Scoreboard.save();
 						} catch(IOException e) {
