@@ -2008,3 +2008,5 @@
 [6/3/16 10:21PM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [6/3/16 10:22PM]	Account saved.	
 [6/3/16 10:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
+[6/6/16 10:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[6/6/16 10:30AM]	Opened the player owned shop: Dc Blitz	
