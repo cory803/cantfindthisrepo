@@ -52,7 +52,7 @@ public class RegularDonators {
 			}
 			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
 			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
-				player.getPacketSender().sendMessage("You are not aloud to put these symbols in your yell message.");
+				player.getPacketSender().sendMessage("You are not allowed to put these symbols in your yell message.");
 				return;
 			}
 			if(player.getGameMode() == GameMode.IRONMAN) {

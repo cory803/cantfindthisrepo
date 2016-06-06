@@ -259,7 +259,7 @@ public class Members {
 					e.printStackTrace();
 				}
 			} else {
-				player.getPacketSender().sendMessage("Staff members are not aloud to use this command.");
+				player.getPacketSender().sendMessage("Staff members are not allowed to use this command.");
 			}
 		}
 		if (wholeCommand.equalsIgnoreCase("donate") || wholeCommand.equalsIgnoreCase("store")) {
