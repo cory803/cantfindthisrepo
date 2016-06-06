@@ -140,7 +140,7 @@ public class TeleportHandler {
     }
     if (player.getLocation() == Location.WILDKEY_ZONE
         || player.getLocation() == Location.WILDERNESS) {
-      if (player.getWildernessLevel() > 30) {
+      if (player.getWildernessLevel() > 20) {
         if (player.getRights() == PlayerRights.ADMINISTRATOR
             || player.getRights() == PlayerRights.OWNER
             || player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
@@ -152,7 +152,7 @@ public class TeleportHandler {
         player.getPacketSender()
             .sendMessage("Teleport spells are blocked in this level of Wilderness.");
         player.getPacketSender()
-            .sendMessage("You must be below level 30 of Wilderness to use teleportation spells.");
+            .sendMessage("You must be below level 20 of Wilderness to use teleportation spells.");
         return false;
       }
     }
