@@ -38,7 +38,7 @@ public class ShutdownHook extends Thread {
 	} catch(IOException e) {
 		
 	}
-    PlayerOwnedShops.save();
+    PlayerOwnedShops.saveShops();
     ClanChatManager.save();
     logger.info("The shudown hook actions have been completed, shutting the server down...");
   }

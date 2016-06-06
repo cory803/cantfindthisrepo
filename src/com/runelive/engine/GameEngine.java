@@ -56,7 +56,7 @@ public final class GameEngine implements Runnable {
       World.logError("game_engine_error_log.txt", (Exception) e);
       World.savePlayers();
       GrandExchangeOffers.save();
-      PlayerOwnedShops.save();
+      PlayerOwnedShops.saveShops();
       ClanChatManager.save();
     }
   }
