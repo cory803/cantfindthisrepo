@@ -9,6 +9,7 @@ import java.nio.channels.FileChannel;
 import java.text.NumberFormat;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Enumeration;
 import java.util.LinkedList;
@@ -41,7 +42,11 @@ public class Misc {
     System.arraycopy(b, 0, c, aLen, bLen);
     return c;
   }
-
+  
+  public static boolean contains(final int[] arr, final int key) {
+	    return Arrays.stream(arr).anyMatch(i -> i == key);
+	}
+  
   public static final String formatAmount(long amount) {
     String format = "Too high!";
     if (amount >= 0 && amount < 100000) {

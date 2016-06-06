@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 
 import com.runelive.GameServer;
 import com.runelive.world.World;
@@ -12,6 +13,7 @@ import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.net.mysql.ThreadedSQLCallback;
+import com.runelive.util.Misc;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.world.content.MemberScrolls;
 import com.runelive.world.content.PlayerPanel;
@@ -35,6 +37,17 @@ public class Store {
 					int credits = rs.getInt("credits");
 					int forum_id = rs.getInt("forum_id");
 					boolean alreadyGotAmountClaimed = false;
+					for(int i = 0; i < item_ids.length; i++) {
+						if(Integer.parseInt(item_ids[i]) == 7629) {
+							credits -= 125;
+						} else if(Integer.parseInt(item_ids[i]) == 10934) {
+							credits -= 25;
+						} else if(Integer.parseInt(item_ids[i]) == 10935) {
+							credits -= 50;
+						} else if(Integer.parseInt(item_ids[i]) == 10943) {
+							credits -= 10;
+						}
+					}
 					for(int i = 0; i < item_ids.length; i++) {
 						if (!player.getInventory().hasRoomFor(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]))) {
 							player.getBank(0).add(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]));
