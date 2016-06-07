@@ -40,6 +40,16 @@ public abstract class Dialogue {
   public int nextDialogueId() {
     return -1;
   }
+  
+
+  /**
+   * Gets the next dialogue id to show after 'click here to continue' has been clicked.
+   * 
+   * @return The next dialogue's id.
+   */
+  public int specialValue() {
+    return -1;
+  }
 
   /**
    * Gets this dialogue's id.

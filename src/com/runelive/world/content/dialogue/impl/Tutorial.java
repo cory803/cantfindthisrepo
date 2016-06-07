@@ -672,6 +672,48 @@ public class Tutorial {
             }
           };
           break;
+      case 17:
+          dialogue = new Dialogue() {
+
+            @Override
+            public DialogueType type() {
+              return DialogueType.NPC_STATEMENT;
+            }
+
+            @Override
+            public DialogueExpression animation() {
+              return DialogueExpression.NORMAL;
+            }
+
+            @Override
+            public String[] dialogue() {
+              return new String[] {"Before you continue...",
+                  "We require that everyone sets an account pin.",
+                  "This will protect you from hackers while you play RuneLive.",
+                  "Make sure you write it down!"};
+            };
+
+            @Override
+            public int npcId() {
+              return 945;
+            }
+
+            @Override
+            public void specialAction() {
+
+            }
+
+            @Override
+            public Dialogue nextDialogue() {
+            	return get(p, stage + 1);
+            }
+
+            @Override
+            public int specialValue() {
+            	return 500;
+            }
+          };
+          break;
     }
     return dialogue;
   }

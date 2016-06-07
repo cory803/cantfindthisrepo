@@ -1,5 +1,10 @@
 package com.runelive.world.content;
 
+import com.runelive.GameSettings;
+import com.runelive.engine.task.Task;
+import com.runelive.engine.task.TaskManager;
+import com.runelive.model.GameMode;
+import com.runelive.net.security.ConnectionHandler;
 import com.runelive.util.Misc;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.dialogue.impl.Tutorial;
@@ -26,7 +31,7 @@ public class BankPin {
 
   public static void init(Player player, boolean openBankAfter) {
 	if(!player.getBankPinAttributes().hasBankPin()) {
-		player.getPacketSender().sendMessage("<col=ff0000>Enter a pin to set for your account...");
+		player.getPacketSender().sendMessage("<col=ff0000>Enter a pin to set for your account.");
 	}
     if (player.getBankPinAttributes().getInvalidAttempts() == 3) {
       if (System.currentTimeMillis() - player.getBankPinAttributes().getLastAttempt() < 400000) {
@@ -104,7 +109,38 @@ public class BankPin {
         player.setLastBankIp(player.getHostAddress());
         if(player.continueTutorial()) {
         	  DialogueManager.start(player, Tutorial.get(player, 16));
-          }
+        } else if(player.continueLoginAccountPin()) {
+        		player.setPlayerLocked(false);
+        } else if(player.continueSkipTutorial()) {
+        	player.setNewPlayer(false);
+			player.getPacketSender().sendInterfaceRemoval();
+			if(ConnectionHandler.getStarters(player.getHostAddress()) <= GameSettings.MAX_STARTERS_PER_IP) {
+				if(player.getGameMode() != GameMode.NORMAL) {
+					player.getInventory().add(995, 10000).add(1153, 1).add(1115, 1).add(1067, 1).add(1323, 1).add(1191, 1).add(841, 1).add(882, 50).add(1167, 1).add(1129, 1).add(1095, 1).add(1063, 1).add(579, 1).add(577, 1).add(1011, 1).add(1379, 1).add(556, 50).add(558, 50).add(557, 50).add(555, 50).add(1351, 1).add(1265, 1).add(1712, 1).add(11118, 1).add(1007, 1).add(1061, 1).add(330, 100).add(16127, 1);
+				} else {
+					player.getInventory().add(995, 5000000).add(1153, 1).add(1115, 1).add(1067, 1).add(1323, 1).add(1191, 1).add(841, 1).add(882, 1000).add(1167, 1).add(1129, 1).add(1095, 1).add(1063, 1).add(579, 1).add(577, 1).add(1011, 1).add(1379, 1).add(556, 1000).add(558, 1000).add(557, 1000).add(555, 1000).add(1351, 1).add(1265, 1).add(1712, 1).add(11118, 1).add(1007, 1).add(1061, 1).add(386, 100).add(16127, 1);
+				}
+				player.getPacketSender().sendMessage("<col=FF0066>You've been given a Novite 2h! It is untradeable and you will keep it on death.");
+				ConnectionHandler.addStarter(player.getHostAddress(), true);
+				player.setReceivedStarter(true);
+			} else {
+				player.getPacketSender().sendMessage("Your connection has received enough starting items.");
+			}
+			player.getPacketSender().sendInterface(3559);
+			player.getAppearance().setCanChangeAppearance(true);
+			player.setPlayerLocked(false);
+			TaskManager.submit(new Task(20, player, false) {
+				@Override
+				protected void execute() {
+					if(player != null && player.isRegistered()) {
+						player.getPacketSender().sendMessage("<img=4> @blu@Want to go player killing? Mandrith now sells premade PvP sets.");
+						player.getPacketSender().sendMessage("<img=4> @blu@Join 'RuneLive' clan chat for help!");
+					}
+					stop();
+				}
+			});
+			player.save();
+        }
         return;
       }
       for (int i = 0; i < player.getBankPinAttributes().getEnteredBankPin().length; i++) {

@@ -134,6 +134,14 @@ public class MovementPacketListener implements PacketListener {
     	 DialogueManager.start(player, Tutorial.get(player, 15));
     	 return false;
     }
+    if(player.continueSkipTutorial() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {
+   	 	DialogueManager.start(player, Tutorial.get(player, 17));
+   	 return false;
+   }
+    if(player.continueLoginAccountPin() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {
+   	 	DialogueManager.start(player, Tutorial.get(player, 17));
+   	 return false;
+   }
     if (player.isPlayerLocked() || player.isCrossingObstacle())
       return false;
     if (player.isNeedsPlacement()) {

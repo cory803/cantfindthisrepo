@@ -663,6 +663,8 @@ public class Player extends Character {
 	private boolean newPlayer;
 	private boolean openBank;
 	private boolean tutorialContinue;
+	private boolean skipTutorialContinue;
+	private boolean loginAccountPin;
 	private boolean inActive;
 	private boolean inConstructionDungeon;
 	private boolean isBuildingMode;
@@ -2248,10 +2250,25 @@ public class Player extends Character {
 		return tutorialContinue;
 	}
 	
+	public boolean continueSkipTutorial() {
+		return skipTutorialContinue;
+	}
+	
+	public boolean continueLoginAccountPin() {
+		return loginAccountPin;
+	}
+	
 	public void setOpenBank(boolean openBank) {
 		this.openBank = openBank;
 	}
 	
+	public void setContinueSkipTutorial(boolean b) {
+		this.skipTutorialContinue = b;
+	}
+	
+	public void setLoginAccountPin(boolean b) {
+		this.loginAccountPin = b;
+	}
 
 	public void setContinueTutorial(boolean tut) {
 		this.tutorialContinue = tut;

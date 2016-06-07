@@ -48,6 +48,7 @@ import com.runelive.world.content.combat.pvp.BountyHunter;
 import com.runelive.world.content.combat.range.DwarfMultiCannon;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.content.dialogue.impl.Tutorial;
 import com.runelive.world.content.grandexchange.GrandExchange;
 import com.runelive.world.content.grandexchange.GrandExchangeOffer;
 import com.runelive.world.content.grandexchange.GrandExchangeOffers;
@@ -301,6 +302,12 @@ public class PlayerHandler {
             // player.setClanChatName("runelive");
             player.setPlayerLocked(true).setDialogueActionId(45);
             DialogueManager.start(player, 81);
+        } else {
+        	if(!player.getBankPinAttributes().hasBankPin()) {
+        		player.setPlayerLocked(true);
+        		player.setLoginAccountPin(true);
+                DialogueManager.start(player, Tutorial.get(player, 17));
+        	}
         }
 
         player.getPacketSender().updateSpecialAttackOrb()

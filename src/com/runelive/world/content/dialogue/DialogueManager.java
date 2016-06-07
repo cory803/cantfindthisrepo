@@ -139,15 +139,18 @@ public class DialogueManager {
     Dialogue next = player.getDialogue().nextDialogue();
     if (next == null)
       next = dialogues.get(player.getDialogue().nextDialogueId());
-    if (next == null || next.id() < 0) {
+    if ((next == null || next.id() < 0) && player.getDialogue().specialValue() < 500) {
       player.getPacketSender().sendInterfaceRemoval();
       return;
     }
-    if(next.id() == 7 && !player.getBankPinAttributes().hasBankPin()) {
-    	player.setContinueTutorial(true);
-		BankPin.init(player, false);
+    if(player.getDialogue().specialValue() == 500 && !player.getBankPinAttributes().hasBankPin()) {
+    	BankPin.init(player, false);
     } else {
-    	start(player, next);
+	    if(next.id() == 7 && !player.getBankPinAttributes().hasBankPin()) {
+			BankPin.init(player, false);
+	    } else {
+	    	start(player, next);
+	    }
     }
   }
 
