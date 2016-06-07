@@ -120,7 +120,17 @@ public class Player extends Character {
 	public boolean claimingStoreItems = false;
 	public int debugRollWins;
 	public int debugRollLosses;
+	private int passwordChange = 0;
+	
 	public static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
+	
+	public int getPasswordChange() {
+		return passwordChange;
+	}
+
+	public void setPasswordChange(int val) {
+		this.passwordChange = val;
+	}
 	
 	public int calculateMaxLifePoints() {
 		int lifePoints = getSkillManager().getCurrentLevel(Skill.CONSTITUTION);// The
@@ -2268,6 +2278,16 @@ public class Player extends Character {
 	
 	public void setLoginAccountPin(boolean b) {
 		this.loginAccountPin = b;
+	}
+	
+	private boolean passwordChanging;
+	
+	public void setPasswordChanging(boolean b) {
+		this.passwordChanging = b;
+	}
+	
+	public boolean getPasswordChanging() {
+		return passwordChanging;
 	}
 
 	public void setContinueTutorial(boolean tut) {

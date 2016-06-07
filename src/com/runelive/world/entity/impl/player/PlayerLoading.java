@@ -250,6 +250,10 @@ public class PlayerLoading {
             player.setPassword(password);
         }
 
+        if (reader.has("password_change")) {
+        	player.setPasswordChange(reader.get("password_change").getAsInt());
+        }
+        
         if (reader.has("player-salt")) {
             String salt = reader.get("player-salt").getAsString();
             player.setSalt(salt);

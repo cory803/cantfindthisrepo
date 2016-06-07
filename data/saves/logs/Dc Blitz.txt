@@ -2010,3 +2010,6 @@
 [6/3/16 10:22PM]	Logout from host 127.0.0.1, Computer Address: 362460699	
 [6/6/16 10:30AM]	Login from host 127.0.0.1, Computer Address: 362460699	
 [6/6/16 10:30AM]	Opened the player owned shop: Dc Blitz	
+[6/7/16 08:25AM]	Login from host 127.0.0.1, Computer Address: 362460699	
+[6/7/16 08:25AM]	Player changed password from: underme  to: underme	
+[6/7/16 08:25AM]	Account saved.	

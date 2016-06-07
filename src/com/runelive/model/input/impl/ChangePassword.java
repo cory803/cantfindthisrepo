@@ -1,8 +1,11 @@
 package com.runelive.model.input.impl;
 
+import com.runelive.GameSettings;
 import com.runelive.model.input.Input;
 import com.runelive.util.NameUtils;
 import com.runelive.world.content.PlayerLogs;
+import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.content.dialogue.impl.Tutorial;
 import com.runelive.world.entity.impl.player.Player;
 
 public class ChangePassword extends Input {
@@ -24,6 +27,16 @@ public class ChangePassword extends Input {
         "Player changed password from: " + player.getPassword() + "  to: " + syntax);
     player.setPassword(syntax);
     player.getPacketSender().sendMessage("Your account's password is now: " + syntax);
+    player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 	player.save();
+	if(player.getPasswordChanging()) {
+		player.setPasswordChanging(false);
+		player.setPlayerLocked(false);
+		if(!player.getBankPinAttributes().hasBankPin()) {
+    		player.setPlayerLocked(true);
+    		player.setLoginAccountPin(true);
+            DialogueManager.start(player, Tutorial.get(player, 17));
+    	}
+	}
   }
 }

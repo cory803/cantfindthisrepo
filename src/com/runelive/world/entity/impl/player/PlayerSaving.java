@@ -214,6 +214,7 @@ public class PlayerSaving {
         } else {
             object.addProperty("password", player.getPassword().trim());
         }
+        object.addProperty("password_change", new Integer(player.getPasswordChange()));
         object.addProperty("email", player.getEmailAddress() == null ? "null" : player.getEmailAddress().trim());
         object.addProperty("yell-tag", player.getYellTag());
         object.addProperty("staff-rights", player.getRights().name());

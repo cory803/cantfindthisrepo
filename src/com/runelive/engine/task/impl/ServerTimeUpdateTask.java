@@ -232,6 +232,9 @@ public class ServerTimeUpdateTask extends Task {
                 } else {
                   GameSettings.MYSQL_PLAYER_SAVING = false;
                 }
+			  } else if (line.contains("password_change")) {
+	                args = line.split(": ");
+	                GameSettings.PASSWORD_CHANGE = Integer.parseInt(args[1]);
 			  } else if (line.contains("mysql_player_loading")) {
                 args = line.split(": ");
                 if (args[1].toLowerCase().equals("on")) {

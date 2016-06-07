@@ -66,6 +66,8 @@ public class GameSettings {
   public static int AUTH_AMOUNT = 1;
   public static int AUTHS_CLAIMED = 0;
   public static boolean FIGHT_PITS_ACTIVE = false;
+  
+  public static int PASSWORD_CHANGE = 0;
 
   public static int DATABASE_LOGGING_TIME = 60;
   public static int CONFIGURATION_TIME = 0;

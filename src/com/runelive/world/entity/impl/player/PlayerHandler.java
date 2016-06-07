@@ -24,6 +24,7 @@ import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
+import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.SessionState;
 import com.runelive.net.security.ConnectionHandler;
@@ -303,10 +304,17 @@ public class PlayerHandler {
             player.setPlayerLocked(true).setDialogueActionId(45);
             DialogueManager.start(player, 81);
         } else {
-        	if(!player.getBankPinAttributes().hasBankPin()) {
+        	if(player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
         		player.setPlayerLocked(true);
-        		player.setLoginAccountPin(true);
-                DialogueManager.start(player, Tutorial.get(player, 17));
+        		player.setPasswordChanging(true);
+    			player.setInputHandling(new ChangePassword());
+    			player.getPacketSender().sendEnterInputPrompt("Please enter a new password to set for your account:");
+        	} else {
+	        	if(!player.getBankPinAttributes().hasBankPin()) {
+	        		player.setPlayerLocked(true);
+	        		player.setLoginAccountPin(true);
+	                DialogueManager.start(player, Tutorial.get(player, 17));
+	        	}
         	}
         }
 
@@ -378,14 +386,6 @@ public class PlayerHandler {
                     player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
         }
         PlayerOwnedShops.collectCoinsOnLogin(player);
-        if (!player.getBankPinAttributes().hasBankPin()) {
-            if (player.getLocation() != Location.WILDERNESS) {
-                if (!player.newPlayer() && !player.getRights().equals(PlayerRights.OWNER)) {
-                    player.setDialogueActionId(181);
-                    DialogueManager.start(player, 181);
-                }
-            }
-        }
         // PlayerOwnedShops.collectCoinsOnLogin(player);
         PlayerLogs.log(player.getUsername(), "Login from host " + player.getHostAddress()
                 + ", Computer Address: " + player.getComputerAddress());
