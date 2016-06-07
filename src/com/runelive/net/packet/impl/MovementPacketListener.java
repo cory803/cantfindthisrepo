@@ -7,6 +7,8 @@ import com.runelive.model.movement.PathFinder;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.world.content.BankPin;
+import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.content.dialogue.impl.Tutorial;
 import com.runelive.world.content.minigames.impl.Dueling;
 import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
 import com.runelive.world.entity.impl.player.Player;
@@ -127,6 +129,10 @@ public class MovementPacketListener implements PacketListener {
       player.setResting(false);
       player.performAnimation(new Animation(11788));
       return false;
+    }
+    if(player.continueTutorial() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {
+    	 DialogueManager.start(player, Tutorial.get(player, 15));
+    	 return false;
     }
     if (player.isPlayerLocked() || player.isCrossingObstacle())
       return false;

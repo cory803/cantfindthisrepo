@@ -1,6 +1,8 @@
 package com.runelive.world.content;
 
 import com.runelive.util.Misc;
+import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.content.dialogue.impl.Tutorial;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -23,6 +25,9 @@ public class BankPin {
   }
 
   public static void init(Player player, boolean openBankAfter) {
+	if(!player.getBankPinAttributes().hasBankPin()) {
+		player.getPacketSender().sendMessage("<col=ff0000>Enter a pin to set for your account...");
+	}
     if (player.getBankPinAttributes().getInvalidAttempts() == 3) {
       if (System.currentTimeMillis() - player.getBankPinAttributes().getLastAttempt() < 400000) {
         player.getPacketSender()
@@ -97,6 +102,9 @@ public class BankPin {
         player.getPacketSender().sendInterfaceRemoval();
         player.setLastBankSerial(player.getComputerAddress());
         player.setLastBankIp(player.getHostAddress());
+        if(player.continueTutorial()) {
+        	  DialogueManager.start(player, Tutorial.get(player, 16));
+          }
         return;
       }
       for (int i = 0; i < player.getBankPinAttributes().getEnteredBankPin().length; i++) {
@@ -112,8 +120,11 @@ public class BankPin {
         }
       }
       player.getBankPinAttributes().setInvalidAttempts(0).setHasEnteredBankPin(true);
+      System.out.println("Wat2");
       if (player.openBank()) {
         player.getBank(0).open();
+      } else if(player.continueTutorial()) {
+    	  DialogueManager.start(player, Tutorial.get(player, 16));
       } else {
         player.getPacketSender().sendInterfaceRemoval();
       }

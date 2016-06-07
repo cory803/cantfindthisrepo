@@ -7,6 +7,7 @@ import com.runelive.model.Direction;
 import com.runelive.model.GameMode;
 import com.runelive.model.Position;
 import com.runelive.net.security.ConnectionHandler;
+import com.runelive.world.content.BankPin;
 import com.runelive.world.content.dialogue.Dialogue;
 import com.runelive.world.content.dialogue.DialogueExpression;
 import com.runelive.world.content.dialogue.DialogueType;
@@ -597,6 +598,80 @@ public class Tutorial {
           }
         };
         break;
+      case 15:
+          dialogue = new Dialogue() {
+
+            @Override
+            public DialogueType type() {
+              return DialogueType.NPC_STATEMENT;
+            }
+
+            @Override
+            public DialogueExpression animation() {
+              return DialogueExpression.NORMAL;
+            }
+
+            @Override
+            public String[] dialogue() {
+              return new String[] {"Before you start your tutorial,",
+                  "We require that everyone sets an account pin.",
+                  "This will protect you from hackers while you play RuneLive.",
+                  "Make sure you write it down!"};
+            };
+
+            @Override
+            public int npcId() {
+              return 945;
+            }
+
+            @Override
+            public void specialAction() {
+
+            }
+
+            @Override
+            public Dialogue nextDialogue() {
+              return get(p, 0);
+            }
+          };
+          break;
+      case 16:
+          dialogue = new Dialogue() {
+
+            @Override
+            public DialogueType type() {
+              return DialogueType.NPC_STATEMENT;
+            }
+
+            @Override
+            public DialogueExpression animation() {
+              return DialogueExpression.NORMAL;
+            }
+
+            @Override
+            public String[] dialogue() {
+              return new String[] {"Great!",
+                  "Now that you are protected we can continue on...",
+                  "Remember, if you ever forget your pin you can always",
+                  "recover it by submitting a support ticket."};
+            };
+
+            @Override
+            public int npcId() {
+              return 945;
+            }
+
+            @Override
+            public void specialAction() {
+
+            }
+
+            @Override
+            public Dialogue nextDialogue() {
+              return get(p, 0);
+            }
+          };
+          break;
     }
     return dialogue;
   }

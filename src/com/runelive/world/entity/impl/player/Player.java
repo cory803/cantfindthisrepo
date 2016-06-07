@@ -662,6 +662,7 @@ public class Player extends Character {
 	private boolean soundsActive, musicActive;
 	private boolean newPlayer;
 	private boolean openBank;
+	private boolean tutorialContinue;
 	private boolean inActive;
 	private boolean inConstructionDungeon;
 	private boolean isBuildingMode;
@@ -2243,8 +2244,17 @@ public class Player extends Character {
 		return openBank;
 	}
 
+	public boolean continueTutorial() {
+		return tutorialContinue;
+	}
+	
 	public void setOpenBank(boolean openBank) {
 		this.openBank = openBank;
+	}
+	
+
+	public void setContinueTutorial(boolean tut) {
+		this.tutorialContinue = tut;
 	}
 
 	public int getMinutesBonusExp() {

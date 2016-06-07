@@ -1094,7 +1094,7 @@ public class ButtonClickPacketListener implements PacketListener {
         DialogueOptions.handle(player, id);
         return true;
     }
-    if (player.isPlayerLocked() && id != 2458) {
+    if (player.isPlayerLocked() && id != 2458 && (id < 14873 && id > 14882)) {
       return true;
     }
     if (Achievements.handleButton(player, id)) {

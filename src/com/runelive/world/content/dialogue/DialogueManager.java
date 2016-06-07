@@ -8,6 +8,7 @@ import com.google.gson.JsonObject;
 import com.runelive.GameSettings;
 import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.util.JsonLoader;
+import com.runelive.world.content.BankPin;
 import com.runelive.world.content.dialogue.impl.Tutorial;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -142,7 +143,12 @@ public class DialogueManager {
       player.getPacketSender().sendInterfaceRemoval();
       return;
     }
-    start(player, next);
+    if(next.id() == 7 && !player.getBankPinAttributes().hasBankPin()) {
+    	player.setContinueTutorial(true);
+		BankPin.init(player, false);
+    } else {
+    	start(player, next);
+    }
   }
 
   /**
@@ -155,7 +161,7 @@ public class DialogueManager {
       player.getPacketSender().sendInterfaceRemoval();
       return;
     }
-    Dialogue next = Tutorial.get(player, 0);
+    Dialogue next = Tutorial.get(player, 15);
     if (next == null)
       next = dialogues.get(player.getDialogue().nextDialogueId());
     if (next == null || next.id() < 0) {
