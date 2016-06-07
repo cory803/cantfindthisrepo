@@ -64,18 +64,6 @@ public class GameServer {
         try {
             panel.setVisible(true);
             logger.info("Initializing the loader...");
-            /*System.out.println("Fetching client version...");
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(
-                        new URL("https://dl.dropboxusercontent.com/u/344464529/RuneLive/update.txt").openStream()));
-                for (int i = 0; i < 1; i++) {
-                    GameSettings.client_version = reader.readLine();
-                }
-                System.out.println("Client version has been set to: " + GameSettings.client_version + "");
-            } catch (Exception e) {
-                // GameSettings.client_version = "invalid_connection";
-                e.printStackTrace();
-            }*/
             LoaderProperties.load();
 			System.out.println("Connecting to MYSQL character database...");
 			//Characters SQL

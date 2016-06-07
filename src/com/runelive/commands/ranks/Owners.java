@@ -11,6 +11,7 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.world.content.*;
 import com.runelive.model.Store;
+import com.runelive.model.WebsiteOnline;
 import com.runelive.world.content.skill.impl.dungeoneering.*;
 import com.runelive.util.ForumDatabase;
 import java.sql.*;
@@ -2184,7 +2185,7 @@ public class Owners {
 			World.sendMessage("<img=4> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");
 		}
 		if(command[0].equals("test")) {
-			player.getSkillManager().addExperience(Skill.FARMING, 500);
+			WebsiteOnline.updateOnline(World.getPlayers().size());
 		}
 		if(command[0].equalsIgnoreCase("frame")) {
 			int frame = Integer.parseInt(command[1]);

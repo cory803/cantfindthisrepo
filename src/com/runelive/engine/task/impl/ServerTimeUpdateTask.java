@@ -11,6 +11,7 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Direction;
 import com.runelive.model.Locations;
 import com.runelive.model.Position;
+import com.runelive.model.WebsiteOnline;
 import com.runelive.util.Misc;
 import com.runelive.util.PlayersOnline;
 import com.runelive.world.World;
@@ -78,7 +79,7 @@ public class ServerTimeUpdateTask extends Task {
           GameSettings.gambler_timer_2--;
         }
         if (GameSettings.PLAYERS_ONLINE) {
-          PlayersOnline.update();
+          WebsiteOnline.updateOnline(World.getPlayers().size());
         }
         if (!GameSettings.spawned_1) {
           NPC advertiser_1 = new NPC(4002, new Position(2453, 3091));
