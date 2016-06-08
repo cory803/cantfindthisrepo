@@ -3,12 +3,7 @@ package com.runelive.world.content.combat.magic;
 import java.util.Optional;
 
 import com.runelive.engine.task.TaskManager;
-import com.runelive.model.Animation;
-import com.runelive.model.Graphic;
-import com.runelive.model.GraphicHeight;
-import com.runelive.model.Item;
-import com.runelive.model.Projectile;
-import com.runelive.model.Skill;
+import com.runelive.model.*;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.world.content.combat.effect.CombatPoisonEffect.PoisonType;
 import com.runelive.world.content.combat.effect.CombatTeleblockEffect;
@@ -76,7 +71,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1152;
     }
-  }), CONFUSE(new CombatEffectSpell() {
+  }), CONFUSE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(716));
@@ -250,7 +245,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1156;
     }
-  }), WEAKEN(new CombatEffectSpell() {
+  }), WEAKEN(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(716));
@@ -424,7 +419,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1160;
     }
-  }), CURSE(new CombatEffectSpell() {
+  }), CURSE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(710));
@@ -499,7 +494,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1161;
     }
-  }), BIND(new CombatEffectSpell() {
+  }), BIND(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(710));
@@ -902,7 +897,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1539;
     }
-  }), SNARE(new CombatEffectSpell() {
+  }), SNARE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(710));
@@ -1355,7 +1350,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1185;
     }
-  }), VULNERABILITY(new CombatEffectSpell() {
+  }), VULNERABILITY(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(729));
@@ -1479,7 +1474,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1188;
     }
-  }), ENFEEBLE(new CombatEffectSpell() {
+  }), ENFEEBLE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(729));
@@ -1604,7 +1599,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1189;
     }
-  }), ENTANGLE(new CombatEffectSpell() {
+  }), ENTANGLE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(710));
@@ -1657,7 +1652,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1592;
     }
-  }), STUN(new CombatEffectSpell() {
+  }), STUN(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(729));
@@ -1731,7 +1726,7 @@ public enum CombatSpells {
     public int spellId() {
       return 1562;
     }
-  }), TELEBLOCK(new CombatEffectSpell() {
+  }), TELEBLOCK(new CombatEffectSpell(MagicSpellbook.NORMAL) {
     @Override
     public Optional<Animation> castAnimation() {
       return Optional.of(new Animation(10503));
