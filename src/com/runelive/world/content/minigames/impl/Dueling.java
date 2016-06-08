@@ -61,10 +61,6 @@ public class Dueling {
 			player.getPacketSender().sendMessage("You can only challenge people outside the arena.");
 			return;
 		}
-		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()) {
-			BankPin.init(player, false);
-			return;
-		}
 		if (player.getSummoning().getFamiliar() != null) {
 			player.getPacketSender()
 					.sendMessage("You must dismiss your familiar before being allowed to start a duel.");

@@ -9,7 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import com.runelive.GameServer;
+import com.runelive.GameSettings;
+import com.runelive.model.PlayerRights;
+import com.runelive.net.login.LoginResponses;
 import com.runelive.net.mysql.ThreadedSQLCallback;
+import com.runelive.world.World;
+import com.runelive.world.entity.impl.player.Player;
+import com.runelive.world.entity.impl.player.PlayerLoading;
+import com.runelive.world.entity.impl.player.PlayerSaving;
 
 public class PlayerPunishment {
 
@@ -131,95 +138,24 @@ public class PlayerPunishment {
       exception.printStackTrace();
     }
   }
+  
+  public static void load(String name, Player loadedPlayer) {
+	  GameServer.getCharacterPool().executeQuery("Select * from `accounts` where username = '" + name + "' limit 1", new ThreadedSQLCallback() {
+          @Override
+          public void queryComplete(ResultSet rs) throws SQLException {
+        	  if(rs.next()) {
+	        	  String json = rs.getString("json");
+	        	  PlayerLoading.decodeJson(loadedPlayer, json);
+        	  }
+          }
 
-  public static String getLastIpAddress(String name) {
-    String line;
-    String last_ip = "";
-    try {
-      BufferedReader reader =
-          new BufferedReader(new FileReader(new File("./characters/" + name + ".json")));
-      while ((line = reader.readLine()) != null) {
-        if (line.isEmpty()) {
-          break;
-        }
-        if (line.contains("last-ip-address")) {
-          line = line.substring(22).replace("\",", "");
-          last_ip = line;
-        }
-      }
-      reader.close();
-    } catch (IOException e) {
-
-    }
-    return last_ip;
+          @Override
+          public void queryError(SQLException e) {
+              e.printStackTrace();
+          }
+      });
   }
-
-  public static String getLastSerialAddress(String name) {
-    String line;
-    String last_ip = "";
-    try {
-      BufferedReader reader =
-          new BufferedReader(new FileReader(new File("./characters/" + name + ".json")));
-      while ((line = reader.readLine()) != null) {
-        if (line.isEmpty()) {
-          break;
-        }
-        if (line.contains("last-serial-address")) {
-          line = line.substring(26).replace("\",", "");
-          last_ip = line;
-        }
-      }
-      reader.close();
-    } catch (IOException e) {
-
-    }
-    return last_ip;
-  }
-
-  public static String getLastMacAddress(String name) {
-    String line;
-    String last_ip = "";
-    try {
-      BufferedReader reader =
-          new BufferedReader(new FileReader(new File("./characters/" + name + ".json")));
-      while ((line = reader.readLine()) != null) {
-        if (line.isEmpty()) {
-          break;
-        }
-        if (line.contains("last-mac-address")) {
-          line = line.substring(23).replace("\",", "");
-          last_ip = line;
-        }
-      }
-      reader.close();
-    } catch (IOException e) {
-
-    }
-    return last_ip;
-  }
-
-  public static String getLastComputerAddress(String name) {
-    String line;
-    String last_ip = "";
-    try {
-      BufferedReader reader =
-          new BufferedReader(new FileReader(new File("./characters/" + name + ".json")));
-      while ((line = reader.readLine()) != null) {
-        if (line.isEmpty()) {
-          break;
-        }
-        if (line.contains("last-computer-address")) {
-          line = line.substring(28).replace("\",", "");
-          last_ip = line;
-        }
-      }
-      reader.close();
-    } catch (IOException e) {
-
-    }
-    return last_ip;
-  }
-
+  
   public static void mute(String name) {
     try {
       new File(PLAYER_MUTE_DIRECTORY + name).createNewFile();

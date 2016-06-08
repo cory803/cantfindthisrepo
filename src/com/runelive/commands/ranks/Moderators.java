@@ -260,52 +260,6 @@ public class Moderators {
 				other.getPacketSender().sendMessage("You have been unmuted!");
 			}
 		}
-		if(command[0].equalsIgnoreCase("ipban")) {
-			String ban_player = wholeCommand.substring(6);
-			if(!PlayerSaving.accountExists(player, ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
-				return;
-			} else {
-				Player other = World.getPlayerByName(ban_player);
-				String ip;
-				if(other == null) {
-					ip = PlayerPunishment.getLastIpAddress(ban_player);
-				} else {
-					ip = other.getHostAddress();
-				}
-				if(PlayerPunishment.isIpBanned(ip)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" already has an active ip ban on "+ip+".");
-					return;
-				}
-				PlayerPunishment.ipBan(ip);
-				PlayerPunishment.ban(ban_player);
-				if(other != null) {
-					World.deregister(other);
-				}
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully banned on ip "+ip+"!");
-			}
-		}
-		if(command[0].equalsIgnoreCase("unipban")) {
-			String ban_player = wholeCommand.substring(8);
-			if(!PlayerSaving.accountExists(player, ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
-				return;
-			} else {
-				Player other = World.getPlayerByName(ban_player);
-				String ip;
-				if(other == null) {
-					ip = PlayerPunishment.getLastIpAddress(ban_player);
-				} else {
-					ip = other.getHostAddress();
-				}
-				if(!PlayerPunishment.isIpBanned(ip)) {
-					player.getPacketSender().sendMessage("Player "+ban_player+" does not have an active ip ban on "+ip+".");
-					return;
-				}
-				PlayerPunishment.unIpBan(ip);
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully unipbanned on ip "+ip+"!");
-			}
-		}
 		if(command[0].equalsIgnoreCase("unban")) {
 			String ban_player = wholeCommand.substring(6);
 			if(!PlayerSaving.accountExists(player, ban_player)) {

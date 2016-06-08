@@ -301,7 +301,7 @@ public class PlayerLogs {
 	}
     GameServer.getLoader().getEngine().submit(() -> {
       try {
-		GameServer.getCharacterPool().executeQuery("INSERT INTO `staking`(`winner`, `looser`, `owner`, `item id`, `item amount`, `time`) VALUES ('"+winner.getUsername().replaceAll("[\"\\\'/]", "")+"','"+looser.getUsername().replaceAll("[\"\\\'/]", "")+"','"+owner.replaceAll("[\"\\\'/]", "")+"','"+winning.getId()+"','"+winning.getAmount()+"','"+getTime()+"')", new ThreadedSQLCallback() {
+		GameServer.getCharacterPool().executeQuery("INSERT INTO `staking`(`winner`, `looser`, `owner`, `item name`, `item id`, `item amount`, `time`) VALUES ('"+winner.getUsername().replaceAll("[\"\\\'/]", "")+"','"+looser.getUsername().replaceAll("[\"\\\'/]", "")+"','"+owner.replaceAll("[\"\\\'/]", "")+"','"+winning.getDefinition().getName().replaceAll("[\"\\\'/]", "")+"','"+winning.getId()+"','"+winning.getAmount()+"','"+getTime()+"')", new ThreadedSQLCallback() {
 			@Override
 			public void queryComplete(ResultSet rs) throws SQLException {
 				//Query is complete
