@@ -25,12 +25,15 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 public class PlayerSaving {
 
 
-    public static boolean accountExists(Player player, String name) {
+    public static void accountExists(Player player, String name) {
         GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE LOWER (`username`) = LOWER('" + name + "') LIMIT 1", new ThreadedSQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 if (rs.next()) {
                     player.accountExists = true;
+                    player.processingMysqlCheck = true;
+                } else {
+                	player.processingMysqlCheck = true;
                 }
             }
 
@@ -39,7 +42,6 @@ public class PlayerSaving {
                 e.printStackTrace();
             }
         });
-        return player.accountExists;
     }
 
     public static void updatePassword(Player p, String password, String salt) {
