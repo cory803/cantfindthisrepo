@@ -28,94 +28,84 @@ public class Supports {
 			punishee.moveTo(new Position(3087, 3502, 0));
 		}
 		if(wholeCommand.startsWith("jail")) {
-			String jail_punishee = wholeCommand.substring(5);
-			Player punishee = World.getPlayerByName(jail_punishee);
-			PlayerSaving.accountExists(player, jail_punishee);
-			try {
-				while(!player.processingMysqlCheck) {
-					
-				}
-			} finally {
-				if(!player.accountExists) {
-					player.accountExists = false;
-					player.processingMysqlCheck = false;
+				String jail_punishee = wholeCommand.substring(5);
+				Player punishee = World.getPlayerByName(jail_punishee);
+				if(!PlayerSaving.accountExists(player, jail_punishee)) {
 					player.getPacketSender().sendMessage("Player "+jail_punishee+" does not exist.");
 					return;
-				}
-				player.accountExists = false;
-				player.processingMysqlCheck = false;
+				} else {
 				int cellAmounts = Misc.getRandom(1);
 				switch(cellAmounts) {
-					case 1:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1969, 5011, 0));
-					break;
-					case 2:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1969, 5008, 0));
-					break;
-					case 3:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1969, 5005, 0));
-					break;
-					case 4:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1969, 5002, 0));
-					break;
-					case 5:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1969, 4999, 0));
-					break;
-					case 6:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1980, 5011, 0));
-					break;
-					case 7:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1980, 5008, 0));
-					break;
-					case 8:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1980, 5005, 0));
-					break;
-					case 9:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1980, 5002, 0));
-					break;
-					case 10:
-						punishee.setJailed(true);
-						punishee.forceChat("Ahh shit... They put me in jail.");
-						punishee.moveTo(new Position(1980, 4999, 0));
-					break;
-					default:
+				case 1:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5011, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 2:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5008, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 3:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5005, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 4:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 5002, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 5:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1969, 4999, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 6:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5011, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 7:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5008, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 8:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5005, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 9:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 5002, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				case 10:
+					punishee.setJailed(true);
+					punishee.forceChat("Ahh shit... They put me in jail.");
+					punishee.moveTo(new Position(1980, 4999, 0));
+					player.getPacketSender().sendMessage("You have sent the player "+jail_punishee+" to jail for breaking the rules.");
+				break;
+				default:
+				}
 			}
 		}
-	}
 		if(command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
-			PlayerSaving.accountExists(player, mute_player);
-			try {
-				while(!player.processingMysqlCheck) {
-					
-				}
-			} finally {
-				if(!player.accountExists) {
-					player.accountExists = false;
-					player.processingMysqlCheck = false;
-					player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
-					return;
-				}
-				player.accountExists = false;
-				player.processingMysqlCheck = false;
+			if(!PlayerSaving.accountExists(player, mute_player)) {
+				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
+				return;
+			} else {
 				if(PlayerPunishment.isMuted(mute_player)) {
 					player.getPacketSender().sendMessage("Player "+mute_player+" already has an active mute.");
 					return;
@@ -128,20 +118,10 @@ public class Supports {
 		}
 		if(command[0].equalsIgnoreCase("unmute")) {
 			String mute_player = wholeCommand.substring(7);
-			PlayerSaving.accountExists(player, mute_player);
-			try {
-				while(!player.processingMysqlCheck) {
-					
-				}
-			} finally {
-				if(!player.accountExists) {
-					player.accountExists = false;
-					player.processingMysqlCheck = false;
-					player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
-					return;
-				}
-				player.accountExists = false;
-				player.processingMysqlCheck = false;
+			if(!PlayerSaving.accountExists(player, mute_player)) {
+				player.getPacketSender().sendMessage("Player "+mute_player+" does not exist.");
+				return;
+			} else {
 				if(!PlayerPunishment.isMuted(mute_player)) {
 					player.getPacketSender().sendMessage("Player "+mute_player+" is not muted.");
 					return;
