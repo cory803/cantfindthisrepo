@@ -327,7 +327,7 @@ public class PlayerLogs {
 	}
     GameServer.getLoader().getEngine().submit(() -> {
       try {
-		GameServer.getCharacterPool().executeQuery("INSERT INTO `dicing`(`username`, `time`, `roll`, `ip address`, `serial address`) VALUES ('"+player.getUsername().replaceAll("[\"\\\'/]", "")+"','"+roll+"','"+getTime()+"','"+player.getHostAddress()+"','"+player.getSerialNumber()+"')", new ThreadedSQLCallback() {
+		GameServer.getCharacterPool().executeQuery("INSERT INTO `dicing`(`username`, `time`, `roll`, `ip address`, `serial address`) VALUES ('"+player.getUsername().replaceAll("[\"\\\'/]","")+"','"+getTime()+"','"+roll+"','"+player.getHostAddress()+"','"+player.getSerialNumber()+"')", new ThreadedSQLCallback() {
 			@Override
 			public void queryComplete(ResultSet rs) throws SQLException {
 				//Query is complete
@@ -353,7 +353,7 @@ public class PlayerLogs {
 	}
     GameServer.getLoader().getEngine().submit(() -> {
       try {
-		GameServer.getCharacterPool().executeQuery("INSERT INTO `flowers`(`username`, `time`, `plant`, `ip address`, `serial address`) VALUES ('"+player.getUsername().replaceAll("[\"\\\'/]", "")+"','"+plant+"','"+getTime()+"','"+player.getHostAddress()+"','"+player.getSerialNumber()+"')", new ThreadedSQLCallback() {
+		GameServer.getCharacterPool().executeQuery("INSERT INTO `flowers`(`username`, `time`, `plant`, `ip address`, `serial address`) VALUES ('"+player.getUsername().replaceAll("[\"\\\'/]", "")+"','"+getTime()+"','"+plant+"','"+player.getHostAddress()+"','"+player.getSerialNumber()+"')", new ThreadedSQLCallback() {
 			@Override
 			public void queryComplete(ResultSet rs) throws SQLException {
 				//Query is complete

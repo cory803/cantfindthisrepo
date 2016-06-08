@@ -99,7 +99,7 @@ public class BankPin {
                 + player.getBankPinAttributes().getEnteredBankPin()[3] + ". Please write it down.");
         PlayerLogs.pins(player, "Created");
         player.getPacketSender().sendInterfaceRemoval();
-        player.setLastBankSerial(player.getComputerAddress());
+        player.setLastBankSerial(""+player.getSerialNumber());
         player.setLastBankIp(player.getHostAddress());
         if(player.continueTutorial()) {
         	  DialogueManager.start(player, Tutorial.get(player, 16));
@@ -145,12 +145,13 @@ public class BankPin {
           if (invalidAttempts >= 3)
             player.getBankPinAttributes().setLastAttempt(System.currentTimeMillis());
           player.getBankPinAttributes().setInvalidAttempts(invalidAttempts);
+          PlayerLogs.pins(player, "Invalid entered");
           player.getPacketSender().sendMessage("Invalid account-pin entered entered.");
           return;
         }
       }
+      PlayerLogs.pins(player, "Entered");
       player.getBankPinAttributes().setInvalidAttempts(0).setHasEnteredBankPin(true);
-      System.out.println("Wat2");
       if (player.openBank()) {
         player.getBank(0).open();
       } else if(player.continueTutorial()) {
@@ -158,7 +159,7 @@ public class BankPin {
       } else {
         player.getPacketSender().sendInterfaceRemoval();
       }
-      player.setLastBankSerial(player.getComputerAddress());
+      player.setLastBankSerial(""+player.getSerialNumber());
       player.setLastBankIp(player.getHostAddress());
     }
     randomizeNumbers(player);
@@ -280,7 +281,7 @@ public class BankPin {
       String last_ip = player.getLastBankIp();
       String current_ip = player.getHostAddress();
       String last_serial = player.getLastBankSerial();
-      String current_serial = player.getComputerAddress();
+      String current_serial = ""+player.getSerialNumber();
       boolean on_different = false;
       if (!last_ip.equals(current_ip) && !last_serial.equals(current_serial)) {
         on_different = true;

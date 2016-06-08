@@ -1,7 +1,9 @@
 package com.runelive.net.packet.impl;
 
+import com.runelive.GameSettings;
 import com.runelive.model.Animation;
 import com.runelive.model.Position;
+import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.model.movement.MovementQueue;
 import com.runelive.model.movement.PathFinder;
 import com.runelive.net.packet.Packet;
@@ -142,6 +144,11 @@ public class MovementPacketListener implements PacketListener {
    	 	DialogueManager.start(player, Tutorial.get(player, 17));
    	 return false;
    }
+    if(player.getPasswordChanging() && player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
+		player.setInputHandling(new ChangePassword());
+		player.getPacketSender().sendEnterInputPrompt("Please enter a new password to set for your account:");
+		return false;
+    }
     if (player.isPlayerLocked() || player.isCrossingObstacle())
       return false;
     if (player.isNeedsPlacement()) {

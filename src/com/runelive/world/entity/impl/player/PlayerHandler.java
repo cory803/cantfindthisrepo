@@ -300,6 +300,8 @@ public class PlayerHandler {
 
         // New player
         if (player.newPlayer()) {
+        	player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
+        	player.save();
             // player.setClanChatName("runelive");
             player.setPlayerLocked(true).setDialogueActionId(45);
             DialogueManager.start(player, 81);

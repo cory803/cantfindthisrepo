@@ -101,7 +101,7 @@ public class PlayerDeathTask extends Task {
                   }
                   if (spawnItems) {
                     if (item != null && item.getId() > 0 && item.getAmount() > 0) {
-                    	int address = Misc.random(Integer.MIN_VALUE, Integer.MAX_VALUE);
+                    	int address = Misc.random(0, Integer.MAX_VALUE);
                       GroundItemManager.spawnGroundItem(
                           (killer != null && killer.getGameMode() == GameMode.NORMAL ? killer
                               : player),
