@@ -461,16 +461,7 @@ public class Trading {
 
       // logs
       for (Item item : player.getTrading().offeredItems) {
-        PlayerLogs.log(player.getUsername(),
-            "Gave item in trade to " + player2.getUsername() + ". Id: "
-                + item.getDefinition().getName() + "(" + item.getId() + "), amount: "
-                + item.getAmount());
-      }
-      for (Item item : player2.getTrading().offeredItems) {
-        PlayerLogs.log(player.getUsername(),
-            "Receiving item from trade from " + player2.getUsername() + ". Id: "
-                + item.getDefinition().getName() + "(" + item.getId() + "), amount: "
-                + item.getAmount());
+    	PlayerLogs.trades(player, player2, item);
       }
     } catch (Exception ignored) {
     }

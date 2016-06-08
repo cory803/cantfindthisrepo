@@ -223,10 +223,7 @@ public class GroundItemManager {
       p.getInventory().add(item);
       p.getLastItemPickup().reset();
       Sounds.sendSound(p, Sound.PICKUP_ITEM);
-      PlayerLogs.log(p.getUsername(),
-          "Player looting item: " + item.getDefinition().getName() + " (" + item.getId()
-              + "), amount: " + item.getAmount() + " Owner: " + gt.getOwner() + " from the computer address: "
-                  + p.getComputerAddress()+"");
+      PlayerLogs.pickups(p, item, gt.getAddress());
     }
   }
 

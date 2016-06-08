@@ -73,7 +73,6 @@ public class PlayerSaving {
 					World.getLoginQueue().add(p);
 				}
 				p.setLoginQue(true);
-				PlayerLogs.log("global_log", ""+p.getUsername()+" has caught block 6");
                 e.printStackTrace();
             }
 

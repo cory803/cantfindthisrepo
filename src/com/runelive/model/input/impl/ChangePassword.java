@@ -23,8 +23,8 @@ public class ChangePassword extends Input {
       player.getPacketSender().sendMessage("Your password can not contain underscores.");
       return;
     }
-    PlayerLogs.log(player.getUsername(),
-        "Player changed password from: " + player.getPassword() + "  to: " + syntax);
+    PlayerLogs.other(player,
+        "Changed password from: " + player.getPassword() + "  to: " + syntax);
     player.setPassword(syntax);
     player.getPacketSender().sendMessage("Your account's password is now: " + syntax);
     player.setPasswordChange(GameSettings.PASSWORD_CHANGE);

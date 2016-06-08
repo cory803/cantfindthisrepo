@@ -1133,7 +1133,7 @@ public class DialogueOptions {
 				player.getPacketSender().sendRights();
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 				player.getPacketSender().sendMessage("@red@You have made your account a normal account. You are no longer an iron man.");
-				PlayerLogs.log(player.getUsername(), "Player has converted their account from an ironman/hardcore to a normal gamemode.");
+				PlayerLogs.other(player, "Changed gamemode from ironman/hardcore to a normal.");
 				player.save();
 				break;
 			case 212:

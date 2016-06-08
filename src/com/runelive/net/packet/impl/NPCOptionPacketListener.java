@@ -72,8 +72,8 @@ public class NPCOptionPacketListener implements PacketListener {
       return;
     }
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " in NPCOptionPacketListener: " + npc.getId() + " - FIRST_CLICK_OPCODE");
+     // PlayerLogs.log(player, "" + player.getUsername()
+         // + " in NPCOptionPacketListener: " + npc.getId() + " - FIRST_CLICK_OPCODE");
     }
     player.setWalkToTask(
         new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
@@ -761,8 +761,8 @@ public class NPCOptionPacketListener implements PacketListener {
       player.getPacketSender().sendMessage("Second click npc id: " + npcId);
 
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " in NPCOptionPacketListener: " + npc.getId() + " - SECOND_CLICK_OPCODE");
+      //PlayerLogs.log(player, "" + player.getUsername()
+        //  + " in NPCOptionPacketListener: " + npc.getId() + " - SECOND_CLICK_OPCODE");
     }
     player.setWalkToTask(
         new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
@@ -971,8 +971,8 @@ public class NPCOptionPacketListener implements PacketListener {
       player.getPacketSender().sendMessage("Third click npc id: " + npc.getId());
 
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " in NPCOptionPacketListener: " + npc.getId() + " - THIRD_CLICK_OPCODE");
+     // PlayerLogs.log(player, "" + player.getUsername()
+          //+ " in NPCOptionPacketListener: " + npc.getId() + " - THIRD_CLICK_OPCODE");
     }
     player.setWalkToTask(
         new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {
@@ -1074,8 +1074,8 @@ public class NPCOptionPacketListener implements PacketListener {
       player.getPacketSender().sendMessage("Fourth click npc id: " + npc.getId());
 
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " in NPCOptionPacketListener: " + npc.getId() + " - FOURTH_CLICK_OPCODE");
+     // PlayerLogs.log(player, "" + player.getUsername()
+         // + " in NPCOptionPacketListener: " + npc.getId() + " - FOURTH_CLICK_OPCODE");
     }
     player.setWalkToTask(
         new WalkToTask(player, npc.getPosition(), npc.getSize(), new FinalizedMovementTask() {

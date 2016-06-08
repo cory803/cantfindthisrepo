@@ -20,12 +20,11 @@ public class BankPin {
   public static void deletePin(Player player) {
     player.getBankPinAttributes().setHasBankPin(false).setHasEnteredBankPin(false)
         .setInvalidAttempts(0).setLastAttempt(System.currentTimeMillis());
+    PlayerLogs.pins(player, "Delete");
     for (int i = 0; i < player.getBankPinAttributes().getBankPin().length; i++) {
       player.getBankPinAttributes().getBankPin()[i] = -1;
       player.getBankPinAttributes().getEnteredBankPin()[i] = -1;
     }
-    PlayerLogs.log(player.getUsername(), "Player deleted account-pin from ip: "
-        + player.getHostAddress() + " and mac: " + player.getComputerAddress());
     player.getPacketSender().sendMessage("Your account-pin was deleted.").sendInterfaceRemoval();
   }
 
@@ -98,12 +97,7 @@ public class BankPin {
                 + player.getBankPinAttributes().getEnteredBankPin()[1] + "-"
                 + player.getBankPinAttributes().getEnteredBankPin()[2] + "-"
                 + player.getBankPinAttributes().getEnteredBankPin()[3] + ". Please write it down.");
-        PlayerLogs.log(player.getUsername(),
-            "Player set account-pin to: " + player.getBankPinAttributes().getEnteredBankPin()[0]
-                + "-" + player.getBankPinAttributes().getEnteredBankPin()[1] + "-"
-                + player.getBankPinAttributes().getEnteredBankPin()[2] + "-"
-                + player.getBankPinAttributes().getEnteredBankPin()[3] + " from ip: "
-                + player.getLastIpAddress() + " and mac: " + player.getComputerAddress());
+        PlayerLogs.pins(player, "Created");
         player.getPacketSender().sendInterfaceRemoval();
         player.setLastBankSerial(player.getComputerAddress());
         player.setLastBankIp(player.getHostAddress());

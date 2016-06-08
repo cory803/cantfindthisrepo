@@ -18,8 +18,8 @@ public class ChangeAppearancePacketListener implements PacketListener {
       return;
     try {
       if (GameSettings.DEBUG_MODE) {
-        PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-            + " has changed their appearance in ChangeAppearancePacketListener");
+       // PlayerLogs.log(player, "" + player.getUsername()
+            //+ " has changed their appearance in ChangeAppearancePacketListener");
       }
       String[] parts = appearanceAttributes.split(" ");
       int gender = Integer.parseInt(parts[0]);

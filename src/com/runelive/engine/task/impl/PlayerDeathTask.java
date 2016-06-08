@@ -101,21 +101,15 @@ public class PlayerDeathTask extends Task {
                   }
                   if (spawnItems) {
                     if (item != null && item.getId() > 0 && item.getAmount() > 0) {
+                    	int address = Misc.random(Integer.MIN_VALUE, Integer.MAX_VALUE);
                       GroundItemManager.spawnGroundItem(
                           (killer != null && killer.getGameMode() == GameMode.NORMAL ? killer
                               : player),
                           new GroundItem(item, position,
                               killer != null ? killer.getUsername() : player.getUsername(),
-                              player.getHostAddress(), false, 150, true, 150));
+                              player.getHostAddress(), false, 150, true, 150, address));
                       if (killer != null) {
-                        PlayerLogs.log(player.getUsername(),
-                            "Player killed by " + killer.getUsername() + " for item: Id: "
-                                + item.getDefinition().getName() + "(" + item.getId()
-                                + "), amount: " + item.getAmount());
-                        PlayerLogs.log(killer.getUsername(),
-                            "Player killed " + player.getUsername() + " for item: Id: "
-                                + item.getDefinition().getName() + "(" + item.getId()
-                                + "), amount: " + item.getAmount());
+                    	PlayerLogs.kills(killer, player, item);
                       }
                     }
                   }

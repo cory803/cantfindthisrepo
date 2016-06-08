@@ -387,8 +387,7 @@ public class PlayerHandler {
         }
         PlayerOwnedShops.collectCoinsOnLogin(player);
         // PlayerOwnedShops.collectCoinsOnLogin(player);
-        PlayerLogs.log(player.getUsername(), "Login from host " + player.getHostAddress()
-                + ", Computer Address: " + player.getComputerAddress());
+        PlayerLogs.connections(player, "Login");
     }
 
     public static boolean handleLogout(Player player) {
@@ -407,7 +406,6 @@ public class PlayerHandler {
                 World.deregister(n);
             }
             boolean exception = GameServer.isUpdating() || World.getLogoutQueue().contains(player) && player.getLogoutTimer().elapsed(90000);
-			PlayerLogs.log("global_log", ""+player.getUsername()+" logging out - Exception: "+exception+", Player log out: "+player.logout()+", GameServer isUpdating: " +GameServer.isUpdating()+", World LogoutQueueContainsPlayer: "+World.getLogoutQueue().contains(player)+", LogoutTimer: "+player.getLogoutTimer().elapsed(90000)+"");
             if (player.logout() || exception) {
                 System.out.println("[World] Deregistering player - [username, host] : ["
                         + player.getUsername() + ", " + player.getHostAddress() + "]");
@@ -450,8 +448,7 @@ public class PlayerHandler {
                 session.setState(SessionState.LOGGED_OUT);
                 World.updatePlayersOnline();
                 player.setForumConnections(0);
-                PlayerLogs.log(player.getUsername(), "Logout from host " + player.getHostAddress()
-                        + ", Computer Address: " + player.getComputerAddress() + "");
+                PlayerLogs.connections(player, "Logout");
                 return true;
             } else {
                 return false;

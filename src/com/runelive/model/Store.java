@@ -56,7 +56,7 @@ public class Store {
 							player.getInventory().add(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]));
 							player.getPacketSender().sendMessage("<col=ff0000>"+amounts[i]+"x "+ItemDefinition.forId(Integer.parseInt(item_ids[i])).name+" has been added to your inventory.");
 						}
-						PlayerLogs.log(player.getUsername(), "Claimed "+credits+" - "+amounts[i]+"x "+ItemDefinition.forId(Integer.parseInt(item_ids[i])).name+" from forum id: "+forum_id+"");
+						PlayerLogs.donations(player, forum_id, credits, new Item(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i])));
 						int itemId = Integer.parseInt(item_ids[i]);
 						if(!alreadyGotAmountClaimed) {
 							if(itemId != 7629 && itemId != 10934 && itemId != 10935 && itemId != 10943) {
@@ -126,7 +126,7 @@ public class Store {
 									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 10 tokens.");
 									PlayerPanel.refreshPanel(player);
-									PlayerLogs.log(player.getUsername(), "Added 10 tokens to forum account: "+name+"");
+									PlayerLogs.scrolls(player, 10, name);
 									player.save();
 									break;
 								case 10934:
@@ -134,7 +134,7 @@ public class Store {
 									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 25 tokens.");
 									PlayerPanel.refreshPanel(player);
-									PlayerLogs.log(player.getUsername(), "Added 25 tokens to forum account: "+name+"");
+									PlayerLogs.scrolls(player, 25, name);
 									player.save();
 									break;
 								case 10935:
@@ -142,7 +142,7 @@ public class Store {
 									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 50 tokens.");
 									PlayerPanel.refreshPanel(player);
-									PlayerLogs.log(player.getUsername(), "Added 50 tokens to forum account: "+name+"");
+									PlayerLogs.scrolls(player, 50, name);
 									player.save();
 									break;
 								case 7629:
@@ -150,7 +150,7 @@ public class Store {
 									player.getPacketSender().sendMessage("Please note, once you use your tokens on the site, you will get donator ranks!");
 									player.getPacketSender().sendMessage("The forum account "+name+" has gained 125 tokens.");
 									PlayerPanel.refreshPanel(player);
-									PlayerLogs.log(player.getUsername(), "Added 125 tokens to forum account: "+name+"");
+									PlayerLogs.scrolls(player, 125, name);
 									player.save();
 									break;
 							}

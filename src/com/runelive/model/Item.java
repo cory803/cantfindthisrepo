@@ -2,6 +2,7 @@ package com.runelive.model;
 
 import com.runelive.GameSettings;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.util.Misc;
 import com.runelive.world.content.Effigies;
 
 
@@ -49,7 +50,7 @@ public class Item {
     public int getId() {
         return id;
     }
-
+    
     /**
      * Sets the item's id.
      *
@@ -59,7 +60,7 @@ public class Item {
         this.id = id;
         return this;
     }
-
+    
     /**
      * Amount of the item.
      */

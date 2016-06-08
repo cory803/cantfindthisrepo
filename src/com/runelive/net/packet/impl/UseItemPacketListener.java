@@ -83,8 +83,8 @@ public class UseItemPacketListener implements PacketListener {
     Item itemUsedWith = player.getInventory().getItems()[itemUsedSlot];
 
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " in UseItemPacketListener "
-              + usedWith + " - " + itemUsedWith + "");
+      //PlayerLogs.log(player, "" + player.getUsername() + " in UseItemPacketListener "
+         //     + usedWith + " - " + itemUsedWith + "");
     }
     if ((usedWith.getId() == 21076 && itemUsedWith.getId() == 21074)
             || (usedWith.getId() == 21074 && itemUsedWith.getId() == 21076)) {
@@ -428,8 +428,8 @@ public class UseItemPacketListener implements PacketListener {
           .sendMessage("Item used on NPC - Npc ID:" + npc.getId() + " Item ID: " + item_id + "");
 
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " in NPCOptionPacketListener: " + npc.getId() + " - FIRST_CLICK_OPCODE");
+      //PlayerLogs.log(player, "" + player.getUsername()
+          //+ " in NPCOptionPacketListener: " + npc.getId() + " - FIRST_CLICK_OPCODE");
     }
 
     switch (npc.getId()) {
@@ -473,7 +473,7 @@ public class UseItemPacketListener implements PacketListener {
             itemAmount = freeSlots;
             player.getInventory().delete(item_id, itemAmount);
             player.getInventory().add(Item.getUnNoted(item_id), itemAmount);
-            PlayerLogs.log(player.getUsername(), "Player unnoted " + itemDef.getName().toLowerCase()
+            PlayerLogs.other(player, "Player unnoted " + itemDef.getName().toLowerCase()
                 + " " + itemAmount + " with Billy.");
             player.getPacketSender().sendMessage("You had " + itemAmount + " noted "
                 + itemDef.getName().toLowerCase() + " deleted and placed in your inventory.");

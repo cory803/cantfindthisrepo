@@ -11,6 +11,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
+import com.runelive.util.Misc;
 import com.runelive.world.content.BankPin;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.Sounds;
@@ -86,25 +87,23 @@ public class DropItemPacketListener implements PacketListener {
           player.performGraphic(new Graphic(1750));
           player.getPacketSender().sendMessage("The potion explodes in your face as you drop it!");
         } else {
+          int address = Misc.random(0, Integer.MAX_VALUE);
           if (player.getLocation() == Location.WILDERNESS
               && ItemDefinition.forId(item.getId()).getValue() >= 100000) {
             GroundItemManager.spawnGroundItemGlobally(player, new GroundItem(item,
                 player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false,
                 80,
                 player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false,
-                80));
+                80, address));
           } else {
             GroundItemManager.spawnGroundItem(player, new GroundItem(item,
                 player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false,
                 80,
                 player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false,
-                80));
+                80, address));
           }
 
-          PlayerLogs.log(player.getUsername(),
-              "Player dropping item: " + item.getDefinition().getName() + " (" + item.getId()
-                  + "), amount: " + item.getAmount() + " from the computer address: "
-                  + player.getComputerAddress());
+          PlayerLogs.drops(player, item, String.valueOf(address));
           player.save();
         }
         Sounds.sendSound(player, Sound.DROP_ITEM);

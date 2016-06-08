@@ -22,10 +22,10 @@ public class ClickTextMenuPacketListener implements PacketListener {
           .sendConsoleMessage("Clicked text menu: " + interfaceId + ", menuId: " + menuId);
     }
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(),
-          "" + player.getUsername()
-              + " has changed their private status in ChangeRelationStatusPacketListener "
-              + interfaceId + ", " + menuId + "");
+     // PlayerLogs.log(player,
+          //"" + player.getUsername()
+            //  + " has changed their private status in ChangeRelationStatusPacketListener "
+            //  + interfaceId + ", " + menuId + "");
     }
     if (interfaceId >= 29344 && interfaceId <= 29443) { // Clan chat list
       int index = interfaceId - 29344;

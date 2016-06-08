@@ -12,6 +12,7 @@ import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.BeastOfBurden;
 import com.runelive.model.movement.MovementQueue;
+import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.skill.impl.summoning.BossPets.BossPet;
 import com.runelive.world.entity.impl.GroundItemManager;
@@ -158,9 +159,10 @@ public class Summoning {
       if (bob != null) {
         if (bob.getValidItems().size() > 0) {
           for (Item t : bob.getValidItems()) {
+        	  int address = Misc.random(Integer.MIN_VALUE, Integer.MAX_VALUE);
             GroundItemManager.spawnGroundItem(player,
                 new GroundItem(t, getFamiliar().getSummonNpc().getPosition().copy(),
-                    player.getUsername(), player.getHostAddress(), false, 120, true, 80));
+                    player.getUsername(), player.getHostAddress(), false, 120, true, 80, address));
           }
           player.getPacketSender()
               .sendMessage("Your familiar has dropped its carried items on the floor.");

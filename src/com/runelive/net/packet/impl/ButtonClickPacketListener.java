@@ -94,8 +94,8 @@ public class ButtonClickPacketListener implements PacketListener {
     if (checkHandlers(player, id))
       return;
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " has clicked button in ButtonClickPacketListener " + id + "");
+     // PlayerLogs.log(player, "" + player.getUsername()
+          //+ " has clicked button in ButtonClickPacketListener " + id + "");
     }
 
     if (Enchanting.enchantButtons(player, id)) {

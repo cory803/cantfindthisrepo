@@ -18,7 +18,7 @@ public class GroundItem extends Entity {
   }
 
   public GroundItem(Item item, Position pos, String owner, String fromIP, boolean isGlobal,
-      int showDelay, boolean goGlobal, int globalTimer) {
+      int showDelay, boolean goGlobal, int globalTimer, int address) {
     super(pos);
     this.setItem(item);
     this.owner = owner;
@@ -27,6 +27,7 @@ public class GroundItem extends Entity {
     this.showDelay = showDelay;
     this.goGlobal = goGlobal;
     this.globalTimer = globalTimer;
+    this.address = address;  
   }
 
   public GroundItem(Item item, Position pos, String owner, String fromIP, boolean isGlobal,
@@ -52,9 +53,14 @@ public class GroundItem extends Entity {
   private boolean hasBeenPickedUp;
   private boolean refreshNeeded;
   private boolean shouldProcess = true;
+  private int address;
 
   public Item getItem() {
     return item;
+  }
+  
+  public int getAddress() {
+	  return address;
   }
 
   public void setItem(Item item) {

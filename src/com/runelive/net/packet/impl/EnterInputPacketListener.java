@@ -29,8 +29,8 @@ public class EnterInputPacketListener implements PacketListener {
           player.getInputHandling().handleSyntax(player, name);
 
         if (GameSettings.DEBUG_MODE) {
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " in EnterInputPacketListener: " + name + "");
+         // PlayerLogs.log(player,
+           //   "" + player.getUsername() + " in EnterInputPacketListener: " + name + "");
         }
         player.setInputHandling(null);
         break;
@@ -42,8 +42,8 @@ public class EnterInputPacketListener implements PacketListener {
           player.getInputHandling().handleAmount(player, amount);
 
         if (GameSettings.DEBUG_MODE) {
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " in EnterInputPacketListener: " + amount + "");
+          //PlayerLogs.log(player,
+             // "" + player.getUsername() + " in EnterInputPacketListener: " + amount + "");
         }
         if (!player.hasNext()) {
           player.setInputHandling(null);

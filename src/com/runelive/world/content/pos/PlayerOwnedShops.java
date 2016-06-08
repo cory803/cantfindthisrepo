@@ -212,7 +212,7 @@ public class PlayerOwnedShops {
 				player.setPlayerOwnedShopping(true);
 				// player.getPacketSender().sendString(3903, "Shop caption");
 				PlayerOwnedShopManager.getShops().get(i).open(player, username.toLowerCase(), i);
-				PlayerLogs.log(player.getUsername(), "Opened the player owned shop: " + username + "");
+				PlayerLogs.other(player, "Opened the player owned shop: " + username + "");
 				if (i == SHOPS_ARRAYLIST.size())
 					player.getPacketSender().sendMessage("This shop does not exist!");
 			}
@@ -242,7 +242,7 @@ public class PlayerOwnedShops {
                     player.getPacketSender().sendString(1, ":moneypouchearning:" + o.getCoinsToCollect());
                     player.getPacketSender().sendMessage("Your items have sold for <col=CA024B>"
                             + formatAmount(o.getCoinsToCollect()) + "</col>");
-                    PlayerLogs.log(player.getUsername(),
+                    PlayerLogs.other(player,
                             "Player owned shop items sold for: " + formatAmount(o.getCoinsToCollect()) + "");
                     o.resetCoinsCollect();
                     player.save();

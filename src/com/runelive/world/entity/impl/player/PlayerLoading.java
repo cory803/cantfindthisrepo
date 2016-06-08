@@ -91,7 +91,6 @@ public class PlayerLoading {
 					if (World.getLoginQueue().contains(player)) {
 						World.getLoginQueue().remove(player);
 					}
-					PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 1");
                     return LoginResponses.LOGIN_INVALID_CREDENTIALS;
                 }
             }
@@ -186,7 +185,6 @@ public class PlayerLoading {
 						}
 						player.setLoginQue(true);
 						player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-						PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 2");
                     }
                 } else {
                     GameServer.getCharacterPool().executeQuery("Select username from `accounts` as acc where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
@@ -198,7 +196,6 @@ public class PlayerLoading {
 								}
 								player.setLoginQue(true);
                                 player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-								PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 3");
                             } else {
                                 PlayerSaving.createNewAccount(player);
                             }
@@ -211,7 +208,6 @@ public class PlayerLoading {
 							}
 							player.setLoginQue(true);
                             player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-							PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 4");
                             e.printStackTrace();
                         }
                     });
@@ -225,7 +221,6 @@ public class PlayerLoading {
 				}
 				player.setLoginQue(true);
                 player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-				PlayerLogs.log("global_log", ""+player.getUsername()+" has caught block 5");
                 e.printStackTrace();
             }
         });

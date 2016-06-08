@@ -449,8 +449,7 @@ public class NPCDrops {
                 + " received " + itemMessage + " from " + npcName + "!");
       }
 
-      PlayerLogs.log(toGive.getUsername(),
-          "" + toGive.getUsername() + " received " + itemMessage + " from " + npcName + "");
+      PlayerLogs.npcdrops(toGive, item, npcName);
     }
 
     GroundItemManager.spawnGroundItem(toGive,

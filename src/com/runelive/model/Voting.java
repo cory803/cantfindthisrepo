@@ -42,8 +42,6 @@ public class Voting {
 					} else {
 						player.getInventory().add(10944, 1);
 					}
-					PlayerLogs.log(player.getUsername(), "Player has claimed a auth code "+auth+"!");
-					
 					player.getPacketSender().sendMessage("Your auth code has been claimed!");
 					player.save();
 				} 

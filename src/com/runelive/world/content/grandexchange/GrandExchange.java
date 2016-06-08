@@ -33,8 +33,6 @@ public class GrandExchange {
         case 24535:
         case 24520:
         case 24538:
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " has clicked button " + id + "");
           return true;
         case 24541:
         case 24545:
@@ -42,8 +40,6 @@ public class GrandExchange {
         case 24553:
         case 24557:
         case 24561:
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " has clicked button " + id + "");
           return true;
         case 24543:
         case 24547:
@@ -51,8 +47,6 @@ public class GrandExchange {
         case 24555:
         case 24559:
         case 24563:
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " has clicked button " + id + "");
           return true;
       }
     } else if (player.getInterfaceId() == BUY_INTERFACE
@@ -63,83 +57,51 @@ public class GrandExchange {
         switch (id) {
           case 24606:
           case 24706:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24610:
           case 24614:
           case 24710:
           case 24714:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24618:
           case 24718:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24622:
           case 24722:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24626:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24726:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24630:
           case 24730:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24662:
           case 24762:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24665:
           case 24765:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24634:
           case 24734:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24646:
           case 24746:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24642:
           case 24742:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24638:
           case 24738:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24602:
           case 24702:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24658:
           case 24758:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
           case 24650:
           case 24750:
-            PlayerLogs.log(player.getUsername(),
-                "" + player.getUsername() + " has clicked button " + id + "");
             return true;
         }
       }
@@ -148,18 +110,12 @@ public class GrandExchange {
       switch (id) {
         case -10778:
         case -11778:
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " has clicked button " + id + "");
           return true;
         case -10736:
         case -11736:
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " has clicked button " + id + "");
           return true;
         case -10834:
         case -11834:
-          PlayerLogs.log(player.getUsername(),
-              "" + player.getUsername() + " has clicked button " + id + "");
           return true;
       }
     }

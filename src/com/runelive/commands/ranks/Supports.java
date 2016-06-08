@@ -229,7 +229,6 @@ public class Supports {
 			if(playerToKick.getLocation() != Location.WILDERNESS) {
 				World.deregister(playerToKick);
 				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
-				PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" just kicked "+playerToKick.getUsername()+"!");
 			}
 		}		
 	}

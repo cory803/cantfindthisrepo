@@ -335,7 +335,7 @@ public class Shop extends ItemContainer {
       amountToSell--;
       count++;
     }
-    PlayerLogs.log(player.getUsername(),
+    PlayerLogs.other(player,
         "Player has sold item: " + itemToSell.getDefinition().getName() + " (" + itemToSell.getId()
             + "), amount: " + count + " to the store.");
     if (customShop) {
@@ -399,7 +399,7 @@ public class Shop extends ItemContainer {
     String currencyName = "";
     if (getCurrency().getId() != -1) {
       playerCurrencyAmount = player.getInventory().getAmount(currency.getId());
-      PlayerLogs.log(player.getUsername(), "Player has bought the store item: "
+      PlayerLogs.other(player, "Player has bought the store item: "
           + item.getDefinition().getName() + " (" + item.getId() + "), amount: " + amountBuying);
       currencyName = ItemDefinition.forId(currency.getId()).getName().toLowerCase();
       if (currency.getId() == 995) {

@@ -70,7 +70,7 @@ public class ItemActionPacketListener implements PacketListener {
     int slot = packet.readShort();
     int itemId = packet.readShort();
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername() + " in ItemActionPacketListener: " + itemId + "");
+      //PlayerLogs.log(player, "" + player.getUsername() + " in ItemActionPacketListener: " + itemId + "");
     }
     if (interfaceId == 38274) {
       Construction.handleItemClick(itemId, player);

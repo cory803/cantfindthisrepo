@@ -15,6 +15,7 @@ import com.runelive.model.container.impl.Inventory;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer;
 import com.runelive.model.container.impl.Shop;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.util.Misc;
 import com.runelive.world.entity.impl.GroundItemManager;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -545,7 +546,8 @@ public abstract class ItemContainer {
                 slot = getEmptySlot();
             if (slot == -1) {
                 if (getPlayer().getRights() != PlayerRights.OWNER && getPlayer().getRights() != PlayerRights.COMMUNITY_MANAGER) {
-                    GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 120, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 60));
+                	int address = Misc.random(Integer.MIN_VALUE, Integer.MAX_VALUE);
+                    GroundItemManager.spawnGroundItem(player, new GroundItem(item, player.getPosition().copy(), player.getUsername(), player.getHostAddress(), false, 120, player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false, 60, address));
                     getPlayer().getPacketSender().sendMessage("The item which you couldn't hold has been placed beneath you.");
                     if (refresh) {
                         refreshItems();

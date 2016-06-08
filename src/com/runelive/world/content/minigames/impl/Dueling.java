@@ -675,8 +675,7 @@ public class Dueling {
 				for (Item item : playerDuel.getDueling().stakedItems) {
 					if (item.getId() > 0 && item.getAmount() > 0) {
 						stakedItems.add(item);
-						PlayerLogs.log(player.getUsername(), "Player won " + playerDuel.getUsername()
-								+ "' staked item in duel: " + item.getId() + ", " + item.getAmount());
+						PlayerLogs.stake(player, playerDuel, item, playerDuel.getUsername());
 					}
 				}
 			}
@@ -696,8 +695,8 @@ public class Dueling {
 							+ Misc.formatAmount((long) item.getAmount() * 25) + " has been added to your pouch.");
 				} else
 					player.getInventory().add(item);
-				PlayerLogs.log(player.getUsername(),
-						"Player won THEIR staked items in duel: " + item.getId() + ", " + item.getAmount());
+					Player playerDuel = World.getPlayers().get(duelingWith);
+					PlayerLogs.stake(player, playerDuel, item, player.getUsername());
 			}
 		}
 		reset();

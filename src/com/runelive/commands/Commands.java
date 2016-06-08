@@ -20,7 +20,7 @@ public class Commands {
 			BankPin.init(player, false);
 			return;
 		}
-		PlayerLogs.log(player.getUsername(), ""+player.getUsername()+" has done command "+whole_command+"");
+		PlayerLogs.commands(player, whole_command);
 		
 		//Regular Commands
 		Members.initiate_command(player, parts, whole_command);

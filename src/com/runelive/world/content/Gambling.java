@@ -52,7 +52,7 @@ public class Gambling {
         "[HOST] " + player.getUsername() + " just ROLLED " + amount + " on the percentile dice.");
     player.getClickDelay().reset();
     player.dice_other = false;
-	PlayerLogs.log(player.getUsername(), "Player rolled dice: "+amount+"");
+	PlayerLogs.dicing(player, amount);
   }
 
   public static void plantSeed(Player player) {
@@ -92,7 +92,7 @@ public class Gambling {
     CustomObjects.globalObjectRemovalTask(flower, 90);
     player.setPositionToFace(flower.getPosition());
     player.getClickDelay().reset();
-	PlayerLogs.log(player.getUsername(), "Player planted flower: "+flowers+"");
+	PlayerLogs.plant(player, flowers.toString());
   }
 
   public enum FlowersData {

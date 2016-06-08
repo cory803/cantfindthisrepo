@@ -22,8 +22,8 @@ public class WithdrawMoneyFromPouchPacketListener implements PacketListener {
     int amount = packet.readInt();
     MoneyPouch.withdrawMoney(player, amount);
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(),
-          "" + player.getUsername() + " in WithdrawMoneyFromPouchPacketListener " + amount + "");
+    //  PlayerLogs.log(player,
+          //"" + player.getUsername() + " in WithdrawMoneyFromPouchPacketListener " + amount + "");
     }
   }
 

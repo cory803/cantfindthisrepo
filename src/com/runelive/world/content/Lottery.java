@@ -247,7 +247,7 @@ public class Lottery {
       BufferedWriter writer = new BufferedWriter(new FileWriter(LAST_WINNER_FILE_LOCATION));
       writer.write(player.getUsername());
       writer.close();
-      PlayerLogs.log(player.getUsername(), "Player got " + getPot() + " from winning the lottery!");
+      PlayerLogs.other(player, "Player got " + getPot() + " from winning the lottery!");
     }
   }
 

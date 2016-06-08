@@ -37,8 +37,8 @@ public class PickupItemPacketListener implements PacketListener {
       player.setCastSpell(null);
       player.getCombatBuilder().cooldown(false);
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(),
-          "" + player.getUsername() + " in PickupItemPacketListener: " + itemId + "");
+      //PlayerLogs.log(player,
+        //  "" + player.getUsername() + " in PickupItemPacketListener: " + itemId + "");
     }
     player.setWalkToTask(new WalkToTask(player, position, 1, new FinalizedMovementTask() {
       @Override

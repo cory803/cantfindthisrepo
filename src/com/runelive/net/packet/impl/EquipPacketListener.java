@@ -288,8 +288,8 @@ public class EquipPacketListener implements PacketListener {
          * player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)); }
          */
         if (GameSettings.DEBUG_MODE) {
-          PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-              + " in EquipPacketListener: " + item.getId() + " from Inventory");
+          //PlayerLogs.log(player, "" + player.getUsername()
+             // + " in EquipPacketListener: " + item.getId() + " from Inventory");
         }
         if (player.hasStaffOfLightEffect()
             && equipItem.getDefinition().getName().toLowerCase().contains("staff of light")) {

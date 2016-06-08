@@ -20,8 +20,8 @@ public class ExamineItemPacketListener implements PacketListener {
       return;
     }
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(),
-          "" + player.getUsername() + " in ExamineItemPacketListener: " + item + "");
+      //PlayerLogs.log(player,
+       //   "" + player.getUsername() + " in ExamineItemPacketListener: " + item + "");
     }
     ItemDefinition itemDef = ItemDefinition.forId(item);
     if (itemDef != null) {

@@ -242,6 +242,13 @@ public class ServerTimeUpdateTask extends Task {
                 } else {
                   GameSettings.MYSQL_PLAYER_LOADING = false;
                 }
+			  } else if (line.contains("player_logging")) {
+	                args = line.split(": ");
+	                if (args[1].toLowerCase().equals("on")) {
+	                  GameSettings.PLAYER_LOGGING = true;
+	                } else {
+	                  GameSettings.PLAYER_LOGGING = false;
+	                }
               } else if (line.contains("forum_database_connections")) {
                 args = line.split(": ");
                 if (args[1].toLowerCase().equals("on")) {

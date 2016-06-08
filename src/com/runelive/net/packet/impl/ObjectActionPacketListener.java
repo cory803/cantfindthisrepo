@@ -105,8 +105,8 @@ public class ObjectActionPacketListener implements PacketListener {
       player.getPacketSender().sendMessage("You can't reach that!");
     }
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " in ObjectActionPacketListener: " + id + " - FIRST_CLICK_OPCODE");
+     // PlayerLogs.log(player, "" + player.getUsername()
+       //   + " in ObjectActionPacketListener: " + id + " - FIRST_CLICK_OPCODE");
     }
     if (player.getRights() == PlayerRights.OWNER)
       player.getPacketSender().sendMessage(
@@ -1784,8 +1784,8 @@ public class ObjectActionPacketListener implements PacketListener {
     int size = distanceX > distanceY ? distanceX : distanceY;
     gameObject.setSize(size);
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-          + " in ObjectActionPacketListener: " + gameObject.getId() + " - SECOND_CLICK");
+     // PlayerLogs.log(player, "" + player.getUsername()
+          //+ " in ObjectActionPacketListener: " + gameObject.getId() + " - SECOND_CLICK");
     }
     if (!player.getDragonSpear().elapsed(3000)) {
       player.getPacketSender().sendMessage("You are stunned!");

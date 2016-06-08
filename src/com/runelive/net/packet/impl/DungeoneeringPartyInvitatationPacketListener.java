@@ -36,8 +36,8 @@ public class DungeoneeringPartyInvitatationPacketListener implements PacketListe
       player.getMinigameAttributes().getDungeoneeringAttributes().getParty().invite(invite);
     }
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(),
-          "" + player.getUsername() + " in DungeoneeringPartyInvitatationPacketListener");
+     // PlayerLogs.log(player,
+        //  "" + player.getUsername() + " in DungeoneeringPartyInvitatationPacketListener");
     }
   }
 }

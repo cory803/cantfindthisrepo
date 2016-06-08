@@ -34,8 +34,8 @@ public class MagicOnItemsPacketListener implements PacketListener {
       if (spell == null)
         return;
       if (GameSettings.DEBUG_MODE) {
-        PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-            + " in MagicOnItemsPacketListener: " + itemId + " - MAGIC_ON_GROUNDITEMS");
+       // PlayerLogs.log(player, "" + player.getUsername()
+          //  + " in MagicOnItemsPacketListener: " + itemId + " - MAGIC_ON_GROUNDITEMS");
       }
       player.getMovementQueue().reset();
       // switch(spell) {}
@@ -51,8 +51,8 @@ public class MagicOnItemsPacketListener implements PacketListener {
       if (player.getInventory().getItems()[slot].getId() != itemId)
         return;
       if (GameSettings.DEBUG_MODE) {
-        PlayerLogs.log(player.getUsername(), "" + player.getUsername()
-            + " in MagicOnItemsPacketListener: " + itemId + " - MAGIC_ON_ITEMS");
+        //PlayerLogs.log(player, "" + player.getUsername()
+          //  + " in MagicOnItemsPacketListener: " + itemId + " - MAGIC_ON_ITEMS");
       }
       Item item = new Item(itemId);
       MagicSpells magicSpell = MagicSpells.forSpellId(spellId);

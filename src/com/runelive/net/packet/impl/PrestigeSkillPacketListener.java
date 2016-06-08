@@ -22,8 +22,8 @@ public class PrestigeSkillPacketListener implements PacketListener {
       return;
     }
     if (GameSettings.DEBUG_MODE) {
-      PlayerLogs.log(player.getUsername(),
-          "" + player.getUsername() + " in PrestigeSkillPacketListener " + prestigeId + "");
+     // PlayerLogs.log(player,
+          //"" + player.getUsername() + " in PrestigeSkillPacketListener " + prestigeId + "");
     }
     player.getSkillManager().resetSkill(skill, true);
   }

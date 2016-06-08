@@ -25,8 +25,8 @@ public class GESelectItemPacketListener implements PacketListener {
         return;
       }
       if (GameSettings.DEBUG_MODE) {
-        PlayerLogs.log(player.getUsername(),
-            "" + player.getUsername() + " in GESelectItemPacketListener: " + item + "");
+        //PlayerLogs.log(player,
+            //"" + player.getUsername() + " in GESelectItemPacketListener: " + item + "");
       }
       GrandExchange.setSelectedItem(player, item);
     }
