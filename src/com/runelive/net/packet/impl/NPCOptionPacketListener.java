@@ -1176,6 +1176,12 @@ public class NPCOptionPacketListener implements PacketListener {
           return;
         }
 
+        if (spell.getSpellbook() != null && spell.getSpellbook() != player.getSpellbook()) {
+          player.getPacketSender().sendMessage("You can't do this! Please report how you did this to an admin. [mgc2]");
+          player.getMovementQueue().reset();
+          return;
+        }
+
         player.setPositionToFace(n.getPosition());
         player.setCastSpell(spell);
         if (player.getCombatBuilder().getStrategy() == null) {

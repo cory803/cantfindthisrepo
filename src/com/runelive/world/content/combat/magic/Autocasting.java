@@ -33,6 +33,11 @@ public class Autocasting {
           resetAutocast(p, true);
           return true;
         }
+        if (cbSpell.getSpellbook() != null && cbSpell.getSpellbook() != cbSpell.getSpellbook()) {
+          p.getPacketSender().sendMessage("You can't do this! Please report how you did this to an admin. [mgc3]");
+          p.getMovementQueue().reset();
+          return true;
+        }
         p.setAutocast(true);
         p.setAutocastSpell(cbSpell);
         p.setCastSpell(cbSpell);
