@@ -13,6 +13,7 @@ import com.runelive.model.Item;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.ItemsKeptOnDeath;
@@ -93,12 +94,18 @@ public class PlayerDeathTask extends Task {
               if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
                 spawnItems = true;
                 for (Item item : playerItems) {
-                  if (!item.tradeable() || itemsToKeep.contains(item)) {
+                  for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
+                    if (!item.tradeable() || itemsToKeep.contains(item)) {
+                      if (ItemDefinition.forId(i).getName().toLowerCase().contains("(deg)")) {
+                        player.getEquipment().delete(i, 1);
+                        player.getInventory().delete(i, 1);
+                      }
                     if (!itemsToKeep.contains(item)) {
                       itemsToKeep.add(item);
                     }
-                    continue;
                   }
+                  continue;
+                }
                   if (spawnItems) {
                     if (item != null && item.getId() > 0 && item.getAmount() > 0) {
                     	int address = Misc.random(0, Integer.MAX_VALUE);

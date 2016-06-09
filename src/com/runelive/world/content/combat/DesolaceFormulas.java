@@ -279,6 +279,9 @@ public class DesolaceFormulas {
     } else if (plr.getCurseActive()[CurseHandler.LEECH_RANGED]) {
       rangeLevel *= 1.10;
     }
+    if(plr.getEquipment().contains(19672)) {
+      rangeLevel *= 1.00;
+    }
     if (hasVoid && accuracy > 1.15)
       rangeLevel *= 1.68;
     /*
@@ -439,6 +442,9 @@ public class DesolaceFormulas {
           } else {
             damage = maxHit = 310;
           }
+          break;
+        case 19674:
+          damageMultiplier += 0.25;
           break;
         case 11235:
         case 21016:
