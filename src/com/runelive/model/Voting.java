@@ -9,6 +9,7 @@ import java.sql.Statement;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.world.World;
+import com.runelive.world.content.Achievements;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.entity.impl.player.Player;
@@ -42,6 +43,7 @@ public class Voting {
 					} else {
 						player.getInventory().add(10944, 1);
 					}
+					Achievements.doProgress(player, Achievements.AchievementData.VOTE_100_TIMES);
 					player.getPacketSender().sendMessage("Your auth code has been claimed!");
 					player.save();
 				} 

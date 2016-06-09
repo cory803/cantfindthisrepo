@@ -44,12 +44,6 @@ public class ItemForging {
       }
       final String itemName = Misc.formatText(ItemDefinition.forId(data.product.getId()).getName().toLowerCase());
         for (Item reqItem : data.requiredItems) {
-          if (reqItem.getId() == 7968) {
-            p.getPacketSender().sendMessage("You transfer the magic from the scroll to your ring and receive  " + Misc.anOrA(itemName) + " " + itemName + ".");
-            p.performAnimation(new Animation(12565));
-            return;
-        }
-        p.performGraphic(new Graphic(2010));
         if (reqItem.getId() == 1755 || reqItem.getId() == 1595)
           continue;
         p.getInventory().delete(reqItem);
