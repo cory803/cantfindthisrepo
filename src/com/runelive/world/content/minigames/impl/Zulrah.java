@@ -6,7 +6,10 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.RegionInstance;
 import com.runelive.model.RegionInstance.RegionInstanceType;
+import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.util.Misc;
 import com.runelive.world.World;
+import com.runelive.world.content.Achievements;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -59,13 +62,35 @@ public class Zulrah {
     });
   }
 
+  public static int[] UnstackableReward = {6571, 1149, 3204, 5698};
+
+  public static int randomUnstackableReward()
+  {
+    return UnstackableReward[(int) (Math.random() * UnstackableReward.length)];
+  }
+
+   public static int loot = randomUnstackableReward();
+   public static int stackable_drop = ZulrahDropTable.getDrop().getItemId();
+   public static int stackable_amount = ZulrahDropTable.getDrop().getAmount();
+   public static int rareDropRoll = Misc.inclusiveRandom(1, 256);
+
+  public static void handleZulrahLoot(Player p) {
+    p.getInventory().add(randomUnstackableReward(), 1);
+    p.getInventory().add(21080, Misc.inclusiveRandom(100, 300));
+    p.getInventory().add(stackable_drop, stackable_amount);
+    p.getPacketSender().sendLootMessage("You have received 1 x "+ ItemDefinition.forId(loot).getName()+" from Zulrah.");
+    p.getPacketSender().sendLootMessage("You have received some "+ ItemDefinition.forId(stackable_drop).getName()+" from Zulrah.");
+    if(rareDropRoll == 256) {
+      p.getPacketSender().sendMessage("Lmfao, Dave, get this right you hit your undeveloped rare table");
+    }
+  }
   public static void handleZulrahDeath(final Player player, NPC n) {
     if (n.getId() == ZULRAH_GREEN_NPC_ID || n.getId() == ZULRAH_RED_NPC_ID
         || n.getId() == ZULRAH_BLUE_NPC_ID || n.getId() == ZULRAH_JAD_NPC_ID) {
       if (player.getRegionInstance() != null) {
         player.getRegionInstance().getNpcsList().remove(n);
       }
-      // Achievements.doProgress(player, AchievementData.UNLOCK_ALL_LOYALTY_TITLES);
+      handleZulrahLoot(player);
       leave_pit(player, true);
     }
   }

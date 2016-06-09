@@ -291,9 +291,6 @@ public class CurseHandler {
     TaskManager.submit(new Task(1, player, true) {
       @Override
       public void execute() {
-        if ((player.getDonorRights() == 5) && player.getLocation() != Location.WILDERNESS) {
-          return;
-        }
         if (player.getSkillManager().getCurrentLevel(Skill.PRAYER) <= 0) {
           for (CurseData curse : CurseData.values()) {
             if (player.getCurseActive()[curse.ordinal()]) {
@@ -306,11 +303,6 @@ public class CurseHandler {
           return;
         }
         double drain = getDrain(player);
-        if (player.getLocation() != Location.WILDERNESS) {
-          if (player.getDonorRights() > 0) {
-            drain = 0;
-          }
-        }
         if (drain <= 0) {
           stop();
           return;

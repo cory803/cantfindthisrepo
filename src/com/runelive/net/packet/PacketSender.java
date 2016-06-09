@@ -129,6 +129,13 @@ public class PacketSender {
     return this;
   }
 
+  public PacketSender sendLootMessage(String message) {
+    PacketBuilder out = new PacketBuilder(253, PacketType.BYTE);
+    out.putString("<col=2db300>"+message);
+    player.getSession().queueMessage(out);
+    return this;
+  }
+
   /**
    * Sends skill information onto the client, to calculate things such as constitution, prayer and
    * summoning orb and other configurations.
