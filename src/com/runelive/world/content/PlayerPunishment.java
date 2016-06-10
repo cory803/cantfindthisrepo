@@ -134,7 +134,7 @@ public class PlayerPunishment {
     }
 
     public static Player load(String name, Player loadedPlayer) {
-        GameServer.getCharacterPool().executeQuery("Select * from `accounts` where username = '" + name + "' limit 1", new SQLCallback() {
+        GameServer.getCharacterPool().executeBlockingQuery("SELECT * FROM `accounts` WHERE username = '" + name + "' LIMIT 1", new SQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 if (rs.next()) {
