@@ -287,6 +287,10 @@ public class PlayerLoading {
             player.setGameMode(GameMode.valueOf(reader.get("game-mode").getAsString()));
         }
 
+        if (reader.has("exp-rate")) {
+            player.setExpRate(ExpRates.valueOf(reader.get("exp-rate").getAsString()));
+        }
+
         if (reader.has("last-login")) {
             player.setLastLogin(reader.get("last-login").getAsLong());
         }

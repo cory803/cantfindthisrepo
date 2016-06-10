@@ -13,27 +13,12 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.PlayerDeathTask;
 import com.runelive.engine.task.impl.WalkToTask;
+import com.runelive.model.*;
 import com.runelive.net.login.LoginDetailsMessage;
-import com.runelive.model.Animation;
-import com.runelive.model.Appearance;
-import com.runelive.model.CharacterAnimations;
-import com.runelive.model.ChatMessage;
-import com.runelive.model.DwarfCannon;
-import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
-import com.runelive.model.GameObject;
-import com.runelive.model.Item;
-import com.runelive.model.MagicSpellbook;
-import com.runelive.model.PlayerInteractingOption;
-import com.runelive.model.PlayerRelations;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelFuture;
 import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
-import com.runelive.model.PlayerRights;
-import com.runelive.model.Position;
-import com.runelive.model.Prayerbook;
-import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Bank.BankSearchAttributes;
 import com.runelive.model.container.impl.Equipment;
@@ -540,6 +525,7 @@ public class Player extends Character {
 	private Room[][][] houseRooms = new Room[5][13][13];
 	private PlayerInteractingOption playerInteractingOption = PlayerInteractingOption.NONE;
 	private GameMode gameMode = GameMode.NORMAL;
+	private ExpRates expRate = ExpRates.LORD;
 	private CombatType lastCombatType = CombatType.MELEE;
 	private FightType fightType = FightType.UNARMED_PUNCH;
 	private Prayerbook prayerbook = Prayerbook.NORMAL;
@@ -2101,6 +2087,14 @@ public class Player extends Character {
 
 	public void setGameMode(GameMode gameMode) {
 		this.gameMode = gameMode;
+	}
+
+	public ExpRates getExpRate() {
+		return expRate;
+	}
+
+	public void setExpRate(ExpRates expRate) {
+		this.expRate = expRate;
 	}
 
 	public boolean isPlayerLocked() {

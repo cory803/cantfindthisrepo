@@ -871,6 +871,9 @@ public class Administrators {
 		if (command[0].equals("bank")) {
 			player.getBank(player.getCurrentBankTab()).open();
 		}
+		if(command[0].equals("mode")) {
+			player.forceChat("My game mode is: "+player.getExpRate().name().toLowerCase()+".");
+		}
 		if (command[0].equals("find")) {
 			String name = wholeCommand.substring(5).toLowerCase().replaceAll("_", " ");
 			player.getPacketSender().sendMessage("Finding item id for item - " + name);
