@@ -10,9 +10,9 @@ import com.runelive.engine.task.impl.FamiliarSpawnTask;
 import com.runelive.model.*;
 import com.runelive.model.PlayerRelations.PrivateChatStatus;
 import com.runelive.model.container.impl.Bank;
+import com.runelive.net.login.LoginManager;
 import com.runelive.net.login.LoginResponses;
-import com.runelive.net.mysql.ThreadedSQLCallback;
-import com.runelive.world.World;
+import com.runelive.net.mysql.SQLCallback;
 import com.runelive.world.content.DropLog;
 import com.runelive.world.content.DropLog.DropLogEntry;
 import com.runelive.world.content.KillsTracker;
@@ -26,7 +26,6 @@ import com.runelive.world.content.skill.impl.construction.Portal;
 import com.runelive.world.content.skill.impl.construction.Room;
 import com.runelive.world.content.skill.impl.slayer.SlayerMaster;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
-import com.runelive.world.content.PlayerLogs;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -42,9 +41,9 @@ import java.util.List;
 
 public class PlayerLoading {
 
-    public static int getResult(Player player) {
+    public static int loadJSON(Player player) {
         if (player.getUsername().contains(":") || player.getUsername().contains("\"")) {
-            player.setLoginQue(true);
+            //player.setLoginQue(true);
             return LoginResponses.LOGIN_REJECT_SESSION;
         }
         // Create the path and file objects.
@@ -56,10 +55,10 @@ public class PlayerLoading {
         if (!file.exists()) {
             player.setNewPlayer(true);
 			player.setResponse(2);
-			player.setLoginQue(true);
-            if (!World.getLoginQueue().contains(player)) {
+			//player.setLoginQue(true);
+            /*if (!World.getLoginQueue().contains(player)) {
                 World.getLoginQueue().add(player);
-            }
+            }*/
             return LoginResponses.LOGIN_SUCCESSFUL;
         }
 
@@ -75,22 +74,22 @@ public class PlayerLoading {
                 String hashedPassword = player.getHashedPassword();
                 if (salt.isEmpty() || hashedPassword.isEmpty()) {
                     if (!password.equals(pass)) {
-                        player.setLoginQue(true);
+                        //player.setLoginQue(true);
                         return LoginResponses.LOGIN_INVALID_CREDENTIALS;
                     }
                 } else {
                     String hashPass = PlayerSaving.hashPassword(salt, pass);
                     if (!hashPass.equals(hashedPassword)) {
-                        player.setLoginQue(true);
+                        //player.setLoginQue(true);
                         return LoginResponses.LOGIN_INVALID_CREDENTIALS;
                     }
                 }
             } else {
                 if (!player.getPassword().equals(pass)) {
-                    player.setLoginQue(true);
-					if (World.getLoginQueue().contains(player)) {
+                    //player.setLoginQue(true);
+					/*if (World.getLoginQueue().contains(player)) {
 						World.getLoginQueue().remove(player);
-					}
+					}*/
                     return LoginResponses.LOGIN_INVALID_CREDENTIALS;
                 }
             }
@@ -122,10 +121,10 @@ public class PlayerLoading {
                 fileIn.close();
             }
             player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
-            player.setLoginQue(true);
-            if (!World.getLoginQueue().contains(player)) {
+            //player.setLoginQue(true);
+            /*if (!World.getLoginQueue().contains(player)) {
                 World.getLoginQueue().add(player);
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
             return LoginResponses.LOGIN_SUCCESSFUL;
@@ -133,13 +132,11 @@ public class PlayerLoading {
         return LoginResponses.LOGIN_SUCCESSFUL;
     }
 
-    public static int loadGame(Player player) {
+    public static void performSqlRequest(Player player) {
         //Perform a standard threaded query
-        final String newPlayerPass = player.getPassword().replaceAll("[\"\\\'/]", "");
-        GameServer.getCharacterPool().executeQuery("Select * from `accounts` where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery("SELECT * FROM `accounts` WHERE username = '" + player.getUsername() + "' LIMIT 1", new SQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
-                int bankItems = 0;
                 if (rs.next()) {
                     boolean matches = false;
                     String password = rs.getString("password");
@@ -158,7 +155,6 @@ public class PlayerLoading {
                         matches = player.getPassword().equals(password);
                     }
                     if (matches) {
-
                         player.setUsername(rs.getString("username"));
                         player.setRights(PlayerRights.forId(rs.getInt("staffrights")));
                         player.setDonorRights(rs.getInt("donorrights"));
@@ -175,27 +171,17 @@ public class PlayerLoading {
                             player.setHashedPassword(PlayerSaving.hashPassword(salt, player.getPassword()));
                         }
 						player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
-						player.setLoginQue(true);
-                        if (!World.getLoginQueue().contains(player)) {
-                            World.getLoginQueue().add(player);
-                        }
                     } else {
-						if (World.getLoginQueue().contains(player)) {
-							World.getLoginQueue().remove(player);
-						}
-						player.setLoginQue(true);
 						player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
                     }
+                    LoginManager.finalizeLogin(player);
                 } else {
-                    GameServer.getCharacterPool().executeQuery("Select username from `accounts` as acc where username = '" + player.getUsername() + "' limit 1", new ThreadedSQLCallback() {
+                    GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE username = '" + player.getUsername() + "' LIMIT 1", new SQLCallback() {
                         @Override
                         public void queryComplete(ResultSet rs) throws SQLException {
                             if (rs.next()) {
-								if (World.getLoginQueue().contains(player)) {
-									World.getLoginQueue().remove(player);
-								}
-								player.setLoginQue(true);
                                 player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
+                                LoginManager.finalizeLogin(player);
                             } else {
                                 PlayerSaving.createNewAccount(player);
                             }
@@ -203,12 +189,9 @@ public class PlayerLoading {
 
                         @Override
                         public void queryError(SQLException e) {
-							if (World.getLoginQueue().contains(player)) {
-								World.getLoginQueue().remove(player);
-							}
-							player.setLoginQue(true);
                             player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
                             e.printStackTrace();
+                            LoginManager.finalizeLogin(player);
                         }
                     });
                 }
@@ -216,15 +199,12 @@ public class PlayerLoading {
 
             @Override
             public void queryError(SQLException e) {
-				if (World.getLoginQueue().contains(player)) {
-					World.getLoginQueue().remove(player);
-				}
-				player.setLoginQue(true);
                 player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
                 e.printStackTrace();
+                LoginManager.finalizeLogin(player);
             }
         });
-        return player.getResponse();
+        //return player.getResponse();
     }
 
 

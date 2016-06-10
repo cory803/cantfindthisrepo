@@ -78,7 +78,7 @@ public class World {
     /**
      * The queue of {@link Player}s waiting to be logged in.
      **/
-    private static Queue<Player> logins = new ConcurrentLinkedQueue<>();
+    //private static Queue<Player> logins = new ConcurrentLinkedQueue<>();
 
     /**
      * The queue of {@link Player}s waiting to be logged out.
@@ -180,7 +180,7 @@ public class World {
         long start = System.currentTimeMillis();
 
         // Handle queued logins.
-        for (int amount = 0; amount < GameSettings.LOGIN_THRESHOLD; amount++) {
+        /*for (int amount = 0; amount < GameSettings.LOGIN_THRESHOLD; amount++) {
             Player player = logins.poll();
             if (player == null)
                 break;
@@ -191,7 +191,7 @@ public class World {
                     PlayerHandler.handleLogin(player);
                 }
             }
-        }
+        }*/
         long logout_start = System.currentTimeMillis();
         long loginCycle = logout_start - start;
 
@@ -274,9 +274,9 @@ public class World {
         }
     }
 
-    public static Queue<Player> getLoginQueue() {
+    /*public static Queue<Player> getLoginQueue() {
         return logins;
-    }
+    }*/
 
     public static Queue<Player> getLogoutQueue() {
         return logouts;

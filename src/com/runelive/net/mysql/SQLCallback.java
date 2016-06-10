@@ -9,7 +9,7 @@ import java.sql.SQLException;
  * @author Nikki
  *
  */
-public interface ThreadedSQLCallback {
+public interface SQLCallback {
 	
 	/**
 	 * Called when a query is complete

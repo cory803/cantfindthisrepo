@@ -1,10 +1,7 @@
 package com.runelive;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,12 +38,11 @@ public class GameServer {
     public static ThreadedSQL getForumPool() {
         return forums_sql;
     }
-    
-	
+
     public static ThreadedSQL getVotingPool() {
         return voting_sql;
     }
-	
+
     public static void main(String[] params) {
         try {
             System.setErr(new PrintStream(new ErrorFile("errorlogs", "ErrorLog"), true));

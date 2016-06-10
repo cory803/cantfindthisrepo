@@ -12,7 +12,6 @@ import org.jboss.netty.channel.ChannelFutureListener;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
-import com.runelive.util.CharacterConversion;
 import com.runelive.world.entity.impl.player.PlayerLoading;
 import com.runelive.GameSettings;
 import com.runelive.model.GameMode;
@@ -24,7 +23,6 @@ import com.runelive.net.packet.codec.PacketEncoder;
 import com.runelive.net.security.IsaacRandom;
 import com.runelive.util.Misc;
 import com.runelive.util.NameUtils;
-import com.runelive.world.World;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -34,6 +32,7 @@ import com.runelive.world.entity.impl.player.Player;
  */
 public final class LoginDecoder extends FrameDecoder {
 
+    private static final ConnectionThrottler throttler = new ConnectionThrottler(5);
     private static final int CONNECTED = 0;
     private static final int LOGGING_IN = 1;
     private int state = CONNECTED;
@@ -43,6 +42,12 @@ public final class LoginDecoder extends FrameDecoder {
     protected Object decode(ChannelHandlerContext ctx, Channel channel, ChannelBuffer buffer)
             throws Exception {
         if (!channel.isConnected()) {
+            return null;
+        }
+        final String ip_address = ((InetSocketAddress) channel.getRemoteAddress()).getAddress().getHostAddress();
+        boolean connectionAllowed = throttler.verifyConnection(ip_address);
+        if (!connectionAllowed) {
+            channel.close();
             return null;
         }
         switch (state) {
@@ -147,15 +152,13 @@ public final class LoginDecoder extends FrameDecoder {
                 username = Misc.formatText(username.toLowerCase());
                 channel.getPipeline().replace("encoder", "encoder", new PacketEncoder(new IsaacRandom(seed)));
                 channel.getPipeline().replace("decoder", "decoder", new PacketDecoder(decodingRandom));
-                return login(channel, new LoginDetailsMessage(username, password, ((InetSocketAddress) channel.getRemoteAddress()).getAddress().getHostAddress(), computer_address, mac_address, serial, client_version, uid));
+                return login(channel, new LoginDetailsMessage(username, password, ip_address, computer_address, mac_address, serial, client_version, uid));
         }
         return null;
     }
 
     public Player login(Channel channel, LoginDetailsMessage msg) {
-
         PlayerSession session = new PlayerSession(channel);
-
         Player player = new Player(session).setUsername(msg.getUsername())
                 .setLongUsername(NameUtils.stringToLong(msg.getUsername()))
                 .setPassword(msg.getPassword())
@@ -165,83 +168,8 @@ public final class LoginDecoder extends FrameDecoder {
                 .setMacAddress(msg.getMacAddress());
         //CharacterConversion.convert(channel);
         session.setPlayer(player);
-        int loadGame = 0;
-        if (GameSettings.MYSQL_PLAYER_LOADING) {
-            loadGame = PlayerLoading.loadGame(player);
-        }
-        if (GameSettings.JSON_PLAYER_LOADING) {
-            loadGame = PlayerLoading.getResult(player);
-            if (loadGame != LoginResponses.LOGIN_SUCCESSFUL) {
-                player.setResponse(loadGame);
-            }
-        }
-        try {
-            while (!World.getLoginQueue().contains(player) && !player.getLoginQue()) {
-            }
-        } finally {
-            if (World.getLoginQueue().contains(player) || player.getLoginQue()) {
-                player.setResponse(LoginResponses.getResponse(player, msg));
-                final boolean newAccount = player.getResponse() == LoginResponses.NEW_ACCOUNT;
-                if (newAccount) {
-                    player.setNewPlayer(true);
-                    player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
-                }
-                if (player.getResponse() == LoginResponses.LOGIN_SUCCESSFUL) {
-                    int rank = player.getRights().ordinal();
-                    if (rank == 0) {
-                        if (player.getDonorRights() == 1) {
-                            rank = 7;
-                        }
-                        if (player.getDonorRights() == 2) {
-                            rank = 8;
-                        }
-                        if (player.getDonorRights() == 3) {
-                            rank = 9;
-                        }
-                        if (player.getDonorRights() == 4) {
-                            rank = 10;
-                        }
-                        if (player.getDonorRights() == 5) {
-                            rank = 11;
-                        }
-                    }
-                    if (player.getGameMode() == GameMode.IRONMAN && !player.getRights().isStaff()) {
-                        rank = 12;
-                    }
-                    if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
-                        rank = 13;
-                    }
-                    if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
-                        rank = 14;
-                    }
-                    if (player.getRights() == PlayerRights.WIKI_EDITOR) {
-                        rank = 15;
-                    }
-                    if (player.getRights() == PlayerRights.WIKI_MANAGER) {
-                        rank = 16;
-                    }
-                    if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-                        rank = 17;
-                    }
-                    channel.write(new PacketBuilder().put((byte) 2).put((byte) rank).put((byte) 0).toPacket());
-                    return player;
-                } else {
-                    sendReturnCode(channel, player.getResponse());
-                    return null;
-                }
-            }
-        }
+        LoginManager.startLogin(session, msg);
         return player;
-    }
-
-    public static void sendReturnCode(final Channel channel, final int code) {
-        channel.write(new PacketBuilder().put((byte) code).toPacket())
-                .addListener(new ChannelFutureListener() {
-                    @Override
-                    public void operationComplete(final ChannelFuture arg0) throws Exception {
-                        arg0.getChannel().close();
-                    }
-                });
     }
 
 }

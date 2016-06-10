@@ -66,7 +66,7 @@ import com.runelive.net.login.LoginResponses;
 public class PlayerHandler {
 
     public static void handleLogin(Player player) {
-        player.setLoginQue(false);
+        //player.setLoginQue(false);
         player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
         // Register the player
         System.out.println("[World] Registering player - [username, host] : [" + player.getUsername()

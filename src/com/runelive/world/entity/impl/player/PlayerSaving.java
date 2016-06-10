@@ -15,18 +15,23 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
+import com.runelive.net.login.LoginManager;
+import com.runelive.net.mysql.CompletedCallback;
+import com.runelive.net.mysql.impl.AccountExistsQuery;
 import com.runelive.util.MD5;
 import com.runelive.util.Misc;
-import com.runelive.net.mysql.ThreadedSQLCallback;
+import com.runelive.net.mysql.SQLCallback;
 import com.runelive.world.World;
-import com.runelive.world.content.PlayerLogs;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class PlayerSaving {
 
+    public static AccountExistsQuery accountExists(String name, CompletedCallback callback) {
+        return new AccountExistsQuery(name).setCompletedCallback(callback).execute();
+    }
 
-    public static boolean accountExists(Player player, String name) {
-        GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE LOWER (`username`) = LOWER('" + name + "') LIMIT 1", new ThreadedSQLCallback() {
+    /*public static boolean accountExists(Player player, String name, SQLCallback callback) {
+        GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE LOWER (`username`) = LOWER('" + name + "') LIMIT 1", new SQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 if (rs.next()) {
@@ -40,10 +45,10 @@ public class PlayerSaving {
             }
         });
         return player.accountExists;
-    }
+    }*/
 
     public static void updatePassword(Player p, String password, String salt) {
-        GameServer.getCharacterPool().executeQuery("UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(), new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery("UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(), new SQLCallback() {
             @Override
             public void queryError(SQLException e) {
                 System.err.println("Error updating password for " + p.getUsername() + ": " + password);
@@ -65,53 +70,21 @@ public class PlayerSaving {
             }
             query = "INSERT INTO `accounts` (username, password, salt) VALUES ('" + p.getUsername() + "', '" + p.getPassword() + ", " + p.getSalt() + "')";
         }
-        GameServer.getCharacterPool().executeQuery(query, new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeQuery(query, new SQLCallback() {
             @Override
             public void queryError(SQLException e) {
                 p.setResponse(3);
-				if (!World.getLoginQueue().contains(p)) {
-					World.getLoginQueue().add(p);
-				}
-				p.setLoginQue(true);
                 e.printStackTrace();
+                LoginManager.finalizeLogin(p);
             }
 
             @Override
             public void queryComplete(ResultSet result) throws SQLException {
                 p.setNewPlayer(true);
                 p.setResponse(2);
-                if (!World.getLoginQueue().contains(p)) {
-                    World.getLoginQueue().add(p);
-                }
-                p.setLoginQue(true);
+                LoginManager.finalizeLogin(p);
             }
         });
-        /*
-        @Override
-		public void queryComplete(ResultSet result) throws SQLException {
-			Server.getSQLPool().executeQuery("Select ID from `accounts` where PlayerName = '" + p.getUsername() + "'", new ThreadedSQLCallback() {
-				@Override
-				public void queryComplete(ResultSet rs) throws SQLException {
-					if (rs.next()) {
-						p.sqlId = rs.getInt("ID");
-						if (p.returnCode == -1) {
-							p.displayedUsername = Misc.formatPlayerName(playerName);
-							p.displayedNameHash = Misc.playerNameToInt64(p.displayedUsername);
-							p.originalNameHash = p.displayedNameHash;
-							p.formattedName = p.displayedUsername;
-							p.returnCode = 0;
-						}
-					}
-				}
-
-				@Override
-				public void queryError(SQLException e) {
-					//p.returnCode = 3;
-					e.printStackTrace();
-				}
-			});
-		}
-		*/
     }
 
     public static void saveGame(Player player) {
@@ -119,7 +92,7 @@ public class PlayerSaving {
             return;
         }
         final Player p = player;
-        GameServer.getCharacterPool().executeLogoutQuery(p, new ThreadedSQLCallback() {
+        GameServer.getCharacterPool().executeLogoutQuery(p, new SQLCallback() {
             @Override
             public void queryComplete(ResultSet result) throws SQLException {
 

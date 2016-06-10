@@ -159,7 +159,7 @@ public class Summoning {
       if (bob != null) {
         if (bob.getValidItems().size() > 0) {
           for (Item t : bob.getValidItems()) {
-        	  int address = Misc.random(Integer.MIN_VALUE, Integer.MAX_VALUE);
+        	  int address = Misc.random(0, Integer.MAX_VALUE);
             GroundItemManager.spawnGroundItem(player,
                 new GroundItem(t, getFamiliar().getSummonNpc().getPosition().copy(),
                     player.getUsername(), player.getHostAddress(), false, 120, true, 80, address));
