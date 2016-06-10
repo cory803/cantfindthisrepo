@@ -133,13 +133,22 @@ public class PlayerPunishment {
         }
     }
 
-    public static Player load(String name, Player loadedPlayer) {
-        GameServer.getCharacterPool().executeBlockingQuery("SELECT * FROM `accounts` WHERE username = '" + name + "' LIMIT 1", new SQLCallback() {
+    public static Player massBan(Player staff, String victimUsername, Player victim) {
+        GameServer.getCharacterPool().executeQuery("SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 if (rs.next()) {
                     String json = rs.getString("json");
-                    PlayerLoading.decodeJson(loadedPlayer, json);
+                    PlayerLoading.decodeJson(victim, json);
+
+                    if (victim.getLastIpAddress() != null && !victim.getLastIpAddress().isEmpty() && !victim.getLastIpAddress().equalsIgnoreCase("not-set")) {
+                        String address = String.valueOf(victim.getLastSerialAddress());
+                        String ip = victim.getLastIpAddress();
+                        PlayerPunishment.ban(address);
+                        PlayerPunishment.pcBan(address);
+                        PlayerPunishment.ipBan(ip);
+                        staff.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
+                    }
                 }
             }
 
@@ -148,7 +157,34 @@ public class PlayerPunishment {
                 e.printStackTrace();
             }
         });
-        return loadedPlayer;
+        return victim;
+    }
+
+    public static Player unmassBan(Player staff, String victimUsername, Player victim) {
+        GameServer.getCharacterPool().executeQuery("SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
+            @Override
+            public void queryComplete(ResultSet rs) throws SQLException {
+                if (rs.next()) {
+                    String json = rs.getString("json");
+                    PlayerLoading.decodeJson(victim, json);
+
+                    if (victim.getLastIpAddress() != null && !victim.getLastIpAddress().isEmpty() && !victim.getLastIpAddress().equalsIgnoreCase("not-set")) {
+                        String address = String.valueOf(victim.getLastSerialAddress());
+                        String ip = victim.getLastIpAddress();
+                        PlayerPunishment.unBan(victimUsername);
+                        PlayerPunishment.unPcBan(address);
+                        PlayerPunishment.unIpBan(ip);
+                        staff.getPacketSender().sendMessage("You successfully unmass banned '" + victimUsername + "'.");
+                    }
+                }
+            }
+
+            @Override
+            public void queryError(SQLException e) {
+                e.printStackTrace();
+            }
+        });
+        return victim;
     }
 
     public static void mute(String name) {

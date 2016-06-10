@@ -14,10 +14,6 @@ import com.runelive.world.content.*;
 import com.runelive.model.Store;
 import com.runelive.model.WebsiteOnline;
 import com.runelive.world.content.skill.impl.dungeoneering.*;
-import com.runelive.util.ForumDatabase;
-
-import java.sql.*;
-import java.util.Properties;
 
 import com.runelive.model.Flag;
 
@@ -36,14 +32,10 @@ import com.runelive.world.content.minigames.impl.Zulrah;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.Shop.ShopManager;
-import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
-import com.runelive.util.Logs;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.Achievements.AchievementData;
-import com.runelive.world.content.DropLog.DropLogEntry;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.grandexchange.GrandExchangeOffers;
@@ -1405,70 +1397,43 @@ public class Owners {
             }
         }
         if (command[0].equalsIgnoreCase("massban")) {
-            String ban_player = wholeCommand.substring(8);
-            if (!PlayerSaving.accountExists(player, ban_player)) {
-                player.getPacketSender().sendMessage("Player " + ban_player + " does not exist.");
+            String victimUsername = wholeCommand.substring(8);
+            if (!PlayerSaving.accountExists(player, victimUsername)) {
+                player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
                 return;
             } else {
-                Player other = World.getPlayerByName(ban_player);
-                Player loadedPlayer = new Player(null);
-                String address = null;
-                String ip = null;
+                Player other = World.getPlayerByName(victimUsername);
                 if (other == null) {
-                    loadedPlayer = PlayerPunishment.load(ban_player, loadedPlayer);
-                    if (loadedPlayer.getLastIpAddress() != null && !loadedPlayer.getLastIpAddress().isEmpty() && loadedPlayer.getLastIpAddress() != "not-set") {
-                        address = String.valueOf(loadedPlayer.getLastSerialAddress());
-                        ip = loadedPlayer.getLastIpAddress();
-                    }
+                    PlayerPunishment.massBan(player, victimUsername, new Player(null));
                 } else {
-                    address = String.valueOf(other.getSerialNumber());
-                    ip = other.getHostAddress();
-                }
-                if (address != null) {
+                    String address = String.valueOf(other.getSerialNumber());
+                    String ip = other.getHostAddress();
+                    PlayerPunishment.ban(victimUsername);
                     PlayerPunishment.pcBan(address);
-                    System.err.println("Unable to pc-ban: " + ban_player);
-                }
-                if (ip != null) {
                     PlayerPunishment.ipBan(ip);
-                    System.err.println("Unable to ip-ban: " + ban_player);
-                }
-                PlayerPunishment.ban(ban_player);
-                if (other != null) {
                     World.deregister(other);
+                    player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
                 }
-                player.getPacketSender().sendMessage("Player " + ban_player + " was successfully mass banned!");
             }
         }
         if (command[0].equalsIgnoreCase("unmassban")) {
-            String ban_player = wholeCommand.substring(10);
-            if (!PlayerSaving.accountExists(player, ban_player)) {
-                player.getPacketSender().sendMessage("Player " + ban_player + " does not exist.");
+            String victimUsername = wholeCommand.substring(10);
+            if (!PlayerSaving.accountExists(player, victimUsername)) {
+                player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
                 return;
             } else {
-                Player other = World.getPlayerByName(ban_player);
-                Player loadedPlayer = new Player(null);
-                String address = null;
-                String ip = null;
+                Player other = World.getPlayerByName(victimUsername);
                 if (other == null) {
-                    loadedPlayer = PlayerPunishment.load(ban_player, loadedPlayer);
-                    if (loadedPlayer.getLastIpAddress() != null && !loadedPlayer.getLastIpAddress().isEmpty() && loadedPlayer.getLastIpAddress() != "not-set") {
-                        address = String.valueOf(loadedPlayer.getLastSerialAddress());
-                        ip = loadedPlayer.getLastIpAddress();
-                    }
+                    PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
                 } else {
-                    address = String.valueOf(other.getSerialNumber());
-                    ip = other.getHostAddress();
-                }
-                if (address != null) {
+                    String address = String.valueOf(other.getSerialNumber());
+                    String ip = other.getHostAddress();
+                    PlayerPunishment.unBan(victimUsername);
                     PlayerPunishment.unPcBan(address);
-                    System.err.println("Unable to un-pc-ban: " + ban_player);
-                }
-                if (ip != null) {
                     PlayerPunishment.unIpBan(ip);
-                    System.err.println("Unable to un-ip-ban: " + ban_player);
+                    World.deregister(other);
+                    player.getPacketSender().sendMessage("You successfully unmass banned '" + victimUsername + "'.");
                 }
-                PlayerPunishment.unBan(ban_player);
-                player.getPacketSender().sendMessage("Player " + ban_player + " was successfully un mass banned!");
             }
         }
         if (wholeCommand.toLowerCase().startsWith("yell")) {

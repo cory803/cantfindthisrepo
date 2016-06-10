@@ -9,8 +9,6 @@ import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerHandler;
 import com.runelive.world.entity.impl.player.PlayerLoading;
 import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
-import org.jboss.netty.channel.ChannelFutureListener;
 
 public final class LoginManager {
 
