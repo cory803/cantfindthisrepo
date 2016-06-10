@@ -1,15 +1,10 @@
 package com.runelive.util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Properties;
 
 import com.runelive.GameServer;
-import com.runelive.net.mysql.ThreadedSQLCallback;
+import com.runelive.net.mysql.SQLCallback;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -44,7 +39,7 @@ public class ForumDatabase {
   public static int wiki_editor = 34;
 
   public static void forumRankUpdate(Player player) {
-	GameServer.getForumPool().executeQuery("Select * from `members` WHERE `name` = '" + player.getUsername() + "' LIMIT 1", new ThreadedSQLCallback() {
+	GameServer.getForumPool().executeQuery("Select * from `members` WHERE `name` = '" + player.getUsername() + "' LIMIT 1", new SQLCallback() {
 		@Override
 		public void queryComplete(ResultSet rs) throws SQLException {
 			if (rs.next()) {
@@ -62,7 +57,7 @@ public class ForumDatabase {
 				} else if (donator_rank == 0) {
 				  donator_rank = members;
 				}
-				GameServer.getForumPool().executeQuery("UPDATE `members` SET `member_group_id` = '" + donator_rank+ "' WHERE `name` = '" + player.getUsername() + "' LIMIT 1", new ThreadedSQLCallback() {
+				GameServer.getForumPool().executeQuery("UPDATE `members` SET `member_group_id` = '" + donator_rank+ "' WHERE `name` = '" + player.getUsername() + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
 						

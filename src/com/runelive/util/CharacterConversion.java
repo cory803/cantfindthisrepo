@@ -1,9 +1,7 @@
 package com.runelive.util;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FilenameFilter;
-import java.io.StringWriter;
 
 import org.jboss.netty.channel.Channel;
 import com.runelive.net.PlayerSession;
@@ -40,7 +38,7 @@ public class CharacterConversion {
 		Player player = new Player(session).setUsername(name)
 			.setLongUsername(NameUtils.stringToLong(name)).setPassword("default_pw")
 			.setHostAddress("host").setComputerAddress("pcaddress");
-		int result = PlayerLoading.getResult(player);
+		int result = PlayerLoading.loadJSON(player);
 		System.out.println(""+player.getPassword());
 		PlayerSaving.createNewAccount(player);
 		PlayerSaving.saveGame(player);

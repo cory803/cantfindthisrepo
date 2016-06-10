@@ -12,24 +12,24 @@ import com.runelive.net.login.LoginEncoder;
 
 /**
  * The channel's events
- * 
+ *
  * @author Gabriel Hannason
  */
 public class PipelineFactory implements ChannelPipelineFactory {
 
-  private final Timer timer;
+    private final Timer timer;
 
-  public PipelineFactory(Timer timer) {
-    this.timer = timer;
-  }
+    public PipelineFactory(Timer timer) {
+        this.timer = timer;
+    }
 
-  @Override
-  public ChannelPipeline getPipeline() throws Exception {
-    final ChannelPipeline pipeline = new DefaultChannelPipeline();
-    pipeline.addLast("timeout", new IdleStateHandler(timer, GameSettings.IDLE_TIME, 0, 0));
-    pipeline.addLast("encoder", new LoginEncoder()); // Replaced by the PacketEncoder after login
-    pipeline.addLast("decoder", new LoginDecoder()); // Replaced by the PacketDecoder after login
-    pipeline.addLast("handler", new ChannelHandler());
-    return pipeline;
-  }
+    @Override
+    public ChannelPipeline getPipeline() throws Exception {
+        final ChannelPipeline pipeline = new DefaultChannelPipeline();
+        pipeline.addLast("timeout", new IdleStateHandler(timer, GameSettings.IDLE_TIME, 0, 0));
+        pipeline.addLast("encoder", new LoginEncoder()); // Replaced by the PacketEncoder after login
+        pipeline.addLast("decoder", new LoginDecoder()); // Replaced by the PacketDecoder after login
+        pipeline.addLast("handler", new ChannelHandler());
+        return pipeline;
+    }
 }

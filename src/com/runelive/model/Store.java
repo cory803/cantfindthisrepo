@@ -1,19 +1,12 @@
 package com.runelive.model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Arrays;
 
 import com.runelive.GameServer;
-import com.runelive.world.World;
+import com.runelive.net.mysql.SQLCallback;
 import com.runelive.world.content.PlayerLogs;
-import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.entity.impl.player.Player;
-import com.runelive.net.mysql.ThreadedSQLCallback;
-import com.runelive.util.Misc;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.world.content.MemberScrolls;
 import com.runelive.world.content.PlayerPanel;
@@ -22,7 +15,7 @@ public class Store {
 
 	public static void claimItem(Player player) {
 		player.claimingStoreItems = true;
-		GameServer.getForumPool().executeQuery("Select * from `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new ThreadedSQLCallback() {
+		GameServer.getForumPool().executeQuery("Select * from `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new SQLCallback() {
 			@Override
 			public void queryComplete(ResultSet rs) throws SQLException {
 				if(rs == null) {
@@ -74,7 +67,7 @@ public class Store {
 					player.getPacketSender().sendMessage("You currently don't have anything in your collection box!");
 					return;
 				}
-				GameServer.getForumPool().executeQuery("DELETE FROM `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new ThreadedSQLCallback() {
+				GameServer.getForumPool().executeQuery("DELETE FROM `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
 						player.claimingStoreItems = false;
@@ -95,7 +88,7 @@ public class Store {
 	}
 	
 	public static void addTokens(String name, int amount) {
-		GameServer.getForumPool().executeQuery("UPDATE `members` SET credits = credits + "+amount+" WHERE `name` = '"+name+"' LIMIT 1", new ThreadedSQLCallback() {
+		GameServer.getForumPool().executeQuery("UPDATE `members` SET credits = credits + "+amount+" WHERE `name` = '"+name+"' LIMIT 1", new SQLCallback() {
 			@Override
 			public void queryComplete(ResultSet rs) throws SQLException {
 				if(rs.next()) {
@@ -111,13 +104,13 @@ public class Store {
 	}	
 	
 	public static void addTokensFromScroll(Player player, String name, int amount, int item) {
-		GameServer.getForumPool().executeQuery("SELECT `name` FROM `members` WHERE `name` = '"+name+"' LIMIT 1", new ThreadedSQLCallback() {
+		GameServer.getForumPool().executeQuery("SELECT `name` FROM `members` WHERE `name` = '"+name+"' LIMIT 1", new SQLCallback() {
 			@Override
 			public void queryComplete(ResultSet rs) throws SQLException {
 				boolean went = false;
 				while(rs.next()) {
 					went = true;
-					GameServer.getForumPool().executeQuery("UPDATE `members` SET credits = credits + "+amount+" WHERE `name` = '"+name+"' LIMIT 1", new ThreadedSQLCallback() {
+					GameServer.getForumPool().executeQuery("UPDATE `members` SET credits = credits + "+amount+" WHERE `name` = '"+name+"' LIMIT 1", new SQLCallback() {
 						@Override
 						public void queryComplete(ResultSet rs) throws SQLException {
 							switch(item) {

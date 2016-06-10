@@ -3,10 +3,10 @@ package com.runelive.net.mysql;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import com.runelive.model.Skill;
+
 import java.sql.SQLException;
 import java.sql.Statement;
-import com.runelive.model.container.impl.Bank;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -18,7 +18,6 @@ import com.runelive.world.entity.impl.player.PlayerSaving;
  * The main class which is used for all of the central operations
  *
  * @author Nikki
- *
  */
 public class ThreadedSQL {
 
@@ -47,7 +46,7 @@ public class ThreadedSQL {
      * number of threads
      *
      * @param configuration The configuration to use
-     * @param threads The max number of threads
+     * @param threads       The max number of threads
      */
     public ThreadedSQL(DatabaseConfiguration configuration, int threads) {
         this(configuration, threads, threads);
@@ -58,8 +57,8 @@ public class ThreadedSQL {
      * number of threads and number of connections
      *
      * @param configuration The configuration to use
-     * @param threads The max number of threads
-     * @param connections The max number of connections
+     * @param threads       The max number of threads
+     * @param connections   The max number of connections
      */
     public ThreadedSQL(DatabaseConfiguration configuration, int threads, int connections) {
         service = Executors.newFixedThreadPool(threads);
@@ -70,9 +69,9 @@ public class ThreadedSQL {
      * Executed a PreparedStatement query.
      *
      * @param statement The statement to execute
-     * @param callback The callback to inform when the query is successful/fails
+     * @param callback  The callback to inform when the query is successful/fails
      */
-    public void executeQuery(final PreparedStatement statement, final ThreadedSQLCallback callback) {
+    public void executeQuery(final PreparedStatement statement, final SQLCallback callback) {
         service.execute(new Runnable() {
             @Override
             public void run() {
@@ -90,10 +89,10 @@ public class ThreadedSQL {
     /**
      * Executed a PreparedStatement query.
      *
-     * @param stmt The statement to execute
+     * @param stmt     The statement to execute
      * @param callback The callback to inform when the query is successful/fails
      */
-    public void executeLoginQuery(final PreparedStatement stmt, final ThreadedSQLCallback callback, final Player p) {
+    public void executeLoginQuery(final PreparedStatement stmt, final SQLCallback callback, final Player p) {
         service.execute(new Runnable() {
             @Override
             public void run() {
@@ -108,7 +107,7 @@ public class ThreadedSQL {
             }
         });
     }
-	
+
     public static String UpdateQuery = "UPDATE `accounts` SET staffrights = ?, donorrights = ?, json = ?, password = ? WHERE username = ? LIMIT 1;";
 
     /**
@@ -116,21 +115,21 @@ public class ThreadedSQL {
      *
      * @param callback The callback to inform when the query is successful/fails
      */
-    public void executeLogoutQuery(final Player player, final ThreadedSQLCallback callback) {
+    public void executeLogoutQuery(final Player player, final SQLCallback callback) {
         service.execute(new Runnable() {
             @Override
             public void run() {
                 try {
-					int index = 1;
+                    int index = 1;
                     final PreparedStatement stmt = GameServer.getCharacterPool().prepareStatement(UpdateQuery);
-					stmt.setInt(index++, player.getRights().ordinal());
-					stmt.setInt(index++, player.getDonorRights());
-					stmt.setString(index++, PlayerSaving.toJson(player));
-					stmt.setString(index++, player.getPassword());
-					
-					//Final Username
-					stmt.setString(index++, player.getUsername());
-                    
+                    stmt.setInt(index++, player.getRights().ordinal());
+                    stmt.setInt(index++, player.getDonorRights());
+                    stmt.setString(index++, PlayerSaving.toJson(player));
+                    stmt.setString(index++, player.getPassword());
+
+                    //Final Username
+                    stmt.setString(index++, player.getUsername());
+
                     query(stmt, callback);
                 } catch (SQLException e) {
                     if (callback != null) {
@@ -144,28 +143,37 @@ public class ThreadedSQL {
     /**
      * Executed a standard sql query.
      *
-     * @param query The statement to execute
+     * @param query    The statement to execute
      * @param callback The callback to inform when the query is successful/fails
      */
-    public void executeQuery(final String query, final ThreadedSQLCallback callback) {
+    public void executeQuery(final String query, final SQLCallback callback) {
+        final ThreadedSQL sql = this;
         service.execute(new Runnable() {
             @Override
             public void run() {
-                DatabaseConnection conn = null;
-                try {
-                    conn = pool.nextFree();
-                    query(query, callback, conn);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                    if (callback != null) {
-                        callback.queryError(e);
-                    }
-                } finally {
-                    if (conn != null)
-                       conn.returnConnection();
-                }
+                executeQuery(sql, query, callback);
             }
         });
+    }
+
+    public void executeBlockingQuery(final String query, final SQLCallback callback) {
+        executeQuery(this, query, callback);
+    }
+
+    private static void executeQuery(final ThreadedSQL sql, final String query, final SQLCallback callback) {
+        DatabaseConnection conn = null;
+        try {
+            conn = sql.pool.nextFree();
+            sql.query(query, callback, conn);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            if (callback != null) {
+                callback.queryError(e);
+            }
+        } finally {
+            if (conn != null)
+                conn.returnConnection();
+        }
     }
 
     /**
@@ -197,11 +205,11 @@ public class ThreadedSQL {
      * Internal method to handle sql calls for PreparedStatements Note: You HAVE
      *
      * @param statement The statement to execute
-     * @param callback The callback to inform
+     * @param callback  The callback to inform
      * @throws SQLException If an error occurs while executing, this is passed
-     * to callback.queryError(SQLException e)
+     *                      to callback.queryError(SQLException e)
      */
-    private void query(PreparedStatement statement, ThreadedSQLCallback callback) throws SQLException {
+    private void query(PreparedStatement statement, SQLCallback callback) throws SQLException {
         statement.execute();
 
         //Prepared statements don't hold a connection, they simply use it
@@ -218,7 +226,7 @@ public class ThreadedSQL {
             if (statement != null) {
                 statement.close();
             }
-            
+
         }
     }
 
@@ -227,9 +235,9 @@ public class ThreadedSQL {
      *
      * @param callback The callback to inform
      * @throws SQLException If an error occurs while executing, this is passed
-     * to callback.queryError(SQLException e)
+     *                      to callback.queryError(SQLException e)
      */
-    private void query(String query, ThreadedSQLCallback callback, DatabaseConnection conn) throws SQLException {
+    private void query(String query, SQLCallback callback, DatabaseConnection conn) throws SQLException {
         if (conn == null) {
             System.out.println("Connection null: " + query);
             return;
@@ -255,7 +263,7 @@ public class ThreadedSQL {
                 statement.close();
             }
             //Return the used connection
-           // conn.returnConnection();
+            // conn.returnConnection();
         }
     }
 
