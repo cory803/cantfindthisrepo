@@ -16,6 +16,8 @@ import com.google.gson.JsonObject;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.net.login.LoginManager;
+import com.runelive.net.mysql.CompletedCallback;
+import com.runelive.net.mysql.impl.AccountExistsQuery;
 import com.runelive.util.MD5;
 import com.runelive.util.Misc;
 import com.runelive.net.mysql.SQLCallback;
@@ -24,8 +26,11 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class PlayerSaving {
 
+    public static AccountExistsQuery accountExists(String name, CompletedCallback callback) {
+        return new AccountExistsQuery(name).setCompletedCallback(callback);
+    }
 
-    public static boolean accountExists(Player player, String name) {
+    /*public static boolean accountExists(Player player, String name, SQLCallback callback) {
         GameServer.getCharacterPool().executeQuery("SELECT username FROM `accounts` as acc WHERE LOWER (`username`) = LOWER('" + name + "') LIMIT 1", new SQLCallback() {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
@@ -40,7 +45,7 @@ public class PlayerSaving {
             }
         });
         return player.accountExists;
-    }
+    }*/
 
     public static void updatePassword(Player p, String password, String salt) {
         GameServer.getCharacterPool().executeQuery("UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(), new SQLCallback() {
