@@ -28,7 +28,7 @@ public final class LoginManager {
             PlayerLoading.performSqlRequest(player);
         } else if (GameSettings.JSON_PLAYER_LOADING) {
             PlayerLoading.loadJSON(player);
-            finalizeLogin(session, msg);
+            LoginManager.finalizeLogin(session, msg);
         }
     }
 
@@ -40,7 +40,7 @@ public final class LoginManager {
     public static void finalizeLogin(final Player player) {
         PendingLogin pendingLogin = PendingLogin.get(player.getLongUsername());
         if (pendingLogin == null) {
-            System.err.println("SEVER LOGIN ERROR FOR " + player.getUsername() + "!");
+            System.err.println("SEVERE LOGIN ERROR FOR " + player.getUsername() + "!");
             return;
         }
         LoginManager.finalizeLogin(pendingLogin.getSession(), pendingLogin.getLoginDetails());
@@ -116,13 +116,7 @@ public final class LoginManager {
     }
 
     private static void sendReturnCode(final Channel channel, final int code) {
-        channel.write(new PacketBuilder().put((byte) code).toPacket())
-                .addListener(new ChannelFutureListener() {
-                    @Override
-                    public void operationComplete(final ChannelFuture arg0) throws Exception {
-                        arg0.getChannel().close();
-                    }
-                });
+        channel.write(new PacketBuilder().put((byte) code).toPacket()).addListener(listener -> listener.getChannel().close());
     }
 
 }
