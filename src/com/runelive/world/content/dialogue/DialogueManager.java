@@ -146,7 +146,7 @@ public class DialogueManager {
     if(player.getDialogue().specialValue() == 500 && !player.getBankPinAttributes().hasBankPin()) {
     	BankPin.init(player, false);
     } else {
-	    if(next.id() == 7 && !player.getBankPinAttributes().hasBankPin()) {
+	    if(next.id() == 7 && !player.getBankPinAttributes().hasBankPin() && next != null) {
 			BankPin.init(player, false);
 	    } else {
 	    	start(player, next);
