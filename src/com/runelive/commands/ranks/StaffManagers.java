@@ -398,67 +398,44 @@ public class StaffManagers {
 				other.getPacketSender().sendMessage("You have been unmuted!");
 			}
 		}
-		if(command[0].equalsIgnoreCase("massban")) {
-			String ban_player = wholeCommand.substring(8);
-			if(!PlayerSaving.accountExists(player, ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+		if (command[0].equalsIgnoreCase("massban")) {
+			String victimUsername = wholeCommand.substring(8);
+			if (!PlayerSaving.accountExists(player, victimUsername)) {
+				player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
 				return;
 			} else {
-				Player other = World.getPlayerByName(ban_player);
-				Player loadedPlayer = new Player(null);
-				String address;
-				String ip;
-				if(other == null) {
-					PlayerPunishment.load(ban_player, loadedPlayer);
-					try {
-						while(loadedPlayer.getLastSerialAddress() == 0) {
-							//Grabbing serial...
-						}
-					} finally {
-						address = ""+loadedPlayer.getLastSerialAddress();
-						ip = ""+loadedPlayer.getLastIpAddress();
-					}
+				Player other = World.getPlayerByName(victimUsername);
+				if (other == null) {
+					PlayerPunishment.massBan(player, victimUsername, new Player(null));
 				} else {
-					address = ""+other.getSerialNumber();
-					ip = ""+other.getHostAddress();
-				}
-				PlayerPunishment.pcBan(address);
-				PlayerPunishment.ipBan(ip);
-				PlayerPunishment.ban(ban_player);
-				if(other != null) {
+					String address = String.valueOf(other.getSerialNumber());
+					String ip = other.getHostAddress();
+					PlayerPunishment.ban(victimUsername);
+					PlayerPunishment.pcBan(address);
+					PlayerPunishment.ipBan(ip);
 					World.deregister(other);
+					player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
 				}
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully mass banned!");
 			}
 		}
-		if(command[0].equalsIgnoreCase("unmassban")) {
-			String ban_player = wholeCommand.substring(10);
-			if(!PlayerSaving.accountExists(player, ban_player)) {
-				player.getPacketSender().sendMessage("Player "+ban_player+" does not exist.");
+		if (command[0].equalsIgnoreCase("unmassban")) {
+			String victimUsername = wholeCommand.substring(10);
+			if (!PlayerSaving.accountExists(player, victimUsername)) {
+				player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
 				return;
 			} else {
-				Player other = World.getPlayerByName(ban_player);
-				Player loadedPlayer = new Player(null);
-				String address;
-				String ip;
-				if(other == null) {
-					PlayerPunishment.load(ban_player, loadedPlayer);
-					try {
-						while(loadedPlayer.getLastSerialAddress() == 0) {
-							//Grabbing serial...
-						}
-					} finally {
-						address = ""+loadedPlayer.getLastSerialAddress();
-						ip = ""+loadedPlayer.getLastIpAddress();
-					}
+				Player other = World.getPlayerByName(victimUsername);
+				if (other == null) {
+					PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
 				} else {
-					address = ""+other.getSerialNumber();
-					ip = ""+other.getHostAddress();
+					String address = String.valueOf(other.getSerialNumber());
+					String ip = other.getHostAddress();
+					PlayerPunishment.unBan(victimUsername);
+					PlayerPunishment.unPcBan(address);
+					PlayerPunishment.unIpBan(ip);
+					World.deregister(other);
+					player.getPacketSender().sendMessage("You successfully unmass banned '" + victimUsername + "'.");
 				}
-				PlayerPunishment.unPcBan(address);
-				PlayerPunishment.unIpBan(ip);
-				PlayerPunishment.unBan(ban_player);
-				player.getPacketSender().sendMessage("Player "+ban_player+" was successfully un mass banned!");
 			}
 		}
 		if (command[0].equals("unbanvote")) {

@@ -141,14 +141,14 @@ public class PlayerPunishment {
                     String json = rs.getString("json");
                     PlayerLoading.decodeJson(victim, json);
 
+                    String serial = String.valueOf(victim.getLastSerialAddress());
+                    String ip = victim.getLastIpAddress();
+                    PlayerPunishment.ban(victimUsername);
                     if (victim.getLastIpAddress() != null && !victim.getLastIpAddress().isEmpty() && !victim.getLastIpAddress().equalsIgnoreCase("not-set")) {
-                        String address = String.valueOf(victim.getLastSerialAddress());
-                        String ip = victim.getLastIpAddress();
-                        PlayerPunishment.ban(address);
-                        PlayerPunishment.pcBan(address);
+                        PlayerPunishment.pcBan(serial);
                         PlayerPunishment.ipBan(ip);
-                        staff.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
                     }
+                    staff.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
                 }
             }
 
