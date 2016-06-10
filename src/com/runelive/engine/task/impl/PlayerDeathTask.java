@@ -72,11 +72,11 @@ public class PlayerDeathTask extends Task {
           this.oldPosition = player.getPosition().copy();
           this.loc = player.getLocation();
           if (loc != Location.DUNGEONEERING && loc != Location.PEST_CONTROL_GAME
-                  && loc != Location.DUEL_ARENA && loc != Location.FREE_FOR_ALL_ARENA
-                  && loc != Location.FREE_FOR_ALL_WAIT && loc != Location.SOULWARS
-                  && loc != Location.FIGHT_PITS && loc != Location.FIGHT_PITS_WAIT_ROOM
-                  && loc != Location.FIGHT_CAVES && loc != Location.RECIPE_FOR_DISASTER
-                  && loc != Location.GRAVEYARD) {
+              && loc != Location.DUEL_ARENA && loc != Location.FREE_FOR_ALL_ARENA
+              && loc != Location.FREE_FOR_ALL_WAIT && loc != Location.SOULWARS
+              && loc != Location.FIGHT_PITS && loc != Location.FIGHT_PITS_WAIT_ROOM
+              && loc != Location.FIGHT_CAVES && loc != Location.RECIPE_FOR_DISASTER
+              && loc != Location.GRAVEYARD) {
             Player killer = player.getCombatBuilder().getKiller(true);
             // final boolean doubleDeath = player.isDying() && killer.getConstitution() <= 0;
             // if(killer.getLocation() == Location.WILDERNESS || killer.getLocation() ==
@@ -86,6 +86,7 @@ public class PlayerDeathTask extends Task {
             // }
             boolean spawnItems = false;
             if (dropItems) {
+              deletePvpArmour(player);
               itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
               final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
               playerItems.addAll(player.getInventory().getValidItems());
@@ -94,23 +95,23 @@ public class PlayerDeathTask extends Task {
               if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
                 spawnItems = true;
                 for (Item item : playerItems) {
-                  if (!item.tradeable() || itemsToKeep.contains(item)) {
+                    if (!item.tradeable() || itemsToKeep.contains(item)) {
                     if (!itemsToKeep.contains(item)) {
                       itemsToKeep.add(item);
-                    }
-                    continue;
                   }
+                  continue;
+                }
                   if (spawnItems) {
                     if (item != null && item.getId() > 0 && item.getAmount() > 0) {
-                      int address = Misc.random(0, Integer.MAX_VALUE);
+                    	int address = Misc.random(0, Integer.MAX_VALUE);
                       GroundItemManager.spawnGroundItem(
-                              (killer != null && killer.getGameMode() == GameMode.NORMAL ? killer
-                                      : player),
-                              new GroundItem(item, position,
-                                      killer != null ? killer.getUsername() : player.getUsername(),
-                                      player.getHostAddress(), false, 150, true, 150, address));
+                          (killer != null && killer.getGameMode() == GameMode.NORMAL ? killer
+                              : player),
+                          new GroundItem(item, position,
+                              killer != null ? killer.getUsername() : player.getUsername(),
+                              player.getHostAddress(), false, 150, true, 150, address));
                       if (killer != null) {
-                        PlayerLogs.kills(killer, player, item);
+                    	PlayerLogs.kills(killer, player, item);
                       }
                     }
                   }
@@ -118,12 +119,12 @@ public class PlayerDeathTask extends Task {
               }
               if (killer != null) {
                 killer.getPacketSender()
-                        .sendMessage("You have just killed the player " + player.getUsername() + ". ");
+                    .sendMessage("You have just killed the player " + player.getUsername() + ". ");
                 player.getPacketSender().sendMessage(
-                        "You were just killed by the player " + killer.getUsername() + ".");
+                    "You were just killed by the player " + killer.getUsername() + ".");
                 killer.getPlayerKillingAttributes().add(player);
                 player.getPlayerKillingAttributes()
-                        .setPlayerDeaths(player.getPlayerKillingAttributes().getPlayerDeaths() + 1);
+                    .setPlayerDeaths(player.getPlayerKillingAttributes().getPlayerDeaths() + 1);
                 player.getPlayerKillingAttributes().setPlayerKillStreak(0);
                 player.getPointsHandler().refreshPanel();
               }
@@ -161,7 +162,7 @@ public class PlayerDeathTask extends Task {
           loc.onDeath(player);
           if (loc != Location.DUNGEONEERING) {
             if (player.getPosition().equals(oldPosition))
-              if (player.homeLocation == 0) {
+              if(player.homeLocation == 0) {
                 player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
               } else {
                 player.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
@@ -177,7 +178,7 @@ public class PlayerDeathTask extends Task {
       setEventRunning(false);
       e.printStackTrace();
       if (player != null) {
-        if (player.homeLocation == 0) {
+        if(player.homeLocation == 0) {
           player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
           player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
         } else {
@@ -197,6 +198,14 @@ public class PlayerDeathTask extends Task {
     return death;
   }
 
+  public static void deletePvpArmour(Player player) {
+    for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
+      if (ItemDefinition.forId(i).getName().toLowerCase().contains("(deg)")) {
+        player.getEquipment().delete(i, 1);
+        player.getInventory().delete(i, 1);
+      }
+    }
+  }
 
   public static String randomDeath(String name) {
     switch (Misc.getRandom(8)) {
