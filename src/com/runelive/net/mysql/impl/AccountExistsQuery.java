@@ -17,8 +17,9 @@ public class AccountExistsQuery implements SQLCallback {
         this.query = PREPARED_QUERY.replace("?", name);
     }
 
-    public void execute() {
+    public AccountExistsQuery execute() {
         GameServer.getCharacterPool().executeQuery(this.query, this);
+        return this;
     }
 
     public AccountExistsQuery setCompletedCallback(CompletedCallback completedCallback) {

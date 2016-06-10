@@ -27,7 +27,7 @@ import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 public class PlayerSaving {
 
     public static AccountExistsQuery accountExists(String name, CompletedCallback callback) {
-        return new AccountExistsQuery(name).setCompletedCallback(callback);
+        return new AccountExistsQuery(name).setCompletedCallback(callback).execute();
     }
 
     /*public static boolean accountExists(Player player, String name, SQLCallback callback) {
