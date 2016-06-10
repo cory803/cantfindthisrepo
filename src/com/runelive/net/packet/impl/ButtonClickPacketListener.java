@@ -506,6 +506,7 @@ public class ButtonClickPacketListener implements PacketListener {
       case 10162:
       case -18269:
 	  case 15210:
+	  case 26300:
         player.getPacketSender().sendInterfaceRemoval();
         break;
       case 841:
