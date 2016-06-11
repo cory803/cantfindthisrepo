@@ -726,12 +726,7 @@ public class DialogueOptions {
 				SlayerMaster.changeSlayerMaster(player, SlayerMaster.SUMONA);
 				break;
 			case 36:
-				if (player.getLocation() == Location.BOSS_SYSTEM) {
-					Locations.Location.BOSS_SYSTEM.leave(player);
-					player.getPacketSender().sendInterfaceRemoval();
-				} else {
-					TeleportHandler.teleportPlayer(player, new Position(2861, 9640), player.getSpellbook().getTeleportType());
-				}
+				//Old boss system
 				break;
 			case 38:
 				TeleportHandler.teleportPlayer(player, new Position(1891, 3177), player.getSpellbook().getTeleportType());
@@ -1069,8 +1064,12 @@ public class DialogueOptions {
 				DialogueManager.start(player, 22);
 				break;
 			case 18:
-				DialogueManager.start(player, 25);
-				player.setDialogueActionId(15);
+				if (player.getLocation() == Location.BOSS_SYSTEM) {
+					Locations.Location.BOSS_SYSTEM.leave(player);
+					player.getPacketSender().sendInterfaceRemoval();
+				} else {
+					TeleportHandler.teleportPlayer(player, new Position(2861, 9640), player.getSpellbook().getTeleportType());
+				}
 				break;
 			case 30:
 			case 31:
