@@ -18,6 +18,7 @@ import com.runelive.world.content.skill.impl.summoning.BossPets.BossPet;
 import com.runelive.world.entity.impl.GroundItemManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.Emotes.Skillcape_Data;
 
 /**
@@ -163,6 +164,7 @@ public class Summoning {
             GroundItemManager.spawnGroundItem(player,
                 new GroundItem(t, getFamiliar().getSummonNpc().getPosition().copy(),
                     player.getUsername(), player.getHostAddress(), false, 120, true, 80, address));
+            PlayerLogs.drops(player, item, String.valueOf(address));
           }
           player.getPacketSender()
               .sendMessage("Your familiar has dropped its carried items on the floor.");
