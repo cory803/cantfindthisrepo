@@ -23,7 +23,7 @@ public class ItemForging {
     ItemForgeData data = ItemForgeData.getDataForItems(item1, item2);
     if (data == null || !p.getInventory().contains(item1) || !p.getInventory().contains(item2))
       return;
-    if (!p.getClickDelay().elapsed(3000))
+    if (!p.getClickDelay().elapsed(500))
       return;
     if (p.getInterfaceId() > 0) {
       p.getPacketSender()
