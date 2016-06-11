@@ -50,22 +50,22 @@ public class RegularDonators {
 				player.getPacketSender().sendMessage("Do not flood the yell channel. You must wait another "+Misc.getTimeLeft(0, 35, TimeUnit.SECONDS)+" seconds before yelling again.");
 				return;
 			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
+			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
+			if(yellmessage.contains("<img=") || yellmessage.contains("<col=") || yellmessage.contains("<shad=")) {
 				player.getPacketSender().sendMessage("You are not allowed to put these symbols in your yell message.");
 				return;
 			}
 			if(player.getGameMode() == GameMode.IRONMAN) {
-				World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellmessage, player);	
 				player.getYellTimer().reset();
 				return;
 			}
 			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellmessage, player);	
 				player.getYellTimer().reset();
 				return;
 			}
-			World.sendYell("<img=7> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<img=7> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellmessage, player);	
 			player.getYellTimer().reset();
 		}
 		if (command[0].equals("dzone")) {

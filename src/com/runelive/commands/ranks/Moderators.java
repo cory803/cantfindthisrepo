@@ -129,8 +129,8 @@ public class Moderators {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=31a4ff><shad=0><img=1>Moderator<img=1></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
+			World.sendYell("<col=0>[<col=31a4ff><shad=0><img=1>Moderator<img=1></shad><col=0>] "+player.getUsername()+": "+yellmessage, player);	
 		}
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);

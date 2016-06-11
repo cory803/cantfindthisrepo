@@ -36,8 +36,8 @@ public class WikiManagers {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=31a4ff><shad=0><img=16>Wiki Manager<img=16></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
+			World.sendYell("<col=0>[<col=31a4ff><shad=0><img=16>Wiki Manager<img=16></shad><col=0>] "+player.getUsername()+": "+yellmessage, player);	
 		}
 		switch(command[0].toLowerCase()) {
 			case "promote":

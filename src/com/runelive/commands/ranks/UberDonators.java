@@ -51,25 +51,25 @@ public class UberDonators {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			if(yellMessage.contains("<img=") || yellMessage.contains("<col=") || yellMessage.contains("<shad=")) {
+			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
+			if(yellmessage.contains("<img=") || yellmessage.contains("<col=") || yellmessage.contains("<shad=")) {
 				player.getPacketSender().sendMessage("You are not allowed to put these symbols in your yell message.");
 				return;
 			}
 			if(player.getGameMode() == GameMode.IRONMAN) {
-				World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellmessage, player);	
 				return;
 			}
 			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellmessage, player);	
 				return;
 			}
 			if(!player.getYellTag().equals("invalid_yell_tag_set")) {
-				World.sendYell("<img=11> <col=0>[<col=ffff00><shad=0>"+player.getYellTag()+"<col=0></shad>] "+player.getUsername()+": "+yellMessage);	
+				World.sendYell("<img=11> <col=0>[<col=ffff00><shad=0>"+player.getYellTag()+"<col=0></shad>] "+player.getUsername()+": "+yellmessage, player);	
 				player.getYellTimer().reset();
 				return;
 			}
-			World.sendYell("<img=11> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			World.sendYell("<img=11> <col=0>[<col=ffff00><shad=0>Uber</shad><col=0>] "+player.getUsername()+": "+yellmessage, player);	
 		}
 		if (command[0].equals("ezone")) {
 			if(Dungeoneering.doingDungeoneering(player)) {

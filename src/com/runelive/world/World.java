@@ -124,8 +124,8 @@ public class World {
         }
     }
 
-    public static void sendYell(String message) {
-        players.stream().filter(p -> p != null && (p.yellToggle()))
+    public static void sendYell(String message, Player player) {
+        players.stream().filter(p -> p != null && (p.yellToggle()) && (!p.getRelations().getIgnoreList().contains(player.getLongUsername())))
                 .forEach(p -> p.getPacketSender().sendMessage(message));
     }
 

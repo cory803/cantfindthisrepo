@@ -214,8 +214,8 @@ public class StaffManagers {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>] "+player.getUsername()+": "+yellMessage);	
+			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
+			World.sendYell("<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>] "+player.getUsername()+": "+yellmessage, player);	
 		}
 		if(command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);

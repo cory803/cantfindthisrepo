@@ -491,8 +491,8 @@ public class CommunityManagers {
                 player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
                 return;
             }
-            String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-            World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] " + player.getUsername() + ": " + yellMessage);
+            String yellmessage = wholeCommand.substring(4, wholeCommand.length());
+            World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] " + player.getUsername() + ": " + yellmessage, player);
         }
         if (command[0].equals("staffzone")) {
             if (command.length > 1 && command[1].equals("all")) {

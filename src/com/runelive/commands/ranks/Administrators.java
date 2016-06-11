@@ -460,8 +460,8 @@ public class Administrators {
                 player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
                 return;
             }
-            String yellMessage = wholeCommand.substring(4, wholeCommand.length());
-            World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] " + player.getUsername() + ": " + yellMessage);
+            String yellmessage = wholeCommand.substring(4, wholeCommand.length());
+            World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] " + player.getUsername() + ": " + yellmessage, player);
         }
         if (command[0].equals("staffzone")) {
             if (command.length > 1 && command[1].equals("all")) {
@@ -557,29 +557,6 @@ public class Administrators {
                 player.getPacketSender().sendMessage("" + playr2.getUsername() + " host IP: " + playr2.getHostAddress() + ", serial number: " + playr2.getSerialNumber());
             } else
                 player.getPacketSender().sendMessage("Could not find player: " + plr);
-        }
-        if (command[0].equals("gold")) {
-            Player p = World.getPlayerByName(wholeCommand.substring(5));
-            if (p != null) {
-                long gold = 0;
-                for (Item item : p.getInventory().getItems()) {
-                    if (item != null && item.getId() > 0 && item.tradeable())
-                        gold += item.getDefinition().getValue();
-                }
-                for (Item item : p.getEquipment().getItems()) {
-                    if (item != null && item.getId() > 0 && item.tradeable())
-                        gold += item.getDefinition().getValue();
-                }
-                for (int i = 0; i < 9; i++) {
-                    for (Item item : p.getBank(i).getItems()) {
-                        if (item != null && item.getId() > 0 && item.tradeable())
-                            gold += item.getDefinition().getValue();
-                    }
-                }
-                gold += p.getMoneyInPouch();
-                player.getPacketSender().sendMessage(p.getUsername() + " has " + Misc.insertCommasToNumber(String.valueOf(gold)) + " coins.");
-            } else
-                player.getPacketSender().sendMessage("Can not find player online.");
         }
         if (command[0].equals("reset")) {
             for (Skill skill : Skill.values()) {
@@ -832,30 +809,6 @@ public class Administrators {
         }
         if (command[0].equals("pray")) {
             player.getSkillManager().setCurrentLevel(Skill.PRAYER, 15000);
-        }
-        if (command[0].equals("cashineco")) {
-            int gold = 0, plrLoops = 0;
-            for (Player p : World.getPlayers()) {
-                if (p != null) {
-                    for (Item item : p.getInventory().getItems()) {
-                        if (item != null && item.getId() > 0 && item.tradeable())
-                            gold += item.getDefinition().getValue();
-                    }
-                    for (Item item : p.getEquipment().getItems()) {
-                        if (item != null && item.getId() > 0 && item.tradeable())
-                            gold += item.getDefinition().getValue();
-                    }
-                    for (int i = 0; i < 9; i++) {
-                        for (Item item : player.getBank(i).getItems()) {
-                            if (item != null && item.getId() > 0 && item.tradeable())
-                                gold += item.getDefinition().getValue();
-                        }
-                    }
-                    gold += p.getMoneyInPouch();
-                    plrLoops++;
-                }
-            }
-            player.getPacketSender().sendMessage("Total gold in economy right now: " + gold + ", went through " + plrLoops + " players items.");
         }
         if (command[0].equals("tele")) {
             int x = Integer.valueOf(command[1]), y = Integer.valueOf(command[2]);
