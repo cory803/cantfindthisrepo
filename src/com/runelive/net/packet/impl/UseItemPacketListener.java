@@ -210,8 +210,6 @@ public class UseItemPacketListener implements PacketListener {
               || Herblore.makeUnfinishedPotion(player, itemUsedWith.getId()))
         return;
     }
-    if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId()))
-      return;
     if (usedWith.getId() == 946 || itemUsedWith.getId() == 946) {
       Fletching.openSelection(player,
               usedWith.getId() == 946 ? itemUsedWith.getId() : usedWith.getId());
@@ -255,7 +253,10 @@ public class UseItemPacketListener implements PacketListener {
         }
         if (usedWith.getId() == 1733 || itemUsedWith.getId() == 1733)
           LeatherMaking.craftLeatherDialogue(player, usedWith.getId(), itemUsedWith.getId());
+        if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId()))
+            return;
         ItemForging.forgeItem(player, itemUsedWith.getId(), usedWith.getId());
+        
         if (player.getRights() == PlayerRights.OWNER)
           player.getPacketSender().sendMessage(
                   "ItemOnItem - [usedItem, usedWith] : [" + usedWith.getId() + ", " + itemUsedWith + "]");
