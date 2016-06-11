@@ -81,7 +81,7 @@ public class Venantis implements CombatStrategy {
 
     @Override
     public int attackDistance(Character entity) {
-        return 3;
+        return 12;
     }
 
     @Override
