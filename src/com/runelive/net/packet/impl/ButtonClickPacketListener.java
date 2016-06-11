@@ -117,9 +117,6 @@ public class ButtonClickPacketListener implements PacketListener {
     }
 
     switch (id) {
-      case -10325:
-			Shrek1.openQuestLog(player);
-    	break;
       case -10425:
         // player.setMusicActive(!player.musicActive());
         DialogueManager.sendStatement(player,

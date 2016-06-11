@@ -85,8 +85,6 @@ public class PlayerPanel {
                 ClawQuest.getQuestTabPrefix(player) + "The King's Task");
         player.getPacketSender().sendString(55210,
                 FarmingQuest.getQuestTabPrefix(player) + "Farmer's Expedition");
-        player.getPacketSender().sendString(55211,
-        		Shrek1.getQuestTabPrefix(player) + "Shrek Part I");
 
         /**
          * Links
