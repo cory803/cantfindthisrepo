@@ -184,7 +184,7 @@ public class Shop extends ItemContainer {
       }
       if (sellingItem) {
         if (finalValue != 1) {
-          finalValue = (int) (finalValue * 0.75);
+          finalValue = (int) (finalValue * 0.85);
         }
       }
       finalString += "" + (int) finalValue + " " + s + "" + shopPriceEx((int) finalValue) + ".";
@@ -195,7 +195,7 @@ public class Shop extends ItemContainer {
       finalValue = (int) obj[0];
       if (sellingItem) {
         if (finalValue != 1) {
-          finalValue = (int) (finalValue * 0.75);
+          finalValue = (int) (finalValue * 0.85);
         }
       }
       finalString += "" + finalValue + " " + (String) obj[1] + ".";
