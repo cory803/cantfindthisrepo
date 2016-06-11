@@ -345,6 +345,9 @@ public class Fletching {
   }
 
   public static void makeArrows(final Player player, int item1, int item2) {
+	  if((item1 == 314 && item2 == 53) || (item2 == 314 && item1 == 53)) {
+		  return;
+	  }
     player.getSkillManager().stopSkilling();
     ArrowData arr = ArrowData.forArrow(getPrimary(item1, item2));
     if (arr != null) {
