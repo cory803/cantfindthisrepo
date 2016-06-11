@@ -60,10 +60,9 @@ public class Gambling {
       player.getPacketSender().sendMessage("You need to be a member to use this item.");
       return;
     }
-    if (player.getLocation() != Location.GAMBLE && player.getLocation() != Location.EZONE_DONOR) {
+    if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE) {
       player.getPacketSender().sendMessage("")
-          .sendMessage("This seed can only be planted in the gambling area or the ezone.")
-          .sendMessage("To get there, talk to the gambler.");
+          .sendMessage("You can't plant here! Try going to ::gamble.");
       return;
     }
     if (!player.getClickDelay().elapsed(1400))
