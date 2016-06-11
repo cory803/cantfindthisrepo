@@ -344,7 +344,7 @@ public final class MovementQueue {
                         this.stop();
                         return;
                     }
-
+                    
                     if (!Location.ignoreFollowDistance(character)) {
                         boolean summNpc = followCharacter.isPlayer() && character.isNpc()
                                 && ((NPC) character).isSummoningNpc();
@@ -406,6 +406,7 @@ public final class MovementQueue {
                         character.getMovementQueue().walkStep(
                                 getMove(character.getPosition().getX(), followCharacter.getPosition().getX(), 1), getMove(character.getPosition().getY() - 1, followCharacter.getPosition().getY(), 1));
                     } else {
+                    	
                         /*Direction dir = Direction.direction(character.getPosition().getX(), followCharacter.getPosition().getX(), character.getPosition().getY(), followCharacter.getPosition().getY());
                         int offsetX = 0;
                         int offsetY = 0;
@@ -425,7 +426,9 @@ public final class MovementQueue {
                                 break;
                         }*/
                         //PathFinder.calculatePath(character, followCharacter.getPosition().getX(), followCharacter.getPosition().getY(), character.getSize(), character.getSize(), false);
-                        //PathFinder.findPath(character, followCharacter.getPosition().getX() + offsetX, followCharacter.getPosition().getY() + offsetY, true, character.getSize(), character.getSize(), true);
+                    	PathFinder.findPath(character, followCharacter.getPosition().getX(),
+                                followCharacter.getPosition().getY() - character.getSize(), true,
+                                character.getSize(), character.getSize());
                     }
                 }
 
