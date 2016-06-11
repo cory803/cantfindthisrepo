@@ -330,7 +330,7 @@
         "line1": "TzHaar Fight Cave",
         "line2": "TzHaar Fight Pit",
         "line3": "Graveyard Arena",
-        "line4": "Previous Page",
+        "line4": "The Master's Bossing",
         "next": -1,
         "npcId": -1
     },
@@ -1320,8 +1320,8 @@
         "id": 133,
         "type": "OPTION",
         "lines": 3,
-        "line1": "Solo Boss System",
-		"line2": "Clan Boss System",
+        "line1": "Solo",
+		"line2": "Clan",
 		"line3": "Cancel",
 		"next": -1
     },
