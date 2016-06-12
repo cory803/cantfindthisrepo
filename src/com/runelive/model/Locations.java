@@ -95,7 +95,7 @@ public class Locations {
         MEMBER_ZONE(new int[]{3415, 3435}, new int[]{2900, 2926}, false, true, true, false, false,
                 true) {},
         VARROCK(new int[]{3167, 3272}, new int[]{3263, 3504}, false, true, true, true, true, true) {},
-        GANODERMIC_BEAST(new int[]{2230, 2280}, new int[]{3175, 3220}, true, true, true, true, true, true) {},
+        GANODERMIC_BEAST(new int[]{2230, 2280}, new int[]{3175, 3220}, true, true, true, false, true, true) {},
         GAMBLE(new int[]{2430, 2493}, new int[]{3055, 3139}, false, true, true, true, true, true) {},
         BANK(
                 new int[]{3090, 3099, 3089, 3090, 3248, 3258, 3179, 3191, 2944, 2948, 2942, 2948, 2944,
