@@ -246,6 +246,281 @@
 },
 {
  "npcIds": [
+    130
+  ],
+  "drops": [
+    {
+      "id": 20264,
+      "count": [
+        1
+      ],
+      "chance": 1
+    },
+    {
+      "id": 532,
+      "count": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "id": 1780,
+      "count": [
+        250
+      ],
+      "chance": 3
+    },
+    {
+      "id": 385,
+      "count": [
+        1,
+        2,
+        3
+      ],
+      "chance": 4
+    },
+    {
+      "id": 208,
+      "count": [
+        4
+      ],
+      "chance": 4
+    },
+    {
+      "id": 565,
+      "count": [
+        500
+      ],
+      "chance": 4
+    },
+    {
+      "id": 5321,
+      "count": [
+        3
+      ],
+      "chance": 3
+    },
+    {
+      "id": 5302,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 5288,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+    {
+      "id": 5300,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 5316,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 5289,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 5317,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 5304,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 5315,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 989,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 15501,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+  	{
+      "id": 6199,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 995,
+      "count": [
+        10000000
+      ],
+      "chance": 5
+    },
+  	{
+      "id": 995,
+      "count": [
+        75000000
+      ],
+      "chance": 6
+    },
+  	{
+      "id": 14484,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+  	{
+      "id": 11694,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+  	{
+      "id": 4091,
+      "count": [
+        1
+      ],
+      "chance": 3
+    },
+  	{
+      "id": 4093,
+      "count": [
+        1
+      ],
+      "chance": 3
+    },
+  	{
+      "id": 4089,
+      "count": [
+        1
+      ],
+      "chance": 3
+    },
+  	{
+      "id": 4675,
+      "count": [
+        1
+      ],
+      "chance": 3
+    },
+  	{
+      "id": 15486,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 6914,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 6889,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 6920,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 21793,
+      "count": [
+        1
+      ],
+      "chance": 4
+    },
+  	{
+      "id": 21111,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+  	{
+      "id": 21112,
+      "count": [
+        1
+      ],
+      "chance": 6
+    },
+  	{
+      "id": 21113,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+  	{
+      "id": 14004,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+  	{
+      "id": 14005,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+  	{
+      "id": 14006,
+      "count": [
+        1
+      ],
+      "chance": 5
+    },
+  	{
+      "id": 14007,
+      "count": [
+        1
+      ],
+      "chance": 5
+    }
+    ]
+},
+{
+ "npcIds": [
     2001
   ],
   "drops": [

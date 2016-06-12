@@ -726,7 +726,7 @@ public class DialogueOptions {
 				SlayerMaster.changeSlayerMaster(player, SlayerMaster.SUMONA);
 				break;
 			case 36:
-				//Old boss system
+				TeleportHandler.teleportPlayer(player, new Position(2245, 3182), player.getSpellbook().getTeleportType());
 				break;
 			case 38:
 				TeleportHandler.teleportPlayer(player, new Position(1891, 3177), player.getSpellbook().getTeleportType());
