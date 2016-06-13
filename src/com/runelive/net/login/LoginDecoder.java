@@ -45,11 +45,6 @@ public final class LoginDecoder extends FrameDecoder {
             return null;
         }
         final String ip_address = ((InetSocketAddress) channel.getRemoteAddress()).getAddress().getHostAddress();
-        boolean connectionAllowed = throttler.verifyConnection(ip_address);
-        if (!connectionAllowed) {
-            channel.close();
-            return null;
-        }
         switch (state) {
             case CONNECTED:
                 if (buffer.readableBytes() < 1) {
@@ -58,6 +53,11 @@ public final class LoginDecoder extends FrameDecoder {
                 int request = buffer.readUnsignedByte();
                 if (request != 14) {
                     System.out.println("Invalid login request: " + request);
+                    channel.close();
+                    return null;
+                }
+                boolean connectionAllowed = throttler.verifyConnection(ip_address);
+                if (!connectionAllowed) {
                     channel.close();
                     return null;
                 }
