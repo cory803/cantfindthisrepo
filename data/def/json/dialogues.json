@@ -2436,5 +2436,27 @@
 		"line3": "10,000 of each elemental rune",
         "next": -1,
         "npcId": -1
-	}
+	},
+	{
+        "id": 550,
+        "type": "OPTION",
+        "lines": 4,
+        "line1": "Book of Balance",
+        "line2": "Holy Book",
+        "line3": "Unholy Book",
+        "line4": "Next Page",
+        "next": -1,
+        "npcId": -1
+    },
+	{
+        "id": 551,
+        "type": "OPTION",
+        "lines": 4,
+        "line1": "Book of Law",
+        "line2": "Book of War",
+        "line3": "Ancient Book",
+        "line4": "Previous Page",
+        "next": -1,
+        "npcId": -1
+    },
 ]

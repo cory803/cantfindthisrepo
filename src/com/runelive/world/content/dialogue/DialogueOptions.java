@@ -115,6 +115,17 @@ public class DialogueOptions {
 	public static int EARTH_RUNE_PRICE2 = ItemDefinition.forId(EARTH_RUNE).getValue() * 10000;
 	public static int WATER_RUNE_PRICE2 = ItemDefinition.forId(WATER_RUNE).getValue() * 10000;
 
+	/**
+	 * God Books
+     */
+
+	public static int GUTHIX = 3844;
+	public static int SARADOMIN = 3840;
+	public static int ZAMORAK = 3842;
+	public static int ARMADYL = 19615;
+	public static int BANDOS = 19613;
+	public static int ZAROS = 19617;
+
 
   // Last id used = 78
 
@@ -843,6 +854,28 @@ public class DialogueOptions {
 			}
 		} else if(id == FIRST_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+				case 550:
+					if(player.getInventory().contains(3849)) {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getInventory().delete(3849, 1);
+						player.getInventory().add(GUTHIX, 1);
+						player.getPacketSender().sendMessage("You have claimed the book of Guthix followers!");
+					} else {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You don't have a casket that contains books");
+					}
+					break;
+				case 551:
+					if(player.getInventory().contains(3849)) {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getInventory().delete(3849, 1);
+						player.getInventory().add(ARMADYL, 1);
+						player.getPacketSender().sendMessage("You have claimed the book of Armadyl followers!");
+					} else {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You don't have a casket that contains books");
+					}
+					break;
 			case 227:
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(2976, 3921, 0), player.getSpellbook().getTeleportType());
@@ -902,6 +935,28 @@ public class DialogueOptions {
 			}
 		} else if(id == SECOND_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+				case 550:
+					if(player.getInventory().contains(3849)) {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getInventory().delete(3849, 1);
+						player.getInventory().add(SARADOMIN, 1);
+						player.getPacketSender().sendMessage("You have claimed the book of Saradomin followers!");
+					} else {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You don't have a casket that contains books");
+					}
+					break;
+				case 551:
+					if(player.getInventory().contains(3849)) {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getInventory().delete(3849, 1);
+						player.getInventory().add(BANDOS, 1);
+						player.getPacketSender().sendMessage("You have claimed the book of Bandos followers!");
+					} else {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You don't have a casket that contains books");
+					}
+					break;
 			case 227:
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(3293, 3926, 0), player.getSpellbook().getTeleportType());
@@ -974,6 +1029,28 @@ public class DialogueOptions {
 			}
 		} else if(id == THIRD_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+				case 550:
+					if(player.getInventory().contains(3849)) {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getInventory().delete(3849, 1);
+						player.getInventory().add(ZAMORAK, 1);
+						player.getPacketSender().sendMessage("You have claimed the book of Zamorak followers!");
+					} else {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You don't have a casket that contains books");
+					}
+					break;
+				case 551:
+					if(player.getInventory().contains(3849)) {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getInventory().delete(3849, 1);
+						player.getInventory().add(ZAROS, 1);
+						player.getPacketSender().sendMessage("You have claimed the book of Zaros followers!");
+					} else {
+						player.getPacketSender().sendInterfaceRemoval();
+						player.getPacketSender().sendMessage("You don't have a casket that contains books");
+					}
+					break;
 			case 227:
 				player.getPacketSender().sendInterfaceRemoval();
 				TeleportHandler.teleportPlayer(player, new Position(3300, 3888, 0), player.getSpellbook().getTeleportType());
@@ -1038,6 +1115,16 @@ public class DialogueOptions {
 			}
 		} else if(id == FOURTH_OPTION_OF_FOUR) {
 			switch(player.getDialogueActionId()) {
+				case 550:
+					player.getPacketSender().sendInterfaceRemoval();
+					player.setDialogueActionId(551);
+					DialogueManager.start(player, 551);
+					break;
+				case 551:
+					player.getPacketSender().sendInterfaceRemoval();
+					player.setDialogueActionId(550);
+					DialogueManager.start(player, 550);
+					break;
 			case 214:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("This option is still being worked on.");
