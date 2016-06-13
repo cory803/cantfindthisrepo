@@ -33,19 +33,21 @@ public class EntityHandler {
         }
     }
 
-    public static void deregister(Entity entity) {
+    public static boolean deregister(Entity entity) {
         if (entity.isPlayer()) {
             Player player = (Player) entity;
-            World.getPlayers().remove(player);
+            return World.getPlayers().remove(player);
         } else if (entity.isNpc()) {
             NPC npc = (NPC) entity;
             TaskManager.cancelTasks(npc.getCombatBuilder());
             TaskManager.cancelTasks(entity);
-            World.getNpcs().remove(npc);
+            return World.getNpcs().remove(npc);
         } else if (entity.isGameObject()) {
             GameObject gameObject = (GameObject) entity;
             RegionClipping.removeObject(gameObject);
             CustomObjects.deleteGlobalObjectWithinDistance(gameObject);
+            return true;
         }
+        return false;
     }
 }

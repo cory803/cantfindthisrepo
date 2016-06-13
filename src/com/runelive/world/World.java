@@ -97,8 +97,8 @@ public class World {
         EntityHandler.register(entity);
     }
 
-    public static void deregister(Entity entity) {
-        EntityHandler.deregister(entity);
+    public static boolean deregister(Entity entity) {
+        return EntityHandler.deregister(entity);
     }
 
     public static Player getPlayerByName(String username) {

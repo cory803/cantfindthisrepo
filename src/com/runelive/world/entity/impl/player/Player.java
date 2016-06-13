@@ -371,6 +371,7 @@ public class Player extends Character {
 		process.sequence();
 	}
 	public boolean saveFile;
+
 	public void dispose() {
 		save();
 		packetSender.sendLogout();
