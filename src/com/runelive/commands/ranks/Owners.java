@@ -10,6 +10,8 @@ import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
+import com.runelive.net.login.PendingLogin;
+import com.runelive.util.NameUtils;
 import com.runelive.world.content.*;
 import com.runelive.model.Store;
 import com.runelive.model.WebsiteOnline;
@@ -2224,6 +2226,15 @@ public class Owners {
                     player.getPacketSender().sendMessage("Kicked " + playerToKick.getUsername() + ".");
                 } else {
                     player.getPacketSender().sendMessage("Failed to deregister player, check error logs (player: " + playerToKick.getUsername() + ").");
+                }
+            }
+        }
+        if (command[0].equalsIgnoreCase("rmvpending")) {
+            String player2 = wholeCommand.substring("rmvpending".length() + 1);
+            long hash = NameUtils.stringToLong(player2);
+            if (PendingLogin.contains(hash)) {
+                if (PendingLogin.remove(hash)) {
+                    player.getPacketSender().sendMessage("Removed " + player2 + " from pending logins.");
                 }
             }
         }

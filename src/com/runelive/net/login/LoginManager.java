@@ -9,7 +9,15 @@ import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerLoading;
 import org.jboss.netty.channel.Channel;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 public final class LoginManager {
+
+    private static final ConcurrentHashMap<Long, Player> successfulLogins = new ConcurrentHashMap<>();
+
+    public static ConcurrentHashMap<Long, Player> getSuccessfulLogins() {
+        return successfulLogins;
+    }
 
     /**
      * Starts the login process by adding the player's session info to the pending login list and starting the loading request (either JSON or SQL).
@@ -37,8 +45,7 @@ public final class LoginManager {
     public static void finalizeLogin(final Player player) {
         PendingLogin pendingLogin = PendingLogin.get(player.getLongUsername());
         if (pendingLogin == null) {
-            System.err.println("SEVERE LOGIN ERROR FOR " + player.getUsername() + "!");
-            return;
+            throw new RuntimeException("SEVERE LOGIN ERROR FOR " + player.getUsername() + "! PendingLogin not found! Response: " + player.getResponse());
         }
         LoginManager.finalizeLogin(pendingLogin.getSession(), pendingLogin.getLoginDetails());
     }
@@ -102,6 +109,7 @@ public final class LoginManager {
             /**
              * Initialize the player in game.
              */
+            successfulLogins.put(player.getLongUsername(), player);
             //PlayerHandler.handleLogin(player);
         } else {
             LoginManager.sendReturnCode(session.getChannel(), player.getResponse());
@@ -109,10 +117,10 @@ public final class LoginManager {
         /**
          * Remove the player's pending login now that the task is complete.
          */
-        //PendingLogin.remove(player.getLongUsername());
+        PendingLogin.remove(player.getLongUsername());
     }
 
-    private static void sendReturnCode(final Channel channel, final int code) {
+    public static void sendReturnCode(final Channel channel, final int code) {
         channel.write(new PacketBuilder().put((byte) code).toPacket()).addListener(listener -> listener.getChannel().close());
     }
 

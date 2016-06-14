@@ -13,6 +13,7 @@ import java.util.concurrent.Phaser;
 
 import com.runelive.model.Locations.Location;
 
+import com.runelive.net.login.LoginManager;
 import com.runelive.net.login.LoginResponses;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.runelive.GameServer;
@@ -181,13 +182,12 @@ public class World {
         long start = System.currentTimeMillis();
 
         // Handle queued logins.
-        if (!PendingLogin.getPendingLogins().isEmpty()) {
-            Iterator<Long> it = PendingLogin.getPendingLogins().keySet().iterator();
+        if (!LoginManager.getSuccessfulLogins().isEmpty()) {
+            Iterator<Long> it = LoginManager.getSuccessfulLogins().keySet().iterator();
             while (it.hasNext()) {
                 long encodedName = it.next();
-                PendingLogin pendingLogin = PendingLogin.get(encodedName);
-                Player player = pendingLogin.getPlayer();
-                if (pendingLogin == null || player == null) {
+                Player player = LoginManager.getSuccessfulLogins().get(encodedName);
+                if (player == null) {
                     continue;
                 }
                 if (player.getResponse() == 2) {
@@ -196,8 +196,8 @@ public class World {
                     } else {
                         PlayerHandler.handleLogin(player);
                     }
+                    LoginManager.getSuccessfulLogins().remove(encodedName);
                 }
-                PendingLogin.remove(player.getLongUsername());
             }
         }
         /*for (int amount = 0; amount < GameSettings.LOGIN_THRESHOLD; amount++) {
