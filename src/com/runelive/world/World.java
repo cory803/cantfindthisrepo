@@ -18,6 +18,7 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.model.PlayerRights;
+import com.runelive.net.login.PendingLogin;
 import com.runelive.util.Misc;
 import com.runelive.net.login.LoginDecoder;
 import com.runelive.world.content.ShootingStar;
@@ -180,6 +181,25 @@ public class World {
         long start = System.currentTimeMillis();
 
         // Handle queued logins.
+        if (!PendingLogin.getPendingLogins().isEmpty()) {
+            Iterator<Long> it = PendingLogin.getPendingLogins().keySet().iterator();
+            while (it.hasNext()) {
+                long encodedName = it.next();
+                PendingLogin pendingLogin = PendingLogin.get(encodedName);
+                Player player = pendingLogin.getPlayer();
+                if (pendingLogin == null || player == null) {
+                    continue;
+                }
+                if (player.getResponse() == 2) {
+                    if (logouts.contains(player)) {
+                        player.setResponse(LoginResponses.LOGIN_ACCOUNT_ONLINE);
+                    } else {
+                        PlayerHandler.handleLogin(player);
+                    }
+                }
+                PendingLogin.remove(player.getLongUsername());
+            }
+        }
         /*for (int amount = 0; amount < GameSettings.LOGIN_THRESHOLD; amount++) {
             Player player = logins.poll();
             if (player == null)

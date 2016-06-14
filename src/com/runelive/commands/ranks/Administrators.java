@@ -1106,6 +1106,7 @@ public class Administrators {
                 player.getPacketSender().sendMessage("Player " + player2 + " couldn't be found on runelive.");
                 return;
             } else if (playerToKick.getLocation() != Location.WILDERNESS) {
+                playerToKick.forceOffline = true;
                 World.deregister(playerToKick);
                 player.getPacketSender().sendMessage("Kicked " + playerToKick.getUsername() + ".");
             }

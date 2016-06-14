@@ -140,6 +140,7 @@ public class Moderators {
 				return;
 			}
 			if(playerToKick.getLocation() != Location.WILDERNESS) {
+				playerToKick.forceOffline = true;
 				World.deregister(playerToKick);
 				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
 			}

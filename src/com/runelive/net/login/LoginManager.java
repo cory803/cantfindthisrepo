@@ -6,7 +6,6 @@ import com.runelive.model.PlayerRights;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.packet.PacketBuilder;
 import com.runelive.world.entity.impl.player.Player;
-import com.runelive.world.entity.impl.player.PlayerHandler;
 import com.runelive.world.entity.impl.player.PlayerLoading;
 import org.jboss.netty.channel.Channel;
 
@@ -103,14 +102,14 @@ public final class LoginManager {
             /**
              * Initialize the player in game.
              */
-            PlayerHandler.handleLogin(player);
+            //PlayerHandler.handleLogin(player);
         } else {
             LoginManager.sendReturnCode(session.getChannel(), player.getResponse());
         }
         /**
          * Remove the player's pending login now that the task is complete.
          */
-        PendingLogin.remove(player.getLongUsername());
+        //PendingLogin.remove(player.getLongUsername());
     }
 
     private static void sendReturnCode(final Channel channel, final int code) {

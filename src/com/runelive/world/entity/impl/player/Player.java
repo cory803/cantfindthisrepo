@@ -106,6 +106,7 @@ public class Player extends Character {
 	public int debugRollWins;
 	public int debugRollLosses;
 	private int passwordChange = 0;
+	public boolean forceOffline = false;
 	
 	public static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
 	

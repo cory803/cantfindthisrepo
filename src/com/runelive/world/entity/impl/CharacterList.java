@@ -100,7 +100,9 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
             if (player.getSession().getState() != SessionState.LOGGING_OUT) {
                 System.err.println("Player state not set to logging out, attempting to send logout packet to player: " + player.getUsername());
                 player.dispose();
-                //return false;
+                if (!player.forceOffline) {
+                    return false;
+                }
             }
         }
 

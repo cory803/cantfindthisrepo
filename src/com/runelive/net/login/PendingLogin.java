@@ -25,6 +25,10 @@ public final class PendingLogin {
         return pendingLogins.get(userHash);
     }
 
+    public static ConcurrentHashMap getPendingLogins() {
+        return pendingLogins;
+    }
+
     /**
      * Adds the player's session and login details to the pending login map.
      * @param session

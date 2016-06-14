@@ -2219,6 +2219,7 @@ public class Owners {
                 player.getPacketSender().sendMessage("Player " + player2 + " couldn't be found on runelive.");
                 return;
             } else if (playerToKick.getLocation() != Location.WILDERNESS) {
+                playerToKick.forceOffline = true;
                 if (World.deregister(playerToKick)) {
                     player.getPacketSender().sendMessage("Kicked " + playerToKick.getUsername() + ".");
                 } else {
