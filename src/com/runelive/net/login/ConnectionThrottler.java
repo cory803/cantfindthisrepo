@@ -46,7 +46,7 @@ public final class ConnectionThrottler {
             long lastAttempt = this.lastConnectionAttempt.get(host);
             long timeSinceLast = now - lastAttempt;
             int totalAttempts =  this.totalAttempts.get(host);
-            if (timeSinceLast < 500 && totalAttempts > 10) {
+            if (timeSinceLast < 1000 && totalAttempts > 10) {
                 log.info("Throttled " + host + "! Time since last attempt: " + (timeSinceLast) + "ms, total attempts: " + totalAttempts);
                 this.throttle(host, now);
                 return false;

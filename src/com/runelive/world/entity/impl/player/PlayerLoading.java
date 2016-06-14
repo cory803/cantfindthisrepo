@@ -190,8 +190,8 @@ public class PlayerLoading {
                         @Override
                         public void queryError(SQLException e) {
                             player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-                            e.printStackTrace();
                             LoginManager.finalizeLogin(player);
+                            e.printStackTrace();
                         }
                     });
                 }
@@ -200,8 +200,8 @@ public class PlayerLoading {
             @Override
             public void queryError(SQLException e) {
                 player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-                e.printStackTrace();
                 LoginManager.finalizeLogin(player);
+                e.printStackTrace();
             }
         });
         //return player.getResponse();
