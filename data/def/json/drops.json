@@ -21,6 +21,90 @@
     ]
 },
 {
+  "npcIds": [
+    132
+  ],
+  "drops": [
+    {
+      "id": 532,
+      "count": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "id": 9723,
+      "count": [
+        1
+      ],
+      "chance": 0
+    }
+    ]
+},
+{
+  "npcIds": [
+    133
+  ],
+  "drops": [
+    {
+      "id": 532,
+      "count": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "id": 9724,
+      "count": [
+        1
+      ],
+      "chance": 0
+    }
+    ]
+},
+{
+  "npcIds": [
+    135
+  ],
+  "drops": [
+    {
+      "id": 532,
+      "count": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "id": 9725,
+      "count": [
+        1
+      ],
+      "chance": 0
+    }
+    ]
+},
+{
+  "npcIds": [
+    1472
+  ],
+  "drops": [
+    {
+      "id": 532,
+      "count": [
+        1
+      ],
+      "chance": 0
+    },
+    {
+      "id": 9722,
+      "count": [
+        1
+      ],
+      "chance": 0
+    }
+    ]
+},
+{
  "npcIds": [
     2000
   ],
