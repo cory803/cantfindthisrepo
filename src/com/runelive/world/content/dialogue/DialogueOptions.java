@@ -583,8 +583,17 @@ public class DialogueOptions {
 				SlayerMaster.changeSlayerMaster(player, SlayerMaster.KURADEL);
 				break;
 			case 36:
-				player.setDialogueActionId(37);
-				DialogueManager.start(player, 70);
+				int random = Misc.random(1, 4);
+				switch(random) {
+				case 1:
+				case 2:
+					TeleportHandler.teleportPlayer(player, new Position(2086, 4429), player.getSpellbook().getTeleportType());
+					break;
+				case 3:
+				case 4:
+					TeleportHandler.teleportPlayer(player, new Position(2087, 4429), player.getSpellbook().getTeleportType());
+					break;
+				}
 				break;
 			case 38:
 				TeleportHandler.teleportPlayer(player, new Position(2547, 9448), player.getSpellbook().getTeleportType());
@@ -1381,10 +1390,7 @@ public class DialogueOptions {
 				player.getSlayer().handleInvitation(true);
 				break;
 			case 37:
-				TeleportHandler.teleportPlayer(player, new Position(2961, 3882), player.getSpellbook().getTeleportType());
-				break;
-			case 39:
-				TeleportHandler.teleportPlayer(player, new Position(3281, 3914), player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(2086, 4429), player.getSpellbook().getTeleportType());
 				break;
 			case 42:
 				player.getPacketSender().sendInterfaceRemoval();
