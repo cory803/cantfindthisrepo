@@ -326,11 +326,12 @@
     {
         "id": 32,
         "type": "OPTION",
-        "lines": 4,
+        "lines": 5,
         "line1": "TzHaar Fight Cave",
         "line2": "TzHaar Fight Pit",
         "line3": "Graveyard Arena",
         "line4": "The Master's Bossing",
+        "line5": "Treasure Island",
         "next": -1,
         "npcId": -1
     },
@@ -650,7 +651,7 @@
         "lines": 5,
         "line1": "Godwars Dungeon",
         "line2": "Dagannoth Kings",
-        "line3": "Masters of RuneLive",
+        "line3": "~Coming Soon~",
         "line4": "Ganodermic beast",
         "line5": "More",
         "next": -1,
