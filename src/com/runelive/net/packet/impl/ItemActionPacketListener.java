@@ -479,14 +479,30 @@ public class ItemActionPacketListener implements PacketListener {
             .refreshItems();
         break;*/
       case 15501:
-        if (player.getInventory().contains(15501)) {
+          int superiorRewards[][] = {
+              {11133, 15126, 10828, 3751, 3753, 10589, 10564, 6809, 4587, 1249, 3204, 1305, 1377,
+                  1434, 6528, 7158, 4153, 6, 8, 10, 12, 4675, 6914, 6889}, // Uncommon, 0
+              {6739, 15259, 15332, 2579, 6920, 6922, 15241, 11882, 11884, 11906, 20084}, // Rare, 1
+              {6570, 15018, 15019, 15020, 15220, 11730, 18349, 18353, 13896, 18357, 13899, 10551,
+                  4151, 2577,}, // Epic, 2
+              {11235, 17273, 14484, 11696, 11698, 11700, 13262, 15486, 19336, 19337, 19338, 19339,
+                  19340, 14009, 14010, 14008, 14011, 14012, 14013, 14014, 14015, 14016} // Legendary,
+                                                                                        // 3
+          };
+          double superiorNumGen = Math.random();
+          /**
+           * Chances 54% chance of Uncommon Items - various high-end coin-bought gear 30% chance of
+           * Rare Items - Highest-end coin-bought gear, Some poor voting-point/pk-point equipment 11%
+           * chance of Epic Items -Better voting-point/pk-point equipment 5% chance of Legendary Items
+           * - Only top-notch voting-point/pk-point equipment
+           */
+          int superiorRewardGrade = superiorNumGen >= 0.46 ? 0
+              : superiorNumGen >= 0.16 ? 1 : superiorNumGen >= 0.05 ? 2 : 3;
+          int superiorRewardPos = Misc.getRandom(superiorRewards[superiorRewardGrade].length - 1);
           player.getInventory().delete(15501, 1);
-          player.getBank(player.getCurrentBankTab()).add(6199, 2);
-          player.getPacketSender().sendLootMessage("Sorry, these no longer work, 2 x " + ItemDefinition.forId(6199).getName() + " have been placed in your bank.");
-        } else {
-          player.getPacketSender().sendMessage("You don't have a Legendary Mystery Box");
-        }
-        break;
+          player.getInventory().add(superiorRewards[superiorRewardGrade][superiorRewardPos], 1)
+              .refreshItems();
+          break;
       case 3849:
         player.setDialogueActionId(550);
         DialogueManager.start(player, 550);
