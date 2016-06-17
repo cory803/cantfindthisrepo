@@ -212,6 +212,8 @@ public class NPC extends Character {
         switch (id) {
             case 135:
             case 1472:
+            case 132:
+            case 133:
                 return 5;
         }
         return 10;
