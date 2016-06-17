@@ -37,18 +37,18 @@ public class TreasureIslandChest {
         	new Item(995, Misc.random(500000, 25000000)),
         	new Item(6571, 1),
             new Item(1632, Misc.random(5, 50)),
-            new Item(1617, Misc.random(15, 50)),
+            new Item(1618, Misc.random(15, 50)),
             new Item(1622, Misc.random(25, 100)),
-            new Item(1619, Misc.random(25, 100)),
+            new Item(1620, Misc.random(25, 100)),
             new Item(1514, Misc.random(10, 75)),
             new Item(1516, Misc.random(25, 100)),
             new Item(1518, Misc.random(35, 100)),
             new Item(15271, Misc.random(20, 60)),
             new Item(15273, Misc.random(15, 50)),
-            new Item(384, Misc.random(25, 100)),
-            new Item(386, Misc.random(50, 100)),
-            new Item(3143, Misc.random(20, 50)),
-            new Item(3145, Misc.random(30, 50)),
+            new Item(384, Misc.random(50, 100)),
+            new Item(386, Misc.random(25, 100)),
+            new Item(3143, Misc.random(30, 50)),
+            new Item(3145, Misc.random(20, 50)),
             new Item(2364, Misc.random(1, 10)),
             new Item(2362, Misc.random(5, 20)),
             new Item(2360, Misc.random(10,  30)),
@@ -97,7 +97,6 @@ public class TreasureIslandChest {
             new Item(15486, 1),
             new Item(6914, 1),
             new Item(6889, 1),
-            new Item(11726, 1),
             new Item(6585, 1),
             new Item(19111, 1),
             new Item(6570, 1),
@@ -110,13 +109,15 @@ public class TreasureIslandChest {
             new Item(6666, 1),
             new Item(7158, 1),
             new Item(11730, 1),
+            new Item(11732, 1),
         };
         Item[] RareReward = {
             	new Item(21104, 1),
-                new Item(14484, 1),
-                new Item(11694, 1),
-                new Item(11724, 1),
-                new Item(11726, 1),
+                new Item(21107, 1),
+                new Item(12926, 1),
+                new Item(21077, 1),
+                new Item(21108, 1),
+                new Item(21110, 1),
             };
         if(player.getInventory().contains(KEY_OF_DEATH) && player.getInventory().contains(KEY_OF_BLITZ)
           && player.getInventory().contains(KEY_OF_COBRA) && player.getInventory().contains(KEY_OF_FEAR)) {
@@ -130,7 +131,7 @@ public class TreasureIslandChest {
                 }
                 player.getInventory().add(randomCombatAmmo(CombatAmmo));
                 player.getInventory().add(randomMaterial(MaterialReward));
-                if(Misc.random(1, 250) == 125) {
+                if(Misc.random(1, 300) == 125) {
                 	Item rareReward = randomRareReward(RareReward);
                 	player.getInventory().add(rareReward);
                     String message = "<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "
