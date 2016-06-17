@@ -1079,19 +1079,18 @@ public final class CombatFactory {
         // Check if the npc needs to retreat.
         if (entity.isNpc()) {
             NPC n = (NPC) entity;
-            if (!Location.ignoreFollowDistance(n) && !Nex.nexMob(n.getId()) && !n.isSummoningNpc()) { // Stops
-                // combat
-                // for
-                // npcs
-                // if
-                // too
-                // far
-                // away
+            if (!Location.ignoreFollowDistance(n) && !Nex.nexMob(n.getId()) && !n.isSummoningNpc()) {//stops combat when too far away
                 if (n.getPosition().isWithinDistance(victim.getPosition(), 1)) {
                     return true;
                 }
-                if (!n.getPosition().isWithinDistance(n.getDefaultPosition(), 10 + n.getMovementCoordinator().getCoordinator().getRadius())) {
-                    n.getMovementQueue().reset();
+                //System.out.println("Distance from spawn point: " + n.getDefaultPosition().getDistance(n.getPosition()));
+                //System.out.println(n.getDefaultPosition().toString() + ", " + n.getPosition().toString() + ", " + (8 + n.getMovementCoordinator().getCoordinator().getRadius()));
+                int limit = n.getAggressiveDistanceLimit() + n.getMovementCoordinator().getCoordinator().getRadius();
+                System.out.println(limit + ", " + n.getMovementCoordinator().getCoordinator().getRadius());
+                if (n.getPosition().getDistance(n.getDefaultPosition()) > limit) {
+                    //PathFinder.calculatePath(n, n.getDefaultPosition().getX(), n.getDefaultPosition().getY(), n.getSize(), n.getSize(), true);
+
+                    //n.getMovementQueue().reset();
                     n.getMovementCoordinator().setCoordinateState(CoordinateState.AWAY);
                     return false;
                 }

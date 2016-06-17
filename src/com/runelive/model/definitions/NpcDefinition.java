@@ -271,7 +271,7 @@ public class NpcDefinition {
    * 
    * @return true if this npc retreats.
    */
-  public boolean isRetreats() {
+  public boolean doesRetreat() {
     return retreats;
   }
 
