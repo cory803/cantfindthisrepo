@@ -461,7 +461,7 @@ public class Administrators {
                 return;
             }
             String yellmessage = wholeCommand.substring(4, wholeCommand.length());
-            World.sendYell("<col=0>[<col=4D75E8><shad=7200FF><img=14>C. Manager<img=14></shad><col=0>] " + player.getUsername() + ": " + yellmessage, player);
+            World.sendYell("<col=0>[<col=ffff00><shad=0><img=14>Administrator<img=14></shad><col=0>] " + player.getUsername() + ": " + yellmessage, player);
         }
         if (command[0].equals("staffzone")) {
             if (command.length > 1 && command[1].equals("all")) {

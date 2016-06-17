@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.runelive.GameServer;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
@@ -58,1051 +59,11 @@ public class Owners {
      **/
 
     public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-        if (wholeCommand.equalsIgnoreCase("wildykey")) {
-            player.moveTo(new Position(3357, 3873));
-        }
-        if (wholeCommand.equalsIgnoreCase("zulrah")) {
-            Zulrah.enter_pit(player);
-        }
-        if (wholeCommand.equalsIgnoreCase("lard")) {
-            Shrek1.openQuestLog(player);
-        }
         if(wholeCommand.equalsIgnoreCase("treasurekeys")) {
             player.getInventory().add(9725, 1);
             player.getInventory().add(9722, 1);
             player.getInventory().add(9724, 1);
-            player.getInventory().add(9723, 1);
-        }
-        if (wholeCommand.startsWith("dd")) {
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            player.getPacketSender().sendMessage("You have finished rolling! do ::debugstats to see!");
-        }
-        if (wholeCommand.startsWith("debugdice")) {
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            Gamble.debugRoll(player);
-            player.getPacketSender().sendMessage("You have finished rolling! do ::debugstats to see!");
-        }
-        if (wholeCommand.startsWith("test11")) {
-            player.getPacketSender().sendMessage("" + player.getLocation());
-            player.getPacketSender().sendMessage("" + player.getWildernessLevel());
-        }
-        if (wholeCommand.startsWith("debugstats")) {
-            player.getPacketSender().sendMessage("You have " + player.debugRollWins + " wins to " + player.debugRollLosses + " losses.");
-            player.getPacketSender().sendMessage("Your debug stats have been reset");
-            player.debugRollWins = 0;
-            player.debugRollLosses = 0;
-        }
-        if (wholeCommand.startsWith("globalyell")) {
-            player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
-            World.setGlobalYell(!World.isGlobalYell());
-            World.sendMessage("<img=4> @blu@The yell channel has been @dre@" + (World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
+            player.getInventory().add(9722, 1);
         }
         if (wholeCommand.equalsIgnoreCase("vengrunes")) {
             player.getInventory().add(557, 1000);
@@ -1112,56 +73,11 @@ public class Owners {
         if (command[0].equals("nopoison")) {
             player.setPoisonDamage(20);
         }
-        if (command[0].equals("saveplayer")) {
-            PlayerSaving.saveGame(player);
-        }
-        if (command[0].equals("tokens")) {
-            Store.addTokens(command[1], Integer.parseInt(command[2]));
-            player.getPacketSender().sendMessage("You have added " + command[2] + " tokens to the account " + command[1] + ".");
-        }
-        if (command[0].equals("createplayer")) {
-            PlayerSaving.createNewAccount(player);
-        }
-        if (command[0].equals("test555")) {
-            try {
-                player.getPacketSender().sendMessage("Opening shop...");
-                PlayerOwnedShops.openShop("jonny", player);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
         if (command[0].equals("unskull")) {
             player.setSkullTimer(0);
             player.setSkullIcon(0);
             player.getUpdateFlag().flag(Flag.APPEARANCE);
             player.getPacketSender().sendMessage("You are unskulled!");
-        }
-
-        if (wholeCommand.startsWith("silenceyell")) {
-            String yellmute = wholeCommand.substring(12);
-            Player punishee = World.getPlayerByName(yellmute);
-            PlayerSaving.accountExists(yellmute, rs -> {
-                if (rs.next()) {//account exists
-                    punishee.setYellMute(true);
-                    punishee.getPacketSender().sendMessage("You have been yell muted! Please appeal on the forums.");
-                    player.getPacketSender().sendMessage("Player " + punishee.getUsername() + " was successfully muted!");
-                } else {
-                    player.getPacketSender().sendMessage("Player " + yellmute + " does not exist.");
-                }
-            });
-        }
-        if (wholeCommand.startsWith("unsilenceyell")) {
-            String yellmute = wholeCommand.substring(14);
-            Player punishee = World.getPlayerByName(yellmute);
-            PlayerSaving.accountExists(yellmute, rs -> {
-                if (rs.next()) {//account exists
-                    punishee.setYellMute(false);
-                    punishee.getPacketSender().sendMessage("You have been granted your yell ability again.");
-                    player.getPacketSender().sendMessage("Player " + punishee.getUsername() + " was successfully unmuted!");
-                } else {
-                    player.getPacketSender().sendMessage("Player " + yellmute + " does not exist.");
-                }
-            });
         }
         if (wholeCommand.startsWith("jail")) {
             String jail_punishee = wholeCommand.substring(5);
@@ -1406,15 +322,6 @@ public class Owners {
                 }
             });
         }
-        if (wholeCommand.startsWith("forcelogout")) {
-            String entity = wholeCommand.substring(12);
-            Player p = World.getPlayerByName(entity);
-            World.deregister(p);
-        }
-        if (wholeCommand.startsWith("nulltest")) {
-            player.setRegistered(false);
-            System.out.println("No longer registered:");
-        }
         if (wholeCommand.startsWith("unjail")) {
             String jail_punishee = wholeCommand.substring(7);
             Player punishee = World.getPlayerByName(jail_punishee);
@@ -1422,22 +329,13 @@ public class Owners {
             punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
             punishee.moveTo(new Position(3087, 3502, 0));
         }
-        if (command[0].equals("unregister")) {
-            Player other = World.getPlayerByName(command[1]);
-            other.setRegistered(true);
-            player.getPacketSender().sendMessage("Unregistered him...");
-        }
         if (wholeCommand.equalsIgnoreCase("mypos") || wholeCommand.equalsIgnoreCase("coords")) {
             Gson builder = new GsonBuilder().setPrettyPrinting().create();
             String test = builder.toJsonTree(player.getPosition()) + "";
             player.getPacketSender().sendMessage(test);
         }
-        if (wholeCommand.equalsIgnoreCase("testchest")) {
-            Position position = new Position(3089, 3495);
-            final GameObject gameObject = new GameObject(172, position);
-            CrystalChest.handleChest(player, gameObject);
-        }
         if (wholeCommand.equalsIgnoreCase("propker")) {
+        	player.getSkillManager().setCurrentLevel(Skill.ATTACK, 125, true);
             player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 145, true);
             player.getSkillManager().setCurrentLevel(Skill.RANGED, 145, true);
             player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 140, true);
@@ -1447,44 +345,14 @@ public class Owners {
         if (wholeCommand.equalsIgnoreCase("hp")) {
             player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
         }
-        if (wholeCommand.equalsIgnoreCase("testabc5")) {
-            for (int i = 0; i < 195; i++) {
-                player.getRelations().addFriend((long) i);
-            }
-        }
         if (wholeCommand.equalsIgnoreCase("godmode")) {
+        	player.getSkillManager().setCurrentLevel(Skill.ATTACK, 99999, true);
             player.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99999, true);
             player.getSkillManager().setCurrentLevel(Skill.RANGED, 99999, true);
             player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99999, true);
             player.getSkillManager().setCurrentLevel(Skill.MAGIC, 99999, true);
             player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
             player.getSkillManager().setCurrentLevel(Skill.PRAYER, 99999, true);
-        }
-        if (wholeCommand.equalsIgnoreCase("warn")) {
-            Player dumbass = World.getPlayerByName(command[2]);
-            String comm = command[2];
-            switch (comm) {
-                case "+":
-                    dumbass.addWarningPoints(1);
-                    player.getPacketSender().sendMessage("You have just added a warning point to " + dumbass.getUsername());
-                    dumbass.getPacketSender().sendMessage("You have been warned by " + player.getUsername() + ". You now have " + dumbass.getWarningPoints() + " warning points.");
-                    break;
-                case "-":
-                    dumbass.minusWarningPoints(1);
-                    player.getPacketSender().sendMessage("You have just removed a warning point to " + dumbass.getUsername());
-                    dumbass.getPacketSender().sendMessage("You had a warning point removed by " + player.getUsername() + ". You now have " + dumbass.getWarningPoints() + " warning points.");
-                    break;
-                case "!":
-                    dumbass.setWarningPoints(0);
-                    player.getPacketSender().sendMessage("You have just added a warning point to " + dumbass.getUsername());
-                    dumbass.getPacketSender().sendMessage("You have been warned by " + player.getUsername() + ". You now have " + dumbass.getWarningPoints() + " warning points.");
-                    break;
-                case "=":
-                    player.getPacketSender().sendMessage(dumbass.getUsername() + "has " + dumbass.getWarningPoints() + " warning points.");
-                default:
-                    player.getPacketSender().sendMessage("Syntax: ::warn target punishment - Punishments[+(add a warning point), -(Subtract a warning point");
-                    player.getPacketSender().sendMessage("Punishments[=(check warning point), !(Clear all warning points");
-            }
         }
         if (command[0].equalsIgnoreCase("punish")) {
             DialogueManager.start(player, 222);
@@ -1574,21 +442,6 @@ public class Owners {
             } else
                 player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
         }
-        if (command[0].equalsIgnoreCase("movetome")) {
-            String playerToTele = wholeCommand.substring(9);
-            Player player2 = World.getPlayerByName(playerToTele);
-            if (player2.getLocation() == Location.DUNGEONEERING) {
-                player.getPacketSender().sendMessage("This player is in dung....");
-                return;
-            }
-            boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-            if (canTele) {
-                player.getPacketSender().sendMessage("Moving player: " + player2.getUsername() + "");
-                player2.getPacketSender().sendMessage("You've been moved to " + player.getUsername());
-                player2.moveTo(player.getPosition().copy());
-            } else
-                player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
-        }
         if (command[0].contains("host")) {
             String plr = wholeCommand.substring(command[0].length() + 1);
             Player playr2 = World.getPlayerByName(plr);
@@ -1628,43 +481,12 @@ public class Owners {
             player.getPacketSender().sendMessage("Your skill levels have now been reset.");
             player.getUpdateFlag().flag(Flag.APPEARANCE);
         }
-        if (command[0].equals("resetclientversion")) {
-            System.out.println("Fetching client version...");
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/runelive/update.txt").openStream()));
-                for (int i = 0; i < 1; i++) {
-                    GameSettings.client_version = reader.readLine();
-                }
-                System.out.println("Client version has been set to: " + GameSettings.client_version + "");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        if (command[0].equals("rights")) {
-            int rankId = Integer.parseInt(command[1]);
-            if (player.getUsername().equalsIgnoreCase("server") && rankId != 10) {
-                player.getPacketSender().sendMessage("You cannot do that.");
-                return;
-            }
-            Player target = World.getPlayerByName(wholeCommand.substring(rankId >= 10 ? 10 : 9, wholeCommand.length()));
-            if (target == null) {
-                player.getPacketSender().sendMessage("Player must be online to give them rights!");
-            } else {
-                target.setRights(PlayerRights.forId(rankId));
-                target.getPacketSender().sendMessage("Your player rights have been changed.");
-                target.getPacketSender().sendRights();
-            }
-        }
         if (command[0].equals("givedonor") || command[0].equals("givedonator")) {
             String rights = command[1];
             Player target = World.getPlayerByName(command[2]);
             target.setDonorRights(Integer.parseInt(rights));
             target.getPacketSender().sendMessage("You have been given donator status. Relog to see it.");
             player.getPacketSender().sendMessage("You have given " + command[1] + " donator rights " + command[2] + ".");
-        }
-
-        if (command[0].equalsIgnoreCase("boss")) {
-            ShopManager.getShops().get(84).open(player);
         }
         if (command[0].equals("giverights")) {
             try {
@@ -1709,7 +531,7 @@ public class Owners {
                 e.printStackTrace();
             }
         }
-        if (command[0].equals("maxcb")) {
+        if (command[0].equals("setmaxcb")) {
             Player target = World.getPlayerByName(command[1]);
             target.getSkillManager().setMaxLevel(Skill.ATTACK, 99);
             target.getSkillManager().setMaxLevel(Skill.DEFENCE, 99);
@@ -1749,7 +571,7 @@ public class Owners {
             player.getPacketSender().sendMessage("You are now a master of all skills.");
             player.getUpdateFlag().flag(Flag.APPEARANCE);
         }
-        if (command[0].equals("setlevel") && !player.getUsername().equalsIgnoreCase("Jack")) {
+        if (command[0].equals("setlevel")) {
             int skillId = Integer.parseInt(command[1]);
             int level = Integer.parseInt(command[2]);
             if (level > 15000) {
@@ -1841,43 +663,6 @@ public class Owners {
                 player.getSkillManager().setCurrentLevel(skill, player.getSkillManager().getMaxLevel(skill)).setExperience(skill, SkillManager.getExperienceForLevel(player.getSkillManager().getMaxLevel(skill)));
             }
         }
-        if (command[0].equals("emptyitem")) {
-            if (player.getInterfaceId() > 0 || player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
-                player.getPacketSender().sendMessage("You cannot do this at the moment.");
-                return;
-            }
-            int item = Integer.parseInt(command[1]);
-            int itemAmount = player.getInventory().getAmount(item);
-            Item itemToDelete = new Item(item, itemAmount);
-            player.getInventory().delete(itemToDelete).refreshItems();
-        }
-        if (command[0].equals("pray")) {
-            player.getSkillManager().setCurrentLevel(Skill.PRAYER, 15000);
-        }
-        if (command[0].equals("cashineco")) {
-            int gold = 0, plrLoops = 0;
-            for (Player p : World.getPlayers()) {
-                if (p != null) {
-                    for (Item item : p.getInventory().getItems()) {
-                        if (item != null && item.getId() > 0 && item.tradeable())
-                            gold += item.getDefinition().getValue();
-                    }
-                    for (Item item : p.getEquipment().getItems()) {
-                        if (item != null && item.getId() > 0 && item.tradeable())
-                            gold += item.getDefinition().getValue();
-                    }
-                    for (int i = 0; i < 9; i++) {
-                        for (Item item : player.getBank(i).getItems()) {
-                            if (item != null && item.getId() > 0 && item.tradeable())
-                                gold += item.getDefinition().getValue();
-                        }
-                    }
-                    gold += p.getMoneyInPouch();
-                    plrLoops++;
-                }
-            }
-            player.getPacketSender().sendMessage("Total gold in economy right now: " + gold + ", went through " + plrLoops + " players items.");
-        }
         if (command[0].equals("tele")) {
             int x = Integer.valueOf(command[1]), y = Integer.valueOf(command[2]);
             int z = player.getPosition().getZ();
@@ -1890,8 +675,8 @@ public class Owners {
         if (command[0].equals("bank")) {
             player.getBank(player.getCurrentBankTab()).open();
         }
-        if (command[0].equals("find")) {
-            String name = wholeCommand.substring(5).toLowerCase().replaceAll("_", " ");
+        if (command[0].equals("finditem")) {
+            String name = wholeCommand.substring(9).toLowerCase().replaceAll("_", " ");
             player.getPacketSender().sendMessage("Finding item id for item - " + name);
             boolean found = false;
             for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
@@ -1904,29 +689,20 @@ public class Owners {
                 player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
             }
         }
-        if (command[0].equals("maxcb")) {
-            Player target = World.getPlayerByName(command[1]);
-            target.getSkillManager().setMaxLevel(Skill.ATTACK, 99);
-            target.getSkillManager().setMaxLevel(Skill.DEFENCE, 99);
-            target.getSkillManager().setMaxLevel(Skill.STRENGTH, 99);
-            target.getSkillManager().setMaxLevel(Skill.CONSTITUTION, 99);
-            target.getSkillManager().setMaxLevel(Skill.PRAYER, 99);
-            target.getSkillManager().setMaxLevel(Skill.RANGED, 99);
-            target.getSkillManager().setMaxLevel(Skill.MAGIC, 99);
-            target.getSkillManager().setMaxLevel(Skill.SUMMONING, 99);
-            target.getSkillManager().setMaxLevel(Skill.DUNGEONEERING, 80);
-            target.getSkillManager().setCurrentLevel(Skill.ATTACK, 99);
-            target.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99);
-            target.getSkillManager().setCurrentLevel(Skill.STRENGTH, 99);
-            target.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99);
-            target.getSkillManager().setCurrentLevel(Skill.PRAYER, 99);
-            target.getSkillManager().setCurrentLevel(Skill.RANGED, 99);
-            target.getSkillManager().setCurrentLevel(Skill.MAGIC, 99);
-            target.getSkillManager().setCurrentLevel(Skill.SUMMONING, 99);
-            target.getSkillManager().setCurrentLevel(Skill.DUNGEONEERING, 80);
-            target.getPacketSender().sendMessage("You are now a master of all combat skills.");
-            target.getUpdateFlag().flag(Flag.APPEARANCE);
-        }
+        if (command[0].equals("findnpc")) {
+            String name = wholeCommand.substring(8).toLowerCase().replaceAll("_", " ");
+            player.getPacketSender().sendMessage("Finding npc id for npc - " + name);
+            boolean found = false;
+            for (int i = 0; i < NpcDefinition.getMaxAmountOfNpcs(); i++) {
+                if (NpcDefinition.forId(i).getName().toLowerCase().contains(name)) {
+                    player.getPacketSender().sendMessage("Found npc with name [" + NpcDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+                    found = true;
+                }
+            }
+            if (!found) {
+                player.getPacketSender().sendMessage("No item with name [" + name + "] has been found!");
+            }
+        } 
         if (command[0].equals("spec")) {
             player.setSpecialPercentage(100);
             CombatSpecial.updateBar(player);
@@ -1986,12 +762,6 @@ public class Owners {
             WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
             player.getEquipment().refreshItems();
             player.getUpdateFlag().flag(Flag.APPEARANCE);
-        }
-        if (wholeCommand.equals("afk")) {
-            World.sendMessage("<img=4> <col=FF0000><shad=0>" + player.getUsername() + ": I am now away, please don't message me; I won't reply.");
-        }
-        if (wholeCommand.equals("sfs")) {
-            Lottery.restartLottery();
         }
         if (command[0].equals("giveitem")) {
             int item = Integer.parseInt(command[1]);
@@ -2073,21 +843,8 @@ public class Owners {
             long used = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
             player.getPacketSender().sendMessage("Heap usage: " + Misc.insertCommasToNumber("" + used + "") + " bytes!");
         }
-        if (command[0].equals("star")) {
-            ShootingStar.despawn(true);
-            player.getPacketSender().sendMessage("star method called.");
-        }
-        if (command[0].equals("save")) {
-            player.save();
-        }
         if (command[0].equals("saveall")) {
             World.savePlayers();
-        }
-        if (command[0].equals("v1")) {
-            World.sendMessage("<img=4> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");
-        }
-        if (command[0].equals("test")) {
-            WebsiteOnline.updateOnline(World.getPlayers().size());
         }
         if (command[0].equalsIgnoreCase("frame")) {
             int frame = Integer.parseInt(command[1]);
@@ -2103,17 +860,6 @@ public class Owners {
             World.register(npc);
             npc.setConstitution(20000);
             player.getPacketSender().sendEntityHint(npc);
-            /*TaskManager.submit(new Task(5) {
-
-				@Override
-				protected void execute() {
-					npc.moveTo(new Position(npc.getPosition().getX() + 2, npc.getPosition().getY() + 2));
-					player.getPacketSender().sendEntityHintRemoval(false);
-					stop();
-				}
-
-			});*/
-            //npc.getMovementCoordinator().setCoordinator(new Coordinator().setCoordinate(true).setRadius(5));
         }
         if (command[0].equals("fillinv")) {
             for (int i = 0; i < 28; i++) {
@@ -2147,24 +893,6 @@ public class Owners {
             player.performGraphic(new Graphic(id));
             player.getPacketSender().sendMessage("Sending graphic: " + id);
         }
-        if (command[0].equals("gfxloop")) {
-            for (int i = Integer.parseInt(command[1]); i < Integer.parseInt(command[2]); i++) {
-                final int id = i;
-                TaskManager.submit(new Task(2, player, true) {
-                    int tick = 0;
-
-                    @Override
-                    public void execute() {
-                        if (tick == 4) {
-                            player.performGraphic(new Graphic(id));
-                            player.getPacketSender().sendMessage("Sending graphic: " + id);
-                            stop();
-                        }
-                        tick++;
-                    }
-                });
-            }
-        }
         if (command[0].equals("object")) {
             int id = Integer.parseInt(command[1]);
             player.getPacketSender().sendObject(new GameObject(id, player.getPosition(), 10, 3));
@@ -2174,10 +902,6 @@ public class Owners {
             int id = Integer.parseInt(command[1]);
             int state = Integer.parseInt(command[2]);
             player.getPacketSender().sendConfig(id, state).sendMessage("Sent config.");
-        }
-
-        if (command[0].equals("hairytesticle")) {
-            player.getPacketSender().sendMessage("My dick is soft");
         }
         if (command[0].equals("checkbank")) {
             Player plr = World.getPlayerByName(wholeCommand.substring(10));
@@ -2232,15 +956,6 @@ public class Owners {
                     player.getPacketSender().sendMessage("Kicked " + playerToKick.getUsername() + ".");
                 } else {
                     player.getPacketSender().sendMessage("Failed to deregister player, check error logs (player: " + playerToKick.getUsername() + ").");
-                }
-            }
-        }
-        if (command[0].equalsIgnoreCase("rmvpending")) {
-            String player2 = wholeCommand.substring("rmvpending".length() + 1);
-            long hash = NameUtils.stringToLong(player2);
-            if (PendingLogin.contains(hash)) {
-                if (PendingLogin.remove(hash)) {
-                    player.getPacketSender().sendMessage("Removed " + player2 + " from pending logins.");
                 }
             }
         }

@@ -56,7 +56,7 @@ import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerSaving;
 
-public class CommunityManagers {
+public class Managers {
 
     /**
      * @Author Jonathan Sirens

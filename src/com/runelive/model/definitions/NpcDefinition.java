@@ -10,12 +10,26 @@ import com.runelive.util.JsonLoader;
  * @author lare96
  */
 public class NpcDefinition {
+	
+    /**
+     * The max amount of npcs that will be loaded.
+     */
+    private static final int MAX_AMOUNT_OF_NPCS = 14500;
 
   /** An array containing all of the npc definitions. */
-  private static NpcDefinition[] definitions = new NpcDefinition[14500];
+  private static NpcDefinition[] definitions = new NpcDefinition[MAX_AMOUNT_OF_NPCS];
 
   public static NpcDefinition forId(int id) {
     return id > definitions.length ? null : definitions[id];
+  }
+  
+  /**
+   * Gets the max amount of npcs that will be loaded in Niobe.
+   *
+   * @return The maximum amount of npc definitions loaded.
+   */
+  public static int getMaxAmountOfNpcs() {
+      return MAX_AMOUNT_OF_NPCS;
   }
 
   /** The id of the npc. */

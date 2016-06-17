@@ -47,7 +47,7 @@ public class Commands {
 			Supports.initiate_command(player, parts, whole_command);
 		}
 		if(player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
-			CommunityManagers.initiate_command(player, parts, whole_command);
+			Managers.initiate_command(player, parts, whole_command);
 		}
 		if(player.getRights() == PlayerRights.WIKI_EDITOR) {
 			WikiEditors.initiate_command(player, parts, whole_command);
