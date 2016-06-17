@@ -22,9 +22,10 @@ public class BankPin {
         .setInvalidAttempts(0).setLastAttempt(System.currentTimeMillis());
     PlayerLogs.pins(player, "Delete");
     for (int i = 0; i < player.getBankPinAttributes().getBankPin().length; i++) {
-      player.getBankPinAttributes().getBankPin()[i] = -1;
-      player.getBankPinAttributes().getEnteredBankPin()[i] = -1;
+      player.getBankPinAttributes().getBankPin()[i] = 0;
+      player.getBankPinAttributes().getEnteredBankPin()[i] = 0;
     }
+    player.getBankPinAttributes().setHasBankPin(false);
     player.getPacketSender().sendMessage("Your account-pin was deleted.").sendInterfaceRemoval();
   }
 

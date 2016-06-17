@@ -37,6 +37,8 @@ import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
+import com.runelive.model.input.impl.ChangePassword;
+import com.runelive.model.input.impl.SetPassword;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.clan.ClanChatManager;
@@ -245,6 +247,94 @@ public class Owners {
                     player.getPacketSender().sendMessage("Player " + ban_player + " does not exist.");
                 }
             });
+        }
+        if(command[0].equals("checkpass")) {
+        	  String victimUsername = wholeCommand.substring(10);
+              PlayerSaving.accountExists(victimUsername, rs -> {
+                  if (rs.next()) {//account exists
+                      Player other = World.getPlayerByName(victimUsername);
+                      if (other == null) {
+                          AccountTools.checkPassword(player, victimUsername, new Player(null));
+                      } else {
+                          String password = other.getPassword();
+                          if (other.getPassword() != null) {
+                          	player.getPacketSender().sendMessage("The player "+victimUsername+"'s password is: " + other.getPassword() + "");
+                          }
+                      }
+                  } else {
+                      player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                  }
+              });
+        }
+        if(command[0].equals("setpass")) {
+      	  String victimUsername = wholeCommand.substring(8);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                    	player.changingPasswordOf = victimUsername;
+                    	player.setInputHandling(new SetPassword());
+            			player.getPacketSender().sendEnterInputPrompt("(OFFLINE) Enter a new password for "+victimUsername+":");
+                    } else {
+                    	player.changingPasswordOf = victimUsername;
+                    	player.setInputHandling(new SetPassword());
+            			player.getPacketSender().sendEnterInputPrompt("(ONLINE) Enter a new password for "+victimUsername+":");
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+      }
+        if(command[0].equals("checkpin")) {
+      	  String victimUsername = wholeCommand.substring(9);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                        AccountTools.checkPin(player, victimUsername, new Player(null));
+                    } else {
+                    	if(other.getBankPinAttributes().hasBankPin()) {
+	                    	StringBuilder builder = new StringBuilder();
+	                    	for(int s : other.getBankPinAttributes().getBankPin()) {
+	                    	    builder.append(s);
+	                    	}
+	                    	String pin = builder.toString();
+	                        if (pin != null) {
+	                        	player.getPacketSender().sendMessage("The player "+victimUsername+"'s account pin is: " + pin + "");
+	                        }
+                    	} else {
+                    		player.getPacketSender().sendMessage("The player "+victimUsername+" does not have an account pin.");
+                    	}
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+      }
+        if(command[0].equals("resetpin")) {
+        	  String victimUsername = wholeCommand.substring(9);
+              PlayerSaving.accountExists(victimUsername, rs -> {
+                  if (rs.next()) {//account exists
+                      Player other = World.getPlayerByName(victimUsername);
+                      if (other == null) {
+                          AccountTools.resetPin(player, victimUsername, new Player(null));
+                      } else {
+                    	 if(other.getBankPinAttributes().hasBankPin()) {
+	                    	 for (int i = 0; i < other.getBankPinAttributes().getBankPin().length; i++) {
+	                    	    other.getBankPinAttributes().getBankPin()[i] = 0;
+	                    	    other.getBankPinAttributes().getEnteredBankPin()[i] = 0;  
+	                    	 }
+	                    	 other.getBankPinAttributes().setHasBankPin(false);
+	                    	 player.getPacketSender().sendMessage("The player "+victimUsername+"'s account pin has been reset.");
+	                    	 World.deregister(other);
+                    	 } else {
+                    		 player.getPacketSender().sendMessage("The player "+victimUsername+" currently does not have an account pin.");
+                    	 }
+                      }
+                  } else {
+                      player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                  }
+              });
         }
         if (command[0].equalsIgnoreCase("massban")) {
             String victimUsername = wholeCommand.substring(8);
