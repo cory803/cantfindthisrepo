@@ -45,16 +45,14 @@ public class Cobra implements CombatStrategy {
         TaskManager.submit(new Task(2, target, false) {
         @Override
 	        public void execute() {
-	            for (Player t : Misc.getCombinedPlayerList(target)) {
-	            	cobra.getCombatBuilder().setVictim(t);
-	                if(victim.isFrozen()) {
-	                	 victim.performGraphic(new Graphic(1677));
-	                } else {
-	                	victim.performGraphic(new Graphic(369));
-	                	victim.getMovementQueue().freeze(15);
-	                }
-	                new CombatHit(cobra.getCombatBuilder(), new CombatContainer(cobra, t, 1, CombatType.MAGIC, true)).handleAttack();
-	            }
+        		cobra.getCombatBuilder().setVictim(target);
+                if(victim.isFrozen()) {
+                	 victim.performGraphic(new Graphic(1677));
+                } else {
+                	victim.performGraphic(new Graphic(369));
+                	victim.getMovementQueue().freeze(15);
+                }
+                new CombatHit(cobra.getCombatBuilder(), new CombatContainer(cobra, target, 1, CombatType.MAGIC, true)).handleAttack();
 	            cobra.setChargingAttack(false);
 	            stop();
 	        }

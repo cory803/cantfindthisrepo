@@ -46,13 +46,11 @@ public class Fear implements CombatStrategy {
         TaskManager.submit(new Task(2, target, false) {
         @Override
 	        public void execute() {
-	            for (Player t : Misc.getCombinedPlayerList(target)) {
-	            	fear.getCombatBuilder().setVictim(t);
-	            	AmmunitionData ammo = AmmunitionData.ICE_ARROW;
-	                new Projectile(fear, victim, ammo.getProjectileId(), ammo.getProjectileDelay() + 16, ammo.getProjectileSpeed(), ammo.getStartHeight(), ammo.getEndHeight(), 0).sendProjectile();
-	                new CombatHit(fear.getCombatBuilder(), new CombatContainer(fear, t, 1, CombatType.RANGED, true)).handleAttack();
-	            }
-	            fear.setChargingAttack(false);
+            	fear.getCombatBuilder().setVictim(target);
+            	AmmunitionData ammo = AmmunitionData.ICE_ARROW;
+                new Projectile(fear, victim, ammo.getProjectileId(), ammo.getProjectileDelay() + 16, ammo.getProjectileSpeed(), ammo.getStartHeight(), ammo.getEndHeight(), 0).sendProjectile();
+                new CombatHit(fear.getCombatBuilder(), new CombatContainer(fear, target, 1, CombatType.RANGED, true)).handleAttack();
+                fear.setChargingAttack(false);
 	            stop();
 	        }
         });
