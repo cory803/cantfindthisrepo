@@ -78,6 +78,7 @@ public class CombatStrategies {
     STRATEGIES.put(9939, new PlaneFreezer());
     STRATEGIES.put(2000, new Venantis());
     STRATEGIES.put(2001, new Scorpia());
+    STRATEGIES.put(133, new Cobra());
 
     Dragon dragonStrategy = new Dragon();
     STRATEGIES.put(50, dragonStrategy);
