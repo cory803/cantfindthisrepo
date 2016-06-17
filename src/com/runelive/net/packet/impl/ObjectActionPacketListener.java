@@ -101,9 +101,6 @@ public class ObjectActionPacketListener implements PacketListener {
     gameObject.setSize(size);
     if (player.getMovementQueue().isLockMovement())
       return;
-    if(player.isFrozen() && id != 2795 || id != 9707 || id != 5960) {
-      player.getPacketSender().sendMessage("You can't reach that!");
-    }
     if (GameSettings.DEBUG_MODE) {
      // PlayerLogs.log(player, "" + player.getUsername()
        //   + " in ObjectActionPacketListener: " + id + " - FIRST_CLICK_OPCODE");

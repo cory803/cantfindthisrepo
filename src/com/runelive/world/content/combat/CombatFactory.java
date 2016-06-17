@@ -1086,7 +1086,6 @@ public final class CombatFactory {
                 //System.out.println("Distance from spawn point: " + n.getDefaultPosition().getDistance(n.getPosition()));
                 //System.out.println(n.getDefaultPosition().toString() + ", " + n.getPosition().toString() + ", " + (8 + n.getMovementCoordinator().getCoordinator().getRadius()));
                 int limit = n.getAggressiveDistanceLimit() + n.getMovementCoordinator().getCoordinator().getRadius();
-                System.out.println(limit + ", " + n.getMovementCoordinator().getCoordinator().getRadius());
                 if (n.getPosition().getDistance(n.getDefaultPosition()) > limit) {
                     //PathFinder.calculatePath(n, n.getDefaultPosition().getX(), n.getDefaultPosition().getY(), n.getSize(), n.getSize(), true);
 
