@@ -379,7 +379,7 @@ public class ClanChatManager {
         if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
           img = 13;
         }
-        if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+        if (player.getRights() == PlayerRights.MANAGER) {
           img = 14;
         }
         if (player.getRights() == PlayerRights.WIKI_EDITOR) {

@@ -143,7 +143,7 @@ public class TeleportHandler {
       if (player.getWildernessLevel() > 20) {
         if (player.getRights() == PlayerRights.ADMINISTRATOR
             || player.getRights() == PlayerRights.OWNER
-            || player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+            || player.getRights() == PlayerRights.MANAGER) {
           player.getPacketSender().sendMessage(
               "@red@You've teleported out of deep Wilderness, logs have been written.");
           return true;

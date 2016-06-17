@@ -531,7 +531,7 @@ public class UseItemPacketListener implements PacketListener {
         if (player.isSpecialPlayer())
           continue_command = true;
         if (!continue_command && player.getRights() != PlayerRights.OWNER
-            && player.getRights() != PlayerRights.COMMUNITY_MANAGER
+            && player.getRights() != PlayerRights.MANAGER
             && player.getRights() != PlayerRights.ADMINISTRATOR) {
           return;
         }

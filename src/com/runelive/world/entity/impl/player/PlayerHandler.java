@@ -327,7 +327,7 @@ public class PlayerHandler {
             Achievements.setPoints(player);
         }
         if (player.getRights() == PlayerRights.OWNER
-                || player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+                || player.getRights() == PlayerRights.MANAGER) {
             player.setDonorRights(5);
         } else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
             player.setDonorRights(5);
@@ -341,7 +341,7 @@ public class PlayerHandler {
         if (player.getRights().isStaff()) {
             if (player.getRights() == PlayerRights.OWNER) {
                 player.setLoyaltyRank(43);
-            } else if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+            } else if (player.getRights() == PlayerRights.MANAGER) {
                 player.setLoyaltyRank(50);
             } else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
                 player.setLoyaltyRank(42);

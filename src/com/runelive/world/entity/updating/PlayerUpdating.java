@@ -432,7 +432,7 @@ public class PlayerUpdating {
         if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
             rankId = 13;
         }
-        if (target.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+        if (target.getRights() == PlayerRights.MANAGER) {
             rankId = 14;
         }
         if (target.getRights() == PlayerRights.WIKI_EDITOR) {
@@ -612,7 +612,7 @@ public class PlayerUpdating {
         if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
             rankId = 13;
         }
-        if (target.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+        if (target.getRights() == PlayerRights.MANAGER) {
             rankId = 14;
         }
         if (target.getRights() == PlayerRights.WIKI_EDITOR) {

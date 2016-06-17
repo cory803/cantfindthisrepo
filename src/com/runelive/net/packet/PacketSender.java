@@ -771,7 +771,7 @@ public class PacketSender {
     if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
       rank = 13;
     }
-    if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+    if (player.getRights() == PlayerRights.MANAGER) {
       rank = 14;
     }
     if (player.getRights() == PlayerRights.WIKI_EDITOR) {
@@ -874,7 +874,7 @@ public class PacketSender {
     if (me.getGameMode() == GameMode.HARDCORE_IRONMAN) {
       rank = 13;
     }
-    if (me.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+    if (me.getRights() == PlayerRights.MANAGER) {
       rank = 14;
     }
     if (me.getRights() == PlayerRights.WIKI_EDITOR) {

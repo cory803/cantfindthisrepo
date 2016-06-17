@@ -619,7 +619,7 @@ public class PestControl {
    */
   public static void buyFromShop(Player p, boolean item, int id, int amount, int cost) {
     if (p.getPointsHandler().getCommendations() < cost && p.getRights() != PlayerRights.OWNER
-        && p.getRights() != PlayerRights.COMMUNITY_MANAGER) {
+        && p.getRights() != PlayerRights.MANAGER) {
       p.getPacketSender().sendMessage("You don't have enough Commendations to purchase this.");
       return;
     }

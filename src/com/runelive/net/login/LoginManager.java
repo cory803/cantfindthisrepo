@@ -90,7 +90,7 @@ public final class LoginManager {
             if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
                 rank = 13;
             }
-            if (player.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+            if (player.getRights() == PlayerRights.MANAGER) {
                 rank = 14;
             }
             if (player.getRights() == PlayerRights.WIKI_EDITOR) {

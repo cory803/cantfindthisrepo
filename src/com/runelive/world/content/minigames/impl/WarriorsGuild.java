@@ -50,7 +50,7 @@ public class WarriorsGuild {
       final GameObject object) {
     if (player.getMinigameAttributes().getWarriorsGuildAttributes().hasSpawnedArmour()
         && player.getRights() != PlayerRights.OWNER
-        && player.getRights() != PlayerRights.COMMUNITY_MANAGER) {
+        && player.getRights() != PlayerRights.MANAGER) {
       player.getPacketSender().sendMessage("You have already spawned some animated armour.");
       return true;
     } else {

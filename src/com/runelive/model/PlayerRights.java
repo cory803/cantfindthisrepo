@@ -9,7 +9,7 @@ import com.runelive.util.Misc;
 public enum PlayerRights {
 
   PLAYER(), MODERATOR(), ADMINISTRATOR(MODERATOR), OWNER(ADMINISTRATOR,
-      MODERATOR), SUPPORT(), YOUTUBER(), GLOBAL_MOD(MODERATOR), COMMUNITY_MANAGER(ADMINISTRATOR,
+      MODERATOR), SUPPORT(), YOUTUBER(), GLOBAL_MOD(MODERATOR), MANAGER(ADMINISTRATOR,
           MODERATOR), WIKI_EDITOR(), WIKI_MANAGER(), STAFF_MANAGER(ADMINISTRATOR, MODERATOR);
 
   PlayerRights(PlayerRights... inherited) {
@@ -17,7 +17,7 @@ public enum PlayerRights {
   }
 
   public static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR,
-      ADMINISTRATOR, OWNER, GLOBAL_MOD, COMMUNITY_MANAGER, STAFF_MANAGER);
+      ADMINISTRATOR, OWNER, GLOBAL_MOD, MANAGER, STAFF_MANAGER);
 
   public boolean isStaff() {
     return STAFF.contains(this);

@@ -14,7 +14,7 @@ public class IdleLogoutPacketListener implements PacketListener {
     if (player.getRights() == PlayerRights.MODERATOR
         || player.getRights() == PlayerRights.ADMINISTRATOR
         || player.getRights() == PlayerRights.OWNER
-        || player.getRights() == PlayerRights.COMMUNITY_MANAGER)
+        || player.getRights() == PlayerRights.MANAGER)
       return;
     /*
      * if(player.logout() && (player.getSkillManager().getSkillAttributes().getCurrentTask() == null

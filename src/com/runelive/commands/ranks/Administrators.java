@@ -758,13 +758,6 @@ public class Administrators {
             }
             player.getPacketSender().sendItemOnInterface(47052, 11694, 1);
         }
-        if (wholeCommand.toLowerCase().startsWith("yell") && player.getRights() == PlayerRights.PLAYER) {
-            if (GameSettings.YELL_STATUS) {
-                player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
-                return;
-            }
-            player.getPacketSender().sendMessage("Only members can yell. To become one, simply use ::store, buy a scroll").sendMessage("and then claim it.");
-        }
         if (command[0].contains("pure")) {
             int[][] data =
                     new int[][]{

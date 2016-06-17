@@ -1008,7 +1008,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 }
                 if (!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR
                     && player.getRights() != PlayerRights.OWNER
-                    && player.getRights() != PlayerRights.COMMUNITY_MANAGER
+                    && player.getRights() != PlayerRights.MANAGER
                     && player.getMinigameAttributes().getGodwarsDungeonAttributes()
                         .getKillcount()[index] < killcount_amount)) {
                   player.getPacketSender().sendMessage("You need " + Misc.anOrA(bossRoom) + " "

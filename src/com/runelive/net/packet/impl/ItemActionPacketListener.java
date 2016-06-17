@@ -223,7 +223,7 @@ public class ItemActionPacketListener implements PacketListener {
           continue_command2 = true;
         if (!continue_command2 && player.getRights() != PlayerRights.OWNER
                 && player.getRights() != PlayerRights.ADMINISTRATOR
-                && player.getRights() != PlayerRights.COMMUNITY_MANAGER) {
+                && player.getRights() != PlayerRights.MANAGER) {
           return;
         }
         player.setInputHandling(new EnterAmountToDice(1, 1));
@@ -235,7 +235,7 @@ public class ItemActionPacketListener implements PacketListener {
           continue_command1 = true;
         if (!continue_command1 && player.getRights() != PlayerRights.OWNER
                 && player.getRights() != PlayerRights.ADMINISTRATOR
-                && player.getRights() != PlayerRights.COMMUNITY_MANAGER) {
+                && player.getRights() != PlayerRights.MANAGER) {
           return;
         }
         player.setDialogueActionId(137);
@@ -247,7 +247,7 @@ public class ItemActionPacketListener implements PacketListener {
           continue_command = true;
         if (!continue_command && player.getRights() != PlayerRights.OWNER
                 && player.getRights() != PlayerRights.ADMINISTRATOR
-                && player.getRights() != PlayerRights.COMMUNITY_MANAGER) {
+                && player.getRights() != PlayerRights.MANAGER) {
           return;
         }
         if (!player.boost_stats) {

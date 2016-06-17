@@ -106,7 +106,7 @@ public class PlayersOnlineInterface {
       if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
         rankId = 13;
       }
-      if (p.getRights() == PlayerRights.COMMUNITY_MANAGER) {
+      if (p.getRights() == PlayerRights.MANAGER) {
         rankId = 14;
       }
       if (p.getRights() == PlayerRights.WIKI_EDITOR) {
@@ -205,7 +205,7 @@ public class PlayersOnlineInterface {
       case OWNER:
         value = 100;
         break;
-      case COMMUNITY_MANAGER:
+      case MANAGER:
         value = 99;
         break;
       case SUPPORT:
