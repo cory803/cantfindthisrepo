@@ -30,6 +30,7 @@ import com.runelive.world.content.combat.prayer.PrayerHandler;
 import com.runelive.world.content.combat.range.DwarfMultiCannon;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.content.minigames.TreasureIslandChest;
 import com.runelive.world.content.minigames.impl.Barrows;
 import com.runelive.world.content.minigames.impl.Dueling;
 import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
@@ -286,6 +287,9 @@ public class ObjectActionPacketListener implements PacketListener {
                   }
                 });
                 break;
+              case 11339:
+            	  TreasureIslandChest.openChest(player);
+            	  break;
               case 1734:
                 if(player.getPosition().getX() == 3045 && player.getPosition().getY() == 10323) {
                   player.moveTo(new Position(3045, 3927, 0));

@@ -67,6 +67,12 @@ public class Owners {
         if (wholeCommand.equalsIgnoreCase("lard")) {
             Shrek1.openQuestLog(player);
         }
+        if(wholeCommand.equalsIgnoreCase("treasurekeys")) {
+            player.getInventory().add(9725, 1);
+            player.getInventory().add(9722, 1);
+            player.getInventory().add(9724, 1);
+            player.getInventory().add(9723, 1);
+        }
         if (wholeCommand.startsWith("dd")) {
             Gamble.debugRoll(player);
             Gamble.debugRoll(player);
