@@ -1,7 +1,9 @@
 package com.runelive.world.content.minigames;
 
+import com.runelive.model.Animation;
 import com.runelive.model.Item;
 import com.runelive.util.Misc;
+import com.runelive.world.World;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -116,22 +118,24 @@ public class TreasureIslandChest {
                 new Item(11724, 1),
                 new Item(11726, 1),
             };
-        if (player.getInventory().getFreeSlots() <= 2) {
-            player.getPacketSender().sendMessage("You need atleast 3 Inventory Spaces to loot from the chest.");
-        }
         if(player.getInventory().contains(KEY_OF_DEATH) && player.getInventory().contains(KEY_OF_BLITZ)
           && player.getInventory().contains(KEY_OF_COBRA) && player.getInventory().contains(KEY_OF_FEAR)) {
                 player.getInventory().delete(KEY_OF_BLITZ, 1);
                 player.getInventory().delete(KEY_OF_COBRA, 1);
                 player.getInventory().delete(KEY_OF_DEATH, 1);
                 player.getInventory().delete(KEY_OF_FEAR, 1);
+                player.performAnimation(new Animation(881));
                 if(Misc.random(1, 3) == 2) {
                 	player.getInventory().add(randomCombatReward(CombatReward));
                 }
                 player.getInventory().add(randomCombatAmmo(CombatAmmo));
                 player.getInventory().add(randomMaterial(MaterialReward));
                 if(Misc.random(1, 250) == 125) {
-                	player.getInventory().add(randomRareReward(RareReward));
+                	Item rareReward = randomRareReward(RareReward);
+                	player.getInventory().add(rareReward);
+                    String message = "<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "
+                            + rareReward.getDefinition().getName() + " from Treasure Island!";
+                        World.sendMessage(message);
                 }
                 player.getLastLoot().reset();
         } else {
