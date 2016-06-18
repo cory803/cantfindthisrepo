@@ -391,8 +391,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
                 PlayerLogs.other(owner,
                         "Player owned shop recieved coins to money pouch: " + formatAmount(total) + "");
                 owner.getPacketSender().sendString(1, ":moneypouchearning:" + total);
-                owner.getPacketSender()
-                        .sendMessage(formatAmount(total) + " Coins has been added to your money pouch!");
+                owner.getPacketSender().sendMessage("<col=CA024B>"+item.getAmount()+"x of your "+ ((ItemDefinition.forId(item.getId()).getName().endsWith("s") ? (ItemDefinition.forId(item.getId()).getName()) : (ItemDefinition.forId(item.getId()).getName() + "s")))+" have sold in your player owned shop.");
                 MoneyPouch.depositVote(owner, total);
             } else {
                 PlayerLogs.other(player, "Player owned shop added coins for global extraction: "
