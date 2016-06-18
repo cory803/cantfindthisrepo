@@ -5,6 +5,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
+import com.runelive.world.content.AccountTools;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PlayerPunishment;
 import com.runelive.world.content.transportation.TeleportHandler;
@@ -33,6 +34,21 @@ public class Moderators {
 				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
 			}
 		}
+        if(command[0].equals("scan")) {
+      	  String victimUsername = wholeCommand.substring(5);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                        AccountTools.scan(player, victimUsername, new Player(null));
+                    } else {
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+      }
 		if (command[0].equals("tele")) {
 			int x = Integer.valueOf(command[1]), y = Integer.valueOf(command[2]);
 			int z = player.getPosition().getZ();

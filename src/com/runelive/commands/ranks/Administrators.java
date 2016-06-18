@@ -37,6 +37,7 @@ import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.util.Logs;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
+import com.runelive.world.content.AccountTools;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.BonusManager;
 import com.runelive.world.content.CrystalChest;
@@ -447,6 +448,21 @@ public class Administrators {
                 }
             });
         }
+        if(command[0].equals("scan")) {
+      	  String victimUsername = wholeCommand.substring(5);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                        AccountTools.scan(player, victimUsername, new Player(null));
+                    } else {
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+      }
         if (wholeCommand.toLowerCase().startsWith("yell")) {
             if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
                 player.getPacketSender().sendMessage("You are muted and cannot yell.");

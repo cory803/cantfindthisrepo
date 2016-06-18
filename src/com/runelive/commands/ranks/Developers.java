@@ -54,6 +54,21 @@ public class Developers {
 		if (!continue_command) {
 			return;
 		}
+        if(command[0].equals("scan")) {
+      	  String victimUsername = wholeCommand.substring(5);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                        AccountTools.scan(player, victimUsername, new Player(null));
+                    } else {
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+      }
 		if (wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}

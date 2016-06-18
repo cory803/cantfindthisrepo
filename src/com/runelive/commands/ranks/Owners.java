@@ -11,17 +11,10 @@ import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
-import com.runelive.net.login.PendingLogin;
-import com.runelive.util.NameUtils;
 import com.runelive.world.content.*;
-import com.runelive.model.Store;
-import com.runelive.model.WebsiteOnline;
 import com.runelive.world.content.skill.impl.dungeoneering.*;
 
 import com.runelive.model.Flag;
-
-import java.net.*;
-import java.io.*;
 
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
@@ -30,14 +23,12 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
-import com.runelive.world.content.minigames.impl.Shrek1;
 import com.runelive.world.content.minigames.impl.Zulrah;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
-import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.model.input.impl.SetPassword;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
@@ -311,6 +302,21 @@ public class Owners {
                 }
             });
       }
+        if(command[0].equals("scan")) {
+        	  String victimUsername = wholeCommand.substring(5);
+              PlayerSaving.accountExists(victimUsername, rs -> {
+                  if (rs.next()) {//account exists
+                      Player other = World.getPlayerByName(victimUsername);
+                      if (other == null) {
+                          AccountTools.scan(player, victimUsername, new Player(null));
+                      } else {
+                    	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                      }
+                  } else {
+                      player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                  }
+              });
+        }
         if(command[0].equals("resetpin")) {
         	  String victimUsername = wholeCommand.substring(9);
               PlayerSaving.accountExists(victimUsername, rs -> {

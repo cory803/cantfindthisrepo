@@ -5,6 +5,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
+import com.runelive.world.content.AccountTools;
 import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PlayerPunishment;
 import com.runelive.world.content.transportation.TeleportHandler;
@@ -27,7 +28,21 @@ public class Supports {
 			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
 			punishee.moveTo(new Position(3087, 3502, 0));
 		}
-
+        if(command[0].equals("scan")) {
+      	  String victimUsername = wholeCommand.substring(5);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                        AccountTools.scan(player, victimUsername, new Player(null));
+                    } else {
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+      }
 		if (wholeCommand.startsWith("jail")) {
 			String jail_punishee = wholeCommand.substring(5);
 			Player punishee = World.getPlayerByName(jail_punishee);
