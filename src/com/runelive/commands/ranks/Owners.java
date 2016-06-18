@@ -771,7 +771,7 @@ public class Owners {
         if (command[0].equals("bank")) {
             player.getBank(player.getCurrentBankTab()).open();
         }
-        if (command[0].equals("finditem")) {
+        if (command[0].equals("find")) {
             String name = wholeCommand.substring(9).toLowerCase().replaceAll("_", " ");
             player.getPacketSender().sendMessage("Finding item id for item - " + name);
             boolean found = false;
