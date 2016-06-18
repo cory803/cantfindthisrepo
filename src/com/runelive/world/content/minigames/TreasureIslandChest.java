@@ -4,6 +4,7 @@ import com.runelive.model.Animation;
 import com.runelive.model.Item;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
+import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -137,6 +138,7 @@ public class TreasureIslandChest {
                     String message = "<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "
                             + rareReward.getDefinition().getName() + " from Treasure Island!";
                         World.sendMessage(message);
+                    PlayerLogs.npcdrops(player, rareReward, "Treasure Island");
                 }
                 player.getLastLoot().reset();
         } else {
