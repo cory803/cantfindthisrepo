@@ -69,6 +69,6 @@ public class Fear implements CombatStrategy {
 
     @Override
     public CombatType getCombatType() {
-        return CombatType.MIXED;
+        return CombatType.RANGED;
     }
 }
