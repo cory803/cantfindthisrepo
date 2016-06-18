@@ -818,6 +818,17 @@ public class Shop extends ItemContainer {
             return new Object[] {30, "Voting points"};
           case 13663:
             return new Object[] {1, "Voting points"};
+          case 6666:
+              return new Object[] {350, "Voting points"};
+          case 13101:
+              return new Object[] {350, "Voting points"};
+          case 21128:
+          case 21129:
+          case 21130:
+          case 21131:
+          case 21132:
+          case 21133:
+              return new Object[] {500, "Voting points"};
         }
       } else if (shop == DONATOR_STORE) {
         switch (item) {
