@@ -72,6 +72,6 @@ public class Cobra implements CombatStrategy {
 
     @Override
     public CombatType getCombatType() {
-        return CombatType.MIXED;
+        return CombatType.MAGIC;
     }
 }

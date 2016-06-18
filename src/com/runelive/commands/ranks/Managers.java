@@ -799,6 +799,9 @@ public class Managers {
             player.getPacketSender().sendMessage("Finding npc id for npc - " + name);
             boolean found = false;
             for (int i = 0; i < NpcDefinition.getMaxAmountOfNpcs(); i++) {
+            	if(NpcDefinition.forId(i) == null) {
+            		continue;
+            	}
                 if (NpcDefinition.forId(i).getName().toLowerCase().contains(name)) {
                     player.getPacketSender().sendMessage("Found npc with name [" + NpcDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
                     found = true;
