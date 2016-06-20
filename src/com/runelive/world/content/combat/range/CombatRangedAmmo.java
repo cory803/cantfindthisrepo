@@ -102,7 +102,7 @@ public class CombatRangedAmmo {
             AmmunitionData.STEEL_ARROW, AmmunitionData.MITHRIL_ARROW, AmmunitionData.ADAMANT_ARROW,
             AmmunitionData.RUNE_ARROW, AmmunitionData.DRAGON_ARROW},
         RangedWeaponType.DARK_BOW),
-
+    ROYAL_CROSSBOW(new int[] {11624}, new AmmunitionData[] {AmmunitionData.ROYAL_BOLT}, RangedWeaponType.CROSSBOW),
     BRONZE_CROSSBOW(new int[] {9174}, new AmmunitionData[] {AmmunitionData.BRONZE_BOLT},
         RangedWeaponType.CROSSBOW), IRON_CROSSBOW(new int[] {9177},
             new AmmunitionData[] {AmmunitionData.BRONZE_BOLT, AmmunitionData.OPAL_BOLT,
@@ -145,9 +145,6 @@ public class CombatRangedAmmo {
                     AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT,
                     AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT},
             RangedWeaponType.ARMADYL_CROSSBOW),
-    ROYAL_CROSSBOW(new int[] {11624},
-            new AmmunitionData[] {AmmunitionData.ROYAL_BOLT},
-            RangedWeaponType.ROYAL_CROSSBOW),
 
     BRONZE_DART(new int[] {806}, new AmmunitionData[] {AmmunitionData.BRONZE_DART},
         RangedWeaponType.DART), IRON_DART(new int[] {807},

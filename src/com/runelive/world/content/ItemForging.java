@@ -169,6 +169,7 @@ public class ItemForging {
     DRAGONBONE_CHAPS(new Item[] {new Item(11601), new Item(14013)}, new Item(11615), new int[] {13, 99, 0}),
     DRAGONBONE_RANGED_BOOTS(new Item[] {new Item(11601), new Item(20001)}, new Item(11617), new int[] {13, 99, 0}),
     DRAGONBONE_RANGED_GLOVES(new Item[] {new Item(11601), new Item(2491)}, new Item(11614), new int[] {13, 99, 0}),
+    DRAGONBONE_SPIRIT_SHIELD(new Item[] {new Item(11601), new Item(11613)}, new Item(21104), new int[] {13, 99, 0}),
 
       /**
        * Hastas

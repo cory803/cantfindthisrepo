@@ -411,6 +411,55 @@ public enum CombatSpells {
         public Optional<Item[]> itemsRequired(Player player) {
             return Optional.of(new Item[]{new Item(556, 2), new Item(562, 1)});
         }
+        @Override
+        public int levelRequired() {
+            return 75;
+        }
+
+        @Override
+        public int spellId() {
+            return 151054;
+        }
+    }), TRIDENT_SPELL(new CombatNormalSpell() {
+        @Override
+        public Optional<Animation> castAnimation() {
+            return Optional.of(new Animation(14223));
+        }
+
+        @Override
+        public Optional<Projectile> castProjectile(Character cast, Character castOn) {
+            return Optional.of(new Projectile(cast, castOn, 2729, 44, 3, 43, 31, 0));
+        }
+
+        @Override
+        public Optional<Graphic> endGraphic(Character cast) {
+            return Optional.of(new Graphic(2737, GraphicHeight.MIDDLE));
+        }
+
+        @Override
+        public int maximumHit() {
+            return 300;
+        }
+
+        @Override
+        public Optional<Graphic> startGraphic() {
+            return Optional.of(new Graphic(2728));
+        }
+
+        @Override
+        public int baseExperience() {
+            return 11;
+        }
+
+        @Override
+        public Optional<Item[]> equipmentRequired(Player player) {
+            return Optional.empty();
+        }
+
+        @Override
+        public Optional<Item[]> itemsRequired(Player player) {
+            return Optional.of(new Item[]{});
+        }
 
         @Override
         public int levelRequired() {

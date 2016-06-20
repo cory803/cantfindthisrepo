@@ -35,7 +35,7 @@ public class TreasureIslandChest {
     
     public static void openChest(Player player) {
         Item[] MaterialReward = {
-        	new Item(995, Misc.random(500000, 25000000)),
+        	new Item(995, Misc.inclusiveRandom(500000, 25000000)),
         	new Item(6571, 1),
             new Item(1632, Misc.random(5, 50)),
             new Item(1618, Misc.random(15, 50)),
@@ -63,7 +63,11 @@ public class TreasureIslandChest {
             new Item(7937, Misc.random(100, 500)),
             new Item(1437, Misc.random(200, 1000)),
             new Item(18831, Misc.random(5, 25)),
-            new Item(537, Misc.random(10, 50))
+            new Item(537, Misc.random(10, 50)),
+            new Item(12158, Misc.inclusiveRandom(10, 50)),
+            new Item(12159, Misc.inclusiveRandom(10, 50)),
+            new Item(12160, Misc.inclusiveRandom(10, 50)),
+            new Item(12163, Misc.inclusiveRandom(10, 50)),
         };
         Item[] CombatAmmo = {
             new Item(2, Misc.random(100, 500)),
@@ -91,6 +95,7 @@ public class TreasureIslandChest {
             new Item(12791, Misc.random(5, 25)),
             new Item(12094, Misc.random(5, 25)),
             new Item(12090, Misc.random(5, 25)),
+            new Item(11625, Misc.inclusiveRandom(50, 125)),
         };
         Item[] CombatReward = {
         	new Item(4151, 1),
@@ -113,12 +118,17 @@ public class TreasureIslandChest {
             new Item(11732, 1),
         };
         Item[] RareReward = {
-            	new Item(21104, 1),
                 new Item(21107, 1),
                 new Item(12926, 1),
                 new Item(21077, 1),
                 new Item(21108, 1),
                 new Item(21110, 1),
+                new Item(11620, 1),
+                new Item(11621, 1),
+                new Item(11622, 1),
+                new Item(11623, 1),
+                new Item(11601, 1),
+                new Item(18778, 1),
             };
         if(player.getInventory().contains(KEY_OF_DEATH) && player.getInventory().contains(KEY_OF_BLITZ)
           && player.getInventory().contains(KEY_OF_COBRA) && player.getInventory().contains(KEY_OF_FEAR)) {
