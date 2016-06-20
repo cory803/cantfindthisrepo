@@ -44,6 +44,7 @@ import com.runelive.world.content.skill.impl.prayer.Prayer;
 import com.runelive.world.content.skill.impl.slayer.SlayerDialogues;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.content.skill.impl.smithing.EquipmentMaking;
+import com.runelive.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.content.skill.impl.construction.sawmill.Plank;
@@ -398,7 +399,11 @@ public class UseItemPacketListener implements PacketListener {
                 }
                 break;
               case 4306:
-                EquipmentMaking.handleAnvil(player);
+                  if(itemId == 11620 || itemId == 11621 || itemId == 11622 || itemId == 11623) {
+                      RoyalCrossBow.makeCrossbow(player);
+                  } else {
+                      EquipmentMaking.handleAnvil(player);
+                  }
                 break;
             }
           }

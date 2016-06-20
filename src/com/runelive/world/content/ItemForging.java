@@ -150,8 +150,25 @@ public class ItemForging {
     ABYSSAL_VINE_WHIP_WHITE(new Item[] {new Item(21369), new Item(15443)}, new Item(21374), new int[] {18, 75, 10000}),
     ABYSSAL_VINE_WHIP_BLUE(new Item[] {new Item(21369), new Item(15442)}, new Item(21373), new int[] {18, 75, 10000}),
     ABYSSAL_VINE_WHIP_GREEN(new Item[] {new Item(21369), new Item(15444)}, new Item(21375), new int[] {18, 75, 10000}),
-    FULL_SLAYER_HELMET(new Item[] {new Item(13263), new Item(15490), new Item(15488)},
-        new Item(15492), new int[] {18, 75, 0}),
+    FULL_SLAYER_HELMET(new Item[] {new Item(13263), new Item(15490), new Item(15488)}, new Item(15492), new int[] {18, 75, 0}),
+
+    DRAGONBONE_HAT(new Item[] {new Item(11601), new Item(14014)}, new Item(11602), new int[] {13, 99, 0}),
+    DRAGONBONE_MAGE_TOP(new Item[] {new Item(11601), new Item(14015)}, new Item(11603), new int[] {13, 99, 0}),
+    DRAGONBONE_MAGE_BOTTOMS(new Item[] {new Item(11601), new Item(14016)}, new Item(11604), new int[] {13, 99, 0}),
+    DRAGONBONE_MAGE_GLOVES(new Item[] {new Item(11601), new Item(6922)}, new Item(11605), new int[] {13, 99, 0}),
+    DRAGONBONE_MAGE_BOOTS(new Item[] {new Item(11601), new Item(20002)}, new Item(11606), new int[] {13, 99, 0}),
+
+    DRAGONBONE_FULL_HELM(new Item[] {new Item(11601), new Item(14008)}, new Item(11607), new int[] {13, 99, 0}),
+    DRAGONBONE_PLATEBODY(new Item[] {new Item(11601), new Item(14009)}, new Item(11608), new int[] {13, 99, 0}),
+    DRAGONBONE_PLATELEGS(new Item[] {new Item(11601), new Item(14010)}, new Item(11611), new int[] {13, 99, 0}),
+    DRAGONBONE_MELEE_BOOTS(new Item[] {new Item(11601), new Item(20000)}, new Item(11610), new int[] {13, 99, 0}),
+    DRAGONBONE_MELEE_GLOVES(new Item[] {new Item(11601), new Item(7462)}, new Item(11609), new int[] {13, 99, 0}),
+
+    DRAGONBONE_COIF(new Item[] {new Item(11601), new Item(14011)}, new Item(11616), new int[] {13, 99, 0}),
+    DRAGONBONE_BODY(new Item[] {new Item(11601), new Item(14012)}, new Item(11618), new int[] {13, 99, 0}),
+    DRAGONBONE_CHAPS(new Item[] {new Item(11601), new Item(14013)}, new Item(11615), new int[] {13, 99, 0}),
+    DRAGONBONE_RANGED_BOOTS(new Item[] {new Item(11601), new Item(20001)}, new Item(11617), new int[] {13, 99, 0}),
+    DRAGONBONE_RANGED_GLOVES(new Item[] {new Item(11601), new Item(2491)}, new Item(11614), new int[] {13, 99, 0}),
 
       /**
        * Hastas

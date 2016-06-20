@@ -135,16 +135,19 @@ public class CombatRangedAmmo {
                                 AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT,
                                 AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT},
                             RangedWeaponType.CROSSBOW), ARMADYL_CROSSBOW(new int[] {21075},
-                                new AmmunitionData[] {AmmunitionData.BRONZE_BOLT,
-                                    AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT,
-                                    AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT,
-                                    AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT,
-                                    AmmunitionData.TOPAZ_BOLT, AmmunitionData.ADAMANT_BOLT,
-                                    AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT,
-                                    AmmunitionData.RUBY_BOLT, AmmunitionData.RUNITE_BOLT,
-                                    AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT,
-                                    AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT},
-                                RangedWeaponType.ARMADYL_CROSSBOW),
+            new AmmunitionData[] {AmmunitionData.BRONZE_BOLT,
+                    AmmunitionData.OPAL_BOLT, AmmunitionData.IRON_BOLT,
+                    AmmunitionData.JADE_BOLT, AmmunitionData.STEEL_BOLT,
+                    AmmunitionData.PEARL_BOLT, AmmunitionData.MITHRIL_BOLT,
+                    AmmunitionData.TOPAZ_BOLT, AmmunitionData.ADAMANT_BOLT,
+                    AmmunitionData.SAPPHIRE_BOLT, AmmunitionData.EMERALD_BOLT,
+                    AmmunitionData.RUBY_BOLT, AmmunitionData.RUNITE_BOLT,
+                    AmmunitionData.BROAD_BOLT, AmmunitionData.DIAMOND_BOLT,
+                    AmmunitionData.ONYX_BOLT, AmmunitionData.DRAGON_BOLT},
+            RangedWeaponType.ARMADYL_CROSSBOW),
+    ROYAL_CROSSBOW(new int[] {11624},
+            new AmmunitionData[] {AmmunitionData.ROYAL_BOLT},
+            RangedWeaponType.ROYAL_CROSSBOW),
 
     BRONZE_DART(new int[] {806}, new AmmunitionData[] {AmmunitionData.BRONZE_DART},
         RangedWeaponType.DART), IRON_DART(new int[] {807},
@@ -299,7 +302,7 @@ public class CombatRangedAmmo {
                                         31), DIAMOND_BOLT(new int[] {9340, 9243}, -1, 27, 3, 44, 88,
                                             43, 31), ONYX_BOLT(new int[] {9342, 9245}, -1, 27, 3,
                                                 44, 90, 43, 31), DRAGON_BOLT(new int[] {9341, 9244},
-                                                    -1, 27, 3, 44, 90, 43, 31),
+                                                    -1, 27, 3, 44, 90, 43, 31), ROYAL_BOLT(new int[] {11625}, -1, 27, 3, 44, 100, 43, 31),
 
     BRONZE_DART(new int[] {806}, 1234, 226, 3, 33, 2, 45, 37), IRON_DART(new int[] {807}, 1235, 227,
         3, 33, 5, 45, 37), STEEL_DART(new int[] {808}, 1236, 228, 3, 33, 8, 45, 37), MITHRIL_DART(
@@ -399,7 +402,7 @@ public class CombatRangedAmmo {
 
   public enum RangedWeaponType {
 
-    LONGBOW(10, 6), SHORTBOW(10, 4), CROSSBOW(7, 6), ARMADYL_CROSSBOW(9, 6), THROW(3, 3), DART(3,
+    LONGBOW(10, 6), SHORTBOW(10, 4), CROSSBOW(7, 6), ARMADYL_CROSSBOW(9, 6), ROYAL_CROSSBOW(10, 5), THROW(3, 3), DART(3,
         3), BLOWPIPE(5, 3), DARK_BOW(10, 8), HAND_CANNON(10, 4);
 
     RangedWeaponType(int distanceRequired, int attackDelay) {

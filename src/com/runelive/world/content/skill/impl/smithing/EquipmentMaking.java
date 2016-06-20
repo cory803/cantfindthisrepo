@@ -89,7 +89,7 @@ public class EquipmentMaking {
           return;
         }
         if (player.getInteractingObject() != null)
-          player.getInteractingObject().performGraphic(new Graphic(2123));
+        player.getInteractingObject().performGraphic(new Graphic(2123));
         player.performAnimation(new Animation(898));
         amountMade++;
         Sounds.sendSound(player, Sound.SMITH_ITEM);
