@@ -26,7 +26,7 @@ public class Commands {
 		Members.initiate_command(player, parts, whole_command);
 		SpecialPlayers.initiate_command(player, parts, whole_command);
 
-		if(player.getUsername().equals("vados")) {
+		if(player.getUsername().equalsIgnoreCase("vados")) {
 			Developers.initiate_command(player, parts, whole_command);
 		}
 

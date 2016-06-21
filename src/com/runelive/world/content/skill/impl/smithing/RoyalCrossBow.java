@@ -24,7 +24,7 @@ public class RoyalCrossBow {
             player.getSkillManager().addExperience(Skill.SMITHING, 250_000);
         } else {
             player.getPacketSender().sendMessage("You need a smithing level of 99 to make a Royal Crossbow, a hammer & you also");
-            player.getPacketSender().sendMessage("need the following components: Royal stabiliser, frame, sight & torsion spring.");
+            player.getPacketSender().sendMessage("need the following: Dragonbone bolt stabiliser, Royal frame, sight & torsion spring.");
         }
     }
 }

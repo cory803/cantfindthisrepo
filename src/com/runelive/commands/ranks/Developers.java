@@ -69,6 +69,16 @@ public class Developers {
                 }
             });
       }
+		if(wholeCommand.equalsIgnoreCase("trollchest")) {
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Dragonbone upgrade kit from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Royal frame from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Dragonbone bolt stabilizer from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Royal sight from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Royal torsion spring from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Starved effigy from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Dragon kiteshield from Barrows!");
+			player.getPacketSender().sendMessage("Finished oppening 3,000 Treasure Island chests.");
+		}
 		if (wholeCommand.equalsIgnoreCase("wildykey")) {
 			player.moveTo(new Position(3357, 3873));
 		}
