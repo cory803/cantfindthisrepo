@@ -142,7 +142,7 @@ public class TreasureIslandChest {
                 }
                 player.getInventory().add(randomCombatAmmo(CombatAmmo));
                 player.getInventory().add(randomMaterial(MaterialReward));
-                if(Misc.random(1, 300) == 125) {
+                if(Misc.random(1, 150) == 75) {
                 	Item rareReward = randomRareReward(RareReward);
                 	player.getInventory().add(rareReward);
                     String message = "<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "

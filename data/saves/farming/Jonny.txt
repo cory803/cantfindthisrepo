@@ -28,9 +28,9 @@ END PATCH
 [PATCH]
 patch: 3
 stage: 0
-minute: 37
-hour: 20
-day: 114
-year: 2016
+minute: 0
+hour: 0
+day: 0
+year: 0
 END PATCH
 
