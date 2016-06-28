@@ -238,8 +238,8 @@ public final class MovementQueue {
      * Called every 600ms, updates the queue.
      */
     public void sequence() {
-
         boolean movement = !lockMovement && !character.isFrozen();
+        boolean checkRegionChange = false;
 
         if (movement) {
             Point walkPoint = null;
@@ -256,7 +256,6 @@ public final class MovementQueue {
             }
 
             if (walkPoint != null && walkPoint.direction != Direction.NONE) {
-
                 if (followCharacter != null) {
                     if (walkPoint.equals(followCharacter.getPosition())) {
                         return;
@@ -280,6 +279,7 @@ public final class MovementQueue {
                 character.setPosition(walkPoint.position);
                 character.setPrimaryDirection(walkPoint.direction);
                 character.setLastDirection(walkPoint.direction);
+                checkRegionChange = true;
             }
             if (runPoint != null && runPoint.direction != Direction.NONE) {
                 if (followCharacter != null) {
@@ -290,13 +290,14 @@ public final class MovementQueue {
                 character.setPosition(runPoint.position);
                 character.setSecondaryDirection(runPoint.direction);
                 character.setLastDirection(runPoint.direction);
-                if (isPlayer) {
-                    handleRegionChange();
-                }
+                checkRegionChange = true;
             }
         }
 
         if (isPlayer) {
+            if (checkRegionChange) {
+                handleRegionChange();
+            }
             Locations.process(character);
             EnergyHandler.processPlayerEnergy((Player) character);
         }

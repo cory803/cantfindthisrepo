@@ -116,41 +116,42 @@ public class PlayerUpdating {
      * @return The PlayerUpdating instance.
      */
     private static void updateMovement(Player player, PacketBuilder builder) {
-    /*
-     * Check if the player is teleporting.
-     */
+        /*
+         * Check if the player is teleporting.
+         */
         if (player.isNeedsPlacement() || player.isChangingRegion()) {
-      /*
-       * They are, so an update is required.
-       */
+          /*
+           * They are, so an update is required.
+           */
             builder.putBits(1, 1);
 
-      /*
-       * This value indicates the player teleported.
-       */
+          /*
+           * This value indicates the player teleported.
+           */
             builder.putBits(2, 3);
 
-      /*
-       * This is the new player height.
-       */
+          /*
+           * This is the new player height.
+           */
             builder.putBits(2, player.getPosition().getZ());
 
-      /*
-       * This indicates that the client should discard the walking queue.
-       */
+          /*
+           * This indicates that the client should discard the walking queue.
+           */
             builder.putBits(1, player.isResetMovementQueue() ? 1 : 0);
 
-      /*
-       * This flag indicates if an update block is appended.
-       */
+          /*
+           * This flag indicates if an update block is appended.
+           */
             builder.putBits(1, player.getUpdateFlag().isUpdateRequired() ? 1 : 0);
 
-      /*
-       * These are the positions.
-       */
+          /*
+           * These are the positions.
+           */
             builder.putBits(7, player.getPosition().getLocalY(player.getLastKnownRegion()));
             builder.putBits(7, player.getPosition().getLocalX(player.getLastKnownRegion()));
-        } else /*
+        } else
+            /*
             * Otherwise, check if the player moved.
             */
             if (player.getPrimaryDirection().toInteger() == -1) {
