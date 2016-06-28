@@ -33,6 +33,8 @@ The value on noted rocktails have been changed to the value on regular rocktails
 You can no longer teleport to places when you have not entered your account pin (hack exploit)
 Dragon pickaxe now has the correct attack styles. 
 Anti-fire potions 4/3 have been fixed.
+Rusty casket now has a open option.
+Rusty casket has been renamed to 'Casket of horror'.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
