@@ -225,7 +225,7 @@ public class UseItemPacketListener implements PacketListener {
           Fletching.makeArrows(player, usedWith.getId(), itemUsedWith.getId());
         if (usedWith.getId() == 314 || itemUsedWith.getId() == 314)
           Fletching.makeBolts(player, usedWith.getId(), itemUsedWith.getId());
-        if (itemUsedWith.getId() == 1755 || usedWith.getId() == 1755)
+        if (itemUsedWith.getId() == 1755 || usedWith.getId() == 1755) {
           if (itemUsedWith.getId() == 1611 || usedWith.getId() == 1611) {
             Fletching.makeTip(player, usedWith.getId(), itemUsedWith.getId());
           }
@@ -251,6 +251,7 @@ public class UseItemPacketListener implements PacketListener {
           Gems.selectionInterface(player,
                   usedWith.getId() == 1755 ? itemUsedWith.getId() : usedWith.getId());
         	}
+        }
         }
         if (usedWith.getId() == 1733 || itemUsedWith.getId() == 1733)
           LeatherMaking.craftLeatherDialogue(player, usedWith.getId(), itemUsedWith.getId());
