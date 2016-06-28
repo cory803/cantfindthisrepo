@@ -23,6 +23,7 @@ Add battlemage, trickster, vanguard
 Seperate dungeoneering items into random items of no value to prevent smuggling (with dark shadow)
 
 Game Updates:
+A bug where you would open spirit shard packs and your shards bug out has been fixed.
 
 Polls:
 Should ghost down be removed from the game and replaced with revenants spread throughout the wilderness?
