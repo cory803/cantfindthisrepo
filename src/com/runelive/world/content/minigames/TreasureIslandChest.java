@@ -128,6 +128,10 @@ public class TreasureIslandChest {
                 new Item(11622, 1),
                 new Item(11623, 1),
                 new Item(11601, 1),
+                new Item(11601, 1),
+                new Item(11601, 1),
+                new Item(11601, 1),
+                new Item(11601, 1),
                 new Item(18778, 1),
             };
         if(player.getInventory().contains(KEY_OF_DEATH) && player.getInventory().contains(KEY_OF_BLITZ)
@@ -142,7 +146,7 @@ public class TreasureIslandChest {
                 }
                 player.getInventory().add(randomCombatAmmo(CombatAmmo));
                 player.getInventory().add(randomMaterial(MaterialReward));
-                if(Misc.random(1, 150) == 75) {
+                if(Misc.random(1, 100) == 50) {
                 	Item rareReward = randomRareReward(RareReward);
                 	player.getInventory().add(rareReward);
                     String message = "<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "
