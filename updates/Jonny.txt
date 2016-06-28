@@ -28,6 +28,7 @@ The message you get when stealing silver bars via thieving now gives the correct
 The bug where your venenatis slayer task would not go down has been fixed.
 The super rare rewards on Treasure Island have been changed from a 1/150 chance to a 1/100 chance.
 The chance of getting a Dragonbone upgrade kit from Treasure Island has been changed to 1/3 chance when getting a super rare reward.
+When a player logs in and has over the maximum achievement points possible their points will be set to the maximum.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?

@@ -38,6 +38,7 @@ import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.content.PlayersOnlineInterface;
 import com.runelive.world.content.WellOfGoodwill;
+import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.effect.CombatPoisonEffect;
 import com.runelive.world.content.combat.effect.CombatTeleblockEffect;
@@ -371,6 +372,10 @@ public class PlayerHandler {
             } else if (player.getDonorRights() == 5) {
                 player.setLoyaltyRank(46);
             }
+        }
+        
+        if(player.getPointsHandler().getAchievementPoints() > AchievementData.values().length) {
+        	player.getPointsHandler().setAchievementPoints(AchievementData.values().length, false);
         }
 
         if (player.getUsername().equalsIgnoreCase("dc blitz")
