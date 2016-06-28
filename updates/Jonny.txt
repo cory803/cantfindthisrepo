@@ -28,6 +28,7 @@ The message you get when stealing silver bars via thieving now gives the correct
 The bug where your venenatis slayer task would not go down has been fixed.
 
 Polls:
-Should ghost down be removed from the game and replaced with revenants spread throughout the wilderness?
+Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
 Should a middle man rank be added to the game, this would be set up similar to applying for Server Support but be purely based on how trusted you are.
 Should a option be added to your friends list to teleport a friend to you? You would only be able to use this option if they have you added back and both of you are not in the wilderness.
+Should donator ranks have experience boosts depending on what rank it is? (This would stack with double experience weekends)
