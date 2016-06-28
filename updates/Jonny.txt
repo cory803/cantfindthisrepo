@@ -37,6 +37,7 @@ Rusty casket now has a open option.
 Rusty casket has been renamed to 'Casket of horror'.
 TopG voting should now be fully functioning and fixed.
 The bug where you couldn't attack a player if they were standing in a certain spot in the wilderness has been fixed.
+Chaotic longsword is no longer sellable.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
