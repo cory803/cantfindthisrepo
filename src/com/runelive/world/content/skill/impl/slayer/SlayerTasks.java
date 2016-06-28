@@ -60,7 +60,7 @@ public enum SlayerTasks {
     BANDOS_AVATAR(SlayerMaster.SUMONA, 4540, "The Bandos Avatar can be found using the Boss teleport.", 34000, new Position(2891, 4767)),
     GLACORS(SlayerMaster.SUMONA, 1382, "Glacor's can be found using the Boss teleport.", 34000, new Position(3052, 9582)),
     GANODERMIC_BEAST(SlayerMaster.SUMONA, 130, "Ganodermic Beast's can be found using the Boss teleport.", 34000, new Position(2254, 3190)),
-    VENENATIS(SlayerMaster.SUMONA, 2005, "Venenatis can be found in the wilderness.", 100000, new Position(3364, 3001)),
+    VENENATIS(SlayerMaster.SUMONA, 2000, "Venenatis can be found in the wilderness.", 100000, new Position(3364, 3001)),
     SCORPIA(SlayerMaster.SUMONA, 2001, "Scorpia can be found in the wilderness.", 100000, new Position(3364, 3001)),
 
     WILDERNESS_NECHRYAEL(SlayerMaster.NASTROTH, 5532,

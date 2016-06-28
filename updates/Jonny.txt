@@ -25,6 +25,7 @@ Seperate dungeoneering items into random items of no value to prevent smuggling 
 Game Updates:
 When you open a lot of spirit shard packs, your current spirit shards will no longer bug out.
 The message you get when stealing silver bars via thieving now gives the correct amount of coins.
+The bug where your venenatis slayer task would not go down has been fixed.
 
 Polls:
 Should ghost down be removed from the game and replaced with revenants spread throughout the wilderness?
