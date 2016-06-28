@@ -34,14 +34,6 @@ public class DefaultMeleeCombatStrategy implements CombatStrategy {
         return false;
       }
     }
-	if(victim.isPlayer()) {
-		Player target = (Player) victim;
-		if(target.getLocation() != Location.DUEL_ARENA) {
-			if (RegionClipping.getClipping(target.getPosition().getX(), target.getPosition().getY(), target.getPosition().getY()) != 0) {
-				return false;
-			}
-		}
-	}
     if (entity.isPlayer()) {
       Player player = (Player) entity;
       if (victim.isNpc()) {

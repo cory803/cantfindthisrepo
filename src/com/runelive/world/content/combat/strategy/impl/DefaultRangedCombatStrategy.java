@@ -72,14 +72,6 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
       player.getCombatBuilder().reset(true);
       return false;
     }
-	if(victim.isPlayer()) {
-		Player target = (Player) victim;
-		if(target.getLocation() != Location.DUEL_ARENA) {
-			if (RegionClipping.getClipping(target.getPosition().getX(), target.getPosition().getY(), target.getPosition().getY()) != 0) {
-				return false;
-			}
-		}
-	}
     // Check the ammo before proceeding.
     if (!checkAmmo(player)) {
       if (player.isSpecialActivated()) {
