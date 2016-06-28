@@ -530,6 +530,10 @@ public class ItemActionPacketListener implements PacketListener {
       case 15262:
         if (!player.getClickDelay().elapsed(1000))
           return;
+        if(player.getInventory().getAmount(18016) >= Integer.MAX_VALUE - 10000) {
+        	player.getPacketSender().sendMessage("You have too many spirit shards in your inventory!");
+        	return;
+        }
         player.getInventory().delete(15262, 1);
         player.getInventory().add(18016, 10000).refreshItems();
         player.getClickDelay().reset();
@@ -703,9 +707,20 @@ public class ItemActionPacketListener implements PacketListener {
       case 15262:
         if (!player.getClickDelay().elapsed(1300))
           return;
-        int amt = player.getInventory().getAmount(15262);
-        if (amt > 0)
-          player.getInventory().delete(15262, amt).add(18016, 10000 * amt);
+        int boxAmount = player.getInventory().getAmount(15262);
+        int shardAmount = player.getInventory().getAmount(18016);
+        
+        long finalAmount = (long) ((long) boxAmount * 10000) + (long) shardAmount;
+        int canAdd = Integer.MAX_VALUE - shardAmount;
+
+        if(finalAmount >= Integer.MAX_VALUE) {
+        	boxAmount = canAdd / 10000;
+
+        }
+        
+        
+        if (boxAmount > 0)
+          player.getInventory().delete(15262, boxAmount).add(18016, 10000 * boxAmount);
         player.getClickDelay().reset();
         break;
       case 5509:
