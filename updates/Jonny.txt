@@ -35,6 +35,7 @@ Dragon pickaxe now has the correct attack styles.
 Anti-fire potions 4/3 have been fixed.
 Rusty casket now has a open option.
 Rusty casket has been renamed to 'Casket of horror'.
+TopG voting should now be fully functioning and fixed.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
