@@ -39,6 +39,7 @@ TopG voting should now be fully functioning and fixed.
 The bug where you couldn't attack a player if they were standing in a certain spot in the wilderness has been fixed.
 Chaotic longsword is no longer sellable.
 You can no longer use gems on eachother to make bolt tips.
+The fishing skillcape emote should now work correctly instead of making you invisible.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
