@@ -493,10 +493,16 @@ public class Consumables {
                     player.getInventory().getItems()[slot] = new Item(2454, 1);
                     player.getInventory().refreshItems();
                     FireImmunityTask.makeImmune(player, 360, 50);
+                    player.getPacketSender()
+                    .sendMessage("You're now 50% immune to any kind of fire for another 6 minutes.");
                     break;
                 case 2454: // Antifire pot 3
+                    player.performAnimation(new Animation(829));
+                    player.getInventory().getItems()[slot] = new Item(2456, 1);
+                    player.getInventory().refreshItems();
+                    FireImmunityTask.makeImmune(player, 360, 50);
                     player.getPacketSender()
-                            .sendMessage("You're now 50% immune to any kind of fire for another 6 minutes.");
+                    .sendMessage("You're now 50% immune to any kind of fire for another 6 minutes.");
                     break;
                 case 2456: // Antifire pot 2
                     player.performAnimation(new Animation(829));
