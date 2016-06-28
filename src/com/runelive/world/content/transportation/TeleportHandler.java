@@ -7,6 +7,7 @@ import com.runelive.model.Graphic;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
+import com.runelive.world.content.BankPin;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
@@ -102,6 +103,10 @@ public class TeleportHandler {
 			player.getPacketSender().sendMessage("You can't teleport out of jail.");
 			return;
 		}
+		if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
 	  if(player.getLocation() == Location.DUNGEONEERING && Dungeoneering.doingDungeoneering(player) || player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
       player.getPacketSender().sendMessage("You cannot do this now");
       return;
@@ -130,6 +135,10 @@ public class TeleportHandler {
       player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
       return false;
     }
+	if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+		BankPin.init(player, false);
+		return false;
+	}
     if (player.isDying()) {
       player.getPacketSender().sendInterfaceRemoval();
       player.getPacketSender().sendMessage("You can't teleport in mid death.");
@@ -181,6 +190,10 @@ public class TeleportHandler {
       player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
       return false;
     }
+	if(player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin() && player.getBankPinAttributes().onDifferent(player)) {
+		BankPin.init(player, false);
+		return false;
+	}
     if (player.isDying()) {
       player.getPacketSender().sendInterfaceRemoval();
       player.getPacketSender().sendMessage("You can't teleport in mid death.");
