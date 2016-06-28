@@ -525,6 +525,11 @@
     "interface": "PICKAXE"
   },
   {
+    "hash": 15259,
+    "item-id": 15259,
+    "interface": "PICKAXE"
+  },
+  {
     "hash": 1277,
     "item-id": 1277,
     "interface": "SWORD"
