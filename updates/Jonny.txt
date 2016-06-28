@@ -23,7 +23,8 @@ Add battlemage, trickster, vanguard
 Seperate dungeoneering items into random items of no value to prevent smuggling (with dark shadow)
 
 Game Updates:
-A bug where you would open spirit shard packs and your shards bug out has been fixed.
+When you open a lot of spirit shard packs, your current spirit shards will no longer bug out.
+The message you get when stealing silver bars via thieving now gives the correct amount of coins.
 
 Polls:
 Should ghost down be removed from the game and replaced with revenants spread throughout the wilderness?

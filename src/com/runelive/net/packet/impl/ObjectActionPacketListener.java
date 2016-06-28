@@ -1836,7 +1836,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 Stalls.stealFromStall2(player, 60, 3450, 2007, 2700, "You steal some spices and 2,700 Coins.");
                 break;
               case 2565:
-                Stalls.stealFromStall2(player, 50, 2700, 2354, 2150, "You steal a Silver Bar and 3,150 Coins.");
+                Stalls.stealFromStall2(player, 50, 2700, 2354, 3150, "You steal a Silver Bar and 3,150 Coins.");
                 break;
               case 2562:
                 double c = Math.random() * 100;
