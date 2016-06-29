@@ -16,6 +16,8 @@ import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 
+import static com.runelive.model.Direction.*;
+
 /**
  * A queue of {@link Direction}s which a {@link Character} will follow.
  *
@@ -345,7 +347,7 @@ public final class MovementQueue {
                         this.stop();
                         return;
                     }
-                    
+
                     if (!Location.ignoreFollowDistance(character)) {
                         boolean summNpc = followCharacter.isPlayer() && character.isNpc()
                                 && ((NPC) character).isSummoningNpc();
@@ -407,29 +409,54 @@ public final class MovementQueue {
                         character.getMovementQueue().walkStep(
                                 getMove(character.getPosition().getX(), followCharacter.getPosition().getX(), 1), getMove(character.getPosition().getY() - 1, followCharacter.getPosition().getY(), 1));
                     } else {
-                    	
-                        /*Direction dir = Direction.direction(character.getPosition().getX(), followCharacter.getPosition().getX(), character.getPosition().getY(), followCharacter.getPosition().getY());
+
+                        Direction dir = Direction.direction(character.getPosition().getX(), followCharacter.getPosition().getX(), character.getPosition().getY(), followCharacter.getPosition().getY());
+                        int xDiff = 0;//Math.abs(followCharacter.getPosition().getX() - character.getPosition().getX());
+                        int yDiff = 0;//Math.abs(followCharacter.getPosition().getY() - character.getPosition().getY());
                         int offsetX = 0;
                         int offsetY = 0;
                         int size = character.getSize();
-                        switch (dir) {
-                            case NORTH:
-                                offsetY = size;
-                                break;
-                            case SOUTH:
-                                offsetY = -size;
-                                break;
-                            case WEST:
-                                offsetX = -size;
-                                break;
-                            case EAST:
-                                offsetX = size;
-                                break;
-                        }*/
-                        //PathFinder.calculatePath(character, followCharacter.getPosition().getX(), followCharacter.getPosition().getY(), character.getSize(), character.getSize(), false);
-                    	PathFinder.findPath(character, followCharacter.getPosition().getX(),
-                                followCharacter.getPosition().getY() - character.getSize(), true,
-                                character.getSize(), character.getSize());
+                        if (dir.toInteger() == SOUTH_WEST.toInteger()) {
+                            offsetX = 1;
+                            /*if (xDiff > yDiff) {
+                                offsetX = 1;
+                            } else {
+                                offsetY = -1;
+                            }*/
+                        } else if (dir.toInteger() == NORTH_WEST.toInteger()) {
+                            offsetX = 1;
+                            /*if (xDiff > yDiff) {
+                                offsetX = 1;
+                            } else {
+                                offsetY = 1;
+                            }*/
+                        } else if (dir.toInteger() == SOUTH_EAST.toInteger()) {
+                            offsetX = -1;
+                            /*if (xDiff > yDiff) {
+                                offsetX = -1;
+                            } else {
+                                offsetY = -1;
+                            }*/
+                        } else if (dir.toInteger() == NORTH_EAST.toInteger()) {
+                            offsetX = -1;
+                            /*if (xDiff > yDiff) {
+                                offsetX = -1;
+                            } else {
+                                offsetY = 1;
+                            }*/
+                        } else if (dir.toInteger() == SOUTH.toInteger()) {
+                            offsetY = 1;
+                        } else if (dir.toInteger() == NORTH.toInteger()) {
+                            offsetY = -1;
+                        } else if (dir.toInteger() == WEST.toInteger()) {
+                            offsetX = 1;
+                        } else if (dir.toInteger() == EAST.toInteger()) {
+                            offsetX = -1;
+                        }
+//                        System.out.println("Direction: " + dir);
+//                        System.out.println("xDiff: " + xDiff + ", yDiff: " + yDiff + ", xDiff > yDiff: " + (xDiff > yDiff));
+//                        System.out.println("offsetX: " + offsetX + ", offsetY: " + offsetY);
+                        PathFinder.findPath(character, followCharacter.getPosition().getX() + offsetX, followCharacter.getPosition().getY() + offsetY, true, size, size, true);
                     }
                 }
 

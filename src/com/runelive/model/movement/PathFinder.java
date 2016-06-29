@@ -182,6 +182,7 @@ public class PathFinder {
 	public static void findPath(Character gc, int destX, int destY, boolean moveNear,
 			int xLength, int yLength, boolean ignoreLastStep) {
 		try {
+			Position dest = new Position(destX, destY, gc.getPosition().getZ());
 			if (destX == gc.getPosition().getLocalX() && destY == gc.getPosition().getLocalY() && !moveNear) {
 				return;
 			}
@@ -356,17 +357,16 @@ public class PathFinder {
 					curY--;
 			}
 			int size = tail--;
-			if (ignoreLastStep) {
-				size -= 1;
-			}
 			int pathX = gc.getPosition().getRegionX() * 8 + tileQueueX.get(tail);
 			int pathY = gc.getPosition().getRegionY() * 8 + tileQueueY.get(tail);
-			gc.getMovementQueue().addFirstStep(new Position(pathX, pathY, gc.getPosition().getZ()));
+			Position pos = new Position(pathX, pathY, gc.getPosition().getZ());
+			gc.getMovementQueue().addFirstStep(pos);
 			for (int i = 1; i < size; i++) {
 				tail--;
 				pathX = gc.getPosition().getRegionX() * 8 + tileQueueX.get(tail);
 				pathY = gc.getPosition().getRegionY() * 8 + tileQueueY.get(tail);
-				gc.getMovementQueue().addStep(new Position(pathX, pathY, gc.getPosition().getZ()));
+				pos = new Position(pathX, pathY, gc.getPosition().getZ());
+				gc.getMovementQueue().addStep(pos);
 			}
 		} catch(Exception e) {
 			System.out.println("Error finding route, destx: "+destX+", destY: "+destY+". Reseted queue.");
