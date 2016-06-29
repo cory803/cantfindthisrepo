@@ -14,6 +14,7 @@ import java.util.stream.Stream;
 
 import com.runelive.net.SessionState;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.world.entity.impl.player.PlayerHandler;
 
 /**
  * A collection that provides functionality for storing and managing characters. This list does not
@@ -103,6 +104,8 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
                     return false;
                 } else {
                     System.err.println("Player state not set to logging out, attempting to force logout player: " + player.getUsername());
+                    PlayerHandler.handleLogout(player);
+                    return false;
                 }
             }
         }
