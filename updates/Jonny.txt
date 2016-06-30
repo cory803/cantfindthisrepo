@@ -42,6 +42,7 @@ The fishing skillcape emote should now work correctly instead of making you invi
 The bug where you couldn't talk to King healthorg in the quest The King's Task is now fixed.
 There has been 2 more kingly implings added to puro puro.
 A random place north of the ghost town that was wilderness has been made non-wilderness to a certain area.
+The options on the summoning orb have been added for take BoB, renew familiar, etc.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
