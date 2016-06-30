@@ -47,3 +47,4 @@ Should a middle man rank be added to the game, this would be set up similar to a
 Should a option be added to your friends list to teleport a friend to you? You would only be able to use this option if they have you added back and both of you are not in the wilderness.
 Should donator ranks have experience boosts depending on what rank it is? (This would stack with double experience weekends)
 Should aqua items be renamed to 'water' and made a little bit more blue?
+Should we allow donators to change their in-game name via the person at ::dzone? This would be for free and only be able to be done once every 25 days.
