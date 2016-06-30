@@ -17813,6 +17813,32 @@
         "npc-id": 7903,
         "face": WEST,
         "position": {
+       		"x": 2610,
+        	"y": 4315,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 8
+        }
+    },
+	{
+        "npc-id": 7903,
+        "face": WEST,
+        "position": {
+       		"x": 2573,
+        	"y": 4315,
+        	"z": 0
+        },
+         "walking-policy": {
+        	"coordinate": true,
+        	"radius": 8
+        }
+    },
+	{
+        "npc-id": 7903,
+        "face": WEST,
+        "position": {
        		"x": 3418,
         	"y": 2917,
         	"z": 0

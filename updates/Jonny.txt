@@ -41,6 +41,7 @@ Chaotic longsword is no longer sellable.
 You can no longer use gems on eachother to make bolt tips.
 The fishing skillcape emote should now work correctly instead of making you invisible.
 The bug where you couldn't talk to King healthorg in the quest The King's Task is now fixed.
+There has been 2 more kingly implings added to puro puro.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
