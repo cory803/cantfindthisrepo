@@ -48,6 +48,8 @@ The summoning effect for wolpertingers & pack yaks have been added. Use winter s
 Any random ids that server supports would see when right clicking a item have been fixed.
 The support crown now has extra spacing when recieving a private message so it no longer looks jumbeled inside the message.
 The YouTuber rank has been completed.
+The Manager crown has been fixed.
+A announcement system has been added.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?

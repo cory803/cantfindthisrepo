@@ -95,6 +95,19 @@ public class PacketSender {
         return this;
     }
     
+    /**
+     * Sets the world's system restart time, once timer is 0, everyone will be disconnected.
+     *
+     * @param time The amount of seconds in which world will be restart in.
+     * @return The PacketSender instance.
+     */
+    public PacketSender sendSystemRestart(int time) {
+        PacketBuilder out = new PacketBuilder(118);
+        out.putShort(time, ByteOrder.LITTLE);
+        player.getSession().queueMessage(out);
+        return this;
+    }
+    
     public PacketSender sendAnnouncement(int id, String string) {
         PacketBuilder out = new PacketBuilder(116, PacketType.SHORT);
         out.putString(string);

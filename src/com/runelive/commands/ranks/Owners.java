@@ -934,6 +934,45 @@ public class Owners {
                 });
             }
         }
+        /*
+        if (command[0].equals("restart")) {
+            int time = Integer.parseInt(command[1]);
+            if (time > 0) {
+                GameServer.setUpdating(true);
+                for (Player players : World.getPlayers()) {
+                    if (players == null)
+                        continue;
+                    players.getPacketSender().sendSystemRestart(time);
+                    if (Dungeoneering.doingDungeoneering(players)) {
+                        Dungeoneering.leave(players, false, true);
+                        players.getClickDelay().reset();
+                        players.getPacketSender().sendMessage("You have been forced out of your dungeon due to an update, sorry!");
+                    }
+                }
+                TaskManager.submit(new Task(time) {
+                    @Override
+                    protected void execute() {
+                        for (Player player : World.getPlayers()) {
+                            if (player != null) {
+                                World.deregister(player);
+                            }
+                        }
+                        WellOfGoodwill.save();
+                        GrandExchangeOffers.save();
+                        PlayerOwnedShops.saveShops();
+                        try {
+                            Scoreboard.save();
+                        } catch (IOException e) {
+
+                        }
+                        ClanChatManager.save();
+                        GameServer.getLogger().info("Update task finished!");
+                        stop();
+                    }
+                });
+            }
+        }
+        */
         if (command[0].equals("sendstring")) {
             int child = Integer.parseInt(command[1]);
             String string = command[2];
