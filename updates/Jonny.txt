@@ -43,6 +43,9 @@ The bug where you couldn't talk to King healthorg in the quest The King's Task i
 There has been 2 more kingly implings added to puro puro.
 A random place north of the ghost town that was wilderness has been made non-wilderness to a certain area.
 The options on the summoning orb have been added for take BoB, renew familiar, etc.
+Any items that had incorrect capitilization in the second & third words of items have been fixed.
+Magic potions now give the correct magic bonus (104 at 99 magic)
+Steel titans have been nerfed, the max hit is now 200 instead of 400 and the attack bonus is now 90 instead of 99.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?

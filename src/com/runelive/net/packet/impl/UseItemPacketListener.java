@@ -5,6 +5,7 @@ import com.runelive.engine.task.impl.WalkToTask;
 import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.runelive.model.Animation;
 import com.runelive.model.GameMode;
+import com.runelive.model.container.impl.BeastOfBurden;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
@@ -96,6 +97,37 @@ public class UseItemPacketListener implements PacketListener {
       }
       player.setDialogueActionId(184);
       DialogueManager.start(player, 184);
+    }
+    if(usedWith.getId() == 12435 || itemUsedWith.getId() == 12435) {
+    	if(itemUsedWith.getId() == 12435) {
+    		if(player.getSummoning().getFamiliar() != null) {
+	    		if(player.getSummoning().getFamiliar().getSummonNpc().getId() == 6873) {
+	    			if(!player.getSummoningTimer().elapsed(15000)) {
+	    				player.getPacketSender().sendMessage("You must wait 15 seconds in order to use the winter storage scroll effect.");
+	    				return;
+	    			}
+	    			if(usedWith.getDefinition().isNoted() || usedWith.getDefinition().isStackable()) {
+	    				player.getPacketSender().sendMessage("You can't send noted or stackable items to your bank.");
+	    				return;
+	    			}
+	    			player.getSummoningTimer().reset();
+	    			player.performAnimation(new Animation(7660));
+	    			player.performGraphic(new Graphic(1306));
+	    			player.getPacketSender().sendMessage("You have sent your "+usedWith.getDefinition().getName()+" to your bank.");
+	    			player.getBank(0).add(usedWith);
+	    			player.getInventory().delete(usedWith);
+	    			player.getInventory().delete(12435, 1);
+	    	    	return;
+	    		} else {
+	    			player.getPacketSender().sendMessage("You must have a pack yak summoned in order to use this scroll.");
+	    	    	return;
+	    		}
+    		} else {
+    			player.getPacketSender().sendMessage("You must have a pack yak summoned in order to use this scroll.");
+    	    	return;
+    		}
+    	}
+    	return;
     }
 	/*
     if ((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080)

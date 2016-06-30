@@ -268,6 +268,7 @@ public class PlayerSaving {
         object.addProperty("show-home", new Boolean(player.showHomeOnLogin()));
         object.addProperty("veng-cast", new Boolean(player.hasVengeance()));
         object.addProperty("last-veng", new Long(player.getLastVengeance().elapsed()));
+        object.addProperty("last-summon", new Long(player.getSummoningTimer().elapsed()));
         object.addProperty("fight-type", player.getFightType().name());
         object.addProperty("arena-victories", new Integer(player.getDueling().arenaStats[0]));
         object.addProperty("arena-losses", new Integer(player.getDueling().arenaStats[1]));

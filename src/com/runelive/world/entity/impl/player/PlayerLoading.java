@@ -521,6 +521,9 @@ public class PlayerLoading {
         if (reader.has("last-veng")) {
             player.getLastVengeance().reset(reader.get("last-veng").getAsLong());
         }
+        if (reader.has("last-summon")) {
+            player.getSummoningTimer().reset(reader.get("last-summon").getAsLong());
+        }
         if (reader.has("fight-type")) {
             player.setFightType(FightType.valueOf(reader.get("fight-type").getAsString()));
         }

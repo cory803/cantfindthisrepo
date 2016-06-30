@@ -4,10 +4,12 @@ import java.text.DecimalFormat;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Locations.Location;
+import com.runelive.model.Animation;
 import com.runelive.model.GameMode;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.impl.EnterForumAccountTokens;
 import com.runelive.model.GameObject;
+import com.runelive.model.Graphic;
 import com.runelive.model.Item;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
@@ -129,6 +131,29 @@ public class ItemActionPacketListener implements PacketListener {
                 ConstructionConstants.LUMBY_X,
                 ConstructionConstants.LUMBY_Y), TeleportType.TELE_TAB);
         break;
+      case 12437:
+    	    if(player.getSummoning().getFamiliar() != null) {
+	    		if(player.getSummoning().getFamiliar().getSummonNpc().getId() == 6869) {
+	    			if(!player.getSummoningTimer().elapsed(15000)) {
+	    				player.getPacketSender().sendMessage("You must wait 15 seconds in order to use the magic focus scroll effect.");
+	    				return;
+	    			}
+	    			player.getSummoningTimer().reset();
+	    			player.performAnimation(new Animation(7660));
+	    			player.performGraphic(new Graphic(1303));
+	    			player.getSkillManager().setCurrentLevel(Skill.forId(6), player.getSkillManager().getCurrentLevel(Skill.forId(6))
+	                        + Consumables.getBoostedStat(player, 500, false, false), true);
+	    			player.getPacketSender().sendMessage("Your wolpertinger has boosted your magic to "+player.getSkillManager().getCurrentLevel(Skill.forId(6))
+	                        +".");
+
+	    			player.getInventory().delete(12437, 1);
+	    		} else {
+	    			player.getPacketSender().sendMessage("You must have a wolpertinger summoned in order to use this scroll.");
+	    		}
+  		  } else {
+  			  player.getPacketSender().sendMessage("You must have a wolpertinger summoned in order to use this scroll.");
+  		  }
+    	  break;
       case 19476:
         if (!TeleportHandler.checkReqs(player, null))
           break;

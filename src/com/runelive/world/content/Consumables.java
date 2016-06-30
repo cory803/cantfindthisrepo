@@ -2100,12 +2100,22 @@ public class Consumables {
 
     public static int getBoostedStat(Player player, int skillId, boolean sup, boolean combatPotion) {
         Skill skill = Skill.forId(skillId);
+        if(skillId == 500) {
+        	skill = skill.forId(6);
+        }
         int increaseBy = 0;
         if (sup)
             increaseBy = (int) ((double) player.getSkillManager().getMaxLevel(skill) * 0.2D);
         else
             increaseBy = (int) ((double) player.getSkillManager().getMaxLevel(skill)
                     * (combatPotion ? 0.10D : 0.13D)) + 1;
+        if(skillId == 6) {
+        	 increaseBy = (int) ((double) player.getSkillManager().getMaxLevel(skill)
+                     * (combatPotion ? 0.05D : 0.05D)) + 1;
+        } else if(skillId == 500) {
+       	 increaseBy = (int) ((double) player.getSkillManager().getMaxLevel(Skill.forId(6))
+                 * (combatPotion ? 0.07D : 0.07D)) + 1;
+        }
         if (player.getSkillManager().getCurrentLevel(skill)
                 + increaseBy > player.getSkillManager().getMaxLevel(skill) + increaseBy + 1) {
             return player.getSkillManager().getMaxLevel(skill) + increaseBy

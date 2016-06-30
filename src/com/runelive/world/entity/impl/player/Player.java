@@ -93,7 +93,7 @@ public class Player extends Character {
 		}
 		return false;
 	}
-
+	
 	public boolean isDeveloper() {
 		for (String name : GameSettings.DEVELOPER) {
 			if (getUsername().equalsIgnoreCase(name))
@@ -486,6 +486,7 @@ public class Player extends Character {
 	private final Stopwatch dragonfireShield = new Stopwatch();
 	private final Stopwatch dragonSpear = new Stopwatch();
 	private final Stopwatch duelTimer = new Stopwatch();
+	private final Stopwatch summoningTimer = new Stopwatch();
 
 	/*** INSTANCES ***/
 	private final CopyOnWriteArrayList<KillsEntry> killsTracker = new CopyOnWriteArrayList<KillsEntry>();
@@ -2209,6 +2210,10 @@ public class Player extends Character {
 		return duelTimer;
 	}
 
+	public Stopwatch getSummoningTimer() {
+		return summoningTimer;
+	}
+	
 	public Player setUsableObject(Object[] usableObject) {
 		this.usableObject = usableObject;
 		return this;
