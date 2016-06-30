@@ -58,6 +58,10 @@ public class Commands {
 		if(player.getRights() == PlayerRights.STAFF_MANAGER) {
 			StaffManagers.initiate_command(player, parts, whole_command);
 		}
+		if(player.getRights() == PlayerRights.YOUTUBER) {
+			YouTubers.initiate_command(player, parts, whole_command);
+			return;
+		}
 		
 		//Donator Ranks
 		if(player.getDonorRights() == 1) {

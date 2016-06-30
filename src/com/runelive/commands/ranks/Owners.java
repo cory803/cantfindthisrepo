@@ -620,6 +620,13 @@ public class Owners {
                         player.getPacketSender().sendMessage("You have demoted " + command[2] + " to global moderator.");
                         target.getPacketSender().sendRights();
                         break;
+                    case "youtube":
+                    case "youtuber":
+                        target.setRights(PlayerRights.YOUTUBER);
+                        target.getPacketSender().sendMessage("Your player rights has been changed to youtuber.");
+                        player.getPacketSender().sendMessage("You have promoted " + command[2] + " to youtuber.");
+                        target.getPacketSender().sendRights();
+                        break;
                     default:
                         player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
                 }

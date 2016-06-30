@@ -1,5 +1,4 @@
 To-Do:
-Add summoning familar options & summoning scrolls.
 Make all barrow's pieces degrade when you die with them, and "weird old man" will repair it for 30m a set
 Finish fixing youtuber rank in-game.
 Add something for players to spend loyalty points.
@@ -46,6 +45,10 @@ The options on the summoning orb have been added for take BoB, renew familiar, e
 Any items that had incorrect capitilization in the second & third words of items have been fixed.
 Magic potions now give the correct magic bonus (104 at 99 magic)
 Steel titans have been nerfed, the max hit is now 200 instead of 400 and the attack bonus is now 90 instead of 99.
+The summoning effect for wolpertingers & pack yaks have been added. Use winter storage on a item to bank it. Click a magic focus scroll to get 106 magic boost.
+Any random ids that server supports would see when right clicking a item have been fixed.
+The support crown now has extra spacing when recieving a private message so it no longer looks jumbeled inside the message.
+The YouTuber rank has been completed.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
