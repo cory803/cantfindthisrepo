@@ -50,6 +50,8 @@ The support crown now has extra spacing when recieving a private message so it n
 The YouTuber rank has been completed.
 The Manager crown has been fixed.
 A announcement system has been added.
+Summoning no longer plays a role in what your combat level needs to be to attack other players.
+Your summoning level will now display as an addition to your combat level when right clicking.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?

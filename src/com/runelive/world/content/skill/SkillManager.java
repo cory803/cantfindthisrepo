@@ -404,9 +404,10 @@ public class SkillManager {
      * } else { combatLevel = (int) ((defence * 0.25) + (hp + 0.25) + (prayer * 0.125) + (strength *
      * .4875) + (summoning * 0.125)); }
      */
-    if (player.getLocation() != Location.WILDERNESS) {
-      combatLevel += summoning * 0.125;
-    } else if (combatLevel > 126) {
+    if((summoning * 0.125) > 0) {
+    	player.summoningAdd = (int) (summoning * 0.125);
+    }
+    if (combatLevel > 126) {
       return 126;
     }
     if (combatLevel > 138) {

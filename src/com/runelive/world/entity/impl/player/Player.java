@@ -102,6 +102,7 @@ public class Player extends Character {
 		return false;
 	}
 
+	public int summoningAdd = 0;
 	public boolean claimingStoreItems = false;
 	public int debugRollWins;
 	public int debugRollLosses;
