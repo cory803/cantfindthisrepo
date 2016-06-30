@@ -67,6 +67,7 @@ public class Managers {
             player.getInventory().add(9724, 1);
             player.getInventory().add(9722, 1);
         }
+        /*
         if (command[0].equals("announce")) {
             int time = Integer.parseInt(command[1]);
             if(time > 1200) {
@@ -83,6 +84,7 @@ public class Managers {
             }
             player.getPacketSender().sendMessage("You have initiated an announcement!");
         }
+        */
         if(command[0].equals("scan")) {
       	  String victimUsername = wholeCommand.substring(5);
             PlayerSaving.accountExists(victimUsername, rs -> {

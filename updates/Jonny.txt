@@ -11,7 +11,6 @@ Fix bank tabs with resizable mode
 Make godwars killcount load up on update for the interface when logging in
 Make it so people can reset their constitution to 1 (not 10) for 250M coins.
 Add server supports and moderators to moderating team on forum.
-Add ::announce to intertwine with ::update
 Change the instancing on duel arena so there is a option in the interface itself
 Redo the punishment system
 Fix the bugged tile next to the bank chest at ::gamble
@@ -20,38 +19,6 @@ Add battlemage, trickster, vanguard
 Seperate dungeoneering items into random items of no value to prevent smuggling (with dark shadow)
 
 Game Updates:
-When you open a lot of spirit shard packs, your current spirit shards will no longer bug out.
-The message you get when stealing silver bars via thieving now gives the correct amount of coins.
-The bug where your venenatis slayer task would not go down has been fixed.
-The super rare rewards on Treasure Island have been changed from a 1/150 chance to a 1/100 chance.
-The chance of getting a Dragonbone upgrade kit from Treasure Island has been changed to 1/3 chance when getting a super rare reward.
-When a player logs in and has over the maximum achievement points possible their points will be set to the maximum.
-The value on noted rocktails have been changed to the value on regular rocktails fixing the alching value and store value.
-You can no longer teleport to places when you have not entered your account pin (hack exploit)
-Dragon pickaxe now has the correct attack styles. 
-Anti-fire potions 4/3 have been fixed.
-Rusty casket now has a open option.
-Rusty casket has been renamed to 'Casket of horror'.
-TopG voting should now be fully functioning and fixed.
-The bug where you couldn't attack a player if they were standing in a certain spot in the wilderness has been fixed.
-Chaotic longsword is no longer sellable.
-You can no longer use gems on eachother to make bolt tips.
-The fishing skillcape emote should now work correctly instead of making you invisible.
-The bug where you couldn't talk to King healthorg in the quest The King's Task is now fixed.
-There has been 2 more kingly implings added to puro puro.
-A random place north of the ghost town that was wilderness has been made non-wilderness to a certain area.
-The options on the summoning orb have been added for take BoB, renew familiar, etc.
-Any items that had incorrect capitilization in the second & third words of items have been fixed.
-Magic potions now give the correct magic bonus (104 at 99 magic)
-Steel titans have been nerfed, the max hit is now 200 instead of 400 and the attack bonus is now 90 instead of 99.
-The summoning effect for wolpertingers & pack yaks have been added. Use winter storage on a item to bank it. Click a magic focus scroll to get 106 magic boost.
-Any random ids that server supports would see when right clicking a item have been fixed.
-The support crown now has extra spacing when recieving a private message so it no longer looks jumbeled inside the message.
-The YouTuber rank has been completed.
-The Manager crown has been fixed.
-A announcement system has been added.
-Summoning no longer plays a role in what your combat level needs to be to attack other players.
-Your summoning level will now display as an addition to your combat level when right clicking.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?

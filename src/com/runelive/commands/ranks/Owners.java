@@ -885,6 +885,7 @@ public class Owners {
                 target.getInventory().add(item, amount);
             }
         }
+        /*
         if (command[0].equals("announce")) {
             int time = Integer.parseInt(command[1]);
             if(time > 1200) {
@@ -901,6 +902,7 @@ public class Owners {
             }
             player.getPacketSender().sendMessage("You have initiated an announcement!");
         }
+        */
         if (command[0].equals("update")) {
             int time = Integer.parseInt(command[1]);
             if (time > 0) {
