@@ -46,7 +46,7 @@ public class StaffManagers {
                     if (other == null) {
                         AccountTools.scan(player, victimUsername, new Player(null));
                     } else {
-                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
                     }
                 } else {
                     player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
@@ -439,48 +439,48 @@ public class StaffManagers {
 				}
 			});
 		}
-		if (command[0].equalsIgnoreCase("massban")) {
-			String victimUsername = wholeCommand.substring(8);
-			PlayerSaving.accountExists(victimUsername, rs -> {
-				if (rs.next()) {//account exists
-					Player other = World.getPlayerByName(victimUsername);
-					if (other == null) {
-						PlayerPunishment.massBan(player, victimUsername, new Player(null));
-					} else {
-						String address = String.valueOf(other.getSerialNumber());
-						String ip = other.getHostAddress();
-						PlayerPunishment.ban(victimUsername);
-						PlayerPunishment.pcBan(address);
-						PlayerPunishment.ipBan(ip);
-						World.deregister(other);
-						player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
-					}
-				} else {
-					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-				}
-			});
-		}
-		if (command[0].equalsIgnoreCase("unmassban")) {
-			String victimUsername = wholeCommand.substring(10);
-			PlayerSaving.accountExists(victimUsername, rs -> {
-				if (rs.next()) {//account exists
-					Player other = World.getPlayerByName(victimUsername);
-					if (other == null) {
-						PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
-					} else {
-						String address = String.valueOf(other.getSerialNumber());
-						String ip = other.getHostAddress();
-						PlayerPunishment.unBan(victimUsername);
-						PlayerPunishment.unPcBan(address);
-						PlayerPunishment.unIpBan(ip);
-						World.deregister(other);
-						player.getPacketSender().sendMessage("You successfully unmass banned '" + victimUsername + "'.");
-					}
-				} else {
-					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-				}
-			});
-		}
+        if (command[0].equalsIgnoreCase("massban")) {
+            String victimUsername = wholeCommand.substring(8);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                        PlayerPunishment.massBan(player, victimUsername, new Player(null));
+                    } else {
+                        String address = String.valueOf(other.getMacAddress());
+                        String ip = other.getHostAddress();
+                        PlayerPunishment.ban(victimUsername);
+                        PlayerPunishment.pcBan(address);
+                        PlayerPunishment.ipBan(ip);
+                        World.deregister(other);
+                        player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+        }
+        if (command[0].equalsIgnoreCase("unmassban")) {
+            String victimUsername = wholeCommand.substring(10);
+            PlayerSaving.accountExists(victimUsername, rs -> {
+                if (rs.next()) {//account exists
+                    Player other = World.getPlayerByName(victimUsername);
+                    if (other == null) {
+                        PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
+                    } else {
+                        String address = String.valueOf(other.getMacAddress());
+                        String ip = other.getHostAddress();
+                        PlayerPunishment.unBan(victimUsername);
+                        PlayerPunishment.unPcBan(address);
+                        PlayerPunishment.unIpBan(ip);
+                        World.deregister(other);
+                        player.getPacketSender().sendMessage("You successfully unmass banned '" + victimUsername + "'.");
+                    }
+                } else {
+                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+                }
+            });
+        }
 		if (command[0].equals("unbanvote")) {
 			String vote_player = wholeCommand.substring(10);
 			PlayerSaving.accountExists(vote_player, rs -> {

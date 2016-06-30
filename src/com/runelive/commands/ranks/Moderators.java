@@ -42,7 +42,7 @@ public class Moderators {
                     if (other == null) {
                         AccountTools.scan(player, victimUsername, new Player(null));
                     } else {
-                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
                     }
                 } else {
                     player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");

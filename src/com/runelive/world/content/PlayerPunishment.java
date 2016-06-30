@@ -141,7 +141,7 @@ public class PlayerPunishment {
                     String json = rs.getString("json");
                     PlayerLoading.decodeJson(victim, json);
 
-                    String serial = String.valueOf(victim.getLastSerialAddress());
+                    String serial = String.valueOf(victim.getLastMacAddress());
                     String ip = victim.getLastIpAddress();
                     PlayerPunishment.ban(victimUsername);
                     if (victim.getLastIpAddress() != null && !victim.getLastIpAddress().isEmpty() && !victim.getLastIpAddress().equalsIgnoreCase("not-set")) {
@@ -168,7 +168,7 @@ public class PlayerPunishment {
                     String json = rs.getString("json");
                     PlayerLoading.decodeJson(victim, json);
 
-                    String serial = String.valueOf(victim.getLastSerialAddress());
+                    String serial = String.valueOf(victim.getLastMacAddress());
                     String ip = victim.getLastIpAddress();
                     PlayerPunishment.unBan(victimUsername);
                     if (victim.getLastIpAddress() != null && !victim.getLastIpAddress().isEmpty() && !victim.getLastIpAddress().equalsIgnoreCase("not-set")) {

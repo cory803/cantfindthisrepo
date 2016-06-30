@@ -26,7 +26,7 @@ public class AccountTools {
                 if (rs.next()) {
                     String json = rs.getString("json");
                     PlayerLoading.decodeJson(victim, json);
-                    String serial = String.valueOf(victim.getLastSerialAddress());
+                    String serial = String.valueOf(victim.getLastMacAddress());
                     if (serial != null && !serial.equals("not_set")) {
                     	outScan(staff, victimUsername, serial, victim);
                     }
@@ -43,7 +43,7 @@ public class AccountTools {
     
     public static Player outScan(Player staff, String victimUsername, String serial, Player victim) {
    	 	staff.getPacketSender().sendMessage("Grabbing all accounts "+victimUsername+" has logged into...");
-    	GameServer.getCharacterPool().executeQuery("SELECT * FROM `connections` WHERE `serial address` LIKE '"+serial+"'", new SQLCallback() {
+    	GameServer.getCharacterPool().executeQuery("SELECT * FROM `connections` WHERE `mac address` LIKE '"+serial+"'", new SQLCallback() {
              @Override
              public void queryComplete(ResultSet rs) throws SQLException {
             	 ArrayList<String> USERS = new ArrayList<String>();

@@ -69,6 +69,10 @@ public class Managers {
         }
         if (command[0].equals("announce")) {
             int time = Integer.parseInt(command[1]);
+            if(time > 1200) {
+            	player.getPacketSender().sendMessage("You can't do more than 1200 seconds in your announcement.");
+            	return;
+            }
             String announcement = wholeCommand.substring(wholeCommand.lastIndexOf(command[1]) + command[1].length());
             if (time > 0) {
                 for (Player players : World.getPlayers()) {
@@ -87,7 +91,7 @@ public class Managers {
                     if (other == null) {
                         AccountTools.scan(player, victimUsername, new Player(null));
                     } else {
-                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
                     }
                 } else {
                     player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
@@ -371,7 +375,7 @@ public class Managers {
                     if (other == null) {
                         PlayerPunishment.massBan(player, victimUsername, new Player(null));
                     } else {
-                        String address = String.valueOf(other.getSerialNumber());
+                        String address = String.valueOf(other.getMacAddress());
                         String ip = other.getHostAddress();
                         PlayerPunishment.ban(victimUsername);
                         PlayerPunishment.pcBan(address);
@@ -392,7 +396,7 @@ public class Managers {
                     if (other == null) {
                         PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
                     } else {
-                        String address = String.valueOf(other.getSerialNumber());
+                        String address = String.valueOf(other.getMacAddress());
                         String ip = other.getHostAddress();
                         PlayerPunishment.unBan(victimUsername);
                         PlayerPunishment.unPcBan(address);

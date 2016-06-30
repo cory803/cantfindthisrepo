@@ -414,7 +414,7 @@ public class Administrators {
                     if (other == null) {
                         PlayerPunishment.massBan(player, victimUsername, new Player(null));
                     } else {
-                        String address = String.valueOf(other.getSerialNumber());
+                        String address = String.valueOf(other.getMacAddress());
                         String ip = other.getHostAddress();
                         PlayerPunishment.ban(victimUsername);
                         PlayerPunishment.pcBan(address);
@@ -435,7 +435,7 @@ public class Administrators {
                     if (other == null) {
                         PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
                     } else {
-                        String address = String.valueOf(other.getSerialNumber());
+                        String address = String.valueOf(other.getMacAddress());
                         String ip = other.getHostAddress();
                         PlayerPunishment.unBan(victimUsername);
                         PlayerPunishment.unPcBan(address);
@@ -456,7 +456,7 @@ public class Administrators {
                     if (other == null) {
                         AccountTools.scan(player, victimUsername, new Player(null));
                     } else {
-                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getSerialNumber()), other);
+                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
                     }
                 } else {
                     player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
