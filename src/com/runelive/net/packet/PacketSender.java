@@ -94,6 +94,14 @@ public class PacketSender {
         player.getSession().queueMessage(out);
         return this;
     }
+    
+    public PacketSender sendAnnouncement(int id, String string) {
+        PacketBuilder out = new PacketBuilder(116, PacketType.SHORT);
+        out.putString(string);
+        out.putShort(id);
+        player.getSession().queueMessage(out);
+        return this;
+    }
 
     public PacketSender sendSound(int soundId, int volume, int delay) {
         PacketBuilder out = new PacketBuilder(175);

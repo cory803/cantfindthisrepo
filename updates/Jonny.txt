@@ -1,6 +1,5 @@
 To-Do:
 Make all barrow's pieces degrade when you die with them, and "weird old man" will repair it for 30m a set
-Finish fixing youtuber rank in-game.
 Add something for players to spend loyalty points.
 Add new dungeon for dungeoneering same as soulsplit 2 - eledungeon = 2715 9889
 Add a uber zone via custom map editor.
