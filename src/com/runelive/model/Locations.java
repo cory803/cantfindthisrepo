@@ -239,13 +239,13 @@ public class Locations {
         },
         // 3653
         WILDERNESS(new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059, 3008, 3070, 2250, 2295, 2760, 2800, 2830, 2885, 2505, 2550},
-                new int[]{3523, 3968, 10338, 10366, 3441, 3538, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729, 10120, 10180, 10105, 10150, 4760, 4795}, false, true, true, true, true,
+                new int[]{3523, 3968, 10338, 10366, 3441, 3517, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729, 10120, 10180, 10105, 10150, 4760, 4795}, false, true, true, true, true,
                 true) {
             @Override
             public void process(Player player) {
                 int x = player.getPosition().getX();
                 int y = player.getPosition().getY();
-                boolean ghostTown = x >= 3650 && y <= 3538;
+                boolean ghostTown = x >= 3650 && y <= 3517;
                 boolean inKBD = x >= 2250 && x <= 2295 && y >= 4675 && y <= 4729;
                 boolean chaosTempleDungeon1 = x >= 2760 && x <= 2800 && y >= 10120 && y <= 10180;
                 boolean chaosTempleDungeon2 = x >= 2830 && x <= 2885 && y >= 10105 && y <= 10150;

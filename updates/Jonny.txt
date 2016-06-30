@@ -1,5 +1,4 @@
 To-Do:
-Make coordinates 3653 - 3534 non wilderness
 Add summoning familar options & summoning scrolls.
 Make all barrow's pieces degrade when you die with them, and "weird old man" will repair it for 30m a set
 Finish fixing youtuber rank in-game.
@@ -42,6 +41,7 @@ You can no longer use gems on eachother to make bolt tips.
 The fishing skillcape emote should now work correctly instead of making you invisible.
 The bug where you couldn't talk to King healthorg in the quest The King's Task is now fixed.
 There has been 2 more kingly implings added to puro puro.
+A random place north of the ghost town that was wilderness has been made non-wilderness to a certain area.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
