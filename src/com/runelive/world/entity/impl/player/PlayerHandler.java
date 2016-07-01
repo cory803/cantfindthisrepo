@@ -1,7 +1,5 @@
 package com.runelive.world.entity.impl.player;
 
-import java.util.concurrent.TimeUnit;
-
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.TaskManager;
@@ -16,7 +14,6 @@ import com.runelive.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.runelive.model.Flag;
 import com.runelive.model.Locations;
 import com.runelive.world.content.PlayerLogs;
-import com.runelive.model.Locations.Location;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
@@ -33,11 +30,7 @@ import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.BankPin;
 import com.runelive.world.content.BonusManager;
-import com.runelive.world.content.Lottery;
-import com.runelive.world.content.PlayerLogs;
-import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.content.PlayersOnlineInterface;
-import com.runelive.world.content.WellOfGoodwill;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.effect.CombatPoisonEffect;
@@ -51,19 +44,14 @@ import com.runelive.world.content.combat.range.DwarfMultiCannon;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.dialogue.impl.Tutorial;
-import com.runelive.world.content.grandexchange.GrandExchange;
-import com.runelive.world.content.grandexchange.GrandExchangeOffer;
-import com.runelive.world.content.grandexchange.GrandExchangeOffers;
-import com.runelive.world.content.grandexchange.GrandExchangeSlot;
-import com.runelive.world.content.grandexchange.GrandExchangeSlotState;
 import com.runelive.world.content.minigames.impl.Barrows;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.skill.impl.hunter.Hunter;
 import com.runelive.world.content.skill.impl.slayer.Slayer;
-import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.net.login.LoginResponses;
-import org.scripts.kotlin.TestMethod;
+import org.scripts.kotlin.core.LoginLoaderAssetts;
+import org.scripts.kotlin.core.LoginMessageParser;
 
 public class PlayerHandler {
 
@@ -225,79 +213,12 @@ public class PlayerHandler {
         // Update appearance
         player.getUpdateFlag().flag(Flag.APPEARANCE);
 
-        // Others
-        Lottery.onLogin(player);
-        Locations.login(player);
-        if (GameSettings.DOUBLE_EXP) {
-            player.getPacketSender().sendMessage(
-                    "@bla@Welcome to RuneLive! We're currently in Double EXP mode! (@red@X2.0@bla@)");
-        } else if (GameSettings.INSANE_EXP) {
-            player.getPacketSender().sendMessage(
-                    "@bla@Welcome to RuneLive! We're currently in Insane EXP mode! (@red@X8.0@bla@)");
-        } else {
-            player.getPacketSender().sendMessage(
-                    "@bla@Welcome to RuneLive! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
-        }
-        if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
-            player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.");
-        } else if (player.getHomeLocation() == 1 && player.showHomeOnLogin()) {
-            player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Edgeville@blu@.");
-        }
-        new org.scripts.kotlin.TestMethod();
-        TestMethod.TestMethod.testMethod(player);
-        long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin());
-
-        if (player.getLastIpAddress() != null && player.getLastLogin() != -1 && player.showIpAddress()) {
-            if (days > 0) {
-                player.getPacketSender().sendMessage("You last logged in @blu@" + days + "@bla@ "
-                        + (days > 1 ? "days" : "day") + " ago from @blu@" + player.getLastIpAddress());
-            } else {
-                player.getPacketSender()
-                        .sendMessage("You last logged in earlier today from @blu@" + player.getLastIpAddress());
-            }
-        } else if ((player.getLastIpAddress() != null && player.getLastLogin() != -1 && !player.showIpAddress())) {
-            if (days > 0) {
-                player.getPacketSender().sendMessage("You last logged in @blu@" + days + "@bla@ "
-                        + (days > 1 ? "days" : "day") + " ago.");
-            } else {
-                player.getPacketSender().sendMessage("You last logged in earlier today.");
-            }
-        }
-        if (player.experienceLocked())
-            player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.");
-
-        player.getPacketSender().sendString(1, "[CLEAR]");
-        ClanChatManager.handleLogin(player);
-
-        if (GameSettings.DOUBLE_POINTS) {
-            player.getPacketSender().sendMessage(
-                    "<img=4> <col=008FB2>RuneLive currently has a double points event going on, make sure to use it!");
-        }
-
-        if (GameSettings.DOUBLE_VOTE_TOKENS) {
-            player.getPacketSender().sendMessage(
-                    "<img=4> <col=008FB2>RuneLive currently has a double vote rewards event going on, make sure to use it!");
-        }
-
-        if (GameSettings.TRIPLE_VOTE_TOKENS) {
-            player.getPacketSender().sendMessage(
-                    "<img=4> <col=008FB2>RuneLive currently has a triple vote rewards event going on, make sure to use it!");
-        }
-
-        if (WellOfGoodwill.isActive()) {
-            if (player.getDonorRights() > 0) {
-                player.getPacketSender().sendMessage(
-                        "<img=4> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "
-                                + WellOfGoodwill.getMinutesRemaining() + " minutes.");
-            } else {
-                player.getPacketSender().sendMessage(
-                        "<img=4> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "
-                                + WellOfGoodwill.getMinutesRemaining() + " minutes.");
-            }
-        }
-
-        DailyTaskManager.giveNewTask(player);
-        PlayerPanel.refreshPanel(player);
+        //Loads login messages from Kotlin
+        new org.scripts.kotlin.core.LoginMessageParser();
+        LoginMessageParser.LoginMessageParser.sendLogin(player);
+        //Loads Assetts
+        new LoginLoaderAssetts();
+        LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);
 
 
         // New player

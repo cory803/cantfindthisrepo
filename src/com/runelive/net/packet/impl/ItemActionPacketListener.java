@@ -1,12 +1,9 @@
 package com.runelive.net.packet.impl;
 
-import java.text.DecimalFormat;
-
 import com.runelive.GameSettings;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Animation;
 import com.runelive.model.GameMode;
-import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.impl.EnterForumAccountTokens;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
@@ -19,14 +16,7 @@ import com.runelive.model.input.impl.EnterAmountToDice;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
-import com.runelive.world.content.CompletionistCapes;
-import com.runelive.world.content.Consumables;
-import com.runelive.world.content.Digging;
-import com.runelive.world.content.Effigies;
-import com.runelive.world.content.ExperienceLamps;
-import com.runelive.world.content.Gambling;
-import com.runelive.world.content.MoneyPouch;
-import com.runelive.world.content.PlayerLogs;
+import com.runelive.world.content.*;
 import com.runelive.world.content.combat.range.DwarfMultiCannon;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.skill.impl.construction.Construction;
