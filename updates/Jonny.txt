@@ -27,3 +27,4 @@ Should a option be added to your friends list to teleport a friend to you? You w
 Should donator ranks have experience boosts depending on what rank it is? (This would stack with double experience weekends)
 Should aqua items be renamed to 'water' and made a little bit more blue?
 Should we allow donators to change their in-game name via the person at ::dzone? This would be for free and only be able to be done once every 25 days.
+Should edgeville be changed to the version of edgeville from the 634 revision? (2010+ RuneScape)
