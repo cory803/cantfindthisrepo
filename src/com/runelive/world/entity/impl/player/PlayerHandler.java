@@ -63,6 +63,7 @@ import com.runelive.world.content.skill.impl.slayer.Slayer;
 import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.net.login.LoginResponses;
+import org.scripts.kotlin.TestMethod;
 
 public class PlayerHandler {
 
@@ -237,13 +238,13 @@ public class PlayerHandler {
             player.getPacketSender().sendMessage(
                     "@bla@Welcome to RuneLive! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
         }
-
         if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
             player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.");
         } else if (player.getHomeLocation() == 1 && player.showHomeOnLogin()) {
             player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Edgeville@blu@.");
         }
-
+        new org.scripts.kotlin.TestMethod();
+        TestMethod.TestMethod.testMethod(player);
         long days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin());
 
         if (player.getLastIpAddress() != null && player.getLastLogin() != -1 && player.showIpAddress()) {
