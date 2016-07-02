@@ -14,7 +14,7 @@ import com.runelive.model.input.impl.EnterAmountOfLogsToAdd;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
-import com.runelive.world.ChaosTunnelHandler;
+
 import com.runelive.world.World;
 import com.runelive.world.clip.region.RegionClipping;
 import com.runelive.world.content.CrystalChest;
@@ -60,6 +60,7 @@ import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
+import com.scripts.kotlin.content.world.ChaosTunnelHandler;
 import org.scripts.kotlin.content.skills.thieving.Stall;
 
 /**

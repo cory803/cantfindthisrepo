@@ -1,4 +1,4 @@
-package com.runelive.world
+package com.scripts.kotlin.content.world;
 
 import com.runelive.model.GameObject
 import com.runelive.model.Position
