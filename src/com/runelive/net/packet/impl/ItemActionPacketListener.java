@@ -662,6 +662,182 @@ public class ItemActionPacketListener implements PacketListener {
       case 11716:
       handleHasta(player);
       break;
+      case 11602:
+        if(player.getInventory().contains(11602)) {
+          player.getInventory().delete(11602, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11603:
+        if(player.getInventory().contains(11603)) {
+          player.getInventory().delete(11603, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11604:
+        if(player.getInventory().contains(11604)) {
+          player.getInventory().delete(11604, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11605:
+        if(player.getInventory().contains(11605)) {
+          player.getInventory().delete(11605, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11606:
+        if(player.getInventory().contains(11606)) {
+          player.getInventory().delete(11606, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11607:
+        if(player.getInventory().contains(11607)) {
+          player.getInventory().delete(11607, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11608:
+        if(player.getInventory().contains(11608)) {
+          player.getInventory().delete(11608, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11609:
+        if(player.getInventory().contains(11609)) {
+          player.getInventory().delete(11609, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11610:
+        if(player.getInventory().contains(11610)) {
+          player.getInventory().delete(11610, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11611:
+        if(player.getInventory().contains(11611)) {
+          player.getInventory().delete(11611, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11612:
+        if(player.getInventory().contains(11612)) {
+          player.getInventory().delete(11612, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11614:
+        if(player.getInventory().contains(11614)) {
+          player.getInventory().delete(11614, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11615:
+        if(player.getInventory().contains(11615)) {
+          player.getInventory().delete(11615, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11616:
+        if(player.getInventory().contains(11616)) {
+          player.getInventory().delete(11616, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11617:
+        if(player.getInventory().contains(11617)) {
+          player.getInventory().delete(11617, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
+      case 11618:
+        if(player.getInventory().contains(11618)) {
+          player.getInventory().delete(11618, 1);
+          player.getInventory().add(11601, 1);
+          player.getPacketSender().sendMessage("You remove the upgrade kit, your armour is now useless.");
+          player.performAnimation(new Animation(9943));
+          player.getPacketSender().sendMessage("So you throw it away...");
+        } else {
+          player.getPacketSender().sendMessage("You don't have this item.");
+        }
+        break;
       case 7500:
         player.forceChat("*razor noises* ZzZZzzZZZzzzz [I'M SHAVING JONNY'S HEAD]");
         DialogueManager.start(player, 324);

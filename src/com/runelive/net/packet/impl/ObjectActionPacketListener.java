@@ -143,7 +143,7 @@ public class ObjectActionPacketListener implements PacketListener {
             }
 			//if (Scoreboard.isGameObject(player, gameObject))
 				//return;
-            if (ChaosTunnelHandler.handleObjects(player, gameObject)) {
+            if (ChaosTunnelHandler.ChoasTunnelHandler.handleObjects(player, gameObject)) {
               return;
             }
             if (player.getLocation() == Location.WILDERNESS
