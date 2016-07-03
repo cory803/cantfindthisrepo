@@ -19,6 +19,7 @@ Add battlemage, trickster, vanguard
 Seperate dungeoneering items into random items of no value to prevent smuggling (with dark shadow)
 
 Game Updates:
+The bug in player owned shops where your items would get stuck has been fixed.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
@@ -28,3 +29,8 @@ Should donator ranks have experience boosts depending on what rank it is? (This 
 Should aqua items be renamed to 'water' and made a little bit more blue?
 Should we allow donators to change their in-game name via the person at ::dzone? This would be for free and only be able to be done once every 25 days.
 Should edgeville be changed to the version of edgeville from the 634 revision? (2010+ RuneScape)
+
+Website Updates:
+A YouTube video has been added to the homepage of the website.
+The player count on the homepage has been changed to say hundreds of players instead of 174.
+Member reputation and post count has been recounted on the forum aswell as total members, topics, posts and most members online.

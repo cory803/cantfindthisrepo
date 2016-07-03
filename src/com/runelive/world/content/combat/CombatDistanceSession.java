@@ -26,9 +26,9 @@ public class CombatDistanceSession {
   public void process() {
 
     builder.determineStrategy();
-    builder.attackTimer = 0;
-    builder.cooldown = 0;
-
+    //builder.attackTimer = 0;
+    //builder.cooldown = 0;
+    
     if (builder.getVictim() != null && !builder.getVictim().equals(victim)) {
       builder.reset(true);
       this.stop();
