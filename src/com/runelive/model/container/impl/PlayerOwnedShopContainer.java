@@ -376,7 +376,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
                         super.switchItem(to, new Item(item.getId(), (int) canBeBought), slot, false, false);
                         playerCurrencyAmount -= value;
                         total += value * canBeBought;
-                        offer.decreaseAmount(amountBuying);
+                        offer.decreaseAmount((int) canBeBought);
                         break;
                     } else {
                         break;
