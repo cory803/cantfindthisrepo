@@ -20,6 +20,7 @@ Seperate dungeoneering items into random items of no value to prevent smuggling 
 
 Game Updates:
 The bug in player owned shops where your items would get stuck has been fixed.
+The duel arena exploit that allowed you to double hit your opponent should now be fixed.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
