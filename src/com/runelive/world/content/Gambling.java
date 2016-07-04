@@ -65,6 +65,10 @@ public class Gambling {
           .sendMessage("You can't plant here! Try going to ::gamble.");
       return;
     }
+    if (player.getLocation() == Location.DUEL_ARENA) {
+      player.forceChat("Hey everyone! I just tried to do something silly!");
+      return;
+    }
     if (!player.getClickDelay().elapsed(1400))
       return;
     for (NPC npc : player.getLocalNpcs()) {

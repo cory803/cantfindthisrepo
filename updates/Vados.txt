@@ -1,5 +1,10 @@
 To-Do:
 
 Game Updates:
+Fixed forfeiting bug (could forfeit and your character could skip the count down)
+Fixed the bug with hitting players extremely fast within the Duel Arena/Player vs Player activities.
+Converted loggining in to Kotlin.
+Converted the Thieving skill to Kotlin.
+Converted Chaos Tunnels to Kotlin.
 
 Polls:
