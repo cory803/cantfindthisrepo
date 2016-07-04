@@ -1507,9 +1507,13 @@ public class ObjectActionPacketListener implements PacketListener {
               case 3203:
                 if (player.getLocation() == Location.DUEL_ARENA
                     && player.getDueling().duelingStatus == 5) {
+                  if (player.getDueling().timer >= 0) {
+                    player.getPacketSender().sendMessage("You cannot forfeit before the duel has started.");
+                    return;
+                  }
                   if (Dueling.checkRule(player, DuelRule.NO_FORFEIT)) {
                     player.getPacketSender()
-                        .sendMessage("Forfeiting has been disabled in this duel.");
+                            .sendMessage("Forfeiting has been disabled in this duel.");
                     return;
                   }
                   player.getCombatBuilder().reset(true);

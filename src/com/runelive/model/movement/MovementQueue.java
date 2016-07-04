@@ -270,6 +270,10 @@ public final class MovementQueue {
                     }
                 }
 
+                if(isPlayer && character.getCombatBuilder().isAttacking()) {
+                    character.getCombatBuilder().reset(true);
+                }
+
                 if (!isPlayer && !character.getCombatBuilder().isAttacking()) {
                     if (((NPC) character).isSummoningNpc() && !((NPC) character).summoningCombat()) {
                         if (!canWalk(character.getPosition(), walkPoint.position, character.getSize())) {
