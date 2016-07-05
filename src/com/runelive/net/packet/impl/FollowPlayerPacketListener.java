@@ -4,6 +4,7 @@ import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.world.World;
 import com.runelive.world.content.BankPin;
+import com.runelive.world.content.minigames.impl.Dueling;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -27,6 +28,10 @@ public class FollowPlayerPacketListener implements PacketListener {
     if (leader.getConstitution() <= 0 || player.getConstitution() <= 0
         || !player.getLocation().isFollowingAllowed()) {
       player.getPacketSender().sendMessage("You cannot follow other players right now.");
+      return;
+    }
+    if(player.getDueling().duelingStatus == 5 && Dueling.checkRule(player, Dueling.DuelRule.NO_MOVEMENT)) {
+      player.getPacketSender().sendMessage("You cannot follow in the Duel Arena.");
       return;
     }
     if (player.getBankPinAttributes().hasBankPin()
