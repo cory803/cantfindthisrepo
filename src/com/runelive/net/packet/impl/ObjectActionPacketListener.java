@@ -60,7 +60,7 @@ import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
-import com.scripts.kotlin.content.world.ChaosTunnelHandler;
+import org.scripts.kotlin.content.world.ChaosTunnelHandler;
 import org.scripts.kotlin.content.skills.thieving.Stall;
 
 /**
@@ -144,7 +144,7 @@ public class ObjectActionPacketListener implements PacketListener {
             }
 			//if (Scoreboard.isGameObject(player, gameObject))
 				//return;
-            if (ChaosTunnelHandler.ChoasTunnelHandler.handleObjects(player, gameObject)) {
+            if (ChaosTunnelHandler.handleObjects(player, gameObject)) {
               return;
             }
             if (player.getLocation() == Location.WILDERNESS
