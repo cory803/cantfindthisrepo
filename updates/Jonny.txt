@@ -26,6 +26,8 @@ The color on magic potions & magic flasks have been changed to match OSRS.
 Bank booths have been added to the edge of the wilderness. (They are lined up in the back of the lvl 2 men house)
 Any donator rank can now change their yell tag for a certain amount of money per rank.
 You can no longer put @ symbols in your yell tag to gain custom colors.
+The roof at the donator zone has been fixed to not overlap the entrance all weird.
+The weird spot at the donator zone shop that you couldn't walk on is now fixed.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
