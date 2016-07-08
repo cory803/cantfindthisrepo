@@ -1750,6 +1750,7 @@ public class ObjectActionPacketListener implements PacketListener {
               case 3193:
               case 2213:
               case 11758:
+              case 10517:
               case 14367:
               case 42192:
               case 26972:
@@ -1854,6 +1855,7 @@ public class ObjectActionPacketListener implements PacketListener {
               case 4483:
               case 3193:
               case 2213:
+              case 10517:
               case 11758:
               case 14367:
               case 42192:
