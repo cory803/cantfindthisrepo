@@ -25,7 +25,7 @@ public class EnterYellTag extends Input {
 	}
     String[] not_allowed = {"owner", "moderator", "admin", "fuck", "bitch", "shit", "nigger",
         "cancer", ".com", ".org", ".net", "asshole", "faggot", "porn", "penis", "vagina",
-        "ballsack", "nutsack", "<", ">", "img=", "col=", "shad=", "hair pube"};
+        "ballsack", "nutsack", "<", ">", "img=", "col=", "shad=", "hair pube", "@"};
     for (int i = 0; i < not_allowed.length; i++) {
       if (yell_tag.toLowerCase().contains(not_allowed[i])) {
         DialogueManager.sendStatement(player, "You are not allowed to have that in your yell tag!");
