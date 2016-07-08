@@ -1,6 +1,7 @@
-package org.scripts.kotlin.core
+package org.scripts.kotlin.core.login
 
 import com.runelive.model.Locations
+import com.runelive.world.content.Achievements
 import com.runelive.world.content.Lottery
 import com.runelive.world.content.PlayerPanel
 import com.runelive.world.content.clan.ClanChatManager
@@ -15,6 +16,9 @@ class LoginLoaderAssetts {
 
     companion object LoginLoaderAssetts {
         fun loadAssetts(player : Player) {
+            if (player.pointsHandler.achievementPoints > Achievements.AchievementData.values().size) {
+                player.pointsHandler.setAchievementPoints(Achievements.AchievementData.values().size, false)
+            }
             Lottery.onLogin(player)
             Locations.login(player)
             player.getPacketSender().sendString(1, "[CLEAR]")

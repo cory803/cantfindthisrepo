@@ -236,12 +236,22 @@ public class PlayerOwnedShops {
             if (o == null)
                 continue;
             if (o.getOwner().toLowerCase().equals(player.getUsername().toLowerCase())) {
-                if (o.getCoinsToCollect() >= 1) {
+                if (o.getCoinsToCollect() >= 1 && player.getBankPinAttributes().hasEnteredBankPin()) {
                     player.setMoneyInPouch((player.getMoneyInPouch() + (o.getCoinsToCollect())));
                     player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
                     player.getPacketSender().sendString(1, ":moneypouchearning:" + o.getCoinsToCollect());
                     player.getPacketSender().sendMessage("Your items have sold for <col=CA024B>"
                             + formatAmount(o.getCoinsToCollect()) + "</col>");
+                    PlayerLogs.other(player,
+                            "Player owned shop items sold for: " + formatAmount(o.getCoinsToCollect()) + "");
+                    o.resetCoinsCollect();
+                    player.save();
+                    save();
+                } else {
+                    player.setMoneyInPouch((player.getMoneyInPouch() + (o.getCoinsToCollect())));
+                    player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
+                    player.getPacketSender().sendString(1, ":moneypouchearning:" + o.getCoinsToCollect());
+                    player.getPacketSender().sendMessage("<col=CA024B>Some of your Player Owned Shop items have been sold</col>");
                     PlayerLogs.other(player,
                             "Player owned shop items sold for: " + formatAmount(o.getCoinsToCollect()) + "");
                     o.resetCoinsCollect();

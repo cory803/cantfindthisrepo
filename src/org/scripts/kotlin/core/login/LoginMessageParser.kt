@@ -1,4 +1,4 @@
-package org.scripts.kotlin.core
+package org.scripts.kotlin.core.login
 
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.GameSettings

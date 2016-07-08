@@ -50,8 +50,9 @@ import com.runelive.world.content.skill.impl.hunter.Hunter;
 import com.runelive.world.content.skill.impl.slayer.Slayer;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.net.login.LoginResponses;
-import org.scripts.kotlin.core.LoginLoaderAssetts;
-import org.scripts.kotlin.core.LoginMessageParser;
+import org.scripts.kotlin.core.login.LoginChecksParser;
+import org.scripts.kotlin.core.login.LoginLoaderAssetts;
+import org.scripts.kotlin.core.login.LoginMessageParser;
 
 public class PlayerHandler {
 
@@ -214,10 +215,10 @@ public class PlayerHandler {
         player.getUpdateFlag().flag(Flag.APPEARANCE);
 
         //Loads login messages from Kotlin
-        new org.scripts.kotlin.core.LoginMessageParser();
+        new org.scripts.kotlin.core.login.LoginMessageParser();
         LoginMessageParser.LoginMessageParser.sendLogin(player);
         //Loads Assetts
-        new LoginLoaderAssetts();
+        new org.scripts.kotlin.core.login.LoginLoaderAssetts();
         LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);
 
 
@@ -295,28 +296,15 @@ public class PlayerHandler {
                 player.setLoyaltyRank(46);
             }
         }
-        
-        if(player.getPointsHandler().getAchievementPoints() > AchievementData.values().length) {
-        	player.getPointsHandler().setAchievementPoints(AchievementData.values().length, false);
-        }
-
         if (player.getUsername().equalsIgnoreCase("dc blitz")
                 || player.getUsername().equalsIgnoreCase("hero")) {
             player.setLoyaltyRank(51);
-        }
-
-        if (player.getBankPinAttributes().hasBankPin()
-                && !player.getBankPinAttributes().hasEnteredBankPin()
-                && player.getBankPinAttributes().onDifferent(player)) {
-            BankPin.init(player, false);
         }
         if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
             player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
                     player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
         }
-        PlayerOwnedShops.collectCoinsOnLogin(player);
-        // PlayerOwnedShops.collectCoinsOnLogin(player);
-        PlayerLogs.connections(player, "Login");
+        LoginChecksParser.checkLogin(player);
     }
 
     public static boolean handleLogout(Player player) {
