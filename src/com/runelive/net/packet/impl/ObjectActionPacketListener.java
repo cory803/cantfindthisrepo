@@ -61,7 +61,7 @@ import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
-import org.runelive.world.content.combat.instanced.InstancedCerberus;
+import com.runelive.world.content.combat.instanced.InstancedCerberus;
 
 /**
  * This packet listener is called when a player clicked on a game object.
