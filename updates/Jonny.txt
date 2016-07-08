@@ -22,6 +22,7 @@ Game Updates:
 The bug in player owned shops where your items would get stuck has been fixed.
 A bank booth has been added to the duel arena.
 A banker has been added to the gamble area.
+The color on magic potions & magic flasks have been changed to match OSRS.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
