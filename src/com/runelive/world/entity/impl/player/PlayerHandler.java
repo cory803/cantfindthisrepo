@@ -13,7 +13,7 @@ import com.runelive.engine.task.impl.PrayerRenewalPotionTask;
 import com.runelive.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.runelive.model.Flag;
 import com.runelive.model.Locations;
-import com.runelive.world.content.PlayerLogs;
+import com.runelive.world.content.*;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
@@ -27,10 +27,6 @@ import com.runelive.net.SessionState;
 import com.runelive.net.security.ConnectionHandler;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.Achievements;
-import com.runelive.world.content.BankPin;
-import com.runelive.world.content.BonusManager;
-import com.runelive.world.content.PlayersOnlineInterface;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.effect.CombatPoisonEffect;
@@ -48,11 +44,14 @@ import com.runelive.world.content.minigames.impl.Barrows;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.skill.impl.hunter.Hunter;
 import com.runelive.world.content.skill.impl.slayer.Slayer;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.net.login.LoginResponses;
-import org.scripts.kotlin.core.login.LoginChecksParser;
-import org.scripts.kotlin.core.login.LoginLoaderAssetts;
-import org.scripts.kotlin.core.login.LoginMessageParser;
+//import org.scripts.kotlin.core.login.LoginChecksParser;
+//import org.scripts.kotlin.core.login.LoginLoaderAssetts;
+//import org.scripts.kotlin.core.login.LoginMessageParser;
+
+import static com.runelive.world.content.Lottery.*;
 
 public class PlayerHandler {
 
@@ -215,38 +214,46 @@ public class PlayerHandler {
         player.getUpdateFlag().flag(Flag.APPEARANCE);
 
         //Loads login messages from Kotlin
-        new org.scripts.kotlin.core.login.LoginMessageParser();
-        LoginMessageParser.LoginMessageParser.sendLogin(player);
+        //new org.scripts.kotlin.core.login.LoginMessageParser();
+        //LoginMessageParser.LoginMessageParser.sendLogin(player);
         //Loads Assetts
-        new org.scripts.kotlin.core.login.LoginLoaderAssetts();
-        LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);
-
+        //new org.scripts.kotlin.core.login.LoginLoaderAssetts();
+        //LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);
+        if(player.getPointsHandler().getAchievementPoints() > AchievementData.values().length) {
+            player.getPointsHandler().setAchievementPoints(AchievementData.values().length, false);
+        }
+        onLogin(player);
+        Locations.login(player);
+        player.getPacketSender().sendString(1, "[CLEAR]");
+        ClanChatManager.handleLogin(player);
+        DailyTaskManager.giveNewTask(player);
+        PlayerPanel.refreshPanel(player);
 
         // New player
         if (player.newPlayer()) {
-        	player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
-        	player.save();
+            player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
+            player.save();
             // player.setClanChatName("runelive");
             player.setPlayerLocked(true).setDialogueActionId(45);
             DialogueManager.start(player, 81);
         } else {
-        	if(player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
-        		player.setPlayerLocked(true);
-        		player.setPasswordChanging(true);
-    			player.setInputHandling(new ChangePassword());
-    			player.getPacketSender().sendEnterInputPrompt("Please enter a new password to set for your account:");
-        	} else {
-	        	if(!player.getBankPinAttributes().hasBankPin()) {
-	        		player.setPlayerLocked(true);
-	        		player.setLoginAccountPin(true);
-	                DialogueManager.start(player, Tutorial.get(player, 17));
-	        	}
-        	}
+            if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
+                player.setPlayerLocked(true);
+                player.setPasswordChanging(true);
+                player.setInputHandling(new ChangePassword());
+                player.getPacketSender().sendEnterInputPrompt("Please enter a new password to set for your account:");
+            } else {
+                if (!player.getBankPinAttributes().hasBankPin()) {
+                    player.setPlayerLocked(true);
+                    player.setLoginAccountPin(true);
+                    DialogueManager.start(player, Tutorial.get(player, 17));
+                }
+            }
         }
 
         player.getPacketSender().updateSpecialAttackOrb()
                 .sendIronmanMode(player.getGameMode().ordinal());
-				
+
         if (player.getPointsHandler().getAchievementPoints() == 0) {
             Achievements.setPoints(player);
         }
@@ -304,8 +311,15 @@ public class PlayerHandler {
             player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
                     player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
         }
-        LoginChecksParser.checkLogin(player);
-    }
+        //LoginChecksParser.checkLogin(player);
+        PlayerLogs.connections(player, "Login");
+        if (player.getBankPinAttributes().hasBankPin()
+                && !player.getBankPinAttributes().hasEnteredBankPin()
+                && player.getBankPinAttributes().onDifferent(player)) {
+            BankPin.init(player, false);
+        }
+        PlayerOwnedShops.collectCoinsOnLogin(player);
+      }
 
     public static boolean handleLogout(Player player) {
         try {
