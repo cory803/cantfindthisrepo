@@ -239,6 +239,7 @@ public class ObjectActionPacketListener implements PacketListener {
                 break;
               case 881:
                 //player.moveTo(new Position(1240, 1226, 0));
+                //InstancedCerberus.enterDungeon(player);
                 InstancedCerberus.enterDungeon(player);
                 break;
               case 2995:
