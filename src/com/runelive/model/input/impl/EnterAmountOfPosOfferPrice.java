@@ -34,6 +34,7 @@ public class EnterAmountOfPosOfferPrice extends EnterAmount {
 		return item_amount;
 	}
 
+	@Override
 	public int getSlot() {
 		return slot;
 	}

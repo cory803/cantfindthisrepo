@@ -392,7 +392,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
 							player.setConstitution(max);
 							player.getSkillManager().setCurrentLevel(Skill.PRAYER,
-									(int) player.getSkillManager().getMaxLevel(Skill.PRAYER));
+									player.getSkillManager().getMaxLevel(Skill.PRAYER));
 							player.setPoisonDamage(0);
 							player.setVenomDamage(0);
 							player.getPacketSender().sendConstitutionOrbPoison(false);
@@ -1789,6 +1789,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		}
 		player.setInteractingObject(gameObject)
 				.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
+					@Override
 					public void execute() {
 						int ran = 0;
 						if (MiningData.forRock(gameObject.getId()) != null) {

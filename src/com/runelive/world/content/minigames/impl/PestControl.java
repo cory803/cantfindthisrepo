@@ -248,7 +248,7 @@ public class PestControl {
 	 */
 	private static void endGame(boolean won) {
 		for (Iterator<Player> it = playerMap.keySet().iterator(); it.hasNext();) {
-			Player p = (Player) it.next();
+			Player p = it.next();
 			if (p == null)
 				continue;
 			String state = getState(p);

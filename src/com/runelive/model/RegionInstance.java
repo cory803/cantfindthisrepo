@@ -66,12 +66,12 @@ public class RegionInstance {
 	public void remove(Character c) {
 		if (type == RegionInstanceType.CONSTRUCTION_HOUSE) {
 			if (c.isPlayer()) {
-				playersList.remove((Player) c);
+				playersList.remove(c);
 				if (owner == ((Player) c)) {
 					destruct();
 				}
 			} else if (c.isNpc()) {
-				npcsList.remove((NPC) c);
+				npcsList.remove(c);
 			}
 
 			if (c.getRegionInstance() != null && c.getRegionInstance() == this) {

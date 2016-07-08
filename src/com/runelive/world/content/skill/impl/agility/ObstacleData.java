@@ -315,6 +315,7 @@ public enum ObstacleData {
 						TaskManager.submit(new Task(1, player, true) {
 							int tick2 = 0;
 
+							@Override
 							public void execute() {
 								if (tick2 == 0) {
 									player.moveTo(new Position(2546, 3547));

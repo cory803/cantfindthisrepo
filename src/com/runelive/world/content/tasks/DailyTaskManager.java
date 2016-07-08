@@ -166,7 +166,7 @@ public class DailyTaskManager {
 		Locale locale = new Locale("en", "US");
 		NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
 		long rewardCoins = Misc.inclusiveRandom(1_000_000, 3_000_000);
-		player.setMoneyInPouch((player.getMoneyInPouch() + ((long) rewardCoins)));
+		player.setMoneyInPouch((player.getMoneyInPouch() + (rewardCoins)));
 		player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
 		player.getPacketSender().sendMessage("<col=ff0000>" + currencyFormatter.format(rewardCoins)
 				+ "</col> coins have been added to your money pouch.");

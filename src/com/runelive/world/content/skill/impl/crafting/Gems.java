@@ -89,6 +89,7 @@ public class Gems {
 					|| Skillcape_Data.MASTER_CRAFTING.isWearingCape(player) ? 1 : 2, player, true) {
 				int amountCut = 0;
 
+				@Override
 				public void execute() {
 					if (!player.getInventory().contains(uncutGem)) {
 						stop();

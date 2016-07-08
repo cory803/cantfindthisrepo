@@ -33,6 +33,7 @@ public class ExplorerJack {
 						"and can tell about the items I've encountered.", "Which item would you like to know about?" };
 			}
 
+			@Override
 			public Dialogue nextDialogue() {
 				return new Dialogue() {
 

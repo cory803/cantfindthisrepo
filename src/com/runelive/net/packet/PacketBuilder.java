@@ -153,7 +153,7 @@ public final class PacketBuilder {
 					"The ChannelBuffer implementation must support array() for bit usage.");
 		}
 
-		int bytes = (int) Math.ceil((double) numBits / 8D) + 1;
+		int bytes = (int) Math.ceil(numBits / 8D) + 1;
 		buffer.ensureWritableBytes((bitPosition + 7) / 8 + bytes);
 
 		final byte[] buffer = this.buffer.array();

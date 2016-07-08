@@ -255,7 +255,7 @@ public class Player extends Character {
 			speed -= 1;
 		}
 		if (fightType == FightType.CROSSBOW_RAPID) {
-			speed -= (double) 0.1;
+			speed -= 0.1;
 		}
 		if (fightType == FightType.LONGBOW_RAPID
 				|| weaponId == 6522 && fightType == FightType.KNIFE_RAPID && fightType == FightType.BLOWPIPE_RAPID

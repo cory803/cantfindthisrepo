@@ -412,8 +412,8 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			if (priceDamage < 0) {
 				return damage;
 			}
-			int dmg2 = (int) ((int) ((int) target.getConstitution() * 0.065) > 1000 ? 650 + Misc.getRandom(50)
-					: ((int) target.getConstitution() * 0.065));
+			int dmg2 = (int) ((int) (target.getConstitution() * 0.065) > 1000 ? 650 + Misc.getRandom(50)
+					: (target.getConstitution() * 0.065));
 			if (dmg2 <= 0) {
 				return damage;
 			}

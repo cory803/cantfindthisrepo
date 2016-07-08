@@ -36,6 +36,7 @@ public class MySQLDatabaseConnection extends DatabaseConnection {
 	/**
 	 * Connect to the database
 	 */
+	@Override
 	public boolean connect() {
 		try {
 			MySQLDatabaseConfiguration configuration = (MySQLDatabaseConfiguration) this.configuration;

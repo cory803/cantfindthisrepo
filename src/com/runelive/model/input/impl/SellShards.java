@@ -39,7 +39,7 @@ public class SellShards extends EnterAmount {
 			player.getPacketSender().sendMessage("You do not have this amount of Spirit shards!");
 			return;
 		}
-		if ((long) player.getInventory().getAmount(995)
+		if (player.getInventory().getAmount(995)
 				+ ((long) amount * ItemDefinition.forId(18016).getValue()) > Integer.MAX_VALUE) {
 			player.getPacketSender().sendInterfaceRemoval();
 

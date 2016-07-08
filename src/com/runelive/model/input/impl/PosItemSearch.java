@@ -47,7 +47,7 @@ public class PosItemSearch extends Input {
 						&& !PlayerPunishment.isPlayerBanned(o.getOwner())) {
 					ItemDefinition def = ItemDefinition.forId(o.getOffers().get(q).getItemId());
 					if (def != null && def.getName().toLowerCase().contains(itemName)) {
-						player.foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()),
+						Player.foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()),
 								new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(),
 										o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
 						// start_button += 4;
@@ -56,14 +56,14 @@ public class PosItemSearch extends Input {
 			}
 		}
 
-		if (player.foundOffers.size() < 1) {
+		if (Player.foundOffers.size() < 1) {
 			player.getPacketSender().sendMessage("Your search did not return any offers.");
 			return;
 		}
 
-		player.foundOffers = sortByValue(player.foundOffers);
+		Player.foundOffers = sortByValue(Player.foundOffers);
 
-		for (Map.Entry<PosDetails, PosOffer> entry : player.foundOffers.entrySet()) {
+		for (Map.Entry<PosDetails, PosOffer> entry : Player.foundOffers.entrySet()) {
 			if (index >= 100) {
 				break;
 			}
@@ -118,7 +118,7 @@ public class PosItemSearch extends Input {
 	}
 
 	public static PosDetails forId(int i, Player player) {
-		for (Map.Entry<PosDetails, PosOffer> map : player.foundOffers.entrySet()) {
+		for (Map.Entry<PosDetails, PosOffer> map : Player.foundOffers.entrySet()) {
 			PosDetails pd = map.getKey();
 			if (pd.getButtonId() == i)
 				return pd;
@@ -127,7 +127,7 @@ public class PosItemSearch extends Input {
 	}
 
 	public static void reset(Player player) {
-		player.foundOffers.clear();
+		Player.foundOffers.clear();
 	}
 
 }

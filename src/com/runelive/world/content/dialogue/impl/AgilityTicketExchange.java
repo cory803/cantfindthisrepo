@@ -32,6 +32,7 @@ public class AgilityTicketExchange {
 						"for experience? One ticket currently grants", "@red@7680@bla@ Agility experience." };
 			}
 
+			@Override
 			public Dialogue nextDialogue() {
 				return new Dialogue() {
 

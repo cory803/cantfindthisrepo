@@ -147,8 +147,8 @@ public enum CookingData {
 		}
 		double burn_chance = (45.0 - burnBonus);
 		double cook_level = player.getSkillManager().getCurrentLevel(Skill.COOKING);
-		double lev_needed = (double) levelReq;
-		double burn_stop = (double) stopBurn;
+		double lev_needed = levelReq;
+		double burn_stop = stopBurn;
 		double multi_a = (burn_stop - lev_needed);
 		double burn_dec = (burn_chance / multi_a);
 		double multi_b = (cook_level - lev_needed);

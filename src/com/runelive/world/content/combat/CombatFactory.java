@@ -695,7 +695,7 @@ public final class CombatFactory {
 
 			/** CUSTOM NPCS **/
 			if (npc.getId() == 2026) { // Dharok the wretched
-				maxHit += (int) ((int) (npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
+				maxHit += (int) ((npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
 			}
 			return maxHit;
 		}
@@ -887,7 +887,7 @@ public final class CombatFactory {
 		if (e.isNpc() && v.isPlayer()) {
 			Player victim = (Player) v;
 			NPC npc = (NPC) e;
-			baseMax = (int) (npc.getDefinition().getMaxHit() * 3);
+			baseMax = npc.getDefinition().getMaxHit() * 3;
 			if (victim.getFireImmunity() > 0 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 1540
 					|| victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283
 					|| victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284) {
@@ -1745,7 +1745,7 @@ public final class CombatFactory {
 						victim.performGraphic(new Graphic(gfx));
 						if (i != 7 && i != 8) {
 							CurseHandler.handleLeech(victim, i, 2, -25, true);
-							BonusManager.sendCurseBonuses((Player) victim);
+							BonusManager.sendCurseBonuses(victim);
 						} else if (i == 7) {
 							// Leech spec
 							boolean leeched = false;

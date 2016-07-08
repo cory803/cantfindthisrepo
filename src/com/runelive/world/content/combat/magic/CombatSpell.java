@@ -56,6 +56,7 @@ public abstract class CombatSpell extends Spell {
 	 * @return the ID of the spell, or <tt>-1</tt> if there is no ID for this
 	 *         spell.
 	 */
+	@Override
 	public abstract int spellId();
 
 	/**

@@ -74,7 +74,7 @@ public class PlayersOnlineInterface {
 
 	private static void sendInterfaceData(Player player) {
 		int child = 57042;
-		int fakeCount = (int) (World.getPlayers().size()/* * 1.3 */);
+		int fakeCount = (World.getPlayers().size()/* * 1.3 */);
 		for (int i = 0; i < fakeCount; i++) {
 			if (i >= PLAYERS_ONLINE_LIST.size()) {
 				player.getPacketSender().sendString(child, "   N/A");
@@ -130,7 +130,7 @@ public class PlayersOnlineInterface {
 		resort();
 		clearInterface(player);
 		sendInterfaceData(player);
-		player.getPacketSender().sendString(57003, "Players:  @gre@" + (int) (World.getPlayers().size()) + "")
+		player.getPacketSender().sendString(57003, "Players:  @gre@" + (World.getPlayers().size()) + "")
 				.sendInterface(57000);
 	}
 

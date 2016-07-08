@@ -141,7 +141,7 @@ public class CombatContainer {
 				int third = first <= 0 && second > 0 ? (int) (second / 2)
 						: first <= 0 && second <= 0 ? array[2].getHit().getDamage() : Misc.getRandom(second);
 				int fourth = first <= 0 && second <= 0 && third <= 0
-						? (int) array[3].getHit().getDamage() + Misc.getRandom(7)
+						? array[3].getHit().getDamage() + Misc.getRandom(7)
 						: first <= 0 && second <= 0 ? array[3].getHit().getDamage() : third;
 				array[0].getHit().setDamage(first);
 				array[1].getHit().setDamage(second);

@@ -252,7 +252,7 @@ public enum CombatSpecial {
 						PrayerHandler.deactivateAll(((Player) target));
 						((Player) target).getSkillManager().setCurrentLevel(Skill.PRAYER, 0);
 						((Player) target).getPacketSender().sendMessage("Your prayer has dropped!");
-						((Player) player).getPacketSender()
+						player.getPacketSender()
 								.sendMessage("" + ((Player) target).getUsername() + "'s prayer has dropped!");
 					}
 				}

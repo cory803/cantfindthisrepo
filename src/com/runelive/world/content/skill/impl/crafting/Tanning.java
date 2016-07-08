@@ -35,7 +35,7 @@ public class Tanning {
 					amount = t.getAmount(buttonId);
 				int price = (amount * t.getPrice());
 				boolean usePouch = player.getMoneyInPouch() > price;
-				int coins = (int) (usePouch ? player.getMoneyInPouchAsInt() : player.getInventory().getAmount(995));
+				int coins = usePouch ? player.getMoneyInPouchAsInt() : player.getInventory().getAmount(995);
 				if (coins == 0) {
 					player.getPacketSender().sendMessage("You do not have enough coins to tan this hide.");
 					return;

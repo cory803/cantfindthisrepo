@@ -50,16 +50,19 @@ public final class ErrorFile extends FileOutputStream {
 		this.errorStream = System.err;
 	}
 
+	@Override
 	public void write(int b) throws IOException {
 		this.errorStream.write(b);
 		super.write(b);
 	}
 
+	@Override
 	public void write(byte[] b) throws IOException {
 		this.errorStream.write(b);
 		super.write(b);
 	}
 
+	@Override
 	public void write(byte[] b, int off, int len) throws IOException {
 		this.errorStream.write(b, off, len);
 		super.write(b, off, len);

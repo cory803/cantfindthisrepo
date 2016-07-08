@@ -45,7 +45,7 @@ public class MoneyPouch {
 			return false;
 		}
 		if (validateAmount(plr, amount)) {
-			long addedMoney = (long) plr.getMoneyInPouch() + (long) amount;
+			long addedMoney = plr.getMoneyInPouch() + amount;
 			if (addedMoney > Long.MAX_VALUE) {
 				long canStore = Long.MAX_VALUE - plr.getMoneyInPouch();
 				plr.getInventory().delete(995, (int) canStore);

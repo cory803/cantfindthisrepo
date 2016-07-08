@@ -4,6 +4,7 @@ import com.runelive.model.Item;
 import com.runelive.model.Locations;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
+import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.util.Misc;
@@ -85,7 +86,8 @@ public class Slayer {
 	}
 
 	public void killedNpc(NPC npc) {
-		String taskName = npc.getDefinition().forId(player.getSlayer().getSlayerTask().getNpcId()).getName();
+		npc.getDefinition();
+		String taskName = NpcDefinition.forId(player.getSlayer().getSlayerTask().getNpcId()).getName();
 		if (slayerTask != SlayerTasks.NO_TASK) {
 			// if (slayerTask.getNpcId() == npc.getId()) {
 			if (npc.getDefinition().getName().contains(taskName)) {
@@ -159,7 +161,8 @@ public class Slayer {
 		if (Skillcape_Data.SLAYER.isWearingCape(player) || Skillcape_Data.MASTER_SLAYER.isWearingCape(player)) {
 			pointsReceived += pointsReceived / 2;
 		}
-		boolean wearingHelm = player.getEquipment().HEAD_SLOT == 13263;
+		player.getEquipment();
+		boolean wearingHelm = Equipment.HEAD_SLOT == 13263;
 		int per5 = pointsReceived * 3;
 		int per10 = pointsReceived * 5;
 		if (wearingHelm) {

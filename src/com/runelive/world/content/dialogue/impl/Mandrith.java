@@ -43,6 +43,7 @@ public class Mandrith {
 						"KDR is currently " + KDR + "." };
 			}
 
+			@Override
 			public Dialogue nextDialogue() {
 				return DialogueManager.getDialogues().get(19);
 			}

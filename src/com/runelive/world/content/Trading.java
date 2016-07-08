@@ -446,7 +446,7 @@ public class Trading {
 					} else {
 						player.getBank(0).add(item.getId(), item_amount);
 						player.getPacketSender().sendMessage("You did not have enough inventory space, "
-								+ Misc.formatAmount((long) item_amount) + " shards has been added to your bank.");
+								+ Misc.formatAmount(item_amount) + " shards has been added to your bank.");
 					}
 				} else {
 					player.getInventory().add(item);

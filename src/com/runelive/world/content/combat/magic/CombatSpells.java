@@ -2280,6 +2280,7 @@ public enum CombatSpells {
 			return 12919;
 		}
 	}), ICE_BURST(new CombatAncientSpell() {
+		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
 			if (damage >= 1) {
 				castOn.getMovementQueue().freeze(9);
@@ -2516,6 +2517,7 @@ public enum CombatSpells {
 			return 12911;
 		}
 	}), ICE_BLITZ(new CombatAncientSpell() {
+		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
 			if (damage >= 1) {
 				castOn.getMovementQueue().freeze(10);

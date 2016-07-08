@@ -79,8 +79,8 @@ public class GrandExchangeOffer extends Item {
 	}
 
 	public int getPercent() {
-		float amt = (float) this.amountFinished;
-		float total = (float) this.getAmount();
+		float amt = this.amountFinished;
+		float total = this.getAmount();
 		return (int) ((amt * 100) / total);
 	}
 

@@ -300,7 +300,7 @@ public class SkillManager {
 	}
 
 	public static int getPrestigePoints(Player player, Skill skill) {
-		float MAX_EXP = (float) MAX_EXPERIENCE;
+		float MAX_EXP = MAX_EXPERIENCE;
 		float experience = player.getSkillManager().getExperience(skill);
 		int basePoints = skill.getPrestigePoints();
 		double bonusPointsModifier = player.getGameMode() == GameMode.IRONMAN ? 1.3
@@ -370,8 +370,8 @@ public class SkillManager {
 		final int attack = skills.maxLevel[Skill.ATTACK.ordinal()];
 		final int defence = skills.maxLevel[Skill.DEFENCE.ordinal()];
 		final int strength = skills.maxLevel[Skill.STRENGTH.ordinal()];
-		final int hp = (int) (skills.maxLevel[Skill.CONSTITUTION.ordinal()] / 10);
-		final int prayer = (int) (skills.maxLevel[Skill.PRAYER.ordinal()] / 10);
+		final int hp = skills.maxLevel[Skill.CONSTITUTION.ordinal()] / 10;
+		final int prayer = skills.maxLevel[Skill.PRAYER.ordinal()] / 10;
 		final int ranged = skills.maxLevel[Skill.RANGED.ordinal()];
 		final int magic = skills.maxLevel[Skill.MAGIC.ordinal()];
 		final int summoning = skills.maxLevel[Skill.SUMMONING.ordinal()];

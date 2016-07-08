@@ -53,7 +53,7 @@ public class ItemActionPacketListener implements PacketListener {
 
 	public static void handleHasta(Player player) {
 		if (player.getInventory().contains(11716) && player.getMoneyInPouch() >= 150_000_000) {
-			player.setMoneyInPouch(player.getMoneyInPouch() - (long) 150_000_000);
+			player.setMoneyInPouch(player.getMoneyInPouch() - 150_000_000);
 			player.getPacketSender().sendMessage("150,000,000 Coins have been removed from your Money Pouch");
 			player.getInventory().delete(11716, 1);
 			player.getInventory().add(21120, 1);
@@ -908,7 +908,7 @@ public class ItemActionPacketListener implements PacketListener {
 			int boxAmount = player.getInventory().getAmount(15262);
 			int shardAmount = player.getInventory().getAmount(18016);
 
-			long finalAmount = (long) ((long) boxAmount * 10000) + (long) shardAmount;
+			long finalAmount = (long) boxAmount * 10000 + shardAmount;
 			int canAdd = Integer.MAX_VALUE - shardAmount;
 
 			if (finalAmount >= Integer.MAX_VALUE) {

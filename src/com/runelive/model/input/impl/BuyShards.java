@@ -33,7 +33,7 @@ public class BuyShards extends EnterAmount {
 			amount = Integer.MAX_VALUE - player.getInventory().getAmount(18016);
 		}
 
-		if ((long) player.getMoneyInPouch() >= (long) amount * ItemDefinition.forId(18016).getValue()) {
+		if (player.getMoneyInPouch() >= (long) amount * ItemDefinition.forId(18016).getValue()) {
 			player.getPacketSender().sendInterfaceRemoval();
 
 			// If Money Pouch has enough money, purchase the spirit shards from

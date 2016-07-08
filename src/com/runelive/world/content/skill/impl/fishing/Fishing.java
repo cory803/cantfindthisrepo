@@ -251,7 +251,7 @@ public class Fishing {
 
 	private static int getDelay(int req) {
 		int timer = 1;
-		timer += (int) req * 0.08;
+		timer += req * 0.08;
 		return timer;
 	}
 

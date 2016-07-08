@@ -38,7 +38,7 @@ public class Highscores implements Runnable {
 			stmt2.setLong(3, player.getSkillManager().getTotalExp());
 
 			for (int i = 0; i < 25; i++)
-				stmt2.setInt(4 + i, (int) player.getSkillManager().getExperience(Skill.forId(i)));
+				stmt2.setInt(4 + i, player.getSkillManager().getExperience(Skill.forId(i)));
 			stmt2.execute();
 
 			db.destroyAll();

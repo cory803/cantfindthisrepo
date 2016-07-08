@@ -60,6 +60,7 @@ public class ConnectionPool<T extends DatabaseConnection> {
 		this.maxConnections = maxConnections;
 
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new Runnable() {
+			@Override
 			public void run() {
 				// Ping!
 				int lol = 0;

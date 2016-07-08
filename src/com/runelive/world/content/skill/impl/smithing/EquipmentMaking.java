@@ -94,7 +94,7 @@ public class EquipmentMaking {
 				player.getInventory().delete(bar);
 				player.getInventory().add(itemToSmith);
 				player.getInventory().refreshItems();
-				player.getSkillManager().addExperience(Skill.SMITHING, (int) (SmithingData.getData(itemToSmith, "xp")));
+				player.getSkillManager().addExperience(Skill.SMITHING, (SmithingData.getData(itemToSmith, "xp")));
 			}
 		});
 		TaskManager.submit(player.getCurrentTask());

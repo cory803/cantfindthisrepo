@@ -42,7 +42,7 @@ public class DesolaceFormulas {
 
 			/** CUSTOM NPCS **/
 			if (npc.getId() == 2026) { // Dharok the wretched
-				maxHit += (int) ((int) (npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
+				maxHit += (int) ((npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
 			}
 		} else {
 			Player plr = (Player) entity;
@@ -483,7 +483,7 @@ public class DesolaceFormulas {
 			}
 		}
 
-		return (int) damage;
+		return damage;
 	}
 
 	public static int getAttackDelay(Player plr) {

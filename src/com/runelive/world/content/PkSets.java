@@ -58,7 +58,7 @@ public enum PkSets {
 		}
 		int cost = set.cost;
 		boolean usePouch = player.getMoneyInPouch() >= cost;
-		int plrMoney = (int) (usePouch ? player.getMoneyInPouchAsInt() : player.getInventory().getAmount(995));
+		int plrMoney = usePouch ? player.getMoneyInPouchAsInt() : player.getInventory().getAmount(995);
 		if (plrMoney < cost) {
 			player.getPacketSender().sendMessage("You do not have enough money to buy this set. It costs "
 					+ Misc.insertCommasToNumber("" + set.cost) + " coins.");

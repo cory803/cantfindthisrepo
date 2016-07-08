@@ -50,6 +50,7 @@ public class Herblore {
 			player.getSkillManager().stopSkilling();
 			player.performAnimation(ANIMATION);
 			TaskManager.submit(new Task(1, player, false) {
+				@Override
 				public void execute() {
 					player.getInventory().delete(VIAL, 1).delete(unf.getHerbNeeded(), 1).add(unf.getUnfPotion(), 1);
 					player.getPacketSender().sendMessage("You put the "
@@ -83,6 +84,7 @@ public class Herblore {
 			player.getSkillManager().stopSkilling();
 			player.performAnimation(ANIMATION);
 			TaskManager.submit(new Task(1, player, false) {
+				@Override
 				public void execute() {
 					if (player.dailyTask == 10 && !player.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(player);

@@ -686,7 +686,7 @@ public class Dueling {
 					player.setMoneyInPouch((player.getMoneyInPouch() + ((long) item.getAmount() * 25)));
 					player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
 					player.getPacketSender().sendString(1, ":moneypouchearning:" + ((long) item.getAmount() * 25) + "");
-					player.getPacketSender().sendMessage("The stack of " + Misc.formatAmount((long) item.getAmount())
+					player.getPacketSender().sendMessage("The stack of " + Misc.formatAmount(item.getAmount())
 							+ " shards has been converted into gp. " + Misc.formatAmount((long) item.getAmount() * 25)
 							+ " has been added to your pouch.");
 				} else

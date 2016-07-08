@@ -464,7 +464,7 @@ public class NPCDrops {
 	}
 
 	public static void casketDrop(Player player, int combat, Position pos) {
-		int chance = (int) (1 + combat);
+		int chance = 1 + combat;
 		if (Misc.getRandom(combat <= 50 ? 1300 : 1000) < chance) {
 			GroundItemManager.spawnGroundItem(player,
 					new GroundItem(new Item(7956), pos, player.getUsername(), false, 150, true, 200));
@@ -485,7 +485,7 @@ public class NPCDrops {
 	}
 
 	public static void wildKeys(Player player, int combat, Position pos) {
-		int chance = (int) (1 + combat);
+		int chance = 1 + combat;
 		if (Misc.getRandom(combat <= 50 ? 400 : 350) < 5) {
 			GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos,
 					player.getUsername(), false, 150, true, 200));

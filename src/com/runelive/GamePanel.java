@@ -41,6 +41,7 @@ public class GamePanel extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					GamePanel frame = new GamePanel();

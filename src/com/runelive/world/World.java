@@ -145,9 +145,9 @@ public class World {
 
 	public static void updatePlayersOnline() {
 		players.forEach(p -> p.getPacketSender().sendString(55073,
-				"@red@Players online:   @gre@(@gre@" + (int) (players.size()) + "@gre@)"));
+				"@red@Players online:   @gre@(@gre@" + (players.size()) + "@gre@)"));
 		players.forEach(
-				p -> p.getPacketSender().sendString(57003, "Players:  @gre@" + (int) (World.getPlayers().size()) + ""));
+				p -> p.getPacketSender().sendString(57003, "Players:  @gre@" + (World.getPlayers().size()) + ""));
 	}
 
 	public static void savePlayers() {

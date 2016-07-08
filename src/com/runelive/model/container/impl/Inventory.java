@@ -105,6 +105,7 @@ public class Inventory extends ItemContainer {
 	 * @param item
 	 *            the set of items to add.
 	 */
+	@Override
 	public void addItemSet(Item[] item) {
 		for (Item addItem : item) {
 			if (addItem == null) {

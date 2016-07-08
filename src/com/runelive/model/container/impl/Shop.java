@@ -188,7 +188,7 @@ public class Shop extends ItemContainer {
 					finalValue = (int) (finalValue * 0.85);
 				}
 			}
-			finalString += "" + (int) finalValue + " " + s + "" + shopPriceEx((int) finalValue) + ".";
+			finalString += "" + finalValue + " " + s + "" + shopPriceEx(finalValue) + ".";
 		} else {
 			Object[] obj = ShopManager.getCustomShopData(id, item.getId());
 			if (obj == null)
