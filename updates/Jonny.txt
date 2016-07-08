@@ -21,6 +21,7 @@ Seperate dungeoneering items into random items of no value to prevent smuggling 
 Game Updates:
 The bug in player owned shops where your items would get stuck has been fixed.
 A bank booth has been added to the duel arena.
+A banker has been added to the gamble area.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
@@ -31,8 +32,3 @@ Should aqua items be renamed to 'water' and made a little bit more blue?
 Should we allow donators to change their in-game name via the person at ::dzone? This would be for free and only be able to be done once every 25 days.
 Should edgeville be changed to the version of edgeville from the 634 revision? (2010+ RuneScape)
 Should you be able to teleport directly to your wilderness target? You would not be allowed to teleport to your target if over 30 wilderness or in combat.
-
-Website Updates:
-A YouTube video has been added to the homepage of the website.
-The player count on the homepage has been changed to say hundreds of players instead of 174.
-Member reputation and post count has been recounted on the forum aswell as total members, topics, posts and most members online.
