@@ -3,6 +3,7 @@ To-Do:
 Game Updates:
 Fixed forfeiting bug (could forfeit and your character could skip the count down)
 Fixed the bug with hitting players extremely fast within the Duel Arena/Player vs Player activities.
+Fixed planting flowers in the Duel Arena.
 Converted loggining in to Kotlin.
 Converted the Thieving skill to Kotlin.
 Converted Chaos Tunnels to Kotlin.
@@ -10,5 +11,6 @@ Sir Kay will now offer to Delete all your friends again, previously if you had s
 Multiple mob support added to Slayer I.E "Red Abyssal Demon" now counts towards "Abyssal Demon" Slayer tasks.
 Begun work on the Kotlin Game Engine.
 Started work on the Wildy Wyrm.
+Game Modes now function (somewhat properly)
 
 Polls:
