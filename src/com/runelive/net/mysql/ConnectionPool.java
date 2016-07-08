@@ -55,31 +55,30 @@ public class ConnectionPool<T extends DatabaseConnection> {
 	 * @param maxConnections
 	 *            The connection limit
 	 */
-	public ConnectionPool(DatabaseConfiguration configuration,
-			int maxConnections) {
+	public ConnectionPool(DatabaseConfiguration configuration, int maxConnections) {
 		this.configuration = configuration;
 		this.maxConnections = maxConnections;
-		
-		
+
 		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new Runnable() {
+			@Override
 			public void run() {
-				//Ping!
-                            int lol = 0;
-				for(Iterator<DatabaseConnection> it$ = pool.iterator(); it$.hasNext();) {
+				// Ping!
+				int lol = 0;
+				for (Iterator<DatabaseConnection> it$ = pool.iterator(); it$.hasNext();) {
 					DatabaseConnection connection = it$.next();
 					Statement s = null;
 					try {
 						s = connection.getConnection().createStatement();
-                        //System.out.println(++lol+" - mysql query pings.");
+						// System.out.println(++lol+" - mysql query pings.");
 						s.execute("/* ping */ SELECT 1");
 					} catch (SQLException e) {
-                                            e.printStackTrace();
-                                            connection.close();
-                                            it$.remove();
+						e.printStackTrace();
+						connection.close();
+						it$.remove();
 					} finally {
 						try {
 							if (s != null)
-							s.close();
+								s.close();
 						} catch (SQLException e) {
 
 						}
@@ -100,14 +99,14 @@ public class ConnectionPool<T extends DatabaseConnection> {
 		DatabaseConnection connection = pool.poll();
 		if (connection != null) {
 			if (!connection.isFresh()) {
-                            // DISCARD, since the connection is bad
-                           // connection.close();
-                            //System.out.println("CLOSED: "+currentConnections);
-                            currentConnections--;
-                            pool.remove(connection);
-                            return nextFree();
+				// DISCARD, since the connection is bad
+				// connection.close();
+				// System.out.println("CLOSED: "+currentConnections);
+				currentConnections--;
+				pool.remove(connection);
+				return nextFree();
 			}
-                        //System.out.println("CAUGHT: "+currentConnections);
+			// System.out.println("CAUGHT: "+currentConnections);
 			return connection;
 		}
 		if (currentConnections >= maxConnections) {
@@ -117,8 +116,8 @@ public class ConnectionPool<T extends DatabaseConnection> {
 		connection = configuration.newConnection();
 		connection.setPool((ConnectionPool<DatabaseConnection>) this);
 		if (!connection.connect()) {
-			System.out.println("Connection was unable to connect! Current connections: "+currentConnections);
-                        return nextFree();
+			System.out.println("Connection was unable to connect! Current connections: " + currentConnections);
+			return nextFree();
 		} else {
 			currentConnections++;
 		}

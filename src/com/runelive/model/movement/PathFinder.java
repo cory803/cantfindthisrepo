@@ -9,9 +9,9 @@ import com.runelive.world.entity.impl.Character;
 public class PathFinder {
 
 	public static void calculatePath(Character m, int destX, int destY, int xLength, int yLength, boolean near) {
-        /*
-         * Check conditions so we do not waste resources.
-         */
+		/*
+		 * Check conditions so we do not waste resources.
+		 */
 		if (destX == m.getPosition().getLocalX() && destY == m.getPosition().getLocalY() && !near) {
 			return;
 		}
@@ -31,7 +31,7 @@ public class PathFinder {
 		int curX = m.getPosition().getLocalX(m.getLastKnownRegion());
 		int curY = m.getPosition().getLocalY(m.getLastKnownRegion());
 
-		//System.out.println("fromLocalX: " + curX + ", fromLocalY: " + curY);
+		// System.out.println("fromLocalX: " + curX + ", fromLocalY: " + curY);
 
 		via[curX][curY] = 99;
 		cost[curX][curY] = 0;
@@ -47,54 +47,72 @@ public class PathFinder {
 			int curAbsY = m.getLastKnownRegion().getRegionY() * 8 + curY;
 			if (curX == destX && curY == destY) {
 				foundPath = true;
-				//System.out.println("Destionation Tiles: "+(m.getLastKnownRegion().getRegionX() * 8+destX)+" "+(m.getLastKnownRegion().getRegionY() * 8+destY));
+				// System.out.println("Destionation Tiles:
+				// "+(m.getLastKnownRegion().getRegionX() * 8+destX)+"
+				// "+(m.getLastKnownRegion().getRegionY() * 8+destY));
 				break;
 			}
 			currentIndex = (currentIndex + 1) % pathLength;
 			int thisCost = cost[curX][curY] + 1;
-			if (curY > 0 && via[curX][curY - 1] == 0 && (RegionClipping.getClipping(curAbsX, curAbsY - 1, m.getPosition().getZ()) & 0x1280102) == 0) {
+			if (curY > 0 && via[curX][curY - 1] == 0
+					&& (RegionClipping.getClipping(curAbsX, curAbsY - 1, m.getPosition().getZ()) & 0x1280102) == 0) {
 				tileQueueX.add(curX);
 				tileQueueY.add(curY - 1);
 				via[curX][curY - 1] = 1;
 				cost[curX][curY - 1] = thisCost;
 			}
-			if (curX > 0 && via[curX - 1][curY] == 0 && (RegionClipping.getClipping(curAbsX - 1, curAbsY, m.getPosition().getZ()) & 0x1280108) == 0) {
+			if (curX > 0 && via[curX - 1][curY] == 0
+					&& (RegionClipping.getClipping(curAbsX - 1, curAbsY, m.getPosition().getZ()) & 0x1280108) == 0) {
 				tileQueueX.add(curX - 1);
 				tileQueueY.add(curY);
 				via[curX - 1][curY] = 2;
 				cost[curX - 1][curY] = thisCost;
 			}
-			if (curY < 104 - 1 && via[curX][curY + 1] == 0 && (RegionClipping.getClipping(curAbsX, curAbsY + 1, m.getPosition().getZ()) & 0x1280120) == 0) {
+			if (curY < 104 - 1 && via[curX][curY + 1] == 0
+					&& (RegionClipping.getClipping(curAbsX, curAbsY + 1, m.getPosition().getZ()) & 0x1280120) == 0) {
 				tileQueueX.add(curX);
 				tileQueueY.add(curY + 1);
 				via[curX][curY + 1] = 4;
 				cost[curX][curY + 1] = thisCost;
 			}
-			if (curX < 104 - 1 && via[curX + 1][curY] == 0 && (RegionClipping.getClipping(curAbsX + 1, curAbsY, m.getPosition().getZ()) & 0x1280180) == 0) {
+			if (curX < 104 - 1 && via[curX + 1][curY] == 0
+					&& (RegionClipping.getClipping(curAbsX + 1, curAbsY, m.getPosition().getZ()) & 0x1280180) == 0) {
 				tileQueueX.add(curX + 1);
 				tileQueueY.add(curY);
 				via[curX + 1][curY] = 8;
 				cost[curX + 1][curY] = thisCost;
 			}
-			if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0 && (RegionClipping.getClipping(curAbsX - 1, curAbsY - 1, m.getPosition().getZ()) & 0x128010e) == 0 && (RegionClipping.getClipping(curAbsX - 1, curAbsY, m.getPosition().getZ()) & 0x1280108) == 0 && (RegionClipping.getClipping(curAbsX, curAbsY - 1, m.getPosition().getZ()) & 0x1280102) == 0) {
+			if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0
+					&& (RegionClipping.getClipping(curAbsX - 1, curAbsY - 1, m.getPosition().getZ()) & 0x128010e) == 0
+					&& (RegionClipping.getClipping(curAbsX - 1, curAbsY, m.getPosition().getZ()) & 0x1280108) == 0
+					&& (RegionClipping.getClipping(curAbsX, curAbsY - 1, m.getPosition().getZ()) & 0x1280102) == 0) {
 				tileQueueX.add(curX - 1);
 				tileQueueY.add(curY - 1);
 				via[curX - 1][curY - 1] = 3;
 				cost[curX - 1][curY - 1] = thisCost;
 			}
-			if (curX > 0 && curY < 104 - 1 && via[curX - 1][curY + 1] == 0 && (RegionClipping.getClipping(curAbsX - 1, curAbsY + 1, m.getPosition().getZ()) & 0x1280138) == 0 && (RegionClipping.getClipping(curAbsX - 1, curAbsY, m.getPosition().getZ()) & 0x1280108) == 0 && (RegionClipping.getClipping(curAbsX, curAbsY + 1, m.getPosition().getZ()) & 0x1280120) == 0) {
+			if (curX > 0 && curY < 104 - 1 && via[curX - 1][curY + 1] == 0
+					&& (RegionClipping.getClipping(curAbsX - 1, curAbsY + 1, m.getPosition().getZ()) & 0x1280138) == 0
+					&& (RegionClipping.getClipping(curAbsX - 1, curAbsY, m.getPosition().getZ()) & 0x1280108) == 0
+					&& (RegionClipping.getClipping(curAbsX, curAbsY + 1, m.getPosition().getZ()) & 0x1280120) == 0) {
 				tileQueueX.add(curX - 1);
 				tileQueueY.add(curY + 1);
 				via[curX - 1][curY + 1] = 6;
 				cost[curX - 1][curY + 1] = thisCost;
 			}
-			if (curX < 104 - 1 && curY > 0 && via[curX + 1][curY - 1] == 0 && (RegionClipping.getClipping(curAbsX + 1, curAbsY - 1, m.getPosition().getZ()) & 0x1280183) == 0 && (RegionClipping.getClipping(curAbsX + 1, curAbsY, m.getPosition().getZ()) & 0x1280180) == 0 && (RegionClipping.getClipping(curAbsX, curAbsY - 1, m.getPosition().getZ()) & 0x1280102) == 0) {
+			if (curX < 104 - 1 && curY > 0 && via[curX + 1][curY - 1] == 0
+					&& (RegionClipping.getClipping(curAbsX + 1, curAbsY - 1, m.getPosition().getZ()) & 0x1280183) == 0
+					&& (RegionClipping.getClipping(curAbsX + 1, curAbsY, m.getPosition().getZ()) & 0x1280180) == 0
+					&& (RegionClipping.getClipping(curAbsX, curAbsY - 1, m.getPosition().getZ()) & 0x1280102) == 0) {
 				tileQueueX.add(curX + 1);
 				tileQueueY.add(curY - 1);
 				via[curX + 1][curY - 1] = 9;
 				cost[curX + 1][curY - 1] = thisCost;
 			}
-			if (curX < 104 - 1 && curY < 104 - 1 && via[curX + 1][curY + 1] == 0 && (RegionClipping.getClipping(curAbsX + 1, curAbsY + 1, m.getPosition().getZ()) & 0x12801e0) == 0 && (RegionClipping.getClipping(curAbsX + 1, curAbsY, m.getPosition().getZ()) & 0x1280180) == 0 && (RegionClipping.getClipping(curAbsX, curAbsY + 1, m.getPosition().getZ()) & 0x1280120) == 0) {
+			if (curX < 104 - 1 && curY < 104 - 1 && via[curX + 1][curY + 1] == 0
+					&& (RegionClipping.getClipping(curAbsX + 1, curAbsY + 1, m.getPosition().getZ()) & 0x12801e0) == 0
+					&& (RegionClipping.getClipping(curAbsX + 1, curAbsY, m.getPosition().getZ()) & 0x1280180) == 0
+					&& (RegionClipping.getClipping(curAbsX, curAbsY + 1, m.getPosition().getZ()) & 0x1280120) == 0) {
 				tileQueueX.add(curX + 1);
 				tileQueueY.add(curY + 1);
 				via[curX + 1][curY + 1] = 12;
@@ -144,7 +162,8 @@ public class PathFinder {
 		tileQueueX.set(currentIndex, curX);
 		tileQueueY.set(currentIndex++, curY);
 		int l5;
-		for (int j5 = l5 = via[curX][curY]; curX != m.getPosition().getLocalX(m.getLastKnownRegion()) || curY != m.getPosition().getLocalY(m.getLastKnownRegion()); j5 = via[curX][curY]) {
+		for (int j5 = l5 = via[curX][curY]; curX != m.getPosition().getLocalX(m.getLastKnownRegion())
+				|| curY != m.getPosition().getLocalY(m.getLastKnownRegion()); j5 = via[curX][curY]) {
 			if (j5 != l5) {
 				l5 = j5;
 				tileQueueX.set(currentIndex, curX);
@@ -174,13 +193,12 @@ public class PathFinder {
 		}
 	}
 
-	public static void findPath(Character gc, int destX, int destY, boolean moveNear,
-								int xLength, int yLength) {
+	public static void findPath(Character gc, int destX, int destY, boolean moveNear, int xLength, int yLength) {
 		findPath(gc, destX, destY, moveNear, xLength, yLength, false);
 	}
 
-	public static void findPath(Character gc, int destX, int destY, boolean moveNear,
-			int xLength, int yLength, boolean ignoreLastStep) {
+	public static void findPath(Character gc, int destX, int destY, boolean moveNear, int xLength, int yLength,
+			boolean ignoreLastStep) {
 		try {
 			Position dest = new Position(destX, destY, gc.getPosition().getZ());
 			if (destX == gc.getPosition().getLocalX() && destY == gc.getPosition().getLocalY() && !moveNear) {
@@ -226,41 +244,35 @@ public class PathFinder {
 					return;
 				final int thisCost = cost[curX][curY] + 1;
 
-				if (curY > 0
-						&& via[curX][curY - 1] == 0
+				if (curY > 0 && via[curX][curY - 1] == 0
 						&& (RegionClipping.getClipping(curAbsX, curAbsY - 1, height) & 0x1280102) == 0) {
 					tileQueueX.add(curX);
 					tileQueueY.add(curY - 1);
 					via[curX][curY - 1] = 1;
 					cost[curX][curY - 1] = thisCost;
 				}
-				if (curX > 0
-						&& via[curX - 1][curY] == 0
+				if (curX > 0 && via[curX - 1][curY] == 0
 						&& (RegionClipping.getClipping(curAbsX - 1, curAbsY, height) & 0x1280108) == 0) {
 					tileQueueX.add(curX - 1);
 					tileQueueY.add(curY);
 					via[curX - 1][curY] = 2;
 					cost[curX - 1][curY] = thisCost;
 				}
-				if (curY < 104 - 1
-						&& via[curX][curY + 1] == 0
+				if (curY < 104 - 1 && via[curX][curY + 1] == 0
 						&& (RegionClipping.getClipping(curAbsX, curAbsY + 1, height) & 0x1280120) == 0) {
 					tileQueueX.add(curX);
 					tileQueueY.add(curY + 1);
 					via[curX][curY + 1] = 4;
 					cost[curX][curY + 1] = thisCost;
 				}
-				if (curX < 104 - 1
-						&& via[curX + 1][curY] == 0
+				if (curX < 104 - 1 && via[curX + 1][curY] == 0
 						&& (RegionClipping.getClipping(curAbsX + 1, curAbsY, height) & 0x1280180) == 0) {
 					tileQueueX.add(curX + 1);
 					tileQueueY.add(curY);
 					via[curX + 1][curY] = 8;
 					cost[curX + 1][curY] = thisCost;
 				}
-				if (curX > 0
-						&& curY > 0
-						&& via[curX - 1][curY - 1] == 0
+				if (curX > 0 && curY > 0 && via[curX - 1][curY - 1] == 0
 						&& (RegionClipping.getClipping(curAbsX - 1, curAbsY - 1, height) & 0x128010e) == 0
 						&& (RegionClipping.getClipping(curAbsX - 1, curAbsY, height) & 0x1280108) == 0
 						&& (RegionClipping.getClipping(curAbsX, curAbsY - 1, height) & 0x1280102) == 0) {
@@ -269,9 +281,7 @@ public class PathFinder {
 					via[curX - 1][curY - 1] = 3;
 					cost[curX - 1][curY - 1] = thisCost;
 				}
-				if (curX > 0
-						&& curY < 104 - 1
-						&& via[curX - 1][curY + 1] == 0
+				if (curX > 0 && curY < 104 - 1 && via[curX - 1][curY + 1] == 0
 						&& (RegionClipping.getClipping(curAbsX - 1, curAbsY + 1, height) & 0x1280138) == 0
 						&& (RegionClipping.getClipping(curAbsX - 1, curAbsY, height) & 0x1280108) == 0
 						&& (RegionClipping.getClipping(curAbsX, curAbsY + 1, height) & 0x1280120) == 0) {
@@ -280,9 +290,7 @@ public class PathFinder {
 					via[curX - 1][curY + 1] = 6;
 					cost[curX - 1][curY + 1] = thisCost;
 				}
-				if (curX < 104 - 1
-						&& curY > 0
-						&& via[curX + 1][curY - 1] == 0
+				if (curX < 104 - 1 && curY > 0 && via[curX + 1][curY - 1] == 0
 						&& (RegionClipping.getClipping(curAbsX + 1, curAbsY - 1, height) & 0x1280183) == 0
 						&& (RegionClipping.getClipping(curAbsX + 1, curAbsY, height) & 0x1280180) == 0
 						&& (RegionClipping.getClipping(curAbsX, curAbsY - 1, height) & 0x1280102) == 0) {
@@ -291,9 +299,7 @@ public class PathFinder {
 					via[curX + 1][curY - 1] = 9;
 					cost[curX + 1][curY - 1] = thisCost;
 				}
-				if (curX < 104 - 1
-						&& curY < 104 - 1
-						&& via[curX + 1][curY + 1] == 0
+				if (curX < 104 - 1 && curY < 104 - 1 && via[curX + 1][curY + 1] == 0
 						&& (RegionClipping.getClipping(curAbsX + 1, curAbsY + 1, height) & 0x12801e0) == 0
 						&& (RegionClipping.getClipping(curAbsX + 1, curAbsY, height) & 0x1280180) == 0
 						&& (RegionClipping.getClipping(curAbsX, curAbsY + 1, height) & 0x1280120) == 0) {
@@ -310,8 +316,7 @@ public class PathFinder {
 					final int i_225_ = 10;
 					for (int x = destX - i_225_; x <= destX + i_225_; x++)
 						for (int y = destY - i_225_; y <= destY + i_225_; y++)
-							if (x >= 0 && y >= 0 && x < 104 && y < 104
-							&& cost[x][y] < 100) {
+							if (x >= 0 && y >= 0 && x < 104 && y < 104 && cost[x][y] < 100) {
 								int i_228_ = 0;
 								if (x < destX)
 									i_228_ = destX - x;
@@ -322,10 +327,8 @@ public class PathFinder {
 									i_229_ = destY - y;
 								else if (y > destY + yLength - 1)
 									i_229_ = y - (destY + yLength - 1);
-								final int i_230_ = i_228_ * i_228_ + i_229_
-										* i_229_;
-								if (i_230_ < i_223_ || i_230_ == i_223_
-										&& cost[x][y] < thisCost) {
+								final int i_230_ = i_228_ * i_228_ + i_229_ * i_229_;
+								if (i_230_ < i_223_ || i_230_ == i_223_ && cost[x][y] < thisCost) {
 									i_223_ = i_230_;
 									thisCost = cost[x][y];
 									curX = x;
@@ -368,9 +371,9 @@ public class PathFinder {
 				pos = new Position(pathX, pathY, gc.getPosition().getZ());
 				gc.getMovementQueue().addStep(pos);
 			}
-		} catch(Exception e) {
-			System.out.println("Error finding route, destx: "+destX+", destY: "+destY+". Reseted queue.");
-			//gc.getMovementQueue().setFollowCharacter(null);
+		} catch (Exception e) {
+			System.out.println("Error finding route, destx: " + destX + ", destY: " + destY + ". Reseted queue.");
+			// gc.getMovementQueue().setFollowCharacter(null);
 			gc.getMovementQueue().reset();
 		}
 	}

@@ -27,7 +27,7 @@ public class Shrek implements CombatStrategy {
 	@Override
 	public boolean customContainerAttack(Character entity, Character victim) {
 		NPC shrek = (NPC) entity;
-		int ran = Misc.getRandom(shrekSayings.length-1);
+		int ran = Misc.getRandom(shrekSayings.length - 1);
 		shrek.forceChat(shrekSayings[ran]);
 		if (Locations.goodDistance(shrek.getPosition().copy(), victim.getPosition().copy(), 1)) {
 			shrek.performAnimation(new Animation(shrek.getDefinition().getAttackAnimation()));

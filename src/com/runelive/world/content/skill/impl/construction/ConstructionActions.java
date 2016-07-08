@@ -77,11 +77,10 @@ public class ConstructionActions {
 		case 13169:
 		case 13170:
 		case 13171:
-			p.getPacketSender()
-					.sendMessage("DING DONG DING DONG!")
-					.sendMessage("IT'S TIME TO EARN XP!")
-					.sendMessage(
-							"And it's also " + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":" + Calendar.getInstance().get(Calendar.MINUTE) + ":" + Calendar.getInstance().get(Calendar.SECOND));
+			p.getPacketSender().sendMessage("DING DONG DING DONG!").sendMessage("IT'S TIME TO EARN XP!")
+					.sendMessage("And it's also " + Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + ":"
+							+ Calendar.getInstance().get(Calendar.MINUTE) + ":"
+							+ Calendar.getInstance().get(Calendar.SECOND));
 			break;
 		// Altars
 		case 13179:
@@ -108,9 +107,12 @@ public class ConstructionActions {
 		case 13615:
 		case 13622:
 		case 13629:
-			if (TeleportHandler.checkReqs(p, new Position(ConstructionConstants.VARROCK_X, ConstructionConstants.VARROCK_Y, 0), true)) {
+			if (TeleportHandler.checkReqs(p,
+					new Position(ConstructionConstants.VARROCK_X, ConstructionConstants.VARROCK_Y, 0), true)) {
 				p.getRegionInstance().remove(p);
-				TeleportHandler.teleportPlayer(p, new Position(ConstructionConstants.VARROCK_X, ConstructionConstants.VARROCK_Y, 0), TeleportType.NORMAL, true);
+				TeleportHandler.teleportPlayer(p,
+						new Position(ConstructionConstants.VARROCK_X, ConstructionConstants.VARROCK_Y, 0),
+						TeleportType.NORMAL, true);
 			}
 			break;
 
@@ -118,9 +120,12 @@ public class ConstructionActions {
 		case 13616:
 		case 13623:
 		case 13630:
-			if (TeleportHandler.checkReqs(p, new Position(ConstructionConstants.LUMBY_X, ConstructionConstants.LUMBY_Y, 0), true)) {
+			if (TeleportHandler.checkReqs(p,
+					new Position(ConstructionConstants.LUMBY_X, ConstructionConstants.LUMBY_Y, 0), true)) {
 				p.getRegionInstance().remove(p);
-				TeleportHandler.teleportPlayer(p, new Position(ConstructionConstants.LUMBY_X, ConstructionConstants.LUMBY_Y, 0), TeleportType.NORMAL, true);
+				TeleportHandler.teleportPlayer(p,
+						new Position(ConstructionConstants.LUMBY_X, ConstructionConstants.LUMBY_Y, 0),
+						TeleportType.NORMAL, true);
 			}
 			break;
 
@@ -128,9 +133,12 @@ public class ConstructionActions {
 		case 13617:
 		case 13624:
 		case 13631:
-			if (TeleportHandler.checkReqs(p, new Position(ConstructionConstants.FALADOR_X, ConstructionConstants.FALADOR_Y, 0), true)) {
+			if (TeleportHandler.checkReqs(p,
+					new Position(ConstructionConstants.FALADOR_X, ConstructionConstants.FALADOR_Y, 0), true)) {
 				p.getRegionInstance().remove(p);
-				TeleportHandler.teleportPlayer(p, new Position(ConstructionConstants.FALADOR_X, ConstructionConstants.FALADOR_Y, 0), TeleportType.NORMAL, true);
+				TeleportHandler.teleportPlayer(p,
+						new Position(ConstructionConstants.FALADOR_X, ConstructionConstants.FALADOR_Y, 0),
+						TeleportType.NORMAL, true);
 			}
 			break;
 
@@ -138,9 +146,12 @@ public class ConstructionActions {
 		case 13618:
 		case 13625:
 		case 13632:
-			if (TeleportHandler.checkReqs(p, new Position(ConstructionConstants.CAMELOT_X, ConstructionConstants.CAMELOT_Y, 0), true)) {
+			if (TeleportHandler.checkReqs(p,
+					new Position(ConstructionConstants.CAMELOT_X, ConstructionConstants.CAMELOT_Y, 0), true)) {
 				p.getRegionInstance().remove(p);
-				TeleportHandler.teleportPlayer(p, new Position(ConstructionConstants.CAMELOT_X, ConstructionConstants.CAMELOT_Y, 0), TeleportType.NORMAL, true);
+				TeleportHandler.teleportPlayer(p,
+						new Position(ConstructionConstants.CAMELOT_X, ConstructionConstants.CAMELOT_Y, 0),
+						TeleportType.NORMAL, true);
 			}
 			break;
 
@@ -148,9 +159,12 @@ public class ConstructionActions {
 		case 13619:
 		case 13626:
 		case 13633:
-			if (TeleportHandler.checkReqs(p, new Position(ConstructionConstants.ARDOUGNE_X, ConstructionConstants.ARDOUGNE_Y, 0), true)) {
+			if (TeleportHandler.checkReqs(p,
+					new Position(ConstructionConstants.ARDOUGNE_X, ConstructionConstants.ARDOUGNE_Y, 0), true)) {
 				p.getRegionInstance().remove(p);
-				TeleportHandler.teleportPlayer(p, new Position(ConstructionConstants.ARDOUGNE_X, ConstructionConstants.ARDOUGNE_Y, 0), TeleportType.NORMAL, true);
+				TeleportHandler.teleportPlayer(p,
+						new Position(ConstructionConstants.ARDOUGNE_X, ConstructionConstants.ARDOUGNE_Y, 0),
+						TeleportType.NORMAL, true);
 			}
 			break;
 
@@ -168,9 +182,12 @@ public class ConstructionActions {
 		case 13621:
 		case 13628:
 		case 13635:
-			if (TeleportHandler.checkReqs(p, new Position(ConstructionConstants.KHARYRLL_X, ConstructionConstants.KHARYRLL_Y, 0), true)) {
+			if (TeleportHandler.checkReqs(p,
+					new Position(ConstructionConstants.KHARYRLL_X, ConstructionConstants.KHARYRLL_Y, 0), true)) {
 				p.getRegionInstance().remove(p);
-				TeleportHandler.teleportPlayer(p, new Position(ConstructionConstants.KHARYRLL_X, ConstructionConstants.KHARYRLL_Y, 0), TeleportType.NORMAL, true);
+				TeleportHandler.teleportPlayer(p,
+						new Position(ConstructionConstants.KHARYRLL_X, ConstructionConstants.KHARYRLL_Y, 0),
+						TeleportType.NORMAL, true);
 			}
 			break;
 
@@ -213,7 +230,8 @@ public class ConstructionActions {
 		for (int i = 0; i < BARRELS.length; i++) {
 			if (objectId == BARRELS[i][0]) {
 				p.getInventory().delete(item, 1).add(BARRELS[i][1], 1);
-				p.getPacketSender().sendMessage("You pour yourself a glass of " + ItemDefinition.forId(BARRELS[i][1]).getName() + ".");
+				p.getPacketSender().sendMessage(
+						"You pour yourself a glass of " + ItemDefinition.forId(BARRELS[i][1]).getName() + ".");
 				p.performAnimation(new Animation(9044));
 				return true;
 			}
@@ -391,14 +409,24 @@ public class ConstructionActions {
 		return true;
 	}
 
-	private static final int[][] BARRELS = { { 13568, 7740 }, { 13569, 7752 }, { 13570, 7744 }, { 13571, 7746 }, { 13572, 7748 }, { 13573, 7754 } };
+	private static final int[][] BARRELS = { { 13568, 7740 }, { 13569, 7752 }, { 13570, 7744 }, { 13571, 7746 },
+			{ 13572, 7748 }, { 13573, 7754 } };
 	private static final Object[][] SHELVES = {
 			{ Furniture.WOODEN_SHELVES_1.getFurnitureId(), 705, new String[] { "Kettle", "Teapot", "Cup" } },
-			{ Furniture.WOODEN_SHELVES_2.getFurnitureId(), 706, new String[] { "Kettle", "Teapot", "Cup", "Beer glass" } },
-			{ Furniture.WOODEN_SHELVES_3.getFurnitureId(), 707, new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "Cake tin" } },
-			{ Furniture.OAK_SHELVES_1.getFurnitureId(), 708, new String[] { "Kettle", "Teapot", "Cup", "Beer glass", "Bowl" } },
-			{ Furniture.OAK_SHELVES_2.getFurnitureId(), 709, new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "More..." }, new String[] { "Bowl", "Cake tin" } },
-			{ Furniture.TEAK_SHELVES_1.getFurnitureId(), 710, new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "More..." }, new String[] { "Bowl", "Pie dish", "Pot", "Chef's hat" } },
-			{ Furniture.TEAK_SHELVES_2.getFurnitureId(), 711, new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "More..." }, new String[] { "Bowl", "Pie dish", "Pot", "Chef's hat" } } };
+			{ Furniture.WOODEN_SHELVES_2.getFurnitureId(), 706,
+					new String[] { "Kettle", "Teapot", "Cup", "Beer glass" } },
+			{ Furniture.WOODEN_SHELVES_3.getFurnitureId(), 707,
+					new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "Cake tin" } },
+			{ Furniture.OAK_SHELVES_1.getFurnitureId(), 708,
+					new String[] { "Kettle", "Teapot", "Cup", "Beer glass", "Bowl" } },
+			{ Furniture.OAK_SHELVES_2.getFurnitureId(), 709,
+					new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "More..." },
+					new String[] { "Bowl", "Cake tin" } },
+			{ Furniture.TEAK_SHELVES_1.getFurnitureId(), 710,
+					new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "More..." },
+					new String[] { "Bowl", "Pie dish", "Pot", "Chef's hat" } },
+			{ Furniture.TEAK_SHELVES_2.getFurnitureId(), 711,
+					new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "More..." },
+					new String[] { "Bowl", "Pie dish", "Pot", "Chef's hat" } } };
 
 }

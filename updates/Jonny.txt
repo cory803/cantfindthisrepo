@@ -20,7 +20,16 @@ Seperate dungeoneering items into random items of no value to prevent smuggling 
 
 Game Updates:
 The bug in player owned shops where your items would get stuck has been fixed.
-The duel arena exploit that allowed you to double hit your opponent should now be fixed.
+A bank booth has been added to the duel arena.
+A banker has been added to the gamble area.
+The color on magic potions & magic flasks have been changed to match OSRS.
+Bank booths have been added to the edge of the wilderness. (They are lined up in the back of the lvl 2 men house)
+Any donator rank can now change their yell tag for a certain amount of money per rank.
+You can no longer put @ symbols in your yell tag to gain custom colors.
+The roof at the donator zone has been fixed to not overlap the entrance all weird.
+The weird spot at the donator zone shop that you couldn't walk on is now fixed.
+Venenatis spiderling has now been correctly renamed.
+Pet chaos elemental has been changed to Chaos Elemental Jr. and the inventory model has been changed to the one featured on OSRS.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
@@ -31,8 +40,3 @@ Should aqua items be renamed to 'water' and made a little bit more blue?
 Should we allow donators to change their in-game name via the person at ::dzone? This would be for free and only be able to be done once every 25 days.
 Should edgeville be changed to the version of edgeville from the 634 revision? (2010+ RuneScape)
 Should you be able to teleport directly to your wilderness target? You would not be allowed to teleport to your target if over 30 wilderness or in combat.
-
-Website Updates:
-A YouTube video has been added to the homepage of the website.
-The player count on the homepage has been changed to say hundreds of players instead of 174.
-Member reputation and post count has been recounted on the forum aswell as total members, topics, posts and most members online.

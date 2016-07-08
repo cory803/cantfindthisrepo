@@ -1,5 +1,7 @@
 package com.runelive.world.entity.impl.player;
 
+import static com.runelive.world.content.Lottery.onLogin;
+
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.TaskManager;
@@ -13,7 +15,6 @@ import com.runelive.engine.task.impl.PrayerRenewalPotionTask;
 import com.runelive.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.runelive.model.Flag;
 import com.runelive.model.Locations;
-import com.runelive.world.content.*;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
@@ -24,10 +25,20 @@ import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.SessionState;
+import com.runelive.net.login.LoginResponses;
+//import org.scripts.kotlin.core.login.LoginChecksParser;
+//import org.scripts.kotlin.core.login.LoginLoaderAssetts;
+//import org.scripts.kotlin.core.login.LoginMessageParser;
 import com.runelive.net.security.ConnectionHandler;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
+import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.BankPin;
+import com.runelive.world.content.BonusManager;
+import com.runelive.world.content.PlayerLogs;
+import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.content.PlayersOnlineInterface;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.effect.CombatPoisonEffect;
 import com.runelive.world.content.combat.effect.CombatTeleblockEffect;
@@ -46,347 +57,342 @@ import com.runelive.world.content.skill.impl.hunter.Hunter;
 import com.runelive.world.content.skill.impl.slayer.Slayer;
 import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.net.login.LoginResponses;
-//import org.scripts.kotlin.core.login.LoginChecksParser;
-//import org.scripts.kotlin.core.login.LoginLoaderAssetts;
-//import org.scripts.kotlin.core.login.LoginMessageParser;
-
-import static com.runelive.world.content.Lottery.*;
 
 public class PlayerHandler {
 
-    public static void handleLogin(Player player) {
-        //player.setLoginQue(false);
-        player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
-        // Register the player
-        System.out.println("[World] Registering player - [username, host] : [" + player.getUsername()
-                + ", " + player.getHostAddress() + "]");
-        ConnectionHandler.add(player.getHostAddress());
-        World.getPlayers().add(player);
-        World.updatePlayersOnline();
-        PlayersOnlineInterface.add(player);
-        player.getSession().setState(SessionState.LOGGED_IN);
+	public static void handleLogin(Player player) {
+		// player.setLoginQue(false);
+		player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
+		// Register the player
+		System.out.println("[World] Registering player - [username, host] : [" + player.getUsername() + ", "
+				+ player.getHostAddress() + "]");
+		ConnectionHandler.add(player.getHostAddress());
+		World.getPlayers().add(player);
+		World.updatePlayersOnline();
+		PlayersOnlineInterface.add(player);
+		player.getSession().setState(SessionState.LOGGED_IN);
 
-        // Packets
-        player.getPacketSender().sendMapRegion().sendDetails();
+		// Packets
+		player.getPacketSender().sendMapRegion().sendDetails();
 
-        player.getRecordedLogin().reset();
-        boolean maxed_out = true;
-        for (int i = 0; i < Skill.values().length; i++) {
-            if (i == 21)
-                continue;
-            if (player.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
-                maxed_out = false;
-            }
-        }
-        if (maxed_out) {
-            player.setAnnounceMax(true);
-        }
-        // Tabs
-        player.getPacketSender().sendTabs();
-        // Setting up the player's item containers..
-        for (int i = 0; i < player.getBanks().length; i++) {
-            if (player.getBank(i) == null) {
-                player.setBank(i, new Bank(player));
-            }
-        }
-        player.getInventory().refreshItems();
-        player.getEquipment().refreshItems();
+		player.getRecordedLogin().reset();
+		boolean maxed_out = true;
+		for (int i = 0; i < Skill.values().length; i++) {
+			if (i == 21)
+				continue;
+			if (player.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
+				maxed_out = false;
+			}
+		}
+		if (maxed_out) {
+			player.setAnnounceMax(true);
+		}
+		// Tabs
+		player.getPacketSender().sendTabs();
+		// Setting up the player's item containers..
+		for (int i = 0; i < player.getBanks().length; i++) {
+			if (player.getBank(i) == null) {
+				player.setBank(i, new Bank(player));
+			}
+		}
+		player.getInventory().refreshItems();
+		player.getEquipment().refreshItems();
 
-        // Weapons and equipment..
-        WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
-        WeaponInterfaces.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
-        CombatSpecial.updateBar(player);
-        BonusManager.update(player);
+		// Weapons and equipment..
+		WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+		WeaponInterfaces.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+		CombatSpecial.updateBar(player);
+		BonusManager.update(player);
 
-        // Here we are checking if a player is at coords 2602, 5713 (Old tormented demon spawn, and will
-        // be moving them to home)
-        if (player.getPosition().equals(new Position(2602, 5713))) {
-            player.moveTo(new Position(3087, 3502));
-            System.out.println("Moved player " + player.getUsername() + " for being in a bad area.");
-        }
+		// Here we are checking if a player is at coords 2602, 5713 (Old
+		// tormented demon spawn, and will
+		// be moving them to home)
+		if (player.getPosition().equals(new Position(2602, 5713))) {
+			player.moveTo(new Position(3087, 3502));
+			System.out.println("Moved player " + player.getUsername() + " for being in a bad area.");
+		}
 
-        // Skills
-        player.getSummoning().login();
-        player.getFarming().load();
-        Slayer.checkDuoSlayer(player, true);
-        for (Skill skill : Skill.values()) {
-            player.getSkillManager().updateSkill(skill);
-        }
-        player.getPacketSender().sendString(5067, "Friends List (" + player.getRelations().getFriendList().size() + "/200)");
-        // Relations
-        player.getRelations().setPrivateMessageId(1).onLogin(player).updateLists(true, 1);
+		// Skills
+		player.getSummoning().login();
+		player.getFarming().load();
+		Slayer.checkDuoSlayer(player, true);
+		for (Skill skill : Skill.values()) {
+			player.getSkillManager().updateSkill(skill);
+		}
+		player.getPacketSender().sendString(5067,
+				"Friends List (" + player.getRelations().getFriendList().size() + "/200)");
+		// Relations
+		player.getRelations().setPrivateMessageId(1).onLogin(player).updateLists(true, 1);
 
-        // Client configurations
-        player.getPacketSender().sendConfig(172, player.isAutoRetaliate() ? 1 : 0)
-                .sendTotalXp(player.getSkillManager().getTotalGainedExp())
-                .sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId())
-                .sendRunStatus().sendRunEnergy(player.getRunEnergy())
-                .sendConstitutionOrbPoison(player.isPoisoned()).sendConstitutionOrbVenom(player.isVenomed())
-                .sendString(8135, "" + player.getMoneyInPouch()).sendInteractionOption("Follow", 3, false)
-                .sendInteractionOption("Trade With", 4, false).sendInterfaceRemoval().sendString(39161,
-                "@or2@Server time: @or2@[ @yel@" + Misc.getCurrentServerTime() + "@or2@ ]");
+		// Client configurations
+		player.getPacketSender().sendConfig(172, player.isAutoRetaliate() ? 1 : 0)
+				.sendTotalXp(player.getSkillManager().getTotalGainedExp())
+				.sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId()).sendRunStatus()
+				.sendRunEnergy(player.getRunEnergy()).sendConstitutionOrbPoison(player.isPoisoned())
+				.sendConstitutionOrbVenom(player.isVenomed()).sendString(8135, "" + player.getMoneyInPouch())
+				.sendInteractionOption("Follow", 3, false).sendInteractionOption("Trade With", 4, false)
+				.sendInterfaceRemoval()
+				.sendString(39161, "@or2@Server time: @or2@[ @yel@" + Misc.getCurrentServerTime() + "@or2@ ]");
 
-        Autocasting.onLogin(player);
-        PrayerHandler.deactivateAll(player);
-        CurseHandler.deactivateAll(player);
-        BonusManager.sendCurseBonuses(player);
-        Achievements.updateInterface(player);
-        Barrows.updateInterface(player);
+		Autocasting.onLogin(player);
+		PrayerHandler.deactivateAll(player);
+		CurseHandler.deactivateAll(player);
+		BonusManager.sendCurseBonuses(player);
+		Achievements.updateInterface(player);
+		Barrows.updateInterface(player);
 
-        // Spellbook Teleports
-        player.getPacketSender().sendString(13037, "Training Teleports");
-        player.getPacketSender().sendString(13038, "Teleport to easy monsters.");
-        player.getPacketSender().sendString(13047, "Skilling Areas");
-        player.getPacketSender().sendString(13048, "Teleport to skillable locations.");
-        player.getPacketSender().sendString(13055, "Boss Teleports");
-        player.getPacketSender().sendString(13056, "Teleport to Bosses on RuneLive.");
-        player.getPacketSender().sendString(13063, "Quests");
-        player.getPacketSender().sendString(13064, "Teleport to start quests.");
-        player.getPacketSender().sendString(13071, "Dungeons");
-        player.getPacketSender().sendString(13072, "Teleport to dungeons.");
-        player.getPacketSender().sendString(13081, "City Teleports");
-        player.getPacketSender().sendString(13082, "Teleport to various citys.");
-        player.getPacketSender().sendString(13089, "Minigames");
-        player.getPacketSender().sendString(13090, "Teleport to minigames.");
-        player.getPacketSender().sendString(13097, "Wilderness Areas");
-        player.getPacketSender().sendString(13098, "Teleport to the wilderness.");
+		// Spellbook Teleports
+		player.getPacketSender().sendString(13037, "Training Teleports");
+		player.getPacketSender().sendString(13038, "Teleport to easy monsters.");
+		player.getPacketSender().sendString(13047, "Skilling Areas");
+		player.getPacketSender().sendString(13048, "Teleport to skillable locations.");
+		player.getPacketSender().sendString(13055, "Boss Teleports");
+		player.getPacketSender().sendString(13056, "Teleport to Bosses on RuneLive.");
+		player.getPacketSender().sendString(13063, "Quests");
+		player.getPacketSender().sendString(13064, "Teleport to start quests.");
+		player.getPacketSender().sendString(13071, "Dungeons");
+		player.getPacketSender().sendString(13072, "Teleport to dungeons.");
+		player.getPacketSender().sendString(13081, "City Teleports");
+		player.getPacketSender().sendString(13082, "Teleport to various citys.");
+		player.getPacketSender().sendString(13089, "Minigames");
+		player.getPacketSender().sendString(13090, "Teleport to minigames.");
+		player.getPacketSender().sendString(13097, "Wilderness Areas");
+		player.getPacketSender().sendString(13098, "Teleport to the wilderness.");
 
-        player.getPacketSender().sendString(1300, "Training Teleports");
-        player.getPacketSender().sendString(1301, "Teleport to easy monsters.");
-        player.getPacketSender().sendString(1325, "Minigames");
-        player.getPacketSender().sendString(1326, "Teleport to minigames.");
-        player.getPacketSender().sendString(1350, "Wilderness Areas");
-        player.getPacketSender().sendString(1351, "Teleport to the wilderness.");
-        player.getPacketSender().sendString(1382, "City Teleports");
-        player.getPacketSender().sendString(1383, "Teleport to various citys.");
-        player.getPacketSender().sendString(1415, "Quests");
-        player.getPacketSender().sendString(1416, "Teleport to start quests.");
-        player.getPacketSender().sendString(1454, "Dungeons");
-        player.getPacketSender().sendString(1455, "Teleport to dungeons.");
-        player.getPacketSender().sendString(7457, "Boss Teleports");
-        player.getPacketSender().sendString(7458, "Teleport to Bosses on RuneLive.");
-        player.getPacketSender().sendString(18472, "Ape Atoll");
+		player.getPacketSender().sendString(1300, "Training Teleports");
+		player.getPacketSender().sendString(1301, "Teleport to easy monsters.");
+		player.getPacketSender().sendString(1325, "Minigames");
+		player.getPacketSender().sendString(1326, "Teleport to minigames.");
+		player.getPacketSender().sendString(1350, "Wilderness Areas");
+		player.getPacketSender().sendString(1351, "Teleport to the wilderness.");
+		player.getPacketSender().sendString(1382, "City Teleports");
+		player.getPacketSender().sendString(1383, "Teleport to various citys.");
+		player.getPacketSender().sendString(1415, "Quests");
+		player.getPacketSender().sendString(1416, "Teleport to start quests.");
+		player.getPacketSender().sendString(1454, "Dungeons");
+		player.getPacketSender().sendString(1455, "Teleport to dungeons.");
+		player.getPacketSender().sendString(7457, "Boss Teleports");
+		player.getPacketSender().sendString(7458, "Teleport to Bosses on RuneLive.");
+		player.getPacketSender().sendString(18472, "Ape Atoll");
 
-        // Tasks
-        TaskManager.submit(new PlayerSkillsTask(player));
-        if (player.isPoisoned()) {
-            TaskManager.submit(new CombatPoisonEffect(player));
-        }
-        if (player.isVenomed()) {
-            TaskManager.submit(new CombatVenomEffect(player));
-        }
-        if (player.getPrayerRenewalPotionTimer() > 0) {
-            TaskManager.submit(new PrayerRenewalPotionTask(player));
-        }
-        if (player.getOverloadPotionTimer() > 0) {
-            TaskManager.submit(new OverloadPotionTask(player));
-        }
-        if (player.getTeleblockTimer() > 0) {
-            TaskManager.submit(new CombatTeleblockEffect(player));
-        }
-        if (player.getSkullTimer() > 0) {
-            player.setSkullIcon(1);
-            TaskManager.submit(new CombatSkullEffect(player));
-        }
-        if (player.getFireImmunity() > 0) {
-            FireImmunityTask.makeImmune(player, player.getFireImmunity(), player.getFireDamageModifier());
-        }
-        if (player.getSpecialPercentage() < 100) {
-            TaskManager.submit(new PlayerSpecialAmountTask(player));
-        }
-        if (player.hasStaffOfLightEffect()) {
-            TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
-        }
-        if (player.getMinutesBonusExp() >= 0) {
-            TaskManager.submit(new BonusExperienceTask(player));
-        }
-        if (player.getPointsHandler().getPkPoints() < 0) {
-            player.getPointsHandler().setPkPoints(0, false, false);
-            System.out.println("The user " + player.getUsername()
-                    + " logged in with negative PK Points, resetting to 0.");
-        }
-        if (player.getPointsHandler().getSlayerPoints() < 0) {
-            player.getPointsHandler().setSlayerPoints(0, false);
-            player.getPacketSender().sendMessage("You have logged in with negative Slayer points, they have been set to 0.");
-        }
-        // Update appearance
-        player.getUpdateFlag().flag(Flag.APPEARANCE);
+		// Tasks
+		TaskManager.submit(new PlayerSkillsTask(player));
+		if (player.isPoisoned()) {
+			TaskManager.submit(new CombatPoisonEffect(player));
+		}
+		if (player.isVenomed()) {
+			TaskManager.submit(new CombatVenomEffect(player));
+		}
+		if (player.getPrayerRenewalPotionTimer() > 0) {
+			TaskManager.submit(new PrayerRenewalPotionTask(player));
+		}
+		if (player.getOverloadPotionTimer() > 0) {
+			TaskManager.submit(new OverloadPotionTask(player));
+		}
+		if (player.getTeleblockTimer() > 0) {
+			TaskManager.submit(new CombatTeleblockEffect(player));
+		}
+		if (player.getSkullTimer() > 0) {
+			player.setSkullIcon(1);
+			TaskManager.submit(new CombatSkullEffect(player));
+		}
+		if (player.getFireImmunity() > 0) {
+			FireImmunityTask.makeImmune(player, player.getFireImmunity(), player.getFireDamageModifier());
+		}
+		if (player.getSpecialPercentage() < 100) {
+			TaskManager.submit(new PlayerSpecialAmountTask(player));
+		}
+		if (player.hasStaffOfLightEffect()) {
+			TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
+		}
+		if (player.getMinutesBonusExp() >= 0) {
+			TaskManager.submit(new BonusExperienceTask(player));
+		}
+		if (player.getPointsHandler().getPkPoints() < 0) {
+			player.getPointsHandler().setPkPoints(0, false, false);
+			System.out.println(
+					"The user " + player.getUsername() + " logged in with negative PK Points, resetting to 0.");
+		}
+		if (player.getPointsHandler().getSlayerPoints() < 0) {
+			player.getPointsHandler().setSlayerPoints(0, false);
+			player.getPacketSender()
+					.sendMessage("You have logged in with negative Slayer points, they have been set to 0.");
+		}
+		// Update appearance
+		player.getUpdateFlag().flag(Flag.APPEARANCE);
 
-        //Loads login messages from Kotlin
-        //new org.scripts.kotlin.core.login.LoginMessageParser();
-        //LoginMessageParser.LoginMessageParser.sendLogin(player);
-        //Loads Assetts
-        //new org.scripts.kotlin.core.login.LoginLoaderAssetts();
-        //LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);
-        if(player.getPointsHandler().getAchievementPoints() > AchievementData.values().length) {
-            player.getPointsHandler().setAchievementPoints(AchievementData.values().length, false);
-        }
-        onLogin(player);
-        Locations.login(player);
-        player.getPacketSender().sendString(1, "[CLEAR]");
-        ClanChatManager.handleLogin(player);
-        DailyTaskManager.giveNewTask(player);
-        PlayerPanel.refreshPanel(player);
+		// Loads login messages from Kotlin
+		// new org.scripts.kotlin.core.login.LoginMessageParser();
+		// LoginMessageParser.LoginMessageParser.sendLogin(player);
+		// Loads Assetts
+		// new org.scripts.kotlin.core.login.LoginLoaderAssetts();
+		// LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);
+		if (player.getPointsHandler().getAchievementPoints() > AchievementData.values().length) {
+			player.getPointsHandler().setAchievementPoints(AchievementData.values().length, false);
+		}
+		onLogin(player);
+		Locations.login(player);
+		player.getPacketSender().sendString(1, "[CLEAR]");
+		ClanChatManager.handleLogin(player);
+		DailyTaskManager.giveNewTask(player);
+		PlayerPanel.refreshPanel(player);
 
-        // New player
-        if (player.newPlayer()) {
-            player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
-            player.save();
-            // player.setClanChatName("runelive");
-            player.setPlayerLocked(true).setDialogueActionId(45);
-            DialogueManager.start(player, 81);
-        } else {
-            if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
-                player.setPlayerLocked(true);
-                player.setPasswordChanging(true);
-                player.setInputHandling(new ChangePassword());
-                player.getPacketSender().sendEnterInputPrompt("Please enter a new password to set for your account:");
-            } else {
-                if (!player.getBankPinAttributes().hasBankPin()) {
-                    player.setPlayerLocked(true);
-                    player.setLoginAccountPin(true);
-                    DialogueManager.start(player, Tutorial.get(player, 17));
-                }
-            }
-        }
+		// New player
+		if (player.newPlayer()) {
+			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
+			player.save();
+			// player.setClanChatName("runelive");
+			player.setPlayerLocked(true).setDialogueActionId(45);
+			DialogueManager.start(player, 81);
+		} else {
+			if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
+				player.setPlayerLocked(true);
+				player.setPasswordChanging(true);
+				player.setInputHandling(new ChangePassword());
+				player.getPacketSender().sendEnterInputPrompt("Please enter a new password to set for your account:");
+			} else {
+				if (!player.getBankPinAttributes().hasBankPin()) {
+					player.setPlayerLocked(true);
+					player.setLoginAccountPin(true);
+					DialogueManager.start(player, Tutorial.get(player, 17));
+				}
+			}
+		}
 
-        player.getPacketSender().updateSpecialAttackOrb()
-                .sendIronmanMode(player.getGameMode().ordinal());
+		player.getPacketSender().updateSpecialAttackOrb().sendIronmanMode(player.getGameMode().ordinal());
 
-        if (player.getPointsHandler().getAchievementPoints() == 0) {
-            Achievements.setPoints(player);
-        }
-        if (player.getRights() == PlayerRights.OWNER
-                || player.getRights() == PlayerRights.MANAGER) {
-            player.setDonorRights(5);
-        } else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
-            player.setDonorRights(5);
-        } else if ((player.getRights() == PlayerRights.MODERATOR
-                || player.getRights() == PlayerRights.WIKI_MANAGER) && player.getDonorRights() < 3) {
-            player.setDonorRights(3);
-        } else if ((player.getRights() == PlayerRights.SUPPORT
-                || player.getRights() == PlayerRights.WIKI_EDITOR) && player.getDonorRights() < 1) {
-            player.setDonorRights(1);
-        }
-        if (player.getRights().isStaff()) {
-            if (player.getRights() == PlayerRights.OWNER) {
-                player.setLoyaltyRank(43);
-            } else if (player.getRights() == PlayerRights.MANAGER) {
-                player.setLoyaltyRank(50);
-            } else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
-                player.setLoyaltyRank(42);
-            } else if (player.getRights() == PlayerRights.WIKI_MANAGER) {
-                player.setLoyaltyRank(49);
-            } else if (player.getRights() == PlayerRights.WIKI_EDITOR) {
-                player.setLoyaltyRank(48);
-            } else if (player.getRights() == PlayerRights.GLOBAL_MOD) {
-                player.setLoyaltyRank(47);
-            } else if (player.getRights() == PlayerRights.SUPPORT) {
-                player.setLoyaltyRank(44);
-            } else if (player.getRights() == PlayerRights.MODERATOR) {
-                player.setLoyaltyRank(41);
-            } else if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-                player.setLoyaltyRank(52);
-            }
-        } else if (player.getDonorRights() != 0 && !player.getUsername().equalsIgnoreCase("dc blitz")
-                && !player.getUsername().equalsIgnoreCase("hero")) {
-            if (player.getDonorRights() == 1) {
-                player.setLoyaltyRank(37);
-            } else if (player.getDonorRights() == 2) {
-                player.setLoyaltyRank(38);
-            } else if (player.getDonorRights() == 3) {
-                player.setLoyaltyRank(39);
-            } else if (player.getDonorRights() == 4) {
-                player.setLoyaltyRank(40);
-            } else if (player.getDonorRights() == 5) {
-                player.setLoyaltyRank(46);
-            }
-        }
-        if (player.getUsername().equalsIgnoreCase("dc blitz")
-                || player.getUsername().equalsIgnoreCase("hero")) {
-            player.setLoyaltyRank(51);
-        }
-        if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
-            player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
-                    player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
-        }
-        //LoginChecksParser.checkLogin(player);
-        PlayerLogs.connections(player, "Login");
-        if (player.getBankPinAttributes().hasBankPin()
-                && !player.getBankPinAttributes().hasEnteredBankPin()
-                && player.getBankPinAttributes().onDifferent(player)) {
-            BankPin.init(player, false);
-        }
-        PlayerOwnedShops.collectCoinsOnLogin(player);
-      }
+		if (player.getPointsHandler().getAchievementPoints() == 0) {
+			Achievements.setPoints(player);
+		}
+		if (player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.MANAGER) {
+			player.setDonorRights(5);
+		} else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
+			player.setDonorRights(5);
+		} else if ((player.getRights() == PlayerRights.MODERATOR || player.getRights() == PlayerRights.WIKI_MANAGER)
+				&& player.getDonorRights() < 3) {
+			player.setDonorRights(3);
+		} else if ((player.getRights() == PlayerRights.SUPPORT || player.getRights() == PlayerRights.WIKI_EDITOR)
+				&& player.getDonorRights() < 1) {
+			player.setDonorRights(1);
+		}
+		if (player.getRights().isStaff()) {
+			if (player.getRights() == PlayerRights.OWNER) {
+				player.setLoyaltyRank(43);
+			} else if (player.getRights() == PlayerRights.MANAGER) {
+				player.setLoyaltyRank(50);
+			} else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
+				player.setLoyaltyRank(42);
+			} else if (player.getRights() == PlayerRights.WIKI_MANAGER) {
+				player.setLoyaltyRank(49);
+			} else if (player.getRights() == PlayerRights.WIKI_EDITOR) {
+				player.setLoyaltyRank(48);
+			} else if (player.getRights() == PlayerRights.GLOBAL_MOD) {
+				player.setLoyaltyRank(47);
+			} else if (player.getRights() == PlayerRights.SUPPORT) {
+				player.setLoyaltyRank(44);
+			} else if (player.getRights() == PlayerRights.MODERATOR) {
+				player.setLoyaltyRank(41);
+			} else if (player.getRights() == PlayerRights.STAFF_MANAGER) {
+				player.setLoyaltyRank(52);
+			}
+		} else if (player.getDonorRights() != 0 && !player.getUsername().equalsIgnoreCase("dc blitz")
+				&& !player.getUsername().equalsIgnoreCase("hero")) {
+			if (player.getDonorRights() == 1) {
+				player.setLoyaltyRank(37);
+			} else if (player.getDonorRights() == 2) {
+				player.setLoyaltyRank(38);
+			} else if (player.getDonorRights() == 3) {
+				player.setLoyaltyRank(39);
+			} else if (player.getDonorRights() == 4) {
+				player.setLoyaltyRank(40);
+			} else if (player.getDonorRights() == 5) {
+				player.setLoyaltyRank(46);
+			}
+		}
+		if (player.getUsername().equalsIgnoreCase("dc blitz") || player.getUsername().equalsIgnoreCase("hero")) {
+			player.setLoyaltyRank(51);
+		}
+		if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
+			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
+					player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+		}
+		// LoginChecksParser.checkLogin(player);
+		PlayerLogs.connections(player, "Login");
+		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()
+				&& player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+		}
+		PlayerOwnedShops.collectCoinsOnLogin(player);
+	}
 
-    public static boolean handleLogout(Player player) {
-        try {
-            PlayerSession session = player.getSession();
+	public static boolean handleLogout(Player player) {
+		try {
+			PlayerSession session = player.getSession();
 
-            if (session.getChannel().isOpen()) {
-                session.getChannel().close();
-            }
+			if (session.getChannel().isOpen()) {
+				session.getChannel().close();
+			}
 
-            if (!player.isRegistered()) {
-                return true;
-            }
-            if (player.spawnedCerberus) {
-                NPC n = new NPC(5866, new Position(1240, 1253, player.getPosition().getZ())).setSpawnedFor(player);
-                World.deregister(n);
-            }
-            boolean exception = GameServer.isUpdating() || World.getLogoutQueue().contains(player) && player.getLogoutTimer().elapsed(90000);
-            if (player.logout() || exception) {
-                System.out.println("[World] Deregistering player - [username, host] : ["
-                        + player.getUsername() + ", " + player.getHostAddress() + "]");
-                // if(player.getRights() != PlayerRights.OWNER && player.getRights() !=
-                // PlayerRights.ADMINISTRATOR) {
-                // new Thread(new Highscores(player)).start();
-                // }
-                // Sets last account information available
-                player.setLastLogin(System.currentTimeMillis());
-                player.setLastIpAddress(player.getHostAddress());
-                player.setLastSerialAddress(player.getSerialNumber());
-                player.setLastMacAddress(player.getMacAddress());
-                player.setLastComputerAddress(player.getComputerAddress());
-                player.getSession().setState(SessionState.LOGGING_OUT);
-                ConnectionHandler.remove(player.getHostAddress());
-                player.setTotalPlayTime(player.getTotalPlayTime() + player.getRecordedLogin().elapsed());
-                player.getPacketSender().sendInterfaceRemoval();
-                if (player.getCannon() != null) {
-                    DwarfMultiCannon.pickupCannon(player, player.getCannon(), true);
-                }
-                if (exception && player.getResetPosition() != null) {
-                    player.moveTo(player.getResetPosition());
-                    player.setResetPosition(null);
-                }
-                if (player.getRegionInstance() != null) {
-                    player.getRegionInstance().destruct();
-                }
-                Hunter.handleLogout(player);
-                Locations.logout(player);
-                player.getSummoning().unsummon(false, false);
-                player.getFarming().save();
-                BountyHunter.handleLogout(player);
-                ClanChatManager.leave(player, false);
-                player.getRelations().updateLists(false, 0);
-                PlayersOnlineInterface.remove(player);
-                TaskManager.cancelTasks(player.getCombatBuilder());
-                TaskManager.cancelTasks(player);
-                player.save();
-                World.getPlayers().remove(player);
-                session.setState(SessionState.LOGGED_OUT);
-                World.updatePlayersOnline();
-                player.setForumConnections(0);
-                PlayerLogs.connections(player, "Logout");
-                return true;
-            } else {
-                return false;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return true;
-    }
+			if (!player.isRegistered()) {
+				return true;
+			}
+			if (player.spawnedCerberus) {
+				NPC n = new NPC(5866, new Position(1240, 1253, player.getPosition().getZ())).setSpawnedFor(player);
+				World.deregister(n);
+			}
+			boolean exception = GameServer.isUpdating()
+					|| World.getLogoutQueue().contains(player) && player.getLogoutTimer().elapsed(90000);
+			if (player.logout() || exception) {
+				System.out.println("[World] Deregistering player - [username, host] : [" + player.getUsername() + ", "
+						+ player.getHostAddress() + "]");
+				// if(player.getRights() != PlayerRights.OWNER &&
+				// player.getRights() !=
+				// PlayerRights.ADMINISTRATOR) {
+				// new Thread(new Highscores(player)).start();
+				// }
+				// Sets last account information available
+				player.setLastLogin(System.currentTimeMillis());
+				player.setLastIpAddress(player.getHostAddress());
+				player.setLastSerialAddress(player.getSerialNumber());
+				player.setLastMacAddress(player.getMacAddress());
+				player.setLastComputerAddress(player.getComputerAddress());
+				player.getSession().setState(SessionState.LOGGING_OUT);
+				ConnectionHandler.remove(player.getHostAddress());
+				player.setTotalPlayTime(player.getTotalPlayTime() + player.getRecordedLogin().elapsed());
+				player.getPacketSender().sendInterfaceRemoval();
+				if (player.getCannon() != null) {
+					DwarfMultiCannon.pickupCannon(player, player.getCannon(), true);
+				}
+				if (exception && player.getResetPosition() != null) {
+					player.moveTo(player.getResetPosition());
+					player.setResetPosition(null);
+				}
+				if (player.getRegionInstance() != null) {
+					player.getRegionInstance().destruct();
+				}
+				Hunter.handleLogout(player);
+				Locations.logout(player);
+				player.getSummoning().unsummon(false, false);
+				player.getFarming().save();
+				BountyHunter.handleLogout(player);
+				ClanChatManager.leave(player, false);
+				player.getRelations().updateLists(false, 0);
+				PlayersOnlineInterface.remove(player);
+				TaskManager.cancelTasks(player.getCombatBuilder());
+				TaskManager.cancelTasks(player);
+				player.save();
+				World.getPlayers().remove(player);
+				session.setState(SessionState.LOGGED_OUT);
+				World.updatePlayersOnline();
+				player.setForumConnections(0);
+				PlayerLogs.connections(player, "Logout");
+				return true;
+			} else {
+				return false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
 }

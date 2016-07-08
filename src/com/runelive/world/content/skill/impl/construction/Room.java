@@ -26,6 +26,7 @@ public class Room implements java.io.Serializable {
 		this.z = theme.getHeight();
 		getVarData();
 	}
+
 	public Room(int rotation, int type, int z) {
 		this.rotation = rotation;
 		this.type = type;
@@ -55,8 +56,8 @@ public class Room implements java.io.Serializable {
 	public int getZ() {
 		return z;
 	}
-	public void setTheme(HouseTheme theme)
-	{
+
+	public void setTheme(HouseTheme theme) {
 		this.theme = theme;
 	}
 

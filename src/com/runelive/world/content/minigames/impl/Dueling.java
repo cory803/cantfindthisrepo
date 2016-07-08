@@ -19,7 +19,6 @@ import com.runelive.world.World;
 import com.runelive.world.content.BankPin;
 import com.runelive.world.content.BonusManager;
 import com.runelive.world.content.PlayerLogs;
-import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Dueling {
@@ -109,9 +108,9 @@ public class Dueling {
 
 		player.getTrading().setCanOffer(true);
 		player.getPacketSender().sendDuelEquipment();
-		player.getPacketSender().sendString(6671,
-				"Dueling with: " + playerToDuel.getUsername());
-		player.getPacketSender().sendMessage("Dueling with: " + playerToDuel.getUsername() + ", Level: "
+		player.getPacketSender().sendString(6671, "Dueling with: " + playerToDuel.getUsername());
+		player.getPacketSender()
+				.sendMessage("Dueling with: " + playerToDuel.getUsername() + ", Level: "
 						+ playerToDuel.getSkillManager().getCombatLevel() + ", Duel victories: "
 						+ playerToDuel.getDueling().arenaStats[0] + ", Duel losses: "
 						+ playerToDuel.getDueling().arenaStats[1]);
@@ -176,8 +175,7 @@ public class Dueling {
 		int amountInOtherInv = playerToDuel.getInventory().getAmount(itemId);
 		Item itemAmount = new Item(itemId, amount);
 		if (player.getRights() != PlayerRights.OWNER && playerToDuel.getRights() != PlayerRights.OWNER
-				&& player.getRights() != PlayerRights.MANAGER
-				&& playerToDuel.getRights() != PlayerRights.MANAGER) {
+				&& player.getRights() != PlayerRights.MANAGER && playerToDuel.getRights() != PlayerRights.MANAGER) {
 			if (!new Item(itemId).tradeable()) {
 				player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
 				return;
@@ -563,7 +561,7 @@ public class Dueling {
 				player.getDueling().duelingStatus = 4;
 				if (playerToDuel.getDueling().duelingStatus == 4 && player.getDueling().duelingStatus == 4) {
 					player.getDueling().startDuel();
-					playerToDuel.getDueling().startDuel();					
+					playerToDuel.getDueling().startDuel();
 				} else {
 					player.getPacketSender().sendString(6571, "Waiting for other player...");
 					playerToDuel.getPacketSender().sendString(6571, "Other player has accepted");
@@ -683,16 +681,18 @@ public class Dueling {
 		player.moveTo(new Position(3368 + Misc.getRandom(5), 3267 + Misc.getRandom(3), 0));
 		for (Item item : stakedItems) {
 			if (item.getId() > 0 && item.getAmount() > 0) {
-				if (item.getId() == 18016) { //shards will always be converted to gp...
+				if (item.getId() == 18016) { // shards will always be converted
+												// to gp...
 					player.setMoneyInPouch((player.getMoneyInPouch() + ((long) item.getAmount() * 25)));
 					player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
 					player.getPacketSender().sendString(1, ":moneypouchearning:" + ((long) item.getAmount() * 25) + "");
-					player.getPacketSender().sendMessage("The stack of "+Misc.formatAmount((long) item.getAmount())+" shards has been converted into gp. "
-							+ Misc.formatAmount((long) item.getAmount() * 25) + " has been added to your pouch.");
+					player.getPacketSender().sendMessage("The stack of " + Misc.formatAmount(item.getAmount())
+							+ " shards has been converted into gp. " + Misc.formatAmount((long) item.getAmount() * 25)
+							+ " has been added to your pouch.");
 				} else
 					player.getInventory().add(item);
-					Player playerDuel = World.getPlayers().get(duelingWith);
-					PlayerLogs.stake(player, playerDuel, item, player.getUsername());
+				Player playerDuel = World.getPlayers().get(duelingWith);
+				PlayerLogs.stake(player, playerDuel, item, player.getUsername());
 			}
 		}
 		reset();
@@ -720,14 +720,14 @@ public class Dueling {
 		}
 		return false;
 	}
-	
+
 	public void setLastDuelRules(Player player) {
 		for (int i = 0; i < player.lastDuelRules.length; i++) {
-			if(player.lastDuelRules[i] == true)
+			if (player.lastDuelRules[i] == true)
 				player.getDueling().selectRule(DuelRule.forId(i));
 		}
 	}
-	
+
 	public void reset() {
 		inDuelWith = -1;
 		duelingStatus = 0;
@@ -780,8 +780,8 @@ public class Dueling {
 	public static enum DuelRule {
 		NO_RANGED(16, 6725, -1, -1), NO_MELEE(32, 6726, -1, -1), NO_MAGIC(64, 6727, -1, -1), NO_SPECIAL_ATTACKS(8192,
 				7816, -1, -1), LOCK_WEAPON(4096, 670, -1, -1), NO_FORFEIT(1, 6721, -1, -1), NO_POTIONS(128, 6728, -1,
-						-1), NO_FOOD(256, 6729, -1, -1), NO_PRAYER(512, 6730, -1, -1), NO_MOVEMENT(2, 6722, -1,
-								-1), OBSTACLES(1024, 6732, -1, -1),
+						-1), NO_FOOD(256, 6729, -1, -1), NO_PRAYER(512, 6730, -1,
+								-1), NO_MOVEMENT(2, 6722, -1, -1), OBSTACLES(1024, 6732, -1, -1),
 
 		NO_HELM(/* 16384 */643, 13813, 1, Equipment.HEAD_SLOT), NO_CAPE(/* 32768 */644, 13814, 1,
 				Equipment.CAPE_SLOT), NO_AMULET(/* 65536 */645, 13815, 1, Equipment.AMULET_SLOT), NO_AMMUNITION(

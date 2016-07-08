@@ -47,36 +47,31 @@ public class House extends RegionInstance {
 	}
 
 	public void process() {
-		House house = player.getRegionInstance().getType() == RegionInstanceType.CONSTRUCTION_HOUSE ? (House) player
-				.getRegionInstance() : ((HouseDungeon) player
-				.getRegionInstance()).getHouse();
+		House house = player.getRegionInstance().getType() == RegionInstanceType.CONSTRUCTION_HOUSE
+				? (House) player.getRegionInstance() : ((HouseDungeon) player.getRegionInstance()).getHouse();
 		int[] myTiles = Construction.getMyChunk(player);
 		if (myTiles == null)
 			return;
 		if (myTiles[0] == -1 || myTiles[1] == -1)
 			return;
-		Room r = house.getOwner().getHouseRooms()[player
-				.inConstructionDungeon() ? 4 : player.getPosition().getZ()][myTiles[0] - 1][myTiles[1] - 1];
+		Room r = house.getOwner().getHouseRooms()[player.inConstructionDungeon() ? 4
+				: player.getPosition().getZ()][myTiles[0] - 1][myTiles[1] - 1];
 		if (r == null)
 			return;
 		if (r.getType() == ConstructionData.OUBLIETTE) {
-			int xOnTile = Construction.getXTilesOnTile(myTiles, player
-					.getPosition().getX());
-			int yOnTile = Construction.getYTilesOnTile(myTiles, player
-					.getPosition().getY());
+			int xOnTile = Construction.getXTilesOnTile(myTiles, player.getPosition().getX());
+			int yOnTile = Construction.getYTilesOnTile(myTiles, player.getPosition().getY());
 			if (xOnTile >= 2 && xOnTile <= 5 && yOnTile >= 2 && yOnTile <= 5) {
 				HouseFurniture pf = null;
 				for (HouseFurniture pf_ : house.getOwner().getHouseFurniture()) {
-					if (pf_.getRoomX() == myTiles[0] - 1
-							&& pf_.getRoomY() == myTiles[1] - 1
+					if (pf_.getRoomX() == myTiles[0] - 1 && pf_.getRoomY() == myTiles[1] - 1
 							&& pf_.getHotSpotId() == 85) {
 						pf = pf_;
 						break;
 					}
 				}
 				if (pf != null) {
-					if (pf.getFurnitureId() == 13334
-							|| pf.getFurnitureId() == 13337) {
+					if (pf.getFurnitureId() == 13334 || pf.getFurnitureId() == 13337) {
 						if (player.getConstitution() > 0) {
 							// p.getCombat().appendHit(p, 20, 0, 2, false);
 							// p.setDamage(new Damage(new Hit(20,
@@ -89,27 +84,17 @@ public class House extends RegionInstance {
 
 		if (r.getType() == ConstructionData.CORRIDOR) {
 			int[] converted = Construction.getConvertedCoords(3, 2, myTiles, r);
-			int[] converted_1 = Construction.getConvertedCoords(4, 2, myTiles,
-					r);
-			int[] converted_2 = Construction.getConvertedCoords(3, 5, myTiles,
-					r);
-			int[] converted_3 = Construction.getConvertedCoords(4, 5, myTiles,
-					r);
-			if (player.getPosition().getX() == converted[0]
-					&& player.getPosition().getY() == converted[1]
-					|| player.getPosition().getX() == converted_1[0]
-					&& player.getPosition().getY() == converted_1[1]
-					|| player.getPosition().getX() == converted_2[0]
-					&& player.getPosition().getY() == converted_2[1]
-					|| player.getPosition().getX() == converted_3[0]
-					&& player.getPosition().getY() == converted_3[1]) {
+			int[] converted_1 = Construction.getConvertedCoords(4, 2, myTiles, r);
+			int[] converted_2 = Construction.getConvertedCoords(3, 5, myTiles, r);
+			int[] converted_3 = Construction.getConvertedCoords(4, 5, myTiles, r);
+			if (player.getPosition().getX() == converted[0] && player.getPosition().getY() == converted[1]
+					|| player.getPosition().getX() == converted_1[0] && player.getPosition().getY() == converted_1[1]
+					|| player.getPosition().getX() == converted_2[0] && player.getPosition().getY() == converted_2[1]
+					|| player.getPosition().getX() == converted_3[0] && player.getPosition().getY() == converted_3[1]) {
 				HouseFurniture pf = null;
 				for (HouseFurniture pf_ : house.getOwner().getHouseFurniture()) {
-					if (pf_.getRoomX() == myTiles[0]
-							&& pf_.getRoomY() == myTiles[1]
-							&& pf_.getHotSpotId() == 91) {
-						int[] coords = Construction.getConvertedCoords(
-								pf_.getStandardXOff(), pf_.getStandardYOff(),
+					if (pf_.getRoomX() == myTiles[0] && pf_.getRoomY() == myTiles[1] && pf_.getHotSpotId() == 91) {
+						int[] coords = Construction.getConvertedCoords(pf_.getStandardXOff(), pf_.getStandardYOff(),
 								myTiles, r);
 						if (coords[0] == myTiles[0] && coords[1] == myTiles[1]) {
 							pf = pf_;
@@ -118,8 +103,7 @@ public class House extends RegionInstance {
 					}
 				}
 				if (pf != null) {
-					if (pf.getFurnitureId() >= 13356
-							|| pf.getFurnitureId() <= 13360) {
+					if (pf.getFurnitureId() >= 13356 || pf.getFurnitureId() <= 13360) {
 						if (player.getConstitution() > 0) {
 							// p.getCombat().appendHit(p, 20, 0, 2, false);
 							// p.setDamage(new Damage(new Hit(20,
@@ -154,8 +138,7 @@ public class House extends RegionInstance {
 	public int getBurnersLit(int roomX, int roomY, int roomZ) {
 		int i = 0;
 		for (HouseFurniture pf : litBurners) {
-			if (roomX == pf.getRoomX() && roomY == pf.getRoomY()
-					&& roomZ == pf.getRoomZ())
+			if (roomX == pf.getRoomX() && roomY == pf.getRoomY() && roomZ == pf.getRoomZ())
 				i++;
 
 		}
@@ -166,17 +149,14 @@ public class House extends RegionInstance {
 		return furnitureActivated;
 	}
 
-	public void setFurnitureActivated(
-			ArrayList<HouseFurniture> furnitureActivated) {
+	public void setFurnitureActivated(ArrayList<HouseFurniture> furnitureActivated) {
 		this.furnitureActivated = furnitureActivated;
 	}
 
-	public ArrayList<HouseFurniture> getActivatedObject(int roomX, int roomY,
-			int roomZ) {
+	public ArrayList<HouseFurniture> getActivatedObject(int roomX, int roomY, int roomZ) {
 		ArrayList<HouseFurniture> pfs = new ArrayList<HouseFurniture>();
 		for (HouseFurniture pf : furnitureActivated) {
-			if (roomX == pf.getRoomX() && roomY == pf.getRoomY()
-					&& roomZ == pf.getRoomZ())
+			if (roomX == pf.getRoomX() && roomY == pf.getRoomY() && roomZ == pf.getRoomZ())
 				pfs.add(pf);
 
 		}

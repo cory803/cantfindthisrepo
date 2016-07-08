@@ -1,7 +1,8 @@
 package com.runelive.net.mysql;
 
 /**
- * The interface that all DatabaseConfigurations implement to provide a new connection
+ * The interface that all DatabaseConfigurations implement to provide a new
+ * connection
  * 
  * @author Nikki
  *

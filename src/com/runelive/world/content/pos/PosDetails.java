@@ -7,45 +7,45 @@ package com.runelive.world.content.pos;
  */
 public class PosDetails {
 
-  private int buttonId;
-  private String owner;
-  private String caption;
+	private int buttonId;
+	private String owner;
+	private String caption;
 
-  public PosDetails(int buttonId, String owner, String caption) {
-    this.buttonId = buttonId;
-    this.owner = owner;
-    this.caption = caption;
-  }
+	public PosDetails(int buttonId, String owner, String caption) {
+		this.buttonId = buttonId;
+		this.owner = owner;
+		this.caption = caption;
+	}
 
-  /**
-   * Gets the button id.
-   * 
-   * @return the button id
-   */
-  public int getButtonId() {
-    return buttonId;
-  }
+	/**
+	 * Gets the button id.
+	 * 
+	 * @return the button id
+	 */
+	public int getButtonId() {
+		return buttonId;
+	}
 
-  public void setButtonId(int ii) {
-    this.buttonId = ii;
-  }
+	public void setButtonId(int ii) {
+		this.buttonId = ii;
+	}
 
-  /**
-   * Gets the caption.
-   * 
-   * @return the caption
-   */
-  public String getCaption() {
-    return caption;
-  }
+	/**
+	 * Gets the caption.
+	 * 
+	 * @return the caption
+	 */
+	public String getCaption() {
+		return caption;
+	}
 
-  /**
-   * Gets the owner.
-   * 
-   * @return the owner
-   */
-  public String getOwner() {
-    return owner;
-  }
+	/**
+	 * Gets the owner.
+	 * 
+	 * @return the owner
+	 */
+	public String getOwner() {
+		return owner;
+	}
 
 }

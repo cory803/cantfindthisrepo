@@ -17,28 +17,28 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class ChatPacketListener implements PacketListener {
 
-  @Override
-  public void handleMessage(Player player, Packet packet) {
-    int effects = packet.readUnsignedByteS();
-    int color = packet.readUnsignedByteS();
-    int size = packet.getSize();
-    byte[] text = packet.readReversedBytesA(size);
-    if (PlayerPunishment.isMuted(player.getUsername())
-        || PlayerPunishment.isIpMuted(player.getHostAddress())) {
-      player.getPacketSender().sendMessage("You are muted and cannot chat.");
-      return;
-    }
-    String str = Misc.textUnpack(text, size).toLowerCase().replaceAll(";", ".");
-    if (Misc.blockedWord(str)) {
-      // Logs.write_data(player.getUsername()+ ".txt", "advertisers", "Player was caught saying in
-      // global chat: "+str+"");
-      DialogueManager.sendStatement(player,
-          "A word was blocked in your sentence. Please do not repeat it!");
-      return;
-    }
-    // Logs.write_data(player.getUsername()+ ".txt", "global_chats", ""+str+"");
-    player.getChatMessages().set(new Message(color, effects, text));
-    player.getUpdateFlag().flag(Flag.CHAT);
-  }
+	@Override
+	public void handleMessage(Player player, Packet packet) {
+		int effects = packet.readUnsignedByteS();
+		int color = packet.readUnsignedByteS();
+		int size = packet.getSize();
+		byte[] text = packet.readReversedBytesA(size);
+		if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
+			player.getPacketSender().sendMessage("You are muted and cannot chat.");
+			return;
+		}
+		String str = Misc.textUnpack(text, size).toLowerCase().replaceAll(";", ".");
+		if (Misc.blockedWord(str)) {
+			// Logs.write_data(player.getUsername()+ ".txt", "advertisers",
+			// "Player was caught saying in
+			// global chat: "+str+"");
+			DialogueManager.sendStatement(player, "A word was blocked in your sentence. Please do not repeat it!");
+			return;
+		}
+		// Logs.write_data(player.getUsername()+ ".txt", "global_chats",
+		// ""+str+"");
+		player.getChatMessages().set(new Message(color, effects, text));
+		player.getUpdateFlag().flag(Flag.CHAT);
+	}
 
 }

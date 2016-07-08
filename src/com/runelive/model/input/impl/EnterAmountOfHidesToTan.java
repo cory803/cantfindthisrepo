@@ -6,19 +6,19 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class EnterAmountOfHidesToTan extends EnterAmount {
 
-  private int button;
+	private int button;
 
-  public EnterAmountOfHidesToTan(int button) {
-    this.button = button;
-  }
-
-  @Override
-  public void handleAmount(Player player, long value) {
-	int amount = (int) value;
-	if(value > Integer.MAX_VALUE) {
-		amount = Integer.MAX_VALUE;
+	public EnterAmountOfHidesToTan(int button) {
+		this.button = button;
 	}
-    Tanning.tanHide(player, button, amount);
-  }
+
+	@Override
+	public void handleAmount(Player player, long value) {
+		int amount = (int) value;
+		if (value > Integer.MAX_VALUE) {
+			amount = Integer.MAX_VALUE;
+		}
+		Tanning.tanHide(player, button, amount);
+	}
 
 }

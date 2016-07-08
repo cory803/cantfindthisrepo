@@ -4,19 +4,19 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class DamageDealer {
 
-  public DamageDealer(Player p, int damage) {
-    this.p = p;
-    this.damage = damage;
-  }
+	public DamageDealer(Player p, int damage) {
+		this.p = p;
+		this.damage = damage;
+	}
 
-  private Player p;
-  private int damage;
+	private Player p;
+	private int damage;
 
-  public Player getPlayer() {
-    return this.p;
-  }
+	public Player getPlayer() {
+		return this.p;
+	}
 
-  public int getDamage() {
-    return this.damage;
-  }
+	public int getDamage() {
+		return this.damage;
+	}
 }

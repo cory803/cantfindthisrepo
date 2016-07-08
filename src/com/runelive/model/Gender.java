@@ -8,15 +8,15 @@ package com.runelive.model;
 
 public enum Gender {
 
-  MALE, FEMALE;
-  
-  public static Gender forId(int id) {
-    for (Gender book : Gender.values()) {
-      if (book.ordinal() == id) {
-        return book;
-      }
-    }
-    return MALE;
-  }
-  
+	MALE, FEMALE;
+
+	public static Gender forId(int id) {
+		for (Gender book : Gender.values()) {
+			if (book.ordinal() == id) {
+				return book;
+			}
+		}
+		return MALE;
+	}
+
 }

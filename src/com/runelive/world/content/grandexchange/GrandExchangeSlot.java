@@ -8,22 +8,22 @@ package com.runelive.world.content.grandexchange;
  */
 public class GrandExchangeSlot {
 
-  private GrandExchangeSlotState state = GrandExchangeSlotState.EMPTY;
-  private GrandExchangeOffer offer;
+	private GrandExchangeSlotState state = GrandExchangeSlotState.EMPTY;
+	private GrandExchangeOffer offer;
 
-  public GrandExchangeSlotState getState() {
-    return state;
-  }
+	public GrandExchangeSlotState getState() {
+		return state;
+	}
 
-  public void setState(GrandExchangeSlotState state) {
-    this.state = state;
-  }
+	public void setState(GrandExchangeSlotState state) {
+		this.state = state;
+	}
 
-  public GrandExchangeOffer getOffer() {
-    return offer;
-  }
+	public GrandExchangeOffer getOffer() {
+		return offer;
+	}
 
-  public void setOffer(GrandExchangeOffer offer) {
-    this.offer = offer;
-  }
+	public void setOffer(GrandExchangeOffer offer) {
+		this.offer = offer;
+	}
 }

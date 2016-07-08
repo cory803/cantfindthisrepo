@@ -6,13 +6,13 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
-import com.runelive.util.ErrorFile;
-import com.runelive.util.ShutdownHook;
-import com.runelive.net.mysql.ThreadedSQL;
-import com.runelive.net.mysql.MySQLDatabaseConfiguration;
 import com.runelive.net.mysql.DatabaseInformationCharacters;
 import com.runelive.net.mysql.DatabaseInformationForums;
 import com.runelive.net.mysql.DatabaseInformationVoting;
+import com.runelive.net.mysql.MySQLDatabaseConfiguration;
+import com.runelive.net.mysql.ThreadedSQL;
+import com.runelive.util.ErrorFile;
+import com.runelive.util.ShutdownHook;
 
 /**
  * The starting point of RuneLive.
@@ -22,47 +22,47 @@ import com.runelive.net.mysql.DatabaseInformationVoting;
  */
 public class GameServer {
 
-    private static final GamePanel panel = new GamePanel();
-    private static final GameLoader loader = new GameLoader(GameSettings.GAME_PORT);
-    private static final Logger logger = Logger.getLogger("RuneLive");
-    private static boolean updating;
-    private static long startTime;
-    private static ThreadedSQL characters_sql = null;
-    private static ThreadedSQL forums_sql = null;
-    private static ThreadedSQL voting_sql = null;
+	private static final GamePanel panel = new GamePanel();
+	private static final GameLoader loader = new GameLoader(GameSettings.GAME_PORT);
+	private static final Logger logger = Logger.getLogger("RuneLive");
+	private static boolean updating;
+	private static long startTime;
+	private static ThreadedSQL characters_sql = null;
+	private static ThreadedSQL forums_sql = null;
+	private static ThreadedSQL voting_sql = null;
 
-    public static ThreadedSQL getCharacterPool() {
-        return characters_sql;
-    }
-	
-    public static ThreadedSQL getForumPool() {
-        return forums_sql;
-    }
+	public static ThreadedSQL getCharacterPool() {
+		return characters_sql;
+	}
 
-    public static ThreadedSQL getVotingPool() {
-        return voting_sql;
-    }
+	public static ThreadedSQL getForumPool() {
+		return forums_sql;
+	}
 
-    public static void main(String[] params) {
-        try {
-            System.setErr(new PrintStream(new ErrorFile("errorlogs", "ErrorLog"), true));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+	public static ThreadedSQL getVotingPool() {
+		return voting_sql;
+	}
+
+	public static void main(String[] params) {
+		try {
+			System.setErr(new PrintStream(new ErrorFile("errorlogs", "ErrorLog"), true));
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 		logger.info("Grabbing MYSQL passwords...");
 		ServerTimeUpdateTask.grabPasswords();
-		logger.info("Grabbed MYSQL character connection: "+DatabaseInformationCharacters.host+"");
-		logger.info("Grabbed MYSQL character password: "+DatabaseInformationCharacters.password+"");
-		logger.info("Grabbed MYSQL forum connection: "+DatabaseInformationForums.host+"");
-		logger.info("Grabbed MYSQL forum password: "+DatabaseInformationForums.password+"");
-        startTime = System.currentTimeMillis();
-        Runtime.getRuntime().addShutdownHook(new ShutdownHook());
-        try {
-            panel.setVisible(true);
-            logger.info("Initializing the loader...");
-            LoaderProperties.load();
+		logger.info("Grabbed MYSQL character connection: " + DatabaseInformationCharacters.host + "");
+		logger.info("Grabbed MYSQL character password: " + DatabaseInformationCharacters.password + "");
+		logger.info("Grabbed MYSQL forum connection: " + DatabaseInformationForums.host + "");
+		logger.info("Grabbed MYSQL forum password: " + DatabaseInformationForums.password + "");
+		startTime = System.currentTimeMillis();
+		Runtime.getRuntime().addShutdownHook(new ShutdownHook());
+		try {
+			panel.setVisible(true);
+			logger.info("Initializing the loader...");
+			LoaderProperties.load();
 			System.out.println("Connecting to MYSQL character database...");
-			//Characters SQL
+			// Characters SQL
 			MySQLDatabaseConfiguration characters = new MySQLDatabaseConfiguration();
 			characters.setHost(DatabaseInformationCharacters.host);
 			characters.setPort(DatabaseInformationCharacters.port);
@@ -71,7 +71,7 @@ public class GameServer {
 			characters.setDatabase(DatabaseInformationCharacters.database);
 			characters_sql = new ThreadedSQL(characters, 4);
 			System.out.println("Connecting to MYSQL forum database...");
-			//Forum SQL
+			// Forum SQL
 			MySQLDatabaseConfiguration forums = new MySQLDatabaseConfiguration();
 			forums.setHost(DatabaseInformationForums.host);
 			forums.setPort(DatabaseInformationForums.port);
@@ -86,38 +86,38 @@ public class GameServer {
 			voting.setPassword(DatabaseInformationVoting.password);
 			voting.setDatabase(DatabaseInformationVoting.database);
 			voting_sql = new ThreadedSQL(voting, 4);
-            loader.init();
-            loader.finish();
+			loader.init();
+			loader.finish();
 			logger.info("Starting Configurations...");
 			ServerTimeUpdateTask.start_configuration_process();
-            logger.info("RuneLive is now online on port " + GameSettings.GAME_PORT + "!");
-        } catch (Exception ex) {
-            logger.log(Level.SEVERE, "Could not start RuneLive! Program terminated.", ex);
-            System.exit(1);
-        }
-    }
+			logger.info("RuneLive is now online on port " + GameSettings.GAME_PORT + "!");
+		} catch (Exception ex) {
+			logger.log(Level.SEVERE, "Could not start RuneLive! Program terminated.", ex);
+			System.exit(1);
+		}
+	}
 
-    public static GamePanel getPanel() {
-        return panel;
-    }
+	public static GamePanel getPanel() {
+		return panel;
+	}
 
-    public static GameLoader getLoader() {
-        return loader;
-    }
+	public static GameLoader getLoader() {
+		return loader;
+	}
 
-    public static Logger getLogger() {
-        return logger;
-    }
+	public static Logger getLogger() {
+		return logger;
+	}
 
-    public static void setUpdating(boolean updating) {
-        GameServer.updating = updating;
-    }
+	public static void setUpdating(boolean updating) {
+		GameServer.updating = updating;
+	}
 
-    public static boolean isUpdating() {
-        return GameServer.updating;
-    }
+	public static boolean isUpdating() {
+		return GameServer.updating;
+	}
 
-    public static long getStartTime() {
-        return startTime;
-    }
+	public static long getStartTime() {
+		return startTime;
+	}
 }

@@ -1,13 +1,13 @@
 package com.runelive.world.content.skill.impl.farming;
 
 public enum SeedType {
-  HERB, ALLOTMENT, FLOWER;
+	HERB, ALLOTMENT, FLOWER;
 
-  public static SeedType forId(int id) {
-    for (SeedType type : SeedType.values()) {
-      if (type != null && type.ordinal() == id)
-        return type;
-    }
-    return HERB;
-  }
+	public static SeedType forId(int id) {
+		for (SeedType type : SeedType.values()) {
+			if (type != null && type.ordinal() == id)
+				return type;
+		}
+		return HERB;
+	}
 }

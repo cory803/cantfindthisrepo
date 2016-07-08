@@ -4,26 +4,24 @@ import com.runelive.GameSettings;
 import com.runelive.model.Flag;
 import com.runelive.model.Item;
 import com.runelive.model.Locations.Location;
+import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
+import com.runelive.model.Skill;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.AccountTools;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PlayerPunishment;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerSaving;
-import com.runelive.model.Skill;
-import com.runelive.model.PlayerRights;
 
 public class StaffManagers {
-	
+
 	/**
-	* @Author Jonathan Sirens
-	* Initiates Command
-	**/
-	
+	 * @Author Jonathan Sirens Initiates Command
+	 **/
+
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		if (command[0].equals("staffzone")) {
 			if (command.length > 1 && command[1].equals("all")) {
@@ -38,133 +36,141 @@ public class StaffManagers {
 				TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
 			}
 		}
-        if(command[0].equals("scan")) {
-      	  String victimUsername = wholeCommand.substring(5);
-            PlayerSaving.accountExists(victimUsername, rs -> {
-                if (rs.next()) {//account exists
-                    Player other = World.getPlayerByName(victimUsername);
-                    if (other == null) {
-                        AccountTools.scan(player, victimUsername, new Player(null));
-                    } else {
-                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
-                    }
-                } else {
-                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-                }
-            });
-      }
-		if(wholeCommand.equalsIgnoreCase("hp")) {
+		if (command[0].equals("scan")) {
+			String victimUsername = wholeCommand.substring(5);
+			PlayerSaving.accountExists(victimUsername, rs -> {
+				if (rs.next()) {// account exists
+					Player other = World.getPlayerByName(victimUsername);
+					if (other == null) {
+						AccountTools.scan(player, victimUsername, new Player(null));
+					} else {
+						AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
+					}
+				} else {
+					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+				}
+			});
+		}
+		if (wholeCommand.equalsIgnoreCase("hp")) {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 99999, true);
 		}
-		if(wholeCommand.startsWith("globalyell")) {
+		if (wholeCommand.startsWith("globalyell")) {
 			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
 			World.setGlobalYell(!World.isGlobalYell());
-			World.sendMessage("<img=4> @blu@The yell channel has been @dre@"+(World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
+			World.sendMessage("<img=4> @blu@The yell channel has been @dre@"
+					+ (World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
 		}
 		if (command[0].equals("giverights")) {
-				try {
+			try {
 				String rights = command[1];
 				Player target = World.getPlayerByName(command[2]);
-			if(target == null) {
-				player.getPacketSender().sendMessage("This player is not online.");
-				return;
-			}
-			if(target.getRights() != PlayerRights.MODERATOR && target.getRights() != PlayerRights.SUPPORT && target.getRights() != PlayerRights.PLAYER) {
-				player.getPacketSender().sendMessage("You can't use this command on this person.");
-				return;
-			}
-			switch (rights) {
-			case "demote":
-			case "derank":
-				target.setRights(PlayerRights.PLAYER);
-				target.getPacketSender().sendMessage("You have been demoted...");
-				target.getPacketSender().sendRights();
-				break;
-			case "ss":
-			case "serversupport":
-			case "support":
-				target.setRights(PlayerRights.SUPPORT);
-				target.getPacketSender().sendMessage("Your player rights has been changed to support.");
-				target.getPacketSender().sendRights();
-				break;
-			case "mod":
-			case "moderator":
-				target.setRights(PlayerRights.MODERATOR);
-				target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
-				target.getPacketSender().sendRights();
-				break;
-			default:
-				player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
-			}
-			} catch(Exception e) {
+				if (target == null) {
+					player.getPacketSender().sendMessage("This player is not online.");
+					return;
+				}
+				if (target.getRights() != PlayerRights.MODERATOR && target.getRights() != PlayerRights.SUPPORT
+						&& target.getRights() != PlayerRights.PLAYER) {
+					player.getPacketSender().sendMessage("You can't use this command on this person.");
+					return;
+				}
+				switch (rights) {
+				case "demote":
+				case "derank":
+					target.setRights(PlayerRights.PLAYER);
+					target.getPacketSender().sendMessage("You have been demoted...");
+					target.getPacketSender().sendRights();
+					break;
+				case "ss":
+				case "serversupport":
+				case "support":
+					target.setRights(PlayerRights.SUPPORT);
+					target.getPacketSender().sendMessage("Your player rights has been changed to support.");
+					target.getPacketSender().sendRights();
+					break;
+				case "mod":
+				case "moderator":
+					target.setRights(PlayerRights.MODERATOR);
+					target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
+					target.getPacketSender().sendRights();
+					break;
+				default:
+					player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
+				}
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		if(wholeCommand.startsWith("unjail")) {
+		if (wholeCommand.startsWith("unjail")) {
 			String jail_punishee = wholeCommand.substring(7);
 			Player punishee = World.getPlayerByName(jail_punishee);
 			punishee.setJailed(false);
 			punishee.forceChat("Im free!!! I'm finally out of jail... Hooray!");
 			punishee.moveTo(new Position(3087, 3502, 0));
 		}
-		if(command[0].equalsIgnoreCase("saveall")) {
+		if (command[0].equalsIgnoreCase("saveall")) {
 			World.savePlayers();
 			player.getPacketSender().sendMessage("Saved players!");
 		}
-		if(command[0].equalsIgnoreCase("teleto")) {
+		if (command[0].equalsIgnoreCase("teleto")) {
 			String playerToTele = wholeCommand.substring(7);
 			Player player2 = World.getPlayerByName(playerToTele);
-			if(player2 == null) {
+			if (player2 == null) {
 				player.getPacketSender().sendMessage("Cannot find that player online..");
 				return;
 			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele && player.getLocation() != Location.DUNGEONEERING) {
+				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy())
+						&& player.getRegionInstance() == null && player2.getRegionInstance() == null;
+				if (canTele && player.getLocation() != Location.DUNGEONEERING) {
 					TeleportHandler.teleportPlayer(player, player2.getPosition().copy(), TeleportType.NORMAL);
-					player.getPacketSender().sendMessage("Teleporting to player: "+player2.getUsername()+"");
+					player.getPacketSender().sendMessage("Teleporting to player: " + player2.getUsername() + "");
 				} else {
-					if(player2.getLocation() == Location.DUNGEONEERING) {
-						player.getPacketSender().sendMessage("You can not teleport to this player while they are dungeoneering.");
+					if (player2.getLocation() == Location.DUNGEONEERING) {
+						player.getPacketSender()
+								.sendMessage("You can not teleport to this player while they are dungeoneering.");
 					} else {
-						player.getPacketSender().sendMessage("You can not teleport to this player at the moment. Minigame maybe?");
+						player.getPacketSender()
+								.sendMessage("You can not teleport to this player at the moment. Minigame maybe?");
 					}
 				}
 			}
 		}
-		if(command[0].equalsIgnoreCase("movehome")) {
+		if (command[0].equalsIgnoreCase("movehome")) {
 			String player2 = command[1];
 			player2 = Misc.formatText(player2.replaceAll("_", " "));
-			if(command.length >= 3 && command[2] != null)
-				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
+			if (command.length >= 3 && command[2] != null)
+				player2 += " " + Misc.formatText(command[2].replaceAll("_", " "));
 			Player playerToMove = World.getPlayerByName(player2);
-			if(playerToMove != null) {
-				if(playerToMove.homeLocation == 0) {
+			if (playerToMove != null) {
+				if (playerToMove.homeLocation == 0) {
 					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
 				} else {
 					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
 				}
-				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
-				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
+				playerToMove.getPacketSender()
+						.sendMessage("You've been teleported home by " + player.getUsername() + ".");
+				player.getPacketSender().sendMessage("Sucessfully moved " + playerToMove.getUsername() + " to home.");
 			}
 		}
-		if(command[0].equalsIgnoreCase("toggleinvis")) {
+		if (command[0].equalsIgnoreCase("toggleinvis")) {
 			player.setNpcTransformationId(player.getNpcTransformationId() > 0 ? -1 : 8254);
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
-		if(command[0].equalsIgnoreCase("teletome")) {
+		if (command[0].equalsIgnoreCase("teletome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
-			if(player2.getLocation() == Location.DUNGEONEERING) {
+			if (player2.getLocation() == Location.DUNGEONEERING) {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-				if(canTele) {
-					TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
-					player.getPacketSender().sendMessage("Teleporting player to you: "+player2.getUsername()+"");
-					player2.getPacketSender().sendMessage("You're being teleported to "+player.getUsername()+"...");
-				} else
-					player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy())
+					&& player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			if (canTele) {
+				TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
+				player.getPacketSender().sendMessage("Teleporting player to you: " + player2.getUsername() + "");
+				player2.getPacketSender().sendMessage("You're being teleported to " + player.getUsername() + "...");
+			} else
+				player.getPacketSender().sendMessage(
+						"You can not teleport that player at the moment. Maybe you or they are in a minigame?");
 		}
 		if (command[0].equals("tele")) {
 			int x = Integer.valueOf(command[1]), y = Integer.valueOf(command[2]);
@@ -175,85 +181,91 @@ public class StaffManagers {
 			player.moveTo(position);
 			player.getPacketSender().sendMessage("Teleporting to " + position.toString());
 		}
-		if(command[0].equalsIgnoreCase("movetome")) {
+		if (command[0].equalsIgnoreCase("movetome")) {
 			String playerToTele = wholeCommand.substring(9);
 			Player player2 = World.getPlayerByName(playerToTele);
-			if(player2.getLocation() == Location.DUNGEONEERING) {
+			if (player2.getLocation() == Location.DUNGEONEERING) {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
-			if(canTele) {
-				player.getPacketSender().sendMessage("Moving player: "+player2.getUsername()+"");
-				player2.getPacketSender().sendMessage("You've been moved to "+player.getUsername());
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy())
+					&& player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			if (canTele) {
+				player.getPacketSender().sendMessage("Moving player: " + player2.getUsername() + "");
+				player2.getPacketSender().sendMessage("You've been moved to " + player.getUsername());
 				player2.moveTo(player.getPosition().copy());
 			} else
-				player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
+				player.getPacketSender()
+						.sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
 		}
-		if(command[0].contains("host")) {
-			String plr = wholeCommand.substring(command[0].length()+1);
+		if (command[0].contains("host")) {
+			String plr = wholeCommand.substring(command[0].length() + 1);
 			Player playr2 = World.getPlayerByName(plr);
-			if(playr2 != null) {
-				player.getPacketSender().sendMessage(""+playr2.getUsername()+" host IP: "+playr2.getHostAddress()+", serial number: "+playr2.getSerialNumber());
+			if (playr2 != null) {
+				player.getPacketSender().sendMessage("" + playr2.getUsername() + " host IP: " + playr2.getHostAddress()
+						+ ", serial number: " + playr2.getSerialNumber());
 			} else
-				player.getPacketSender().sendMessage("Could not find player: "+plr);
+				player.getPacketSender().sendMessage("Could not find player: " + plr);
 		}
-		if(command[0].equals("gold")) {
+		if (command[0].equals("gold")) {
 			Player p = World.getPlayerByName(wholeCommand.substring(5));
-			if(p != null) {
+			if (p != null) {
 				long gold = 0;
-				for(Item item : p.getInventory().getItems()) {
-					if(item != null && item.getId() > 0 && item.tradeable())
-						gold+= item.getDefinition().getValue();
+				for (Item item : p.getInventory().getItems()) {
+					if (item != null && item.getId() > 0 && item.tradeable())
+						gold += item.getDefinition().getValue();
 				}
-				for(Item item : p.getEquipment().getItems()) {
-					if(item != null && item.getId() > 0 && item.tradeable())
-						gold+= item.getDefinition().getValue();
+				for (Item item : p.getEquipment().getItems()) {
+					if (item != null && item.getId() > 0 && item.tradeable())
+						gold += item.getDefinition().getValue();
 				}
-				for(int i = 0; i < 9; i++) {
-					for(Item item : p.getBank(i).getItems()) {
-						if(item != null && item.getId() > 0 && item.tradeable())
-							gold+= item.getDefinition().getValue();
+				for (int i = 0; i < 9; i++) {
+					for (Item item : p.getBank(i).getItems()) {
+						if (item != null && item.getId() > 0 && item.tradeable())
+							gold += item.getDefinition().getValue();
 					}
 				}
 				gold += p.getMoneyInPouch();
-				player.getPacketSender().sendMessage(p.getUsername() + " has "+Misc.insertCommasToNumber(String.valueOf(gold))+" coins.");
+				player.getPacketSender().sendMessage(
+						p.getUsername() + " has " + Misc.insertCommasToNumber(String.valueOf(gold)) + " coins.");
 			} else
 				player.getPacketSender().sendMessage("Can not find player online.");
 		}
-		if(wholeCommand.toLowerCase().startsWith("yell")) {
-			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
+		if (wholeCommand.toLowerCase().startsWith("yell")) {
+			if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
 				return;
 			}
-			if(!GameSettings.YELL_STATUS) {
+			if (!GameSettings.YELL_STATUS) {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
 			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>] "+player.getUsername()+": "+yellmessage, player);	
+			World.sendYell("<col=0>[<col=000000><shad=ffffff><img=17>Staff Manager<img=17></shad><col=0>] "
+					+ player.getUsername() + ": " + yellmessage, player);
 		}
-		if(command[0].equalsIgnoreCase("kick")) {
+		if (command[0].equalsIgnoreCase("kick")) {
 			String player2 = wholeCommand.substring(5);
 			Player playerToKick = World.getPlayerByName(player2);
-			if(playerToKick.getLocation() == Location.DUNGEONEERING) {
+			if (playerToKick.getLocation() == Location.DUNGEONEERING) {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			if(playerToKick.getLocation() != Location.WILDERNESS) {
+			if (playerToKick.getLocation() != Location.WILDERNESS) {
 				playerToKick.forceOffline = true;
 				World.deregister(playerToKick);
-				player.getPacketSender().sendMessage("Kicked "+playerToKick.getUsername()+".");
+				player.getPacketSender().sendMessage("Kicked " + playerToKick.getUsername() + ".");
 			}
 		}
 		if (wholeCommand.startsWith("silenceyell")) {
 			String yellmute = wholeCommand.substring(12);
 			Player punishee = World.getPlayerByName(yellmute);
 			PlayerSaving.accountExists(yellmute, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					punishee.setYellMute(true);
 					punishee.getPacketSender().sendMessage("You have been yell muted! Please appeal on the forums.");
-					player.getPacketSender().sendMessage("Player " + punishee.getUsername() + " was successfully muted!");
+					player.getPacketSender()
+							.sendMessage("Player " + punishee.getUsername() + " was successfully muted!");
 				} else {
 					player.getPacketSender().sendMessage("Player " + yellmute + " does not exist.");
 				}
@@ -263,10 +275,11 @@ public class StaffManagers {
 			String yellmute = wholeCommand.substring(14);
 			Player punishee = World.getPlayerByName(yellmute);
 			PlayerSaving.accountExists(yellmute, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					punishee.setYellMute(false);
 					punishee.getPacketSender().sendMessage("You have been granted your yell ability again.");
-					player.getPacketSender().sendMessage("Player " + punishee.getUsername() + " was successfully unmuted!");
+					player.getPacketSender()
+							.sendMessage("Player " + punishee.getUsername() + " was successfully unmuted!");
 				} else {
 					player.getPacketSender().sendMessage("Player " + yellmute + " does not exist.");
 				}
@@ -276,61 +289,61 @@ public class StaffManagers {
 			String jail_punishee = wholeCommand.substring(5);
 			Player punishee = World.getPlayerByName(jail_punishee);
 			PlayerSaving.accountExists(jail_punishee, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 
 					int cellAmounts = Misc.getRandom(1);
 					switch (cellAmounts) {
-						case 1:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5011, 0));
-							break;
-						case 2:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5008, 0));
-							break;
-						case 3:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5005, 0));
-							break;
-						case 4:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5002, 0));
-							break;
-						case 5:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 4999, 0));
-							break;
-						case 6:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5011, 0));
-							break;
-						case 7:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5008, 0));
-							break;
-						case 8:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5005, 0));
-							break;
-						case 9:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5002, 0));
-							break;
-						case 10:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 4999, 0));
-							break;
-						default:
+					case 1:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5011, 0));
+						break;
+					case 2:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5008, 0));
+						break;
+					case 3:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5005, 0));
+						break;
+					case 4:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5002, 0));
+						break;
+					case 5:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 4999, 0));
+						break;
+					case 6:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5011, 0));
+						break;
+					case 7:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5008, 0));
+						break;
+					case 8:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5005, 0));
+						break;
+					case 9:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5002, 0));
+						break;
+					case 10:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 4999, 0));
+						break;
+					default:
 					}
 				} else {
 					player.getPacketSender().sendMessage("Player " + jail_punishee + " does not exist.");
@@ -340,7 +353,7 @@ public class StaffManagers {
 		if (command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);
 			PlayerSaving.accountExists(ban_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isPlayerBanned(ban_player)) {
 						player.getPacketSender().sendMessage("Player " + ban_player + " already has an active ban.");
 						return;
@@ -359,7 +372,7 @@ public class StaffManagers {
 		if (command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isMuted(mute_player)) {
 						player.getPacketSender().sendMessage("Player " + mute_player + " already has an active mute.");
 						return;
@@ -376,9 +389,10 @@ public class StaffManagers {
 		if (command[0].equalsIgnoreCase("ipmute")) {
 			String mute_player = wholeCommand.substring(7);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isIpMuted(mute_player)) {
-						player.getPacketSender().sendMessage("Player " + mute_player + " already has an active ip mute.");
+						player.getPacketSender()
+								.sendMessage("Player " + mute_player + " already has an active ip mute.");
 						return;
 					}
 					Player other = World.getPlayerByName(mute_player);
@@ -393,9 +407,10 @@ public class StaffManagers {
 		if (command[0].equalsIgnoreCase("unipmute")) {
 			String mute_player = wholeCommand.substring(9);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isIpMuted(mute_player)) {
-						player.getPacketSender().sendMessage("Player " + mute_player + " does not have an active ip mute!");
+						player.getPacketSender()
+								.sendMessage("Player " + mute_player + " does not have an active ip mute!");
 						return;
 					}
 					Player other = World.getPlayerByName(mute_player);
@@ -410,7 +425,7 @@ public class StaffManagers {
 		if (command[0].equalsIgnoreCase("unmute")) {
 			String mute_player = wholeCommand.substring(7);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isMuted(mute_player)) {
 						player.getPacketSender().sendMessage("Player " + mute_player + " is not muted.");
 						return;
@@ -427,7 +442,7 @@ public class StaffManagers {
 		if (command[0].equalsIgnoreCase("unban")) {
 			String ban_player = wholeCommand.substring(6);
 			PlayerSaving.accountExists(ban_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isPlayerBanned(ban_player)) {
 						player.getPacketSender().sendMessage("Player " + ban_player + " is not banned.");
 						return;
@@ -439,52 +454,53 @@ public class StaffManagers {
 				}
 			});
 		}
-        if (command[0].equalsIgnoreCase("massban")) {
-            String victimUsername = wholeCommand.substring(8);
-            PlayerSaving.accountExists(victimUsername, rs -> {
-                if (rs.next()) {//account exists
-                    Player other = World.getPlayerByName(victimUsername);
-                    if (other == null) {
-                        PlayerPunishment.massBan(player, victimUsername, new Player(null));
-                    } else {
-                        String address = String.valueOf(other.getMacAddress());
-                        String ip = other.getHostAddress();
-                        PlayerPunishment.ban(victimUsername);
-                        PlayerPunishment.pcBan(address);
-                        PlayerPunishment.ipBan(ip);
-                        World.deregister(other);
-                        player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
-                    }
-                } else {
-                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-                }
-            });
-        }
-        if (command[0].equalsIgnoreCase("unmassban")) {
-            String victimUsername = wholeCommand.substring(10);
-            PlayerSaving.accountExists(victimUsername, rs -> {
-                if (rs.next()) {//account exists
-                    Player other = World.getPlayerByName(victimUsername);
-                    if (other == null) {
-                        PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
-                    } else {
-                        String address = String.valueOf(other.getMacAddress());
-                        String ip = other.getHostAddress();
-                        PlayerPunishment.unBan(victimUsername);
-                        PlayerPunishment.unPcBan(address);
-                        PlayerPunishment.unIpBan(ip);
-                        World.deregister(other);
-                        player.getPacketSender().sendMessage("You successfully unmass banned '" + victimUsername + "'.");
-                    }
-                } else {
-                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-                }
-            });
-        }
+		if (command[0].equalsIgnoreCase("massban")) {
+			String victimUsername = wholeCommand.substring(8);
+			PlayerSaving.accountExists(victimUsername, rs -> {
+				if (rs.next()) {// account exists
+					Player other = World.getPlayerByName(victimUsername);
+					if (other == null) {
+						PlayerPunishment.massBan(player, victimUsername, new Player(null));
+					} else {
+						String address = String.valueOf(other.getMacAddress());
+						String ip = other.getHostAddress();
+						PlayerPunishment.ban(victimUsername);
+						PlayerPunishment.pcBan(address);
+						PlayerPunishment.ipBan(ip);
+						World.deregister(other);
+						player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
+					}
+				} else {
+					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+				}
+			});
+		}
+		if (command[0].equalsIgnoreCase("unmassban")) {
+			String victimUsername = wholeCommand.substring(10);
+			PlayerSaving.accountExists(victimUsername, rs -> {
+				if (rs.next()) {// account exists
+					Player other = World.getPlayerByName(victimUsername);
+					if (other == null) {
+						PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
+					} else {
+						String address = String.valueOf(other.getMacAddress());
+						String ip = other.getHostAddress();
+						PlayerPunishment.unBan(victimUsername);
+						PlayerPunishment.unPcBan(address);
+						PlayerPunishment.unIpBan(ip);
+						World.deregister(other);
+						player.getPacketSender()
+								.sendMessage("You successfully unmass banned '" + victimUsername + "'.");
+					}
+				} else {
+					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+				}
+			});
+		}
 		if (command[0].equals("unbanvote")) {
 			String vote_player = wholeCommand.substring(10);
 			PlayerSaving.accountExists(vote_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isVoteBanned(vote_player)) {
 						player.getPacketSender().sendMessage("Player " + vote_player + " is not vote banned.");
 						return;
@@ -501,9 +517,10 @@ public class StaffManagers {
 		if (command[0].equalsIgnoreCase("banvote")) {
 			String vote_player = wholeCommand.substring(8);
 			PlayerSaving.accountExists(vote_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isVoteBanned(vote_player)) {
-						player.getPacketSender().sendMessage("Player " + vote_player + " already has an active vote ban.");
+						player.getPacketSender()
+								.sendMessage("Player " + vote_player + " already has an active vote ban.");
 						return;
 					}
 					Player other = World.getPlayerByName(vote_player);
@@ -516,5 +533,5 @@ public class StaffManagers {
 			});
 		}
 	}
-	
+
 }

@@ -4,76 +4,83 @@ import java.util.concurrent.TimeUnit;
 
 import com.runelive.GameSettings;
 import com.runelive.model.GameMode;
-import com.runelive.model.Locations.Location;
-import com.runelive.util.Misc;
 import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
+import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.PlayerPunishment;
+import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.entity.impl.player.Player;
-import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 
 public class SuperDonators {
-	
+
 	/**
-	* @Author Jonathan Sirens
-	* Initiates Command
-	**/
-	
+	 * @Author Jonathan Sirens Initiates Command
+	 **/
+
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
-		if(player.isJailed()) {
+		if (player.isJailed()) {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
 		}
-		if(wholeCommand.toLowerCase().startsWith("yell")) {
-			if(player.getRights() != PlayerRights.PLAYER) {
+		if (wholeCommand.toLowerCase().startsWith("yell")) {
+			if (player.getRights() != PlayerRights.PLAYER) {
 				return;
 			}
-			if(World.isGlobalYell() == false) {
+			if (World.isGlobalYell() == false) {
 				player.getPacketSender().sendMessage("An admin has temporarily disabled the global yell channel.");
 				return;
 			}
-			if(PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
+			if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
 				player.getPacketSender().sendMessage("You are muted and cannot yell.");
 				return;
 			}
-			if(player.isYellMute()) {
+			if (player.isYellMute()) {
 				player.getPacketSender().sendMessage("You are muted from yelling and cannot yell.");
 				return;
 			}
-			if(!GameSettings.YELL_STATUS) {
+			if (!GameSettings.YELL_STATUS) {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			if(!player.getYellTimer().elapsed(25000)) {
-				player.getPacketSender().sendMessage("Do not flood the yell channel. You must wait another "+Misc.getTimeLeft(0, 25, TimeUnit.SECONDS)+" seconds before yelling again.");
+			if (!player.getYellTimer().elapsed(25000)) {
+				player.getPacketSender().sendMessage("Do not flood the yell channel. You must wait another "
+						+ Misc.getTimeLeft(0, 25, TimeUnit.SECONDS) + " seconds before yelling again.");
 				return;
 			}
 			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
-			if(yellmessage.contains("<img=") || yellmessage.contains("<col=") || yellmessage.contains("<shad=")) {
+			if (yellmessage.contains("<img=") || yellmessage.contains("<col=") || yellmessage.contains("<shad=")) {
 				player.getPacketSender().sendMessage("You are not allowed to put these symbols in your yell message.");
 				return;
 			}
-			if(player.getGameMode() == GameMode.IRONMAN) {
-				World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] "+player.getUsername()+": "+yellmessage, player);	
+			if (player.getGameMode() == GameMode.IRONMAN) {
+				World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] " + player.getUsername() + ": "
+						+ yellmessage, player);
 				player.getYellTimer().reset();
 				return;
 			}
-			if(player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] "+player.getUsername()+": "+yellmessage, player);	
+			if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+				World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] " + player.getUsername() + ": "
+						+ yellmessage, player);
 				player.getYellTimer().reset();
 				return;
 			}
-			World.sendYell("<img=8> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellmessage, player);	
+			if (!player.getYellTag().equals("invalid_yell_tag_set")) {
+				World.sendYell("<img=8> <col=0>[@blu@" + player.getYellTag() + "@bla@] " + player.getUsername() + ": "
+						+ yellmessage, player);
+				player.getYellTimer().reset();
+				return;
+			}
+			World.sendYell("<img=8> <col=0>[@blu@Super@bla@] " + player.getUsername() + ": " + yellmessage, player);
 			player.getYellTimer().reset();
 		}
 		if (command[0].equals("dzone")) {
-			if(Dungeoneering.doingDungeoneering(player)) {
+			if (Dungeoneering.doingDungeoneering(player)) {
 				player.getPacketSender().sendMessage("You can't use this command in a dungeon.");
 				return;
 			}
-			if(player.getLocation() != null && player.getWildernessLevel() > 20) {
+			if (player.getLocation() != null && player.getWildernessLevel() > 20) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -82,5 +89,5 @@ public class SuperDonators {
 			player.getPacketSender().sendMessage("[<col=ff0000>Donator Zone</col>] Welcome to the donator zone.");
 		}
 	}
-	
+
 }

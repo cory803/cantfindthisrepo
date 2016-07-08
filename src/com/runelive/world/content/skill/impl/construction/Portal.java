@@ -4,7 +4,7 @@ package com.runelive.world.content.skill.impl.construction;
  * 
  * @author Owner Blade
  */
-public class Portal implements java.io.Serializable{
+public class Portal implements java.io.Serializable {
 
 	/**
 	 * 
