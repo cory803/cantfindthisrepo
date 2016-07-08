@@ -44790,7 +44790,7 @@
 },
 {
 "id": 2005,
-"name": "Venenatis",
+"name": "Venenatis spiderling",
 "examine": "A red-haired woman.",
 "combat": 0,
 "size": 1,
@@ -67585,7 +67585,7 @@
 },
 {
 "id": 3033,
-"name": "Chaos elemental",
+"name": "Chaos Elemental Jr.",
 "examine": "A Chaos elemental pet.",
 "combat": 1,
 "size": 1,
