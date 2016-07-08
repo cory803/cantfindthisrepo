@@ -9,7 +9,7 @@ import com.runelive.util.Misc;
 
 public enum SlayerTasks {
 
-    NO_TASK(null, -1, null, -1, null),
+    NO_TASK(null, 0, null, 0, null),
 
     /**
      * Easy tasks

@@ -12,5 +12,6 @@ Multiple mob support added to Slayer I.E "Red Abyssal Demon" now counts towards 
 Begun work on the Kotlin Game Engine.
 Started work on the Wildy Wyrm.
 Game Modes now function (somewhat properly)
+Corrected an issue with Slayer
 
 Polls:
