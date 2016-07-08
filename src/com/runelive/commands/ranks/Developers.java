@@ -1,14 +1,25 @@
 package com.runelive.commands.ranks;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
-import com.runelive.model.*;
+import com.runelive.model.Animation;
+import com.runelive.model.Flag;
+import com.runelive.model.GameObject;
+import com.runelive.model.Graphic;
+import com.runelive.model.Item;
 import com.runelive.model.Locations.Location;
+import com.runelive.model.PlayerRights;
+import com.runelive.model.Position;
+import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.Shop.ShopManager;
@@ -17,8 +28,16 @@ import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.*;
+import com.runelive.world.content.AccountTools;
+import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
+import com.runelive.world.content.BonusManager;
+import com.runelive.world.content.CrystalChest;
+import com.runelive.world.content.Lottery;
+import com.runelive.world.content.PlayerPunishment;
+import com.runelive.world.content.Scoreboard;
+import com.runelive.world.content.ShootingStar;
+import com.runelive.world.content.WellOfGoodwill;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.grandexchange.GrandExchangeOffers;
@@ -32,17 +51,12 @@ import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerSaving;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
-
 public class Developers {
 
 	/**
-	 * @Author Jonathan Sirens
-	 * Initiates Command
+	 * @Author Jonathan Sirens Initiates Command
 	 **/
-	public static String[] player_names = {"vados"};
+	public static String[] player_names = { "vados" };
 
 	public static void initiate_command(final Player player, String[] command, String wholeCommand) {
 		boolean continue_command = false;
@@ -54,29 +68,36 @@ public class Developers {
 		if (!continue_command) {
 			return;
 		}
-        if(command[0].equals("scan")) {
-      	  String victimUsername = wholeCommand.substring(5);
-            PlayerSaving.accountExists(victimUsername, rs -> {
-                if (rs.next()) {//account exists
-                    Player other = World.getPlayerByName(victimUsername);
-                    if (other == null) {
-                        AccountTools.scan(player, victimUsername, new Player(null));
-                    } else {
-                  	  AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
-                    }
-                } else {
-                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-                }
-            });
-      }
-		if(wholeCommand.equalsIgnoreCase("trollchest")) {
-			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Dragonbone upgrade kit from Treasure Island!");
-			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Royal frame from Treasure Island!");
-			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Dragonbone bolt stabilizer from Treasure Island!");
-			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Royal sight from Treasure Island!");
-			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Royal torsion spring from Treasure Island!");
-			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Starved effigy from Treasure Island!");
-			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received a Dragon kiteshield from Barrows!");
+		if (command[0].equals("scan")) {
+			String victimUsername = wholeCommand.substring(5);
+			PlayerSaving.accountExists(victimUsername, rs -> {
+				if (rs.next()) {// account exists
+					Player other = World.getPlayerByName(victimUsername);
+					if (other == null) {
+						AccountTools.scan(player, victimUsername, new Player(null));
+					} else {
+						AccountTools.outScan(player, victimUsername, String.valueOf(other.getMacAddress()), other);
+					}
+				} else {
+					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+				}
+			});
+		}
+		if (wholeCommand.equalsIgnoreCase("trollchest")) {
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername()
+					+ " has just received a Dragonbone upgrade kit from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername()
+					+ " has just received a Royal frame from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername()
+					+ " has just received a Dragonbone bolt stabilizer from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername()
+					+ " has just received a Royal sight from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername()
+					+ " has just received a Royal torsion spring from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername()
+					+ " has just received a Starved effigy from Treasure Island!");
+			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername()
+					+ " has just received a Dragon kiteshield from Barrows!");
 			player.getPacketSender().sendMessage("Finished oppening 3,000 Treasure Island chests.");
 		}
 		if (wholeCommand.equalsIgnoreCase("wildykey")) {
@@ -85,7 +106,8 @@ public class Developers {
 		if (wholeCommand.startsWith("globalyell")) {
 			player.getPacketSender().sendMessage("Retype the command to renable/disable the yell channel.");
 			World.setGlobalYell(!World.isGlobalYell());
-			World.sendMessage("<img=4> @blu@The yell channel has been @dre@" + (World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
+			World.sendMessage("<img=4> @blu@The yell channel has been @dre@"
+					+ (World.isGlobalYell() ? "@dre@enabled@blu@ again!" : "@dre@disabled@blu@ temporarily!"));
 		}
 		if (wholeCommand.equalsIgnoreCase("vengrunes")) {
 			player.getInventory().add(557, 1000);
@@ -156,26 +178,32 @@ public class Developers {
 			Player dumbass = World.getPlayerByName(command[2]);
 			String comm = command[2];
 			switch (comm) {
-				case "+":
-					dumbass.addWarningPoints(1);
-					player.getPacketSender().sendMessage("You have just added a warning point to " + dumbass.getUsername());
-					dumbass.getPacketSender().sendMessage("You have been warned by " + player.getUsername() + ". You now have " + dumbass.getWarningPoints() + " warning points.");
-					break;
-				case "-":
-					dumbass.minusWarningPoints(1);
-					player.getPacketSender().sendMessage("You have just removed a warning point to " + dumbass.getUsername());
-					dumbass.getPacketSender().sendMessage("You had a warning point removed by " + player.getUsername() + ". You now have " + dumbass.getWarningPoints() + " warning points.");
-					break;
-				case "!":
-					dumbass.setWarningPoints(0);
-					player.getPacketSender().sendMessage("You have just added a warning point to " + dumbass.getUsername());
-					dumbass.getPacketSender().sendMessage("You have been warned by " + player.getUsername() + ". You now have " + dumbass.getWarningPoints() + " warning points.");
-					break;
-				case "=":
-					player.getPacketSender().sendMessage(dumbass.getUsername() + "has " + dumbass.getWarningPoints() + " warning points.");
-				default:
-					player.getPacketSender().sendMessage("Syntax: ::warn target punishment - Punishments[+(add a warning point), -(Subtract a warning point");
-					player.getPacketSender().sendMessage("Punishments[=(check warning point), !(Clear all warning points");
+			case "+":
+				dumbass.addWarningPoints(1);
+				player.getPacketSender().sendMessage("You have just added a warning point to " + dumbass.getUsername());
+				dumbass.getPacketSender().sendMessage("You have been warned by " + player.getUsername()
+						+ ". You now have " + dumbass.getWarningPoints() + " warning points.");
+				break;
+			case "-":
+				dumbass.minusWarningPoints(1);
+				player.getPacketSender()
+						.sendMessage("You have just removed a warning point to " + dumbass.getUsername());
+				dumbass.getPacketSender().sendMessage("You had a warning point removed by " + player.getUsername()
+						+ ". You now have " + dumbass.getWarningPoints() + " warning points.");
+				break;
+			case "!":
+				dumbass.setWarningPoints(0);
+				player.getPacketSender().sendMessage("You have just added a warning point to " + dumbass.getUsername());
+				dumbass.getPacketSender().sendMessage("You have been warned by " + player.getUsername()
+						+ ". You now have " + dumbass.getWarningPoints() + " warning points.");
+				break;
+			case "=":
+				player.getPacketSender()
+						.sendMessage(dumbass.getUsername() + "has " + dumbass.getWarningPoints() + " warning points.");
+			default:
+				player.getPacketSender().sendMessage(
+						"Syntax: ::warn target punishment - Punishments[+(add a warning point), -(Subtract a warning point");
+				player.getPacketSender().sendMessage("Punishments[=(check warning point), !(Clear all warning points");
 			}
 		}
 		if (command[0].equalsIgnoreCase("authtest")) {
@@ -184,17 +212,20 @@ public class Developers {
 				player.setCanVote(false);
 			}
 			if (player.isCanVote() == false) {
-				player.getPacketSender().sendMessage("You have been banned from voting for abusing the system. Appeal online.");
+				player.getPacketSender()
+						.sendMessage("You have been banned from voting for abusing the system. Appeal online.");
 				return;
 			}
 			if (GameSettings.DOUBLE_VOTE_TOKENS) {
 				if (player.getInventory().getFreeSlots() <= 1) {
-					player.getPacketSender().sendMessage("You need to have atleast 2 free inventory spaces to claim an auth code!");
+					player.getPacketSender()
+							.sendMessage("You need to have atleast 2 free inventory spaces to claim an auth code!");
 					can_continue = false;
 				}
 			} else {
 				if (player.getInventory().getFreeSlots() == 0) {
-					player.getPacketSender().sendMessage("You need to have atleast 1 free inventory spaces to claim an auth code!");
+					player.getPacketSender()
+							.sendMessage("You need to have atleast 1 free inventory spaces to claim an auth code!");
 					can_continue = false;
 				}
 			}
@@ -208,7 +239,8 @@ public class Developers {
 			}
 			player.setVotesClaimed(1);
 			player.voteCount++;
-			player.getPacketSender().sendMessage("You have claimed " + player.voteCount + " of your 5 votes today. If you abuse the system your ");
+			player.getPacketSender().sendMessage(
+					"You have claimed " + player.voteCount + " of your 5 votes today. If you abuse the system your ");
 			player.getPacketSender().sendMessage("account will be banned from voting.");
 			Achievements.doProgress(player, AchievementData.VOTE_100_TIMES);
 			if (player.getVotesClaimed() == 100) {
@@ -216,14 +248,15 @@ public class Developers {
 			}
 			GameSettings.AUTHS_CLAIMED++;
 			if (GameSettings.AUTHS_CLAIMED == 25) {
-				World.sendMessage("<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
+				World.sendMessage(
+						"<img=4><col=2F5AB7>Another <col=9A0032>25<col=2f5ab7> auth codes have been claimed by using ::vote!");
 				GameSettings.AUTHS_CLAIMED = 0;
 			}
 		}
 		if (command[0].equalsIgnoreCase("fixnull")) {
 			String player_name = command[1];
 			PlayerSaving.accountExists(player_name, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					Player other = World.getPlayerByName(player_name);
 					other.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, 1, true);
 					if (other != null) {
@@ -249,7 +282,8 @@ public class Developers {
 				return;
 			}
 			String yellmessage = wholeCommand.substring(4, wholeCommand.length());
-			World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] " + player.getUsername() + ": " + yellmessage, player);
+			World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] " + player.getUsername()
+					+ ": " + yellmessage, player);
 		}
 		if (command[0].equals("staffzone")) {
 			if (command.length > 1 && command[1].equals("all")) {
@@ -275,33 +309,37 @@ public class Developers {
 				player.getPacketSender().sendMessage("Cannot find that player online..");
 				return;
 			} else {
-				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+				boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy())
+						&& player.getRegionInstance() == null && player2.getRegionInstance() == null;
 				if (canTele && player.getLocation() != Location.DUNGEONEERING) {
 					TeleportHandler.teleportPlayer(player, player2.getPosition().copy(), TeleportType.NORMAL);
 					player.getPacketSender().sendMessage("Teleporting to player: " + player2.getUsername() + "");
 				} else {
 					if (player2.getLocation() == Location.DUNGEONEERING) {
-						player.getPacketSender().sendMessage("You can not teleport to this player while they are dungeoneering.");
+						player.getPacketSender()
+								.sendMessage("You can not teleport to this player while they are dungeoneering.");
 					} else {
-						player.getPacketSender().sendMessage("You can not teleport to this player at the moment. Minigame maybe?");
+						player.getPacketSender()
+								.sendMessage("You can not teleport to this player at the moment. Minigame maybe?");
 					}
 				}
 			}
 		}
-		if(command[0].equalsIgnoreCase("movehome")) {
+		if (command[0].equalsIgnoreCase("movehome")) {
 			String player2 = command[1];
 			player2 = Misc.formatText(player2.replaceAll("_", " "));
-			if(command.length >= 3 && command[2] != null)
-				player2 += " "+Misc.formatText(command[2].replaceAll("_", " "));
+			if (command.length >= 3 && command[2] != null)
+				player2 += " " + Misc.formatText(command[2].replaceAll("_", " "));
 			Player playerToMove = World.getPlayerByName(player2);
-			if(playerToMove != null) {
-				if(playerToMove.homeLocation == 0) {
+			if (playerToMove != null) {
+				if (playerToMove.homeLocation == 0) {
 					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
 				} else {
 					playerToMove.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
 				}
-				playerToMove.getPacketSender().sendMessage("You've been teleported home by "+player.getUsername()+".");
-				player.getPacketSender().sendMessage("Sucessfully moved "+playerToMove.getUsername()+" to home.");
+				playerToMove.getPacketSender()
+						.sendMessage("You've been teleported home by " + player.getUsername() + ".");
+				player.getPacketSender().sendMessage("Sucessfully moved " + playerToMove.getUsername() + " to home.");
 			}
 		}
 		if (command[0].equalsIgnoreCase("toggleinvis")) {
@@ -315,13 +353,15 @@ public class Developers {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy())
+					&& player.getRegionInstance() == null && player2.getRegionInstance() == null;
 			if (canTele) {
 				TeleportHandler.teleportPlayer(player2, player.getPosition().copy(), TeleportType.NORMAL);
 				player.getPacketSender().sendMessage("Teleporting player to you: " + player2.getUsername() + "");
 				player2.getPacketSender().sendMessage("You're being teleported to " + player.getUsername() + "...");
 			} else
-				player.getPacketSender().sendMessage("You can not teleport that player at the moment. Maybe you or they are in a minigame?");
+				player.getPacketSender().sendMessage(
+						"You can not teleport that player at the moment. Maybe you or they are in a minigame?");
 		}
 		if (command[0].equalsIgnoreCase("movetome")) {
 			String playerToTele = wholeCommand.substring(9);
@@ -330,19 +370,22 @@ public class Developers {
 				player.getPacketSender().sendMessage("This player is in dung....");
 				return;
 			}
-			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy()) && player.getRegionInstance() == null && player2.getRegionInstance() == null;
+			boolean canTele = TeleportHandler.checkReqs(player, player2.getPosition().copy())
+					&& player.getRegionInstance() == null && player2.getRegionInstance() == null;
 			if (canTele) {
 				player.getPacketSender().sendMessage("Moving player: " + player2.getUsername() + "");
 				player2.getPacketSender().sendMessage("You've been moved to " + player.getUsername());
 				player2.moveTo(player.getPosition().copy());
 			} else
-				player.getPacketSender().sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
+				player.getPacketSender()
+						.sendMessage("Failed to move player to your coords. Are you or them in a minigame?");
 		}
 		if (command[0].contains("host")) {
 			String plr = wholeCommand.substring(command[0].length() + 1);
 			Player playr2 = World.getPlayerByName(plr);
 			if (playr2 != null) {
-				player.getPacketSender().sendMessage("" + playr2.getUsername() + " host IP: " + playr2.getHostAddress() + ", serial number: " + playr2.getSerialNumber());
+				player.getPacketSender().sendMessage("" + playr2.getUsername() + " host IP: " + playr2.getHostAddress()
+						+ ", serial number: " + playr2.getSerialNumber());
 			} else
 				player.getPacketSender().sendMessage("Could not find player: " + plr);
 		}
@@ -365,14 +408,16 @@ public class Developers {
 					}
 				}
 				gold += p.getMoneyInPouch();
-				player.getPacketSender().sendMessage(p.getUsername() + " has " + Misc.insertCommasToNumber(String.valueOf(gold)) + " coins.");
+				player.getPacketSender().sendMessage(
+						p.getUsername() + " has " + Misc.insertCommasToNumber(String.valueOf(gold)) + " coins.");
 			} else
 				player.getPacketSender().sendMessage("Can not find player online.");
 		}
 		if (command[0].equals("reset")) {
 			for (Skill skill : Skill.values()) {
 				int level = skill.equals(Skill.CONSTITUTION) ? 100 : skill.equals(Skill.PRAYER) ? 10 : 1;
-				player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill, SkillManager.getExperienceForLevel(skill == Skill.CONSTITUTION ? 10 : 1));
+				player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+						SkillManager.getExperienceForLevel(skill == Skill.CONSTITUTION ? 10 : 1));
 			}
 			player.getPacketSender().sendMessage("Your skill levels have now been reset.");
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
@@ -380,7 +425,8 @@ public class Developers {
 		if (command[0].equals("resetclientversion")) {
 			System.out.println("Fetching client version...");
 			try {
-				BufferedReader reader = new BufferedReader(new InputStreamReader(new URL("https://dl.dropboxusercontent.com/u/344464529/runelive/update.txt").openStream()));
+				BufferedReader reader = new BufferedReader(new InputStreamReader(
+						new URL("https://dl.dropboxusercontent.com/u/344464529/runelive/update.txt").openStream()));
 				for (int i = 0; i < 1; i++) {
 					GameSettings.client_version = reader.readLine();
 				}
@@ -416,27 +462,27 @@ public class Developers {
 				String rights = command[1];
 				Player target = World.getPlayerByName(command[2]);
 				switch (rights) {
-					case "demote":
-					case "derank":
-						target.setRights(PlayerRights.PLAYER);
-						target.getPacketSender().sendMessage("You have been demoted... Dumb Shit.");
-						target.getPacketSender().sendRights();
-						break;
-					case "ss":
-					case "serversupport":
-					case "support":
-						target.setRights(PlayerRights.SUPPORT);
-						target.getPacketSender().sendMessage("Your player rights has been changed to support.");
-						target.getPacketSender().sendRights();
-						break;
-					case "mod":
-					case "moderator":
-						target.setRights(PlayerRights.MODERATOR);
-						target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
-						target.getPacketSender().sendRights();
-						break;
-					default:
-						player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
+				case "demote":
+				case "derank":
+					target.setRights(PlayerRights.PLAYER);
+					target.getPacketSender().sendMessage("You have been demoted... Dumb Shit.");
+					target.getPacketSender().sendRights();
+					break;
+				case "ss":
+				case "serversupport":
+				case "support":
+					target.setRights(PlayerRights.SUPPORT);
+					target.getPacketSender().sendMessage("Your player rights has been changed to support.");
+					target.getPacketSender().sendRights();
+					break;
+				case "mod":
+				case "moderator":
+					target.setRights(PlayerRights.MODERATOR);
+					target.getPacketSender().sendMessage("Your player rights has been changed to moderator.");
+					target.getPacketSender().sendRights();
+					break;
+				default:
+					player.getPacketSender().sendMessage("Command not found - Use ss, mod, admin or dev.");
 				}
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -477,7 +523,8 @@ public class Developers {
 		if (command[0].equals("master")) {
 			for (Skill skill : Skill.values()) {
 				int level = SkillManager.getMaxAchievingLevel(skill);
-				player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill, SkillManager.getExperienceForLevel(level == 120 ? 120 : 99));
+				player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+						SkillManager.getExperienceForLevel(level == 120 ? 120 : 99));
 			}
 			player.getPacketSender().sendMessage("You are now a master of all skills.");
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
@@ -490,12 +537,15 @@ public class Developers {
 				return;
 			}
 			Skill skill = Skill.forId(skillId);
-			player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill, SkillManager.getExperienceForLevel(level));
+			player.getSkillManager().setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+					SkillManager.getExperienceForLevel(level));
 			player.getPacketSender().sendMessage("You have set your " + skill.getName() + " level to " + level);
 		}
 		if (command[0].equals("item")) {
 			int id = Integer.parseInt(command[1]);
-			int amount = (command.length == 2 ? 1 : Integer.parseInt(command[2].trim().toLowerCase().replaceAll("k", "000").replaceAll("m", "000000").replaceAll("b", "000000000")));
+			int amount = (command.length == 2 ? 1
+					: Integer.parseInt(command[2].trim().toLowerCase().replaceAll("k", "000").replaceAll("m", "000000")
+							.replaceAll("b", "000000000")));
 			if (amount > Integer.MAX_VALUE) {
 				amount = Integer.MAX_VALUE;
 			}
@@ -506,13 +556,13 @@ public class Developers {
 		}
 		if (command[0].equals("reload")) {
 			switch (command[1]) {
-				case "itemdef":
-				case "item_definition":
-				case "item_definitions":
-					GameServer.getLoader().getEngine().submit(() -> {
-						ItemDefinition.init();
-					});
-					break;
+			case "itemdef":
+			case "item_definition":
+			case "item_definitions":
+				GameServer.getLoader().getEngine().submit(() -> {
+					ItemDefinition.init();
+				});
+				break;
 			}
 		}
 		if (command[0].equals("spawn")) {
@@ -526,7 +576,8 @@ public class Developers {
 					break;
 				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
 					player.getInventory().add(i, amount_of);
-					player.getPacketSender().sendMessage("Spawned item [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+					player.getPacketSender().sendMessage(
+							"Spawned item [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
 					found2 = true;
 				}
 			}
@@ -540,23 +591,15 @@ public class Developers {
 				player.getPacketSender().sendMessage("Yell is currently turned off, please try again in 30 minutes!");
 				return;
 			}
-			player.getPacketSender().sendMessage("Only members can yell. To become one, simply use ::store, buy a scroll").sendMessage("and then claim it.");
+			player.getPacketSender()
+					.sendMessage("Only members can yell. To become one, simply use ::store, buy a scroll")
+					.sendMessage("and then claim it.");
 		}
 		if (command[0].contains("pure")) {
-			int[][] data =
-					new int[][]{
-							{Equipment.HEAD_SLOT, 1153},
-							{Equipment.CAPE_SLOT, 10499},
-							{Equipment.AMULET_SLOT, 1725},
-							{Equipment.WEAPON_SLOT, 4587},
-							{Equipment.BODY_SLOT, 1129},
-							{Equipment.SHIELD_SLOT, 1540},
-							{Equipment.LEG_SLOT, 2497},
-							{Equipment.HANDS_SLOT, 7459},
-							{Equipment.FEET_SLOT, 3105},
-							{Equipment.RING_SLOT, 2550},
-							{Equipment.AMMUNITION_SLOT, 9244}
-					};
+			int[][] data = new int[][] { { Equipment.HEAD_SLOT, 1153 }, { Equipment.CAPE_SLOT, 10499 },
+					{ Equipment.AMULET_SLOT, 1725 }, { Equipment.WEAPON_SLOT, 4587 }, { Equipment.BODY_SLOT, 1129 },
+					{ Equipment.SHIELD_SLOT, 1540 }, { Equipment.LEG_SLOT, 2497 }, { Equipment.HANDS_SLOT, 7459 },
+					{ Equipment.FEET_SLOT, 3105 }, { Equipment.RING_SLOT, 2550 }, { Equipment.AMMUNITION_SLOT, 9244 } };
 			for (int i = 0; i < data.length; i++) {
 				int slot = data[i][0], id = data[i][1];
 				player.getEquipment().setItem(slot, new Item(id, id == 9244 ? 500 : 1));
@@ -567,15 +610,21 @@ public class Developers {
 			player.getEquipment().refreshItems();
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 			player.getInventory().resetItems();
-			player.getInventory().add(1216, 1000).add(9186, 1000).add(862, 1000).add(892, 10000).add(4154, 5000).add(2437, 1000).add(2441, 1000).add(2445, 1000).add(386, 1000).add(2435, 1000);
+			player.getInventory().add(1216, 1000).add(9186, 1000).add(862, 1000).add(892, 10000).add(4154, 5000)
+					.add(2437, 1000).add(2441, 1000).add(2445, 1000).add(386, 1000).add(2435, 1000);
 			player.getSkillManager().newSkillManager();
-			player.getSkillManager().setMaxLevel(Skill.ATTACK, 60).setMaxLevel(Skill.STRENGTH, 85).setMaxLevel(Skill.RANGED, 85).setMaxLevel(Skill.PRAYER, 520).setMaxLevel(Skill.MAGIC, 70).setMaxLevel(Skill.CONSTITUTION, 850);
+			player.getSkillManager().setMaxLevel(Skill.ATTACK, 60).setMaxLevel(Skill.STRENGTH, 85)
+					.setMaxLevel(Skill.RANGED, 85).setMaxLevel(Skill.PRAYER, 520).setMaxLevel(Skill.MAGIC, 70)
+					.setMaxLevel(Skill.CONSTITUTION, 850);
 			for (Skill skill : Skill.values()) {
-				player.getSkillManager().setCurrentLevel(skill, player.getSkillManager().getMaxLevel(skill)).setExperience(skill, SkillManager.getExperienceForLevel(player.getSkillManager().getMaxLevel(skill)));
+				player.getSkillManager().setCurrentLevel(skill, player.getSkillManager().getMaxLevel(skill))
+						.setExperience(skill,
+								SkillManager.getExperienceForLevel(player.getSkillManager().getMaxLevel(skill)));
 			}
 		}
 		if (command[0].equals("emptyitem")) {
-			if (player.getInterfaceId() > 0 || player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
+			if (player.getInterfaceId() > 0
+					|| player.getLocation() != null && player.getLocation() == Location.WILDERNESS) {
 				player.getPacketSender().sendMessage("You cannot do this at the moment.");
 				return;
 			}
@@ -609,7 +658,8 @@ public class Developers {
 					plrLoops++;
 				}
 			}
-			player.getPacketSender().sendMessage("Total gold in economy right now: " + gold + ", went through " + plrLoops + " players items.");
+			player.getPacketSender().sendMessage(
+					"Total gold in economy right now: " + gold + ", went through " + plrLoops + " players items.");
 		}
 		if (command[0].equals("tele")) {
 			int x = Integer.valueOf(command[1]), y = Integer.valueOf(command[2]);
@@ -629,7 +679,8 @@ public class Developers {
 			boolean found = false;
 			for (int i = 0; i < ItemDefinition.getMaxAmountOfItems(); i++) {
 				if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
-					player.getPacketSender().sendMessage("Found item with name [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
+					player.getPacketSender().sendMessage("Found item with name ["
+							+ ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i);
 					found = true;
 				}
 			}
@@ -672,44 +723,24 @@ public class Developers {
 			}
 		}
 		if (command[0].contains("gear")) {
-			int[][] data = wholeCommand.contains("jack") ?
-					new int[][]{
-							{Equipment.HEAD_SLOT, 1050},
-							{Equipment.CAPE_SLOT, 12170},
-							{Equipment.AMULET_SLOT, 15126},
-							{Equipment.WEAPON_SLOT, 15444},
-							{Equipment.BODY_SLOT, 14012},
-							{Equipment.SHIELD_SLOT, 13740},
-							{Equipment.LEG_SLOT, 14013},
-							{Equipment.HANDS_SLOT, 7462},
-							{Equipment.FEET_SLOT, 11732},
-							{Equipment.RING_SLOT, 15220}
-					} : wholeCommand.contains("range") ?
-					new int[][]{
-							{Equipment.HEAD_SLOT, 3749},
-							{Equipment.CAPE_SLOT, 10499},
-							{Equipment.AMULET_SLOT, 15126},
-							{Equipment.WEAPON_SLOT, 18357},
-							{Equipment.BODY_SLOT, 2503},
-							{Equipment.SHIELD_SLOT, 13740},
-							{Equipment.LEG_SLOT, 2497},
-							{Equipment.HANDS_SLOT, 7462},
-							{Equipment.FEET_SLOT, 11732},
-							{Equipment.RING_SLOT, 15019},
-							{Equipment.AMMUNITION_SLOT, 9244},
-					} :
-					new int[][]{
-							{Equipment.HEAD_SLOT, 1163},
-							{Equipment.CAPE_SLOT, 19111},
-							{Equipment.AMULET_SLOT, 6585},
-							{Equipment.WEAPON_SLOT, 4151},
-							{Equipment.BODY_SLOT, 1127},
-							{Equipment.SHIELD_SLOT, 13262},
-							{Equipment.LEG_SLOT, 1079},
-							{Equipment.HANDS_SLOT, 7462},
-							{Equipment.FEET_SLOT, 11732},
-							{Equipment.RING_SLOT, 2550}
-					};
+			int[][] data = wholeCommand.contains("jack")
+					? new int[][] { { Equipment.HEAD_SLOT, 1050 }, { Equipment.CAPE_SLOT, 12170 },
+							{ Equipment.AMULET_SLOT, 15126 }, { Equipment.WEAPON_SLOT, 15444 },
+							{ Equipment.BODY_SLOT, 14012 }, { Equipment.SHIELD_SLOT, 13740 },
+							{ Equipment.LEG_SLOT, 14013 }, { Equipment.HANDS_SLOT, 7462 },
+							{ Equipment.FEET_SLOT, 11732 }, { Equipment.RING_SLOT, 15220 } }
+					: wholeCommand.contains("range")
+							? new int[][] { { Equipment.HEAD_SLOT, 3749 }, { Equipment.CAPE_SLOT, 10499 },
+									{ Equipment.AMULET_SLOT, 15126 }, { Equipment.WEAPON_SLOT, 18357 },
+									{ Equipment.BODY_SLOT, 2503 }, { Equipment.SHIELD_SLOT, 13740 },
+									{ Equipment.LEG_SLOT, 2497 }, { Equipment.HANDS_SLOT, 7462 },
+									{ Equipment.FEET_SLOT, 11732 }, { Equipment.RING_SLOT, 15019 },
+									{ Equipment.AMMUNITION_SLOT, 9244 }, }
+							: new int[][] { { Equipment.HEAD_SLOT, 1163 }, { Equipment.CAPE_SLOT, 19111 },
+									{ Equipment.AMULET_SLOT, 6585 }, { Equipment.WEAPON_SLOT, 4151 },
+									{ Equipment.BODY_SLOT, 1127 }, { Equipment.SHIELD_SLOT, 13262 },
+									{ Equipment.LEG_SLOT, 1079 }, { Equipment.HANDS_SLOT, 7462 },
+									{ Equipment.FEET_SLOT, 11732 }, { Equipment.RING_SLOT, 2550 } };
 			for (int i = 0; i < data.length; i++) {
 				int slot = data[i][0], id = data[i][1];
 				player.getEquipment().setItem(slot, new Item(id, id == 9244 ? 500 : 1));
@@ -721,7 +752,8 @@ public class Developers {
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 		if (wholeCommand.equals("afk")) {
-			World.sendMessage("<img=4> <col=FF0000><shad=0>" + player.getUsername() + ": I am now away, please don't message me; I won't reply.");
+			World.sendMessage("<img=4> <col=FF0000><shad=0>" + player.getUsername()
+					+ ": I am now away, please don't message me; I won't reply.");
 		}
 		if (wholeCommand.equals("sfs")) {
 			Lottery.restartLottery();
@@ -753,7 +785,8 @@ public class Developers {
 					if (Dungeoneering.doingDungeoneering(players)) {
 						Dungeoneering.leave(players, false, true);
 						players.getClickDelay().reset();
-						players.getPacketSender().sendMessage("You have been forced out of your dungeon due to an update, sorry!");
+						players.getPacketSender()
+								.sendMessage("You have been forced out of your dungeon due to an update, sorry!");
 					}
 				}
 				TaskManager.submit(new Task(time) {
@@ -769,8 +802,8 @@ public class Developers {
 						PlayerOwnedShops.saveShops();
 						try {
 							Scoreboard.save();
-						} catch(IOException e) {
-							
+						} catch (IOException e) {
+
 						}
 						ClanChatManager.save();
 						GameServer.getLogger().info("Update task finished!");
@@ -804,7 +837,8 @@ public class Developers {
 		}
 		if (command[0].equals("memory")) {
 			long used = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-			player.getPacketSender().sendMessage("Heap usage: " + Misc.insertCommasToNumber("" + used + "") + " bytes!");
+			player.getPacketSender()
+					.sendMessage("Heap usage: " + Misc.insertCommasToNumber("" + used + "") + " bytes!");
 		}
 		if (command[0].equals("star")) {
 			ShootingStar.despawn(true);
@@ -817,7 +851,8 @@ public class Developers {
 			World.savePlayers();
 		}
 		if (command[0].equals("v1")) {
-			World.sendMessage("<img=4> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");
+			World.sendMessage(
+					"<img=4> <col=008FB2>Another 20 voters have been rewarded! Vote now using the ::vote command!");
 		}
 		if (command[0].equals("test")) {
 			player.getSkillManager().addExperience(Skill.FARMING, 500);
@@ -832,21 +867,23 @@ public class Developers {
 		}
 		if (command[0].equals("npc")) {
 			int id = Integer.parseInt(command[1]);
-			NPC npc = new NPC(id, new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()));
+			NPC npc = new NPC(id, new Position(player.getPosition().getX(), player.getPosition().getY(),
+					player.getPosition().getZ()));
 			World.register(npc);
 			npc.setConstitution(20000);
 			player.getPacketSender().sendEntityHint(npc);
-			/*TaskManager.submit(new Task(5) {
-
-				@Override
-				protected void execute() {
-					npc.moveTo(new Position(npc.getPosition().getX() + 2, npc.getPosition().getY() + 2));
-					player.getPacketSender().sendEntityHintRemoval(false);
-					stop();
-				}
-
-			});*/
-			//npc.getMovementCoordinator().setCoordinator(new Coordinator().setCoordinate(true).setRadius(5));
+			/*
+			 * TaskManager.submit(new Task(5) {
+			 * 
+			 * @Override protected void execute() { npc.moveTo(new
+			 * Position(npc.getPosition().getX() + 2, npc.getPosition().getY() +
+			 * 2)); player.getPacketSender().sendEntityHintRemoval(false);
+			 * stop(); }
+			 * 
+			 * });
+			 */
+			// npc.getMovementCoordinator().setCoordinator(new
+			// Coordinator().setCoordinate(true).setRadius(5));
 		}
 		if (command[0].equals("fillinv")) {
 			for (int i = 0; i < 28; i++) {
@@ -858,7 +895,8 @@ public class Developers {
 			player.setNpcTransformationId(Integer.parseInt(command[1]));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		} else if (command[0].equals("playobject")) {
-			player.getPacketSender().sendObjectAnimation(new GameObject(2283, player.getPosition().copy()), new Animation(751));
+			player.getPacketSender().sendObjectAnimation(new GameObject(2283, player.getPosition().copy()),
+					new Animation(751));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 		if (command[0].equals("interface")) {
@@ -950,10 +988,11 @@ public class Developers {
 			String yellmute = wholeCommand.substring(12);
 			Player punishee = World.getPlayerByName(yellmute);
 			PlayerSaving.accountExists(yellmute, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					punishee.setYellMute(true);
 					punishee.getPacketSender().sendMessage("You have been yell muted! Please appeal on the forums.");
-					player.getPacketSender().sendMessage("Player " + punishee.getUsername() + " was successfully muted!");
+					player.getPacketSender()
+							.sendMessage("Player " + punishee.getUsername() + " was successfully muted!");
 				} else {
 					player.getPacketSender().sendMessage("Player " + yellmute + " does not exist.");
 				}
@@ -963,10 +1002,11 @@ public class Developers {
 			String yellmute = wholeCommand.substring(14);
 			Player punishee = World.getPlayerByName(yellmute);
 			PlayerSaving.accountExists(yellmute, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					punishee.setYellMute(false);
 					punishee.getPacketSender().sendMessage("You have been granted your yell ability again.");
-					player.getPacketSender().sendMessage("Player " + punishee.getUsername() + " was successfully unmuted!");
+					player.getPacketSender()
+							.sendMessage("Player " + punishee.getUsername() + " was successfully unmuted!");
 				} else {
 					player.getPacketSender().sendMessage("Player " + yellmute + " does not exist.");
 				}
@@ -976,61 +1016,61 @@ public class Developers {
 			String jail_punishee = wholeCommand.substring(5);
 			Player punishee = World.getPlayerByName(jail_punishee);
 			PlayerSaving.accountExists(jail_punishee, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 
 					int cellAmounts = Misc.getRandom(1);
 					switch (cellAmounts) {
-						case 1:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5011, 0));
-							break;
-						case 2:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5008, 0));
-							break;
-						case 3:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5005, 0));
-							break;
-						case 4:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 5002, 0));
-							break;
-						case 5:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1969, 4999, 0));
-							break;
-						case 6:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5011, 0));
-							break;
-						case 7:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5008, 0));
-							break;
-						case 8:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5005, 0));
-							break;
-						case 9:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 5002, 0));
-							break;
-						case 10:
-							punishee.setJailed(true);
-							punishee.forceChat("Ahh shit... They put me in jail.");
-							punishee.moveTo(new Position(1980, 4999, 0));
-							break;
-						default:
+					case 1:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5011, 0));
+						break;
+					case 2:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5008, 0));
+						break;
+					case 3:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5005, 0));
+						break;
+					case 4:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 5002, 0));
+						break;
+					case 5:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1969, 4999, 0));
+						break;
+					case 6:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5011, 0));
+						break;
+					case 7:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5008, 0));
+						break;
+					case 8:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5005, 0));
+						break;
+					case 9:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 5002, 0));
+						break;
+					case 10:
+						punishee.setJailed(true);
+						punishee.forceChat("Ahh shit... They put me in jail.");
+						punishee.moveTo(new Position(1980, 4999, 0));
+						break;
+					default:
 					}
 				} else {
 					player.getPacketSender().sendMessage("Player " + jail_punishee + " does not exist.");
@@ -1040,7 +1080,7 @@ public class Developers {
 		if (command[0].equalsIgnoreCase("ban")) {
 			String ban_player = wholeCommand.substring(4);
 			PlayerSaving.accountExists(ban_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isPlayerBanned(ban_player)) {
 						player.getPacketSender().sendMessage("Player " + ban_player + " already has an active ban.");
 						return;
@@ -1059,7 +1099,7 @@ public class Developers {
 		if (command[0].equalsIgnoreCase("mute")) {
 			String mute_player = wholeCommand.substring(5);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isMuted(mute_player)) {
 						player.getPacketSender().sendMessage("Player " + mute_player + " already has an active mute.");
 						return;
@@ -1076,9 +1116,10 @@ public class Developers {
 		if (command[0].equalsIgnoreCase("ipmute")) {
 			String mute_player = wholeCommand.substring(7);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isIpMuted(mute_player)) {
-						player.getPacketSender().sendMessage("Player " + mute_player + " already has an active ip mute.");
+						player.getPacketSender()
+								.sendMessage("Player " + mute_player + " already has an active ip mute.");
 						return;
 					}
 					Player other = World.getPlayerByName(mute_player);
@@ -1093,9 +1134,10 @@ public class Developers {
 		if (command[0].equalsIgnoreCase("unipmute")) {
 			String mute_player = wholeCommand.substring(9);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isIpMuted(mute_player)) {
-						player.getPacketSender().sendMessage("Player " + mute_player + " does not have an active ip mute!");
+						player.getPacketSender()
+								.sendMessage("Player " + mute_player + " does not have an active ip mute!");
 						return;
 					}
 					Player other = World.getPlayerByName(mute_player);
@@ -1110,7 +1152,7 @@ public class Developers {
 		if (command[0].equalsIgnoreCase("unmute")) {
 			String mute_player = wholeCommand.substring(7);
 			PlayerSaving.accountExists(mute_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isMuted(mute_player)) {
 						player.getPacketSender().sendMessage("Player " + mute_player + " is not muted.");
 						return;
@@ -1127,7 +1169,7 @@ public class Developers {
 		if (command[0].equalsIgnoreCase("unban")) {
 			String ban_player = wholeCommand.substring(6);
 			PlayerSaving.accountExists(ban_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isPlayerBanned(ban_player)) {
 						player.getPacketSender().sendMessage("Player " + ban_player + " is not banned.");
 						return;
@@ -1139,52 +1181,53 @@ public class Developers {
 				}
 			});
 		}
-        if (command[0].equalsIgnoreCase("massban")) {
-            String victimUsername = wholeCommand.substring(8);
-            PlayerSaving.accountExists(victimUsername, rs -> {
-                if (rs.next()) {//account exists
-                    Player other = World.getPlayerByName(victimUsername);
-                    if (other == null) {
-                        PlayerPunishment.massBan(player, victimUsername, new Player(null));
-                    } else {
-                        String address = String.valueOf(other.getMacAddress());
-                        String ip = other.getHostAddress();
-                        PlayerPunishment.ban(victimUsername);
-                        PlayerPunishment.pcBan(address);
-                        PlayerPunishment.ipBan(ip);
-                        World.deregister(other);
-                        player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
-                    }
-                } else {
-                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-                }
-            });
-        }
-        if (command[0].equalsIgnoreCase("unmassban")) {
-            String victimUsername = wholeCommand.substring(10);
-            PlayerSaving.accountExists(victimUsername, rs -> {
-                if (rs.next()) {//account exists
-                    Player other = World.getPlayerByName(victimUsername);
-                    if (other == null) {
-                        PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
-                    } else {
-                        String address = String.valueOf(other.getMacAddress());
-                        String ip = other.getHostAddress();
-                        PlayerPunishment.unBan(victimUsername);
-                        PlayerPunishment.unPcBan(address);
-                        PlayerPunishment.unIpBan(ip);
-                        World.deregister(other);
-                        player.getPacketSender().sendMessage("You successfully unmass banned '" + victimUsername + "'.");
-                    }
-                } else {
-                    player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
-                }
-            });
-        }
+		if (command[0].equalsIgnoreCase("massban")) {
+			String victimUsername = wholeCommand.substring(8);
+			PlayerSaving.accountExists(victimUsername, rs -> {
+				if (rs.next()) {// account exists
+					Player other = World.getPlayerByName(victimUsername);
+					if (other == null) {
+						PlayerPunishment.massBan(player, victimUsername, new Player(null));
+					} else {
+						String address = String.valueOf(other.getMacAddress());
+						String ip = other.getHostAddress();
+						PlayerPunishment.ban(victimUsername);
+						PlayerPunishment.pcBan(address);
+						PlayerPunishment.ipBan(ip);
+						World.deregister(other);
+						player.getPacketSender().sendMessage("You successfully mass banned '" + victimUsername + "'.");
+					}
+				} else {
+					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+				}
+			});
+		}
+		if (command[0].equalsIgnoreCase("unmassban")) {
+			String victimUsername = wholeCommand.substring(10);
+			PlayerSaving.accountExists(victimUsername, rs -> {
+				if (rs.next()) {// account exists
+					Player other = World.getPlayerByName(victimUsername);
+					if (other == null) {
+						PlayerPunishment.unmassBan(player, victimUsername, new Player(null));
+					} else {
+						String address = String.valueOf(other.getMacAddress());
+						String ip = other.getHostAddress();
+						PlayerPunishment.unBan(victimUsername);
+						PlayerPunishment.unPcBan(address);
+						PlayerPunishment.unIpBan(ip);
+						World.deregister(other);
+						player.getPacketSender()
+								.sendMessage("You successfully unmass banned '" + victimUsername + "'.");
+					}
+				} else {
+					player.getPacketSender().sendMessage("Player " + victimUsername + " does not exist.");
+				}
+			});
+		}
 		if (command[0].equals("unbanvote")) {
 			String vote_player = wholeCommand.substring(10);
 			PlayerSaving.accountExists(vote_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (!PlayerPunishment.isVoteBanned(vote_player)) {
 						player.getPacketSender().sendMessage("Player " + vote_player + " is not vote banned.");
 						return;
@@ -1201,9 +1244,10 @@ public class Developers {
 		if (command[0].equalsIgnoreCase("banvote")) {
 			String vote_player = wholeCommand.substring(8);
 			PlayerSaving.accountExists(vote_player, rs -> {
-				if (rs.next()) {//account exists
+				if (rs.next()) {// account exists
 					if (PlayerPunishment.isVoteBanned(vote_player)) {
-						player.getPacketSender().sendMessage("Player " + vote_player + " already has an active vote ban.");
+						player.getPacketSender()
+								.sendMessage("Player " + vote_player + " already has an active vote ban.");
 						return;
 					}
 					Player other = World.getPlayerByName(vote_player);
