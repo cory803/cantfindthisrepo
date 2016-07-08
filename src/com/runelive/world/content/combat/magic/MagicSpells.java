@@ -34,7 +34,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 650;
+      return 25;
     }
 
     @Override
@@ -67,7 +67,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 4000;
+      return 31;
     }
 
     @Override
@@ -100,7 +100,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 3988;
+      return 43;
     }
 
     @Override
@@ -133,7 +133,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 6544;
+      return 53;
     }
 
     @Override
@@ -166,7 +166,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 20000;
+      return 65;
     }
 
     @Override
@@ -199,7 +199,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 4121;
+      return 36;
     }
 
     @Override
@@ -232,7 +232,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 5121;
+      return 60;
     }
 
     @Override
@@ -265,7 +265,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 10000;
+      return 108;
     }
 
     @Override
@@ -297,7 +297,7 @@ public enum MagicSpells {
 
     @Override
     public int baseExperience() {
-      return 14000;
+      return 112;
     }
 
     @Override

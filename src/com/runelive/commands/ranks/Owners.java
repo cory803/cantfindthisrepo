@@ -58,6 +58,9 @@ public class Owners {
             player.getInventory().add(9724, 1);
             player.getInventory().add(9722, 1);
         }
+        if(wholeCommand.equalsIgnoreCase("mode")) {
+            player.forceChat("My game mode is: "+player.getExpRate().toString().toLowerCase()+".");
+        }
         if (wholeCommand.equalsIgnoreCase("vengrunes")) {
             player.getInventory().add(557, 1000);
             player.getInventory().add(560, 1000);

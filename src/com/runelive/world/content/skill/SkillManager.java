@@ -3,12 +3,9 @@ package com.runelive.world.content.skill;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
-import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.*;
 import com.runelive.world.content.PlayerPanel;
-import com.runelive.model.Graphic;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
@@ -81,12 +78,8 @@ public class SkillManager {
    * @return The Skills instance.
    */
   public SkillManager addExperience(Skill skill, int experience) {
-    if (player.experienceLocked())
+    /*if (player.experienceLocked())
       return this;
-    /*
-     * If the experience in the skill is already greater or equal to {@code MAX_EXPERIENCE} then
-     * stop.
-     */
     if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
       return this;
 
@@ -145,6 +138,29 @@ public class SkillManager {
       }
     } else if (player.getLocation() == Location.DONATOR_ZONE) {
       experience *= 2.0;
+    }*/
+
+    if(player.experienceLocked())
+      return this;
+      if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
+        return this;
+
+    switch(player.getExpRate()) {
+      case SIR:
+        experience *= 250;
+        break;
+      case LORD:
+        experience *= 100;
+        break;
+      case LEGEND:
+        experience *= 35;
+        break;
+      case EXTREME:
+        experience *= 15;
+        break;
+      case REALISM:
+        experience *= 5;
+        break;
     }
 
     /*

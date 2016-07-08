@@ -154,13 +154,13 @@ public enum Skill {
     }
   }
 
-  public static final int ATTACK_MODIFIER = 200;
-  public static final int DEFENCE_MODIFIER = 200;
-  public static final int STRENGTH_MODIFIER = 200;
-  public static final int CONSTITUTION_MODIFIER = 190;
-  public static final int RANGED_MODIFIER = 215;
-  public static final int PRAYER_MODIFIER = 50;
-  public static final int MAGIC_MODIFIER = 230;
+  public static final int ATTACK_MODIFIER = 4;
+  public static final int DEFENCE_MODIFIER = 4;
+  public static final int STRENGTH_MODIFIER = 4;
+  public static final int CONSTITUTION_MODIFIER = 8;
+  public static final int RANGED_MODIFIER = 4;
+  public static final int PRAYER_MODIFIER = 1;
+  public static final int MAGIC_MODIFIER = 1;
   public static final int HERBLORE_MODIFIER = 5;
   public static final int CRAFTING_MODIFIER = 3;
   public static final int RUNECRAFTING_MODIFIER = 3;
