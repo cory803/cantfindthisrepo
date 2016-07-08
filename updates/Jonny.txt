@@ -28,6 +28,8 @@ Any donator rank can now change their yell tag for a certain amount of money per
 You can no longer put @ symbols in your yell tag to gain custom colors.
 The roof at the donator zone has been fixed to not overlap the entrance all weird.
 The weird spot at the donator zone shop that you couldn't walk on is now fixed.
+Venenatis spiderling has now been correctly renamed.
+Pet chaos elemental has been changed to Chaos Elemental Jr. and the inventory model has been changed to the one featured on OSRS.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
