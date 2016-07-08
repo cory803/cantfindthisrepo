@@ -88,8 +88,10 @@ public class Slayer {
     }
 
     public void killedNpc(NPC npc) {
+        String taskName = npc.getDefinition().forId(player.getSlayer().getSlayerTask().getNpcId()).getName();
         if (slayerTask != SlayerTasks.NO_TASK) {
-            if (slayerTask.getNpcId() == npc.getId()) {
+            //if (slayerTask.getNpcId() == npc.getId()) {
+            if(npc.getDefinition().getName().contains(taskName)) {
                 handleSlayerTaskDeath(true);
                 if (duoPartner != null) {
                     Player duo = World.getPlayerByName(duoPartner);

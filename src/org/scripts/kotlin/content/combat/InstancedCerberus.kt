@@ -20,7 +20,7 @@ object InstancedCerberus {
     val NPC_ID = 5866
 
     @JvmStatic fun enterDungeon(player: Player) {
-        if (player.slayer.slayerTask.npcId != NPC_ID) {
+        if (player.slayer.slayerTask.equals("CERBERUS")) {
             player.packetSender.sendMessage("You must be on a Cerberus slayer task to enter Cerberus's Cave.")
         } else {
             player.moveTo(Position(1240, 1226, player.index * 4))

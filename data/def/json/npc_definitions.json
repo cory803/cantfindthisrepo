@@ -137681,6 +137681,28 @@
 "slayerLevel": 60
 },
 {
+"id": 3334,
+"name": "Wildy Wyrm",
+"examine": "Urr, that thing looks demonic!",
+"combat": 382,
+"size": 4,
+"attackable": true,
+"aggressive": true,
+"retreats": false,
+"poisonous": false,
+"respawn": 35,
+"maxHit": 450,
+"hitpoints": 4500,
+"attackSpeed": 5,
+"attackAnim": 12791,
+"defenceAnim": 12792,
+"deathAnim": 12793,
+"attackBonus": 200,
+"defenceMelee": 150,
+"defenceRange": 205,
+"defenceMage": 80
+},
+{
 "id": 9463,
 "name": "Ice strykewyrm",
 "examine": "Urr, that thing looks freezing!",

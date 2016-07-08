@@ -97,15 +97,15 @@ public class NPCOptionPacketListener implements PacketListener {
                 player.setDialogueActionId(250);
                 break;
             case 241:
-				if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 0) {
+				//if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 0) {
 					DialogueManager.start(player, 230); // quest begins
-					player.getMinigameAttributes().getShrek1Attributes().setQuestParts(1);
+				/*	player.getMinigameAttributes().getShrek1Attributes().setQuestParts(1);
 					PlayerPanel.refreshPanel(player);
 				} else if (player.getMinigameAttributes().getShrek1Attributes().getQuestParts() == 1) {
 					DialogueManager.start(player, 241);
 				} else {
 					DialogueManager.start(player, 240);
-				}
+				}*/
             	break;
 			case 501:
 				DialogueManager.start(player, 224);
