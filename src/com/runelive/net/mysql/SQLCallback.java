@@ -10,21 +10,23 @@ import java.sql.SQLException;
  *
  */
 public interface SQLCallback {
-	
+
 	/**
 	 * Called when a query is complete
+	 * 
 	 * @param result
-	 * 			The result, or null if it was an UPDATE/DELETE.
+	 *            The result, or null if it was an UPDATE/DELETE.
 	 * @throws SQLException
-	 * 			If an error occurs in the user implemented code.
+	 *             If an error occurs in the user implemented code.
 	 */
 	public void queryComplete(ResultSet result) throws SQLException;
 
 	/**
 	 * Called when a query fails.
+	 * 
 	 * @param e
-	 * 			The exception thrown
+	 *            The exception thrown
 	 */
 	public void queryError(SQLException e);
-	
+
 }

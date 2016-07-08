@@ -47,8 +47,7 @@ public class MySQLDatabaseConfiguration implements DatabaseConfiguration {
 	 * @param password
 	 *            The password
 	 */
-	public MySQLDatabaseConfiguration(String host, int port, String database,
-			String username, String password) {
+	public MySQLDatabaseConfiguration(String host, int port, String database, String username, String password) {
 		this.host = host;
 		this.port = port;
 		this.database = database;

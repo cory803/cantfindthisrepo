@@ -23,330 +23,327 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class HitQueue {
 
-    public final CopyOnWriteArrayList<CombatHit> combat_hits = new CopyOnWriteArrayList<CombatHit>();
+	public final CopyOnWriteArrayList<CombatHit> combat_hits = new CopyOnWriteArrayList<CombatHit>();
 
-    public void append(CombatHit c) {
-        if (c == null) {
-            return;
-        }
-        if (c.initialRun()) {
-            c.handleAttack();
-        } else {
-            combat_hits.add(c);
-        }
-    }
+	public void append(CombatHit c) {
+		if (c == null) {
+			return;
+		}
+		if (c.initialRun()) {
+			c.handleAttack();
+		} else {
+			combat_hits.add(c);
+		}
+	}
 
-    public void process() {
-        for (CombatHit c : combat_hits) {
-            if (c == null) {
-                combat_hits.remove(c);
-                continue;
-            }
-            if (c.delay > 0) {
-                if (c.attacker.isPlayer()) {
-                    Player p = (Player) c.attacker;
-                    if (!p.has_combat_tick) {
-                        p.combat_hit_tick = c.delay;
-                        p.has_combat_tick = true;
-                    }
-                    if (c.delay == p.combat_hit_tick) {
-                        CombatFactory.giveExperience(c.builder, c.container, c.container.getDamage());
-                    }
-                }
-            }
-            if (c.delay > 0) {
-                c.delay--;
-            } else {
-                c.handleAttack();
-                combat_hits.remove(c);
-            }
-        }
-    }
+	public void process() {
+		for (CombatHit c : combat_hits) {
+			if (c == null) {
+				combat_hits.remove(c);
+				continue;
+			}
+			if (c.delay > 0) {
+				if (c.attacker.isPlayer()) {
+					Player p = (Player) c.attacker;
+					if (!p.has_combat_tick) {
+						p.combat_hit_tick = c.delay;
+						p.has_combat_tick = true;
+					}
+					if (c.delay == p.combat_hit_tick) {
+						CombatFactory.giveExperience(c.builder, c.container, c.container.getDamage());
+					}
+				}
+			}
+			if (c.delay > 0) {
+				c.delay--;
+			} else {
+				c.handleAttack();
+				combat_hits.remove(c);
+			}
+		}
+	}
 
-    public static class CombatHit {
+	public static class CombatHit {
 
-        /**
-         * The attacker instance.
-         */
-        private Character attacker;
+		/**
+		 * The attacker instance.
+		 */
+		private Character attacker;
 
-        /**
-         * The victim instance.
-         */
-        private Character victim;
+		/**
+		 * The victim instance.
+		 */
+		private Character victim;
 
-        /**
-         * The attacker's combat builder attached to this task.
-         */
-        private CombatBuilder builder;
+		/**
+		 * The attacker's combat builder attached to this task.
+		 */
+		private CombatBuilder builder;
 
-        /**
-         * The attacker's combat container that will be used.
-         */
-        private CombatContainer container;
+		/**
+		 * The attacker's combat container that will be used.
+		 */
+		private CombatContainer container;
 
-        /**
-         * The total damage dealt during this hit.
-         */
-        private int damage;
+		/**
+		 * The total damage dealt during this hit.
+		 */
+		private int damage;
 
-        private int initialDelay;
-        private int delay;
+		private int initialDelay;
+		private int delay;
 
+		public CombatHit(CombatBuilder builder, CombatContainer container) {
+			this.builder = builder;
+			this.container = container;
+			this.attacker = builder.getCharacter();
+			this.victim = builder.getVictim();
+		}
 
-        public CombatHit(CombatBuilder builder, CombatContainer container) {
-            this.builder = builder;
-            this.container = container;
-            this.attacker = builder.getCharacter();
-            this.victim = builder.getVictim();
-        }
+		public CombatHit(CombatBuilder builder, CombatContainer container, int delay) {
+			this.builder = builder;
+			this.container = container;
+			this.attacker = builder.getCharacter();
+			this.victim = builder.getVictim();
+			this.delay = initialDelay = delay;
+		}
 
-        public CombatHit(CombatBuilder builder, CombatContainer container, int delay) {
-            this.builder = builder;
-            this.container = container;
-            this.attacker = builder.getCharacter();
-            this.victim = builder.getVictim();
-            this.delay = initialDelay = delay;
-        }
+		public void handleAttack() {
+			if (attacker.getConstitution() <= 0 || !attacker.isRegistered()) {
+				return;
+			}
+			if (victim == null) {
+				return;
+			}
+			// Do any hit modifications to the container here first.
 
-        public void handleAttack() {
-            if (attacker.getConstitution() <= 0 || !attacker.isRegistered()) {
-                return;
-            }
-            if (victim == null) {
-                return;
-            }
-            // Do any hit modifications to the container here first.
+			if (container.getModifiedDamage() > 0) {
+				container.allHits(context -> {
+					context.getHit().setDamage(container.getModifiedDamage());
+					context.setAccurate(true);
+				});
+			}
+			if (attacker.isPlayer()) {
+				Player atk = (Player) attacker;
+				if (atk.isTeleporting()) {
+					return;
+				}
+			}
+			// Now we send the hitsplats if needed! We can't send the hitsplats
+			// there are none to send, or if we're using magic and it splashed.
+			if (container.getHits().length != 0 && container.getCombatType() != CombatType.MAGIC
+					|| container.isAccurate()) {
 
-            if (container.getModifiedDamage() > 0) {
-                container.allHits(context -> {
-                    context.getHit().setDamage(container.getModifiedDamage());
-                    context.setAccurate(true);
-                });
-            }
-            if (attacker.isPlayer()) {
-                Player atk = (Player) attacker;
-                if (atk.isTeleporting()) {
-                    return;
-                }
-            }
-            // Now we send the hitsplats if needed! We can't send the hitsplats
-            // there are none to send, or if we're using magic and it splashed.
-            if (container.getHits().length != 0 && container.getCombatType() != CombatType.MAGIC
-                    || container.isAccurate()) {
+				if (victim.isTeleporting() && attacker.isPlayer() || attacker.isNpc()) {
+					damage = 0;
+				}
+				/** PRAYERS **/
+				CombatFactory.applyPrayerProtection(container, builder);
 
-                if (victim.isTeleporting() && attacker.isPlayer() || attacker.isNpc()) {
-                    damage = 0;
-                }
-                /** PRAYERS **/
-                CombatFactory.applyPrayerProtection(container, builder);
+				this.damage = container.getDamage();
+				if (container.getCombatType() == CombatType.MELEE) {
+					CombatFactory.giveExperience(builder, container, damage);
+				}
+				victim.getCombatBuilder().addDamage(attacker, damage);
+				container.dealDamage();
 
-                this.damage = container.getDamage();
-                if (container.getCombatType() == CombatType.MELEE) {
-                    CombatFactory.giveExperience(builder, container, damage);
-                }
-                victim.getCombatBuilder().addDamage(attacker, damage);
-                container.dealDamage();
+				/** MISC **/
+				if (attacker.isPlayer()) {
+					Player p = (Player) attacker;
+					if (damage > 0) {
+						if (p.getLocation() == Location.PEST_CONTROL_GAME) {
+							p.getMinigameAttributes().getPestControlAttributes().incrementDamageDealt(damage);
+						} else if (p.getLocation() == Location.DUNGEONEERING) {
+							p.getMinigameAttributes().getDungeoneeringAttributes().incrementDamageDealt(damage);
+						}
+						/** ACHIEVEMENTS **/
+						if (container.getCombatType() == CombatType.MELEE) {
+							Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_MELEE, damage);
+							Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_MELEE, damage);
+							Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_MELEE, damage);
+						} else if (container.getCombatType() == CombatType.RANGED) {
+							Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_RANGED, damage);
+							Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_RANGED, damage);
+							Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_RANGED, damage);
+						} else if (container.getCombatType() == CombatType.MAGIC) {
+							Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_MAGIC, damage);
+							Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_MAGIC, damage);
+							Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_MAGIC, damage);
+						}
+						if (victim.isPlayer()) {
+							Achievements.finishAchievement(p, AchievementData.FIGHT_ANOTHER_PLAYER);
+						}
+					}
+				} else {
+					if (victim.isPlayer() && container.getCombatType() == CombatType.DRAGON_FIRE) {
+						Player p = (Player) victim;
+						if (p.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283) {
+							p.setPositionToFace(attacker.getPosition().copy());
+							CombatFactory.chargeDragonFireShield(p);
+						}
+						if (damage >= 160) {
+							((Player) victim).getPacketSender()
+									.sendMessage("You are badly burnt by the dragon's fire!");
+						}
+					}
+				}
+			}
 
-                /** MISC **/
-                if (attacker.isPlayer()) {
-                    Player p = (Player) attacker;
-                    if (damage > 0) {
-                        if (p.getLocation() == Location.PEST_CONTROL_GAME) {
-                            p.getMinigameAttributes().getPestControlAttributes().incrementDamageDealt(damage);
-                        } else if (p.getLocation() == Location.DUNGEONEERING) {
-                            p.getMinigameAttributes().getDungeoneeringAttributes().incrementDamageDealt(damage);
-                        }
-                        /** ACHIEVEMENTS **/
-                        if (container.getCombatType() == CombatType.MELEE) {
-                            Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_MELEE, damage);
-                            Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_MELEE, damage);
-                            Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_MELEE, damage);
-                        } else if (container.getCombatType() == CombatType.RANGED) {
-                            Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_RANGED, damage);
-                            Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_RANGED, damage);
-                            Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_RANGED, damage);
-                        } else if (container.getCombatType() == CombatType.MAGIC) {
-                            Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_MAGIC, damage);
-                            Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_MAGIC, damage);
-                            Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_MAGIC, damage);
-                        }
-                        if (victim.isPlayer()) {
-                            Achievements.finishAchievement(p, AchievementData.FIGHT_ANOTHER_PLAYER);
-                        }
-                    }
-                } else {
-                    if (victim.isPlayer() && container.getCombatType() == CombatType.DRAGON_FIRE) {
-                        Player p = (Player) victim;
-                        if (p.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283) {
-                            p.setPositionToFace(attacker.getPosition().copy());
-                            CombatFactory.chargeDragonFireShield(p);
-                        }
-                        if (damage >= 160) {
-                            ((Player) victim).getPacketSender()
-                                    .sendMessage("You are badly burnt by the dragon's fire!");
-                        }
-                    }
-                }
-            }
+			if (!container.isAccurate()) {
+				if (container.getCombatType() == CombatType.MAGIC && attacker.getCurrentlyCasting() != null) {
+					victim.performGraphic(new Graphic(85, GraphicHeight.MIDDLE));
+					attacker.getCurrentlyCasting().finishCast(attacker, victim, false, 0);
+					attacker.setCurrentlyCasting(null);
+				}
+			} else if (container.isAccurate()) {
 
-            if (!container.isAccurate()) {
-                if (container.getCombatType() == CombatType.MAGIC
-                        && attacker.getCurrentlyCasting() != null) {
-                    victim.performGraphic(new Graphic(85, GraphicHeight.MIDDLE));
-                    attacker.getCurrentlyCasting().finishCast(attacker, victim, false, 0);
-                    attacker.setCurrentlyCasting(null);
-                }
-            } else if (container.isAccurate()) {
+				CombatFactory.handleArmorEffects(attacker, victim, damage, container.getCombatType());
+				CombatFactory.handlePrayerEffects(attacker, victim, damage, container.getCombatType());
+				CombatFactory.handleSpellEffects(attacker, victim, damage, container.getCombatType());
 
-                CombatFactory.handleArmorEffects(attacker, victim, damage, container.getCombatType());
-                CombatFactory.handlePrayerEffects(attacker, victim, damage, container.getCombatType());
-                CombatFactory.handleSpellEffects(attacker, victim, damage, container.getCombatType());
+				attacker.poisonVictim(victim, container.getCombatType());
+				int random = Misc.getRandom(3);
+				if (random == 2)
+					attacker.venomVictim(victim, container.getCombatType());
 
-                attacker.poisonVictim(victim, container.getCombatType());
-                int random = Misc.getRandom(3);
-                if (random == 2)
-                    attacker.venomVictim(victim, container.getCombatType());
+				// Finish the magic spell with the correct end graphic.
+				if (container.getCombatType() == CombatType.MAGIC && attacker.getCurrentlyCasting() != null) {
+					attacker.getCurrentlyCasting().endGraphic(victim).ifPresent(victim::performGraphic);
+					attacker.getCurrentlyCasting().finishCast(attacker, victim, true, damage);
+					attacker.setCurrentlyCasting(null);
+				}
+			}
 
-                // Finish the magic spell with the correct end graphic.
-                if (container.getCombatType() == CombatType.MAGIC
-                        && attacker.getCurrentlyCasting() != null) {
-                    attacker.getCurrentlyCasting().endGraphic(victim).ifPresent(victim::performGraphic);
-                    attacker.getCurrentlyCasting().finishCast(attacker, victim, true, damage);
-                    attacker.setCurrentlyCasting(null);
-                }
-            }
+			// Send the defensive animations.
+			if (victim.getCombatBuilder().getAttackTimer() <= 2) {
+				if (victim.isPlayer()) {
+					victim.performAnimation(new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));
+					if (((Player) victim).getInterfaceId() > 0)
+						((Player) victim).getPacketSender().sendInterfaceRemoval();
+				} else if (victim.isNpc()) {
+					if (!(((NPC) victim).getId() >= 6142 && ((NPC) victim).getId() <= 6145))
+						victim.performAnimation(new Animation(((NPC) victim).getDefinition().getDefenceAnimation()));
+				}
+			}
 
-            // Send the defensive animations.
-            if (victim.getCombatBuilder().getAttackTimer() <= 2) {
-                if (victim.isPlayer()) {
-                    victim.performAnimation(
-                            new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));
-                    if (((Player) victim).getInterfaceId() > 0)
-                        ((Player) victim).getPacketSender().sendInterfaceRemoval();
-                } else if (victim.isNpc()) {
-                    if (!(((NPC) victim).getId() >= 6142 && ((NPC) victim).getId() <= 6145))
-                        victim.performAnimation(
-                                new Animation(((NPC) victim).getDefinition().getDefenceAnimation()));
-                }
-            }
+			// Fire the container's dynamic hit method.
+			container.onHit(damage, container.isAccurate());
 
-            // Fire the container's dynamic hit method.
-            container.onHit(damage, container.isAccurate());
+			// And finally auto-retaliate if needed.
+			if (!victim.getCombatBuilder().isAttacking() || victim.getCombatBuilder().isCooldown()
+					|| victim.isNpc() && ((NPC) victim).findNewTarget()) {
+				if (shouldRetaliate()) {
+					if (initialDelay == 0) {
+						TaskManager.submit(new Task(1, victim, false) {
+							@Override
+							protected void execute() {
+								if (shouldRetaliate()) {
+									retaliate();
+								}
+								stop();
+							}
+						});
+					} else {
+						retaliate();
+					}
+				}
+			}
 
-            // And finally auto-retaliate if needed.
-            if (!victim.getCombatBuilder().isAttacking() || victim.getCombatBuilder().isCooldown()
-                    || victim.isNpc() && ((NPC) victim).findNewTarget()) {
-                if (shouldRetaliate()) {
-                    if (initialDelay == 0) {
-                        TaskManager.submit(new Task(1, victim, false) {
-                            @Override
-                            protected void execute() {
-                                if (shouldRetaliate()) {
-                                    retaliate();
-                                }
-                                stop();
-                            }
-                        });
-                    } else {
-                        retaliate();
-                    }
-                }
-            }
+			if (attacker.isNpc() && victim.isPlayer()) {
+				NPC npc = (NPC) attacker;
+				Player p = (Player) victim;
+				if (npc.switchesVictim() && Misc.getRandom(6) <= 1) {
+					if (npc.getDefinition().isAggressive()) {
+						npc.setFindNewTarget(true);
+					} else {
+						if (p.getLocalPlayers().size() >= 1) {
+							List<Player> list = p.getLocalPlayers();
+							Player c = list.get(Misc.getRandom(list.size() - 1));
+							npc.getCombatBuilder().attack(c);
+						}
+					}
+				}
 
-            if (attacker.isNpc() && victim.isPlayer()) {
-                NPC npc = (NPC) attacker;
-                Player p = (Player) victim;
-                if (npc.switchesVictim() && Misc.getRandom(6) <= 1) {
-                    if (npc.getDefinition().isAggressive()) {
-                        npc.setFindNewTarget(true);
-                    } else {
-                        if (p.getLocalPlayers().size() >= 1) {
-                            List<Player> list = p.getLocalPlayers();
-                            Player c = list.get(Misc.getRandom(list.size() - 1));
-                            npc.getCombatBuilder().attack(c);
-                        }
-                    }
-                }
+				Sounds.sendSound(p, Sounds.getPlayerBlockSounds(p.getEquipment().get(Equipment.WEAPON_SLOT).getId()));
+				/** CUSTOM ON DAMAGE STUFF **/
+				if (victim.isPlayer() && npc.getId() == 13447) {
+					Nex.dealtDamage(((Player) victim), damage);
+				}
 
-                Sounds.sendSound(p, Sounds.getPlayerBlockSounds(p.getEquipment().get(Equipment.WEAPON_SLOT).getId()));
-                /** CUSTOM ON DAMAGE STUFF **/
-                if (victim.isPlayer() && npc.getId() == 13447) {
-                    Nex.dealtDamage(((Player) victim), damage);
-                }
+			} else if (attacker.isPlayer()) {
+				Player player = (Player) attacker;
 
-            } else if (attacker.isPlayer()) {
-                Player player = (Player) attacker;
+				/** SKULLS **/
+				if (player.getLocation() == Location.WILDERNESS
+						|| player.getLocation() == Location.WILDKEY_ZONE && victim.isPlayer()) {
+					boolean didRetaliate = player.getCombatBuilder().didAutoRetaliate();
+					// if(!didRetaliate) {
+					boolean soloRetaliate = !player.getCombatBuilder().isBeingAttacked();
+					boolean multiRetaliate = player.getCombatBuilder().isBeingAttacked()
+							&& player.getCombatBuilder().getLastAttacker() != victim && Location.inMulti(player);
+					boolean lastAttacker = player.getCombatBuilder().getLastAttacker() != victim;
+					if (victim.isPlayer()) {
+						Player vic = (Player) victim;
+						if (!player.playersAttacked.contains(vic.getUsername()))
+							player.playersAttacked.add(vic.getUsername());
+					}
+					if (victim.isPlayer()
+							&& /** soloRetaliate || multiRetaliate || **/
+							lastAttacker) {
+						Player vic = (Player) victim;
+						if (!vic.playersAttacked.contains(player.getUsername()))
+							CombatFactory.skullPlayer(player);
+					}
+					// }
+				}
+				player.has_combat_tick = false;
+				player.combat_hit_tick = 0;
+				player.setLastCombatType(container.getCombatType());
 
-                /** SKULLS **/
-                if (player.getLocation() == Location.WILDERNESS
-                        || player.getLocation() == Location.WILDKEY_ZONE && victim.isPlayer()) {
-                    boolean didRetaliate = player.getCombatBuilder().didAutoRetaliate();
-                    // if(!didRetaliate) {
-                    boolean soloRetaliate = !player.getCombatBuilder().isBeingAttacked();
-                    boolean multiRetaliate = player.getCombatBuilder().isBeingAttacked()
-                            && player.getCombatBuilder().getLastAttacker() != victim && Location.inMulti(player);
-                    boolean lastAttacker = player.getCombatBuilder().getLastAttacker() != victim;
-                    if (victim.isPlayer()) {
-                        Player vic = (Player) victim;
-                        if (!player.playersAttacked.contains(vic.getUsername()))
-                            player.playersAttacked.add(vic.getUsername());
-                    }
-                    if (victim.isPlayer() && /** soloRetaliate || multiRetaliate || **/lastAttacker) {
-                        Player vic = (Player) victim;
-                        if (!vic.playersAttacked.contains(player.getUsername()))
-                            CombatFactory.skullPlayer(player);
-                    }
-                    // }
-                }
-                player.has_combat_tick = false;
-                player.combat_hit_tick = 0;
-                player.setLastCombatType(container.getCombatType());
+				Sounds.sendSound(player, Sounds.getPlayerAttackSound(player));
 
-                Sounds.sendSound(player, Sounds.getPlayerAttackSound(player));
+				/** CUSTOM ON DAMAGE STUFF **/
+				if (victim.isNpc()) {
+					if (((NPC) victim).getId() == 13447) {
+						Nex.takeDamage(player, damage);
+					}
+				} else {
+					Sounds.sendSound((Player) victim, Sounds
+							.getPlayerBlockSounds(((Player) victim).getEquipment().get(Equipment.WEAPON_SLOT).getId()));
+				}
+			}
+		}
 
-                /** CUSTOM ON DAMAGE STUFF **/
-                if (victim.isNpc()) {
-                    if (((NPC) victim).getId() == 13447) {
-                        Nex.takeDamage(player, damage);
-                    }
-                } else {
-                    Sounds.sendSound((Player) victim, Sounds.getPlayerBlockSounds(
-                            ((Player) victim).getEquipment().get(Equipment.WEAPON_SLOT).getId()));
-                }
-            }
-        }
+		public boolean shouldRetaliate() {
+			if (victim.isPlayer()) {
+				if (attacker.isNpc()) {
+					if (!((NPC) attacker).getDefinition().isAttackable()) {
+						return false;
+					}
+				}
+				return victim.isPlayer() && ((Player) victim).isAutoRetaliate() && !victim.getMovementQueue().isMoving()
+						&& ((Player) victim).getWalkToTask() == null;
+			} else if (!(attacker.isNpc() && ((NPC) attacker).isSummoningNpc())) {
+				NPC npc = (NPC) victim;
+				return npc.getMovementCoordinator().getCoordinateState() == CoordinateState.HOME
+						&& npc.getLocation() != Location.PEST_CONTROL_GAME;
+			}
+			return false;
+		}
 
-        public boolean shouldRetaliate() {
-            if (victim.isPlayer()) {
-                if (attacker.isNpc()) {
-                    if (!((NPC) attacker).getDefinition().isAttackable()) {
-                        return false;
-                    }
-                }
-                return victim.isPlayer() && ((Player) victim).isAutoRetaliate()
-                        && !victim.getMovementQueue().isMoving() && ((Player) victim).getWalkToTask() == null;
-            } else if (!(attacker.isNpc() && ((NPC) attacker).isSummoningNpc())) {
-                NPC npc = (NPC) victim;
-                return npc.getMovementCoordinator().getCoordinateState() == CoordinateState.HOME
-                        && npc.getLocation() != Location.PEST_CONTROL_GAME;
-            }
-            return false;
-        }
+		public void retaliate() {
+			if (victim.isPlayer()) {
+				victim.getCombatBuilder().setDidAutoRetaliate(true);
+				victim.getCombatBuilder().attack(attacker);
+			} else if (victim.isNpc()) {
+				NPC npc = (NPC) victim;
+				npc.getCombatBuilder().attack(attacker);
+				npc.setFindNewTarget(false);
+			}
+		}
 
-        public void retaliate() {
-            if (victim.isPlayer()) {
-                victim.getCombatBuilder().setDidAutoRetaliate(true);
-                victim.getCombatBuilder().attack(attacker);
-            } else if (victim.isNpc()) {
-                NPC npc = (NPC) victim;
-                npc.getCombatBuilder().attack(attacker);
-                npc.setFindNewTarget(false);
-            }
-        }
-
-        private boolean initialRun() {
-            return this.delay == 0;
-        }
-    }
+		private boolean initialRun() {
+			return this.delay == 0;
+		}
+	}
 }

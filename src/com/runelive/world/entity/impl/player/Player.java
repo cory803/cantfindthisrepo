@@ -7,18 +7,31 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import org.jboss.netty.channel.Channel;
+
 import com.runelive.GameSettings;
 import com.runelive.commands.ranks.SpecialPlayers;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.PlayerDeathTask;
 import com.runelive.engine.task.impl.WalkToTask;
-import com.runelive.model.*;
-import com.runelive.net.login.LoginDetailsMessage;
-import org.jboss.netty.channel.Channel;
-import org.jboss.netty.channel.ChannelFuture;
-import org.jboss.netty.channel.ChannelFutureListener;
-import org.jboss.netty.channel.ChannelHandlerContext;
+import com.runelive.model.Animation;
+import com.runelive.model.Appearance;
+import com.runelive.model.CharacterAnimations;
+import com.runelive.model.ChatMessage;
+import com.runelive.model.DwarfCannon;
+import com.runelive.model.ExpRates;
+import com.runelive.model.Flag;
+import com.runelive.model.GameMode;
+import com.runelive.model.GameObject;
+import com.runelive.model.Item;
+import com.runelive.model.MagicSpellbook;
+import com.runelive.model.PlayerInteractingOption;
+import com.runelive.model.PlayerRelations;
+import com.runelive.model.PlayerRights;
+import com.runelive.model.Position;
+import com.runelive.model.Prayerbook;
+import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Bank.BankSearchAttributes;
 import com.runelive.model.container.impl.Equipment;
@@ -32,6 +45,7 @@ import com.runelive.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.runelive.model.input.Input;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.SessionState;
+import com.runelive.net.login.LoginDetailsMessage;
 import com.runelive.net.packet.PacketSender;
 import com.runelive.util.Stopwatch;
 import com.runelive.world.content.Achievements.AchievementAttributes;
@@ -40,7 +54,6 @@ import com.runelive.world.content.BonusManager;
 import com.runelive.world.content.DropLog.DropLogEntry;
 import com.runelive.world.content.KillsTracker.KillsEntry;
 import com.runelive.world.content.LoyaltyProgramme.LoyaltyTitles;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.PointsHandler;
 import com.runelive.world.content.Trading;
 import com.runelive.world.content.clan.ClanChat;
@@ -67,6 +80,8 @@ import com.runelive.world.content.pos.PosDetails;
 import com.runelive.world.content.pos.PosOffer;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.content.skill.impl.construction.ConstructionData;
+import com.runelive.world.content.skill.impl.construction.ConstructionData.HouseLocation;
+import com.runelive.world.content.skill.impl.construction.ConstructionData.HouseTheme;
 import com.runelive.world.content.skill.impl.construction.HouseFurniture;
 import com.runelive.world.content.skill.impl.construction.Portal;
 import com.runelive.world.content.skill.impl.construction.Room;
@@ -76,8 +91,6 @@ import com.runelive.world.content.skill.impl.summoning.Pouch;
 import com.runelive.world.content.skill.impl.summoning.Summoning;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.HouseLocation;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.HouseTheme;
 
 public class Player extends Character {
 
@@ -93,7 +106,7 @@ public class Player extends Character {
 		}
 		return false;
 	}
-	
+
 	public boolean isDeveloper() {
 		for (String name : GameSettings.DEVELOPER) {
 			if (getUsername().equalsIgnoreCase(name))
@@ -109,9 +122,9 @@ public class Player extends Character {
 	private int passwordChange = 0;
 	public boolean forceOffline = false;
 	public String changingPasswordOf = "none";
-	
+
 	public static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
-	
+
 	public int getPasswordChange() {
 		return passwordChange;
 	}
@@ -119,7 +132,7 @@ public class Player extends Character {
 	public void setPasswordChange(int val) {
 		this.passwordChange = val;
 	}
-	
+
 	public int calculateMaxLifePoints() {
 		int lifePoints = getSkillManager().getCurrentLevel(Skill.CONSTITUTION);// The
 																				// normal
@@ -141,13 +154,13 @@ public class Player extends Character {
 			lifePoints += 7;
 		return lifePoints;
 	}
-	
+
 	public boolean synchronizedLogout = false;
 
 	public boolean ge_return = false;
 
 	public int currentScroll = -1;
-	
+
 	public boolean hasDoneGrandExchangeReturn() {
 		return ge_return;
 	}
@@ -222,7 +235,7 @@ public class Player extends Character {
 		int speed = weapon.getSpeed();
 		String weapon = equipment.get(Equipment.WEAPON_SLOT).getDefinition().getName();
 		if (getCurrentlyCasting() != null) {
-			if(equipment.get(Equipment.WEAPON_SLOT).getId() == 21108) {
+			if (equipment.get(Equipment.WEAPON_SLOT).getId() == 21108) {
 				return 4;
 			}
 			if (getCurrentlyCasting() == CombatSpells.BLOOD_BLITZ.getSpell()
@@ -266,7 +279,7 @@ public class Player extends Character {
 	public boolean isPlayer() {
 		return true;
 	}
-	
+
 	public boolean[] lastDuelRules = new boolean[DuelRule.values().length];
 	public String yell_tag = "invalid_yell_tag_set";
 
@@ -308,9 +321,10 @@ public class Player extends Character {
 	public void venomVictim(Character victim, CombatType type) {
 		int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
 		int helmet = equipment.get(Equipment.HEAD_SLOT).getId();
-		if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) || (weaponId == 21077 && type == CombatType.MAGIC)) {
+		if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE)
+				|| (weaponId == 21077 && type == CombatType.MAGIC)) {
 			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.WEAPON_SLOT)));
-		} else if(helmet == 21107) {
+		} else if (helmet == 21107) {
 			CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.HEAD_SLOT)));
 		}
 	}
@@ -341,23 +355,23 @@ public class Player extends Character {
 
 		return CombatStrategies.getDefaultMeleeStrategy();
 	}
+
 	public int responseId = 2;
 	public boolean xpRate = true;
-//	public boolean loginQue = false;
-	
-	
-	//public boolean getLoginQue() {
-//		return loginQue;
-//	}
+	// public boolean loginQue = false;
+
+	// public boolean getLoginQue() {
+	// return loginQue;
+	// }
 
 	public void setXpRate(boolean bbb) {
 		xpRate = bbb;
 	}
-	
-	/*public void setLoginQue(boolean bbb) {
-		loginQue = bbb;
-	}*/
-	
+
+	/*
+	 * public void setLoginQue(boolean bbb) { loginQue = bbb; }
+	 */
+
 	public void setResponse(int a2) {
 		responseId = a2;
 	}
@@ -365,7 +379,7 @@ public class Player extends Character {
 	public boolean getXpRate() {
 		return xpRate;
 	}
-	
+
 	public int getResponse() {
 		return responseId;
 	}
@@ -373,6 +387,7 @@ public class Player extends Character {
 	public void process() {
 		process.sequence();
 	}
+
 	public boolean saveFile;
 
 	public void dispose() {
@@ -384,9 +399,9 @@ public class Player extends Character {
 		if (session.getState() != SessionState.LOGGED_IN && session.getState() != SessionState.LOGGING_OUT) {
 			return;
 		}
-		if(GameSettings.MYSQL_PLAYER_SAVING)
+		if (GameSettings.MYSQL_PLAYER_SAVING)
 			PlayerSaving.saveGame(this);
-		if(GameSettings.JSON_PLAYER_SAVING)
+		if (GameSettings.JSON_PLAYER_SAVING)
 			PlayerSaving.save(this);
 	}
 
@@ -776,6 +791,7 @@ public class Player extends Character {
 	public void setJailed(boolean jailed) {
 		this.jailed = jailed;
 	}
+
 	public boolean isPassedRandom() {
 		return passedRandom;
 	}
@@ -835,19 +851,19 @@ public class Player extends Character {
 	public PlayerSession getSession() {
 		return session;
 	}
-	
+
 	public LoginDetailsMessage getLoginDetailsMessage() {
 		return logindetailsmessage;
 	}
-	
+
 	public Channel getChannel() {
 		return channel;
 	}
-	
+
 	public void setChannel(Channel channell) {
 		this.channel = channell;
-	}	
-	
+	}
+
 	public void setLoginDetailsMessage(LoginDetailsMessage channell) {
 		this.logindetailsmessage = channell;
 	}
@@ -956,7 +972,7 @@ public class Player extends Character {
 	}
 
 	public boolean yell_toggle = true;
-	
+
 	public boolean tourney_toggle = false;
 
 	public String getLastBankSerial() {
@@ -966,7 +982,7 @@ public class Player extends Character {
 	public boolean yellToggle() {
 		return yell_toggle;
 	}
-	
+
 	public boolean tourneyToggle() {
 		return tourney_toggle;
 	}
@@ -974,7 +990,7 @@ public class Player extends Character {
 	public void setYellToggle(boolean new_yell) {
 		yell_toggle = new_yell;
 	}
-	
+
 	public void setTourneyToggle(boolean new_yell) {
 		tourney_toggle = new_yell;
 	}
@@ -1927,7 +1943,7 @@ public class Player extends Character {
 	public void setUnlockedLoyaltyTitles(boolean[] unlockedLoyaltyTitles) {
 		this.unlockedLoyaltyTitles = unlockedLoyaltyTitles;
 	}
-	
+
 	public void setUnlockedLoyaltyTitles(int index, boolean unlockedLoyaltyTitles) {
 		this.unlockedLoyaltyTitles[index] = unlockedLoyaltyTitles;
 	}
@@ -2118,7 +2134,7 @@ public class Player extends Character {
 	public Stopwatch getYellTimer() {
 		return yellTimer;
 	}
-	
+
 	public Stopwatch getVoteTimer() {
 		return voteTimer;
 	}
@@ -2214,7 +2230,7 @@ public class Player extends Character {
 	public Stopwatch getSummoningTimer() {
 		return summoningTimer;
 	}
-	
+
 	public Player setUsableObject(Object[] usableObject) {
 		this.usableObject = usableObject;
 		return this;
@@ -2264,33 +2280,33 @@ public class Player extends Character {
 	public boolean continueTutorial() {
 		return tutorialContinue;
 	}
-	
+
 	public boolean continueSkipTutorial() {
 		return skipTutorialContinue;
 	}
-	
+
 	public boolean continueLoginAccountPin() {
 		return loginAccountPin;
 	}
-	
+
 	public void setOpenBank(boolean openBank) {
 		this.openBank = openBank;
 	}
-	
+
 	public void setContinueSkipTutorial(boolean b) {
 		this.skipTutorialContinue = b;
 	}
-	
+
 	public void setLoginAccountPin(boolean b) {
 		this.loginAccountPin = b;
 	}
-	
+
 	private boolean passwordChanging;
-	
+
 	public void setPasswordChanging(boolean b) {
 		this.passwordChanging = b;
 	}
-	
+
 	public boolean getPasswordChanging() {
 		return passwordChanging;
 	}
@@ -2448,7 +2464,7 @@ public class Player extends Character {
 	public void setCrossedObstacles(boolean[] crossedObstacles) {
 		this.crossedObstacles = crossedObstacles;
 	}
-	
+
 	public void setCrossedObstacles(int index, boolean crossedObstacles) {
 		this.crossedObstacles[index] = crossedObstacles;
 	}
@@ -2481,6 +2497,7 @@ public class Player extends Character {
 	public Slayer getSlayer() {
 		return slayer;
 	}
+
 	public Summoning getSummoning() {
 		return summoning;
 	}
@@ -2644,7 +2661,7 @@ public class Player extends Character {
 	public void setBrawlerCharges(int[] brawlerCharges) {
 		this.brawlerCharges = brawlerCharges;
 	}
-	
+
 	public void setBrawlerCharges(int brawlerCharges, int index) {
 		this.brawlerCharges[index] = brawlerCharges;
 	}

@@ -6,58 +6,60 @@ import com.runelive.world.entity.impl.Character;
 
 public class CombatDistanceSession {
 
-  /** The combat builder. */
-  private CombatBuilder builder;
+	/** The combat builder. */
+	private CombatBuilder builder;
 
-  /** The victim being hunted. */
-  private Character victim;
+	/** The victim being hunted. */
+	private Character victim;
 
-  /**
-   * Create a new {@link CombatDistanceSession}.
-   * 
-   * @param builder the combat builder.
-   * @param victim the victim being hunted.
-   */
-  public CombatDistanceSession(CombatBuilder builder, Character victim) {
-    this.builder = builder;
-    this.victim = victim;
-  }
+	/**
+	 * Create a new {@link CombatDistanceSession}.
+	 * 
+	 * @param builder
+	 *            the combat builder.
+	 * @param victim
+	 *            the victim being hunted.
+	 */
+	public CombatDistanceSession(CombatBuilder builder, Character victim) {
+		this.builder = builder;
+		this.victim = victim;
+	}
 
-  public void process() {
+	public void process() {
 
-    builder.determineStrategy();
-    //builder.attackTimer = 0;
-    //builder.cooldown = 0;
-    
-    if (builder.getVictim() != null && !builder.getVictim().equals(victim)) {
-      builder.reset(true);
-      this.stop();
-      return;
-    }
+		builder.determineStrategy();
+		// builder.attackTimer = 0;
+		// builder.cooldown = 0;
 
-    if (!Location.ignoreFollowDistance(builder.getCharacter())) {
-      if (!builder.getCharacter().getPosition().isViewableFrom(victim.getPosition())) {
-        builder.reset(true);
-        this.stop();
-        return;
-      }
-    }
+		if (builder.getVictim() != null && !builder.getVictim().equals(victim)) {
+			builder.reset(true);
+			this.stop();
+			return;
+		}
 
-    if (Locations.goodDistance(builder.getCharacter().getPosition(), victim.getPosition(),
-        builder.getStrategy().attackDistance(builder.getCharacter()))) {
-      sucessFul();
-      this.stop();
-      return;
-    }
-  }
+		if (!Location.ignoreFollowDistance(builder.getCharacter())) {
+			if (!builder.getCharacter().getPosition().isViewableFrom(victim.getPosition())) {
+				builder.reset(true);
+				this.stop();
+				return;
+			}
+		}
 
-  public void stop() {
-    builder.setDistanceSession(null);
-  }
+		if (Locations.goodDistance(builder.getCharacter().getPosition(), victim.getPosition(),
+				builder.getStrategy().attackDistance(builder.getCharacter()))) {
+			sucessFul();
+			this.stop();
+			return;
+		}
+	}
 
-  public void sucessFul() {
-    builder.getCharacter().getMovementQueue().reset();
-    builder.setVictim(victim);
-    builder.setCombatSession(new CombatSession(builder));
-  }
+	public void stop() {
+		builder.setDistanceSession(null);
+	}
+
+	public void sucessFul() {
+		builder.getCharacter().getMovementQueue().reset();
+		builder.setVictim(victim);
+		builder.setCombatSession(new CombatSession(builder));
+	}
 }

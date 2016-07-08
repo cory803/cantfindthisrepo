@@ -1,17 +1,13 @@
 package com.runelive.world.content.skill.impl.construction.sawmill;
 
 public enum Plank {
-	NORMAL(1511, 960, 10000),
-	OAK(1521, 8778, 50000),
-	TEAK(6333, 8780, 100000),
-	MAHOGANY(6332, 8782, 300000);
-	
+	NORMAL(1511, 960, 10000), OAK(1521, 8778, 50000), TEAK(6333, 8780, 100000), MAHOGANY(6332, 8782, 300000);
+
 	private int logId;
 	private int plankId;
 	private int cost;
-	
-	private Plank(int logId, int plankId, int cost)
-	{
+
+	private Plank(int logId, int plankId, int cost) {
 		this.setLogId(logId);
 		this.setPlankId(plankId);
 		this.setCost(cost);
@@ -40,12 +36,10 @@ public enum Plank {
 	public void setCost(int cost) {
 		this.cost = cost;
 	}
-	
-	public static Plank forId(int id)
-	{
-		for(Plank p : values())
-		{
-			if(p.getLogId() == id || p.getPlankId() == id)
+
+	public static Plank forId(int id) {
+		for (Plank p : values()) {
+			if (p.getLogId() == id || p.getPlankId() == id)
 				return p;
 		}
 		return null;

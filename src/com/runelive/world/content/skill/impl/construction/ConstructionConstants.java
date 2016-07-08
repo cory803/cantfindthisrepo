@@ -9,7 +9,7 @@ public class ConstructionConstants {
 	public static final int HOUSE_PRICE = 10000000;
 	public static final boolean MOVING_ENABLED = false;
 	public static final boolean THEMES_ENABLED = true;
-	
+
 	public static final Position DRAYNOR = new Position(3092, 3248);
 	public static final Position YANILLE = new Position(2606, 3093);
 	public static final int VARROCK_X = 3210;

@@ -27,8 +27,10 @@ public class SawmillOperator {
 			return;
 		}
 
-		if (Skillcape_Data.CONSTRUCTION.isWearingCape(player) || Skillcape_Data.MASTER_CONSTRUCTION.isWearingCape(player) && Misc.exclusiveRandom(0, 10) == 1) {
-			player.getPacketSender().sendMessage("The sawmill operator recognises your cape and gives you the planks for free!");
+		if (Skillcape_Data.CONSTRUCTION.isWearingCape(player)
+				|| Skillcape_Data.MASTER_CONSTRUCTION.isWearingCape(player) && Misc.exclusiveRandom(0, 10) == 1) {
+			player.getPacketSender()
+					.sendMessage("The sawmill operator recognises your cape and gives you the planks for free!");
 		} else {
 			if (player.getMoneyInPouch() >= toPay) {
 				player.setMoneyInPouch(player.getMoneyInPouch() - (long) toPay);

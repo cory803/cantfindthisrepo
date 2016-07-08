@@ -28,9 +28,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "Enter your house",
-						"Enter your house (building mode)",
-						"Enter friend's house" };
+				return new String[] { "Enter your house", "Enter your house (building mode)", "Enter friend's house" };
 			}
 		};
 	}
@@ -50,8 +48,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "Edgeville", "Karamja",
-						"Draynor village", "Al-kharid" };
+				return new String[] { "Edgeville", "Karamja", "Draynor village", "Al-kharid" };
 			}
 		};
 	}
@@ -100,8 +97,7 @@ public class ConstructionDialogues {
 
 					@Override
 					public String[] dialogue() {
-						return new String[] { "I'd like to hire you!",
-								"Never mind." };
+						return new String[] { "I'd like to hire you!", "Never mind." };
 					}
 
 					@Override
@@ -113,8 +109,7 @@ public class ConstructionDialogues {
 		};
 	}
 
-	public static Dialogue hireServantDeclineDialogue(final Player p,
-			final int npc, final String errorReq) {
+	public static Dialogue hireServantDeclineDialogue(final Player p, final int npc, final String errorReq) {
 		return new Dialogue() {
 			@Override
 			public DialogueType type() {
@@ -134,24 +129,19 @@ public class ConstructionDialogues {
 			@Override
 			public String[] dialogue() {
 				if (errorReq.equalsIgnoreCase("room"))
-					return new String[] {
-							"You don't expect me to sleep on the floor do you?",
-							"Come back when you have built at least",
-							"2 bedrooms in your house." };
+					return new String[] { "You don't expect me to sleep on the floor do you?",
+							"Come back when you have built at least", "2 bedrooms in your house." };
 				else
 					// if(errorReq.equalsIgnoreCase("lvlreq"))
-					return new String[] {
-							"Your house is not worth serving!",
+					return new String[] { "Your house is not worth serving!",
 							"Come back when you have a Construction level",
-							"of at least " + Butlers.forId(npc).getConsLevel()
-									+ "." };
+							"of at least " + Butlers.forId(npc).getConsLevel() + "." };
 
 			}
 		};
 	}
 
-	public static Dialogue hireServantMakeDealDialogue(final Player p,
-			final int npc) {
+	public static Dialogue hireServantMakeDealDialogue(final Player p, final int npc) {
 		return new Dialogue() {
 			@Override
 			public DialogueType type() {
@@ -170,9 +160,8 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "Alright, how does "
-						+ Butlers.forId(npc).getLoanCost()
-						+ "gp/8 services sound?" };
+				return new String[] {
+						"Alright, how does " + Butlers.forId(npc).getLoanCost() + "gp/8 services sound?" };
 			}
 
 			@Override
@@ -211,14 +200,12 @@ public class ConstructionDialogues {
 
 			@Override
 			public DialogueExpression animation() {
-				return accepted ? DialogueExpression.NORMAL
-						: DialogueExpression.MIDLY_ANGRY;
+				return accepted ? DialogueExpression.NORMAL : DialogueExpression.MIDLY_ANGRY;
 			}
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { accepted ? "You're hired!"
-						: "Never mind." };
+				return new String[] { accepted ? "You're hired!" : "Never mind." };
 			}
 
 		};
@@ -238,8 +225,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "Rotate clockwise",
-						"Rotate counter-clockwise", "Remove" };
+				return new String[] { "Rotate clockwise", "Rotate counter-clockwise", "Remove" };
 			}
 
 			@Override
@@ -250,8 +236,7 @@ public class ConstructionDialogues {
 		};
 	}
 
-	public static Dialogue withdrawSuppliesDialogue(final Player p,
-			final int type) {
+	public static Dialogue withdrawSuppliesDialogue(final Player p, final int type) {
 		return new Dialogue() {
 			@Override
 			public DialogueType type() {
@@ -271,53 +256,43 @@ public class ConstructionDialogues {
 					s = new String[] { "Kettle", "Teapot", "Clay cup" };
 					break;
 				case 424:
-					s = new String[] { "Kettle", "Teapot", "Clay cup",
-							"Beer glass" };
+					s = new String[] { "Kettle", "Teapot", "Clay cup", "Beer glass" };
 					break;
 				case 425:
-					s = new String[] { "Kettle", "Teapot", "Porcelain cup",
-							"Beer glass", "Cake tin" };
+					s = new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "Cake tin" };
 					break;
 				case 426:
-					s = new String[] { "Kettle", "Teapot", "Clay cup",
-							"Beer glass", "Bowl" };
+					s = new String[] { "Kettle", "Teapot", "Clay cup", "Beer glass", "Bowl" };
 					break;
 				case 427:
-					s = new String[] { "Kettle", "Teapot", "Porcelain cup",
-							"Beer glass", "Next" };
+					s = new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "Next" };
 					break;
 				case 428:
 					s = new String[] { "Bowl", "Cake tin", "Back" };
 					break;
 				case 429:
-					s = new String[] { "Kettle", "Teapot", "Porcelain cup",
-							"Beer glass", "Next" };
+					s = new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "Next" };
 					break;
 				case 430:
 					s = new String[] { "Bowl", "Pie dish", "Empty pot", "Back" };
 					break;
 				case 431:
-					s = new String[] { "Kettle", "Teapot", "Porcelain cup",
-							"Beer glass", "Next" };
+					s = new String[] { "Kettle", "Teapot", "Porcelain cup", "Beer glass", "Next" };
 					break;
 				case 432:
-					s = new String[] { "Bowl", "Pie dish", "Empty pot",
-							"Chef's hat", "Back" };
+					s = new String[] { "Bowl", "Pie dish", "Empty pot", "Chef's hat", "Back" };
 					break;
 				case 433:
 					s = new String[] { "Tea leaves", "Bucket of milk" };
 					break;
 				case 434:
-					s = new String[] { "Tea leaves", "Bucket of milk", "Egg",
-							"Pot of flour" };
+					s = new String[] { "Tea leaves", "Bucket of milk", "Egg", "Pot of flour" };
 					break;
 				case 435:
-					s = new String[] { "Tea leaves", "Bucket of milk", "Egg",
-							"Pot of flour", "Next" };
+					s = new String[] { "Tea leaves", "Bucket of milk", "Egg", "Pot of flour", "Next" };
 					break;
 				case 436:
-					s = new String[] { "Potato", "Garlic", "Onion", "Cheese",
-							"Back" };
+					s = new String[] { "Potato", "Garlic", "Onion", "Cheese", "Back" };
 					break;
 				}
 				return s;
@@ -347,23 +322,18 @@ public class ConstructionDialogues {
 			@Override
 			public String[] dialogue() {
 				if (type == 455) {
-					return new String[] { "Bolt of cloth", "Gold leaf",
-							"Marble block", "Magic stone", "Previous" };
+					return new String[] { "Bolt of cloth", "Gold leaf", "Marble block", "Magic stone", "Previous" };
 				} else if (type == 454) {
-					return new String[] { "Soft clay", "Limestone brick",
-							"Steel bar", "Previous", "Next" };
+					return new String[] { "Soft clay", "Limestone brick", "Steel bar", "Previous", "Next" };
 				} else if (type == 453) {
-					return new String[] { "Plank", "Oak plank", "Teak plank",
-							"Mahogany plank", "Next" };
+					return new String[] { "Plank", "Oak plank", "Teak plank", "Mahogany plank", "Next" };
 				} else if (type == 452 && p.getRegionInstance() != null) {
-					final Servant servant = (p.getRegionInstance() instanceof House ? (House) p
-							.getRegionInstance() : ((HouseDungeon) p
-							.getRegionInstance()).getHouse()).getButler();
+					final Servant servant = (p.getRegionInstance() instanceof House ? (House) p.getRegionInstance()
+							: ((HouseDungeon) p.getRegionInstance()).getHouse()).getButler();
 					String follow = "Follow me, Jeeves.";
 					if (servant.getSpawnedFor() == p)
 						follow = "Stop following me, Jeeves.";
-					return new String[] { "Fetch me some tea.",
-							"Fetch me something from my bank.",
+					return new String[] { "Fetch me some tea.", "Fetch me something from my bank.",
 							"Greet my visitors.", follow, "You're fired!" };
 				}
 				return null;
@@ -391,8 +361,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "I'm terribly sorry,",
-						"but I am only toperform these actions for the",
+				return new String[] { "I'm terribly sorry,", "but I am only toperform these actions for the",
 						"house's owner." };
 			}
 		};
@@ -413,8 +382,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "Right portal", "Middle portal",
-						"Left portal" };
+				return new String[] { "Right portal", "Middle portal", "Left portal" };
 			}
 		};
 	}
@@ -465,6 +433,7 @@ public class ConstructionDialogues {
 			}
 		};
 	}
+
 	public static Dialogue buildUpstairs(final Player p, int actionId) {
 		return new Dialogue() {
 
@@ -480,8 +449,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "These stairs lead nowhere.",
-						"Would you like to build a room above this room?" };
+				return new String[] { "These stairs lead nowhere.", "Would you like to build a room above this room?" };
 			}
 
 			@Override
@@ -511,6 +479,7 @@ public class ConstructionDialogues {
 			}
 		};
 	}
+
 	public static Dialogue crawlingHandDialogue1() {
 		return new Dialogue() {
 
@@ -526,8 +495,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] {
-						"Hey, I was going to make some furniture,",
+				return new String[] { "Hey, I was going to make some furniture,",
 						"do you think you could lend a HAND?" };
 			}
 
@@ -574,8 +542,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "Hey, hand, do you want to know,",
-						"how I slayed you?" };
+				return new String[] { "Hey, hand, do you want to know,", "how I slayed you?" };
 			}
 
 			@Override
@@ -618,9 +585,7 @@ public class ConstructionDialogues {
 
 							@Override
 							public String[] dialogue() {
-								return new String[] {
-										"Because you're just a hand! ",
-										"You're ARMLESS!" };
+								return new String[] { "Because you're just a hand! ", "You're ARMLESS!" };
 							}
 						};
 					}
@@ -644,8 +609,7 @@ public class ConstructionDialogues {
 
 			@Override
 			public String[] dialogue() {
-				return new String[] { "Hey, you're just a hand, right? ",
-						"So what do you eat?" };
+				return new String[] { "Hey, you're just a hand, right? ", "So what do you eat?" };
 			}
 
 			@Override
@@ -734,9 +698,7 @@ public class ConstructionDialogues {
 
 							@Override
 							public String[] dialogue() {
-								return new String[] { ""
-										+ p.getRegionInstance().getOwner()
-												.getUsername()
+								return new String[] { "" + p.getRegionInstance().getOwner().getUsername()
 										+ " must be pretty handy to have slayed that!" };
 							}
 						};
@@ -785,8 +747,7 @@ public class ConstructionDialogues {
 
 					@Override
 					public String[] dialogue() {
-						return new String[] { "Well yes. But only because a",
-								"Slayer master told me to!" };
+						return new String[] { "Well yes. But only because a", "Slayer master told me to!" };
 					}
 
 					@Override
@@ -805,9 +766,7 @@ public class ConstructionDialogues {
 
 							@Override
 							public String[] dialogue() {
-								return new String[] {
-										"Don't take it personally.. You look great",
-										"...on my wall!" };
+								return new String[] { "Don't take it personally.. You look great", "...on my wall!" };
 							}
 
 							@Override
@@ -881,8 +840,7 @@ public class ConstructionDialogues {
 
 					@Override
 					public String[] dialogue() {
-						return new String[] { "Well yes. But only because a",
-								"Slayer master told me to!" };
+						return new String[] { "Well yes. But only because a", "Slayer master told me to!" };
 					}
 
 					@Override
@@ -901,9 +859,7 @@ public class ConstructionDialogues {
 
 							@Override
 							public String[] dialogue() {
-								return new String[] {
-										"Don't take it personally.. You look great",
-										"...on my wall!" };
+								return new String[] { "Don't take it personally.. You look great", "...on my wall!" };
 							}
 
 							@Override

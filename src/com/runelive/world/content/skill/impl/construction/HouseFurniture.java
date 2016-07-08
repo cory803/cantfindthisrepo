@@ -13,11 +13,10 @@ public class HouseFurniture implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 3956707553983414249L;
-	private int roomX, roomY, roomZ, hotSpotId, furnitureId, standardXOff,
-			standardYOff;
+	private int roomX, roomY, roomZ, hotSpotId, furnitureId, standardXOff, standardYOff;
 
-	public HouseFurniture(int roomX, int roomY, int roomZ, int hotSpotId,
-			int furnitureId, int standardXOff, int standardYOff) {
+	public HouseFurniture(int roomX, int roomY, int roomZ, int hotSpotId, int furnitureId, int standardXOff,
+			int standardYOff) {
 		this.roomX = roomX;
 		this.roomY = roomY;
 		this.setRoomZ(roomZ);
@@ -28,8 +27,7 @@ public class HouseFurniture implements java.io.Serializable {
 	}
 
 	public HotSpots getHotSpot(int roomRot) {
-		return HotSpots.forObjectIdAndCoords(furnitureId, standardXOff,
-				standardYOff);
+		return HotSpots.forObjectIdAndCoords(furnitureId, standardXOff, standardYOff);
 	}
 
 	public int getRoomY() {

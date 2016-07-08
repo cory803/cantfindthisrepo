@@ -54,8 +54,7 @@ public abstract class DatabaseConnection {
 	 * @param pool
 	 *            The pool
 	 */
-	public DatabaseConnection(DatabaseConfiguration configuration,
-			ConnectionPool<DatabaseConnection> pool) {
+	public DatabaseConnection(DatabaseConfiguration configuration, ConnectionPool<DatabaseConnection> pool) {
 		this.configuration = configuration;
 		this.pool = pool;
 	}
@@ -118,8 +117,7 @@ public abstract class DatabaseConnection {
 	 * @throws SQLException
 	 *             ?
 	 */
-	public PreparedStatement prepareStatement(String string)
-			throws SQLException {
+	public PreparedStatement prepareStatement(String string) throws SQLException {
 		return connection.prepareStatement(string);
 	}
 

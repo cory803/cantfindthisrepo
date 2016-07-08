@@ -39,10 +39,11 @@ public class MySQLDatabaseConnection extends DatabaseConnection {
 	public boolean connect() {
 		try {
 			MySQLDatabaseConfiguration configuration = (MySQLDatabaseConfiguration) this.configuration;
-			connection = DriverManager.getConnection("jdbc:mysql://"
-					+ configuration.getHost() + ":" + configuration.getPort()
-					+ "/" + configuration.getDatabase(),
-					configuration.getUsername(), configuration.getPassword());
+			connection = DriverManager
+					.getConnection(
+							"jdbc:mysql://" + configuration.getHost() + ":" + configuration.getPort() + "/"
+									+ configuration.getDatabase(),
+							configuration.getUsername(), configuration.getPassword());
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
