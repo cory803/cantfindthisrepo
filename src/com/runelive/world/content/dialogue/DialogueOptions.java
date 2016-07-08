@@ -1851,11 +1851,23 @@ public class DialogueOptions {
 				player.setInputHandling(new ToxicStaffZulrahScales());
 				break;
 			case 187:
-				if(player.getDonorRights() < 4) {
-					DialogueManager.sendStatement(player, "This feature is only available for Legendary & Uber Donators.");
+				if(player.getDonorRights() == 0) {
+					DialogueManager.sendStatement(player, "This feature is only available for donators.");
 					return;
 				}
-				if(player.getInventory().getAmount(995) < 500000000 && player.getMoneyInPouch() < 500000000) {
+				int amountRequired = 500000000;
+				if(player.getDonorRights() == 1) {
+					amountRequired = 500000000;
+				} else if(player.getDonorRights() == 2) {
+					amountRequired = 400000000;
+				} else if(player.getDonorRights() == 3) {
+					amountRequired = 300000000;
+				} else if(player.getDonorRights() == 4) {
+					amountRequired = 200000000;
+				} else if(player.getDonorRights() == 5) {
+					amountRequired = 100000000;
+				}
+				if(player.getInventory().getAmount(995) < amountRequired && player.getMoneyInPouch() < amountRequired) {
 					DialogueManager.sendStatement(player, "You do not have enough money to purchase a yell tag.");
 					return;
 				} else {

@@ -64,6 +64,11 @@ public class ExtremeDonators {
 				player.getYellTimer().reset();
 				return;
 			}
+			if(!player.getYellTag().equals("invalid_yell_tag_set")) {
+				World.sendYell("<img=9> <col=0>[<col=2FAC45>"+player.getYellTag()+"<col=0>] "+player.getUsername()+": "+yellmessage, player);	
+				player.getYellTimer().reset();
+				return;
+			}
 			World.sendYell("<img=9> <col=0>[<col=2FAC45>Extreme<col=0>] "+player.getUsername()+": "+yellmessage, player);	
 			player.getYellTimer().reset();
 		}

@@ -65,6 +65,11 @@ public class RegularDonators {
 				player.getYellTimer().reset();
 				return;
 			}
+			if(!player.getYellTag().equals("invalid_yell_tag_set")) {
+				World.sendYell("<img=7> <col=0>[<col=ff0000>"+player.getYellTag()+"<col=0>] "+player.getUsername()+": "+yellmessage, player);	
+				player.getYellTimer().reset();
+				return;
+			}
 			World.sendYell("<img=7> <col=0>[<col=ff0000>Donator<col=0>] "+player.getUsername()+": "+yellmessage, player);	
 			player.getYellTimer().reset();
 		}

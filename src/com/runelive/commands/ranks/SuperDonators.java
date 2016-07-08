@@ -65,6 +65,11 @@ public class SuperDonators {
 				player.getYellTimer().reset();
 				return;
 			}
+			if(!player.getYellTag().equals("invalid_yell_tag_set")) {
+				World.sendYell("<img=8> <col=0>[@blu@"+player.getYellTag()+"@bla@] "+player.getUsername()+": "+yellmessage, player);	
+				player.getYellTimer().reset();
+				return;
+			}
 			World.sendYell("<img=8> <col=0>[@blu@Super@bla@] "+player.getUsername()+": "+yellmessage, player);	
 			player.getYellTimer().reset();
 		}
