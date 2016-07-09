@@ -41,7 +41,10 @@ import com.runelive.world.content.combat.strategy.impl.Venantis;
 import com.runelive.world.content.combat.strategy.impl.WildyWyrm;
 import com.runelive.world.content.combat.strategy.impl.WingmanSkree;
 import com.runelive.world.content.combat.strategy.impl.Zilyana;
+import com.runelive.world.content.combat.strategy.impl.ZulrahBlue;
 import com.runelive.world.content.combat.strategy.impl.ZulrahGreen;
+import com.runelive.world.content.combat.strategy.impl.ZulrahJad;
+import com.runelive.world.content.combat.strategy.impl.ZulrahRed;
 import com.runelive.world.content.minigames.impl.zulrah.Zulrah;
 
 public class CombatStrategies {
@@ -117,7 +120,10 @@ public class CombatStrategies {
 		
 		//Zulrah
 		STRATEGIES.put(Zulrah.GREEN_ZULRAH, new ZulrahGreen());
-
+		STRATEGIES.put(Zulrah.RED_ZULRAH, new ZulrahRed());
+		STRATEGIES.put(Zulrah.BLUE_ZULRAH, new ZulrahBlue());
+		STRATEGIES.put(Zulrah.JAD_ZULRAH, new ZulrahJad());
+		
 		Dragon dragonStrategy = new Dragon();
 		STRATEGIES.put(50, dragonStrategy);
 		STRATEGIES.put(4000, dragonStrategy);

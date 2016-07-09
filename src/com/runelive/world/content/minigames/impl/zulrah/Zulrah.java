@@ -108,14 +108,11 @@ public class Zulrah {
 	public static void next(final Player player, final NPC zulrah) {
 		TaskManager.submit(new Task(1, player, false) {
 			int tick = 0;
+			int health = zulrah.getConstitution();
 			@Override
 			public void execute() {
-				
-				//System.out.println("Tick: "+tick);
 				if(tick == 0) {
 					zulrah.setChargingAttack(true);
-					System.out.println("Zulrah ID 1: "+zulrah.getId());
-					System.out.println("Zulrah pos x 1: "+player.getZulrahPosition());
 					player.nextZulrahStep();
 					zulrah.performAnimation(GO_DOWN);
 				}
@@ -130,8 +127,8 @@ public class Zulrah {
 					NPC nextZulrah = new NPC(zulrahId, player.getZulrahPosition()).setSpawnedFor(player);
 					nextZulrah.getMovementCoordinator().setCoordinator(new Coordinator(false, -1));
 					World.register(nextZulrah);
-					System.out.println("Spawned npc id: "+nextZulrah.getId());
 					player.getRegionInstance().getNpcsList().add(nextZulrah);
+					nextZulrah.setConstitution(health);
 					nextZulrah.performAnimation(GO_UP);
 					nextZulrah.getCombatBuilder().attack(player);
 					stop();

@@ -4,14 +4,11 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.model.Projectile;
-import com.runelive.model.Locations.Location;
-import com.runelive.world.World;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
 import com.runelive.world.content.combat.HitQueue.CombatHit;
 import com.runelive.world.content.combat.range.CombatRangedAmmo.AmmunitionData;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
-import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.minigames.impl.zulrah.Zulrah;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -21,7 +18,7 @@ import com.runelive.world.entity.impl.player.Player;
  * @author Jonathan Sirens
  */
 
-public class ZulrahGreen implements CombatStrategy {
+public class ZulrahBlue implements CombatStrategy {
 
 	@Override
 	public boolean canAttack(Character entity, Character victim) {
@@ -40,21 +37,8 @@ public class ZulrahGreen implements CombatStrategy {
 			return true;
 		}
 		if(victim.isPlayer()) {
-			Player player = (Player) victim;
-			TaskManager.submit(new Task(1, player, false) {
-				int tick = 0;
-				@Override
-				public void execute() {
-					if(tick == 0) {
-						stop();
-					}
-					
-					tick++;
-				}
-			});
 			Zulrah.next((Player) victim, zulrah);
 		}
-		//zulrah.setPositionToFace(play)
 		/*
 		fear.performAnimation(new Animation(426));
 		fear.setChargingAttack(true);
@@ -88,6 +72,6 @@ public class ZulrahGreen implements CombatStrategy {
 
 	@Override
 	public CombatType getCombatType() {
-		return CombatType.RANGED;
+		return CombatType.MAGIC;
 	}
 }

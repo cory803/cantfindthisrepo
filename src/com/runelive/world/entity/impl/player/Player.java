@@ -741,6 +741,15 @@ public class Player extends Character {
 	 * This goes in order 1-(amount)
 	 */
 	public void nextZulrahStep() {
+		if(this.zulrahStep != 3) {
+			if(this.zulrahStep == 11) {
+				this.zulrahStep = 0;
+			}
+		} else {
+			if(this.zulrahStep == 10) {
+				this.zulrahStep = 0;
+			}
+		}
 		this.zulrahStep += 1;
 	}
 	
