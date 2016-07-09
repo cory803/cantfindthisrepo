@@ -121,9 +121,7 @@ public class DailyTaskManager {
 			if (p.dailyTaskProgress >= 5 && !p.completedDailyTask) {
 				resetTask(p);
 				p.getBank(p.getCurrentBankTab()).add(18778, 1);
-				p.addBossPoints(80);
-				p.getPacketSender()
-						.sendMessage("@dre@You have received @blu@80xBoss Points@dre@ & @blu@1xStarved Effigy. ");
+				p.getPacketSender().sendMessage("@dre@You have received @blu@1x Starved Effigy. ");
 				addCoinsToPouch(p);
 			}
 			break;
@@ -131,9 +129,8 @@ public class DailyTaskManager {
 			if (p.dailyTaskProgress >= 5 && !p.completedDailyTask) {
 				resetTask(p);
 				p.getBank(p.getCurrentBankTab()).add(18778, 1);
-				p.addBossPoints(100);
 				p.getPacketSender()
-						.sendMessage("@dre@You have received @blu@100xBoss Points@dre@ & @blu@1xStarved Effigy. ");
+						.sendMessage("@dre@You have received @blu@1xStarved Effigy. ");
 				addCoinsToPouch(p);
 			}
 			break;
@@ -142,9 +139,8 @@ public class DailyTaskManager {
 				resetTask(p);
 				p.getBank(p.getCurrentBankTab()).add(18778, 1);
 				p.getBank(p.getCurrentBankTab()).add(ACHIEVEMENT_BOX, 1);
-				p.addBossPoints(125);
 				p.getPacketSender().sendMessage(
-						"@dre@You have received @blu@125xBoss Points, 1xStarved Effigy @dre@& @blu@ 1xAchievement Box.");
+						"@dre@You have received 1xStarved Effigy @dre@& @blu@ 1xAchievement Box.");
 				addCoinsToPouch(p);
 			}
 			break;
@@ -153,9 +149,8 @@ public class DailyTaskManager {
 				resetTask(p);
 				p.getBank(p.getCurrentBankTab()).add(18778, 2);
 				p.getBank(p.getCurrentBankTab()).add(ACHIEVEMENT_BOX, 2);
-				p.addBossPoints(150);
 				p.getPacketSender().sendMessage(
-						"@dre@You have received @blu@150xBoss Points, 2xStarved Effigy @dre@& @blu@ 2xAchievement Box.");
+						"@dre@You have received @blu@2xStarved Effigy @dre@& @blu@ 2xAchievement Box.");
 				addCoinsToPouch(p);
 			}
 			break;

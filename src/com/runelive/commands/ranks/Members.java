@@ -31,6 +31,9 @@ public class Members {
 			player.getPacketSender().sendMessage("You cannot use commands in jail... You're in jail.");
 			return;
 		}
+		if (command[0].equalsIgnoreCase("bosses")) {
+			player.forceChat("[RuneLive] "+player.getUsername()+" has slain "+player.getBossPoints()+" bosses.");
+		}
 		if (command[0].equalsIgnoreCase("changelevel")) {
 			/*
 			 * if(player.getEquipment().getFreeSlots() !=

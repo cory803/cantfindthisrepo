@@ -95,10 +95,7 @@ public class NPCDeathTask extends Task {
 									&& !npc.getDefinition().getName().contains("Zulrah")) {
 								killer.addBossPoints(1);
 								PlayerPanel.refreshPanel(killer);
-								killer.getPacketSender()
-										.sendMessage("You have defeated @blu@" + npc.getDefinition().getName()
-												+ "@bla@. You now have@red@ " + killer.getBossPoints()
-												+ " @bla@boss points.");
+								//killer.getPacketSender().sendMessage("You have defeated @blu@" + npc.getDefinition().getName() + "@bla@. You now have@red@ " + killer.getBossPoints() + " @bla@boss points.");
 							}
 							Achievements.doProgress(killer, AchievementData.DEFEAT_500_BOSSES);
 						}

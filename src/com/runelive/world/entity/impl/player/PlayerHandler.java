@@ -318,10 +318,10 @@ public class PlayerHandler {
 		// LoginChecksParser.checkLogin(player);
 		if (GameSettings.DOUBLE_EXP) {
 			player.getPacketSender().sendMessage(
-					"@bla@Welcome to RuneLive, We're currently in Double EXP mode! (@red@X2.0@bla@)");
+					"Welcome to <col=3385ff>RuneLive@bla@, We're currently in <col=ff1a1a>Double EXP @bla@mode!");
 		} else {
 			player.getPacketSender().sendMessage(
-					"@bla@Welcome to RuneLive.");
+					"Welcome to <col=3385ff>RuneLive@bla@.");
 		}
 		if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
 			player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.");
