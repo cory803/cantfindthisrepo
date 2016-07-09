@@ -15,9 +15,6 @@ class LoginMessageParser {
             if (GameSettings.DOUBLE_EXP) {
                 player.getPacketSender().sendMessage(
                         "@bla@Welcome to RuneLive! We're currently in Double EXP mode! (@red@X2.0@bla@)")
-            } else if (GameSettings.INSANE_EXP) {
-                player.getPacketSender().sendMessage(
-                        "@bla@Welcome to RuneLive! We're currently in Insane EXP mode! (@red@X8.0@bla@)")
             } else {
                 player.getPacketSender().sendMessage(
                         "@bla@Welcome to RuneLive! We're currently in Normal EXP mode! (@red@X1.0@bla@)")

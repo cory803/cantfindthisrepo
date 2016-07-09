@@ -194,13 +194,6 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.DOUBLE_DROPS = false;
 								}
-							} else if (line.contains("insane_xp")) {
-								args = line.split(": ");
-								if (args[1].toLowerCase().equals("on")) {
-									GameSettings.INSANE_EXP = true;
-								} else {
-									GameSettings.INSANE_EXP = false;
-								}
 							} else if (line.contains("pos_enabled")) {
 								args = line.split(": ");
 								if (args[1].toLowerCase().equals("on")) {

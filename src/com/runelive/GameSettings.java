@@ -32,7 +32,6 @@ public class GameSettings {
 	public static boolean DOUBLE_EXP = false;
 	public static boolean DOUBLE_POINTS = false;
 	public static boolean DOUBLE_DROPS = false;
-	public static boolean INSANE_EXP = false;
 	public static boolean TRIPLE_VOTE_TOKENS = false;
 	public static boolean DEBUG_MODE = false;
 	public static boolean FORUM_DATABASE_CONNECTIONS = false;

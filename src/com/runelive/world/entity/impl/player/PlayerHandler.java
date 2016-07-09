@@ -234,7 +234,6 @@ public class PlayerHandler {
 		Locations.login(player);
 		player.getPacketSender().sendString(1, "[CLEAR]");
 		ClanChatManager.handleLogin(player);
-		DailyTaskManager.giveNewTask(player);
 		PlayerPanel.refreshPanel(player);
 
 		// New player
@@ -319,13 +318,10 @@ public class PlayerHandler {
 		// LoginChecksParser.checkLogin(player);
 		if (GameSettings.DOUBLE_EXP) {
 			player.getPacketSender().sendMessage(
-					"@bla@Welcome to RuneLive! We're currently in Double EXP mode! (@red@X2.0@bla@)");
-		} else if (GameSettings.INSANE_EXP) {
-			player.getPacketSender().sendMessage(
-					"@bla@Welcome to RuneLive! We're currently in Insane EXP mode! (@red@X8.0@bla@)");
+					"@bla@Welcome to RuneLive, We're currently in Double EXP mode! (@red@X2.0@bla@)");
 		} else {
 			player.getPacketSender().sendMessage(
-					"@bla@Welcome to RuneLive! We're currently in Normal EXP mode! (@red@X1.0@bla@)");
+					"@bla@Welcome to RuneLive.");
 		}
 		if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
 			player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.");
@@ -337,6 +333,7 @@ public class PlayerHandler {
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
+		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 	}
 

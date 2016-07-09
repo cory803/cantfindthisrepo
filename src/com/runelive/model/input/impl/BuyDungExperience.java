@@ -26,8 +26,6 @@ public class BuyDungExperience extends EnterAmount {
 			player.getPointsHandler().setDungeoneeringTokens(-amt, true);
 			if (GameSettings.DOUBLE_EXP) {
 				xp /= 2;
-			} else if (GameSettings.INSANE_EXP) {
-				xp /= 8;
 			}
 			player.getSkillManager().addExperience(Skill.DUNGEONEERING, xp);
 			DialogueManager.sendStatement(player, "You have purchased " + Misc.format(value) + " experience.");
