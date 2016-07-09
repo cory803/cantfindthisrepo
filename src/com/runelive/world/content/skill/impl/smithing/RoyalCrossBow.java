@@ -23,7 +23,7 @@ public class RoyalCrossBow {
 			player.getInventory().add(11624, 1);
 			World.sendMessage(
 					"<icon=0><shad=ff0000>News: " + player.getUsername() + " has just forged a Dragonbone crossbow!");
-			player.getSkillManager().addExperience(Skill.SMITHING, 250_000);
+			player.getSkillManager().addExactExperience(Skill.SMITHING, 25_000);
 		} else {
 			player.getPacketSender()
 					.sendMessage("You need a smithing level of 99 to make a Royal Crossbow, a hammer & you also");

@@ -83,7 +83,7 @@ public class SkillManager {
 		 * if (player.experienceLocked()) return this; if
 		 * (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE) return
 		 * this;
-		 * 
+		 *
 		 * experience *= 1; if(skill != Skill.CONSTITUTION) {
 		 * if(GameSettings.TOURNAMENT_MODE) { int tourneyPoints = 0;
 		 * if((experience/ 1000 / 2) + 10 > 80) { tourneyPoints = 80; } else {
@@ -92,7 +92,7 @@ public class SkillManager {
 		 * if(player.tourneyToggle()) player.getPacketSender().sendMessage(
 		 * "You have recieved <col=ff0000>"+tourneyPoints+
 		 * "</col> Tournament Points</col>");
-		 * 
+		 *
 		 * PlayerPanel.refreshPanel(player); } } if(player.getLocation() ==
 		 * Location.WILDERNESS) { if(skill != Skill.ATTACK) { experience *= 1; }
 		 * if(skill != Skill.STRENGTH) { experience *= 1; } if(skill !=
@@ -105,7 +105,7 @@ public class SkillManager {
 		 * BrawlingGloves.getExperience(player, skill.ordinal(), experience);
 		 * experience = amount; if (player.getGameMode() != GameMode.NORMAL) {
 		 * experience *= 0.6; }
-		 * 
+		 *
 		 * if (GameSettings.DOUBLE_EXP) { experience *= 2.0; // 15 } else if
 		 * (GameSettings.INSANE_EXP) { experience *= 8.0; // 15 } else if
 		 * (player.getMinutesBonusExp() != -1) { if (player.getGameMode() !=
@@ -140,6 +140,105 @@ public class SkillManager {
 		/*
 		 * The skill's level before adding experience.
 		 */
+		int startingLevel = isNewSkill(skill) ? (int) (skills.maxLevel[skill.ordinal()] / 10)
+				: skills.maxLevel[skill.ordinal()];
+		String skillName = Misc.formatText(skill.toString().toLowerCase());
+		int amount_for_announcement = 500000000;
+		if (player.getSkillManager().getExperience(skill) < amount_for_announcement
+				&& player.getSkillManager().getExperience(skill) + experience >= amount_for_announcement) {
+			World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
+					+ " has just achieved 500 million experience in " + skillName + "!");
+		}
+
+		amount_for_announcement = 1000000000;
+		if (player.getSkillManager().getExperience(skill) < amount_for_announcement
+				&& player.getSkillManager().getExperience(skill) + experience >= amount_for_announcement) {
+			World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
+					+ " has just achieved 1 billion experience in " + skillName + "!");
+		}
+
+		/*
+		 * Adds the experience to the skill's experience.
+		 */
+		this.skills.experience[skill.ordinal()] = this.skills.experience[skill.ordinal()] + experience > MAX_EXPERIENCE
+				? MAX_EXPERIENCE : this.skills.experience[skill.ordinal()] + experience;
+		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE) {
+			Achievements.finishAchievement(player, AchievementData.REACH_MAX_EXP_IN_A_SKILL);
+		}
+		/*
+		 * The skill's level after adding the experience.
+		 */
+		int newLevel = getLevelForExperience(this.skills.experience[skill.ordinal()]);
+		/*
+		 * If the starting level less than the new level, level up.
+		 */
+		if (newLevel > startingLevel) {
+			int level = newLevel - startingLevel;
+			skills.maxLevel[skill.ordinal()] += isNewSkill(skill) ? level * 10 : level;
+			/*
+			 * If the skill is not constitution, prayer or summoning, then set
+			 * the current level to the max level.
+			 */
+			if (!isNewSkill(skill)) {
+				setCurrentLevel(skill, skills.maxLevel[skill.ordinal()]);
+			}
+			// player.getPacketSender().sendFlashingSidebar(Constants.SKILLS_TAB);
+
+			player.setDialogue(null);
+			player.getPacketSender().sendString(4268, "Congratulations! You have achieved a " + skillName + " level!");
+			player.getPacketSender().sendString(4269, "Well done. You are now level " + newLevel + ".");
+			player.getPacketSender().sendString(358, "Click here to continue.");
+			player.getPacketSender().sendChatboxInterface(skill.getChatboxInterface());
+			player.performGraphic(new Graphic(312));
+			player.getPacketSender()
+					.sendMessage("You've just advanced " + skillName + " level! You have reached level " + newLevel);
+			Sounds.sendSound(player, Sound.LEVELUP);
+			if (skills.maxLevel[skill.ordinal()] == getMaxAchievingLevel(skill)) {
+				player.getPacketSender()
+						.sendMessage("Well done! You've achieved the highest possible level in this skill!");
+				Achievements.doProgress(player, AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS);
+				if (player.getAchievementAttributes().getCompletion()[AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS
+						.ordinal()]) {
+					World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
+							+ " has just achieved the maximum level in all skills!");
+				}
+
+				TaskManager.submit(new Task(2, player, true) {
+					int localGFX = 1634;
+
+					@Override
+					public void execute() {
+						player.performGraphic(new Graphic(localGFX));
+						if (localGFX == 1637) {
+							stop();
+							return;
+						}
+						localGFX++;
+						player.performGraphic(new Graphic(localGFX));
+					}
+				});
+			} else {
+				TaskManager.submit(new Task(2, player, false) {
+					@Override
+					public void execute() {
+						player.performGraphic(new Graphic(199));
+						stop();
+					}
+				});
+			}
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+		}
+		updateSkill(skill);
+		this.totalGainedExp += experience;
+		Scoreboard.update(player, 3);
+		return this;
+	}
+
+	public SkillManager addExactExperience(Skill skill, int experience) {
+		if (player.experienceLocked())
+			return this;
+		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
+			return this;
 		int startingLevel = isNewSkill(skill) ? (int) (skills.maxLevel[skill.ordinal()] / 10)
 				: skills.maxLevel[skill.ordinal()];
 		String skillName = Misc.formatText(skill.toString().toLowerCase());
