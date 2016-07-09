@@ -46,7 +46,7 @@ public class ItemForging {
 			p.getInventory().add(data.product, true);
 			p.getPacketSender().sendMessage("You make " + Misc.anOrA(itemName) + " " + itemName + ".");
 			p.getClickDelay().reset();
-			p.getSkillManager().addExperience(skill, data.skillRequirement[2]);
+			p.getSkillManager().addExactExperience(skill, data.skillRequirement[2]);
 			if (data == ItemForgeData.ARMADYL_GODSWORD || data == ItemForgeData.BANDOS_GODSWORD
 					|| data == ItemForgeData.ZAMORAK_GODSWORD || data == ItemForgeData.SARADOMIN_GODSWORD) {
 				Achievements.finishAchievement(p, AchievementData.ASSEMBLE_A_GODSWORD);
@@ -110,7 +110,7 @@ public class ItemForging {
 		CRYSTAL_KEY(new Item[] { new Item(985), new Item(987) }, new Item(989), new int[] { 1, -1, 0 }),
 
 		GODSWORD_BLADE(new Item[] { new Item(11710), new Item(11712), new Item(11714) }, new Item(11690),
-				new int[] { 1, -1, 0 }), ARMADYL_GODSWORD(new Item[] { new Item(11702), new Item(11690) },
+				new int[] { 13, 80, 0 }), ARMADYL_GODSWORD(new Item[] { new Item(11702), new Item(11690) },
 						new Item(11694),
 						new int[] { 1, -1, 0 }), BANDOS_GODSWORD(new Item[] { new Item(11704), new Item(11690) },
 								new Item(11696), new int[] { 1, -1, 0 }), SARADOMIN_GODSWORD(
@@ -143,14 +143,14 @@ public class ItemForging {
 																						new int[] { 1, -1, 0 }),
 
 		ABYSSAL_VINE_WHIP_RED(new Item[] { new Item(21369), new Item(4151) }, new Item(21371),
-				new int[] { 18, 75, 10000 }), ABYSSAL_VINE_WHIP_YELLOW(new Item[] { new Item(21369), new Item(15441) },
-						new Item(21372), new int[] { 18, 75, 10000 }), ABYSSAL_VINE_WHIP_WHITE(
+				new int[] { 18, 75, 4500 }), ABYSSAL_VINE_WHIP_YELLOW(new Item[] { new Item(21369), new Item(15441) },
+						new Item(21372), new int[] { 18, 75, 4500 }), ABYSSAL_VINE_WHIP_WHITE(
 								new Item[] { new Item(21369), new Item(15443) }, new Item(21374),
-								new int[] { 18, 75, 10000 }), ABYSSAL_VINE_WHIP_BLUE(
+								new int[] { 18, 75, 4500 }), ABYSSAL_VINE_WHIP_BLUE(
 										new Item[] { new Item(21369), new Item(15442) }, new Item(21373),
-										new int[] { 18, 75, 10000 }), ABYSSAL_VINE_WHIP_GREEN(
+										new int[] { 18, 75, 4500 }), ABYSSAL_VINE_WHIP_GREEN(
 												new Item[] { new Item(21369), new Item(15444) }, new Item(21375),
-												new int[] { 18, 75, 10000 }), FULL_SLAYER_HELMET(
+												new int[] { 18, 75, 4500 }), FULL_SLAYER_HELMET(
 														new Item[] { new Item(13263), new Item(15490),
 																new Item(15488) },
 														new Item(15492), new int[] { 18, 75, 0 }),

@@ -13,15 +13,15 @@ public class SmithingData {
 	public static final int[] SMELT_FRAME = { 2405, 2406, 2407, 2409, 2410, 2411, 2412, 2413 };
 
 	// BarId, Ore1, Ore2, Levelreq, XP
-	public static final int[][] SmeltData = { { 2349, 438, 436, 1, 300 }, // Bronze
+	public static final int[][] SmeltData = { { 2349, 438, 436, 1, 7 }, // Bronze
 																			// bar
-			{ 2351, 440, -1, 15, 600 }, // Iron bar
-			{ 2355, 442, -1, 20, 685 }, // Silver bar
-			{ 2353, 440, 453, 30, 875 }, // Steel bar
-			{ 2357, 444, -1, 40, 1125 }, // Gold bar
-			{ 2359, 447, 453, 50, 1500 }, // Mithril bar
-			{ 2361, 449, 453, 70, 1850 }, // Adamantite bar
-			{ 2363, 451, 453, 85, 2500 } // Runite bar
+			{ 2351, 440, -1, 15, 13 }, // Iron bar
+			{ 2355, 442, -1, 20, 14 }, // Silver bar
+			{ 2353, 440, 453, 30, 18 }, // Steel bar
+			{ 2357, 444, -1, 40, 23 }, // Gold bar
+			{ 2359, 447, 453, 50, 30 }, // Mithril bar
+			{ 2361, 449, 453, 70, 38 }, // Adamantite bar
+			{ 2363, 451, 453, 85, 50 } // Runite bar
 	};
 
 	/*
@@ -855,705 +855,705 @@ public class SmithingData {
 		int amount = getItemAmount(item);
 		switch (item.getId()) {
 		case 2:
-			xp = 306;
+			xp = 26;
 			break;
 		case 1205: // Bronze dagger
-			xp = 625;
+			xp = 13;
 			reqLvl = 1;
 			break;
 
 		case 1351: // Bronze Hatchet
-			xp = 625;
+			xp = 13;
 			reqLvl = 1;
 			break;
 
 		case 1422: // Bronze Mace
-			xp = 625;
+			xp = 13;
 			reqLvl = 2;
 			break;
 
 		case 1139: // Bronze Med Helm
-			xp = 625;
+			xp = 13;
 			reqLvl = 3;
 			break;
 
 		case 9375: // Bronze Bolts
-			xp = 625;
+			xp = 13;
 			reqLvl = 3;
 			break;
 
 		case 1277: // Bronze Sword
-			xp = 625;
+			xp = 13;
 			reqLvl = 4;
 			break;
 
 		case 4819: // Bronze nails
-			xp = 625;
+			xp = 13;
 			reqLvl = 4;
 			break;
 
 		case 1794: // Bronze Wire
-			xp = 625;
+			xp = 13;
 			reqLvl = 4;
 			break;
 
 		case 819: // Bronze Dart Tips
-			xp = 625;
+			xp = 13;
 			reqLvl = 4;
 			break;
 
 		case 39: // Bronze Arrowtips
-			xp = 625;
+			xp = 13;
 			reqLvl = 5;
 			break;
 
 		case 1321: // Bronze Scimitar
-			xp = 1250;
+			xp = 25;
 			reqLvl = 5;
 			break;
 
 		case 1265: // Bronze Pickaxe
-			xp = 1250;
+			xp = 25;
 			reqLvl = 5;
 			break;
 
 		case 1291: // Bronze Long Sword
-			xp = 1250;
+			xp = 25;
 			reqLvl = 6;
 			break;
 
 		case 9420: // Bronze Limbs
-			xp = 625;
+			xp = 13;
 			reqLvl = 6;
 			break;
 
 		case 1155: // Bronze Full Helm
-			xp = 1250;
+			xp = 25;
 			reqLvl = 7;
 			break;
 
 		case 864: // Bronze Throwing Knives
-			xp = 625;
+			xp = 13;
 			reqLvl = 7;
 			break;
 
 		case 1173: // Bronze Sq Shield
-			xp = 1250;
+			xp = 25;
 			reqLvl = 8;
 			break;
 
 		case 1337: // Bronze Warhammer
-			xp = 1875;
+			xp = 38;
 			reqLvl = 9;
 			break;
 
 		case 1375: // Bronze Battleaxe
-			xp = 1875;
+			xp = 38;
 			reqLvl = 10;
 			break;
 
 		case 1103: // Bronze Chainbody
-			xp = 1875;
+			xp = 38;
 			reqLvl = 11;
 			break;
 
 		case 1189: // Bronze Kiteshield
-			xp = 1875;
+			xp = 38;
 			reqLvl = 12;
 			break;
 
 		case 3095: // Bronze claws
-			xp = 1875;
+			xp = 25;
 			reqLvl = 13;
 			break;
 
 		case 1307: // Bronze 2h Sword
-			xp = 1875;
+			xp = 38;
 			reqLvl = 14;
 			break;
 
 		case 1087: // Bronze Plateskirt
-			xp = 1875;
+			xp = 38;
 			reqLvl = 16;
 			break;
 
 		case 1075: // Bronze Platelegs
-			xp = 1875;
+			xp = 38;
 			reqLvl = 16;
 			break;
 
 		case 1117: // Bronze Platebody
-			xp = 3750;
+			xp = 63;
 			reqLvl = 18;
 			break;
 
 		case 1203: // iron dagger
-			xp = 1250;
+			xp = 25;
 			reqLvl = 15;
 			break;
 
 		case 1349: // iron Hatchet
-			xp = 1250;
+			xp = 25;
 			reqLvl = 16;
 			break;
 
 		case 1420: // iron mace
-			xp = 1250;
+			xp = 25;
 			reqLvl = 17;
 			break;
 
 		case 7225: // iron spit
-			xp = 1250;
+			xp = 25;
 			reqLvl = 17;
 			break;
 
 		case 1137: // iron med helm
-			xp = 1250;
+			xp = 25;
 			reqLvl = 18;
 			break;
 
-		case 9140: // iron med Helm
-			xp = 1250;
+		case 9140: // iron bolt
+			xp = 25;
 			reqLvl = 18;
 			break;
 
-		case 1279: // iron bolt
-			xp = 1250;
+		case 1279: // Iron Sword
+			xp = 25;
 			reqLvl = 19;
 			break;
 
-		case 4820: // iron sword
-			xp = 1250;
+		case 4820: // iron Nails
+			xp = 25;
 			reqLvl = 19;
 			break;
 
 		case 820: // iron dart Tips
-			xp = 1250;
+			xp = 25;
 			reqLvl = 20;
 			break;
 
 		case 40: // iron arrowtips
-			xp = 1250;
+			xp = 25;
 			reqLvl = 20;
 			break;
 
 		case 1323: // iron Scimitar
-			xp = 2500;
+			xp = 50;
 			reqLvl = 20;
 			break;
 
 		case 1267: // iron Pickaxe
-			xp = 2500;
+			xp = 50;
 			reqLvl = 20;
 			break;
 
 		case 1293: // iron Longsword
-			xp = 2500;
+			xp = 50;
 			reqLvl = 21;
 			break;
 
 		case 1153: // iron Full Helm
-			xp = 2500;
+			xp = 50;
 			reqLvl = 22;
 			break;
 
 		case 863: // iron throwing Knives
-			xp = 1250;
+			xp = 25;
 			reqLvl = 22;
 			break;
 
 		case 1175: // iron sq Shield
-			xp = 3750;
+			xp = 50;
 			reqLvl = 23;
 			break;
 
 		case 9423: // iron Limbs
-			xp = 1250;
+			xp = 25;
 			reqLvl = 23;
 			break;
 
 		case 1335: // iron Warhammer
-			xp = 3750;
+			xp = 50;
 			reqLvl = 24;
 			break;
 
 		case 1363: // iron Battleaxe
-			xp = 3750;
+			xp = 50;
 			reqLvl = 25;
 			break;
 
 		case 1101: // iron Chainbody
-			xp = 3750;
+			xp = 50;
 			reqLvl = 26;
 			break;
 
 		case 4540: // iron Oil Latern Frame
-			xp = 1250;
+			xp = 25;
 			reqLvl = 26;
 			break;
 
 		case 1191: // iron Kiteshield
-			xp = 3750;
+			xp = 75;
 			reqLvl = 27;
 			break;
 
 		case 3096: // iron Claws
-			xp = 2500;
+			xp = 50;
 			reqLvl = 28;
 			break;
 
 		case 1309: // iron 2h Sword
-			xp = 3750;
+			xp = 75;
 			reqLvl = 29;
 			break;
 
 		case 1081: // iron Plateskirt
-			xp = 3750;
+			xp = 75;
 			reqLvl = 31;
 			break;
 
 		case 1067: // iron Platelegs
-			xp = 3750;
+			xp = 75;
 			reqLvl = 31;
 			break;
 
 		case 1115: // iron platebody
-			xp = 6250;
+			xp = 125;
 			reqLvl = 33;
 			break;
 
 		case 1207: // steel Dagger
-			xp = 1850;
+			xp = 38;
 			reqLvl = 30;
 			break;
 		case 1353: // steel Hatchet
-			xp = 1850;
+			xp = 38;
 			reqLvl = 31;
 			break;
 		case 1424: // steel Mace
-			xp = 1850;
+			xp = 38;
 			reqLvl = 32;
 			break;
 		case 1141: // steel Med Helm
-			xp = 1850;
+			xp = 38;
 			reqLvl = 33;
 			break;
 		case 9141: // steel bolts
-			xp = 1850;
+			xp = 38;
 			reqLvl = 33;
 			break;
-		case 1539: // steel nails
-			xp = 1850;
+		case 1539: // steel sword
+			xp = 38;
 			reqLvl = 34;
 			break;
 		case 1281: // steel sword
-			xp = 1850;
+			xp = 38;
 			reqLvl = 34;
 			break;
 		case 821: // steel dart Tips
-			xp = 1850;
+			xp = 38;
 			reqLvl = 34;
 			break;
 		case 41: // steel Arrowtips
-			xp = 1850;
+			xp = 38;
 			reqLvl = 35;
 			break;
 
 		case 1325: // steel scimitar
-			xp = 3750;
+			xp = 75;
 			reqLvl = 35;
 			break;
 		case 1269: // steel Pickaxe
-			xp = 3750;
+			xp = 75;
 			reqLvl = 35;
 			break;
 		case 1295: // steel Longsword
-			xp = 3750;
+			xp = 75;
 			reqLvl = 36;
 			break;
 		case 2370: // steel studs
-			xp = 3750;
+			xp = 75;
 			reqLvl = 36;
 			break;
 		case 9425: // steel crossbow limbs
-			xp = 3750;
+			xp = 75;
 			reqLvl = 36;
 			break;
 		case 1157: // steel full helm
-			xp = 3750;
+			xp = 75;
 			reqLvl = 37;
 			break;
 		case 865: // steel Knifes
-			xp = 3750;
+			xp = 75;
 			reqLvl = 37;
 			break;
 		case 1177: // steel sq Shield
-			xp = 3750;
+			xp = 75;
 			reqLvl = 38;
 			break;
 		case 1339: // steel Warhammer
-			xp = 5600;
+			xp = 113;
 			reqLvl = 39;
 			break;
 		case 1365: // steel Battleaxe
-			xp = 5600;
+			xp = 113;
 			reqLvl = 40;
 			break;
 		case 1105: // steel Chainbody
-			xp = 5600;
+			xp = 113;
 			reqLvl = 41;
 			break;
 		case 1193: // steel Kiteshield
-			xp = 1350;
+			xp = 113;
 			reqLvl = 42;
 			break;
 		case 3097: // steel Claws
-			xp = 5600;
+			xp = 113;
 			reqLvl = 43;
 			break;
 		case 1311: // steel 2h Sword
-			xp = 5600;
+			xp = 113;
 			reqLvl = 44;
 			break;
 		case 1084: // steel Plateskirt
-			xp = 5600;
+			xp = 113;
 			reqLvl = 46;
 			break;
 		case 1069: // steel Platelegs
-			xp = 5600;
+			xp = 113;
 			reqLvl = 46;
 			break;
 		case 1119: // steel Platebody
-			xp = 9350;
+			xp = 188;
 			reqLvl = 48;
 			break;
 
 		case 1209: // Mithril Dagger
-			xp = 2500;
+			xp = 50;
 			reqLvl = 50;
 			break;
 
 		case 1355: // Mithril Hatchet
-			xp = 2500;
+			xp = 50;
 			reqLvl = 51;
 			break;
 
 		case 1428: // Mithril Mace
-			xp = 2500;
+			xp = 50;
 			reqLvl = 52;
 			break;
 
 		case 1143: // Mithril Med Helm
-			xp = 2500;
+			xp = 50;
 			reqLvl = 53;
 			break;
 
 		case 9142: // Mithril bolts
-			xp = 2500;
+			xp = 50;
 			reqLvl = 53;
 			break;
 
 		case 1285: // Mithril Sword
-			xp = 2500;
+			xp = 50;
 			reqLvl = 54;
 			break;
 
 		case 4822: // Mithril Nails
-			xp = 2500;
+			xp = 50;
 			reqLvl = 54;
 			break;
 
 		case 822: // Mithril Dart Tips
-			xp = 2500;
+			xp = 50;
 			reqLvl = 54;
 			break;
 
 		case 42: // Mithril Arrowtips
-			xp = 2500;
+			xp = 50;
 			reqLvl = 55;
 			break;
 
 		case 1329: // Mithril Scimitar
-			xp = 5000;
+			xp = 100;
 			reqLvl = 55;
 			break;
 
 		case 1273: // Mithril Pickaxe
-			xp = 5000;
+			xp = 100;
 			reqLvl = 55;
 			break;
 
 		case 1299: // Mithril longsword
-			xp = 5000;
+			xp = 100;
 			reqLvl = 56;
 			break;
 
 		case 9427: // Mithril limbs
-			xp = 5000;
+			xp = 100;
 			reqLvl = 56;
 			break;
 
 		case 1159: // Mithril Full helm
-			xp = 5000;
+			xp = 100;
 			reqLvl = 57;
 			break;
 
 		case 866: // Mithril knifes
-			xp = 5000;
+			xp = 100;
 			reqLvl = 57;
 			break;
 
 		case 1181: // Mithril Sq Shield
-			xp = 5000;
+			xp = 100;
 			reqLvl = 58;
 			break;
 
 		case 1343: // Mithril warhammer
-			xp = 7500;
+			xp = 150;
 			reqLvl = 59;
 			break;
 
 		case 9416: // Mithril grapple Tip
-			xp = 5000;
+			xp = 100;
 			reqLvl = 59;
 			break;
 
 		case 1369: // Mithril Battleaxe
-			xp = 7500;
+			xp = 150;
 			reqLvl = 60;
 			break;
 
 		case 1109: // Mithril chainbody
-			xp = 7500;
+			xp = 150;
 			reqLvl = 61;
 			break;
 
 		case 1197: // Mithril Kiteshield
-			xp = 7500;
+			xp = 150;
 			reqLvl = 62;
 			break;
 
 		case 3099: // Mithril claws
-			xp = 7500;
+			xp = 150;
 			reqLvl = 63;
 			break;
 
 		case 1315: // Mithril 2h sword
-			xp = 7500;
+			xp = 150;
 			reqLvl = 64;
 			break;
 
 		case 1085: // Mithril plateskirt
-			xp = 7500;
+			xp = 150;
 			reqLvl = 66;
 			break;
 
 		case 1071: // Mithril plateleggs
-			xp = 7500;
+			xp = 150;
 			reqLvl = 66;
 			break;
 
 		case 1121: // Mithril Platebody
-			xp = 12500;
+			xp = 150;
 			reqLvl = 68;
 			break;
 		case 1211: // Adamant Dagger
-			xp = 3100;
+			xp = 63;
 			reqLvl = 70;
 			break;
 		case 1357: // Adamant Hatchet
-			xp = 3100;
+			xp = 63;
 			reqLvl = 71;
 			break;
 		case 1430: // Adamant Mace
-			xp = 3100;
+			xp = 63;
 			reqLvl = 72;
 			break;
 		case 1145: // Adamant Med Helm
-			xp = 3100;
+			xp = 63;
 			reqLvl = 73;
 			break;
 		case 9143: // Adamant Bolts
-			xp = 3100;
+			xp = 63;
 			reqLvl = 73;
 			break;
 		case 1287: // Adamant Sword
-			xp = 3100;
+			xp = 63;
 			reqLvl = 74;
 			break;
 		case 4823: // Adamant nails
-			xp = 3100;
+			xp = 63;
 			reqLvl = 74;
 			break;
 		case 823: // Adamant dart tips
-			xp = 3100;
+			xp = 63;
 			reqLvl = 74;
 			break;
 		case 43: // Adamant Arrowtips
-			xp = 3100;
+			xp = 63;
 			reqLvl = 75;
 			break;
 		case 1331: // Adamant Scimitar
-			xp = 6200;
+			xp = 125;
 			reqLvl = 75;
 			break;
 		case 1271: // Adamant Pickaxe
-			xp = 6200;
+			xp = 125;
 			reqLvl = 75;
 		case 1301: // Adamant Longsword
-			xp = 6200;
+			xp = 125;
 			reqLvl = 76;
 			break;
 		case 9429: // Adamant limbs
-			xp = 6200;
+			xp = 125;
 			reqLvl = 76;
 			break;
 		case 1161: // Adamant Full Helm
-			xp = 6200;
+			xp = 125;
 			reqLvl = 77;
 			break;
 		case 867: // Adamant knifes
-			xp = 6200;
+			xp = 125;
 			reqLvl = 77;
 			break;
 		case 1183: // Adamant Sq Shield
-			xp = 9350;
+			xp = 125;
 			reqLvl = 78;
 			break;
 		case 1345: // Adamant warhammer
-			xp = 9350;
+			xp = 188;
 			reqLvl = 79;
 			break;
 		case 1371: // Adamant Battleaxe
-			xp = 9350;
+			xp = 188;
 			reqLvl = 80;
 			break;
 		case 1111: // Adamant Chainbody
-			xp = 9350;
+			xp = 188;
 			reqLvl = 81;
 			break;
 		case 1199: // Adamant Kiteshield
-			xp = 9350;
+			xp = 188;
 			reqLvl = 82;
 			break;
 		case 3100: // Adamant Claws
-			xp = 6200;
+			xp = 125;
 			reqLvl = 83;
 			break;
 		case 1317: // Adamant 2h sword
-			xp = 9350;
+			xp = 188;
 			reqLvl = 84;
 			break;
 		case 1091: // Adamant Plateskirt
-			xp = 9350;
+			xp = 188;
 			reqLvl = 86;
 			break;
 		case 1073: // Adamant Platelegs
-			xp = 9350;
+			xp = 188;
 			reqLvl = 86;
 			break;
 		case 1123: // Adamant Platebody
-			xp = 15600;
+			xp = 313;
 			reqLvl = 88;
 			break;
 		case 1213: // Rune Dagger
-			xp = 3750;
+			xp = 75;
 			reqLvl = 85;
 			break;
 		case 1359: // Rune Axe
-			xp = 3750;
+			xp = 75;
 			reqLvl = 85;
 			break;
 		case 1432: // Rune Mace
-			xp = 3750;
+			xp = 75;
 			reqLvl = 86;
 			break;
 		case 1147: // Rune Med Helm
-			xp = 3750;
+			xp = 75;
 			reqLvl = 87;
 			break;
 		case 9144: // Rune Bolts
-			xp = 3750;
+			xp = 75;
 			reqLvl = 88;
 			break;
 		case 1289: // Rune Sword
-			xp = 7500;
+			xp = 150;
 			reqLvl = 89;
 			break;
 		case 4824: // Rune Nails
-			xp = 3750;
+			xp = 75;
 			reqLvl = 89;
 			break;
 		case 824: // Rune Dart Tips
-			xp = 3750;
+			xp = 75;
 			reqLvl = 90;
 			break;
 		case 44: // Rune Arrowtips
-			xp = 3750;
+			xp = 75;
 			reqLvl = 90;
 			break;
 		case 1333: // Rune Scimitar
-			xp = 7500;
+			xp = 150;
 			reqLvl = 90;
 			break;
 		case 1275: // Rune Pickaxe
-			xp = 7500;
+			xp = 150;
 			reqLvl = 91;
 			break;
 		case 1303: // Rune Longsword
-			xp = 7500;
+			xp = 150;
 			reqLvl = 91;
 			break;
 		case 9431: // Rune Limbs
-			xp = 3750;
+			xp = 75;
 			reqLvl = 91;
 			break;
 		case 1163: // Rune Full helm
-			xp = 7500;
+			xp = 150;
 			reqLvl = 92;
 			break;
 		case 868: // Rune Knifes
-			xp = 3750;
+			xp = 75;
 			reqLvl = 92;
 			break;
 		case 1185: // Rune Sq shield
-			xp = 7500;
+			xp = 150;
 			reqLvl = 93;
 			break;
 		case 1347: // Rune Warhammer
-			xp = 11250;
+			xp = 225;
 			reqLvl = 94;
 			break;
 		case 1373: // Rune Battleaxe
-			xp = 11250;
+			xp = 225;
 			reqLvl = 95;
 			break;
 		case 1113: // Rune Chainbody
-			xp = 11250;
+			xp = 225;
 			reqLvl = 96;
 			break;
 		case 1201: // Rune Kiteshield
-			xp = 11250;
+			xp = 225;
 			reqLvl = 97;
 			break;
 		case 3101: // Rune Claws
-			xp = 7500;
+			xp = 150;
 			reqLvl = 98;
 			break;
 		case 1319: // Rune 2h sword
-			xp = 11250;
+			xp = 225;
 			reqLvl = 99;
 			break;
 		case 1093: // Rune Plateskirt
-			xp = 11250;
+			xp = 225;
 			reqLvl = 99;
 			break;
 		case 1079: // Rune Plateleggs
-			xp = 11250;
+			xp = 225;
 			reqLvl = 99;
 			break;
 		case 1127: // Rune Platebody
-			xp = 18750;
+			xp = 375;
 			reqLvl = 99;
 			break;
 

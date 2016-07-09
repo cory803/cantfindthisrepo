@@ -15,6 +15,9 @@ Game Modes now function (somewhat properly)
 Corrected an issue with Slayer
 Edited addExperience methods to addExactExperience for items like effigies, dragonkin lamps and buyable slayer experience, also making some jewellery and Dragonbone crossbow
 Fishing, Woodcutting & Firemaking now use RuneScape experience rates.
+Smithing experience now refer to RuneScape experience rates.
+Item Forging now gives exact exp (same experience regardless game mode)
+Making a Godsword Blade now requires 80 Smithing.
 
 Polls:
 
