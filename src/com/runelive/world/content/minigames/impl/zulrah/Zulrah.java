@@ -106,14 +106,16 @@ public class Zulrah {
 	 * Spawn the next faze of Zulrah @nextZulrah
 	 */
 	public static void next(final Player player, final NPC zulrah) {
+		player.nextZulrahStep();
 		TaskManager.submit(new Task(1, player, false) {
 			int tick = 0;
 			int health = zulrah.getConstitution();
+			int id = player.getZulrahID();
+			NPC nextZulrah = new NPC(id, player.getZulrahPosition());
 			@Override
 			public void execute() {
 				if(tick == 0) {
 					zulrah.setChargingAttack(true);
-					player.nextZulrahStep();
 					zulrah.performAnimation(GO_DOWN);
 				}
 				if(tick == 2) {
@@ -123,13 +125,15 @@ public class Zulrah {
 					}
 				}
 				if(tick == 3) {
-					int zulrahId = player.getZulrahID();
-					NPC nextZulrah = new NPC(zulrahId, player.getZulrahPosition()).setSpawnedFor(player);
+					nextZulrah = new NPC(id, player.getZulrahPosition()).setSpawnedFor(player);
 					nextZulrah.getMovementCoordinator().setCoordinator(new Coordinator(false, -1));
 					World.register(nextZulrah);
 					player.getRegionInstance().getNpcsList().add(nextZulrah);
 					nextZulrah.setConstitution(health);
 					nextZulrah.performAnimation(GO_UP);
+				}
+				if(tick == 4) {
+					nextZulrah.setChargingAttack(false);
 					nextZulrah.getCombatBuilder().attack(player);
 					stop();
 				}

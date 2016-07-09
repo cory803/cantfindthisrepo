@@ -5,6 +5,7 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.model.Position;
 import com.runelive.model.Projectile;
+import com.runelive.util.Misc;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
 import com.runelive.world.content.combat.HitQueue.CombatHit;
@@ -45,44 +46,27 @@ public class ZulrahRed implements CombatStrategy {
 				@Override
 				public void execute() {
 					if(tick == 0) {
+						zulrah.setChargingAttack(true);
 						position = player.getPosition();
+						zulrah.getCombatBuilder().reset(true);
 						zulrah.setPositionToFace(position);
 					}
-					if(tick == 1) {
-						zulrah.performAnimation(Zulrah.TARGET);
-					}
 					if(tick == 3) {
+						zulrah.setPositionToFace(position);
 						zulrah.performAnimation(Zulrah.LUNG);
 						if(player.getPosition().getX() == position.getX() && player.getPosition().getY() == position.getY()) {
 							new CombatHit(zulrah.getCombatBuilder(), new CombatContainer(zulrah, player, 1, CombatType.MELEE, true)).handleAttack();
 						}
 					}
+					if(tick == 7) {
+						Zulrah.next(player, zulrah);
+						zulrah.setChargingAttack(false);
+						stop();
+					}
 					tick++;
 				}
 			});
-			Zulrah.next((Player) victim, zulrah);
 		}
-		
-		//Zulrah.next(player, zulrah);
-		
-		/*
-		fear.performAnimation(new Animation(426));
-		fear.setChargingAttack(true);
-		Player target = (Player) victim;
-		TaskManager.submit(new Task(2, target, false) {
-			@Override
-			public void execute() {
-				fear.getCombatBuilder().setVictim(target);
-				AmmunitionData ammo = AmmunitionData.ICE_ARROW;
-				new Projectile(fear, victim, ammo.getProjectileId(), ammo.getProjectileDelay() + 16,
-						ammo.getProjectileSpeed(), ammo.getStartHeight(), ammo.getEndHeight(), 0).sendProjectile();
-				new CombatHit(fear.getCombatBuilder(), new CombatContainer(fear, target, 1, CombatType.RANGED, true))
-						.handleAttack();
-				fear.setChargingAttack(false);
-				stop();
-			}
-		});
-		*/
 		return true;
 	}
 
@@ -93,7 +77,7 @@ public class ZulrahRed implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 15;
+		return 5;
 	}
 
 	@Override

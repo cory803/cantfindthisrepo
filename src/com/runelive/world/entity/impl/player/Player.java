@@ -741,7 +741,7 @@ public class Player extends Character {
 	 * This goes in order 1-(amount)
 	 */
 	public void nextZulrahStep() {
-		if(this.zulrahStep != 3) {
+		if(this.zulrahRotation != 3) {
 			if(this.zulrahStep == 11) {
 				this.zulrahStep = 0;
 			}
@@ -768,6 +768,8 @@ public class Player extends Character {
 	 */
 	public int getZulrahID() {
 		int id = -1;
+		System.out.println("Zulrah rotation: "+getZulrahRotation());
+		System.out.println("Zulrah step: "+getZulrahStep());
 		switch(getZulrahRotation()) {
 			case 1:
 				switch(getZulrahStep()) {
