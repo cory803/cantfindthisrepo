@@ -18,6 +18,9 @@ Fishing, Woodcutting & Firemaking now use RuneScape experience rates.
 Smithing experience now refer to RuneScape experience rates.
 Item Forging now gives exact exp (same experience regardless game mode)
 Making a Godsword Blade now requires 80 Smithing.
+Removed stupid boss point message, boss points now act as a boss kill tracker
+player panel now displays your Game Mode
+command "bosses" has been added to display boss kills.
 
 Polls:
 
