@@ -41,8 +41,8 @@ import com.runelive.world.content.combat.strategy.impl.Venantis;
 import com.runelive.world.content.combat.strategy.impl.WildyWyrm;
 import com.runelive.world.content.combat.strategy.impl.WingmanSkree;
 import com.runelive.world.content.combat.strategy.impl.Zilyana;
-import com.runelive.world.content.combat.strategy.impl.Zulrah_Green;
-import com.runelive.world.content.combat.strategy.impl.Zulrah_Red;
+import com.runelive.world.content.combat.strategy.impl.ZulrahGreen;
+import com.runelive.world.content.minigames.impl.zulrah.Zulrah;
 
 public class CombatStrategies {
 
@@ -86,8 +86,6 @@ public class CombatStrategies {
 		STRATEGIES.put(8776, new DwarvenHandCannoneer());
 		STRATEGIES.put(8771, new ChaosDwogre());
 		STRATEGIES.put(2745, new Jad());
-		STRATEGIES.put(2044, new Zulrah_Red());
-		STRATEGIES.put(2043, new Zulrah_Green());
 		STRATEGIES.put(8528, new Nomad());
 		STRATEGIES.put(8349, new TormentedDemon());
 		STRATEGIES.put(3200, new ChaosElemental());
@@ -116,6 +114,9 @@ public class CombatStrategies {
 		STRATEGIES.put(2001, new Scorpia());
 		STRATEGIES.put(133, defaultMagicStrategy);
 		STRATEGIES.put(135, new Fear());
+		
+		//Zulrah
+		STRATEGIES.put(Zulrah.GREEN_ZULRAH, new ZulrahGreen());
 
 		Dragon dragonStrategy = new Dragon();
 		STRATEGIES.put(50, dragonStrategy);

@@ -36,7 +36,6 @@ import com.runelive.world.content.Lottery;
 import com.runelive.world.content.PlayerPunishment;
 import com.runelive.world.content.ShootingStar;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
-import com.runelive.world.content.minigames.impl.Zulrah;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
@@ -955,21 +954,6 @@ public class Administrators {
 			int child = Integer.parseInt(command[1]);
 			String string = command[2];
 			player.getPacketSender().sendString(child, string);
-		}
-		if (command[0].equals("testzulrah")) {
-			player.getPacketSender().sendScreenFade(1, 5);
-			TaskManager.submit(new Task(2, player, true) {
-				int tick = 0;
-
-				@Override
-				public void execute() {
-					if (tick == 4) {
-						Zulrah.enter_pit(player);
-						stop();
-					}
-					tick++;
-				}
-			});
 		}
 		if (command[0].equals("tasks")) {
 			player.getPacketSender().sendMessage("Found " + TaskManager.getTaskAmount() + " tasks.");

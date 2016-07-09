@@ -65,11 +65,19 @@ public class WalkToTask {
 				player.setWalkToTask(null);
 				return;
 			}
-			if (Locations.goodDistance(player.getPosition().getX(), player.getPosition().getY(), destination.getX(),
-					destination.getY(), distance) || destination.equals(player.getPosition())) {
+			//Add distanced object clipping here
+			if((player.getPosition().getX() == 2688 && player.getPosition().getY() == 3707)
+				|| (player.getPosition().getX() == 2800 && player.getPosition().getY() == 10134)) {
 				finalizedTask.execute();
 				player.setEntityInteraction(null);
 				player.setWalkToTask(null);
+			} else {
+				if (Locations.goodDistance(player.getPosition().getX(), player.getPosition().getY(), destination.getX(),
+						destination.getY(), distance) || destination.equals(player.getPosition())) {
+					finalizedTask.execute();
+					player.setEntityInteraction(null);
+					player.setWalkToTask(null);
+				}
 			}
 		}
 	}

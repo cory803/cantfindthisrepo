@@ -50,6 +50,7 @@ import com.runelive.world.content.minigames.impl.Nomad;
 import com.runelive.world.content.minigames.impl.PestControl;
 import com.runelive.world.content.minigames.impl.RecipeForDisaster;
 import com.runelive.world.content.minigames.impl.WarriorsGuild;
+import com.runelive.world.content.minigames.impl.zulrah.Zulrah;
 import com.runelive.world.content.skill.impl.agility.Agility;
 import com.runelive.world.content.skill.impl.construction.Construction;
 import com.runelive.world.content.skill.impl.crafting.Flax;
@@ -96,9 +97,6 @@ public class ObjectActionPacketListener implements PacketListener {
 		if (id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 1276 && id != 2213 && id != 411
 				&& id != 21772 && id != 881 && !Dungeoneering.doingDungeoneering(player)
 				&& !RegionClipping.objectExists(gameObject)) {
-			// player.getPacketSender().sendMessage("An error occured. Error
-			// code: " + id).sendMessage("Please report the error to a staff
-			// member.");
 			return;
 		}
 		int distanceX = (player.getPosition().getX() - position.getX());
@@ -109,6 +107,7 @@ public class ObjectActionPacketListener implements PacketListener {
 			distanceY = -(distanceY);
 		int size = distanceX > distanceY ? GameObjectDefinition.forId(id).getSizeX()
 				: GameObjectDefinition.forId(id).getSizeY();
+		
 		if (size <= 0)
 			size = 1;
 		gameObject.setSize(size);
@@ -119,6 +118,7 @@ public class ObjectActionPacketListener implements PacketListener {
 			// + " in ObjectActionPacketListener: " + id + " -
 			// FIRST_CLICK_OPCODE");
 		}
+		
 		if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendConsoleMessage(
 					"First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
@@ -127,6 +127,7 @@ public class ObjectActionPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("You are stunned!");
 			return;
 		}
+		
 		player.setInteractingObject(gameObject)
 				.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 					@Override
@@ -157,8 +158,6 @@ public class ObjectActionPacketListener implements PacketListener {
 						if (Barrows.handleObject(player, gameObject)) {
 							return;
 						}
-						// if (Scoreboard.isGameObject(player, gameObject))
-						// return;
 						if (ChaosTunnelHandler.handleObjects(player, gameObject)) {
 							return;
 						}
@@ -166,6 +165,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								&& WildernessObelisks.handleObelisk(gameObject.getId())) {
 							return;
 						}
+						
 						switch (id) {
 						case 2406:
 							if (!player.getClickDelay().elapsed(3000))
@@ -1325,6 +1325,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							});
 							player.getClickDelay().reset();
 							break;
+							
 						case 29942:
 							if (player.getSkillManager().getCurrentLevel(Skill.SUMMONING) == player.getSkillManager()
 									.getMaxLevel(Skill.SUMMONING)) {
@@ -1477,7 +1478,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							player.moveTo(new Position(2838, 10124, 0));
 							break;
 						case 5998:
-							player.moveTo(new Position(2798, 10134, 0));
+							player.moveTo(new Position(2799, 10134, 0));
 							break;
 						case 6706:
 							player.moveTo(new Position(3554, 3283, 0));
@@ -1705,6 +1706,33 @@ public class ObjectActionPacketListener implements PacketListener {
 							PrayerHandler.deactivateAll(player);
 							CurseHandler.deactivateAll(player);
 							break;
+						case 2515:
+							player.performAnimation(new Animation(828));
+							player.getPacketSender().sendString(1, "ZULRAHFADE");
+							TaskManager.submit(new Task(1, player, true) {
+								int tick = 1;
+
+								@Override
+								public void execute() {
+									if(tick == 2) {
+										player.moveTo(new Position(2690, 3706, 0));
+									}
+									if(tick == 5) {
+										player.moveTo(new Position(2691, 3771, 0));
+									}
+									if (tick == 8) {
+										stop();
+									}
+									tick++;
+								}
+
+								@Override
+								public void stop() {
+									Zulrah.enterIsland(player);
+									
+								}
+							});
+							break;	
 						case 6552:
 							player.performAnimation(new Animation(645));
 							player.setSpellbook(player.getSpellbook() == MagicSpellbook.ANCIENT ? MagicSpellbook.NORMAL

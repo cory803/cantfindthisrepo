@@ -170,6 +170,8 @@ public class GameObject extends Entity {
 			return 1;
 
 		switch (id) {
+		case 2515:
+			return 1;
 		case 38660:
 		case 410:
 		case 2320:

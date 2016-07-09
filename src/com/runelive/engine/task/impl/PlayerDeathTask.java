@@ -76,6 +76,7 @@ public class PlayerDeathTask extends Task {
 						&& loc != Location.FREE_FOR_ALL_ARENA && loc != Location.FREE_FOR_ALL_WAIT
 						&& loc != Location.SOULWARS && loc != Location.FIGHT_PITS
 						&& loc != Location.FIGHT_PITS_WAIT_ROOM && loc != Location.FIGHT_CAVES
+						&& loc != Location.ZULRAH_PIT
 						&& loc != Location.RECIPE_FOR_DISASTER && loc != Location.GRAVEYARD) {
 					Player killer = player.getCombatBuilder().getKiller(true);
 					// final boolean doubleDeath = player.isDying() &&

@@ -36,7 +36,6 @@ import com.runelive.world.content.grandexchange.GrandExchange;
 import com.runelive.world.content.minigames.impl.ClawQuest;
 import com.runelive.world.content.minigames.impl.FarmingQuest;
 import com.runelive.world.content.minigames.impl.WarriorsGuild;
-import com.runelive.world.content.minigames.impl.Zulrah;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.skill.Enchanting;
 import com.runelive.world.content.skill.impl.crafting.Tanning;
@@ -710,11 +709,6 @@ public class NPCOptionPacketListener implements PacketListener {
 
 		if (player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Attacking npc id: " + interact.getId());
-		}
-		if (player.getZulrahRotatingProcess() && (interact.getId() == Zulrah.ZULRAH_GREEN_NPC_ID
-				|| interact.getId() == Zulrah.ZULRAH_RED_NPC_ID || interact.getId() == Zulrah.ZULRAH_BLUE_NPC_ID
-				|| interact.getId() == Zulrah.ZULRAH_JAD_NPC_ID)) {
-			return;
 		}
 		if (interact.getId() == 1172) {
 			if (!player.getDrankBraverly()) {

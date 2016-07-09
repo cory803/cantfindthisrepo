@@ -33,16 +33,6 @@ public class DefaultMeleeCombatStrategy implements CombatStrategy {
 				return false;
 			}
 		}
-		if (entity.isPlayer()) {
-			Player player = (Player) entity;
-			if (victim.isNpc()) {
-				if (player.getLocation() == Location.ZULRAH_PIT) {
-					if (player.getZulrahRotating() || player.getZulrahRotatingProcess()) {
-						return false;
-					}
-				}
-			}
-		}
 
 		return true;
 	}

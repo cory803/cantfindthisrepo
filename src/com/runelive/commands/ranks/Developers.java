@@ -41,7 +41,6 @@ import com.runelive.world.content.WellOfGoodwill;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.grandexchange.GrandExchangeOffers;
-import com.runelive.world.content.minigames.impl.Zulrah;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
@@ -816,21 +815,6 @@ public class Developers {
 			int child = Integer.parseInt(command[1]);
 			String string = command[2];
 			player.getPacketSender().sendString(child, string);
-		}
-		if (command[0].equals("testzulrah")) {
-			player.getPacketSender().sendScreenFade(1, 5);
-			TaskManager.submit(new Task(2, player, true) {
-				int tick = 0;
-
-				@Override
-				public void execute() {
-					if (tick == 4) {
-						Zulrah.enter_pit(player);
-						stop();
-					}
-					tick++;
-				}
-			});
 		}
 		if (command[0].equals("tasks")) {
 			player.getPacketSender().sendMessage("Found " + TaskManager.getTaskAmount() + " tasks.");

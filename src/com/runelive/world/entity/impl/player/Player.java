@@ -76,6 +76,7 @@ import com.runelive.world.content.grandexchange.GrandExchangeSlot;
 import com.runelive.world.content.minigames.MinigameAttributes;
 import com.runelive.world.content.minigames.impl.Dueling;
 import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
+import com.runelive.world.content.minigames.impl.zulrah.Zulrah;
 import com.runelive.world.content.pos.PosDetails;
 import com.runelive.world.content.pos.PosOffer;
 import com.runelive.world.content.skill.SkillManager;
@@ -166,7 +167,6 @@ public class Player extends Character {
 	}
 
 	public boolean spawnedCerberus = false;
-	public boolean zulrahIsSpawned = false;
 
 	public void setDoneGrandExchangeReturn(boolean abb) {
 		ge_return = abb;
@@ -510,7 +510,6 @@ public class Player extends Character {
 	private final CopyOnWriteArrayList<DropLogEntry> dropLog = new CopyOnWriteArrayList<DropLogEntry>();
 	private ArrayList<HouseFurniture> houseFurniture = new ArrayList<HouseFurniture>();
 	private ArrayList<Portal> housePortals = new ArrayList<>();
-	private ArrayList<NPC> Zulrah = new ArrayList<>();
 	private final List<Player> localPlayers = new LinkedList<Player>();
 	private final List<NPC> localNpcs = new LinkedList<NPC>();
 
@@ -696,12 +695,243 @@ public class Player extends Character {
 	public int dailyTaskProgress = 0;
 	public int homeLocation = 0;
 	public boolean completedDailyTask = false;
-
-	// Zulrah
-	public boolean zulrah_rotating = false;
-	public boolean zulrah_rotating_process = false;
-	public int zulrah_health = 0;
-
+	
+	public int zulrahRotation = 0;
+	
+	/*
+	 * Gets the current Zulrah rotation.
+	 * This goes in order 1-4
+	 */
+	public int getZulrahRotation() {
+		return this.zulrahRotation;
+	}
+	
+	/*
+	 * Adds onto the next Zulrah rotation.
+	 * This goes in order 1-4
+	 */
+	public void nextZulrahRotation() {
+		if(this.zulrahRotation == 4) {
+			this.zulrahRotation = 1;
+		} else {
+			this.zulrahRotation += 1;
+		}
+	}
+	
+	/*
+	 * Sets the Zulrah rotation.
+	 * This overrides whatever current value.
+	 */
+	public void setZulrahRotation(int rotation) {
+		this.zulrahRotation = rotation;
+	}
+	
+	public int zulrahStep = 0;
+	
+	/*
+	 * Gets the current Zulrah step.
+	 * This goes in order 1-(amount)
+	 */
+	public int getZulrahStep() {
+		return this.zulrahStep;
+	}
+	
+	/*
+	 * Adds onto the next Zulrah step.
+	 * This goes in order 1-(amount)
+	 */
+	public void nextZulrahStep() {
+		this.zulrahStep += 1;
+	}
+	
+	/*
+	 * Sets the Zulrah step.
+	 * This overrides whatever current value.
+	 */
+	public void setZulrahStep(int step) {
+		this.zulrahStep = step;
+	}
+	
+	/*
+	 * Gets the current Zulrah Npc ID that you need to kill.
+	 * This is based on your current Zulrah rotation & Zulrah step.
+	 * The max amount possible with this is 11, the minimum is 10.
+	 */
+	public int getZulrahID() {
+		int id = -1;
+		switch(getZulrahRotation()) {
+			case 1:
+				switch(getZulrahStep()) {
+					case 1:
+						setZulrahPosition(new Position(2269, 3077, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 2:
+						setZulrahPosition(new Position(2269, 3075, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 3:
+						setZulrahPosition(new Position(2269, 3073, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 4:
+						setZulrahPosition(new Position(2267, 3065, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 5:
+						setZulrahPosition(new Position(2266, 3073, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 6:
+						setZulrahPosition(new Position(2259, 3072, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 7:
+						setZulrahPosition(new Position(2269, 3065, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 8:
+						setZulrahPosition(new Position(2271, 3065, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 9:
+						setZulrahPosition(new Position(2260, 3074, getPrivateFloor()));
+						return Zulrah.JAD_ZULRAH;
+					case 10:
+						setZulrahPosition(new Position(2267, 3074, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 11:
+						setZulrahPosition(new Position(2266, 3077, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+				}
+				break;
+			case 2:
+				switch(getZulrahStep()) {
+					case 1:
+						setZulrahPosition(new Position(2269, 3076, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 2:
+						setZulrahPosition(new Position(2269, 3075, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 3:
+						setZulrahPosition(new Position(2269, 3073, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 4:
+						setZulrahPosition(new Position(2260, 3075, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 5:
+						setZulrahPosition(new Position(2267, 3065, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 6:
+						setZulrahPosition(new Position(2266, 3073, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 7:
+						setZulrahPosition(new Position(2277, 3072, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 8:
+						setZulrahPosition(new Position(2269, 3065, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 9:
+						setZulrahPosition(new Position(2260, 3074, getPrivateFloor()));
+						return Zulrah.JAD_ZULRAH;
+					case 10:
+						setZulrahPosition(new Position(2267, 3074, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 11:
+						setZulrahPosition(new Position(2267, 3076, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+				}
+				break;
+			case 3:
+				switch(getZulrahStep()) {
+					case 1:
+						setZulrahPosition(new Position(2269, 3076, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 2:
+						setZulrahPosition(new Position(2277, 3074, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 3:
+						setZulrahPosition(new Position(2269, 3074, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 4:
+						setZulrahPosition(new Position(2259, 3072, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 5:
+						setZulrahPosition(new Position(2269, 3065, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 6:
+						setZulrahPosition(new Position(2278, 3072, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 7:
+						setZulrahPosition(new Position(2269, 3072, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 8:
+						setZulrahPosition(new Position(2260, 3074, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 9:
+						setZulrahPosition(new Position(2267, 3073, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 10:
+						setZulrahPosition(new Position(2280, 3073, getPrivateFloor()));
+						return Zulrah.JAD_ZULRAH;
+				}
+				break;
+			case 4:
+				switch(getZulrahStep()) {
+					case 1:
+						setZulrahPosition(new Position(2269, 3076, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 2:
+						setZulrahPosition(new Position(2277, 3074, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 3:
+						setZulrahPosition(new Position(2269, 3065, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 4:
+						setZulrahPosition(new Position(2259, 3072, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 5:
+						setZulrahPosition(new Position(2269, 3074, getPrivateFloor()));
+						return Zulrah.RED_ZULRAH;
+					case 6:
+						setZulrahPosition(new Position(2278, 3072, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 7:
+						setZulrahPosition(new Position(2270, 3065, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 8:
+						setZulrahPosition(new Position(2258, 3074, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 9:
+						setZulrahPosition(new Position(2268, 3072, getPrivateFloor()));
+						return Zulrah.GREEN_ZULRAH;
+					case 10:
+						setZulrahPosition(new Position(2267, 3073, getPrivateFloor()));
+						return Zulrah.BLUE_ZULRAH;
+					case 11:
+						setZulrahPosition(new Position(2280, 3073, getPrivateFloor()));
+						return Zulrah.JAD_ZULRAH;
+				}
+				break;
+		}
+		return id;
+	}
+	
+	public Position zulrahPosition = new Position(0,0);
+	
+	/*
+	 * Grabs the current Zulrah position
+	 */
+	public Position getZulrahPosition() {
+		return this.zulrahPosition;
+	}
+	
+	/*
+	 * Sets the current zulrah position
+	 */
+	public void setZulrahPosition(Position newZulrahPosition) {
+		this.zulrahPosition = newZulrahPosition;
+	}
+	
+	/*
+	 * This gets your private floor
+	 */
+	public int getPrivateFloor() {
+		return getIndex() * 4;
+	}
+	
 	// Toxic weapons
 	public int toxic_staff_charges = 0;
 
@@ -720,10 +950,6 @@ public class Player extends Character {
 		return questPoints;
 	}
 
-	public int getZulrahHealth() {
-		return zulrah_health;
-	}
-
 	public Player getKilledPlayer() {
 		return killed_player;
 	}
@@ -732,28 +958,8 @@ public class Player extends Character {
 		killed_player = pp;
 	}
 
-	public boolean getZulrahRotating() {
-		return zulrah_rotating;
-	}
-
-	public boolean getZulrahRotatingProcess() {
-		return zulrah_rotating_process;
-	}
-
 	public void setQuestPoints(int questPoints) {
 		this.questPoints = questPoints;
-	}
-
-	public void setZulrahHealth(int aa) {
-		this.zulrah_health = aa;
-	}
-
-	public void setZulrahRotating(boolean zulrahrotating) {
-		this.zulrah_rotating = zulrahrotating;
-	}
-
-	public void setZulrahRotatingProcess(boolean zulrahrotating) {
-		this.zulrah_rotating_process = zulrahrotating;
 	}
 
 	public void addQuestPoints(int questPoints) {
@@ -2636,10 +2842,6 @@ public class Player extends Character {
 
 	public void setHouseFurniture(ArrayList<HouseFurniture> houseFurniture) {
 		this.houseFurniture = houseFurniture;
-	}
-
-	public ArrayList<NPC> getZulrah() {
-		return Zulrah;
 	}
 
 	public ArrayList<HouseFurniture> getHouseFurniture() {
