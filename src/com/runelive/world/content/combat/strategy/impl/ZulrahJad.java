@@ -37,7 +37,19 @@ public class ZulrahJad implements CombatStrategy {
 			return true;
 		}
 		if(victim.isPlayer()) {
-			Zulrah.next((Player) victim, zulrah);
+			Player player = (Player) victim;
+			TaskManager.submit(new Task(1, player, false) {
+				int tick = 0;
+				@Override
+				public void execute() {
+					if(tick == 2) {
+						Zulrah.next((Player) victim, zulrah);
+						stop();
+					}
+					
+					tick++;
+				}
+			});
 		}
 		/*
 		fear.performAnimation(new Animation(426));

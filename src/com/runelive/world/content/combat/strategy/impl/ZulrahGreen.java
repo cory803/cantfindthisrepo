@@ -45,14 +45,14 @@ public class ZulrahGreen implements CombatStrategy {
 				int tick = 0;
 				@Override
 				public void execute() {
-					if(tick == 0) {
+					if(tick == 2) {
+						Zulrah.next((Player) victim, zulrah);
 						stop();
 					}
 					
 					tick++;
 				}
 			});
-			Zulrah.next((Player) victim, zulrah);
 		}
 		//zulrah.setPositionToFace(play)
 		/*
