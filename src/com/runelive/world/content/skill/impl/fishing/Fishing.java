@@ -37,34 +37,34 @@ public class Fishing {
 
 	public enum Spot {
 
-		LURE(318, new int[] { 335, 331 }, 309, 314, new int[] { 20, 30 }, true, new int[] { 2500, 3500 }, 623),
+		LURE(318, new int[] { 335, 331 }, 309, 314, new int[] { 20, 30 }, true, new int[] { 55, 70 }, 623),
 
-		CAGE(312, new int[] { 377 }, 301, -1, new int[] { 40 }, false, new int[] { 4500 }, 619),
+		CAGE(312, new int[] { 377 }, 301, -1, new int[] { 40 }, false, new int[] { 90 }, 619),
 
 		BIGNET(313, new int[] { 353, 341, 363 }, 305, -1, new int[] { 16, 23, 46 }, false,
-				new int[] { 1000, 2250, 5000 }, 621),
+				new int[] { 40, 50, 100 }, 621),
 
-		SMALLNET(316, new int[] { 317, 321 }, 303, -1, new int[] { 1, 15 }, false, new int[] { 500, 2000 }, 621),
+		SMALLNET(316, new int[] { 317, 321 }, 303, -1, new int[] { 1, 15 }, false, new int[] { 20, 40}, 621),
 
 		MONK_FISH(318, new int[] { 7944, 3142, 389 }, 305, -1, new int[] { 62, 65, 81 }, false,
-				new int[] { 6000, 5100, 12300 }, 621),
+				new int[] { 120, 105, 130}, 621),
 
-		HARPOON(312, new int[] { 359, 371 }, 311, -1, new int[] { 35, 50 }, true, new int[] { 4000, 5000 }, 618),
+		HARPOON(312, new int[] { 359, 371 }, 311, -1, new int[] { 35, 50 }, true, new int[] { 100, 100}, 618),
 
-		HARPOON2(313, new int[] { 383 }, 311, -1, new int[] { 76 }, true, new int[] { 5500 }, 618),
+		HARPOON2(313, new int[] { 383 }, 311, -1, new int[] { 76 }, true, new int[] { 110 }, 618),
 
-		BAIT(316, new int[] { 327, 345 }, 307, 313, new int[] { 5, 10 }, true, new int[] { 1000, 1500 }, 623),
+		BAIT(316, new int[] { 327, 345 }, 307, 313, new int[] { 5, 10 }, true, new int[] { 20, 30 }, 623),
 
-		ROCKTAIL(309, new int[] { 15270 }, 309, 25, new int[] { 91 }, false, new int[] { 7800, 10200 }, 623),
+		ROCKTAIL(309, new int[] { 15270 }, 309, 25, new int[] { 91 }, false, new int[] { 380 }, 623),
 
-		KARAM(2859, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 5100 }, 621),
+		KARAM(2859, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 105 }, 621),
 
-		WILDERNESS_ROCKTAIL(2724, new int[] { 15270 }, 309, 25, new int[] { 89 }, false, new int[] { 11200 }, 623),
+		WILDERNESS_ROCKTAIL(2724, new int[] { 15270 }, 309, 25, new int[] { 89 }, false, new int[] { 380 }, 623),
 
 		WILDERNESS_MONKFISH(3019, new int[] { 7944, 3142, 389 }, 305, -1, new int[] { 60, 63, 79 }, false,
-				new int[] { 7000, 6100, 13300 }, 621),
+				new int[] { 120, 105, 130 }, 621),
 
-		WILDERNESS_KARAM(2722, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 5100 }, 621);
+		WILDERNESS_KARAM(2722, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 105 }, 621);
 
 		int npcId, equipment, bait, anim;
 		int[] rawFish, fishingReqs, xp;

@@ -59,16 +59,16 @@ public class CharmingImp {
 	private static void turnIntoXp(Player player, int itemId, int amount) {
 		switch (itemId) {
 		case GOLD_CHARM:
-			player.getSkillManager().addExperience(Skill.SUMMONING, 4386 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 438 * amount);
 			break;
 		case GREEN_CHARM:
-			player.getSkillManager().addExperience(Skill.SUMMONING, 5361 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 536 * amount);
 			break;
 		case CRIM_CHARM:
-			player.getSkillManager().addExperience(Skill.SUMMONING, 7219 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 721 * amount);
 			break;
 		case BLUE_CHARM:
-			player.getSkillManager().addExperience(Skill.SUMMONING, 9136 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 913 * amount);
 			break;
 		}
 		sendMessage(player, 1, itemId, amount);

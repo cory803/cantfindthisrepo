@@ -13,5 +13,9 @@ Begun work on the Kotlin Game Engine.
 Started work on the Wildy Wyrm.
 Game Modes now function (somewhat properly)
 Corrected an issue with Slayer
+Edited addExperience methods to addExactExperience for items like effigies, dragonkin lamps and buyable slayer experience, also making some jewellery and Dragonbone crossbow
+Fishing, Woodcutting & Firemaking now use RuneScape experience rates.
 
 Polls:
+
+What experience rate should Iron Men be set to when Game Modes come out?

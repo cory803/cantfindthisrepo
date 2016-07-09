@@ -111,7 +111,7 @@ public class Woodcutting {
 									} else if (Misc.getRandom(5) <= 2) {
 										logData fmLog = Logdata.getLogData(player, t.getReward());
 										if (fmLog != null) {
-											player.getSkillManager().addExperience(Skill.FIREMAKING, fmLog.getXp());
+											player.getSkillManager().addExactExperience(Skill.FIREMAKING, fmLog.getXp());
 											player.getPacketSender().sendMessage(
 													"Your Inferno Adze burns the log, granting you Firemaking experience.");
 											if (fmLog == Logdata.logData.OAK) {

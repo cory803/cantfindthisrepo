@@ -239,7 +239,7 @@ public class Effigies {
 			if (checkRequirement(player, skillId, levelReq[0]) && player.getInventory().contains(18778)) {
 				player.getInventory().delete(18778, 1);
 				player.getInventory().add(18779, 1);
-				player.getSkillManager().addExperience(Skill.forId(skillId), 15000);
+				player.getSkillManager().addExactExperience(Skill.forId(skillId), 15000);
 				player.getClickDelay().reset();
 				player.performAnimation(new Animation(7368));
 				player.getPacketSender().sendInterfaceRemoval();
@@ -252,7 +252,7 @@ public class Effigies {
 			if (checkRequirement(player, skillId, levelReq[1]) && player.getInventory().contains(18779)) {
 				player.getInventory().delete(18779, 1);
 				player.getInventory().add(18780, 1);
-				player.getSkillManager().addExperience(Skill.forId(skillId), 30000);
+				player.getSkillManager().addExactExperience(Skill.forId(skillId), 30000);
 				player.getClickDelay().reset();
 				player.performAnimation(new Animation(7368));
 				player.getPacketSender().sendInterfaceRemoval();
@@ -265,7 +265,7 @@ public class Effigies {
 			if (checkRequirement(player, skillId, levelReq[2]) && player.getInventory().contains(18780)) {
 				player.getInventory().delete(18780, 1);
 				player.getInventory().add(18781, 1);
-				player.getSkillManager().addExperience(Skill.forId(skillId), 45000);
+				player.getSkillManager().addExactExperience(Skill.forId(skillId), 45000);
 				player.getClickDelay().reset();
 				player.performAnimation(new Animation(7368));
 				player.getPacketSender().sendInterfaceRemoval();
@@ -278,7 +278,7 @@ public class Effigies {
 			if (checkRequirement(player, skillId, levelReq[3]) && player.getInventory().contains(18781)) {
 				player.getInventory().delete(18781, 1);
 				player.getInventory().add(18782, 1);
-				player.getSkillManager().addExperience(Skill.forId(skillId), 60000);
+				player.getSkillManager().addExactExperience(Skill.forId(skillId), 60000);
 				player.getClickDelay().reset();
 				player.performAnimation(new Animation(7368));
 				player.getPacketSender().sendInterfaceRemoval();

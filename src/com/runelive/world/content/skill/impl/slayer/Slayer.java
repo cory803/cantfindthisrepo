@@ -108,7 +108,9 @@ public class Slayer {
 	}
 
 	public void handleSlayerTaskDeath(boolean giveXp) {
-		int xp = slayerTask.getXP() + Misc.getRandom(slayerTask.getXP() / 5);
+		//int xp = slayerTask.getXP() + Misc.getRandom(slayerTask.getXP() / 5);
+
+		int xp = NpcDefinition.forId(slayerTask.getNpcId()).getHitpoints()/10;
 
 		if (amountToSlay > 1) {
 			amountToSlay--;
@@ -382,7 +384,7 @@ public class Slayer {
 				}
 				player.getPointsHandler().refreshPanel();
 				player.getPointsHandler().setSlayerPoints(-10, true);
-				player.getSkillManager().addExperience(Skill.SLAYER, 10000);
+				player.getSkillManager().addExactExperience(Skill.SLAYER, 10000);
 				player.getPacketSender().sendMessage("You've bought 10000 Slayer XP for 10 Slayer points.");
 				break;
 			case -29519:

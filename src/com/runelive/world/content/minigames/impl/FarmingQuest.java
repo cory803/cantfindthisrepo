@@ -92,7 +92,7 @@ public class FarmingQuest {
 		p.getPacketSender().sendString(12155, "");
 		p.getPacketSender().sendString(12147, "3");
 		p.getInventory().add(7409, 1);
-		p.getSkillManager().addExperience(Skill.FARMING, 500000);
+		p.getSkillManager().addExactExperience(Skill.FARMING, 500000);
 		p.addQuestPoints(3);
 		PlayerPanel.refreshPanel(p);
 	}
