@@ -48,12 +48,13 @@ public class ZulrahRed implements CombatStrategy {
 					if(tick == 0) {
 						zulrah.setChargingAttack(true);
 						position = player.getPosition();
-						zulrah.getCombatBuilder().reset(true);
+						zulrah.getMovementQueue().setFollowCharacter(null);
 						zulrah.setPositionToFace(position);
 					}
 					if(tick == 3) {
 						zulrah.setPositionToFace(position);
 						zulrah.performAnimation(Zulrah.LUNG);
+						System.out.println("Pos x: "+position.getX()+" pos y: "+position.getY());
 						if(player.getPosition().getX() == position.getX() && player.getPosition().getY() == position.getY()) {
 							new CombatHit(zulrah.getCombatBuilder(), new CombatContainer(zulrah, player, 1, CombatType.MELEE, true)).handleAttack();
 						}
