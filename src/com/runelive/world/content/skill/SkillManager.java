@@ -120,8 +120,11 @@ public class SkillManager {
 			return this;
 
 		switch (player.getExpRate()) {
-		case SIR:
-			experience *= 250;
+			case DEFAULT:
+				experience *= 250;
+				break;
+			case SIR:
+			experience *= 125;
 			break;
 		case LORD:
 			experience *= 100;
