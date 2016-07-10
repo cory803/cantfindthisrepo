@@ -48,9 +48,9 @@ public class PlayerProcess {
 		if (player.getLocation() == Location.WILDERNESS) {
 			boolean continue_method = true;
 			boolean continue_lower_stats = false;
-			if (player.isSpecialPlayer()) {
+			/*if (player.isSpecialPlayer()) {
 				continue_method = false;
-			}
+			}*/
 			if (player.getRights() == PlayerRights.OWNER) {
 				continue_method = false;
 			}

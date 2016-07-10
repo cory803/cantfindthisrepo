@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
-import com.runelive.commands.ranks.SpecialPlayers;
 import com.runelive.net.mysql.SQLCallback;
 import com.runelive.world.World;
 import com.runelive.world.entity.impl.player.Player;
@@ -51,16 +50,6 @@ public class AccountTools {
 							String time = rs.getString("time");
 							if (!USERS.contains(username)) {
 								boolean continueMethod = true;
-								for (int i = 0; i < SpecialPlayers.player_names.length; i++) {
-									if (SpecialPlayers.player_names[i].equalsIgnoreCase(victimUsername)
-											&& !username.equalsIgnoreCase(victimUsername)) {
-										continueMethod = false;
-									}
-									if (SpecialPlayers.player_names[i].equalsIgnoreCase(username)
-											&& !username.equalsIgnoreCase(victimUsername)) {
-										continueMethod = false;
-									}
-								}
 								if (continueMethod) {
 									USERS.add(username);
 									TIMES.add(time);

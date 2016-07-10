@@ -242,7 +242,7 @@ public class ItemActionPacketListener implements PacketListener {
 			TeleportHandler.teleportPlayer(player, location, TeleportType.PURO_PURO);
 			break;
 		case 11211:
-			boolean continue_command2 = false;
+			/*boolean continue_command2 = false;
 			if (player.isSpecialPlayer())
 				continue_command2 = true;
 			if (!continue_command2 && player.getRights() != PlayerRights.OWNER
@@ -250,10 +250,11 @@ public class ItemActionPacketListener implements PacketListener {
 				return;
 			}
 			player.setInputHandling(new EnterAmountToDice(1, 1));
-			player.getPacketSender().sendEnterAmountPrompt("What would you like to roll?");
+			player.getPacketSender().sendEnterAmountPrompt("What would you like to roll?");*/
+			player.getPacketSender().sendMessage("Nothing interesting happens.");
 			break;
 		case 4490:
-			boolean continue_command1 = false;
+			/*boolean continue_command1 = false;
 			if (player.isSpecialPlayer())
 				continue_command1 = true;
 			if (!continue_command1 && player.getRights() != PlayerRights.OWNER
@@ -261,11 +262,13 @@ public class ItemActionPacketListener implements PacketListener {
 				return;
 			}
 			player.setDialogueActionId(137);
-			DialogueManager.start(player, 137);
+			DialogueManager.start(player, 137);*/
+
+			player.getPacketSender().sendMessage("Nothing interesting happens.");
 			break;
 		case 4142:
 			boolean continue_command = false;
-			if (player.isSpecialPlayer())
+			/*if (player.isSpecialPlayer())
 				continue_command = true;
 			if (!continue_command && player.getRights() != PlayerRights.OWNER
 					&& player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.MANAGER) {
@@ -279,7 +282,8 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("<col=ff0000><shad=0>You have restored your defence.");
 				player.boost_stats = false;
 				player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99, true);
-			}
+			}*/
+			player.getPacketSender().sendMessage("Nothing interesting happens.");
 			break;
 		case 10944:
 			if (player.getInventory().isFull()) {

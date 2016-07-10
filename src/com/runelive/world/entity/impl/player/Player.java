@@ -10,7 +10,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import org.jboss.netty.channel.Channel;
 
 import com.runelive.GameSettings;
-import com.runelive.commands.ranks.SpecialPlayers;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.PlayerDeathTask;
@@ -100,13 +99,13 @@ public class Player extends Character {
 		this.session = playerIO;
 	}
 
-	public boolean isSpecialPlayer() {
+	/*public boolean isSpecialPlayer() {
 		for (String name : SpecialPlayers.player_names) {
 			if (getUsername().equalsIgnoreCase(name))
 				return true;
 		}
 		return false;
-	}
+	}*/
 
 	public boolean isDeveloper() {
 		for (String name : GameSettings.DEVELOPER) {

@@ -578,7 +578,7 @@ public class UseItemPacketListener implements PacketListener {
 			break;
 		case 11211:
 			boolean continue_command = false;
-			if (player.isSpecialPlayer())
+			/*if (player.isSpecialPlayer())
 				continue_command = true;
 			if (!continue_command && player.getRights() != PlayerRights.OWNER
 					&& player.getRights() != PlayerRights.MANAGER && player.getRights() != PlayerRights.ADMINISTRATOR) {
@@ -588,7 +588,8 @@ public class UseItemPacketListener implements PacketListener {
 				return;
 			player.setInputHandling(new EnterAmountToDiceOther(1, 1));
 			player.getPacketSender().sendEnterAmountPrompt("What would you like " + target.getUsername() + " to roll?");
-			player.dice_other_name = target.getUsername();
+			player.dice_other_name = target.getUsername();*/
+			player.getPacketSender().sendMessage("Nothing interesting happens.");
 			break;
 		case 4155:
 			if (player.getSlayer().getDuoPartner() != null) {

@@ -28,7 +28,6 @@ public class Commands {
 
 		// Regular Commands
 		PlayerCmds.initiate_command(player, parts, whole_command);
-		Special.Specialplayers.initiate_command(player, parts, whole_command);
 
 		// Staff Members
 		if (player.getRights() == PlayerRights.OWNER) {
