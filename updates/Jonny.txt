@@ -34,6 +34,7 @@ The area in the chaos temple/venenatis dungeon that was not wilderness is now fi
 The bug where entering the cave inside the chaos temple/venenatis dungeon didn't allow you to enter in a certain spot has been fixed.
 The bug where the chaos temple/venenatis dungeon cave would make you go onto a rock that players couldn't walk onto is now fixed.
 Toxic blowpipe is now 2 handed.
+Toxic blowpipe has been buffed 10%
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
