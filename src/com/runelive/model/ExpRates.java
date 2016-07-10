@@ -1,15 +1,26 @@
 package com.runelive.model;
+
 import com.runelive.world.entity.impl.player.Player;
 
-public enum ExpRates {DEFAULT("Knight", 250), SIR("Sir", 125), LORD("Lord", 80), LEGEND("Legend", 35), EXTREME("Extreme", 15), REALISM("Realism", 15);
+public enum ExpRates {
+	DEFAULT(250),
+	SIR(125),
+	LORD(80),
+	LEGEND(35),
+	EXTREME(15),
+	REALISM(15);
 
-	ExpRates(String name, int multiplier) {
-		this.name = name;
+	private int multiplier;
+
+	//We should set this up as multiplier, drop rate, prayer drain rate, spec recovery rate
+	ExpRates(int multiplier) {
 		this.multiplier = multiplier;
 	}
 
-	private String name;
-	private int multiplier;
+	public int getMultiplier() {
+		return multiplier;
+	}
+
 	public static void set(Player player, ExpRates expRate) {
 		player.setExpRate(expRate);
 		//player.getPacketSender().sendIronmanMode(expRate.ordinal());
