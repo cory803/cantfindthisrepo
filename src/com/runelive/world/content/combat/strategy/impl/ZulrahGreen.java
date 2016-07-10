@@ -3,8 +3,10 @@ package com.runelive.world.content.combat.strategy.impl;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
+import com.runelive.model.Position;
 import com.runelive.model.Projectile;
 import com.runelive.model.Locations.Location;
+import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
@@ -41,44 +43,47 @@ public class ZulrahGreen implements CombatStrategy {
 		}
 		if(victim.isPlayer()) {
 			Player player = (Player) victim;
-			TaskManager.submit(new Task(1, player, false) {
-				int tick = 0;
-				@Override
-				public void execute() {
-					if(tick == 2) {
-						Zulrah.next((Player) victim, zulrah);
-						stop();
-					}
-					
-					tick++;
-				}
-			});
-		}
-		//zulrah.setPositionToFace(play)
-		/*
-		fear.performAnimation(new Animation(426));
-		fear.setChargingAttack(true);
-		Player target = (Player) victim;
-		TaskManager.submit(new Task(2, target, false) {
-			@Override
-			public void execute() {
-				fear.getCombatBuilder().setVictim(target);
-				AmmunitionData ammo = AmmunitionData.ICE_ARROW;
-				new Projectile(fear, victim, ammo.getProjectileId(), ammo.getProjectileDelay() + 16,
-						ammo.getProjectileSpeed(), ammo.getStartHeight(), ammo.getEndHeight(), 0).sendProjectile();
-				new CombatHit(fear.getCombatBuilder(), new CombatContainer(fear, target, 1, CombatType.RANGED, true))
-						.handleAttack();
-				fear.setChargingAttack(false);
-				stop();
+			int chance = Misc.random(1, 4);
+			switch(chance) {
+				//Shoot with range
+				case 1:
+				case 2:
+				case 3:
+				case 4:
+					TaskManager.submit(new Task(1, player, false) {
+						int tick = 0;
+						@Override
+						public void execute() {
+							if(tick == 0) {
+								zulrah.setChargingAttack(true);
+								zulrah.performAnimation(Zulrah.SHOOT);
+							}
+							if(tick == 1) {
+								new Projectile(entity, victim, Zulrah.RANGE_BOLT.getId(), 70, 0, 47, 31, 0).sendProjectile();
+							}
+							
+							if(tick == 2) {
+								new CombatHit(zulrah.getCombatBuilder(), new CombatContainer(zulrah, player, 1, CombatType.RANGED, true)).handleAttack();
+							}
+							if(tick == 4) {
+								//Zulrah.next(player, zulrah);
+								zulrah.setChargingAttack(false);
+								stop();
+							}
+							tick++;
+						}
+					});
+					break;
+				
 			}
-		});
-		*/
+		}
 		return true;
+
 	}
 
 	@Override
 	public int attackDelay(Character entity) {
-		return 7;
+		return 1;
 	}
 
 	@Override

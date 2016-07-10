@@ -4,6 +4,7 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.model.Flag;
+import com.runelive.model.Graphic;
 import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
@@ -44,6 +45,29 @@ public class Zulrah {
 	
 	//Zulrah's target animation to target a player
 	public static final Animation TARGET = new Animation(5806);
+	
+	//Zulrah's fire ball magic attack graphic
+	public static final Graphic FIRE_BALL = new Graphic(1046);
+	
+	//Zulrah's range bolt range attack graphic
+	public static final Graphic RANGE_BOLT = new Graphic(1044);
+	
+	//Zulrah's toxic cloud graphic
+	public static final Graphic TOXIC_CLOUD = new Graphic(1045);
+	
+	//Snakeling spawn graphic
+	public static final Graphic SNAKELING_SPAWN = new Graphic(1047);
+	
+	//Zulrah's toxic venom cloud positions that are possible
+	public static final Position[] TOXIC_CLOUD_POSITIONS = {
+		new Position(2273, 3073),
+		new Position(2273, 3071),
+		new Position(2270, 3069),
+		new Position(2267, 3069),
+		new Position(2263, 3070),
+		new Position(2263, 3074),
+		new Position(2263, 3076)
+	};
 	
 	
 	/*
@@ -103,7 +127,7 @@ public class Zulrah {
 	}
 	
 	/*
-	 * Spawn the next faze of Zulrah @nextZulrah
+	 * Spawn the next faze of Zulrah @nextZulrahStep
 	 */
 	public static void next(final Player player, final NPC zulrah) {
 		player.nextZulrahStep();
