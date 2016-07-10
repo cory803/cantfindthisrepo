@@ -253,9 +253,7 @@ public class Locations {
 				boolean notInTown = y > 3507 && x < 3681;
 				boolean inVenenatis = x >= 2505 && x <= 2550 && y >= 4760 && y <= 4795;
 				boolean safeSpot = x == 3650 && y == 3472;
-				if (ghostTown && !safeSpot && !notInTown) {
-					player.setWildernessLevel(60);
-				} else if (inKBD) {
+				 if (inKBD) {
 					player.setWildernessLevel(20);
 				} else if (chaosTempleDungeon1 || chaosTempleDungeon2) {
 					player.setWildernessLevel(12);
