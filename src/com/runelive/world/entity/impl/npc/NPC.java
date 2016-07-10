@@ -1,14 +1,11 @@
 package com.runelive.world.entity.impl.npc;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.NPCDeathTask;
 import com.runelive.model.Direction;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.definitions.NpcDefinition;
-import com.runelive.util.JsonLoader;
 import com.runelive.world.World;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.world.content.combat.CombatType;
@@ -24,6 +21,10 @@ import com.runelive.world.content.skill.impl.runecrafting.DesoSpan;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
 
 /**
  * Represents a non-playable character, which players can interact with.
@@ -158,32 +159,28 @@ public class NPC extends Character {
 	 *             if any errors occur while preparing for load.
 	 */
 	public static void init() {
-		new JsonLoader() {
-			@Override
-			public void load(JsonObject reader, Gson builder) {
-
-				int id = reader.get("npc-id").getAsInt();
-				Position position = builder.fromJson(reader.get("position").getAsJsonObject(), Position.class);
-				Coordinator coordinator = builder.fromJson(reader.get("walking-policy").getAsJsonObject(),
-						Coordinator.class);
-				Direction direction = Direction.valueOf(reader.get("face").getAsString());
-				NPC npc = new NPC(id, position);
-				npc.movementCoordinator.setCoordinator(coordinator);
-				npc.setDirection(direction);
-				World.register(npc);
-				if (id > 5070 && id < 5081) {
-					Hunter.HUNTER_NPC_LIST.add(npc);
+		try {
+			DataInputStream stream = new DataInputStream(new FileInputStream(new File("./data/def/npcSpawns.dat")));
+			while (stream.available() > 0) {
+				int id = stream.readShort();
+				int size = stream.readByte();
+				for (int i = 0; i < size; i++) {
+					Position position = new Position(stream.readShort(), stream.readShort(), stream.readShort());
+					Direction direction = Direction.values()[stream.readByte()];
+					Coordinator coordinator = new Coordinator(stream.readByte() == 0, stream.readByte());
+					stream.readByte(); //This is for world reading.  We currently do not need this
+					NPC npc = new NPC(id, position);
+					npc.movementCoordinator.setCoordinator(coordinator);
+					npc.setDirection(direction);
+					World.register(npc);
+					if (id > 5070 && id < 5081) {
+						Hunter.HUNTER_NPC_LIST.add(npc);
+					}
 				}
-				position = null;
-				coordinator = null;
-				direction = null;
 			}
-
-			@Override
-			public String filePath() {
-				return "./data/def/json/world_npcs.json";
-			}
-		}.load();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		Nex.spawn();
 		PuroPuro.spawn();
