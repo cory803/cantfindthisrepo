@@ -92,6 +92,7 @@ public class CombatStrategies {
 		STRATEGIES.put(53, dragonStrategy);
 		STRATEGIES.put(54, dragonStrategy);
 		STRATEGIES.put(51, dragonStrategy);
+		STRATEGIES.put(10775, dragonStrategy);
 		STRATEGIES.put(1590, dragonStrategy);
 		STRATEGIES.put(1591, dragonStrategy);
 		STRATEGIES.put(1592, dragonStrategy);

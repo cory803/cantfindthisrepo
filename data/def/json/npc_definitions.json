@@ -1144,6 +1144,28 @@
 "defenceMage": 90
 },
 {
+"id": 10775,
+"name": "Frost dragon",
+"examine": "A dragon who was born and bread in the Icey parts of the wilderness.",
+"combat": 166,
+"size": 2,
+"attackable": true,
+"aggressive": false,
+"retreats": false,
+"poisonous": false,
+"respawn": 20,
+"maxHit": 290,
+"hitpoints": 2050,
+"attackSpeed": 7,
+"attackAnim": 13151,
+"defenceAnim": 13154,
+"deathAnim": 13153,
+"attackBonus": 220,
+"defenceMelee": 200,
+"defenceRange": 250,
+"defenceMage": 90
+},
+{
 "id": 52,
 "name": "Baby Blue dragon",
 "examine": "Young but still dangerous.",

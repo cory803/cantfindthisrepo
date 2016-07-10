@@ -29,9 +29,6 @@ class Donator {
                 return
             }
             if (wholeCommand.toLowerCase().startsWith("yell")) {
-                if (player.rights != PlayerRights.PLAYER) {
-                    return
-                }
                 if (World.isGlobalYell() == false) {
                     player.packetSender.sendMessage("An admin has temporarily disabled the global yell channel.")
                     return
@@ -69,23 +66,33 @@ class Donator {
                     player.yellTimer.reset()
                     return
                 }
+                if(player.rights == PlayerRights.YOUTUBER) {
+                    World.sendYell("<img=5> <col=0>[<col=ff0000><shad=620000>YouTuber</shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
+                }
                 if(player.rights == PlayerRights.SUPPORT) {
                     World.sendYell("<col=0>[<col=589fe1><shad=0><img=4>Support<img=4></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
                 }
                 if(player.rights == PlayerRights.MODERATOR) {
                     World.sendYell("<col=0>[<col=31a4ff><shad=0><img=1>Moderator<img=1></shad><col=0>] " + player.getUsername() + ": " + yellmessage, player);
+                    return
                 }
                 if(player.rights == PlayerRights.GLOBAL_MOD) {
                     World.sendYell("<col=0>[<col=00ff00><shad=0><img=6>Global Mod<img=6></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
                 }
                 if(player.rights == PlayerRights.ADMINISTRATOR) {
                     World.sendYell("<col=0>[<col=ffff00><shad=0><img=14>Administrator<img=14></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
                 }
                 if(player.rights == PlayerRights.MANAGER) {
                     World.sendYell("<col=0>[<col=ff0000><shad=2C0000><img=3>Manager<img=3></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
                 }
                 if(player.rights == PlayerRights.OWNER) {
                     World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
                 }
                 if (player.donorRights == 1) {
                     World.sendYell("<img=7> <col=0>[<col=ff0000>Donator<col=0>] " + player.username + ": " + yellmessage, player)

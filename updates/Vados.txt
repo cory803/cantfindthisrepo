@@ -21,6 +21,10 @@ Making a Godsword Blade now requires 80 Smithing.
 Removed stupid boss point message, boss points now act as a boss kill tracker
 player panel now displays your Game Mode
 command "bosses" has been added to display boss kills.
+Added alot of Mobs to the Wilderness Dungeon
+Re-wrote commands
+Removed Ghost Town.
+Frost Dragons in the Wilderness now drop noted Dragonbones.
 
 Polls:
 
