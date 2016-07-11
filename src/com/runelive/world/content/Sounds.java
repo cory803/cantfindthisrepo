@@ -12,17 +12,26 @@ import com.runelive.world.entity.impl.player.Player;
 public class Sounds {
 
 	public enum Sound {
-		ROTATING_CANNON(new int[] { 941 }), FIRING_CANNON(new int[] { 341 }), LEVELUP(new int[] { 51 }), DRINK_POTION(
-				new int[] { 334 }), EAT_FOOD(new int[] { 317 }), EQUIP_ITEM(new int[] { 319, 320 }), DROP_ITEM(
-						new int[] { 376 }), PICKUP_ITEM(new int[] { 358, 359 }), SMITH_ITEM(
-								new int[] { 464, 468 }), SMELT_ITEM(new int[] { 352 }), MINE_ITEM(
-										new int[] { 429, 431, 432 }), FLETCH_ITEM(new int[] { 375 }), WOODCUT(
-												new int[] { 471, 472, 473 }), LIGHT_FIRE(new int[] { 811 }), TELEPORT(
-														new int[] { 202, 201 }), ACTIVATE_PRAYER_OR_CURSE(
-																new int[] { 433 }), DEACTIVATE_PRAYER_OR_CURSE(
-																		new int[] { 435 }), RUN_OUT_OF_PRAYER_POINTS(
-																				new int[] { 438 }), BURY_BONE(
-																						new int[] { 380 });
+
+		ROTATING_CANNON(new int[] { 941 }),
+		FIRING_CANNON(new int[] { 341 }),
+		LEVELUP(new int[] { 51 }),
+		DRINK_POTION(new int[] { 334 }),
+		EAT_FOOD(new int[] { 317 }),
+		EQUIP_ITEM(new int[] { 319, 320 }),
+		DROP_ITEM(new int[] { 376 }),
+		PICKUP_ITEM(new int[] { 358, 359 }),
+		SMITH_ITEM(new int[] { 464, 468 }),
+		SMELT_ITEM(new int[] { 352 }),
+		MINE_ITEM(new int[] { 429, 431, 432 }),
+		FLETCH_ITEM(new int[] { 375 }),
+		WOODCUT(new int[] { 471, 472, 473 }),
+		LIGHT_FIRE(new int[] { 811 }),
+		TELEPORT(new int[] { 202, 201 }),
+		ACTIVATE_PRAYER_OR_CURSE(new int[] { 433 }),
+		DEACTIVATE_PRAYER_OR_CURSE(new int[] { 435 }),
+		RUN_OUT_OF_PRAYER_POINTS(new int[] { 438 }),
+		BURY_BONE(new int[] { 380 });
 
 		Sound(int[] sounds) {
 			this.sounds = sounds;

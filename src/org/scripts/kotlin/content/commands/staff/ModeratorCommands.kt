@@ -1,11 +1,8 @@
 package org.scripts.kotlin.content.commands.staff
 
-import com.runelive.GameSettings
 import com.runelive.model.Locations
-import com.runelive.model.Position
 import com.runelive.util.Misc
 import com.runelive.world.World
-import com.runelive.world.content.AccountTools
 import com.runelive.world.content.PlayerPunishment
 import com.runelive.world.content.transportation.TeleportHandler
 import com.runelive.world.content.transportation.TeleportType

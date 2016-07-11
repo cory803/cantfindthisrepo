@@ -10,15 +10,33 @@ import com.runelive.util.Misc;
  */
 public enum Skill {
 
-	ATTACK(6247, 1, 0), DEFENCE(6253, 1, 6), STRENGTH(6206, 1, 3), CONSTITUTION(6216, 3, 1), RANGED(4443, 2, 9), PRAYER(
-			6242, 6, 12), MAGIC(6211, 2, 15), COOKING(6226, 1, 11), WOODCUTTING(4272, 1, 17), FLETCHING(6231, 2,
-					16), FISHING(6258, 1, 8), FIREMAKING(4282, 2, 14), CRAFTING(6263, 4,
-							13), SMITHING(6221, 7, 5), MINING(4416, 3, 2), HERBLORE(6237, 4, 7), AGILITY(4277, 4,
-									4), THIEVING(4261, 1, 10), SLAYER(12122, 6, 19), FARMING(9318, 4,
-											20), RUNECRAFTING(4267, 3, 18), CONSTRUCTION(7267, 3, 21), HUNTER(8267, 3,
-													22), SUMMONING(9267, 5, 23), DUNGEONEERING(10267, 5, 24);
+	ATTACK(6247, 1, 0),
+	DEFENCE(6253, 1, 6),
+	STRENGTH(6206, 1, 3),
+	CONSTITUTION(6216, 3, 1),
+	RANGED(4443, 2, 9),
+	PRAYER(6242, 6, 12),
+	MAGIC(6211, 2, 15),
+	COOKING(6226, 1, 11),
+	WOODCUTTING(4272, 1, 17),
+	FLETCHING(6231, 2, 16),
+	FISHING(6258, 1, 8),
+	FIREMAKING(4282, 2, 14),
+	CRAFTING(6263, 4, 13),
+	SMITHING(6221, 7, 5),
+	MINING(4416, 3, 2),
+	HERBLORE(6237, 4, 7),
+	AGILITY(4277, 4, 4),
+	THIEVING(4261, 1, 10),
+	SLAYER(12122, 6, 19),
+	FARMING(9318, 4, 20),
+	RUNECRAFTING(4267, 3, 18),
+	CONSTRUCTION(7267, 3, 21),
+	HUNTER(8267, 3, 22),
+	SUMMONING(9267, 5, 23),
+	DUNGEONEERING(10267, 5, 24);
 
-	private Skill(int chatboxInterface, int prestigePoints, int prestigeId) {
+	Skill(int chatboxInterface, int prestigePoints, int prestigeId) {
 		this.chatboxInterface = chatboxInterface;
 		this.prestigePoints = prestigePoints;
 		this.prestigeId = prestigeId;

@@ -23,66 +23,38 @@ import com.runelive.world.entity.impl.player.Player;
 public class Emotes {
 
 	public enum EmoteData {
-		YES(168, new Animation(855), null), NO(169, new Animation(856), null), BOW(164, new Animation(858),
-				null), ANGRY(165, new Animation(859), null), THINK(162, new Animation(857), null), WAVE(163,
-						new Animation(863),
-						null), SHRUG(13370, new Animation(2113), null), CHEER(171, new Animation(862), null), BECKON(
-								167, new Animation(864),
-								null), LAUGH(170, new Animation(861), null), JUMP_FOR_JOY(13366, new Animation(2109),
-										null), YAWN(13368, new Animation(2111), null), DANCE(166, new Animation(866),
-												null), JIG(13363, new Animation(2106), null), SPIN(13364,
-														new Animation(2107), null), HEADBANG(13365, new Animation(2108),
-																null), CRY(161, new Animation(860), null), KISS(11100,
-																		new Animation(1374), new Graphic(1702)), PANIC(
-																				13362, new Animation(2105),
-																				null), RASPBERRY(13367,
-																						new Animation(2110),
-																						null), CRAP(172,
-																								new Animation(865),
-																								null), SALUTE(13369,
-																										new Animation(
-																												2112),
-																										null), GOBLIN_BOW(
-																												13383,
-																												new Animation(
-																														2127),
-																												null), GOBLIN_SALUTE(
-																														13384,
-																														new Animation(
-																																2128),
-																														null), GLASS_BOX(
-																																667,
-																																new Animation(
-																																		1131),
-																																null), CLIMB_ROPE(
-																																		6503,
-																																		new Animation(
-																																				1130),
-																																		null), LEAN(
-																																				6506,
-																																				new Animation(
-																																						1129),
-																																				null), GLASS_WALL(
-																																						666,
-																																						new Animation(
-																																								1128),
-																																						null), ZOMBIE_WALK(
-																																								18464,
-																																								new Animation(
-																																										3544),
-																																								null), ZOMBIE_DANCE(
-																																										18465,
-																																										new Animation(
-																																												3543),
-																																										null), SCARED(
-																																												15166,
-																																												new Animation(
-																																														2836),
-																																												null), RABBIT_HOP(
-																																														18686,
-																																														new Animation(
-																																																6111),
-																																														null),
+		YES(168, new Animation(855), null),
+		NO(169, new Animation(856), null),
+		BOW(164, new Animation(858), null),
+		ANGRY(165, new Animation(859), null),
+		THINK(162, new Animation(857), null),
+		WAVE(163, new Animation(863), null),
+		SHRUG(13370, new Animation(2113), null),
+		CHEER(171, new Animation(862), null),
+		BECKON(167, new Animation(864), null),
+		LAUGH(170, new Animation(861), null),
+		JUMP_FOR_JOY(13366, new Animation(2109), null),
+		YAWN(13368, new Animation(2111), null),
+		DANCE(166, new Animation(866), null),
+		JIG(13363, new Animation(2106), null),
+		SPIN(13364, new Animation(2107), null),
+		HEADBANG(13365, new Animation(2108), null),
+		CRY(161, new Animation(860), null),
+		KISS(11100, new Animation(1374), new Graphic(1702)),
+		PANIC(13362, new Animation(2105), null),
+		RASPBERRY(13367, new Animation(2110), null),
+		CRAP(172, new Animation(865), null),
+		SALUTE(13369, new Animation(2112), null),
+		GOBLIN_BOW(13383, new Animation(2127), null),
+		GOBLIN_SALUTE(13384, new Animation(2128), null),
+		GLASS_BOX(667, new Animation(1131), null),
+		CLIMB_ROPE(6503, new Animation(1130), null),
+		LEAN(6506, new Animation(1129), null),
+		GLASS_WALL(666, new Animation(1128), null),
+		ZOMBIE_WALK(18464, new Animation(3544), null),
+		ZOMBIE_DANCE(18465, new Animation(3543), null),
+		SCARED(15166, new Animation(2836), null),
+		RABBIT_HOP(18686, new Animation(6111), null);
 
 		/*
 		 * ZOMBIE_HAND(15166, new Animation(7272), new Graphic(1244)),
@@ -236,221 +208,60 @@ public class Emotes {
 	 * All Skillcape Configurations and data
 	 */
 	public enum Skillcape_Data {
-		ATTACK(new int[] { 9747, 9748, 10639 }, 4959, 823, 7), DEFENCE(new int[] { 9753, 9754, 10641 }, 4961, 824,
-				10), STRENGTH(new int[] { 9750, 9751, 10640 }, 4981, 828, 25), CONSTITUTION(
-						new int[] { 9768, 9769, 10647 }, 14242, 2745, 12), RANGED(new int[] { 9756, 9757, 10642 }, 4973,
-								832, 12), PRAYER(new int[] { 9759, 9760, 10643 }, 4979, 829, 15), MAGIC(
-										new int[] { 9762, 9763, 10644 }, 4939, 813,
-										6), COOKING(new int[] { 9801, 9802, 10658 }, 4955, 821, 36), WOODCUTTING(
-												new int[] { 9807, 9808, 10660 }, 4957, 822,
-												25), FLETCHING(new int[] { 9783, 9784, 10652 }, 4937, 812, 20), FISHING(
-														new int[] { 9798, 9799, 10657 }, 4951, 819,
-														19), FIREMAKING(new int[] { 9804, 9805, 10659 }, 4975, 831,
-																14), CRAFTING(new int[] { 9780, 9781, 10651 }, 4949,
-																		818,
-																		15), SMITHING(new int[] { 9795, 9796, 10656 },
-																				4943, 815, 23), MINING(
-																						new int[] { 9792, 9793, 10655 },
-																						4941, 814, 8), HERBLORE(
-																								new int[] { 9774, 9775,
-																										10649 },
-																								4969, 835, 16), AGILITY(
-																										new int[] {
-																												9771,
-																												9772,
-																												10648 },
-																										4977, 830,
-																										8), THIEVING(
-																												new int[] {
-																														9777,
-																														9778,
-																														10650 },
-																												4965,
-																												826,
-																												16), SLAYER(
-																														new int[] {
-																																9786,
-																																9787,
-																																10653 },
-																														4967,
-																														1656,
-																														8), FARMING(
-																																new int[] {
-																																		9810,
-																																		9811,
-																																		10661 },
-																																4963,
-																																-1,
-																																16), RUNECRAFTING(
-																																		new int[] {
-																																				9765,
-																																				9766,
-																																				10645 },
-																																		4947,
-																																		817,
-																																		10), CONSTRUCTION(
-																																				new int[] {
-																																						9789,
-																																						9790,
-																																						10654 },
-																																				4953,
-																																				820,
-																																				16), HUNTER(
-																																						new int[] {
-																																								9948,
-																																								9949,
-																																								10646 },
-																																						5158,
-																																						907,
-																																						14), SUMMONING(
-																																								new int[] {
-																																										12169,
-																																										12170,
-																																										12524 },
-																																								8525,
-																																								1515,
-																																								10), DUNGEONEERING(
-																																										new int[] {
-																																												18508,
-																																												18509 },
-																																										-1,
-																																										-1,
-																																										15), DUNGEONEERING_MASTER(
-																																												new int[] {
-																																														19709,
-																																														19710 },
-																																												-1,
-																																												-1,
-																																												15), QUEST_POINT(
-																																														new int[] {
-																																																9813,
-																																																9814,
-																																																10662 },
-																																														4945,
-																																														816,
-																																														19), MASTER_ATTACK(
-																																																new int[] {
-																																																		21050 },
-																																																4959,
-																																																823,
-																																																7), MASTER_DEFENCE(
-																																																		new int[] {
-																																																				21051 },
-																																																		4961,
-																																																		824,
-																																																		10), MASTER_STRENGTH(
-																																																				new int[] {
-																																																						21052 },
-																																																				4981,
-																																																				828,
-																																																				25), MASTER_CONSTITUTION(
-																																																						new int[] {
-																																																								21053 },
-																																																						14242,
-																																																						2745,
-																																																						12), MASTER_RANGED(
-																																																								new int[] {
-																																																										21054 },
-																																																								4973,
-																																																								832,
-																																																								12), MASTER_PRAYER(
-																																																										new int[] {
-																																																												21055 },
-																																																										4979,
-																																																										829,
-																																																										15), MASTER_MAGIC(
-																																																												new int[] {
-																																																														21056 },
-																																																												4939,
-																																																												813,
-																																																												6), MASTER_COOKING(
-																																																														new int[] {
-																																																																21057 },
-																																																														4955,
-																																																														821,
-																																																														36), MASTER_WOODCUTTING(
-																																																																new int[] {
-																																																																		21058 },
-																																																																4957,
-																																																																822,
-																																																																25), MASTER_FLETCHING(
-																																																																		new int[] {
-																																																																				21059 },
-																																																																		4937,
-																																																																		812,
-																																																																		20), MASTER_FISHING(
-																																																																				new int[] {
-																																																																						21060 },
-																																																																				4951,
-																																																																				819,
-																																																																				19), MASTER_FIREMAKING(
-																																																																						new int[] {
-																																																																								21061 },
-																																																																						4975,
-																																																																						831,
-																																																																						14), MASTER_CRAFTING(
-																																																																								new int[] {
-																																																																										21062 },
-																																																																								4949,
-																																																																								818,
-																																																																								15), MASTER_SMITHING(
-																																																																										new int[] {
-																																																																												21063 },
-																																																																										4943,
-																																																																										815,
-																																																																										23), MASTER_MINING(
-																																																																												new int[] {
-																																																																														21064 },
-																																																																												4941,
-																																																																												814,
-																																																																												8), MASTER_HERBLORE(
-																																																																														new int[] {
-																																																																																21065 },
-																																																																														4969,
-																																																																														835,
-																																																																														16), MASTER_AGILITY(
-																																																																																new int[] {
-																																																																																		21066 },
-																																																																																4977,
-																																																																																830,
-																																																																																8), MASTER_THIEVING(
-																																																																																		new int[] {
-																																																																																				21067 },
-																																																																																		4965,
-																																																																																		826,
-																																																																																		16), MASTER_SLAYER(
-																																																																																				new int[] {
-																																																																																						21068 },
-																																																																																				4967,
-																																																																																				1656,
-																																																																																				8), MASTER_FARMING(
-																																																																																						new int[] {
-																																																																																								21069 },
-																																																																																						4963,
-																																																																																						-1,
-																																																																																						16), MASTER_RUNECRAFTING(
-																																																																																								new int[] {
-																																																																																										21070 },
-																																																																																								4947,
-																																																																																								817,
-																																																																																								10), MASTER_CONSTRUCTION(
-																																																																																										new int[] {
-																																																																																												21071 },
-																																																																																										4953,
-																																																																																										820,
-																																																																																										16), MASTER_HUNTER(
-																																																																																												new int[] {
-																																																																																														21072 },
-																																																																																												5158,
-																																																																																												907,
-																																																																																												14), MASTER_SUMMONING(
-																																																																																														new int[] {
-																																																																																																21073 },
-																																																																																														8525,
-																																																																																														1515,
-																																																																																														10);
 
-		private Skillcape_Data(int[] itemId, int animationId, int graphicId, int delay) {
+		ATTACK(new int[] { 9747, 9748, 10639 }, 4959, 823, 7),
+		DEFENCE(new int[] { 9753, 9754, 10641 }, 4961, 824, 10),
+		STRENGTH(new int[] { 9750, 9751, 10640 }, 4981, 828, 25),
+		CONSTITUTION(new int[] { 9768, 9769, 10647 }, 14242, 2745, 12),
+		RANGED(new int[] { 9756, 9757, 10642 }, 4973, 832, 12),
+		PRAYER(new int[] { 9759, 9760, 10643 }, 4979, 829, 15),
+		MAGIC(new int[] { 9762, 9763, 10644 }, 4939, 813, 6),
+		COOKING(new int[] { 9801, 9802, 10658 }, 4955, 821, 36),
+		WOODCUTTING(new int[] { 9807, 9808, 10660 }, 4957, 822, 25),
+		FLETCHING(new int[] { 9783, 9784, 10652 }, 4937, 812, 20),
+		FISHING(new int[] { 9798, 9799, 10657 }, 4951, 819, 19),
+		FIREMAKING(new int[] { 9804, 9805, 10659 }, 4975, 831, 14),
+		CRAFTING(new int[] { 9780, 9781, 10651 }, 4949, 818, 15),
+		SMITHING(new int[] { 9795, 9796, 10656 }, 4943, 815, 23),
+		MINING(new int[] { 9792, 9793, 10655 }, 4941, 814, 8),
+		HERBLORE(new int[] { 9774, 9775, 10649 }, 4969, 835, 16),
+		AGILITY(new int[] {9771, 9772, 10648 }, 4977, 830, 8),
+		THIEVING(new int[] {9777, 9778, 10650 }, 4965, 826, 16),
+		SLAYER(new int[] {9786, 9787, 10653 }, 4967, 1656, 8),
+		FARMING(new int[] {9810, 9811, 10661 }, 4963, -1, 16),
+		RUNECRAFTING(new int[] {9765, 9766, 10645 }, 4947, 817, 10),
+		CONSTRUCTION(new int[] {9789, 9790, 10654 }, 4953, 820, 16),
+		HUNTER(new int[] {9948, 9949, 10646 }, 5158, 907, 14),
+		SUMMONING(new int[] {12169, 12170, 12524 }, 8525, 1515, 10),
+		DUNGEONEERING(new int[] {18508, 18509 }, -1, -1, 15),
+		DUNGEONEERING_MASTER(new int[] {19709, 19710 }, -1, -1, 15),
+		QUEST_POINT(new int[] {9813, 9814, 10662 }, 4945, 816, 19),
+		MASTER_ATTACK(new int[] {21050 }, 4959, 823, 7),
+		MASTER_DEFENCE(new int[] {21051 }, 4961, 824, 10),
+		MASTER_STRENGTH(new int[] {21052 }, 4981, 828, 25),
+		MASTER_CONSTITUTION(new int[] {21053 }, 14242, 2745, 12),
+		MASTER_RANGED(new int[] {21054 }, 4973, 832, 12),
+		MASTER_PRAYER(new int[] {21055 }, 4979, 829, 15),
+		MASTER_MAGIC(new int[] {21056 }, 4939, 813, 6),
+		MASTER_COOKING(new int[] {21057 }, 4955, 821, 36),
+		MASTER_WOODCUTTING(new int[] {21058 }, 4957, 822, 25),
+		MASTER_FLETCHING(new int[] {21059 }, 4937, 812, 20),
+		MASTER_FISHING(new int[] {21060 }, 4951, 819, 19),
+		MASTER_FIREMAKING(new int[] {21061 }, 4975, 831, 14),
+		MASTER_CRAFTING(new int[] {21062 }, 4949, 818, 15),
+		MASTER_SMITHING(new int[] {21063 }, 4943, 815, 23),
+		MASTER_MINING(new int[] {21064 }, 4941, 814, 8),
+		MASTER_HERBLORE(new int[] {21065 }, 4969, 835, 16),
+		MASTER_AGILITY(new int[] {21066 }, 4977, 830, 8),
+		MASTER_THIEVING(new int[] {21067 }, 4965, 826, 16),
+		MASTER_SLAYER(new int[] {21068 }, 4967, 1656, 8),
+		MASTER_FARMING(new int[] {21069 }, 4963, -1, 16),
+		MASTER_RUNECRAFTING(new int[] {21070 }, 4947, 817, 10),
+		MASTER_CONSTRUCTION(new int[] {21071 }, 4953, 820, 16),
+		MASTER_HUNTER(new int[] {21072 }, 5158, 907, 14),
+		MASTER_SUMMONING(new int[] {21073 }, 8525, 1515, 10);
+
+		Skillcape_Data(int[] itemId, int animationId, int graphicId, int delay) {
 			item = new Item[itemId.length];
 			for (int i = 0; i < itemId.length; i++) {
 				item[i] = new Item(itemId[i]);

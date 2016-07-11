@@ -1,10 +1,13 @@
 package com.runelive;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.runelive.cache.Archive;
+import com.runelive.cache.RSCache;
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
 import com.runelive.net.mysql.DatabaseInformationCharacters;
 import com.runelive.net.mysql.DatabaseInformationForums;
@@ -13,6 +16,7 @@ import com.runelive.net.mysql.MySQLDatabaseConfiguration;
 import com.runelive.net.mysql.ThreadedSQL;
 import com.runelive.util.ErrorFile;
 import com.runelive.util.ShutdownHook;
+import com.runelive.world.clip.region.RegionClipping;
 
 /**
  * The starting point of RuneLive.
@@ -30,6 +34,8 @@ public class GameServer {
 	private static ThreadedSQL characters_sql = null;
 	private static ThreadedSQL forums_sql = null;
 	private static ThreadedSQL voting_sql = null;
+	public static RSCache cache;
+	private static File cacheRepository = new File(System.getProperty("user.home") + File.separator + "runelive" + File.separator);
 
 	public static ThreadedSQL getCharacterPool() {
 		return characters_sql;
@@ -86,6 +92,7 @@ public class GameServer {
 			voting.setPassword(DatabaseInformationVoting.password);
 			voting.setDatabase(DatabaseInformationVoting.database);
 			voting_sql = new ThreadedSQL(voting, 4);
+			cache = RSCache.create(cacheRepository);
 			loader.init();
 			loader.finish();
 			logger.info("Starting Configurations...");

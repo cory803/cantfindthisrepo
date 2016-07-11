@@ -1,7 +1,5 @@
 package com.runelive.commands.ranks
 
-import java.text.DecimalFormat
-
 import com.runelive.GameSettings
 import com.runelive.model.Locations.Location
 import com.runelive.model.Position
@@ -12,13 +10,12 @@ import com.runelive.util.ForumDatabase
 import com.runelive.util.Misc
 import com.runelive.world.content.Command
 import com.runelive.world.content.PlayersOnlineInterface
-import com.runelive.world.content.clan.ClanChatManager
 import com.runelive.world.content.combat.CombatFactory
 import com.runelive.world.content.combat.DesolaceFormulas
-import com.runelive.world.content.dialogue.DialogueManager
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.runelive.world.content.transportation.TeleportHandler
 import com.runelive.world.entity.impl.player.Player
+import java.text.DecimalFormat
 
 object PlayerCmds {
 

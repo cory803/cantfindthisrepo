@@ -592,6 +592,8 @@ public class Player extends Character {
 	private int[] leechedBonuses = new int[7];
 	private int[] ores = new int[2];
 	private int[] constructionCoords;
+	public int[] offsetX = new int[50];
+	public int[] offsetY = new int[50];
 	private int recoilCharges;
 	private int runEnergy = 100;
 	private int currentBankTab;

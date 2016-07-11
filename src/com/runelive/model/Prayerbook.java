@@ -8,8 +8,8 @@ package com.runelive.model;
 
 public enum Prayerbook {
 
-	NORMAL(5608, "You sense a surge of purity flow through your body!"), CURSES(32500,
-			"You sense a surge of power flow through your body!");
+	NORMAL(5608, "You sense a surge of purity flow through your body!"),
+	CURSES(32500, "You sense a surge of power flow through your body!");
 
 	/**
 	 * The PrayerBook constructor.

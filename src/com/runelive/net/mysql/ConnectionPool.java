@@ -59,29 +59,24 @@ public class ConnectionPool<T extends DatabaseConnection> {
 		this.configuration = configuration;
 		this.maxConnections = maxConnections;
 
-		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(new Runnable() {
-			@Override
-			public void run() {
-				// Ping!
-				int lol = 0;
-				for (Iterator<DatabaseConnection> it$ = pool.iterator(); it$.hasNext();) {
-					DatabaseConnection connection = it$.next();
-					Statement s = null;
+		Executors.newScheduledThreadPool(1).scheduleAtFixedRate(() -> {
+			for (Iterator<DatabaseConnection> it$ = pool.iterator(); it$.hasNext();) {
+				DatabaseConnection connection = it$.next();
+				Statement s = null;
+				try {
+					s = connection.getConnection().createStatement();
+					// System.out.println(++lol+" - mysql query pings.");
+					s.execute("/* ping */ SELECT 1");
+				} catch (SQLException e) {
+					e.printStackTrace();
+					connection.close();
+					it$.remove();
+				} finally {
 					try {
-						s = connection.getConnection().createStatement();
-						// System.out.println(++lol+" - mysql query pings.");
-						s.execute("/* ping */ SELECT 1");
+						if (s != null)
+							s.close();
 					} catch (SQLException e) {
-						e.printStackTrace();
-						connection.close();
-						it$.remove();
-					} finally {
-						try {
-							if (s != null)
-								s.close();
-						} catch (SQLException e) {
 
-						}
 					}
 				}
 			}

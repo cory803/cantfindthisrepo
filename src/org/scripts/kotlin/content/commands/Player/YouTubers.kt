@@ -1,20 +1,6 @@
 package org.scripts.kotlin.content.commands.player
 
-import com.runelive.GameSettings
-import com.runelive.model.GameMode
 import com.runelive.model.Locations.Location
-import com.runelive.model.MagicSpellbook
-import com.runelive.model.Position
-import com.runelive.model.Prayerbook
-import com.runelive.model.Skill
-import com.runelive.util.Misc
-import com.runelive.world.World
-import com.runelive.world.content.PlayerPunishment
-import com.runelive.world.content.combat.magic.Autocasting
-import com.runelive.world.content.combat.prayer.CurseHandler
-import com.runelive.world.content.combat.prayer.PrayerHandler
-import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
-import com.runelive.world.content.transportation.TeleportHandler
 import com.runelive.world.entity.impl.player.Player
 
 object YouTubers {

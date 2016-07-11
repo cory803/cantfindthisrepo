@@ -36,15 +36,15 @@ public class EvilTrees {
 		}
 	}
 
-	public static enum LocationData {
+	public enum LocationData {
 
-		LOCATION_1(new Position(3107, 3506), "To the right of the Edgeville bank", "Edgeville"), LOCATION_2(
-				new Position(3087, 3541), "at the Wilderness ditch, level 3", "Wilderness"), LOCATION_3(
-						new Position(2470, 5166), "@ the Enterence of TzHaar dungeon", "TzHaar"), LOCATION_4(
-								new Position(3362, 3285), "behind the Duel Arena", "Duel Arena"), LOCATION_5(
-										new Position(2928, 3453), "at the enterence of Taverley", "Taverley"),;
+		LOCATION_1(new Position(3107, 3506), "To the right of the Edgeville bank", "Edgeville"),
+		LOCATION_2(new Position(3087, 3541), "at the Wilderness ditch, level 3", "Wilderness"),
+		LOCATION_3(new Position(2470, 5166), "@ the Enterence of TzHaar dungeon", "TzHaar"),
+		LOCATION_4(new Position(3362, 3285), "behind the Duel Arena", "Duel Arena"),
+		LOCATION_5(new Position(2928, 3453), "at the enterence of Taverley", "Taverley"),;
 
-		private LocationData(Position spawnPos, String clue, String playerPanelFrame) {
+		LocationData(Position spawnPos, String clue, String playerPanelFrame) {
 			this.spawnPos = spawnPos;
 			this.clue = clue;
 			this.playerPanelFrame = playerPanelFrame;

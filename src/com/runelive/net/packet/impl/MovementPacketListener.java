@@ -5,6 +5,7 @@ import com.runelive.model.Animation;
 import com.runelive.model.Position;
 import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.PathFinder;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.world.content.BankPin;
@@ -25,10 +26,6 @@ public class MovementPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-		int size = packet.getSize();
-
-		if (packet.getOpcode() == 248)
-			size -= 14;
 
 		player.setEntityInteraction(null);
 		player.getSkillManager().stopSkilling();
@@ -48,54 +45,34 @@ public class MovementPacketListener implements PacketListener {
 		player.setTeleporting(false);
 		player.setInactive(false);
 
-		final int steps = (size - 5) / 2;
-		if (steps < 0)
-			return;
-		final int firstStepX = packet.readLEShortA();
-		final int[][] path = new int[steps][2];
-		for (int i = 0; i < steps; i++) {
-			path[i][0] = packet.readByte();
-			path[i][1] = packet.readByte();
+		int steps = packet.getSize();
+		if (packet.getOpcode() == 248) {
+			steps -= 14;
 		}
-		final int firstStepY = packet.readLEShort();
-		final Position[] positions = new Position[steps + 1];
-		positions[0] = new Position(firstStepX, firstStepY, player.getPosition().getZ());
-
-		boolean invalidStep = false;
-
-		for (int i = 0; i < steps; i++) {
-			positions[i + 1] = new Position(path[i][0] + firstStepX, path[i][1] + firstStepY,
-					player.getPosition().getZ());
-			int distance = player.getPosition().getDistance(positions[i + 1]);
-			if (distance < -22 || distance > 22) {
-				invalidStep = true;
-				break;
-			}
-		}
-
-		if (invalidStep) {
-			player.getMovementQueue().reset();
-			// System.out.println(""+player.getUsername()+" invalid step at
-			// "+player.getLocation().toString());
+		steps -= 5;
+		steps /= 2;
+		if (steps < 0) {
 			return;
 		}
-
-		for (int index = 0; index < positions.length; index++) {
-			Position last = index == 0 ? player.getPosition() : positions[index - 1];
-			Position next = positions[index];
-			Position dest = positions[steps];
-
-			if (!MovementQueue.canWalk(last, next, player.getSize())) {
+		player.getMovementQueue().reset();
+		if (steps > 50) {
+			return;
+		}
+		int[] offsetsX = player.offsetX;
+		int[] offsetsY = player.offsetY;
+		int firstX = packet.readLEShortA();
+		for (int i = 0; i < steps; i++) {
+			offsetsX[i] = packet.readByte();
+			offsetsY[i] = packet.readByte();
+			if (offsetsX[i] > 104 || offsetsY[i] > 104) {
 				return;
 			}
 		}
-
-		if (player.getMovementQueue().addFirstStep(positions[0])) {
-			for (int i = 1; i < positions.length; i++) {
-				player.getMovementQueue().addStep(positions[i]);
-			}
+		int firstY = packet.readLEShort();
+		player.getMovementQueue().addStep(new Position(firstX, firstY));
+		for (int i = 0; i < steps; i++) {
+			player.getMovementQueue().addStep(new Position(firstX + offsetsX[i], firstY + offsetsY[i]));
 		}
-
 	}
 
 	public boolean checkReqs(Player player, int opcode) {

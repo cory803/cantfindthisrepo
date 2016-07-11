@@ -1,13 +1,11 @@
 package org.scripts.kotlin.content.commands.staff
 
-import com.google.gson.GsonBuilder
 import com.runelive.GameServer
 import com.runelive.GameSettings
 import com.runelive.engine.task.Task
 import com.runelive.engine.task.TaskManager
 import com.runelive.model.*
 import com.runelive.model.container.impl.Equipment
-import com.runelive.model.container.impl.Shop
 import com.runelive.model.definitions.ItemDefinition
 import com.runelive.model.definitions.NpcDefinition
 import com.runelive.model.definitions.WeaponAnimations
@@ -15,24 +13,21 @@ import com.runelive.model.definitions.WeaponInterfaces
 import com.runelive.model.input.impl.SetPassword
 import com.runelive.util.Misc
 import com.runelive.world.World
-import com.runelive.world.content.*
+import com.runelive.world.content.AccountTools
+import com.runelive.world.content.BonusManager
+import com.runelive.world.content.Scoreboard
+import com.runelive.world.content.WellOfGoodwill
 import com.runelive.world.content.clan.ClanChatManager
 import com.runelive.world.content.combat.weapon.CombatSpecial
-import com.runelive.world.content.dialogue.DialogueManager
 import com.runelive.world.content.grandexchange.GrandExchangeOffers
 import com.runelive.world.content.minigames.impl.zulrah.Zulrah
 import com.runelive.world.content.pos.PlayerOwnedShops
 import com.runelive.world.content.skill.SkillManager
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
-import com.runelive.world.content.transportation.TeleportHandler
-import com.runelive.world.content.transportation.TeleportType
 import com.runelive.world.entity.impl.npc.NPC
 import com.runelive.world.entity.impl.player.Player
 import com.runelive.world.entity.impl.player.PlayerSaving
-import java.io.BufferedReader
 import java.io.IOException
-import java.io.InputStreamReader
-import java.net.URL
 
 /**
  * Created by Dave on 10/07/2016.

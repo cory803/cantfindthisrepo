@@ -56,8 +56,6 @@ public class MemberScrolls {
 
 	public static boolean handleScroll(Player player, String name) {
 		int item = player.currentScroll;
-		int funds = 0;
-		int tokens = 0;
 		switch (item) {
 		case 10943:
 			Store.addTokensFromScroll(player, name, 10, item);

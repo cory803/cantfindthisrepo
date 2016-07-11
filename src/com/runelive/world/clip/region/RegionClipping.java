@@ -1,8 +1,6 @@
 package com.runelive.world.clip.region;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -10,12 +8,15 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.logging.Level;
 import java.util.zip.GZIPInputStream;
 
+import com.runelive.cache.Archive;
 import com.runelive.model.GameObject;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.definitions.GameObjectDefinition;
+import com.runelive.util.ByteStream;
 import com.runelive.world.entity.impl.Character;
 
 /**
@@ -27,15 +28,19 @@ import com.runelive.world.entity.impl.Character;
  */
 public final class RegionClipping {
 
-	private static final Map<Integer, RegionClipping> regions = new ConcurrentHashMap<>();
+	private static Map<Integer, RegionClipping> regions;
 
 	private int id;
+	private final int groundFile;
+	private final int objectFile;
 
 	private int[][][] clips = new int[4][][];
 	public GameObject[][][] gameObjects = new GameObject[4][][];
 
-	public RegionClipping(int id) {
+	public RegionClipping(int id, int groundFile, int objectFile) {
 		this.id = id;
+		this.groundFile = groundFile;
+		this.objectFile = objectFile;
 	}
 
 	public int getId() {
@@ -104,134 +109,26 @@ public final class RegionClipping {
 		return (buffer.getShort() & 0xFFFF) - 32768;
 	}
 
-	public static void init() throws IOException {
-
-		class MapDefinition {
-			private final int id;
-			private final int objects;
-			private final int terrain;
-
-			public MapDefinition(int id, int objects, int terrain) {
-				this.id = id;
-				this.objects = objects;
-				this.terrain = terrain;
-			}
-
-		}
-
-		GameObjectDefinition.init();
-
-		Path path = Paths.get("data", "clipping");
-
-		// Decodes map definitions
-		ByteBuffer buffer = ByteBuffer.wrap(Files.readAllBytes(path.resolve("map_index")));
-		Map<Integer, MapDefinition> definitions = new HashMap<>();
-		int size = buffer.getShort() & 0xFFFF;
+	public static void loadRegions(Archive archive) throws Exception {
+		ByteStream in = new ByteStream(archive.getNamedFile("map_index").data());
+		int size = in.getUnsignedShort();
+		int[] regionIds = new int[size];
+		int[] mapGroundFileIds = new int[size];
+		int[] mapObjectsFileIds = new int[size];
 		for (int i = 0; i < size; i++) {
-			int id = buffer.getShort() & 0xFFFF;
-			int terrain = buffer.getShort() & 0xFFFF;
-			int objects = buffer.getShort() & 0xFFFF;
-			definitions.put(id, new MapDefinition(id, objects, terrain));
-			regions.computeIfAbsent(id, RegionClipping::new);
+			regionIds[i] = in.getUnsignedShort();
+			mapGroundFileIds[i] = in.getUnsignedShort();
+			mapObjectsFileIds[i] = in.getUnsignedShort();
 		}
-
-		// Decodes terrain and objects
-		for (MapDefinition definition : definitions.values()) {
-			int id = definition.id;
-			int x = (id >> 8) * 64;
-			int y = (id & 0xFF) * 64;
-
-			byte[] objects = degzip(path.resolve("maps").resolve(definition.objects + ".gz"));
-			byte[] terrain = degzip(path.resolve("maps").resolve(definition.terrain + ".gz"));
-
-			if (objects.length == 0) {
-				// System.out.println("Objects for region: [x, y, id, file] - ["
-				// + x + ", " + y + ", " + id + ", " + definition.objects + "]
-				// do not exist.");
-				continue;
-			}
-
-			if (terrain.length == 0) {
-				// System.out.println("Terrain for region: [x, y, id, file] - ["
-				// + x + ", " + y + ", " + id + ", " + definition.terrain + "]
-				// does not exist.");
-				continue;
-			}
-
-			loadMaps(x, y, ByteBuffer.wrap(objects), ByteBuffer.wrap(terrain));
+		regions = new HashMap<>(size);
+		for (int i = 0; i < size; i++) {
+			regions.put(regionIds[i], new RegionClipping(regionIds[i], mapGroundFileIds[i], mapObjectsFileIds[i]));
 		}
-
-		System.out.println("Loaded " + definitions.size() + " map definitions.");
 	}
 
-	private static void loadMaps(int absX, int absY, ByteBuffer objectStream, ByteBuffer groundStream) {
-		byte[][][] heightMap = new byte[4][64][64];
-		try {
-			for (int z = 0; z < 4; z++) {
-				for (int tileX = 0; tileX < 64; tileX++) {
-					for (int tileY = 0; tileY < 64; tileY++) {
-						while (true) {
-							int tileType = groundStream.get() & 0xFF;
-							if (tileType == 0) {
-								break;
-							} else if (tileType == 1) {
-								groundStream.get();
-								break;
-							} else if (tileType <= 49) {
-								groundStream.get();
-							} else if (tileType <= 81) {
-								heightMap[z][tileX][tileY] = (byte) (tileType - 49);
-							}
-						}
-					}
-				}
-			}
-			for (int i = 0; i < 4; i++) {
-				for (int i2 = 0; i2 < 64; i2++) {
-					for (int i3 = 0; i3 < 64; i3++) {
-						if ((heightMap[i][i2][i3] & 1) == 1) {
-							int height = i;
-							if ((heightMap[1][i2][i3] & 2) == 2) {
-								height--;
-							}
-							if (height >= 0 && height <= 3) {
-								addClipping(absX + i2, absY + i3, height, 0x200000);
-							}
-						}
-					}
-				}
-			}
-			int objectId = -1;
-			int incr;
-			while ((incr = readSmart(objectStream)) != 0) {
-				objectId += incr;
-				int location = 0;
-				int incr2;
-				while ((incr2 = readSmart(objectStream)) != 0) {
-					location += incr2 - 1;
-					int localX = location >> 6 & 0x3f;
-					int localY = location & 0x3f;
-					int height = location >> 12;
-					int objectData = objectStream.get() & 0xFF;
-					int type = objectData >> 2;
-					int direction = objectData & 0x3;
-					if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
-						continue;
-					}
-					if ((heightMap[1][localX][localY] & 2) == 2) {
-						height--;
-					}
-					if (height >= 0 && height <= 3)
-						addObject(objectId, absX + localX, absY + localY, height, type, direction); // Add
-					// object
-					// to
-					// clipping
-				}
-			}
-		} catch (Exception cause) {
-			System.out.println("Unable to load maps in region: " + ((((absX >> 3) / 8) << 8) + ((absY >> 3) / 8))
-					+ " pos: " + absX + ", " + absY);
-		}
+	public static RegionClipping loadRegion(int x, int y) {
+		RegionClipping region = regions.get(((x >> 6) << 8) + (y >> 6));
+		return region;
 	}
 
 	public static void addClipping(int x, int y, int height, int shift) {
@@ -354,7 +251,7 @@ public final class RegionClipping {
 	}
 
 	private static void addClippingForVariableObject(int x, int y, int height, int type, int direction, boolean flag) {
-		if (type == 0) {
+		/*if (type == 0) {
 			if (direction == 0) {
 				addClipping(x, y, height, 128);
 				addClipping(x - 1, y, height, 8);
@@ -450,7 +347,7 @@ public final class RegionClipping {
 					addClipping(x - 1, y, height, 4096);
 				}
 			}
-		}
+		}*/
 	}
 
 	private static void addClippingForSolidObject(int x, int y, int height, int xLength, int yLength, boolean flag) {

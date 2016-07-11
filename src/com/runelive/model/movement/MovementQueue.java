@@ -62,6 +62,10 @@ public final class MovementQueue {
 			this.direction = direction;
 		}
 
+		public Position getPosition() {
+			return position;
+		}
+
 		@Override
 		public String toString() {
 			return Point.class.getName() + " [direction=" + direction + ", position=" + position + "]";
@@ -175,8 +179,9 @@ public final class MovementQueue {
 		final int deltaX = x - last.position.getX();
 		final int deltaY = y - last.position.getY();
 		final Direction direction = Direction.fromDeltas(deltaX, deltaY);
-		if (direction != Direction.NONE)
+		if (direction != Direction.NONE) {
 			points.add(new Point(new Position(x, y, heightLevel), direction));
+		}
 	}
 
 	/**
@@ -195,10 +200,16 @@ public final class MovementQueue {
 			}
 		}
 		final Point last = getLast();
-		final int x = step.getX();
-		final int y = step.getY();
-		int deltaX = x - last.position.getX();
-		int deltaY = y - last.position.getY();
+		int deltaX;
+		int deltaY;
+		if (last != null) {
+			deltaX = step.getX() - last.getPosition().getX();
+			deltaY = step.getY() - last.getPosition().getY();
+		} else {
+			Position position = character.getPosition();
+			deltaX = step.getX() - position.getX();
+			deltaY = step.getY() - position.getY();
+		}
 		final int max = Math.max(Math.abs(deltaX), Math.abs(deltaY));
 		for (int i = 0; i < max; i++) {
 			if (deltaX < 0)
@@ -209,7 +220,7 @@ public final class MovementQueue {
 				deltaY++;
 			else if (deltaY > 0)
 				deltaY--;
-			addStep(x - deltaX, y - deltaY, step.getZ());
+			addStep(step.getX() - deltaX, step.getY() - deltaY, step.getZ());
 		}
 	}
 
@@ -223,7 +234,7 @@ public final class MovementQueue {
 	}
 
 	public static boolean canWalk(Position from, Position to, int size) {
-		return RegionClipping.canMove(from, to, size, size);
+		return true;//RegionClipping.canMove(from, to, size, size);
 	}
 
 	/*

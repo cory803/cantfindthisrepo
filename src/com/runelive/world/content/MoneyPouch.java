@@ -146,8 +146,7 @@ public class MoneyPouch {
 		int bankAmt = player.getBank(Bank.getTabForItem(player, 995)).getAmount(995);
 		int totalAmount = bankAmt + amount;
 		player.setCurrentBankTab(Bank.getTabForItem(player, 995));
-		if (player.getBank(player.getCurrentBankTab()).getFreeSlots() <= 0
-				&& !player.getBank(player.getCurrentBankTab()).contains(995)) {
+		if (player.getBank(player.getCurrentBankTab()).getFreeSlots() <= 0 && !player.getBank(player.getCurrentBankTab()).contains(995)) {
 			player.getPacketSender().sendMessage("Your bank is currently full.");
 			return;
 		}
@@ -160,8 +159,7 @@ public class MoneyPouch {
 			player.setMoneyInPouch(player.getMoneyInPouch() - canWithdraw);
 			player.getBank(Bank.getTabForItem(player, 995)).add(995, canWithdraw);
 			player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
-			player.getPacketSender()
-					.sendMessage("You could only withdraw " + currencyFormatter.format(canWithdraw) + " coins.");
+			player.getPacketSender().sendMessage("You could only withdraw " + currencyFormatter.format(canWithdraw) + " coins.");
 		} else {
 			player.getBank(player.getCurrentBankTab()).add(995, amount);
 			player.setMoneyInPouch(player.getMoneyInPouch() - amount);

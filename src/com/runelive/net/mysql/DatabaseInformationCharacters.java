@@ -16,6 +16,7 @@ public class DatabaseInformationCharacters {
 
 	public static String database = "runelive";
 
+
 	public static int port = 3306;
 
 }

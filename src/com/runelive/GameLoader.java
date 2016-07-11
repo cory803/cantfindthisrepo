@@ -7,6 +7,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import com.runelive.cache.Archive;
+import com.runelive.model.definitions.*;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.util.HashedWheelTimer;
@@ -17,10 +19,6 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
 import com.runelive.model.container.impl.Shop.ShopManager;
-import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.definitions.NPCDrops;
-import com.runelive.model.definitions.NpcDefinition;
-import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.net.PipelineFactory;
 import com.runelive.net.security.ConnectionHandler;
 import com.runelive.world.clip.region.RegionClipping;
@@ -62,9 +60,10 @@ public final class GameLoader {
 		TaskManager.submit(new ServerTimeUpdateTask());
 	}
 
-	public void init() throws IOException {
+	public void init() throws Exception {
 		ConnectionHandler.init();
-		RegionClipping.init();
+		RegionClipping.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
+		GameObjectDefinition.init();
 		CustomObjects.init();
 		ItemDefinition.init().load();
 		Lottery.init();
