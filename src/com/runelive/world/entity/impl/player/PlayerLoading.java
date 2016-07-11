@@ -103,7 +103,7 @@ public class PlayerLoading {
 				}
 			}
 
-			File rooms = new File("./housing/rooms/" + player.getUsername() + ".ser");
+			/*File rooms = new File("./housing/rooms/" + player.getUsername() + ".ser");
 			if (rooms.exists()) {
 				FileInputStream fileIn = new FileInputStream(rooms);
 				ObjectInputStream in = new ObjectInputStream(fileIn);
@@ -128,7 +128,7 @@ public class PlayerLoading {
 				player.setHouseFurniture((ArrayList<HouseFurniture>) in.readObject());
 				in.close();
 				fileIn.close();
-			}
+			}*/
 			player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
 			// player.setLoginQue(true);
 			/*
@@ -378,6 +378,14 @@ public class PlayerLoading {
 
 		if (reader.has("completed-daily-task")) {
 			player.completedDailyTask = reader.get("completed-daily-task").getAsBoolean();
+		}
+
+		if (reader.has("barrows-chests-looted")) {
+			player.barrowsChestsLooted = reader.get("barrows-chests-looted").getAsInt();
+		}
+
+		if (reader.has("barrows-chest-rewards")) {
+			player.barrowsChestRewards = reader.get("barrows-chest-rewards").getAsInt();
 		}
 
 		if (reader.has("online-status")) {

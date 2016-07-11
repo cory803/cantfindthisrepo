@@ -9,6 +9,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.util.Misc;
@@ -42,6 +43,16 @@ public class DungeoneeringParty {
 	private boolean hasEnteredDungeon;
 	private int kills, deaths;
 	private boolean killedBoss;
+
+	public void rollPet(Player p) {
+		int petChance = Misc.inclusiveRandom(1, 25_000);
+		if(petChance == 1) {
+			p.getInventory().add(19891, 1);
+			p.getPacketSender().sendMessage("As you leave, you feel something jump into your back pack.");
+			World.sendMessage("<icon=1><col=FF8C38>" + p.getUsername() + " has been recieved a Sneakerpeeper spawn from the");
+			World.sendMessage("Dungeoneering skill!");
+		}
+	}
 
 	public void invite(Player p) {
 		if (getOwner() == null || p == getOwner())
@@ -184,9 +195,9 @@ public class DungeoneeringParty {
 				WeaponInterfaces.assign(p, p.getEquipment().get(Equipment.WEAPON_SLOT));
 				WeaponAnimations.assign(p, p.getEquipment().get(Equipment.WEAPON_SLOT));
 				BonusManager.update(p);
-				p.getPacketSender().sendMessage("<img=4> <col=660000>You've received some Dungeoneering experience and "
-						+ tokens + " Dungeoneering tokens.");
+				p.getPacketSender().sendMessage("<col=660000>You've received some Dungeoneering experience and " + tokens + " Dungeoneering tokens.");
 				PlayerPanel.refreshPanel(p);
+				rollPet(p);
 			}
 			if (p == owner) {
 				hasEnteredDungeon = killedBoss = false;

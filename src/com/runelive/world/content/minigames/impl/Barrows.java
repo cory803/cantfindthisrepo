@@ -231,15 +231,24 @@ public class Barrows {
 				player.getInventory().add(randomRunes(), 25 + Misc.getRandom(200));
 				player.getInventory().add(randomRunes(), 25 + Misc.getRandom(300));
 				player.getInventory().add(995, Misc.inclusiveRandom(1500, 25000));
+				player.barrowsChestsLooted++;
 				if (Misc.getRandom(100) >= 87) {
 					int b = randomBarrows();
+					int dragonKite = Misc.inclusiveRandom(1, 132);
 					player.getInventory().add(b, 1);
-					World.sendMessage("<icon=1><col=FF8C38> " + player.getUsername() + " has just received "
-							+ ItemDefinition.forId(b).getName() + " from the Barrows minigame!");
+					World.sendMessage("<icon=1><col=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(b).getName() + " from Barrows!");
+					player.barrowsChestRewards++;
+					if(dragonKite == 1) {
+						player.getInventory().add(11613, 1);
+						World.sendMessage("<icon=1><col=FF8C38> " + player.getUsername() + " has been rewarded a "
+								+ ItemDefinition.forId(11613).getName() + " from Barrows!");
+						player.barrowsChestRewards++;
+					}
 				}
 				player.getPacketSender().sendCameraShake(3, 2, 3, 2);
 				player.getPacketSender().sendMessage("The cave begins to collapse!");
 				TaskManager.submit(new CeilingCollapseTask(player));
+				player.getPacketSender().sendMessage("You have looted this chest "+player.getBarrowsChestsLooted()+" times and recieved "+player.getBarrowsChestRewards()+" Barrows pieces.");
 			}
 			break;
 		case 6744:
@@ -446,8 +455,7 @@ public class Barrows {
 	public static int runes[] = { 4740, 558, 560, 565 };
 
 	public static int barrows[] = { 4708, 4710, 4712, 4714, 4716, 4718, 4720, 4722, 4724, 4726, 4728, 4730, 4732, 4734,
-			4736, 4738, 4745, 4747, 4749, 4751, 4753, 4755, 4757, 4759, 4708, 4710, 4712, 4714, 4716, 4718, 4720, 4722,
-			4724, 4726, 4728, 4730, 4732, 4734, 4736, 4738, 4745, 4747, 4749, 4751, 4753, 4755, 4757, 4759, 11613 };
+			4736, 4738, 4745, 4747, 4749, 4751, 4753, 4755, 4757, 4759};
 
 	public static final int[][] brokenBarrows = { { 4708, 4860 }, { 4710, 4866 }, { 4712, 4872 }, { 4714, 4878 },
 			{ 4716, 4884 }, { 4720, 4896 }, { 4718, 4890 }, { 4720, 4896 }, { 4722, 4902 }, { 4732, 4932 },

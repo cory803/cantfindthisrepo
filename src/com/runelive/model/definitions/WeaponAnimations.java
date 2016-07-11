@@ -56,6 +56,10 @@ public final class WeaponAnimations {
 			playerStandIndex = 0x328;
 			playerWalkIndex = 0x333;
 			playerRunIndex = 824;
+		} else if (weaponName.contains("with zanik")) {
+			playerStandIndex = 4193;
+			playerWalkIndex = 4194;
+			playerRunIndex = 824;
 		} else if (weaponName.contains("longsword") || weaponName.contains("scimitar")) {
 			playerStandIndex = 15069;// 12021;
 			playerRunIndex = 15070;// 12023;

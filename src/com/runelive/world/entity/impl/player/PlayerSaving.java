@@ -152,7 +152,7 @@ public class PlayerSaving {
 			/*
 			 * Housing
 			 */
-			FileOutputStream fileOut = new FileOutputStream("./housing/rooms/" + player.getUsername() + ".ser");
+			/*FileOutputStream fileOut = new FileOutputStream("./housing/rooms/" + player.getUsername() + ".ser");
 			ObjectOutputStream out = new ObjectOutputStream(fileOut);
 			out.writeObject(player.getHouseRooms());
 			out.close();
@@ -168,7 +168,7 @@ public class PlayerSaving {
 			out = new ObjectOutputStream(fileOut);
 			out.writeObject(player.getHousePortals());
 			out.close();
-			fileOut.close();
+			fileOut.close();*/
 		} catch (Exception e) {
 			// An error happened while saving.
 			GameServer.getLogger().log(Level.WARNING, "An error has occured while saving a character file!", e);
@@ -210,6 +210,8 @@ public class PlayerSaving {
 		object.addProperty("daily-task", new Integer(player.dailyTask));
 		object.addProperty("daily-task-progress", new Integer(player.dailyTaskProgress));
 		object.addProperty("completed-daily-task", new Boolean(player.completedDailyTask));
+		object.addProperty("barrows-chests-looted", new Integer(player.barrowsChestsLooted));
+		object.addProperty("barrows-chest-rewards", new Integer(player.barrowsChestRewards));
 		object.addProperty("online-status", player.getRelations().getStatus().name());
 		object.addProperty("jailed-status", new Boolean(player.isJailed()));
 		object.addProperty("xp-rate", new Boolean(player.getXpRate()));

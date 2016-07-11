@@ -26,6 +26,12 @@ Re-wrote commands
 Removed Ghost Town.
 Frost Dragons in the Wilderness now drop noted Dragonbones.
 Cooking & mining experience are now the same as RuneScapes.
+When doing Barrows your Chest count & Item Reward count, is now tracked.
+Barrows Minigames reward system has been re-written.
+Removed unused construction save files.
+Dragon Kiteshield is now 1/132 Chests
+Added walk, stand and run animations for Crate with Zanik
+Fixed Sagittarian chaps.
 
 The skills currently go by RuneScape experience are:
 

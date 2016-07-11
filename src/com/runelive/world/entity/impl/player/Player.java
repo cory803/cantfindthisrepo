@@ -587,6 +587,8 @@ public class Player extends Character {
 	private int lastBoss = 0;
 	private int warningPoints = 0;
 	private int votesClaimed = 0;
+	public int barrowsChestsLooted = 0;
+	public int barrowsChestRewards = 0;
 	private int[] brawlerCharges = new int[9];
 	private int[] forceMovement = new int[7];
 	private int[] leechedBonuses = new int[7];
@@ -3045,6 +3047,14 @@ public class Player extends Character {
 
 	public void setCorruptMorrigansCharges(int[] corruptMorrigansCharges) {
 		this.corruptMorrigansCharges = corruptMorrigansCharges;
+	}
+
+	public int getBarrowsChestsLooted() {
+		return barrowsChestsLooted;
+	}
+
+	public int getBarrowsChestRewards() {
+		return barrowsChestRewards;
 	}
 
 	public int setCorruptVestaCharges(int index, int charges) {
