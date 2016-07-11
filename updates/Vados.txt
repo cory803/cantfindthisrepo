@@ -25,6 +25,20 @@ Added alot of Mobs to the Wilderness Dungeon
 Re-wrote commands
 Removed Ghost Town.
 Frost Dragons in the Wilderness now drop noted Dragonbones.
+Cooking & mining experience are now the same as RuneScapes.
+
+The skills currently go by RuneScape experience are:
+
+Combat Skills
+Slayer
+Magic
+Woodcutting
+Firemaking
+Mining
+Smithing
+Fishing
+Cooking
+
 
 Polls:
 

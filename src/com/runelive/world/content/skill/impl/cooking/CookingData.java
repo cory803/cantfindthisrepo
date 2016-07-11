@@ -13,76 +13,44 @@ import com.runelive.world.entity.impl.player.Player;
  */
 public enum CookingData {
 
-	SHRIMP(317, 315, 7954, 1, 1500, 33, "shrimp"), ANCHOVIES(321, 319, 323, 1, 1500, 34, "anchovies"), TROUT(335, 333,
-			343, 15, 3500, 50,
-			"trout"), COD(341, 339, 343, 18, 3750, 54, "cod"), SALMON(331, 329, 343, 25, 3750, 58, "salmon"), TUNA(359,
-					361, 367, 30, 5000, 58, "tuna"), LOBSTER(377, 379, 381, 40, 6000, 74, "lobster"), BASS(363, 365,
-							367, 40, 8000, 75,
-							"bass"), SWORDFISH(371, 373, 375, 45, 7000, 86, "swordfish"), MONKFISH(7944, 7946, 7948, 62,
-									7500, 91, "monkfish"), SHARK(383, 385, 387, 80, 10500, 94, "shark"), SEA_TURTLE(395,
-											397, 399, 82, 10550, 105, "sea turtle"), MANTA_RAY(389, 391, 393, 91, 10550,
-													99, "manta ray"), ROCKTAIL(15270, 15272, 15274, 92, 11250, 99,
-															"rocktail"), CAVEFISH(15264, 15266, 15268, 88, 8560, 94,
-																	"cavefish"), KARAMBWAN(3142, 3144, 3148, 30, 9500,
-																			90, "karambwan"), HEIM_CRAB(17797, 18159,
-																					18179, 5, 50, 40,
-																					"heim crab"), RED_EYE(17799, 18161,
-																							18181, 10, 75, 45,
-																							"red-eye"), DUSK_EEL(17801,
-																									18163, 18183, 12,
-																									82, 47,
-																									"dusk eel"), GIANT_FLATFISH(
-																											17803,
-																											18165,
-																											18185, 15,
-																											90, 50,
-																											"giant flatfish"), SHORT_FINNED_EEL(
-																													17805,
-																													18167,
-																													18187,
-																													18,
-																													114,
-																													54,
-																													"short-finned eel"), WEB_SNIPPER(
-																															17807,
-																															18169,
-																															18189,
-																															30,
-																															211,
-																															60,
-																															"web snipper"), BOULDABASS(
-																																	17809,
-																																	18171,
-																																	18191,
-																																	40,
-																																	288,
-																																	75,
-																																	"bouldabass"), SALVE_EEL(
-																																			17811,
-																																			18173,
-																																			18193,
-																																			60,
-																																			415,
-																																			81,
-																																			"salve eel"), BLUE_CRAB(
-																																					17813,
-																																					18175,
-																																					18195,
-																																					75,
-																																					1066,
-																																					92,
-																																					"blue crab");
+	SHRIMP(317, 315, 7954, 1, 30, 33, false, "shrimp"),
+	ANCHOVIES(321, 319, 323, 1, 30, 34, false, "anchovies"),
+	TROUT(335, 333, 343, 15, 70, 50, false, "trout"),
+	COD(341, 339, 343, 18, 75, 54,false, "cod"),
+	SALMON(331, 329, 343, 25, 90, 58, false, "salmon"),
+	TUNA(359, 361, 367, 30, 100, 58, false, "tuna"),
+	LOBSTER(377, 379, 381, 40, 120, 74, true, "lobster"),
+	BASS(363, 365, 367, 40, 130, 75, false, "bass"),
+	SWORDFISH(371, 373, 375, 45, 140, 86, true, "swordfish"),
+	MONKFISH(7944, 7946, 7948, 62, 150, 92, true, "monkfish"),
+	SHARK(383, 385, 387, 80, 210, 99, true, "shark"),
+	SEA_TURTLE(395, 397, 399, 82, 212, 105, false, "sea turtle"),
+	MANTA_RAY(389, 391, 393, 91, 216, 105, false, "manta ray"),
+	ROCKTAIL(15270, 15272, 15274, 92, 250, 94, true, "rocktail"),
+	CAVEFISH(15264, 15266, 15268, 88, 214, 94, true, "cavefish"),
+	KARAMBWAN(3142, 3144, 3148, 30, 190, 90, false, "karambwan"),
+	HEIM_CRAB(17797, 18159, 18179, 5, 22, 40, false, "heim crab"),
+	RED_EYE(17799, 18161, 18181, 10, 41, 45, false, "red-eye"),
+	DUSK_EEL(17801, 18163, 18183, 12, 61, 47, false, "dusk eel"),
+	GIANT_FLATFISH(17803, 18165, 18185, 15, 82, 50, false, "giant flatfish"),
+	SHORT_FINNED_EEL(17805, 18167, 18187, 18, 103, 54, false, "short-finned eel"),
+	WEB_SNIPPER(17807, 18169, 18189, 30, 124, 60, false, "web snipper"),
+	BOULDABASS(17809, 18171, 18191, 40, 146, 75, false, "bouldabass"),
+	SALVE_EEL(17811, 18173, 18193, 60, 168, 81, false, "salve eel"),
+	BLUE_CRAB(17813, 18175, 18195, 75, 191, 92, false, "blue crab");
 
 	int rawItem, cookedItem, burntItem, levelReq, xp, stopBurn;
+	boolean withGloves;
 	String name;
 
-	CookingData(int rawItem, int cookedItem, int burntItem, int levelReq, int xp, int stopBurn, String name) {
+	CookingData(int rawItem, int cookedItem, int burntItem, int levelReq, int xp, int stopBurn, boolean withGloves, String name) {
 		this.rawItem = rawItem;
 		this.cookedItem = cookedItem;
 		this.burntItem = burntItem;
 		this.levelReq = levelReq;
 		this.xp = xp;
 		this.stopBurn = stopBurn;
+		this.withGloves = withGloves;
 		this.name = name;
 	}
 
@@ -108,6 +76,10 @@ public enum CookingData {
 
 	public int getStopBurn() {
 		return stopBurn;
+	}
+
+	public boolean getWithGloves() {
+		return withGloves;
 	}
 
 	public String getName() {
