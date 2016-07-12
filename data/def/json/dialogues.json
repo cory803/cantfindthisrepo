@@ -2172,8 +2172,8 @@
         "id": 221,
         "type": "OPTION",
         "lines": 3,
-        "line1": "Location of Shooting star (1m)",
-        "line2": "Open your shop",
+        "line1": "Shooting star location (1,000,000 Coins)",
+        "line2": "Exchange Star dust please!",
         "line3": "Cancel",
         "next": -1,
         "npcId": -1

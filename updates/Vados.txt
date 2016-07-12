@@ -43,6 +43,35 @@ At 99 RuneCrafting, you will make 10 Armadyl Runes.
 Deso RuneSpan EXP has been updated to fit the latest experience rates.
 Prayer now uses RuneScape experience rates, Ashes have been added.
 
+Impious ashes droppers (100%):
+Imp's
+Icefield's
+Pyrefiend's
+
+Accursed ashes droppers (100%):
+Lesser Demon's
+Greater Demon's
+
+Infernal ashes droppers (100%):
+K'ril Tsutsaroth
+Zakl'n Gritch
+Tstanon Karlak
+Balfrug Kreeyath
+Tormented Demon's
+Black Demon's
+Abyssal Demon's
+Nechryaels'
+
+The bug where your Money Pouch wouldn't update after paying Miner Magnus 1,000,000 for the Shooting Star's location has now now been corrected.
+Remove Star Dust Exchange shop, you can still exchange your stardust at Miner Magnus for:
+				Mining experience at the rate of 70 EXP P/Stardust
+				1,000 Coins P/Stardust
+				1 Mithril Ore per every 3 stardust
+				1 Adamantite Ore per every 4 stardust
+				1 Runite Ore per every 5 stardust
+                When exchanging more than 200 Stardust you have a chance (1/256) of recieving a Gilded Dragon Pickaxe or a golden mining piece.
+
+
 The skills currently go by RuneScape experience are:
 
 Combat Skills

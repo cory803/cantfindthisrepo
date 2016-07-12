@@ -1784,13 +1784,11 @@ public class DialogueOptions {
 						player.getPacketSender()
 								.sendMessage("The miner did not want to jew you; so he has refunded your money pouch.");
 					} else {
-						DialogueManager.sendStatement(player,
-								"A shooting star has crashed at " + ShootingStar.star + ".");
-						player.getPacketSender()
-								.sendMessage("A shooting star has crashed at " + ShootingStar.star + ".");
-						player.setMoneyInPouch(player.getMoneyInPouch() - 1000000);
-						player.getPacketSender()
-								.sendMessage("The miner took 1m out of your money pouch for the information.");
+						DialogueManager.sendStatement(player, "A shooting star has crashed at " + ShootingStar.star + ".");
+						player.getPacketSender().sendMessage("A shooting star has crashed at " + ShootingStar.star + ".");
+						player.setMoneyInPouch(player.getMoneyInPouch() - 1_000_000);
+						player.getPacketSender().sendMessage("The miner took 1,000,000 out of your money pouch for the information.");
+						player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
 					}
 				} else {
 					player.getPacketSender().sendMessage("You do not have enough money in your money pouch.");
@@ -2002,7 +2000,8 @@ public class DialogueOptions {
 				}
 				break;
 			case 221:
-				ShopManager.getShops().get(78).open(player);
+				//ShopManager.getShops().get(78).open(player);
+				ShootingStar.starDustExchange(player);
 				break;
 			case 186:
 				player.getPacketSender()

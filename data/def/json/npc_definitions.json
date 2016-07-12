@@ -137659,7 +137659,7 @@
 {
 "id": 10216,
 "name": "Icefiend",
-"examine": "Chilly.",
+"examine": "A small ice demon.",
 "combat": 88,
 "size": 1,
 "attackable": true,
