@@ -47,6 +47,7 @@ Mining
 Smithing
 Fishing
 Cooking
+Summoning
 
 
 Polls:
