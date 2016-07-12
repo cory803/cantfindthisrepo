@@ -54,7 +54,7 @@ public class RunecraftingData {
 		EARTH_RUNE(557, 9, 6, 2481, false), FIRE_RUNE(554, 14, 7, 2482, false), BODY_RUNE(559, 20, 7, 2483, false),
 		COSMIC_RUNE(564, 27, 8, 2484, true), CHAOS_RUNE(562, 35, 8, 2487, true), ASTRAL_RUNE(9075, 40, 9, 17010, true),
 		NATURE_RUNE(561, 44, 9, 2486, true), LAW_RUNE(563, 54, 9, 2485, true), DEATH_RUNE(560, 65, 10, 2488, true),
-		BLOOD_RUNE(565, 77, 11, 30624, true), ARMADYL_RUNE(21083, 72, 10, 26847, true);
+		BLOOD_RUNE(565, 77, 11, 30624, true), ARMADYL_RUNE(21773, 72, 10, 26847, true);
 
 		RuneData(int rune, int levelReq, int xpReward, int altarObjectID, boolean pureRequired) {
 			this.runeID = rune;

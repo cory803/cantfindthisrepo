@@ -76,7 +76,8 @@ You can grind 1 Shard of Armadyl with a pestle & mortar for 8 Dust of Armadyl wh
 You can combine 100 Shards of Armadyl to create an orb of Armadyl (requires 80 Crafting, tradeable).
 You can use an Orb of Armadyl on an Battlestaff to create an Armadyl Battlestaff (requires 85 Crafting, tradeable).
 Shards of Armadyl & Dust of Armadyl are now stackable.
-Armadyl Battlestaff is now wieldable (no stats yet)
+Armadyl Battlestaff is now wieldable (no stats yet).
+Armadyl runes now use the correct id (21773)
 
 The skills currently go by RuneScape experience are:
 
