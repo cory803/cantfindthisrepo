@@ -3,8 +3,10 @@ package com.runelive.world.content.skill.impl.prayer;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
+import com.runelive.model.Graphic;
 import com.runelive.model.Item;
 import com.runelive.model.Skill;
+import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.Sounds;
@@ -31,6 +33,26 @@ public class Prayer {
 		final BonesData currentBone = BonesData.forId(itemId);
 		if (currentBone == null)
 			return;
+		if(ItemDefinition.forId(itemId).getName().contains("ashes")) {
+			player.getSkillManager().stopSkilling();
+			player.getPacketSender().sendInterfaceRemoval();
+			player.performAnimation(new Animation(2292));
+			/*switch(BonesData.forId(itemId)) {
+				case IMPIOUS_ASHES:
+					player.performGraphic(new Graphic(56));
+					break;
+				case ACCURSED_ASHES:
+					player.performGraphic(new Graphic(47));
+					break;
+				case INFERNAL_ASHES:
+					player.performGraphic(new Graphic(40));
+					break;
+			}*/
+			player.getPacketSender().sendMessage("You scatter the ashes...");
+			final Item bone = new Item(itemId);
+			player.getInventory().delete(bone);
+			return;
+		}
 		player.getSkillManager().stopSkilling();
 		player.getPacketSender().sendInterfaceRemoval();
 		player.performAnimation(new Animation(827));

@@ -41,6 +41,7 @@ At 77 RuneCrafting, you will make 8 Armadyl Runes.
 At 88 RuneCrafting, you will make 9 Armadyl Runes.
 At 99 RuneCrafting, you will make 10 Armadyl Runes.
 Deso RuneSpan EXP has been updated to fit the latest experience rates.
+Prayer now uses RuneScape experience rates, Ashes have been added.
 
 The skills currently go by RuneScape experience are:
 
@@ -55,6 +56,7 @@ Fishing
 Cooking
 Summoning
 RuneCrafting
+Prayer
 
 
 Polls:
