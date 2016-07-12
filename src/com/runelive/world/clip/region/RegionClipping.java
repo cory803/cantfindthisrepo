@@ -6,12 +6,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.zip.GZIPInputStream;
 
+import com.runelive.GameServer;
 import com.runelive.cache.Archive;
+import com.runelive.cache.Container;
 import com.runelive.model.GameObject;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
@@ -33,6 +36,7 @@ public final class RegionClipping {
 	private int id;
 	private final int groundFile;
 	private final int objectFile;
+	private boolean loaded;
 
 	private int[][][] clips = new int[4][][];
 	public GameObject[][][] gameObjects = new GameObject[4][][];
@@ -69,29 +73,6 @@ public final class RegionClipping {
 		clips[height][x - regionAbsX][y - regionAbsY] |= shift;
 	}
 
-	// TODO: Move to a utility class
-	static byte[] degzip(Path path) throws IOException {
-		byte[] bytes = Files.readAllBytes(path);
-		if (bytes.length == 0) {
-			return bytes;
-		}
-
-		ByteArrayOutputStream os = new ByteArrayOutputStream();
-		try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
-			byte[] buffer = new byte[Byte.BYTES * 1024];
-
-			while (true) {
-				int read = gzip.read(buffer);
-				if (read == -1) {
-					break;
-				}
-
-				os.write(buffer, 0, read);
-			}
-		}
-		return os.toByteArray();
-	}
-
 	/**
 	 * Reads a 'smart' (either a {@code byte} or {@code short} depending on the
 	 * value) from the specified buffer.
@@ -126,6 +107,91 @@ public final class RegionClipping {
 		}
 	}
 
+	void load() {
+		if (loaded) {
+			return;
+		}
+		loaded = true;
+		try {
+			byte[] objectDataBytes = GameServer.cache.getFile(4, objectFile);
+			byte[] groundDataBytes = GameServer.cache.getFile(4, groundFile);
+			if (objectDataBytes == null || objectDataBytes.length == 0 || groundDataBytes == null || groundDataBytes.length == 0) {
+				System.err.println("Could not get " + (objectDataBytes == null || objectDataBytes.length == 0 ? ("object file " + objectFile) : ("ground file " + groundFile)));
+				return;
+			}
+			ByteStream objectData = new ByteStream(Container.unpack(objectDataBytes));
+			ByteStream groundData = new ByteStream(Container.unpack(groundDataBytes));
+			int regionX = (id >> 8) * 64;
+			int regionY = (id & 0xFF) * 64;
+			byte[][][] someArray = new byte[4][64][64];
+			for (int i = 0; i < 4; i++) {
+				for (int i2 = 0; i2 < 64; i2++) {
+					for (int i3 = 0; i3 < 64; i3++) {
+						while (true) {
+							int v = groundData.getUnsignedByte();
+							if (v == 0) {
+								break;
+							} else if (v == 1) {
+								groundData.skip();
+								break;
+							} else if (v <= 49) {
+								groundData.skip();
+							} else if (v <= 81) {
+								someArray[i][i2][i3] = (byte) (v - 49);
+							}
+						}
+					}
+				}
+			}
+			for (int i = 0; i < 4; i++) {
+				for (int i2 = 0; i2 < 64; i2++) {
+					for (int i3 = 0; i3 < 64; i3++) {
+						if ((someArray[i][i2][i3] & 1) == 1) {
+							int z = i;
+							if ((someArray[1][i2][i3] & 2) == 2) {
+								z--;
+							}
+							if (z >= 0 && z <= 3) {
+								int realX = regionX + i2;
+								int realY = regionY + i3;
+								addClipping(realX, realY, z, 0x200000);
+							}
+						}
+					}
+				}
+			}
+			int objectId = -1;
+			int incr;
+			while ((incr = objectData.getUSmart()) != 0) {
+				objectId += incr;
+				int location = 0;
+				int incr2;
+				while ((incr2 = objectData.getUSmart()) != 0) {
+					location += incr2 - 1;
+					int localX = location >> 6 & 0x3f;
+					int localY = location & 0x3f;
+					int height = location >> 12;
+					int info = objectData.getUnsignedByte();
+					int type = info >> 2;
+					int direction = info & 0x3;
+					if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
+						continue;
+					}
+					if ((someArray[1][localX][localY] & 2) == 2) {
+						height--;
+					}
+					if (height >= 0 && height <= 3) {
+						addObject(objectId, regionX + localX, regionY + localY, height, type, direction);
+					}
+				}
+			}
+
+		} catch (Throwable e) {
+			System.err.println("Corrupt map: g-" + groundFile + " o-" + objectFile + " loc-(" + ((id >> 8) * 64) + ", " + ((id & 0xFF) * 64) + ")");
+			e.printStackTrace();
+		}
+	}
+
 	public static RegionClipping loadRegion(int x, int y) {
 		RegionClipping region = regions.get(((x >> 6) << 8) + (y >> 6));
 		return region;
@@ -154,10 +220,11 @@ public final class RegionClipping {
 	}
 
 	public static RegionClipping forPosition(Position position) {
-		int regionX = position.getX() >> 3;
-		int regionY = position.getY() >> 3;
-		int regionId = ((regionX / 8) << 8) + (regionY / 8);
-		return regions.get(regionId);
+		RegionClipping region = regions.get(((position.getX() >> 6) << 8) + (position.getY() >> 6));
+		if (region != null) {
+			region.load();
+		}
+		return region;
 	}
 
 	public static int[] getObjectInformation(Position position) {

@@ -113,6 +113,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		gameObject.setSize(size);
 		if (player.getMovementQueue().isLockMovement())
 			return;
+
 		if (GameSettings.DEBUG_MODE) {
 			// PlayerLogs.log(player, "" + player.getUsername()
 			// + " in ObjectActionPacketListener: " + id + " -
@@ -929,8 +930,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							break;
 						case 5959:
 							if (player.getTeleblockTimer() > 0) {
-								player.getPacketSender()
-										.sendMessage("A magical spell is blocking you from teleporting.");
+								player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
 								return;
 							}
 							if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3956) {
@@ -2142,8 +2142,9 @@ public class ObjectActionPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-		if (player.isTeleporting() || player.isPlayerLocked() || player.getMovementQueue().isLockMovement())
+		if (player.isTeleporting() || player.isPlayerLocked() || player.getMovementQueue().isLockMovement()) {
 			return;
+		}
 		switch (packet.getOpcode()) {
 		case FIRST_CLICK:
 			firstClick(player, packet);
