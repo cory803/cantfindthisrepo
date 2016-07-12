@@ -32,6 +32,9 @@ Removed unused construction save files.
 Dragon Kiteshield is now 1/132 Chests
 Added walk, stand and run animations for Crate with Zanik
 Fixed Sagittarian chaps.
+Charming Imp now collects Talon beast, Obsidian & Abyssal Charms.
+Talonbeast, Obsidian & Abyssal Charms are now stackable.
+Summoning now uses RuneScape experience.
 
 The skills currently go by RuneScape experience are:
 

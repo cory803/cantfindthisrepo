@@ -15,6 +15,9 @@ public class CharmingImp {
 	public static final int GOLD_CHARM = 12158;
 	public static final int CRIM_CHARM = 12160;
 	public static final int BLUE_CHARM = 12163;
+	public static final int TALON_BEAST_CHARM = 12162;
+	public static final int ABYSSAL_CHARM = 12161;
+	public static final int OBSIDIAN_CHARM = 12168;
 
 	public static void changeConfig(Player player, int index, int config) {
 		/*
@@ -59,16 +62,25 @@ public class CharmingImp {
 	private static void turnIntoXp(Player player, int itemId, int amount) {
 		switch (itemId) {
 		case GOLD_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 438 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 4 * amount);
 			break;
 		case GREEN_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 536 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 8 * amount);
 			break;
 		case CRIM_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 721 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 12 * amount);
 			break;
 		case BLUE_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 913 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 16 * amount);
+		break;
+		case TALON_BEAST_CHARM:
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 6 * amount);
+		break;
+		case ABYSSAL_CHARM:
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 7 * amount);
+		break;
+		case OBSIDIAN_CHARM:
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 6 * amount);
 			break;
 		}
 		sendMessage(player, 1, itemId, amount);
@@ -126,6 +138,12 @@ public class CharmingImp {
 			return 2;
 		case BLUE_CHARM:
 			return 3;
+		case TALON_BEAST_CHARM:
+			return 4;
+		case ABYSSAL_CHARM:
+			return 5;
+		case OBSIDIAN_CHARM:
+			return 6;
 		}
 		return -1;
 	}
@@ -140,6 +158,12 @@ public class CharmingImp {
 			return CRIM_CHARM;
 		case 3:
 			return BLUE_CHARM;
+		case 4:
+			return TALON_BEAST_CHARM;
+		case 5:
+			return ABYSSAL_CHARM;
+		case 6:
+			return OBSIDIAN_CHARM;
 		}
 		return -1;
 	}

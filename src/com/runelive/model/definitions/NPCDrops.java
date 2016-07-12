@@ -353,7 +353,8 @@ public class NPCDrops {
 		int amount = item.getAmount();
 
 		if (itemId == CharmingImp.GOLD_CHARM || itemId == CharmingImp.GREEN_CHARM || itemId == CharmingImp.CRIM_CHARM
-				|| itemId == CharmingImp.BLUE_CHARM) {
+				|| itemId == CharmingImp.BLUE_CHARM || itemId == CharmingImp.TALON_BEAST_CHARM  || itemId == CharmingImp.OBSIDIAN_CHARM
+				 || itemId == CharmingImp.ABYSSAL_CHARM) {
 			if (player.getInventory().contains(6500) && CharmingImp.handleCharmDrop(player, itemId, amount)) {
 				return;
 			}
