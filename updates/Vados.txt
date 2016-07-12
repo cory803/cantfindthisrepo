@@ -35,6 +35,12 @@ Fixed Sagittarian chaps.
 Charming Imp now collects Talon beast, Obsidian & Abyssal Charms.
 Talonbeast, Obsidian & Abyssal Charms are now stackable.
 Summoning now uses RuneScape experience.
+Crafting blood runes now require 77 Runecrafting, crafting Armadyl Runes now requires 72 RuneCrafting.
+At 72 RuneCrafting, you will make 7 Armadyl Runes.
+At 77 RuneCrafting, you will make 8 Armadyl Runes.
+At 88 RuneCrafting, you will make 9 Armadyl Runes.
+At 99 RuneCrafting, you will make 10 Armadyl Runes.
+Deso RuneSpan EXP has been updated to fit the latest experience rates.
 
 The skills currently go by RuneScape experience are:
 
@@ -48,6 +54,7 @@ Smithing
 Fishing
 Cooking
 Summoning
+RuneCrafting
 
 
 Polls:

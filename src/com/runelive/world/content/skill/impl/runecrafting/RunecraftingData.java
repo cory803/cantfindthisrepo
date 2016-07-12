@@ -9,21 +9,13 @@ public class RunecraftingData {
 
 	public enum TalismanData {
 
-		AIR_TALISMAN(1438, 1, new Position(2841, 4828)), MIND_TALISMAN(1448, 2,
-				new Position(2793, 4827)), WATER_TALISMAN(1444, 5, new Position(3482, 4834)), EARTH_TALISMAN(1440, 9,
-						new Position(2655, 4829)), FIRE_TALISMAN(1442, 14, new Position(2576, 4846)), BODY_TALISMAN(
-								1446, 20,
-								new Position(2522, 4833)), COSMIC_TALISMAN(1454, 27, new Position(2163,
-										4833)), CHAOS_TALISMAN(1452, 35, new Position(2282, 4837)), ASTRAL_TALISMAN(
-												21106, 40, new Position(2152, 3864)), NATURE_TALISMAN(1462, 44,
-														new Position(2400, 4834)), LAW_TALISMAN(1458, 54,
-																new Position(2464, 4817)), DEATH_TALISMAN(1456, 65,
-																		new Position(2208, 4829)), BLOOD_TALISMAN(1450,
-																				77,
-																				new Position(2468, 4888,
-																						1)), ARMADYL_TALISMAN(1460, 77,
-																								new Position(2465,
-																										4771));
+		AIR_TALISMAN(1438, 1, new Position(2841, 4828)), MIND_TALISMAN(1448, 2, new Position(2793, 4827)),
+		WATER_TALISMAN(1444, 5, new Position(3482, 4834)), EARTH_TALISMAN(1440, 9, new Position(2655, 4829)),
+		FIRE_TALISMAN(1442, 14, new Position(2576, 4846)), BODY_TALISMAN(1446, 20, new Position(2522, 4833)),
+		COSMIC_TALISMAN(1454, 27, new Position(2163, 4833)), CHAOS_TALISMAN(1452, 35, new Position(2282, 4837)),
+		ASTRAL_TALISMAN(21106, 40, new Position(2152, 3864)), NATURE_TALISMAN(1462, 44, new Position(2400, 4834)),
+		LAW_TALISMAN(1458, 54, new Position(2464, 4817)), DEATH_TALISMAN(1456, 65, new Position(2208, 4829)),
+		BLOOD_TALISMAN(1450, 77, new Position(2468, 4888, 1)), ARMADYL_TALISMAN(1460, 77, new Position(2465, 4771));
 
 		TalismanData(int talismanId, int levelReq, Position location) {
 			this.talismanId = talismanId;
@@ -58,13 +50,11 @@ public class RunecraftingData {
 	}
 
 	public enum RuneData {
-		AIR_RUNE(556, 1, 200, 2478, false), MIND_RUNE(558, 2, 220, 2479, false), WATER_RUNE(555, 5, 240, 2480,
-				false), EARTH_RUNE(557, 9, 260, 2481, false), FIRE_RUNE(554, 14, 280, 2482, false), BODY_RUNE(559, 20,
-						300, 2483, false), COSMIC_RUNE(564, 27, 320, 2484, true), CHAOS_RUNE(562, 35, 340, 2487,
-								true), ASTRAL_RUNE(9075, 40, 348, 17010, true), NATURE_RUNE(561, 44, 360, 2486,
-										true), LAW_RUNE(563, 54, 380, 2485, true), DEATH_RUNE(560, 65, 400, 2488,
-												true), BLOOD_RUNE(565, 75, 952, 30624,
-														true), ARMADYL_RUNE(21083, 77, 1410, 1188, true);
+		AIR_RUNE(556, 1, 4, 2478, false), MIND_RUNE(558, 2, 5, 2479, false), WATER_RUNE(555, 5, 6, 2480, false),
+		EARTH_RUNE(557, 9, 6, 2481, false), FIRE_RUNE(554, 14, 7, 2482, false), BODY_RUNE(559, 20, 7, 2483, false),
+		COSMIC_RUNE(564, 27, 8, 2484, true), CHAOS_RUNE(562, 35, 8, 2487, true), ASTRAL_RUNE(9075, 40, 9, 17010, true),
+		NATURE_RUNE(561, 44, 9, 2486, true), LAW_RUNE(563, 54, 9, 2485, true), DEATH_RUNE(560, 65, 10, 2488, true),
+		BLOOD_RUNE(565, 77, 11, 30624, true), ARMADYL_RUNE(21083, 72, 10, 26847, true);
 
 		RuneData(int rune, int levelReq, int xpReward, int altarObjectID, boolean pureRequired) {
 			this.runeID = rune;
@@ -117,6 +107,16 @@ public class RunecraftingData {
 	public static int getMakeAmount(RuneData rune, Player player) {
 		int amount = 1;
 		switch (rune) {
+		case ARMADYL_RUNE:
+			if (player.getSkillManager().getMaxLevel(Skill.RUNECRAFTING) >= 72)
+				amount = 7;
+			if (player.getSkillManager().getMaxLevel(Skill.RUNECRAFTING) >= 77)
+				amount = 8;
+			if (player.getSkillManager().getMaxLevel(Skill.RUNECRAFTING) >= 88)
+				amount = 9;
+			if (player.getSkillManager().getMaxLevel(Skill.RUNECRAFTING) >= 99)
+				amount = 10;
+			break;
 		case AIR_RUNE:
 			if (player.getSkillManager().getMaxLevel(Skill.RUNECRAFTING) >= 11)
 				amount = 2;
