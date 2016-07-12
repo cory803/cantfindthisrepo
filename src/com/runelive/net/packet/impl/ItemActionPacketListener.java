@@ -107,6 +107,19 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 21776:
+				if(player.getInventory().contains(21776) && player.getInventory().getAmount(21776) >= 100) {
+					if(player.getSkillManager().getCurrentLevel(Skill.CRAFTING) >= 80) {
+						player.getInventory().delete(21776, 100);
+						player.getInventory().add(21775, 1);
+						player.getSkillManager().addExactExperience(Skill.CRAFTING, 1000);
+						return;
+					} else {
+						player.getPacketSender().sendMessage("You need a Crafting level of 80 to make an Orb of Armadyl");
+					}
+					player.getPacketSender().sendMessage("You do not have 100 Shards of Armady");
+				}
+				break;
 		case 8007:
 			if (!TeleportHandler.checkReqs(player, null))
 				break;

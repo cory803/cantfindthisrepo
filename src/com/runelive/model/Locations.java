@@ -493,13 +493,12 @@ public class Locations {
 
 			@Override
 			public void onDeath(Player player) {
-				Zulrah.leaveIsland(player, true);
+				FightCave.leaveCave(player, true);
 			}
 
 			@Override
 			public boolean handleKilledNPC(Player killer, NPC npc) {
 				FightCave.handleJadDeath(killer, npc);
-				// InstancedCerberus.handleCerberusDeath(killer, npc);
 				return true;
 			}
 		},
@@ -528,7 +527,7 @@ public class Locations {
 
 			@Override
 			public void onDeath(Player player) {
-				
+				Zulrah.leaveIsland(player, true);
 			}
 
 			@Override

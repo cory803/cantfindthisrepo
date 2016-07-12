@@ -14,6 +14,7 @@ import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.input.impl.EnterAmountOfBonesToSacrifice;
 import com.runelive.model.input.impl.EnterAmountToDiceOther;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
@@ -42,6 +43,7 @@ import com.runelive.world.content.skill.impl.herblore.PotionCombinating;
 import com.runelive.world.content.skill.impl.herblore.WeaponPoison;
 import com.runelive.world.content.skill.impl.prayer.BonesOnAltar;
 import com.runelive.world.content.skill.impl.prayer.Prayer;
+import com.runelive.world.content.skill.impl.runecrafting.DustOfArmadyl;
 import com.runelive.world.content.skill.impl.slayer.SlayerDialogues;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.content.skill.impl.smithing.EquipmentMaking;
@@ -150,6 +152,24 @@ public class UseItemPacketListener implements PacketListener {
 		if (usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
 			player.getPacketSender().sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");
 			return;
+		}
+		if(usedWith.getId() == 233 && itemUsedWith.getId() == 21776 || usedWith.getId() == 21776 && itemUsedWith.getId() == 233) {
+			if(player.getSkillManager().getCurrentLevel(Skill.RUNECRAFTING) >= 72) {
+				DustOfArmadyl.openArmadylInterface(player);
+			} else {
+				player.getPacketSender().sendMessage("You need a RuneCrafting level of 72 to make Dust of Armadyl");
+			}
+		}
+		if(usedWith.getId() == 21775 && itemUsedWith.getId() == 1391 || usedWith.getId() == 1391 && itemUsedWith.getId() == 21775) {
+			if(player.getSkillManager().getCurrentLevel(Skill.CRAFTING) >= 85) {
+				player.getInventory().delete(21775, 1);
+				player.getInventory().delete(1391, 1);
+				player.getInventory().add(21777, 1);
+				player.getSkillManager().addExactExperience(Skill.CRAFTING, 2500);
+				player.getPacketSender().sendMessage("You fuse the Orb of Armadyl & the Battlestaff together to make an Armadyl Battlestaff.");
+			} else {
+				player.getPacketSender().sendMessage("You need a Crafting level of 85 to make an "+ItemDefinition.forId(21777).getName()+".");
+			}
 		}
 		if (usedWith.getId() == 1775 || itemUsedWith.getId() == 1775) {
 			if (usedWith.getId() == 1785 || itemUsedWith.getId() == 1785) {

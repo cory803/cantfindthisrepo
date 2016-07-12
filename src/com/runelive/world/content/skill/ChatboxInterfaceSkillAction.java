@@ -1,18 +1,14 @@
 package com.runelive.world.content.skill;
 
 import com.runelive.model.Locations.Location;
-import com.runelive.model.input.impl.EnterAmountOfBonesToSacrifice;
-import com.runelive.model.input.impl.EnterAmountOfBowsToString;
-import com.runelive.model.input.impl.EnterAmountOfGemsToCut;
-import com.runelive.model.input.impl.EnterAmountToCook;
-import com.runelive.model.input.impl.EnterAmountToFletch;
-import com.runelive.model.input.impl.EnterAmountToSpin;
+import com.runelive.model.input.impl.*;
 import com.runelive.world.content.skill.impl.cooking.Cooking;
 import com.runelive.world.content.skill.impl.cooking.CookingWilderness;
 import com.runelive.world.content.skill.impl.crafting.Flax;
 import com.runelive.world.content.skill.impl.crafting.Gems;
 import com.runelive.world.content.skill.impl.fletching.Fletching;
 import com.runelive.world.content.skill.impl.prayer.BonesOnAltar;
+import com.runelive.world.content.skill.impl.runecrafting.DustOfArmadyl;
 import com.runelive.world.entity.impl.player.Player;
 
 public class ChatboxInterfaceSkillAction {
@@ -39,6 +35,8 @@ public class ChatboxInterfaceSkillAction {
 			Flax.spinFlax(player, amount);
 		else if (player.getInputHandling() instanceof EnterAmountOfBonesToSacrifice)
 			BonesOnAltar.offerBones(player, amount);
+		else if (player.getInputHandling() instanceof GrindArmadylRune)
+			DustOfArmadyl.grindRunes(player, amount);
 		else if (player.getInputHandling() instanceof EnterAmountOfBowsToString)
 			Fletching.stringBow(player, amount);
 		player.getClickDelay().reset();
