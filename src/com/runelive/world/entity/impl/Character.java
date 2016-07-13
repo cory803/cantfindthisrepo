@@ -22,6 +22,7 @@ import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.Entity;
 import com.runelive.world.entity.impl.player.Player;
+import com.sun.deploy.uitoolkit.SynthesizedEventListener;
 
 /**
  * A player or NPC

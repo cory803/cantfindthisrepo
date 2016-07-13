@@ -119,7 +119,7 @@ public class ObjectActionPacketListener implements PacketListener {
 			// + " in ObjectActionPacketListener: " + id + " -
 			// FIRST_CLICK_OPCODE");
 		}
-		
+
 		if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendConsoleMessage(
 					"First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
