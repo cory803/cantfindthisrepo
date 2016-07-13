@@ -69,9 +69,9 @@ public class MovementPacketListener implements PacketListener {
 			}
 		}
 		int firstY = packet.readLEShort();
-		player.getMovementQueue().addStep(new Position(firstX, firstY));
+		player.getMovementQueue().addStep(new Position(firstX, firstY, player.getPosition().getZ()));
 		for (int i = 0; i < steps; i++) {
-			player.getMovementQueue().addStep(new Position(firstX + offsetsX[i], firstY + offsetsY[i]));
+			player.getMovementQueue().addStep(new Position(firstX + offsetsX[i], firstY + offsetsY[i], player.getPosition().getZ()));
 		}
 	}
 
