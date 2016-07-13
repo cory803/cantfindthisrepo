@@ -167,6 +167,7 @@ public class UseItemPacketListener implements PacketListener {
 				player.getInventory().add(21777, 1);
 				player.getSkillManager().addExactExperience(Skill.CRAFTING, 2500);
 				player.getPacketSender().sendMessage("You fuse the Orb of Armadyl & the Battlestaff together to make an Armadyl Battlestaff.");
+				return;
 			} else {
 				player.getPacketSender().sendMessage("You need a Crafting level of 85 to make an "+ItemDefinition.forId(21777).getName()+".");
 			}
@@ -317,9 +318,9 @@ public class UseItemPacketListener implements PacketListener {
 			return;
 		ItemForging.forgeItem(player, itemUsedWith.getId(), usedWith.getId());
 
-		if (player.getRights() == PlayerRights.OWNER)
+		/*if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage(
-					"ItemOnItem - [usedItem, usedWith] : [" + usedWith.getId() + ", " + itemUsedWith + "]");
+					"ItemOnItem - [usedItem, usedWith] : [" + usedWith.getId() + ", " + itemUsedWith + "]");*/
 	}
 
 	private static void itemOnObject(Player player, Packet packet) {

@@ -45,12 +45,12 @@ public class DustOfArmadyl {
                 player.getInventory().add(dustOfArmadyl, 7);
                 player.performAnimation(new Animation(713));
                 player.getSkillManager().addExactExperience(Skill.RUNECRAFTING, 22);
+                player.getPacketSender().sendMessage("You finely grind the Shards of Armadyl into a fine Dust of Armadyl.");
             }
 
             @Override
             public void stop() {
                 setEventRunning(false);
-                player.getPacketSender().sendMessage("You finally grind the Shards of Armadyl into a fine dust.");
             }
         });
         TaskManager.submit(player.getCurrentTask());

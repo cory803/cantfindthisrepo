@@ -84,9 +84,9 @@ public class ButtonClickPacketListener implements PacketListener {
 
 		int id = packet.readShort();
 
-		if (player.getRights() == PlayerRights.OWNER) {
+		/*if (player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Clicked button: " + id);
-		}
+		}*/
 
 		if (checkHandlers(player, id))
 			return;
