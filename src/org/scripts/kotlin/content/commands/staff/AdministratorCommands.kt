@@ -52,7 +52,7 @@ class AdministratorCommands {
             if (wholeCommand.equals("hp", ignoreCase = true)) {
                 player.skillManager.setCurrentLevel(Skill.CONSTITUTION, 99999, true)
             }
-            if (command[0] == "pos") {
+            if (command[0] == "pos" || command[0] == "mypos" || command[0] == "coords") {
                 player.packetSender.sendMessage(player.position.toString())
             }
             if (command[0].equals("saveall", ignoreCase = true)) {
