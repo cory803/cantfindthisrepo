@@ -79,6 +79,10 @@ Shards of Armadyl & Dust of Armadyl are now stackable.
 Armadyl Battlestaff is now wieldable (no stats yet).
 Armadyl runes now use the correct id (21773)
 
+The completionist cape now gives 12 strength bonus instead of 14.
+
+The max cape now gives +8 in all Attack Bonuses and +17 in all defence bonuses, aswell as +10 strength
+
 The skills currently go by RuneScape experience are:
 
 Combat Skills
