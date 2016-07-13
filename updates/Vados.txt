@@ -1,6 +1,7 @@
 To-Do:
 
 Game Updates:
+--- New Day (10/07/2016) ---
 Fixed forfeiting bug (could forfeit and your character could skip the count down)
 Fixed the bug with hitting players extremely fast within the Duel Arena/Player vs Player activities.
 Fixed planting flowers in the Duel Arena.
@@ -15,6 +16,9 @@ Game Modes now function (somewhat properly)
 Corrected an issue with Slayer
 Edited addExperience methods to addExactExperience for items like effigies, dragonkin lamps and buyable slayer experience, also making some jewellery and Dragonbone crossbow
 Fishing, Woodcutting & Firemaking now use RuneScape experience rates.
+
+--- New Day (11/07/2016) ---
+
 Smithing experience now refer to RuneScape experience rates.
 Item Forging now gives exact exp (same experience regardless game mode)
 Making a Godsword Blade now requires 80 Smithing.
@@ -25,6 +29,9 @@ Added alot of Mobs to the Wilderness Dungeon
 Re-wrote commands
 Removed Ghost Town.
 Frost Dragons in the Wilderness now drop noted Dragonbones.
+
+--- New Day (12/07/2016) ---
+
 Cooking & mining experience are now the same as RuneScapes.
 When doing Barrows your Chest count & Item Reward count, is now tracked.
 Barrows Minigames reward system has been re-written.
@@ -79,9 +86,11 @@ Shards of Armadyl & Dust of Armadyl are now stackable.
 Armadyl Battlestaff is now wieldable (no stats yet).
 Armadyl runes now use the correct id (21773)
 
-The completionist cape now gives 12 strength bonus instead of 14.
+--- New Day (13/07/2016) ---
 
-The max cape now gives +8 in all Attack Bonuses and +17 in all defence bonuses, aswell as +10 strength
+The Completionist cape now gives 12 strength bonus instead of 14.
+The Max cape now gives +8 in all Attack Bonuses and +17 in all defence bonuses, aswell as +10 strength
+Divine now protects over Korasi.
 
 The skills currently go by RuneScape experience are:
 
