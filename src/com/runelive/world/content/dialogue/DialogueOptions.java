@@ -1762,18 +1762,20 @@ public class DialogueOptions {
 						player.getInventory().add(EARTH_RUNE, AMT);
 						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
 								+ " x Death, Astral & Earth Runes have been added to your inventory.");
-					} else if (player.getInventory().getFreeSlots() <= 3 && player.getMoneyInPouch() >= VENG_RUNE_PRICE) {
-						player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
-						player.getBank(player.getCurrentBankTab()).add(ASTRAL_RUNE, AMT);
-						player.getBank(player.getCurrentBankTab()).add(EARTH_RUNE, AMT);
-						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
-								+ " x Death, Astral & Earth Runes have been added to your bank.");
-					} else {
-						player.getPacketSender()
-								.sendMessage("You need at least " + currencyFormatter.format(VENG_RUNE_PRICE)
-										+ " coins in your money pouch to buy 5,000 Vengeance Runes");
+					} else if (player.getInventory().getFreeSlots() <= 3) {
+						if (player.getMoneyInPouch() >= VENG_RUNE_PRICE) {
+							player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(ASTRAL_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(EARTH_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
+									+ " x Death, Astral & Earth Runes have been added to your bank.");
+						} else {
+							player.getPacketSender()
+									.sendMessage("You need at least " + currencyFormatter.format(VENG_RUNE_PRICE)
+											+ " coins in your money pouch to buy 5,000 Vengeance Runes");
+						}
+						player.getPacketSender().sendInterfaceRemoval();
 					}
-					player.getPacketSender().sendInterfaceRemoval();
 				}
 				break;
 			case 221:
@@ -1985,18 +1987,20 @@ public class DialogueOptions {
 						player.getInventory().add(WATER_RUNE, AMT);
 						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
 								+ " x Death, Blood & Water Runes have been added to your inventory.");
-					} else if (player.getInventory().getFreeSlots() <= 3 && player.getMoneyInPouch() >= BARRAGE_RUNE_PRICE) {
-						player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
-						player.getBank(player.getCurrentBankTab()).add(BLOOD_RUNE, AMT);
-						player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);
-						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
-								+ " x Death, Blood & Water Runes have been added to your bank.");
-					} else {
-						player.getPacketSender()
-								.sendMessage("You need at least " + currencyFormatter.format(BARRAGE_RUNE_PRICE)
-										+ " coins in your money pouch to buy 5,000 Vengeance Runes");
+					} else if (player.getInventory().getFreeSlots() <= 3) {
+						if (player.getMoneyInPouch() >= BARRAGE_RUNE_PRICE) {
+							player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(BLOOD_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
+									+ " x Death, Blood & Water Runes have been added to your bank.");
+						} else {
+							player.getPacketSender()
+									.sendMessage("You need at least " + currencyFormatter.format(BARRAGE_RUNE_PRICE)
+											+ " coins in your money pouch to buy 5,000 Vengeance Runes");
+						}
+						player.getPacketSender().sendInterfaceRemoval();
 					}
-					player.getPacketSender().sendInterfaceRemoval();
 				}
 				break;
 			case 221:
@@ -2258,19 +2262,21 @@ public class DialogueOptions {
 						player.getInventory().add(EARTH_RUNE, AMT);
 						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
 								+ " x Death, Astral & Earth Runes have been added to your inventory.");
-					} else if (player.getInventory().getFreeSlots() < 4 && player.getMoneyInPouch() >= ELEMENTAL_RUNE_PRICE) {
-						player.getBank(player.getCurrentBankTab()).add(AIR_RUNE, AMT);
-						player.getBank(player.getCurrentBankTab()).add(FIRE_RUNE, AMT);
-						player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);
-						player.getBank(player.getCurrentBankTab()).add(EARTH_RUNE, AMT);
-						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
-								+ " x Death, Astral & Earth Runes have been added to your bank.");
-					} else {
-						player.getPacketSender()
-								.sendMessage("You need at least " + currencyFormatter.format(ELEMENTAL_RUNE_PRICE)
-										+ " coins in your money pouch to buy 5,000 Vengeance Runes");
+					} else if (player.getInventory().getFreeSlots() < 4) {
+						if (player.getMoneyInPouch() >= ELEMENTAL_RUNE_PRICE) {
+							player.getBank(player.getCurrentBankTab()).add(AIR_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(FIRE_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);
+							player.getBank(player.getCurrentBankTab()).add(EARTH_RUNE, AMT);
+							player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
+									+ " x Death, Astral & Earth Runes have been added to your bank.");
+						} else {
+							player.getPacketSender()
+									.sendMessage("You need at least " + currencyFormatter.format(ELEMENTAL_RUNE_PRICE)
+											+ " coins in your money pouch to buy 5,000 Vengeance Runes");
+						}
+						player.getPacketSender().sendInterfaceRemoval();
 					}
-					player.getPacketSender().sendInterfaceRemoval();
 				}
 				break;
 			case 250:// Do not change home
