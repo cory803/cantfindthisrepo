@@ -55,8 +55,13 @@ public class CurseQuest {
 	private static final String questTitle = "Prayers of a Killer";
 	private static final String[] questIntro = { "The Culinaromancer has returned and only you",
 			"             can stop him!                  ", "", };
-	private static final String[] questGuide = { "Talk to the Gypsy in Edgeville and agree to help her.",
-			"Enter the portal.", "Defeat the following servants:", "* Agrith-Na-Na", "* Flambeed", "* Karamel",
-			"* Dessourt", "* Gelatinnoth mother", "And finally.. Defeat the Culinaromancer!" };
+	private static final String[] questGuide = { "Talk to the Gypsy found in her tent in Varrock",
+			"and agree to help her, Enter the portal.", "Defeat the following bosses:",
+			"- Agrith-Na-Na",
+			"- Flambeed",
+			"- Karamel",
+			"- Dessourt",
+			"Gelatinnoth mother",
+			"And finally... Defeat the Culinaromancer!" };
 
 }

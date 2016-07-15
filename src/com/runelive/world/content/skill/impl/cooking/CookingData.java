@@ -15,6 +15,8 @@ public enum CookingData {
 
 	SHRIMP(317, 315, 7954, 1, 30, 33, false, "shrimp"),
 	ANCHOVIES(321, 319, 323, 1, 30, 34, false, "anchovies"),
+	SARDINE(327, 325, 324, 1, 30, 34, false, "sardine"),
+	HERRING(345, 347, 324, 5, 30, 34, false, "herring"),
 	TROUT(335, 333, 343, 15, 70, 50, false, "trout"),
 	COD(341, 339, 343, 18, 75, 54,false, "cod"),
 	SALMON(331, 329, 343, 25, 90, 58, false, "salmon"),

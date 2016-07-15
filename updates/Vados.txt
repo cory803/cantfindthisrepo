@@ -91,6 +91,13 @@ Armadyl runes now use the correct id (21773)
 The Completionist cape now gives 12 strength bonus instead of 14.
 The Max cape now gives +8 in all Attack Bonuses and +17 in all defence bonuses, aswell as +10 strength
 Divine now protects over Korasi.
+You can now cooking Sardine's and Herring's
+
+--- New Day (13/07/2016) ---
+Updated the text on the Recipe for Disaster quest interface.
+Removed the Sailor's
+Moved Town Criers to old sailor spots
+Town Criers will continue to handle account security, and now has the change-home second click option.
 
 The skills currently go by RuneScape experience are:
 

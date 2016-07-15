@@ -1762,7 +1762,7 @@ public class DialogueOptions {
 						player.getInventory().add(EARTH_RUNE, AMT);
 						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
 								+ " x Death, Astral & Earth Runes have been added to your inventory.");
-					} else if (player.getInventory().getFreeSlots() <= 3) {
+					} else if (player.getInventory().getFreeSlots() <= 3 && player.getMoneyInPouch() >= VENG_RUNE_PRICE) {
 						player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
 						player.getBank(player.getCurrentBankTab()).add(ASTRAL_RUNE, AMT);
 						player.getBank(player.getCurrentBankTab()).add(EARTH_RUNE, AMT);
@@ -1985,7 +1985,7 @@ public class DialogueOptions {
 						player.getInventory().add(WATER_RUNE, AMT);
 						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
 								+ " x Death, Blood & Water Runes have been added to your inventory.");
-					} else if (player.getInventory().getFreeSlots() <= 3) {
+					} else if (player.getInventory().getFreeSlots() <= 3 && player.getMoneyInPouch() >= BARRAGE_RUNE_PRICE) {
 						player.getBank(player.getCurrentBankTab()).add(DEATH_RUNE, AMT);
 						player.getBank(player.getCurrentBankTab()).add(BLOOD_RUNE, AMT);
 						player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);
@@ -2258,7 +2258,7 @@ public class DialogueOptions {
 						player.getInventory().add(EARTH_RUNE, AMT);
 						player.getPacketSender().sendMessage("" + currencyFormatter.format(AMT)
 								+ " x Death, Astral & Earth Runes have been added to your inventory.");
-					} else if (player.getInventory().getFreeSlots() < 4) {
+					} else if (player.getInventory().getFreeSlots() < 4 && player.getMoneyInPouch() >= ELEMENTAL_RUNE_PRICE) {
 						player.getBank(player.getCurrentBankTab()).add(AIR_RUNE, AMT);
 						player.getBank(player.getCurrentBankTab()).add(FIRE_RUNE, AMT);
 						player.getBank(player.getCurrentBankTab()).add(WATER_RUNE, AMT);

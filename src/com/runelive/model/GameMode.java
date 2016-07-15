@@ -66,7 +66,7 @@ public enum GameMode {
 			player.getPacketSender().sendMessage("")
 					.sendMessage(
 							"You've set your gamemode to " + newMode.name().toLowerCase().replaceAll("_", " ") + ".")
-					.sendMessage("If you wish to change it, please talk to the town crier in Edgeville.");
+					.sendMessage("If you wish to change it, please talk to the town crier in any town.");
 		} else {
 			player.getPacketSender().sendMessage("Your account progress has been reset.");
 		}
