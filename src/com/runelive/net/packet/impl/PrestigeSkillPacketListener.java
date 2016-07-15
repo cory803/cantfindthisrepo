@@ -19,6 +19,12 @@ public class PrestigeSkillPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Please close all interfaces before doing this.");
 			return;
 		}
+		if(prestigeId == 4) {
+			if (player.getCannon() != null) {
+				player.getPacketSender().sendMessage("You can't do this while you have a cannon up.");
+				return;
+			}
+		}
 		if (GameSettings.DEBUG_MODE) {
 			// PlayerLogs.log(player,
 			// "" + player.getUsername() + " in PrestigeSkillPacketListener " +
