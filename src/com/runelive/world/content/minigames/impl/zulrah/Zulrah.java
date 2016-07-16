@@ -10,6 +10,7 @@ import com.runelive.model.Position;
 import com.runelive.model.RegionInstance;
 import com.runelive.model.RegionInstance.RegionInstanceType;
 import com.runelive.world.World;
+import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
@@ -98,12 +99,13 @@ public class Zulrah {
 	 * Zulrah's toxic venom cloud positions that are possible
 	 */
 	public static final Position[] TOXIC_CLOUD_POSITIONS = {
-		new Position(2273, 3073),
-		new Position(2273, 3071),
-		new Position(2270, 3069),
-		new Position(2267, 3069),
+		new Position(2263, 3076),
+		new Position(2263, 3073),
 		new Position(2263, 3070),
-		new Position(2263, 3074),
+		new Position(2266, 3069),
+		new Position(2269, 3069),
+		new Position(2272, 3070),
+		new Position(2273, 3073),
 		new Position(2263, 3076)
 	};
 
@@ -339,7 +341,7 @@ public class Zulrah {
 	/**
 	 * Grabs the current Zulrah position
 	 */
-	private Position getZulrahPosition() {
+	public Position getZulrahPosition() {
 		return this.zulrahPosition;
 	}
 
@@ -386,7 +388,7 @@ public class Zulrah {
 		nextZulrahStep();
 		//Grabs the current zulrah ID and sets the current position
 		int zulrahId = getZulrahID();
-		new ZulrahBoss(player, zulrahId, getZulrahPosition(), true);
+		new ZulrahBoss(player, zulrahId, getZulrahPosition());
 		/*TaskManager.submit(new Task(1, player, false) {
 			int tick = 0;
 			@Override
@@ -477,27 +479,19 @@ final class ZulrahBoss extends NPC {
 	 * @param position
 	 * @param newInstance
 	 */
-	public ZulrahBoss(Player player, int id, Position position, boolean newInstance) {
+	public ZulrahBoss(Player player, int id, Position position) {
 		super(id, position);
-
 		this.player = player;
-		this.newInstance = newInstance;
+		this.setSpawnedFor(player);
 		this.getMovementCoordinator().setCoordinator(getCoordinator());
-
-		if (!newInstance) {
-			World.register(this);
-		}
+		player.getRegionInstance().getNpcsList().add(this);
+		World.register(this);
 	}
 
 	/**
 	 * We will store the player that this boss instance is spawned for.
 	 */
 	private final Player player;
-
-	/**
-	 * We will use this to define if this is a new instance to give the player some delay time to get setup.
-	 */
-	private boolean newInstance;
 
 	/**
 	 * We will use this to setup our timed events
@@ -518,16 +512,10 @@ final class ZulrahBoss extends NPC {
 	@Override
 	public void sequence() {
 		//TODO: Jonny setup your spawn method in here based on you you see fit.
-		if (this.newInstance) {
-			switch (this.ticks++) {
-				case 0:
-				case 8:
-					this.ticks = 0;
-					this.newInstance = false;
-					World.register(this);
-					break;
-			}
-			return;
+		switch(ticks++) {
+			case 2:
+				this.getCombatBuilder().attack(player);
+				break;
 		}
 		super.sequence();
 		//TODO: Jonny here you can process your next() method.

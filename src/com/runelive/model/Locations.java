@@ -521,8 +521,7 @@ public class Locations {
 				player.getCombatBuilder().reset(true);
 				if (player.getRegionInstance() != null) {
 					player.getRegionInstance().destruct();
-				}	
-				player.moveTo(new Position(3102, 3495, 0));
+				}
 			}
 
 			@Override
