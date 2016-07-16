@@ -8,7 +8,7 @@ public enum ExpRates {
 	LORD(80),
 	LEGEND(35),
 	EXTREME(15),
-	REALISM(15);
+	REALISM(5);
 
 	private int multiplier;
 
