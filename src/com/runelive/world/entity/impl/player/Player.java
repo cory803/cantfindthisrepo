@@ -290,6 +290,34 @@ public class Player extends Character {
 		return yell_tag;
 	}
 
+	public int meleeMaxHit = 0;
+	public int rangeMaxHit = 0;
+	public int magicMaxHit = 0;
+
+	public int getMeleeMaxHit() {
+		return this.meleeMaxHit;
+	}
+
+	public int getRangeMaxHit() {
+		return this.rangeMaxHit;
+	}
+
+	public int getMagicMaxHit() {
+		return this.magicMaxHit;
+	}
+
+	public void setMeleeMaxHit(int newMax) {
+		this.meleeMaxHit = newMax;
+	}
+
+	public void setRangeMaxHit(int newMax) {
+		this.rangeMaxHit = newMax;
+	}
+
+	public void setMagicMaxHit(int newMax) {
+		this.magicMaxHit = newMax;
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (!(o instanceof Player)) {

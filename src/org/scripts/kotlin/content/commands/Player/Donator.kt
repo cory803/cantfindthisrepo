@@ -94,10 +94,12 @@ class Donator {
                     World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] " + player.username + ": " + yellmessage, player)
                     return
                 }
+                /* Error: PlayerRights.DEVELOPER does not exist
                 if(player.rights == PlayerRights.DEVELOPER) {
                     World.sendYell("<col=0>[<col=484192><shad=0><img=18>Developer<img=18></shad><col=0>] " + player.username + ": " + yellmessage, player)
                     return
                 }
+                */
                 if (player.donorRights == 1) {
                     World.sendYell("<img=7> <col=0>[<col=ff0000>Donator<col=0>] " + player.username + ": " + yellmessage, player)
                 }
