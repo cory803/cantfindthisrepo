@@ -40,6 +40,7 @@ public class BonusManager {
 			}
 			player.getPacketSender().sendString(Integer.valueOf(STRING_ID[i][0]), STRING_ID[i][1] + ": " + bonuses[i]);
 		}
+		sendMaxHitBonus(player);
 	}
 
 	public double[] getAttackBonus() {
@@ -67,14 +68,12 @@ public class BonusManager {
 			{ "19148", "Summoning" }, { "19149", "Absorb Melee" }, { "19150", "Absorb Magic" },
 			{ "19151", "Absorb Ranged" },
 
-			{ "1686", "Strength" }, { "19152", "Ranged Strength" }, { "1687", "Prayer" }, { "19153", "Magic Damage" } };
+			{ "1686", "Strength" }, { "19152", "Ranged Strength" }, { "1687", "Prayer" }, { "19153", "Magic Damage" }};
 
 	public static final int ATTACK_STAB = 0, ATTACK_SLASH = 1, ATTACK_CRUSH = 2, ATTACK_MAGIC = 3, ATTACK_RANGE = 4,
 
 			DEFENCE_STAB = 0, DEFENCE_SLASH = 1, DEFENCE_CRUSH = 2, DEFENCE_MAGIC = 3, DEFENCE_RANGE = 4,
-			DEFENCE_SUMMONING = 5, ABSORB_MELEE = 6, ABSORB_MAGIC = 7, ABSORB_RANGED = 8,
-
-			BONUS_STRENGTH = 0, RANGED_STRENGTH = 1, BONUS_PRAYER = 2, MAGIC_DAMAGE = 3;
+			BONUS_STRENGTH = 0;
 
 	/** CURSES **/
 
@@ -99,6 +98,12 @@ public class BonusManager {
 		if (bonus < -25)
 			bonus = -25;
 		p.getPacketSender().sendString(690, "" + getColor(bonus) + "" + bonus + "%");
+	}
+
+	public static void sendMaxHitBonus(Player p) {
+		p.getPacketSender().sendString(19501, "Melee: "+p.getMeleeMaxHit());
+		p.getPacketSender().sendString(19502, "Magic: "+p.getMagicMaxHit());
+		p.getPacketSender().sendString(19503, "Range: "+p.getRangeMaxHit());
 	}
 
 	public static void sendRangedBonus(Player p) {

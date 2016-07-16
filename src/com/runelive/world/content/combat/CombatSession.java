@@ -88,7 +88,39 @@ public class CombatSession {
 
 			builder.getStrategy().customContainerAttack(builder.getCharacter(), builder.getVictim());
 			CombatContainer container = builder.getContainer();
-
+			if (builder.getCharacter().isPlayer()) {
+				Player killer = (Player) builder.getCharacter();
+				if(container.getCombatType() == CombatType.MAGIC) {
+					int damage_val = container.getTotalDamage();
+					int other_health = builder.getVictim().getConstitution();
+					if (damage_val > other_health) {
+						damage_val = other_health;
+					}
+					if (killer.getMagicMaxHit() < damage_val) {
+						killer.setMagicMaxHit(damage_val);
+					}
+				}
+				if(container.getCombatType() == CombatType.RANGED) {
+					int damage_val = container.getTotalDamage();
+					int other_health = builder.getVictim().getConstitution();
+					if (damage_val > other_health) {
+						damage_val = other_health;
+					}
+					if (killer.getRangeMaxHit() < damage_val) {
+						killer.setRangeMaxHit(damage_val);
+					}
+				}
+				if(container.getCombatType() == CombatType.MELEE) {
+					int damage_val = container.getTotalDamage();
+					int other_health = builder.getVictim().getConstitution();
+					if(damage_val > other_health) {
+						damage_val = other_health;
+					}
+					if(killer.getMeleeMaxHit() < damage_val) {
+						killer.setMeleeMaxHit(damage_val);
+					}
+				}
+			}
 			builder.getCharacter().setEntityInteraction(builder.getVictim());
 
 			if (builder.getCharacter().isPlayer()) {

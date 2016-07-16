@@ -30,7 +30,7 @@ public class Commands {
 		PlayerCmds.initiate_command(player, parts, whole_command);
 
 		// Staff Members
-		if (player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.DEVELOPER) {
+		if (player.getRights() == PlayerRights.OWNER) {
 			AdministratorCommands.Owner.initiate_command(player, parts, whole_command);
 			AdministratorCommands.Managers.initiate_command(player, parts, whole_command);
 			AdministratorCommands.Administrators.initiate_command(player, parts, whole_command);

@@ -199,6 +199,20 @@ public class CombatContainer {
 		}
 	}
 
+	public int getTotalDamage() {
+		int total = 0;
+		if (hits.length == 1) {
+			return hits[0].getHit().getDamage();
+		} else if (hits.length == 2) {
+			return hits[0].getHit().getDamage() + hits[1].getHit().getDamage();
+		} else if (hits.length == 3) {
+			return hits[0].getHit().getDamage() + hits[1].getHit().getDamage() + hits[2].getHit().getDamage();
+		} else if (hits.length == 4) {
+			return hits[0].getHit().getDamage() + hits[1].getHit().getDamage() + hits[2].getHit().getDamage() + hits[3].getHit().getDamage();
+		}
+		return hits[0].getHit().getDamage();
+	}
+
 	/**
 	 * Gets all of the skills that will be trained.
 	 * 

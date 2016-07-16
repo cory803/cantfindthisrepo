@@ -161,7 +161,6 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 				container.setModifiedDamage(getModifiedDamage(player, victim, container));
 			}
 		}
-
 		return container;
 	}
 
