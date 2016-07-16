@@ -360,6 +360,18 @@ public class PlayerLoading {
 			player.getPosition().setAs(builder.fromJson(reader.get("position"), Position.class));
 		}
 
+		if (reader.has("melee-max-hit")) {
+			player.setMeleeMaxHit(reader.get("melee-max-hit").getAsInt());
+		}
+
+		if (reader.has("range-max-hit")) {
+			player.setRangeMaxHit(reader.get("range-max-hit").getAsInt());
+		}
+
+		if (reader.has("magic-max-hit")) {
+			player.setMagicMaxHit(reader.get("magic-max-hit").getAsInt());
+		}
+
 		if (reader.has("loyalty-rank")) {
 			player.setLoyaltyRank(reader.get("loyalty-rank").getAsInt());
 		}

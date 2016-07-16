@@ -205,6 +205,9 @@ public class PlayerSaving {
 		object.addProperty("last-bank-serial", player.getLastBankSerial());
 		object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
 		object.add("position", builder.toJsonTree(player.getPosition()));
+		object.addProperty("melee-max-hit", new Integer(player.getMeleeMaxHit()));
+		object.addProperty("range-max-hit", new Integer(player.getRangeMaxHit()));
+		object.addProperty("magic-max-hit", new Integer(player.getMagicMaxHit()));
 		object.addProperty("loyalty-rank", new Integer(player.getLoyaltyRank()));
 		object.addProperty("daily-task-date", new Integer(player.dailyTaskDate));
 		object.addProperty("daily-task", new Integer(player.dailyTask));

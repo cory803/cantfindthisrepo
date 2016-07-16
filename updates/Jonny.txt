@@ -15,6 +15,8 @@ The bug where entering the cave inside the chaos temple/venenatis dungeon didn't
 The bug where the chaos temple/venenatis dungeon cave would make you go onto a rock that players couldn't walk onto is now fixed.
 Toxic blowpipe is now 2 handed.
 Toxic blowpipe has been buffed 10%
+Golden maul is now weildable.
+You can no longer prestige the range skill while having a cannon active.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
