@@ -43,7 +43,7 @@ public class ZulrahBlue implements CombatStrategy {
 				@Override
 				public void execute() {
 					if(tick == 2) {
-						Zulrah.next((Player) victim, zulrah);
+						((Player) victim).getZulrah().next(zulrah);
 						stop();
 					}
 					

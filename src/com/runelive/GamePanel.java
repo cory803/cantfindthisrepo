@@ -1,24 +1,20 @@
 package com.runelive;
 
-import java.awt.EventQueue;
-import java.util.LinkedList;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.border.EmptyBorder;
-
 import com.runelive.engine.task.TaskManager;
 import com.runelive.net.packet.Packet;
 import com.runelive.world.World;
 
+import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.util.LinkedList;
+
 public class GamePanel extends JFrame {
 
-	private LinkedList<Long> cycleTimes = new LinkedList<Long>();
-	private LinkedList<Packet> slowPackets = new LinkedList<Packet>();
+	private LinkedList<Long> cycleTimes = new LinkedList<>();
+	private LinkedList<Packet> slowPackets = new LinkedList<>();
 	private long maxCycle = 0;
 	private long maxMemory = 0;
 
@@ -40,15 +36,12 @@ public class GamePanel extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					GamePanel frame = new GamePanel();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+		EventQueue.invokeLater(() -> {
+			try {
+				GamePanel frame = new GamePanel();
+				frame.setVisible(true);
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		});
 	}

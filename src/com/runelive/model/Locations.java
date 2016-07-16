@@ -527,7 +527,7 @@ public class Locations {
 
 			@Override
 			public void onDeath(Player player) {
-				Zulrah.leaveIsland(player, true);
+				player.getZulrah().leaveIsland(true);
 			}
 
 			@Override

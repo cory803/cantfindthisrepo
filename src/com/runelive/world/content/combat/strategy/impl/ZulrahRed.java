@@ -60,7 +60,7 @@ public class ZulrahRed implements CombatStrategy {
 						}
 					}
 					if(tick == 7) {
-						Zulrah.next(player, zulrah);
+						((Player) victim).getZulrah().next(zulrah);
 						zulrah.setChargingAttack(false);
 						stop();
 					}

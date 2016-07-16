@@ -210,6 +210,19 @@ public class Misc {
 		return min + (max == min ? 0 : random.nextInt(max - min));
 	}
 
+	public static int nextInt(int n) {
+		try {
+			if(n < 0) {
+				throw new Exception("Negative random generator call");
+			} else {
+				return random.nextInt(n);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			return random.nextInt(1);
+		}
+	}
+
 	public static String getTotalAmount(int j) {
 		if (j >= 10000 && j < 10000000) {
 			return j / 1000 + "K";

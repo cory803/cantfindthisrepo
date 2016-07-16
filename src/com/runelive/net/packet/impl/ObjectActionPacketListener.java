@@ -1728,8 +1728,7 @@ public class ObjectActionPacketListener implements PacketListener {
 
 								@Override
 								public void stop() {
-									Zulrah.enterIsland(player);
-									
+									player.getZulrah().enterIsland();
 								}
 							});
 							break;	

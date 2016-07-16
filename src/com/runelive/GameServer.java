@@ -1,22 +1,16 @@
 package com.runelive;
 
+import com.runelive.cache.RSCache;
+import com.runelive.engine.task.impl.ServerTimeUpdateTask;
+import com.runelive.net.mysql.*;
+import com.runelive.util.ErrorFile;
+import com.runelive.util.ShutdownHook;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import com.runelive.cache.Archive;
-import com.runelive.cache.RSCache;
-import com.runelive.engine.task.impl.ServerTimeUpdateTask;
-import com.runelive.net.mysql.DatabaseInformationCharacters;
-import com.runelive.net.mysql.DatabaseInformationForums;
-import com.runelive.net.mysql.DatabaseInformationVoting;
-import com.runelive.net.mysql.MySQLDatabaseConfiguration;
-import com.runelive.net.mysql.ThreadedSQL;
-import com.runelive.util.ErrorFile;
-import com.runelive.util.ShutdownHook;
-import com.runelive.world.clip.region.RegionClipping;
 
 /**
  * The starting point of RuneLive.

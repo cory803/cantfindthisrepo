@@ -19,7 +19,7 @@ public enum Prayerbook {
 	 * @param message
 	 *            The message received upon switching prayers.
 	 */
-	private Prayerbook(int interfaceId, String message) {
+	Prayerbook(int interfaceId, String message) {
 		this.interfaceId = interfaceId;
 		this.message = message;
 	}

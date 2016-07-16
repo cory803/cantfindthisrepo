@@ -72,9 +72,9 @@ public class GameSettings {
 	public static int DATABASE_LOGGING_TIME = 60;
 	public static int CONFIGURATION_TIME = 0;
 
-	public static ArrayList<String> PROTECTED_MAC_ADDRESS = new ArrayList<String>();
-	public static ArrayList<String> PROTECTED_COMPUTER_ADDRESS = new ArrayList<String>();
-	public static ArrayList<String> PROTECTED_IP_ADDRESS = new ArrayList<String>();
+	public static ArrayList<String> PROTECTED_MAC_ADDRESS = new ArrayList<>();
+	public static ArrayList<String> PROTECTED_COMPUTER_ADDRESS = new ArrayList<>();
+	public static ArrayList<String> PROTECTED_IP_ADDRESS = new ArrayList<>();
 
 	/**
 	 * The game version

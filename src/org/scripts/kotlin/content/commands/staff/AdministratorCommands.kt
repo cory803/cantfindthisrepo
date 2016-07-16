@@ -464,7 +464,7 @@ class AdministratorCommands {
                 player.forceChat("My game mode is: " + player.expRate.toString().toLowerCase() + ".")
             }
             if (command[0] == "zulrah") {
-                Zulrah.enterIsland(player)
+                player.zulrah.enterIsland()
             }
             if (command[0] == "setmaxcb") {
                 val target = World.getPlayerByName(command[1])
