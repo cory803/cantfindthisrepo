@@ -426,7 +426,7 @@ public enum CombatSpells {
 
 		@Override
 		public int spellId() {
-			return 151054;
+			return 1160;
 		}
 	}), TRIDENT_SPELL(new CombatNormalSpell() {
 		@Override
@@ -476,7 +476,7 @@ public enum CombatSpells {
 
 		@Override
 		public int spellId() {
-			return 1160;
+			return 99000000;
 		}
 	}), CURSE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
 		@Override
