@@ -1,5 +1,7 @@
 package com.runelive.world.content;
 
+import java.text.NumberFormat;
+import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.model.GameMode;
@@ -168,12 +170,23 @@ public class Trading {
 	}
 
 	public void sendText(Player player2) {
+		Locale locale = new Locale("en", "US");
+		NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
 		if (player2 == null)
 			return;
-		player2.getPacketSender().sendString(3451, "" + Misc.formatPlayerName(player.getUsername()) + "");
-		player2.getPacketSender().sendString(3417, "Trading with: " + Misc.formatPlayerName(player.getUsername()) + "");
-		player.getPacketSender().sendString(3451, "" + Misc.formatPlayerName(player2.getUsername()) + "");
-		player.getPacketSender().sendString(3417, "Trading with: " + Misc.formatPlayerName(player2.getUsername()) + "");
+		if (player.getLocation() == Location.GAMBLE && player2.getLocation() == Location.GAMBLE
+				|| player.getLocation() == Location.DONATOR_ZONE && player2.getLocation() == Location.DONATOR_ZONE
+				|| player.getLocation() == Location.EZONE_DONOR && player2.getLocation() == Location.EZONE_DONOR) {
+			player2.getPacketSender().sendString(3451, "" + Misc.formatPlayerName(player.getUsername()) + "");
+			player2.getPacketSender().sendString(3417, "Trading:" + Misc.formatPlayerName(player.getUsername()) + " who has " + currencyFormatter.format(player.getMoneyInPouch()) + " in their pouch.");
+			player.getPacketSender().sendString(3451, "" + Misc.formatPlayerName(player2.getUsername()) + "");
+			player.getPacketSender().sendString(3535, "Trading:" + Misc.formatPlayerName(player2.getUsername()) + " who has " + currencyFormatter.format(player2.getMoneyInPouch()) + " in their pouch.");
+		} else {
+			player2.getPacketSender().sendString(3451, "" + Misc.formatPlayerName(player.getUsername()) + "");
+			player2.getPacketSender().sendString(3417, "Trading with: " + Misc.formatPlayerName(player.getUsername()) + "");
+			player.getPacketSender().sendString(3451, "" + Misc.formatPlayerName(player2.getUsername()) + "");
+			player.getPacketSender().sendString(3417, "Trading with: " + Misc.formatPlayerName(player2.getUsername()) + "");
+		}
 		player.getPacketSender().sendString(3431, "");
 		player.getPacketSender().sendString(3535, "Are you sure you want to make this trade?");
 		player.getPacketSender().sendInterfaceSet(3323, 3321);
