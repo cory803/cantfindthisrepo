@@ -66,10 +66,10 @@ import com.runelive.world.content.skill.impl.runecrafting.Runecrafting;
 import com.runelive.world.content.skill.impl.runecrafting.RunecraftingData;
 import com.runelive.world.content.skill.impl.smithing.EquipmentMaking;
 import com.runelive.world.content.skill.impl.smithing.Smelting;
-import com.runelive.world.content.skill.impl.thieving.Stalls;
 import com.runelive.world.content.skill.impl.woodcutting.Woodcutting;
 import com.runelive.world.content.skill.impl.woodcutting.WoodcuttingData;
 import com.runelive.world.content.skill.impl.woodcutting.WoodcuttingData.Hatchet;
+import com.runelive.world.content.skill.thieving.ThievingStall;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -166,7 +166,6 @@ public class ObjectActionPacketListener implements PacketListener {
 								&& WildernessObelisks.handleObelisk(gameObject.getId())) {
 							return;
 						}
-						
 						switch (id) {
 						case 2406:
 							if (!player.getClickDelay().elapsed(3000))
@@ -1596,15 +1595,6 @@ public class ObjectActionPacketListener implements PacketListener {
 						case 19178:
 							Hunter.lootTrap(player, gameObject);
 							break;
-						case 13493:
-							double c = Math.random() * 100;
-							int reward = c >= 70 ? 13003
-									: c >= 45 ? 4131
-											: c >= 35 ? 1113
-													: c >= 25 ? 1147
-															: c >= 18 ? 1163 : c >= 12 ? 1079 : c >= 5 ? 1201 : 1127;
-							Stalls.stealFromStall(player, 95, 24800, reward, "You stole some rune equipment.");
-							break;
 						case 30205:
 							player.setDialogueActionId(11);
 							DialogueManager.start(player, 20);
@@ -1793,9 +1783,13 @@ public class ObjectActionPacketListener implements PacketListener {
 					.sendMessage("Please report the error to a staff member.");
 			return;
 		}
+
+		if (player.getThieving().stealFromStall(ThievingStall.forId(id))) {
+			return;
+		}
 		if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender()
-					.sendMessage("Second click object id; [id, position] : [" + id + ", " + position.toString() + "]");
+					.sendConsoleMessage("Second click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setPositionToFace(gameObject.getPosition());
 		int distanceX = (player.getPosition().getX() - position.getX());
 		int distanceY = (player.getPosition().getY() - position.getY());
@@ -1826,14 +1820,6 @@ public class ObjectActionPacketListener implements PacketListener {
 						if (player.getFarming().click(player, x, y, 1))
 							return;
 						switch (gameObject.getId()) {
-						case 4705:
-							Stalls.stealFromStall(player, 75, 22500, new Item(995, Misc.getRandom(40000)),
-									"You stole some coins.", true);
-							break;
-						case 4706:
-							Stalls.stealFromStall(player, 75, 17500, new Item(995, Misc.getRandom(45000)),
-									"You stole some coins.", true);
-							break;
 						case 26807:
 							if (player.getUsername().equalsIgnoreCase("jonny")
 									|| player.getUsername().equalsIgnoreCase("vados")
@@ -1846,36 +1832,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							} else {
 								player.getPacketSender().sendMessage("Nothing interesting happens.");
 							}
-							break;
-						case 2560:
-							Stalls.stealFromStall2(player, 1, 1200, 950, 1000, "You steal some silk and 1,000 Coins.");
-							break;
-
-						case 2561:
-							Stalls.stealFromStall2(player, 15, 1400, 379, 1250, "You steal a lobster and 1,250 Coins.");
-							break;
-
-						case 2563:
-							Stalls.stealFromStall2(player, 25, 1800, 948, 2250,
-									"You steal some Bear fur and 2,250 Coins.");
-							break;
-						case 2564:
-							Stalls.stealFromStall2(player, 60, 3450, 2007, 2700,
-									"You steal some spices and 2,700 Coins.");
-							break;
-						case 2565:
-							Stalls.stealFromStall2(player, 50, 2700, 2354, 3150,
-									"You steal a Silver Bar and 3,150 Coins.");
-							break;
-						case 2562:
-							double c = Math.random() * 100;
-							int reward = c >= 70 ? 1623
-									: c >= 45 ? 1621
-											: c >= 35 ? 1619
-													: c >= 25 ? 1619
-															: c >= 18 ? 1617 : c >= 12 ? 1617 : c >= 5 ? 1631 : 1631;
-							Stalls.stealFromStall2(player, 80, 4100, reward, 3500,
-									"You steal the closest gem and 3,500 Coins.");
 							break;
 						case 2274:
 							player.setRevsWarning(true);
@@ -1950,69 +1906,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							} else {
 								DwarfMultiCannon.pickupCannon(player, cannon, false);
 							}
-							break;
-						case 4875:
-							ran = Misc.getRandom(800);
-							if (ran == 250) {
-								player.getInventory().add(7956, 1);
-							} else if (ran == 600) {
-								player.getInventory().add(15387, 1);
-							}
-							Stalls.stealFromStall(player, 1, 1500, 18199, "You steal a banana.");
-							break;
-						case 4874:
-							ran = Misc.getRandom(800);
-							if (ran == 250) {
-								player.getInventory().add(7956, 1);
-							} else if (ran == 600) {
-								player.getInventory().add(15387, 1);
-							}
-							Stalls.stealFromStall(player, 30, 2250, 15009, "You steal a golden ring.");
-							break;
-						case 4876:
-							ran = Misc.getRandom(800);
-							if (ran == 250) {
-								player.getInventory().add(7956, 1);
-							} else if (ran == 600) {
-								player.getInventory().add(15387, 1);
-							}
-							if (player.getGameMode().equals(GameMode.IRONMAN)
-									|| player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
-								int chance = Misc.getRandom(5);
-								if (chance == 1)
-									player.getInventory().add(1734, Misc.getRandom(50 + 1));
-								if (chance == 2)
-									player.getInventory().add(1733, 1);
-								if (chance == 3)
-									player.getInventory().add(1595, 1);
-								if (chance == 4)
-									player.getInventory().add(1597, 1);
-							}
-							Stalls.stealFromStall(player, 60, 7370, 17401, "You steal a damaged hammer.");
-							break;
-						case 4877:
-							ran = Misc.getRandom(800);
-							if (ran == 250) {
-								player.getInventory().add(7956, 1);
-							} else if (ran == 600) {
-								player.getInventory().add(15387, 1);
-							}
-							Stalls.stealFromStall(player, 65, 7990, 1389, "You steal a staff.");
-							break;
-						case 4878:
-							if (player.getGameMode().equals(GameMode.IRONMAN)
-									|| player.getGameMode().equals(GameMode.HARDCORE_IRONMAN)) {
-								int chance = Misc.getRandom(100);
-								if (chance == 1)
-									player.getInventory().add(4587, 1);
-							}
-							ran = Misc.getRandom(800);
-							if (ran == 250) {
-								player.getInventory().add(7956, 1);
-							} else if (ran == 600) {
-								player.getInventory().add(15387, 1);
-							}
-							Stalls.stealFromStall(player, 80, 9230, 11998, "You steal a scimitar.");
 							break;
 						case 6189:
 						case 26814:

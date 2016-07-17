@@ -48,6 +48,7 @@ import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.content.skill.impl.summoning.BossPets;
 import com.runelive.world.content.skill.impl.summoning.Summoning;
 import com.runelive.world.content.skill.impl.summoning.SummoningData;
+import com.runelive.world.content.skill.thieving.ThievingManager;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
@@ -737,7 +738,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		player.setEntityInteraction(npc);
 		final int npcId = npc.getId();
 		if (player.getRights() == PlayerRights.OWNER)
-			player.getPacketSender().sendMessage("Second click npc id: " + npcId);
+			player.getPacketSender().sendConsoleMessage("Second click npc id: " + npcId);
 
 		if (GameSettings.DEBUG_MODE) {
 			// PlayerLogs.log(player, "" + player.getUsername()
@@ -748,6 +749,32 @@ public class NPCOptionPacketListener implements PacketListener {
 			@Override
 			public void execute() {
 				switch (npc.getId()) {
+					case 1:
+					case 2:
+					case 3:
+					case 7:
+					case 4:
+					case 9:
+					case 1714:
+					case 1715:
+					case 18:
+					case 23:
+					case 32:
+					case 26:
+					case 20:
+					case 2234:
+					case 21:
+					case 34:
+					case 1307:
+					case 1305:
+					case 1306:
+					case 1311:
+					case 1310:
+					case 1308:
+					case 1314:
+						ThievingManager.initMobData(player, ThievingManager.forMobData(npcId));
+						break;
+
 				case 6537:
 					player.setDialogueActionId(10);
 					DialogueManager.start(player, 19);

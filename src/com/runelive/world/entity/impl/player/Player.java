@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.runelive.world.content.skill.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
 
 import com.runelive.GameSettings;
@@ -539,7 +540,7 @@ public class Player extends Character {
 	private ArrayList<Portal> housePortals = new ArrayList<>();
 	private final List<Player> localPlayers = new LinkedList<Player>();
 	private final List<NPC> localNpcs = new LinkedList<NPC>();
-
+	public long lastThieve;
 	public PlayerSession session;
 	public LoginDetailsMessage logindetailsmessage;
 	public Channel channel;
@@ -640,6 +641,7 @@ public class Player extends Character {
 	private int teleblockTimer;
 	private int dragonFireImmunity;
 	private int poisonImmunity;
+	private Thieving thieving = new Thieving(this);
 	private int venomImmunity;
 	private int shadowState;
 	private int effigy;
@@ -1180,6 +1182,10 @@ public class Player extends Character {
 
 	public int getVenomImmunity() {
 		return poisonImmunity;
+	}
+
+	public Thieving getThieving() {
+		return thieving;
 	}
 
 	public void setPoisonImmunity(int poisonImmunity) {

@@ -53,8 +53,7 @@ public class Herblore {
 				@Override
 				public void execute() {
 					player.getInventory().delete(VIAL, 1).delete(unf.getHerbNeeded(), 1).add(unf.getUnfPotion(), 1);
-					player.getPacketSender().sendMessage("You put the "
-							+ ItemDefinition.forId(unf.getHerbNeeded()).getName() + " into the vial of water.");
+					player.getPacketSender().sendMessage("You put the " + ItemDefinition.forId(unf.getHerbNeeded()).getName() + " into the vial of water.");
 					player.getSkillManager().addExperience(Skill.HERBLORE, 1);
 					this.stop();
 				}
@@ -91,7 +90,7 @@ public class Herblore {
 					}
 					player.getInventory().delete(pot.getUnfinishedPotion(), 1).delete(pot.getItemNeeded(), 1)
 							.add(pot.getFinishedPotion(), 1);
-					player.getSkillManager().addExperience(Skill.HERBLORE, (pot.getExpGained() * 50));
+					player.getSkillManager().addExperience(Skill.HERBLORE, (pot.getExpGained()));
 					String name = ItemDefinition.forId(pot.getFinishedPotion()).getName();
 					player.getPacketSender()
 							.sendMessage("You combine the ingredients to make " + Misc.anOrA(name) + " " + name + ".");
@@ -107,18 +106,11 @@ public class Herblore {
 	}
 
 	enum SpecialPotion {
-		EXTREME_ATTACK(new Item[] { new Item(145), new Item(261) }, new Item(15309), 88, 11000), EXTREME_STRENGTH(
-				new Item[] { new Item(157), new Item(267) }, new Item(15313), 88,
-				11500), EXTREME_DEFENCE(new Item[] { new Item(163), new Item(2481) }, new Item(15317), 90,
-						12000), EXTREME_MAGIC(new Item[] { new Item(3042), new Item(9594) }, new Item(15321), 91,
-								12500), EXTREME_RANGED(new Item[] { new Item(169), new Item(12539, 5) },
-										new Item(15325), 92, 13000), OVERLOAD(
-												new Item[] { new Item(15309), new Item(15313), new Item(15317),
-														new Item(15321), new Item(15325) },
-												new Item(15333),
-												96, 15000), SUPER_COMBAT_POTION(new Item[] { new Item(269),
-														new Item(2440), new Item(2436), new Item(2442) },
-														new Item(11517), 90, 14000);
+		EXTREME_ATTACK(new Item[] { new Item(145), new Item(261) }, new Item(15309), 88, 220), EXTREME_STRENGTH(new Item[] { new Item(157), new Item(267) }, new Item(15313), 88, 230),
+		EXTREME_DEFENCE(new Item[] { new Item(163), new Item(2481) }, new Item(15317), 90, 240), EXTREME_MAGIC(new Item[] { new Item(3042), new Item(9594) }, new Item(15321), 91, 250),
+		EXTREME_RANGED(new Item[] { new Item(169), new Item(12539, 5) }, new Item(15325), 92, 260),
+		OVERLOAD(new Item[] { new Item(15309), new Item(15313), new Item(15317), new Item(15321), new Item(15325) }, new Item(15333), 96, 1000),
+		SUPER_COMBAT_POTION(new Item[] { new Item(269), new Item(2440), new Item(2436), new Item(2442) }, new Item(11517), 90, 150);
 
 		SpecialPotion(Item[] ingridients, Item product, int lvlReq, int exp) {
 			this.ingridients = ingridients;

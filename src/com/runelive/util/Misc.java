@@ -42,6 +42,16 @@ public class Misc {
 		return c;
 	}
 
+	/**
+	 * Returns if the starting character is a vowel
+	 *
+	 * @param ch The character being checked
+	 */
+	public static boolean isVowel(char ch) {
+		ch = Character.toLowerCase(ch);
+		return (ch == 'a') || (ch == 'e') || (ch == 'i') || (ch == 'o') || (ch == 'u');
+	}
+
 	public static boolean contains(final int[] arr, final int key) {
 		return Arrays.stream(arr).anyMatch(i -> i == key);
 	}
