@@ -37,12 +37,13 @@ public class ZulrahGreen implements CombatStrategy {
 
 	@Override
 	public boolean customContainerAttack(Character entity, Character victim) {
+		System.out.println("Green");
 		NPC zulrah = (NPC) entity;
-		if (zulrah.isChargingAttack() || zulrah.getConstitution() <= 0) {
+		Player player = (Player) victim;
+		if (player.getZulrah().isMovingToNextStage() || zulrah.getConstitution() <= 0) {
 			return true;
 		}
 		if(victim.isPlayer()) {
-			Player player = (Player) victim;
 			int chance = Misc.random(1, 4);
 			switch(chance) {
 				//Shoot with range
@@ -50,6 +51,8 @@ public class ZulrahGreen implements CombatStrategy {
 				case 2:
 				case 3:
 				case 4:
+					player.getZulrah().next();
+					/*
 					TaskManager.submit(new Task(1, player, false) {
 						int tick = 0;
 						@Override
@@ -73,6 +76,7 @@ public class ZulrahGreen implements CombatStrategy {
 							tick++;
 						}
 					});
+					*/
 					break;
 				
 			}
@@ -83,12 +87,12 @@ public class ZulrahGreen implements CombatStrategy {
 
 	@Override
 	public int attackDelay(Character entity) {
-		return 1;
+		return 3;
 	}
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 15;
+		return 30;
 	}
 
 	@Override

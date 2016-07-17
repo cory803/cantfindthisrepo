@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.runelive.model.Locations;
 import com.runelive.util.Misc;
 import com.runelive.util.Stopwatch;
 import com.runelive.world.content.combat.CombatContainer.ContainerHit;
@@ -53,7 +54,6 @@ public class CombatBuilder {
 		if (character.equals(target)) {
 			return;
 		}
-
 		if (target.equals(victim)) {
 			determineStrategy();
 

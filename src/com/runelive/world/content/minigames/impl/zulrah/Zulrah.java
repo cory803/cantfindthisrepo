@@ -1,19 +1,13 @@
 package com.runelive.world.content.minigames.impl.zulrah;
 
-import com.runelive.engine.task.Task;
-import com.runelive.engine.task.TaskManager;
-import com.runelive.model.Animation;
-import com.runelive.model.Graphic;
-import com.runelive.model.Locations;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.Position;
-import com.runelive.model.RegionInstance;
 import com.runelive.model.RegionInstance.RegionInstanceType;
 import com.runelive.world.World;
-import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.world.entity.updating.NPCUpdating;
 
 public class Zulrah {
 
@@ -358,7 +352,26 @@ public class Zulrah {
 	private int getPrivateFloor() {
 		return player.getIndex() * 4;
 	}
-	
+
+	/**
+	 * Your boolean for if you are moving to the next stage
+	 */
+	private boolean isMovingToNextStage = false;
+
+	/**
+	 * This gets if you are moving to the next stage
+	 */
+	public boolean isMovingToNextStage() {
+		return this.isMovingToNextStage;
+	}
+
+	/**
+	 * Sets if you are moving to the next stage via zulrah
+	 */
+	public void setMovingToNextStage(boolean isMoving) {
+		this.isMovingToNextStage = isMoving;
+	}
+
 	/**
 	 * Enter the Zulrah Island
 	 */
@@ -382,84 +395,19 @@ public class Zulrah {
 	 * Spawn the first faze of Zulrah
 	 */
 	private void spawnZulrah() {
-		//This adds onto the current zulrah rotation # that you have saved
 		nextZulrahRotation();
-		//This adds onto the current zulrah kill step
 		nextZulrahStep();
-		//Grabs the current zulrah ID and sets the current position
 		int zulrahId = getZulrahID();
 		new ZulrahBoss(player, zulrahId, getZulrahPosition());
-		/*TaskManager.submit(new Task(1, player, false) {
-			int tick = 0;
-			@Override
-			public void execute() {
-				if (player.getRegionInstance() == null || !player.isRegistered() || player.getLocation() != Location.ZULRAH_PIT) {
-					stop();
-					return;
-				}
-				if(tick == 1) {
-					DialogueManager.sendStatement(player, "Prepare for battle!");
-				}
-				if(tick == 3) {
-					//This adds onto the current zulrah rotation # that you have saved
-					nextZulrahRotation();
-					//This adds onto the current zulrah kill step
-					nextZulrahStep();
-					//Grabs the current zulrah ID and sets the current position
-					int zulrahId = getZulrahID();
-					//Declares the npc zulrah
-					NPC n = new NPC(zulrahId, getZulrahPosition()).setSpawnedFor(player);
-
-					//Adds the npc zulrah to the official game
-					World.register(n);
-					player.getRegionInstance().getNpcsList().add(n);
-					//The npc zulrah attacks the player
-					n.getCombatBuilder().attack(player);
-					stop();
-				}
-				tick++;
-			}
-		});*/
 	}
 	
 	/**
 	 * Spawn the next faze of Zulrah @nextZulrahStep
 	 */
-	public void next(final NPC zulrah) {
-		nextZulrahStep();
-		TaskManager.submit(new Task(1, player, false) {
-			int tick = 0;
-			int health = zulrah.getConstitution();
-			int id = getZulrahID();
-			NPC nextZulrah = new NPC(id, getZulrahPosition());
-			@Override
-			public void execute() {
-				if(tick == 0) {
-					zulrah.setChargingAttack(true);
-					zulrah.performAnimation(GO_DOWN);
-				}
-				if(tick == 2) {
-					if(zulrah.isRegistered()) {
-						World.deregister(zulrah);
-						player.getRegionInstance().getNpcsList().remove(zulrah);
-					}
-				}
-				if(tick == 3) {
-					nextZulrah = new NPC(id, getZulrahPosition()).setSpawnedFor(player);
-					nextZulrah.getMovementCoordinator().setCoordinator(new Coordinator(false, -1));
-					World.register(nextZulrah);
-					player.getRegionInstance().getNpcsList().add(nextZulrah);
-					nextZulrah.setConstitution(health);
-					nextZulrah.performAnimation(GO_UP);
-				}
-				if(tick == 4) {
-					nextZulrah.setChargingAttack(false);
-					nextZulrah.getCombatBuilder().attack(player);
-					stop();
-				}
-				tick++;
-			}
-		});
+	public void next() {
+		this.nextZulrahStep();
+		this.getZulrahID();
+		this.setMovingToNextStage(true);
 	}
 
 	/**
@@ -511,13 +459,53 @@ final class ZulrahBoss extends NPC {
 	 */
 	@Override
 	public void sequence() {
-		//TODO: Jonny setup your spawn method in here based on you you see fit.
-		switch(ticks++) {
-			case 2:
-				this.getCombatBuilder().attack(player);
-				break;
+		if(player.getZulrah().isMovingToNextStage()) {
+			if (ticks > 7) {
+				ticks = 0;
+			}
+			System.out.println("Tick: "+ticks);
+			switch (ticks++) {
+				case 0:
+					this.performAnimation(Zulrah.GO_DOWN);
+					break;
+				case 3:
+					int id = player.getZulrah().getZulrahID();
+					this.moveTo(player.getZulrah().getZulrahPosition());
+					this.setTransformationId(id);
+					break;
+				case 4:
+					this.performAnimation(Zulrah.GO_UP);
+					this.getUpdateFlag().flag(Flag.TRANSFORM);
+
+					break;
+				case 5:
+
+					break;
+				case 7:
+					player.getZulrah().setMovingToNextStage(false);
+					this.getCombatBuilder().attack(player);
+					ticks = 0;
+					break;
+					/*
+					int id = player.getZulrah().getZulrahID();
+					this.setTransformationId(id);
+					this.getUpdateFlag().flag(Flag.TRANSFORM);
+					break;
+				case 5:
+					this.moveTo(player.getZulrah().getZulrahPosition());
+					break;
+				case 7:
+
+					this.performAnimation(Zulrah.GO_UP);
+					break;
+				case 10:
+					player.getZulrah().setMovingToNextStage(false);
+					this.getCombatBuilder().attack(player);
+					ticks = 0;
+					break;
+					*/
+			}
 		}
 		super.sequence();
-		//TODO: Jonny here you can process your next() method.
 	}
 }

@@ -34,6 +34,7 @@ public class ZulrahRed implements CombatStrategy {
 
 	@Override
 	public boolean customContainerAttack(Character entity, Character victim) {
+		System.out.println("Red");
 		NPC zulrah = (NPC) entity;
 		if (zulrah.isChargingAttack() || zulrah.getConstitution() <= 0) {
 			return true;
@@ -60,7 +61,7 @@ public class ZulrahRed implements CombatStrategy {
 						}
 					}
 					if(tick == 7) {
-						((Player) victim).getZulrah().next(zulrah);
+						((Player) victim).getZulrah().next();
 						zulrah.setChargingAttack(false);
 						stop();
 					}
