@@ -376,6 +376,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("Your bracelet has run out of charges.");
 				break;
 				case 15707:
+				case 19709:
 					TeleportHandler.teleportPlayer(player, new Position(3450, 3715), TeleportType.DUNGEONEERING, false);
 					break;
 			case 13263:

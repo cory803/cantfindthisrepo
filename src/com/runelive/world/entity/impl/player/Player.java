@@ -11,6 +11,7 @@ import com.runelive.model.options.OptionContainer;
 import com.runelive.model.player.GameModeAssistant;
 import com.runelive.model.player.dialog.Dialog;
 import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.net.mysql.impl.Hiscores;
 import com.runelive.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
 
@@ -444,7 +445,7 @@ public class Player extends Character {
 			getPacketSender().sendMessage("You cannot log out at the moment.");
 			return false;
 		}
-//		new Hiscores(this).execute();
+		new Hiscores(this).execute();
 		return true;
 	}
 
