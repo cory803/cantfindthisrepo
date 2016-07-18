@@ -20,7 +20,6 @@ import com.runelive.world.content.WellOfGoodwill
 import com.runelive.world.content.clan.ClanChatManager
 import com.runelive.world.content.combat.weapon.CombatSpecial
 import com.runelive.world.content.grandexchange.GrandExchangeOffers
-import com.runelive.world.content.minigames.impl.zulrah.Zulrah
 import com.runelive.world.content.pos.PlayerOwnedShops
 import com.runelive.world.content.skill.SkillManager
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
@@ -461,7 +460,7 @@ class AdministratorCommands {
 
         @JvmStatic fun initiate_command(player: Player, command: Array<String>, wholeCommand: String) {
             if (wholeCommand.equals("mode", ignoreCase = true)) {
-                player.forceChat("My game mode is: " + player.expRate.toString().toLowerCase() + ".")
+                //player.forceChat("My game mode is: " + player.expRate.toString().toLowerCase() + ".")
             }
             if (command[0] == "zulrah") {
                 player.zulrah.enterIsland()

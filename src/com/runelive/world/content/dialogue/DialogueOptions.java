@@ -10,7 +10,7 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.BonusExperienceTask;
 import com.runelive.model.Animation;
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Hit;
 import com.runelive.model.Item;
@@ -621,16 +621,16 @@ public class DialogueOptions {
 				break;
 			case 17:
 				player.getPacketSender().sendInterfaceRemoval();
-				if (player.getBankPinAttributes().hasBankPin()) {
+				/*if (!player.getBankPinAttributes().hasEnteredBankPin()) {
 					player.getPacketSender()
 							.sendMessage("Please visit the nearest bank and enter your pin before doing this.");
 					return;
-				}
+				}*/
 				if (player.getSummoning().getFamiliar() != null) {
 					player.getPacketSender().sendMessage("Please dismiss your familiar first.");
 					return;
 				}
-				if (player.getGameMode() == GameMode.NORMAL) {
+				if (!player.getGameModeAssistant().isIronMan()) {
 					DialogueManager.start(player, 83);
 				} else {
 					player.setDialogueActionId(46);
@@ -1040,7 +1040,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, 76);
 				break;
 			case 45:
-				GameMode.set(player, GameMode.NORMAL, false);
+				//GameMode.set(player, GameMode.NORMAL, false);
 				break;
 			case 50:
 				TeleportHandler.teleportPlayer(player, new Position(2399, 5177),
@@ -1086,7 +1086,7 @@ public class DialogueOptions {
 					player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 					return;
 				}
-				if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+				if (player.getGameModeAssistant().isIronMan()) {
 					player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 					return;
 				}
@@ -1149,7 +1149,7 @@ public class DialogueOptions {
 				WellOfGoodwill.lookDownWell(player);
 				break;
 			case 45:
-				GameMode.set(player, GameMode.IRONMAN, false);
+				//GameMode.set(player, GameMode.IRONMAN, false);
 				break;
 			case 50:
 				TeleportHandler.teleportPlayer(player, new Position(2399, 5177),
@@ -1245,7 +1245,7 @@ public class DialogueOptions {
 						.sendEnterAmountPrompt("How much money would you like to contribute with?");
 				break;
 			case 45:
-				GameMode.set(player, GameMode.HARDCORE_IRONMAN, false);
+				//GameMode.set(player, GameMode.HARDCORE_IRONMAN, false);
 				break;
 			}
 		} else if (id == FOURTH_OPTION_OF_FOUR) {
@@ -1345,7 +1345,7 @@ public class DialogueOptions {
 				break;
 			case 219:
 				player.getPacketSender().sendInterfaceRemoval();
-				player.setGameMode(GameMode.NORMAL);
+				//player.setGameMode(GameMode.NORMAL);
 				player.getPacketSender().sendRights();
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 				player.getPacketSender().sendMessage(
@@ -1955,7 +1955,7 @@ public class DialogueOptions {
 					player.getInventory().delete(19670, amt);
 					player.getPacketSender().sendMessage(
 							"You claim the " + (amt > 1 ? "scrolls" : "scroll") + " and receive your reward.");
-					int minutes = player.getGameMode() == GameMode.NORMAL ? 10 : 5;
+					int minutes = !player.getGameModeAssistant().isIronMan() ? 10 : 5;
 					BonusExperienceTask.addBonusXp(player, minutes * amt);
 					player.getClickDelay().reset();
 				}
@@ -2232,7 +2232,7 @@ public class DialogueOptions {
 					player.getInventory().delete(19670, amt);
 					player.getPointsHandler().incrementVotingPoints(amt);
 					player.getPointsHandler().refreshPanel();
-					if (player.getGameMode() == GameMode.NORMAL) {
+					if (!player.getGameModeAssistant().isIronMan()) {
 						player.getInventory().add(995, 1000000 * amt);
 					} else {
 						player.getInventory().add(995, 150000 * amt);

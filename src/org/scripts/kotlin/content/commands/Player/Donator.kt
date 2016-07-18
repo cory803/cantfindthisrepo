@@ -2,6 +2,7 @@ package org.scripts.kotlin.content.commands.player
 
 import com.runelive.GameSettings
 import com.runelive.model.*
+import com.runelive.model.player.GameMode
 import com.runelive.util.Misc
 import com.runelive.world.World
 import com.runelive.world.content.PlayerPunishment
@@ -50,13 +51,8 @@ class Donator {
                     player.packetSender.sendMessage("You are not allowed to put these symbols in your yell message.")
                     return
                 }
-                if (player.gameMode == GameMode.IRONMAN) {
+                if (player.gameModeAssistant.isIronMan) {
                     World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] " + player.username + ": "
-                            + yellmessage, player)
-                    return
-                }
-                if (player.gameMode == GameMode.HARDCORE_IRONMAN) {
-                    World.sendYell("<img=13> [<col=ffffff><shad=0>Hardcore</col></shad>] " + player.username + ": "
                             + yellmessage, player)
                     return
                 }

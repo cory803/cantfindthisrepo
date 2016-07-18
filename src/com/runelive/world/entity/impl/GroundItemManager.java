@@ -3,7 +3,7 @@ package com.runelive.world.entity.impl;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.engine.task.impl.GroundItemsTask;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.GroundItem;
 import com.runelive.model.Item;
 import com.runelive.model.Locations.Location;
@@ -215,9 +215,9 @@ public class GroundItemManager {
 																				// safe
 			return;
 		else {
-			if (p.getGameMode() != GameMode.NORMAL && !Dungeoneering.doingDungeoneering(p)) {
+			if (p.getGameModeAssistant().isIronMan() && !Dungeoneering.doingDungeoneering(p)) {
 				if ((gt.getOwner() != null && !gt.getOwner().equals("null") && !gt.getOwner().equals(p.getUsername()))
-						|| (gt.getIronman() && p.getGameMode() == GameMode.IRONMAN)) {
+						|| (gt.getIronman() && p.getGameModeAssistant().isIronMan())) {
 					p.getPacketSender().sendMessage("You cannot pick this item up because it was not spawned for you.");
 					return;
 				}

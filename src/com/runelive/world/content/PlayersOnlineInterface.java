@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.PlayerRights;
 import com.runelive.util.Misc;
 import com.runelive.util.Stopwatch;
@@ -102,12 +102,12 @@ public class PlayersOnlineInterface {
 					rankId = 11;
 				}
 			}
-			if (p.getGameMode() == GameMode.IRONMAN && !p.getRights().isStaff()) {
+			if (p.getGameModeAssistant().isIronMan() && !p.getRights().isStaff()) {
 				rankId = 12;
 			}
-			if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
+			/*if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
 				rankId = 13;
-			}
+			}*/
 			if (p.getRights() == PlayerRights.MANAGER) {
 				rankId = 14;
 			}
@@ -148,7 +148,7 @@ public class PlayersOnlineInterface {
 						"Time Played: @whi@" + Misc
 								.getHoursPlayed((player2.getTotalPlayTime() + player2.getRecordedLogin().elapsed())))
 				.sendString(57011, "Claimed: @whi@$" + player2.getAmountDonated())
-				.sendString(57012, "Game Mode: @whi@" + Misc.formatText(player2.getGameMode().name().toLowerCase()))
+				.sendString(57012, "Game Mode: @whi@" + Misc.formatText(player2.getGameModeAssistant().getModeName()))
 				.sendString(57013, "Combat Level: @whi@" + player2.getSkillManager().getCombatLevel())
 				.sendString(57014, "Total Level: @whi@ " + player2.getSkillManager().getTotalLevel())
 				.sendString(57015, "Slayer Points: @whi@" + player2.getPointsHandler().getSlayerPoints())
@@ -225,11 +225,11 @@ public class PlayersOnlineInterface {
 			break;
 		}
 		if (value == 0) {
-			if (p.getGameMode() == GameMode.IRONMAN && !p.getRights().isStaff()) {
+			if (p.getGameModeAssistant().isIronMan() && !p.getRights().isStaff()) {
 				value = 1;
-			} else if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
+			}/* else if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
 				value = 2;
-			}
+			}*/
 		}
 		return value;
 	}

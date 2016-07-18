@@ -4,7 +4,7 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.definitions.NPCDrops;
+import com.runelive.model.npc.drops.LootSystem;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
@@ -79,7 +79,7 @@ public class NPCDeathTask extends Task {
 					}
 				}
 				if (npc.getLocation() == Location.BOSS_SYSTEM) {
-					NPCDrops.dropBossSystem(killer, npc);
+					LootSystem.drop(killer, npc);
 					killer.getSlayer().killedNpc(npc);
 				}
 				break;
@@ -197,7 +197,7 @@ public class NPCDeathTask extends Task {
 					}
 
 					/** PARSE DROPS **/
-					NPCDrops.dropItems(killer, npc);
+					LootSystem.drop(killer, npc);
 
 					/** SLAYER **/
 					killer.getSlayer().killedNpc(npc);

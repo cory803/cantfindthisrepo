@@ -7,7 +7,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.ShopRestockTask;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.Skill;
 import com.runelive.model.container.ItemContainer;
@@ -104,9 +104,9 @@ public class Shop extends ItemContainer {
 		if ((id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 13
 				|| id == 14 || id == 15 || id == 16 || id == 19 || id == 26 || id == 27 || id == 34 || id == 35
 				|| id == 41 || id == 59)
-				&& (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN)) {
+				&& (player.getGameModeAssistant().isIronMan())) {
 			player.getPacketSender()
-					.sendMessage("You're unable to access this shop because you're an " + player.getGameMode() + ".");
+					.sendMessage("You're unable to access this shop because you're an " + player.getGameModeAssistant().getGameMode() + ".");
 			return this;
 		}
 		setPlayer(player);
@@ -356,14 +356,8 @@ public class Shop extends ItemContainer {
 			return this;
 		}
 		if (this.id == GENERAL_STORE) {
-			if (player.getGameMode() == GameMode.IRONMAN) {
-				player.getPacketSender()
-						.sendMessage("Ironman-players are not allowed to buy items from the general-store.");
-				return this;
-			}
-			if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-				player.getPacketSender()
-						.sendMessage("Hardcore-ironman-players are not allowed to buy items from the general-store.");
+			if (player.getGameModeAssistant().isIronMan()) {
+				player.getPacketSender().sendMessage("Ironman-players are not allowed to buy items from the general-store.");
 				return this;
 			}
 		}

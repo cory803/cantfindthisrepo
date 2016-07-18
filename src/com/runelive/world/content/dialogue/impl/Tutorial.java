@@ -4,7 +4,7 @@ import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Direction;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Position;
 import com.runelive.net.security.ConnectionHandler;
 import com.runelive.world.content.dialogue.Dialogue;
@@ -548,7 +548,7 @@ public class Tutorial {
 				public void specialAction() {
 					p.setNewPlayer(false);
 					if (ConnectionHandler.getStarters(p.getHostAddress()) <= GameSettings.MAX_STARTERS_PER_IP) {
-						if (p.getGameMode() != GameMode.NORMAL) {
+						if (p.getGameModeAssistant().isIronMan()) {
 							p.getInventory().add(995, 10000).add(1153, 1).add(1115, 1).add(1067, 1).add(1323, 1)
 									.add(1191, 1).add(841, 1).add(882, 50).add(1167, 1).add(1129, 1).add(1095, 1)
 									.add(1063, 1).add(579, 1).add(577, 1).add(1011, 1).add(1379, 1).add(556, 50)

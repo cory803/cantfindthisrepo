@@ -5,7 +5,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.jboss.netty.channel.Channel;
 
 import com.runelive.GameSettings;
-import com.runelive.model.GameMode;
 import com.runelive.model.PlayerRights;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.packet.PacketBuilder;
@@ -55,6 +54,46 @@ public final class LoginManager {
 	}
 
 	/**
+	 * Gets the rank for the user.
+	 * @param player The player we are getting the rank for.
+	 * @return The rank assigned to the user
+	 */
+	private static int getRank(final Player player) {
+		PlayerRights rights = player.getRights();
+		switch (rights) {
+			case DEVELOPER:
+				return 18;
+			case STAFF_MANAGER:
+				return 17;
+			case WIKI_MANAGER:
+				return 16;
+			case WIKI_EDITOR:
+				return 15;
+			case MANAGER:
+				return 14;
+			case PLAYER: {
+				switch (player.getDonorRights()) {
+					case 1:
+						return 7;
+					case 2:
+						return 8;
+					case 3:
+						return 9;
+					case 4:
+						return 10;
+					case 5:
+						return 11;
+				}
+				if (player.getGameModeAssistant().isIronMan()) {
+					return 12;
+				}
+			}
+			default:
+				return rights.ordinal();
+		}
+	}
+
+	/**
 	 * Finalizes the login for the specified session and login details.
 	 *
 	 * @param session
@@ -70,42 +109,7 @@ public final class LoginManager {
 			player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
 		}
 		if (player.getResponse() == LoginResponses.LOGIN_SUCCESSFUL) {
-			int rank = player.getRights().ordinal();
-			if (rank == 0) {
-				if (player.getDonorRights() == 1) {
-					rank = 7;
-				}
-				if (player.getDonorRights() == 2) {
-					rank = 8;
-				}
-				if (player.getDonorRights() == 3) {
-					rank = 9;
-				}
-				if (player.getDonorRights() == 4) {
-					rank = 10;
-				}
-				if (player.getDonorRights() == 5) {
-					rank = 11;
-				}
-			}
-			if (player.getGameMode() == GameMode.IRONMAN && !player.getRights().isStaff()) {
-				rank = 12;
-			}
-			if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
-				rank = 13;
-			}
-			if (player.getRights() == PlayerRights.MANAGER) {
-				rank = 14;
-			}
-			if (player.getRights() == PlayerRights.WIKI_EDITOR) {
-				rank = 15;
-			}
-			if (player.getRights() == PlayerRights.WIKI_MANAGER) {
-				rank = 16;
-			}
-			if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-				rank = 17;
-			}
+			int rank = getRank(player);
 			/**
 			 * Successful login.
 			 */

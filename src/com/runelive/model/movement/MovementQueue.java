@@ -234,7 +234,7 @@ public final class MovementQueue {
 	}
 
 	public static boolean canWalk(Position from, Position to, int size) {
-		return true;//RegionClipping.canMove(from, to, size, size);
+		return RegionClipping.canMove(from, to, size, size);
 	}
 
 	/*

@@ -6,7 +6,7 @@ import com.runelive.model.Appearance;
 import com.runelive.model.ChatMessage.Message;
 import com.runelive.model.Direction;
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Gender;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.PlayerRights;
@@ -439,12 +439,12 @@ public class PlayerUpdating {
 				rankId = 11;
 			}
 		}
-		if (target.getGameMode() == GameMode.IRONMAN && !target.getRights().isStaff()) {
+		if (target.getGameModeAssistant().isIronMan() && !target.getRights().isStaff()) {
 			rankId = 12;
 		}
-		if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
+		/*if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
 			rankId = 13;
-		}
+		}*/
 		if (target.getRights() == PlayerRights.MANAGER) {
 			rankId = 14;
 		}
@@ -461,7 +461,7 @@ public class PlayerUpdating {
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
 		builder.put(rankId);
-		builder.put(target.getGameMode().ordinal());
+		builder.put(target.getGameModeAssistant().ordinal());
 		builder.put(bytes.length, ValueType.C);
 		builder.putBytesReverse(bytes);
 	}
@@ -637,12 +637,12 @@ public class PlayerUpdating {
 				rankId = 11;
 			}
 		}
-		if (target.getGameMode() == GameMode.IRONMAN && !target.getRights().isStaff()) {
+		if (target.getGameModeAssistant().isIronMan() && !target.getRights().isStaff()) {
 			rankId = 12;
 		}
-		if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
+		/*if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
 			rankId = 13;
-		}
+		}*/
 		if (target.getRights() == PlayerRights.MANAGER) {
 			rankId = 14;
 		}

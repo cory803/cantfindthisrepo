@@ -9,7 +9,6 @@ import com.runelive.model.Animation;
 import com.runelive.model.Direction;
 import com.runelive.model.DwarfCannon;
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;

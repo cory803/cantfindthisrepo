@@ -1,7 +1,7 @@
 package com.runelive.model.container.impl;
 
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.container.ItemContainer;
 import com.runelive.model.container.StackType;
@@ -34,11 +34,6 @@ public class Bank extends ItemContainer {
 		if (getPlayer().getBankPinAttributes().hasBankPin() && !getPlayer().getBankPinAttributes().hasEnteredBankPin()
 				&& getPlayer().getBankPinAttributes().onDifferent(getPlayer())) {
 			BankPin.init(getPlayer(), true);
-			return this;
-		}
-		if (getPlayer().getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			getPlayer().getPacketSender().sendInterfaceRemoval()
-					.sendMessage("Hardcore-ironman-players cannot use banks.");
 			return this;
 		}
 		sortItems().refreshItems();

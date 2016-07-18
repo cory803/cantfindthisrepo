@@ -3,7 +3,7 @@ package com.runelive.world.content.skill;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Graphic;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Skill;
@@ -119,26 +119,7 @@ public class SkillManager {
 		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
 			return this;
 
-		switch (player.getExpRate()) {
-			case DEFAULT:
-				experience *= 250;
-				break;
-			case SIR:
-			experience *= 125;
-			break;
-		case LORD:
-			experience *= 100;
-			break;
-		case LEGEND:
-			experience *= 35;
-			break;
-		case EXTREME:
-			experience *= 15;
-			break;
-		case REALISM:
-			experience *= 5;
-			break;
-		}
+		experience *= player.getGameModeAssistant().getModeExpRate();
 
 		/*
 		 * The skill's level before adding experience.
@@ -405,8 +386,8 @@ public class SkillManager {
 		float MAX_EXP = MAX_EXPERIENCE;
 		float experience = player.getSkillManager().getExperience(skill);
 		int basePoints = skill.getPrestigePoints();
-		double bonusPointsModifier = player.getGameMode() == GameMode.IRONMAN ? 1.3
-				: player.getGameMode() == GameMode.HARDCORE_IRONMAN ? 1.6 : 1;
+		double bonusPointsModifier = player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN ? 1.3
+				: player.getGameModeAssistant().getGameMode() == GameMode._IRONMAN ? 1.6 : 1;
 		bonusPointsModifier += (experience / MAX_EXP) * 5;
 		int totalPoints = (int) (basePoints * bonusPointsModifier);
 		return totalPoints;
@@ -760,9 +741,9 @@ public class SkillManager {
 	/**
 	 * The maximum amount of experience you can achieve in a skill.
 	 */
-	private static final int MAX_EXPERIENCE = 1000000000;
+	private static final int MAX_EXPERIENCE = 1_000_000_000;
 
-	private static final int EXPERIENCE_FOR_99 = 13034431;
+	private static final int EXPERIENCE_FOR_99 = 13_034_431;
 
 	private static final int EXP_ARRAY[] = { 0, 83, 174, 276, 388, 512, 650, 801, 969, 1154, 1358, 1584, 1833, 2107,
 			2411, 2746, 3115, 3523, 3973, 4470, 5018, 5624, 6291, 7028, 7842, 8740, 9730, 10824, 12031, 13363, 14833,

@@ -4,7 +4,7 @@ import com.runelive.GameSettings;
 import com.runelive.engine.task.impl.WalkToTask;
 import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.runelive.model.Animation;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
@@ -14,8 +14,6 @@ import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.input.impl.EnterAmountOfBonesToSacrifice;
-import com.runelive.model.input.impl.EnterAmountToDiceOther;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
@@ -381,7 +379,7 @@ public class UseItemPacketListener implements PacketListener {
 								player.getPacketSender().sendMessage("Nothing interesting happens..");
 							return;
 						}
-						if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+						/*if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
 							if (GameObjectDefinition.forId(objectId) != null) {
 								GameObjectDefinition def = GameObjectDefinition.forId(objectId);
 								if (def.name != null && def.name.toLowerCase().contains("bank") && def.actions != null
@@ -409,7 +407,7 @@ public class UseItemPacketListener implements PacketListener {
 									return;
 								}
 							}
-						}
+						}*/
 						switch (objectId) {
 						case 6189:
 							if (itemId == 6573 || itemId == 1597 || itemId == 1759) {
@@ -532,10 +530,6 @@ public class UseItemPacketListener implements PacketListener {
 			}
 			break;
 		case 1093: // billy
-			if (player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
-				DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");
-				return;
-			}
 			if (itemDef.isNoted()) {
 				if (freeSlots == 0) {
 					player.getPacketSender().sendMessage("You dont have any free slots.");

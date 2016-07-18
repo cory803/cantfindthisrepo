@@ -7,7 +7,7 @@ import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.model.Animation;
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.GroundItem;
 import com.runelive.model.Item;
 import com.runelive.model.Locations.Location;
@@ -108,7 +108,7 @@ public class PlayerDeathTask extends Task {
 									if (item != null && item.getId() > 0 && item.getAmount() > 0) {
 										int address = Misc.random(0, Integer.MAX_VALUE);
 										GroundItemManager.spawnGroundItem(
-												(killer != null && killer.getGameMode() == GameMode.NORMAL ? killer
+												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer
 														: player),
 												new GroundItem(item, position,
 														killer != null ? killer.getUsername() : player.getUsername(),

@@ -2,6 +2,7 @@ package com.runelive.model;
 
 import com.runelive.GameSettings;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.player.GameMode;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.PlayerPanel;
@@ -51,7 +52,7 @@ public class VoteTokens {
 	}
 
 	public static void open_token(Player p, int itemId) {
-		if (p.getGameMode() == GameMode.IRONMAN || p.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+		if (p.getGameModeAssistant().isIronMan()) {
 			int points = 1;
 			if (p.getDonorRights() == 1) {
 				points += 1;

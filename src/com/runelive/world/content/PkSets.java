@@ -1,6 +1,6 @@
 package com.runelive.world.content;
 
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.util.Misc;
 import com.runelive.world.entity.impl.player.Player;
@@ -46,9 +46,8 @@ public enum PkSets {
 
 	public static void buySet(Player player, PkSets set) {
 		player.getPacketSender().sendInterfaceRemoval();
-		if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender()
-					.sendMessage("You're unable to access this shop because you're an " + player.getGameMode() + ".");
+		if (player.getGameModeAssistant().isIronMan()) {
+			player.getPacketSender().sendMessage("You're unable to access this shop because you're an " + player.getGameModeAssistant().getModeName() + ".");
 			return;
 		}
 		if (player.getInventory().getFreeSlots() < set.items.length) {

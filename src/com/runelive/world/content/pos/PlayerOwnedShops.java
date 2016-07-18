@@ -11,7 +11,7 @@ import java.util.Iterator;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
@@ -132,7 +132,7 @@ public class PlayerOwnedShops {
 
 			break;
 		case -24114: // Search by Name
-			if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			if (player.getGameModeAssistant().isIronMan()) {
 				player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 				return false;
 			}
@@ -140,7 +140,7 @@ public class PlayerOwnedShops {
 			player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
 			return true;
 		case -24113: // Search by Item
-			if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+			if (player.getGameModeAssistant().isIronMan()) {
 				player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 				return false;
 			}
@@ -186,7 +186,7 @@ public class PlayerOwnedShops {
 	}
 
 	public static void openShop(String username, Player player) {
-		if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+		if (player.getGameModeAssistant().isIronMan()) {
 			player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 			return;
 		}

@@ -113,6 +113,7 @@ public final class RegionClipping {
 		}
 		loaded = true;
 		try {
+			this.clips = new int[4][64][64];
 			byte[] objectDataBytes = GameServer.cache.getFile(4, objectFile);
 			byte[] groundDataBytes = GameServer.cache.getFile(4, groundFile);
 			if (objectDataBytes == null || objectDataBytes.length == 0 || groundDataBytes == null || groundDataBytes.length == 0) {
@@ -202,7 +203,7 @@ public final class RegionClipping {
 		int regionX = x >> 3;
 		int regionY = y >> 3;
 		int regionId = (regionX / 8 << 8) + regionY / 8;
-		RegionClipping r = regions.get(regionId);
+		RegionClipping r = forId(regionId);
 		if (r != null) {
 			r.addClip(x, y, height, shift);
 		}
@@ -213,7 +214,7 @@ public final class RegionClipping {
 		int regionY = y >> 3;
 		int regionId = (regionX / 8 << 8) + regionY / 8;
 
-		RegionClipping r = regions.get(regionId);
+		RegionClipping r = forId(regionId);
 		if (r != null) {
 			r.removeClip(x, y, height, shift);
 		}
@@ -221,6 +222,14 @@ public final class RegionClipping {
 
 	public static RegionClipping forPosition(Position position) {
 		RegionClipping region = regions.get(((position.getX() >> 6) << 8) + (position.getY() >> 6));
+		if (region != null) {
+			region.load();
+		}
+		return region;
+	}
+
+	public static RegionClipping forId(int id) {
+		RegionClipping region = regions.get(id);
 		if (region != null) {
 			region.load();
 		}
@@ -509,7 +518,7 @@ public final class RegionClipping {
 			height = 0;
 		else if (height == -1 || Location.inLocation(x, y, Location.PURO_PURO))
 			return 0;
-		RegionClipping r = regions.get(regionId);
+		RegionClipping r = forId(regionId);
 		if (r != null) {
 			return r.getClip(x, y, height);
 		}

@@ -421,7 +421,7 @@ public class PrayerHandler {
 					this.stop();
 					return;
 				}
-				double drainAmount = getDrain(player);
+				double drainAmount = getDrain(player) * player.getGameModeAssistant().getPrayerDrainRate();
 				if (drainAmount <= 0) {
 					this.stop();
 					return;

@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 import com.runelive.cache.Archive;
 import com.runelive.model.definitions.*;
+import com.runelive.model.npc.drops.LootSystem;
+import com.runelive.util.FontUtils;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.util.HashedWheelTimer;
@@ -63,6 +65,7 @@ public final class GameLoader {
 	public void init() throws Exception {
 		ConnectionHandler.init();
 		RegionClipping.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
+		FontUtils.initialize(new Archive(GameServer.cache.getFile(0, 1)));
 		GameObjectDefinition.init();
 		CustomObjects.init();
 		ItemDefinition.init().load();
@@ -76,7 +79,7 @@ public final class GameLoader {
 		CombatStrategies.init();
 		Scoreboard.load();
 		NpcDefinition.parseNpcs().load();
-		NPCDrops.parseDrops().load();
+		LootSystem.loadDropTables();
 		WeaponInterfaces.parseInterfaces().load();
 		ShopManager.parseShops().load();
 		PlayerOwnedShopManager.load();

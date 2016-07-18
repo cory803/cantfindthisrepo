@@ -258,7 +258,7 @@ public class PlayerHandler {
 			}
 		}
 
-		player.getPacketSender().updateSpecialAttackOrb().sendIronmanMode(player.getGameMode().ordinal());
+		player.getPacketSender().updateSpecialAttackOrb().sendIronmanMode();
 
 		if (player.getPointsHandler().getAchievementPoints() == 0) {
 			Achievements.setPoints(player);

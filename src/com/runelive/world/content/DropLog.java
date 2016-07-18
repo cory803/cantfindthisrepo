@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.definitions.NPCDrops;
+import com.runelive.model.npc.drops.LootSystem;
 import com.runelive.world.entity.impl.player.Player;
 
 public class DropLog {
@@ -116,7 +116,7 @@ public class DropLog {
 		public DropLogEntry(int item, int amount) {
 			this.item = item;
 			this.amount = amount;
-			this.rareDrop = ItemDefinition.forId(item).getValue() > 500000 || NPCDrops.ItemDropAnnouncer.announce(item);
+			this.rareDrop = ItemDefinition.forId(item).getValue() > 500000 || LootSystem.getAnnouncment().isAnnouncable(item);
 		}
 
 		public int item;

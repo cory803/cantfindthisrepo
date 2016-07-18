@@ -43,7 +43,7 @@ public class PlayerPanel {
 		// player.getPacketSender().sendString(39171, "Time Played - In
 		// PlayerProcess");
 		player.getPacketSender().sendString(55077, "@red@Claimed:  @gre@$" + player.getAmountDonated());
-		player.getPacketSender().sendString(55078, "@red@Game Mode:  @gre@" + Misc.formatText(player.getExpRate().toString().toLowerCase()));
+		player.getPacketSender().sendString(55078, "@red@Game Mode:  @gre@" + player.getGameModeAssistant().getModeName());
 		player.getPointsHandler().refreshPanel();
 		/**
 		 * Points

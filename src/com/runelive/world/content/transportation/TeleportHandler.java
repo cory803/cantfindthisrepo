@@ -28,6 +28,7 @@ public class TeleportHandler {
 		}
 		if (!player.getClickDelay().elapsed(4500) || player.getMovementQueue().isLockMovement())
 			return;
+		player.currentDialog = null;
 		player.setTeleporting(true).getMovementQueue().setLockMovement(true).reset();
 		cancelCurrentActions(player);
 		player.performAnimation(teleportType.getStartAnimation());

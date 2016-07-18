@@ -1,9 +1,7 @@
 package com.runelive.world.entity.impl.player;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
-import java.io.ObjectInputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -11,6 +9,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -19,8 +18,7 @@ import com.google.gson.JsonParser;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.impl.FamiliarSpawnTask;
-import com.runelive.model.ExpRates;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Gender;
 import com.runelive.model.Item;
 import com.runelive.model.MagicSpellbook;
@@ -40,9 +38,6 @@ import com.runelive.world.content.combat.magic.CombatSpells;
 import com.runelive.world.content.combat.weapon.FightType;
 import com.runelive.world.content.grandexchange.GrandExchangeSlot;
 import com.runelive.world.content.skill.SkillManager.Skills;
-import com.runelive.world.content.skill.impl.construction.HouseFurniture;
-import com.runelive.world.content.skill.impl.construction.Portal;
-import com.runelive.world.content.skill.impl.construction.Room;
 import com.runelive.world.content.skill.impl.slayer.SlayerMaster;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 
@@ -306,12 +301,16 @@ public class PlayerLoading {
 		}
 
 		if (reader.has("game-mode")) {
-			player.setGameMode(GameMode.valueOf(reader.get("game-mode").getAsString()));
+			try {
+				player.getGameModeAssistant().setGameMode(GameMode.valueOf(reader.get("game-mode").toString()));
+			} catch (Exception e) {
+				player.getGameModeAssistant().setGameMode(GameMode.SIR);
+			}
 		}
 
-		if (reader.has("exp-rate")) {
+		/*if (reader.has("exp-rate")) {
 			player.setExpRate(ExpRates.valueOf(reader.get("exp-rate").getAsString()));
-		}
+		}*/
 
 		if (reader.has("last-login")) {
 			player.setLastLogin(reader.get("last-login").getAsLong());

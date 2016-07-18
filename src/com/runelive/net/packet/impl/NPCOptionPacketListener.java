@@ -6,7 +6,6 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.WalkToTask;
 import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.runelive.model.Animation;
-import com.runelive.model.GameMode;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
 import com.runelive.model.PlayerRights;
@@ -16,6 +15,7 @@ import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.model.input.impl.PosSearchShop;
+import org.scripts.kotlin.content.dialog.TownCrier;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
@@ -68,7 +68,8 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (npc == null)
 			return;
 		player.setEntityInteraction(npc);
-		if (player.getRights() == PlayerRights.OWNER)
+		player.setNpcClickId(npc.getId());
+		if (player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender().sendMessage("First click npc id: " + npc.getId());
 		if (BossPets.pickup(player, npc)) {
 			player.getMovementQueue().reset();
@@ -149,7 +150,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(18).open(player);
 					break;
 				case 2290: // ironman npc
-					if (player.getGameMode() == GameMode.NORMAL) {
+					if (!player.getGameModeAssistant().isIronMan()) {
 						DialogueManager.sendStatement(player, "I am not an iron man so I cannot change my mode.");
 						return;
 					}
@@ -173,11 +174,11 @@ public class NPCOptionPacketListener implements PacketListener {
 					DialogueManager.start(player, 228);
 					break;
 				case 1093: // unnoter
-					if (player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
+					/*if (player.getGameMode() != GameMode.HARDCORE_IRONMAN) {
 						DialogueManager.sendStatement(player, "B-A-A-H, you're not a hardcore ironman!");
 						return;
 					}
-					DialogueManager.start(player, 207);
+					DialogueManager.start(player, 207);*/
 					break;
 				case 2305:
 					if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 0) {
@@ -437,7 +438,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.setDialogueActionId(221);
 					break;
 				case 653:
-					if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					if (player.getGameModeAssistant().isIronMan()) {
 						ShopManager.getShops().get(82).open(player);
 					} else {
 						ShopManager.getShops().get(27).open(player);
@@ -516,8 +517,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					player.setDialogueActionId(20);
 					break;
 				case 6139:
-					DialogueManager.start(player, 29);
-					player.setDialogueActionId(17);
+					player.getDialog().sendDialog(new TownCrier(player));
 					break;
 				case 3789:
 					player.getPacketSender().sendInterface(18730);
@@ -736,6 +736,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (npc == null)
 			return;
 		player.setEntityInteraction(npc);
+		player.setNpcClickId(npc.getId());
 		final int npcId = npc.getId();
 		if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendConsoleMessage("Second click npc id: " + npcId);
@@ -873,7 +874,7 @@ public class NPCOptionPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 						return;
 					}
-					if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					if (player.getGameModeAssistant().isIronMan()) {
 						player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 						return;
 					}
@@ -971,6 +972,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			return;
 		player.setEntityInteraction(npc).setPositionToFace(npc.getPosition().copy());
 		npc.setPositionToFace(player.getPosition());
+		player.setNpcClickId(npc.getId());
 		if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Third click npc id: " + npc.getId());
 
@@ -1000,7 +1002,7 @@ public class NPCOptionPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("Player owned shops have been disabled.");
 						return;
 					}
-					if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+					if (player.getGameModeAssistant().isIronMan()) {
 						player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 						return;
 					}
@@ -1072,6 +1074,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (npc == null)
 			return;
 		player.setEntityInteraction(npc);
+		player.setNpcClickId(npc.getId());
 		if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage("Fourth click npc id: " + npc.getId());
 

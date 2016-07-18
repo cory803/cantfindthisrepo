@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Animation;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
@@ -260,11 +260,10 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendIronmanMode(int ironmanMode) {
-		if (ironmanMode == 1) {
+	public PacketSender sendIronmanMode() {
+		int ironmanMode = 0;
+		if (player.getGameModeAssistant().isIronMan()) {
 			ironmanMode = 2;
-		} else if (ironmanMode == 2) {
-			ironmanMode = 1;
 		}
 		PacketBuilder out = new PacketBuilder(112);
 		out.put(ironmanMode);
@@ -593,6 +592,7 @@ public class PacketSender {
 		 */
 		player.setDialogueActionId(-1);
 		player.setInterfaceId(-1);
+		player.currentDialog = null;
 		player.getAppearance().setCanChangeAppearance(false);
 		player.getSession().queueMessage(new PacketBuilder(219));
 		return this;
@@ -763,6 +763,10 @@ public class PacketSender {
 		return this;
 	}
 
+	public PacketSender sendString(String string, int id) {
+		return this.sendString(id, string);
+	}
+
 	public PacketSender sendString(int id, String string) {
 		if (id == 18250 && string.length() < 2)
 			return this;
@@ -810,12 +814,12 @@ public class PacketSender {
 				rank = 11;
 			}
 		}
-		if (player.getGameMode() == GameMode.IRONMAN && !player.getRights().isStaff()) {
+		if (player.getGameModeAssistant().isIronMan() && !player.getRights().isStaff()) {
 			rank = 12;
 		}
-		if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
+		/*if (player.getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
 			rank = 13;
-		}
+		}*/
 		if (player.getRights() == PlayerRights.MANAGER) {
 			rank = 14;
 		}
@@ -916,12 +920,12 @@ public class PacketSender {
 				rank = 11;
 			}
 		}
-		if (me.getGameMode() == GameMode.IRONMAN) {
+		if (me.getGameModeAssistant().isIronMan()) {
 			rank = 12;
 		}
-		if (me.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+		/*if (me.getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN) {
 			rank = 13;
-		}
+		}*/
 		if (me.getRights() == PlayerRights.MANAGER) {
 			rank = 14;
 		}

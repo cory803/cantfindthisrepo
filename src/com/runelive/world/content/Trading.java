@@ -4,7 +4,7 @@ import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
@@ -31,21 +31,13 @@ public class Trading {
 				|| player.isTeleporting() || player2.isTeleporting())
 			return;
 
-		if (player.getGameMode() == GameMode.IRONMAN) {
+		if (player.getGameModeAssistant().isIronMan()) {
 			player.getPacketSender().sendMessage("Ironman-players are not allowed to trade.");
 			return;
 		}
-		if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("Hardcore-ironman-players are not allowed to trade.");
-			return;
-		}
-		if (player2.getGameMode() == GameMode.IRONMAN) {
+		if (player2.getGameModeAssistant().isIronMan()) {
 			player.getPacketSender()
 					.sendMessage("That player is a Hardcore-ironman-player and can therefore not stake.");
-			return;
-		}
-		if (player2.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("That player is an Ironman player and can therefore not stake.");
 			return;
 		}
 		if (player.getLocation() == Location.DUNGEONEERING) {

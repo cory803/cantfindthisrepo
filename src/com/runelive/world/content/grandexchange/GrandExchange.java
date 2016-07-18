@@ -2,7 +2,7 @@ package com.runelive.world.content.grandexchange;
 
 import java.util.ArrayList;
 
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
@@ -120,7 +120,7 @@ public class GrandExchange {
 	}
 
 	public static void open(Player player) {
-		if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+		if (player.getGameModeAssistant().isIronMan()) {
 			player.getPacketSender().sendMessage("You cannot use the Grand Exchange.");
 			return;
 		}

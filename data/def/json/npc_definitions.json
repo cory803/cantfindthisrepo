@@ -57444,7 +57444,7 @@
 "id": 2579,
 "name": "Veteran",
 "examine": "A player that <3 RuneLive.",
-"combat": 27,
+"combat": 0,
 "size": 1,
 "attackable": false,
 "aggressive": false,

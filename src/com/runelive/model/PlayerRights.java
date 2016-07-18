@@ -18,7 +18,9 @@ public enum PlayerRights {
 	MANAGER(ADMINISTRATOR, MODERATOR),
 	WIKI_EDITOR(),
 	WIKI_MANAGER(),
-	STAFF_MANAGER(ADMINISTRATOR, MODERATOR);
+	STAFF_MANAGER(ADMINISTRATOR, MODERATOR),
+	DEVELOPER(ADMINISTRATOR, MODERATOR),
+	;
 
 	PlayerRights(PlayerRights... inherited) {
 		this.inherited = inherited;

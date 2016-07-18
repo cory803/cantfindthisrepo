@@ -18,7 +18,12 @@ public class DialoguePacketListener implements PacketListener {
 	public void handleMessage(Player player, Packet packet) {
 		switch (packet.getOpcode()) {
 		case DIALOGUE_OPCODE:
-			DialogueManager.next(player);
+			if (player.currentDialog != null) {
+				player.currentDialog.incrementState();
+				player.getDialog().sendDialog(player.currentDialog);
+			} else {
+				DialogueManager.next(player);
+			}
 			break;
 		}
 	}

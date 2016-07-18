@@ -1,9 +1,9 @@
 package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
-import com.runelive.model.GameMode;
+import com.runelive.model.options.Option;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Bank.BankSearchAttributes;
@@ -70,6 +70,7 @@ import com.runelive.world.content.skill.impl.summoning.PouchMaking;
 import com.runelive.world.content.skill.impl.summoning.SummoningTab;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.entity.impl.player.Player;
+import javafx.scene.control.Label;
 
 /**
  * This packet listener manages a button that the player has clicked upon.
@@ -88,12 +89,17 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("Clicked button: " + id);
 		}*/
 
+		if (checkOptionContainer(player, id)) {
+			return;
+		}
+
 		if (checkHandlers(player, id))
 			return;
 		if (GameSettings.DEBUG_MODE) {
 			// PlayerLogs.log(player, "" + player.getUsername()
 			// + " has clicked button in ButtonClickPacketListener " + id + "");
 		}
+
 
 		if (Enchanting.enchantButtons(player, id)) {
 			return;
@@ -325,7 +331,7 @@ public class ButtonClickPacketListener implements PacketListener {
 				player.getPacketSender()
 						.sendEnterAmountPrompt("How much experience would you like to buy? 1 token = 3 exp");
 			} else {
-				if (player.getGameMode() == GameMode.IRONMAN || player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+				if (player.getGameModeAssistant().isIronMan()) {
 					player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
 					return;
 				}
@@ -1038,6 +1044,84 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.setFightType(FightType.BATTLEAXE_BLOCK);
 			break;
 		}
+	}
+
+	private boolean checkOptionContainer(Player player, int id) {
+		switch (id) {
+			case 2461: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_1_OF_2))
+					return true;
+				break;
+			}
+			case 2462: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_2_OF_2))
+					return true;
+				break;
+			}
+			case 2471: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_1_OF_3))
+					return true;
+				break;
+			}
+			case 2472: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_2_OF_3))
+					return true;
+				break;
+			}
+			case 2473: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_3_OF_3))
+					return true;
+				break;
+			}
+			case 2482: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_1_OF_4))
+					return true;
+				break;
+			}
+			case 2483: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_2_OF_4))
+					return true;
+				break;
+			}
+			case 2484: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_3_OF_4))
+					return true;
+				break;
+			}
+			case 2485: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_4_OF_4))
+					return true;
+				break;
+			}
+			case 2494: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_1_OF_5))
+					return true;
+				break;
+			}
+			case 2495: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_2_OF_5))
+					return true;
+				break;
+			}
+			case 2496: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_3_OF_5))
+					return true;
+				break;
+			}
+			case 2497: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_4_OF_5))
+					return true;
+				break;
+			}
+			case 2498: {
+				if (player.getOptionContainer().handle(Option.OptionType.OPTION_5_OF_5))
+					return true;
+				break;
+			}
+
+		}
+
+		return false;
 	}
 
 	private boolean checkHandlers(Player player, int id) {

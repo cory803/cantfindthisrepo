@@ -3,8 +3,6 @@ package com.runelive.model.input.impl;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.definitions.NPCDrops;
-import com.runelive.model.definitions.NPCDrops.NpcDropItem;
 import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.model.input.Input;
 import com.runelive.world.content.dialogue.DialogueManager;
@@ -55,7 +53,7 @@ public class ItemSearch extends Input {
 					}
 
 					if (itemId > 0) {
-						for (NPCDrops npcDrops : NPCDrops.getDrops().values()) {
+						/*for (NPCDrops npcDrops : NPCDrops.getDrops().values()) {
 							if (npcDrops != null) {
 								for (NpcDropItem item : npcDrops.getDropList()) {
 									if (item != null && item.getId() == itemId) {
@@ -71,7 +69,7 @@ public class ItemSearch extends Input {
 									}
 								}
 							}
-						}
+						}*/
 					}
 
 					if (itemId == -1 || npcDropId == -1) {

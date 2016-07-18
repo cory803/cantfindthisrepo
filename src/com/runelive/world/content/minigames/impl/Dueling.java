@@ -5,7 +5,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
@@ -181,20 +181,12 @@ public class Dueling {
 				return;
 			}
 		}
-		if (player.getGameMode() == GameMode.IRONMAN) {
+		if (player.getGameModeAssistant().isIronMan()) {
 			player.getPacketSender().sendMessage("You're dumb for trying to stake an Ironman.");
 			return;
 		}
-		if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("You're dumb for trying to trade a Hardcore Ironman.");
-			return;
-		}
-		if (playerToDuel.getGameMode() == GameMode.IRONMAN) {
+		if (playerToDuel.getGameModeAssistant().isIronMan()) {
 			player.getPacketSender().sendMessage("You're dumb for trying to stake an Ironman.");
-			return;
-		}
-		if (playerToDuel.getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			player.getPacketSender().sendMessage("You're dumb for trying to stake a Hardcore Ironman.");
 			return;
 		}
 

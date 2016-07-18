@@ -7,7 +7,7 @@ import com.runelive.world.entity.impl.player.Player;
 public class PlayerSpecialAmountTask extends Task {
 
 	public PlayerSpecialAmountTask(Player player) {
-		super(20, player, false);
+		super(player.getGameModeAssistant().getSpecialRecoveryRate(), player, false);
 		this.player = player;
 		player.setRecoveringSpecialAttack(true);
 	}

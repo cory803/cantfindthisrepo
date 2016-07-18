@@ -310,14 +310,22 @@ public class ItemDefinition {
 	}
 
 	private enum EquipmentType {
-		HAT(Equipment.HEAD_SLOT), CAPE(Equipment.CAPE_SLOT), SHIELD(Equipment.SHIELD_SLOT), GLOVES(
-				Equipment.HANDS_SLOT), BOOTS(Equipment.FEET_SLOT), AMULET(Equipment.AMULET_SLOT), RING(
-						Equipment.RING_SLOT), ARROWS(Equipment.AMMUNITION_SLOT), FULL_MASK(
-								Equipment.HEAD_SLOT), FULL_HELMET(Equipment.HEAD_SLOT), BODY(
-										Equipment.BODY_SLOT), PLATEBODY(Equipment.BODY_SLOT), LEGS(
-												Equipment.LEG_SLOT), WEAPON(Equipment.WEAPON_SLOT);
+		HAT(Equipment.HEAD_SLOT),
+		CAPE(Equipment.CAPE_SLOT),
+		SHIELD(Equipment.SHIELD_SLOT),
+		GLOVES(Equipment.HANDS_SLOT),
+		BOOTS(Equipment.FEET_SLOT),
+		AMULET(Equipment.AMULET_SLOT),
+		RING(Equipment.RING_SLOT),
+		ARROWS(Equipment.AMMUNITION_SLOT),
+		FULL_MASK(Equipment.HEAD_SLOT),
+		FULL_HELMET(Equipment.HEAD_SLOT),
+		BODY(Equipment.BODY_SLOT),
+		PLATEBODY(Equipment.BODY_SLOT),
+		LEGS(Equipment.LEG_SLOT),
+		WEAPON(Equipment.WEAPON_SLOT);
 
-		private EquipmentType(int slot) {
+		EquipmentType(int slot) {
 			this.slot = slot;
 		}
 

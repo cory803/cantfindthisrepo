@@ -2,16 +2,14 @@ package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Animation;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.VoteTokens;
-import com.runelive.model.input.impl.EnterAmountToDice;
 import com.runelive.model.input.impl.EnterForumAccountTokens;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
@@ -323,7 +321,7 @@ public class ItemActionPacketListener implements PacketListener {
 				return;
 			}
 			player.setDialogueActionId(70);
-			DialogueManager.start(player, player.getGameMode() == GameMode.NORMAL ? 108 : 109);
+			//DialogueManager.start(player, player.getGameModeAssistant().getGameMode() == GameMode.NORMAL ? 108 : 109);
 			break;
 		case 7956:
 			player.getInventory().delete(7956, 1);
@@ -875,7 +873,7 @@ public class ItemActionPacketListener implements PacketListener {
 				return;
 			}
 			player.setDialogueActionId(71);
-			DialogueManager.start(player, player.getGameMode() == GameMode.NORMAL ? 108 : 109);
+			//DialogueManager.start(player, player.getGameModeAssistant().getGameMode() == GameMode.NORMAL ? 108 : 109);
 			break;
 		case 6500:
 			player.getPacketSender().sendMessage("You're currently gain experience and picking up charms.");

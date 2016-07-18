@@ -7,6 +7,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.runelive.model.options.OptionContainer;
+import com.runelive.model.player.GameModeAssistant;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.net.mysql.impl.Hiscores;
 import com.runelive.world.content.skill.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
 
@@ -20,9 +25,8 @@ import com.runelive.model.Appearance;
 import com.runelive.model.CharacterAnimations;
 import com.runelive.model.ChatMessage;
 import com.runelive.model.DwarfCannon;
-import com.runelive.model.ExpRates;
 import com.runelive.model.Flag;
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Item;
 import com.runelive.model.MagicSpellbook;
@@ -442,6 +446,7 @@ public class Player extends Character {
 			getPacketSender().sendMessage("You cannot log out at the moment.");
 			return false;
 		}
+		new Hiscores(this).execute();
 		return true;
 	}
 
@@ -499,6 +504,7 @@ public class Player extends Character {
 
 	/*** LONGS **/
 	private Long longUsername;
+	public long lastThieve;
 	private long moneyInPouch;
 	private long totalPlayTime;
 	// Timers (Stopwatches)
@@ -540,7 +546,7 @@ public class Player extends Character {
 	private ArrayList<Portal> housePortals = new ArrayList<>();
 	private final List<Player> localPlayers = new LinkedList<Player>();
 	private final List<NPC> localNpcs = new LinkedList<NPC>();
-	public long lastThieve;
+
 	public PlayerSession session;
 	public LoginDetailsMessage logindetailsmessage;
 	public Channel channel;
@@ -556,9 +562,11 @@ public class Player extends Character {
 	private final PacketSender packetSender = new PacketSender(this);
 	private final Appearance appearance = new Appearance(this);
 	private PlayerRights rights = PlayerRights.PLAYER;
+	private Thieving thieving = new Thieving(this);
 	private int donatorRights = 0;
 	private SkillManager skillManager = new SkillManager(this);
 	private PlayerRelations relations = new PlayerRelations(this);
+	private GameModeAssistant gameModeAssistant = new GameModeAssistant(this);
 	private ChatMessage chatMessages = new ChatMessage();
 	private Inventory inventory = new Inventory(this);
 	private Equipment equipment = new Equipment(this);
@@ -571,8 +579,6 @@ public class Player extends Character {
 	private Bank[] bankTabs = new Bank[9];
 	private Room[][][] houseRooms = new Room[5][13][13];
 	private PlayerInteractingOption playerInteractingOption = PlayerInteractingOption.NONE;
-	private GameMode gameMode = GameMode.NORMAL;
-	private ExpRates expRate = ExpRates.LORD;
 	private CombatType lastCombatType = CombatType.MELEE;
 	private FightType fightType = FightType.UNARMED_PUNCH;
 	private Prayerbook prayerbook = Prayerbook.NORMAL;
@@ -588,6 +594,7 @@ public class Player extends Character {
 	private ConstructionData.HouseTheme houseTheme = HouseTheme.BASIC_WOOD;
 	private Item interactingItem;
 	private Dialogue dialogue;
+	public Dialog currentDialog;
 	private DwarfCannon cannon;
 	private CombatSpell autocastSpell, castSpell, previousCastSpell;
 	private RangedWeaponData rangedWeaponData;
@@ -599,6 +606,8 @@ public class Player extends Character {
 	private Task currentTask;
 	private Position resetPosition;
 	private Pouch selectedPouch;
+	private final DialogHandler dialogueHandler = new DialogHandler(this);
+	private OptionContainer optionContainer = new OptionContainer(this);
 
 	/*** INTS ***/
 	private int[] vestaCharges = new int[8];
@@ -611,6 +620,7 @@ public class Player extends Character {
 	private int[] corruptMorrigansCharges = new int[8];
 	public int[] allKeys = { 1543, 1545, 1546, 1547, 1548 };
 	public int voteCount = 0;
+	private int npcClickId;
 	private int questPoints = 0;
 	private int bossPoints = 0;
 	private int lastBoss = 0;
@@ -641,7 +651,6 @@ public class Player extends Character {
 	private int teleblockTimer;
 	private int dragonFireImmunity;
 	private int poisonImmunity;
-	private Thieving thieving = new Thieving(this);
 	private int venomImmunity;
 	private int shadowState;
 	private int effigy;
@@ -746,6 +755,29 @@ public class Player extends Character {
 	/*
 	 * Getters & Setters
 	 */
+	public Thieving getThieving() {
+		return this.thieving;
+	}
+
+	public DialogHandler getDialog() {
+		return dialogueHandler;
+	}
+
+	public void setNpcClickId(int index) {
+		this.npcClickId = index;
+	}
+
+	public int getNpcClickId() {
+		return npcClickId;
+	}
+
+	public OptionContainer getOptionContainer() {
+		return optionContainer;
+	}
+	public GameModeAssistant getGameModeAssistant() {
+		return this.gameModeAssistant;
+	}
+
 	public boolean isCanWearDungItems() {
 		return canWearDungItems;
 	}
@@ -1182,10 +1214,6 @@ public class Player extends Character {
 
 	public int getVenomImmunity() {
 		return poisonImmunity;
-	}
-
-	public Thieving getThieving() {
-		return thieving;
 	}
 
 	public void setPoisonImmunity(int poisonImmunity) {
@@ -2122,22 +2150,6 @@ public class Player extends Character {
 
 	public void setShadowState(int shadow) {
 		this.shadowState = shadow;
-	}
-
-	public GameMode getGameMode() {
-		return gameMode;
-	}
-
-	public void setGameMode(GameMode gameMode) {
-		this.gameMode = gameMode;
-	}
-
-	public ExpRates getExpRate() {
-		return expRate;
-	}
-
-	public void setExpRate(ExpRates expRate) {
-		this.expRate = expRate;
 	}
 
 	public boolean isPlayerLocked() {

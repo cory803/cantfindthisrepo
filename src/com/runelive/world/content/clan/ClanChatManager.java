@@ -6,16 +6,20 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map.Entry;
 import java.util.logging.Logger;
 
-import com.runelive.model.GameMode;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.model.PlayerRights;
+import com.runelive.model.Position;
 import com.runelive.util.Misc;
 import com.runelive.util.NameUtils;
+import com.runelive.world.World;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -371,12 +375,12 @@ public class ClanChatManager {
 						img = 11;
 					}
 				}
-				if (player.getGameMode() == GameMode.IRONMAN && !player.getRights().isStaff()) {
+				if (player.getGameModeAssistant().isIronMan() && !player.getRights().isStaff()) {
 					img = 12;
 				}
-				if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
+				/*if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
 					img = 13;
-				}
+				}*/
 				if (player.getRights() == PlayerRights.MANAGER) {
 					img = 14;
 				}
@@ -404,6 +408,57 @@ public class ClanChatManager {
 				member.getPacketSender().sendMessage(message);
 			}
 		}
+	}
+
+	/**
+	 * This determines of whome the drop will be given to.
+	 * @param droppedFor
+	 * @return
+	 */
+	public static Player lootshare(Player droppedFor, Position p, int item, int amount) {
+		ClanChat clan = droppedFor.getCurrentClanChat();
+		if(droppedFor.getCurrentClanChat() == null || !clan.getLootShare()) {
+			return droppedFor;
+		}
+		if(clan == null) {
+			return droppedFor;
+		}
+		Item it = new Item(item);
+		int value = item == -1 ? 1 : it.getDefinition().getValue();
+		if(value < 1) {
+			value = 1;
+		}
+		List<Integer> users = new ArrayList<>();
+		for(Player pl : clan.getMembers()) {
+			if (pl == null) {
+				continue;
+			}
+			if (pl.getPosition().getDistance(p) > 21 || !pl.getCurrentClanChat().getLootShare()) {
+				continue;
+			}
+			users.add(pl.getIndex());
+			if(droppedFor.lootSharePotential < pl.lootSharePotential) {
+				pl.lootSharePotential += (value * amount);
+				droppedFor = pl;
+				continue;
+			}
+			pl.lootSharePotential += (value * amount);
+		}
+		String name = item == -1 ? "Point" : it.getDefinition().getName();
+		for(int i : users) {
+			Player pl = World.getPlayers().get(i);
+			if (pl == null || droppedFor.getIndex() == i) {
+				continue;
+			}
+			pl.getPacketSender().sendMessage(droppedFor.getUsername()+" received: "+(item != -1 ? Misc.format(amount)+" " : "")+name+".");
+			pl.getPacketSender().sendMessage("Your chance of receiving loot has improved.");
+		}
+		droppedFor.lootSharePotential -= (value * amount);
+		if(droppedFor.lootSharePotential < 0) {
+			droppedFor.lootSharePotential = 0;
+		}
+		droppedFor.getPacketSender().sendMessage("<col=00b200>You received: " + (item != -1 ? Misc.format(amount) + " " : "") + name + ".");
+		return droppedFor;
 	}
 
 	public static void leave(Player player, boolean kicked) {

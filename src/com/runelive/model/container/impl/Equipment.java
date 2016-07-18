@@ -115,6 +115,16 @@ public class Equipment extends ItemContainer {
 		return torva || pernix || virtus;
 	}
 
+	public boolean isNaked() {
+		for (int i = 0; i < 14; i++) {
+			if (getPlayer().getEquipment().getItems()[i].getId() != -1) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+
 	public boolean wearingHalberd() {
 		ItemDefinition def = ItemDefinition.forId(getPlayer().getEquipment().getItems()[Equipment.WEAPON_SLOT].getId());
 		return def != null && def.getName().toLowerCase().endsWith("halberd");
