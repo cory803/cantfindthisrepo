@@ -140,8 +140,8 @@ object PlayerCmds {
                 player.packetSender.sendMessage("Hiscores is currently turned off, please try again in 30 minutes!")
                 return
             }
-            player.packetSender.sendString(1, "www.rune.live/hiscores/")
-            player.packetSender.sendMessage("Attempting to open: www.rune.live/hiscores/")
+            player.packetSender.sendString(1, "www.rune.live/highscores/")
+            player.packetSender.sendMessage("Attempting to open: www.rune.live/highscores/")
         }
         if (command[0] == "thread") {
             val thread = Integer.parseInt(command[1])

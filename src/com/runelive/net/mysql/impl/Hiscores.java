@@ -39,12 +39,12 @@ public class Hiscores implements SQLCallback {
      */
     public Hiscores execute() {
         try {
-            PreparedStatement preparedStatement = GameServer.getVotingPool().prepareStatement("DELETE FROM `skills` WHERE `skills`.`playerName` = ?");
+            PreparedStatement preparedStatement = GameServer.getHiscoresPool().prepareStatement("DELETE FROM `skills` WHERE `skills`.`playerName` = ?");
             preparedStatement.setString(1, player.getUsername());
 
-            GameServer.getVotingPool().executeQuery(preparedStatement, this);
+            GameServer.getHiscoresPool().executeQuery(preparedStatement, this);
 
-            preparedStatement = GameServer.getVotingPool().prepareStatement("INSERT INTO `skills` (`skillsindex`, `playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Dungeoneering`, `Summoning`, `Hunter`, `Construction`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement = GameServer.getHiscoresPool().prepareStatement("INSERT INTO `skills` (`skillsindex`, `playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Dungeoneering`, `Summoning`, `Hunter`, `Construction`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, player.getUsername());
             preparedStatement.setByte(2, (byte) player.getGameModeAssistant().ordinal());
             preparedStatement.setByte(3, (byte) getRank());
@@ -54,7 +54,7 @@ public class Hiscores implements SQLCallback {
                 preparedStatement.setInt((i + 6), player.getSkillManager().getExperience(Skill.values()[i]));
             }
 
-            GameServer.getVotingPool().executeQuery(preparedStatement, this);
+            GameServer.getHiscoresPool().executeQuery(preparedStatement, this);
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();

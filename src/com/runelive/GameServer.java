@@ -28,6 +28,7 @@ public class GameServer {
 	private static ThreadedSQL characters_sql = null;
 	private static ThreadedSQL forums_sql = null;
 	private static ThreadedSQL voting_sql = null;
+	private static ThreadedSQL hiscores_sql = null;
 	public static RSCache cache;
 	private static File cacheRepository = new File(System.getProperty("user.home") + File.separator + "runelive" + File.separator);
 
@@ -43,6 +44,10 @@ public class GameServer {
 		return voting_sql;
 	}
 
+	public static ThreadedSQL getHiscoresPool() {
+		return hiscores_sql;
+	}
+
 	public static void main(String[] params) {
 		try {
 			System.setErr(new PrintStream(new ErrorFile("errorlogs", "ErrorLog"), true));
@@ -55,6 +60,8 @@ public class GameServer {
 		logger.info("Grabbed MYSQL character password: " + DatabaseInformationCharacters.password + "");
 		logger.info("Grabbed MYSQL forum connection: " + DatabaseInformationForums.host + "");
 		logger.info("Grabbed MYSQL forum password: " + DatabaseInformationForums.password + "");
+		logger.info("Grabbed MYSQL hiscores connection: " + DatabaseInformationHiscores.host + "");
+		logger.info("Grabbed MYSQL hiscores password: " + DatabaseInformationHiscores.password + "");
 		startTime = System.currentTimeMillis();
 		Runtime.getRuntime().addShutdownHook(new ShutdownHook());
 		try {
@@ -86,6 +93,13 @@ public class GameServer {
 			voting.setPassword(DatabaseInformationVoting.password);
 			voting.setDatabase(DatabaseInformationVoting.database);
 			voting_sql = new ThreadedSQL(voting, 4);
+			MySQLDatabaseConfiguration hiscores = new MySQLDatabaseConfiguration();
+			hiscores.setHost(DatabaseInformationHiscores.host);
+			hiscores.setPort(DatabaseInformationHiscores.port);
+			hiscores.setUsername(DatabaseInformationHiscores.username);
+			hiscores.setPassword(DatabaseInformationHiscores.password);
+			hiscores.setDatabase(DatabaseInformationHiscores.database);
+			hiscores_sql = new ThreadedSQL(hiscores, 4);
 			cache = RSCache.create(cacheRepository);
 			loader.init();
 			loader.finish();
