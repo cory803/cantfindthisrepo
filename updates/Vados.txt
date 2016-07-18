@@ -93,11 +93,17 @@ The Max cape now gives +8 in all Attack Bonuses and +17 in all defence bonuses, 
 Divine now protects over Korasi.
 You can now cooking Sardine's and Herring's
 
---- New Day (13/07/2016) ---
+--- New Day (14/07/2016) ---
 Updated the text on the Recipe for Disaster quest interface.
 Removed the Sailor's
 Moved Town Criers to old sailor spots
 Town Criers will continue to handle account security, and now has the change-home second click option.
+
+--- New Day (16/07/2016) (17/07/2016) (18/07/2016) ---
+
+Re-wrote thieving completely, Ham Member's (Male & Female), Farmers (Regular and Master) give seeds.
+
+
 
 The skills currently go by RuneScape experience are:
 

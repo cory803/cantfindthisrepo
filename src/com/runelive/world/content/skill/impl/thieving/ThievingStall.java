@@ -1,4 +1,4 @@
-package com.runelive.world.content.skill.thieving;
+package com.runelive.world.content.skill.impl.thieving;
 
 public enum ThievingStall {
 

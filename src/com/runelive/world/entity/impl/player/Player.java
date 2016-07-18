@@ -11,8 +11,7 @@ import com.runelive.model.options.OptionContainer;
 import com.runelive.model.player.GameModeAssistant;
 import com.runelive.model.player.dialog.Dialog;
 import com.runelive.model.player.dialog.DialogHandler;
-import com.runelive.net.mysql.impl.Hiscores;
-import com.runelive.world.content.skill.thieving.Thieving;
+import com.runelive.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
 
 import com.runelive.GameSettings;
@@ -26,7 +25,6 @@ import com.runelive.model.CharacterAnimations;
 import com.runelive.model.ChatMessage;
 import com.runelive.model.DwarfCannon;
 import com.runelive.model.Flag;
-import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Item;
 import com.runelive.model.MagicSpellbook;
@@ -446,7 +444,7 @@ public class Player extends Character {
 			getPacketSender().sendMessage("You cannot log out at the moment.");
 			return false;
 		}
-		new Hiscores(this).execute();
+//		new Hiscores(this).execute();
 		return true;
 	}
 

@@ -10,7 +10,6 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.BonusExperienceTask;
 import com.runelive.model.Animation;
 import com.runelive.model.Flag;
-import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Hit;
 import com.runelive.model.Item;
@@ -71,9 +70,9 @@ import com.runelive.world.content.skill.impl.slayer.SlayerDialogues;
 import com.runelive.world.content.skill.impl.slayer.SlayerMaster;
 import com.runelive.world.content.skill.impl.summoning.CharmingImp;
 import com.runelive.world.content.skill.impl.summoning.SummoningTab;
-import com.runelive.world.content.transportation.JewelryTeleporting;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
+import com.runelive.world.content.transportation.jewelry.GloryTeleporting;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.npc.NpcAggression;
 import com.runelive.world.entity.impl.player.Player;
@@ -260,7 +259,7 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 48:
-				JewelryTeleporting.teleport(player, new Position(3088, 3506));
+				GloryTeleporting.teleport(player, new Position(3088, 3506));
 				break;
 			case 59:
 				if (player.getClickDelay().elapsed(1500)) {
@@ -463,7 +462,7 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 48:
-				JewelryTeleporting.teleport(player, new Position(3213, 3423));
+				GloryTeleporting.teleport(player, new Position(3213, 3423));
 				break;
 			case 59:
 				if (player.getClickDelay().elapsed(1500)) {
@@ -664,7 +663,7 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 48:
-				JewelryTeleporting.teleport(player, new Position(3368, 3267));
+				GloryTeleporting.teleport(player, new Position(3368, 3267));
 				break;
 			case 59:
 				if (player.getClickDelay().elapsed(1500)) {
@@ -843,7 +842,7 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 48:
-				JewelryTeleporting.teleport(player, new Position(2447, 5169));
+				GloryTeleporting.teleport(player, new Position(2447, 5169));
 				break;
 			case 59:
 				if (player.getClickDelay().elapsed(1500)) {

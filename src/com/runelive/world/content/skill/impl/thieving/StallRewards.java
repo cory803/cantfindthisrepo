@@ -1,4 +1,4 @@
-package com.runelive.world.content.skill.thieving;
+package com.runelive.world.content.skill.impl.thieving;
 
 import java.util.Arrays;
 
@@ -30,19 +30,19 @@ public enum StallRewards {
             new WeightedItem(1387, 1, 1),
             new WeightedItem(1383, 1, 1)),
     GEM_STALL(
-            new WeightedItem(1624, 1, 5),
-            new WeightedItem(1621, 1, 5),
-            new WeightedItem(1619, 1, 5),
-            new WeightedItem(1617, 1, 5),
-            new WeightedItem(1631, 1, 30)),
+            new WeightedItem(1623, 1, 6),
+            new WeightedItem(1621, 1, 6),
+            new WeightedItem(1619, 1, 6),
+            new WeightedItem(1617, 1, 6),
+            new WeightedItem(1631, 1, 1)),
     SCIMITAR_STALL(
-            new WeightedItem(1321, 1, 5),
-            new WeightedItem(1324, 1, 5),
-            new WeightedItem(1325, 1, 5),
-            new WeightedItem(1327, 1, 5),
-            new WeightedItem(1329, 1, 5),
-            new WeightedItem(1333, 1, 5),
-            new WeightedItem(4587, 1, 30));
+            new WeightedItem(1321, 1, 10),
+            new WeightedItem(1324, 1, 9),
+            new WeightedItem(1325, 1, 8),
+            new WeightedItem(1327, 1, 7),
+            new WeightedItem(1329, 1, 6),
+            new WeightedItem(1333, 1, 2),
+            new WeightedItem(4587, 1, 1));
 
     public final WeightedItem[] rewards;
     public final int weightSum;

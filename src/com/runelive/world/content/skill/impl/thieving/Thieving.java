@@ -1,4 +1,4 @@
-package com.runelive.world.content.skill.thieving;
+package com.runelive.world.content.skill.impl.thieving;
 
 import com.runelive.model.Animation;
 import com.runelive.model.Item;
@@ -6,6 +6,7 @@ import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
+import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.entity.impl.player.Player;
 
 import java.util.Arrays;
@@ -28,8 +29,7 @@ public class Thieving {
             player.getPacketSender().sendMessage("You do not have enough inventory space to steal from this stall!");
             return false;
         } else if (player.getSkillManager().getCurrentLevel(Skill.THIEVING) < stall.getRequiredLevel()) {
-            player.getPacketSender().sendMessage("You need a Thieving level of @red@" + stall.getRequiredLevel()
-                    + " @bla@to steal from this stall!");
+            DialogueManager.sendStatement(player, "@blu@You need a Thieving level of @dre@" + stall.getRequiredLevel() + " @blu@to steal from this stall!");
             return false;
         }
 

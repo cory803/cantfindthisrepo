@@ -2,7 +2,6 @@ package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Animation;
-import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
@@ -42,9 +41,11 @@ import com.runelive.world.content.skill.impl.slayer.SlayerDialogues;
 import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.content.skill.impl.summoning.SummoningData;
 import com.runelive.world.content.skill.impl.woodcutting.BirdNests;
-import com.runelive.world.content.transportation.JewelryTeleporting;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
+import com.runelive.world.content.transportation.jewelry.CombatTeleporting;
+import com.runelive.world.content.transportation.jewelry.GloryTeleporting;
+import com.runelive.world.content.transportation.jewelry.SkillsTeleporting;
 import com.runelive.world.entity.impl.player.Player;
 
 public class ItemActionPacketListener implements PacketListener {
@@ -616,12 +617,25 @@ public class ItemActionPacketListener implements PacketListener {
 		case 1710:
 		case 1708:
 		case 1706:
-		case 11118:
-		case 11120:
-		case 11122:
-		case 11124:
-			JewelryTeleporting.rub(player, itemId);
+			GloryTeleporting.rub(player, itemId);
 			break;
+
+			case 11105:
+			case 11107:
+			case 11109:
+			case 11111:
+				SkillsTeleporting.rub(player, itemId);
+			break;
+			case 11113:
+				player.getPacketSender().sendMessage("Your necklace has run out of charges.");
+				break;
+
+			case 11118:
+			case 11120:
+			case 11122:
+			case 11124:
+				CombatTeleporting.rub(player, itemId);
+				break;
 		case 1704:
 			player.getPacketSender().sendMessage("Your amulet has run out of charges.");
 			break;

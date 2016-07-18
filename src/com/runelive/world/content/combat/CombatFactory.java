@@ -1545,10 +1545,10 @@ public final class CombatFactory {
 							t2.getEquipment().delete(t2.getEquipment().getItems()[Equipment.RING_SLOT]);
 						if (t2.homeLocation == 0) {
 							TeleportHandler.teleportPlayer(t2, GameSettings.DEFAULT_POSITION_VARROCK.copy(),
-									TeleportType.RING_TELE);
+									TeleportType.JEWELRY_TELE);
 						} else {
 							TeleportHandler.teleportPlayer(t2, GameSettings.DEFAULT_POSITION_EDGEVILLE.copy(),
-									TeleportType.RING_TELE);
+									TeleportType.JEWELRY_TELE);
 						}
 						t2.getPacketSender()
 								.sendMessage("Your "

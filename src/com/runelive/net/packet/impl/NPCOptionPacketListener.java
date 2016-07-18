@@ -48,7 +48,7 @@ import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.content.skill.impl.summoning.BossPets;
 import com.runelive.world.content.skill.impl.summoning.Summoning;
 import com.runelive.world.content.skill.impl.summoning.SummoningData;
-import com.runelive.world.content.skill.thieving.ThievingManager;
+import com.runelive.world.content.skill.impl.thieving.ThievingManager;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;

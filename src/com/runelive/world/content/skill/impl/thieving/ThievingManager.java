@@ -1,4 +1,4 @@
-package com.runelive.world.content.skill.thieving;
+package com.runelive.world.content.skill.impl.thieving;
 
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
@@ -87,7 +87,7 @@ public class ThievingManager {
         }
 
         if (player.getSkillManager().getCurrentLevel(Skill.THIEVING) < data.getRequirements()) {
-            DialogueManager.sendStatement(player, "You need a Thieving level of " + data.getRequirements() + ".");
+            DialogueManager.sendStatement(player, "@blu@You need a Thieving level of @dre@" + data.getRequirements() + "@blu@.");
             return;
         }
 
