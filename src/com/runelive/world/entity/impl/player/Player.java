@@ -445,7 +445,9 @@ public class Player extends Character {
 			getPacketSender().sendMessage("You cannot log out at the moment.");
 			return false;
 		}
-		new Hiscores(this).execute();
+		if(GameSettings.HIGHSCORE_CONNECTIONS) {
+			new Hiscores(this).execute();
+		}
 		return true;
 	}
 

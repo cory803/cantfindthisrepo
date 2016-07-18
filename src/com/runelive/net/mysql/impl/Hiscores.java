@@ -44,7 +44,7 @@ public class Hiscores implements SQLCallback {
 
             GameServer.getHiscoresPool().executeQuery(preparedStatement, this);
 
-            preparedStatement = GameServer.getHiscoresPool().prepareStatement("INSERT INTO `skills` (`skillsindex`, `playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Dungeoneering`, `Summoning`, `Hunter`, `Construction`) VALUES (NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement = GameServer.getHiscoresPool().prepareStatement("INSERT INTO `skills` (`playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Dungeoneering`, `Summoning`, `Hunter`, `Construction`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, player.getUsername());
             preparedStatement.setByte(2, (byte) player.getGameModeAssistant().ordinal());
             preparedStatement.setByte(3, (byte) getRank());
@@ -55,7 +55,6 @@ public class Hiscores implements SQLCallback {
             }
 
             GameServer.getHiscoresPool().executeQuery(preparedStatement, this);
-            preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -132,12 +131,13 @@ public class Hiscores implements SQLCallback {
 
     @Override
     public void queryComplete(ResultSet result) throws SQLException {
-
+        System.out.println("Query complete");
     }
 
     @Override
     public void queryError(SQLException e) {
-
+        System.out.println("Query error");
+        e.printStackTrace();
     }
 
 
