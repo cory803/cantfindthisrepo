@@ -3,5 +3,10 @@
     "username": "Jonny",
     "kills": 0,
     "longamt": 0
+  },
+  {
+    "username": "Affliction",
+    "kills": 2,
+    "longamt": 0
   }
 ]
