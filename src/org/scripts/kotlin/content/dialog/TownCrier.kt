@@ -108,7 +108,7 @@ class TownCrier(player: Player) : Dialog(player) {
                                 OptionType.OPTION_2_OF_5 -> gameMode = GameMode.EXTREME
                                 OptionType.OPTION_3_OF_5 -> gameMode = GameMode.LEGEND
                                 OptionType.OPTION_4_OF_5 -> gameMode = GameMode.LORD
-                                OptionType.OPTION_5_OF_5 -> gameMode = GameMode._IRONMAN
+                                OptionType.OPTION_5_OF_5 -> gameMode = GameMode.HARDCORE_IRONMAN
                             }
                             state = 10
                             player.dialog.sendDialog(dialog)
