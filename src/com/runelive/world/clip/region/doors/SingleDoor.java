@@ -3,12 +3,15 @@ package com.runelive.world.clip.region.doors;
 import com.runelive.model.GameObject;
 import com.runelive.model.Position;
 import com.runelive.model.definitions.GameObjectDefinition;
+import com.runelive.world.World;
 import com.runelive.world.entity.impl.player.Player;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  * 
@@ -28,7 +31,7 @@ public final class SingleDoor {
 	
 	public static SingleDoor getSingleton() {
 		if (singleton == null) {
-			singleton = new SingleDoor("./data/definition/single_doors.txt");
+			singleton = new SingleDoor("./data/def/json/single_doors.txt");
 		}
 		return singleton;
 	}
@@ -118,19 +121,19 @@ public final class SingleDoor {
 	
 	@SuppressWarnings("unused")
 	private SingleDoor getDoor(int id, int x, int y, int z) {
-		/*for (SingleDoor d : doors) {
+		for (SingleDoor d : doors) {
 			if (d.doorId == id) {
 				if (d.doorX == x && d.doorY == y && d.doorZ == z) {
 					return d;
 				}
 			}
-		}*/
+		}
 		return null;
 	}
 	
 	public boolean handleDoor(int id, int x, int y, int z) {
 
-		/*SingleDoor d = getDoor(id, x, y, z);
+		SingleDoor d = getDoor(id, x, y, z);
 		
 		if (d == null) {
 			if (DoubleDoor.getSingleton().handleDoor(id, x, y, z)) {
@@ -187,7 +190,7 @@ public final class SingleDoor {
 		if (xAdjustment != 0 || yAdjustment != 0) { 
 			GameObject o = new GameObject(-1, new Position(d.doorX, d.doorY, d.doorZ));
 			o.setType(d.type);
-			GameServer.getWorld().register(o);
+			World.register(o);
 		}
 		if (d.doorX == d.originalX && d.doorY == d.originalY) {
 			d.doorX += xAdjustment;
@@ -195,7 +198,7 @@ public final class SingleDoor {
 		} else { 
 			GameObject o = new GameObject(-1, new Position(d.doorX, d.doorY, d.doorZ));
 			o.setType(d.type);
-			GameServer.getWorld().register(o);
+			World.register(o);
 			d.doorX = d.originalX;
 			d.doorY = d.originalY;
 		}
@@ -213,13 +216,12 @@ public final class SingleDoor {
 			}
 		}
 		final GameObject door = new GameObject(d.doorId, new Position(d.doorX, d.doorY, d.doorZ));
-		door.setDirection(getNextFace(d));
+		door.setRotation(getNextFace(d));
 		door.setType(d.type);
-		GameServer.getWorld().register(door);*/
+		World.register(door);
 		return true;
 	}
-	
-	@SuppressWarnings("unused")
+
 	private int getNextFace(SingleDoor d) {
 		int f = d.originalFace;
 		if (d.type == 0) {
@@ -280,30 +282,30 @@ public final class SingleDoor {
 	}
 	
 	public void load() {
-		/*long start = System.currentTimeMillis();
+		long start = System.currentTimeMillis();
 		System.out.println("Loading single doors...");
 		try {
 			singleton.processLineByLine();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-		System.out.println("Loaded "+ doors.size() +" single doors in "+ (System.currentTimeMillis() - start) +"ms.");*/
+		System.out.println("Loaded "+ doors.size() +" single doors in "+ (System.currentTimeMillis() - start) +"ms.");
 	}
 	
 	@SuppressWarnings("unused")
 	private final void processLineByLine() throws FileNotFoundException {
-		/*Scanner scanner = new Scanner(new FileReader(doorFile));
+		Scanner scanner = new Scanner(new FileReader(doorFile));
 	    	try {
 	    		while(scanner.hasNextLine()) {
 	    			processLine(scanner.nextLine());
 	    		}
 	  	 } finally {
 	    		scanner.close();
-	    	}*/
+	    	}
 	}
 	
 	protected void processLine(String line){
-		/*Scanner scanner = new Scanner(line);
+		Scanner scanner = new Scanner(line);
 		scanner.useDelimiter(" ");
 		try {
 			while(scanner.hasNextLine()) {
@@ -317,16 +319,15 @@ public final class SingleDoor {
 			}
 		} finally {
 			scanner.close();
-		}*/
+		}
 	}
-	
-	@SuppressWarnings("unused")
+
 	private boolean alreadyOpen(int id) {
-		/*for (int i = 0; i < openDoors.length; i++) {
+		for (int i = 0; i < openDoors.length; i++) {
 			if (openDoors[i] == id) {
 				return true;
 			}
-		}*/
+		}
 		return false;
 	}
 

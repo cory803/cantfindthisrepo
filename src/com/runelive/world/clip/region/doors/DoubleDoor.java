@@ -28,7 +28,7 @@ public final class DoubleDoor {
 	
 	public static DoubleDoor getSingleton() {
 		if (singleton == null) {
-			singleton = new DoubleDoor("./data/definition/double_doors.txt");
+			singleton = new DoubleDoor("./data/def/json/double_doors.txt");
 		}
 		return singleton;
 	}

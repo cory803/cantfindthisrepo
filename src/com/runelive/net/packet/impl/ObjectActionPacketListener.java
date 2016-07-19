@@ -28,6 +28,7 @@ import com.runelive.util.Misc;
 import com.runelive.world.ChaosTunnelHandler;
 import com.runelive.world.World;
 import com.runelive.world.clip.region.RegionClipping;
+import com.runelive.world.clip.region.doors.DoorManager;
 import com.runelive.world.content.CrystalChest;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.content.ShootingStar;
@@ -92,9 +93,10 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int y = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if (id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 1276 && id != 2213 && id != 411
+		if (id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 1530 && id != 1276 && id != 2213 && id != 411
 				&& id != 21772 && id != 881 && !Dungeoneering.doingDungeoneering(player)
 				&& !RegionClipping.objectExists(gameObject)) {
+			System.out.println("Object dont exist");
 			return;
 		}
 		int distanceX = (player.getPosition().getX() - position.getX());
@@ -126,7 +128,9 @@ public class ObjectActionPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("You are stunned!");
 			return;
 		}
-		
+		if (DoorManager.isDoor(gameObject)) {
+			return;
+		}
 		player.setInteractingObject(gameObject)
 				.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 					@Override

@@ -11,6 +11,8 @@ import com.runelive.cache.Archive;
 import com.runelive.model.definitions.*;
 import com.runelive.model.npc.drops.LootSystem;
 import com.runelive.util.FontUtils;
+import com.runelive.world.clip.region.doors.DoubleDoor;
+import com.runelive.world.clip.region.doors.SingleDoor;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.util.HashedWheelTimer;
@@ -71,6 +73,8 @@ public final class GameLoader {
 		ItemDefinition.init().load();
 		Lottery.init();
 		GrandExchangeOffers.init();
+		//SingleDoor.getSingleton().load();
+		//DoubleDoor.getSingleton().load();
 		PlayerOwnedShops.init();
 		WellOfGoodwill.init();
 		ClanChatManager.init();

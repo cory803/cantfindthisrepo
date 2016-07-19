@@ -23,7 +23,7 @@ public final class DoorManager {
 
 	public static boolean open(GameObject door) {
 		final GameObjectDefinition definition = GameObjectDefinition.forId(door.getId());
-				
+
 		if (definition.getActions() == null
 				|| definition.getActions()[0] == null)
 			return false;
@@ -65,7 +65,6 @@ public final class DoorManager {
 				return false;
 			}
 		}
-		
 		World.deregister(door);
 		World.register(new_door);
 						
