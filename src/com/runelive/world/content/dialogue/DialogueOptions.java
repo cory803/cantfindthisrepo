@@ -712,13 +712,15 @@ public class DialogueOptions {
 					player.getPacketSender().sendInterfaceRemoval();
 					break;
 			case 18:
-				if (player.getLocation() == Location.BOSS_SYSTEM) {
+				/*if (player.getLocation() == Location.BOSS_SYSTEM) {
 					Locations.Location.BOSS_SYSTEM.leave(player);
 					player.getPacketSender().sendInterfaceRemoval();
 				} else {
 					TeleportHandler.teleportPlayer(player, new Position(2861, 9640),
 							player.getSpellbook().getTeleportType());
-				}
+				}*/
+				DialogueManager.sendStatement(player, "This teleport has temporarily been removed.");
+				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 197:
 				if (ConstructionConstants.MOVING_ENABLED) {
