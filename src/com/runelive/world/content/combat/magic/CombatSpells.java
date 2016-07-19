@@ -1812,11 +1812,11 @@ public enum CombatSpells {
 				}
 				if (PrayerHandler.isActivated((Player) castOn, PrayerHandler.PROTECT_FROM_MAGIC)
 						|| CurseHandler.isActivated((Player) castOn, CurseHandler.DEFLECT_MAGIC)) {
-					player2.setTeleblockTimer(250);
+					player2.setTeleblockTimer(150);
 					TaskManager.submit(new CombatTeleblockEffect(player2));
 					player2.getPacketSender().sendMessage("You have just been teleblocked for half the usual timer!");
 				} else {
-					player2.setTeleblockTimer(500);
+					player2.setTeleblockTimer(300);
 					TaskManager.submit(new CombatTeleblockEffect(player2));
 					player2.getPacketSender().sendMessage("You have just been teleblocked!");
 				}
