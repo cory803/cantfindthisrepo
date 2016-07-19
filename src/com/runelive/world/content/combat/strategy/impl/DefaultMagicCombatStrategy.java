@@ -127,9 +127,6 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 			case 2896:
 				npc.prepareSpell(CombatSpells.WATER_STRIKE.getSpell(), victim);
 				break;
-			case 2882:
-				npc.prepareSpell(CombatSpells.DAGANNOTH_PRIME.getSpell(), victim);
-				break;
 			case 6254:
 				npc.prepareSpell(CombatSpells.WIND_WAVE.getSpell(), victim);
 				break;

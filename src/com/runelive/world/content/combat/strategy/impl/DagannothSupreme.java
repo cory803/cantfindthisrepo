@@ -50,7 +50,7 @@ public class DagannothSupreme implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 5;
+		return 15;
 	}
 
 	@Override

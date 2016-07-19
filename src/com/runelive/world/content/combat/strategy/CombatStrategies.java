@@ -25,7 +25,6 @@ public class CombatStrategies {
 		STRATEGIES.put(3495, defaultMagicStrategy);
 		STRATEGIES.put(3496, defaultMagicStrategy);
 		STRATEGIES.put(3491, defaultMagicStrategy);
-		STRATEGIES.put(2882, defaultMagicStrategy);
 		STRATEGIES.put(13451, defaultMagicStrategy);
 		STRATEGIES.put(13452, defaultMagicStrategy);
 		STRATEGIES.put(13453, defaultMagicStrategy);
@@ -58,6 +57,7 @@ public class CombatStrategies {
 		STRATEGIES.put(6368, new ZamorakianMage());
 		STRATEGIES.put(2896, new Spinolyp());
 		STRATEGIES.put(2881, new DagannothSupreme());
+		STRATEGIES.put(2882, new DagannothPrime());
 		STRATEGIES.put(6260, new Graardor());
 		STRATEGIES.put(8597, new AvatarOfCreation());
 		STRATEGIES.put(6263, new Steelwill());
