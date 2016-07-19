@@ -357,12 +357,7 @@ public class PlayerHandler {
 			if (player.logout() || exception) {
 				System.out.println("[World] Deregistering player - [username, host] : [" + player.getUsername() + ", "
 						+ player.getHostAddress() + "]");
-				// if(player.getRights() != PlayerRights.OWNER &&
-				// player.getRights() !=
-				// PlayerRights.ADMINISTRATOR) {
-				// new Thread(new Highscores(player)).start();
-				// }
-				// Sets last account information available
+
 				player.setLastLogin(System.currentTimeMillis());
 				player.setLastIpAddress(player.getHostAddress());
 				player.setLastSerialAddress(player.getSerialNumber());
