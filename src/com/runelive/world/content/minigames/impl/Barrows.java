@@ -327,7 +327,7 @@ public class Barrows {
 		if (player.getMinigameAttributes().getBarrowsMinigameAttributes().getBarrowsData()[coffinId][1] == 0) {
 			if (player.getLocation() == Location.BARROWS) {
 				player.setRegionInstance(new RegionInstance(player, RegionInstanceType.BARROWS));
-				NPC npc_ = new NPC(npcId, spawnPos);
+				NPC npc_ = new NPC(npcId, spawnPos).setSpawnedFor(player);
 				npc_.forceChat(
 						player.getPosition().getZ() == -1 ? "You dare disturb my rest!" : "You dare steal from us!");
 				npc_.getCombatBuilder().setAttackTimer(3);
