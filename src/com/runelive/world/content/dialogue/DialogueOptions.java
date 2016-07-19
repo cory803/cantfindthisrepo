@@ -30,6 +30,7 @@ import com.runelive.model.input.impl.SellShards;
 import com.runelive.model.input.impl.SetEmail;
 import com.runelive.model.input.impl.ToxicStaffZulrahScales;
 import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.player.GameMode;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements.AchievementData;
@@ -135,6 +136,9 @@ public class DialogueOptions {
 		}
 		if (id == FIRST_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+			case 45:
+				GameMode.set(player, GameMode.REALISM);
+				break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(2439 + Misc.getRandom(2), 5171 + Misc.getRandom(2)),
 						player.getSpellbook().getTeleportType());
@@ -317,6 +321,9 @@ public class DialogueOptions {
 			}
 		} else if (id == SECOND_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 45:
+					GameMode.set(player, GameMode.EXTREME);
+					break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(2399, 5177),
 						player.getSpellbook().getTeleportType());
@@ -497,6 +504,9 @@ public class DialogueOptions {
 			}
 		} else if (id == THIRD_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 45:
+					GameMode.set(player, GameMode.LEGEND);
+					break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(3503, 3562),
 						player.getSpellbook().getTeleportType());
@@ -694,6 +704,9 @@ public class DialogueOptions {
 			}
 		} else if (id == FOURTH_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 45:
+					GameMode.set(player, GameMode.LORD);
+					break;
 			case 18:
 				if (player.getLocation() == Location.BOSS_SYSTEM) {
 					Locations.Location.BOSS_SYSTEM.leave(player);
@@ -872,6 +885,9 @@ public class DialogueOptions {
 			}
 		} else if (id == FIFTH_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 45:
+					GameMode.set(player, GameMode.SIR);
+					break;
 			case 197:
 			case 198:
 				player.getPacketSender().sendInterfaceRemoval();
@@ -1037,9 +1053,6 @@ public class DialogueOptions {
 				break;
 			case 41:
 				DialogueManager.start(player, 76);
-				break;
-			case 45:
-				//GameMode.set(player, GameMode.NORMAL, false);
 				break;
 			case 50:
 				TeleportHandler.teleportPlayer(player, new Position(2399, 5177),
@@ -1333,7 +1346,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, 218);
 				player.setXpRate(false);
 				break;
-			case 216:
+			case 253:
 				if (player.newPlayer()) {
 					player.setPlayerLocked(true);
 					player.setContinueTutorial(true);
@@ -1641,7 +1654,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, 219);
 				player.setXpRate(true);
 				break;
-			case 216:
+			case 253:
 				DialogueManager.start(player, Tutorial.get(player, 17));
 				player.setContinueSkipTutorial(true);
 				break;

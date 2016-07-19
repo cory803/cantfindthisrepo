@@ -1,6 +1,9 @@
 package com.runelive.model.player;
 
 import com.runelive.util.Misc;
+import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.entity.impl.player.Player;
 
 public enum GameMode {
 
@@ -62,6 +65,21 @@ public enum GameMode {
 	 */
 	public String getModeName() {
 		return Misc.formatText(this.toString().toLowerCase().replace("_", ""));
+	}
+
+	public static void set(Player player, GameMode mode) {
+		if (!player.getClickDelay().elapsed(1000))
+			return;
+		player.getClickDelay().reset();
+		player.getPacketSender().sendInterfaceRemoval();
+		player.getGameModeAssistant().setGameMode(mode);
+		PlayerPanel.refreshPanel(player);
+		player.getPacketSender().sendIronmanMode();
+		player.getPacketSender().sendMessage("").sendMessage("You've set your gamemode to " + mode.name().toLowerCase().replaceAll("_", " ") + ".");
+		player.getPacketSender().sendMessage("If you wish to change it, please talk to the town crier in Edgeville.");
+		player.setPlayerLocked(true);
+		DialogueManager.start(player, 253);
+		player.setDialogueActionId(253);
 	}
 
 }
