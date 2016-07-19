@@ -120,6 +120,7 @@ public class ThievingManager {
                             player.performAnimation(new Animation(881));
                             player.getInventory().add(new Item(data.getItems()[Misc.getRandom(data.getItems().length - 1)], Misc.getRandom(data.getAmount())));
                             Achievements.doProgress(player, Achievements.AchievementData.STEAL_5000_SCIMITARS);
+                            Achievements.doProgress(player, Achievements.AchievementData.STEAL_140_SCIMITARS);
                             player.getPacketSender().sendMessage("You manage to steal some loot.");
                         }
                     } else if (cycle == (failed ? 5 : 3)) {

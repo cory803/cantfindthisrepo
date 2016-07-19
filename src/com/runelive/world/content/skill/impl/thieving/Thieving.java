@@ -7,6 +7,7 @@ import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.dialogue.DialogueManager;
+import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.player.Player;
 
 import java.util.Arrays;
@@ -38,8 +39,19 @@ public class Thieving {
         player.performAnimation(new Animation(832));
 
         // Achievement call
-        Achievements.doProgress(player, Achievements.AchievementData.STEAL_140_SCIMITARS);
         Achievements.doProgress(player, Achievements.AchievementData.STEAL_5000_SCIMITARS);
+
+        if(stall == ThievingStall.BAKERS_STALL) {
+            Achievements.doProgress(player, Achievements.AchievementData.STEAL_A_RING);
+        }
+
+
+        if (player.dailyTask == 2 && player.dailyTaskProgress < 100 && !player.completedDailyTask) {
+            DailyTaskManager.doTaskProgress(player);
+            if (player.dailyTask == 2 && player.dailyTaskProgress == 100 && !player.completedDailyTask) {
+                DailyTaskManager.handleTaskReward(player);
+            }
+        }
 
         // Loot generation code
         List<WeightedItem> weightedItems = Arrays.asList(stall.getStallRewards().getRewards());
