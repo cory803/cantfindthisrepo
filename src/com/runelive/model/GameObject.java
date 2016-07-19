@@ -59,7 +59,19 @@ public class GameObject extends Entity {
 		super(position);
 		this.id = id;
 		this.type = type;
-		this.face = face;
+		this.rotation = face;
+	}
+
+	/**
+	 * GameObject constructor to call upon a new game object.
+	 * @param id		The object's id.
+	 * @param position	The object's position on the globe.
+	 */
+	public GameObject(int id, int face, int type, Position position) {
+		super(position);
+		this.id = id;
+		this.type = type;
+		this.rotation = face;
 	}
 
 	/**
@@ -100,18 +112,22 @@ public class GameObject extends Entity {
 		this.type = type;
 	}
 
+	public String getName() {
+		return GameObjectDefinition.forId(id).getName() != null ? GameObjectDefinition.forId(id).getName() : "";
+	}
+
 	/**
 	 * The object's current direction to face.
 	 */
-	private int face;
+	private int rotation;
 
 	/**
 	 * Gets the object's current face direction.
 	 * 
 	 * @return face.
 	 */
-	public int getFace() {
-		return face;
+	public int getRotation() {
+		return rotation;
 	}
 
 	/**
@@ -120,8 +136,8 @@ public class GameObject extends Entity {
 	 * @param face
 	 *            Face value to which object will face.
 	 */
-	public void setFace(int face) {
-		this.face = face;
+	public void setRotation(int rotation) {
+		this.rotation = rotation;
 	}
 
 	/**

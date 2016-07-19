@@ -1,16 +1,8 @@
 package com.runelive.world.clip.region;
 
-import java.io.*;
 import java.nio.ByteBuffer;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.logging.Level;
-import java.util.zip.GZIPInputStream;
 
 import com.runelive.GameServer;
 import com.runelive.cache.Archive;
@@ -51,7 +43,7 @@ public final class RegionClipping {
 		return id;
 	}
 
-	public void removeClip(int x, int y, int height, int shift) {
+	public void removeClip(int x, int y, int height) {
 		int regionAbsX = (id >> 8) * 64;
 		int regionAbsY = (id & 0xff) * 64;
 		if (height < 0 || height >= 4)
@@ -216,7 +208,7 @@ public final class RegionClipping {
 
 		RegionClipping r = forId(regionId);
 		if (r != null) {
-			r.removeClip(x, y, height, shift);
+			r.removeClip(x, y, height);
 		}
 	}
 
@@ -251,7 +243,7 @@ public final class RegionClipping {
 					|| clipping.gameObjects[height][x - regionAbsX][y - regionAbsY] == null) {
 				return null;
 			}
-			return new int[] { clipping.gameObjects[height][x - regionAbsX][y - regionAbsY].getFace(),
+			return new int[] { clipping.gameObjects[height][x - regionAbsX][y - regionAbsY].getRotation(),
 					clipping.gameObjects[height][x - regionAbsX][y - regionAbsY].getType(),
 					clipping.gameObjects[height][x - regionAbsX][y - regionAbsY].getId(), };
 		} else {
@@ -502,12 +494,12 @@ public final class RegionClipping {
 	public static void addObject(GameObject gameObject) {
 		if (gameObject.getId() != 65535)
 			addObject(gameObject.getId(), gameObject.getPosition().getX(), gameObject.getPosition().getY(),
-					gameObject.getPosition().getZ(), gameObject.getType(), gameObject.getFace());
+					gameObject.getPosition().getZ(), gameObject.getType(), gameObject.getRotation());
 	}
 
 	public static void removeObject(GameObject gameObject) {
 		addObject(-1, gameObject.getPosition().getX(), gameObject.getPosition().getY(), gameObject.getPosition().getZ(),
-				gameObject.getType(), gameObject.getFace());
+				gameObject.getType(), gameObject.getRotation());
 	}
 
 	public static int getClipping(int x, int y, int height) {
