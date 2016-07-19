@@ -136,9 +136,6 @@ public class DialogueOptions {
 		}
 		if (id == FIRST_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
-			case 45:
-				GameMode.set(player, GameMode.REALISM);
-				break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(2439 + Misc.getRandom(2), 5171 + Misc.getRandom(2)),
 						player.getSpellbook().getTeleportType());
@@ -321,9 +318,6 @@ public class DialogueOptions {
 			}
 		} else if (id == SECOND_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
-				case 45:
-					GameMode.set(player, GameMode.EXTREME);
-					break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(2399, 5177),
 						player.getSpellbook().getTeleportType());
@@ -504,9 +498,6 @@ public class DialogueOptions {
 			}
 		} else if (id == THIRD_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
-				case 45:
-					GameMode.set(player, GameMode.LEGEND);
-					break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(3503, 3562),
 						player.getSpellbook().getTeleportType());
@@ -704,9 +695,6 @@ public class DialogueOptions {
 			}
 		} else if (id == FOURTH_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
-				case 45:
-					GameMode.set(player, GameMode.LORD);
-					break;
 			case 18:
 				if (player.getLocation() == Location.BOSS_SYSTEM) {
 					Locations.Location.BOSS_SYSTEM.leave(player);
@@ -885,9 +873,6 @@ public class DialogueOptions {
 			}
 		} else if (id == FIFTH_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
-				case 45:
-					GameMode.set(player, GameMode.SIR);
-					break;
 			case 197:
 			case 198:
 				player.getPacketSender().sendInterfaceRemoval();

@@ -35,7 +35,7 @@ class TownCrier(player: Player) : Dialog(player) {
                     if (player.bankPinAttributes.hasBankPin()) "Delete your account pin." else "Set account-pin (used to protect against hackers)",
                     "Change Gamemode",
                     "Change Password",
-                    "Set Ironman Mode") {
+                    "Cancel") {
                 override fun execute(player: Player, option: OptionType) {
                     when (option) {
                         OptionType.OPTION_1_OF_5 -> {
