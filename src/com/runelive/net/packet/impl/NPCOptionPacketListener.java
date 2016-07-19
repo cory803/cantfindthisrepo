@@ -879,6 +879,7 @@ public class NPCOptionPacketListener implements PacketListener {
 						return;
 					}
 					PlayerOwnedShops.openItemSearch(player, true);
+					player.setPlayerOwnedShopping(true);
 					break;
 				case 3101:
 					DialogueManager.start(player, 95);
@@ -1008,6 +1009,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					}
 					player.getPacketSender().sendString(41900, "");
 					PlayerOwnedShops.openShop(player.getUsername(), player);
+					player.setPlayerOwnedShopping(true);
 					break;
 				case 605:
 					// LoyaltyProgramme.open(player);
@@ -1116,6 +1118,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					}
 					player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
 					player.setInputHandling(new PosSearchShop());
+					player.setPlayerOwnedShopping(true);
 					break;
 				case 1597:
 				case 9085:

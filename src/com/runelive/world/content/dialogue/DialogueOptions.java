@@ -31,6 +31,7 @@ import com.runelive.model.input.impl.SetEmail;
 import com.runelive.model.input.impl.ToxicStaffZulrahScales;
 import com.runelive.model.movement.MovementQueue;
 import com.runelive.model.player.GameMode;
+import com.runelive.model.player.dialog.Dialog;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements.AchievementData;
@@ -1015,6 +1016,7 @@ public class DialogueOptions {
 				}
 				player.getPacketSender().sendString(41900, "");
 				PlayerOwnedShops.openShop(player.getUsername(), player);
+				player.setPlayerOwnedShopping(true);
 				break;
 			case 136:
 				player.getPacketSender().sendInterfaceRemoval();
@@ -1104,6 +1106,7 @@ public class DialogueOptions {
 					return;
 				}
 				PlayerOwnedShops.openItemSearch(player, true);
+				player.setPlayerOwnedShopping(true);
 				break;
 			case 5:
 				DialogueManager.start(player, MemberScrolls.getTotalFunds(player));
@@ -1210,6 +1213,7 @@ public class DialogueOptions {
 				}
 				player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
 				player.setInputHandling(new PosSearchShop());
+				player.setPlayerOwnedShopping(true);
 				break;
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
@@ -1275,7 +1279,7 @@ public class DialogueOptions {
 				break;
 			case 214:
 				player.getPacketSender().sendInterfaceRemoval();
-				player.getPacketSender().sendMessage("This option is still being worked on.");
+				DialogueManager.sendStatement(player, "This option is still being worked on.");
 				break;
 			case 227:
 				player.getPacketSender().sendInterfaceRemoval();
