@@ -3,6 +3,10 @@ package org.scripts.kotlin.content.commands.player
 import com.runelive.model.Locations.Location
 import com.runelive.world.entity.impl.player.Player
 
+/**
+ * Dummy Text
+ */
+
 object YouTubers {
 
     /**

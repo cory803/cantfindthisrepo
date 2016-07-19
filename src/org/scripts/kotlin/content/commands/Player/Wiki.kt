@@ -7,7 +7,7 @@ import com.runelive.world.content.PlayerPunishment
 import com.runelive.world.entity.impl.player.Player
 
 /**
- * Created by Dave on 10/07/2016.
+ * Dummy Text
  */
 class Wiki {
 

@@ -18,6 +18,8 @@ import com.runelive.world.entity.impl.player.Player
  */
 class Donator {
 
+
+
     object RegularDonator {
 
         /**
@@ -117,7 +119,7 @@ class Donator {
                     player.packetSender.sendMessage("You can't use this command in a dungeon.")
                     return
                 }
-                if (player.location != null && player.wildernessLevel > 20) {
+                if (player.location == Locations.WILDERNESS && player.wildernessLevel >= 20) {
                     player.packetSender.sendMessage("You cannot do this at the moment.")
                     return
                 }
@@ -150,7 +152,7 @@ class Donator {
                     player.packetSender.sendMessage("You can't use this command in a dungeon.")
                     return
                 }
-                if (player.location != null && player.wildernessLevel > 20) {
+                if (player.location == Locations.WILDERNESS && player.wildernessLevel >= 20) {
                     player.packetSender.sendMessage("You cannot do this at the moment.")
                     return
                 }
