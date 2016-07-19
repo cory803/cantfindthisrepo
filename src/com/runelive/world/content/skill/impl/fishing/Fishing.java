@@ -219,6 +219,9 @@ public class Fishing {
 					} else if (s.getRawFish()[fishIndex] == 15270) {
 						Achievements.doProgress(p, AchievementData.FISH_25_ROCKTAILS);
 						Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
+					} else if(s.getRawFish()[fishIndex] == 15271) {
+						Achievements.doProgress(p, AchievementData.FISH_25_ROCKTAILS);
+						Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
 					}
 					if (p.dailyTask == 0 && !p.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(p);
