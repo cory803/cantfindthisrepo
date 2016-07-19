@@ -241,8 +241,9 @@ public class PlayerHandler {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 			player.save();
 			// player.setClanChatName("runelive");
-			player.setPlayerLocked(true).setDialogueActionId(45);
+			//player.setPlayerLocked(true).setDialogueActionId(45);
 			DialogueManager.start(player, 81);
+			player.continueSkipTutorial();
 		} else {
 			if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
 				player.setPlayerLocked(true);
@@ -253,8 +254,7 @@ public class PlayerHandler {
 				if (!player.getBankPinAttributes().hasBankPin()) {
 					player.setPlayerLocked(true);
 					player.setLoginAccountPin(true);
-					player.continueSkipTutorial();
-					//DialogueManager.start(player, Tutorial.get(player, 17));
+					DialogueManager.start(player, Tutorial.get(player, 17));
 				}
 			}
 		}
@@ -336,6 +336,9 @@ public class PlayerHandler {
 		}
 		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
+		player.getPacketSender().sendMessage("Use ::switchmode mode_name to switch mode.");
+		player.getPacketSender().sendMessage("Other commands: ::item id amount ::spawn item_name:amount ::find item_name")
+		player.getPacketSender().sendMessage("::setlevel lvlid lvl.");
 	}
 
 	public static boolean handleLogout(Player player) {
