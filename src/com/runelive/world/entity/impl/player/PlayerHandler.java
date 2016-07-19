@@ -237,7 +237,7 @@ public class PlayerHandler {
 		PlayerPanel.refreshPanel(player);
 
 		// New player
-		/*if (player.newPlayer()) {
+		if (player.newPlayer()) {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 			player.save();
 			// player.setClanChatName("runelive");
@@ -253,8 +253,10 @@ public class PlayerHandler {
 				if (!player.getBankPinAttributes().hasBankPin()) {
 					player.setPlayerLocked(true);
 					player.setLoginAccountPin(true);
-					DialogueManager.start(player, Tutorial.get(player, 17));*/
-
+					DialogueManager.start(player, Tutorial.get(player, 17));
+				}
+			}
+		}
 
 		player.getPacketSender().updateSpecialAttackOrb().sendIronmanMode();
 
@@ -333,8 +335,6 @@ public class PlayerHandler {
 		}
 		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
-		player.getPacketSender().sendMessage("usw ::switchmode game_mode, ::spawn item_name:amount, ::find item_name ::item itemId amount");
-		player.getPacketSender().sendMessage("and ::setlevel to set your stats");
 	}
 
 	public static boolean handleLogout(Player player) {
@@ -400,7 +400,7 @@ public class PlayerHandler {
 				PlayerLogs.connections(player, "Logout");
 				return true;
 			} else {
-				return true;
+				return false;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
