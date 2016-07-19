@@ -5,7 +5,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Animation;
-import com.runelive.model.player.GameMode;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Item;
@@ -1010,7 +1009,7 @@ public class PacketSender {
 		PacketBuilder out = new PacketBuilder(151);
 		out.put(object.getPosition().getZ(), ValueType.A);
 		out.putShort(object.getId(), ByteOrder.LITTLE);
-		out.put((byte) ((object.getType() << 2) + (object.getFace() & 3)), ValueType.S);
+		out.put((byte) ((object.getType() << 2) + (object.getRotation() & 3)), ValueType.S);
 		player.getSession().queueMessage(out);
 		return this;
 	}
@@ -1018,7 +1017,7 @@ public class PacketSender {
 	public PacketSender sendObjectRemoval(GameObject object) {
 		sendPosition(object.getPosition());
 		PacketBuilder out = new PacketBuilder(101);
-		out.put((object.getType() << 2) + (object.getFace() & 3), ValueType.C);
+		out.put((object.getType() << 2) + (object.getRotation() & 3), ValueType.C);
 		out.put(object.getPosition().getZ());
 		player.getSession().queueMessage(out);
 		return this;
@@ -1028,7 +1027,7 @@ public class PacketSender {
 		sendPosition(object.getPosition());
 		PacketBuilder out = new PacketBuilder(160);
 		out.put(0, ValueType.S);
-		out.put((object.getType() << 2) + (object.getFace() & 3), ValueType.S);
+		out.put((object.getType() << 2) + (object.getRotation() & 3), ValueType.S);
 		out.putShort(anim.getId(), ValueType.A);
 		player.getSession().queueMessage(out);
 		return this;

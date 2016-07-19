@@ -33,7 +33,7 @@ public class CustomObjects {
 			int z = CLIENT_OBJECTS[i][3];
 			int face = CLIENT_OBJECTS[i][4];
 			GameObject object = new GameObject(id, new Position(x, y, z));
-			object.setFace(face);
+			object.setRotation(face);
 			RegionClipping.addObject(object);
 		}
 		for (int i = 0; i < CUSTOM_OBJECTS_SPAWNS.length; i++) {
@@ -43,7 +43,7 @@ public class CustomObjects {
 			int z = CUSTOM_OBJECTS_SPAWNS[i][3];
 			int face = CUSTOM_OBJECTS_SPAWNS[i][4];
 			GameObject object = new GameObject(id, new Position(x, y, z));
-			object.setFace(face);
+			object.setRotation(face);
 			CUSTOM_OBJECTS.add(object);
 			World.register(object);
 		}

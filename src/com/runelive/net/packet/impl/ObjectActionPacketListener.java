@@ -1267,7 +1267,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							}
 							final Hatchet axe = Hatchet.forId(WoodcuttingData.getHatchet(player));
 							player.performAnimation(new Animation(axe.getAnim()));
-							gameObject.setFace(-1);
+							gameObject.setRotation(-1);
 							TaskManager.submit(new Task(3 + Misc.getRandom(4), player, false) {
 								@Override
 								protected void execute() {

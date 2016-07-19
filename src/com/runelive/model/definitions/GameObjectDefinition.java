@@ -541,6 +541,10 @@ public final class GameObjectDefinition {
 		return tileSizeY;
 	}
 
+	public String[] getActions() {
+		return actions;
+	}
+
 	public boolean aBoolean736;
 	public byte aByte737;
 	public int anInt738;
