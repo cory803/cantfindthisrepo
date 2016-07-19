@@ -43,8 +43,10 @@ public class EnergyHandler {
 			return;
 		}
 		player.setResting(true);
+
+		player.performAnimation(new Animation(11786));
 		player.getCharacterAnimations().setStandingAnimation(11786);
-		player.getPacketSender().sendMessage("You begin resting..");
+		player.getPacketSender().sendMessage("You begin to rest...");
 	}
 
 	public static double restoreEnergyFormula(Player p) {
