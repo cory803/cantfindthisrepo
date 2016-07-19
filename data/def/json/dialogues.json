@@ -815,11 +815,12 @@
     {
         "id": 82,
         "type": "OPTION",
-        "lines": 4,
-        "line1": "Normal",
-        "line2": "Ironman",
-        "line3": "Hardcore Ironman",
-        "line4": "Information About The Modes",
+        "lines": 5,
+        "line1": "Play in @blu@Realism@bla@ mode (@blu@5x@bla@ XP)",
+        "line2": "Play in @blu@Extreme@bla@ mode (@blu@15x@bla@ XP)",
+        "line3": "Play in @blu@Legend@bla@ mode (@blu@35x@bla@ XP)",
+        "line4": "Play in @blu@Lord@bla@ mode (@blu@80x@bla@ XP)",
+        "line5": "Play in @blu@Sir@bla@ mode (@blu@125x@bla@ XP)",
         "next": -1,
         "npcId": -1
     },
@@ -2438,6 +2439,17 @@
         "next": -1,
         "npcId": -1
 	},
+    {
+        "id": 253,
+        "type": "NPC_STATEMENT",
+        "anim": "NORMAL",
+        "lines": 3,
+        "line1": "If you ever want to switch to an Ironman mode",
+        "line2": "You can always do so by talking to the",
+        "line3": "Town crier at varrock home.",
+        "next": 216,
+        "npcId": 945
+    },
 	{
         "id": 550,
         "type": "OPTION",

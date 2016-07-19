@@ -4,11 +4,15 @@ import com.runelive.util.Misc;
 
 public enum GameMode {
 
+	/**
+	 * DO NOT TOUCH THIS OR YOU WILL TRASH THE HISCORES!!!!!!!!!!!!!!
+	 */
 	SIR(125, 5, 1, 20),
 	LORD(80, 8, .75, 15),
 	LEGEND(35, 10, .60 , 10),
 	EXTREME(15, 12, .50, 8),
 	REALISM(5, 15, .40, 5),
+	_IRONMAN(25, 12, .55, 8),
 	IRONMAN(220, 4, 1, 20),
 	HARDCORE_IRONMAN(25, 12, .55, 8);
 

@@ -302,16 +302,11 @@ public class PlayerLoading {
 
 		if (reader.has("game-mode")) {
 			try {
-				player.getGameModeAssistant().setGameMode(GameMode.valueOf(reader.get("game-mode").toString()));
+				player.getGameModeAssistant().setGameMode(GameMode.valueOf(reader.get("game-mode").getAsString()));
 			} catch (Exception e) {
 				player.getGameModeAssistant().setGameMode(GameMode.SIR);
 			}
 		}
-
-		/*if (reader.has("exp-rate")) {
-			player.setExpRate(ExpRates.valueOf(reader.get("exp-rate").getAsString()));
-		}*/
-
 		if (reader.has("last-login")) {
 			player.setLastLogin(reader.get("last-login").getAsLong());
 		}

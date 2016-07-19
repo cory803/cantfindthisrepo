@@ -237,12 +237,12 @@ public class PlayerHandler {
 		PlayerPanel.refreshPanel(player);
 
 		// New player
-		/*if (player.newPlayer()) {
+		if (player.newPlayer()) {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 			player.save();
 			// player.setClanChatName("runelive");
-			player.setPlayerLocked(true).setDialogueActionId(45);
-			DialogueManager.start(player, 81);
+			player.setPlayerLocked(true);
+			player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Tutorial(player));
 		} else {
 			if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
 				player.setPlayerLocked(true);
@@ -253,8 +253,10 @@ public class PlayerHandler {
 				if (!player.getBankPinAttributes().hasBankPin()) {
 					player.setPlayerLocked(true);
 					player.setLoginAccountPin(true);
-					DialogueManager.start(player, Tutorial.get(player, 17));*/
-
+					DialogueManager.start(player, Tutorial.get(player, 17));
+				}
+			}
+		}
 
 		player.getPacketSender().updateSpecialAttackOrb().sendIronmanMode();
 
@@ -333,8 +335,6 @@ public class PlayerHandler {
 		}
 		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
-		player.getPacketSender().sendMessage("use ::switchmode game_mode, ::spawn item_name:amount, ::find item_name ::item itemId amount");
-		player.getPacketSender().sendMessage("and ::setlevel to set your stats");
 	}
 
 	public static boolean handleLogout(Player player) {
@@ -357,12 +357,7 @@ public class PlayerHandler {
 			if (player.logout() || exception) {
 				System.out.println("[World] Deregistering player - [username, host] : [" + player.getUsername() + ", "
 						+ player.getHostAddress() + "]");
-				// if(player.getRights() != PlayerRights.OWNER &&
-				// player.getRights() !=
-				// PlayerRights.ADMINISTRATOR) {
-				// new Thread(new Highscores(player)).start();
-				// }
-				// Sets last account information available
+
 				player.setLastLogin(System.currentTimeMillis());
 				player.setLastIpAddress(player.getHostAddress());
 				player.setLastSerialAddress(player.getSerialNumber());

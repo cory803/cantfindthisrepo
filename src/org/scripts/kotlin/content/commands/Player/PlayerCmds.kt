@@ -101,11 +101,42 @@ object PlayerCmds {
                 player.packetSender.sendMessage("No item with name [$name] has been found!")
             }
         }
+        if(command[0] == "master") {
+            player.skillManager.setMaxLevel(Skill.ATTACK, 99)
+            player.skillManager.setMaxLevel(Skill.DEFENCE, 99)
+            player.skillManager.setMaxLevel(Skill.STRENGTH, 99)
+            player.skillManager.setMaxLevel(Skill.CONSTITUTION, 990)
+            player.skillManager.setMaxLevel(Skill.PRAYER, 990)
+            player.skillManager.setMaxLevel(Skill.RANGED, 99)
+            player.skillManager.setMaxLevel(Skill.MAGIC, 99)
+            player.skillManager.setMaxLevel(Skill.SUMMONING, 99)
+            player.skillManager.setMaxLevel(Skill.DUNGEONEERING, 80)
+            player.skillManager.setCurrentLevel(Skill.ATTACK, 99)
+            player.skillManager.setCurrentLevel(Skill.DEFENCE, 99)
+            player.skillManager.setCurrentLevel(Skill.STRENGTH, 99)
+            player.skillManager.setCurrentLevel(Skill.CONSTITUTION, 990)
+            player.skillManager.setCurrentLevel(Skill.PRAYER, 990)
+            player.skillManager.setCurrentLevel(Skill.RANGED, 99)
+            player.skillManager.setCurrentLevel(Skill.MAGIC, 99)
+            player.skillManager.setCurrentLevel(Skill.SUMMONING, 99)
+            player.skillManager.setCurrentLevel(Skill.DUNGEONEERING, 80)
+            player.skillManager.setExperience(Skill.ATTACK, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.DEFENCE, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.STRENGTH, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.CONSTITUTION, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.PRAYER, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.RANGED, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.MAGIC, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.SUMMONING, SkillManager.getExperienceForLevel(99))
+            player.skillManager.setExperience(Skill.DUNGEONEERING, SkillManager.getExperienceForLevel(80))
+            player.packetSender.sendMessage("You are now a master of all combat skills.")
+            player.updateFlag.flag(Flag.APPEARANCE)
+        }
         if (command[0] == "setlevel" || command[0] == "setlvl" || command[0] == "lvl") {
             val skillId = Integer.parseInt(command[1])
             val level = Integer.parseInt(command[2])
-            if (level > 15000) {
-                player.packetSender.sendMessage("You can only have a maxmium level of 15000.")
+            if (level > 99) {
+                player.packetSender.sendMessage("You can only have a maxmium level of 99.")
                 return
             }
             val skill = Skill.forId(skillId)
@@ -267,8 +298,8 @@ object PlayerCmds {
                 player.packetSender.sendMessage("Hiscores is currently turned off, please try again in 30 minutes!")
                 return
             }
-            player.packetSender.sendString(1, "www.rune.live/highscores/")
-            player.packetSender.sendMessage("Attempting to open: www.rune.live/highscores/")
+            player.packetSender.sendString(1, "www.rune.live/hiscores/")
+            player.packetSender.sendMessage("Attempting to open: www.rune.live/hiscores/")
         }
         if (command[0] == "thread") {
             val thread = Integer.parseInt(command[1])

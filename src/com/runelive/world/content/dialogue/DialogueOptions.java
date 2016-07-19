@@ -30,6 +30,7 @@ import com.runelive.model.input.impl.SellShards;
 import com.runelive.model.input.impl.SetEmail;
 import com.runelive.model.input.impl.ToxicStaffZulrahScales;
 import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.player.GameMode;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements.AchievementData;
@@ -1038,9 +1039,6 @@ public class DialogueOptions {
 			case 41:
 				DialogueManager.start(player, 76);
 				break;
-			case 45:
-				//GameMode.set(player, GameMode.NORMAL, false);
-				break;
 			case 50:
 				TeleportHandler.teleportPlayer(player, new Position(2399, 5177),
 						player.getSpellbook().getTeleportType());
@@ -1333,7 +1331,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, 218);
 				player.setXpRate(false);
 				break;
-			case 216:
+			case 253:
 				if (player.newPlayer()) {
 					player.setPlayerLocked(true);
 					player.setContinueTutorial(true);
@@ -1644,7 +1642,7 @@ public class DialogueOptions {
 				DialogueManager.start(player, 219);
 				player.setXpRate(true);
 				break;
-			case 216:
+			case 253:
 				DialogueManager.start(player, Tutorial.get(player, 17));
 				player.setContinueSkipTutorial(true);
 				break;
