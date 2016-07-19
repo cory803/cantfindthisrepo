@@ -241,8 +241,8 @@ public class PlayerHandler {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 			player.save();
 			// player.setClanChatName("runelive");
-			player.setPlayerLocked(true).setDialogueActionId(45);
-			DialogueManager.start(player, 81);
+			player.setPlayerLocked(true);
+			player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Tutorial(player));
 		} else {
 			if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
 				player.setPlayerLocked(true);

@@ -103,7 +103,7 @@ public class GameModeAssistant {
      * @return
      */
     public boolean isIronMan() {
-        return this.gameMode == GameMode.IRONMAN || this.gameMode == GameMode.HARDCORE_IRONMAN;
+        return this.gameMode == GameMode.IRONMAN || this.gameMode == GameMode.HARDCORE_IRONMAN || this.gameMode == GameMode._IRONMAN;
     }
 
     /**
