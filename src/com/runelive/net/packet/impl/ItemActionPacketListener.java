@@ -225,7 +225,7 @@ public class ItemActionPacketListener implements PacketListener {
 					new Position(ConstructionConstants.WATCHTOWER_X, ConstructionConstants.WATCHTOWER_Y),
 					TeleportType.TELE_TAB);
 			break;
-		case 10943:
+		/*case 10943:
 			player.currentScroll = 10943;
 			player.setInputHandling(new EnterForumAccountTokens());
 			player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 10 tokens to:");
@@ -244,7 +244,7 @@ public class ItemActionPacketListener implements PacketListener {
 			player.currentScroll = 7629;
 			player.setInputHandling(new EnterForumAccountTokens());
 			player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 125 tokens to:");
-			break;
+			break;*/
 		case 739:
 			if (player.getInventory().contains(739)) {
 				Consumables.handlePotion(player, 739, slot);
