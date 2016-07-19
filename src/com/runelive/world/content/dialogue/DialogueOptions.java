@@ -1543,7 +1543,7 @@ public class DialogueOptions {
 							player.getSpellbook().getTeleportType());
 					break;
 				case 39:
-					TeleportHandler.teleportPlayer(player, new Position(2086, 4429), player.getSpellbook().getTeleportType());
+					TeleportHandler.teleportPlayer(player, new Position(3278, 3906), player.getSpellbook().getTeleportType());
 					break;
 			case 42:
 				player.getPacketSender().sendInterfaceRemoval();

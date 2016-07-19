@@ -127,7 +127,7 @@ public class ExperienceLamps {
 		int maxLvl = player.getSkillManager().getMaxLevel(skill);
 		if (SkillManager.isNewSkill(skill))
 			maxLvl = maxLvl / 10;
-		return (int) (base + 10 * (Math.pow(maxLvl, 2.5)));
+		return (int) (base);
 	}
 
 	public static boolean selectingExperienceReward(Player player) {
