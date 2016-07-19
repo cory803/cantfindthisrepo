@@ -721,7 +721,7 @@ public class Player extends Character {
 	private boolean playerLocked;
 	private boolean recoveringSpecialAttack;
 	private boolean soundsActive, musicActive;
-	private boolean newPlayer = false;
+	private boolean newPlayer;
 	private boolean openBank;
 	private boolean tutorialContinue;
 	private boolean skipTutorialContinue;
