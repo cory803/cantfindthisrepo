@@ -141,7 +141,12 @@ public class Plant {
 						player.getPacketSender().sendMessage("You receive a seed back from your Scroll of life.");
 						player.getInventory().add(Plants.values()[plant].seed, 1);
 					}
-					if (id == 219) {
+					if(id == 219 && wearingMagicSecateurs) {
+						Achievements.doProgress(player, AchievementData.HARVEST_10_TORSTOLS);
+						Achievements.doProgress(player, AchievementData.HARVEST_10_TORSTOLS);
+						Achievements.doProgress(player, AchievementData.HARVEST_1000_TORSTOLS);
+						Achievements.doProgress(player, AchievementData.HARVEST_1000_TORSTOLS);
+					} else if (id == 219 && !wearingMagicSecateurs) {
 						Achievements.doProgress(player, AchievementData.HARVEST_10_TORSTOLS);
 						Achievements.doProgress(player, AchievementData.HARVEST_1000_TORSTOLS);
 					}
