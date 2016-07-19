@@ -131,13 +131,21 @@ public class ItemSearch extends Input {
 			return new Object[] { "elysian spirit shield", 13742 };
 		case "dfs":
 			return new Object[] { "dragonfire shield", 11283 };
-		case "dbones":
-			return new Object[] { "dragon bones", 536 };
+			case "dbones":
+				return new Object[] { "dragon bones", 536 };
+			case "fbones":
+				return new Object[] { "dragon bones", 18830 };
 		case "fury":
 			return new Object[] { "amulet of fury", 6585 };
-		case "dboots":
-		case "d boots":
-			return new Object[] { "dragon boots", 11732 };
+			case "dboots":
+			case "d boots":
+				return new Object[] { "dragon boots", 11732 };
+			case "acb":
+				return new Object[] { "armadyl crossbow", 21075 };
+			case "sotd":
+				return new Object[] { "staff of the dead", 21074 };
+			case "tsotd":
+				return new Object[] { "toxic staff of the dead", 21077 };
 		case "whip":
 		case "abby whip":
 		case "abbysal whip":
