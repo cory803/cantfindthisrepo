@@ -235,6 +235,7 @@ public class Fishing {
 			@Override
 			public void stop() {
 				setEventRunning(false);
+				p.performAnimation(new Animation(s.getAnim()));
 			}
 		});
 
