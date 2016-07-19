@@ -1107,7 +1107,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					ShopManager.getShops().get(7).open(player);
 					break;
 				case 2253:
-					ShopManager.getShops().get(8).open(player);
+					ShopManager.getShops().get(9).open(player);
 					break;
 				case 2127:
 					if (!GameSettings.POS_ENABLED) {
