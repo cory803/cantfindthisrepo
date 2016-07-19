@@ -131,12 +131,11 @@ public class Hiscores implements SQLCallback {
 
     @Override
     public void queryComplete(ResultSet result) throws SQLException {
-        System.out.println("Query complete");
+        //Query is complete!
     }
 
     @Override
     public void queryError(SQLException e) {
-        System.out.println("Query error");
         e.printStackTrace();
     }
 
