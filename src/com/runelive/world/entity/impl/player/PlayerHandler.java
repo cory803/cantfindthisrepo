@@ -253,7 +253,8 @@ public class PlayerHandler {
 				if (!player.getBankPinAttributes().hasBankPin()) {
 					player.setPlayerLocked(true);
 					player.setLoginAccountPin(true);
-					DialogueManager.start(player, Tutorial.get(player, 17));
+					player.continueSkipTutorial();
+					//DialogueManager.start(player, Tutorial.get(player, 17));
 				}
 			}
 		}

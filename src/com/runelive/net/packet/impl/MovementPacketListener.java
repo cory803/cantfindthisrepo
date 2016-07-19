@@ -110,10 +110,10 @@ public class MovementPacketListener implements PacketListener {
 			DialogueManager.start(player, Tutorial.get(player, 15));
 			return false;
 		}
-		if (player.continueSkipTutorial() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {
+		/*if (player.continueSkipTutorial() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {
 			DialogueManager.start(player, Tutorial.get(player, 17));
 			return false;
-		}
+		}*/
 		if (player.continueLoginAccountPin() && player.isPlayerLocked()
 				&& !player.getBankPinAttributes().hasBankPin()) {
 			DialogueManager.start(player, Tutorial.get(player, 17));

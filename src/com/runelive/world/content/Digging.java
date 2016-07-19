@@ -8,6 +8,8 @@ import com.runelive.model.Position;
 import com.runelive.model.RegionInstance;
 import com.runelive.model.RegionInstance.RegionInstanceType;
 import com.runelive.world.World;
+import com.runelive.world.content.dialogue.Dialogue;
+import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -47,6 +49,14 @@ public class Digging {
 			 */
 			@Override
 			public void execute() {
+				Position targetPosition = null;
+				if (player.getInventory().contains(2677) && player.getPosition().getX() == 2969 && player.getPosition().getY() == 3415) {
+					player.getInventory().delete(2677, 1);
+					player.getInventory().add(2714, 1);
+					DialogueManager.sendStatement(player, "You've found a casket!");
+				}
+
+
 				/**
 				 * Clue scrolls
 				 */
@@ -56,11 +66,10 @@ public class Digging {
 				 * || MapScrolls.digClue(player) ||
 				 * CoordinateScrolls.digClue(player)) { stop(); return; }
 				 */
-				Position targetPosition = null;
 				/**
 				 * Wilderness Keys
 				 **/
-				if (player.getLocation() == Location.WILDKEY_ZONE) {
+				else if (player.getLocation() == Location.WILDKEY_ZONE) {
 					if (player.getInventory().contains(1543)) { // red best
 						player.getInventory().deleteAmount(1543, 1);
 						spawnNpc(player, 9939);
