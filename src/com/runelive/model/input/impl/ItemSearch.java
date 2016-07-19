@@ -134,7 +134,7 @@ public class ItemSearch extends Input {
 			case "dbones":
 				return new Object[] { "dragon bones", 536 };
 			case "fbones":
-				return new Object[] { "dragon bones", 18830 };
+				return new Object[] { "Frost dragon bones", 18830 };
 		case "fury":
 			return new Object[] { "amulet of fury", 6585 };
 			case "dboots":
