@@ -337,7 +337,7 @@ public class PlayerHandler {
 		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 		player.getPacketSender().sendMessage("Use ::switchmode mode_name to switch mode.");
-		player.getPacketSender().sendMessage("Other commands: ::item id amount ::spawn item_name:amount ::find item_name")
+		player.getPacketSender().sendMessage("Other commands: ::item id amount ::spawn item_name:amount ::find item_name");
 		player.getPacketSender().sendMessage("::setlevel lvlid lvl.");
 	}
 

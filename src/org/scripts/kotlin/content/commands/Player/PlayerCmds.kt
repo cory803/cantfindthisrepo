@@ -1,17 +1,19 @@
 package com.runelive.commands.ranks
 
 import com.runelive.GameSettings
+import com.runelive.model.*
 import com.runelive.model.Locations.Location
-import com.runelive.model.Position
-import com.runelive.model.Store
-import com.runelive.model.Voting
+import com.runelive.model.definitions.ItemDefinition
 import com.runelive.model.input.impl.ChangePassword
+import com.runelive.model.player.GameMode
 import com.runelive.util.ForumDatabase
 import com.runelive.util.Misc
+import com.runelive.world.World
 import com.runelive.world.content.Command
 import com.runelive.world.content.PlayersOnlineInterface
 import com.runelive.world.content.combat.CombatFactory
 import com.runelive.world.content.combat.DesolaceFormulas
+import com.runelive.world.content.skill.SkillManager
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.runelive.world.content.transportation.TeleportHandler
 import com.runelive.world.entity.impl.player.Player
@@ -23,6 +25,131 @@ object PlayerCmds {
         if (player.isJailed) {
             player.packetSender.sendMessage("You cannot use commands in jail... You're in jail.")
             return
+        }
+        if (command[0] == "switchmode") {
+            try {
+                val mode = command[1]
+                when (mode) {
+                    "sir"-> {
+                        player.gameModeAssistant.setNewGamemode(GameMode.SIR)
+                        player.packetSender.sendMessage("Your game mode has been changed to "+player.gameModeAssistant.gameMode+".")
+                        for (skill in Skill.values()) {
+                            val level = if (skill == Skill.CONSTITUTION) 100 else if (skill == Skill.PRAYER) 10 else 1
+                            player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                                    SkillManager.getExperienceForLevel(if (skill == Skill.CONSTITUTION) 10 else 1))
+                        }
+                        player.packetSender.sendMessage("Your skill levels have now been reset.")
+                    }
+                     "lord" -> {
+                        player.gameModeAssistant.setNewGamemode(GameMode.LORD)
+                        player.packetSender.sendMessage("Your game mode has been changed to "+player.gameModeAssistant.gameMode+".")
+                         for (skill in Skill.values()) {
+                             val level = if (skill == Skill.CONSTITUTION) 100 else if (skill == Skill.PRAYER) 10 else 1
+                             player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                                     SkillManager.getExperienceForLevel(if (skill == Skill.CONSTITUTION) 10 else 1))
+                         }
+                         player.packetSender.sendMessage("Your skill levels have now been reset.")
+                    }
+                    "legend" -> {
+                        player.gameModeAssistant.setNewGamemode(GameMode.LEGEND)
+                        player.packetSender.sendMessage("Your game mode has been changed to "+player.gameModeAssistant.gameMode+".")
+                        for (skill in Skill.values()) {
+                            val level = if (skill == Skill.CONSTITUTION) 100 else if (skill == Skill.PRAYER) 10 else 1
+                            player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                                    SkillManager.getExperienceForLevel(if (skill == Skill.CONSTITUTION) 10 else 1))
+                        }
+                        player.packetSender.sendMessage("Your skill levels have now been reset.")
+                    }
+                    "extreme" -> {
+                        player.gameModeAssistant.setNewGamemode(GameMode.EXTREME)
+                        player.packetSender.sendMessage("Your game mode has been changed to "+player.gameModeAssistant.gameMode+".")
+                        for (skill in Skill.values()) {
+                            val level = if (skill == Skill.CONSTITUTION) 100 else if (skill == Skill.PRAYER) 10 else 1
+                            player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                                    SkillManager.getExperienceForLevel(if (skill == Skill.CONSTITUTION) 10 else 1))
+                        }
+                        player.packetSender.sendMessage("Your skill levels have now been reset.")
+                    }
+                    "realism" -> {
+                        player.gameModeAssistant.setNewGamemode(GameMode.REALISM)
+                        player.packetSender.sendMessage("Your game mode has been changed to "+player.gameModeAssistant.gameMode+".")
+                        for (skill in Skill.values()) {
+                            val level = if (skill == Skill.CONSTITUTION) 100 else if (skill == Skill.PRAYER) 10 else 1
+                            player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                                    SkillManager.getExperienceForLevel(if (skill == Skill.CONSTITUTION) 10 else 1))
+                        }
+                        player.packetSender.sendMessage("Your skill levels have now been reset.")
+                    }
+                    else -> player.packetSender.sendMessage("Command not found - Use sir, lord, legend, extreme or realism.")
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+        if (command[0] == "find") {
+            val name = wholeCommand.substring(5).toLowerCase().replace("_".toRegex(), " ")
+            player.packetSender.sendMessage("Finding item id for item - " + name)
+            var found = false
+            for (i in 0..ItemDefinition.getMaxAmountOfItems() - 1) {
+                if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
+                    player.packetSender.sendMessage("Found item with name ["
+                            + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i)
+                    found = true
+                }
+            }
+            if (!found) {
+                player.packetSender.sendMessage("No item with name [$name] has been found!")
+            }
+        }
+        if (command[0] == "setlevel" || command[0] == "setlvl" || command[0] == "lvl") {
+            val skillId = Integer.parseInt(command[1])
+            val level = Integer.parseInt(command[2])
+            if (level > 15000) {
+                player.packetSender.sendMessage("You can only have a maxmium level of 15000.")
+                return
+            }
+            val skill = Skill.forId(skillId)
+            player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,
+                    SkillManager.getExperienceForLevel(level))
+            player.packetSender.sendMessage("You have set your " + skill.getName() + " level to " + level)
+        }
+        if (command[0] == "item") {
+            val id = Integer.parseInt(command[1])
+            var amount = if (command.size == 2)
+                1
+            else
+                Integer.parseInt(command[2].trim { it <= ' ' }.toLowerCase().replace("k".toRegex(), "000").replace("m".toRegex(), "000000").replace("b".toRegex(), "000000000"))
+            if (amount > Integer.MAX_VALUE) {
+                amount = Integer.MAX_VALUE
+            }
+            val item = Item(id, amount)
+            player.inventory.add(item, true)
+
+            player.packetSender.sendItemOnInterface(47052, 11694, 1)
+        }
+        if (command[0] == "spawn") {
+            val name = wholeCommand.substring(6, wholeCommand.indexOf(":")).toLowerCase().replace("_".toRegex(), " ")
+            val what = wholeCommand.split(":".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            val amount_of = Integer.parseInt(what[1])
+            player.packetSender.sendMessage("Finding item id for item - " + name)
+            var found2 = false
+            for (i in 0..ItemDefinition.getMaxAmountOfItems() - 1) {
+                if (found2)
+                    break
+                if (ItemDefinition.forId(i).getName().toLowerCase().contains(name)) {
+                    player.inventory.add(i, amount_of)
+                    player.packetSender.sendMessage(
+                            "Spawned item [" + ItemDefinition.forId(i).getName().toLowerCase() + "] - id: " + i)
+                    found2 = true
+                }
+            }
+            if (!found2) {
+                player.packetSender.sendMessage("No item with name [$name] has been found!")
+            }
+            player.packetSender.sendItemOnInterface(47052, 11694, 1)
+        }
+        if(command[0].equals("mode", ignoreCase = true)) {
+            player.forceChat("[RuneLive] My game mode is "+player.gameModeAssistant.gameMode+".")
         }
         if (command[0].equals("bosses", ignoreCase = true)) {
             player.forceChat("[RuneLive] " + player.username + " has slain " + player.bossPoints + " bosses.")
