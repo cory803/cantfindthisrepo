@@ -177,40 +177,6 @@ public class SkillManager {
 			player.getPacketSender()
 					.sendMessage("You've just advanced " + skillName + " level! You have reached level " + newLevel);
 			Sounds.sendSound(player, Sound.LEVELUP);
-			if (skills.maxLevel[skill.ordinal()] == getMaxAchievingLevel(skill)) {
-				player.getPacketSender()
-						.sendMessage("Well done! You've achieved the highest possible level in this skill!");
-				Achievements.doProgress(player, AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS);
-				if (player.getAchievementAttributes().getCompletion()[AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS
-						.ordinal()]) {
-					World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
-							+ " has just achieved the maximum level in all skills!");
-				}
-
-				TaskManager.submit(new Task(2, player, true) {
-					int localGFX = 1634;
-
-					@Override
-					public void execute() {
-						player.performGraphic(new Graphic(localGFX));
-						if (localGFX == 1637) {
-							stop();
-							return;
-						}
-						localGFX++;
-						player.performGraphic(new Graphic(localGFX));
-					}
-				});
-			} else {
-				TaskManager.submit(new Task(2, player, false) {
-					@Override
-					public void execute() {
-						player.performGraphic(new Graphic(199));
-						stop();
-					}
-				});
-			}
-			player.getUpdateFlag().flag(Flag.APPEARANCE);
 		}
 		updateSkill(skill);
 		this.totalGainedExp += experience;
