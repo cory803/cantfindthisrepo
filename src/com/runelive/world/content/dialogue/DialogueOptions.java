@@ -1518,10 +1518,13 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getSlayer().handleInvitation(true);
 				break;
-			case 37:
-				TeleportHandler.teleportPlayer(player, new Position(2086, 4429),
-						player.getSpellbook().getTeleportType());
-				break;
+				case 37:
+					TeleportHandler.teleportPlayer(player, new Position(3280+Misc.inclusiveRandom(1, 2), 3924+Misc.getRandom(2)),
+							player.getSpellbook().getTeleportType());
+					break;
+				case 39:
+					TeleportHandler.teleportPlayer(player, new Position(2086, 4429), player.getSpellbook().getTeleportType());
+					break;
 			case 42:
 				player.getPacketSender().sendInterfaceRemoval();
 				if (player.getInteractingObject() != null && player.getInteractingObject().getDefinition() != null

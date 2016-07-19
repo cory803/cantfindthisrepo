@@ -7,7 +7,7 @@ public enum StallRewards {
     BAKERS_STALL(
             new WeightedItem(1891, 1, 1),
             new WeightedItem(1898, 1, 1),
-            new WeightedItem(2309, 1, 1)),
+            new WeightedItem(2308, 1, 1)),
     CRAFTING_STALL(
             new WeightedItem(1755, 1, 1024),
             new WeightedItem(1592, 1, 1024),

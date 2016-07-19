@@ -457,36 +457,38 @@ public class ObjectActionPacketListener implements PacketListener {
 							break;
 						case 4754:
 						case 4749:
-							if (player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() >= 6) {
-								player.performAnimation(new Animation(2290));
-								TaskManager.submit(new Task(1, player, true) {
-									int tick = 1;
+							if(player.getMinigameAttributes().getClawQuestAttributes().getSamples() >= 50) {
+								if (player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() >= 6) {
+									player.performAnimation(new Animation(2290));
+									TaskManager.submit(new Task(1, player, true) {
+										int tick = 1;
 
-									@Override
-									public void execute() {
-										tick++;
-										if (tick == 2) {
-											player.getMinigameAttributes().getClawQuestAttributes().addSamples(1);
-										} else if (tick >= 6) {
-											stop();
+										@Override
+										public void execute() {
+											tick++;
+											if (tick == 2) {
+												player.getMinigameAttributes().getClawQuestAttributes().addSamples(1);
+											} else if (tick >= 6) {
+												stop();
+											}
 										}
-									}
 
-									@Override
-									public void stop() {
-										setEventRunning(false);
-										player.getPacketSender()
-												.sendMessage("You collected "
-														+ player.getMinigameAttributes().getClawQuestAttributes()
-																.getSamples()
-														+ " of "
-														+ player.getMinigameAttributes()
-																.getClawQuestAttributes().SAMPLES_NEEDED
-														+ " samples needed.");
-									}
-								});
-							} else {
-								player.getPacketSender().sendMessage("Nothing interesting happened.");
+										@Override
+										public void stop() {
+											setEventRunning(false);
+											player.getPacketSender()
+													.sendMessage("You have collected "
+															+ player.getMinigameAttributes().getClawQuestAttributes()
+															.getSamples()
+															+ " of "
+															+ player.getMinigameAttributes()
+															.getClawQuestAttributes().SAMPLES_NEEDED
+															+ " samples needed.");
+										}
+									});
+								} else {
+									player.getPacketSender().sendMessage("Nothing interesting happened.");
+								}
 							}
 							break;
 						case 12987:

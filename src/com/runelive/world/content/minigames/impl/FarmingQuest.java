@@ -86,13 +86,13 @@ public class FarmingQuest {
 		p.getPacketSender().sendString(12144, "You have completed: Farmer's Expedition");
 		p.getPacketSender().sendString(12150, "A pair of magic secateurs");
 		p.getPacketSender().sendString(12151, "Using Magic Secateurs gives 20% more crops");
-		p.getPacketSender().sendString(12152, "500k farming xp");
+		p.getPacketSender().sendString(12152, "50k farming xp");
 		p.getPacketSender().sendString(12153, "");
 		p.getPacketSender().sendString(12154, "");
 		p.getPacketSender().sendString(12155, "");
 		p.getPacketSender().sendString(12147, "3");
 		p.getInventory().add(7409, 1);
-		p.getSkillManager().addExactExperience(Skill.FARMING, 500000);
+		p.getSkillManager().addExactExperience(Skill.FARMING, 50000);
 		p.addQuestPoints(3);
 		PlayerPanel.refreshPanel(p);
 	}

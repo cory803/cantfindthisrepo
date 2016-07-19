@@ -4,47 +4,47 @@ public enum ImpData {
 	/**
 	 * Baby Impling.
 	 */
-	BABY("Baby Impling", 11238, 5577, 1, 6055),
+	BABY("Baby Impling", 11238, 25, 1, 6055),
 	/**
 	 * Young Impling.
 	 */
-	YOUNG("Young Impling", 11240, 6355, 17, 6056),
+	YOUNG("Young Impling", 11240, 65, 17, 6056),
 	/**
 	 * Gourmet Impling.
 	 */
-	GOURMET("Gourmet Impling", 11242, 6980, 34, 6057),
+	GOURMET("Gourmet Impling", 11242, 113, 34, 6057),
 	/**
 	 * Earth Impling.
 	 */
-	EARTH("Earth Impling", 11244, 6944, 34, 6058),
+	EARTH("Earth Impling", 11244, 177, 34, 6058),
 	/**
 	 * Essence Impling.
 	 */
-	ESSENCE("Essence Impling", 11246, 7211, 40, 6059),
+	ESSENCE("Essence Impling", 11246, 225, 40, 6059),
 	/**
 	 * Electic Impling.
 	 */
-	ELECTIC("Electic Impling", 11248, 7900, 50, 6060),
+	ELECTIC("Electic Impling", 11248, 289, 50, 6060),
 	/**
 	 * Nature Impling.
 	 */
-	NATURE("Nature Impling", 11250, 8352, 58, 6061),
+	NATURE("Nature Impling", 11250, 353, 58, 6061),
 	/**
 	 * Magpie Impling.
 	 */
-	MAGPIE("Magpie Impling", 11252, 8876, 65, 6062),
+	MAGPIE("Magpie Impling", 11252, 409, 65, 6062),
 	/**
 	 * Ninja Impling.
 	 */
-	NINJA("Ninja Impling", 11254, 9554, 74, 6063),
+	NINJA("Ninja Impling", 11254, 481, 74, 6063),
 	/**
 	 * Dragon Impling.
 	 */
-	DRAGON("Dragon Impling", 11256, 17888, 83, 6064),
+	DRAGON("Dragon Impling", 11256, 553, 83, 6064),
 	/**
 	 * Dragon Impling.
 	 */
-	KINGLY("Kingly Impling", 15517, 54020, 91, 7903);
+	KINGLY("Kingly Impling", 15517, 617, 91, 7903);
 
 	/**
 	 * Variables.

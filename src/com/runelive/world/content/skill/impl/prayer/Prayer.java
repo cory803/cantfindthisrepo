@@ -51,6 +51,7 @@ public class Prayer {
 			player.getPacketSender().sendMessage("You scatter the ashes...");
 			final Item bone = new Item(itemId);
 			player.getInventory().delete(bone);
+			player.getSkillManager().addExperience(Skill.PRAYER, currentBone.getBuryingXP());
 			return;
 		}
 		player.getSkillManager().stopSkilling();

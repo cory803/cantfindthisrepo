@@ -73,7 +73,7 @@ public class Hunter {
 	 */
 	public static List<NPC> HUNTER_NPC_LIST = new CopyOnWriteArrayList<NPC>();
 
-	private static final int[] exps = { 3254, 3744, 6041, 8811, 10271, 12555, 13221, 17800 };
+	private static final int[] exps = {34, 47, 61, 65, 95, 199, 199, 265};
 
 	/**
 	 * Can this client lay a trap here?
@@ -297,7 +297,7 @@ public class Hunter {
 							if (theTrap.getGameObject().getId() == 19180) {
 								client.getInventory().add(10088, 20 + Misc.getRandom(30));
 								client.getInventory().add(9978, 1);
-								client.getPacketSender().sendMessage("You've succesfully caught a crimson swift.");
+								client.getPacketSender().sendMessage("You've succesfully caught a Crimson Swift.");
 								client.getSkillManager().addExperience(Skill.HUNTER, exps[0]);
 							} else if (theTrap.getGameObject().getId() == 19184) {
 								client.getInventory().add(10090, 20 + Misc.getRandom(30));
