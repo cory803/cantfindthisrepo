@@ -333,6 +333,8 @@ public class PlayerHandler {
 		}
 		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
+		player.getPacketSender().sendMessage("usw ::switchmode game_mode, ::spawn item_name:amount, ::find item_name ::item itemId amount");
+		player.getPacketSender().sendMessage("and ::setlevel to set your stats");
 	}
 
 	public static boolean handleLogout(Player player) {
@@ -398,7 +400,7 @@ public class PlayerHandler {
 				PlayerLogs.connections(player, "Logout");
 				return true;
 			} else {
-				return false;
+				return true;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
