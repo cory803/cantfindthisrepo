@@ -15,6 +15,9 @@ public class Agility {
 			if (p.getSkillManager().getMaxLevel(Skill.AGILITY) < 55) {
 				p.getPacketSender().sendMessage("You need an Agility level of at least 55 to enter this course.");
 				return true;
+			} if((System.currentTimeMillis() - p.lastAgilityClick) < 2500) {
+				p.getPacketSender().sendMessage("You can't do this, that quickly!");
+				return true;
 			}
 			p.getPacketSender().sendMessage("If you get stuck in this course, type ::stuck!");
 		}
@@ -22,6 +25,7 @@ public class Agility {
 		if (agilityObject != null) {
 			if (p.isCrossingObstacle())
 				return true;
+			p.lastThieve = System.currentTimeMillis();
 			p.setPositionToFace(object.getPosition());
 			p.setResetPosition(p.getPosition());
 			p.setCrossingObstacle(true);

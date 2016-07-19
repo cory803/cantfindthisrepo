@@ -506,6 +506,7 @@ public class Player extends Character {
 	/*** LONGS **/
 	private Long longUsername;
 	public long lastThieve;
+	public long lastAgilityClick;
 	private long moneyInPouch;
 	private long totalPlayTime;
 	// Timers (Stopwatches)
