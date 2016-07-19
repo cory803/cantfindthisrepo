@@ -1695,6 +1695,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							CurseHandler.deactivateAll(player);
 							break;
 						case 2515:
+							/*
 							player.performAnimation(new Animation(828));
 							player.getPacketSender().sendString(1, "ZULRAHFADE");
 							TaskManager.submit(new Task(1, player, true) {
@@ -1719,6 +1720,8 @@ public class ObjectActionPacketListener implements PacketListener {
 									player.getZulrah().enterIsland();
 								}
 							});
+							*/
+							player.getPacketSender().sendMessage("This boat will be used for Zulrah once it's complete.");
 							break;	
 						case 6552:
 							player.performAnimation(new Animation(645));
