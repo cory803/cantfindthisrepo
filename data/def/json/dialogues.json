@@ -358,10 +358,12 @@
     {
         "id": 35,
         "type": "OPTION",
-        "lines": 3,
+        "lines": 5,
         "line1": "Recipe For Disaster",
         "line2": "Nomad's Requeim",
-        "line3": "Cancel",
+        "line3": "The King's Task",
+        "line4": "Farmer's Expedition",
+        "line5": "Cancel",
         "next": -1,
         "npcId": -1
     },

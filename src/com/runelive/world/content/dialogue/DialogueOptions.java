@@ -136,9 +136,12 @@ public class DialogueOptions {
 		}
 		if (id == FIRST_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 19:
+					TeleportHandler.teleportPlayer(player, new Position(3080, 3498), player.getSpellbook().getTeleportType());
+					player.getPacketSender().sendInterfaceRemoval();
+				break;
 			case 18:
-				TeleportHandler.teleportPlayer(player, new Position(2439 + Misc.getRandom(2), 5171 + Misc.getRandom(2)),
-						player.getSpellbook().getTeleportType());
+				TeleportHandler.teleportPlayer(player, new Position(2439 + Misc.getRandom(2), 5171 + Misc.getRandom(2)), player.getSpellbook().getTeleportType());
 				break;
 			case 178:
 				TeleportHandler.teleportPlayer(player, new Position(3087, 3502, 0),
@@ -318,6 +321,10 @@ public class DialogueOptions {
 			}
 		} else if (id == SECOND_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 19:
+					TeleportHandler.teleportPlayer(player, new Position(1891, 3177), player.getSpellbook().getTeleportType());
+					player.getPacketSender().sendInterfaceRemoval();
+					break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(2399, 5177),
 						player.getSpellbook().getTeleportType());
@@ -498,6 +505,10 @@ public class DialogueOptions {
 			}
 		} else if (id == THIRD_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 19:
+					TeleportHandler.teleportPlayer(player, new Position(3213, 3468), player.getSpellbook().getTeleportType());
+					player.getPacketSender().sendInterfaceRemoval();
+					break;
 			case 18:
 				TeleportHandler.teleportPlayer(player, new Position(3503, 3562),
 						player.getSpellbook().getTeleportType());
@@ -695,6 +706,10 @@ public class DialogueOptions {
 			}
 		} else if (id == FOURTH_OPTION_OF_FIVE) {
 			switch (player.getDialogueActionId()) {
+				case 19:
+					TeleportHandler.teleportPlayer(player, new Position(2811, 3463), player.getSpellbook().getTeleportType());
+					player.getPacketSender().sendInterfaceRemoval();
+					break;
 			case 18:
 				if (player.getLocation() == Location.BOSS_SYSTEM) {
 					Locations.Location.BOSS_SYSTEM.leave(player);
@@ -927,6 +942,7 @@ public class DialogueOptions {
 			case 48:
 			case 60:
 			case 67:
+			case 19:
 			case 68:
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
@@ -1878,10 +1894,6 @@ public class DialogueOptions {
 				DialogueManager.start(player, 35);
 				player.setDialogueActionId(19);
 				break;
-			case 19:
-				DialogueManager.start(player, 33);
-				player.setDialogueActionId(21);
-				break;
 			case 21:
 				TeleportHandler.teleportPlayer(player, new Position(3080, 3498),
 						player.getSpellbook().getTeleportType());
@@ -2147,10 +2159,6 @@ public class DialogueOptions {
 			case 21:
 				RecipeForDisaster.openQuestLog(player);
 				break;
-			case 19:
-				DialogueManager.start(player, 33);
-				player.setDialogueActionId(22);
-				break;
 			case 22:
 				Nomad.openQuestLog(player);
 				break;
@@ -2342,7 +2350,6 @@ public class DialogueOptions {
 			case 5:
 			case 10:
 			case 15:
-			case 19:
 			case 21:
 			case 22:
 			case 25:
