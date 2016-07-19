@@ -13,6 +13,7 @@ import com.runelive.world.content.KillsTracker.KillsEntry;
 import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.content.combat.strategy.impl.KalphiteQueen;
 import com.runelive.world.content.combat.strategy.impl.Nex;
+import com.runelive.world.content.minigames.impl.WarriorsGuild;
 import com.runelive.world.content.tasks.DailyTaskManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
@@ -149,6 +150,10 @@ public class NPCDeathTask extends Task {
 						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_KREE_ARRA);
 						killer.getAchievementAttributes().setGodKilled(1, true);
+					} else if(npc.getId() == 4278 || npc.getId() == 4279 || npc.getId() == 4280 || npc.getId() == 4281
+							|| npc.getId() == 4282 || npc.getId() == 4283 || npc.getId() == 4284) {
+						WarriorsGuild.handleDrop(killer, npc);
+						killer.getMinigameAttributes().getWarriorsGuildAttributes().setSpawnedArmour(false);
 					} else if (npc.getId() == 6247) {
 						if (killer.dailyTask == 14 || killer.dailyTask == 19
 								|| killer.dailyTask == 29 && !killer.completedDailyTask) {

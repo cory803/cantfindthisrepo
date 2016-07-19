@@ -74,7 +74,7 @@ public class WarriorsGuild {
 									public void execute() {
 										NPC npc_ = new NPC(ARMOR_DATA[index][3], new Position(
 												player.getPosition().getX(), player.getPosition().getY() + 1));
-										npc_.forceChat("I'M ALIVE!!!!").setEntityInteraction(player).getCombatBuilder()
+										npc_.forceChat("I'M ALIVE!").setEntityInteraction(player).getCombatBuilder()
 												.setAttackTimer(2);
 										npc_.setSpawnedFor(player).getCombatBuilder().attack(player);
 										player.setPositionToFace(npc_.getPosition());

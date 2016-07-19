@@ -47,8 +47,8 @@ public class GameModeAssistant {
      * @param gameMode
      */
     public void setGameMode(GameMode gameMode) {
-        PlayerPanel.refreshPanel(player);
-        player.getPacketSender().sendIronmanMode();
+        //PlayerPanel.refreshPanel(player);
+        //player.getPacketSender().sendIronmanMode();
         this.gameMode = gameMode;
     }
 
