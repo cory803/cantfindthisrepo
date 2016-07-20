@@ -92,6 +92,10 @@ class ModeratorCommands {
             if (command[0].equals("teletome", ignoreCase = true)) {
                 val playerToTele = wholeCommand.substring(9)
                 val player2 = World.getPlayerByName(playerToTele)
+                if(player2.username == player.username) {
+                    player.packetSender.sendMessage("You can't teleport to your self.")
+                    return
+                }
                 if (World.getPlayerByName(playerToTele)!!.location === Locations.Location.DUEL_ARENA) {
                     player.packetSender.sendMessage("Why are you trying to move a player out of duel arena?")
                     return

@@ -140,6 +140,10 @@ object ServerSupports {
         if (command[0].equals("teleto", ignoreCase = true)) {
             val playerToTele = wholeCommand.substring(7)
             val player2 = World.getPlayerByName(playerToTele)
+            if(player2.username == player.username) {
+                player.packetSender.sendMessage("You can't teleport yourself to yourself.")
+                return
+            }
             if (player2 == null) {
                 player.packetSender.sendMessage("Cannot find that player online..")
                 return
