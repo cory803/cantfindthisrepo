@@ -38,7 +38,7 @@ public class Commands {
 			ModeratorCommands.Moderators.initiate_command(player, parts, whole_command);
 			ServerSupports.initiate_command(player, parts, whole_command);
 		}
-		if (player.getRights() == PlayerRights.MANAGER) {
+		if (player.getRights() == PlayerRights.MANAGER || player.getRights() == PlayerRights.STAFF_MANAGER) {
 			AdministratorCommands.Managers.initiate_command(player, parts, whole_command);
 			AdministratorCommands.Administrators.initiate_command(player, parts, whole_command);
 			ModeratorCommands.GlobalModerators.initiate_command(player, parts, whole_command);
