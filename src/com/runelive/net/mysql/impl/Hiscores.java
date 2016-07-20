@@ -40,7 +40,7 @@ public class Hiscores implements SQLCallback {
     public Hiscores execute() {
         switch(player.getRights()) {
             case OWNER:
-            case ADMINISTRATOR:
+            case STAFF_MANAGER:
             case DEVELOPER:
             case MANAGER:
                 return this;

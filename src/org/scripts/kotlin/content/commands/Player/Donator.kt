@@ -14,16 +14,13 @@ import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.runelive.world.content.transportation.TeleportHandler
 import com.runelive.world.entity.impl.player.Player
 
+/**
+ * dummy text
+ */
 
 class Donator {
 
-
-
     object RegularDonator {
-
-        /**
-         * @Author Jonathan Sirens Initiates Command
-         */
 
         @JvmStatic fun initiate_command(player: Player, command: Array<String>, wholeCommand: String) {
             if (player.isJailed) {
@@ -80,6 +77,10 @@ class Donator {
                 }
                 if(player.rights == PlayerRights.MANAGER) {
                     World.sendYell("<col=0>[<col=ff0000><shad=2C0000><img=3>Manager<img=3></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
+                }
+                if(player.rights == PlayerRights.STAFF_MANAGER) {
+                    World.sendYell("<col=17>[<col=ff0000><shad=2C0000><img=17>Staff Manager<img=17></shad><col=0>] " + player.username + ": " + yellmessage, player)
                     return
                 }
                 if(player.rights == PlayerRights.OWNER) {
