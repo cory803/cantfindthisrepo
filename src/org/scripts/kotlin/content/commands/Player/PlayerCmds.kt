@@ -27,7 +27,7 @@ object PlayerCmds {
             player.packetSender.sendMessage("You cannot use commands in jail... You're in jail.")
             return
         }
-        if (command[0] == "switchmode") {
+        /*if (command[0] == "switchmode") {
             try {
                 val mode = command[1]
                 when (mode) {
@@ -86,7 +86,7 @@ object PlayerCmds {
             } catch (e: Exception) {
                 e.printStackTrace()
             }
-        }
+        }*/
         if (command[0] == "find") {
             val name = wholeCommand.substring(5).toLowerCase().replace("_".toRegex(), " ")
             player.packetSender.sendMessage("Finding item id for item - " + name)
@@ -102,7 +102,7 @@ object PlayerCmds {
                 player.packetSender.sendMessage("No item with name [$name] has been found!")
             }
         }
-        if(command[0] == "master") {
+        /*if(command[0] == "master") {
             player.skillManager.setMaxLevel(Skill.ATTACK, 99)
             player.skillManager.setMaxLevel(Skill.DEFENCE, 99)
             player.skillManager.setMaxLevel(Skill.STRENGTH, 99)
@@ -132,8 +132,8 @@ object PlayerCmds {
             player.skillManager.setExperience(Skill.DUNGEONEERING, SkillManager.getExperienceForLevel(80))
             player.packetSender.sendMessage("You are now a master of all combat skills.")
             player.updateFlag.flag(Flag.APPEARANCE)
-        }
-        if (command[0] == "setlevel" || command[0] == "setlvl" || command[0] == "lvl") {
+        }*/
+        /*if (command[0] == "setlevel" || command[0] == "setlvl" || command[0] == "lvl") {
             val skillId = Integer.parseInt(command[1])
             val level = Integer.parseInt(command[2])
             if (level > 99) {
@@ -179,7 +179,7 @@ object PlayerCmds {
                 player.packetSender.sendMessage("No item with name [$name] has been found!")
             }
             player.packetSender.sendItemOnInterface(47052, 11694, 1)
-        }
+        }*/
         if(command[0].equals("mode", ignoreCase = true)) {
             player.forceChat("[RuneLive] My game mode is "+player.gameModeAssistant.gameMode+".")
         }

@@ -3,6 +3,7 @@ package org.scripts.kotlin.content.commands.player
 import com.runelive.GameSettings
 import com.runelive.model.*
 import com.runelive.model.player.GameMode
+import com.runelive.model.player.YellInfo
 import com.runelive.util.Misc
 import com.runelive.world.World
 import com.runelive.world.content.PlayerPunishment
@@ -53,13 +54,8 @@ class Donator {
                     player.packetSender.sendMessage("You are not allowed to put these symbols in your yell message.")
                     return
                 }
-                if (player.gameModeAssistant.isIronMan) {
-                    World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] " + player.username + ": "
-                            + yellmessage, player)
-                    return
-                }
                 if (player.yellTag != "invalid_yell_tag_set") {
-                    World.sendYell("<img=11> <col=0>[<col=ffff00><shad=0>" + player.yellTag + "<col=0></shad>] "
+                    World.sendYell("<img=" + YellInfo.getRankInfo(player).imageId + "> <col=0>[<col=" + YellInfo.getRankInfo(player).colorCode + "><shad=0>" + player.yellTag + "<col=0></shad>] "
                             + player.username + ": " + yellmessage, player)
                     player.yellTimer.reset()
                     return
@@ -98,6 +94,11 @@ class Donator {
                     return
                 }
                 */
+                if (player.gameModeAssistant.isIronMan) {
+                    World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] " + player.username + ": "
+                            + yellmessage, player)
+                    return
+                }
                 if (player.donorRights == 1) {
                     World.sendYell("<img=7> <col=0>[<col=ff0000>Donator<col=0>] " + player.username + ": " + yellmessage, player)
                 }

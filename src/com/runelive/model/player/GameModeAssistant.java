@@ -5,6 +5,7 @@ import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.content.skill.SkillManager;
+import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -188,6 +189,8 @@ public class GameModeAssistant {
         this.gameMode = gamemode;
         PlayerPanel.refreshPanel(player);
         Achievements.updateInterface(player);
+        player.getSlayer().setSlayerTask(SlayerTasks.NO_TASK);
+        player.getSlayer().setAmountToSlay(0);
     }
 
 }

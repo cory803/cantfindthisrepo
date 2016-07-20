@@ -71,6 +71,7 @@ public class Commands {
 			Wiki.WikiManagers.initiate_command(player, parts, whole_command);
 		}
 		if (player.getRights() == PlayerRights.YOUTUBER) {
+			PlayerCmds.initiate_command(player, parts, whole_command);
 			YouTubers.initiate_command(player, parts, whole_command);
 			return;
 		}

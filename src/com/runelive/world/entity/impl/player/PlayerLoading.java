@@ -695,15 +695,26 @@ public class PlayerLoading {
 		}
 
 		if (reader.has("slayer-task")) {
-			player.getSlayer().setSlayerTask(SlayerTasks.valueOf(reader.get("slayer-task").getAsString()));
+			try {
+				player.getSlayer().setSlayerTask(SlayerTasks.valueOf(reader.get("slayer-task").getAsString()));
+			} catch (Exception e) {
+				player.getSlayer().setSlayerTask(SlayerTasks.NO_TASK);
+			}
 		}
 
 		if (reader.has("prev-slayer-task")) {
-			player.getSlayer().setLastTask(SlayerTasks.valueOf(reader.get("prev-slayer-task").getAsString()));
+			try {
+				player.getSlayer().setLastTask(SlayerTasks.valueOf(reader.get("prev-slayer-task").getAsString()));
+			} catch (Exception e) {
+				player.getSlayer().setLastTask(SlayerTasks.NO_TASK);
+			}
 		}
 
 		if (reader.has("task-amount")) {
 			player.getSlayer().setAmountToSlay(reader.get("task-amount").getAsInt());
+			if (player.getSlayer().getSlayerTask() == null && player.getSlayer().getAmountToSlay() > 0) {
+				player.getSlayer().setAmountToSlay(0);
+			}
 		}
 
 		if (reader.has("task-streak")) {

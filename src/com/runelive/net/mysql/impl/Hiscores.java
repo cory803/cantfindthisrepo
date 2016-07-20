@@ -118,7 +118,11 @@ public class Hiscores implements SQLCallback {
     private short getTotals() {
         int totals = 0;
         for (Skill skill : Skill.values()) {
-            totals += player.getSkillManager().getMaxLevel(skill);
+            if (SkillManager.isNewSkill(skill)) {
+                totals += player.getSkillManager().getMaxLevel(skill) / 10;
+            } else {
+                totals += player.getSkillManager().getMaxLevel(skill);
+            }
         }
         return (short) totals;
     }
