@@ -19,6 +19,14 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class Graardor implements CombatStrategy {
 
+	public static String[] randomMessage = {"Death to our enemies!", "Brargh!", "Break their bones!", "For the glory of Bandos!",
+	"Split their skulls!", "We feast on the bones of our enemies tonight!", "CHAAARGE!", "All glory to Bandos!", "GRRRAAAAAR",
+	"FOR THE GLORY OF THE BIG HIGH WAR GOD!"};
+
+	public static String getRandomMessage() {
+		return randomMessage[(int) (Math.random() * randomMessage.length)];
+	}
+
 	private static final Animation attack_anim = new Animation(7063);
 	private static final Graphic graphic1 = new Graphic(1200, GraphicHeight.MIDDLE);
 
@@ -35,6 +43,7 @@ public class Graardor implements CombatStrategy {
 
 	@Override
 	public boolean customContainerAttack(Character entity, Character victim) {
+		int speechChance = Misc.inclusiveRandom(1, 4);
 		NPC graardor = (NPC) entity;
 		if (graardor.isChargingAttack() || graardor.getConstitution() <= 0) {
 			return true;
@@ -46,6 +55,9 @@ public class Graardor implements CombatStrategy {
 			graardor.performAnimation(new Animation(graardor.getDefinition().getAttackAnimation()));
 			graardor.getCombatBuilder()
 					.setContainer(new CombatContainer(graardor, victim, 1, 1, CombatType.MELEE, true));
+			if(speechChance == 1) {
+				graardor.forceChat(getRandomMessage());
+			}
 		} else {
 			graardor.performAnimation(attack_anim);
 			graardor.setChargingAttack(true);
@@ -66,6 +78,9 @@ public class Graardor implements CombatStrategy {
 						graardor.getCombatBuilder().setVictim(t);
 						new CombatHit(graardor.getCombatBuilder(),
 								new CombatContainer(graardor, t, 1, CombatType.RANGED, true)).handleAttack();
+						if(speechChance == 1) {
+							graardor.forceChat(getRandomMessage());
+						}
 					}
 					graardor.setChargingAttack(false);
 					stop();

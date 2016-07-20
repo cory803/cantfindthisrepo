@@ -19,6 +19,14 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class KreeArra implements CombatStrategy {
 
+	public static String[] randomMessage = {
+			"Scree!", "Squawk!"
+	};
+
+	public static String getRandomMessage() {
+		return randomMessage[(int) (Math.random() * randomMessage.length)];
+	}
+
 	@Override
 	public boolean canAttack(Character entity, Character victim) {
 		return victim.isPlayer()
@@ -32,6 +40,7 @@ public class KreeArra implements CombatStrategy {
 
 	@Override
 	public boolean customContainerAttack(Character entity, Character victim) {
+		int speechChance = Misc.inclusiveRandom(1, 4);
 		NPC kreearra = (NPC) entity;
 
 		if (victim.getConstitution() <= 0) {
@@ -59,6 +68,9 @@ public class KreeArra implements CombatStrategy {
 							continue;
 						new Projectile(kreearra, victim, style == CombatType.MAGIC ? 1198 : 1197, 44, 3, 43, 43, 0)
 								.sendProjectile();
+						if(speechChance == 1) {
+							kreearra.forceChat(getRandomMessage());
+						}
 						if (style == CombatType.RANGED) { // Moving players
 															// randomly
 							int xToMove = Misc.getRandom(1);
@@ -66,6 +78,9 @@ public class KreeArra implements CombatStrategy {
 							int xCoord = target.getPosition().getX();
 							int yCoord = target.getPosition().getY();
 							if (xCoord >= 2841 || xCoord <= 2823 || yCoord <= 5295 || yCoord >= 5307) {
+								if(speechChance == 1) {
+									kreearra.forceChat("Storms align to me!");
+								}
 								return;
 							} else if (Misc.getRandom(3) <= 1 && MovementQueue.canWalk(target.getPosition(),
 									new Position(xCoord + -xToMove, yCoord + -yToMove, 2), 1)) {
@@ -73,6 +88,9 @@ public class KreeArra implements CombatStrategy {
 								if (!target.isTeleporting())
 									target.moveTo(new Position(xCoord + -xToMove, yCoord + -yToMove, 2));
 								target.performGraphic(new Graphic(128));
+								if(speechChance == 1) {
+									kreearra.forceChat(getRandomMessage());
+								}
 							}
 						}
 					}

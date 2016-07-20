@@ -378,7 +378,7 @@ object PlayerCmds {
             }
             if (player.location == Location.WILDERNESS && player.wildernessLevel > 20) {
                 player.packetSender.sendMessage("You cannot do this at the moment.")
-                return
+                return;
             }
             val random = Misc.getRandom(3)
             when (random) {

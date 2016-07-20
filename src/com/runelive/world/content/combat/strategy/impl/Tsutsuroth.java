@@ -20,6 +20,15 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class Tsutsuroth implements CombatStrategy {
 
+	public static String[] randomMessage = {
+			"Attack them, you dogs!", "Forward!", "Death to Saradomin's dogs!", "Kill them, you cowards!", "The Dark One will have their souls!",
+			"Zamorak curse them!", "Rend them limb from limb!", "No retreat!", "Flay them all!"
+	};
+
+	public static String getRandomMessage() {
+		return randomMessage[(int) (Math.random() * randomMessage.length)];
+	}
+
 	private static final Animation anim1 = new Animation(6947);
 	private static final Graphic graphic1 = new Graphic(1211, GraphicHeight.MIDDLE);
 	private static final Graphic graphic2 = new Graphic(390);
@@ -37,6 +46,7 @@ public class Tsutsuroth implements CombatStrategy {
 
 	@Override
 	public boolean customContainerAttack(Character entity, Character victim) {
+		int speechChance = Misc.inclusiveRandom(1, 4);
 		NPC tsutsuroth = (NPC) entity;
 		if (victim.getConstitution() <= 0) {
 			return true;
@@ -52,6 +62,9 @@ public class Tsutsuroth implements CombatStrategy {
 			tsutsuroth.performAnimation(new Animation(6945));
 			tsutsuroth.getCombatBuilder()
 					.setContainer(new CombatContainer(tsutsuroth, victim, 1, 1, CombatType.MELEE, true));
+			if(speechChance == 1) {
+				tsutsuroth.forceChat(getRandomMessage());
+			}
 			int specialAttack = Misc.getRandom(4);
 			if (specialAttack == 2) {
 				int amountToDrain = Misc.getRandom(400);
@@ -59,11 +72,13 @@ public class Tsutsuroth implements CombatStrategy {
 						.sendMessage("K'ril Tsutsaroth slams through your defence and steals some Prayer points..");
 				if (amountToDrain > target.getSkillManager().getCurrentLevel(Skill.PRAYER)) {
 					amountToDrain = target.getSkillManager().getCurrentLevel(Skill.PRAYER);
+					tsutsuroth.forceChat("YARRRRRRR!");
 				}
 				target.getSkillManager().setCurrentLevel(Skill.PRAYER,
 						target.getSkillManager().getCurrentLevel(Skill.PRAYER) - amountToDrain);
 				if (target.getSkillManager().getCurrentLevel(Skill.PRAYER) <= 0) {
 					target.getPacketSender().sendMessage("You have run out of Prayer points!");
+					tsutsuroth.forceChat("YARRRRRRR!");
 				}
 			}
 		} else {
