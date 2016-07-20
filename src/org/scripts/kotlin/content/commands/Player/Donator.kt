@@ -14,9 +14,7 @@ import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.runelive.world.content.transportation.TeleportHandler
 import com.runelive.world.entity.impl.player.Player
 
-/**
- * Created by Dave on 10/07/2016.
- */
+
 class Donator {
 
 
@@ -88,12 +86,18 @@ class Donator {
                     World.sendYell("<col=0>[<col=ff0000><shad=0><img=3>Owner<img=3></shad><col=0>] " + player.username + ": " + yellmessage, player)
                     return
                 }
-                /* Error: PlayerRights.DEVELOPER does not exist
+                if (player.rights == PlayerRights.WIKI_EDITOR) {
+                    World.sendYell("<col=0>[<col=ff7f00><shad=0><img=15>Wiki Editor<img=15></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
+                }
+                if(player.rights == PlayerRights.WIKI_MANAGER) {
+                    World.sendYell("<col=0>[<col=31a4ff><shad=0><img=16>Wiki Manager<img=16></shad><col=0>] " + player.username + ": " + yellmessage, player)
+                    return
+                }
                 if(player.rights == PlayerRights.DEVELOPER) {
                     World.sendYell("<col=0>[<col=484192><shad=0><img=18>Developer<img=18></shad><col=0>] " + player.username + ": " + yellmessage, player)
                     return
                 }
-                */
                 if (player.gameModeAssistant.isIronMan) {
                     World.sendYell("<img=12> [<col=808080><shad=0>Ironman</col></shad>] " + player.username + ": "
                             + yellmessage, player)

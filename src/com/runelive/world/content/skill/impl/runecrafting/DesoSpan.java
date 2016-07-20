@@ -24,7 +24,7 @@ public class DesoSpan {
 	private static final int ENERGY_FRAGMENT = 13653;
 
 	enum Energy {
-		GREEN_ENERGY(8028, 40, 1754, 12, 551, 999), YELLOW_ENERGY(8022, 72, 14, 913, 554, 1006);
+		GREEN_ENERGY(8028, 40, 13, 12, 551, 999), YELLOW_ENERGY(8022, 72, 18, 913, 554, 1006);
 
 		Energy(int npcId, int levelReq, int experience, int playerGraphic, int projectileGraphic, int npcGraphic) {
 			this.npcId = npcId;

@@ -6,9 +6,7 @@ import com.runelive.world.World
 import com.runelive.world.content.PlayerPunishment
 import com.runelive.world.entity.impl.player.Player
 
-/**
- * Dummy Text
- */
+
 class Wiki {
 
     object WikiEditors {
@@ -18,25 +16,6 @@ class Wiki {
          */
 
         @JvmStatic fun initiate_command(player: Player, command: Array<String>, wholeCommand: String) {
-            if (wholeCommand.toLowerCase().startsWith("yell")) {
-                if (PlayerPunishment.isMuted(player.username) || PlayerPunishment.isIpMuted(player.hostAddress)) {
-                    player.packetSender.sendMessage("You are muted and cannot yell.")
-                    return
-                }
-                if (World.isGlobalYell() == false) {
-                    player.packetSender.sendMessage("An admin has temporarily disabled the global yell channel.")
-                    return
-                }
-                if (!GameSettings.YELL_STATUS) {
-                    player.packetSender.sendMessage("Yell is currently turned off, please try again in 30 minutes!")
-                    return
-                }
-                 val yellmessage = wholeCommand.substring(4, wholeCommand.length)
-                if (player.rights == PlayerRights.WIKI_EDITOR)
-                    World.sendYell("<col=0>[<col=ff7f00><shad=0><img=15>Wiki Editor<img=15></shad><col=0>] " + player.username + ": " + yellmessage, player)
-                if(player.rights == PlayerRights.WIKI_MANAGER)
-                    World.sendYell("<col=0>[<col=31a4ff><shad=0><img=16>Wiki Manager<img=16></shad><col=0>] " + player.username + ": " + yellmessage, player)
-            }
         }
     }
 
