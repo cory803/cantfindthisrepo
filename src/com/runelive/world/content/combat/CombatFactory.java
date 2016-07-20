@@ -1039,12 +1039,6 @@ public final class CombatFactory {
 					entity.getCombatBuilder().reset(true);
 					return false;
 				}
-			} else if (npc.getId() == 1472 || npc.getId() == 135 || npc.getId() == 133 || npc.getId() == 132) { // Treasure Island Bosses
-				if (entity.getCombatBuilder().getStrategy().getCombatType() == CombatType.RANGED || entity.getCombatBuilder().getStrategy().getCombatType() == CombatType.MAGIC) {
-					((Player) entity).getPacketSender().sendMessage("You can only attack this monster with Melee.");
-					entity.getCombatBuilder().reset(true);
-				return false;
-				}
 			}
 			if (npc.getLocation() != Location.DUNGEONEERING && npc.getDefinition().getSlayerLevel() > ((Player) entity)
 					.getSkillManager().getCurrentLevel(Skill.SLAYER)) {
