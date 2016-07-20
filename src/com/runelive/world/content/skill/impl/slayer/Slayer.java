@@ -7,7 +7,6 @@ import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.model.definitions.NpcDefinition;
-import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
@@ -135,7 +134,7 @@ public class Slayer {
 		}
 
 		if (giveXp) {
-			player.getSkillManager().addExperience(Skill.SLAYER, doubleSlayerXP ? xp * 2 : xp);
+			player.getSkillManager().addSkillExperience(Skill.SLAYER, doubleSlayerXP ? xp * 2 : xp);
 		}
 
 		PlayerPanel.refreshPanel(player);

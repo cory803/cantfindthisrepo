@@ -640,7 +640,7 @@ public class PestControl {
 			p.getPointsHandler().setCommendations((p.getPointsHandler().getCommendations() - cost), false);
 			Skill skill = Skill.forId(id);
 			int xp = amount * cost;
-			p.getSkillManager().addExperience(skill, xp);
+			p.getSkillManager().addSkillExperience(skill, xp);
 			p.getPacketSender().sendMessage(
 					"You have purchased " + xp + " " + Misc.formatText(skill.toString().toLowerCase()) + " XP.");
 		} else {

@@ -59,7 +59,7 @@ class Stall {
             player.performAnimation(Animation(881))
             player.packetSender.sendMessage(message)
             player.packetSender.sendInterfaceRemoval()
-            player.skillManager.addExperience(Skill.THIEVING, xp)
+            player.skillManager.addSkillExperience(Skill.THIEVING, xp)
             player.clickDelay.reset()
             player.inventory.add(reward, 1)
             player.skillManager.stopSkilling()
@@ -96,7 +96,7 @@ class Stall {
             player.performAnimation(Animation(881))
             player.packetSender.sendMessage(message)
             player.packetSender.sendInterfaceRemoval()
-            player.skillManager.addExperience(Skill.THIEVING, xp)
+            player.skillManager.addSkillExperience(Skill.THIEVING, xp)
             player.clickDelay.reset()
             if (player.dailyTask == 2 && !player.completedDailyTask) {
                 DailyTaskManager.doTaskProgress(player)
@@ -188,7 +188,7 @@ class Stall {
                 DailyTaskManager.doTaskProgress(player)
             }
             player.packetSender.sendInterfaceRemoval()
-            player.skillManager.addExperience(Skill.THIEVING, xp)
+            player.skillManager.addSkillExperience(Skill.THIEVING, xp)
             player.clickDelay.reset()
             player.inventory.add(item.id, item.amount)
             player.skillManager.stopSkilling()

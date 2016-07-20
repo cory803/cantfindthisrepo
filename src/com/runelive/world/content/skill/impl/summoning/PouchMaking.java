@@ -89,7 +89,7 @@ public class PouchMaking {
 						player.getInventory().delete(SHARD_ID, pouch.getShardsRequired());
 						player.getInventory().delete(pouch.getCharmId(), 1);
 						player.getInventory().delete(pouch.getsecondIngredientId(), 1);
-						player.getSkillManager().addExperience(Skill.SUMMONING, pouch.getExp());
+						player.getSkillManager().addSkillExperience(Skill.SUMMONING, pouch.getExp());
 						player.getInventory().add(pouch.getPouchId(), 1);
 						if (player.dailyTask == 7 && !player.completedDailyTask) {
 							DailyTaskManager.doTaskProgress(player);

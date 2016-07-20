@@ -78,7 +78,7 @@ public class Woodcutting {
 									int xp = t.getXp();
 									if (lumberJack(player))
 										xp *= 1.5;
-									player.getSkillManager().addExperience(Skill.WOODCUTTING, xp);
+									player.getSkillManager().addSkillExperience(Skill.WOODCUTTING, xp);
 									cycle = 0;
 									BirdNests.dropNest(player);
 									rollPet(player);

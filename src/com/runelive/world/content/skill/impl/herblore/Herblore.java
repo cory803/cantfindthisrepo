@@ -30,7 +30,7 @@ public class Herblore {
 			}
 			player.getInventory().delete(herb.getGrimyHerb(), 1);
 			player.getInventory().add(herb.getCleanHerb(), 1);
-			player.getSkillManager().addExperience(Skill.HERBLORE, herb.getExp());
+			player.getSkillManager().addSkillExperience(Skill.HERBLORE, herb.getExp());
 			player.getPacketSender().sendMessage("You clean the dirt off the leaf.");
 			return true;
 		}
@@ -54,7 +54,7 @@ public class Herblore {
 				public void execute() {
 					player.getInventory().delete(VIAL, 1).delete(unf.getHerbNeeded(), 1).add(unf.getUnfPotion(), 1);
 					player.getPacketSender().sendMessage("You put the " + ItemDefinition.forId(unf.getHerbNeeded()).getName() + " into the vial of water.");
-					player.getSkillManager().addExperience(Skill.HERBLORE, 1);
+					player.getSkillManager().addSkillExperience(Skill.HERBLORE, 1);
 					this.stop();
 				}
 			});
@@ -90,7 +90,7 @@ public class Herblore {
 					}
 					player.getInventory().delete(pot.getUnfinishedPotion(), 1).delete(pot.getItemNeeded(), 1)
 							.add(pot.getFinishedPotion(), 1);
-					player.getSkillManager().addExperience(Skill.HERBLORE, (pot.getExpGained()));
+					player.getSkillManager().addSkillExperience(Skill.HERBLORE, (pot.getExpGained()));
 					String name = ItemDefinition.forId(pot.getFinishedPotion()).getName();
 					player.getPacketSender()
 							.sendMessage("You combine the ingredients to make " + Misc.anOrA(name) + " " + name + ".");
@@ -194,7 +194,7 @@ public class Herblore {
 			p.getInventory().delete(ingridients);
 		p.getInventory().add(specialPotData.getProduct());
 		p.performAnimation(new Animation(363));
-		p.getSkillManager().addExperience(Skill.HERBLORE, specialPotData.getExperience());
+		p.getSkillManager().addSkillExperience(Skill.HERBLORE, specialPotData.getExperience());
 		String name = specialPotData.getProduct().getDefinition().getName();
 		p.getPacketSender().sendMessage("You make " + Misc.anOrA(name) + " " + name + ".");
 		p.getClickDelay().reset();

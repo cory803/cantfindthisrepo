@@ -226,7 +226,7 @@ public class Fishing {
 					if (p.dailyTask == 0 && !p.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(p);
 					}
-					p.getSkillManager().addExperience(Skill.FISHING, s.getXp()[fishIndex]);
+					p.getSkillManager().addSkillExperience(Skill.FISHING, s.getXp()[fishIndex]);
 					setupFishing(p, s);
 					setEventRunning(false);
 				}

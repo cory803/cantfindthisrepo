@@ -9,7 +9,6 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
-import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.util.Misc;
@@ -189,7 +188,7 @@ public class DungeoneeringParty {
 					exp = (int) (exp * 0.7);
 					tokens = (int) (tokens * 0.7);
 				}
-				p.getSkillManager().addExperience(Skill.DUNGEONEERING, exp);
+				p.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, exp);
 				p.getPointsHandler().setDungeoneeringTokens(tokens, true);
 				p.getEquipment().refreshItems();
 				WeaponInterfaces.assign(p, p.getEquipment().get(Equipment.WEAPON_SLOT));

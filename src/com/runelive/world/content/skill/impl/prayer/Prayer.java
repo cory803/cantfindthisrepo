@@ -3,7 +3,6 @@ package com.runelive.world.content.skill.impl.prayer;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
-import com.runelive.model.Graphic;
 import com.runelive.model.Item;
 import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
@@ -51,7 +50,7 @@ public class Prayer {
 			player.getPacketSender().sendMessage("You scatter the ashes...");
 			final Item bone = new Item(itemId);
 			player.getInventory().delete(bone);
-			player.getSkillManager().addExperience(Skill.PRAYER, currentBone.getBuryingXP());
+			player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP());
 			return;
 		}
 		player.getSkillManager().stopSkilling();
@@ -64,7 +63,7 @@ public class Prayer {
 			@Override
 			public void execute() {
 				player.getPacketSender().sendMessage("..and bury the " + bone.getDefinition().getName() + ".");
-				player.getSkillManager().addExperience(Skill.PRAYER, currentBone.getBuryingXP());
+				player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP());
 				Sounds.sendSound(player, Sound.BURY_BONE);
 				if (currentBone == BonesData.BIG_BONES)
 					Achievements.finishAchievement(player, AchievementData.BURY_A_BIG_BONE);

@@ -298,38 +298,38 @@ public class Hunter {
 								client.getInventory().add(10088, 20 + Misc.getRandom(30));
 								client.getInventory().add(9978, 1);
 								client.getPacketSender().sendMessage("You've succesfully caught a Crimson Swift.");
-								client.getSkillManager().addExperience(Skill.HUNTER, exps[0]);
+								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[0]);
 							} else if (theTrap.getGameObject().getId() == 19184) {
 								client.getInventory().add(10090, 20 + Misc.getRandom(30));
 								client.getInventory().add(9978, 1);
 								client.getPacketSender().sendMessage("You've succesfully caught a Golden Warbler.");
-								client.getSkillManager().addExperience(Skill.HUNTER, exps[1]);
+								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[1]);
 							} else if (theTrap.getGameObject().getId() == 19186) {
 								client.getInventory().add(10091, 20 + Misc.getRandom(50));
 								client.getInventory().add(9978, 1);
 								client.getPacketSender().sendMessage("You've succesfully caught a Copper Longtail.");
-								client.getSkillManager().addExperience(Skill.HUNTER, exps[2]);
+								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[2]);
 							} else if (theTrap.getGameObject().getId() == 19182) {
 								client.getInventory().add(10089, 20 + Misc.getRandom(30));
 								client.getInventory().add(9978, 1);
 								client.getPacketSender().sendMessage("You've succesfully caught a Cerulean Twitch.");
-								client.getSkillManager().addExperience(Skill.HUNTER, (exps[3]));
+								client.getSkillManager().addSkillExperience(Skill.HUNTER, (exps[3]));
 							} else if (theTrap.getGameObject().getId() == 19178) {
 								client.getInventory().add(10087, 20 + Misc.getRandom(30));
 								client.getInventory().add(9978, 1);
 								client.getPacketSender().sendMessage("You've succesfully caught a Tropical Wagtail.");
-								client.getSkillManager().addExperience(Skill.HUNTER, exps[4]);
+								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[4]);
 							}
 						} else if (theTrap instanceof BoxTrap) {
 							client.getInventory().add(10008, 1);
 							if (theTrap.getGameObject().getId() == 19191) {
 								client.getInventory().add(10033, 1);
-								client.getSkillManager().addExperience(Skill.HUNTER, exps[6]);
+								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[6]);
 								client.getPacketSender().sendMessage("You've succesfully caught a chinchompa!");
 								rollPet(client);
 							} else if (theTrap.getGameObject().getId() == 19189) {
 								client.getInventory().add(10034, 1);
-								client.getSkillManager().addExperience(Skill.HUNTER, exps[7]);
+								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[7]);
 								client.getPacketSender().sendMessage("You've succesfully caught a red chinchompa!");
 								rollPet(client);
 							}

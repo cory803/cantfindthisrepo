@@ -173,81 +173,81 @@ public class DailyTaskManager {
 		if (p.dailyTask == 0 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.FISHING, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.FISHING, SKILL_EXP);
 		}
 		if (p.dailyTask == 1 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.WOODCUTTING, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.WOODCUTTING, SKILL_EXP);
 		}
 		if (p.dailyTask == 2 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.THIEVING, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.THIEVING, SKILL_EXP);
 		}
 		if (p.dailyTask == 3 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.FLETCHING, SKILL_EXP / 3);
-			p.getSkillManager().addExperience(Skill.WOODCUTTING, SKILL_EXP / 3);
-			p.getSkillManager().addExperience(Skill.CRAFTING, SKILL_EXP / 3);
+			p.getSkillManager().addSkillExperience(Skill.FLETCHING, SKILL_EXP / 3);
+			p.getSkillManager().addSkillExperience(Skill.WOODCUTTING, SKILL_EXP / 3);
+			p.getSkillManager().addSkillExperience(Skill.CRAFTING, SKILL_EXP / 3);
 		}
 		if (p.dailyTask == 4 && p.dailyTaskProgress >= 1000 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.FLETCHING, SKILL_EXP / 2);
-			p.getSkillManager().addExperience(Skill.SMITHING, SKILL_EXP / 2);
+			p.getSkillManager().addSkillExperience(Skill.FLETCHING, SKILL_EXP / 2);
+			p.getSkillManager().addSkillExperience(Skill.SMITHING, SKILL_EXP / 2);
 		}
 		if (p.dailyTask == 5 && p.dailyTaskProgress >= 1000 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.FLETCHING, SKILL_EXP / 2);
-			p.getSkillManager().addExperience(Skill.CRAFTING, SKILL_EXP / 2);
+			p.getSkillManager().addSkillExperience(Skill.FLETCHING, SKILL_EXP / 2);
+			p.getSkillManager().addSkillExperience(Skill.CRAFTING, SKILL_EXP / 2);
 		}
 		if (p.dailyTask == 6 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.COOKING, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.COOKING, SKILL_EXP);
 		}
 		if (p.dailyTask == 7 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.SUMMONING, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.SUMMONING, SKILL_EXP);
 		}
 		if (p.dailyTask == 8 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.SUMMONING, SKILL_EXP / 2);
+			p.getSkillManager().addSkillExperience(Skill.SUMMONING, SKILL_EXP / 2);
 		}
 		if (p.dailyTask == 9 && p.dailyTaskProgress >= 1 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.MINING, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.MINING, SKILL_EXP);
 		}
 		if (p.dailyTask == 10 && p.dailyTaskProgress >= 100 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.HERBLORE, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.HERBLORE, SKILL_EXP);
 		}
 		if (p.dailyTask == 11 && p.dailyTaskProgress >= 200 && !p.completedDailyTask) {
 			resetTask(p);
 			addCoinsToPouch(p);
-			p.getSkillManager().addExperience(Skill.MAGIC, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.MAGIC, SKILL_EXP);
 		}
 		if (p.dailyTask == 12 && p.dailyTaskProgress >= 3 && !p.completedDailyTask) {
 			resetTask(p);
 			p.getSlayer().giveReward(p, 50);
-			p.getSkillManager().addExperience(Skill.SLAYER, SKILL_EXP / 2);
+			p.getSkillManager().addSkillExperience(Skill.SLAYER, SKILL_EXP / 2);
 		}
 		if (p.dailyTask == 17 && p.dailyTaskProgress >= 5 && !p.completedDailyTask) {
 			resetTask(p);
 			p.getSlayer().giveReward(p, 100);
-			p.getSkillManager().addExperience(Skill.SLAYER, SKILL_EXP);
+			p.getSkillManager().addSkillExperience(Skill.SLAYER, SKILL_EXP);
 		}
 		if (p.dailyTask == 27 && p.dailyTaskProgress >= 10 && !p.completedDailyTask) {
 			resetTask(p);
 			p.getSlayer().giveReward(p, 150);
-			p.getSkillManager().addExperience(Skill.SLAYER, SKILL_EXP * 2);
+			p.getSkillManager().addSkillExperience(Skill.SLAYER, SKILL_EXP * 2);
 		}
 		if (p.dailyTask == 13 || p.dailyTask == 14 || p.dailyTask == 15 || p.dailyTask == 16 || p.dailyTask == 22
 				|| p.dailyTask == 23 && p.dailyTaskProgress >= 5 && !p.completedDailyTask) {

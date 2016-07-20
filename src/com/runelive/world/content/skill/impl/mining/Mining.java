@@ -123,7 +123,7 @@ public class Mining {
 									if (o.getItemId() != -1) {
 										player.getInventory().add(o.getItemId(), 1 * multiplier);
 									}
-									player.getSkillManager().addExperience(Skill.MINING, (int) (o.getXpAmount() * 1.4));
+									player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount() * 1.4));
 									if (o == Ores.CRASHED_STAR) {
 										if (goldenMiningArmour(player)) {
 											int bonus = Misc.inclusiveRandom(1, 2);

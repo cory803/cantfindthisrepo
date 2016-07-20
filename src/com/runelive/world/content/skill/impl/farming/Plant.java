@@ -132,7 +132,7 @@ public class Plant {
 					if (name.endsWith("s"))
 						name = name.substring(0, name.length() - 1);
 					player.getPacketSender().sendMessage("You harvest " + Misc.anOrA(name) + " " + name + ".");
-					player.getSkillManager().addExperience(Skill.FARMING,
+					player.getSkillManager().addSkillExperience(Skill.FARMING,
 							(int) Plants.values()[plant].harvestExperience);
 					Achievements.finishAchievement(player, AchievementData.HARVEST_A_CROP);
 					if (harvested == 3 && player.getInventory().contains(18336)

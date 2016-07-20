@@ -839,7 +839,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							if (amt > 0) {
 								player.getInventory().delete(6055, amt);
 								player.getPacketSender().sendMessage("You put the weed in the compost bin.");
-								player.getSkillManager().addExperience(Skill.FARMING, 20 * amt);
+								player.getSkillManager().addSkillExperience(Skill.FARMING, 20 * amt);
 								if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 2) {
 									player.getMinigameAttributes().getFarmQuestAttributes().addProduce(amt);
 									player.getPacketSender()
@@ -1320,7 +1320,7 @@ public class ObjectActionPacketListener implements PacketListener {
 									CustomObjects.objectRespawnTask(player,
 											new GameObject(-1, gameObject.getPosition().copy()), gameObject, 10);
 									player.getPacketSender().sendMessage("You chop down the vines..");
-									player.getSkillManager().addExperience(Skill.WOODCUTTING, 45);
+									player.getSkillManager().addSkillExperience(Skill.WOODCUTTING, 45);
 									player.performAnimation(new Animation(65535));
 									player.getMovementQueue().walkStep(x, y);
 									stop();

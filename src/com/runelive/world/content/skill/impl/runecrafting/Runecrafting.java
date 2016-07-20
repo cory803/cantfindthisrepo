@@ -38,14 +38,14 @@ public class Runecrafting {
 			player.getInventory().delete(essence, 1);
 			player.getInventory().add(rune.getRuneID(), amountToMake);
 			amountMade += amountToMake;
-			player.getSkillManager().addExperience(Skill.RUNECRAFTING, rune.getXP());
+			player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP());
 		}
 		if (rune == RuneData.BLOOD_RUNE) {
 			Achievements.doProgress(player, AchievementData.RUNECRAFT_500_BLOOD_RUNES, amountMade);
 			Achievements.doProgress(player, AchievementData.RUNECRAFT_8000_BLOOD_RUNES, amountMade);
 		}
 		player.performGraphic(new Graphic(129));
-		player.getSkillManager().addExperience(Skill.RUNECRAFTING, rune.getXP());
+		player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP());
 		player.getPacketSender().sendMessage("You bind the altar's power into " + rune.getName() + "s..");
 		Achievements.finishAchievement(player, AchievementData.RUNECRAFT_SOME_RUNES);
 		player.getClickDelay().reset();

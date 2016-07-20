@@ -61,6 +61,6 @@ public class Agility {
 	public static void addExperience(Player player, int experience) {
 		boolean agile = player.getEquipment().get(Equipment.BODY_SLOT).getId() == 14936
 				&& player.getEquipment().get(Equipment.LEG_SLOT).getId() == 14938;
-		player.getSkillManager().addExperience(Skill.AGILITY, agile ? (experience *= 1.5) : experience);
+		player.getSkillManager().addSkillExperience(Skill.AGILITY, agile ? (experience *= 1.5) : experience);
 	}
 }

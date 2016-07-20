@@ -105,9 +105,9 @@ public class Firemaking {
 				}
 				Sounds.sendSound(player, Sound.LIGHT_FIRE);
 				if (player.getInventory().contains(2946) && player.getDonorRights() > 0) {
-					player.getSkillManager().addExperience(Skill.FIREMAKING, logData.getXp() * 2);
+					player.getSkillManager().addSkillExperience(Skill.FIREMAKING, logData.getXp() * 2);
 				} else {
-					player.getSkillManager().addExperience(Skill.FIREMAKING, logData.getXp());
+					player.getSkillManager().addSkillExperience(Skill.FIREMAKING, logData.getXp());
 				}
 				added++;
 				if (added >= amount || !player.getInventory().contains(logData.getLogId())) {

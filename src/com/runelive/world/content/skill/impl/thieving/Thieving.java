@@ -34,7 +34,7 @@ public class Thieving {
             return false;
         }
 
-        player.getSkillManager().addExperience(Skill.THIEVING, stall.getExperience());
+        player.getSkillManager().addSkillExperience(Skill.THIEVING, stall.getExperience());
         player.lastThieve = System.currentTimeMillis();
         player.performAnimation(new Animation(832));
 

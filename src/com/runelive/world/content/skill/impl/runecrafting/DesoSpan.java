@@ -86,7 +86,7 @@ public class DesoSpan {
 						stop();
 						return;
 					}
-					player.getSkillManager().addExperience(Skill.RUNECRAFTING,
+					player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING,
 							energyType.experience + Misc.getRandom(30));
 					player.performGraphic(new Graphic(energyType.playerGraphic, GraphicHeight.HIGH));
 					n.performGraphic(new Graphic(energyType.npcGraphic, GraphicHeight.HIGH));

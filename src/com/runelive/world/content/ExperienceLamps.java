@@ -42,7 +42,7 @@ public class ExperienceLamps {
 							return true;
 						int exp = getExperienceReward(player, lamp, skill);
 						player.getInventory().delete(lamp.getItemId(), 1);
-						player.getSkillManager().addExactExperience(skill, exp);
+						player.getSkillManager().addSkillExperience(skill, exp);
 						player.getPacketSender().sendMessage("You've received some experience in "
 								+ Misc.formatText(skill.toString().toLowerCase()) + ".");
 						break;
@@ -123,7 +123,7 @@ public class ExperienceLamps {
 	}
 
 	public static int getExperienceReward(Player player, LampData lamp, Skill skill) {
-		int base = lamp == LampData.DRAGONKIN_LAMP ? 50000 : 2000;
+		int base = lamp == LampData.DRAGONKIN_LAMP ? 25_000 : 2_000;
 		int maxLvl = player.getSkillManager().getMaxLevel(skill);
 		if (SkillManager.isNewSkill(skill))
 			maxLvl = maxLvl / 10;

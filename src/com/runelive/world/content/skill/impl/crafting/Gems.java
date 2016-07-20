@@ -103,7 +103,7 @@ public class Gems {
 					} else if (data == GEM_DATA.ONYX) {
 						Achievements.finishAchievement(player, AchievementData.CUT_AN_ONYX_STONE);
 					}
-					player.getSkillManager().addExperience(Skill.CRAFTING, data.getXpReward());
+					player.getSkillManager().addSkillExperience(Skill.CRAFTING, data.getXpReward());
 					amountCut++;
 					if (amountCut >= amount)
 						stop();

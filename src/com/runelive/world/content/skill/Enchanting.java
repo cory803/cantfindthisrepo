@@ -85,7 +85,7 @@ public class Enchanting {
 							player.performAnimation(new Animation(4462));
 							player.performGraphic(new Graphic(759));
 							player.getInventory().add(new Item(d.getEnchantedBoltId(), 10));
-							player.getSkillManager().addExperience(Skill.MAGIC, d.getExperience());
+							player.getSkillManager().addSkillExperience(Skill.MAGIC, d.getExperience());
 						} else {
 							player.getPacketSender().sendMessage("You do not have the required runes for this spell.");
 						}

@@ -57,7 +57,7 @@ public class Smelting {
 			}
 			if (barId != 2351) { // Iron bar - 50% successrate
 				player.getInventory().add(barId, 1);
-				player.getSkillManager().addExperience(Skill.SMITHING, getExperience(barId));
+				player.getSkillManager().addSkillExperience(Skill.SMITHING, getExperience(barId));
 				if (barId == 2363) {
 					Achievements.doProgress(player, AchievementData.SMELT_25_RUNE_BARS);
 					Achievements.doProgress(player, AchievementData.SMELT_1000_RUNE_BARS);
@@ -68,7 +68,7 @@ public class Smelting {
 			} else if (SmithingData.ironOreSuccess(player)) {
 				Achievements.finishAchievement(player, AchievementData.SMELT_AN_IRON_BAR);
 				player.getInventory().add(barId, 1);
-				player.getSkillManager().addExperience(Skill.SMITHING, getExperience(barId));
+				player.getSkillManager().addSkillExperience(Skill.SMITHING, getExperience(barId));
 			} else
 				player.getPacketSender()
 						.sendMessage("The Iron ore burns too quickly and you're unable to make an Iron bar.");

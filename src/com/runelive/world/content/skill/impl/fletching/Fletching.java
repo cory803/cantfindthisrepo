@@ -266,7 +266,7 @@ public class Fletching {
 				player.performAnimation(new Animation(1248));
 				player.getInventory().delete(log, 1);
 				player.getInventory().add(product, shafts ? 15 : 1);
-				player.getSkillManager().addExperience(Skill.FLETCHING, shafts ? 80 : (int) (bow.getXp()));
+				player.getSkillManager().addSkillExperience(Skill.FLETCHING, shafts ? 80 : (int) (bow.getXp()));
 				Sounds.sendSound(player, Sound.FLETCH_ITEM);
 				amount++;
 				if (amount >= amountToMake)
@@ -319,7 +319,7 @@ public class Fletching {
 						player.getInventory().delete(log, 1);
 						player.getInventory().add(g.Strung(), 1);
 						player.getPacketSender().sendMessage("You attach the Bow string on to the bow.");
-						player.getSkillManager().addExperience(Skill.FLETCHING, (int) g.getXP());
+						player.getSkillManager().addSkillExperience(Skill.FLETCHING, (int) g.getXP());
 						if (player.dailyTask == 3 && !player.completedDailyTask) {
 							DailyTaskManager.doTaskProgress(player);
 						}
@@ -356,7 +356,7 @@ public class Fletching {
 					player.getInventory().delete(new Item(arr.getItem2()).setAmount(15),
 							player.getInventory().getSlot(arr.getItem2()), true);
 					player.getInventory().add(arr.getOutcome(), 15);
-					player.getSkillManager().addExperience(Skill.FLETCHING, (arr.getXp()));
+					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (arr.getXp()));
 					Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
 					if (player.dailyTask == 4 && !player.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(player);
@@ -391,7 +391,7 @@ public class Fletching {
 					player.getInventory().delete(new Item(bolt.getItem2()).setAmount(15),
 							player.getInventory().getSlot(bolt.getItem2()), true);
 					player.getInventory().add(bolt.getOutcome(), 15);
-					player.getSkillManager().addExperience(Skill.FLETCHING, (bolt.getXp()));
+					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (bolt.getXp()));
 					if (player.dailyTask == 4 && !player.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(player);
 					}
@@ -423,7 +423,7 @@ public class Fletching {
 					player.getInventory().delete(new Item(tip.getItem()).setAmount(1),
 							player.getInventory().getSlot(tip.getItem()), true);
 					player.getInventory().add(tip.getOutcome(), 15);
-					player.getSkillManager().addExperience(Skill.FLETCHING, (tip.getXp()));
+					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (tip.getXp()));
 					Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
 					if (player.dailyTask == 5 && !player.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(player);

@@ -48,7 +48,7 @@ public class Cooking {
 					player.getPacketSender().sendMessage("You accidently burn the " + fish.getName() + ".");
 				} else {
 					player.getInventory().add(fish.getCookedItem(), 1);
-					player.getSkillManager().addExperience(Skill.COOKING, fish.getXp());
+					player.getSkillManager().addSkillExperience(Skill.COOKING, fish.getXp());
 					if (player.dailyTask == 6 && !player.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(player);
 					}

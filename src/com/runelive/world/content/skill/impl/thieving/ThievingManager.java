@@ -117,7 +117,7 @@ public class ThievingManager {
                             player.performAnimation(new Animation(65535));
                             failed = true;
                         } else {
-                            player.getSkillManager().addExperience(Skill.THIEVING, data.getXP());
+                            player.getSkillManager().addSkillExperience(Skill.THIEVING, data.getXP());
                             player.performAnimation(new Animation(881));
                             player.getInventory().add(new Item(data.getItems()[Misc.getRandom(data.getItems().length - 1)], Misc.getRandom(data.getAmount())));
                             Achievements.doProgress(player, Achievements.AchievementData.STEAL_5000_SCIMITARS);

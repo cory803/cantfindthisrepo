@@ -59,7 +59,7 @@ public class CookingWilderness {
 					} else {
 						player.getInventory().add(fish.getCookedItem(), 1);
 					}
-					player.getSkillManager().addExperience(Skill.COOKING, fish.getXp() + 1000);
+					player.getSkillManager().addSkillExperience(Skill.COOKING, fish.getXp() + 1000);
 					if (fish == CookingWildernessData.SALMON) {
 						Achievements.finishAchievement(player, AchievementData.COOK_A_SALMON);
 					} else if (fish == CookingWildernessData.ROCKTAIL) {

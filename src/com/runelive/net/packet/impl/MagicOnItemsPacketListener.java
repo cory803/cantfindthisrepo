@@ -73,7 +73,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 				player.performAnimation(new Animation(712));
 				player.performGraphic(
 						new Graphic(magicSpell == MagicSpells.HIGH_ALCHEMY ? 113 : 112, GraphicHeight.LOW));
-				player.getSkillManager().addExperience(Skill.MAGIC, spell.baseExperience());
+				player.getSkillManager().addSkillExperience(Skill.MAGIC, spell.baseExperience());
 				player.getPacketSender().sendTab(GameSettings.MAGIC_TAB);
 				if (player.dailyTask == 11 && !player.completedDailyTask) {
 					DailyTaskManager.doTaskProgress(player);
@@ -96,7 +96,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 						player.performGraphic(new Graphic(148, GraphicHeight.HIGH));
 						player.getInventory().add(ORE_DATA[i][4], 1);
 						player.getPacketSender().sendTab(GameSettings.MAGIC_TAB);
-						player.getSkillManager().addExperience(Skill.MAGIC, spell.baseExperience());
+						player.getSkillManager().addSkillExperience(Skill.MAGIC, spell.baseExperience());
 						return;
 					}
 				}
@@ -104,7 +104,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 				break;
 			case BAKE_PIE:
 				if (itemId == 2317 || itemId == 2319 || itemId == 2321) {
-					player.getSkillManager().addExperience(Skill.MAGIC, spell.baseExperience());
+					player.getSkillManager().addSkillExperience(Skill.MAGIC, spell.baseExperience());
 					player.performAnimation(new Animation(4413));
 					player.performGraphic(new Graphic(746, GraphicHeight.HIGH));
 					player.getInventory().delete(item.getId(), 1);

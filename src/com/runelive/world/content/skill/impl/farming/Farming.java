@@ -213,7 +213,7 @@ public class Farming {
 								planted.setTime();
 								insert(planted);
 								doConfig();
-								player.getSkillManager().addExperience(Skill.FARMING, (int) plant.plantExperience);
+								player.getSkillManager().addSkillExperience(Skill.FARMING, (int) plant.plantExperience);
 							} else {
 								String name = ItemDefinition.forId(patch.planter).getName();
 								player.getPacketSender()

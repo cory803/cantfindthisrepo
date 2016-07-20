@@ -1,17 +1,21 @@
 package com.runelive.world.clip.region;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.zip.GZIPInputStream;
 
-import com.runelive.GameServer;
-import com.runelive.cache.Archive;
-import com.runelive.cache.Container;
 import com.runelive.model.GameObject;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.definitions.GameObjectDefinition;
-import com.runelive.util.ByteStream;
 import com.runelive.world.entity.impl.Character;
 
 /**
@@ -23,27 +27,22 @@ import com.runelive.world.entity.impl.Character;
  */
 public final class RegionClipping {
 
-	private static Map<Integer, RegionClipping> regions;
+	private static final Map<Integer, RegionClipping> regions = new ConcurrentHashMap<>();
 
 	private int id;
-	private final int groundFile;
-	private final int objectFile;
-	private boolean loaded;
 
 	private int[][][] clips = new int[4][][];
 	public GameObject[][][] gameObjects = new GameObject[4][][];
 
-	public RegionClipping(int id, int groundFile, int objectFile) {
+	public RegionClipping(int id) {
 		this.id = id;
-		this.groundFile = groundFile;
-		this.objectFile = objectFile;
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	public void removeClip(int x, int y, int height) {
+	public void removeClip(int x, int y, int height, int shift) {
 		int regionAbsX = (id >> 8) * 64;
 		int regionAbsY = (id & 0xff) * 64;
 		if (height < 0 || height >= 4)
@@ -65,6 +64,29 @@ public final class RegionClipping {
 		clips[height][x - regionAbsX][y - regionAbsY] |= shift;
 	}
 
+	// TODO: Move to a utility class
+	static byte[] degzip(Path path) throws IOException {
+		byte[] bytes = Files.readAllBytes(path);
+		if (bytes.length == 0) {
+			return bytes;
+		}
+
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
+			byte[] buffer = new byte[Byte.BYTES * 1024];
+
+			while (true) {
+				int read = gzip.read(buffer);
+				if (read == -1) {
+					break;
+				}
+
+				os.write(buffer, 0, read);
+			}
+		}
+		return os.toByteArray();
+	}
+
 	/**
 	 * Reads a 'smart' (either a {@code byte} or {@code short} depending on the
 	 * value) from the specified buffer.
@@ -82,55 +104,83 @@ public final class RegionClipping {
 		return (buffer.getShort() & 0xFFFF) - 32768;
 	}
 
-	public static void loadRegions(Archive archive) throws Exception {
-		ByteStream in = new ByteStream(archive.getNamedFile("map_index").data());
-		int size = in.getUnsignedShort();
-		int[] regionIds = new int[size];
-		int[] mapGroundFileIds = new int[size];
-		int[] mapObjectsFileIds = new int[size];
-		for (int i = 0; i < size; i++) {
-			regionIds[i] = in.getUnsignedShort();
-			mapGroundFileIds[i] = in.getUnsignedShort();
-			mapObjectsFileIds[i] = in.getUnsignedShort();
+	public static void init() throws IOException {
+
+		class MapDefinition {
+			private final int id;
+			private final int objects;
+			private final int terrain;
+
+			public MapDefinition(int id, int objects, int terrain) {
+				this.id = id;
+				this.objects = objects;
+				this.terrain = terrain;
+			}
+
 		}
-		regions = new HashMap<>(size);
+
+		GameObjectDefinition.init();
+
+		Path path = Paths.get("data", "clipping");
+
+		// Decodes map definitions
+		ByteBuffer buffer = ByteBuffer.wrap(Files.readAllBytes(path.resolve("map_index")));
+		Map<Integer, MapDefinition> definitions = new HashMap<>();
+		int size = buffer.getShort() & 0xFFFF;
 		for (int i = 0; i < size; i++) {
-			regions.put(regionIds[i], new RegionClipping(regionIds[i], mapGroundFileIds[i], mapObjectsFileIds[i]));
+			int id = buffer.getShort() & 0xFFFF;
+			int terrain = buffer.getShort() & 0xFFFF;
+			int objects = buffer.getShort() & 0xFFFF;
+			definitions.put(id, new MapDefinition(id, objects, terrain));
+			regions.computeIfAbsent(id, RegionClipping::new);
 		}
+
+		// Decodes terrain and objects
+		for (MapDefinition definition : definitions.values()) {
+			int id = definition.id;
+			int x = (id >> 8) * 64;
+			int y = (id & 0xFF) * 64;
+
+			byte[] objects = degzip(path.resolve("maps").resolve(definition.objects + ".gz"));
+			byte[] terrain = degzip(path.resolve("maps").resolve(definition.terrain + ".gz"));
+
+			if (objects.length == 0) {
+				// System.out.println("Objects for region: [x, y, id, file] - ["
+				// + x + ", " + y + ", " + id + ", " + definition.objects + "]
+				// do not exist.");
+				continue;
+			}
+
+			if (terrain.length == 0) {
+				// System.out.println("Terrain for region: [x, y, id, file] - ["
+				// + x + ", " + y + ", " + id + ", " + definition.terrain + "]
+				// does not exist.");
+				continue;
+			}
+
+			loadMaps(x, y, ByteBuffer.wrap(objects), ByteBuffer.wrap(terrain));
+		}
+
+		System.out.println("Loaded " + definitions.size() + " map definitions.");
 	}
 
-	void load() {
-		if (loaded) {
-			return;
-		}
-		loaded = true;
+	private static void loadMaps(int absX, int absY, ByteBuffer objectStream, ByteBuffer groundStream) {
+		byte[][][] heightMap = new byte[4][64][64];
 		try {
-			this.clips = new int[4][64][64];
-			byte[] objectDataBytes = GameServer.cache.getFile(4, objectFile);
-			byte[] groundDataBytes = GameServer.cache.getFile(4, groundFile);
-			if (objectDataBytes == null || objectDataBytes.length == 0 || groundDataBytes == null || groundDataBytes.length == 0) {
-				System.err.println("Could not get " + (objectDataBytes == null || objectDataBytes.length == 0 ? ("object file " + objectFile) : ("ground file " + groundFile)));
-				return;
-			}
-			ByteStream objectData = new ByteStream(Container.unpack(objectDataBytes));
-			ByteStream groundData = new ByteStream(Container.unpack(groundDataBytes));
-			int regionX = (id >> 8) * 64;
-			int regionY = (id & 0xFF) * 64;
-			byte[][][] someArray = new byte[4][64][64];
-			for (int i = 0; i < 4; i++) {
-				for (int i2 = 0; i2 < 64; i2++) {
-					for (int i3 = 0; i3 < 64; i3++) {
+			for (int z = 0; z < 4; z++) {
+				for (int tileX = 0; tileX < 64; tileX++) {
+					for (int tileY = 0; tileY < 64; tileY++) {
 						while (true) {
-							int v = groundData.getUnsignedByte();
-							if (v == 0) {
+							int tileType = groundStream.get() & 0xFF;
+							if (tileType == 0) {
 								break;
-							} else if (v == 1) {
-								groundData.skip();
+							} else if (tileType == 1) {
+								groundStream.get();
 								break;
-							} else if (v <= 49) {
-								groundData.skip();
-							} else if (v <= 81) {
-								someArray[i][i2][i3] = (byte) (v - 49);
+							} else if (tileType <= 49) {
+								groundStream.get();
+							} else if (tileType <= 81) {
+								heightMap[z][tileX][tileY] = (byte) (tileType - 49);
 							}
 						}
 					}
@@ -139,15 +189,13 @@ public final class RegionClipping {
 			for (int i = 0; i < 4; i++) {
 				for (int i2 = 0; i2 < 64; i2++) {
 					for (int i3 = 0; i3 < 64; i3++) {
-						if ((someArray[i][i2][i3] & 1) == 1) {
-							int z = i;
-							if ((someArray[1][i2][i3] & 2) == 2) {
-								z--;
+						if ((heightMap[i][i2][i3] & 1) == 1) {
+							int height = i;
+							if ((heightMap[1][i2][i3] & 2) == 2) {
+								height--;
 							}
-							if (z >= 0 && z <= 3) {
-								int realX = regionX + i2;
-								int realY = regionY + i3;
-								addClipping(realX, realY, z, 0x200000);
+							if (height >= 0 && height <= 3) {
+								addClipping(absX + i2, absY + i3, height, 0x200000);
 							}
 						}
 					}
@@ -155,39 +203,35 @@ public final class RegionClipping {
 			}
 			int objectId = -1;
 			int incr;
-			while ((incr = objectData.getUSmart()) != 0) {
+			while ((incr = readSmart(objectStream)) != 0) {
 				objectId += incr;
 				int location = 0;
 				int incr2;
-				while ((incr2 = objectData.getUSmart()) != 0) {
+				while ((incr2 = readSmart(objectStream)) != 0) {
 					location += incr2 - 1;
 					int localX = location >> 6 & 0x3f;
 					int localY = location & 0x3f;
 					int height = location >> 12;
-					int info = objectData.getUnsignedByte();
-					int type = info >> 2;
-					int direction = info & 0x3;
+					int objectData = objectStream.get() & 0xFF;
+					int type = objectData >> 2;
+					int direction = objectData & 0x3;
 					if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
 						continue;
 					}
-					if ((someArray[1][localX][localY] & 2) == 2) {
+					if ((heightMap[1][localX][localY] & 2) == 2) {
 						height--;
 					}
-					if (height >= 0 && height <= 3) {
-						addObject(objectId, regionX + localX, regionY + localY, height, type, direction);
-					}
+					if (height >= 0 && height <= 3)
+						addObject(objectId, absX + localX, absY + localY, height, type, direction); // Add
+					// object
+					// to
+					// clipping
 				}
 			}
-
-		} catch (Throwable e) {
-			System.err.println("Corrupt map: g-" + groundFile + " o-" + objectFile + " loc-(" + ((id >> 8) * 64) + ", " + ((id & 0xFF) * 64) + ")");
-			e.printStackTrace();
+		} catch (Exception cause) {
+			System.out.println("Unable to load maps in region: " + ((((absX >> 3) / 8) << 8) + ((absY >> 3) / 8))
+					+ " pos: " + absX + ", " + absY);
 		}
-	}
-
-	public static RegionClipping loadRegion(int x, int y) {
-		RegionClipping region = regions.get(((x >> 6) << 8) + (y >> 6));
-		return region;
 	}
 
 	public static void addClipping(int x, int y, int height, int shift) {
@@ -195,7 +239,7 @@ public final class RegionClipping {
 		int regionX = x >> 3;
 		int regionY = y >> 3;
 		int regionId = (regionX / 8 << 8) + regionY / 8;
-		RegionClipping r = forId(regionId);
+		RegionClipping r = regions.get(regionId);
 		if (r != null) {
 			r.addClip(x, y, height, shift);
 		}
@@ -206,26 +250,17 @@ public final class RegionClipping {
 		int regionY = y >> 3;
 		int regionId = (regionX / 8 << 8) + regionY / 8;
 
-		RegionClipping r = forId(regionId);
+		RegionClipping r = regions.get(regionId);
 		if (r != null) {
-			r.removeClip(x, y, height);
+			r.removeClip(x, y, height, shift);
 		}
 	}
 
 	public static RegionClipping forPosition(Position position) {
-		RegionClipping region = regions.get(((position.getX() >> 6) << 8) + (position.getY() >> 6));
-		if (region != null) {
-			region.load();
-		}
-		return region;
-	}
-
-	public static RegionClipping forId(int id) {
-		RegionClipping region = regions.get(id);
-		if (region != null) {
-			region.load();
-		}
-		return region;
+		int regionX = position.getX() >> 3;
+		int regionY = position.getY() >> 3;
+		int regionId = ((regionX / 8) << 8) + (regionY / 8);
+		return regions.get(regionId);
 	}
 
 	public static int[] getObjectInformation(Position position) {
@@ -257,7 +292,7 @@ public final class RegionClipping {
 		int id = object.getId();
 		boolean barrows = pos.getZ() == -1 && object.getDefinition() != null
 				&& (object.getDefinition().getName().toLowerCase().contains("sarcophagus")
-						|| object.getDefinition().getName().toLowerCase().contains("staircase"))
+				|| object.getDefinition().getName().toLowerCase().contains("staircase"))
 				|| loc != null && loc == Location.BARROWS;
 		boolean catherbyAquariums = id == 10091 && pos.getX() >= 2829 && pos.getX() <= 2832 && pos.getY() >= 3441
 				&& pos.getY() <= 3447;
@@ -273,7 +308,7 @@ public final class RegionClipping {
 				|| id == 1739 && pos.getX() == 3204 && pos.getY() == 3229 && pos.getZ() == 1;
 		boolean rfd = id == 12356
 				&& (pos.getX() == 1900 && pos.getY() == 5345 || pos.getX() == 1899 && pos.getY() == 5366
-						|| pos.getX() == 1910 && pos.getY() == 5356 || pos.getX() == 1889 && pos.getY() == 5355);
+				|| pos.getX() == 1910 && pos.getY() == 5356 || pos.getX() == 1889 && pos.getY() == 5355);
 		boolean lunar = id == 29944 && pos.getX() == 2111 && pos.getY() == 3917;
 		boolean chaosTunnels = id == 28779; // It checks player coords anyway
 		boolean trees = id == 1306 && pos.getX() == 2696 && pos.getY() == 3423
@@ -319,7 +354,7 @@ public final class RegionClipping {
 	}
 
 	private static void addClippingForVariableObject(int x, int y, int height, int type, int direction, boolean flag) {
-		/*if (type == 0) {
+		if (type == 0) {
 			if (direction == 0) {
 				addClipping(x, y, height, 128);
 				addClipping(x - 1, y, height, 8);
@@ -415,7 +450,7 @@ public final class RegionClipping {
 					addClipping(x - 1, y, height, 4096);
 				}
 			}
-		}*/
+		}
 	}
 
 	private static void addClippingForSolidObject(int x, int y, int height, int xLength, int yLength, boolean flag) {
@@ -449,9 +484,9 @@ public final class RegionClipping {
 			return;
 		}
 		switch (objectId) {
-		case 14233: // pest control gates
-		case 14235: // pest control gates
-			return;
+			case 14233: // pest control gates
+			case 14235: // pest control gates
+				return;
 		}
 		final Position position = new Position(x, y, height);
 		final RegionClipping clipping = forPosition(position);
@@ -510,7 +545,7 @@ public final class RegionClipping {
 			height = 0;
 		else if (height == -1 || Location.inLocation(x, y, Location.PURO_PURO))
 			return 0;
-		RegionClipping r = forId(regionId);
+		RegionClipping r = regions.get(regionId);
 		if (r != null) {
 			return r.getClip(x, y, height);
 		}
@@ -640,7 +675,7 @@ public final class RegionClipping {
 	}
 
 	public static boolean canProjectileMove(int startX, int startY, int endX, int endY, int height, int xLength,
-			int yLength) {
+											int yLength) {
 		int diffX = endX - startX;
 		int diffY = endY - startY;
 		// height %= 4;
@@ -655,11 +690,11 @@ public final class RegionClipping {
 								| /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED | PROJECTILE_EAST_BLOCKED
 								| PROJECTILE_NORTH_EAST_BLOCKED | PROJECTILE_NORTH_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i - 1, currentY + i2, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_EAST_BLOCKED)) != 0
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_EAST_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i, currentY + i2 - 1, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_NORTH_BLOCKED)) != 0) {
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_NORTH_BLOCKED)) != 0) {
 							return false;
 						}
 					} else if (diffX > 0 && diffY > 0) {
@@ -667,11 +702,11 @@ public final class RegionClipping {
 								| /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED | PROJECTILE_WEST_BLOCKED
 								| PROJECTILE_SOUTH_WEST_BLOCKED | PROJECTILE_SOUTH_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i + 1, currentY + i2, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_WEST_BLOCKED)) != 0
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_WEST_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i, currentY + i2 + 1, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_SOUTH_BLOCKED)) != 0) {
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_SOUTH_BLOCKED)) != 0) {
 							return false;
 						}
 					} else if (diffX < 0 && diffY > 0) {
@@ -679,11 +714,11 @@ public final class RegionClipping {
 								| /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED | PROJECTILE_SOUTH_BLOCKED
 								| PROJECTILE_SOUTH_EAST_BLOCKED | PROJECTILE_EAST_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i - 1, currentY + i2, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_EAST_BLOCKED)) != 0
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_EAST_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i, currentY + i2 + 1, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_SOUTH_BLOCKED)) != 0) {
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_SOUTH_BLOCKED)) != 0) {
 							return false;
 						}
 					} else if (diffX > 0 && diffY < 0) {
@@ -691,23 +726,23 @@ public final class RegionClipping {
 								| /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED | PROJECTILE_WEST_BLOCKED
 								| PROJECTILE_NORTH_BLOCKED | PROJECTILE_NORTH_WEST_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i + 1, currentY + i2, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_WEST_BLOCKED)) != 0
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_WEST_BLOCKED)) != 0
 								|| (RegionClipping.getClipping(currentX + i, currentY + i2 - 1, height)
-										& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-												| PROJECTILE_NORTH_BLOCKED)) != 0) {
+								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
+								| PROJECTILE_NORTH_BLOCKED)) != 0) {
 							return false;
 						}
 					} else if (diffX > 0 && diffY == 0) {
 						if ((RegionClipping.getClipping(currentX + i + 1, currentY + i2, height)
 								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-										| PROJECTILE_WEST_BLOCKED)) != 0) {
+								| PROJECTILE_WEST_BLOCKED)) != 0) {
 							return false;
 						}
 					} else if (diffX < 0 && diffY == 0) {
 						if ((RegionClipping.getClipping(currentX + i - 1, currentY + i2, height)
 								& (UNLOADED_TILE | /* BLOCKED_TILE | */UNKNOWN | PROJECTILE_TILE_BLOCKED
-										| PROJECTILE_EAST_BLOCKED)) != 0) {
+								| PROJECTILE_EAST_BLOCKED)) != 0) {
 							return false;
 						}
 					} else if (diffX == 0 && diffY > 0) {
@@ -745,15 +780,15 @@ public final class RegionClipping {
 		return attacked.getPosition().getX() - 1 == attacker.getPosition().getX()
 				&& attacked.getPosition().getY() + 1 == attacker.getPosition().getY()
 				|| attacker.getPosition().getX() - 1 == attacked.getPosition().getX()
-						&& attacker.getPosition().getY() + 1 == attacked.getPosition().getY()
+				&& attacker.getPosition().getY() + 1 == attacked.getPosition().getY()
 				|| attacked.getPosition().getX() + 1 == attacker.getPosition().getX()
-						&& attacked.getPosition().getY() - 1 == attacker.getPosition().getY()
+				&& attacked.getPosition().getY() - 1 == attacker.getPosition().getY()
 				|| attacker.getPosition().getX() + 1 == attacked.getPosition().getX()
-						&& attacker.getPosition().getY() - 1 == attacked.getPosition().getY()
+				&& attacker.getPosition().getY() - 1 == attacked.getPosition().getY()
 				|| attacked.getPosition().getX() + 1 == attacker.getPosition().getX()
-						&& attacked.getPosition().getY() + 1 == attacker.getPosition().getY()
+				&& attacked.getPosition().getY() + 1 == attacker.getPosition().getY()
 				|| attacker.getPosition().getX() + 1 == attacked.getPosition().getX()
-						&& attacker.getPosition().getY() + 1 == attacked.getPosition().getY();
+				&& attacker.getPosition().getY() + 1 == attacked.getPosition().getY();
 	}
 
 	public static final int PROJECTILE_NORTH_WEST_BLOCKED = 0x200;

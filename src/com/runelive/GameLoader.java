@@ -66,7 +66,8 @@ public final class GameLoader {
 
 	public void init() throws Exception {
 		ConnectionHandler.init();
-		RegionClipping.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
+		//RegionClipping.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
+		RegionClipping.init();
 		FontUtils.initialize(new Archive(GameServer.cache.getFile(0, 1)));
 		GameObjectDefinition.init();
 		CustomObjects.init();

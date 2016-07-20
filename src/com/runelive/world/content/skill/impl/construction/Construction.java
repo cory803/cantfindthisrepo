@@ -946,7 +946,7 @@ public class Construction {
 			}
 		}
 		p.setAttribute("last_const", System.currentTimeMillis());
-		p.getSkillManager().addExperience(Skill.CONSTRUCTION, f.getXP());
+		p.getSkillManager().addSkillExperience(Skill.CONSTRUCTION, f.getXP());
 		return true;
 	}
 

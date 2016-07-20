@@ -1448,12 +1448,12 @@ public final class CombatFactory {
 			if (container.getCombatType() == CombatType.MAGIC) {
 				if (player.getCurrentlyCasting() != null) {
 					if (player.getXpRate()) {
-						player.getSkillManager().addExperience(Skill.MAGIC,
+						player.getSkillManager().addSkillExperience(Skill.MAGIC,
 								(int) (((damage * .90) * Skill.MAGIC.getExperienceMultiplier())
 										/ container.getExperience().length)
 										+ builder.getCharacter().getCurrentlyCasting().baseExperience());
 					} else {
-						player.getSkillManager().addExperience(Skill.MAGIC,
+						player.getSkillManager().addSkillExperience(Skill.MAGIC,
 								(int) (((damage * .90) / container.getExperience().length)
 										+ builder.getCharacter().getCurrentlyCasting().baseExperience()));
 					}
@@ -1462,20 +1462,20 @@ public final class CombatFactory {
 				for (int i : container.getExperience()) {
 					Skill skill = Skill.forId(i);
 					if (player.getXpRate()) {
-						player.getSkillManager().addExperience(skill,
+						player.getSkillManager().addSkillExperience(skill,
 								(int) (((damage * .90) * skill.getExperienceMultiplier())
 										/ container.getExperience().length));
 					} else {
-						player.getSkillManager().addExperience(skill,
+						player.getSkillManager().addSkillExperience(skill,
 								(int) (((damage * .90) / container.getExperience().length)));
 					}
 				}
 			}
 			if (player.getXpRate()) {
-				player.getSkillManager().addExperience(Skill.CONSTITUTION,
+				player.getSkillManager().addSkillExperience(Skill.CONSTITUTION,
 						(int) (damage * .70) * Skill.CONSTITUTION.getExperienceMultiplier());
 			} else {
-				player.getSkillManager().addExperience(Skill.CONSTITUTION, (int) (damage * .70));
+				player.getSkillManager().addSkillExperience(Skill.CONSTITUTION, (int) (damage * .70));
 			}
 		}
 	}
