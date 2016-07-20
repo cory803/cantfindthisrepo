@@ -189,8 +189,7 @@ public class Locations {
 			@Override
 			public boolean canTeleport(Player player) {
 				if (player.getWildernessLevel() > 20) {
-					if (player.getRights() == PlayerRights.ADMINISTRATOR || player.getRights() == PlayerRights.OWNER
-							|| player.getRights() == PlayerRights.MANAGER) {
+					if (player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.MANAGER || player.getRights() == PlayerRights.DEVELOPER) {
 						player.getPacketSender()
 								.sendMessage("@red@You've teleported out of deep Wilderness, logs have been written.");
 						return true;
@@ -291,7 +290,7 @@ public class Locations {
 			@Override
 			public boolean canTeleport(Player player) {
 				if (player.getWildernessLevel() > 20) {
-					if (player.getRights() == PlayerRights.ADMINISTRATOR || player.getRights() == PlayerRights.OWNER
+					if (player.getRights() == PlayerRights.DEVELOPER || player.getRights() == PlayerRights.OWNER
 							|| player.getRights() == PlayerRights.MANAGER) {
 						player.getPacketSender()
 								.sendMessage("@red@You've teleported out of deep Wilderness, logs have been written.");

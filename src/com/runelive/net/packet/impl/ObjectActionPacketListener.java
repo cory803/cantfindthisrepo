@@ -120,7 +120,7 @@ public class ObjectActionPacketListener implements PacketListener {
 			// FIRST_CLICK_OPCODE");
 		}
 
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender().sendConsoleMessage(
 					"First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 
@@ -1009,7 +1009,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								killcount_amount = 0;
 							}
 							if (!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR
-									&& player.getRights() != PlayerRights.OWNER
+									&& player.getRights() != PlayerRights.DEVELOPER && player.getRights() != PlayerRights.DEVELOPER
 									&& player.getRights() != PlayerRights.MANAGER && player.getMinigameAttributes()
 											.getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
 								player.getPacketSender().sendMessage("You need " + Misc.anOrA(bossRoom) + " " + bossRoom
@@ -1797,7 +1797,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		if (player.getThieving().stealFromStall(ThievingStall.forId(id))) {
 			return;
 		}
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender()
 					.sendConsoleMessage("Second click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setPositionToFace(gameObject.getPosition());
@@ -1956,7 +1956,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		int size = distanceX > distanceY ? distanceX : distanceY;
 		gameObject.setSize(size);
 		player.setInteractingObject(gameObject);
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender()
 					.sendMessage("Third click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
@@ -1990,7 +1990,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		int size = distanceX > distanceY ? distanceX : distanceY;
 		gameObject.setSize(size);
 		player.setInteractingObject(gameObject);
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender()
 					.sendMessage("Fourth click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {

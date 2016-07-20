@@ -69,7 +69,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			return;
 		player.setEntityInteraction(npc);
 		player.setNpcClickId(npc.getId());
-		if (player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.DEVELOPER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender().sendMessage("First click npc id: " + npc.getId());
 		if (BossPets.pickup(player, npc)) {
 			player.getMovementQueue().reset();
@@ -708,7 +708,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			player.getMovementQueue().reset();
 		}
 
-		if (player.getRights() == PlayerRights.OWNER) {
+		if (player.getRights() == PlayerRights.DEVELOPER) {
 			player.getPacketSender().sendMessage("Attacking npc id: " + interact.getId());
 		}
 		if (interact.getId() == 1172) {
@@ -738,7 +738,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		player.setEntityInteraction(npc);
 		player.setNpcClickId(npc.getId());
 		final int npcId = npc.getId();
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender().sendConsoleMessage("Second click npc id: " + npcId);
 
 		if (GameSettings.DEBUG_MODE) {
@@ -971,7 +971,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		player.setEntityInteraction(npc).setPositionToFace(npc.getPosition().copy());
 		npc.setPositionToFace(player.getPosition());
 		player.setNpcClickId(npc.getId());
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender().sendMessage("Third click npc id: " + npc.getId());
 
 		if (GameSettings.DEBUG_MODE) {
@@ -1074,7 +1074,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			return;
 		player.setEntityInteraction(npc);
 		player.setNpcClickId(npc.getId());
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender().sendMessage("Fourth click npc id: " + npc.getId());
 
 		if (GameSettings.DEBUG_MODE) {

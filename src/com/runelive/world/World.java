@@ -134,7 +134,7 @@ public class World {
 		players.stream()
 				.filter(p -> p != null && (p.getRights() == PlayerRights.OWNER || p.getRights() == PlayerRights.MANAGER
 						|| p.getRights() == PlayerRights.ADMINISTRATOR || p.getRights() == PlayerRights.MODERATOR
-						|| p.getRights() == PlayerRights.SUPPORT))
+						|| p.getRights() == PlayerRights.SUPPORT|| p.getRights() == PlayerRights.DEVELOPER))
 				.forEach(p -> p.getPacketSender().sendMessage(message));
 	}
 

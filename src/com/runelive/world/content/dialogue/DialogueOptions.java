@@ -127,7 +127,7 @@ public class DialogueOptions {
 
 	public static void handle(Player player, int id) {
 		int credits = 0;
-		if (player.getRights() == PlayerRights.OWNER) {
+		if (player.getRights() == PlayerRights.DEVELOPER) {
 			player.getPacketSender()
 					.sendMessage("Dialogue button id: " + id + ", action id: " + player.getDialogueActionId())
 					.sendConsoleMessage("Dialogue button id: " + id + ", action id: " + player.getDialogueActionId());

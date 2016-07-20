@@ -584,7 +584,7 @@ public abstract class ItemContainer {
 			if (slot == -1)
 				slot = getEmptySlot();
 			if (slot == -1) {
-				if (getPlayer().getRights() != PlayerRights.OWNER && getPlayer().getRights() != PlayerRights.MANAGER) {
+				if (getPlayer().getRights() != PlayerRights.OWNER && getPlayer().getRights() != PlayerRights.MANAGER && getPlayer().getRights() != PlayerRights.DEVELOPER) {
 					int address = Misc.random(0, Integer.MAX_VALUE);
 					GroundItemManager.spawnGroundItem(player,
 							new GroundItem(item, player.getPosition().copy(), player.getUsername(),
@@ -616,7 +616,8 @@ public abstract class ItemContainer {
 				int slot = getEmptySlot();
 				if (slot == -1) {
 					if (getPlayer().getRights() != PlayerRights.OWNER
-							&& getPlayer().getRights() != PlayerRights.MANAGER) {
+							&& getPlayer().getRights() != PlayerRights.MANAGER
+							&& getPlayer().getRights() != PlayerRights.DEVELOPER) {
 						GroundItemManager.spawnGroundItem(player, new GroundItem(Item.getNoted(item.getId(), amount),
 								player.getPosition().copy(), player.getUsername(), false, 120,
 								player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false,

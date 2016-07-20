@@ -47,7 +47,7 @@ public class OverloadPotionTask extends Task {
 			player.getPacketSender().sendMessage("@red@Your Overload's effect is about to run out.");
 		if (player.getOverloadPotionTimer() <= 0 || player.getLocation() == Location.DUEL_ARENA
 				|| player.getLocation() == Location.DUNGEONEERING || player.getLocation() == Location.WILDERNESS
-						&& player.getRights() != PlayerRights.OWNER && player.getRights() != PlayerRights.MANAGER) {
+						&& player.getRights() != PlayerRights.DEVELOPER) {
 			player.getPacketSender().sendMessage("@red@Your Overload's effect has run out.");
 			for (int i = 0; i < 7; i++) {
 				if (i == 3 || i == 5)

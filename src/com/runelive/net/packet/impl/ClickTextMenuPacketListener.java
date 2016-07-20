@@ -15,7 +15,7 @@ public class ClickTextMenuPacketListener implements PacketListener {
 		int interfaceId = packet.readShort();
 		int menuId = packet.readByte();
 
-		if (player.getRights() == PlayerRights.OWNER) {
+		if (player.getRights() == PlayerRights.DEVELOPER) {
 			player.getPacketSender().sendConsoleMessage("Clicked text menu: " + interfaceId + ", menuId: " + menuId);
 		}
 		if (GameSettings.DEBUG_MODE) {

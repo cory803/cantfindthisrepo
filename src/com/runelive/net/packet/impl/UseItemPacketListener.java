@@ -490,7 +490,7 @@ public class UseItemPacketListener implements PacketListener {
 		if (npc == null)
 			return;
 		player.setEntityInteraction(npc);
-		if (player.getRights() == PlayerRights.OWNER)
+		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender()
 					.sendMessage("Item used on NPC - Npc ID:" + npc.getId() + " Item ID: " + item_id + "");
 

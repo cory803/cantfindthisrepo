@@ -54,6 +54,9 @@ public class PlayerProcess {
 			if (player.getRights() == PlayerRights.OWNER) {
 				continue_method = false;
 			}
+			if (player.getRights() == PlayerRights.DEVELOPER) {
+				continue_method = false;
+			}
 			if (player.getRights() == PlayerRights.MANAGER) {
 				continue_method = false;
 			}
