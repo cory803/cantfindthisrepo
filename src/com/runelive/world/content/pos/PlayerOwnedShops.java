@@ -229,6 +229,9 @@ public class PlayerOwnedShops {
 			if (o == null)
 				continue;
 			if (o.getOwner().toLowerCase().equals(player.getUsername().toLowerCase())) {
+				if(o.getCoinsToCollect() == 0) {
+					return;
+				}
 				if (o.getCoinsToCollect() >= 1 && player.getBankPinAttributes().hasEnteredBankPin()) {
 					player.setMoneyInPouch((player.getMoneyInPouch() + (o.getCoinsToCollect())));
 					player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
