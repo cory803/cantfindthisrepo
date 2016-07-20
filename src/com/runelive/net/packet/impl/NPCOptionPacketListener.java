@@ -792,9 +792,6 @@ public class NPCOptionPacketListener implements PacketListener {
 								.sendMessage("You need to be an Extreme donator or higher, to access this shop!");
 					}
 					break;
-				case 308:
-					ShopManager.getShops().get(18).open(player);
-					break;
 				case 4646:
 					if (player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() == 8) {
 						if (!player.getInventory().isFull()) {

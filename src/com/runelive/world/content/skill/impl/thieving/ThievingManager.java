@@ -29,6 +29,7 @@ public class ThievingManager {
         HERO(new int[] {21}, 80, new int[] {995}, Misc.getRandom(800), 275),
        PALADIN(new int[] {20}, 70, new int[] {995}, Misc.getRandom(500), 152),
         VILLAGER(new int[] {1888}, 45, new int[] {995}, Misc.getRandom(2000), 65),
+        MASTER_FISHER(new int[] {308}, 72, new int[] {25, 313, 378, 372, 384, 15271, 3143}, Misc.getRandom(5), 165),
         WATCHMAN(new int[] {34}, 65, new int[] {995}, Misc.getRandom(50), 138);
 
         private final int[] items;
