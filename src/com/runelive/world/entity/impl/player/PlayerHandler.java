@@ -301,7 +301,7 @@ public class PlayerHandler {
 			if (player.getRights() == PlayerRights.OWNER) {
 				player.setLoyaltyRank(43);
 			} else if (player.getRights() == PlayerRights.DEVELOPER) {
-					player.setLoyaltyRank(42);
+					player.setLoyaltyRank(14);
 			} else if (player.getRights() == PlayerRights.MANAGER) {
 				player.setLoyaltyRank(50);
 			} else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
