@@ -266,7 +266,7 @@ public class Fletching {
 				player.performAnimation(new Animation(1248));
 				player.getInventory().delete(log, 1);
 				player.getInventory().add(product, shafts ? 15 : 1);
-				player.getSkillManager().addSkillExperience(Skill.FLETCHING, shafts ? 80 : (int) (bow.getXp()));
+				player.getSkillManager().addSkillExperience(Skill.FLETCHING, shafts ? 5 : (int) (bow.getXp()));
 				Sounds.sendSound(player, Sound.FLETCH_ITEM);
 				amount++;
 				if (amount >= amountToMake)

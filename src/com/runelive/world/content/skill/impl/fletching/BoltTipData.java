@@ -2,8 +2,8 @@ package com.runelive.world.content.skill.impl.fletching;
 
 public enum BoltTipData {
 
-	JADE(1611, 9187, 25, 9), TOPAZ(1613, 9188, 80, 15), SAPPHIRE(1607, 9189, 200, 54), EMERALD(1605, 9190, 400,
-			57), RUBY(1603, 9191, 800, 61), DIAMOND(1601, 9192, 1800, 63), DRAGON(1615, 9193, 4200, 71);
+	JADE(1611, 9187, 2, 9), TOPAZ(1613, 9188, 4, 15), SAPPHIRE(1607, 9189, 5, 54), EMERALD(1605, 9190, 11,
+			57), RUBY(1603, 9191, 14, 61), DIAMOND(1601, 9192, 1, 63), DRAGON(1615, 9193, 20, 71);
 
 	public int item, outcome, xp, levelReq;
 

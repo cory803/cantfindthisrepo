@@ -2,8 +2,8 @@ package com.runelive.world.content.skill.impl.fletching;
 
 public enum BoltData {
 
-	BRONZE(314, 9375, 877, 250, 9), IRON(314, 9377, 9140, 750, 39), STEEL(314, 9378, 9141, 1750, 46), MITHRIL(314, 9379,
-			9142, 2500, 54), ADAMANT(314, 9380, 9143, 3500, 61), RUNE(314, 9381, 9144, 5000, 69);
+	BRONZE(314, 9375, 877, 1, 9), IRON(314, 9377, 9140, 2, 39), STEEL(314, 9378, 9141, 4, 46), MITHRIL(314, 9379,
+			9142, 5, 54), ADAMANT(314, 9380, 9143, 7, 61), RUNE(314, 9381, 9144, 10, 69);
 
 	public int item1, item2, outcome, xp, levelReq;
 

@@ -28,7 +28,7 @@ public enum ObstacleData {
 			player.moveTo(new Position(2474, 3436));
 			player.getPacketSender().sendMessage("You attempt to walk across the log..");
 			TaskManager.submit(new Task(1, player, false) {
-				int tick = 9;
+				int tick = 7;
 
 				@Override
 				public void execute() {
