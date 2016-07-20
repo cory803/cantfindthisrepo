@@ -431,6 +431,10 @@ public class PlayerLoading {
 			player.setYellMute(reader.get("yell-mute").getAsBoolean());
 		}
 
+		if (reader.has("reset-stats-1")) {
+			player.reset_stats_1 = reader.get("reset-stats-1").getAsInt();
+		}
+
 		if (reader.has("ge-return")) {
 			player.setDoneGrandExchangeReturn(reader.get("ge-return").getAsBoolean());
 		}
