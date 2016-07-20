@@ -189,7 +189,7 @@ public enum ObstacleData {
 					if (Agility.passedAllObstacles(player)) {
 						DialogueManager.start(player, DialogueManager.getDialogues().get(57 + Misc.getRandom(2)));
 						player.getInventory().add(2996, 2);
-						Agility.addExactExperience(player, 9000 + Misc.getRandom(1000));
+						Agility.addExactExperience(player, 5000 + Misc.getRandom(1000));
 					} else {
 						DialogueManager.start(player, DialogueManager.getDialogues().get(56));
 					}
@@ -465,7 +465,7 @@ public enum ObstacleData {
 						if (Agility.passedAllObstacles(player)) {
 							DialogueManager.start(player, 57);
 							player.getInventory().add(2996, 4);
-							Agility.addExactExperience(player, 9500 + Misc.getRandom(1000));
+							Agility.addExactExperience(player, 6500 + Misc.getRandom(1000));
 							Agility.resetProgress(player);
 						} else {
 							DialogueManager.start(player, 56);
@@ -760,7 +760,7 @@ public enum ObstacleData {
 					if (Agility.passedAllObstacles(player)) {
 						DialogueManager.start(player, 57);
 						player.getInventory().add(2996, 6);
-						Agility.addExactExperience(player, 12500 + Misc.getRandom(2000));
+						Agility.addExactExperience(player, 8000 + Misc.getRandom(2000));
 					} else {
 						DialogueManager.start(player, 56);
 					}
