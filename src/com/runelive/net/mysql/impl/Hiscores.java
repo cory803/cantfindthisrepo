@@ -38,6 +38,13 @@ public class Hiscores implements SQLCallback {
      * @return
      */
     public Hiscores execute() {
+        switch(player.getRights()) {
+            case OWNER:
+            case ADMINISTRATOR:
+            case DEVELOPER:
+            case MANAGER:
+                return this;
+        }
         try {
             PreparedStatement preparedStatement = GameServer.getHiscoresPool().prepareStatement("DELETE FROM `skills` WHERE `skills`.`playerName` = ?");
             preparedStatement.setString(1, player.getUsername());
