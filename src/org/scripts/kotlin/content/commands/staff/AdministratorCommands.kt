@@ -293,8 +293,8 @@ class AdministratorCommands {
                     1
                 else
                     Integer.parseInt(command[2].trim { it <= ' ' }.toLowerCase().replace("k".toRegex(), "000").replace("m".toRegex(), "000000").replace("b".toRegex(), "000000000"))
-                if (amount > Integer.MAX_VALUE) {
-                    amount = Integer.MAX_VALUE
+                if (amount > 2147483647) {
+                    amount = 2147000000
                 }
                 val item = Item(id, amount)
                 player.inventory.add(item, true)
