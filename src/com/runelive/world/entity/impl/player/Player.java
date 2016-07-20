@@ -126,6 +126,7 @@ public class Player extends Character {
 	private int passwordChange = 0;
 	public boolean forceOffline = false;
 	public String changingPasswordOf = "none";
+	public int reset_stats_1 = 0;
 
 	public static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
 

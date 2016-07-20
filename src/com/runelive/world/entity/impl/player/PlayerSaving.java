@@ -222,6 +222,7 @@ public class PlayerSaving {
 		object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
 		object.addProperty("tourney-toggle", new Boolean(player.tourneyToggle()));
 		object.addProperty("yell-mute", new Boolean(player.isYellMute()));
+		object.addProperty("reset-stats-1", new Integer(player.reset_stats_1));
 		object.addProperty("ge-return", new Boolean(player.hasDoneGrandExchangeReturn()));
 		object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));
 		object.addProperty("tournament-points", new Long(player.getPointsHandler().getTournamentPoints()));

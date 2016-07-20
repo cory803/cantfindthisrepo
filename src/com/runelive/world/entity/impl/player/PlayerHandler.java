@@ -23,6 +23,7 @@ import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.model.input.impl.ChangePassword;
+import com.runelive.model.player.GameMode;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.SessionState;
 import com.runelive.net.login.LoginResponses;
@@ -110,6 +111,28 @@ public class PlayerHandler {
 		if (player.getPosition().equals(new Position(2602, 5713))) {
 			player.moveTo(new Position(3087, 3502));
 			System.out.println("Moved player " + player.getUsername() + " for being in a bad area.");
+		}
+
+		//Don't remove this, has to be here due to a game mode bug
+		if(player.reset_stats_1 == 0) {
+			if(player.getGameModeAssistant().getGameMode() != GameMode.SIR && player.getGameModeAssistant().getGameMode() != GameMode.LORD) {
+				player.getSkillManager().setCurrentLevel(Skill.DUNGEONEERING, 1);
+				player.getSkillManager().setMaxLevel(Skill.DUNGEONEERING, 1);
+				player.getSkillManager().setExperience(Skill.DUNGEONEERING, 1);
+				player.getSkillManager().setCurrentLevel(Skill.FARMING, 1);
+				player.getSkillManager().setMaxLevel(Skill.FARMING, 1);
+				player.getSkillManager().setExperience(Skill.FARMING, 1);
+				player.getSkillManager().setCurrentLevel(Skill.CRAFTING, 1);
+				player.getSkillManager().setMaxLevel(Skill.CRAFTING, 1);
+				player.getSkillManager().setExperience(Skill.CRAFTING, 1);
+				player.getSkillManager().setCurrentLevel(Skill.COOKING, 1);
+				player.getSkillManager().setMaxLevel(Skill.COOKING, 1);
+				player.getSkillManager().setExperience(Skill.COOKING, 1);
+				player.getSkillManager().setCurrentLevel(Skill.FLETCHING, 1);
+				player.getSkillManager().setMaxLevel(Skill.FLETCHING, 1);
+				player.getSkillManager().setExperience(Skill.FLETCHING, 1);
+			}
+			player.reset_stats_1 = 1;
 		}
 
 		// Skills
