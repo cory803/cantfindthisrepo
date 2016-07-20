@@ -1756,6 +1756,9 @@ public class ObjectActionPacketListener implements PacketListener {
 						case 2878:
 							player.moveTo(new Position(2509, 4689));
 							break;
+							case 2879:
+							player.moveTo(new Position(2498, 4718));
+							break;
 						case 172:
 							CrystalChest.handleChest(player, gameObject);
 							break;
