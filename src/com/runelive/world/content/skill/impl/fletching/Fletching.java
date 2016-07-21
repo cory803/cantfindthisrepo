@@ -356,7 +356,7 @@ public class Fletching {
 					player.getInventory().delete(new Item(arr.getItem2()).setAmount(15),
 							player.getInventory().getSlot(arr.getItem2()), true);
 					player.getInventory().add(arr.getOutcome(), 15);
-					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (arr.getXp()));
+					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (int) (arr.getXp()));
 					Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
 					if (player.dailyTask == 4 && !player.completedDailyTask) {
 						DailyTaskManager.doTaskProgress(player);

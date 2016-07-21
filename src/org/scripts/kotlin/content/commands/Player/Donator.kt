@@ -49,9 +49,14 @@ class Donator {
                     player.packetSender.sendMessage("You are not allowed to put these symbols in your yell message.")
                     return
                 }
-                if (player.yellTag != "invalid_yell_tag_set") {
+                if (player.yellTag != "invalid_yell_tag_set" && !player.rights.isStaff) {
                     World.sendYell("<img=" + YellInfo.getRankInfo(player).imageId + "> <col=0>[<col=" + YellInfo.getRankInfo(player).colorCode + "><shad=0>" + player.yellTag + "<col=0></shad>] "
                             + player.username + ": " + yellmessage, player)
+                    player.yellTimer.reset()
+                    return
+                }
+                if (player.yellTag != "invalid_yell_tag_set" && player.rights.isStaff) {
+                    World.sendYell("<col=0>[<col=" + YellInfo.getRankInfo(player).colorCode + "><shad=0><img=" + YellInfo.getRankInfo(player).imageId + ">" + player.yellTag + "<img=" + YellInfo.getRankInfo(player).imageId + "></shad><col=0>] " + player.username + ": " + yellmessage, player)
                     player.yellTimer.reset()
                     return
                 }
