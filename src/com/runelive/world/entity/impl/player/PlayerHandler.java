@@ -116,18 +116,15 @@ public class PlayerHandler {
 		//Don't remove this, has to be here due to a game mode bug
 		if(player.reset_stats_1 == 0) {
 			if(player.getGameModeAssistant().getGameMode() != GameMode.SIR && player.getGameModeAssistant().getGameMode() != GameMode.LORD) {
-				player.getSkillManager().setCurrentLevel(Skill.DUNGEONEERING, 1);
-				player.getSkillManager().setMaxLevel(Skill.DUNGEONEERING, 1);
-				player.getSkillManager().setExperience(Skill.DUNGEONEERING, 1);
+				player.getSkillManager().setCurrentLevel(Skill.RUNECRAFTING, 1);
+				player.getSkillManager().setMaxLevel(Skill.RUNECRAFTING, 1);
+				player.getSkillManager().setExperience(Skill.RUNECRAFTING, 1);
 				player.getSkillManager().setCurrentLevel(Skill.FARMING, 1);
 				player.getSkillManager().setMaxLevel(Skill.FARMING, 1);
 				player.getSkillManager().setExperience(Skill.FARMING, 1);
-				player.getSkillManager().setCurrentLevel(Skill.CRAFTING, 1);
-				player.getSkillManager().setMaxLevel(Skill.CRAFTING, 1);
-				player.getSkillManager().setExperience(Skill.CRAFTING, 1);
-				player.getSkillManager().setCurrentLevel(Skill.COOKING, 1);
-				player.getSkillManager().setMaxLevel(Skill.COOKING, 1);
-				player.getSkillManager().setExperience(Skill.COOKING, 1);
+				player.getSkillManager().setCurrentLevel(Skill.AGILITY, 1);
+				player.getSkillManager().setMaxLevel(Skill.AGILITY, 1);
+				player.getSkillManager().setExperience(Skill.AGILITY, 1);
 				player.getSkillManager().setCurrentLevel(Skill.FLETCHING, 1);
 				player.getSkillManager().setMaxLevel(Skill.FLETCHING, 1);
 				player.getSkillManager().setExperience(Skill.FLETCHING, 1);
