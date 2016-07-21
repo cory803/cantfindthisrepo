@@ -298,6 +298,9 @@ public class ItemActionPacketListener implements PacketListener {
 			}*/
 			player.getPacketSender().sendMessage("Nothing interesting happens.");
 			break;
+			case 2677:
+			player.getPacketSender().sendInterface(17537);
+			break;
 		case 10944:
 			if (player.getInventory().isFull()) {
 				player.getPacketSender().sendMessage("You need to have atleast 1 free inventory space.");

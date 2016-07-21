@@ -428,7 +428,60 @@ public enum CombatSpells {
 		public int spellId() {
 			return 1160;
 		}
-	}), TRIDENT_SPELL(new CombatNormalSpell() {
+	}),
+	/*STORM_OF_ARMADYL(new CombatNormalSpell() {
+		@Override
+		public Optional<Animation> castAnimation() {
+			return Optional.of(new Animation(10546));
+		}
+
+		@Override
+		public Optional<Projectile> castProjectile(Character cast, Character castOn) {
+			return Optional.of(new Projectile(cast, castOn, 459, 44, 3, 43, 31, 0));
+		}
+
+		@Override
+		public Optional<Graphic> endGraphic(Character cast) {
+			return Optional.of(new Graphic(2737, GraphicHeight.MIDDLE));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 450;
+		}
+
+		@Override
+		public Optional<Graphic> startGraphic() {
+			return Optional.of(new Graphic(457));
+		}
+
+		@Override
+		public int baseExperience() {
+			return 11;
+		}
+
+		@Override
+		public Optional<Item[]> equipmentRequired(Player player) {
+			return Optional.empty();
+		}
+
+		@Override
+		public Optional<Item[]> itemsRequired(Player player) {
+			return Optional.of(new Item[] { new Item(21773)});
+		}
+
+		@Override
+		public int levelRequired() {
+			return 17;
+		}
+
+		@Override
+		public int spellId() {
+			return 1160;
+		}
+	}),*/
+
+	TRIDENT_SPELL(new CombatNormalSpell() {
 		@Override
 		public Optional<Animation> castAnimation() {
 			return Optional.of(new Animation(14223));
