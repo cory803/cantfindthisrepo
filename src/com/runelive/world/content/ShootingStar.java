@@ -53,7 +53,7 @@ public class ShootingStar {
 		LOCATION_10(new Position(2666, 2648), "at the Void knight island", "Pest Control"),
 		LOCATION_11(new Position(3566, 3297), "on the Barrows hills", "Barrows"),
 		LOCATION_12(new Position(2986, 3599), "in the Wilderness (near the western dragons)", "West Dragons"),
-		LOCATION_13(new Position(3664, 3493), "in the Wilderness (Ghost Town)", "Ghost Town"),
+		//LOCATION_13(new Position(3664, 3493), "in the Wilderness (Ghost Town)", "Ghost Town"),
 		LOCATION_14(new Position(2582, 4844), "near the Runecrafting Fire altar", "Fire Altar"),
 		LOCATION_15(new Position(3478, 4834), "near the Runecrafting Water altar", "Water Altar"),
 		LOCATION_16(new Position(2793, 4830), "near the Runecrafting Mind altar", "Mind Altar"),

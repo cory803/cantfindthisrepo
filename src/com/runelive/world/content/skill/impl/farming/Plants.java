@@ -55,7 +55,7 @@ public enum Plants {
 		return false;
 	}
 
-	private Plants(int seed, int harvest, int config, int diseased, int dead, int level, int minutes, SeedType type,
+	Plants(int seed, int harvest, int config, int diseased, int dead, int level, int minutes, SeedType type,
 			double plantExperience, double harvestExperience, int stages) {
 		this.seed = seed;
 		this.harvest = harvest;

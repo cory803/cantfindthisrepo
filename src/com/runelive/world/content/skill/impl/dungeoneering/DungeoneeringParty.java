@@ -28,7 +28,7 @@ public class DungeoneeringParty {
 
 	public DungeoneeringParty(Player owner) {
 		this.owner = owner;
-		player_members = new CopyOnWriteArrayList<Player>();
+		player_members = new CopyOnWriteArrayList<>();
 		player_members.add(owner);
 	}
 
@@ -36,8 +36,8 @@ public class DungeoneeringParty {
 	private DungeoneeringFloor floor;
 	private int complexity = -1;
 	private CopyOnWriteArrayList<Player> player_members;
-	private CopyOnWriteArrayList<NPC> npc_members = new CopyOnWriteArrayList<NPC>();
-	private CopyOnWriteArrayList<GroundItem> ground_items = new CopyOnWriteArrayList<GroundItem>();
+	private CopyOnWriteArrayList<NPC> npc_members = new CopyOnWriteArrayList<>();
+	private CopyOnWriteArrayList<GroundItem> ground_items = new CopyOnWriteArrayList<>();
 	private Position gatestonePosition;
 	private boolean hasEnteredDungeon;
 	private int kills, deaths;

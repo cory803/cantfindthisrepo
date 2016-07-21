@@ -27,6 +27,7 @@ public class ChatPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("You are muted and cannot chat.");
 			return;
 		}
+
 		String str = Misc.textUnpack(text, size).toLowerCase().replaceAll(";", ".");
 		if (Misc.blockedWord(str)) {
 			// Logs.write_data(player.getUsername()+ ".txt", "advertisers",

@@ -461,7 +461,7 @@ public class PlayerUpdating {
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
 		builder.put(rankId);
-		builder.put(target.getGameModeAssistant().ordinal());
+		builder.put(rankId);
 		builder.put(bytes.length, ValueType.C);
 		builder.putBytesReverse(bytes);
 	}

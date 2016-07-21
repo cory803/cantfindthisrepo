@@ -1,6 +1,5 @@
 package com.runelive.world.content;
 
-import com.runelive.model.player.GameMode;
 import com.runelive.model.Item;
 import com.runelive.util.Misc;
 import com.runelive.world.entity.impl.player.Player;
