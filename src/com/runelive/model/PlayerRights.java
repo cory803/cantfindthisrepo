@@ -27,10 +27,10 @@ public enum PlayerRights {
 	}
 
 	public static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR,
-			OWNER, GLOBAL_MOD, MANAGER, STAFF_MANAGER);
+			OWNER, GLOBAL_MOD, MANAGER, STAFF_MANAGER, DEVELOPER);
 
 	public static final ImmutableSet<PlayerRights> canStream = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR,
-			OWNER, GLOBAL_MOD, MANAGER, STAFF_MANAGER, YOUTUBER);
+			OWNER, GLOBAL_MOD, MANAGER, STAFF_MANAGER, DEVELOPER, YOUTUBER);
 
 	public boolean isStaff() {
 		return STAFF.contains(this);

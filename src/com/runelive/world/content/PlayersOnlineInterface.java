@@ -120,6 +120,9 @@ public class PlayersOnlineInterface {
 			if (p.getRights() == PlayerRights.STAFF_MANAGER) {
 				rankId = 17;
 			}
+			if (p.getRights() == PlayerRights.DEVELOPER) {
+				rankId = 18;
+			}
 			player.getPacketSender().sendString(child,
 					"" + (rankId > 0 ? "<img=" + rankId + ">" : "  ") + "" + p.getUsername());
 			child++;
