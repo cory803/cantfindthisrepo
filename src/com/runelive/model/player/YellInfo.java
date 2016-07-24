@@ -20,6 +20,7 @@ public enum YellInfo {
     SUPPORT(4, "589fe1"),
     MODERATOR(1, "31a4ff"),
     GLOBAL_MOD(6, "00ff00"),
+    DEVELOPER(18, "4d4dff"),
     ADMINISTRATOR(14, "ffff00"),
     MANAGER(3, "ff0000"),
     OWNER(3, "ff0000");
