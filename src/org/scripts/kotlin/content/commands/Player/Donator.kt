@@ -14,9 +14,6 @@ import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.runelive.world.content.transportation.TeleportHandler
 import com.runelive.world.entity.impl.player.Player
 
-/**
- * dummy text
- */
 
 class Donator {
 
@@ -47,6 +44,11 @@ class Donator {
                 val yellmessage = wholeCommand.substring(4, wholeCommand.length)
                 if (yellmessage.contains("<img=") || yellmessage.contains("<col=") || yellmessage.contains("<shad=")) {
                     player.packetSender.sendMessage("You are not allowed to put these symbols in your yell message.")
+                    return
+                }
+                val yellmess = wholeCommand.substring(4, wholeCommand.length)
+                if (yellmess.contains("hitbox") || yellmess.contains("HITBOX") || yellmess.contains(".TV") ||  yellmess.contains(".tv") && player.rights != PlayerRights.YOUTUBER) {
+                    player.packetSender.sendMessage("You are not permitted to advertise streams.")
                     return
                 }
                 if (player.yellTag != "invalid_yell_tag_set" && !player.rights.isStaff) {
