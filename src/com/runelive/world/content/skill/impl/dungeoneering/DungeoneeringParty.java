@@ -188,11 +188,7 @@ public class DungeoneeringParty {
 					exp = (int) (exp * 0.7);
 					tokens = (int) (tokens * 0.7);
 				}
-				if(p.getGameModeAssistant().getGameMode().equals("REALISM") || p.getGameModeAssistant().getGameMode().equals("EXTREME")) {
-					p.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, exp);
-				} else {
-					p.getSkillManager().addExactExperience(Skill.DUNGEONEERING, exp * 20);
-				}
+				p.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, exp);
 				p.getPointsHandler().setDungeoneeringTokens(tokens, true);
 				p.getEquipment().refreshItems();
 				WeaponInterfaces.assign(p, p.getEquipment().get(Equipment.WEAPON_SLOT));

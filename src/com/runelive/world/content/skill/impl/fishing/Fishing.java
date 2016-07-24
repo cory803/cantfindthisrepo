@@ -3,7 +3,6 @@ package com.runelive.world.content.skill.impl.fishing;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
-import com.runelive.model.Direction;
 import com.runelive.model.Locations;
 import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
@@ -176,8 +175,6 @@ public class Fishing {
 		p.getSkillManager().stopSkilling();
 		final int fishIndex = Misc.getRandom(100) >= 70 ? getMax(p, s.fishingReqs)
 				: (getMax(p, s.fishingReqs) != 0 ? getMax(p, s.fishingReqs) - 1 : 0);
-		if (p.getInteractingObject() != null && p.getInteractingObject().getId() != 8702)
-			p.setDirection(s == Spot.MONK_FISH ? Direction.WEST : Direction.NORTH);
 		if (Skillcape_Data.STRENGTH.isWearingCape(p))
 			p.performAnimation(new Animation(9980));
 		else

@@ -16,7 +16,7 @@ public enum FinishedPotions {
     CRAFTING_POTION(14840, 14856, 5004, 42, 92),
     SUPER_ATTACK(145, 101, 221, 45, 100),
     VIAL_OF_STENCH(18661, 101, 1871, 46, 0),
-    FISHING_POTION(181, 101, 231, 48, 106),
+    FISHING_POTION(151, 103, 231, 50, 112),
     SUPER_ENERGY(3018, 103, 2970, 52, 118),
     SUPER_STRENGTH(157, 105, 225, 55, 125),
     WEAPON_POISON(187, 105, 241, 60, 138),
@@ -88,6 +88,7 @@ public enum FinishedPotions {
     }
 
     private int finishedPotion, unfinishedPotion, itemNeeded, levelReq, expGained;
+
 
     private FinishedPotions(int finishedPotion, int unfinishedPotion, int itemNeeded, int levelReq, int expGained) {
         this.finishedPotion = finishedPotion;

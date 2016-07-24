@@ -112,7 +112,7 @@ public class CharmingImp {
 	}
 
 	public static void sendConfig(Player player) {
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < 6; i++) {
 			int state = player.getSummoning().getCharmImpConfig(i);
 			int charm = getCharmForIndex(i);
 			switch (state) {
