@@ -1,5 +1,7 @@
 package com.runelive.world.content.skill.impl.thieving;
 
+import com.runelive.util.Misc;
+
 import java.util.Arrays;
 
 public enum StallRewards {
@@ -42,7 +44,23 @@ public enum StallRewards {
             new WeightedItem(1327, 1, 7),
             new WeightedItem(1329, 1, 6),
             new WeightedItem(1333, 1, 2),
-            new WeightedItem(4587, 1, 1));
+            new WeightedItem(4587, 1, 1)),
+    VEGETABLE_STALL(
+            new WeightedItem(995, Misc.inclusiveRandom(500, 1000), 10),
+            new WeightedItem(995, Misc.inclusiveRandom(1000, 2000), 9),
+            new WeightedItem(995, Misc.inclusiveRandom(2000, 3000), 8),
+            new WeightedItem(995, Misc.inclusiveRandom(3000, 4000), 7),
+            new WeightedItem(995, Misc.inclusiveRandom(4000, 5000), 6),
+            new WeightedItem(995, Misc.inclusiveRandom(5000, 6000), 2),
+            new WeightedItem(995, Misc.inclusiveRandom(6000, 7000), 1)),
+    DONATOR_FISH_STALL(
+            new WeightedItem(995, Misc.inclusiveRandom(7000, 8000), 10),
+            new WeightedItem(995, Misc.inclusiveRandom(8000, 9000), 9),
+            new WeightedItem(995, Misc.inclusiveRandom(9000, 10000), 8),
+            new WeightedItem(995, Misc.inclusiveRandom(10000, 11000), 7),
+            new WeightedItem(995, Misc.inclusiveRandom(11000, 12000), 6),
+            new WeightedItem(995, Misc.inclusiveRandom(12000, 13000), 2),
+            new WeightedItem(995, Misc.inclusiveRandom(13000, 14000), 1));
 
     public final WeightedItem[] rewards;
     public final int weightSum;

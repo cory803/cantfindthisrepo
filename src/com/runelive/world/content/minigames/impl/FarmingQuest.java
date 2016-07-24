@@ -98,13 +98,14 @@ public class FarmingQuest {
 	}
 
 	public static String getQuestTabPrefix(Player player) {
-		if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() != 0
+		if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 4) {
+			return "@gre@";
+		} else if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() != 0
 				&& player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() < 10) {
 			return "@yel@";
-		} else if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 4) {
-			return "@gre@";
+		} else {
+			return "@red@";
 		}
-		return "@red@";
 	}
 
 	private static final String questTitle = "Farmer's Expedition";

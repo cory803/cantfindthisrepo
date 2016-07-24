@@ -32,6 +32,11 @@ public class Thieving {
         } else if (player.getSkillManager().getCurrentLevel(Skill.THIEVING) < stall.getRequiredLevel()) {
             DialogueManager.sendStatement(player, "@blu@You need a Thieving level of @dre@" + stall.getRequiredLevel() + " @blu@to steal from this stall!");
             return false;
+        } else if(stall.isDonator()) {
+            if (player.getDonorRights() == 0) {
+                DialogueManager.sendStatement(player, "@dre@You need to be a donator to thieve from this stall.");
+                return false;
+            }
         }
 
         player.getSkillManager().addSkillExperience(Skill.THIEVING, stall.getExperience());

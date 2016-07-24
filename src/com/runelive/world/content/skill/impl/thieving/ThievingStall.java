@@ -2,28 +2,32 @@ package com.runelive.world.content.skill.impl.thieving;
 
 public enum ThievingStall {
 
-    BAKERS_STALL(2561, 5, 16, StallRewards.BAKERS_STALL, 2),
-    CRAFTING_STALL(4874, 5, 16, StallRewards.CRAFTING_STALL, 7),
-    FOOD_STALL(4875, 5, 16, StallRewards.FOOD_STALL, 7),
-    GENERAL_STALL(4876, 5, 16, StallRewards.GENERAL_STALL, 7),
-    SILK_STALL(2560, 20, 24, StallRewards.SILK_STALL, 5),
-    FUR_STALL(2563, 35, 36, StallRewards.FUR_STALL, 10),
-    SILVER_STALL(2565, 50, 54, StallRewards.SILVER_STALL, 30),
-    SPICE_STALL(2564, 65, 81, StallRewards.SPICE_STALL, 80),
-    MAGIC_STALL(4877, 80, 100, StallRewards.MAGIC_STALL, 80),
-    GEM_STALL(2562, 75, 160, StallRewards.GEM_STALL, 180),
-    SCIMITAR_STALL(4878, 95, 200, StallRewards.SCIMITAR_STALL, 180);
+    BAKERS_STALL(2561, 5, 16, StallRewards.BAKERS_STALL, 2, false),
+    CRAFTING_STALL(4874, 5, 16, StallRewards.CRAFTING_STALL, 7, false),
+    FOOD_STALL(4875, 5, 16, StallRewards.FOOD_STALL, 7, false),
+    GENERAL_STALL(4876, 5, 16, StallRewards.GENERAL_STALL, 7, false),
+    SILK_STALL(2560, 20, 24, StallRewards.SILK_STALL, 5, false),
+    FUR_STALL(2563, 35, 36, StallRewards.FUR_STALL, 10, false),
+    SILVER_STALL(2565, 50, 54, StallRewards.SILVER_STALL, 30, false),
+    SPICE_STALL(2564, 65, 81, StallRewards.SPICE_STALL, 80, false),
+    MAGIC_STALL(4877, 80, 100, StallRewards.MAGIC_STALL, 80, false),
+    GEM_STALL(2562, 75, 160, StallRewards.GEM_STALL, 180, false),
+    VEGETABLE_STALL(4706, 45, 160, StallRewards.VEGETABLE_STALL, 180, true),
+    DONATOR_FISH_STALL(4705, 50, 200, StallRewards.DONATOR_FISH_STALL, 180, true),
+    SCIMITAR_STALL(4878, 95, 200, StallRewards.SCIMITAR_STALL, 180, false);
 
     private int objectId, requiredLevel, experience, respawnDelay;
     private StallRewards stallRewards;
+    private boolean donator;
 
     ThievingStall(int objectId, int requiredLevel, int experience, StallRewards stallRewards,
-                  int respawnDelay) {
+                  int respawnDelay, boolean donator) {
         this.objectId = objectId;
         this.requiredLevel = requiredLevel;
         this.experience = experience;
         this.stallRewards = stallRewards;
         this.respawnDelay = respawnDelay;
+        this.donator = donator;
     }
 
     public int getObjectId() {
@@ -45,6 +49,8 @@ public enum ThievingStall {
     public int getRespawnDelay() {
         return this.respawnDelay;
     }
+
+    public boolean isDonator() { return this.donator; }
 
     public static ThievingStall forId(int objectId) {
         for (ThievingStall stall : ThievingStall.values()) {

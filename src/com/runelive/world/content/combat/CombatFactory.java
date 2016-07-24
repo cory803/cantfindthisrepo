@@ -1536,8 +1536,7 @@ public final class CombatFactory {
 
 				/** RING OF LIFE **/
 				else if ((t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 2570
-						|| Emotes.Skillcape_Data.DEFENCE.isWearingCape(t2)
-						|| Emotes.Skillcape_Data.MASTER_DEFENCE.isWearingCape(t2))
+						|| Emotes.Skillcape_Data.DEFENCE.isWearingCape(t2))
 						&& t2.getLocation() != Location.DUEL_ARENA && t2.getLocation() != Location.WILDERNESS) {
 					if (t2.getSkillManager().getCurrentLevel(
 							Skill.CONSTITUTION) <= t2.getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .1) {

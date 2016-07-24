@@ -21,9 +21,7 @@ public abstract class CombatEffectSpell extends CombatSpell {
 
 	@Override
 	public int maximumHit() {
-
-		// These types of spells don't have a 'hit'.
-		return -1;
+		return 0;
 	}
 
 	@Override
