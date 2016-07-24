@@ -653,19 +653,7 @@ public class DialogueOptions {
 				SlayerMaster.changeSlayerMaster(player, SlayerMaster.KURADEL);
 				break;
 			case 36:
-				int random = Misc.random(1, 4);
-				switch (random) {
-				case 1:
-				case 2:
-					TeleportHandler.teleportPlayer(player, new Position(2086, 4429),
-							player.getSpellbook().getTeleportType());
-					break;
-				case 3:
-				case 4:
-					TeleportHandler.teleportPlayer(player, new Position(2087, 4429),
-							player.getSpellbook().getTeleportType());
-					break;
-				}
+				TeleportHandler.teleportPlayer(player, new Position(2885, 4372), player.getSpellbook().getTeleportType());
 				break;
 			case 38:
 				TeleportHandler.teleportPlayer(player, new Position(2547, 9448),
