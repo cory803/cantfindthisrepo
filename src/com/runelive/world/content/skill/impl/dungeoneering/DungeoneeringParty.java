@@ -172,11 +172,11 @@ public class DungeoneeringParty {
 			int damage = p.getMinigameAttributes().getDungeoneeringAttributes().getDamageDealt();
 			int deaths = p.getMinigameAttributes().getDungeoneeringAttributes().getDeaths();
 			int exp = (int) (damage > 0 ? (p.getMinigameAttributes().getDungeoneeringAttributes().getDamageDealt()/10
-					* p.getSkillManager().getCurrentLevel(Skill.DUNGEONEERING) / 6.5)
+					* p.getSkillManager().getCurrentLevel(Skill.DUNGEONEERING) / 10.5)
 					- (deaths * 3800) : 0);
 			int tokens = (int) (damage > 0
-					? (p.getMinigameAttributes().getDungeoneeringAttributes().getDamageDealt() / 1.1)
-							- (deaths * 160 + Misc.getRandom(25))
+					? (p.getMinigameAttributes().getDungeoneeringAttributes().getDamageDealt() / 20)
+							- (deaths + Misc.getRandom(25))
 					: 0);
 			if (killedBoss) {
 				exp += 12000 + Misc.getRandom(2000);
@@ -188,7 +188,7 @@ public class DungeoneeringParty {
 					exp = (int) (exp * 0.7);
 					tokens = (int) (tokens * 0.7);
 				}
-				p.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, exp);
+				p.getSkillManager().addExactExperience(Skill.DUNGEONEERING, exp*3);
 				p.getPointsHandler().setDungeoneeringTokens(tokens, true);
 				p.getEquipment().refreshItems();
 				WeaponInterfaces.assign(p, p.getEquipment().get(Equipment.WEAPON_SLOT));
