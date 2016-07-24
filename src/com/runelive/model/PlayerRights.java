@@ -29,7 +29,14 @@ public enum PlayerRights {
 	public static final ImmutableSet<PlayerRights> STAFF = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR,
 			OWNER, GLOBAL_MOD, MANAGER, STAFF_MANAGER);
 
+	public static final ImmutableSet<PlayerRights> canStream = Sets.immutableEnumSet(SUPPORT, MODERATOR, ADMINISTRATOR,
+			OWNER, GLOBAL_MOD, MANAGER, STAFF_MANAGER, YOUTUBER);
+
 	public boolean isStaff() {
+		return STAFF.contains(this);
+	}
+
+	public boolean canStream() {
 		return STAFF.contains(this);
 	}
 
