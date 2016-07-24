@@ -831,6 +831,9 @@ public class PacketSender {
 		if (player.getRights() == PlayerRights.STAFF_MANAGER) {
 			rank = 17;
 		}
+		if (player.getRights() == PlayerRights.DEVELOPER) {
+			rank = 18;
+		}
 		out.put(rank);
 		player.getSession().queueMessage(out);
 		return this;
@@ -936,6 +939,9 @@ public class PacketSender {
 		}
 		if (me.getRights() == PlayerRights.STAFF_MANAGER) {
 			rank = 17;
+		}
+		if (me.getRights() == PlayerRights.DEVELOPER) {
+			rank = 18;
 		}
 		out.put(rank);
 		out.putBytes(message, size);

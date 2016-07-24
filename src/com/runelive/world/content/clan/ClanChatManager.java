@@ -393,6 +393,9 @@ public class ClanChatManager {
 				if (player.getRights() == PlayerRights.STAFF_MANAGER) {
 					img = 17;
 				}
+				if (player.getRights() == PlayerRights.DEVELOPER) {
+					img = 18;
+				}
 				String rankImg = img > 0 ? " <img=" + img + "> " : " ";
 				memberPlayer.getPacketSender()
 						.sendMessage(":clan:" + bracketColor + "[" + clanNameColor + clan.getName() + bracketColor + "]"

@@ -457,6 +457,9 @@ public class PlayerUpdating {
 		if (target.getRights() == PlayerRights.STAFF_MANAGER) {
 			rankId = 17;
 		}
+		if (target.getRights() == PlayerRights.DEVELOPER) {
+			rankId = 18;
+		}
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
@@ -654,6 +657,9 @@ public class PlayerUpdating {
 		}
 		if (target.getRights() == PlayerRights.STAFF_MANAGER) {
 			rankId = 17;
+		}
+		if (target.getRights() == PlayerRights.DEVELOPER) {
+			rankId = 18;
 		}
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();
