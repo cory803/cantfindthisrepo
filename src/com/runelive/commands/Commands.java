@@ -73,6 +73,11 @@ public class Commands {
 		if (player.getRights() == PlayerRights.YOUTUBER) {
 			PlayerCmds.initiate_command(player, parts, whole_command);
 			YouTubers.initiate_command(player, parts, whole_command);
+			Donator.RegularDonator.initiate_command(player, parts, whole_command);
+			Donator.SuperDonator.initiate_command(player, parts, whole_command);
+			Donator.ExtremeDonator.initiate_command(player, parts, whole_command);
+			Donator.LegendaryDonator.initiate_command(player, parts, whole_command);
+			Donator.UberDonator.initiate_command(player, parts, whole_command);
 			return;
 		}
 
