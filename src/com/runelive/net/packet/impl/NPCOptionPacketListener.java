@@ -15,6 +15,7 @@ import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.definitions.NpcDefinition;
 import com.runelive.model.input.impl.PosSearchShop;
+import com.runelive.model.player.GameMode;
 import org.scripts.kotlin.content.dialog.TownCrier;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
@@ -1086,9 +1087,13 @@ public class NPCOptionPacketListener implements PacketListener {
 			@Override
 			public void execute() {
 				switch (npc.getId()) {
-				case 946:
-					DialogueManager.start(player, 252);
-					player.setDialogueActionId(252);
+				    case 946:
+						if(player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN || player.getGameModeAssistant().getGameMode() == GameMode._IRONMAN || player.getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN) {
+							player.getPacketSender().sendMessage("You're an ironman you can't do this");
+						} else {
+							DialogueManager.start(player, 252);
+							player.setDialogueActionId(252);
+						}
 					break;
 				case 2217:
 					player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
