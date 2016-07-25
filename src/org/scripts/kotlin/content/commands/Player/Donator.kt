@@ -47,7 +47,7 @@ class Donator {
                     return
                 }
                 val yellmess = wholeCommand.substring(4, wholeCommand.length)
-                if (yellmess.contains("hitbox") || yellmess.contains("HITBOX") || yellmess.contains(".TV") ||  yellmess.contains(".tv") && player.rights != PlayerRights.YOUTUBER) {
+                if (yellmess.contains("hitbox") || yellmess.contains("HITBOX") || yellmess.contains(".TV") ||  yellmess.contains(".tv") && !player.rights.canStream()) {
                     player.packetSender.sendMessage("You are not permitted to advertise streams.")
                     return
                 }

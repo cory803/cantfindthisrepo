@@ -114,8 +114,8 @@ public class PlayerHandler {
 		}
 
 		//Don't remove this, has to be here due to a game mode bug
-		if(player.reset_stats_1 == 0) {
-			if(player.getGameModeAssistant().getGameMode() != GameMode.SIR && player.getGameModeAssistant().getGameMode() != GameMode.LORD) {
+		if (player.reset_stats_1 == 0) {
+			if (player.getGameModeAssistant().getGameMode() != GameMode.SIR && player.getGameModeAssistant().getGameMode() != GameMode.LORD) {
 				player.getSkillManager().setCurrentLevel(Skill.RUNECRAFTING, 1);
 				player.getSkillManager().setMaxLevel(Skill.RUNECRAFTING, 1);
 				player.getSkillManager().setExperience(Skill.RUNECRAFTING, 1);
@@ -293,8 +293,9 @@ public class PlayerHandler {
 		} else if ((player.getRights() == PlayerRights.SUPPORT || player.getRights() == PlayerRights.WIKI_EDITOR)
 				&& player.getDonorRights() < 1) {
 			player.setDonorRights(1);
-		}
-		if (player.getRights().isStaff()) {
+		} else if (player.getRights() == PlayerRights.YOUTUBER && player.getDonorRights() < 5) {
+			player.setDonorRights(5);
+		} if (player.getRights().isStaff()) {
 			if (player.getRights() == PlayerRights.OWNER) {
 				player.setLoyaltyRank(43);
 			} else if (player.getRights() == PlayerRights.DEVELOPER) {
