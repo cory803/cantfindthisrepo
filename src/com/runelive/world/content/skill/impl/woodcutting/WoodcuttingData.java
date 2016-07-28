@@ -12,7 +12,8 @@ public class WoodcuttingData {
 	public static enum Hatchet {
 		BRONZE(1351, 1, 879, 1.0), IRON(1349, 1, 877, 1.3), STEEL(1353, 6, 875, 1.5), BLACK(1361, 6, 873, 1.7), MITHRIL(
 				1355, 21, 871, 1.9), ADAMANT(1357, 31, 869,
-						2), RUNE(1359, 41, 867, 2.2), DRAGON(6739, 61, 2846, 2.28), ADZE(13661, 80, 10227, 2.5);
+						2), RUNE(1359, 41, 867, 2.2), DRAGON(6739, 61, 2846, 2.28), ADZE(13661, 80, 10227, 2.5),
+		INFERNO(12706, 90, 2846, 2.5);
 
 		private int id, req, anim;
 		private double speed;

@@ -98,7 +98,7 @@ public class Mining {
 									if (onyx || Misc.getRandom(o == Ores.CRASHED_STAR ? 35 : 50) == 15) {
 										int gemId = onyx ? 6571
 												: MiningData.RANDOM_GEMS[(int) (MiningData.RANDOM_GEMS.length
-														* Math.random())];
+												* Math.random())];
 										player.getInventory().add(gemId, 1);
 										player.getPacketSender().sendMessage("You've found a gem!");
 										if (gemId == 6571) {
@@ -149,7 +149,7 @@ public class Mining {
 										if (oreObject.getId() == 38660) {
 											if (ShootingStar.CRASHED_STAR == null
 													|| ShootingStar.CRASHED_STAR.getStarObject()
-															.getPickAmount() >= ShootingStar.MAXIMUM_MINING_AMOUNT) {
+													.getPickAmount() >= ShootingStar.MAXIMUM_MINING_AMOUNT) {
 												player.getPacketSender().sendClientRightClickRemoval();
 												player.getSkillManager().stopSkilling();
 												return;

@@ -78,6 +78,8 @@ public class Woodcutting {
 									int xp = t.getXp();
 									if (lumberJack(player))
 										xp *= 1.5;
+									if(infernalAxe(player))
+										xp *= 2.0;
 									player.getSkillManager().addSkillExperience(Skill.WOODCUTTING, xp);
 									cycle = 0;
 									BirdNests.dropNest(player);
@@ -106,7 +108,10 @@ public class Woodcutting {
 										rollPet(player);
 									}
 									Sounds.sendSound(player, Sound.WOODCUT);
-									if (!(infernoAdze(player) && Misc.getRandom(5) <= 2)) {
+									if(infernalAxe(player)) {
+										player.getInventory().add(t.getReward(), 2);
+										return;
+									} else if (!(infernoAdze(player) && Misc.getRandom(5) <= 2)) {
 										player.getInventory().add(t.getReward(), 1);
 									} else if (Misc.getRandom(5) <= 2) {
 										logData fmLog = Logdata.getLogData(player, t.getReward());
@@ -167,6 +172,19 @@ public class Woodcutting {
 			contains = false;
 		}
 		return player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 13661;
+	}
+
+	public static boolean infernalAxe(Player player) {
+		boolean contains = false;
+		if (player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 12706) {
+			contains = true;
+		} else if (player.getInventory().contains(12706)) {
+			contains = true;
+		}
+		if (player.getSkillManager().getCurrentLevel(Skill.WOODCUTTING) < 90) {
+			contains = false;
+		}
+		return player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 12706;
 	}
 
 	public static void treeRespawn(final Player player, final GameObject oldTree) {

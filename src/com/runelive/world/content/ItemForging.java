@@ -148,6 +148,15 @@ public class ItemForging {
 		RUNE_HASTA(new Item[] { new Item(2363), new Item(1247) }, new Item(11377), new int[] { 13, 96, 8700 }),
 
 		/**
+		 * Cerberus drops
+		 */
+		INFERNAL_PICKAXE(new Item[] { new Item(6643), new Item(15259) }, new Item(12704), new int[] { 13, 85, 350 }),
+		INFERNAL_AXE(new Item[] { new Item(6643), new Item(6739) }, new Item(12706), new int[] { 11, 85, 350 }),
+		PEGASIAN_BOOTS(new Item[] { new Item(6642), new Item(20001) }, new Item(12708), new int[] { 12, 99, 1250 }),
+		ETERNAL_BOOTS(new Item[] { new Item(6641), new Item(20002) }, new Item(12712), new int[] { 12, 99, 1250 }),
+		PRIMORDIAL_BOOTS(new Item[] { new Item(6640), new Item(20000) }, new Item(12710), new int[] { 12, 99, 1250 }),
+
+		/**
 		 * Imbuing rings
 		 */
 		BERSERKER_RING(new Item[] { new Item(7968), new Item(6737) }, new Item(15220), new int[] { 1, -1, 0 }),
