@@ -61,6 +61,21 @@ import com.runelive.world.entity.impl.npc.NPC;
 
 public class PlayerHandler {
 
+	public static void displayCombatLevels(Player player) {
+		int low_combat = player.getSkillManager().getCombatLevel() - 15;
+		int highest_combat = player.getSkillManager().getCombatLevel() + 15;
+		if(low_combat >= 3 && highest_combat <= 126) {
+			player.getPacketSender().sendString(199, "@or2@" + low_combat + "-" + highest_combat + "");
+			return;
+		} else if(low_combat < 3) {
+			player.getPacketSender().sendString(199, "@or2@3-" + highest_combat + "");
+			return;
+		} else if(highest_combat >= 127) {
+			player.getPacketSender().sendString(199, "@or2@"+low_combat+"-126");
+			return;
+		}
+	}
+
 	public static void handleLogin(Player player) {
 		// player.setLoginQue(false);
 		player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
@@ -340,8 +355,11 @@ public class PlayerHandler {
 		}
 		// LoginChecksParser.checkLogin(player);
 		if (GameSettings.DOUBLE_EXP) {
-			player.getPacketSender().sendMessage(
-					"Welcome to <col=3385ff>RuneLive@bla@, We're currently in <col=ff1a1a>Double EXP @bla@mode!");
+			player.getPacketSender().sendMessage("Welcome to <col=3385ff>RuneLive@bla@, We're currently in <col=ff1a1a>Double EXP @bla@mode!");
+		} else if(GameSettings.PVP_WORLD) {
+			player.getPacketSender().sendMessage("Welcome to <col=3385ff>RuneLive@bla@.");
+			player.getPacketSender().sendWalkableInterface(197);
+			displayCombatLevels(player);
 		} else {
 			player.getPacketSender().sendMessage(
 					"Welcome to <col=3385ff>RuneLive@bla@.");
@@ -356,7 +374,12 @@ public class PlayerHandler {
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
-		DailyTaskManager.giveNewTask(player);
+		if(GameSettings.PVP_WORLD) {
+			player.getPacketSender().sendMessage("@dre@This is a PvP World. Players may attack you almost anywhere, this world will grant you");
+			player.getPacketSender().sendMessage("@dre@1.5 x Experience, compared to the other world.");
+		} else {
+			DailyTaskManager.giveNewTask(player);
+		}
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 	}
 

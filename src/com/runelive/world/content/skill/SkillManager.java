@@ -1,5 +1,6 @@
 package com.runelive.world.content.skill;
 
+import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Flag;
@@ -79,9 +80,11 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager addSkillExperience(Skill skill, int experience) {
-
+		if(GameSettings.PVP_WORLD) {
+			experience *= player.getGameModeAssistant().getModeExpRate() * 1.5;
+			return addExactExperience(skill, experience);
+		}
 		experience *= player.getGameModeAssistant().getModeExpRate();
-
 		return addExactExperience(skill, experience);
 	}
 
