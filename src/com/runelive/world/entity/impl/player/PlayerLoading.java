@@ -570,6 +570,9 @@ public class PlayerLoading {
 		if (reader.has("show-home")) {
 			player.setShowHomeOnLogin(reader.get("show-home").getAsBoolean());
 		}
+		if (reader.has("cape-changes")) {
+			player.setAfterCape(reader.get("cape-changes").getAsBoolean());
+		}
 		if (reader.has("veng-cast")) {
 			player.setHasVengeance(reader.get("veng-cast").getAsBoolean());
 		}

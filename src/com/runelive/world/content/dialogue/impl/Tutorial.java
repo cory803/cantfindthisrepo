@@ -571,6 +571,7 @@ public class Tutorial {
 					p.getPacketSender().sendInterface(3559);
 					p.getAppearance().setCanChangeAppearance(true);
 					p.setPlayerLocked(false);
+					p.setAfterCape(true);
 					TaskManager.submit(new Task(20, p, false) {
 						@Override
 						protected void execute() {
