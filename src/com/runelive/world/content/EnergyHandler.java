@@ -1,6 +1,7 @@
 package com.runelive.world.content;
 
 import com.runelive.model.Animation;
+import com.runelive.model.Flag;
 import com.runelive.model.Skill;
 import com.runelive.world.content.Emotes.Skillcape_Data;
 import com.runelive.world.entity.impl.player.Player;
@@ -42,10 +43,13 @@ public class EnergyHandler {
 			player.getPacketSender().sendMessage("You cannot do this right now.");
 			return;
 		}
+		player.getMovementQueue().reset();
 		player.setResting(true);
 
 		player.performAnimation(new Animation(11786));
-		player.getCharacterAnimations().setStandingAnimation(11786);
+		System.out.println(""+player.getCharacterAnimations().getStandingAnimation());
+		player.getCharacterAnimations().setStandingAnimation(2034);
+		player.getUpdateFlag().flag(Flag.APPEARANCE);
 		player.getPacketSender().sendMessage("You begin to rest...");
 	}
 

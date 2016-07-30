@@ -175,16 +175,7 @@ public class Woodcutting {
 	}
 
 	public static boolean infernalAxe(Player player) {
-		boolean contains = false;
-		if (player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 12706) {
-			contains = true;
-		} else if (player.getInventory().contains(12706)) {
-			contains = true;
-		}
-		if (player.getSkillManager().getCurrentLevel(Skill.WOODCUTTING) < 90) {
-			contains = false;
-		}
-		return player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 12706;
+		return player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 12706 || player.getInventory().contains(12706);
 	}
 
 	public static void treeRespawn(final Player player, final GameObject oldTree) {

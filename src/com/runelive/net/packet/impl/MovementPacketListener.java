@@ -2,7 +2,11 @@ package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Animation;
+import com.runelive.model.Appearance;
+import com.runelive.model.Flag;
 import com.runelive.model.Position;
+import com.runelive.model.container.impl.Equipment;
+import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.input.impl.ChangePassword;
 import com.runelive.model.movement.MovementQueue;
 import com.runelive.model.movement.PathFinder;
@@ -104,6 +108,8 @@ public class MovementPacketListener implements PacketListener {
 		if (player.isResting()) {
 			player.setResting(false);
 			player.performAnimation(new Animation(11788));
+			WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
 			return false;
 		}
 		if (player.continueTutorial() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {

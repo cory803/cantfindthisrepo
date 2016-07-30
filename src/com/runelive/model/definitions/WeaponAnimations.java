@@ -1,6 +1,8 @@
 package com.runelive.model.definitions;
 
+import com.runelive.model.Animation;
 import com.runelive.model.CharacterAnimations;
+import com.runelive.model.Flag;
 import com.runelive.model.Item;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.world.entity.impl.player.Player;
@@ -26,6 +28,11 @@ public final class WeaponAnimations {
 	public static void assign(Player player, Item item) {
 		player.getCharacterAnimations().reset();
 		player.setCharacterAnimations(getUpdateAnimation(item));
+		if(player.isResting()) {
+			player.setResting(false);
+			player.performAnimation(new Animation(11788));
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+		}
 	}
 
 	public static CharacterAnimations getUpdateAnimation(Item item) {

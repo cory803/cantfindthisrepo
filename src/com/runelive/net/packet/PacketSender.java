@@ -13,8 +13,10 @@ import com.runelive.model.PlayerRights;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.container.ItemContainer;
+import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer;
 import com.runelive.model.container.impl.Shop;
+import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.net.packet.Packet.PacketType;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.content.skill.impl.construction.ConstructionData.Furniture;
@@ -571,6 +573,7 @@ public class PacketSender {
 		if (player.isResting()) {
 			player.setResting(false);
 			player.performAnimation(new Animation(11788));
+			WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
 		}
 		/*
 		 * if(player.getMinigameAttributes().getFishingTrawlerAttributes().

@@ -450,7 +450,6 @@ public abstract class Character extends Entity {
 	public void performGraphic(Graphic graphic) {
 		if (graphic == null)
 			return;
-		System.out.println("Graphic: "+graphic.getId()+".");
 		setGraphic(graphic);
 	}
 

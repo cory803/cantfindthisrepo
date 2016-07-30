@@ -128,9 +128,9 @@ public class ObjectActionPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("You are stunned!");
 			return;
 		}
-		if (DoorManager.isDoor(gameObject)) {
-			return;
-		}
+		//if (DoorManager.isDoor(gameObject)) {
+			//return;
+		//}
 		player.setInteractingObject(gameObject)
 				.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 					@Override
@@ -1793,10 +1793,6 @@ public class ObjectActionPacketListener implements PacketListener {
 					.sendMessage("Please report the error to a staff member.");
 			return;
 		}
-
-		if (player.getThieving().stealFromStall(ThievingStall.forId(id))) {
-			return;
-		}
 		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender()
 					.sendConsoleMessage("Second click object id; [id, position] : [" + id + ", " + position.toString() + "]");
@@ -1828,6 +1824,8 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						if (player.getFarming().click(player, x, y, 1))
+							return;
+						if (player.getThieving().stealFromStall(ThievingStall.forId(id)))
 							return;
 						switch (gameObject.getId()) {
 						case 26807:
