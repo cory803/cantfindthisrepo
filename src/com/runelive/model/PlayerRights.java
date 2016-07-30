@@ -3,6 +3,7 @@ package com.runelive.model;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 import com.runelive.util.Misc;
+import com.runelive.world.entity.impl.player.Player;
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -138,6 +139,20 @@ public enum PlayerRights {
      */
     public static PlayerRights forId(int id) {
         return PlayerRights.values()[id];
+    }
+
+    /**
+     * Returns the PlayerRights for the given rights
+     * @param rights the rights we want to find
+     * @return The PlayerRights that we found.
+     */
+    public static PlayerRights forRights(int rights) {
+        for (PlayerRights pR : PlayerRights.values()) {
+            if (pR.getRights() == rights) {
+                return pR;
+            }
+        }
+        return PLAYER;
     }
 
     /**

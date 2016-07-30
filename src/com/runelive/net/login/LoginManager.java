@@ -54,46 +54,6 @@ public final class LoginManager {
 	}
 
 	/**
-	 * Gets the rank for the user.
-	 * @param player The player we are getting the rank for.
-	 * @return The rank assigned to the user
-	 */
-	private static int getRank(final Player player) {
-		PlayerRights rights = player.getRights();
-		switch (rights) {
-			case DEVELOPER:
-				return 18;
-			case STAFF_MANAGER:
-				return 17;
-			case WIKI_MANAGER:
-				return 16;
-			case WIKI_EDITOR:
-				return 15;
-			case MANAGER:
-				return 14;
-			case PLAYER: {
-				switch (player.getDonorRights()) {
-					case 1:
-						return 7;
-					case 2:
-						return 8;
-					case 3:
-						return 9;
-					case 4:
-						return 10;
-					case 5:
-						return 11;
-				}
-				if (player.getGameModeAssistant().isIronMan()) {
-					return 12;
-				}
-			}
-			default:
-				return rights.ordinal();
-		}
-	}
-
-	/**
 	 * Finalizes the login for the specified session and login details.
 	 *
 	 * @param session
@@ -109,7 +69,8 @@ public final class LoginManager {
 			player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
 		}
 		if (player.getResponse() == LoginResponses.LOGIN_SUCCESSFUL) {
-			int rank = getRank(player);
+			player.updateRank();
+			int rank = player.getRights().getClientValue();
 			/**
 			 * Successful login.
 			 */

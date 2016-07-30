@@ -388,6 +388,24 @@ public class Player extends Character {
         return CombatStrategies.getDefaultMeleeStrategy();
     }
 
+    public void updateRank() {
+        PlayerRights currentRank = getRights();
+        if (currentRank.isStaff() || currentRank.equals(PlayerRights.YOUTUBER) || currentRank.equals(PlayerRights.WIKI_EDITOR) || currentRank.equals(PlayerRights.WIKI_MANAGER)) {
+            if (getRights().getRights() < getDonorRights()) {
+                getRights().setRights(getDonorRights());
+            }
+            return;
+        }
+        if (getGameModeAssistant().isIronMan()) {
+            setRights(PlayerRights.IRONMAN);
+            getRights().setRights(getDonorRights());
+            return;
+        }
+        if (getDonorRights() > 0) {
+            setRights(PlayerRights.forRights(getDonorRights()));
+        }
+    }
+
     public int responseId = 2;
     public boolean xpRate = true;
     // public boolean loginQue = false;

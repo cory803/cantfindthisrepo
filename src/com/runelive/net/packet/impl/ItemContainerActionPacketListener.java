@@ -776,7 +776,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
 	public void handleMessage(Player player, Packet packet) {
 		if (player.getConstitution() <= 0)
 			return;
-		System.out.println(packet.getOpcode());
 		switch (packet.getOpcode()) {
 		case FIRST_ITEM_ACTION_OPCODE:
 			firstAction(player, packet);
