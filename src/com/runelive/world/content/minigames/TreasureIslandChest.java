@@ -65,7 +65,7 @@ public class TreasureIslandChest {
 				new Item(12090, Misc.random(5, 25)), new Item(11625, Misc.inclusiveRandom(50, 125)), };
 		Item[] CombatReward = { new Item(4151, 1), new Item(6737, 1), new Item(15486, 1), new Item(6914, 1),
 				new Item(6889, 1), new Item(6585, 1), new Item(19111, 1), new Item(6570, 1), new Item(10551, 1),
-				new Item(20072, 1), new Item(8850, 1), new Item(6731, 1), new Item(6735, 1), new Item(6733, 1),
+				new Item(13262, 1), new Item(8850, 1), new Item(6731, 1), new Item(6735, 1), new Item(6733, 1),
 				new Item(6666, 1), new Item(7158, 1), new Item(11730, 1), new Item(11732, 1), };
 		Item[] RareReward = { new Item(21107, 1), new Item(12926, 1), new Item(21077, 1), new Item(21108, 1),
 				new Item(21110, 1), new Item(11620, 1), new Item(11621, 1), new Item(11622, 1), new Item(11623, 1),
