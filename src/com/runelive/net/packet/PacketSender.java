@@ -798,46 +798,7 @@ public class PacketSender {
 	 */
 	public PacketSender sendRights() {
 		PacketBuilder out = new PacketBuilder(127);
-		int rank = player.getRights().ordinal();
-		if (rank == 0) {
-			if (player.getDonorRights() == 1) {
-				rank = 7;
-			}
-			if (player.getDonorRights() == 2) {
-				rank = 8;
-			}
-			if (player.getDonorRights() == 3) {
-				rank = 9;
-			}
-			if (player.getDonorRights() == 4) {
-				rank = 10;
-			}
-			if (player.getDonorRights() == 5) {
-				rank = 11;
-			}
-		}
-		if (player.getGameModeAssistant().isIronMan() && !player.getRights().isStaff()) {
-			rank = 12;
-		}
-		/*if (player.getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
-			rank = 13;
-		}*/
-		if (player.getRights() == PlayerRights.MANAGER) {
-			rank = 14;
-		}
-		if (player.getRights() == PlayerRights.WIKI_EDITOR) {
-			rank = 15;
-		}
-		if (player.getRights() == PlayerRights.WIKI_MANAGER) {
-			rank = 16;
-		}
-		if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-			rank = 17;
-		}
-		if (player.getRights() == PlayerRights.DEVELOPER) {
-			rank = 18;
-		}
-		out.put(rank);
+		out.put(player.getRights().getClientValue());
 		player.getSession().queueMessage(out);
 		return this;
 	}

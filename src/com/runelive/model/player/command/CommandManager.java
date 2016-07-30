@@ -190,14 +190,12 @@ public class CommandManager {
         /**
          * Regular Donor Commands
          */
-
         commands.put("yell", new Yell(PlayerRights.REGULAR_DONOR));
         commands.put("dzone", new TeleportDonorZone(PlayerRights.REGULAR_DONOR));
 
         /**
          * Extreme Donor Commands
          */
-
         commands.put("ezone", new TeleportExtremeZone(PlayerRights.EXTREME_DONOR));
 
         /**
@@ -207,6 +205,36 @@ public class CommandManager {
         commands.put("moderns", new EnableModern(PlayerRights.LEGENDARY_DONOR));
         commands.put("ancients", new EnableAncients(PlayerRights.LEGENDARY_DONOR));
         commands.put("lunars", new EnableLunar(PlayerRights.LEGENDARY_DONOR));
+
+        /**
+         * Youtuber Commands
+         */
+
+        /**
+         * Wiki Manager Commands
+         */
+        commands.put("promote", new PromoteWiki(PlayerRights.WIKI_MANAGER));
+        commands.put("demote", new DemoteWiki(PlayerRights.WIKI_MANAGER));
+
+        /**
+         * Server Support Commands
+         */
+
+        /**
+         * Moderator Commands
+         */
+
+        /**
+         * Administrator Commands
+         */
+
+        /**
+         * Manager Commands
+         */
+
+        /**
+         * Owner Commands
+         */
 
     }
 

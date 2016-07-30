@@ -81,8 +81,7 @@ public class SkillManager {
 	 */
 	public SkillManager addSkillExperience(Skill skill, int experience) {
 		if(GameSettings.PVP_WORLD) {
-			experience *= player.getGameModeAssistant().getModeExpRate() * 1.5;
-			return addExactExperience(skill, experience);
+			experience *= 1.5;
 		}
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);

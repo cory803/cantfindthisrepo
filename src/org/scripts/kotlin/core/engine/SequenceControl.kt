@@ -19,7 +19,7 @@ object SequenceControl {
         FightPit.sequence()
         PestControl.sequence()
         ShootingStar.sequence()
-        EvilTrees.sequence();
+        EvilTrees.sequence()
         System.out.println("RuneLive has successfully started up World sequences.")
     }
 }
