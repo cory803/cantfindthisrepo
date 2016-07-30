@@ -381,6 +381,8 @@ public class PlayerHandler {
 			DailyTaskManager.giveNewTask(player);
 		}
 		PlayerOwnedShops.collectCoinsOnLogin(player);
+		player.updateRank();
+		player.getPacketSender().sendRights();
 	}
 
 	public static boolean handleLogout(Player player) {

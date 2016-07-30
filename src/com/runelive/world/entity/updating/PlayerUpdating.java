@@ -421,45 +421,7 @@ public class PlayerUpdating {
 	 * @return The PlayerUpdating instance.
 	 */
 	private static void updateChat(PacketBuilder builder, Player target) {
-		int rankId = target.getRights().ordinal();
-		if (rankId == 0) {
-			if (target.getDonorRights() == 1) {
-				rankId = 7;
-			}
-			if (target.getDonorRights() == 2) {
-				rankId = 8;
-			}
-			if (target.getDonorRights() == 3) {
-				rankId = 9;
-			}
-			if (target.getDonorRights() == 4) {
-				rankId = 10;
-			}
-			if (target.getDonorRights() == 5) {
-				rankId = 11;
-			}
-		}
-		if (target.getGameModeAssistant().isIronMan() && !target.getRights().isStaff()) {
-			rankId = 12;
-		}
-		/*if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
-			rankId = 13;
-		}*/
-		if (target.getRights() == PlayerRights.MANAGER) {
-			rankId = 14;
-		}
-		if (target.getRights() == PlayerRights.WIKI_EDITOR) {
-			rankId = 15;
-		}
-		if (target.getRights() == PlayerRights.WIKI_MANAGER) {
-			rankId = 16;
-		}
-		if (target.getRights() == PlayerRights.STAFF_MANAGER) {
-			rankId = 17;
-		}
-		if (target.getRights() == PlayerRights.DEVELOPER) {
-			rankId = 18;
-		}
+		int rankId = target.getRights().getClientValue();
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
@@ -622,45 +584,7 @@ public class PlayerUpdating {
 	 * @return The PlayerUpdating instance.
 	 */
 	private static void updateAppearance(Player player, PacketBuilder out, Player target) {
-		int rankId = target.getRights().ordinal();
-		if (rankId == 0) {
-			if (target.getDonorRights() == 1) {
-				rankId = 7;
-			}
-			if (target.getDonorRights() == 2) {
-				rankId = 8;
-			}
-			if (target.getDonorRights() == 3) {
-				rankId = 9;
-			}
-			if (target.getDonorRights() == 4) {
-				rankId = 10;
-			}
-			if (target.getDonorRights() == 5) {
-				rankId = 11;
-			}
-		}
-		if (target.getGameModeAssistant().isIronMan() && !target.getRights().isStaff()) {
-			rankId = 12;
-		}
-		/*if (target.getGameMode() == GameMode.HARDCORE_IRONMAN && !target.getRights().isStaff()) {
-			rankId = 13;
-		}*/
-		if (target.getRights() == PlayerRights.MANAGER) {
-			rankId = 14;
-		}
-		if (target.getRights() == PlayerRights.WIKI_EDITOR) {
-			rankId = 15;
-		}
-		if (target.getRights() == PlayerRights.WIKI_MANAGER) {
-			rankId = 16;
-		}
-		if (target.getRights() == PlayerRights.STAFF_MANAGER) {
-			rankId = 17;
-		}
-		if (target.getRights() == PlayerRights.DEVELOPER) {
-			rankId = 18;
-		}
+		int rankId = target.getRights().getClientValue();
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();
 		PacketBuilder properties = new PacketBuilder();

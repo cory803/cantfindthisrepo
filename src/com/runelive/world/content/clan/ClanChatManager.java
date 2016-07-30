@@ -357,45 +357,7 @@ public class ClanChatManager {
 					continue;
 				}
 				// continue;
-				int img = player.getRights().ordinal();
-				if (img == 0) {
-					if (player.getDonorRights() == 1) {
-						img = 7;
-					}
-					if (player.getDonorRights() == 2) {
-						img = 8;
-					}
-					if (player.getDonorRights() == 3) {
-						img = 9;
-					}
-					if (player.getDonorRights() == 4) {
-						img = 10;
-					}
-					if (player.getDonorRights() == 5) {
-						img = 11;
-					}
-				}
-				if (player.getGameModeAssistant().isIronMan() && !player.getRights().isStaff()) {
-					img = 12;
-				}
-				/*if (player.getGameMode() == GameMode.HARDCORE_IRONMAN && !player.getRights().isStaff()) {
-					img = 13;
-				}*/
-				if (player.getRights() == PlayerRights.MANAGER) {
-					img = 14;
-				}
-				if (player.getRights() == PlayerRights.WIKI_EDITOR) {
-					img = 15;
-				}
-				if (player.getRights() == PlayerRights.WIKI_MANAGER) {
-					img = 16;
-				}
-				if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-					img = 17;
-				}
-				if (player.getRights() == PlayerRights.DEVELOPER) {
-					img = 18;
-				}
+				int img = player.getRights().getClientValue();
 				String rankImg = img > 0 ? " <img=" + img + "> " : " ";
 				memberPlayer.getPacketSender()
 						.sendMessage(":clan:" + bracketColor + "[" + clanNameColor + clan.getName() + bracketColor + "]"

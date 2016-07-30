@@ -401,8 +401,17 @@ public class Player extends Character {
             getRights().setRights(getDonorRights());
             return;
         }
+        PlayerRights[] DONORS = {
+                PlayerRights.REGULAR_DONOR,
+                PlayerRights.SUPER_DONOR,
+                PlayerRights.EXTREME_DONOR,
+                PlayerRights.LEGENDARY_DONOR,
+                PlayerRights.UBER_DONOR
+        };
         if (getDonorRights() > 0) {
-            setRights(PlayerRights.forRights(getDonorRights()));
+            setRights(DONORS[getDonorRights() - 1]);
+        } else {
+            setRights(PlayerRights.PLAYER);
         }
     }
 

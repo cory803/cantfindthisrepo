@@ -84,45 +84,7 @@ public class PlayersOnlineInterface {
 			Player p = PLAYERS_ONLINE_LIST.get(i);
 			if (p == null)
 				continue;
-			int rankId = p.getRights().ordinal();
-			if (rankId == 0) {
-				if (p.getDonorRights() == 1) {
-					rankId = 7;
-				}
-				if (p.getDonorRights() == 2) {
-					rankId = 8;
-				}
-				if (p.getDonorRights() == 3) {
-					rankId = 9;
-				}
-				if (p.getDonorRights() == 4) {
-					rankId = 10;
-				}
-				if (p.getDonorRights() == 5) {
-					rankId = 11;
-				}
-			}
-			if (p.getGameModeAssistant().isIronMan() && !p.getRights().isStaff()) {
-				rankId = 12;
-			}
-			/*if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
-				rankId = 13;
-			}*/
-			if (p.getRights() == PlayerRights.MANAGER) {
-				rankId = 14;
-			}
-			if (p.getRights() == PlayerRights.WIKI_EDITOR) {
-				rankId = 15;
-			}
-			if (p.getRights() == PlayerRights.WIKI_MANAGER) {
-				rankId = 16;
-			}
-			if (p.getRights() == PlayerRights.STAFF_MANAGER) {
-				rankId = 17;
-			}
-			if (p.getRights() == PlayerRights.DEVELOPER) {
-				rankId = 18;
-			}
+			int rankId = p.getRights().getClientValue();
 			player.getPacketSender().sendString(child,
 					"" + (rankId > 0 ? "<img=" + rankId + ">" : "  ") + "" + p.getUsername());
 			child++;

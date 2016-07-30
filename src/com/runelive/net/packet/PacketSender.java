@@ -868,45 +868,7 @@ public class PacketSender {
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
 		out.putInt(player.getRelations().getPrivateMessageId());
-		int rank = rights.ordinal();
-		if (rank == 0) {
-			if (me.getDonorRights() == 1) {
-				rank = 7;
-			}
-			if (me.getDonorRights() == 2) {
-				rank = 8;
-			}
-			if (me.getDonorRights() == 3) {
-				rank = 9;
-			}
-			if (me.getDonorRights() == 4) {
-				rank = 10;
-			}
-			if (me.getDonorRights() == 5) {
-				rank = 11;
-			}
-		}
-		if (me.getGameModeAssistant().isIronMan()) {
-			rank = 12;
-		}
-		/*if (me.getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			rank = 13;
-		}*/
-		if (me.getRights() == PlayerRights.MANAGER) {
-			rank = 14;
-		}
-		if (me.getRights() == PlayerRights.WIKI_EDITOR) {
-			rank = 15;
-		}
-		if (me.getRights() == PlayerRights.WIKI_MANAGER) {
-			rank = 16;
-		}
-		if (me.getRights() == PlayerRights.STAFF_MANAGER) {
-			rank = 17;
-		}
-		if (me.getRights() == PlayerRights.DEVELOPER) {
-			rank = 18;
-		}
+		int rank = rights.getClientValue();
 		out.put(rank);
 		out.putBytes(message, size);
 		player.getSession().queueMessage(out);

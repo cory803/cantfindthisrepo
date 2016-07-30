@@ -51,7 +51,7 @@ public class Hiscores implements SQLCallback {
 
             GameServer.getHiscoresPool().executeQuery(preparedStatement, this);
 
-            preparedStatement = GameServer.getHiscoresPool().prepareStatement("INSERT INTO `skills` (`playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Dungeoneering`, `Summoning`, `Hunter`, `Construction`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement = GameServer.getHiscoresPool().prepareStatement("INSERT INTO `skills` (`playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Construction`, `Hunter`, `Summoning`, `Dungeoneering`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, player.getUsername());
             preparedStatement.setByte(2, (byte) player.getGameModeAssistant().ordinal());
             preparedStatement.setByte(3, (byte) getRank());
