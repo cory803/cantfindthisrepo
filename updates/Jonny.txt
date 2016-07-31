@@ -1,7 +1,6 @@
 Game Updates:
-The bug where you would rest and constantly get back up is fixed.
-The random doors/gates that were broken (Warriors Guild/Wilderness agility course) is now fixed.
 The dragon defender that you get in treasure island is now the real dragon defender.
+The dragon warhammer inventory model is now fixed.
 
 Polls:
 Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?

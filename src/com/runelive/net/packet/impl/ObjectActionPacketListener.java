@@ -528,7 +528,52 @@ public class ObjectActionPacketListener implements PacketListener {
 							break;
 						case 3565:
 							if (player.getSkillManager().getCurrentLevel(Skill.AGILITY) >= 50) {
-								if (player.getPosition().getX() <= 3349) {
+
+								if((player.getPosition().getX() == 3101 && player.getPosition().getY() == 2972) || (player.getPosition().getX() == 3102 && player.getPosition().getY() == 2972)) {
+									TaskManager.submit(new Task(1, player, true) {
+										int tick = 1;
+
+										@Override
+										public void execute() {
+											tick++;
+											player.performAnimation(new Animation(769));
+											if (tick == 3) {
+												player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY() + 3));
+											} else if (tick >= 4) {
+												stop();
+											}
+										}
+
+										@Override
+										public void stop() {
+											setEventRunning(false);
+											Agility.addExperience(player, 100);
+											player.getPacketSender().sendMessage("You jump over the wall.");
+										}
+									});
+								} else if((player.getPosition().getX() == 3101 && player.getPosition().getY() == 2975) || (player.getPosition().getX() == 3102 && player.getPosition().getY() == 2975)) {
+									TaskManager.submit(new Task(1, player, true) {
+										int tick = 1;
+
+										@Override
+										public void execute() {
+											tick++;
+											player.performAnimation(new Animation(769));
+											if (tick == 3) {
+												player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY() - 3));
+											} else if (tick >= 4) {
+												stop();
+											}
+										}
+
+										@Override
+										public void stop() {
+											setEventRunning(false);
+											Agility.addExperience(player, 100);
+											player.getPacketSender().sendMessage("You jump over the wall.");
+										}
+									});
+								} else if (player.getPosition().getX() <= 3349) {
 									TaskManager.submit(new Task(1, player, true) {
 										int tick = 1;
 
@@ -547,7 +592,7 @@ public class ObjectActionPacketListener implements PacketListener {
 										public void stop() {
 											setEventRunning(false);
 											Agility.addExperience(player, 100);
-											player.getPacketSender().sendMessage("You jump over the walle.");
+											player.getPacketSender().sendMessage("You jump over the wall.");
 										}
 									});
 								} else if (player.getPosition().getX() > 3350) {
@@ -1701,33 +1746,58 @@ public class ObjectActionPacketListener implements PacketListener {
 							CurseHandler.deactivateAll(player);
 							break;
 						case 2515:
-							/*
-							player.performAnimation(new Animation(828));
-							player.getPacketSender().sendString(1, "ZULRAHFADE");
-							TaskManager.submit(new Task(1, player, true) {
-								int tick = 1;
+							player.getPacketSender().sendMessage("lool woot");
+							if(player.getLocation() == Location.ROCK_CRABS) {
+								player.performAnimation(new Animation(828));
+								player.getPacketSender().sendString(1, "ZULRAHFADE");
+								TaskManager.submit(new Task(1, player, true) {
+									int tick = 1;
 
-								@Override
-								public void execute() {
-									if(tick == 2) {
-										player.moveTo(new Position(2690, 3706, 0));
+									@Override
+									public void execute() {
+										if (tick == 2) {
+											player.moveTo(new Position(2690, 3706, 0));
+										}
+										if (tick == 5) {
+											player.moveTo(new Position(2691, 3771, 0));
+										}
+										if (tick == 8) {
+											stop();
+										}
+										tick++;
 									}
-									if(tick == 5) {
-										player.moveTo(new Position(2691, 3771, 0));
-									}
-									if (tick == 8) {
-										stop();
-									}
-									tick++;
-								}
 
-								@Override
-								public void stop() {
-									player.getZulrah().enterIsland();
-								}
-							});
-							*/
-							player.getPacketSender().sendMessage("This boat will be used for Zulrah once it's complete.");
+									@Override
+									public void stop() {
+										player.moveTo(new Position(3102, 2959, 0));
+									}
+								});
+							} else {
+								player.performAnimation(new Animation(828));
+								player.getPacketSender().sendString(1, "ZULRAHFADE");
+								TaskManager.submit(new Task(1, player, true) {
+									int tick = 1;
+
+									@Override
+									public void execute() {
+										if (tick == 2) {
+											player.moveTo(new Position(3102, 2956, 0));
+										}
+										if (tick == 5) {
+											player.moveTo(new Position(2691, 3771, 0));
+										}
+										if (tick == 8) {
+											stop();
+										}
+										tick++;
+									}
+
+									@Override
+									public void stop() {
+										player.moveTo(new Position(2688, 3706, 0));
+									}
+								});
+							}
 							break;	
 						case 6552:
 							player.performAnimation(new Animation(645));

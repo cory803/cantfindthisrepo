@@ -51,6 +51,7 @@ public class CombatStrategies {
 		STRATEGIES.put(8349, new TormentedDemon());
 		STRATEGIES.put(3200, new ChaosElemental());
 		STRATEGIES.put(4540, new BandosAvatar());
+		STRATEGIES.put(5871, new Bork());
 		STRATEGIES.put(8133, new CorporealBeast());
 		STRATEGIES.put(5866, new Cerberus());
 		STRATEGIES.put(13447, new Nex());

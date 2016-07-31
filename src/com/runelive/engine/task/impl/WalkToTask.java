@@ -67,7 +67,12 @@ public class WalkToTask {
 			}
 			//Add distanced object clipping here
 			if((player.getPosition().getX() == 2688 && player.getPosition().getY() == 3707)
-				|| (player.getPosition().getX() == 2800 && player.getPosition().getY() == 10134)) {
+				|| (player.getPosition().getX() == 2800 && player.getPosition().getY() == 10134)
+					|| (player.getPosition().getX() == 3102 && player.getPosition().getY() == 2958)
+					|| (player.getPosition().getX() == 3101 && player.getPosition().getY() == 2958)
+					|| (player.getPosition().getX() == 3100 && player.getPosition().getY() == 2958)
+					|| (player.getPosition().getX() == 3104 && player.getPosition().getY() == 2958)
+						|| (player.getPosition().getX() == 3103 && player.getPosition().getY() == 2958)) {
 				finalizedTask.execute();
 				player.setEntityInteraction(null);
 				player.setWalkToTask(null);
