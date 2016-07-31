@@ -5,6 +5,7 @@ import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
 import com.runelive.model.Graphic;
 import com.runelive.model.GraphicHeight;
+import com.runelive.model.Locations;
 import com.runelive.util.Misc;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
@@ -39,12 +40,42 @@ public class Bork implements CombatStrategy {
 		if (bork.isChargingAttack() || bork.getConstitution() <= 0) {
 			return true;
 		}
-		CombatType style = Misc.getRandom(2) <= 1 ? CombatType.MELEE : CombatType.RANGED;
+		Player target = (Player) victim;
+		CombatType style = CombatType.MELEE;
+		int ran = Misc.random(5, 10);
+		switch(ran) {
+			case 5:
+			case 6:
+			case 7:
+				style = CombatType.RANGED;
+				break;
+		}
+		if (!Locations.goodDistance(bork.getPosition().copy(), victim.getPosition().copy(), 3)) {
+			style = CombatType.RANGED;
+		}
 		if (style == CombatType.MELEE) {
 			bork.performAnimation(new Animation(bork.getDefinition().getAttackAnimation()));
 			bork.getCombatBuilder().setContainer(new CombatContainer(bork, victim, 1, 1, CombatType.MELEE, true));
 		} else {
-
+			bork.setChargingAttack(true);
+			bork.performAnimation(rangedAttack);
+			TaskManager.submit(new Task(1, bork, false) {
+				int tick = 0;
+				@Override
+				public void execute() {
+					bork.getCombatBuilder().setVictim(target);
+					if(tick == 1) {
+						bork.performGraphic(rangedGraphic);
+					}
+					if (tick == 2) {
+						new CombatHit(bork.getCombatBuilder(), new CombatContainer(bork, target, 1, CombatType.RANGED, true))
+								.handleAttack();
+						bork.setChargingAttack(false);
+						stop();
+					}
+					tick++;
+				}
+			});
 		}
 		return true;
 	}
@@ -56,7 +87,7 @@ public class Bork implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 1;
+		return 3;
 	}
 
 	@Override

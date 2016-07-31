@@ -47,6 +47,8 @@ public final class WeaponAnimations {
 		} else if (weaponName.startsWith("basket")) {
 			playerWalkIndex = 1836;
 			playerRunIndex = 1836;
+		} else if (weaponName.contains("ballista")) {
+			playerStandIndex = 7220;
 		} else if (weaponName.contains("dharok")) {
 			playerStandIndex = 0x811;
 			playerWalkIndex = 0x67F;

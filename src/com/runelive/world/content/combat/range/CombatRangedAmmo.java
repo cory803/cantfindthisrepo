@@ -240,6 +240,8 @@ public class CombatRangedAmmo {
 
 		TOKTZ_XIL_UL(new int[] { 6522 }, new AmmunitionData[] { AmmunitionData.TOKTZ_XIL_UL }, RangedWeaponType.THROW),
 
+		HEAVY_BALLISTA(new int[] { 21144 }, new AmmunitionData[] { AmmunitionData.DRAGON_JAVELIN }, RangedWeaponType.BALLISTA),
+
 		BRONZE_JAVELIN(new int[] { 825 }, new AmmunitionData[] { AmmunitionData.BRONZE_JAVELIN },
 				RangedWeaponType.THROW), IRON_JAVELIN(new int[] { 826 },
 						new AmmunitionData[] { AmmunitionData.IRON_JAVELIN }, RangedWeaponType.THROW), STEEL_JAVELIN(
@@ -392,7 +394,10 @@ public class CombatRangedAmmo {
 						new int[] { 828 }, 209, 203, 2, 40, 13, 45,
 						37), ADAMANT_JAVELIN(new int[] { 829 }, 210, 204, 2, 40, 15, 45, 37), RUNE_JAVELIN(
 								new int[] { 830 }, 211, 205, 2, 40, 17, 45,
-								37), MORRIGANS_JAVELIN(new int[] { 13879, 13953 }, 1855, -1, 2, 40, 100, 45, 37),
+								37),
+		DRAGON_JAVELIN(new int[] { 21146 }, -1, 1301, 2, 40, 15, 45, 37),
+
+		MORRIGANS_JAVELIN(new int[] { 13879, 13953 }, 1855, -1, 2, 40, 100, 45, 37),
 
 		TOKTZ_XIL_UL(new int[] { 6522 }, -1, 442, 2, 40, 58, 45, 37),
 
@@ -462,7 +467,7 @@ public class CombatRangedAmmo {
 
 	public enum RangedWeaponType {
 
-		LONGBOW(10, 6), SHORTBOW(10, 4), CROSSBOW(7, 6), ARMADYL_CROSSBOW(9, 6), ROYAL_CROSSBOW(10, 5), THROW(3,
+		LONGBOW(10, 6), SHORTBOW(10, 4), BALLISTA(10, 4), CROSSBOW(7, 6), ARMADYL_CROSSBOW(9, 6), ROYAL_CROSSBOW(10, 5), THROW(3,
 				3), DART(3, 3), BLOWPIPE(5, 3), DARK_BOW(10, 8), HAND_CANNON(10, 4);
 
 		RangedWeaponType(int distanceRequired, int attackDelay) {

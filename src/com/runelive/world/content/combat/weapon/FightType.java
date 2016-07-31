@@ -377,7 +377,23 @@ public enum FightType {
 																																																																																																																																																																					43,
 																																																																																																																																																																					3,
 																																																																																																																																																																					BonusManager.ATTACK_RANGE,
-																																																																																																																																																																					FightStyle.DEFENSIVE);
+																																																																																																																																																																					FightStyle.DEFENSIVE),
+	BALLISTA_ACCURATE(
+			7218,
+			43,
+			0,
+			BonusManager.ATTACK_RANGE,
+			FightStyle.ACCURATE), BALLISTA_RAPID(
+			7218,
+			43,
+			1,
+			BonusManager.ATTACK_RANGE,
+			FightStyle.AGGRESSIVE), BALLISTA_LONGRANGE(
+			7218,
+			43,
+			2,
+			BonusManager.ATTACK_RANGE,
+			FightStyle.DEFENSIVE);
 
 	/** The animation this fight type holds. */
 	private int animation;

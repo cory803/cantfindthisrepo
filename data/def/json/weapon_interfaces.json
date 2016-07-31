@@ -2033,6 +2033,11 @@
     "hash": 6724,
     "item-id": 6724,
     "interface": "SHORTBOW"
+  }, 
+  {
+    "hash": 21144,
+    "item-id": 21144,
+    "interface": "BALLISTA"
   },
   {
     "hash": 4958,

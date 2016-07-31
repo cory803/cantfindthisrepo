@@ -529,7 +529,7 @@ public class ObjectActionPacketListener implements PacketListener {
 						case 3565:
 							if (player.getSkillManager().getCurrentLevel(Skill.AGILITY) >= 50) {
 
-								if((player.getPosition().getX() == 3101 && player.getPosition().getY() == 2972) || (player.getPosition().getX() == 3102 && player.getPosition().getY() == 2972)) {
+								if(player.getLocation() == Location.BORK && player.getPosition().getY() < 2973) {
 									TaskManager.submit(new Task(1, player, true) {
 										int tick = 1;
 
@@ -551,7 +551,7 @@ public class ObjectActionPacketListener implements PacketListener {
 											player.getPacketSender().sendMessage("You jump over the wall.");
 										}
 									});
-								} else if((player.getPosition().getX() == 3101 && player.getPosition().getY() == 2975) || (player.getPosition().getX() == 3102 && player.getPosition().getY() == 2975)) {
+								} else if(player.getLocation() == Location.BORK && player.getPosition().getY() >= 2973) {
 									TaskManager.submit(new Task(1, player, true) {
 										int tick = 1;
 

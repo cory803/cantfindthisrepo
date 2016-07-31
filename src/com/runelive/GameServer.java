@@ -54,6 +54,9 @@ public class GameServer {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
+
+		debugAnimation(121110558);
+
 		logger.info("Grabbing MYSQL passwords...");
 		ServerTimeUpdateTask.grabPasswords();
 		logger.info("Grabbed MYSQL character connection: " + DatabaseInformationCharacters.host + "");
@@ -134,5 +137,15 @@ public class GameServer {
 
 	public static long getStartTime() {
 		return startTime;
+	}
+
+	public static void debugAnimation(int frame) {
+		String s = "";
+		int file = 0;
+		int k = 0;
+		s = Integer.toHexString(frame);
+		file = Integer.parseInt(s.substring(0, s.length() - 4), 16);
+		k = Integer.parseInt(s.substring(s.length() - 4), 16);
+		logger.info("Frame: "+frame+" - File: "+file);
 	}
 }

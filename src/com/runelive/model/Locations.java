@@ -134,6 +134,8 @@ public class Locations {
 		// },
 		ROCK_CRABS(new int[] { 2663, 2729 }, new int[] { 3691, 3730 }, true, true, true, true, true, true) {
 		},
+		BORK(new int[] { 3060, 3140 }, new int[] { 2950, 3050 }, true, true, true, false, true, true) {
+		},
 		ARMOURED_ZOMBIES(new int[] { 3077, 3132 }, new int[] { 9657, 9680 }, true, true, true, true, true, true) {
 		},
 		CORPOREAL_BEAST(new int[] { 2879, 2962 }, new int[] { 4368, 4406 }, true, true, true, false, true, true) {
