@@ -253,9 +253,14 @@ public class PlayerHandler {
 			player.getPacketSender()
 					.sendMessage("You have logged in with negative Slayer points, they have been set to 0.");
 		}
+		if (player.getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted() == 6) {
+			Achievements.finishAchievement(player, AchievementData.DEFEAT_NOMAD);
+			Achievements.finishAchievement(player, AchievementData.DEFEAT_THE_CULINAROMANCER);
+		}
+
 		// Update appearance
 		player.getUpdateFlag().flag(Flag.APPEARANCE);
-
+		if(player.getAchievementAttributes().)
 		// Loads login messages from Kotlin
 		// new org.scripts.kotlin.core.login.LoginMessageParser();
 		// LoginMessageParser.LoginMessageParser.sendLogin(player);

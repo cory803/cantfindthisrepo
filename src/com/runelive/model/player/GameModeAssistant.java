@@ -184,6 +184,10 @@ public class GameModeAssistant {
             for (int i = 0; i < player.getAchievementAttributes().getProgress().length; i ++) {
                 player.getAchievementAttributes().setProgress(i, 0);
             }
+            if (player.getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted() == 6) {
+                Achievements.finishAchievement(player, Achievements.AchievementData.DEFEAT_NOMAD);
+                Achievements.finishAchievement(player, Achievements.AchievementData.DEFEAT_THE_CULINAROMANCER);
+            }
             player.getPointsHandler().setAchievementPoints(0, false);
         }
         this.gameMode = gamemode;
