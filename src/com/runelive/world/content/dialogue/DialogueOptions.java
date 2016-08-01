@@ -2183,6 +2183,7 @@ public class DialogueOptions {
 				player.getPacketSender().sendEnterAmountPrompt(
 						"How many shards would you like to sell? (You can use K, M, B prefixes)");
 				player.setInputHandling(new SellShards());
+				break;
 			case 47:
 				TeleportHandler.teleportPlayer(player, new Position(3023, 9740),
 						player.getSpellbook().getTeleportType());
