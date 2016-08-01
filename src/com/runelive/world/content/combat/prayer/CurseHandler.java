@@ -342,7 +342,7 @@ public class CurseHandler {
 		return toRemove;
 	}
 
-	private enum CurseData {
+	public enum CurseData {
 		PROTECT_ITEM(50, .1, 32503, 610, new PrayerAnimation(new Animation(12567), new Graphic(2213))), SAP_WARRIOR(50,
 				.3, 32505, 611), SAP_RANGER(52, .3, 32507, 612), SAP_MAGE(54, .3, 32509, 613), SAP_SPIRIT(56, .3, 32511,
 						614), BERSERKER(59, .4, 32513, 615, new PrayerAnimation(new Animation(12589),

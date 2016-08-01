@@ -11,6 +11,7 @@ import java.util.stream.Stream;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.Input;
 import com.runelive.world.content.PlayerPunishment;
+import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.pos.PosDetails;
 import com.runelive.world.content.pos.PosOffer;
@@ -21,6 +22,8 @@ public class PosItemSearch extends Input {
 
 	@Override
 	public void handleSyntax(Player player, String syntax) {
+		player.getPacketSender().sendMessage("<col=ff0000>Searching items has been disabled temporarily, this was confirmed to be");
+		player.getPacketSender().sendMessage("<col=ff0000>the source of the lag issue in the game. Enjoy no lag :)");
 		Locale locale = new Locale("en", "US");
 		NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
 		if (syntax.length() <= 1) {
@@ -85,7 +88,6 @@ public class PosItemSearch extends Input {
 			player.getPacketSender().sendString(start_caption, "");
 			player.getPacketSender().sendString(start_owner_name, "");
 		}
-
 	}
 
 	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {

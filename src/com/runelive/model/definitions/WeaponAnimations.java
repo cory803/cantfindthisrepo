@@ -49,6 +49,8 @@ public final class WeaponAnimations {
 			playerRunIndex = 1836;
 		} else if (weaponName.contains("ballista")) {
 			playerStandIndex = 7220;
+			playerRunIndex = 7223;
+			playerWalkIndex = 7223;
 		} else if (weaponName.contains("dharok")) {
 			playerStandIndex = 0x811;
 			playerWalkIndex = 0x67F;
@@ -68,7 +70,7 @@ public final class WeaponAnimations {
 		} else if (weaponName.contains("with zanik")) {
 			playerStandIndex = 4193;
 			playerWalkIndex = 4194;
-			playerRunIndex = 824;
+			playerRunIndex = 4194;
 		} else if (weaponName.contains("longsword") || weaponName.contains("scimitar")) {
 			playerStandIndex = 15069;// 12021;
 			playerRunIndex = 15070;// 12023;

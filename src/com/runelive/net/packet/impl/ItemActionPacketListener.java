@@ -881,8 +881,7 @@ public class ItemActionPacketListener implements PacketListener {
 			}
 			break;
 		case 7500:
-			player.forceChat("*razor noises* ZzZZzzZZZzzzz [I'M SHAVING JONNY'S HEAD]");
-			DialogueManager.start(player, 324);
+			player.forceChat("Omg I am a nub!!! Jonny RULES!");
 			break;
 		case 19670:
 			if (player.busy()) {
@@ -890,7 +889,6 @@ public class ItemActionPacketListener implements PacketListener {
 				return;
 			}
 			player.setDialogueActionId(71);
-			//DialogueManager.start(player, player.getGameModeAssistant().getGameMode() == GameMode.NORMAL ? 108 : 109);
 			break;
 		case 6500:
 			player.getPacketSender().sendMessage("You're currently gain experience and picking up charms.");

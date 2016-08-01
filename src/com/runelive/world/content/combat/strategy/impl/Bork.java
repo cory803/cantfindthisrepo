@@ -2,14 +2,13 @@ package com.runelive.world.content.combat.strategy.impl;
 
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
-import com.runelive.model.Animation;
-import com.runelive.model.Graphic;
-import com.runelive.model.GraphicHeight;
-import com.runelive.model.Locations;
+import com.runelive.model.*;
 import com.runelive.util.Misc;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
 import com.runelive.world.content.combat.HitQueue.CombatHit;
+import com.runelive.world.content.combat.prayer.CurseHandler;
+import com.runelive.world.content.combat.prayer.PrayerHandler;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -50,7 +49,7 @@ public class Bork implements CombatStrategy {
 				style = CombatType.RANGED;
 				break;
 		}
-		if (!Locations.goodDistance(bork.getPosition().copy(), victim.getPosition().copy(), 3)) {
+		if (!Locations.goodDistance(bork.getPosition().copy(), victim.getPosition().copy(), 1)) {
 			style = CombatType.RANGED;
 		}
 		if (style == CombatType.MELEE) {
@@ -71,6 +70,48 @@ public class Bork implements CombatStrategy {
 						new CombatHit(bork.getCombatBuilder(), new CombatContainer(bork, target, 1, CombatType.RANGED, true))
 								.handleAttack();
 						bork.setChargingAttack(false);
+						if(target.getConstitution() <= 100 && target.getConstitution() > 0) {
+							target.dealDamage(new Hit(target.getConstitution(), Hitmask.RED2, CombatIcon.NONE));
+							bork.forceChat("Hehehehe poisoned");
+						}
+						int random = Misc.random(5, 10);
+						int random2 = Misc.random(5, 10);
+						if (PrayerHandler.isActivated(target, PrayerHandler.PROTECT_FROM_MISSILES)
+								|| PrayerHandler.isActivated(target, PrayerHandler.PROTECT_FROM_MELEE)
+								|| CurseHandler.isActivated(target, CurseHandler.CurseData.DEFLECT_MELEE.ordinal())
+								|| CurseHandler.isActivated(target, CurseHandler.CurseData.DEFLECT_MISSILES.ordinal())) {
+							if (random == 7) {
+								if (target.getConstitution() > 0) {
+									String[] forceChats = {
+											"Haha very sneaky!",
+											"Do you think I am a fool?",
+											"I see your prayer!",
+											"Bow to me, I am a god!",
+											"Protection hmm? Take that!",
+									};
+									target.dealDamage(new Hit(Misc.random(25, 100), Hitmask.DARK_PURPLE, CombatIcon.NONE));
+									bork.forceChat(forceChats[(int) (Math.random() * forceChats.length)]);
+									PrayerHandler.resetPrayers(target, PrayerHandler.OVERHEAD_PRAYERS, -1);
+									CurseHandler.deactivateCurses(target, CurseHandler.OVERHEAD_CURSES);
+								}
+							}
+						}
+						if(random2 == 7 && random != 7 && !PrayerHandler.isActivated(target, PrayerHandler.PROTECT_FROM_MISSILES)
+								|| !PrayerHandler.isActivated(target, PrayerHandler.PROTECT_FROM_MELEE)
+								|| !CurseHandler.isActivated(target, CurseHandler.CurseData.DEFLECT_MELEE.ordinal())
+								|| !CurseHandler.isActivated(target, CurseHandler.CurseData.DEFLECT_MISSILES.ordinal())) {
+								String[] forceChats = {
+										"You will suffer the pain of 10 deaths!",
+										"I will kill you!",
+										"Misery will come upon you!",
+										"Dieeeeeeeeeee!!!",
+										"You think you can take my items that easily???",
+										"Darkness will strike you!",
+										"Are you a true warrior? Prove it!!",
+										"Grrrrrrrrrrrrrrrrrrrrrrr!!!",
+								};
+								bork.forceChat(forceChats[(int) (Math.random() * forceChats.length)]);
+						}
 						stop();
 					}
 					tick++;

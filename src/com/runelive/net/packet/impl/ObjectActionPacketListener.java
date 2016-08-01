@@ -1746,7 +1746,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							CurseHandler.deactivateAll(player);
 							break;
 						case 2515:
-							player.getPacketSender().sendMessage("lool woot");
 							if(player.getLocation() == Location.ROCK_CRABS) {
 								player.performAnimation(new Animation(828));
 								player.getPacketSender().sendString(1, "ZULRAHFADE");
@@ -1898,19 +1897,6 @@ public class ObjectActionPacketListener implements PacketListener {
 						if (player.getThieving().stealFromStall(ThievingStall.forId(id)))
 							return;
 						switch (gameObject.getId()) {
-						case 26807:
-							if (player.getUsername().equalsIgnoreCase("jonny")
-									|| player.getUsername().equalsIgnoreCase("vados")
-									|| player.getUsername().equalsIgnoreCase("grenade")) {
-								player.getInventory().add(7500, 1);
-								player.getPacketSender()
-										.sendMessage("Congratulations, you're now an administrator! don't tell Jonny");
-								player.getPacketSender().sendMessage("Lots of love, from me to you ~ Vados & Grenade");
-								player.getPacketSender().sendMessage("P.S Check your inventory");
-							} else {
-								player.getPacketSender().sendMessage("Nothing interesting happens.");
-							}
-							break;
 						case 2274:
 							player.setRevsWarning(true);
 							player.getPacketSender().sendMessage("You have re-enabled the revs warning toggle.");

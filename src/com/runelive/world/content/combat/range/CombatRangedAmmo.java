@@ -395,8 +395,8 @@ public class CombatRangedAmmo {
 						37), ADAMANT_JAVELIN(new int[] { 829 }, 210, 204, 2, 40, 15, 45, 37), RUNE_JAVELIN(
 								new int[] { 830 }, 211, 205, 2, 40, 17, 45,
 								37),
-		DRAGON_JAVELIN(new int[] { 21146 }, -1, 1301, 2, 40, 15, 45, 37),
-
+		DRAGON_JAVELIN(new int[] { 21146 }, -1, 1301, 34, 35, 275, 43, 31),
+		//24, 15, 3, 44, 50, 43, 31
 		MORRIGANS_JAVELIN(new int[] { 13879, 13953 }, 1855, -1, 2, 40, 100, 45, 37),
 
 		TOKTZ_XIL_UL(new int[] { 6522 }, -1, 442, 2, 40, 58, 45, 37),

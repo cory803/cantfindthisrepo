@@ -55,7 +55,7 @@ public class GameServer {
 			e.printStackTrace();
 		}
 
-		debugAnimation(121110558);
+		debugAnimation(121110564);
 
 		logger.info("Grabbing MYSQL passwords...");
 		ServerTimeUpdateTask.grabPasswords();

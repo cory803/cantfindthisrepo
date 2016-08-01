@@ -959,7 +959,7 @@ public class DialogueOptions {
 				break;
 			case 40:
 				DialogueManager.start(player, 69);
-				player.setDialogueActionId(41);
+				player.setDialogueActionId(300);
 				break;
 			case 59:
 				if (player.getClickDelay().elapsed(1500)) {
@@ -972,6 +972,10 @@ public class DialogueOptions {
 			}
 		} else if (id == FIRST_OPTION_OF_FOUR) {
 			switch (player.getDialogueActionId()) {
+			case 300:
+				TeleportHandler.teleportPlayer(player, new Position(3364, 2999),
+						player.getSpellbook().getTeleportType());
+				break;
 			case 550:
 				if (player.getInventory().contains(3849)) {
 					player.getPacketSender().sendInterfaceRemoval();
@@ -1054,6 +1058,10 @@ public class DialogueOptions {
 			}
 		} else if (id == SECOND_OPTION_OF_FOUR) {
 			switch (player.getDialogueActionId()) {
+			case 300:
+				TeleportHandler.teleportPlayer(player, new Position(2903, 5204),
+						player.getSpellbook().getTeleportType());
+				break;
 			case 550:
 				if (player.getInventory().contains(3849)) {
 					player.getPacketSender().sendInterfaceRemoval();
@@ -1164,6 +1172,11 @@ public class DialogueOptions {
 			}
 		} else if (id == THIRD_OPTION_OF_FOUR) {
 			switch (player.getDialogueActionId()) {
+				case 300:
+					TeleportHandler.teleportPlayer(player, new Position(2685, 3706),
+							player.getSpellbook().getTeleportType());
+					player.getPacketSender().sendMessage("<col=ff0000>In order to get to Bork you must travel with the boat in the river.");
+					break;
 			case 550:
 				if (player.getInventory().contains(3849)) {
 					player.getPacketSender().sendInterfaceRemoval();
@@ -1257,6 +1270,10 @@ public class DialogueOptions {
 			}
 		} else if (id == FOURTH_OPTION_OF_FOUR) {
 			switch (player.getDialogueActionId()) {
+				case 300:
+					player.setDialogueActionId(36);
+					DialogueManager.start(player, 65);
+					break;
 			case 550:
 				player.getPacketSender().sendInterfaceRemoval();
 				player.setDialogueActionId(551);
@@ -1880,10 +1897,6 @@ public class DialogueOptions {
 				player.getPacketSender().sendMessage(
 						"You currently have <col=ffff00><shad=0>" + player.getCredits() + " </col></shad>Credits.");
 				break;
-			case 41:
-				TeleportHandler.teleportPlayer(player, new Position(3364, 2999),
-						player.getSpellbook().getTeleportType());
-				break;
 			case 15:
 				DialogueManager.start(player, 35);
 				player.setDialogueActionId(19);
@@ -2170,11 +2183,6 @@ public class DialogueOptions {
 				player.getPacketSender().sendEnterAmountPrompt(
 						"How many shards would you like to sell? (You can use K, M, B prefixes)");
 				player.setInputHandling(new SellShards());
-				break;
-			case 41:
-				TeleportHandler.teleportPlayer(player, new Position(2903, 5204),
-						player.getSpellbook().getTeleportType());
-				break;
 			case 47:
 				TeleportHandler.teleportPlayer(player, new Position(3023, 9740),
 						player.getSpellbook().getTeleportType());
@@ -2371,10 +2379,6 @@ public class DialogueOptions {
 				ShopManager.getShops().get(81).open(player);
 				player.getPacketSender().sendMessage(
 						"You currently have <col=ffff00><shad=0>" + player.getCredits() + " </col></shad>Credits.");
-				break;
-			case 41:
-				player.setDialogueActionId(36);
-				DialogueManager.start(player, 65);
 				break;
 			case 133: // boss system - close(finish)
 				player.getPacketSender().sendInterfaceRemoval();

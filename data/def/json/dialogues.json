@@ -686,10 +686,11 @@
     {
         "id": 69,
         "type": "OPTION",
-        "lines": 3,
+        "lines": 4,
         "line1": "Sumona",
         "line2": "Nex",
-        "line3": "Return",
+        "line3": "Bork",
+        "line4": "Return",
         "next": -1,
         "npcId": -1
     },

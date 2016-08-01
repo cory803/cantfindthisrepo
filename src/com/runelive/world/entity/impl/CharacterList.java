@@ -126,7 +126,6 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
 			size--;
 			return true;
 		}
-		System.err.println("Failed to remove entity: " + e.toString());
 		return false;
 	}
 

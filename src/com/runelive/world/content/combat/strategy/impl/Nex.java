@@ -132,8 +132,10 @@ public class Nex implements CombatStrategy {
 				NEX.forceChat("Let the virus flow through you!");
 				cough(p);
 				NEX.performAnimation(new Animation(6986));
-				new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true))
-						.handleAttack();
+				if(p.getLocation() == Location.GODWARS_DUNGEON) {
+					new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true))
+							.handleAttack();
+				}
 				return true;
 			}
 			if (p.getPosition().distanceToPoint(NEX.getPosition().getX(), NEX.getPosition().getY()) <= 2
@@ -142,8 +144,10 @@ public class Nex implements CombatStrategy {
 				TaskManager.submit(new Task(1, NEX, false) {
 					@Override
 					public void execute() {
-						new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true))
-								.handleAttack();
+						if(p.getLocation() == Location.GODWARS_DUNGEON) {
+							new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MELEE, true))
+									.handleAttack();
+						}
 						stop();
 					}
 				});
@@ -151,8 +155,10 @@ public class Nex implements CombatStrategy {
 			} else {
 				NEX.performAnimation(new Animation(6326));
 				p.performGraphic(new Graphic(383));
-				new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true))
-						.handleAttack();
+				if(p.getLocation() == Location.GODWARS_DUNGEON) {
+					new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true))
+							.handleAttack();
+				}
 				return true;
 			}
 		}
@@ -164,41 +170,43 @@ public class Nex implements CombatStrategy {
 				attacks[3] = true;
 				NEX.setChargingAttack(true);
 				for (final Player p_ : Misc.getCombinedPlayerList(p)) {
-					if (p_ == null || p_.getLocation() != Location.GODWARS_DUNGEON)
-						continue;
-					TaskManager.submit(new Task(1, NEX, false) {
-						int origX, origY;
-						int ticks;
+					if(p_.getLocation() == Location.GODWARS_DUNGEON) {
+						if (p_ == null || p_.getLocation() != Location.GODWARS_DUNGEON)
+							continue;
+						TaskManager.submit(new Task(1, NEX, false) {
+							int origX, origY;
+							int ticks;
 
-						@Override
-						public void execute() {
+							@Override
+							public void execute() {
 
-							if (ticks == 0) {
-								origX = p_.getPosition().getX();
-								origY = p_.getPosition().getY();
-							}
-							if (ticks == 5) {
-								if (origX == p_.getPosition().getX() && origY == p_.getPosition().getY()) {
-									p_.dealDamage(new Hit(100 + Misc.getRandom(100), Hitmask.RED, CombatIcon.NONE));
-									p_.getPacketSender().sendMessage("The shadows begin to damage you!");
+								if (ticks == 0) {
+									origX = p_.getPosition().getX();
+									origY = p_.getPosition().getY();
+								}
+								if (ticks == 5) {
+									if (origX == p_.getPosition().getX() && origY == p_.getPosition().getY()) {
+										p_.dealDamage(new Hit(100 + Misc.getRandom(100), Hitmask.RED, CombatIcon.NONE));
+										p_.getPacketSender().sendMessage("The shadows begin to damage you!");
+										this.stop();
+									}
+								}
+
+								if (ticks == 10) {
 									this.stop();
 								}
+
+								ticks++;
 							}
 
-							if (ticks == 10) {
-								this.stop();
+							@Override
+							public void stop() {
+								setEventRunning(false);
+								attacks[3] = false;
+								NEX.setChargingAttack(false);
 							}
-
-							ticks++;
-						}
-
-						@Override
-						public void stop() {
-							setEventRunning(false);
-							attacks[3] = false;
-							NEX.setChargingAttack(false);
-						}
-					});
+						});
+					}
 				}
 			} else if (rnd >= 5 && rnd <= 7 && !attacks[4]) {
 				NEX.forceChat("Embrace darkness!");
@@ -377,9 +385,12 @@ public class Nex implements CombatStrategy {
 									for (Player p_ : Misc.getCombinedPlayerList(p)) {
 										if (p_ == null)
 											continue;
-										if (p_.getPosition().getX() == x && p_.getPosition().getY() == y)
-											p_.dealDamage(
-													new Hit(150 + Misc.getRandom(110), Hitmask.RED, CombatIcon.NONE));
+
+										if(p_.getLocation() == Location.GODWARS_DUNGEON) {
+											if (p_.getPosition().getX() == x && p_.getPosition().getY() == y)
+												p_.dealDamage(
+														new Hit(150 + Misc.getRandom(110), Hitmask.RED, CombatIcon.NONE));
+										}
 									}
 								}
 							}
@@ -399,8 +410,10 @@ public class Nex implements CombatStrategy {
 					TaskManager.submit(new Task(1, NEX, false) {
 						@Override
 						public void execute() {
-							new CombatHit(NEX.getCombatBuilder(),
-									new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
+							if(p.getLocation() == Location.GODWARS_DUNGEON) {
+								new CombatHit(NEX.getCombatBuilder(),
+										new CombatContainer(NEX, p, 1, CombatType.MELEE, true)).handleAttack();
+							}
 							stop();
 						}
 					});
@@ -408,8 +421,10 @@ public class Nex implements CombatStrategy {
 					p.performGraphic(new Graphic(366));
 					p.getMovementQueue().freeze(5);
 					NEX.performAnimation(new Animation(6326));
-					new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true))
-							.handleAttack();
+					if(p.getLocation() == Location.GODWARS_DUNGEON) {
+						new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true))
+								.handleAttack();
+					}
 				}
 			}
 		}
@@ -429,22 +444,24 @@ public class Nex implements CombatStrategy {
 	/** MISC **/
 
 	public static void dealtDamage(final Player p, final int damage) {
-		if (phase == 4) {
-			if (prayerType == 0 && damage != 0) {
-				new Projectile(NEX, p, 2263, 44, 3, 43, 43, 0).sendProjectile();
-				TaskManager.submit(new Task(2, NEX, false) {
-					@Override
-					public void execute() {
-						NEX.setConstitution(NEX.getConstitution() + (damage / 5));
-						p.getSkillManager().setCurrentLevel(Skill.PRAYER,
-								p.getSkillManager().getCurrentLevel(Skill.PRAYER) - (damage / 85));
-						if (p.getSkillManager().getCurrentLevel(Skill.PRAYER) < 0)
-							p.getSkillManager().setCurrentLevel(Skill.PRAYER, 0);
-						p.performGraphic(new Graphic(2264));
-						new Projectile(NEX, p, 2263, 44, 3, 43, 43, 0).sendProjectile();
-						this.stop();
-					}
-				});
+		if(p.getLocation() == Location.GODWARS_DUNGEON) {
+			if (phase == 4) {
+				if (prayerType == 0 && damage != 0) {
+					new Projectile(NEX, p, 2263, 44, 3, 43, 43, 0).sendProjectile();
+					TaskManager.submit(new Task(2, NEX, false) {
+						@Override
+						public void execute() {
+							NEX.setConstitution(NEX.getConstitution() + (damage / 5));
+							p.getSkillManager().setCurrentLevel(Skill.PRAYER,
+									p.getSkillManager().getCurrentLevel(Skill.PRAYER) - (damage / 85));
+							if (p.getSkillManager().getCurrentLevel(Skill.PRAYER) < 0)
+								p.getSkillManager().setCurrentLevel(Skill.PRAYER, 0);
+							p.performGraphic(new Graphic(2264));
+							new Projectile(NEX, p, 2263, 44, 3, 43, 43, 0).sendProjectile();
+							this.stop();
+						}
+					});
+				}
 			}
 		}
 	}

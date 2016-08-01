@@ -1516,6 +1516,33 @@ public final class CombatFactory {
 						recDamage = t2.getConstitution();
 					attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
 					ItemDegrading.handleItemDegrading(t2, DegradingItem.RING_OF_RECOIL);
+				} else if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 19672) { //Eye of the ranger
+					if(combatType == CombatType.RANGED) {
+						int recDamage = (int) (damage * 0.13);
+						if (recDamage <= 0)
+							return;
+						if (recDamage > t2.getConstitution())
+							recDamage = t2.getConstitution();
+						attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
+					}
+				} else if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 19674) { //Eye of the mage
+					if(combatType == CombatType.MAGIC) {
+						int recDamage = (int) (damage * 0.13);
+						if (recDamage <= 0)
+							return;
+						if (recDamage > t2.getConstitution())
+							recDamage = t2.getConstitution();
+						attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
+					}
+				} else if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 19673) { //Eye of the warrior
+					if(combatType == CombatType.MELEE) {
+						int recDamage = (int) (damage * 0.13);
+						if (recDamage <= 0)
+							return;
+						if (recDamage > t2.getConstitution())
+							recDamage = t2.getConstitution();
+						attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
+					}
 				}
 
 				/** PHOENIX NECK **/

@@ -61,6 +61,39 @@ public enum CombatSpecial {
 			};
 		}
 	},
+	HEAVY_BALLISTA(new int[] { 21144 }, 75, .75, 1.50, CombatType.RANGED, WeaponInterface.BALLISTA) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			String[] forceChats = {
+					"You will meet my doom!",
+					"Bahahahaha!!",
+					"You have been pwned!",
+					"Rifle, rifle, rifle away!",
+					"Woooooooooooooooooooo",
+					"Woo woo choo choo a boogie!",
+					"Doomsday is here!",
+			};
+			player.forceChat(forceChats[(int) (Math.random() * forceChats.length)]);
+			new Projectile(player, target, 1400, 100, 25, 33, 21, 0).sendProjectile();
+			if(target.isNpc()) {
+				new Projectile(player, target, 1400, 100, 25, 43, 31, 5).sendProjectile();
+				new Projectile(player, target, 1400, 100, 25, 23, 11, -5).sendProjectile();
+				return new CombatContainer(player, target, 3, 1, CombatType.RANGED, true) {
+					@Override
+					public void onHit(int damage, boolean accurate) {
+
+					}
+				};
+			} else {
+				return new CombatContainer(player, target, 1, 1, CombatType.RANGED, true) {
+					@Override
+					public void onHit(int damage, boolean accurate) {
+
+					}
+				};
+			}
+		}
+	},
 	MORRIGANS_JAVELIN(new int[] { 13879 }, 50, 1.40, 1.30, CombatType.RANGED, WeaponInterface.JAVELIN) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
