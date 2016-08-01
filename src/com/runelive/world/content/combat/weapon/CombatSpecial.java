@@ -61,7 +61,7 @@ public enum CombatSpecial {
 			};
 		}
 	},
-	HEAVY_BALLISTA(new int[] { 21144 }, 75, .75, 1.50, CombatType.RANGED, WeaponInterface.BALLISTA) {
+	HEAVY_BALLISTA(new int[] { 21144 }, 75, 1.50, 1.00, CombatType.RANGED, WeaponInterface.BALLISTA) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			String[] forceChats = {
