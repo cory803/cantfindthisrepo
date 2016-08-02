@@ -57442,8 +57442,8 @@
 },
 {
 "id": 2579,
-"name": "Veteran",
-"examine": "A player that <3 RuneLive.",
+"name": "Max",
+"examine": "A player that has obtained a fierce strategy.",
 "combat": 0,
 "size": 1,
 "attackable": false,

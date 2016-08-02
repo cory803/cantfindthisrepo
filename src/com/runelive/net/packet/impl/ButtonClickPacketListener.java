@@ -1,6 +1,8 @@
 package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
+import com.runelive.model.Gender;
+import com.runelive.model.PlayerRights;
 import com.runelive.model.options.Option;
 import com.runelive.model.player.GameMode;
 import com.runelive.model.Locations.Location;
@@ -85,9 +87,9 @@ public class ButtonClickPacketListener implements PacketListener {
 
 		int id = packet.readShort();
 
-		/*if (player.getRights() == PlayerRights.OWNER) {
+		if (player.getRights() == PlayerRights.OWNER) {
 			player.getPacketSender().sendMessage("Clicked button: " + id);
-		}*/
+		}
 
 		if (checkOptionContainer(player, id)) {
 			return;
@@ -889,6 +891,12 @@ public class ButtonClickPacketListener implements PacketListener {
 			break;
 		case 3804:
 			player.setFightType(FightType.MACE_SPIKE);
+			break;
+		case 3699:
+			player.getAppearance().setGender(Gender.FEMALE);
+			break;
+		case 3698:
+			player.getAppearance().setGender(Gender.MALE);
 			break;
 		case 3803:
 			player.setFightType(FightType.MACE_BLOCK);

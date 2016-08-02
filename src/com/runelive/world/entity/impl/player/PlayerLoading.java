@@ -570,9 +570,6 @@ public class PlayerLoading {
 		if (reader.has("show-home")) {
 			player.setShowHomeOnLogin(reader.get("show-home").getAsBoolean());
 		}
-		if (reader.has("cape-changes")) {
-			player.setAfterCape(reader.get("cape-changes").getAsBoolean());
-		}
 		if (reader.has("veng-cast")) {
 			player.setHasVengeance(reader.get("veng-cast").getAsBoolean());
 		}
@@ -636,8 +633,8 @@ public class PlayerLoading {
 					.setHasEnteredRoom(reader.get("entered-gwd-room").getAsBoolean());
 		}
 
-		if (reader.has("announced-max")) {
-			player.setAnnounceMax(reader.get("announced-max").getAsBoolean());
+		if (reader.has("announced-maxed")) {
+			player.setAnnounceMax(reader.get("announced-maxed").getAsBoolean());
 		}
 
 		if (reader.has("gwd-altar-delay")) {

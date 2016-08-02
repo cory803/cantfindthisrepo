@@ -148,13 +148,12 @@ public class SkillManager {
 			if (skills.maxLevel[skill.ordinal()] == getMaxAchievingLevel(skill)) {
 				player.getPacketSender()
 						.sendMessage("Well done! You've achieved the highest possible level in this skill!");
-				Achievements.doProgress(player, AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS);
-				if (player.getAchievementAttributes().getCompletion()[AchievementData.REACH_LEVEL_99_IN_ALL_SKILLS
-						.ordinal()]) {
-					World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername()
-							+ " has just achieved the maximum level in all skills!");
+				if(player.getSkillManager().hasAll99s()) {
+					if (!player.hasAnnouncedMax()) {
+						World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername() + " has just achieved the maximum level in all skills!");
+						player.setAnnounceMax(true);
+					}
 				}
-
 				TaskManager.submit(new Task(2, player, true) {
 					int localGFX = 1634;
 
@@ -359,6 +358,22 @@ public class SkillManager {
 			return 3;
 		}
 		return combatLevel;
+	}
+
+	public boolean hasAll99s() {
+		boolean has99s = true;
+		for (Skill skill : Skill.values()) {
+			if (!isNewSkill(skill)) {
+				if(skills.maxLevel[skill.ordinal()] < 99) {
+					has99s = false;
+				}
+			} else {
+				if((skills.maxLevel[skill.ordinal()] / 10) < 99) {
+					has99s = false;
+				}
+			}
+		}
+		return has99s;
 	}
 
 	/**

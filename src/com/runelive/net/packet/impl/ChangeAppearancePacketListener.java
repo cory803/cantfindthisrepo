@@ -3,6 +3,7 @@ package com.runelive.net.packet.impl;
 import com.runelive.GameSettings;
 import com.runelive.model.Appearance;
 import com.runelive.model.Flag;
+import com.runelive.model.Gender;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
@@ -26,6 +27,7 @@ public class ChangeAppearancePacketListener implements PacketListener {
 			if (gender != 0 && gender != 1) {
 				return;
 			}
+			player.getAppearance().setGender(Gender.forId(gender));
 			final int[] apperances = new int[MALE_VALUES.length];
 			final int[] colors = new int[ALLOWED_COLORS.length];
 			int currentPartIndex = 1;

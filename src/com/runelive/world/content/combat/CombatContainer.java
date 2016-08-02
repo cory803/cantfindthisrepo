@@ -8,6 +8,7 @@ import com.runelive.model.CombatIcon;
 import com.runelive.model.Hit;
 import com.runelive.model.Hitmask;
 import com.runelive.util.Misc;
+import com.runelive.world.content.Achievements;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.player.Player;
@@ -147,6 +148,9 @@ public class CombatContainer {
 				array[1].getHit().setDamage(second);
 				array[2].getHit().setDamage(third);
 				array[3].getHit().setDamage(fourth);
+				if(first + second + third + fourth >= 700) {
+					Achievements.finishAchievement((Player) attacker, Achievements.AchievementData.HIT_700_WITH_SPECIAL_ATTACK);
+				}
 			} else if (((Player) attacker).getCombatSpecial() == CombatSpecial.DARK_BOW && hitAmount == 2) {
 				for (int i = 0; i < hitAmount; i++) {
 					if (array[i].getHit().getDamage() < 80) {
@@ -154,6 +158,13 @@ public class CombatContainer {
 					}
 					array[i].setAccurate(true);
 				}
+			}
+			int total = 0;
+			for (int i = 0; i < hitAmount; i++) {
+				total += array[i].getHit().getDamage();
+			}
+			if(total >= 700) {
+				Achievements.finishAchievement((Player) attacker, Achievements.AchievementData.HIT_700_WITH_SPECIAL_ATTACK);
 			}
 		}
 		return array;

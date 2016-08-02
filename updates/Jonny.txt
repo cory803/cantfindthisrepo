@@ -1,13 +1,10 @@
 Game Updates:
-The dragon defender that you get in treasure island is now the real dragon defender.
-The dragon warhammer inventory model is now fixed.
+The bug where you would switch game modes and the recipe for disaster achievement(s) would be incomplete is now fixed.
+The thieving stall at home blocking the lunar altar has been removed.
+The global message when achieving 99 in all skills has been fixed.
+The reach level 99 in all skills achievement has been changed to Hit 700 with a special attack
+The capitilization on achievements has been fixed for 1-4 letter words that are not titles to be lowercase.
+The max npc has been fixed and can now be talked to for Sirs & lords again.
+The max npc dialogue that said 'Veteran' has been renamed to be the correct name 'Max'
 
 Polls:
-Should ghost town be removed from the game and replaced with revenants spread throughout the wilderness?
-Should a middle man rank be added to the game, this would be set up similar to applying for Server Support but be purely based on how trusted you are.
-Should a option be added to your friends list to teleport a friend to you? You would only be able to use this option if they have you added back and both of you are not in the wilderness.
-Should donator ranks have experience boosts depending on what rank it is? (This would stack with double experience weekends)
-Should aqua items be renamed to 'water' and made a little bit more blue?
-Should we allow donators to change their in-game name via the person at ::dzone? This would be for free and only be able to be done once every 25 days.
-Should edgeville be changed to the version of edgeville from the 634 revision? (2010+ RuneScape)
-Should you be able to teleport directly to your wilderness target? You would not be allowed to teleport to your target if over 30 wilderness or in combat.

@@ -733,7 +733,6 @@ public class Player extends Character {
     private boolean experienceLocked;
     private boolean showIpAddressOnLogin;
     private boolean showHomeOnLogin = true;
-    private boolean capeChanges = true;
     private boolean clientExitTaskActive;
     private boolean drainingPrayer;
     private boolean shopping;
@@ -1769,14 +1768,6 @@ public class Player extends Character {
         return showIpAddressOnLogin;
     }
 
-    public void setCapeChanges(boolean capeChanges) {
-        this.capeChanges = capeChanges;
-    }
-
-    public boolean getCapeChanges() {
-        return capeChanges;
-    }
-
     public void setShowHomeOnLogin(boolean showHomeOnLogin) {
         this.showHomeOnLogin = showHomeOnLogin;
     }
@@ -1784,15 +1775,6 @@ public class Player extends Character {
     public boolean showHomeOnLogin() {
         return showHomeOnLogin;
     }
-
-    public void setAfterCape(boolean capeChanges) {
-        this.capeChanges = capeChanges;
-    }
-
-    public boolean getAfterCape() {
-        return capeChanges;
-    }
-
 
     public void setShowIpAddressOnLogin(boolean showIpAddressOnLogin) {
         this.showIpAddressOnLogin = showIpAddressOnLogin;

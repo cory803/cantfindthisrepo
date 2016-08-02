@@ -549,11 +549,8 @@ public class NPCOptionPacketListener implements PacketListener {
 					DesoSpan.siphon(player, npc);
 					break;
 				case 2579:
-					if(player.getCapeChanges() && player.getGameModeAssistant().getGameMode().equals(GameMode.SIR) || player.getGameModeAssistant().getGameMode().equals(GameMode.LORD)) {
-						player.setDialogueActionId(13);
-						DialogueManager.start(player, 24);
-						return;
-					}
+					player.setDialogueActionId(13);
+					DialogueManager.start(player, 24);
 					break;
 				case 4249:
 					player.setDialogueActionId(9);

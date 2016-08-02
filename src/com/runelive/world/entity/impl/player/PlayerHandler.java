@@ -257,10 +257,14 @@ public class PlayerHandler {
 			Achievements.finishAchievement(player, AchievementData.DEFEAT_NOMAD);
 			Achievements.finishAchievement(player, AchievementData.DEFEAT_THE_CULINAROMANCER);
 		}
-
+		if(player.getSkillManager().hasAll99s()) {
+			if (!player.hasAnnouncedMax()) {
+				player.setAnnounceMax(true);
+			}
+		}
 		// Update appearance
 		player.getUpdateFlag().flag(Flag.APPEARANCE);
-		if(player.getAchievementAttributes().)
+
 		// Loads login messages from Kotlin
 		// new org.scripts.kotlin.core.login.LoginMessageParser();
 		// LoginMessageParser.LoginMessageParser.sendLogin(player);

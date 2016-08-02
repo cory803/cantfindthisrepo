@@ -47,7 +47,7 @@ public final class GameObjectDefinition {
 				|| id == 57264 || id == 23983 || id == 632 || id == 24265 || id == 24271 || id == 24272 || id == 24274
 				|| id == 24273 || id == 24275 || id == 24266 || id == 24267 || id == 24268 || id == 24269 || id == 24270
 				|| id == 8985 || id == 307 || id == 23633 || id == 23897 || id == 52843 || id == 4651 || id == 4655
-				|| id == 4656;
+				|| id == 4656 || id == 23987;
 	}
 
 	private static GameObjectDefinition forId667(int id) {

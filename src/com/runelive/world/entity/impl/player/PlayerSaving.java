@@ -264,7 +264,6 @@ public class PlayerSaving {
 		object.addProperty("auto-retaliate", new Boolean(player.isAutoRetaliate()));
 		object.addProperty("xp-locked", new Boolean(player.experienceLocked()));
 		object.addProperty("show-ip", new Boolean(player.showIpAddress()));
-		object.addProperty("cape-changes", new Boolean(player.getAfterCape()));
 		object.addProperty("show-home", new Boolean(player.showHomeOnLogin()));
 		object.addProperty("veng-cast", new Boolean(player.hasVengeance()));
 		object.addProperty("last-veng", new Long(player.getLastVengeance().elapsed()));
@@ -288,7 +287,7 @@ public class PlayerSaving {
 		object.addProperty("special-amount", new Integer(player.getSpecialPercentage()));
 		object.addProperty("entered-gwd-room",
 				new Boolean(player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()));
-		object.addProperty("announced-max", new Boolean(player.hasAnnouncedMax()));
+		object.addProperty("announced-maxed", new Boolean(player.hasAnnouncedMax()));
 		object.addProperty("gwd-altar-delay",
 				new Long(player.getMinigameAttributes().getGodwarsDungeonAttributes().getAltarDelay()));
 		object.add("gwd-killcount",
