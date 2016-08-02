@@ -13,5 +13,7 @@ Searching items in the player owned shops has been temporarily disabled to fix t
 The rare items from bork will now show over yell when getting as a drop.
 You can no longer plant flowers at barrows.
 The Rune Essence mining area maps are fixed.
+The combat bug where you would step back and then double hit the player real fast is now fixed.
+When using the green depospan at runecrafting you will no longer go invisible.
 
 Polls:
