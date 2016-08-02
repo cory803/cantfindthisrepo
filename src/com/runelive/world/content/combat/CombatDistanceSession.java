@@ -28,8 +28,6 @@ public class CombatDistanceSession {
 	public void process() {
 
 		builder.determineStrategy();
-		// builder.attackTimer = 0;
-		// builder.cooldown = 0;
 
 		if (builder.getVictim() != null && !builder.getVictim().equals(victim)) {
 			builder.reset(true);
@@ -39,7 +37,7 @@ public class CombatDistanceSession {
 
 		if (!Location.ignoreFollowDistance(builder.getCharacter())) {
 			if (!builder.getCharacter().getPosition().isViewableFrom(victim.getPosition())) {
-				builder.reset(true);
+				//builder.reset(true);
 				this.stop();
 				return;
 			}

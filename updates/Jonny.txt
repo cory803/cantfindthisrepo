@@ -12,5 +12,6 @@ The bug where your pet would disappear permanently after relogging is now fixed.
 Searching items in the player owned shops has been temporarily disabled to fix the lag issue.
 The rare items from bork will now show over yell when getting as a drop.
 You can no longer plant flowers at barrows.
+The Rune Essence mining area maps are fixed.
 
 Polls:

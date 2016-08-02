@@ -301,7 +301,7 @@ public final class MovementQueue {
 				}
 
 				if (isPlayer && character.getCombatBuilder().isAttacking()) {
-					character.getCombatBuilder().reset(true);
+					//character.getCombatBuilder().reset(true);
 					return;
 				}
 

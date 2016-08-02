@@ -47,7 +47,6 @@ public class EnergyHandler {
 		player.setResting(true);
 
 		player.performAnimation(new Animation(11786));
-		System.out.println(""+player.getCharacterAnimations().getStandingAnimation());
 		player.getCharacterAnimations().setStandingAnimation(2034);
 		player.getUpdateFlag().flag(Flag.APPEARANCE);
 		player.getPacketSender().sendMessage("You begin to rest...");

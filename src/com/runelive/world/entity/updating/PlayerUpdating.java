@@ -588,7 +588,6 @@ public class PlayerUpdating {
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();
 		PacketBuilder properties = new PacketBuilder();
-		System.out.println(""+appearance.getGender().toString());
 		properties.put(appearance.getGender().ordinal());
 		properties.put(appearance.getHeadHint());
 		properties.put(target.getLocation() == Location.WILDERNESS ? appearance.getBountyHunterSkull() : -1);
