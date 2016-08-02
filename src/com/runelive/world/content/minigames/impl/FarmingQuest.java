@@ -98,7 +98,7 @@ public class FarmingQuest {
 	}
 
 	public static String getQuestTabPrefix(Player player) {
-		if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() == 4) {
+		if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() >= 4) {
 			return "@gre@";
 		} else if (player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() != 0
 				&& player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts() < 10) {
