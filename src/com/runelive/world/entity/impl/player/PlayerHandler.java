@@ -383,12 +383,7 @@ public class PlayerHandler {
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
-		if(GameSettings.PVP_WORLD) {
-			player.getPacketSender().sendMessage("@dre@This is a PvP World. Players may attack you almost anywhere, this world will grant you");
-			player.getPacketSender().sendMessage("@dre@1.5 x Experience, compared to the other world.");
-		} else {
-			DailyTaskManager.giveNewTask(player);
-		}
+		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 		player.updateRank();
 		player.getPacketSender().sendRights();

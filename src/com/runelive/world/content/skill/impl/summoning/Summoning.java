@@ -117,7 +117,7 @@ public class Summoning {
 	public void summonPet(BossPet bossPet, boolean login) {
 		if (!login && !player.getInventory().contains(bossPet.itemId))
 			return;
-		if (!player.getLocation().isSummoningAllowed()) {
+		if (!player.getLocation().isSummoningAllowed() && !login) {
 			player.getPacketSender().sendMessage("You cannot summon familiars here.");
 			return;
 		}
@@ -261,8 +261,7 @@ public class Summoning {
 			player.getPacketSender().sendMessage("You do not have any free space in your inventory.");
 			return;
 		}
-		if ((!player.busy() || player.getInterfaceId() == BeastOfBurden.INTERFACE_ID)
-				&& player.getLocation().isSummoningAllowed()) {
+		if ((!player.busy() || player.getInterfaceId() == BeastOfBurden.INTERFACE_ID)) {
 			if (getFamiliar() == null || !SummoningData.beastOfBurden(getFamiliar().getSummonNpc().getId())
 					|| bob == null) {
 				player.getPacketSender().sendMessage("You do not have a Beast of Burden.");

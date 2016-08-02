@@ -332,8 +332,6 @@ public class Shop extends ItemContainer {
 			amountToSell--;
 			count++;
 		}
-		PlayerLogs.other(player, "Player has sold item: " + itemToSell.getDefinition().getName() + " ("
-				+ itemToSell.getId() + "), amount: " + count + " to the store.");
 		if (customShop) {
 			player.getPointsHandler().refreshPanel();
 		}

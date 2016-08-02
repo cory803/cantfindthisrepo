@@ -6,5 +6,11 @@ The reach level 99 in all skills achievement has been changed to Hit 700 with a 
 The capitilization on achievements has been fixed for 1-4 letter words that are not titles to be lowercase.
 The max npc has been fixed and can now be talked to for Sirs & lords again.
 The max npc dialogue that said 'Veteran' has been renamed to be the correct name 'Max'
+The armour models on the female gender has been fixed and anything else that has to do with being a female.
+The well of goodwill is fixed.
+The bug where your pet would disappear permanently after relogging is now fixed.
+Searching items in the player owned shops has been temporarily disabled to fix the lag issue.
+The rare items from bork will now show over yell when getting as a drop.
+You can no longer plant flowers at barrows.
 
 Polls:

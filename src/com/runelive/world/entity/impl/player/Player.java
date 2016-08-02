@@ -733,6 +733,7 @@ public class Player extends Character {
     private boolean experienceLocked;
     private boolean showIpAddressOnLogin;
     private boolean showHomeOnLogin = true;
+    private boolean capeChanges = true;
     private boolean clientExitTaskActive;
     private boolean drainingPrayer;
     private boolean shopping;
@@ -1766,6 +1767,10 @@ public class Player extends Character {
 
     public boolean showIpAddress() {
         return showIpAddressOnLogin;
+    }
+
+    public void setCapeChanges(boolean capeChanges) {
+        this.capeChanges = capeChanges;
     }
 
     public void setShowHomeOnLogin(boolean showHomeOnLogin) {

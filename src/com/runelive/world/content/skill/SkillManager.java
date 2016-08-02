@@ -13,11 +13,8 @@ import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.definitions.WeaponInterfaces;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.Achievements;
+import com.runelive.world.content.*;
 import com.runelive.world.content.Achievements.AchievementData;
-import com.runelive.world.content.BonusManager;
-import com.runelive.world.content.Scoreboard;
-import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
 import com.runelive.world.content.combat.prayer.CurseHandler;
 import com.runelive.world.content.combat.prayer.PrayerHandler;
@@ -80,8 +77,12 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager addSkillExperience(Skill skill, int experience) {
-		if(GameSettings.PVP_WORLD) {
-			experience *= 1.5;
+		if(WellOfGoodwill.isActive()) {
+			if(player.getDonorRights() > 0) {
+				experience *= 1.5;
+			} else {
+				experience *= 1.3;
+			}
 		}
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);

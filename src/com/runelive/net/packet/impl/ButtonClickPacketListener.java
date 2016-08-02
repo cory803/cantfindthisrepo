@@ -106,7 +106,7 @@ public class ButtonClickPacketListener implements PacketListener {
 		if (Enchanting.enchantButtons(player, id)) {
 			return;
 		}
-
+		/*
 		if (id >= -24102 && id <= -23706) {
 			PosDetails pd = PosItemSearch.forId(id, player);
 			if (pd != null) {
@@ -120,7 +120,7 @@ public class ButtonClickPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("This result didn't return a offer!");
 			}
 		}
-
+		*/
 		switch (id) {
 		case -10425:
 			// player.setMusicActive(!player.musicActive());

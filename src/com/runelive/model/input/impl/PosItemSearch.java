@@ -20,10 +20,13 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class PosItemSearch extends Input {
 
+
 	@Override
 	public void handleSyntax(Player player, String syntax) {
+
 		player.getPacketSender().sendMessage("<col=ff0000>Searching items has been disabled temporarily, this was confirmed to be");
 		player.getPacketSender().sendMessage("<col=ff0000>the source of the lag issue in the game. Enjoy no lag :)");
+		/*
 		Locale locale = new Locale("en", "US");
 		NumberFormat currencyFormatter = NumberFormat.getInstance(locale);
 		if (syntax.length() <= 1) {
@@ -88,6 +91,7 @@ public class PosItemSearch extends Input {
 			player.getPacketSender().sendString(start_caption, "");
 			player.getPacketSender().sendString(start_owner_name, "");
 		}
+		*/
 	}
 
 	public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
@@ -118,7 +122,7 @@ public class PosItemSearch extends Input {
 		}
 		return format;
 	}
-
+/*
 	public static PosDetails forId(int i, Player player) {
 		for (Map.Entry<PosDetails, PosOffer> map : Player.foundOffers.entrySet()) {
 			PosDetails pd = map.getKey();
@@ -127,9 +131,9 @@ public class PosItemSearch extends Input {
 		}
 		return null;
 	}
-
+*/
 	public static void reset(Player player) {
-		Player.foundOffers.clear();
+		//Player.foundOffers.clear();
 	}
 
 }

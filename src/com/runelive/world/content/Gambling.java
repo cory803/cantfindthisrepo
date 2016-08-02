@@ -58,7 +58,7 @@ public class Gambling {
 			player.getPacketSender().sendMessage("You need to be a member to use this item.");
 			return;
 		}
-		if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE) {
+		if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
 			player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 			return;
 		}
