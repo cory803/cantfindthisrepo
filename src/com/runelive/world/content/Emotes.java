@@ -282,7 +282,7 @@ public class Emotes {
 		private static Map<Integer, Skillcape_Data> dataMap = new HashMap<Integer, Skillcape_Data>();
 
 		public boolean isWearingCape(Player p) {
-			if (p.getEquipment().get(Equipment.CAPE_SLOT).getId() == 14019)
+			if (p.getEquipment().get(Equipment.CAPE_SLOT).getId() == 21051)
 				return true;
 			for (Item i : item) {
 				if (p.getEquipment().get(Equipment.CAPE_SLOT).getId() == i.getId())
