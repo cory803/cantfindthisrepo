@@ -461,7 +461,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							break;
 						case 4754:
 						case 4749:
-							if(player.getMinigameAttributes().getClawQuestAttributes().getSamples() >= 50) {
+							if(player.getMinigameAttributes().getClawQuestAttributes().getSamples() <= 50) {
 								if (player.getMinigameAttributes().getClawQuestAttributes().getQuestParts() >= 6) {
 									player.performAnimation(new Animation(2290));
 									TaskManager.submit(new Task(1, player, true) {
