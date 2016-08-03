@@ -11,6 +11,7 @@ import com.runelive.world.content.combat.CombatContainer.ContainerHit;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.Entity;
 import com.runelive.world.entity.impl.Character;
+import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -53,6 +54,18 @@ public class CombatBuilder {
 	public void attack(Character target) {
 		if (character.equals(target)) {
 			return;
+		}
+		if(target.isNpc()) {
+			NPC npc = (NPC)target;
+			if(npc.getSpawnedFor() != null) {
+				if (npc.getSpawnedFor() != character) {
+					if(character.isPlayer()) {
+						Player player = (Player) character;
+						player.getPacketSender().sendMessage("This monster was not spawned for you.");
+						return;
+					}
+				}
+			}
 		}
 		if (target.equals(victim)) {
 			determineStrategy();

@@ -17,6 +17,5 @@ The combat bug where you would step back and then double hit the player real fas
 When using the green depospan at runecrafting you will no longer go invisible.
 The bug where you get more fletching experience by fletching maple longbows than any other bow is fixed.
 The max cape teleporting you away when dieng in combat bug is fixed (changed to master cape).
-The imbue scroll has been re-added to the mystery box.
 
 Polls:
