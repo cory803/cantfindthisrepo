@@ -19,5 +19,7 @@ The bug where you get more fletching experience by fletching maple longbows than
 The max cape teleporting you away when dieng in combat bug is fixed (changed to master cape).
 When a npc is instanced specifically for you (barrows etc) other players are no longer able to attack your npc.
 The bug where you couldn't search the banana trees in ape atoll to complete the kings task bug has been fixed.
+When your game mode for hardcore ironman is initiated (quest tab etc) it no longer says Hardcoreironman instead it says "HC Ironman"
+The social media icons on the client that would appear when hovering are removed.
 
 Polls:

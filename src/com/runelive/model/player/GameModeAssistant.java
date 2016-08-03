@@ -56,7 +56,10 @@ public class GameModeAssistant {
      * @return
      */
     public String getModeName() {
-        return Misc.formatText(this.gameMode.toString().toLowerCase().replace("_", ""));
+        if(this.gameMode == GameMode.HARDCORE_IRONMAN)
+            return Misc.formatText("HC Ironman");
+        else
+            return Misc.formatText(this.gameMode.toString().toLowerCase().replace("_", ""));
     }
 
     /**
