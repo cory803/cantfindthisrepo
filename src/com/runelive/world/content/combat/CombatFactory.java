@@ -1149,7 +1149,10 @@ public final class CombatFactory {
 	}
 
 	public static boolean checkAttackDistance(Character a, Character b) {
-		CombatContainer container = a.getCombatBuilder().getContainer();
+		if (a instanceof NPC) {
+			return withinDistance(a, b);
+		}
+		CombatType combatType = a.determineStrategy().getCombatType();
 		int distanceTo = a.distance(b);
 		if (distanceTo == 0) {
 			return false;
@@ -1159,9 +1162,9 @@ public final class CombatFactory {
 		}
 		int required = getDistanceRequired(a, b);
 		if (a.isPlayer()) {
-			if (container.getCombatType() == CombatType.MELEE) {
-				if (container.getCombatType() != CombatType.MELEE) {
-					if (a.isFrozen() && (container.getCombatType() == CombatType.MAGIC || container.getCombatType() == CombatType.RANGED)) {
+			if (combatType.equals(CombatType.MELEE)) {
+				if (!combatType.equals(CombatType.MELEE)) {
+					if (a.isFrozen() && (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED))) {
 						required += 3;
 					}
 				}
@@ -1170,7 +1173,7 @@ public final class CombatFactory {
 		if (distanceTo > required) {
 			return false;
 		}
-		if (container.getCombatType() == CombatType.MAGIC || container.getCombatType() == CombatType.RANGED || ((Player) a).isAutocast()) {
+		if (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED) || ((Player) a).isAutocast()) {
 			if (!Region.canMagicAttack(a, b) || !Region.canMagicAttack(a, b)) {
 				return false;
 			}
@@ -1182,8 +1185,19 @@ public final class CombatFactory {
 		return true;
 	}
 
+	public static boolean withinDistance(Character npc, Character player) {
+		if (player.getPosition().getZ() != npc.getPosition().getZ()) {
+			return false;
+		}
+		if (npc.getConstitution() <= 0) {
+			return false;
+		}
+		int deltaX = npc.getPosition().getX() - player.getPosition().getX(), deltaY = npc.getPosition().getY() - player.getPosition().getY();
+		return deltaX <= 15 && deltaX >= -16 && deltaY <= 15 && deltaY >= -16;
+	}
+
 	public static int getDistanceRequired(Character player, Character attacking) {
-		int dist = getNewDistance(((Player) player));
+		int dist = getNewDistance((Player) player);
 		int movingAtt = 0;
 		if(attacking.moving && player.isFrozen()) {//Not sure why freeze timer would need to be in this method...
 			if(player.moving && player.getWalkingQueue().isRunning()) {
@@ -1195,11 +1209,10 @@ public final class CombatFactory {
 	}
 
 	public static int getNewDistance(Player player) {
-		CombatContainer container = player.getCombatBuilder().getContainer();
-		if (container.getCombatType() == CombatType.MAGIC || player.isAutocast()) {
+		if (player.determineStrategy().getCombatType().equals(CombatType.MAGIC) || player.isAutocast()) {
 			return 10;
 		}
-		if (container.getCombatType() == CombatType.RANGED) {
+		if (player.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
 			return player.getFightType().name().toLowerCase().contains("longrange") ? 10 : 8;
 		}
 		Item item = new Item(player.getEquipment().getSlot(Equipment.WEAPON_SLOT));

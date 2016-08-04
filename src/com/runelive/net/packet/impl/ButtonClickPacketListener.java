@@ -717,9 +717,10 @@ public class ButtonClickPacketListener implements PacketListener {
 		case 152:
 			if (player.getRunEnergy() <= 1) {
 				player.getPacketSender().sendMessage("You do not have enough energy to do this.");
-				player.setRunning(false);
-			} else
-				player.setRunning(!player.isRunning());
+				player.getWalkingQueue().setRunningToggled(false);
+			} else {
+				player.getWalkingQueue().setRunningToggled(!player.getWalkingQueue().isRunning());
+			}
 			player.getPacketSender().sendRunStatus();
 			break;
 		case -10422:

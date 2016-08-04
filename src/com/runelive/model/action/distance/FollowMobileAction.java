@@ -30,7 +30,7 @@ public final class FollowMobileAction extends PlayerAction {
 	@Override
 	public int execute() {
 		WalkingQueue walkingQueue = player.getWalkingQueue();
-		Position lastPosition = following.getPosition();
+		Position lastPosition = following.getLastPosition();
 		if (walkingQueue.deleteSteps(lastPosition)) {
 			return 1;
 		}

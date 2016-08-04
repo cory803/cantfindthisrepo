@@ -86,6 +86,13 @@ public class PlayerProcess {
 			previousHeight = player.getPosition().getZ();
 		}
 
+		if (player.getRunEnergy() < 100) {
+			player.setRunEnergy(player.getRunEnergy() + 0.25F);
+		}
+		if (player.getRunEnergy() <= 96 && player.isResting()) {
+			player.setRunEnergy(player.getRunEnergy() + 2);
+		}
+
 		if (!player.isInActive()) {
 			if (loyaltyTick >= 6) {
 				LoyaltyProgramme.incrementPoints(player);

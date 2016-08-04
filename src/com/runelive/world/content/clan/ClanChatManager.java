@@ -626,6 +626,7 @@ public class ClanChatManager {
 		case 4:
 		case 3:
 			ClanChatRank rank = ClanChatRank.forMenuId(menuId);
+			System.out.println(menuId);
 			ClanChatRank targetRank = player.getCurrentClanChat().getRank(target);
 			if (targetRank != null) {
 				if (targetRank == rank) {

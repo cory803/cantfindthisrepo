@@ -31,11 +31,15 @@ public class Entity {
 	 */
 	private int size = 1;
 
-
 	/**
 	 * The default position the entity is in.
 	 */
 	private Position position = GameSettings.DEFAULT_POSITION_VARROCK.copy();
+
+	/**
+	 * The last position for the character.
+	 */
+	private Position lastPosition;
 
 	/**
 	 * The entity's first position in current map region.
@@ -93,6 +97,7 @@ public class Entity {
 	 */
 	public Entity setPosition(Position position) {
 		//System.out.println(position.toString());
+		this.lastPosition = this.position;
 		this.position = position;
 		return this;
 	}
@@ -104,6 +109,22 @@ public class Entity {
 	 */
 	public Position getPosition() {
 		return position;
+	}
+
+	/**
+	 * Gets the characters last position.
+	 * @return The characters last position
+     */
+	public Position getLastPosition() {
+		return lastPosition;
+	}
+
+	/**
+	 * Sets the last position for the character.
+	 * @param lastPosition The last position for the character.
+     */
+	public void setLastPosition(Position lastPosition) {
+		this.lastPosition = lastPosition;
 	}
 
 	/**

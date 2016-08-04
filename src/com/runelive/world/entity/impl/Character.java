@@ -46,7 +46,7 @@ public abstract class Character extends Entity {
 	/*** LONGS **/
 
 	/*** INSTANCES ***/
-	private Direction direction, primaryDirection = Direction.NONE, secondaryDirection = Direction.NONE,
+	private Direction direction, walkingDirection = Direction.NONE, runningDirection = Direction.NONE,
 			lastDirection = Direction.NONE;
 	private CombatBuilder combatBuilder = new CombatBuilder(this);
 	private Stopwatch lastCombat = new Stopwatch();
@@ -459,11 +459,11 @@ public abstract class Character extends Entity {
 
 	/**
 	 *
-	 * @param secondaryDirection
+	 * @param runningDirection
 	 *            the new value to set.
 	 */
-	public final void setSecondaryDirection(Direction secondaryDirection) {
-		this.secondaryDirection = secondaryDirection;
+	public final void setRunningDirection(Direction runningDirection) {
+		this.runningDirection = runningDirection;
 	}
 
 	/**
@@ -547,16 +547,16 @@ public abstract class Character extends Entity {
 	 * Movement queue
 	 */
 
-	public void setPrimaryDirection(Direction primaryDirection) {
-		this.primaryDirection = primaryDirection;
+	public void setWalkingDirection(Direction primaryDirection) {
+		this.walkingDirection = primaryDirection;
 	}
 
-	public Direction getPrimaryDirection() {
-		return primaryDirection;
+	public Direction getWalkingDirection() {
+		return walkingDirection;
 	}
 
-	public Direction getSecondaryDirection() {
-		return secondaryDirection;
+	public Direction getRunningDirection() {
+		return runningDirection;
 	}
 
 	public CombatSpell getCurrentlyCasting() {

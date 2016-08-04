@@ -9,6 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.model.action.ActionQueue;
 import com.runelive.model.options.OptionContainer;
+import com.runelive.model.player.ActionHandler;
 import com.runelive.model.player.GameModeAssistant;
 import com.runelive.model.player.dialog.Dialog;
 import com.runelive.model.player.dialog.DialogHandler;
@@ -589,6 +590,7 @@ public class Player extends Character {
     public PlayerSession session;
     public LoginDetailsMessage logindetailsmessage;
     public Channel channel;
+    private final ActionHandler actionHandler = new ActionHandler(this);
     private final ActionQueue actionQueue = new ActionQueue(this);
     private final PlayerProcess process = new PlayerProcess(this);
     private final PlayerKillingAttributes playerKillingAttributes = new PlayerKillingAttributes(this);
@@ -676,7 +678,7 @@ public class Player extends Character {
     public int[] offsetX = new int[50];
     public int[] offsetY = new int[50];
     private int recoilCharges;
-    private int runEnergy = 100;
+    private float runEnergy = 100;
     private int currentBankTab;
     private int interfaceId, walkableInterfaceId, multiIcon;
     private int dialogueActionId;
@@ -797,6 +799,10 @@ public class Player extends Character {
     /*
      * Getters & Setters
      */
+
+    public ActionHandler getActions() {
+        return actionHandler;
+    }
 
     public ActionQueue getActionQueue() {
         return actionQueue;
@@ -1696,26 +1702,23 @@ public class Player extends Character {
         return bonusManager;
     }
 
-    public int getRunEnergy() {
+    public float getRunEnergy() {
         return runEnergy;
     }
 
-    public Player setRunEnergy(int runEnergy) {
+    public Player setRunEnergy(float runEnergy) {
+        this.runEnergy = runEnergy;
+        this.packetSender.sendRunEnergy();
+        return this;
+    }
+
+    public Player setLoadRunEnery(float runEnergy) {
         this.runEnergy = runEnergy;
         return this;
     }
 
     public Stopwatch getLastRunRecovery() {
         return lastRunRecovery;
-    }
-
-    public Player setRunning(boolean isRunning) {
-        this.isRunning = isRunning;
-        return this;
-    }
-
-    public boolean isRunning() {
-        return isRunning;
     }
 
     public Player setResting(boolean isResting) {

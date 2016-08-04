@@ -131,7 +131,7 @@ public enum CombatSpecial {
 			target.performGraphic(new Graphic(341, GraphicHeight.HIGH));
 			if (target.isPlayer()) {
 				Player p = (Player) target;
-				int totalRunEnergy = p.getRunEnergy() - 25;
+				float totalRunEnergy = p.getRunEnergy() - 25;
 				if (totalRunEnergy < 0)
 					totalRunEnergy = 0;
 				p.setRunEnergy(totalRunEnergy);

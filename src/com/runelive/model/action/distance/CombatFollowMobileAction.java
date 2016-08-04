@@ -84,7 +84,7 @@ public final class CombatFollowMobileAction extends PlayerAction {
 		}
 		if (destination.contains(x, y)) {//Cause of dancing.
 			Direction direction = position.moveAwayFrom(destination, containsCount % 4);
-			if (direction == Direction.NONE || destination.getSize() == 1 || destination.getX() + direction.getX() == player.getPosition().getX() && destination.getY() + direction.getY() == player.getPosition().getY()) {
+			if (direction == Direction.NONE || destination.getSize() == 1 || destination.getX() + direction.getX() == player.getLastPosition().getX() && destination.getY() + direction.getY() == player.getLastPosition().getY()) {
 				containsCount += new Random().nextInt(3) + 1;
 			}
 			return direction;

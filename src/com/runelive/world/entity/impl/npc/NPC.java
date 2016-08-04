@@ -165,7 +165,7 @@ public class NPC extends Character {
      * @throws Exception if any errors occur while preparing for load.
      */
     public static void init() {
-        /*try {
+        try {
             DataInputStream stream = new DataInputStream(new FileInputStream(new File("./data/def/npcSpawns.dat")));
             while (stream.available() > 0) {
                 int id = stream.readShort();
@@ -193,7 +193,7 @@ public class NPC extends Character {
         Nex.spawn();
         PuroPuro.spawn();
         DesoSpan.spawn();
-        KalphiteQueen.spawn(1158, new Position(3485, 9509));*/
+        KalphiteQueen.spawn(1158, new Position(3485, 9509));
     }
 
     @Override

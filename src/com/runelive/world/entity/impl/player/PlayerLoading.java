@@ -547,10 +547,10 @@ public class PlayerLoading {
 			player.setPrayerbook(Prayerbook.valueOf(reader.get("prayer-book").getAsString()));
 		}
 		if (reader.has("running")) {
-			player.setRunning(reader.get("running").getAsBoolean());
+			player.getWalkingQueue().setRunningToggled(reader.get("running").getAsBoolean());
 		}
 		if (reader.has("run-energy")) {
-			player.setRunEnergy(reader.get("run-energy").getAsInt());
+			player.setLoadRunEnery(reader.get("run-energy").getAsFloat());
 		}
 		if (reader.has("music")) {
 			player.setMusicActive(reader.get("music").getAsBoolean());

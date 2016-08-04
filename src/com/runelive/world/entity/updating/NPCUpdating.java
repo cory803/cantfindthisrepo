@@ -111,8 +111,8 @@ public class NPCUpdating {
 	 * @return The NPCUpdating instance.
 	 */
 	private static void updateMovement(NPC npc, PacketBuilder out) {
-		if (npc.getSecondaryDirection().toInteger() == -1) {
-			if (npc.getPrimaryDirection().toInteger() == -1) {
+		if (npc.getRunningDirection().toInteger() == -1) {
+			if (npc.getWalkingDirection().toInteger() == -1) {
 				if (npc.getUpdateFlag().isUpdateRequired()) {
 					out.putBits(1, 1);
 					out.putBits(2, 0);
@@ -122,14 +122,14 @@ public class NPCUpdating {
 			} else {
 				out.putBits(1, 1);
 				out.putBits(2, 1);
-				out.putBits(3, npc.getPrimaryDirection().toInteger());
+				out.putBits(3, npc.getWalkingDirection().toInteger());
 				out.putBits(1, npc.getUpdateFlag().isUpdateRequired() ? 1 : 0);
 			}
 		} else {
 			out.putBits(1, 1);
 			out.putBits(2, 2);
-			out.putBits(3, npc.getPrimaryDirection().toInteger());
-			out.putBits(3, npc.getSecondaryDirection().toInteger());
+			out.putBits(3, npc.getWalkingDirection().toInteger());
+			out.putBits(3, npc.getRunningDirection().toInteger());
 			out.putBits(1, npc.getUpdateFlag().isUpdateRequired() ? 1 : 0);
 		}
 	}
@@ -276,7 +276,7 @@ public class NPCUpdating {
 		npc.getUpdateFlag().reset();
 		npc.setTeleporting(false).setForcedChat("");
 		npc.setNeedsPlacement(false);
-		npc.setPrimaryDirection(Direction.NONE);
-		npc.setSecondaryDirection(Direction.NONE);
+		npc.setWalkingDirection(Direction.NONE);
+		npc.setRunningDirection(Direction.NONE);
 	}
 }

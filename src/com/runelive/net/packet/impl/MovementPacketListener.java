@@ -3,6 +3,7 @@ package com.runelive.net.packet.impl;
 import com.runelive.GameSettings;
 import com.runelive.model.Animation;
 import com.runelive.model.Flag;
+import com.runelive.model.action.PlayerAction;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.input.impl.ChangePassword;
@@ -43,6 +44,10 @@ public class MovementPacketListener implements PacketListener {
 		player.setTeleporting(false);
 		player.setInactive(false);
 
+		if (player.getActionQueue().hasAction() && player.getActionQueue().getCurrentAction().getActionPolicy() == PlayerAction.ActionPolicy.FIXED) {
+			return;
+		}
+
 		int steps = packet.getSize();
 		if (packet.getOpcode() == 248) {
 			steps -= 14;
@@ -56,6 +61,7 @@ public class MovementPacketListener implements PacketListener {
 		if (steps > 50) {
 			return;
 		}
+		player.getActionQueue().clearNonQueueActions();
 		int[] offsetsX = player.offsetX;
 		int[] offsetsY = player.offsetY;
 		int firstX = packet.readLEShortA();
@@ -67,7 +73,7 @@ public class MovementPacketListener implements PacketListener {
 			}
 		}
 		int firstY = packet.readLEShort();
-		boolean running = player.isRunning();
+		boolean running = player.getWalkingQueue().isRunning();
 		if (player.getRunEnergy() > 0) {
 			player.getWalkingQueue().setRunningQueue(running);
 		}

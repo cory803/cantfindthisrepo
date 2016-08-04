@@ -114,109 +114,30 @@ public class PlayerUpdating {
 		 * Check if the player is teleporting.
 		 */
 		if (player.isNeedsPlacement() || player.isChangingRegion()) {
-			/*
-			 * They are, so an update is required.
-			 */
 			builder.putBits(1, 1);
-
-			/*
-			 * This value indicates the player teleported.
-			 */
 			builder.putBits(2, 3);
-
-			/*
-			 * This is the new player height.
-			 */
 			builder.putBits(2, player.getPosition().getZ());
-
-			/*
-			 * This indicates that the client should discard the walking queue.
-			 */
 			builder.putBits(1, player.isResetMovementQueue() ? 1 : 0);
-
-			/*
-			 * This flag indicates if an update block is appended.
-			 */
 			builder.putBits(1, player.getUpdateFlag().isUpdateRequired() ? 1 : 0);
-
-			/*
-			 * These are the positions.
-			 */
 			builder.putBits(7, player.getPosition().getLocalY(player.getLastKnownRegion()));
 			builder.putBits(7, player.getPosition().getLocalX(player.getLastKnownRegion()));
-		} else
-		/*
-		 * Otherwise, check if the player moved.
-		 */
-		if (player.getPrimaryDirection().toInteger() == -1) {
-			/*
-			 * The player didn't move. Check if an update is required.
-			 */
+		} else if (player.getWalkingDirection().toInteger() == -1) {
 			if (player.getUpdateFlag().isUpdateRequired()) {
-				/*
-				 * Signifies an update is required.
-				 */
 				builder.putBits(1, 1);
-
-				/*
-				 * But signifies that we didn't move.
-				 */
 				builder.putBits(2, 0);
-			} else
-				/*
-				 * Signifies that nothing changed.
-				 */
+			} else {
 				builder.putBits(1, 0);
-		} else /*
-				 * Check if the player was running.
-				 */
-		if (player.getSecondaryDirection().toInteger() == -1) {
-
-			/*
-			 * The player walked, an update is required.
-			 */
+			}
+		} else if (player.getRunningDirection().toInteger() == -1) {
 			builder.putBits(1, 1);
-
-			/*
-			 * This indicates the player only walked.
-			 */
 			builder.putBits(2, 1);
-
-			/*
-			 * This is the player's walking direction.
-			 */
-
-			builder.putBits(3, player.getPrimaryDirection().toInteger());
-
-			/*
-			 * This flag indicates an update block is appended.
-			 */
+			builder.putBits(3, player.getWalkingDirection().toInteger());
 			builder.putBits(1, player.getUpdateFlag().isUpdateRequired() ? 1 : 0);
 		} else {
-
-			/*
-			 * The player ran, so an update is required.
-			 */
 			builder.putBits(1, 1);
-
-			/*
-			 * This indicates the player ran.
-			 */
 			builder.putBits(2, 2);
-
-			/*
-			 * This is the walking direction.
-			 */
-			builder.putBits(3, player.getPrimaryDirection().toInteger());
-
-			/*
-			 * And this is the running direction.
-			 */
-			builder.putBits(3, player.getSecondaryDirection().toInteger());
-
-			/*
-			 * And this flag indicates an update block is appended.
-			 */
+			builder.putBits(3, player.getWalkingDirection().toInteger());
+			builder.putBits(3, player.getRunningDirection().toInteger());
 			builder.putBits(1, player.getUpdateFlag().isUpdateRequired() ? 1 : 0);
 		}
 	}
@@ -234,7 +155,7 @@ public class PlayerUpdating {
 		/*
 		 * Check which type of movement took place.
 		 */
-		if (target.getPrimaryDirection().toInteger() == -1) {
+		if (target.getWalkingDirection().toInteger() == -1) {
 			/*
 			 * If no movement did, check if an update is required.
 			 */
@@ -253,7 +174,7 @@ public class PlayerUpdating {
 				 * Signify that nothing changed.
 				 */
 				builder.putBits(1, 0);
-		} else if (target.getSecondaryDirection().toInteger() == -1) {
+		} else if (target.getRunningDirection().toInteger() == -1) {
 			/*
 			 * The player moved but didn't run. Signify that an update is
 			 * required.
@@ -268,7 +189,7 @@ public class PlayerUpdating {
 			/*
 			 * Write the primary sprite (i.e. walk direction).
 			 */
-			builder.putBits(3, target.getPrimaryDirection().toInteger());
+			builder.putBits(3, target.getWalkingDirection().toInteger());
 
 			/*
 			 * Write a flag indicating if a block update happened.
@@ -288,12 +209,12 @@ public class PlayerUpdating {
 			/*
 			 * Write the primary sprite (i.e. walk direction).
 			 */
-			builder.putBits(3, target.getPrimaryDirection().toInteger());
+			builder.putBits(3, target.getWalkingDirection().toInteger());
 
 			/*
 			 * Write the secondary sprite (i.e. run direction).
 			 */
-			builder.putBits(3, target.getSecondaryDirection().toInteger());
+			builder.putBits(3, target.getRunningDirection().toInteger());
 
 			/*
 			 * Write a flag indicating if a block update happened.
@@ -698,8 +619,8 @@ public class PlayerUpdating {
 		player.setTeleporting(false).setForcedChat("");
 		player.setResetMovementQueue(false);
 		player.setNeedsPlacement(false);
-		player.setPrimaryDirection(Direction.NONE);
-		player.setSecondaryDirection(Direction.NONE);
+		player.setWalkingDirection(Direction.NONE);
+		player.setRunningDirection(Direction.NONE);
 	}
 
 }

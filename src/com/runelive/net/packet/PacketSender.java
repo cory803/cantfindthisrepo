@@ -232,9 +232,9 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendRunEnergy(int energy) {
+	public PacketSender sendRunEnergy() {
 		PacketBuilder out = new PacketBuilder(110);
-		out.put(energy);
+		out.put((int) player.getRunEnergy());
 		player.getSession().queueMessage(out);
 		return this;
 	}
@@ -282,7 +282,7 @@ public class PacketSender {
 
 	public PacketSender sendRunStatus() {
 		PacketBuilder out = new PacketBuilder(113);
-		out.put(player.isRunning() ? 1 : 0);
+		out.put(player.getWalkingQueue().isRunning() ? 1 : 0);
 		player.getSession().queueMessage(out);
 		return this;
 	}

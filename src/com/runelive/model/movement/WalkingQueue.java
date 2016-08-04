@@ -30,6 +30,7 @@ public final class WalkingQueue {
 
 	public void setRunningToggled(boolean set) {
 		this.setFlag(WalkingQueue.RUNNING_TOGGLED, set);
+		//((Player) mobile).getPacketSender().sendRunStatus();
 	}
 
 	public void setRunningQueue(boolean set) {
@@ -289,24 +290,20 @@ public final class WalkingQueue {
                         if (player.getEquipment().get(Equipment.LEG_SLOT).getId() == 14938) {
                             armorBenefit += 15;
                         }
-                        player.setRunEnergy(Math.round(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F))));
+                        player.setRunEnergy(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F)));
                         if (player.getRunEnergy() <= 0) {
                             this.setRunningToggled(false);
                             player.getPacketSender().sendMessage("You ran out of run energy!");
+							player.getPacketSender().sendRunStatus();
                         }
                     }
                 }
             }
         }
-		if (isRunning()) {
-			mobile.setSecondaryDirection(walkDirection);
-			mobile.setPrimaryDirection(walkDirection);
-		} else {
-			mobile.setPrimaryDirection(walkDirection);
-			mobile.setLastDirection(walkDirection);
-		}
 
-		//mobile.setPrimaryDirection(runDirection);
+		mobile.setWalkingDirection(walkDirection);
+		mobile.setRunningDirection(runDirection);
+
 		if (walkDirection != Direction.NONE) {
 			mobile.moving = true;
 		} else {

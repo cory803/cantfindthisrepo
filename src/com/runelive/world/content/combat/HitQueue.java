@@ -337,6 +337,7 @@ public class HitQueue {
 			} else if (victim.isNpc()) {
 				NPC npc = (NPC) victim;
 				npc.getCombatBuilder().attack(attacker);
+				npc.follow(attacker);
 				npc.setFindNewTarget(false);
 			}
 		}

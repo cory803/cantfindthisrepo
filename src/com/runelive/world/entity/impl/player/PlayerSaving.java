@@ -257,8 +257,8 @@ public class PlayerSaving {
 		object.addProperty("gender", player.getAppearance().getGender().name());
 		object.addProperty("spell-book", player.getSpellbook().name());
 		object.addProperty("prayer-book", player.getPrayerbook().name());
-		object.addProperty("running", new Boolean(player.isRunning()));
-		object.addProperty("run-energy", new Integer(player.getRunEnergy()));
+		object.addProperty("running", new Boolean(player.getWalkingQueue().isRunning()));
+		object.addProperty("run-energy", new Float(player.getRunEnergy()));
 		object.addProperty("music", new Boolean(player.musicActive()));
 		object.addProperty("sounds", new Boolean(player.soundsActive()));
 		object.addProperty("auto-retaliate", new Boolean(player.isAutoRetaliate()));

@@ -616,4 +616,12 @@ public class Position {
 			return Direction.NONE;
 		}
 	}
+
+	public boolean outsideDistance(Position other) {
+		if (z != other.getZ()) {
+			return true;
+		}
+		int deltaX = other.getX() - x, deltaY = other.getY() - y;
+		return deltaX > 14 || deltaX < -15 || deltaY > 14 || deltaY < -15;
+	}
 }
