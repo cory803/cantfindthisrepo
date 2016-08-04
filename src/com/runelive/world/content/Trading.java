@@ -205,15 +205,18 @@ public class Trading {
 		}
 		if (!player.getInventory().contains(itemId))
 			return;
+		if (itemId == 868) {
+			System.out.println(player.getUsername() + " is trying to trade " + amount + " RuneKnives.");
+		}
 		if (slot >= player.getInventory().capacity() || player.getInventory().getItems()[slot].getId() != itemId
 				|| player.getInventory().getItems()[slot].getAmount() <= 0)
 			return;
 		Item itemToTrade = player.getInventory().getItems()[slot];
 		if (itemToTrade.getId() != itemId)
 			return;
-		if (player.getInventory().getAmount(itemId) < amount) {
-			amount = player.getInventory().getAmount(itemId);
-			if (amount == 0 || player.getInventory().getAmount(itemId) < amount) {
+		if (player.getInventory().forSlot(slot).getAmount() < amount) {
+			amount = player.getInventory().forSlot(slot).getAmount();
+			if (amount == 0 || player.getInventory().forSlot(slot).getAmount() < amount) {
 				return;
 			}
 		}

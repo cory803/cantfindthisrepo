@@ -530,9 +530,9 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		switch (interfaceId) {
 		case Trading.INTERFACE_ID:
 			if (player.getTrading().inTrade()) {
-				player.getTrading().tradeItem(id, player.getInventory().getAmount(id), slot);
+				player.getTrading().tradeItem(id, player.getInventory().forSlot(slot).getAmount(), slot);
 			} else if (Dueling.checkDuel(player, 1) || Dueling.checkDuel(player, 2)) {
-				player.getDueling().stakeItem(id, player.getInventory().getAmount(id), slot);
+				player.getDueling().stakeItem(id, player.getInventory().forSlot(slot).getAmount(), slot);
 			}
 			break;
 		case Trading.INTERFACE_REMOVAL_ID:
@@ -566,7 +566,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			player.getBank(player.getCurrentBankTab()).open();
 			break;
 		case Bank.INVENTORY_INTERFACE_ID:
-			Item item = player.getInventory().forSlot(slot).copy().setAmount(player.getInventory().getAmount(id));
+			Item item = player.getInventory().forSlot(slot).copy().setAmount(player.getInventory().forSlot(slot).getAmount());
 			if (!player.isBanking() || item.getId() != id || !player.getInventory().contains(item.getId())
 					|| player.getInterfaceId() != 5292)
 				return;
@@ -607,7 +607,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		case PriceChecker.INTERFACE_PC_ID:
 			if (player.getInterfaceId() == PriceChecker.INTERFACE_ID && player.getPriceChecker().isOpen()) {
 				player.getInventory().switchItem(player.getPriceChecker(),
-						new Item(id, player.getInventory().getAmount(id)), slot, false, true);
+						new Item(id, player.getInventory().forSlot(slot).getAmount()), slot, false, true);
 			}
 			break;
 		}
@@ -765,7 +765,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if (player.isShopping()) {
-				player.getShop().sellItem(player, slot, player.getInventory().getAmount(id));
+				player.getShop().sellItem(player, slot, player.getInventory().forSlot(slot).getAmount());
 				return;
 			}
 			break;

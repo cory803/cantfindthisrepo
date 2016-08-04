@@ -21,7 +21,7 @@ public class EnterAmountToPriceCheck extends EnterAmount {
 		int item = player.getInventory().getItems()[getSlot()].getId();
 		if (item != getItem())
 			return;
-		int invAmount = player.getInventory().getAmount(item);
+		int invAmount = player.getInventory().forSlot(getSlot()).getAmount();
 		if (amount > invAmount)
 			amount = invAmount;
 		if (amount <= 0)

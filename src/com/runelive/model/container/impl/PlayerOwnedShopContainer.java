@@ -177,8 +177,8 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 			return;
 		if (this.full(itemToSell.getId()))
 			return;
-		if (player.getInventory().getAmount(itemToSell.getId()) < amountToSell)
-			amountToSell = player.getInventory().getAmount(itemToSell.getId());
+		if (player.getInventory().forSlot(slot).getAmount() < amountToSell)
+			amountToSell = player.getInventory().forSlot(slot).getAmount();
 		if (amountToSell == 0)
 			return;
 		int itemId = itemToSell.getId();

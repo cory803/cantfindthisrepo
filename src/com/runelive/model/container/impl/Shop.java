@@ -245,6 +245,9 @@ public class Shop extends ItemContainer {
 			amountToSell = player.getInventory().getAmount(itemToSell.getId());
 		if (amountToSell == 0)
 			return;
+		if (itemToSell.getId() == 868) {
+			System.out.println(player.getUsername() + " is trying to sell " + amountToSell + " RuneKnives.");
+		}
 		/*
 		 * if(amountToSell > 300) { String s =
 		 * ItemDefinition.forId(itemToSell.getId()).getName().endsWith("s") ?
@@ -379,6 +382,9 @@ public class Shop extends ItemContainer {
 						"You can only buy 5000 " + ItemDefinition.forId(item.getId()).getName() + "s at a time.");
 			}
 			return this;
+		}
+		if (item.getId() == 868) {
+			System.out.println(player.getUsername() + " is trying to buy " + amountBuying + " RuneKnives.");
 		}
 		boolean customShop = getCurrency().getId() == -1;
 		boolean usePouch = false;

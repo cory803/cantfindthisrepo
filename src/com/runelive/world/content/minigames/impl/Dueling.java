@@ -197,9 +197,9 @@ public class Dueling {
 			playerToDuel.getDueling().declineDuel(false);
 			return;
 		}
-		if (player.getInventory().getAmount(itemId) < amount) {
-			amount = player.getInventory().getAmount(itemId);
-			if (amount == 0 || player.getInventory().getAmount(itemId) < amount) {
+		if (player.getInventory().forSlot(slot).getAmount() < amount) {
+			amount = player.getInventory().forSlot(slot).getAmount();
+			if (amount == 0 || player.getInventory().forSlot(slot).getAmount() < amount) {
 				return;
 			}
 		}
