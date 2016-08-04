@@ -95,7 +95,7 @@ public class CommandManager {
         commands.put("wiki", new Command(PlayerRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, PlayerRights privilege) {
-                player.getPacketSender().sendString(1, "www.runelive-2.wikia.com/wiki/runelive_2_Wikia");
+                player.getPacketSender().sendString(1, "www.wiki.rune.live");
                 player.getPacketSender().sendMessage("Attempting to open: www.rune.live/wiki/");
             }
         });
