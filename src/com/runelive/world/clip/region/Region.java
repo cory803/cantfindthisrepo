@@ -8,21 +8,14 @@ import com.runelive.cache.Container;
 import com.runelive.model.Direction;
 import com.runelive.model.GameObject;
 import com.runelive.model.Position;
-import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.util.ByteStream;
 import com.runelive.world.World;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
-import java.util.zip.GZIPInputStream;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
 public final class Region {
 
@@ -686,15 +679,19 @@ public final class Region {
 
     private boolean loaded;
     private final int area;
-    private int[][][] collisionMasks = new int[4][64][64];
-    private List<GameObject> objects = new LinkedList<>();
+    private final int groundFile;
+    private final int objectFile;
+    private int[][][] collisionMasks;
+    private List<GameObject> objects;
 
     public List<GameObject> getObjects() {
         return objects;
     }
 
-    public Region(int area) {
+    public Region(int area, int groundFile, int objectFile) {
         this.area = area;
+        this.groundFile = groundFile;
+        this.objectFile = objectFile;
     }
 
     public  int getMask(int x, int y, int z) {
@@ -784,182 +781,11 @@ public final class Region {
         return cachedObjects.toArray();
     }
 
-    static byte[] degzip(Path path) throws IOException {
-        byte[] bytes = Files.readAllBytes(path);
-        if (bytes.length == 0) {
-            return bytes;
-        }
-
-        ByteArrayOutputStream os = new ByteArrayOutputStream();
-        try (GZIPInputStream gzip = new GZIPInputStream(new ByteArrayInputStream(bytes))) {
-            byte[] buffer = new byte[Byte.BYTES * 1024];
-
-            while (true) {
-                int read = gzip.read(buffer);
-                if (read == -1) {
-                    break;
-                }
-
-                os.write(buffer, 0, read);
-            }
-        }
-        return os.toByteArray();
-    }
-
-    /**
-     * Reads a 'smart' (either a {@code byte} or {@code short} depending on the
-     * value) from the specified buffer.
-     *
-     * @param buffer
-     *            The buffer.
-     * @return The 'smart'.
-     */
-    // TODO: Move to a utility class
-    public static int readSmart(ByteBuffer buffer) {
-        int peek = buffer.get(buffer.position()) & 0xFF;
-        if (peek < 128) {
-            return buffer.get() & 0xFF;
-        }
-        return (buffer.getShort() & 0xFFFF) - 32768;
-    }
-
-    public static void init() throws IOException {
-
-        class MapDefinition {
-            private final int id;
-            private final int objects;
-            private final int terrain;
-
-            public MapDefinition(int id, int objects, int terrain) {
-                this.id = id;
-                this.objects = objects;
-                this.terrain = terrain;
-            }
-
-        }
-
-        GameObjectDefinition.init();
-
-        Path path = Paths.get("data", "clipping");
-
-        // Decodes map definitions
-        ByteBuffer buffer = ByteBuffer.wrap(Files.readAllBytes(path.resolve("map_index")));
-        Map<Integer, MapDefinition> definitions = new HashMap<>();
-        int size = buffer.getShort() & 0xFFFF;
-        World.regions = new HashMap<>();
-        for (int i = 0; i < size; i++) {
-            int id = buffer.getShort() & 0xFFFF;
-            int terrain = buffer.getShort() & 0xFFFF;
-            int objects = buffer.getShort() & 0xFFFF;
-            definitions.put(id, new MapDefinition(id, objects, terrain));
-            World.regions.computeIfAbsent(id, Region::new);
-            //put(id, new Region(id, terrain, objects));
-        }
-
-        // Decodes terrain and objects
-        for (MapDefinition definition : definitions.values()) {
-            int id = definition.id;
-            int x = (id >> 8) * 64;
-            int y = (id & 0xFF) * 64;
-
-            byte[] objects = degzip(path.resolve("maps").resolve(definition.objects + ".gz"));
-            byte[] terrain = degzip(path.resolve("maps").resolve(definition.terrain + ".gz"));
-
-            if (objects.length == 0) {
-                // System.out.println("Objects for region: [x, y, id, file] - ["
-                // + x + ", " + y + ", " + id + ", " + definition.objects + "]
-                // do not exist.");
-                continue;
-            }
-
-            if (terrain.length == 0) {
-                // System.out.println("Terrain for region: [x, y, id, file] - ["
-                // + x + ", " + y + ", " + id + ", " + definition.terrain + "]
-                // does not exist.");
-                continue;
-            }
-
-            loadMaps(x, y, ByteBuffer.wrap(objects), ByteBuffer.wrap(terrain));
-        }
-
-        System.out.println("Loaded " + definitions.size() + " map definitions.");
-    }
-
-    private static void loadMaps(int absX, int absY, ByteBuffer objectStream, ByteBuffer groundStream) {
-        byte[][][] heightMap = new byte[4][64][64];
-        try {
-            for (int z = 0; z < 4; z++) {
-                for (int tileX = 0; tileX < 64; tileX++) {
-                    for (int tileY = 0; tileY < 64; tileY++) {
-                        while (true) {
-                            int tileType = groundStream.get() & 0xFF;
-                            if (tileType == 0) {
-                                break;
-                            } else if (tileType == 1) {
-                                groundStream.get();
-                                break;
-                            } else if (tileType <= 49) {
-                                groundStream.get();
-                            } else if (tileType <= 81) {
-                                heightMap[z][tileX][tileY] = (byte) (tileType - 49);
-                            }
-                        }
-                    }
-                }
-            }
-            for (int i = 0; i < 4; i++) {
-                for (int i2 = 0; i2 < 64; i2++) {
-                    for (int i3 = 0; i3 < 64; i3++) {
-                        if ((heightMap[i][i2][i3] & 1) == 1) {
-                            int height = i;
-                            if ((heightMap[1][i2][i3] & 2) == 2) {
-                                height--;
-                            }
-                            if (height >= 0 && height <= 3) {
-                                World.flag(absX + i2, absY + i3, height, 0x200000);
-                            }
-                        }
-                    }
-                }
-            }
-            int objectId = -1;
-            int incr;
-            while ((incr = readSmart(objectStream)) != 0) {
-                objectId += incr;
-                int location = 0;
-                int incr2;
-                while ((incr2 = readSmart(objectStream)) != 0) {
-                    location += incr2 - 1;
-                    int localX = location >> 6 & 0x3f;
-                    int localY = location & 0x3f;
-                    int height = location >> 12;
-                    int objectData = objectStream.get() & 0xFF;
-                    int type = objectData >> 2;
-                    int direction = objectData & 0x3;
-                    if (localX < 0 || localX >= 64 || localY < 0 || localY >= 64) {
-                        continue;
-                    }
-                    if ((heightMap[1][localX][localY] & 2) == 2) {
-                        height--;
-                    }
-                    if (height >= 0 && height <= 3)
-                        World.addObject(objectId, absX + localX, absY + localY, height, type, direction); // Add
-                    // object
-                    // to
-                    // clipping
-                }
-            }
-        } catch (Exception cause) {
-            System.out.println("Unable to load maps in region: " + ((((absX >> 3) / 8) << 8) + ((absY >> 3) / 8))
-                    + " pos: " + absX + ", " + absY);
-        }
-    }
-
     public void load() {
         if (loaded) {
             return;
         }
-        loaded = true;/*
+        loaded = true;
         try {
             this.objects = new LinkedList<>();
             this.collisionMasks = new int[4][64][64];
@@ -1039,7 +865,7 @@ public final class Region {
         } catch (Throwable e) {
             System.err.println("Corrupt map: g-" + groundFile + " o-" + objectFile + " loc-(" + ((area >> 8) * 64) + ", " + ((area & 0xFF) * 64) + ")");
             e.printStackTrace();
-        }*/
+        }
     }
 
     public void removeFlag(int x, int y, int z) {

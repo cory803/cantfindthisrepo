@@ -71,9 +71,9 @@ public final class GameLoader {
 		//RegionClipping.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
 		//CacheObjectDefinition.load(new Archive(GameServer.cache.getFile(0, 2)));
 		FontUtils.initialize(new Archive(GameServer.cache.getFile(0, 1)));
-		Region.init();
-		//GameObjectDefinition.init();
-		//World.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
+		//Region.init();
+		GameObjectDefinition.init();
+		World.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
 		CustomObjects.init();
 		ItemDefinition.init().load();
 		Lottery.init();

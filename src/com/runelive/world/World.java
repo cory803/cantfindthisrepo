@@ -1040,7 +1040,7 @@ public class World {
 		}
 		regions = new HashMap<>(size);
 		for (int i = 0; i < size; i++) {
-			//regions.put(regionIds[i], new Region(regionIds[i], mapGroundFileIds[i], mapObjectsFileIds[i]));
+			regions.put(regionIds[i], new Region(regionIds[i], mapGroundFileIds[i], mapObjectsFileIds[i]));
 		}
         /*World.flag(2378, 3084, 0, Region.TILE_BLOCKED);
         World.flag(2378, 3085, 0, Region.TILE_BLOCKED);
