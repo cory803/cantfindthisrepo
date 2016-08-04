@@ -74,7 +74,7 @@ public class DropItemPacketListener implements PacketListener {
 
 					if (player.isJailed()) {
 						player.getPacketSender().sendMessage("You cannot do this while in Jail.");
-						player.getMovementQueue().reset();
+						player.getWalkingQueue().clear();
 						return;
 					}
 					player.dealDamage(new Hit((player.getConstitution() - 1) == 0 ? 1 : player.getConstitution() - 1,

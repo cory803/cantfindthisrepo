@@ -1,8 +1,5 @@
 package com.runelive.world.content.skill.impl.construction;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
@@ -17,17 +14,13 @@ import com.runelive.world.content.dialogue.Dialogue;
 import com.runelive.world.content.dialogue.DialogueExpression;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.dialogue.DialogueType;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.Butlers;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.Furniture;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.HotSpots;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.HouseLocation;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.HouseTheme;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.Portals;
-import com.runelive.world.content.skill.impl.construction.ConstructionData.RoomData;
+import com.runelive.world.content.skill.impl.construction.ConstructionData.*;
 import com.runelive.world.content.skill.impl.construction.Palette.PaletteTile;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Construction {
 
@@ -126,7 +119,7 @@ public class Construction {
 			createPalette(me);
 			return;
 		}
-		me.getMovementQueue().reset();
+		me.getWalkingQueue().clear();
 		me.setPlayerLocked(true);
 		me.getPacketSender().sendInterfaceRemoval();
 		me.getPacketSender().sendMapState(2);
@@ -1321,7 +1314,7 @@ public class Construction {
 					House house = p.getRegionInstance().getType() == RegionInstanceType.CONSTRUCTION_HOUSE
 							? (House) p.getRegionInstance() : ((HouseDungeon) p.getRegionInstance()).getHouse();
 					Servant butler = house.getButler();
-					butler.getMovementCoordinator().setCoordinator(new Coordinator(true, 5));
+					butler.walkingDistance = 5;
 					butler.setSpawnedFor(null);
 					butler.setGreetVisitors(true);
 					p.getPacketSender().sendInterfaceRemoval();

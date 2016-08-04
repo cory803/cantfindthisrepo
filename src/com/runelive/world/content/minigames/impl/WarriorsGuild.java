@@ -212,7 +212,7 @@ public class WarriorsGuild {
 				} else {
 					player.getMinigameAttributes().getWarriorsGuildAttributes().setEnteredTokenRoom(false);
 					player.getCombatBuilder().cooldown(true);
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					player.moveTo(new Position(2844, 3539, 2));
 					player.getPacketSender().sendMessage("You have run out of tokens.");
 					resetCyclopsCombat(player);
@@ -251,7 +251,7 @@ public class WarriorsGuild {
 			if (n.getId() == 4291 && n.getLocation() == Location.WARRIORS_GUILD
 					&& n.getCombatBuilder().getVictim() != null && n.getCombatBuilder().getVictim() == player) {
 				n.getCombatBuilder().cooldown(true);
-				n.getMovementQueue().reset();
+				n.getWalkingQueue().clear();
 			}
 		}
 	}

@@ -46,10 +46,10 @@ public class PlayerOptionPacketListener implements PacketListener {
 		final Player attacked = World.getPlayers().get(index);
 
 		if (attacked == null || attacked.getConstitution() <= 0 || attacked.equals(player)) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			return;
 		}
-		if (player.isPlayerLocked() || player.getMovementQueue().isLockMovement())
+		if (player.isPlayerLocked() || player.getWalkingQueue().isLockMovement())
 			return;
 
 		if (player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 0) {
@@ -66,7 +66,7 @@ public class PlayerOptionPacketListener implements PacketListener {
 			player.getCombatBuilder().determineStrategy();
 		}
 		if (CombatFactory.checkAttackDistance(player, attacked)) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 		}
 
 		player.getCombatBuilder().attack(attacked);

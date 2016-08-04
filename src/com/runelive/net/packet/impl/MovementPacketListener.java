@@ -2,14 +2,10 @@ package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
 import com.runelive.model.Animation;
-import com.runelive.model.Appearance;
 import com.runelive.model.Flag;
-import com.runelive.model.Position;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.WeaponAnimations;
 import com.runelive.model.input.impl.ChangePassword;
-import com.runelive.model.movement.MovementQueue;
-import com.runelive.model.movement.PathFinder;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.world.content.BankPin;
@@ -34,8 +30,6 @@ public class MovementPacketListener implements PacketListener {
 		player.setEntityInteraction(null);
 		player.getSkillManager().stopSkilling();
 
-		player.getMovementQueue().setFollowCharacter(null);
-
 		if (packet.getOpcode() != COMMAND_MOVEMENT_OPCODE) {
 			player.setWalkToTask(null);
 			player.setCastSpell(null);
@@ -58,7 +52,7 @@ public class MovementPacketListener implements PacketListener {
 		if (steps < 0) {
 			return;
 		}
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		if (steps > 50) {
 			return;
 		}
@@ -73,22 +67,27 @@ public class MovementPacketListener implements PacketListener {
 			}
 		}
 		int firstY = packet.readLEShort();
-		player.getMovementQueue().addStep(new Position(firstX, firstY, player.getPosition().getZ()));
+		boolean running = player.isRunning();
+		if (player.getRunEnergy() > 0) {
+			player.getWalkingQueue().setRunningQueue(running);
+		}
+		player.getWalkingQueue().addStep(firstX, firstY);
 		for (int i = 0; i < steps; i++) {
-			player.getMovementQueue().addStep(new Position(firstX + offsetsX[i], firstY + offsetsY[i], player.getPosition().getZ()));
+			player.getWalkingQueue().addStep(firstX + offsetsX[i], firstY + offsetsY[i]);
 		}
 	}
+
 
 	public boolean checkReqs(Player player, int opcode) {
 		if (player.isFrozen()) {
 			if (opcode != COMMAND_MOVEMENT_OPCODE)
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 			player.getPacketSender().sendMessage("A magical force stops you from moving.");
 			return false;
 		}
 		if (!player.getDragonSpear().elapsed(3000)) {
 			if (opcode != COMMAND_MOVEMENT_OPCODE)
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 			player.getPacketSender().sendMessage("You are stunned!");
 			return false;
 		}
@@ -135,7 +134,7 @@ public class MovementPacketListener implements PacketListener {
 		if (player.isNeedsPlacement()) {
 			return false;
 		}
-		return !player.getMovementQueue().isLockMovement();
+		return !player.getWalkingQueue().isLockMovement();
 	}
 
 	public static final int COMMAND_MOVEMENT_OPCODE = 98;

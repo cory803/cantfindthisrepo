@@ -103,6 +103,12 @@ public class PlayerProcess {
 
 		BountyHunter.sequence(player);
 
+		try {
+			player.getActionQueue().processActions();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		/*
 		 * if (player.getRegionInstance() != null &&
 		 * (player.getRegionInstance().getType() ==

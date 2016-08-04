@@ -48,10 +48,6 @@ public final class PlayerSession {
 	/**
 	 * Creates a new {@link PlayerSession}.
 	 *
-	 * @param key
-	 *            the selection key registered to the selector.
-	 * @param response
-	 *            the current login response for this session.
 	 */
 	public PlayerSession(Channel channel) {
 		this.channel = channel;

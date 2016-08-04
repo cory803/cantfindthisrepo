@@ -1,21 +1,11 @@
 package com.runelive.world.entity.updating;
 
-import java.util.Iterator;
-
-import com.runelive.model.Appearance;
+import com.runelive.model.*;
 import com.runelive.model.ChatMessage.Message;
-import com.runelive.model.Direction;
-import com.runelive.model.Flag;
-import com.runelive.model.player.GameMode;
-import com.runelive.model.Gender;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.PlayerRights;
-import com.runelive.model.Position;
-import com.runelive.model.Skill;
-import com.runelive.model.UpdateFlag;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.net.packet.ByteOrder;
 import com.runelive.net.packet.Packet.PacketType;
 import com.runelive.net.packet.PacketBuilder;
@@ -24,6 +14,8 @@ import com.runelive.net.packet.ValueType;
 import com.runelive.world.World;
 import com.runelive.world.entity.Entity;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.Iterator;
 
 /**
  * Represents the associated player's player updating.
@@ -456,17 +448,17 @@ public class PlayerUpdating {
 	private static void updateForcedMovement(Player player, PacketBuilder builder, Player target) {
 		Position position = target.getPosition();
 		Position myPosition = player.getLastKnownRegion();
-		builder.put((position.getLocalX(myPosition) + target.getForceMovement()[MovementQueue.FIRST_MOVEMENT_X]),
+		builder.put((position.getLocalX(myPosition) + target.getForceMovement()[WalkingQueue.FIRST_MOVEMENT_X]),
 				ValueType.C);
-		builder.put((position.getLocalY(myPosition) + target.getForceMovement()[MovementQueue.FIRST_MOVEMENT_Y]),
+		builder.put((position.getLocalY(myPosition) + target.getForceMovement()[WalkingQueue.FIRST_MOVEMENT_Y]),
 				ValueType.S);
-		builder.put((position.getLocalX(myPosition) + target.getForceMovement()[MovementQueue.SECOND_MOVEMENT_X]),
+		builder.put((position.getLocalX(myPosition) + target.getForceMovement()[WalkingQueue.SECOND_MOVEMENT_X]),
 				ValueType.S);
-		builder.put((position.getLocalX(myPosition) + target.getForceMovement()[MovementQueue.SECOND_MOVEMENT_Y]),
+		builder.put((position.getLocalX(myPosition) + target.getForceMovement()[WalkingQueue.SECOND_MOVEMENT_Y]),
 				ValueType.C);
-		builder.putShort(target.getForceMovement()[MovementQueue.MOVEMENT_SPEED]);
-		builder.putShort(target.getForceMovement()[MovementQueue.MOVEMENT_REVERSE_SPEED], ValueType.A);
-		builder.put(target.getForceMovement()[MovementQueue.MOVEMENT_DIRECTION]);
+		builder.putShort(target.getForceMovement()[WalkingQueue.MOVEMENT_SPEED]);
+		builder.putShort(target.getForceMovement()[WalkingQueue.MOVEMENT_REVERSE_SPEED], ValueType.A);
+		builder.put(target.getForceMovement()[WalkingQueue.MOVEMENT_DIRECTION]);
 	}
 
 	/**
@@ -577,7 +569,7 @@ public class PlayerUpdating {
 	 * their equipment, clothing, combat level, gender, head icons, user name
 	 * and animations.
 	 *
-	 * @param builder
+	 * @param
 	 *            The packet builder to write information on.
 	 * @param target
 	 *            The player to update appearance for.

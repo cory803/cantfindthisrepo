@@ -1,32 +1,16 @@
 package com.runelive.world.content.combat;
 
-import java.util.Optional;
-
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.CombatSkullEffect;
-import com.runelive.model.Animation;
-import com.runelive.model.CombatIcon;
-import com.runelive.model.Direction;
-import com.runelive.model.Flag;
-import com.runelive.model.Graphic;
-import com.runelive.model.GraphicHeight;
-import com.runelive.model.Hit;
-import com.runelive.model.Hitmask;
-import com.runelive.model.Item;
-import com.runelive.model.Locations;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.Position;
-import com.runelive.model.Projectile;
-import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.definitions.NpcDefinition;
-import com.runelive.model.movement.MovementQueue;
-import com.runelive.model.movement.PathFinder;
 import com.runelive.util.Misc;
-import com.runelive.world.clip.region.RegionClipping;
+import com.runelive.world.clip.region.Region;
 import com.runelive.world.content.BonusManager;
 import com.runelive.world.content.Emotes;
 import com.runelive.world.content.ItemDegrading;
@@ -36,11 +20,9 @@ import com.runelive.world.content.combat.effect.CombatPoisonEffect.PoisonType;
 import com.runelive.world.content.combat.effect.CombatVenomEffect;
 import com.runelive.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.runelive.world.content.combat.effect.EquipmentBonus;
-import com.runelive.world.content.combat.magic.CombatAncientSpell;
 import com.runelive.world.content.combat.prayer.CurseHandler;
 import com.runelive.world.content.combat.prayer.PrayerHandler;
 import com.runelive.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
-import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.content.combat.strategy.impl.Nex;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.combat.weapon.FightStyle;
@@ -48,8 +30,9 @@ import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.Optional;
 
 /**
  * A static factory class containing all miscellaneous methods related to, and
@@ -973,7 +956,6 @@ public final class CombatFactory {
 							&& !Locations.goodDistance(victim.getPosition(), entity.getPosition(), 40)
 					|| ((Player) victim).isPlayerLocked()) {
 				entity.getCombatBuilder().cooldown = 10;
-				entity.getMovementQueue().setFollowCharacter(null);
 				return false;
 			}
 		}
@@ -1139,7 +1121,7 @@ public final class CombatFactory {
 				// System.out.println(n.getDefaultPosition().toString() + ", " +
 				// n.getPosition().toString() + ", " + (8 +
 				// n.getMovementCoordinator().getCoordinator().getRadius()));
-				int limit = n.getAggressiveDistanceLimit() + n.getMovementCoordinator().getCoordinator().getRadius();
+				int limit = n.getAggressiveDistanceLimit() + n.walkingDistance;
 				if (n.getPosition().getDistance(n.getDefaultPosition()) > limit) {
 					// PathFinder.calculatePath(n,
 					// n.getDefaultPosition().getX(),
@@ -1147,7 +1129,6 @@ public final class CombatFactory {
 					// true);
 
 					// n.getMovementQueue().reset();
-					n.getMovementCoordinator().setCoordinateState(CoordinateState.AWAY);
 					return false;
 				}
 			}
@@ -1168,92 +1149,61 @@ public final class CombatFactory {
 	}
 
 	public static boolean checkAttackDistance(Character a, Character b) {
-
-		Position attacker = a.getPosition();
-		Position victim = b.getPosition();
-
-		if (a.isNpc() && ((NPC) a).isSummoningNpc()) {
-			return Locations.goodDistance(attacker, victim, a.getSize());
-		}
-
-		if (a.getCombatBuilder().getStrategy() == null)
-			a.getCombatBuilder().determineStrategy();
-		CombatStrategy strategy = a.getCombatBuilder().getStrategy();
-		int distance = strategy.attackDistance(a);
-		if (a.isPlayer() && strategy.getCombatType() != CombatType.MELEE) {
-			if (b.getSize() >= 2)
-				distance += b.getSize() - 1;
-		}
-
-		MovementQueue movement = a.getMovementQueue();
-		MovementQueue otherMovement = b.getMovementQueue();
-
-		// We're moving so increase the distance.
-		if (!movement.isMovementDone() && !otherMovement.isMovementDone() && !movement.isLockMovement()
-				&& !a.isFrozen()) {
-			distance -= 1;
-			// We're running so increase the distance even more.
-			// XXX: Might have to change this back to 1 or even remove it, not
-			// sure what it's like on actual runescape. Are you allowed to
-			// attack when the entity is trying to run away from you?
-			if (movement.isRunToggled()) {
-				distance += 1;
-			}
-		}
-
-		/*
-		 * Clipping checks and diagonal blocking by gabbe
-		 */
-
-		boolean sameSpot = attacker.equals(victim) && !a.getMovementQueue().isMoving()
-				&& !b.getMovementQueue().isMoving();
-		boolean goodDistance = !sameSpot
-				&& Locations.goodDistance(attacker.getX(), attacker.getY(), victim.getX(), victim.getY(), distance);
-		boolean projectilePathBlocked = false;
-		if (a.isPlayer()
-				&& (strategy.getCombatType() == CombatType.RANGED
-						|| strategy.getCombatType() == CombatType.MAGIC && ((Player) a).getCastSpell() != null
-								&& !(((Player) a).getCastSpell() instanceof CombatAncientSpell))
-				|| a.isNpc() && strategy.getCombatType() == CombatType.MELEE) {
-			if (!RegionClipping.canProjectileAttack(b, a))
-				projectilePathBlocked = true;
-		}
-		if (!projectilePathBlocked && goodDistance) {
-			if (strategy.getCombatType() == CombatType.MELEE && RegionClipping.isInDiagonalBlock(b, a)) {
-				Direction dir = Direction.direction(a.getPosition().getX(), victim.getX(), a.getPosition().getY(),
-						victim.getY());
-				int offsetX = 0;
-				int offsetY = 0;
-				int size = a.getSize();
-				// fixed diagonals walking under target player in melee.
-				switch (dir) {
-				case SOUTH_WEST:
-				case SOUTH_EAST:
-					offsetY = 1;
-					break;
-				case NORTH_WEST:
-				case NORTH_EAST:
-					offsetY = -1;
-					break;
-				}
-				PathFinder.findPath(a, victim.getX() + offsetX, victim.getY() + offsetY, true, size, size);
-				return false;
-			} else {
-				a.getMovementQueue().reset();
-			}
-			return true;
-		} else if (projectilePathBlocked || !goodDistance) {
-			switch (strategy.getCombatType()) {
-			case RANGED:
-			case MAGIC:
-				PathFinder.findPath(a, victim.getX(), victim.getY() + 4, true, 4, 4);
-				break;
-			}
-			a.getMovementQueue().setFollowCharacter(b);
+		CombatContainer container = a.getCombatBuilder().getContainer();
+		int distanceTo = a.distance(b);
+		if (distanceTo == 0) {
 			return false;
 		}
-		// Check if we're within the required distance.
-		return attacker.isWithinDistance(victim, distance);
+		if (a.getPosition().getZ() != b.getPosition().getZ()) {
+			return false;
+		}
+		int required = getDistanceRequired(a, b);
+		if (a.isPlayer()) {
+			if (container.getCombatType() == CombatType.MELEE) {
+				if (container.getCombatType() != CombatType.MELEE) {
+					if (a.isFrozen() && (container.getCombatType() == CombatType.MAGIC || container.getCombatType() == CombatType.RANGED)) {
+						required += 3;
+					}
+				}
+			}
+		}
+		if (distanceTo > required) {
+			return false;
+		}
+		if (container.getCombatType() == CombatType.MAGIC || container.getCombatType() == CombatType.RANGED || ((Player) a).isAutocast()) {
+			if (!Region.canMagicAttack(a, b) || !Region.canMagicAttack(a, b)) {
+				return false;
+			}
+		} else {
+			if (!Region.canAttack(a, b)) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static int getDistanceRequired(Character player, Character attacking) {
+		int dist = getNewDistance(((Player) player));
+		int movingAtt = 0;
+		if(attacking.moving && player.isFrozen()) {//Not sure why freeze timer would need to be in this method...
+			if(player.moving && player.getWalkingQueue().isRunning()) {
+				movingAtt += player.getWalkingQueue().isRunning() ? 2 : 1;
+			}
+			movingAtt++;
+		}
+		return dist + movingAtt;
+	}
+
+	public static int getNewDistance(Player player) {
+		CombatContainer container = player.getCombatBuilder().getContainer();
+		if (container.getCombatType() == CombatType.MAGIC || player.isAutocast()) {
+			return 10;
+		}
+		if (container.getCombatType() == CombatType.RANGED) {
+			return player.getFightType().name().toLowerCase().contains("longrange") ? 10 : 8;
+		}
+		Item item = new Item(player.getEquipment().getSlot(Equipment.WEAPON_SLOT));
+		return item.getDefinition().getName().contains("halberd") ? 2 : 1;
 	}
 
 	/**

@@ -36,7 +36,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 				// + " in MagicOnItemsPacketListener: " + itemId + " -
 				// MAGIC_ON_GROUNDITEMS");
 			}
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			// switch(spell) {}
 		} else if (packet.getOpcode() == MAGIC_ON_ITEMS) {
 			int slot = packet.readShort();

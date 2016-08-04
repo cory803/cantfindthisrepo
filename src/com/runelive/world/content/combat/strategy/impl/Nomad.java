@@ -49,7 +49,7 @@ public class Nomad implements CombatStrategy {
 					nomad.setHealed(true);
 					nomad.performGraphic(gfx2);
 					nomad.performAnimation(anim3);
-					nomad.getMovementQueue().setLockMovement(true);
+					nomad.getWalkingQueue().setLockMovement(true);
 					nomad.forceChat("Zamorak.. Aid me..");
 					nomad.setChargingAttack(true);
 					TaskManager.submit(new Task(1, nomad, false) {
@@ -61,7 +61,7 @@ public class Nomad implements CombatStrategy {
 							ticks++;
 							if (ticks >= 5) {
 								nomad.forceChat("Zamorak, I am in your favor.");
-								nomad.getMovementQueue().setLockMovement(false);
+								nomad.getWalkingQueue().setLockMovement(false);
 								nomad.setChargingAttack(false);
 								stop();
 							}
@@ -70,7 +70,7 @@ public class Nomad implements CombatStrategy {
 				}
 			} else if (randomNomad >= 23 && randomNomad <= 29) {
 				nomad.setChargingAttack(true);
-				nomad.getMovementQueue().setLockMovement(true);
+				nomad.getWalkingQueue().setLockMovement(true);
 				TaskManager.submit(new Task(1, nomad, false) {
 					int ticks = 0;
 
@@ -93,7 +93,7 @@ public class Nomad implements CombatStrategy {
 							nomad.getCombatBuilder()
 									.setContainer(new CombatContainer(nomad, target, 1, 1, CombatType.MAGIC, true));
 						} else if (ticks == 16) {
-							nomad.getMovementQueue().setLockMovement(false);
+							nomad.getWalkingQueue().setLockMovement(false);
 							nomad.setChargingAttack(false);
 							this.stop();
 						}
@@ -103,14 +103,15 @@ public class Nomad implements CombatStrategy {
 
 			} else if (randomNomad >= 16 && randomNomad <= 19) {
 				nomad.setChargingAttack(true);
-				nomad.getMovementQueue().reset().setLockMovement(true);
+				nomad.getWalkingQueue().clear();
+				nomad.getWalkingQueue().setLockMovement(true);
 				TaskManager.submit(new Task(1, nomad, false) {
 					int ticks = 0;
 
 					@Override
 					public void execute() {
 						if (ticks == 0) {
-							target.getMovementQueue().freeze(15);
+							target.getWalkingQueue().freeze(15);
 							target.performGraphic(gfx3);
 							nomad.forceChat("Freeze!");
 							nomad.performAnimation(new Animation(12697));
@@ -136,8 +137,8 @@ public class Nomad implements CombatStrategy {
 						if (ticks == 25) {
 							nomad.getCombatBuilder()
 									.setContainer(new CombatContainer(nomad, target, 1, 1, CombatType.MAGIC, false));
-							target.getMovementQueue().freeze(0);
-							nomad.getMovementQueue().setLockMovement(false);
+							target.getWalkingQueue().freeze(0);
+							nomad.getWalkingQueue().setLockMovement(false);
 							nomad.setChargingAttack(false);
 							stop();
 						}
@@ -151,7 +152,7 @@ public class Nomad implements CombatStrategy {
 					nomad.getCombatBuilder()
 							.setContainer(new CombatContainer(nomad, target, 1, 1, CombatType.MELEE, false));
 				} else {
-					target.getMovementQueue().freeze(15);
+					target.getWalkingQueue().freeze(15);
 					target.performGraphic(gfx3);
 					nomad.forceChat("Freeze!");
 					nomad.performAnimation(new Animation(12697));

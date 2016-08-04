@@ -99,7 +99,7 @@ public class Emotes {
 			Item cape = player.getEquipment().getItems()[Equipment.CAPE_SLOT];
 			Skillcape_Data data = Skillcape_Data.dataMap.get(cape.getId());
 			if (data != null) {
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				if (data != Skillcape_Data.QUEST_POINT) {
 					Skill skill = Skill.forId(data.ordinal());
 					if (data == Skillcape_Data.DUNGEONEERING_MASTER)
@@ -118,8 +118,8 @@ public class Emotes {
 							.sendMessage("You must wait a bit before performing another skillcape emote.");
 					return true;
 				}
-				final boolean lock = player.getMovementQueue().isLockMovement();
-				player.getMovementQueue().setLockMovement(true);
+				final boolean lock = player.getWalkingQueue().isLockMovement();
+				player.getWalkingQueue().setLockMovement(true);
 				player.getEmoteDelay().reset();
 				if (data != Skillcape_Data.DUNGEONEERING && data != Skillcape_Data.DUNGEONEERING_MASTER) {
 					player.performAnimation(data.animation);
@@ -127,7 +127,7 @@ public class Emotes {
 					TaskManager.submit(new Task(data.delay, player, false) {
 						@Override
 						public void execute() {
-							player.getMovementQueue().setLockMovement(lock);
+							player.getWalkingQueue().setLockMovement(lock);
 							stop();
 						}
 					});
@@ -159,7 +159,7 @@ public class Emotes {
 								player.setNpcTransformationId(-1);
 								player.getUpdateFlag().flag(Flag.APPEARANCE);
 								player.performGraphic(new Graphic(-1));
-								player.getMovementQueue().setLockMovement(lock);
+								player.getWalkingQueue().setLockMovement(lock);
 								stop();
 								break;
 							/*
@@ -196,7 +196,7 @@ public class Emotes {
 			player.getPacketSender().sendMessage("You must wait a bit before performing another emote.");
 			return;
 		}
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		if (anim != null)
 			player.performAnimation(anim);
 		if (graphic != null)

@@ -11,7 +11,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.BeastOfBurden;
-import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Emotes.Skillcape_Data;
@@ -87,7 +87,8 @@ public class Summoning {
 			foll.setPositionToFace(player.getPosition());
 			foll.setSummoningNpc(true);
 			foll.setEntityInteraction(player);
-			foll.getMovementQueue().setFollowCharacter(player);
+
+			foll.follow(player);
 			World.register(foll);
 
 			setFamiliar(new Familiar(player, foll, deathTime));
@@ -137,7 +138,7 @@ public class Summoning {
 		foll.setPositionToFace(player.getPosition());
 		foll.setSummoningNpc(true);
 		foll.setEntityInteraction(player);
-		foll.getMovementQueue().setFollowCharacter(player);
+		foll.follow(player);
 		World.register(foll);
 		setFamiliar(new Familiar(player, foll));
 		processFamiliar();
@@ -217,7 +218,8 @@ public class Summoning {
 					}
 					n.setSummoningCombat(false);
 					n.setEntityInteraction(player);
-					n.getMovementQueue().setFollowCharacter(player);
+
+					n.follow(player);
 				}
 				if (!familiar.isPet()) {
 					if (clockTimer >= 2) {
@@ -317,7 +319,7 @@ public class Summoning {
 	}
 
 	public static boolean canSpawn(NPC n, Position pos) {
-		return MovementQueue.canWalk(n.getPosition(), pos, n.getSize());
+		return WalkingQueue.canWalk(n.getPosition(), pos, n.getSize());
 	}
 
 	public void login() {

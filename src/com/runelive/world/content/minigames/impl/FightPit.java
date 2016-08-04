@@ -91,7 +91,7 @@ public class FightPit {
 			playerMap.put(player, PLAYING);
 		int teleportToX = MINIGAME_START_POINT_X + Misc.getRandom(12);
 		int teleportToY = MINIGAME_START_POINT_Y + Misc.getRandom(12);
-		if (!player.getMovementQueue().canWalk(player.getPosition().getX() - teleportToX,
+		if (!player.getWalkingQueue().canWalk(player.getPosition().getX() - teleportToX,
 				player.getPosition().getY() - teleportToY)) {
 			teleportToX = MINIGAME_START_POINT_X + Misc.getRandom(3);
 			teleportToY = MINIGAME_START_POINT_Y + Misc.getRandom(3);
@@ -100,7 +100,6 @@ public class FightPit {
 			player.moveTo(new Position(teleportToX, teleportToY, 0));
 			player.getPacketSender().sendInteractionOption("Attack", 2, true);
 		}
-		player.getMovementQueue().setFollowCharacter(null);
 	}
 
 	/**

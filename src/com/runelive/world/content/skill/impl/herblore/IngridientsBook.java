@@ -20,7 +20,7 @@ public class IngridientsBook {
 			pageIndex = 0;
 		if (pageIndex > 10)
 			pageIndex = 12;
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.performAnimation(new Animation(1350));
 		player.getPacketSender().sendString(903, "Ingredients");
 		for (int i = 0; i < pages[0].length; i++)

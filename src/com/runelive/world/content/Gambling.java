@@ -4,7 +4,7 @@ import com.runelive.model.Animation;
 import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Misc;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.dialogue.DialogueManager;
@@ -42,7 +42,7 @@ public class Gambling {
 		if (player.dice_other) {
 			amount = player.dice_other_amount;
 		}
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.performAnimation(new Animation(11900));
 		player.performGraphic(new Graphic(2075));
 		ClanChatManager.sendMessage(player.getCurrentClanChat(), "@bla@[ClanChat] @whi@" + player.getUsername()
@@ -80,15 +80,15 @@ public class Gambling {
 		}
 		FlowersData flowers = FlowersData.generate();
 		final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.getInventory().delete(299, 1);
 		player.performAnimation(new Animation(827));
 		player.getPacketSender().sendMessage("You plant the seed..");
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.setDialogueActionId(42);
 		player.setInteractingObject(flower);
 		DialogueManager.start(player, 78);
-		MovementQueue.stepAway(player);
+		WalkingQueue.stepAway(player);
 		CustomObjects.globalObjectRemovalTask(flower, 90);
 		player.setPositionToFace(flower.getPosition());
 		player.getClickDelay().reset();

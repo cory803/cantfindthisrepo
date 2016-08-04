@@ -5,9 +5,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.RegionInstance.RegionInstanceType;
 import com.runelive.world.World;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
-import com.runelive.world.entity.updating.NPCUpdating;
 
 public class Zulrah {
 
@@ -425,13 +423,11 @@ final class ZulrahBoss extends NPC {
 	 * Creates our new instance for our boss.
 	 * @param id
 	 * @param position
-	 * @param newInstance
 	 */
 	public ZulrahBoss(Player player, int id, Position position) {
 		super(id, position);
 		this.player = player;
 		this.setSpawnedFor(player);
-		this.getMovementCoordinator().setCoordinator(getCoordinator());
 		player.getRegionInstance().getNpcsList().add(this);
 		World.register(this);
 	}
@@ -445,14 +441,6 @@ final class ZulrahBoss extends NPC {
 	 * We will use this to setup our timed events
 	 */
 	private int ticks = 0;
-
-	/**
-	 * Returns our default coordinator to make sure that Zulrah cannot walk.
-	 * @return
-	 */
-	private Coordinator getCoordinator() {
-		return new Coordinator(false, -1);
-	}
 
 	/**
 	 * This is our process for the Boss.  TIP: This runs on a 600ms delay

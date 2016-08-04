@@ -139,7 +139,7 @@ public class Trading {
 		player.getInventory().refreshItems();
 		player.getPacketSender().sendInterfaceItems(3415, offeredItems);
 		player.getPacketSender().sendInterfaceItems(3416, player2.getTrading().offeredItems);
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		inTradeWith = player2.getIndex();
 	}
 

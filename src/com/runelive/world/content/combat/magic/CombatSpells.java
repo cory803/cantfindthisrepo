@@ -627,7 +627,7 @@ public enum CombatSpells {
 				return;
 			}
 
-			castOn.getMovementQueue().freeze(5);
+			castOn.getWalkingQueue().freeze(5);
 		}
 
 		@Override
@@ -1030,7 +1030,7 @@ public enum CombatSpells {
 				return;
 			}
 
-			castOn.getMovementQueue().freeze(10);
+			castOn.getWalkingQueue().freeze(10);
 		}
 
 		@Override
@@ -1732,7 +1732,7 @@ public enum CombatSpells {
 				return;
 			}
 
-			castOn.getMovementQueue().freeze(12);
+			castOn.getWalkingQueue().freeze(12);
 		}
 
 		@Override
@@ -2099,7 +2099,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
 			if (damage >= 1) {
-				castOn.getMovementQueue().freeze(7);
+				castOn.getWalkingQueue().freeze(7);
 			}
 		}
 
@@ -2336,7 +2336,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
 			if (damage >= 1) {
-				castOn.getMovementQueue().freeze(9);
+				castOn.getWalkingQueue().freeze(9);
 			}
 		}
 
@@ -2573,7 +2573,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
 			if (damage >= 1) {
-				castOn.getMovementQueue().freeze(10);
+				castOn.getWalkingQueue().freeze(10);
 			}
 		}
 
@@ -2810,7 +2810,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage) {
 			if (damage >= 1) {
-				castOn.getMovementQueue().freeze(15);
+				castOn.getWalkingQueue().freeze(15);
 			}
 		}
 

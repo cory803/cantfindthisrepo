@@ -1,8 +1,6 @@
 package com.runelive.net.packet.impl;
 
 import com.runelive.commands.Commands;
-import com.runelive.model.actions.Action;
-import com.runelive.model.actions.ActionHandler;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
@@ -25,11 +23,6 @@ public class CommandPacketListener implements PacketListener {
 			return;
 		}
 		try {
-			Action action = ActionHandler.getActionHandler().getAction(command);
-			if (action != null) {
-				action.handle(player);
-				return;
-			}
 			Commands.initiate_commands(player, parts, command);
 		} catch (Exception exception) {
 			exception.printStackTrace();

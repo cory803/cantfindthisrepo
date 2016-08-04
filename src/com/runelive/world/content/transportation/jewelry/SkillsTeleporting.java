@@ -22,7 +22,7 @@ public class SkillsTeleporting {
         if (!TeleportHandler.checkReqs(player, location, true)) {
             return;
         }
-        if (!player.getClickDelay().elapsed(4500) || player.getMovementQueue().isLockMovement())
+        if (!player.getClickDelay().elapsed(4500) || player.getWalkingQueue().isLockMovement())
             return;
         int pItem = player.getSelectedSkillingItem();
         if (!player.getInventory().contains(pItem) && !player.getEquipment().contains(pItem))

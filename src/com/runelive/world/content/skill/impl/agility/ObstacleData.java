@@ -33,7 +33,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick--;
-					player.getMovementQueue().walkStep(0, -1);
+					player.getWalkingQueue().walkStep(0, -1);
 					if (tick <= 0)
 						stop();
 				}
@@ -99,7 +99,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick++;
-					player.getMovementQueue().walkStep(1, 0);
+					player.getWalkingQueue().walkStep(1, 0);
 					if (tick >= 6)
 						stop();
 				}
@@ -174,7 +174,7 @@ public enum ObstacleData {
 					}
 
 					tick++;
-					player.getMovementQueue().walkStep(0, 1);
+					player.getWalkingQueue().walkStep(0, 1);
 					if (tick >= 4)
 						stop();
 				}
@@ -222,7 +222,7 @@ public enum ObstacleData {
 					}
 
 					tick++;
-					player.getMovementQueue().walkStep(0, 1);
+					player.getWalkingQueue().walkStep(0, 1);
 					if (tick >= 4)
 						stop();
 				}
@@ -304,13 +304,13 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick++;
-					player.getMovementQueue().walkStep(-1, 0);
+					player.getWalkingQueue().walkStep(-1, 0);
 					if (tick >= 9 || player == null)
 						stop();
 					if (tick == 5 && fail) {
 						stop();
 						tick = 0;
-						player.getMovementQueue().reset();
+						player.getWalkingQueue().clear();
 						player.performAnimation(new Animation(764));
 						TaskManager.submit(new Task(1, player, true) {
 							int tick2 = 0;
@@ -324,7 +324,7 @@ public enum ObstacleData {
 								tick2++;
 								player.setSkillAnimation(772);
 								player.getUpdateFlag().flag(Flag.APPEARANCE);
-								player.getMovementQueue().walkStep(0, 1);
+								player.getWalkingQueue().walkStep(0, 1);
 								if (tick2 >= 4) {
 									player.getPacketSender()
 											.sendMessage("You are unable to make your way across the log.");
@@ -390,7 +390,7 @@ public enum ObstacleData {
 					tick++;
 					player.setSkillAnimation(756);
 					player.getUpdateFlag().flag(Flag.APPEARANCE);
-					player.getMovementQueue().walkStep(-1, 0);
+					player.getWalkingQueue().walkStep(-1, 0);
 					if (tick == 3 && fallDown) {
 						player.performAnimation(new Animation(761));
 						stop();
@@ -399,7 +399,7 @@ public enum ObstacleData {
 							public void execute() {
 								player.moveTo(new Position(2535, 3546, 0));
 								player.dealDamage(new Hit(Misc.getRandom(50), Hitmask.RED, CombatIcon.NONE));
-								player.getMovementQueue().walkStep(0, -1);
+								player.getWalkingQueue().walkStep(0, -1);
 								player.setCrossedObstacle(3, false).setSkillAnimation(-1);
 								player.getUpdateFlag().flag(Flag.APPEARANCE);
 								Agility.addExperience(player, 6 );
@@ -509,7 +509,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick++;
-					player.getMovementQueue().walkStep(0, 1);
+					player.getWalkingQueue().walkStep(0, 1);
 					if (player.getPosition().getY() == 3930 || tick >= 15) {
 						player.moveTo(new Position(2998, 3931, 0));
 						stop();
@@ -541,7 +541,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick++;
-					player.getMovementQueue().walkStep(0, -1);
+					player.getWalkingQueue().walkStep(0, -1);
 					if (player.getPosition().getY() == 3917 || tick >= 15) {
 						player.moveTo(new Position(2998, 3916));
 						stop();
@@ -573,7 +573,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick++;
-					player.getMovementQueue().walkStep(0, -1);
+					player.getWalkingQueue().walkStep(0, -1);
 					if (player.getPosition().getY() == 3917 || tick >= 15) {
 						player.moveTo(new Position(2998, 3916));
 						stop();
@@ -605,7 +605,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick++;
-					player.getMovementQueue().walkStep(0, 1);
+					player.getWalkingQueue().walkStep(0, 1);
 					if (tick == 4)
 						player.moveTo(new Position(3004, 3947));
 					else if (tick == 7)
@@ -718,7 +718,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					tick++;
-					player.getMovementQueue().walkStep(-1, 0);
+					player.getWalkingQueue().walkStep(-1, 0);
 					if (tick >= 7)
 						stop();
 					else if (fail && tick >= 3) {
@@ -800,7 +800,7 @@ public enum ObstacleData {
 				@Override
 				public void execute() {
 					if (tick < 4)
-						player.getMovementQueue().walkStep(moveX == 2683 ? +1 : -1, 0);
+						player.getWalkingQueue().walkStep(moveX == 2683 ? +1 : -1, 0);
 					else if (tick == 4) {
 						player.setSkillAnimation(-1).setCrossingObstacle(false);
 						player.getUpdateFlag().flag(Flag.APPEARANCE);

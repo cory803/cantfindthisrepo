@@ -73,7 +73,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (player.getRights() == PlayerRights.DEVELOPER)
 			player.getPacketSender().sendMessage("First click npc id: " + npc.getId());
 		if (BossPets.pickup(player, npc)) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			return;
 		}
 		if (GameSettings.DEBUG_MODE) {
@@ -90,7 +90,7 @@ public class NPCOptionPacketListener implements PacketListener {
 							&& summoning.getFamiliar().getSummonNpc() != null
 							&& summoning.getFamiliar().getSummonNpc().getIndex() == npc.getIndex()) {
 						summoning.store();
-						player.getMovementQueue().reset();
+						player.getWalkingQueue().clear();
 					} else {
 						player.getPacketSender().sendMessage("That familiar is not yours!");
 					}
@@ -447,7 +447,7 @@ public class NPCOptionPacketListener implements PacketListener {
 					break;
 				case 947:
 					if (player.getPosition().getX() >= 3092) {
-						player.getMovementQueue().reset();
+						player.getWalkingQueue().clear();
 						GrandExchange.open(player);
 					}
 					break;
@@ -698,7 +698,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		}
 
 		if (interact.getConstitution() <= 0) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			return;
 		}
 
@@ -706,7 +706,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			player.getCombatBuilder().determineStrategy();
 		}
 		if (CombatFactory.checkAttackDistance(player, interact)) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 		}
 
 		if (player.getRights() == PlayerRights.DEVELOPER) {
@@ -1138,7 +1138,7 @@ public class NPCOptionPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-		if (player.isTeleporting() || player.isPlayerLocked() || player.getMovementQueue().isLockMovement())
+		if (player.isTeleporting() || player.isPlayerLocked() || player.getWalkingQueue().isLockMovement())
 			return;
 		switch (packet.getOpcode()) {
 		case ATTACK_NPC:
@@ -1170,24 +1170,24 @@ public class NPCOptionPacketListener implements PacketListener {
 			CombatSpell spell = CombatSpells.getSpell(spellId);
 
 			if (n == null || spell == null) {
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				return;
 			}
 
 			if (!NpcDefinition.getDefinitions()[n.getId()].isAttackable()) {
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				return;
 			}
 
 			if (n.getConstitution() <= 0) {
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				return;
 			}
 
 			if (spell.getSpellbook() != null && spell.getSpellbook() != player.getSpellbook()) {
 				player.getPacketSender()
 						.sendMessage("You can't do this! Please report how you did this to an admin. [mgc2]");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				return;
 			}
 
@@ -1197,7 +1197,7 @@ public class NPCOptionPacketListener implements PacketListener {
 				player.getCombatBuilder().determineStrategy();
 			}
 			if (CombatFactory.checkAttackDistance(player, n)) {
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 			}
 			player.getCombatBuilder().resetCooldown();
 			player.getCombatBuilder().attack(n);

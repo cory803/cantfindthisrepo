@@ -3,12 +3,16 @@ package com.runelive;
 import com.runelive.cache.RSCache;
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
 import com.runelive.net.mysql.*;
+import com.runelive.threading.GameEngine;
+import com.runelive.threading.event.Event;
+import com.runelive.threading.task.Task;
 import com.runelive.util.ErrorFile;
 import com.runelive.util.ShutdownHook;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,6 +33,7 @@ public class GameServer {
 	private static ThreadedSQL forums_sql = null;
 	private static ThreadedSQL voting_sql = null;
 	private static ThreadedSQL hiscores_sql = null;
+	private static final GameEngine engine = new GameEngine();
 	public static RSCache cache;
 	private static File cacheRepository = new File(System.getProperty("user.home") + File.separator + "runelive" + File.separator);
 
@@ -104,6 +109,7 @@ public class GameServer {
 			hiscores.setDatabase(DatabaseInformationHiscores.database);
 			hiscores_sql = new ThreadedSQL(hiscores, 4);
 			cache = RSCache.create(cacheRepository);
+			GameServer.engine.start();
 			loader.init();
 			loader.finish();
 			logger.info("Starting Configurations...");
@@ -147,5 +153,17 @@ public class GameServer {
 		file = Integer.parseInt(s.substring(0, s.length() - 4), 16);
 		k = Integer.parseInt(s.substring(s.length() - 4), 16);
 		logger.info("Frame: "+frame+" - File: "+file);
+	}
+
+	public static void submit(Event event) {
+		GameServer.submit(event, 0);
+	}
+
+	public static void submit(Event event, long delay) {
+		GameServer.engine.scheduleLogic(event, delay, TimeUnit.MILLISECONDS);
+	}
+
+	public static void submit(Task task) {
+		GameServer.engine.pushTask(task);
 	}
 }

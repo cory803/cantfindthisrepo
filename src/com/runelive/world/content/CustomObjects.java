@@ -9,7 +9,6 @@ import com.runelive.model.GroundItem;
 import com.runelive.model.Item;
 import com.runelive.model.Position;
 import com.runelive.world.World;
-import com.runelive.world.clip.region.RegionClipping;
 import com.runelive.world.entity.impl.GroundItemManager;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -34,7 +33,7 @@ public class CustomObjects {
 			int face = CLIENT_OBJECTS[i][4];
 			GameObject object = new GameObject(id, new Position(x, y, z));
 			object.setRotation(face);
-			RegionClipping.addObject(object);
+			World.addObject(object);
 		}
 		for (int i = 0; i < CUSTOM_OBJECTS_SPAWNS.length; i++) {
 			int id = CUSTOM_OBJECTS_SPAWNS[i][0];
@@ -72,8 +71,8 @@ public class CustomObjects {
 	public static void spawnObject(Player p, GameObject object) {
 		if (object.getId() != -1) {
 			p.getPacketSender().sendObject(object);
-			if (!RegionClipping.objectExists(object)) {
-				RegionClipping.addObject(object);
+			if (!World.objectExists(object)) {
+				World.addObject(object);
 			}
 		} else {
 			deleteObject(p, object);
@@ -82,8 +81,8 @@ public class CustomObjects {
 
 	public static void deleteObject(Player p, GameObject object) {
 		p.getPacketSender().sendObjectRemoval(object);
-		if (RegionClipping.objectExists(object)) {
-			RegionClipping.removeObject(object);
+		if (World.objectExists(object)) {
+			World.remove(object);
 		}
 	}
 

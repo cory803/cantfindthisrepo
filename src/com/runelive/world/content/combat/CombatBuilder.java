@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.runelive.model.Locations;
+import com.runelive.model.action.distance.CombatFollowMobileAction;
 import com.runelive.util.Misc;
 import com.runelive.util.Stopwatch;
 import com.runelive.world.content.combat.CombatContainer.ContainerHit;
@@ -72,10 +73,12 @@ public class CombatBuilder {
 
 			if (!character.getPosition().equals(victim.getPosition()) && character.getPosition()
 					.isWithinDistance(victim.getPosition(), strategy.attackDistance(character))) {
-				character.getMovementQueue().reset();
+				character.getWalkingQueue().clear();
 			}
 		}
-		character.getMovementQueue().setFollowCharacter(target);
+		if (character.isPlayer()) {
+			((Player) character).getActionQueue().addAction(new CombatFollowMobileAction(((Player) character), target));
+		}
 		if (character.getInteractingEntity() != target)
 			character.setEntityInteraction(target);
 
@@ -113,7 +116,6 @@ public class CombatBuilder {
 		strategy = null;
 		cooldown = 0;
 		character.setEntityInteraction(null);
-		character.getMovementQueue().setFollowCharacter(null);
 	}
 
 	/**
@@ -127,7 +129,6 @@ public class CombatBuilder {
 
 		cooldown = 5;
 
-		character.getMovementQueue().setFollowCharacter(null);
 		character.setEntityInteraction(null);
 
 		// Reset attack timer if needed.

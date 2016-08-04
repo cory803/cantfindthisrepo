@@ -3,22 +3,13 @@ package com.runelive.net.packet.impl;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.impl.WalkToTask;
 import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
-import com.runelive.model.Animation;
-import com.runelive.model.player.GameMode;
-import com.runelive.model.GameObject;
-import com.runelive.model.Graphic;
-import com.runelive.model.Item;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.PlayerRights;
-import com.runelive.model.Position;
-import com.runelive.model.Skill;
-import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.clip.region.RegionClipping;
 import com.runelive.world.content.BankPin;
 import com.runelive.world.content.ItemForging;
 import com.runelive.world.content.PlayerLogs;
@@ -337,7 +328,7 @@ public class UseItemPacketListener implements PacketListener {
 		final GameObject gameObject = new GameObject(objectId,
 				new Position(objectX, objectY, player.getPosition().getZ()));
 		if (objectId > 0 && objectId != 6 && objectId != 1765 && objectId != 9682
-				&& !Dungeoneering.doingDungeoneering(player) && !RegionClipping.objectExists(gameObject)) {
+				&& !Dungeoneering.doingDungeoneering(player) && !World.objectExists(gameObject)) {
 			// player.getPacketSender().sendMessage("An error occured. Error
 			// code:
 			// "+objectId).sendMessage("Please report the error to a staff

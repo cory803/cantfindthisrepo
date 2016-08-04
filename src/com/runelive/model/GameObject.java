@@ -133,7 +133,7 @@ public class GameObject extends Entity {
 	/**
 	 * Sets the object's face direction.
 	 * 
-	 * @param face
+	 * @param
 	 *            Face value to which object will face.
 	 */
 	public void setRotation(int rotation) {
@@ -231,5 +231,27 @@ public class GameObject extends Entity {
 
 	public void incrementCutAmount() {
 		this.cut++;
+	}
+
+	public int getSizeX() {
+		return GameObjectDefinition.forId(id).getSizeX();
+	}
+
+	public int getSizeY() {
+		return GameObjectDefinition.forId(id).getSizeY();
+	}
+
+	public int getLengthX() {
+		if (rotation == 1 || rotation == 3) {
+			return GameObjectDefinition.forId(id).getSizeY();
+		}
+		return GameObjectDefinition.forId(id).getSizeX();
+	}
+
+	public int getLengthY() {
+		if (rotation == 1 || rotation == 3) {
+			return GameObjectDefinition.forId(id).getSizeX();
+		}
+		return GameObjectDefinition.forId(id).getSizeY();
 	}
 }

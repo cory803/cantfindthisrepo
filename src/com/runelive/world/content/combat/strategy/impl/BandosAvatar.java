@@ -73,7 +73,7 @@ public class BandosAvatar implements CombatStrategy {
 						new Projectile(bandosAvatar, victim, 2706, 44, 3, 43, 43, 0).sendProjectile();
 					} else if (tick == 1) {
 						if (barrage && victim.isPlayer() && Misc.getRandom(10) <= 5) {
-							victim.getMovementQueue().freeze(15);
+							victim.getWalkingQueue().freeze(15);
 							victim.performGraphic(new Graphic(369));
 						}
 						if (barrage && Misc.getRandom(6) <= 3) {

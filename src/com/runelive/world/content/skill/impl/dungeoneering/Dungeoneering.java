@@ -87,7 +87,7 @@ public class Dungeoneering {
 				member.getMinigameAttributes().getDungeoneeringAttributes().setDamageDealt(0);
 				member.getMinigameAttributes().getDungeoneeringAttributes().setDeaths(0);
 				member.setRegionInstance(null);
-				member.getMovementQueue().reset();
+				member.getWalkingQueue().clear();
 				member.getClickDelay().reset();
 				member.moveTo(new Position(party.getDungeoneeringFloor().getEntrance().getX(),
 						party.getDungeoneeringFloor().getEntrance().getY(), height));

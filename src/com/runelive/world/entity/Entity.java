@@ -31,6 +31,7 @@ public class Entity {
 	 */
 	private int size = 1;
 
+
 	/**
 	 * The default position the entity is in.
 	 */

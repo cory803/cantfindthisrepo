@@ -108,7 +108,7 @@ public class Plant {
 			TaskManager.submit(new Task(1, player, true) {
 				@Override
 				public void execute() {
-					if (player.getMovementQueue().isMoving()) {
+					if (player.moving) {
 						stop();
 						return;
 					}

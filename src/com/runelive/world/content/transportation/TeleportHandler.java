@@ -26,10 +26,10 @@ public class TeleportHandler {
 				return;
 			}
 		}
-		if (!player.getClickDelay().elapsed(4500) || player.getMovementQueue().isLockMovement())
+		if (!player.getClickDelay().elapsed(4500) || player.getWalkingQueue().isLockMovement())
 			return;
 		player.currentDialog = null;
-		player.setTeleporting(true).getMovementQueue().setLockMovement(true).reset();
+		player.setTeleporting(true).getWalkingQueue().setLockMovement(true).clear();
 		cancelCurrentActions(player);
 		player.performAnimation(teleportType.getStartAnimation());
 		player.performGraphic(teleportType.getStartGraphic());
@@ -50,7 +50,7 @@ public class TeleportHandler {
 						player.performAnimation(new Animation(8941));
 						player.performGraphic(new Graphic(1577));
 						player.moveTo(targetLocation).setPosition(targetLocation);
-						player.getMovementQueue().setLockMovement(false).reset();
+						player.getWalkingQueue().setLockMovement(false).clear();
 						stop();
 					}
 					break;
@@ -71,7 +71,7 @@ public class TeleportHandler {
 
 						player.setTeleporting(false);
 					} else if (tick == teleportType.getStartTick() + 3) {
-						player.getMovementQueue().setLockMovement(false).reset();
+						player.getWalkingQueue().setLockMovement(false).clear();
 					} else if (tick == teleportType.getStartTick() + 4)
 						stop();
 					break;
@@ -209,7 +209,6 @@ public class TeleportHandler {
 		player.setInputHandling(null);
 		player.getSkillManager().stopSkilling();
 		player.setEntityInteraction(null);
-		player.getMovementQueue().setFollowCharacter(null);
 		player.getCombatBuilder().cooldown(false);
 		player.setResting(false);
 	}

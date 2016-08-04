@@ -1,7 +1,5 @@
 package com.runelive.world.entity.updating;
 
-import java.util.Iterator;
-
 import com.runelive.model.Direction;
 import com.runelive.model.Flag;
 import com.runelive.model.Position;
@@ -15,6 +13,8 @@ import com.runelive.world.World;
 import com.runelive.world.entity.Entity;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.Iterator;
 
 /**
  * Represents a player's npc updating task, which loops through all local npcs
@@ -73,8 +73,8 @@ public class NPCUpdating {
 	}
 
 	public static void updateFacing(Player player, NPC npc) {
-		if (npc.getMovementCoordinator().getCoordinator().isCoordinate() || npc.getCombatBuilder().isBeingAttacked()
-				|| npc.getMovementQueue().isMoving())
+		if (npc.walkingDistance > 0 || npc.getCombatBuilder().isBeingAttacked()
+				|| npc.moving)
 			return;
 		final Position position = npc.getPositionToFace();
 		int x = position == null ? 0 : position.getX();
@@ -106,7 +106,7 @@ public class NPCUpdating {
 	 * 
 	 * @param npc
 	 *            The npc who's movement is updated.
-	 * @param builder
+	 * @param
 	 *            The packet builder to write information on.
 	 * @return The NPCUpdating instance.
 	 */
@@ -139,7 +139,7 @@ public class NPCUpdating {
 	 * 
 	 * @param npc
 	 *            The npc to update masks for.
-	 * @param builder
+	 * @param
 	 *            The packet builder to write information on.
 	 * @return The NPCUpdating instance.
 	 */

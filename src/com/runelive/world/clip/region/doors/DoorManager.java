@@ -3,7 +3,6 @@ package com.runelive.world.clip.region.doors;
 import com.runelive.model.GameObject;
 import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.world.World;
-import com.runelive.world.clip.region.RegionClipping;
 
 /**
  *
@@ -96,8 +95,8 @@ public final class DoorManager {
 					break;
 				}
 			}
-			RegionClipping.removeClipping(door.getPosition().getX() + clip_x_offset,
-				door.getPosition().getY() + clip_y_offset, door.getPosition().getZ(), 0);
+			World.unflag(door.getPosition().getZ(), door.getPosition().getX() + clip_x_offset,
+				door.getPosition().getY() + clip_y_offset, 0);
 		}
 		return true;
 	}

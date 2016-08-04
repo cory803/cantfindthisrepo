@@ -1,8 +1,5 @@
 package com.runelive.world.content.combat;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.Animation;
@@ -18,8 +15,10 @@ import com.runelive.world.content.Sounds;
 import com.runelive.world.content.combat.strategy.impl.Nex;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class HitQueue {
 
@@ -321,11 +320,11 @@ public class HitQueue {
 						return false;
 					}
 				}
-				return victim.isPlayer() && ((Player) victim).isAutoRetaliate() && !victim.getMovementQueue().isMoving()
+				return victim.isPlayer() && ((Player) victim).isAutoRetaliate() && !victim.moving
 						&& ((Player) victim).getWalkToTask() == null;
 			} else if (!(attacker.isNpc() && ((NPC) attacker).isSummoningNpc())) {
 				NPC npc = (NPC) victim;
-				return npc.getMovementCoordinator().getCoordinateState() == CoordinateState.HOME
+				return npc.getPosition().getDistance(npc.getDefaultPosition()) >= npc.walkingDistance
 						&& npc.getLocation() != Location.PEST_CONTROL_GAME;
 			}
 			return false;

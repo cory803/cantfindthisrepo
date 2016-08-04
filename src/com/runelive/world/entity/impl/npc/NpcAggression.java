@@ -80,7 +80,7 @@ public final class NpcAggression {
 
 				if (Location.ignoreFollowDistance(npc) || gwdMob
 						|| npc.getDefaultPosition().getDistance(player.getPosition()) < 7
-								+ npc.getMovementCoordinator().getCoordinator().getRadius()
+								+ npc.walkingDistance
 						|| dung) {
 					if (CombatFactory.checkHook(npc, player)) {
 						player.setTargeted(true);

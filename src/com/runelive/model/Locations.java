@@ -163,7 +163,7 @@ public class Locations {
 			public boolean canAttack(Player player, Player target) {
 				if (player.isJailed()) {
 					player.getPacketSender().sendMessage("You cannot attack players while you are jailed.");
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					return false;
 				}
 				return false;
@@ -216,13 +216,13 @@ public class Locations {
 				if (combatDifference > player.getWildernessLevel() || combatDifference > target.getWildernessLevel()) {
 					player.getPacketSender()
 							.sendMessage("Your combat level difference is too great to attack that player here.");
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					return false;
 				}
 				if (target.getLocation() != Location.WILDKEY_ZONE) {
 					player.getPacketSender()
 							.sendMessage("That player cannot be attacked, because they are not in the Wilderness.");
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					return false;
 				}
 				return true;
@@ -318,13 +318,13 @@ public class Locations {
 				if (combatDifference > player.getWildernessLevel() || combatDifference > target.getWildernessLevel()) {
 					player.getPacketSender()
 							.sendMessage("Your combat level difference is too great to attack that player here.");
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					return false;
 				}
 				if (target.getLocation() != Location.WILDERNESS) {
 					player.getPacketSender()
 							.sendMessage("That player cannot be attacked, because they are not in the Wilderness.");
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					return false;
 				}
 				/*
@@ -895,7 +895,7 @@ public class Locations {
 			public boolean canAttack(Player player, Player target) {
 				if (target.getLocation() != FREE_FOR_ALL_ARENA) {
 					player.getPacketSender().sendMessage("That player has not entered the dangerous zone yet.");
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					return false;
 				}
 				return true;

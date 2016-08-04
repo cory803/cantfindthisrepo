@@ -1,6 +1,8 @@
 package com.runelive.model;
 
 import com.runelive.util.Misc;
+import com.runelive.world.World;
+import com.runelive.world.content.Area;
 
 /**
  * Represents a single world tile position.
@@ -188,6 +190,13 @@ public class Position {
 		return (y >> 3) - 6;
 	}
 
+	public int getRegionId() {
+		int regionX = x >> 3;
+		int regionY = y >> 3;
+		int regionId = (regionX / 8 << 8) + regionY / 8;
+		return regionId;
+	}
+
 	/**
 	 * Adds steps/coordinates to this position.
 	 */
@@ -320,13 +329,291 @@ public class Position {
 
 	/**
 	 * Checks if {@code position} has the same values as this position.
-	 * 
-	 * @param position
-	 *            The position to check.
+	 *
 	 * @return The values of {@code position} are the same as this position's.
 	 */
 	public boolean sameAs(int otherX, int otherY) {
 		return x == otherX && y == otherY;
 	}
 
+	public boolean withinRegionNoHeight(Position position) {
+		int regionX = this.getRegionX();
+		int regionY = this.getRegionY();
+		regionX *= 8;
+		regionY *= 8;
+		if (regionX > position.getX() || regionY > position.getY()) {
+			return false;
+		}
+		if (regionX + 104 < position.getX() || regionY + 104 < position.getY()) {
+			return false;
+		}
+		return true;
+	}
+
+	public boolean withinRegion(Position position) {
+		if (z != position.getZ()) {
+			return false;
+		}
+		int regionX = this.getRegionX();
+		int regionY = this.getRegionY();
+		regionX *= 8;
+		regionY *= 8;
+		if (regionX > position.getX() || regionY > position.getY()) {
+			return false;
+		}
+		if (regionX + 104 < position.getX() || regionY + 104 < position.getY()) {
+			return false;
+		}
+		return true;
+	}
+
+	public int distanceTo(Position position) {
+		int distX = Math.abs(x - position.getX());
+		int distY = Math.abs(y - position.getY());
+		if (distX == distY) {
+			return distX + 1;
+		}
+		return distX > distY ? distX : distY;
+	}
+
+	public Position transform(Direction direction) {
+		return new Position(x + direction.getX(), y + direction.getY(), z);
+	}
+
+	public Position transform(int diffX, int diffY) {
+		return new Position(x + diffX, y + diffY, z);
+	}
+
+	public Position transform(int diffZ, int diffX, int diffY) {
+		return new Position(x + diffX, y + diffY, z + diffZ);
+	}
+
+	public boolean matches(int x, int y) {
+		return this.x == x && this.y == y;
+	}
+
+	public Direction moveAwayFrom(Area area, int attempts) {
+		int z = this.z % 4;
+		int middleX = area.getX() + (area.getSize() / 2);
+		int middleY = area.getY() + (area.getSize() / 2);
+		int xDifference = Math.abs(middleX - x);
+		int yDifference = Math.abs(middleY - y);
+		if (xDifference > yDifference) {
+			if (x < middleX) {
+				if (attempts <= 0 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+					return Direction.WEST;
+				}
+				if (y > middleY) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+				} else if (y < middleY) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+				}
+				if (!World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+					return Direction.EAST;
+				}
+				if (attempts > 0 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+					return Direction.WEST;
+				}
+				if (y > middleY) {
+					if (attempts > 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+				} else if (y < middleY) {
+					if (attempts > 1 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+				}
+				return Direction.NONE;
+			} else {
+				if (attempts <= 0 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+					return Direction.EAST;
+				}
+				if (y > middleY) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+				} else if (y < middleY) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+				}
+				if (!World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+					return Direction.WEST;
+				}
+				if (attempts > 0 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+					return Direction.EAST;
+				}
+				if (y > middleY) {
+					if (attempts > 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+				} else if (y < middleY) {
+					if (attempts > 1 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+						return Direction.SOUTH;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+						return Direction.NORTH;
+					}
+				}
+				return Direction.NONE;
+			}
+		}
+		if (yDifference > xDifference) {
+			if (y > middleY) {
+				if (attempts <= 0 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+					return Direction.NORTH;
+				}
+				if (x < middleX) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+				} else if (x > middleX) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+				}
+				if (attempts <= 0 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+					return Direction.SOUTH;
+				}
+				if (attempts > 0 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+					return Direction.NORTH;
+				}
+				if (x < middleX) {
+					if (attempts > 1 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+				} else if (x > middleX) {
+					if (attempts > 1 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+				}
+				return Direction.NONE;
+			} else {
+				if (attempts <= 0 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+					return Direction.SOUTH;
+				}
+				if (x < middleX) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+				} else if (x > middleX) {
+					if (attempts <= 1 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+					if (attempts <= 2 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+				}
+				if (!World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+					return Direction.NORTH;
+				}
+				if (attempts > 0 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+					return Direction.SOUTH;
+				}
+				if (x < middleX) {
+					if (attempts > 1 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+				} else if (x > middleX) {
+					if (attempts > 1 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+						return Direction.EAST;
+					}
+					if (attempts > 2 && !World.directionBlocked(Direction.EAST, z, x - 1, y, 1)) {
+						return Direction.WEST;
+					}
+				}
+				return Direction.NONE;
+			}
+		}
+		if (x > middleX) {
+			if (attempts <= 0 && !World.directionBlocked(Direction.WEST, z, x + 1, y, 1)) {
+				return Direction.EAST;
+			}
+			if (attempts <= 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+				return Direction.NORTH;
+			}
+			if (attempts <= 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+				return Direction.SOUTH;
+			}
+			if (!World.directionBlocked(Direction.EAST, z, this.x - 1, this.y, 1)) {
+				return Direction.WEST;
+			}
+			if (attempts > 0 && !World.directionBlocked(Direction.WEST, z, this.x + 1, this.y, 1)) {
+				return Direction.EAST;
+			}
+			if (attempts > 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+				return Direction.NORTH;
+			}
+			if (attempts > 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+				return Direction.SOUTH;
+			}
+			return Direction.NONE;
+		} else {
+			if (attempts <= 0 && !World.directionBlocked(Direction.EAST, z, this.x - 1, this.y, 1)) {
+				return Direction.WEST;
+			}
+			if (attempts <= 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+				return Direction.NORTH;
+			}
+			if (attempts <= 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+				return Direction.SOUTH;
+			}
+			if (!World.directionBlocked(Direction.WEST, z, this.x + 1, this.y, 1)) {
+				return Direction.EAST;
+			}
+			if (attempts > 0 && !World.directionBlocked(Direction.EAST, z, this.x - 1, this.y, 1)) {
+				return Direction.WEST;
+			}
+			if (attempts > 1 && !World.directionBlocked(Direction.SOUTH, z, x, y + 1, 1)) {
+				return Direction.NORTH;
+			}
+			if (attempts > 2 && !World.directionBlocked(Direction.NORTH, z, x, y - 1, 1)) {
+				return Direction.SOUTH;
+			}
+			return Direction.NONE;
+		}
+	}
 }

@@ -5,19 +5,8 @@ import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.WalkToTask;
 import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
-import com.runelive.model.Animation;
-import com.runelive.model.Direction;
-import com.runelive.model.DwarfCannon;
-import com.runelive.model.Flag;
-import com.runelive.model.GameObject;
-import com.runelive.model.Graphic;
-import com.runelive.model.Item;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.MagicSpellbook;
-import com.runelive.model.PlayerRights;
-import com.runelive.model.Position;
-import com.runelive.model.Prayerbook;
-import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.model.input.impl.DonateToWell;
@@ -27,8 +16,6 @@ import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
 import com.runelive.world.ChaosTunnelHandler;
 import com.runelive.world.World;
-import com.runelive.world.clip.region.RegionClipping;
-import com.runelive.world.clip.region.doors.DoorManager;
 import com.runelive.world.content.CrystalChest;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.content.ShootingStar;
@@ -41,15 +28,8 @@ import com.runelive.world.content.combat.range.DwarfMultiCannon;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.dialogue.DialogueManager;
 import com.runelive.world.content.minigames.TreasureIslandChest;
-import com.runelive.world.content.minigames.impl.Barrows;
-import com.runelive.world.content.minigames.impl.Dueling;
+import com.runelive.world.content.minigames.impl.*;
 import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
-import com.runelive.world.content.minigames.impl.FightCave;
-import com.runelive.world.content.minigames.impl.FightPit;
-import com.runelive.world.content.minigames.impl.Nomad;
-import com.runelive.world.content.minigames.impl.PestControl;
-import com.runelive.world.content.minigames.impl.RecipeForDisaster;
-import com.runelive.world.content.minigames.impl.WarriorsGuild;
 import com.runelive.world.content.skill.impl.agility.Agility;
 import com.runelive.world.content.skill.impl.construction.Construction;
 import com.runelive.world.content.skill.impl.crafting.Flax;
@@ -65,10 +45,10 @@ import com.runelive.world.content.skill.impl.runecrafting.Runecrafting;
 import com.runelive.world.content.skill.impl.runecrafting.RunecraftingData;
 import com.runelive.world.content.skill.impl.smithing.EquipmentMaking;
 import com.runelive.world.content.skill.impl.smithing.Smelting;
+import com.runelive.world.content.skill.impl.thieving.ThievingStall;
 import com.runelive.world.content.skill.impl.woodcutting.Woodcutting;
 import com.runelive.world.content.skill.impl.woodcutting.WoodcuttingData;
 import com.runelive.world.content.skill.impl.woodcutting.WoodcuttingData.Hatchet;
-import com.runelive.world.content.skill.impl.thieving.ThievingStall;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -95,7 +75,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final GameObject gameObject = new GameObject(id, position);
 		if (id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 1530 && id != 1276 && id != 2213 && id != 411
 				&& id != 21772 && id != 881 && !Dungeoneering.doingDungeoneering(player)
-				&& !RegionClipping.objectExists(gameObject)) {
+				&& !World.objectExists(gameObject)) {
 			System.out.println("Object dont exist");
 			return;
 		}
@@ -111,7 +91,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		if (size <= 0)
 			size = 1;
 		gameObject.setSize(size);
-		if (player.getMovementQueue().isLockMovement())
+		if (player.getWalkingQueue().isLockMovement())
 			return;
 
 		if (GameSettings.DEBUG_MODE) {
@@ -1196,7 +1176,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								@Override
 								public void execute() {
 									ticks++;
-									player.getMovementQueue().walkStep(0, goBack2 ? -1 : 1);
+									player.getWalkingQueue().walkStep(0, goBack2 ? -1 : 1);
 									if (ticks >= 10)
 										stop();
 								}
@@ -1320,7 +1300,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							TaskManager.submit(new Task(3 + Misc.getRandom(4), player, false) {
 								@Override
 								protected void execute() {
-									if (player.getMovementQueue().isMoving()) {
+									if (player.moving) {
 										stop();
 										return;
 									}
@@ -1367,7 +1347,7 @@ public class ObjectActionPacketListener implements PacketListener {
 									player.getPacketSender().sendMessage("You chop down the vines..");
 									player.getSkillManager().addSkillExperience(Skill.WOODCUTTING, 45);
 									player.performAnimation(new Animation(65535));
-									player.getMovementQueue().walkStep(x, y);
+									player.getWalkingQueue().walkStep(x, y);
 									stop();
 								}
 							});
@@ -1560,7 +1540,7 @@ public class ObjectActionPacketListener implements PacketListener {
 									if (duelEnemy == null)
 										return;
 									duelEnemy.getCombatBuilder().reset(true);
-									duelEnemy.getMovementQueue().reset();
+									duelEnemy.getWalkingQueue().clear();
 									duelEnemy.getDueling().duelVictory();
 								}
 								player.moveTo(new Position(3368 + Misc.getRandom(5), 3267 + Misc.getRandom(3), 0));
@@ -1857,7 +1837,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int x = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if (id > 0 && id != 6 && id != 2213 && !RegionClipping.objectExists(gameObject) && id != 4706) {
+		if (id > 0 && id != 6 && id != 2213 && !World.objectExists(gameObject) && id != 4706) {
 			player.getPacketSender().sendMessage("An error occured. Error code: " + id)
 					.sendMessage("Please report the error to a staff member.");
 			return;
@@ -1994,7 +1974,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int x = packet.readShort();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
+		if (id > 0 && id != 6 && !World.objectExists(gameObject)) {
 			// player.getPacketSender().sendMessage("An error occured.
 			// Errorcode: "+id).sendMessage("Please report the error to a
 			// staffmember.");
@@ -2028,7 +2008,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int x = packet.readShort();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if (id > 0 && id != 6 && !RegionClipping.objectExists(gameObject)) {
+		if (id > 0 && id != 6 && !World.objectExists(gameObject)) {
 			// player.getPacketSender().sendMessage("An error occured.
 			// Errorcode: "+id).sendMessage("Please report the error to a
 			// staffmember.");
@@ -2064,7 +2044,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
 		if (!Construction.buildingHouse(player)) {
-			if (id > 0 && !RegionClipping.objectExists(gameObject)) {
+			if (id > 0 && !World.objectExists(gameObject)) {
 				// player.getPacketSender().sendMessage("An error occured. Error
 				// code:
 				// "+id).sendMessage("Please report the error to a staff
@@ -2098,7 +2078,7 @@ public class ObjectActionPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-		if (player.isTeleporting() || player.isPlayerLocked() || player.getMovementQueue().isLockMovement()) {
+		if (player.isTeleporting() || player.isPlayerLocked() || player.getWalkingQueue().isLockMovement()) {
 			return;
 		}
 		switch (packet.getOpcode()) {

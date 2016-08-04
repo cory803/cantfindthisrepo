@@ -7,7 +7,7 @@ import com.runelive.model.Graphic;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.Projectile;
-import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Misc;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
@@ -82,9 +82,9 @@ public class KreeArra implements CombatStrategy {
 									kreearra.forceChat("Storms align to me!");
 								}
 								return;
-							} else if (Misc.getRandom(3) <= 1 && MovementQueue.canWalk(target.getPosition(),
+							} else if (Misc.getRandom(3) <= 1 && WalkingQueue.canWalk(target.getPosition(),
 									new Position(xCoord + -xToMove, yCoord + -yToMove, 2), 1)) {
-								target.getMovementQueue().reset();
+								target.getWalkingQueue().clear();
 								if (!target.isTeleporting())
 									target.moveTo(new Position(xCoord + -xToMove, yCoord + -yToMove, 2));
 								target.performGraphic(new Graphic(128));

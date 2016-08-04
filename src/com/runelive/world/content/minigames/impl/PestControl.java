@@ -17,8 +17,8 @@ import com.runelive.model.Position;
 import com.runelive.model.Projectile;
 import com.runelive.model.Skill;
 import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.movement.MovementQueue;
 import com.runelive.model.movement.PathFinder;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.dialogue.DialogueManager;
@@ -89,7 +89,7 @@ public class PestControl {
 		p.getPacketSender().sendString(21117, "");
 		p.getPacketSender().sendString(21118, "");
 		p.getPacketSender().sendString(21008, "(Need 1 to 25 players)");
-		p.getMovementQueue().setLockMovement(false).reset();
+		p.getWalkingQueue().setLockMovement(false).clear();
 	}
 
 	/**
@@ -113,7 +113,7 @@ public class PestControl {
 		p.getPacketSender().sendInterfaceRemoval();
 		p.getSession().clearMessages();
 		p.moveTo(new Position(2657, 2639, 0));
-		p.getMovementQueue().setLockMovement(false).reset();
+		p.getWalkingQueue().setLockMovement(false).clear();
 	}
 
 	/**
@@ -235,7 +235,7 @@ public class PestControl {
 		p.getPacketSender().sendInterfaceRemoval();
 		p.getSession().clearMessages();
 		p.moveTo(new Position(2658, 2611, 0));
-		p.getMovementQueue().setLockMovement(false).reset();
+		p.getWalkingQueue().setLockMovement(false).clear();
 		DialogueManager.start(p, 26);
 		PLAYERS_IN_BOAT--;
 	}
@@ -419,8 +419,6 @@ public class PestControl {
 	 * 
 	 * @param npc
 	 *            The NPC to process
-	 * @param PCNPC
-	 *            The data of the npc to process
 	 */
 	private static void processPCNPC(NPC npc, PestControlNPC _npc) {
 		if (knight == null || npc == null || _npc == null)
@@ -470,8 +468,7 @@ public class PestControl {
 			if (closestPortal.getConstitution() > getDefaultPortalConstitution())
 				closestPortal.setConstitution(getDefaultPortalConstitution());
 		} else if (closestPortal != null) {
-			PathFinder.findPath(npc, closestPortal.getPosition().getX(), closestPortal.getPosition().getY() - 1, true,
-					1, 1);
+			PathFinder.calculatePath(npc, closestPortal.getPosition().getX(), closestPortal.getPosition().getY() - 1, 1, 1, true);
 			return;
 		}
 	}
@@ -490,8 +487,7 @@ public class PestControl {
 				} else {
 					if (distance(npc.getPosition().getX(), npc.getPosition().getY(), knight.getPosition().getX(),
 							knight.getPosition().getY()) > 1) {
-						PathFinder.findPath(npc, knight.getPosition().getX(), knight.getPosition().getY() - 1, true, 1,
-								1);
+						PathFinder.calculatePath(npc, knight.getPosition().getX(), knight.getPosition().getY() - 1, 1, 1, true);
 					} else {
 						npc.getCombatBuilder().reset(true);
 						int max = 5 + (npc.getDefinition().getCombatLevel() / 9);
@@ -500,7 +496,7 @@ public class PestControl {
 				}
 			}
 			if (npc.getPosition().copy().equals(knight.getPosition().copy()))
-				MovementQueue.stepAway(npc);
+				WalkingQueue.stepAway(npc);
 		}
 	}
 
@@ -509,7 +505,7 @@ public class PestControl {
 			if (isFree(npc, npc_)) {
 				if (distance(npc.getPosition().getX(), npc.getPosition().getY(), knight.getPosition().getX(),
 						knight.getPosition().getY()) > 5) {
-					PathFinder.findPath(npc, knight.getPosition().getX(), knight.getPosition().getY() - 1, true, 1, 1);
+					PathFinder.calculatePath(npc, knight.getPosition().getX(), knight.getPosition().getY() - 1, 1, 1, true);
 				} else {
 					if (Math.random() <= 0.04)
 						for (Player p : playerMap.keySet()) {

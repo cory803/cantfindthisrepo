@@ -14,7 +14,7 @@ public class ItemSearch extends Input {
 	@Override
 	public void handleSyntax(Player player, final String syntax) {
 		DialogueManager.start(player, 72);
-		player.getMovementQueue().setLockMovement(true);
+		player.getWalkingQueue().setLockMovement(true);
 		TaskManager.submit(new Task(5, player, false) {
 			@Override
 			protected void execute() {
@@ -87,7 +87,7 @@ public class ItemSearch extends Input {
 			@Override
 			public void stop() {
 				setEventRunning(false);
-				player.getMovementQueue().setLockMovement(false);
+				player.getWalkingQueue().setLockMovement(false);
 			}
 		});
 	}

@@ -15,8 +15,8 @@ public class NpcUpdateSequence implements UpdateSequence<NPC> {
 	@Override
 	public void executePreUpdate(NPC t) {
 		try {
-			t.getMovementCoordinator().sequence();
-			t.getMovementQueue().sequence();
+			t.walking();
+			t.getWalkingQueue().processNextMovement();
 			t.sequence();
 		} catch (Exception e) {
 			e.printStackTrace();

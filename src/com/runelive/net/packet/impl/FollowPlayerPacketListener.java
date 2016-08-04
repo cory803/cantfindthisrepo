@@ -1,5 +1,6 @@
 package com.runelive.net.packet.impl;
 
+import com.runelive.model.action.distance.FollowMobileAction;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.world.World;
@@ -40,7 +41,7 @@ public class FollowPlayerPacketListener implements PacketListener {
 			return;
 		}
 		player.setEntityInteraction(leader);
-		player.getMovementQueue().setFollowCharacter(leader);
+		player.getActionQueue().addAction(new FollowMobileAction(player, leader));
 	}
 
 }

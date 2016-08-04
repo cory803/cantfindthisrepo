@@ -11,7 +11,7 @@ import com.runelive.model.Position;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.CustomObjects;
@@ -237,8 +237,8 @@ public class Hunter {
 		if (canLay(client)) {
 			register(trap);
 			client.getClickDelay().reset();
-			client.getMovementQueue().reset();
-			MovementQueue.stepAway(client);
+			client.getWalkingQueue().clear();
+			WalkingQueue.stepAway(client);
 			client.setPositionToFace(trap.getGameObject().getPosition());
 			client.performAnimation(new Animation(827));
 			if (trap instanceof SnareTrap) {

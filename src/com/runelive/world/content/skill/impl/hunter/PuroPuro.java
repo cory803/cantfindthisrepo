@@ -3,18 +3,12 @@ package com.runelive.world.content.skill.impl.hunter;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.NPCRespawnTask;
-import com.runelive.model.Animation;
-import com.runelive.model.Flag;
-import com.runelive.model.GameObject;
-import com.runelive.model.Item;
-import com.runelive.model.Position;
-import com.runelive.model.Skill;
+import com.runelive.model.*;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
 
 public class PuroPuro {
@@ -98,7 +92,6 @@ public class PuroPuro {
 
 		for (int i = 0; i < implings.length; i++) {
 			NPC n = new NPC(implings[i][0], new Position(implings[i][1], implings[i][2]));
-			n.getMovementCoordinator().setCoordinator(new Coordinator().setCoordinate(true).setRadius(4));
 			World.register(n);
 		}
 
@@ -122,7 +115,6 @@ public class PuroPuro {
 			break;
 		}
 		NPC n = new NPC(7903, pos);
-		n.getMovementCoordinator().setCoordinator(new Coordinator().setCoordinate(true).setRadius(4));
 		World.register(n);
 
 	}
@@ -215,7 +207,7 @@ public class PuroPuro {
 				if (tick == 1) {
 					player.setSkillAnimation(6594).setCrossingObstacle(true);
 					player.getUpdateFlag().flag(Flag.APPEARANCE);
-					player.getMovementQueue().walkStep(goX, goY);
+					player.getWalkingQueue().walkStep(goX, goY);
 				} else if (tick == 2)
 					stop();
 				tick++;

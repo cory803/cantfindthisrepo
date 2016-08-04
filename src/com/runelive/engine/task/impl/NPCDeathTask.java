@@ -63,7 +63,7 @@ public class NPCDeathTask extends Task {
 			npc.setEntityInteraction(null);
 			switch (ticks) {
 			case 2:
-				npc.getMovementQueue().setLockMovement(true).reset();
+				npc.getWalkingQueue().setLockMovement(true).clear();
 				killer = npc.getCombatBuilder().getKiller(true);
 				if (!(npc.getId() >= 6142 && npc.getId() <= 6145) && !(npc.getId() > 5070 && npc.getId() < 5081))
 					npc.performAnimation(new Animation(npc.getDefinition().getDeathAnimation()));

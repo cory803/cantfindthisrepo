@@ -6,7 +6,6 @@ import com.runelive.net.PlayerSession;
 import com.runelive.net.SessionState;
 import com.runelive.net.login.LoginResponses;
 import com.runelive.world.World;
-import com.runelive.world.clip.region.RegionClipping;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
@@ -33,7 +32,7 @@ public class EntityHandler {
 			World.getNpcs().add(npc);
 		} else if (entity.isGameObject()) {
 			GameObject gameObject = (GameObject) entity;
-			RegionClipping.addObject(gameObject);
+			World.addObject(gameObject);
 			CustomObjects.spawnGlobalObjectWithinDistance(gameObject);
 		}
 	}
@@ -49,7 +48,7 @@ public class EntityHandler {
 			return World.getNpcs().remove(npc);
 		} else if (entity.isGameObject()) {
 			GameObject gameObject = (GameObject) entity;
-			RegionClipping.removeObject(gameObject);
+			World.remove(gameObject);
 			CustomObjects.deleteGlobalObjectWithinDistance(gameObject);
 			return true;
 		}

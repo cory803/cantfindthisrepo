@@ -17,7 +17,6 @@ import com.runelive.world.content.combat.HitQueue.CombatHit;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
 
 public class KalphiteQueen implements CombatStrategy {
@@ -26,7 +25,6 @@ public class KalphiteQueen implements CombatStrategy {
 
 	public static void spawn(int id, Position pos) {
 		KALPHITE_QUEEN = new NPC(id, pos);
-		KALPHITE_QUEEN.getMovementCoordinator().setCoordinator(new Coordinator(true, 3));
 		World.register(KALPHITE_QUEEN);
 	}
 

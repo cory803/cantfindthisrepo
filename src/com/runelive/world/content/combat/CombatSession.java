@@ -1,6 +1,7 @@
 package com.runelive.world.content.combat;
 
 import com.runelive.engine.task.Task;
+import com.runelive.model.action.distance.CombatFollowMobileAction;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.combat.HitQueue.CombatHit;
@@ -66,13 +67,13 @@ public class CombatSession {
 					}
 				}
 				if (builder.getCharacter().isPlayer()) {
-					builder.getCharacter().getMovementQueue().setFollowCharacter(builder.getVictim());
+					((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
 				}
 				return;
 			}
 
 			if (!builder.getCharacter().getPosition().isWithinDistance(builder.getVictim().getPosition(), 14)) {
-				builder.getCharacter().getMovementQueue().setFollowCharacter(null);
+				//builder.getCharacter().getMovementQueue().setFollowCharacter(null);
 				return;
 
 			}
@@ -167,7 +168,6 @@ public class CombatSession {
 						if (!player.isSpecialActivated())
 							player.getCombatBuilder().cooldown = 10;
 						player.setCastSpell(null);
-						player.getMovementQueue().setFollowCharacter(null);
 						builder.determineStrategy();
 					}
 				}

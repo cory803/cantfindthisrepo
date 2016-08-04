@@ -44,7 +44,7 @@ public class PickupItemPacketListener implements PacketListener {
 			@Override
 			public void execute() {
 				if (Math.abs(player.getPosition().getX() - x) > 25 || Math.abs(player.getPosition().getY() - y) > 25) {
-					player.getMovementQueue().reset();
+					player.getWalkingQueue().clear();
 					return;
 				}
 				boolean canPickup = player.getInventory().getFreeSlots() > 0

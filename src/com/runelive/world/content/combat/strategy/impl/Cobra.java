@@ -45,7 +45,7 @@ public class Cobra implements CombatStrategy {
 					victim.performGraphic(new Graphic(1677));
 				} else {
 					victim.performGraphic(new Graphic(369));
-					victim.getMovementQueue().freeze(15);
+					victim.getWalkingQueue().freeze(15);
 				}
 				new CombatHit(cobra.getCombatBuilder(), new CombatContainer(cobra, target, 1, CombatType.MAGIC, true))
 						.handleAttack();

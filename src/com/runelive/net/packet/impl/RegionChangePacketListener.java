@@ -34,7 +34,7 @@ public class RegionChangePacketListener implements PacketListener {
 				@Override
 				protected void execute() {
 					for (NPC npc : player.getLocalNpcs()) {
-						if (npc == null || npc.getMovementCoordinator().getCoordinator().isCoordinate())
+						if (npc == null)
 							continue;
 						NPCUpdating.updateFacing(player, npc);
 					}

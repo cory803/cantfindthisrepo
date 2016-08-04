@@ -32,7 +32,7 @@ public class HeightCheckPacketListener implements PacketListener {
 														// to change their
 														// height level
 
-				if (!player.isNeedsPlacement() && !player.getMovementQueue().isLockMovement()) { // Only
+				if (!player.isNeedsPlacement() && !player.getWalkingQueue().isLockMovement()) { // Only
 																									// check
 																									// if
 																									// player
@@ -42,7 +42,7 @@ public class HeightCheckPacketListener implements PacketListener {
 
 					// Player used a third-party-software to change their height
 					// level, fix it
-					player.getMovementQueue().reset(); // Reset movement
+					player.getWalkingQueue().clear(); // Reset movement
 					player.setNeedsPlacement(true); // Block upcoming movement
 													// and actions
 					player.getPacketSender().sendHeight(); // Send the proper

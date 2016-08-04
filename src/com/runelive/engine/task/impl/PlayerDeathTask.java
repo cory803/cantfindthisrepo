@@ -61,7 +61,7 @@ public class PlayerDeathTask extends Task {
 			switch (ticks) {
 			case 5:
 				player.getPacketSender().sendInterfaceRemoval();
-				player.getMovementQueue().setLockMovement(true).reset();
+				player.getWalkingQueue().setLockMovement(true).clear();
 				break;
 			case 3:
 				player.performAnimation(new Animation(0x900));
@@ -140,7 +140,6 @@ public class PlayerDeathTask extends Task {
 					dropItems = false;
 				player.getPacketSender().sendInterfaceRemoval();
 				player.setEntityInteraction(null);
-				player.getMovementQueue().setFollowCharacter(null);
 				player.getCombatBuilder().cooldown(false);
 				player.setTeleporting(false);
 				player.setWalkToTask(null);

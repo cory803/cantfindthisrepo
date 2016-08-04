@@ -1,5 +1,6 @@
 package com.runelive;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
@@ -11,6 +12,8 @@ import com.runelive.cache.Archive;
 import com.runelive.model.definitions.*;
 import com.runelive.model.npc.drops.LootSystem;
 import com.runelive.util.FontUtils;
+import com.runelive.world.World;
+import com.runelive.world.clip.region.Region;
 import com.runelive.world.clip.region.doors.DoubleDoor;
 import com.runelive.world.clip.region.doors.SingleDoor;
 import org.jboss.netty.bootstrap.ServerBootstrap;
@@ -25,7 +28,6 @@ import com.runelive.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedSho
 import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.net.PipelineFactory;
 import com.runelive.net.security.ConnectionHandler;
-import com.runelive.world.clip.region.RegionClipping;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.content.Lottery;
 import com.runelive.world.content.Scoreboard;
@@ -67,9 +69,11 @@ public final class GameLoader {
 	public void init() throws Exception {
 		ConnectionHandler.init();
 		//RegionClipping.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
-		RegionClipping.init();
+		//CacheObjectDefinition.load(new Archive(GameServer.cache.getFile(0, 2)));
 		FontUtils.initialize(new Archive(GameServer.cache.getFile(0, 1)));
-		GameObjectDefinition.init();
+		Region.init();
+		//GameObjectDefinition.init();
+		//World.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
 		CustomObjects.init();
 		ItemDefinition.init().load();
 		Lottery.init();

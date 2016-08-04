@@ -22,25 +22,25 @@ public class MagicOnPlayerPacketListener implements PacketListener {
 		Player attacked = World.getPlayers().get(playerIndex);
 
 		if (attacked == null || attacked.equals(player)) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			return;
 		}
 
 		CombatSpell spell = CombatSpells.getSpell(spellId);
 		if (spell == null) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			return;
 		}
 
 		if (attacked.getConstitution() <= 0) {
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			return;
 		}
 
 		if (spell.getSpellbook() != null && spell.getSpellbook() != player.getSpellbook()) {
 			player.getPacketSender()
 					.sendMessage("You can't do this! Please report how you did this to an admin. [mgc1]");
-			player.getMovementQueue().reset();
+			player.getWalkingQueue().clear();
 			return;
 		}
 

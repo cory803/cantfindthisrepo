@@ -23,7 +23,7 @@ public class Autocasting {
 			if (actionButtonId == spellIds[i]) {
 				CombatSpell cbSpell = CombatSpells.getSpell(actionButtonId);
 				if (cbSpell == null) {
-					p.getMovementQueue().reset();
+					p.getWalkingQueue().clear();
 					return true;
 				}
 				if (cbSpell.levelRequired() > p.getSkillManager().getCurrentLevel(Skill.MAGIC)) {
@@ -35,7 +35,7 @@ public class Autocasting {
 				if (cbSpell.getSpellbook() != null && cbSpell.getSpellbook() != cbSpell.getSpellbook()) {
 					p.getPacketSender()
 							.sendMessage("You can't do this! Please report how you did this to an admin. [mgc3]");
-					p.getMovementQueue().reset();
+					p.getWalkingQueue().clear();
 					return true;
 				}
 				p.setAutocast(true);

@@ -8,7 +8,7 @@ import com.runelive.model.GraphicHeight;
 import com.runelive.model.Position;
 import com.runelive.model.Projectile;
 import com.runelive.util.Misc;
-import com.runelive.world.clip.region.RegionClipping;
+import com.runelive.world.World;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
@@ -71,7 +71,7 @@ public class ChaosElemental implements CombatStrategy {
 		if (cE.isChargingAttack() || victim.getConstitution() <= 0) {
 			return true;
 		}
-		cE.getMovementQueue().reset();
+		cE.getWalkingQueue().clear();
 		cE.setEntityInteraction(victim);
 		final int attackStyle = Misc.getRandom(2); // 0 = melee, 1 = range, 2
 													// =mage
@@ -95,7 +95,7 @@ public class ChaosElemental implements CombatStrategy {
 					victim.performGraphic(teleGraphic);
 					int randomX = victim.getPosition().getX() - Misc.getRandom(30);
 					int randomY = victim.getPosition().getY();
-					if (RegionClipping.getClipping(randomX, randomY, 0) == 0) {
+					if (World.getMask(randomX, randomY, 0) == 0) {
 						victim.moveTo(new Position(randomX, randomY));
 						((Player) victim).getPacketSender().sendMessage("The Chaos elemental has teleported you away!");
 					}

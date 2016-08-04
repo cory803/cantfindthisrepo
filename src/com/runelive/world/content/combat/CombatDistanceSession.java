@@ -58,7 +58,7 @@ public class CombatDistanceSession {
 	}
 
 	public void sucessFul() {
-		builder.getCharacter().getMovementQueue().reset();
+		builder.getCharacter().getWalkingQueue().clear();
 		builder.setVictim(victim);
 		builder.setCombatSession(new CombatSession(builder));
 	}

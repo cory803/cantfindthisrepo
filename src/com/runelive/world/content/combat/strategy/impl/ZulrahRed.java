@@ -49,7 +49,6 @@ public class ZulrahRed implements CombatStrategy {
 					if(tick == 0) {
 						zulrah.setChargingAttack(true);
 						position = player.getPosition();
-						zulrah.getMovementQueue().setFollowCharacter(null);
 						zulrah.setPositionToFace(position);
 					}
 					if(tick == 3) {

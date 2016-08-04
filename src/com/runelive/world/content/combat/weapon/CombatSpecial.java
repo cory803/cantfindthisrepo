@@ -474,10 +474,10 @@ public enum CombatSpecial {
 							moveY = 1;
 						else if (moveY < 0)
 							moveY = -1;
-						if (target.getMovementQueue().canWalk(moveX, moveY)) {
+						if (target.getWalkingQueue().canWalk(moveX, moveY)) {
 							target.setEntityInteraction(player);
-							target.getMovementQueue().reset();
-							target.getMovementQueue().walkStep(moveX, moveY);
+							target.getWalkingQueue().clear();
+							target.getWalkingQueue().walkStep(moveX, moveY);
 						}
 					}
 					target.performGraphic(new Graphic(254, GraphicHeight.HIGH));
@@ -580,7 +580,7 @@ public enum CombatSpecial {
 						target.performGraphic(new Graphic(1221));
 						if (!target.isFrozen()) {
 							if (target.getSize() == 1) {
-								target.getMovementQueue().freeze(15);
+								target.getWalkingQueue().freeze(15);
 							}
 						}
 					}

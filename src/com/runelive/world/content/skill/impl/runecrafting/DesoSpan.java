@@ -11,7 +11,7 @@ import com.runelive.model.Hitmask;
 import com.runelive.model.Position;
 import com.runelive.model.Projectile;
 import com.runelive.model.Skill;
-import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Emotes.Skillcape_Data;
@@ -64,7 +64,7 @@ public class DesoSpan {
 		if (energyType != null) {
 			player.getSkillManager().stopSkilling();
 			if (player.getPosition().equals(n.getPosition()))
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 			player.setEntityInteraction(n);
 			if (player.getSkillManager().getCurrentLevel(Skill.RUNECRAFTING) < energyType.levelReq) {
 				player.getPacketSender().sendMessage("You need a Runecrafting level of at least " + energyType.levelReq

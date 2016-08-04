@@ -2,16 +2,8 @@ package com.runelive.world.content.combat.range;
 
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
-import com.runelive.model.Animation;
-import com.runelive.model.CombatIcon;
-import com.runelive.model.DwarfCannon;
-import com.runelive.model.GameObject;
-import com.runelive.model.Hit;
-import com.runelive.model.Hitmask;
-import com.runelive.model.Locations;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.Projectile;
-import com.runelive.model.Skill;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.Achievements.AchievementData;
@@ -19,7 +11,6 @@ import com.runelive.world.content.CustomObjects;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.CoordinateState;
 import com.runelive.world.entity.impl.player.Player;
 
 /**
@@ -39,11 +30,9 @@ public class DwarfMultiCannon {
 	public static void setupCannon(final Player c) {
 		if (!canSetupCannon(c))
 			return;
-		c.getMovementQueue().reset();
+		c.getWalkingQueue().clear();
 		c.setSettingUpCannon(true);
 		c.getSkillManager().stopSkilling();
-		final boolean movementLock = c.getMovementQueue().isLockMovement();
-		c.getMovementQueue().setLockMovement(true);
 		final GameObject object = new GameObject(CANNON_BASE, c.getPosition().copy());
 		final GameObject object2 = new GameObject(CANNON_STAND, c.getPosition().copy());
 		final GameObject object3 = new GameObject(CANNON_BARRELS, c.getPosition().copy());
@@ -96,7 +85,6 @@ public class DwarfMultiCannon {
 
 			@Override
 			public void stop() {
-				c.getMovementQueue().setLockMovement(movementLock);
 				setEventRunning(false);
 			}
 		});
@@ -116,7 +104,7 @@ public class DwarfMultiCannon {
 			c.getPacketSender().sendMessage("You can only have one dwarf-cannon setup at once.");
 			return false;
 		}
-		if (!c.getMovementQueue().canWalk(3, 3) || CustomObjects.objectExists(c.getPosition().copy())
+		if (!c.getWalkingQueue().canWalk(3, 3) || CustomObjects.objectExists(c.getPosition().copy())
 				|| !c.getLocation().isCannonAllowed() || c.getPosition().getZ() != 0) {
 			c.getPacketSender().sendMessage("The dwarf-cannon cannot be setup here. Try moving around a bit.");
 			return false;
@@ -280,7 +268,7 @@ public class DwarfMultiCannon {
 			player.getSkillManager().addSkillExperience(Skill.CONSTITUTION, (int) (dmg.getDamage() * .30));
 		}
 		if (!n.getCombatBuilder().isAttacking()) {
-			if (n.getMovementCoordinator().getCoordinateState() == CoordinateState.HOME)
+			if (n.getPosition().distanceTo(n.getDefaultPosition()) < 5)
 				n.getCombatBuilder().attack(player);
 		}
 		cannon.setCannonballs(cannon.getCannonballs() - 1);

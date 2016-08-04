@@ -1,55 +1,21 @@
 package com.runelive.world.content.dialogue;
 
-import java.io.File;
-import java.text.NumberFormat;
-import java.util.Locale;
-
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.BonusExperienceTask;
-import com.runelive.model.Animation;
-import com.runelive.model.Flag;
-import com.runelive.model.GameObject;
-import com.runelive.model.Hit;
-import com.runelive.model.Item;
-import com.runelive.model.Locations;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.PlayerRights;
-import com.runelive.model.Position;
-import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Shop.ShopManager;
 import com.runelive.model.definitions.ItemDefinition;
-import com.runelive.model.input.impl.BuyShards;
-import com.runelive.model.input.impl.ChangePassword;
-import com.runelive.model.input.impl.DonateToWell;
-import com.runelive.model.input.impl.EnterYellTag;
-import com.runelive.model.input.impl.GambleAdvertiser;
-import com.runelive.model.input.impl.PosSearchShop;
-import com.runelive.model.input.impl.SellShards;
-import com.runelive.model.input.impl.SetEmail;
-import com.runelive.model.input.impl.ToxicStaffZulrahScales;
-import com.runelive.model.movement.MovementQueue;
-import com.runelive.model.player.GameMode;
-import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.input.impl.*;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements.AchievementData;
-import com.runelive.world.content.Artifacts;
-import com.runelive.world.content.BankPin;
-import com.runelive.world.content.BossSystem;
+import com.runelive.world.content.*;
 import com.runelive.world.content.BossSystem.Bosses;
-import com.runelive.world.content.CustomObjects;
-import com.runelive.world.content.Effigies;
 import com.runelive.world.content.Gambling.FlowersData;
-import com.runelive.world.content.Lottery;
-import com.runelive.world.content.MemberScrolls;
-import com.runelive.world.content.PkSets;
-import com.runelive.world.content.PlayerLogs;
-import com.runelive.world.content.PlayerPanel;
-import com.runelive.world.content.Scoreboard;
-import com.runelive.world.content.ShootingStar;
-import com.runelive.world.content.WellOfGoodwill;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.world.content.dialogue.impl.AgilityTicketExchange;
@@ -78,6 +44,10 @@ import com.runelive.world.content.transportation.jewelry.GloryTeleporting;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.npc.NpcAggression;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.io.File;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class DialogueOptions {
 
@@ -181,15 +151,15 @@ public class DialogueOptions {
 				}
 				FlowersData flowers = FlowersData.BLUE_FLOWERS;
 				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.getInventory().delete(299, 1);
 				player.performAnimation(new Animation(827));
 				player.getPacketSender().sendMessage("You plant the seed..");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.setDialogueActionId(42);
 				player.setInteractingObject(flower);
 				DialogueManager.start(player, 78);
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 				CustomObjects.globalObjectRemovalTask(flower, 90);
 				player.setPositionToFace(flower.getPosition());
 				player.getClickDelay().reset();
@@ -377,15 +347,15 @@ public class DialogueOptions {
 				}
 				FlowersData flowers = FlowersData.ORANGE_FLOWERS;
 				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.getInventory().delete(299, 1);
 				player.performAnimation(new Animation(827));
 				player.getPacketSender().sendMessage("You plant the seed..");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.setDialogueActionId(42);
 				player.setInteractingObject(flower);
 				DialogueManager.start(player, 78);
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 				CustomObjects.globalObjectRemovalTask(flower, 90);
 				player.setPositionToFace(flower.getPosition());
 				player.getClickDelay().reset();
@@ -561,15 +531,15 @@ public class DialogueOptions {
 				}
 				FlowersData flowers = FlowersData.YELLOW_FLOWERS;
 				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.getInventory().delete(299, 1);
 				player.performAnimation(new Animation(827));
 				player.getPacketSender().sendMessage("You plant the seed..");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.setDialogueActionId(42);
 				player.setInteractingObject(flower);
 				DialogueManager.start(player, 78);
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 				CustomObjects.globalObjectRemovalTask(flower, 90);
 				player.setPositionToFace(flower.getPosition());
 				player.getClickDelay().reset();
@@ -757,15 +727,15 @@ public class DialogueOptions {
 				}
 				FlowersData flowers = FlowersData.RED_FLOWERS;
 				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.getInventory().delete(299, 1);
 				player.performAnimation(new Animation(827));
 				player.getPacketSender().sendMessage("You plant the seed..");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.setDialogueActionId(42);
 				player.setInteractingObject(flower);
 				DialogueManager.start(player, 78);
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 				CustomObjects.globalObjectRemovalTask(flower, 90);
 				player.setPositionToFace(flower.getPosition());
 				player.getClickDelay().reset();
@@ -1874,15 +1844,15 @@ public class DialogueOptions {
 				}
 				FlowersData flowers = FlowersData.PASTEL_FLOWERS;
 				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.getInventory().delete(299, 1);
 				player.performAnimation(new Animation(827));
 				player.getPacketSender().sendMessage("You plant the seed..");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.setDialogueActionId(42);
 				player.setInteractingObject(flower);
 				DialogueManager.start(player, 78);
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 				CustomObjects.globalObjectRemovalTask(flower, 90);
 				player.setPositionToFace(flower.getPosition());
 				player.getClickDelay().reset();
@@ -2090,15 +2060,15 @@ public class DialogueOptions {
 				}
 				FlowersData flowers = FlowersData.PURPLE_FLOWERS;
 				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.getInventory().delete(299, 1);
 				player.performAnimation(new Animation(827));
 				player.getPacketSender().sendMessage("You plant the seed..");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.setDialogueActionId(42);
 				player.setInteractingObject(flower);
 				DialogueManager.start(player, 78);
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 				CustomObjects.globalObjectRemovalTask(flower, 90);
 				player.setPositionToFace(flower.getPosition());
 				player.getClickDelay().reset();
@@ -2337,15 +2307,15 @@ public class DialogueOptions {
 				}
 				FlowersData flowers = FlowersData.RAINBOW_FLOWERS;
 				final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.getInventory().delete(299, 1);
 				player.performAnimation(new Animation(827));
 				player.getPacketSender().sendMessage("You plant the seed..");
-				player.getMovementQueue().reset();
+				player.getWalkingQueue().clear();
 				player.setDialogueActionId(42);
 				player.setInteractingObject(flower);
 				DialogueManager.start(player, 78);
-				MovementQueue.stepAway(player);
+				WalkingQueue.stepAway(player);
 				CustomObjects.globalObjectRemovalTask(flower, 90);
 				player.setPositionToFace(flower.getPosition());
 				player.getClickDelay().reset();

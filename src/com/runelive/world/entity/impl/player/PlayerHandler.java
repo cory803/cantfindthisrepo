@@ -163,7 +163,7 @@ public class PlayerHandler {
 		player.getPacketSender().sendConfig(172, player.isAutoRetaliate() ? 1 : 0)
 				.sendTotalXp(player.getSkillManager().getTotalGainedExp())
 				.sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId()).sendRunStatus()
-				.sendRunEnergy(player.getRunEnergy()).sendConstitutionOrbPoison(player.isPoisoned())
+				.sendRunEnergy(Math.round(player.getRunEnergy())).sendConstitutionOrbPoison(player.isPoisoned())
 				.sendConstitutionOrbVenom(player.isVenomed()).sendString(8135, "" + player.getMoneyInPouch())
 				.sendInteractionOption("Follow", 3, false).sendInteractionOption("Trade With", 4, false)
 				.sendInterfaceRemoval()

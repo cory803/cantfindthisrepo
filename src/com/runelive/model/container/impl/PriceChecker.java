@@ -15,7 +15,7 @@ public class PriceChecker extends ItemContainer {
 	}
 
 	public PriceChecker open() {
-		getPlayer().getMovementQueue().reset();
+		getPlayer().getWalkingQueue().clear();
 		getPlayer().getPacketSender().sendMessage("")
 				.sendMessage("Note: When selling an item to a store, it loses 15% of its original value!")
 				.sendMessage("Prices shown in the price-checker are the original values!");

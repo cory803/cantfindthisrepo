@@ -38,7 +38,7 @@ public class Digging {
 	public static void dig(final Player player) {
 		if (!player.getClickDelay().elapsed(2000))
 			return;
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.getPacketSender().sendMessage("You start digging..");
 		player.performAnimation(new Animation(830));
 		TaskManager.submit(new Task(2, player, false) {

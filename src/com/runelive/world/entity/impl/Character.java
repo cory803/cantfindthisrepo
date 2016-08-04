@@ -14,7 +14,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.RegionInstance;
 import com.runelive.model.UpdateFlag;
-import com.runelive.model.movement.MovementQueue;
+import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Stopwatch;
 import com.runelive.world.content.combat.CombatBuilder;
 import com.runelive.world.content.combat.CombatType;
@@ -22,7 +22,6 @@ import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.Entity;
 import com.runelive.world.entity.impl.player.Player;
-import com.sun.deploy.uitoolkit.SynthesizedEventListener;
 
 /**
  * A player or NPC
@@ -50,7 +49,6 @@ public abstract class Character extends Entity {
 	private Direction direction, primaryDirection = Direction.NONE, secondaryDirection = Direction.NONE,
 			lastDirection = Direction.NONE;
 	private CombatBuilder combatBuilder = new CombatBuilder(this);
-	private MovementQueue movementQueue = new MovementQueue(this);
 	private Stopwatch lastCombat = new Stopwatch();
 	private UpdateFlag updateFlag = new UpdateFlag();
 	private Location location;
@@ -376,18 +374,17 @@ public abstract class Character extends Entity {
 	}
 
 	public Character moveTo(Position teleportTarget) {
-		getMovementQueue().reset();
 		super.setPosition(teleportTarget.copy());
 		setNeedsPlacement(true);
 		setResetMovementQueue(true);
 		setTeleporting(true);
 		if (isPlayer()) {
-			getMovementQueue().handleRegionChange();
+			((Player) this).getPacketSender().sendMapRegion();
 		}
 		return this;
 	}
 
-	private boolean moving;
+	public boolean moving;
 
 	public void delayedMoveTo(final Position teleportTarget, final int delay) {
 		if (moving)
@@ -412,13 +409,10 @@ public abstract class Character extends Entity {
 		return updateFlag;
 	}
 
-	public Character setMovementQueue(MovementQueue movementQueue) {
-		this.movementQueue = movementQueue;
-		return this;
-	}
+	protected final WalkingQueue walkingQueue = new WalkingQueue(this);
 
-	public MovementQueue getMovementQueue() {
-		return movementQueue;
+	public WalkingQueue getWalkingQueue() {
+		return walkingQueue;
 	}
 
 	public Character forceChat(String message) {
@@ -662,5 +656,47 @@ public abstract class Character extends Entity {
 		}
 
 		return fail;
+	}
+
+	public int distance(Character entity) {
+		return dist(entity, false);
+	}
+
+	private int dist(Character entity, boolean math) {
+		Position position = entity.getPosition();
+		return dist(position.getX(), position.getY(), position.getX() + (entity.getSize() - 1), position.getY() + (entity.getSize() - 1), math);
+	}
+
+	public int distance(int x, int y) {
+		return dist(x, y, x, y, false);
+	}
+
+	private int dist(int otherX, int otherY, int otherEndX, int otherEndY, boolean math) {
+		int x = getPosition().getX();
+		int y = getPosition().getY();
+		int endX = x + (this.getSize() - 1);
+		int endY = y + (this.getSize() - 1);
+		int distX, distY;
+		if (endX < otherX) {
+			distX = otherX - endX;
+		} else if (x > otherEndX) {
+			distX = x - otherEndX;
+		} else {
+			distX = 0;
+		}
+		if (endY < otherY) {
+			distY = otherY - endY;
+		} else if (y > otherEndY) {
+			distY = y - otherEndY;
+		} else {
+			distY = 0;
+		}
+		if (!math && distX == distY) {
+			if (distX == 0) {
+				return 0;
+			}
+			return distX + 1;
+		}
+		return distX > distY ? distX : distY;
 	}
 }

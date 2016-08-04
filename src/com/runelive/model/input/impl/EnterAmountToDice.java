@@ -47,7 +47,7 @@ public class EnterAmountToDice extends EnterAmount {
 			player.getPacketSender().sendMessage("You must wait 5 seconds between each dice cast.");
 			return;
 		}
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.performAnimation(new Animation(11900));
 		player.performGraphic(new Graphic(2075));
 		ClanChatManager.sendMessage(player.getCurrentClanChat(), "@bla@[ClanChat] @whi@" + player.getUsername()

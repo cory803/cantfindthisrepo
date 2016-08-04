@@ -23,7 +23,6 @@ import com.runelive.world.content.combat.HitQueue.CombatHit;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.world.entity.impl.npc.NPCMovementCoordinator.Coordinator;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Nex implements CombatStrategy {
@@ -54,17 +53,11 @@ public class Nex implements CombatStrategy {
 		despawn(true);
 
 		NEX = new NPC(13447, new Position(2925, 5203));
-		NEX.getMovementCoordinator().setCoordinator(new Coordinator(true, 3));
 
 		FUMUS = new NPC(13451, new Position(2916, 5213));
 		UMBRA = new NPC(13452, new Position(2934, 5213));
 		CRUOR = new NPC(13453, new Position(2915, 5193));
 		GLACIES = new NPC(13454, new Position(2935, 5193));
-
-		FUMUS.getMovementCoordinator().setCoordinator(new Coordinator(false, -1));
-		UMBRA.getMovementCoordinator().setCoordinator(new Coordinator(false, -1));
-		CRUOR.getMovementCoordinator().setCoordinator(new Coordinator(false, -1));
-		GLACIES.getMovementCoordinator().setCoordinator(new Coordinator(false, -1));
 
 		World.register(NEX);
 		World.register(FUMUS);
@@ -333,7 +326,7 @@ public class Nex implements CombatStrategy {
 				NEX.setChargingAttack(true);
 				final int origX = p.getPosition().getX();
 				final int origY = p.getPosition().getY();
-				p.getMovementQueue().reset();
+				p.getWalkingQueue().clear();
 				for (int x = origX - 1; x < origX + 1; x++) {
 					for (int y = origY - 1; y < origY + 1; y++) {
 						CustomObjects.globalObjectRemovalTask(new GameObject(57263, new Position(x, y)), 5);
@@ -419,7 +412,7 @@ public class Nex implements CombatStrategy {
 					});
 				} else {
 					p.performGraphic(new Graphic(366));
-					p.getMovementQueue().freeze(5);
+					p.getWalkingQueue().freeze(5);
 					NEX.performAnimation(new Animation(6326));
 					if(p.getLocation() == Location.GODWARS_DUNGEON) {
 						new CombatHit(NEX.getCombatBuilder(), new CombatContainer(NEX, p, 1, CombatType.MAGIC, true))

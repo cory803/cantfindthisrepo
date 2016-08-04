@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.runelive.model.action.ActionQueue;
 import com.runelive.model.options.OptionContainer;
 import com.runelive.model.player.GameModeAssistant;
 import com.runelive.model.player.dialog.Dialog;
@@ -506,13 +507,21 @@ public class Player extends Character {
             getSkillManager().setCurrentLevel(skill, getSkillManager().getMaxLevel(skill));
         setRunEnergy(100);
         setDying(false);
-        getMovementQueue().setLockMovement(false).reset();
+        getWalkingQueue().clear();
         getUpdateFlag().flag(Flag.APPEARANCE);
     }
 
     public boolean busy() {
         return interfaceId > 0 || isBanking || shopping || posShopping || trading.inTrade() || dueling.inDuelScreen
                 || isResting;
+    }
+
+    public void walkTo(int offsetX, int offsetY) {
+        if (!player.playerLocked) {
+            return;
+        }
+        player.getWalkingQueue().clear();
+        player.getWalkingQueue().addClippedStep(player.getPosition().getX() + offsetX, player.getPosition().getY() + offsetY);
     }
 
 	/*
@@ -580,6 +589,7 @@ public class Player extends Character {
     public PlayerSession session;
     public LoginDetailsMessage logindetailsmessage;
     public Channel channel;
+    private final ActionQueue actionQueue = new ActionQueue(this);
     private final PlayerProcess process = new PlayerProcess(this);
     private final PlayerKillingAttributes playerKillingAttributes = new PlayerKillingAttributes(this);
     private final MinigameAttributes minigameAttributes = new MinigameAttributes();
@@ -717,6 +727,7 @@ public class Player extends Character {
     private Player killed_player;
 
     /*** BOOLEANS ***/
+    public boolean ignoreClip = true;
     private boolean canWearDungItems = false;
     private boolean revsWarning = true;
     private boolean passedRandom = true;
@@ -786,6 +797,11 @@ public class Player extends Character {
     /*
      * Getters & Setters
      */
+
+    public ActionQueue getActionQueue() {
+        return actionQueue;
+    }
+
     public Thieving getThieving() {
         return this.thieving;
     }
@@ -1152,22 +1168,6 @@ public class Player extends Character {
 
     public void setDonorRights(int donorRights) {
         this.donatorRights = donorRights;
-    }
-
-    public String getDonorRight() {
-        switch (donatorRights) {
-            case 1:
-                return "Donator";
-            case 2:
-                return "Super Donator";
-            case 3:
-                return "Extreme Donator";
-            case 4:
-                return "Legendary Donator";
-            case 5:
-                return "Uber Donator";
-        }
-        return "";
     }
 
     public PlayerRights getRights() {

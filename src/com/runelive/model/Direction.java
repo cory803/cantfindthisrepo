@@ -6,51 +6,15 @@ package com.runelive.model;
  * @author Graham
  */
 public enum Direction {
-
-	/**
-	 * North movement.
-	 */
-	NORTH(1),
-
-	/**
-	 * North east movement.
-	 */
-	NORTH_EAST(2),
-
-	/**
-	 * East movement.
-	 */
-	EAST(4),
-
-	/**
-	 * South east movement.
-	 */
-	SOUTH_EAST(7),
-
-	/**
-	 * South movement.
-	 */
-	SOUTH(6),
-
-	/**
-	 * South west movement.
-	 */
-	SOUTH_WEST(5),
-
-	/**
-	 * West movement.
-	 */
-	WEST(3),
-
-	/**
-	 * North west movement.
-	 */
-	NORTH_WEST(0),
-
-	/**
-	 * No movement.
-	 */
-	NONE(-1);
+	NORTH(1, 0, 1),
+	NORTH_EAST(2, 1, 1),
+	EAST(4, 1, 0),
+	SOUTH_EAST(7, 1, -1),
+	SOUTH(6, 0, -1),
+	SOUTH_WEST(5, -1, -1),
+	WEST(3, -1, 0),
+	NORTH_WEST(0, -1, 1),
+	NONE(-1, 0, 0);
 
 	/**
 	 * An empty direction array.
@@ -143,19 +107,32 @@ public enum Direction {
 		return Math.abs(deltaX) == Math.abs(deltaY) || deltaX == 0 || deltaY == 0;
 	}
 
-	/**
-	 * The direction as an integer.
-	 */
-	private final int intValue;
+	private final String name;
+	private final int direction;
+	private final int x;
+	private final int y;
 
-	/**
-	 * Creates the direction.
-	 *
-	 * @param intValue
-	 *            The direction as an integer.
-	 */
-	private Direction(int intValue) {
-		this.intValue = intValue;
+	Direction(int direction, int x, int y) {
+		this.name = this.name().toLowerCase().replace("_", "-");
+		this.direction = direction;
+		this.x = x;
+		this.y = y;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getDirection() {
+		return direction;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
 	}
 
 	public int[] getDirectionDelta() {
@@ -187,7 +164,7 @@ public enum Direction {
 	 * @return The movement as an integer.
 	 */
 	public int toInteger() {
-		return intValue;
+		return direction;
 	}
 
 }

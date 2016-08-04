@@ -604,7 +604,8 @@ public class Dueling {
 		player.getInventory().refreshItems();
 		player.getEquipment().refreshItems();
 		duelingStatus = 5;
-		player.getMovementQueue().reset().setLockMovement(true);
+		player.getWalkingQueue().clear();
+		player.getWalkingQueue().setLockMovement(true);
 		player.getPacketSender().sendInterfaceRemoval();
 		int INSTANCED_DUEL_LEAVEL = player.getIndex() + playerToDuel.getIndex() * 4;
 		for (int i = 0; i < selectedDuelRules.length; i++) {
@@ -631,7 +632,7 @@ public class Dueling {
 			@Override
 			public void execute() {
 				if (player.getLocation() != Location.DUEL_ARENA) {
-					player.getMovementQueue().setLockMovement(false);
+					player.getWalkingQueue().setLockMovement(false);
 					stop();
 					return;
 				}
@@ -639,7 +640,7 @@ public class Dueling {
 					player.forceChat("" + timer + "..");
 				else {
 					player.forceChat("FIGHT!!");
-					player.getMovementQueue().setLockMovement(false);
+					player.getWalkingQueue().setLockMovement(false);
 					timer = -1;
 					stop();
 					return;
@@ -654,7 +655,8 @@ public class Dueling {
 	public void duelVictory() {
 		duelingStatus = 6;
 		player.restart();
-		player.getMovementQueue().reset().setLockMovement(false);
+		player.getWalkingQueue().clear();
+		player.getWalkingQueue().setLockMovement(false);
 		if (duelingWith > 0) {
 			Player playerDuel = World.getPlayers().get(duelingWith);
 			if (playerDuel != null && playerDuel.getDueling().stakedItems.size() > 0) {
@@ -690,7 +692,7 @@ public class Dueling {
 		reset();
 		arenaStats[0]++;
 		player.setEntityInteraction(null);
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.getPacketSender().sendInterface(6733);
 		player.getPointsHandler().refreshPanel();
 	}
@@ -745,7 +747,7 @@ public class Dueling {
 		duelTelePos = null;
 		timer = 3;
 		player.getCombatBuilder().reset(true);
-		player.getMovementQueue().reset();
+		player.getWalkingQueue().clear();
 		player.getPacketSender().sendEntityHintRemoval(true);
 	}
 
