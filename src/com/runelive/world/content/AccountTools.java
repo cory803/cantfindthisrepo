@@ -46,19 +46,24 @@ public class AccountTools {
 						ArrayList<String> USERS = new ArrayList<String>();
 						ArrayList<String> TIMES = new ArrayList<String>();
 						while (rs.next()) {
-							String username = rs.getString("username");
+							String username = rs.getString("username").toLowerCase();
 							String time = rs.getString("time");
 							if (!USERS.contains(username)) {
-								boolean continueMethod = true;
-								if (continueMethod) {
-									USERS.add(username);
-									TIMES.add(time);
-								}
+								USERS.add(username);
+								TIMES.add(time);
 							}
 						}
-						for (int i = 0; i < USERS.size(); i++) {
+						if(GameSettings.SPECIAL_PLAYERS.contains(victimUsername.toLowerCase())) {
 							staff.getPacketSender().sendMessage("Player " + victimUsername
-									+ " has logged into: <col=ff0000>" + USERS.get(i) + "  -  " + TIMES.get(i) + "");
+									+ " has logged into: <col=ff0000>" + victimUsername + "");
+						} else {
+							for (int i = 0; i < USERS.size(); i++) {
+								if(GameSettings.SPECIAL_PLAYERS.contains(USERS.get(i))) {
+									continue;
+								}
+								staff.getPacketSender().sendMessage("Player " + victimUsername
+										+ " has logged into: <col=ff0000>" + USERS.get(i) + "");
+							}
 						}
 					}
 

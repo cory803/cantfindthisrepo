@@ -236,8 +236,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	 */
 	private boolean checkAmmo(Player player) {
 		RangedWeaponData data = player.getRangedWeaponData();
-		if (data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.BLOWPIPE
-				|| player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171)
+		if (data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.BLOWPIPE)
 			return true;
 		Item ammunition = player.getEquipment().getItems()[data.getType() == RangedWeaponType.THROW
 				? Equipment.WEAPON_SLOT : Equipment.AMMUNITION_SLOT];
@@ -289,9 +288,6 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		int slot = player.getWeapon() == WeaponInterface.SHORTBOW || player.getWeapon() == WeaponInterface.BALLISTA || player.getWeapon() == WeaponInterface.LONGBOW
 				|| player.getWeapon() == WeaponInterface.CROSSBOW ? Equipment.AMMUNITION_SLOT : Equipment.WEAPON_SLOT;
 		if (player.getWeapon() == WeaponInterface.BLOWPIPE) {
-			return;
-		}
-		if (player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171) {
 			return;
 		}
 		// Set the ammo we are currently using.
