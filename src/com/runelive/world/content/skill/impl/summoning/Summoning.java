@@ -207,6 +207,8 @@ public class Summoning {
 							n.setSummoningCombat(true);
 							n.getCombatBuilder().attack(attacking ? player.getCombatBuilder().getVictim()
 									: player.getCombatBuilder().getLastAttacker());
+							n.follow(attacking ? player.getCombatBuilder().getVictim()
+									: player.getCombatBuilder().getLastAttacker());
 							n.setEntityInteraction(n.getCombatBuilder().getVictim());
 						} else {
 							n.setSummoningCombat(false);

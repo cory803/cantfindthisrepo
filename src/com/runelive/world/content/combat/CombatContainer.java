@@ -72,6 +72,7 @@ public class CombatContainer {
 		this.hitDelay = hitType == CombatType.MELEE ? 0
 				: hitType == CombatType.RANGED ? 2
 						: hitType == CombatType.MAGIC || hitType == CombatType.DRAGON_FIRE ? 3 : 1;
+		attacker.setLastCombatType(hitType);
 	}
 
 	public CombatContainer(Character attacker, Character victim, int hitAmount, int hitDelay, CombatType hitType,
@@ -83,6 +84,7 @@ public class CombatContainer {
 		this.hits = prepareHits(hitAmount);
 		this.experience = getSkills(hitType);
 		this.hitDelay = hitDelay;
+		attacker.setLastCombatType(hitType);
 	}
 
 	/**

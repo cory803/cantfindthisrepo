@@ -179,13 +179,15 @@ public class NPC extends Character {
                 for (int i = 0; i < size; i++) {
                     Position position = new Position(stream.readShort(), stream.readShort(), stream.readShort());
                     Direction direction = Direction.values()[stream.readByte()];
-                    stream.readByte();
+                    boolean canWalk = stream.readByte() == 0;
                     int walking = stream.readByte();
                     stream.readByte(); //This is for world reading.  We currently do not need this
                     NPC npc = new NPC(id, position);
                     npc.setDirection(direction);
                     npc.walkingDistance = walking;
-                    npc.walkEnabled = walking > 0;
+                    if (!canWalk) {
+                        npc.setWalking(false);
+                    }
                     World.register(npc);
                     if (id > 5070 && id < 5081) {
                         Hunter.HUNTER_NPC_LIST.add(npc);
@@ -279,16 +281,16 @@ public class NPC extends Character {
     private boolean healed, chargingAttack;
     private boolean findNewTarget;
     public boolean projectileClipping;
-    private boolean walkEnabled = true;
     private boolean randomWalks;
-
-	/*
-	 * Getters and setters
-	 */
+    private boolean walkEnabled = true;
 
     public void setWalking(boolean canWalk) {
         this.walkEnabled = canWalk;
     }
+
+	/*
+	 * Getters and setters
+	 */
 
     public int getId() {
         return id;
@@ -400,6 +402,32 @@ public class NPC extends Character {
 
     public void disableRandomWalking() {
         randomWalks = false;
+    }
+
+    public boolean canWalk() {
+        switch (id) {
+            case 1532:
+            case 1533:
+            case 329:
+            case 322:
+            case 321:
+            case 2067:
+            case 324:
+            case 334:
+            case 1176:
+            case 1174:
+            case 29: // musician
+            case 1056: // mime
+            case 571: // Baker
+            case 539: // Silk stall
+            case 573: // Fur stall
+            case 569: // Silver stall
+            case 572: // spice stall
+            case 540: // Gem stall
+                return false;
+        }
+
+        return this.walkEnabled;
     }
 
     public static int getWalkingDistance(int id) {
@@ -583,7 +611,7 @@ public class NPC extends Character {
     }
 
     public void follow(Character a) {
-        if (!walkEnabled) {
+        if (!canWalk()) {
             return;
         }
         if (a == null) {
@@ -593,15 +621,17 @@ public class NPC extends Character {
             return;
         }
         int distance = this.distance(a);
-        if (getCombatBuilder().getCombatType() != CombatType.MELEE) {
-            if (distance <= (getCombatBuilder().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a) || getCombatBuilder().getCombatType() == CombatType.MIXED)) {
-                return;
+        if (!isSummoningNpc()) {
+            if (getCombatBuilder().getCombatType() != CombatType.MELEE) {
+                if (distance <= (getCombatBuilder().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a) || getCombatBuilder().getCombatType() == CombatType.MIXED)) {
+                    return;
+                }
             }
         }
         Area area = Area.create(getPosition(), NpcDefinition.forId(id).getSize() - 1);
         Position targetPos = a.getWalkingQueue().getNextPosition();
         Direction direction;
-        if (makeArea.distance(targetPos) > maximumDistance) {
+        if (!isSummoningNpc() && makeArea.distance(targetPos) > maximumDistance) {
             if (getCombatBuilder().getLastAttacker() == null) {
                 return;
             }
@@ -704,7 +734,7 @@ public class NPC extends Character {
     }
 
     public void walking() {
-        if (constitution <= 0 || !this.walkEnabled) {
+        if (constitution <= 0 || !this.canWalk()) {
             return;
         }
         if (walkingDistance == 3 && !randomWalks) {

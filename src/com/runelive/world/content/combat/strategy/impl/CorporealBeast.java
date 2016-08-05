@@ -9,6 +9,7 @@ import com.runelive.model.Locations.Location;
 import com.runelive.model.Projectile;
 import com.runelive.model.Skill;
 import com.runelive.util.Misc;
+import com.runelive.util.RandomGenerator;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
 import com.runelive.world.content.combat.HitQueue.CombatHit;
@@ -56,8 +57,9 @@ public class CorporealBeast implements CombatStrategy {
 			cB.performGraphic(attack_graphic);
 		}
 
-		int attackStyle = Misc.getRandom(4);
-		if (attackStyle == 0 || attackStyle == 1) { // melee
+		int attackStyle = RandomGenerator.nextInt(4);
+		if (attackStyle == 0) { // melee
+			System.out.println("0");
 			int distanceX = target.getPosition().getX() - cB.getPosition().getX();
 			int distanceY = target.getPosition().getY() - cB.getPosition().getY();
 			if (distanceX > 4 || distanceX < -1 || distanceY > 4 || distanceY < -1)
@@ -69,11 +71,13 @@ public class CorporealBeast implements CombatStrategy {
 					cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 1, CombatType.MELEE, true));
 				return true;
 			}
-		} else if (attackStyle == 2) { // powerful mage spiky ball
+		} else if (attackStyle == 1) { // powerful mage spiky ball
+			System.out.println("1");
 			cB.performAnimation(attack_anim2);
 			cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 2, CombatType.MAGIC, true));
 			new Projectile(cB, target, 1825, 44, 3, 43, 43, 0).sendProjectile();
-		} else if (attackStyle == 3) { // translucent ball of energy
+		} else if (attackStyle == 2) { // translucent ball of energy
+			System.out.println("2");
 			cB.performAnimation(attack_anim2);
 			if (target.getLocation() == Location.BOSS_SYSTEM)
 				cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 2, CombatType.MAGIC, true));
@@ -95,6 +99,7 @@ public class CorporealBeast implements CombatStrategy {
 			});
 		}
 		if (attackStyle == 4) {
+			System.out.println("4");
 			cB.performAnimation(attack_anim2);
 			for (Player t : Misc.getCombinedPlayerList(target)) {
 				if (t == null || t.getLocation() != Location.BOSS_SYSTEM)

@@ -49,6 +49,7 @@ public abstract class Character extends Entity {
 	private Animation animation;
 	private Graphic graphic;
 	private Entity interactingEntity;
+	private CombatType lastCombatType = CombatType.MELEE;
 	public Position singlePlayerPositionFacing;
 	private CombatSpell currentlyCasting;
 	private Hit primaryHit;
@@ -120,6 +121,14 @@ public abstract class Character extends Entity {
 		this.animation = animation;
 		getUpdateFlag().flag(Flag.ANIMATION);
 		return this;
+	}
+
+	public CombatType getLastCombatType() {
+		return lastCombatType;
+	}
+
+	public void setLastCombatType(CombatType lastCombatType) {
+		this.lastCombatType = lastCombatType;
 	}
 
 	/**

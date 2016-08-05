@@ -60,6 +60,7 @@ public class CombatSession {
 		// The attack timer is below 1, we can attack.
 		if (builder.attackTimer < 1) {
 			// Check if the attacker is close enough to attack.
+
 			if (!CombatFactory.checkAttackDistance(builder)) {
 				if (builder.getCharacter().isNpc() && builder.getVictim().isPlayer()) {
 					if (builder.getLastAttack().elapsed(4500)) {
