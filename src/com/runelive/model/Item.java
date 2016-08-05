@@ -220,7 +220,7 @@ public class Item {
 			return false;
 		if (name.contains("infernal"))
 			return false;
-		if (name.toLowerCase().contains("(deg)") || name.toLowerCase().contains("brawling"))
+		if (name.toLowerCase().contains("brawling") || name.toLowerCase().contains("(deg)"))
 			return false;
 		if (name.toLowerCase().contains("chaotic") || name.toLowerCase().contains("eagle-eye")
 				|| name.toLowerCase().contains("farseer ki"))

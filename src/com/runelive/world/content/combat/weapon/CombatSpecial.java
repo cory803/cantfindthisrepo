@@ -53,7 +53,7 @@ public enum CombatSpecial {
 			player.performAnimation(new Animation(14788));
 			player.performGraphic(new Graphic(1729));
 
-			return new CombatContainer(player, target, 1, 1, CombatType.MAGIC, true) {
+			return new CombatContainer(player, target, 1, 0, CombatType.MAGIC, true) {
 				@Override
 				public void onHit(int damage, boolean accurate) {
 					target.performGraphic(new Graphic(1730));

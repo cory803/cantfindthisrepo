@@ -44,6 +44,9 @@ The attack speed on all items has been fixed, the following were broke:
 One ticking in combat has been fixed.
 Serpentine helm now will inflict venom in all combat styles instead of magic.
 Serpentine helm will now protect you from venom when wearing it.
+Pvp armour is now lost on death, and the killer will get a coin value of what the value of the item is.
+Chaotics are now lost on death, and the killer will get 5M coins per chaotic as the loot.
+The delay on the korasi special attack has been fixed.
 	
 The cooldown timer for most things (dropping/picking up items) is now based on your general attack speed with weapons instead of exactly 5 game ticks. (Example picking up a item then attacking a player again is now the speed of your weapon)
 Blowpipe rapid has been fixed

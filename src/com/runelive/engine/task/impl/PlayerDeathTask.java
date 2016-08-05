@@ -100,12 +100,32 @@ public class PlayerDeathTask extends Task {
 							for (Item item : playerItems) {
 								if (!item.tradeable() || itemsToKeep.contains(item)) {
 									if (!itemsToKeep.contains(item)) {
-										itemsToKeep.add(item);
+										if(!item.getDefinition().getName().toLowerCase().contains("(deg)") && !item.getDefinition().getName().toLowerCase().contains("chaotic") ) {
+											itemsToKeep.add(item);
+											continue;
+										}
 									}
-									continue;
 								}
 								if (spawnItems) {
-									if (item != null && item.getId() > 0 && item.getAmount() > 0) {
+									if(item.getDefinition().getName().contains("(deg)")) {
+										int address = Misc.random(0, Integer.MAX_VALUE);
+										GroundItemManager.spawnGroundItem(
+												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer
+														: player),
+												new GroundItem(new Item(995, item.getDefinition().getValue()), position,
+														killer != null ? killer.getUsername() : player.getUsername(),
+														player.getHostAddress(), false, 150, true, 150, address));
+										continue;
+									} else if(item.getDefinition().getName().toLowerCase().contains("chaotic")) {
+										int address = Misc.random(0, Integer.MAX_VALUE);
+										GroundItemManager.spawnGroundItem(
+												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer
+														: player),
+												new GroundItem(new Item(995, 5000000), position,
+														killer != null ? killer.getUsername() : player.getUsername(),
+														player.getHostAddress(), false, 150, true, 150, address));
+										continue;
+									} else if (item != null && item.getId() > 0 && item.getAmount() > 0) {
 										int address = Misc.random(0, Integer.MAX_VALUE);
 										GroundItemManager.spawnGroundItem(
 												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer

@@ -137,20 +137,19 @@ public class CombatContainer {
 		if (attacker.isPlayer() && ((Player) attacker).isSpecialActivated()) {
 			if (((Player) attacker).getCombatSpecial() == CombatSpecial.DRAGON_CLAWS && hitAmount == 4) {
 				int first = array[0].getHit().getDamage();
-				if (first > 360) {
-					first = 360 + Misc.getRandom(10);
-				}
-				int second = first <= 0 ? array[1].getHit().getDamage() : (int) (first / 2);
-				int third = first <= 0 && second > 0 ? (int) (second / 2)
-						: first <= 0 && second <= 0 ? array[2].getHit().getDamage() : Misc.getRandom(second);
-				int fourth = first <= 0 && second <= 0 && third <= 0
-						? array[3].getHit().getDamage() + Misc.getRandom(7)
-						: first <= 0 && second <= 0 ? array[3].getHit().getDamage() : third;
-				array[0].getHit().setDamage(first);
-				array[1].getHit().setDamage(second);
-				array[2].getHit().setDamage(third);
-				array[3].getHit().setDamage(fourth);
-				if(first + second + third + fourth >= 700) {
+				int second = array[1].getHit().getDamage();
+				int third = array[2].getHit().getDamage();
+				int fourth = array[3].getHit().getDamage();
+
+				int total = first + second + third + fourth;
+
+
+
+				array[0].getHit().setDamage(total / 2);
+				array[1].getHit().setDamage(total / 4);
+				array[2].getHit().setDamage(total / 8);
+				array[3].getHit().setDamage(total / 8);
+				if(total >= 700) {
 					Achievements.finishAchievement((Player) attacker, Achievements.AchievementData.HIT_700_WITH_SPECIAL_ATTACK);
 				}
 			} else if (((Player) attacker).getCombatSpecial() == CombatSpecial.DARK_BOW && hitAmount == 2) {
