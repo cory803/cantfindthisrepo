@@ -119,6 +119,15 @@ public class CombatBuilder {
 		character.setEntityInteraction(null);
 	}
 
+	public void reset() {
+		if(character.isPlayer()) {
+			Player player = (Player) character;
+			player.setWalkToTask(null);
+			player.setCastSpell(null);
+		}
+		character.getCombatBuilder().cooldown(true);
+	}
+
 	/**
 	 * Starts the cooldown sequence.
 	 */
@@ -127,7 +136,7 @@ public class CombatBuilder {
 		// Check if we're even actively in combat.
 		if (strategy == null)
 			return;
-
+		System.out.println(""+strategy.attackDelay(character));
 		cooldown = 5;
 
 		character.setEntityInteraction(null);

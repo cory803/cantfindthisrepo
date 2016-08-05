@@ -403,7 +403,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 						player.getPacketSender().sendMessage("You can only use this in combat.");
 				} else
 					player.getPacketSender().sendMessage("Your shield doesn't have enough power yet. It has "
-							+ player.getDfsCharges() + "/20 dragon-fire charges.");
+							+ player.getDfsCharges() + "/50 dragon-fire charges.");
 				break;
 			}
 			break;

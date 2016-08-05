@@ -26,5 +26,8 @@ The zaryte bow ammunition bug has been fixed (where you could use dragon javelin
 The bug where you could bypass the duel arena rules and use Zaryte bows/crystal bows is fixed.
 Toxic blowpipe has been nerfed 12.5%.
 The combat boosts on the Zaryte bow has been redone.
+Staff of light & staff of the dead/toxic staff special attacks will no longer reset your combat.
+Using the dragonfire shield special will no longer reset your combat.
+The bug where your dragonfire shield would say /20 charges has been fixed so it now says /50.
 
 Polls:

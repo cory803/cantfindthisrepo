@@ -238,6 +238,10 @@ public class Player extends Character {
     public int getAttackSpeed() {
         int speed = weapon.getSpeed();
         String weapon = equipment.get(Equipment.WEAPON_SLOT).getDefinition().getName();
+        int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
+        if(weaponId <= 0) {
+            return 5;
+        }
         if (getCurrentlyCasting() != null) {
             if (equipment.get(Equipment.WEAPON_SLOT).getId() == 21108) {
                 return 4;
@@ -251,7 +255,6 @@ public class Player extends Character {
                 return 5;
             }
         }
-        int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
         if (weaponId == 1419) {
             speed -= 2;
         }

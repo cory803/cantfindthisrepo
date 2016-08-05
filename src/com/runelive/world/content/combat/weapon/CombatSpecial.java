@@ -392,7 +392,6 @@ public enum CombatSpecial {
 			Consumables.drinkStatPotion(player, -1, -1, -1, Skill.STRENGTH.ordinal(), true);
 			player.getSkillManager().setCurrentLevel(Skill.ATTACK,
 					player.getSkillManager().getCurrentLevel(Skill.ATTACK) - 7);
-			player.getCombatBuilder().cooldown(true);
 		}
 
 		@Override
@@ -410,7 +409,6 @@ public enum CombatSpecial {
 			player.setStaffOfLightEffect(50);
 			TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
 			player.getPacketSender().sendMessage("You are shielded by the spirits of the Staff of light!");
-			player.getCombatBuilder().cooldown(true);
 		}
 
 		@Override
@@ -427,7 +425,6 @@ public enum CombatSpecial {
 			player.setStaffOfLightEffect(100);
 			TaskManager.submit(new StaffOfLightSpecialAttackTask(player));
 			player.getPacketSender().sendMessage("You are shielded by the gods of the Toxic staff of the dead!");
-			player.getCombatBuilder().cooldown(true);
 		}
 
 		@Override
@@ -445,7 +442,6 @@ public enum CombatSpecial {
 			player.setStaffOfLightEffect(100);
 			TaskManager.submit(new ToxicStaffOfDeadSpecialAttackTask(player));
 			player.getPacketSender().sendMessage("You are shielded by the darkness of the Staff of the dead!");
-			player.getCombatBuilder().cooldown(true);
 		}
 
 		@Override

@@ -984,7 +984,7 @@ public final class CombatFactory {
 				if (((Player) entity).getSlayer().getSlayerTask().getNpcId() != 5866) {
 					((Player) entity).getPacketSender()
 							.sendMessage("You must be on a slayer task to kill this monster.");
-					entity.getCombatBuilder().reset(true);
+					entity.getCombatBuilder().reset();
 					return false;
 				}
 			}
@@ -1889,7 +1889,6 @@ public final class CombatFactory {
 		if (player == null || target == null || target.getConstitution() <= 0 || player.getConstitution() <= 0)
 			return;
 		player.getDragonfireShield().reset();
-		player.getCombatBuilder().cooldown(false);
 		player.setEntityInteraction(target);
 		player.performAnimation(new Animation(6696));
 		player.performGraphic(new Graphic(1165));
