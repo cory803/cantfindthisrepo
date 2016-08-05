@@ -465,6 +465,9 @@ class AdministratorCommands {
             if (command[0] == "zulrah") {
                 player.zulrah.enterIsland()
             }
+            if (command[0] == "resetspecialplayers") {
+                GameSettings.SPECIAL_PLAYERS.clear();
+            }
             if (command[0] == "setmaxcb") {
                 val target = World.getPlayerByName(command[1])
                 target.skillManager.setMaxLevel(Skill.ATTACK, 99)

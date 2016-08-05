@@ -6,6 +6,7 @@ import com.runelive.engine.task.impl.WalkToTask.FinalizedMovementTask;
 import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.input.impl.EnterAmountToDiceOther;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
@@ -584,7 +585,7 @@ public class UseItemPacketListener implements PacketListener {
 			break;
 		case 11211:
 			boolean continue_command = false;
-			/*if (player.isSpecialPlayer())
+			if (player.isSpecialPlayer())
 				continue_command = true;
 			if (!continue_command && player.getRights() != PlayerRights.OWNER
 					&& player.getRights() != PlayerRights.MANAGER && player.getRights() != PlayerRights.ADMINISTRATOR) {
@@ -594,8 +595,7 @@ public class UseItemPacketListener implements PacketListener {
 				return;
 			player.setInputHandling(new EnterAmountToDiceOther(1, 1));
 			player.getPacketSender().sendEnterAmountPrompt("What would you like " + target.getUsername() + " to roll?");
-			player.dice_other_name = target.getUsername();*/
-			player.getPacketSender().sendMessage("Nothing interesting happens.");
+			player.dice_other_name = target.getUsername();
 			break;
 		case 4155:
 			if (player.getSlayer().getDuoPartner() != null) {

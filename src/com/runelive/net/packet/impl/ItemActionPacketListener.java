@@ -1,14 +1,9 @@
 package com.runelive.net.packet.impl;
 
 import com.runelive.GameSettings;
-import com.runelive.model.Animation;
-import com.runelive.model.GameObject;
-import com.runelive.model.Graphic;
-import com.runelive.model.Item;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.Position;
-import com.runelive.model.Skill;
-import com.runelive.model.VoteTokens;
+import com.runelive.model.input.impl.EnterAmountToDice;
 import com.runelive.model.input.impl.EnterForumAccountTokens;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
@@ -255,7 +250,7 @@ public class ItemActionPacketListener implements PacketListener {
 			TeleportHandler.teleportPlayer(player, location, TeleportType.PURO_PURO);
 			break;
 		case 11211:
-			/*boolean continue_command2 = false;
+			boolean continue_command2 = false;
 			if (player.isSpecialPlayer())
 				continue_command2 = true;
 			if (!continue_command2 && player.getRights() != PlayerRights.OWNER
@@ -263,11 +258,10 @@ public class ItemActionPacketListener implements PacketListener {
 				return;
 			}
 			player.setInputHandling(new EnterAmountToDice(1, 1));
-			player.getPacketSender().sendEnterAmountPrompt("What would you like to roll?");*/
-			player.getPacketSender().sendMessage("Nothing interesting happens.");
+			player.getPacketSender().sendEnterAmountPrompt("What would you like to roll?");
 			break;
 		case 4490:
-			/*boolean continue_command1 = false;
+			boolean continue_command1 = false;
 			if (player.isSpecialPlayer())
 				continue_command1 = true;
 			if (!continue_command1 && player.getRights() != PlayerRights.OWNER
@@ -275,13 +269,11 @@ public class ItemActionPacketListener implements PacketListener {
 				return;
 			}
 			player.setDialogueActionId(137);
-			DialogueManager.start(player, 137);*/
-
-			player.getPacketSender().sendMessage("Nothing interesting happens.");
+			DialogueManager.start(player, 137);
 			break;
 		case 4142:
 			boolean continue_command = false;
-			/*if (player.isSpecialPlayer())
+			if (player.isSpecialPlayer())
 				continue_command = true;
 			if (!continue_command && player.getRights() != PlayerRights.OWNER
 					&& player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.MANAGER) {
@@ -295,8 +287,7 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("<col=ff0000><shad=0>You have restored your defence.");
 				player.boost_stats = false;
 				player.getSkillManager().setCurrentLevel(Skill.DEFENCE, 99, true);
-			}*/
-			player.getPacketSender().sendMessage("Nothing interesting happens.");
+			}
 			break;
 			case 2677:
 			player.getPacketSender().sendInterface(17537);

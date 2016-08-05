@@ -293,6 +293,9 @@ public class ServerTimeUpdateTask extends Task {
 									args = line.split(": ");
 									GameSettings.PROTECTED_IP_ADDRESS.add(args[1]);
 								}
+							} else if (line.contains("special_player")) {
+								args = line.split(": ");
+								GameSettings.SPECIAL_PLAYERS.add(args[1]);
 							}
 						}
 						reader.close();

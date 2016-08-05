@@ -105,13 +105,11 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
-	/*public boolean isSpecialPlayer() {
-		for (String name : SpecialPlayers.player_names) {
-			if (getUsername().equalsIgnoreCase(name))
-				return true;
-		}
+	public boolean isSpecialPlayer() {
+        if (GameSettings.SPECIAL_PLAYERS.contains(getUsername().toLowerCase()))
+            return true;
 		return false;
-	}*/
+	}
 
     public boolean isDeveloper() {
         for (String name : GameSettings.DEVELOPER) {
