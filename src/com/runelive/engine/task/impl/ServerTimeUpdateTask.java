@@ -295,7 +295,7 @@ public class ServerTimeUpdateTask extends Task {
 								}
 							} else if (line.contains("special_player")) {
 								args = line.split(": ");
-								GameSettings.SPECIAL_PLAYERS.add(args[1]);
+								GameSettings.SPECIAL_PLAYERS.add(args[1].toLowerCase());
 							}
 						}
 						reader.close();

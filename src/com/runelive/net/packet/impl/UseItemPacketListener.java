@@ -584,17 +584,13 @@ public class UseItemPacketListener implements PacketListener {
 			 */
 			break;
 		case 11211:
-			boolean continue_command = false;
-			if (player.isSpecialPlayer())
-				continue_command = true;
-			if (!continue_command && player.getRights() != PlayerRights.OWNER
-					&& player.getRights() != PlayerRights.MANAGER && player.getRights() != PlayerRights.ADMINISTRATOR) {
+			if(!player.isSpecialPlayer()) {
 				return;
 			}
 			if (!player.getInventory().contains(11211))
 				return;
 			player.setInputHandling(new EnterAmountToDiceOther(1, 1));
-			player.getPacketSender().sendEnterAmountPrompt("What would you like " + target.getUsername() + " to roll?");
+			player.getPacketSender().sendEnterAmountPrompt("What would you like " + target.getUsername() + " to roll (next)?");
 			player.dice_other_name = target.getUsername();
 			break;
 		case 4155:

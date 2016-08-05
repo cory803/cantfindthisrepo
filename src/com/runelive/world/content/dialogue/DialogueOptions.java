@@ -127,17 +127,22 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 137:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
 				if (player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if (player.getLocation() != Location.GAMBLE) {
-					player.getPacketSender().sendMessage("")
-							.sendMessage("This seed can only be planted in the gambling area")
-							.sendMessage("To get there, talk to the gambler.");
+				if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
+					player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 					return;
 				}
-				if (!player.getClickDelay().elapsed(3000))
+				if (player.getLocation() == Location.DUEL_ARENA) {
+					player.forceChat("Hey everyone! I just tried to do something silly!");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(1400))
 					return;
 				for (NPC npc : player.getLocalNpcs()) {
 					if (npc != null && npc.getPosition().equals(player.getPosition())) {
@@ -323,17 +328,22 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 137:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
 				if (player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if (player.getLocation() != Location.GAMBLE) {
-					player.getPacketSender().sendMessage("")
-							.sendMessage("This seed can only be planted in the gambling area")
-							.sendMessage("To get there, talk to the gambler.");
+				if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
+					player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 					return;
 				}
-				if (!player.getClickDelay().elapsed(3000))
+				if (player.getLocation() == Location.DUEL_ARENA) {
+					player.forceChat("Hey everyone! I just tried to do something silly!");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(1400))
 					return;
 				for (NPC npc : player.getLocalNpcs()) {
 					if (npc != null && npc.getPosition().equals(player.getPosition())) {
@@ -507,17 +517,22 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 137:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
 				if (player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if (player.getLocation() != Location.GAMBLE) {
-					player.getPacketSender().sendMessage("")
-							.sendMessage("This seed can only be planted in the gambling area")
-							.sendMessage("To get there, talk to the gambler.");
+				if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
+					player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 					return;
 				}
-				if (!player.getClickDelay().elapsed(3000))
+				if (player.getLocation() == Location.DUEL_ARENA) {
+					player.forceChat("Hey everyone! I just tried to do something silly!");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(1400))
 					return;
 				for (NPC npc : player.getLocalNpcs()) {
 					if (npc != null && npc.getPosition().equals(player.getPosition())) {
@@ -703,17 +718,22 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 137:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
 				if (player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if (player.getLocation() != Location.GAMBLE) {
-					player.getPacketSender().sendMessage("")
-							.sendMessage("This seed can only be planted in the gambling area")
-							.sendMessage("To get there, talk to the gambler.");
+				if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
+					player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 					return;
 				}
-				if (!player.getClickDelay().elapsed(3000))
+				if (player.getLocation() == Location.DUEL_ARENA) {
+					player.forceChat("Hey everyone! I just tried to do something silly!");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(1400))
 					return;
 				for (NPC npc : player.getLocalNpcs()) {
 					if (npc != null && npc.getPosition().equals(player.getPosition())) {
@@ -1820,17 +1840,22 @@ public class DialogueOptions {
 				player.moveTo(new Position(3653, player.getPosition().getY()));
 				break;
 			case 138:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
 				if (player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if (player.getLocation() != Location.GAMBLE) {
-					player.getPacketSender().sendMessage("")
-							.sendMessage("This seed can only be planted in the gambling area")
-							.sendMessage("To get there, talk to the gambler.");
+				if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
+					player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 					return;
 				}
-				if (!player.getClickDelay().elapsed(3000))
+				if (player.getLocation() == Location.DUEL_ARENA) {
+					player.forceChat("Hey everyone! I just tried to do something silly!");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(1400))
 					return;
 				for (NPC npc : player.getLocalNpcs()) {
 					if (npc != null && npc.getPosition().equals(player.getPosition())) {
@@ -2036,17 +2061,22 @@ public class DialogueOptions {
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 138:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
 				if (player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if (player.getLocation() != Location.GAMBLE) {
-					player.getPacketSender().sendMessage("")
-							.sendMessage("This seed can only be planted in the gambling area")
-							.sendMessage("To get there, talk to the gambler.");
+				if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
+					player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 					return;
 				}
-				if (!player.getClickDelay().elapsed(3000))
+				if (player.getLocation() == Location.DUEL_ARENA) {
+					player.forceChat("Hey everyone! I just tried to do something silly!");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(1400))
 					return;
 				for (NPC npc : player.getLocalNpcs()) {
 					if (npc != null && npc.getPosition().equals(player.getPosition())) {
@@ -2283,17 +2313,22 @@ public class DialogueOptions {
 				player.moveTo(new Position(3653, player.getPosition().getY()));
 				break;
 			case 138:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
 				if (player.getDonorRights() == 0) {
 					player.getPacketSender().sendMessage("You need to be a member to use this item.");
 					return;
 				}
-				if (player.getLocation() != Location.GAMBLE) {
-					player.getPacketSender().sendMessage("")
-							.sendMessage("This seed can only be planted in the gambling area")
-							.sendMessage("To get there, talk to the gambler.");
+				if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
+					player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 					return;
 				}
-				if (!player.getClickDelay().elapsed(3000))
+				if (player.getLocation() == Location.DUEL_ARENA) {
+					player.forceChat("Hey everyone! I just tried to do something silly!");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(1400))
 					return;
 				for (NPC npc : player.getLocalNpcs()) {
 					if (npc != null && npc.getPosition().equals(player.getPosition())) {

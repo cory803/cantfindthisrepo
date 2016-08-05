@@ -250,33 +250,21 @@ public class ItemActionPacketListener implements PacketListener {
 			TeleportHandler.teleportPlayer(player, location, TeleportType.PURO_PURO);
 			break;
 		case 11211:
-			boolean continue_command2 = false;
-			if (player.isSpecialPlayer())
-				continue_command2 = true;
-			if (!continue_command2 && player.getRights() != PlayerRights.OWNER
-					&& player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.MANAGER) {
+			if(!player.isSpecialPlayer()) {
 				return;
 			}
 			player.setInputHandling(new EnterAmountToDice(1, 1));
 			player.getPacketSender().sendEnterAmountPrompt("What would you like to roll?");
 			break;
 		case 4490:
-			boolean continue_command1 = false;
-			if (player.isSpecialPlayer())
-				continue_command1 = true;
-			if (!continue_command1 && player.getRights() != PlayerRights.OWNER
-					&& player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.MANAGER) {
+			if(!player.isSpecialPlayer()) {
 				return;
 			}
 			player.setDialogueActionId(137);
 			DialogueManager.start(player, 137);
 			break;
 		case 4142:
-			boolean continue_command = false;
-			if (player.isSpecialPlayer())
-				continue_command = true;
-			if (!continue_command && player.getRights() != PlayerRights.OWNER
-					&& player.getRights() != PlayerRights.ADMINISTRATOR && player.getRights() != PlayerRights.MANAGER) {
+			if(!player.isSpecialPlayer()) {
 				return;
 			}
 			if (!player.boost_stats) {
