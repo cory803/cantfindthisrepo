@@ -317,7 +317,7 @@ public final class WalkingQueue {
 				((Player) mobile).getPacketSender().sendMapRegion();
 			}
 		}
-		//mobile.update
+		Locations.process(mobile);
 	}
 
 	public Direction getNextPoint() {

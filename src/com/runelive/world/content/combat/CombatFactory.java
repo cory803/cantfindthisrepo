@@ -1149,9 +1149,6 @@ public final class CombatFactory {
 	}
 
 	public static boolean checkAttackDistance(Character a, Character b) {
-		if (a instanceof NPC) {
-			return withinDistance(a, b);
-		}
 		CombatType combatType = a.determineStrategy().getCombatType();
 		int distanceTo = a.distance(b);
 		if (distanceTo == 0) {
@@ -1173,7 +1170,7 @@ public final class CombatFactory {
 		if (distanceTo > required) {
 			return false;
 		}
-		if (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED) || ((Player) a).isAutocast()) {
+		if (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED) || isAutocast(a)) {
 			if (!Region.canMagicAttack(a, b) || !Region.canMagicAttack(a, b)) {
 				return false;
 			}
@@ -1183,6 +1180,15 @@ public final class CombatFactory {
 			}
 		}
 		return true;
+	}
+
+	private static boolean isAutocast(Character character) {
+		if (character.isNpc()) {
+			return false;
+		} else if (character.isPlayer()) {
+			return ((Player) character).isAutocast();
+		}
+		return false;
 	}
 
 	public static boolean withinDistance(Character npc, Character player) {
@@ -1197,7 +1203,7 @@ public final class CombatFactory {
 	}
 
 	public static int getDistanceRequired(Character player, Character attacking) {
-		int dist = getNewDistance((Player) player);
+		int dist = getNewDistance(player);
 		int movingAtt = 0;
 		if(attacking.moving && player.isFrozen()) {//Not sure why freeze timer would need to be in this method...
 			if(player.moving && player.getWalkingQueue().isRunning()) {
@@ -1208,15 +1214,24 @@ public final class CombatFactory {
 		return dist + movingAtt;
 	}
 
-	public static int getNewDistance(Player player) {
-		if (player.determineStrategy().getCombatType().equals(CombatType.MAGIC) || player.isAutocast()) {
-			return 10;
+	public static int getNewDistance(Character character) {
+		if (character.isNpc()) {
+			if (character.determineStrategy().getCombatType().equals(CombatType.MAGIC) || character.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
+				return 10;
+			}
+			return 1;
+		} else if (character.isPlayer()) {
+			Player player = ((Player) character);
+			if (player.determineStrategy().getCombatType().equals(CombatType.MAGIC) || player.isAutocast()) {
+				return 10;
+			}
+			if (player.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
+				return player.getFightType().name().toLowerCase().contains("longrange") ? 10 : 8;
+			}
+			Item item = new Item(player.getEquipment().getSlot(Equipment.WEAPON_SLOT));
+			return item.getDefinition().getName().contains("halberd") ? 2 : 1;
 		}
-		if (player.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
-			return player.getFightType().name().toLowerCase().contains("longrange") ? 10 : 8;
-		}
-		Item item = new Item(player.getEquipment().getSlot(Equipment.WEAPON_SLOT));
-		return item.getDefinition().getName().contains("halberd") ? 2 : 1;
+		return 1;
 	}
 
 	/**

@@ -59,6 +59,12 @@ public class NPC extends Character {
         /** COMBAT **/
         getCombatBuilder().process();
 
+        if (getCombatBuilder().isAttacking()) {
+            follow(getCombatBuilder().getVictim());
+        } else {
+            walking();
+        }
+
         /**
          * HP restoration
          */
@@ -587,8 +593,8 @@ public class NPC extends Character {
             return;
         }
         int distance = this.distance(a);
-        if (getCombatBuilder().getContainer().getCombatType() == CombatType.MELEE) {
-            if (distance <= (getCombatBuilder().getContainer().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a) || getCombatBuilder().getContainer().getCombatType() == CombatType.MIXED)) {
+        if (getCombatBuilder().getCombatType() != CombatType.MELEE) {
+            if (distance <= (getCombatBuilder().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a) || getCombatBuilder().getCombatType() == CombatType.MIXED)) {
                 return;
             }
         }
@@ -596,7 +602,10 @@ public class NPC extends Character {
         Position targetPos = a.getWalkingQueue().getNextPosition();
         Direction direction;
         if (makeArea.distance(targetPos) > maximumDistance) {
-            if (getCombatBuilder().getLastAttacker() == null || getLastCombat().elapsed() > 10_000) {
+            if (getCombatBuilder().getLastAttacker() == null) {
+                return;
+            }
+            if (getCombatBuilder().getLastAttacker().getCombatBuilder().isAttacking() == false) {
                 return;
             }
             direction = NPC.moveAwayDirection(targetPos, area);
@@ -617,7 +626,7 @@ public class NPC extends Character {
         int y = position.getY();
         if (destination.contains(x, y)) {
             Direction direction = destination.moveAwayFrom(position, containsCount % 4);
-            if (direction == Direction.NONE || destination.getX() + direction.getX() == getPosition().getX() && destination.getY() + direction.getY() == getPosition().getY()) {
+            if (direction == Direction.NONE || destination.getX() + direction.getX() == getLastPosition().getX() && destination.getY() + direction.getY() == getLastPosition().getY()) {
                 containsCount += new Random().nextInt(3) + 1;
             } else {
                 containsCount = 0;

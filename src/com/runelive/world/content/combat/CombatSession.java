@@ -73,9 +73,9 @@ public class CombatSession {
 			}
 
 			if (!builder.getCharacter().getPosition().isWithinDistance(builder.getVictim().getPosition(), 14)) {
+				System.out.println(true);
 				//builder.getCharacter().getMovementQueue().setFollowCharacter(null);
 				return;
-
 			}
 
 			// Check if the attack can be made on this hook
@@ -190,6 +190,7 @@ public class CombatSession {
 					: builder.getCharacter().getAttackSpeed();
 			builder.getLastAttack().reset();
 			builder.getCharacter().setEntityInteraction(builder.getVictim());
+
 		}
 	}
 }

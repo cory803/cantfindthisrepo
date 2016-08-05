@@ -76,6 +76,7 @@ public class CombatBuilder {
 				character.getWalkingQueue().clear();
 			}
 		}
+
 		if (character.isPlayer()) {
 			((Player) character).getActionQueue().addAction(new CombatFollowMobileAction(((Player) character), target));
 		}
@@ -305,6 +306,10 @@ public class CombatBuilder {
 		if (this.container != null)
 			return container;
 		return strategy.attack(character, victim);
+	}
+
+	public CombatType getCombatType() {
+		return strategy.getCombatType();
 	}
 
 	public boolean didAutoRetaliate() {

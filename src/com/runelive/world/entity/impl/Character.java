@@ -1,19 +1,9 @@
 package com.runelive.world.entity.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
-import com.runelive.model.Animation;
-import com.runelive.model.Direction;
-import com.runelive.model.Flag;
-import com.runelive.model.Graphic;
-import com.runelive.model.Hit;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.Position;
-import com.runelive.model.RegionInstance;
-import com.runelive.model.UpdateFlag;
 import com.runelive.model.movement.WalkingQueue;
 import com.runelive.util.Stopwatch;
 import com.runelive.world.content.combat.CombatBuilder;
@@ -22,6 +12,9 @@ import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.Entity;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A player or NPC

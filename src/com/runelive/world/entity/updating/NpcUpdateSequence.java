@@ -4,7 +4,7 @@ import com.runelive.world.World;
 import com.runelive.world.entity.impl.npc.NPC;
 
 /**
- * A {@link WorldUpdateSequence} implementation for {@link Npc}s that provides
+ * A  implementation for {@link Npc}s that provides
  * code for each of the updating stages. The actual updating stage is not
  * supported by this implementation because npc's are updated for players.
  *
@@ -15,9 +15,6 @@ public class NpcUpdateSequence implements UpdateSequence<NPC> {
 	@Override
 	public void executePreUpdate(NPC t) {
 		try {
-			if (!t.getCombatBuilder().isAttacking()) {
-				t.walking();
-			}
 			t.getWalkingQueue().processNextMovement();
 			t.sequence();
 		} catch (Exception e) {
