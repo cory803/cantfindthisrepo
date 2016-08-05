@@ -22,5 +22,9 @@ The bug where you couldn't search the banana trees in ape atoll to complete the 
 When your game mode for hardcore ironman is initiated (quest tab etc) it no longer says Hardcoreironman instead it says "HC Ironman"
 The social media icons on the client that would appear when hovering are removed.
 YouTubers will no longer double yell.
+The zaryte bow ammunition bug has been fixed (where you could use dragon javelin etc) it now requires arrows up to dragon.
+The bug where you could bypass the duel arena rules and use Zaryte bows/crystal bows is fixed.
+Toxic blowpipe has been nerfed 12.5%.
+The combat boosts on the Zaryte bow has been redone.
 
 Polls:

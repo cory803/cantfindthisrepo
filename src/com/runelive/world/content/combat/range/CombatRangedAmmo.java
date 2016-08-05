@@ -97,7 +97,14 @@ public class CombatRangedAmmo {
 																														new int[] {
 																																20171 },
 																														new AmmunitionData[] {
-																																AmmunitionData.ZARYTE_ARROW },
+																																AmmunitionData.BRONZE_ARROW,
+																																AmmunitionData.IRON_ARROW,
+																																AmmunitionData.STEEL_ARROW,
+																																AmmunitionData.MITHRIL_ARROW,
+																																AmmunitionData.ADAMANT_ARROW,
+																																AmmunitionData.RUNE_ARROW,
+																																AmmunitionData.BROAD_ARROW,
+																																AmmunitionData.DRAGON_ARROW },
 																														RangedWeaponType.SHORTBOW), GODBOW(
 																																new int[] {
 																																		19143,
@@ -316,9 +323,6 @@ public class CombatRangedAmmo {
 			if (p.getWeapon() == WeaponInterface.BLOWPIPE) {
 				return AmmunitionData.BLOWPIPE_DART;
 			}
-			if (p.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171) {
-				return AmmunitionData.ZARYTE_ARROW;
-			}
 			return AmmunitionData.BRONZE_ARROW;
 		}
 	}
@@ -372,7 +376,7 @@ public class CombatRangedAmmo {
 						37), ADAMANT_DART(new int[] { 810 }, 1239, 230, 3, 33, 15, 45, 37), RUNE_DART(new int[] { 811 },
 								1240, 231, 3, 33, 20, 45, 37), DRAGON_DART(new int[] { 11230 }, 1123, 226, 3, 33, 25,
 										45, 37), BLOWPIPE_DART(new int[] { 11230 }, -1, 226, 6, 33, 25, 45,
-												37), ZARYTE_ARROW(new int[] { -1 }, 24, 15, 3, 44, 50, 43, 31),
+												37),
 
 		BRONZE_KNIFE(new int[] { 864, 870, 5654 }, 219, 212, 3, 33, 8, 45, 37), IRON_KNIFE(new int[] { 863, 871, 5655 },
 				220, 213, 3, 33, 12, 45,

@@ -56,20 +56,17 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		// Create the player instance.
 		Player player = (Player) entity;
 
-		// If we are using a crystal bow then we don't need to check for ammo.
-		if (CombatFactory.crystalBow(player)) {
-			return true;
-		}
-
-		if (CombatFactory.zaryteBow(player)) {
-			return true;
-		}
-
 		if (Dueling.checkRule(player, DuelRule.NO_RANGED)) {
 			player.getPacketSender().sendMessage("Ranged-attacks have been turned off in this duel!");
 			player.getCombatBuilder().reset(true);
 			return false;
 		}
+
+		// If we are using a crystal bow then we don't need to check for ammo.
+		if (CombatFactory.crystalBow(player)) {
+			return true;
+		}
+
 		// Check the ammo before proceeding.
 		if (!checkAmmo(player)) {
 			if (player.isSpecialActivated()) {
@@ -132,8 +129,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		}
 		if (!player.isSpecialActivated()) {
 
-			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player)
-					&& !CombatFactory.zaryteBow(player)) {
+			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player)) {
 				decrementAmmo(player, victim.getPosition());
 				if (dBow || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW
 						&& player.isSpecialActivated() && player.getCombatSpecial() != null
@@ -151,7 +147,11 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		CombatContainer container = new CombatContainer(entity, victim, dBow ? 2 : 1, CombatType.RANGED, true);
 		if (player.getEquipment().contains(12926)) {
 			int hit = container.getHits()[0].getHit().getDamage();
-			//int bonus = hit / 5;
+			int bonus = hit / 4;
+			container.setModifiedDamage(hit * 2 - bonus);
+		}
+		if (player.getEquipment().contains(20171)) {
+			int hit = container.getHits()[0].getHit().getDamage();
 			container.setModifiedDamage(hit * 2);
 		}
 		/** CROSSBOW BOLTS EFFECT **/
