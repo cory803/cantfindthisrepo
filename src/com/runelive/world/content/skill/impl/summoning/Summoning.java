@@ -216,7 +216,7 @@ public class Summoning {
 					}
 				} else {
 					if (n.getCombatBuilder().isAttacking()) {
-						n.getCombatBuilder().reset(true);
+						n.getCombatBuilder().reset();
 					}
 					n.setSummoningCombat(false);
 					n.setEntityInteraction(player);

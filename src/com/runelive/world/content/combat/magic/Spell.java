@@ -44,7 +44,7 @@ public abstract class Spell {
 		if (player.getSkillManager().getCurrentLevel(Skill.MAGIC) < levelRequired()) {
 			player.getPacketSender()
 					.sendMessage("You need a Magic level of " + levelRequired() + " to cast this spell.");
-			player.getCombatBuilder().reset(true);
+			player.getCombatBuilder().reset();
 			return false;
 		}
 
@@ -61,7 +61,7 @@ public abstract class Spell {
 				// We don't, so we can't cast.
 				player.getPacketSender().sendMessage("You do not have the required items to cast this spell.");
 				resetPlayerSpell(player);
-				player.getCombatBuilder().reset(true);
+				player.getCombatBuilder().reset();
 				return false;
 			}
 
@@ -80,7 +80,7 @@ public abstract class Spell {
 			if (!player.getEquipment().containsAll(equipmentRequired(player).get())) {
 				player.getPacketSender().sendMessage("You do not have the required equipment to cast this spell.");
 				resetPlayerSpell(player);
-				player.getCombatBuilder().reset(true);
+				player.getCombatBuilder().reset();
 				return false;
 			}
 		}

@@ -58,7 +58,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 		if (Dueling.checkRule(player, DuelRule.NO_RANGED)) {
 			player.getPacketSender().sendMessage("Ranged-attacks have been turned off in this duel!");
-			player.getCombatBuilder().reset(true);
+			player.getCombatBuilder().reset();
 			return false;
 		}
 
@@ -247,7 +247,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		if (ammunition.getId() == -1 || ammunition.getAmount() < 1 || darkBow) {
 			player.getPacketSender().sendMessage(darkBow ? "You need at least 2 arrows to fire this bow."
 					: "You don't have any ammunition to fire.");
-			player.getCombatBuilder().reset(true);
+			player.getCombatBuilder().reset();
 			return false;
 		}
 		boolean properEquipment = false;
@@ -265,7 +265,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 					add = !ammoName.endsWith("s") && !ammoName.endsWith("(e)") ? "s" : "";
 			player.getPacketSender().sendMessage("You can not use " + ammoName + "" + add + " with "
 					+ Misc.anOrA(weaponName) + " " + weaponName + ".");
-			player.getCombatBuilder().reset(true);
+			player.getCombatBuilder().reset();
 			return false;
 		}
 

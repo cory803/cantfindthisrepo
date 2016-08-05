@@ -482,7 +482,7 @@ public class Nex implements CombatStrategy {
 					NEX.setConstitution(4000);
 					from.getPacketSender()
 							.sendMessage("You need to kill Glacies before being able to damage Nex further!");
-					from.getCombatBuilder().reset(true);
+					from.getCombatBuilder().reset();
 				}
 			}
 		}
@@ -500,7 +500,7 @@ public class Nex implements CombatStrategy {
 					NEX.setConstitution(8000);
 					from.getPacketSender()
 							.sendMessage("You need to kill Cruor before being able to damage Nex further!");
-					from.getCombatBuilder().reset(true);
+					from.getCombatBuilder().reset();
 				}
 			}
 		}
@@ -517,7 +517,7 @@ public class Nex implements CombatStrategy {
 					NEX.setConstitution(12000);
 					from.getPacketSender()
 							.sendMessage("You need to kill Umbra before being able to damage Nex further!");
-					from.getCombatBuilder().reset(true);
+					from.getCombatBuilder().reset();
 				}
 			}
 		}
@@ -534,7 +534,7 @@ public class Nex implements CombatStrategy {
 					NEX.setConstitution(16000);
 					from.getPacketSender()
 							.sendMessage("You need to kill Fumus before being able to damage Nex further!");
-					from.getCombatBuilder().reset(true);
+					from.getCombatBuilder().reset();
 				}
 			}
 		}

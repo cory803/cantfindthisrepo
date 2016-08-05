@@ -42,7 +42,7 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 
 		if (Dueling.checkRule(player, DuelRule.NO_MAGIC)) {
 			player.getPacketSender().sendMessage("Magic-attacks have been turned off in this duel!");
-			player.getCombatBuilder().reset(true);
+			player.getCombatBuilder().reset();
 			return false;
 		}
 		// We can't attack without a spell.

@@ -29,7 +29,7 @@ public class DefaultMeleeCombatStrategy implements CombatStrategy {
 			Player player = (Player) entity;
 			if (Dueling.checkRule(player, DuelRule.NO_MELEE)) {
 				player.getPacketSender().sendMessage("Melee-attacks have been turned off in this duel!");
-				player.getCombatBuilder().reset(true);
+				player.getCombatBuilder().reset();
 				return false;
 			}
 		}

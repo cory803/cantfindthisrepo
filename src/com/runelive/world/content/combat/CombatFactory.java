@@ -947,7 +947,7 @@ public final class CombatFactory {
 		// Check if we need to reset the combat session.
 		if (!victim.isRegistered() || !entity.isRegistered() || entity.getConstitution() <= 0
 				|| victim.getConstitution() <= 0) {
-			entity.getCombatBuilder().reset(true);
+			entity.getCombatBuilder().reset();
 			return false;
 		}
 
@@ -968,11 +968,11 @@ public final class CombatFactory {
 				Player player = ((Player) entity);
 				if (player.getLocation() != Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You can only attack familiars in the wilderness.");
-					player.getCombatBuilder().reset(true);
+					player.getCombatBuilder().reset();
 					return false;
 				} else if (npc.getLocation() != Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("That familiar is not in the wilderness.");
-					player.getCombatBuilder().reset(true);
+					player.getCombatBuilder().reset();
 					return false;
 				}
 				/** DEALING DMG TO THEIR OWN FAMILIAR **/
@@ -995,7 +995,7 @@ public final class CombatFactory {
 				if (((Player) entity).getSlayer().getSlayerTask().getNpcId() != 3068) {
 					((Player) entity).getPacketSender()
 							.sendMessage("You must be on a slayer task to kill this monster, or in the wilderness.");
-					entity.getCombatBuilder().reset(true);
+					entity.getCombatBuilder().reset();
 					return false;
 				}
 			}
@@ -1007,20 +1007,20 @@ public final class CombatFactory {
 				if (!((Player) entity).getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()) {
 					((Player) entity).getPacketSender()
 							.sendMessage("You must enter the room before being able to attack.");
-					entity.getCombatBuilder().reset(true);
+					entity.getCombatBuilder().reset();
 					return false;
 				}
 			}
 			if (Nex.nexMob(npc.getId())) {
 				if (!Nex.checkAttack(((Player) entity), npc.getId())) {
-					entity.getCombatBuilder().reset(true);
+					entity.getCombatBuilder().reset();
 					return false;
 				}
 			} else if (npc.getId() == 6222 || npc.getId() == 6230 || npc.getId() == 6231 || npc.getId() == 6223
 					|| npc.getId() == 6235 || npc.getId() == 6237) { // Kree'arra
 				if (entity.getCombatBuilder().getStrategy().getCombatType() == CombatType.MELEE) {
 					((Player) entity).getPacketSender().sendMessage("You cannot attack this monster with Melee.");
-					entity.getCombatBuilder().reset(true);
+					entity.getCombatBuilder().reset();
 					return false;
 				}
 			}
@@ -1028,21 +1028,21 @@ public final class CombatFactory {
 					.getSkillManager().getCurrentLevel(Skill.SLAYER)) {
 				((Player) entity).getPacketSender().sendMessage("You need a Slayer level of at least "
 						+ npc.getDefinition().getSlayerLevel() + " to attack this creature.");
-				entity.getCombatBuilder().reset(true);
+				entity.getCombatBuilder().reset();
 				return false;
 			}
 			if (npc.getId() == 13465 || npc.getId() == 13469 || npc.getId() == 13474 || npc.getId() == 13478
 					|| npc.getId() == 13479) {
 				if (entity.getLocation() != Location.WILDERNESS && entity.getLocation() != Location.EZONE_DONOR) {
 					((Player) entity).getPacketSender().sendMessage("You cannot reach that.");
-					entity.getCombatBuilder().reset(true);
+					entity.getCombatBuilder().reset();
 					return false;
 				}
 			}
 			if (npc.getId() == 4291 && entity.getPosition().getZ() == 2
 					&& !((Player) entity).getMinigameAttributes().getWarriorsGuildAttributes().enteredTokenRoom()) {
 				((Player) entity).getPacketSender().sendMessage("You cannot reach that.");
-				entity.getCombatBuilder().reset(true);
+				entity.getCombatBuilder().reset();
 				return false;
 			}
 		}
@@ -1053,7 +1053,7 @@ public final class CombatFactory {
 				&& !victim.equals(entity.getCombatBuilder().getLastAttacker())) {
 			if (entity.isPlayer())
 				((Player) entity).getPacketSender().sendMessage("You are already under attack!");
-			entity.getCombatBuilder().reset(true);
+			entity.getCombatBuilder().reset();
 			return false;
 		}
 
@@ -1082,7 +1082,7 @@ public final class CombatFactory {
 				if (!allowAttack) {
 					if (entity.isPlayer())
 						((Player) entity).getPacketSender().sendMessage("They are already under attack!");
-					entity.getCombatBuilder().reset(true);
+					entity.getCombatBuilder().reset();
 					return false;
 				}
 			}
@@ -1094,14 +1094,14 @@ public final class CombatFactory {
 				if (!properLocation((Player) entity, (Player) victim)) {
 					if (((Player) entity).getDueling().duelingStatus != 5
 							&& ((Player) victim).getDueling().duelingStatus != 5) {
-						entity.getCombatBuilder().reset(true);
+						entity.getCombatBuilder().reset();
 					}
 					entity.setPositionToFace(victim.getPosition());
 					return false;
 				}
 			}
 			if (((Player) entity).isCrossingObstacle()) {
-				entity.getCombatBuilder().reset(true);
+				entity.getCombatBuilder().reset();
 				return false;
 			}
 		}
