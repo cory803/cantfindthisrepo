@@ -21,5 +21,6 @@ When a npc is instanced specifically for you (barrows etc) other players are no 
 The bug where you couldn't search the banana trees in ape atoll to complete the kings task bug has been fixed.
 When your game mode for hardcore ironman is initiated (quest tab etc) it no longer says Hardcoreironman instead it says "HC Ironman"
 The social media icons on the client that would appear when hovering are removed.
+YouTubers will no longer double yell.
 
 Polls:
