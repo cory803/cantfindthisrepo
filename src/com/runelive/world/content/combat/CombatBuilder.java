@@ -137,7 +137,7 @@ public class CombatBuilder {
 		if (strategy == null)
 			return;
 		System.out.println(""+strategy.attackDelay(character));
-		cooldown = 5;
+		cooldown = strategy.attackDelay(character);
 
 		character.setEntityInteraction(null);
 

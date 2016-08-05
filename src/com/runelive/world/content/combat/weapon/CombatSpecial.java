@@ -416,7 +416,7 @@ public enum CombatSpecial {
 			throw new UnsupportedOperationException("Dragon battleaxe does not have a special attack!");
 		}
 	},
-	TOXIC_STAFF_OF_DEAD(new int[] { 21077, 21079 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
+	TOXIC_STAFF_OF_DEAD(new int[] { 21077, 21079 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.STAFF) {
 		@Override
 		public void onActivation(Player player, Character target) {
 			player.performGraphic(new Graphic(1228, GraphicHeight.SUPER_HIGH6));
@@ -429,11 +429,11 @@ public enum CombatSpecial {
 
 		@Override
 		public CombatContainer container(Player player, Character target) {
-			throw new UnsupportedOperationException("Dragon battleaxe does not have a special attack!");
+			throw new UnsupportedOperationException("Toxic staff of the dead does not have a special attack!");
 		}
 	},
 
-	STAFF_OF_DEAD(new int[] { 21074 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
+	STAFF_OF_DEAD(new int[] { 21074 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.STAFF) {
 		@Override
 		public void onActivation(Player player, Character target) {
 			player.performGraphic(new Graphic(1228, GraphicHeight.SUPER_HIGH6));
@@ -446,7 +446,7 @@ public enum CombatSpecial {
 
 		@Override
 		public CombatContainer container(Player player, Character target) {
-			throw new UnsupportedOperationException("Dragon battleaxe does not have a special attack!");
+			throw new UnsupportedOperationException("Staff of the dead does not have a special attack!");
 		}
 	},
 	DRAGON_SPEAR(new int[] { 1249, 1263, 5716, 5730, 11716, 21120 }, 25, 0, 0, CombatType.MELEE,

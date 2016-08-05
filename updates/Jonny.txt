@@ -24,10 +24,28 @@ The social media icons on the client that would appear when hovering are removed
 YouTubers will no longer double yell.
 The zaryte bow ammunition bug has been fixed (where you could use dragon javelin etc) it now requires arrows up to dragon.
 The bug where you could bypass the duel arena rules and use Zaryte bows/crystal bows is fixed.
-Toxic blowpipe has been nerfed 12.5%.
+Toxic blowpipe has been nerfed 25% (attack speed was also fixed).
 The combat boosts on the Zaryte bow has been redone.
 Staff of light & staff of the dead/toxic staff special attacks will no longer reset your combat.
 Using the dragonfire shield special will no longer reset your combat.
 The bug where your dragonfire shield would say /20 charges has been fixed so it now says /50.
+The attack speed when boxing has been fixed, it was 6 game tickets now it is 4.
+The attack speed on all items has been fixed, the following were broke:
+	Chaotic maul
+	Chaotic rapier
+	Godswords/Any 2h swords
+	Staffs
+	Swords
+	Longswords
+	Pickaxes
+	Halberds
+	Thrownaxes
+	Toxic blowpipe
+One ticking in combat has been fixed.
+Serpentine helm now will inflict venom in all combat styles instead of magic.
+Serpentine helm will now protect you from venom when wearing it.
+	
+The cooldown timer for most things (dropping/picking up items) is now based on your general attack speed with weapons instead of exactly 5 game ticks. (Example picking up a item then attacking a player again is now the speed of your weapon)
+Blowpipe rapid has been fixed
 
 Polls:

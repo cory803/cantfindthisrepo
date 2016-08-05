@@ -239,9 +239,6 @@ public class Player extends Character {
         int speed = weapon.getSpeed();
         String weapon = equipment.get(Equipment.WEAPON_SLOT).getDefinition().getName();
         int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
-        if(weaponId <= 0) {
-            return 5;
-        }
         if (getCurrentlyCasting() != null) {
             if (equipment.get(Equipment.WEAPON_SLOT).getId() == 21108) {
                 return 4;
@@ -258,28 +255,52 @@ public class Player extends Character {
         if (weaponId == 1419) {
             speed -= 2;
         }
-        if (weaponId == 12926) {
-            speed -= 1;
-        }
         if (fightType == FightType.CROSSBOW_RAPID) {
             speed -= 0.1;
         }
-        if (fightType == FightType.LONGBOW_RAPID
-                || weaponId == 6522 && fightType == FightType.KNIFE_RAPID && fightType == FightType.BLOWPIPE_RAPID
-                || weapon.contains("rapier")) {
+        if (fightType == FightType.LONGBOW_RAPID  || weaponId == 6522 && fightType == FightType.KNIFE_RAPID) {
             if (weaponId != 11235 && weaponId != 21016 && weaponId != 21017 && weaponId != 21018 && weaponId != 21019
                     && weaponId != 21020 && weaponId != 21021 && weaponId != 21022 && weaponId != 21023) {
                 speed--;
             }
-        } else if (weaponId != 6522 && weaponId != 15241
-                && (fightType == FightType.SHORTBOW_RAPID || fightType == FightType.DART_RAPID
-                || fightType == FightType.BLOWPIPE_RAPID || fightType == FightType.KNIFE_RAPID
-                || fightType == FightType.THROWNAXE_RAPID || fightType == FightType.JAVELIN_RAPID)
-                || weaponId == 11730) {
+        } else if (weaponId != 6522 && weaponId != 15241 && (fightType == FightType.JAVELIN_RAPID)|| weaponId == 11730) {
             speed -= 2;
         }
+        if(weapon.contains("rapier") || weapon.contains("hatchet")) {
+            return 5;
+        } else if(weapon.contains("maul") || weapon.contains("longsword")) {
+            return 6;
+        } else if(fightType == FightType.SHORTBOW_RAPID) {
+            return 3;
+        } else if(weapon.contains("shortbow") && fightType != FightType.SHORTBOW_RAPID) {
+            return 4;
+        } else if(fightType == FightType.DART_RAPID || fightType == FightType.KNIFE_RAPID) {
+            return 2;
+        } else if(fightType == FightType.THROWNAXE_RAPID) {
+            return 4;
+        } else if(weapon.contains("throwing axe") && fightType != FightType.THROWNAXE_RAPID) {
+            return 5;
+        } else if(weapon.contains("blowpipe")) {
+            if(this.getCombatBuilder() != null) {
+                if(this.getCombatBuilder().getVictim() != null) {
+                    if (this.getCombatBuilder().getVictim().isNpc()) {
+                        if(fightType == FightType.BLOWPIPE_RAPID) {
+                            return 2;
+                        } else {
+                            return 3;
+                        }
+                    } else {
+                        if(fightType == FightType.BLOWPIPE_RAPID) {
+                            return 3;
+                        } else {
+                            return 4;
+                        }
+                    }
+
+                }
+            }
+        }
         return speed;
-        // return DesolaceFormulas.getAttackDelay(this);
     }
 
     @Override
@@ -356,8 +377,7 @@ public class Player extends Character {
     public void venomVictim(Character victim, CombatType type) {
         int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
         int helmet = equipment.get(Equipment.HEAD_SLOT).getId();
-        if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE)
-                || (weaponId == 21077 && type == CombatType.MAGIC)) {
+        if ((type == CombatType.RANGED && weapon == WeaponInterface.BLOWPIPE) || (weaponId == 21077)) {
             CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.WEAPON_SLOT)));
         } else if (helmet == 21107) {
             CombatFactory.venomEntity(victim, CombatVenomData.getVenomType(equipment.get(Equipment.HEAD_SLOT)));
