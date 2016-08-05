@@ -41,6 +41,13 @@ public class HitQueue {
 				combat_hits.remove(c);
 				continue;
 			}
+			if (c.victim.isPlayer()) {
+				Player vic = (Player) c.victim;
+				if (vic.isTeleporting()) {
+					combat_hits.remove(c);
+					continue;
+				}
+			}
 			if (c.delay > 0) {
 				if (c.attacker.isPlayer()) {
 					Player p = (Player) c.attacker;
@@ -122,20 +129,11 @@ public class HitQueue {
 					context.setAccurate(true);
 				});
 			}
-			if (attacker.isPlayer()) {
-				Player atk = (Player) attacker;
-				if (atk.isTeleporting()) {
-					return;
-				}
-			}
 			// Now we send the hitsplats if needed! We can't send the hitsplats
 			// there are none to send, or if we're using magic and it splashed.
 			if (container.getHits().length != 0 && container.getCombatType() != CombatType.MAGIC
 					|| container.isAccurate()) {
 
-				if (victim.isTeleporting() && attacker.isPlayer() || attacker.isNpc()) {
-					damage = 0;
-				}
 				/** PRAYERS **/
 				CombatFactory.applyPrayerProtection(container, builder);
 

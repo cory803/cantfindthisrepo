@@ -204,7 +204,7 @@ public class TeleportHandler {
 
 	public static void cancelCurrentActions(Player player) {
 		player.getPacketSender().sendInterfaceRemoval();
-		player.setTeleporting(false);
+		//player.setTeleporting(false);
 		player.setWalkToTask(null);
 		player.setInputHandling(null);
 		player.getSkillManager().stopSkilling();

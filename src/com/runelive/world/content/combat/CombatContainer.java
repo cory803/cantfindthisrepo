@@ -140,11 +140,7 @@ public class CombatContainer {
 				int second = array[1].getHit().getDamage();
 				int third = array[2].getHit().getDamage();
 				int fourth = array[3].getHit().getDamage();
-
 				int total = first + second + third + fourth;
-
-
-
 				array[0].getHit().setDamage(total / 2);
 				array[1].getHit().setDamage(total / 4);
 				array[2].getHit().setDamage(total / 8);

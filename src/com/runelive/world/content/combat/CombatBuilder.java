@@ -136,7 +136,7 @@ public class CombatBuilder {
 		// Check if we're even actively in combat.
 		if (strategy == null)
 			return;
-		System.out.println(""+strategy.attackDelay(character));
+
 		cooldown = strategy.attackDelay(character);
 
 		character.setEntityInteraction(null);
