@@ -41435,11 +41435,11 @@
 "respawn": 10,
 "maxHit": 500,
 "hitpoints": 5000,
-"attackSpeed": 7,
+"attackSpeed": 6,
 "attackAnim": 1840,
 "defenceAnim": 1842,
 "deathAnim": 1841,
-"attackBonus": 400,
+"attackBonus": 500,
 "defenceMelee": 1,
 "defenceRange": 1,
 "defenceMage": 1
