@@ -225,6 +225,9 @@ public class NPC extends Character {
             case 1472:
             case 132:
             case 133:
+            case 1851:
+            case 1854:
+            case 1857:
                 return 5;
         }
         return 10;

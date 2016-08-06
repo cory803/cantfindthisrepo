@@ -50,6 +50,7 @@ The delay on the korasi special attack has been fixed.
 The dragon claw special has been fixed to have damage seperated into each hit correctly.
 Hits will no longer hit you when you teleport away in combat.
 The timer on eating food was about 1.7x to fast compared to original RS. It has been fixed.
+The stat requirements to wear pvp (deg) gear has been fixed, originally there were no requirements.
 	
 The cooldown timer for most things (dropping/picking up items) is now based on your general attack speed with weapons instead of exactly 5 game ticks. (Example picking up a item then attacking a player again is now the speed of your weapon)
 Blowpipe rapid has been fixed

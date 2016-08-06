@@ -77,8 +77,11 @@ public class CombatStrategies {
 		STRATEGIES.put(3334, new WildyWyrm());
 		STRATEGIES.put(2001, new Scorpia());
 		STRATEGIES.put(133, defaultMagicStrategy);
+		STRATEGIES.put(1857, new AvatarOfMagic());
+		STRATEGIES.put(1854, new AvatarOfRange());
 		STRATEGIES.put(135, new Fear());
-		
+		STRATEGIES.put(135, new Fear());
+
 		//Zulrah
 		STRATEGIES.put(Zulrah.GREEN_ZULRAH, new ZulrahGreen());
 		STRATEGIES.put(Zulrah.RED_ZULRAH, new ZulrahRed());
