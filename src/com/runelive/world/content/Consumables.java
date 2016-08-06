@@ -57,7 +57,7 @@ public class Consumables {
 	 *            The player to heal
 	 */
 	public static void handleHealAction(Player player) {
-		if (!player.getFoodTimer().elapsed(900))
+		if (!player.getFoodTimer().elapsed(1500))
 			return;
 		for (Item item : player.getInventory().getItems()) {
 			if (item != null) {
@@ -181,16 +181,17 @@ public class Consumables {
 	 *            The slot of the food being eaten.
 	 */
 	private static void eat(Player player, FoodType food, int slot) {
-		if (player.getConstitution() <= 0)
+		if (player.getConstitution() <= 0) {
 			return;
+		}
 		if (Dueling.checkRule(player, DuelRule.NO_FOOD)) {
 			player.getPacketSender().sendMessage("Food has been disabled in this duel.");
 			return;
 		}
-		player.setWalkToTask(null);
-		player.setCastSpell(null);
-		player.getCombatBuilder().cooldown(false);
-		if (food != null && player.getComboFoodDelay().elapsed(900) && food.hasComboDelay()) {
+
+		player.getCombatBuilder().reset();
+
+		if (food != null && player.getComboFoodDelay().elapsed(1500) && food.hasComboDelay()) {
 			player.getComboFoodDelay().reset();
 			player.getPacketSender().sendInterfaceRemoval();
 			player.performAnimation(new Animation(829));
@@ -208,12 +209,10 @@ public class Consumables {
 			player.getPacketSender().sendMessage("You " + e + " the " + food.name + ".");
 			player.setConstitution(player.getConstitution() + heal);
 		}
-		if (food != null && player.getFoodTimer().elapsed(900) && !food.hasComboDelay()) {
-			// player.getCombatBuilder().incrementAttackTimer(2).cooldown(false);
+		if (food != null && player.getFoodTimer().elapsed(1500) && !food.hasComboDelay()) {
 			player.getCombatBuilder().setDistanceSession(null);
 			player.setCastSpell(null);
 			player.getFoodTimer().reset();
-			// player.getPotionTimer().reset();
 			player.getPacketSender().sendInterfaceRemoval();
 			player.performAnimation(new Animation(829));
 			player.getInventory().delete(food.item, slot);
@@ -391,7 +390,7 @@ public class Consumables {
 		// health-healing potions cannot be used.");
 		// return;
 		// }
-		if (player.getPotionTimer().elapsed(900)) {
+		if (player.getPotionTimer().elapsed(1800)) {
 			switch (itemId) {
 			/*
 			 * Braverly Potion - Kings Quest

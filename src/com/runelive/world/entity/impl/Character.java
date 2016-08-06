@@ -12,6 +12,7 @@ import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.strategy.CombatStrategy;
 import com.runelive.world.entity.Entity;
 import com.runelive.world.entity.impl.player.Player;
+import com.runelive.world.entity.updating.PlayerUpdating;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -144,8 +145,9 @@ public abstract class Character extends Entity {
 		}
 		if (getConstitution() <= 0)
 			return;
-		primaryHit = decrementHealth(hit);
 		getUpdateFlag().flag(Flag.SINGLE_HIT);
+		primaryHit = decrementHealth(hit);
+
 	}
 
 	public Hit decrementHealth(Hit hit) {

@@ -70,8 +70,10 @@ public class ItemActionPacketListener implements PacketListener {
 		}
 		if (slot < 0 || slot > player.getInventory().capacity())
 			return;
-		if (player.getInventory().getItems()[slot].getId() != itemId)
+		if (player.getInventory().getItems()[slot].getId() != itemId) {
+			System.out.println("Item in inventory doesn't exist");
 			return;
+		}
 		player.setInteractingItem(player.getInventory().getItems()[slot]);
 		if (Prayer.isBone(itemId)) {
 			Prayer.buryBone(player, itemId);
@@ -944,8 +946,9 @@ public class ItemActionPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-		if (player.getConstitution() <= 0)
+		if (player.getConstitution() <= 0) {
 			return;
+		}
 		switch (packet.getOpcode()) {
 		case SECOND_ITEM_ACTION_OPCODE:
 			secondAction(player, packet);
