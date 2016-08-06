@@ -463,6 +463,7 @@ public class PacketSender {
 		sendTabInterface(GameSettings.IGNORE_TAB, 5715);
 		sendTabInterface(GameSettings.CLAN_CHAT_TAB, 29328);
 		sendTabInterface(GameSettings.LOGOUT, 2449);
+		sendTabInterface(GameSettings.NOTES_TAB, 59999);
 		sendTabInterface(GameSettings.OPTIONS_TAB, 904);
 		sendTabInterface(GameSettings.EMOTES_TAB, 147);
 		sendTabInterface(GameSettings.SUMMONING_TAB, 54017);
