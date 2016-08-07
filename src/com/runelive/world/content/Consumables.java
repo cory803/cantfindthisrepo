@@ -72,9 +72,9 @@ public class Consumables {
 	public static void doTheBrew(Player player) {
 		player.performAnimation(new Animation(829));
 		int[] decrease = { 0, 2, 4, 6 };
-		double amount = player.getEquipment().wearingNexAmours() ? 1.22 : 1.17;
-		int bonus = player.getEquipment().wearingNexAmours() ? getBrewStat(player, 3, .21)
-				: getBrewStat(player, 3, .15);
+
+		double amount = 1.17;
+		int bonus = getBrewStat(player, 3, .15);
 		player.getInventory().refreshItems();
 		for (int tD : decrease) {
 			player.getSkillManager().setCurrentLevel(Skill.forId(tD),
@@ -94,9 +94,9 @@ public class Consumables {
 		player.getSkillManager().setCurrentLevel(Skill.forId(3),
 				player.getSkillManager().getCurrentLevel(Skill.forId(3)) + bonus);
 		if (player.getSkillManager().getCurrentLevel(
-				Skill.forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1)) {
+				Skill.forId(3)) > (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount + 1 + player.getEquipment().getBoost())) {
 			player.getSkillManager().setCurrentLevel(Skill.forId(3),
-					(int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount));
+					(int) (player.getSkillManager().getMaxLevel(Skill.forId(3)) * amount) + player.getEquipment().getBoost());
 		}
 	}
 
@@ -197,12 +197,8 @@ public class Consumables {
 			player.performAnimation(new Animation(829));
 			player.getInventory().delete(food.item, slot);
 			int heal = food.heal;
-			boolean nexEffect = player.getEquipment().wearingNexAmours();
-			int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
-			if (nexEffect)
-				max = 1390;
-			if (heal + player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > max) {
-				heal = max - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
+			if((heal + player.getConstitution()) > player.getEquipment().getBoost() + player.getSkillManager().getMaxLevel(Skill.CONSTITUTION)) {
+				heal = player.getConstitution() + player.getEquipment().getBoost();
 			}
 
 			String e = food.toString() == "BANDAGES" ? "use" : "eat";
@@ -217,21 +213,13 @@ public class Consumables {
 			player.performAnimation(new Animation(829));
 			player.getInventory().delete(food.item, slot);
 			int heal = food.heal;
-			boolean nexEffect = player.getEquipment().wearingNexAmours();
 			if (food == FoodType.ROCKTAIL) {
-				int max = (player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + 100);
-				if (nexEffect)
-					max = 1390;
-				if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) >= (max)) {
-					heal = 100;
-				}
-				if (player.getConstitution() + heal > max) {
-					player.setConstitution(max);
+				int max = (player.getEquipment().getBoost()) + player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + 100;
+				if (heal + player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > max) {
+					heal = max - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
 				}
 			} else {
-				int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
-				if (nexEffect)
-					max = 1390;
+				int max = (player.getEquipment().getBoost()) + player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
 				if (heal + player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > max) {
 					heal = max - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
 				}
@@ -244,8 +232,6 @@ public class Consumables {
 			String e = food.toString() == "BANDAGES" ? "use" : "eat";
 			player.getPacketSender().sendMessage("You " + e + " the " + food.name + ".");
 			player.setConstitution(player.getConstitution() + heal);
-			if (player.getConstitution() > 1190 && !nexEffect)
-				player.setConstitution(1190);
 			Sounds.sendSound(player, Sound.EAT_FOOD);
 		}
 	}

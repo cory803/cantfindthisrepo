@@ -1,6 +1,7 @@
 package com.runelive.model.container.impl;
 
 import com.runelive.model.Item;
+import com.runelive.model.Skill;
 import com.runelive.model.container.ItemContainer;
 import com.runelive.model.container.StackType;
 import com.runelive.model.definitions.ItemDefinition;
@@ -105,14 +106,36 @@ public class Equipment extends ItemContainer {
 	 */
 	public static final int AMMUNITION_SLOT = 13;
 
-	public boolean wearingNexAmours() {
-		int head = getPlayer().getEquipment().getItems()[HEAD_SLOT].getId();
-		int body = getPlayer().getEquipment().getItems()[BODY_SLOT].getId();
-		int legs = getPlayer().getEquipment().getItems()[LEG_SLOT].getId();
-		boolean torva = head == 14008 && body == 14009 && legs == 14010;
-		boolean pernix = head == 14011 && body == 14012 && legs == 14013;
-		boolean virtus = head == 14014 && body == 14015 && legs == 14016;
-		return torva || pernix || virtus;
+	public int getBoost() {
+		int boost = 0;
+		if(getPlayer().getEquipment().contains(14008)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14009)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14010)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14011)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14012)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14013)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14014)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14015)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		if(getPlayer().getEquipment().contains(14016)) {
+			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
+		}
+		return boost;
 	}
 
 	public boolean isNaked() {

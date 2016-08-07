@@ -1680,12 +1680,16 @@ public final class CombatFactory {
 					public void execute() {
 						if (!(attacker == null || target == null || attacker.getConstitution() <= 0)) {
 							target.performGraphic(new Graphic(2264, GraphicHeight.LOW));
-							p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
-									p.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) + form);
-							if (p.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > p.getSkillManager()
-									.getMaxLevel(Skill.CONSTITUTION))
-								p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
-										p.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+
+							if(p.getConstitution() > p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
+								//No need to take any health because you are already full.
+							} else {
+								if (form + p.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
+									p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost());
+								} else {
+									p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, p.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost());
+								}
+							}
 							if (target.isPlayer()) {
 								Player victim = (Player) target;
 								victim.getSkillManager().setCurrentLevel(Skill.PRAYER,

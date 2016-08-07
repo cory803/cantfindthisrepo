@@ -42,11 +42,6 @@ public class Digging {
 		player.getPacketSender().sendMessage("You start digging..");
 		player.performAnimation(new Animation(830));
 		TaskManager.submit(new Task(2, player, false) {
-			/*
-			 * (non-Javadoc)
-			 * 
-			 * @see com.runelive.engine.task.Task#execute()
-			 */
 			@Override
 			public void execute() {
 				Position targetPosition = null;
@@ -54,22 +49,7 @@ public class Digging {
 					player.getInventory().delete(2677, 1);
 					player.getInventory().add(2714, 1);
 					DialogueManager.sendStatement(player, "You've found a casket!");
-				}
-
-
-				/**
-				 * Clue scrolls
-				 */
-				/*
-				 * if
-				 * (/*ClueScrolls.digSpot(player)*DiggingScrolls.digClue(player)
-				 * || MapScrolls.digClue(player) ||
-				 * CoordinateScrolls.digClue(player)) { stop(); return; }
-				 */
-				/**
-				 * Wilderness Keys
-				 **/
-				else if (player.getLocation() == Location.WILDKEY_ZONE) {
+				} else if (player.getLocation() == Location.WILDKEY_ZONE) {
 					if (player.getInventory().contains(1543)) { // red best
 						player.getInventory().deleteAmount(1543, 1);
 						spawnNpc(player, 9939);
