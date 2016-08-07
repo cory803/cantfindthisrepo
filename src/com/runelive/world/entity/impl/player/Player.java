@@ -256,7 +256,7 @@ public class Player extends Character {
             speed -= 2;
         }
         if (fightType == FightType.CROSSBOW_RAPID) {
-            speed -= 0.1;
+            speed -= 1;
         }
         if (fightType == FightType.LONGBOW_RAPID  || weaponId == 6522 && fightType == FightType.KNIFE_RAPID) {
             if (weaponId != 11235 && weaponId != 21016 && weaponId != 21017 && weaponId != 21018 && weaponId != 21019
@@ -270,6 +270,10 @@ public class Player extends Character {
             return 5;
         } else if(weapon.contains("maul") || weapon.contains("longsword")) {
             return 6;
+        } else if(weaponId == 21089) {
+            return 5;
+        } else if(weaponId == 21100) {
+            return 4;
         } else if(fightType == FightType.SHORTBOW_RAPID) {
             return 3;
         } else if(weapon.contains("shortbow") && fightType != FightType.SHORTBOW_RAPID) {

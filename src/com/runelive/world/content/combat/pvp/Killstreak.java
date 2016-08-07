@@ -1,36 +1,13 @@
 package com.runelive.world.content.combat.pvp;
 
+import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.entity.impl.player.Player;
 
 public class Killstreak {
 
 	public static void kill(Player player, Player other, int killstreak) {
-		int pkPoints = player.getSkillManager().getCombatLevel() + other.getSkillManager().getCombatLevel() / 3;
-		if (player.getPlayerKillingAttributes().getTarget() != null) {
-			if (player.getPlayerKillingAttributes().getTarget().getUsername().equalsIgnoreCase(other.getUsername())) {
-				switch (player.getDonorRights()) {
-				case 0:
-					pkPoints += 10;
-					break;
-				case 1:
-					pkPoints += 15;
-					break;
-				case 2:
-					pkPoints += 20;
-					break;
-				case 3:
-					pkPoints += 30;
-					break;
-				case 4:
-					pkPoints += 40;
-					break;
-				case 5:
-					pkPoints += 50;
-					break;
-				}
-			}
-		}
+		int pkPoints = player.getWildernessLevel() + (player.getWildernessLevel() / 2) + Misc.random(60, 100);
 		int otherKillstreak = other.getPlayerKillingAttributes().getPlayerKillStreak();
 		if (otherKillstreak >= 10 && otherKillstreak < 25) {
 			pkPoints += 25;
