@@ -16,16 +16,18 @@ public class NameUtils {
 	 * @param name
 	 *            The string to format.
 	 */
-	public static String capitalizeWords(String name) {
-		StringBuilder builder = new StringBuilder(name.length());
-		String[] words = name.split("\\s");
-		for (int i = 0, l = words.length; i < l; ++i) {
-			if (i > 0)
-				builder.append(" ");
-			builder.append(Character.toUpperCase(words[i].charAt(0))).append(words[i].substring(1));
-
+	public static String capitalizeWords(String string) {
+		char[] chars = string.toLowerCase().toCharArray();
+		boolean found = false;
+		for (int i = 0; i < chars.length; i++) {
+			if (!found && Character.isLetter(chars[i])) {
+				chars[i] = Character.toUpperCase(chars[i]);
+				found = true;
+			} else if (Character.isWhitespace(chars[i]) || chars[i]=='.' || chars[i]=='\'') { // You can add other chars here
+				found = false;
+			}
 		}
-		return builder.toString();
+		return String.valueOf(chars);
 	}
 
 	/**
