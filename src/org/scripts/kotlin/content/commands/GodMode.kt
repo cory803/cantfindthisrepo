@@ -14,7 +14,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class GodMode(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         player.skillManager.setCurrentLevel(Skill.ATTACK, 99999, true)
         player.skillManager.setCurrentLevel(Skill.STRENGTH, 99999, true)
         player.skillManager.setCurrentLevel(Skill.RANGED, 99999, true)

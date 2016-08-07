@@ -17,7 +17,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class Empty(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         player.dialog.sendDialog(EmptyDialog(player))
     }
 

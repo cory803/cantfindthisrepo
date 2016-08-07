@@ -13,7 +13,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class GetPosition(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         player.packetSender.sendMessage(player.position.toString())
     }
 }

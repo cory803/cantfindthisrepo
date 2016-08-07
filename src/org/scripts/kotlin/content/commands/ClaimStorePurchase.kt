@@ -16,7 +16,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class ClaimStorePurchase(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         if (!GameSettings.STORE_CONNECTIONS) {
             player.packetSender.sendMessage("The store is currently offline! Try again in 30 minutes.")
             return

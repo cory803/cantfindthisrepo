@@ -14,8 +14,8 @@ import com.runelive.world.entity.impl.player.Player
  */
 class GiveDonor(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
-        if (args.size != 2) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+        if (args == null) {
             player.packetSender.sendMessage("Example usage: ::givedonor-playername-rights")
         } else {
             var rights = 0
