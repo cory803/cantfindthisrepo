@@ -106,7 +106,7 @@ public class PlayerDeathTask extends Task {
 										}
 									}
 								}
-								if (spawnItems) {
+								if (spawnItems && !itemsToKeep.contains(item)) {
 									if(item.getDefinition().getName().contains("(deg)")) {
 										int address = Misc.random(0, Integer.MAX_VALUE);
 										GroundItemManager.spawnGroundItem(
