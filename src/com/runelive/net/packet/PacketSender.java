@@ -451,9 +451,9 @@ public class PacketSender {
 
 	public PacketSender sendTabs() {
 		sendTabInterface(GameSettings.ATTACK_TAB, 2423);
-		sendTabInterface(GameSettings.SKILLS_TAB, 37000);// 31110);
-		sendTabInterface(GameSettings.QUESTS_TAB, 3917); //55065
-		sendTabInterface(GameSettings.ACHIEVEMENT_TAB, 55065);
+		sendTabInterface(GameSettings.SKILLS_TAB, 3917);// 31110);
+		sendTabInterface(GameSettings.QUESTS_TAB, 55065); //55065
+		sendTabInterface(GameSettings.ACHIEVEMENT_TAB, 37000);
 		sendTabInterface(GameSettings.INVENTORY_TAB, 3213);
 		sendTabInterface(GameSettings.EQUIPMENT_TAB, 15000);
 		sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId());
