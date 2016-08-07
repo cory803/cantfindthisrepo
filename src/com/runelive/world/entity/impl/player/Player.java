@@ -270,6 +270,10 @@ public class Player extends Character {
             return 5;
         } else if(weapon.contains("maul") || weapon.contains("longsword")) {
             return 6;
+        } else if(weaponId == 21089) {
+            return 5;
+        } else if(weaponId == 21100) {
+            return 4;
         } else if(fightType == FightType.SHORTBOW_RAPID) {
             return 3;
         } else if(weapon.contains("shortbow") && fightType != FightType.SHORTBOW_RAPID) {
