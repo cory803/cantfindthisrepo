@@ -197,13 +197,17 @@ public class Consumables {
 			player.performAnimation(new Animation(829));
 			player.getInventory().delete(food.item, slot);
 			int heal = food.heal;
-			if((heal + player.getConstitution()) > player.getEquipment().getBoost() + player.getSkillManager().getMaxLevel(Skill.CONSTITUTION)) {
-				heal = player.getConstitution() + player.getEquipment().getBoost();
-			}
+			if(heal + player.getConstitution() > player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost()) {
+				if(player.getConstitution() > player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost()) {
 
+				} else {
+					player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost());
+				}
+			} else {
+				player.setConstitution(player.getConstitution() + heal);
+			}
 			String e = food.toString() == "BANDAGES" ? "use" : "eat";
 			player.getPacketSender().sendMessage("You " + e + " the " + food.name + ".");
-			player.setConstitution(player.getConstitution() + heal);
 		}
 		if (food != null && player.getFoodTimer().elapsed(1500) && !food.hasComboDelay()) {
 			player.getCombatBuilder().setDistanceSession(null);
