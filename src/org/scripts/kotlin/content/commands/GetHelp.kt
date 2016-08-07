@@ -13,7 +13,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class GetHelp(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         player.packetSender.sendString(1, "rune.live/forum/?app=tickets")
         player.packetSender.sendMessage("Attempting to open: www.rune.live/forum/?app=tickets")
         player.packetSender.sendMessage("Please note this requires you to register on the forums, type ::register!")

@@ -16,7 +16,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class ResetSkills(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         for (skill in Skill.values()) {
             val level = if (skill == Skill.CONSTITUTION) 100 else if (skill == Skill.PRAYER) 10 else 1
             player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,

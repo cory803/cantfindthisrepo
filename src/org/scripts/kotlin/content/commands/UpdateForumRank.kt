@@ -15,7 +15,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class UpdateForumRank(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         if (player.forumConnections > 0) {
             player.packetSender.sendMessage("You have just used this command, please relog and try again!")
             return

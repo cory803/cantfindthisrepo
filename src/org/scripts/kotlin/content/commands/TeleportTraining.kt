@@ -17,7 +17,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class TeleportTraining(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         if (Dungeoneering.doingDungeoneering(player)) {
             player.packetSender.sendMessage("You can't use this command in a dungeon.")
             return

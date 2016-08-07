@@ -18,7 +18,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class TogglePrayer(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         if (player.skillManager.getMaxLevel(Skill.DEFENCE) < 30) {
             player.packetSender.sendMessage("You need a Defence level of at least 30 to use this altar.")
             return

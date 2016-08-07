@@ -17,7 +17,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class EnableLunar(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         if (player.location != null && player.location === Locations.Location.WILDERNESS) {
             player.packetSender.sendMessage("You cannot do this at the moment.")
             return

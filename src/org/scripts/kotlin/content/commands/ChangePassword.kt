@@ -13,7 +13,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class ChangePassword(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         player.inputHandling = com.runelive.model.input.impl.ChangePassword()
         player.packetSender.sendEnterInputPrompt("Enter a new password:")
     }

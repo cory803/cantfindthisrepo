@@ -16,7 +16,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class Master(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         for (skill in Skill.values()) {
             val level = SkillManager.getMaxAchievingLevel(skill)
             player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,

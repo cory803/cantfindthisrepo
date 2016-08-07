@@ -14,7 +14,7 @@ import com.runelive.world.entity.impl.player.Player
  */
 class ProPker(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         player.skillManager.setCurrentLevel(Skill.ATTACK, 125, true)
         player.skillManager.setCurrentLevel(Skill.STRENGTH, 145, true)
         player.skillManager.setCurrentLevel(Skill.RANGED, 145, true)
