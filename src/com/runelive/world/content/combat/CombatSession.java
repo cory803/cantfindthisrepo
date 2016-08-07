@@ -45,6 +45,11 @@ public class CombatSession {
 		}
 
 		if (!CombatFactory.checkHook(builder.getCharacter(), builder.getVictim())) {
+			if (builder.getCharacter().isNpc()) {
+				builder.reset(true);
+				builder.getCharacter().setEntityInteraction(null);
+				builder.getCharacter().getWalkingQueue().clear();
+			}
 			return;
 		}
 
@@ -74,13 +79,13 @@ public class CombatSession {
 			}
 
 			if (!builder.getCharacter().getPosition().isWithinDistance(builder.getVictim().getPosition(), 14)) {
-				System.out.println(true);
 				//builder.getCharacter().getMovementQueue().setFollowCharacter(null);
 				return;
 			}
 
 			// Check if the attack can be made on this hook
 			if (!builder.getStrategy().canAttack(builder.getCharacter(), builder.getVictim())) {
+				System.out.println("trueeeeee");
 				builder.getCharacter().getCombatBuilder().reset(builder.getCharacter().isNpc() ? true : false);
 				return;
 			}

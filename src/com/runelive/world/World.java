@@ -21,6 +21,7 @@ import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.net.login.LoginManager;
 import com.runelive.net.login.LoginResponses;
 import com.runelive.util.ByteStream;
+import com.runelive.util.Filter;
 import com.runelive.util.FilterExecutable;
 import com.runelive.util.Misc;
 import com.runelive.world.clip.region.Region;
@@ -179,6 +180,18 @@ public class World {
 	public static Player getPlayerForLongName(long longName) {
 		for (Player player : players) {
 			if (player != null && player.getLongUsername() == longName) {
+				return player;
+			}
+		}
+		return null;
+	}
+
+	public static Player getPlayer(Filter<Player> filter) {
+		for (Player player : World.players) {
+			if (player == null) {
+				continue;
+			}
+			if (filter.accept(player)) {
 				return player;
 			}
 		}

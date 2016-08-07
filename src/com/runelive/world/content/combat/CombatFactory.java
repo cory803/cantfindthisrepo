@@ -944,6 +944,10 @@ public final class CombatFactory {
 	 */
 	public static boolean checkHook(Character entity, Character victim) {
 
+		if (victim == null) {
+			return false;
+		}
+
 		// Check if we need to reset the combat session.
 		if (!victim.isRegistered() || !entity.isRegistered() || entity.getConstitution() <= 0
 				|| victim.getConstitution() <= 0) {
@@ -1221,7 +1225,7 @@ public final class CombatFactory {
 			if (character.determineStrategy().getCombatType().equals(CombatType.MAGIC) || character.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
 				return 10;
 			}
-			return 1;
+			return 2;
 		} else if (character.isPlayer()) {
 			Player player = ((Player) character);
 			if (player.determineStrategy().getCombatType().equals(CombatType.MAGIC) || player.isAutocast()) {

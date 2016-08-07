@@ -22,7 +22,7 @@ class TeleportDuel(playerRights: PlayerRights) : Command(playerRights) {
             player.packetSender.sendMessage("You can't use this command in a dungeon.")
             return
         }
-        if (player.location === Locations.WILDERNESS && player.wildernessLevel >= 20) {
+        if (player.location === Locations.Location.WILDERNESS && player.wildernessLevel >= 20) {
             player.packetSender.sendMessage("You cannot do this at the moment.")
             return
         }

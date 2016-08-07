@@ -23,8 +23,6 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class Locations {
 
-	public static final Location WILDERNESS = null;
-
 	public static void login(Player player) {
 		player.setLocation(Location.getLocation(player));
 		player.getLocation().login(player);

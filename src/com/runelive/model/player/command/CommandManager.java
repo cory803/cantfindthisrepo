@@ -100,8 +100,15 @@ public class CommandManager {
         commands.put("wiki", new Command(PlayerRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, PlayerRights privilege) {
-                player.getPacketSender().sendString(1, "www.wiki.rune.live");
+                player.getPacketSender().sendString(1, "http://wiki.rune.live");
                 player.getPacketSender().sendMessage("Attempting to open: www.rune.live/wiki/");
+            }
+        });
+        commands.put("discord", new Command(PlayerRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, PlayerRights privilege) {
+                player.getPacketSender().sendString(1, "https://discord.gg/pMG6Btk");
+                player.getPacketSender().sendMessage("Attempting to open: https://discord.gg/pMG6Btk");
             }
         });
         commands.put("auth", new ClaimAuth(PlayerRights.PLAYER));

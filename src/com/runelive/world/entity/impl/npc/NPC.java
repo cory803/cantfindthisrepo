@@ -3,9 +3,11 @@ package com.runelive.world.entity.impl.npc;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.NPCDeathTask;
 import com.runelive.model.Direction;
+import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Position;
 import com.runelive.model.definitions.NpcDefinition;
+import com.runelive.util.Filter;
 import com.runelive.util.RandomGenerator;
 import com.runelive.world.World;
 import com.runelive.world.clip.region.Region;
@@ -625,8 +627,8 @@ public class NPC extends Character {
         }
         int distance = this.distance(a);
         if (!isSummoningNpc()) {
-            if (getCombatBuilder().getCombatType() != CombatType.MELEE) {
-                if (distance <= (getCombatBuilder().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a) || getCombatBuilder().getCombatType() == CombatType.MIXED)) {
+            if (determineStrategy().getCombatType() != CombatType.MELEE) {
+                if (distance <= (determineStrategy().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a) || determineStrategy().getCombatType() == CombatType.MIXED)) {
                     return;
                 }
             }

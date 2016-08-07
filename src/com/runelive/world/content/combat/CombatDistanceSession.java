@@ -3,6 +3,7 @@ package com.runelive.world.content.combat;
 import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
 import com.runelive.world.entity.impl.Character;
+import com.runelive.world.entity.impl.npc.NPC;
 
 public class CombatDistanceSession {
 
@@ -31,7 +32,7 @@ public class CombatDistanceSession {
 		builder.attackTimer = 0;
 		builder.cooldown = 0;
 
-		if (builder.getVictim() != null && !builder.getVictim().equals(victim)) {
+		/*if (builder.getVictim() != null && !builder.getVictim().equals(victim)) {
 			builder.reset(true);
 			this.stop();
 			return;
@@ -43,7 +44,7 @@ public class CombatDistanceSession {
 				this.stop();
 				return;
 			}
-		}
+		}*/
 
 		if (Locations.goodDistance(builder.getCharacter().getPosition(), victim.getPosition(),
 				builder.getStrategy().attackDistance(builder.getCharacter()))) {

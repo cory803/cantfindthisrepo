@@ -387,6 +387,9 @@ public class PlayerHandler {
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 		player.updateRank();
 		player.getPacketSender().sendRights();
+		player.getPacketSender().sendMessage("@blu@RuneLive now has a public discord! Join in where all the fun and action happens.");
+		player.getPacketSender().sendMessage("@blu@You can talk to players either by voice or text, and also listen to music with everyone!");
+		player.getPacketSender().sendMessage("@blu@Simply type ::discord to join the discord!");
 	}
 
 	public static boolean handleLogout(Player player) {

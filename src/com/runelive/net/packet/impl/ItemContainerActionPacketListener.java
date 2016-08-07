@@ -530,9 +530,9 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		switch (interfaceId) {
 		case Trading.INTERFACE_ID:
 			if (player.getTrading().inTrade()) {
-				player.getTrading().tradeItem(id, player.getInventory().forSlot(slot).getAmount(), slot);
+				player.getTrading().tradeItem(id, getAmount(player, id, slot), slot);
 			} else if (Dueling.checkDuel(player, 1) || Dueling.checkDuel(player, 2)) {
-				player.getDueling().stakeItem(id, player.getInventory().forSlot(slot).getAmount(), slot);
+				player.getDueling().stakeItem(id, getAmount(player, id, slot), slot);
 			}
 			break;
 		case Trading.INTERFACE_REMOVAL_ID:
@@ -566,7 +566,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			player.getBank(player.getCurrentBankTab()).open();
 			break;
 		case Bank.INVENTORY_INTERFACE_ID:
-			Item item = player.getInventory().forSlot(slot).copy().setAmount(player.getInventory().forSlot(slot).getAmount());
+			Item item = player.getInventory().forSlot(slot).copy().setAmount(getAmount(player, id, slot));
 			if (!player.isBanking() || item.getId() != id || !player.getInventory().contains(item.getId())
 					|| player.getInterfaceId() != 5292)
 				return;
@@ -607,7 +607,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		case PriceChecker.INTERFACE_PC_ID:
 			if (player.getInterfaceId() == PriceChecker.INTERFACE_ID && player.getPriceChecker().isOpen()) {
 				player.getInventory().switchItem(player.getPriceChecker(),
-						new Item(id, player.getInventory().forSlot(slot).getAmount()), slot, false, true);
+						new Item(id, getAmount(player, id, slot)), slot, false, true);
 			}
 			break;
 		}
@@ -795,6 +795,17 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		case SIXTH_ITEM_ACTION_OPCODE:
 			sixthAction(player, packet);
 			break;
+		}
+	}
+
+	/**
+	 * To fix the dupe
+	 */
+	public static int getAmount(Player player, int itemId, int slot) {
+		if (ItemDefinition.forId(itemId).isStackable()) {
+			return player.getInventory().forSlot(slot).getAmount();
+		} else {
+			return player.getInventory().getAmount(itemId);
 		}
 	}
 
