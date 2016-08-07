@@ -71,7 +71,6 @@ public class ItemActionPacketListener implements PacketListener {
 		if (slot < 0 || slot > player.getInventory().capacity())
 			return;
 		if (player.getInventory().getItems()[slot].getId() != itemId) {
-			System.out.println("Item in inventory doesn't exist");
 			return;
 		}
 		player.setInteractingItem(player.getInventory().getItems()[slot]);
