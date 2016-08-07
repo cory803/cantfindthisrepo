@@ -31,6 +31,13 @@ public class Misc {
 
 	private static ZonedDateTime zonedDateTime;
 	public static final int HALF_A_DAY_IN_MILLIS = 43200000;
+
+	public static final int MINUTE = 1_000;
+
+	public static final int HOUR = 60 * MINUTE;
+
+	public static final int DAY = 24 * HOUR;
+
 	protected static final java.util.Random random = new java.util.Random();
 
 	public static ContainerHit[] concat(ContainerHit[] a, ContainerHit[] b) {
@@ -218,6 +225,10 @@ public class Misc {
 	 */
 	public static int random(final int min, final int max) {
 		return min + (max == min ? 0 : random.nextInt(max - min));
+	}
+
+	public static int random(int rand) {
+		return RandomGenerator.nextInt(rand + 1);
 	}
 
 	public static int nextInt(int n) {
@@ -620,4 +631,10 @@ public class Misc {
 		int seperatorIndex = message.indexOf(" ") < message.indexOf("-") ? message.indexOf(" ") : message.indexOf("-");
 		return message.substring(seperatorIndex + 1);
 	}
+
+	public static int secondsToTicks(int i) {
+		return((int) (i / .6));
+	}
+
+	public static int ticksToSeconds(int i) { return ((int) (i * .6)); }
 }

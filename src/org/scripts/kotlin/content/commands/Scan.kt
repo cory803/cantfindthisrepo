@@ -16,8 +16,8 @@ import com.runelive.world.entity.impl.player.PlayerSaving
  */
 class Scan(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
-        if (args.size != 1) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+        if (args == null) {
             player.packetSender.sendMessage("Please use the command as ::scan-username")
             return
         }

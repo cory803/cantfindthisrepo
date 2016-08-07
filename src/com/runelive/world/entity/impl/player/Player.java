@@ -611,6 +611,7 @@ public class Player extends Character {
     public PlayerSession session;
     public LoginDetailsMessage logindetailsmessage;
     public Channel channel;
+    private final PlayerTimers playerTimers = new PlayerTimers(this);
     private final ActionHandler actionHandler = new ActionHandler(this);
     private final ActionQueue actionQueue = new ActionQueue(this);
     private final PlayerProcess process = new PlayerProcess(this);
@@ -796,7 +797,6 @@ public class Player extends Character {
     private boolean voteMessageSent;
     private boolean receivedStarter;
     private boolean canVote = true;
-    private boolean jailed = false;
     private long last_login = -1;
     private String last_ip_address;
     private long last_serial_address;
@@ -820,6 +820,10 @@ public class Player extends Character {
     /*
      * Getters & Setters
      */
+
+    public PlayerTimers getPlayerTimers() {
+        return playerTimers;
+    }
 
     public ActionHandler getActions() {
         return actionHandler;
@@ -905,11 +909,7 @@ public class Player extends Character {
     }
 
     public boolean isJailed() {
-        return jailed;
-    }
-
-    public void setJailed(boolean jailed) {
-        this.jailed = jailed;
+        return this.playerTimers.getJailTicks() != -1;
     }
 
     public boolean isPassedRandom() {
@@ -1081,14 +1081,9 @@ public class Player extends Character {
     public String last_bank_ip = "";
     public int combat_hit_tick = 0;
     public boolean has_combat_tick = false;
-    private boolean yellMute = false;
 
     public boolean isYellMute() {
-        return yellMute;
-    }
-
-    public void setYellMute(boolean yellMute) {
-        this.yellMute = yellMute;
+        return this.playerTimers.getYellTicks() != -1;
     }
 
     public boolean yell_toggle = true;

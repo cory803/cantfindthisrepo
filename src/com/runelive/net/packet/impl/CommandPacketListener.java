@@ -1,6 +1,6 @@
 package com.runelive.net.packet.impl;
 
-import com.runelive.commands.Commands;
+import com.runelive.model.player.command.CommandManager;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
 import com.runelive.util.Misc;
@@ -17,16 +17,15 @@ public class CommandPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-		String command = Misc.readString(packet.getBuffer());
-		String[] parts = command.toLowerCase().split(" ");
-		if (command.contains("\r") || command.contains("\n")) {
+		if (packet.getSize() == 0) {
 			return;
 		}
-		try {
-			Commands.initiate_commands(player, parts, command);
-		} catch (Exception exception) {
-			exception.printStackTrace();
-			player.getPacketSender().sendMessage("Error executing that command.");
+		String command = Misc.readString(packet.getBuffer());
+		if (command == null) {
+			return;
+		}
+		if (CommandManager.execute(player, command)) {
+			return;
 		}
 	}
 }

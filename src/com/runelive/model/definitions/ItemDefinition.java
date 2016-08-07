@@ -24,12 +24,13 @@ public class ItemDefinition {
 	/**
 	 * ItemDefinition array containing all items' definition values.
 	 */
-	private static ItemDefinition[] definitions = new ItemDefinition[MAX_AMOUNT_OF_ITEMS];
+	private static ItemDefinition[] definitions;
 
 	/**
 	 * Loading all item definitions
 	 */
 	public static JsonLoader init() {
+		definitions = new ItemDefinition[MAX_AMOUNT_OF_ITEMS];
 		return new JsonLoader() {
 
 			@Override

@@ -108,6 +108,8 @@ public class PlayerProcess {
 		}
 		timerTick++;
 
+		player.getPlayerTimers().process();
+
 		BountyHunter.sequence(player);
 
 		try {

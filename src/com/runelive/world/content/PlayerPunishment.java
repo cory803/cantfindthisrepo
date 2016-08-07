@@ -1,7 +1,7 @@
 package com.runelive.world.content;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.nio.file.Files;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -26,102 +26,111 @@ public class PlayerPunishment {
 	 * }.init(continuation)); return continuation; }
 	 */
 
-	public static boolean isPlayerBanned(String name) {
-		if (new File(PLAYER_BAN_DIRECTORY + name.toLowerCase()).exists()) {
+	private static boolean readPunished(File f) {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(f));
+			String line = br.readLine();
+			br.close();
+			if (line == null) {
+				return true;
+			} else {
+				Long time = Long.parseLong(line);
+				if (System.currentTimeMillis() - time > 0) {
+					return true;
+				} else {
+					f.delete();
+					return false;
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 			return true;
 		}
-		return false;
+	}
+
+	private static void checkPunishment(File f, Long time) {
+		try {
+			f.createNewFile();
+			if (time != -1) {
+				writePunished(f, time);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void writePunished(File f, Long time) {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f));
+			bw.write(time.toString());
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+	public static boolean isPlayerBanned(String name) {
+		File f = new File(PLAYER_BAN_DIRECTORY + name.toLowerCase());
+		return f.exists() && readPunished(f);
 	}
 
 	public static boolean isIpBanned(String ip) {
-		if (new File(IP_BAN_DIRECTORY + ip.toLowerCase()).exists()) {
-			return true;
-		}
-		return false;
-	}
-
-	public static boolean isMacBanned(String mac) {
-		if (new File(MAC_BAN_DIRECTORY + mac.toLowerCase()).exists()) {
-			return true;
-		}
-		return false;
+		File f = new File(IP_BAN_DIRECTORY + ip.toLowerCase());
+		return f.exists() && readPunished(f);
 	}
 
 	public static boolean isPcBanned(String add) {
-		if (new File(PC_BAN_DIRECTORY + add.toLowerCase()).exists()) {
-			return true;
-		}
-		return false;
+		File f = new File(PC_BAN_DIRECTORY + add.toLowerCase());
+		return f.exists() && readPunished(f);
 	}
 
 	public static boolean isIpMuted(String ip) {
-		if (new File(IP_MUTE_DIRECTORY + ip.toLowerCase()).exists()) {
-			return true;
-		}
-		return false;
+		File f = new File(IP_MUTE_DIRECTORY + ip.toLowerCase());
+		return f.exists() && readPunished(f);
 	}
 
 	public static boolean isMuted(String name) {
-		if (new File(PLAYER_MUTE_DIRECTORY + name.toLowerCase()).exists()) {
-			return true;
-		}
-		return false;
+		File f = new File(PLAYER_MUTE_DIRECTORY + name.toLowerCase());
+		return f.exists() && readPunished(f);
 	}
 
 	public static boolean isVoteBanned(String name) {
-		if (new File(VOTE_BAN_DIRECTORY + name.toLowerCase()).exists()) {
-			return true;
-		}
-		return false;
+		File f = new File(VOTE_BAN_DIRECTORY + name.toLowerCase());
+		return f.exists() && readPunished(f);
 	}
 
-	public static void ipBan(String ip) {
-		try {
-			new File(IP_BAN_DIRECTORY + ip).createNewFile();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
+	public static void ipBan(String ip, Long time) {
+		File f = new File(IP_BAN_DIRECTORY + ip);
+		checkPunishment(f, time);
 	}
 
-	public static void voteBan(String vote) {
-		try {
-			new File(VOTE_BAN_DIRECTORY + vote).createNewFile();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
+	public static void voteBan(String vote, Long time) {
+		File f = new File(VOTE_BAN_DIRECTORY + vote);
+		checkPunishment(f, time);
 	}
 
-	public static void macBan(String mac) {
-	}
 
-	public static void pcBan(String add) {
+	public static void pcBan(String add, Long time) {
 		if (add.toLowerCase().equals("none")) {
 			return;
 		}
-		try {
-			new File(PC_BAN_DIRECTORY + add).createNewFile();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
+		File f = new File(PC_BAN_DIRECTORY + add);
+		checkPunishment(f, time);
 	}
 
-	public static void ban(String name) {
-		try {
-			new File(PLAYER_BAN_DIRECTORY + name).createNewFile();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
+	public static void ban(String name, Long time) {
+		File f = new File(PLAYER_BAN_DIRECTORY + name);
+		checkPunishment(f, time);
 	}
 
-	public static void ipMute(String ip) {
-		try {
-			new File(IP_MUTE_DIRECTORY + ip).createNewFile();
-		} catch (IOException exception) {
-			exception.printStackTrace();
-		}
+	public static void ipMute(String ip, Long time) {
+		File f = new File(IP_MUTE_DIRECTORY + ip);
+		checkPunishment(f, time);
 	}
 
-	public static Player massBan(Player staff, String victimUsername, Player victim) {
+	public static void massBan(Player staff, String victimUsername, Long time) {
+		Player victim = new Player(null);
 		GameServer.getCharacterPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
@@ -132,11 +141,11 @@ public class PlayerPunishment {
 
 							String serial = String.valueOf(victim.getLastMacAddress());
 							String ip = victim.getLastIpAddress();
-							PlayerPunishment.ban(victimUsername);
+							PlayerPunishment.ban(victimUsername, time);
 							if (victim.getLastIpAddress() != null && !victim.getLastIpAddress().isEmpty()
 									&& !victim.getLastIpAddress().equalsIgnoreCase("not-set")) {
-								PlayerPunishment.pcBan(serial);
-								PlayerPunishment.ipBan(ip);
+								PlayerPunishment.pcBan(serial, time);
+								PlayerPunishment.ipBan(ip, time);
 							}
 							staff.getPacketSender()
 									.sendMessage("You successfully mass banned '" + victimUsername + "'.");
@@ -148,10 +157,10 @@ public class PlayerPunishment {
 						e.printStackTrace();
 					}
 				});
-		return victim;
 	}
 
-	public static Player unmassBan(Player staff, String victimUsername, Player victim) {
+	public static Player unmassBan(Player staff, String victimUsername) {
+		Player victim = new Player(null);
 		GameServer.getCharacterPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
@@ -181,7 +190,7 @@ public class PlayerPunishment {
 		return victim;
 	}
 
-	public static void mute(String name) {
+	public static void mute(String name, Long time) {
 		try {
 			new File(PLAYER_MUTE_DIRECTORY + name).createNewFile();
 		} catch (IOException exception) {

@@ -399,8 +399,8 @@ public class PlayerLoading {
 					false);
 		}
 
-		if (reader.has("jailed-status")) {
-			player.setJailed(reader.get("jailed-status").getAsBoolean());
+		if (reader.has("jailed-ticks")) {
+			player.getPlayerTimers().setJailTicks(reader.get("jailed-ticks").getAsInt());
 		}
 
 		if (reader.has("money-pouch")) {
@@ -427,8 +427,8 @@ public class PlayerLoading {
 			player.setTourneyToggle(reader.get("tourney-toggle").getAsBoolean());
 		}
 
-		if (reader.has("yell-mute")) {
-			player.setYellMute(reader.get("yell-mute").getAsBoolean());
+		if (reader.has("yell-ticks")) {
+			player.getPlayerTimers().setYellTicks(reader.get("yell-ticks").getAsInt());
 		}
 
 		if (reader.has("reset-stats-1")) {

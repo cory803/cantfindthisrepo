@@ -14,12 +14,12 @@ import com.runelive.world.entity.impl.player.Player
  */
 class DemoteWiki(playerRights: PlayerRights) : Command(playerRights) {
 
-    override fun execute(player: Player, args: Array<String>, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
         if (player.rights != PlayerRights.WIKI_MANAGER) {
             player.packetSender.sendMessage("You do not have sufficient privileges to use this command.")
             return
         }
-        if (args.size != 1) {
+        if (args ==null) {
             player.packetSender.sendMessage("Please use the command as ::demote-playername")
             return
         }

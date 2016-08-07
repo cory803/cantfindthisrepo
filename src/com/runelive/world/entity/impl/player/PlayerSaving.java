@@ -216,12 +216,12 @@ public class PlayerSaving {
 		object.addProperty("barrows-chests-looted", new Integer(player.barrowsChestsLooted));
 		object.addProperty("barrows-chest-rewards", new Integer(player.barrowsChestRewards));
 		object.addProperty("online-status", player.getRelations().getStatus().name());
-		object.addProperty("jailed-status", new Boolean(player.isJailed()));
+		object.addProperty("jailed-ticks", new Integer(player.getPlayerTimers().getJailTicks()));
 		object.addProperty("xp-rate", new Boolean(player.getXpRate()));
 		object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
 		object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
 		object.addProperty("tourney-toggle", new Boolean(player.tourneyToggle()));
-		object.addProperty("yell-mute", new Boolean(player.isYellMute()));
+		object.addProperty("yell-ticks", new Integer(player.getPlayerTimers().getYellTicks()));
 		object.addProperty("reset-stats-1", new Integer(player.reset_stats_1));
 		object.addProperty("ge-return", new Boolean(player.hasDoneGrandExchangeReturn()));
 		object.addProperty("money-pouch", new Long(player.getMoneyInPouch()));
