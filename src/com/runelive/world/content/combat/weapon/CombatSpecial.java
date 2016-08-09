@@ -20,6 +20,7 @@ import com.runelive.world.content.Achievements.AchievementData;
 import com.runelive.world.content.Consumables;
 import com.runelive.world.content.combat.CombatContainer;
 import com.runelive.world.content.combat.CombatType;
+import com.runelive.world.content.combat.DesolaceFormulas;
 import com.runelive.world.content.combat.HitQueue.CombatHit;
 import com.runelive.world.content.combat.magic.Autocasting;
 import com.runelive.world.content.combat.prayer.CurseHandler;
@@ -37,7 +38,7 @@ import com.runelive.world.entity.impl.player.Player;
  */
 public enum CombatSpecial {
 
-	DRAGON_DAGGER(new int[] { 1215, 1231, 5680, 5698 }, 25, 1.16, 1.20, CombatType.MELEE, WeaponInterface.DAGGER) {
+	DRAGON_DAGGER(new int[] { 1215, 1231, 5680, 5698 }, 25, 1.15, 1.25, CombatType.MELEE, WeaponInterface.DAGGER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1062));
@@ -647,12 +648,11 @@ public enum CombatSpecial {
 			};
 		}
 	},
-	DRAGON_CLAWS(new int[] { 14484 }, 50, 1.0, 1.3, CombatType.MELEE, WeaponInterface.CLAWS) {
+	DRAGON_CLAWS(new int[] { 14484 }, 50, .8, 1.3, CombatType.MELEE, WeaponInterface.CLAWS) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(10961));
 			player.performGraphic(new Graphic(1950));
-
 			return new CombatContainer(player, target, 4, CombatType.MELEE, true);
 		}
 	};

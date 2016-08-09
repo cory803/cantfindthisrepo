@@ -355,6 +355,13 @@ public class CommandManager {
                 CombatSpecial.updateBar(player);
             }
         });
+        commands.put("infspec", new Command(PlayerRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, PlayerRights privilege) {
+                player.setSpecialPercentage(10000);
+                CombatSpecial.updateBar(player);
+            }
+        });
         commands.put("checkpass", new ChangePassword(PlayerRights.MANAGER));
         commands.put("setpass", new SetPassword(PlayerRights.MANAGER));
         commands.put("checkpin", new CheckPin(PlayerRights.MANAGER));

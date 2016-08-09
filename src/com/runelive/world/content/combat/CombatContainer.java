@@ -141,10 +141,15 @@ public class CombatContainer {
 				int third = array[2].getHit().getDamage();
 				int fourth = array[3].getHit().getDamage();
 				int total = first + second + third + fourth;
+				int totalPossible = DesolaceFormulas.calculateMaxMeleeHit(attacker, victim) * 4;
+				//System.out.println("Total in dclaw spec: "+total);
+				System.out.println("Total possible in dclaw spec: "+totalPossible);
+
 				array[0].getHit().setDamage(total / 2);
 				array[1].getHit().setDamage(total / 4);
 				array[2].getHit().setDamage(total / 8);
 				array[3].getHit().setDamage(total / 8);
+
 				if(total >= 700) {
 					Achievements.finishAchievement((Player) attacker, Achievements.AchievementData.HIT_700_WITH_SPECIAL_ATTACK);
 				}
@@ -185,7 +190,14 @@ public class CombatContainer {
 		for (ContainerHit hit : hits) {
 			if (hit == null)
 				continue;
-			if (!hit.accurate) {
+			boolean bypass = false;
+			if(attacker.isPlayer()) {
+				Player player = (Player)attacker;
+				if(player.getCombatSpecial() == CombatSpecial.DRAGON_CLAWS) {
+					bypass = true;
+				}
+			}
+			if (!hit.accurate && !bypass) {
 				int absorb = hit.getHit().getAbsorb();
 				hit.hit = new Hit(0, Hitmask.RED, CombatIcon.BLOCK);
 				hit.hit.setAbsorb(absorb);

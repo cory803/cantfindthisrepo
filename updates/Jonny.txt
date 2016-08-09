@@ -1,62 +1,6 @@
 Game Updates:
-The bug where you would switch game modes and the recipe for disaster achievement(s) would be incomplete is now fixed.
-The thieving stall at home blocking the lunar altar has been removed.
-The global message when achieving 99 in all skills has been fixed.
-The reach level 99 in all skills achievement has been changed to Hit 700 with a special attack
-The capitilization on achievements has been fixed for 1-4 letter words that are not titles to be lowercase.
-The max npc has been fixed and can now be talked to for Sirs & lords again.
-The max npc dialogue that said 'Veteran' has been renamed to be the correct name 'Max'
-The armour models on the female gender has been fixed and anything else that has to do with being a female.
-The well of goodwill is fixed.
-The bug where your pet would disappear permanently after relogging is now fixed.
-Searching items in the player owned shops has been temporarily disabled to fix the lag issue.
-The rare items from bork will now show over yell when getting as a drop.
-You can no longer plant flowers at barrows.
-The Rune Essence mining area maps are fixed.
-The combat bug where you would step back and then double hit the player real fast is now fixed.
-When using the green depospan at runecrafting you will no longer go invisible.
-The bug where you get more fletching experience by fletching maple longbows than any other bow is fixed.
-The max cape teleporting you away when dieng in combat bug is fixed (changed to master cape).
-When a npc is instanced specifically for you (barrows etc) other players are no longer able to attack your npc.
-The bug where you couldn't search the banana trees in ape atoll to complete the kings task bug has been fixed.
-When your game mode for hardcore ironman is initiated (quest tab etc) it no longer says Hardcoreironman instead it says "HC Ironman"
-The social media icons on the client that would appear when hovering are removed.
-YouTubers will no longer double yell.
-The zaryte bow ammunition bug has been fixed (where you could use dragon javelin etc) it now requires arrows up to dragon.
-The bug where you could bypass the duel arena rules and use Zaryte bows/crystal bows is fixed.
-Toxic blowpipe has been nerfed 25% (attack speed was also fixed).
-The combat boosts on the Zaryte bow has been redone.
-Staff of light & staff of the dead/toxic staff special attacks will no longer reset your combat.
-Using the dragonfire shield special will no longer reset your combat.
-The bug where your dragonfire shield would say /20 charges has been fixed so it now says /50.
-The attack speed when boxing has been fixed, it was 6 game tickets now it is 4.
-The attack speed on all items has been fixed, the following were broke:
-	Chaotic maul
-	Chaotic rapier
-	Godswords/Any 2h swords
-	Staffs
-	Swords
-	Longswords
-	Pickaxes
-	Halberds
-	Thrownaxes
-	Toxic blowpipe
-One ticking in combat has been fixed.
-Serpentine helm now will inflict venom in all combat styles instead of magic.
-Serpentine helm will now protect you from venom when wearing it.
-Pvp armour is now lost on death, and the killer will get a coin value of what the value of the item is.
-Chaotics are now lost on death, and the killer will get 5M coins per chaotic as the loot.
-The delay on the korasi special attack has been fixed.
-The dragon claw special has been fixed to have damage seperated into each hit correctly.
-Hits will no longer hit you when you teleport away in combat.
-The timer on eating food was about 1.7x to fast compared to original RS. It has been fixed.
-The stat requirements to wear pvp (deg) gear has been fixed, originally there were no requirements.
-The bug where players with double spaces in their name could not create/talk in a clan chat have been fixed.
-Wearing nex armour now boosts your health per nex piece instead of requiring you to be wearing the full set.
-The soulsplit prayer has been fixed so that boosted health from rocktails, saradomin brews, or nex armour does not make it go back down to the default amount (your max hp level).
-The amount of pk points that you now gain is now based on the wilderness level you are in. The higher the wilderness level the more points you will get.
-The cooldown timer for most things (dropping/picking up items) is now based on your general attack speed with weapons instead of exactly 5 game ticks. (Example picking up a item then attacking a player again is now the speed of your weapon)
-Blowpipe rapid has been fixed
-The attack speed on crossbow rapid has been fixed
+SoulSplit prayer has been fixed
+Dragon dagger special attack has been buffed
+
 
 Polls:

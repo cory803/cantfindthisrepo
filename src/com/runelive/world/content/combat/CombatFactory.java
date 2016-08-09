@@ -432,16 +432,33 @@ public final class CombatFactory {
 	public static Hit getHit(Character entity, Character victim, CombatType type) {
 		switch (type) {
 		case MELEE:
-			return new Hit(Misc.inclusiveRandom(1,
-					/* CombatFactory.calculateMaxMeleeHit(entity, victim) */ DesolaceFormulas
-							.calculateMaxMeleeHit(entity, victim)),
-					Hitmask.RED, CombatIcon.MELEE);
+			int maxMelee = DesolaceFormulas.calculateMaxMeleeHit(entity, victim);
+			double meleeValue = maxMelee * .95;
+			int meleeHit = Misc.inclusiveRandom(1, maxMelee);
+			System.out.println("max possible hit: "+maxMelee);
+			if(meleeHit > (int)meleeValue) {
+				return new Hit(meleeHit, Hitmask.CRITICAL, CombatIcon.MELEE);
+			} else {
+				return new Hit(meleeHit, Hitmask.RED, CombatIcon.MELEE);
+			}
 		case RANGED:
-			return new Hit(Misc.inclusiveRandom(1, CombatFactory.calculateMaxRangedHit(entity, victim)), Hitmask.RED,
-					CombatIcon.RANGED);
+			int maxRanged = CombatFactory.calculateMaxRangedHit(entity, victim);
+			double rangedValue = maxRanged * .95;
+			int rangeHit = Misc.inclusiveRandom(1, maxRanged);
+			if(rangeHit > (int)rangedValue) {
+				return new Hit(rangeHit, Hitmask.CRITICAL, CombatIcon.RANGED);
+			} else {
+				return new Hit(rangeHit, Hitmask.RED, CombatIcon.RANGED);
+			}
 		case MAGIC:
-			return new Hit(Misc.inclusiveRandom(1, DesolaceFormulas.getMagicMaxhit(entity)), Hitmask.RED,
-					CombatIcon.MAGIC);
+			int maxMagic = DesolaceFormulas.getMagicMaxhit(entity);
+			double magicValue = maxMagic * .95;
+			int magicHit = Misc.inclusiveRandom(1, maxMagic);
+			if(magicHit > (int)magicValue) {
+				return new Hit(magicHit, Hitmask.CRITICAL, CombatIcon.MAGIC);
+			} else {
+				return new Hit(magicHit, Hitmask.RED, CombatIcon.MAGIC);
+			}
 		case DRAGON_FIRE:
 			return new Hit(Misc.inclusiveRandom(0, CombatFactory.calculateMaxDragonFireHit(entity, victim)),
 					Hitmask.RED, CombatIcon.MAGIC);
@@ -782,7 +799,6 @@ public final class CombatFactory {
 			}
 
 		}
-
 		return maxHit;
 
 	}
@@ -1685,13 +1701,13 @@ public final class CombatFactory {
 						if (!(attacker == null || target == null || attacker.getConstitution() <= 0)) {
 							target.performGraphic(new Graphic(2264, GraphicHeight.LOW));
 
-							if(p.getConstitution() > p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
+							if(p.getConstitution() >= p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
 								//No need to take any health because you are already full.
 							} else {
-								if (form + p.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
+								if (form + p.getConstitution() > p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
 									p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost());
 								} else {
-									p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, p.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost());
+									p.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, p.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) + form);
 								}
 							}
 							if (target.isPlayer()) {

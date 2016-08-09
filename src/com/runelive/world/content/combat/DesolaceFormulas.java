@@ -18,15 +18,6 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class DesolaceFormulas {
 
-	/*
-	 * =========================================================================
-	 * =====
-	 */
-	/*
-	 * ===================================MELEE=================================
-	 * ====
-	 */
-
 	public static int calculateMaxMeleeHit(Character entity, Character victim) {
 		double maxHit = 0;
 		if (entity.isNpc()) {
@@ -40,7 +31,6 @@ public class DesolaceFormulas {
 				maxHit -= (int) ((0.30) * (maxHit));
 			}
 
-			/** CUSTOM NPCS **/
 			if (npc.getId() == 2026) { // Dharok the wretched
 				maxHit += (int) ((npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
 			}
@@ -54,12 +44,12 @@ public class DesolaceFormulas {
 				specialBonus = plr.getCombatSpecial().getStrengthBonus();
 			}
 			double strengthBonus = plr.getBonusManager().getOtherBonus()[0];
-			base = (10 + effective + (strengthBonus / 8) + ((effective * strengthBonus) / 65)) / 11;
+			base = (5 + effective + (strengthBonus / 8) + ((effective * strengthBonus) / 65)) / 9;
 			if (plr.getEquipment().getItems()[3].getId() == 4718 && plr.getEquipment().getItems()[0].getId() == 4716
 					&& plr.getEquipment().getItems()[4].getId() == 4720
 					&& plr.getEquipment().getItems()[7].getId() == 4722)
 				base += ((plr.getSkillManager().getMaxLevel(Skill.CONSTITUTION) - plr.getConstitution()) * .045) + 1;
-			if (specialBonus > 1)
+			if (specialBonus > .1)
 				base = (base * specialBonus);
 			if (hasObsidianEffect(plr) || EquipmentBonus.wearingVoid(plr, CombatType.MELEE))
 				base = (base * 1.2);
@@ -79,7 +69,7 @@ public class DesolaceFormulas {
 					}
 				}
 
-				/** SLAYER HELMET **/
+
 				if (npc.getId() == plr.getSlayer().getSlayerTask().getNpcId()) {
 					if (plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
 						base *= 1.10;
@@ -101,7 +91,7 @@ public class DesolaceFormulas {
 	/**
 	 * Calculates a player's Melee attack level (how likely that they're going
 	 * to hit through defence)
-	 * 
+	 *
 	 * @param plr
 	 *            The player's Meelee attack level
 	 * @return The player's Melee attack level

@@ -71,7 +71,6 @@ public class BonusManager {
 			{ "1686", "Strength" }, { "19152", "Ranged Strength" }, { "1687", "Prayer" }, { "19153", "Magic Damage" }};
 
 	public static final int ATTACK_STAB = 0, ATTACK_SLASH = 1, ATTACK_CRUSH = 2, ATTACK_MAGIC = 3, ATTACK_RANGE = 4,
-
 			DEFENCE_STAB = 0, DEFENCE_SLASH = 1, DEFENCE_CRUSH = 2, DEFENCE_MAGIC = 3, DEFENCE_RANGE = 4,
 			BONUS_STRENGTH = 0;
 
