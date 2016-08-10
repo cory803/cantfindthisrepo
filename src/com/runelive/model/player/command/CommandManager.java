@@ -452,17 +452,38 @@ public class CommandManager {
         String name = null;
         String argsChunk = null;
         String[] args = null;
-        try {
-            if (input.contains("-")) {
-                name = input.substring(0, input.indexOf("-"));
-                argsChunk = input.substring(input.indexOf("-") + 1);
-                args = argsChunk.split("-");
-            } else {
-                name = input;
+        if(input.toLowerCase().startsWith("yell")) {
+            name = "yell";
+            args = new String[]{input.substring(5)};
+        } else if(input.toLowerCase().startsWith("auth")) {
+            name = "auth";
+            args = new String[]{input.substring(5)};
+        } else if(input.toLowerCase().startsWith("item") || input.toLowerCase().startsWith("find")) {
+            try {
+                if (input.contains(" ")) {
+                    name = input.substring(0, input.indexOf(" "));
+                    argsChunk = input.substring(input.indexOf(" ") + 1);
+                    args = argsChunk.split(" ");
+                } else {
+                    name = input;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                player.getPacketSender().sendMessage("There was an error with the command, please us a - symbol instead of a space.");
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            player.getPacketSender().sendMessage("There was an error with the command, please us a - symbol instead of a space.");
+        } else {
+            try {
+                if (input.contains("-")) {
+                    name = input.substring(0, input.indexOf("-"));
+                    argsChunk = input.substring(input.indexOf("-") + 1);
+                    args = argsChunk.split("-");
+                } else {
+                    name = input;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                player.getPacketSender().sendMessage("There was an error with the command, please us a - symbol instead of a space.");
+            }
         }
         Command command = commands.get(name.toLowerCase());
         if (command != null) {
