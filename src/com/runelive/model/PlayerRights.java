@@ -129,6 +129,17 @@ public enum PlayerRights {
      * @return The formatted name.
      */
     public String getRightName() {
+        if(rights == 4) {
+            return "Legendary";
+        } else if(rights == 5) {
+            return "Uber";
+        } else if(rights == 3) {
+            return "Extreme";
+        } else if(rights == 2) {
+            return "Super";
+        } else if(rights == 1) {
+            return "Donator";
+        }
         return Misc.formatText(this.toString().toLowerCase().replace("_", ""));
     }
 

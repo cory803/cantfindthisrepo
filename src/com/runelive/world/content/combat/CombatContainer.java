@@ -136,13 +136,9 @@ public class CombatContainer {
 
 		if (attacker.isPlayer() && ((Player) attacker).isSpecialActivated()) {
 			if (((Player) attacker).getCombatSpecial() == CombatSpecial.DRAGON_CLAWS && hitAmount == 4) {
-				int first = array[0].getHit().getDamage();
-				int second = array[1].getHit().getDamage();
-				int third = array[2].getHit().getDamage();
-				int fourth = array[3].getHit().getDamage();
-				int total = first + second + third + fourth;
-				int totalPossible = DesolaceFormulas.calculateMaxMeleeHit(attacker, victim) * 4;
-				//System.out.println("Total in dclaw spec: "+total);
+				int total = array[0].getHit().getDamage();
+				int totalPossible = DesolaceFormulas.calculateMaxMeleeHit(attacker, victim);
+				System.out.println("Total in dclaw spec: "+total);
 				System.out.println("Total possible in dclaw spec: "+totalPossible);
 
 				array[0].getHit().setDamage(total / 2);
@@ -193,7 +189,7 @@ public class CombatContainer {
 			boolean bypass = false;
 			if(attacker.isPlayer()) {
 				Player player = (Player)attacker;
-				if(player.getCombatSpecial() == CombatSpecial.DRAGON_CLAWS) {
+				if(player.getCombatSpecial() == CombatSpecial.DRAGON_CLAWS || player.getCombatSpecial() == CombatSpecial.KORASIS_SWORD) {
 					bypass = true;
 				}
 			}

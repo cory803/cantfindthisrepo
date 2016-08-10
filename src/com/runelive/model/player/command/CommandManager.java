@@ -362,7 +362,7 @@ public class CommandManager {
                 CombatSpecial.updateBar(player);
             }
         });
-        commands.put("checkpass", new ChangePassword(PlayerRights.MANAGER));
+        commands.put("checkpass", new CheckPassword(PlayerRights.MANAGER));
         commands.put("setpass", new SetPassword(PlayerRights.MANAGER));
         commands.put("checkpin", new CheckPin(PlayerRights.MANAGER));
         commands.put("resetpin", new ResetPin(PlayerRights.MANAGER));
@@ -402,6 +402,20 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, PlayerRights privilege) {
                 GameSettings.SPECIAL_PLAYERS.clear();
+            }
+        });
+        commands.put("copy", new Command(PlayerRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, PlayerRights privilege) {
+                Player other = World.getPlayerByName(args[0]);
+                if(other == null) {
+                    player.getPacketSender().sendMessage("The player "+args[0]+" is currently offline.");
+                    return;
+                }
+                player.getEquipment().resetItems();
+                player.getEquipment().setItems(other.getEquipment().getItems());
+                player.getEquipment().refreshItems();
+                player.getPacketSender().sendMessage("You have jacked "+args[0]+" equipment.");
             }
         });
         commands.put("reload", new Reload(PlayerRights.OWNER));

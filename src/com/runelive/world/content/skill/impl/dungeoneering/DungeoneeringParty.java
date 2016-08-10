@@ -174,17 +174,14 @@ public class DungeoneeringParty {
 			int exp = (int) (damage > 0 ? (p.getMinigameAttributes().getDungeoneeringAttributes().getDamageDealt()/10
 					* p.getSkillManager().getCurrentLevel(Skill.DUNGEONEERING) / 10.5)
 					- (deaths * 3800) : 0);
-			int tokens = (int) (damage > 0
-					? (p.getMinigameAttributes().getDungeoneeringAttributes().getDamageDealt() / 20)
-							- (deaths + Misc.getRandom(25))
-					: 0);
-			if (killedBoss) {
+			int tokens = (int) (damage > 0 ? (p.getMinigameAttributes().getDungeoneeringAttributes().getDamageDealt() / 1.1) - (deaths * 160 + Misc.getRandom(25)) : 0);
+			if(killedBoss) {
 				exp += 12000 + Misc.getRandom(2000);
 				tokens += Misc.getRandom(400);
 			}
 			if (exp > 0 && tokens > 0) {
-				exp += (Misc.getRandom(7)) * complexity;
-				if (player_members.size() == 1) {
+				exp += (2600 + Misc.getRandom(1000)) * complexity;
+				if(player_members.size() == 1) {
 					exp = (int) (exp * 0.7);
 					tokens = (int) (tokens * 0.7);
 				}
