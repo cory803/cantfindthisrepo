@@ -40,6 +40,7 @@ public class FollowPlayerPacketListener implements PacketListener {
 			BankPin.init(player, false);
 			return;
 		}
+		player.getCombatBuilder().reset();
 		player.setEntityInteraction(leader);
 		player.getActionQueue().addAction(new FollowMobileAction(player, leader));
 	}

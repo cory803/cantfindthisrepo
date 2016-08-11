@@ -64,7 +64,7 @@ public class PosItemSearch extends Input {
 							Player.foundOffers.put(new PosDetails(start_button, o.getOwner(), o.getCaption()),
 									new PosOffer(o.getOffers().get(q).getItemId(), o.getOffers().get(q).getAmount(),
 											o.getOffers().get(q).getSoldAmount(), o.getOffers().get(q).getPrice()));
-							// start_button += 4;
+							 start_button += 4;
 						}
 					}
 				}
@@ -206,7 +206,7 @@ public class PosItemSearch extends Input {
 		}
 		return format;
 	}
-/*
+
 	public static PosDetails forId(int i, Player player) {
 		for (Map.Entry<PosDetails, PosOffer> map : Player.foundOffers.entrySet()) {
 			PosDetails pd = map.getKey();
@@ -215,9 +215,9 @@ public class PosItemSearch extends Input {
 		}
 		return null;
 	}
-*/
+
 	public static void reset(Player player) {
-		//Player.foundOffers.clear();
+		Player.foundOffers.clear();
 	}
 
 }

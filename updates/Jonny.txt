@@ -1,6 +1,4 @@
 Game Updates:
-SoulSplit prayer has been fixed
-Dragon dagger special attack has been buffed
-
+The withdraw-x option now will save above it as your most recent withdraw.
 
 Polls:
