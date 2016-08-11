@@ -91,10 +91,9 @@ public class DesoSpan {
 					player.performGraphic(new Graphic(energyType.playerGraphic, GraphicHeight.HIGH));
 					n.performGraphic(new Graphic(energyType.npcGraphic, GraphicHeight.HIGH));
 					n.dealDamage(new Hit(Misc.getRandom(12), Hitmask.RED, CombatIcon.MAGIC));
-					if (!Skillcape_Data.RUNECRAFTING.isWearingCape(player) || (!Skillcape_Data.MASTER_RUNECRAFTING.isWearingCape(player) ? 50 : 30) <= 10) {
+					if(Misc.getRandom(30) <= 10 && !Skillcape_Data.RUNECRAFTING.isWearingCape(player) && !Skillcape_Data.MASTER_RUNECRAFTING.isWearingCape(player)) {
 						player.dealDamage(new Hit(1 + Misc.getRandom(48), Hitmask.RED, CombatIcon.DEFLECT));
-						player.getPacketSender()
-								.sendMessage("You accidently attempt to siphon too much energy, and get hurt.");
+						player.getPacketSender().sendMessage("You accidently attempt to siphon too much energy, and get hurt.");
 					} else {
 						player.getPacketSender().sendMessage("You siphon some energy ..");
 						player.getInventory().add(ENERGY_FRAGMENT, 1);
