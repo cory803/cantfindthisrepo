@@ -679,10 +679,17 @@ public class ItemContainerActionPacketListener implements PacketListener {
 					player.setInputHandling(new EnterAmountToRemoveFromBank(id, slot));
 					player.getPacketSender().sendEnterAmountPrompt("How many would you like to withdraw?");
 				} else {
-					player.getBank(player.getCurrentBankTab()).switchItem(player.getInventory(),
-							new Item(id, player.getBank(Bank.getTabForItem(player, id)).getAmount(id) - 1), slot, true,
-							true);
-					player.getBank(player.getCurrentBankTab()).open();
+					if(player.getWithdrawX() > -1) {
+						player.getBank(player.getCurrentBankTab()).switchItem(player.getInventory(),
+								new Item(id, player.getWithdrawX()), slot, true,
+								true);
+						player.getBank(player.getCurrentBankTab()).open();
+					} else {
+						player.getBank(player.getCurrentBankTab()).switchItem(player.getInventory(),
+								new Item(id, player.getBank(Bank.getTabForItem(player, id)).getAmount(id) - 1), slot, true,
+								true);
+						player.getBank(player.getCurrentBankTab()).open();
+					}
 				}
 			}
 			break;

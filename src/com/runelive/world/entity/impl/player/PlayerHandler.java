@@ -146,7 +146,7 @@ public class PlayerHandler {
 			}
 			player.reset_stats_1 = 1;
 		}
-
+		player.getPacketSender().sendString(1, "[WITHDRAWX]-"+player.getWithdrawX());
 		// Skills
 		player.getSummoning().login();
 		player.getFarming().load();

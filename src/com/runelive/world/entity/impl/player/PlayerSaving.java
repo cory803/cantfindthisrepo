@@ -196,6 +196,7 @@ public class PlayerSaving {
 		object.addProperty("donor-rights", player.getDonorRights());
 		object.addProperty("game-mode", player.getGameModeAssistant().getGameMode().name());
 		//object.addProperty("exp-rate", player.getExpRate().name());
+		object.addProperty("withdrawx", new Integer(player.getWithdrawX()));
 		object.addProperty("last-login", player.getLastLogin());
 		object.addProperty("last-ip-address", player.getLastIpAddress());
 		object.addProperty("last-serial-address", player.getLastSerialAddress());

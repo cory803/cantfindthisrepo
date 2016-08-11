@@ -33,6 +33,8 @@ public class EnterAmountToRemoveFromBank extends EnterAmount {
 			amount = invAmount;
 		if (amount <= 0)
 			return;
+		player.getPacketSender().sendString(1, "[WITHDRAWX]-"+amount);
+		player.setWithdrawX(amount);
 		player.getBank(tab).setPlayer(player).switchItem(player.getInventory(), new Item(item, amount),
 				player.getBank(tab).getSlot(item), false, true);
 	}

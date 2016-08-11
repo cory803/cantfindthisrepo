@@ -443,6 +443,10 @@ public class PlayerLoading {
 			player.incrementAmountDonated(reader.get("donated").getAsInt());
 		}
 
+		if (reader.has("withdrawx")) {
+			player.setWithdrawX(reader.get("withdrawx").getAsInt());
+		}
+
 		if (reader.has("credits")) {
 			player.addCredits(reader.get("credits").getAsInt());
 		}
