@@ -148,7 +148,8 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		if (player.getEquipment().contains(12926)) {
 			int hit = container.getHits()[0].getHit().getDamage();
 			int bonus = hit / 2;
-			container.setModifiedDamage(hit * 2 - bonus);
+			//container.setModifiedDamage(hit * 2 - bonus);
+			container.getHits()[0].getHit().setDamage(hit * 2 - bonus);
 		}
 		if (player.getEquipment().contains(20171)) {
 			int hit = container.getHits()[0].getHit().getDamage();

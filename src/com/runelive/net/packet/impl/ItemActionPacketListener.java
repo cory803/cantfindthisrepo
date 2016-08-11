@@ -945,7 +945,7 @@ public class ItemActionPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-		if (player.getConstitution() <= 0) {
+		if (player.getConstitution() <= 0 && player.isDying()) {
 			return;
 		}
 		switch (packet.getOpcode()) {

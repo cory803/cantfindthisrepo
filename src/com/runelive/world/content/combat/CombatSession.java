@@ -85,7 +85,6 @@ public class CombatSession {
 
 			// Check if the attack can be made on this hook
 			if (!builder.getStrategy().canAttack(builder.getCharacter(), builder.getVictim())) {
-				System.out.println("trueeeeee");
 				builder.getCharacter().getCombatBuilder().reset(builder.getCharacter().isNpc() ? true : false);
 				return;
 			}
