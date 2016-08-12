@@ -119,7 +119,7 @@ public class Player extends Character {
         return false;
     }
 
-    public int withdrawX = -1;
+    public int withdrawX = 0;
     public int getWithdrawX() {
         return this.withdrawX;
     }

@@ -221,12 +221,17 @@ public final class WeaponInterfaces {
 
 		int fightTypeIndex = 0;
 
-		if (fightStyle != null) { // Fix for weapon style changes
-			if (!(fightStyle.getChildId() > weapon.getFightType().length)) {
-				fightTypeIndex = fightStyle.getChildId();
+		if(fightStyle == FightType.BATTLEAXE_SMASH) {
+			if(item.getId() == 4151) {
+				fightTypeIndex = FightType.WHIP_LASH.getChildId();
+			}
+		} else {
+			if (fightStyle != null) { // Fix for weapon style changes
+				if (!(fightStyle.getChildId() > weapon.getFightType().length)) {
+					fightTypeIndex = fightStyle.getChildId();
+				}
 			}
 		}
-
 		player.setFightType(player.getWeapon().getFightType()[fightTypeIndex]);
 		player.getPacketSender().sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId());
 	}

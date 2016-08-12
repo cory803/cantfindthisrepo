@@ -26,15 +26,15 @@ public class SwitchItemSlotPacketListener implements PacketListener {
 		switch (interfaceId) {
 		case Inventory.INTERFACE_ID:
 		case Bank.INVENTORY_INTERFACE_ID:
-			if (fromSlot >= 0 && fromSlot < player.getInventory().capacity() && toSlot >= 0
-					&& toSlot < player.getInventory().capacity() && toSlot != fromSlot) {
+			if (fromSlot >= 0 && fromSlot < player.getInventory().capacity() && toSlot >= 0 && toSlot < player.getInventory().capacity() && toSlot != fromSlot) {
 				player.getInventory().swap(fromSlot, toSlot).refreshItems();
 			}
 			break;
 		case Bank.INTERFACE_ID:
 			if (player.isBanking() && player.getInterfaceId() == 5292) {
-				if (fromSlot == toSlot)
+				if (fromSlot == toSlot) {
 					return;
+				}
 				if (player.getBankSearchingAttributes().isSearchingBank()) {
 					if (player.swapMode()) {
 						player.getBankSearchingAttributes().getSearchedBank().shiftSwap(fromSlot, toSlot);
