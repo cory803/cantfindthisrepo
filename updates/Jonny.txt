@@ -1,4 +1,7 @@
 Game Updates:
 The withdraw-x option now will save above it as your most recent withdraw.
+The bug where you can't move/organize items in the third row in your bank is now fixed.
+The 525 game frame has been fixed.
+When following players via right click your combat will now be reset.
 
 Polls:

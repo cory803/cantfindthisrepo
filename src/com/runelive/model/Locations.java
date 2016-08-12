@@ -887,6 +887,7 @@ public class Locations {
 			@Override
 			public void onDeath(Player player) {
 				player.moveTo(new Position(2815, 5511));
+				player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost());
 			}
 
 			@Override

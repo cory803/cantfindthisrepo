@@ -202,10 +202,10 @@ public class PlayerDeathTask extends Task {
 			if (player != null) {
 				if (player.homeLocation == 0) {
 					player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
-					player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+					player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost());
 				} else {
 					player.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
-					player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+					player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost());
 				}
 			}
 		}
