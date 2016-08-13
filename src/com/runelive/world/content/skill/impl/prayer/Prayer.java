@@ -78,4 +78,28 @@ public class Prayer {
 		});
 		player.getClickDelay().reset();
 	}
+
+	public static void crushBone(final Player player, final int itemId) {
+		final BonesData currentBone = BonesData.forId(itemId);
+		if (currentBone == null)
+			return;
+		if(ItemDefinition.forId(itemId).getName().contains("ashes")) {
+			player.getSkillManager().stopSkilling();
+			player.getPacketSender().sendInterfaceRemoval();
+			final Item bone = new Item(itemId);
+			player.getInventory().delete(bone);
+			player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP());
+			return;
+		}
+		if (currentBone == BonesData.BIG_BONES)
+			Achievements.finishAchievement(player, AchievementData.BURY_A_BIG_BONE);
+		if (currentBone == BonesData.DRAGON_BONES)
+			Achievements.finishAchievement(player, AchievementData.BURY_A_DRAGON_BONE);
+		else if (currentBone == BonesData.FROSTDRAGON_BONES) {
+			Achievements.doProgress(player, AchievementData.BURY_25_FROST_DRAGON_BONES);
+			Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);
+		}
+		player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP());
+		player.getPacketSender().sendMessage("Your bonecrusher has crushed "+ItemDefinition.forId(itemId).getName()+" for "+currentBone.getBuryingXP() * player.getGameModeAssistant().getModeExpRate()+" prayer experience.");
+	}
 }

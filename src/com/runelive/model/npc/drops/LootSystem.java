@@ -11,6 +11,7 @@ import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.DropLog;
 import com.runelive.world.content.clan.ClanChatManager;
+import com.runelive.world.content.skill.impl.prayer.Prayer;
 import com.runelive.world.content.skill.impl.summoning.CharmingImp;
 import com.runelive.world.entity.impl.GroundItemManager;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -164,7 +165,13 @@ public class LootSystem {
                     amt += table.getSortedLoot()[0][i].getRandomAmount();
                 }
 
-                GroundItemManager.spawnGroundItem(ClanChatManager.lootshare(p, n.getPosition().copy(), table.getSortedLoot()[0][i].getId(), amt), new GroundItem(new Item(table.getSortedLoot()[0][i].getId(), amt), n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                if(p.getInventory().contains(18337)) {
+                    if (Prayer.isBone(table.getSortedLoot()[0][i].getId())) {
+                        Prayer.crushBone(p, table.getSortedLoot()[0][i].getId());
+                    }
+                } else {
+                    GroundItemManager.spawnGroundItem(ClanChatManager.lootshare(p, n.getPosition().copy(), table.getSortedLoot()[0][i].getId(), amt), new GroundItem(new Item(table.getSortedLoot()[0][i].getId(), amt), n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                }
             }
         }
 
