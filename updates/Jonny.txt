@@ -9,5 +9,6 @@ The amount of experience you get from the agility tickets is now fixed.
 Zaryte bow has been nerfed 50%.
 When using the toxic blowpipe & zaryte bow you should no longer see the random venom hitsplat. (Untested)
 When dieng and walking directly after your death it will no longer make it so you don't actually die.
+Bonecrusher has been re-added.
 
 Polls:
