@@ -452,13 +452,10 @@ public class CommandManager {
         String name = null;
         String argsChunk = null;
         String[] args = null;
-        if(input.toLowerCase().startsWith("yell")) {
-            name = "yell";
+        if(input.toLowerCase().startsWith("yell") || input.toLowerCase().startsWith("auth") || input.toLowerCase().startsWith("find")) {
+            name = input.toLowerCase().substring(0, input.indexOf(" "));
             args = new String[]{input.substring(5)};
-        } else if(input.toLowerCase().startsWith("auth")) {
-            name = "auth";
-            args = new String[]{input.substring(5)};
-        } else if(input.toLowerCase().startsWith("item") || input.toLowerCase().startsWith("find")) {
+        } else if(input.toLowerCase().startsWith("item")) {
             try {
                 if (input.contains(" ")) {
                     name = input.substring(0, input.indexOf(" "));
