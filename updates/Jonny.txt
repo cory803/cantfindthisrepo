@@ -3,5 +3,11 @@ The withdraw-x option now will save above it as your most recent withdraw.
 The bug where you can't move/organize items in the third row in your bank is now fixed.
 The 525 game frame has been fixed.
 When following players via right click your combat will now be reset.
+Searching items in the player owned shops is fixed
+The bug where you always failed at runecrafting desospan is now fixed (getting fragments etc)
+The amount of experience you get from the agility tickets is now fixed.
+Zaryte bow has been nerfed 50%.
+When using the toxic blowpipe & zaryte bow you should no longer see the random venom hitsplat. (Untested)
+When dieng and walking directly after your death it will no longer make it so you don't actually die.
 
 Polls:

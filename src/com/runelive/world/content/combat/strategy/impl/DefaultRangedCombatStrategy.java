@@ -151,10 +151,6 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			//container.setModifiedDamage(hit * 2 - bonus);
 			container.getHits()[0].getHit().setDamage(hit * 2 - bonus);
 		}
-		if (player.getEquipment().contains(20171)) {
-			int hit = container.getHits()[0].getHit().getDamage();
-			container.setModifiedDamage(hit * 2);
-		}
 		/** CROSSBOW BOLTS EFFECT **/
 		if (player.getEquipment().get(Equipment.WEAPON_SLOT).getDefinition() != null && player.getEquipment()
 				.get(Equipment.WEAPON_SLOT).getDefinition().getName().toLowerCase().contains("crossbow")) {

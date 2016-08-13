@@ -27,7 +27,9 @@ public class MovementPacketListener implements PacketListener {
 
 	@Override
 	public void handleMessage(Player player, Packet packet) {
-
+		if(player.getConstitution() <= 0) {
+			return;
+		}
 		player.setEntityInteraction(null);
 		player.getSkillManager().stopSkilling();
 
