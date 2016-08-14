@@ -55,7 +55,8 @@ public final class NpcAggression {
 			}
 
 			// Check if the entity is within distance.
-			if (Locations.goodDistance(npc.getPosition(), player.getPosition(), npc.getAggressionDistance())
+			int distance = npc.distance(player);
+			if (distance < (npc.getAggressiveDistanceLimit() + npc.walkingDistance)
 					|| gwdMob) {
 				if (player.getTolerance().elapsed() > (NPC_TOLERANCE_SECONDS * 1000)
 						&& player.getLocation() != Location.GODWARS_DUNGEON
@@ -79,12 +80,11 @@ public final class NpcAggression {
 				}
 
 				if (Location.ignoreFollowDistance(npc) || gwdMob
-						|| npc.getDefaultPosition().getDistance(player.getPosition()) < 7
-								+ npc.walkingDistance
+						|| npc.getDefaultPosition().distanceTo(player.getPosition()) < npc.determineStrategy().attackDistance(npc)
 						|| dung) {
 					if (CombatFactory.checkHook(npc, player)) {
 						player.setTargeted(true);
-						npc.follow(player);
+						//npc.follow(player);
 						npc.getCombatBuilder().attack(player);
 						npc.setFindNewTarget(false);
 						break;

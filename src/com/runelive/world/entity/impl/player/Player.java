@@ -740,6 +740,7 @@ public class Player extends Character {
     private Player killed_player;
 
     /*** BOOLEANS ***/
+    private boolean invisible = false;
     public boolean ignoreClip = true;
     private boolean canWearDungItems = false;
     private boolean revsWarning = true;
@@ -809,6 +810,14 @@ public class Player extends Character {
     /*
      * Getters & Setters
      */
+
+    public boolean isInvisible() {
+        return invisible;
+    }
+
+    public void setInvisible(boolean invisible) {
+        this.invisible = invisible;
+    }
 
     public PlayerTimers getPlayerTimers() {
         return playerTimers;

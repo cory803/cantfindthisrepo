@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.NavigableMap;
+import java.util.SortedMap;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
@@ -23,8 +25,8 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class PlayerOwnedShops {
 
-	public static ArrayList<PosOffers> SHOPS_ARRAYLIST = new ArrayList<PosOffers>();
-	public static ArrayList<String> SHOPS_TO_SEARCH = new ArrayList<String>();
+	public static ArrayList<PosOffers> SHOPS_ARRAYLIST = new ArrayList<>();
+	public static ArrayList<String> SHOPS_TO_SEARCH = new ArrayList<>();
 
 	public static void init() {
 		try {
@@ -54,6 +56,12 @@ public class PlayerOwnedShops {
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	private static SortedMap<String, Object> getByPreffix(
+			NavigableMap<String, Object> myMap,
+			String preffix ) {
+		return myMap.subMap( preffix, preffix + Character.MAX_VALUE );
 	}
 
 	public static void displayFeaturedShops(Player player) {

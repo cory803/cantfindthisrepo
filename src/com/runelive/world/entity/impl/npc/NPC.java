@@ -235,22 +235,6 @@ public class NPC extends Character {
         return 10;
     }
 
-    public int getAggressionDistance() {
-        int distance = walkingDistance;
-        if (distance == 0) {
-            distance = 7;
-        }
-        /*
-		 * switch(id) { }
-		 */
-        if (Nex.nexMob(id)) {
-            distance = 60;
-        } else if (id == 2896) {
-            distance = 50;
-        }
-        return distance;
-    }
-
 	/*
 	 * Fields
 	 */
@@ -628,7 +612,8 @@ public class NPC extends Character {
         int distance = this.distance(a);
         if (!isSummoningNpc()) {
             if (determineStrategy().getCombatType() != CombatType.MELEE) {
-                if (distance <= (determineStrategy().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a) || determineStrategy().getCombatType() == CombatType.MIXED)) {
+                if (distance <= (determineStrategy().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a))) {
+                    System.out.println("Yup4");
                     return;
                 }
             }
@@ -636,11 +621,14 @@ public class NPC extends Character {
         Area area = Area.create(getPosition(), NpcDefinition.forId(id).getSize() - 1);
         Position targetPos = a.getWalkingQueue().getNextPosition();
         Direction direction;
-        if (!isSummoningNpc() && makeArea.distance(targetPos) > maximumDistance) {
+        if (!isSummoningNpc() && makeArea.distance(targetPos) > determineStrategy().attackDistance(this)) {
+            System.out.println("Yup3");
             if (getCombatBuilder().getLastAttacker() == null) {
+                System.out.println("Yup2");
                 return;
             }
             if (getCombatBuilder().getLastAttacker().getCombatBuilder().isAttacking() == false) {
+                System.out.println("Yup1");
                 return;
             }
             direction = NPC.moveAwayDirection(targetPos, area);
@@ -653,6 +641,7 @@ public class NPC extends Character {
         if (projectileClipping ? World.projectileDirectionBlocked(direction, getPosition().getZ(), getPosition().getX(), getPosition().getY(), this.getSize()) : World.directionBlocked(direction, getPosition().getZ(), getPosition().getX(), getPosition().getY(), this.getSize())) {
             return;
         }
+        System.out.println("Yup");
         walkingQueue.addStepInternal(getPosition().getX() + direction.getX(), getPosition().getY() + direction.getY());
     }
 

@@ -322,7 +322,7 @@ public class HitQueue {
 						&& ((Player) victim).getWalkToTask() == null;
 			} else if (!(attacker.isNpc() && ((NPC) attacker).isSummoningNpc())) {
 				NPC npc = (NPC) victim;
-				return npc.getPosition().getDistance(npc.getDefaultPosition()) >= npc.walkingDistance
+				return npc.getPosition().getDistance(npc.getDefaultPosition()) >= (npc.determineStrategy().attackDistance(npc))
 						&& npc.getLocation() != Location.PEST_CONTROL_GAME;
 			}
 			return false;

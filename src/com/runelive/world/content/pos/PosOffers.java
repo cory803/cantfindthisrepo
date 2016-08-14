@@ -17,7 +17,7 @@ public class PosOffers {
 	private String caption;
 	private int shopItems;
 	private long coins_to_collect;
-	private List<PosOffer> offers = new ArrayList<PosOffer>();
+	private List<PosOffer> offers = new ArrayList<>();
 
 	public PosOffers(String owner, String caption, int shopItems, long coins_to_collect, PosOffer[] offers) {
 		this.owner_name = owner;

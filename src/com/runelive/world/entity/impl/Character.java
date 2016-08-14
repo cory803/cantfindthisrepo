@@ -662,11 +662,11 @@ public abstract class Character extends Entity {
 		return fail;
 	}
 
-	public int distance(Character entity) {
+	public int distance(Entity entity) {
 		return dist(entity, false);
 	}
 
-	private int dist(Character entity, boolean math) {
+	private int dist(Entity entity, boolean math) {
 		Position position = entity.getPosition();
 		return dist(position.getX(), position.getY(), position.getX() + (entity.getSize() - 1), position.getY() + (entity.getSize() - 1), math);
 	}

@@ -46,9 +46,11 @@ public class PlayerUpdating {
 		packet.putBits(8, player.getLocalPlayers().size());
 		for (Iterator<Player> playerIterator = player.getLocalPlayers().iterator(); playerIterator.hasNext();) {
 			Player otherPlayer = playerIterator.next();
-			if (World.getPlayers().get(otherPlayer.getIndex()) != null
-					&& otherPlayer.getPosition().isWithinDistance(player.getPosition())
-					&& !otherPlayer.isNeedsPlacement()) {
+			if (otherPlayer.isInvisible() && !player.isInvisible()) {
+				playerIterator.remove();
+				packet.putBits(1, 1);
+				packet.putBits(2, 3);
+			} else if (World.getPlayers().get(otherPlayer.getIndex()) != null && otherPlayer.getPosition().isWithinDistance(player.getPosition()) && !otherPlayer.isNeedsPlacement()) {
 				updateOtherPlayerMovement(packet, otherPlayer);
 				if (otherPlayer.getUpdateFlag().isUpdateRequired()) {
 					appendUpdates(player, update, otherPlayer, false, false);
@@ -64,6 +66,9 @@ public class PlayerUpdating {
 		for (Player otherPlayer : World.getPlayers()) {
 			if (player.getLocalPlayers().size() >= 79 || playersAdded > MAX_NEW_PLAYERS_PER_CYCLE)
 				break;
+			if (otherPlayer != null && otherPlayer.isInvisible() && !player.isInvisible()) {
+				continue;
+			}
 			if (otherPlayer == null || otherPlayer == player || player.getLocalPlayers().contains(otherPlayer)
 					|| !otherPlayer.getPosition().isWithinDistance(player.getPosition()))
 				continue;
@@ -490,8 +495,6 @@ public class PlayerUpdating {
 	 * their equipment, clothing, combat level, gender, head icons, user name
 	 * and animations.
 	 *
-	 * @param
-	 *            The packet builder to write information on.
 	 * @param target
 	 *            The player to update appearance for.
 	 * @return The PlayerUpdating instance.

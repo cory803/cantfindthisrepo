@@ -46,9 +46,11 @@ class GetPlayerGold(playerRights: PlayerRights) : Command(playerRights) {
                 }
             }
 
-            for (item in p.summoning.beastOfBurden.items) {
-                if (item != null && item.id > 0 && item.tradeable()) {
-                    gold += item.definition.value.toLong()
+            if(p.summoning.familiar != null && p.summoning.familiar.summonNpc != null && p.summoning.beastOfBurden != null) {
+                for (item in p.summoning.beastOfBurden.items) {
+                    if (item != null && item.id > 0 && item.tradeable()) {
+                        gold += item.definition.value.toLong()
+                    }
                 }
             }
 
