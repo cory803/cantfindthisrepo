@@ -4,9 +4,12 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.function.Consumer;
 
+import com.runelive.engine.task.Task;
+import com.runelive.engine.task.TaskManager;
 import com.runelive.model.CombatIcon;
 import com.runelive.model.Hit;
 import com.runelive.model.Hitmask;
+import com.runelive.model.Skill;
 import com.runelive.util.Misc;
 import com.runelive.world.content.Achievements;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
@@ -202,15 +205,25 @@ public class CombatContainer {
 	}
 
 	public final void dealDamage() {
-		if (hits.length == 1) {
-			victim.dealDamage(hits[0].getHit());
-		} else if (hits.length == 2) {
-			victim.dealDoubleDamage(hits[0].getHit(), hits[1].getHit());
-		} else if (hits.length == 3) {
-			victim.dealTripleDamage(hits[0].getHit(), hits[1].getHit(), hits[2].getHit());
-		} else if (hits.length == 4) {
-			victim.dealQuadrupleDamage(hits[0].getHit(), hits[1].getHit(), hits[2].getHit(), hits[3].getHit());
-		}
+		TaskManager.submit(new Task(1, attacker, false) {
+			int tick = 0;
+			@Override
+			public void execute() {
+				tick++;
+				if(tick == 1) {
+					if (hits.length == 1) {
+						victim.dealDamage(hits[0].getHit());
+					} else if (hits.length == 2) {
+						victim.dealDoubleDamage(hits[0].getHit(), hits[1].getHit());
+					} else if (hits.length == 3) {
+						victim.dealTripleDamage(hits[0].getHit(), hits[1].getHit(), hits[2].getHit());
+					} else if (hits.length == 4) {
+						victim.dealQuadrupleDamage(hits[0].getHit(), hits[1].getHit(), hits[2].getHit(), hits[3].getHit());
+					}
+					stop();
+				}
+			}
+		});
 	}
 
 	public int getTotalDamage() {

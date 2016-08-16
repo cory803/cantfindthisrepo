@@ -39,7 +39,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					System.out.println("Object dont exist");
 					return;
 				}
-				if (!player.isPlayerLocked()) {
+				if (player.isPlayerLocked()) {
 					return;
 				}
 				if (!player.getDragonSpear().elapsed(3000)) {
@@ -60,7 +60,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							.sendMessage("Please report the error to a staff member.");
 					return;
 				}
-				if (!player.isPlayerLocked()) {
+				if (player.isPlayerLocked()) {
 					return;
 				}
 				if (!player.getDragonSpear().elapsed(3000)) {
@@ -82,7 +82,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					// staffmember.");
 					return;
 				}
-				if (!player.isPlayerLocked()) {
+				if (player.isPlayerLocked()) {
 					return;
 				}
 				if (!player.getDragonSpear().elapsed(3000)) {
@@ -104,7 +104,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					// staffmember.");
 					return;
 				}
-				if (!player.isPlayerLocked()) {
+				if (player.isPlayerLocked()) {
 					return;
 				}
 				if (!player.getDragonSpear().elapsed(3000)) {
@@ -126,7 +126,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					// staffmember.");
 					return;
 				}
-				if (!player.isPlayerLocked()) {
+				if (player.isPlayerLocked()) {
 					return;
 				}
 				if (!player.getDragonSpear().elapsed(3000)) {
