@@ -1,6 +1,5 @@
 package com.runelive;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
@@ -13,9 +12,7 @@ import com.runelive.model.definitions.*;
 import com.runelive.model.npc.drops.LootSystem;
 import com.runelive.util.FontUtils;
 import com.runelive.world.World;
-import com.runelive.world.clip.region.Region;
-import com.runelive.world.clip.region.doors.DoubleDoor;
-import com.runelive.world.clip.region.doors.SingleDoor;
+import com.runelive.world.doors.DoorManager;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
 import org.jboss.netty.util.HashedWheelTimer;
@@ -78,7 +75,7 @@ public final class GameLoader {
 		Lottery.init();
 		GrandExchangeOffers.init();
 		//SingleDoor.getSingleton().load();
-		//DoubleDoor.getSingleton().load();
+		DoorManager.init();
 		PlayerOwnedShops.init();
 		WellOfGoodwill.init();
 		ClanChatManager.init();

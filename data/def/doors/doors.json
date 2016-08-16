@@ -1,0 +1,890 @@
+[
+  { 
+	# Lumbridge - Chicken Pen
+    "openState": {
+      "id": 36914,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3236,
+        "y": 3294,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 36913,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3237,
+        "y": 3295,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Lumbridge - Chicken Pen
+    "openState": {
+      "id": 36916,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3236,
+        "y": 3296,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 36915,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3237,
+        "y": 3296,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Servant's Guild
+    "openState": {
+      "id": 1517,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2679,
+        "y": 3325,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2678,
+        "y": 3325,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Servant's Guild
+    "openState": {
+      "id": 1520,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2679,
+        "y": 3324,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2678,
+        "y": 3324,
+        "z": 0
+      }
+    }
+  },
+
+
+  { 
+	# Ardougne Door
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2644,
+        "y": 3334,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2644,
+        "y": 3333,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Yanille Door
+    "openState": {
+      "id": 17090,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2594,
+        "y": 3103,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 17089,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2594,
+        "y": 3102,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Lumbridge Tower
+    "openState": {
+      "id": 36847,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3227,
+        "y": 3223,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 36846,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3226,
+        "y": 3223,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Lumbridge Tower
+    "openState": {
+      "id": 36847,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3227,
+        "y": 3214,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 36846,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3226,
+        "y": 3214,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Lumbridge Second Floor Door
+    "openState": {
+      "id": 36845,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3208,
+        "y": 3222,
+        "z": 1
+      }
+    },
+    "closedState": {
+      "id": 36844,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3207,
+        "y": 3222,
+        "z": 1
+      }
+    }
+  },
+
+  { 
+	# Lumbridge Second Floor Door
+    "openState": {
+      "id": 36845,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3208,
+        "y": 3214,
+        "z": 1
+      }
+    },
+    "closedState": {
+      "id": 36844,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3207,
+        "y": 3214,
+        "z": 1
+      }
+    }
+  },
+
+  { 
+	# Lumbridge Cook Door
+    "openState": {
+      "id": 36845,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3208,
+        "y": 3212,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 36844,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3208,
+        "y": 3211,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Varrock South Door
+    "openState": {
+      "id": 24377,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3207,
+        "y": 3385,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 24378,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3208,
+        "y": 3385,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Goblin Village Lumbridge
+    "openState": {
+      "id": 36847,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3246,
+        "y": 3244,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 36846,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3246,
+        "y": 3243,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Seers' Village
+    "openState": {
+      "id": 25820,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2713,
+        "y": 3482,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 25819,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2713,
+        "y": 3483,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Seers' Village
+    "openState": {
+      "id": 25820,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2715,
+        "y": 3472,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 25819,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2716,
+        "y": 3472,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Seers' Village
+    "openState": {
+      "id": 25820,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2701,
+        "y": 3476,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 25819,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2701,
+        "y": 3477,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Fishing Guild - Clue Scroll House
+    "openState": {
+      "id": 1534,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2640,
+        "y": 3452,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1533,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2641,
+        "y": 3452,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Fishing Guild - Furnace House
+    "openState": {
+      "id": 1531,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2611,
+        "y": 3393,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 2025,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2611,
+        "y": 3394,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Fishing Guild - Furnace House
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2611,
+        "y": 3399,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2611,
+        "y": 3398,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Port Sarim - Fishing Store
+    "openState": {
+      "id": 40109,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3013,
+        "y": 3220,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 40108,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3013,
+        "y": 3219,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Taverley South-Western House
+    "openState": {
+      "id": 28590,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2886,
+        "y": 3419,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 28589,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2886,
+        "y": 3420,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Burthorpe Games Room - Room Door
+    "openState": {
+      "id": 3744,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2894,
+        "y": 3567,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 3743,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2894,
+        "y": 3566,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Falador House
+    "openState": {
+      "id": 11708,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3028,
+        "y": 3355,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 11707,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3028,
+        "y": 3356,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Burthorpe Games Room Entrance
+    "openState": {
+      "id": 1517,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2898,
+        "y": 3559,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2898,
+        "y": 3558,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Burthorpe Games Room Entrance
+    "openState": {
+      "id": 1520,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2899,
+        "y": 3559,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2899,
+        "y": 3558,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Burthorpe House - Clue Scroll
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2921,
+        "y": 3572,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2921,
+        "y": 3571,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Burthorpe House - Clue Scroll
+    "openState": {
+      "id": 1531,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2921,
+        "y": 3576,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2920,
+        "y": 3576,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Ardougne Church
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2610,
+        "y": 3308,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2610,
+        "y": 3307,
+        "z": 0
+      }
+    }
+  },
+  
+  { 
+	# Ardougne Church
+    "openState": {
+      "id": 1534,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2613,
+        "y": 3309,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1533,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2612,
+        "y": 3309,
+        "z": 0
+      }
+    }
+  },
+
+  { 
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1516,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2576,
+        "y": 9884,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1517,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2576,
+        "y": 9885,
+        "z": 0
+      }
+    }
+  },
+  
+  {
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1519,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2577,
+        "y": 9884,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1520,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2577,
+        "y": 9885,
+        "z": 0
+      }
+    }
+  },
+  
+  { 
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1516,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2576,
+        "y": 9882,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1517,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2576,
+        "y": 9883,
+        "z": 0
+      }
+    }
+  },
+  
+  {
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1519,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2577,
+        "y": 9882,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1520,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2577,
+        "y": 9883,
+        "z": 0
+      }
+    }
+  },
+  
+  { 
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1517,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2564,
+        "y": 9882,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2564,
+        "y": 9881,
+        "z": 0
+      }
+    }
+  },
+  
+  { 
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1520,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2565,
+        "y": 9882,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2565,
+        "y": 9881,
+        "z": 0
+      }
+    }
+  },
+  
+  { 
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1520,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2581,
+        "y": 9876,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2582,
+        "y": 9876,
+        "z": 0
+      }
+    }
+  },
+  
+  { 
+	# Fire Giant - Double Door
+    "openState": {
+      "id": 1517,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2581,
+        "y": 9875,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2582,
+        "y": 9875,
+        "z": 0
+      }
+    }
+  }
+]

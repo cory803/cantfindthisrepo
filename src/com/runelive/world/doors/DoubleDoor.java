@@ -1,14 +1,14 @@
-package com.runelive.world.clip.region.doors;
+package com.runelive.world.doors;
 
 import com.runelive.GameServer;
 import com.runelive.model.GameObject;
 import com.runelive.model.Position;
-import com.runelive.model.definitions.GameObjectDefinition;
 import com.runelive.world.World;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -28,7 +28,7 @@ public final class DoubleDoor {
 	
 	public static DoubleDoor getSingleton() {
 		if (singleton == null) {
-			singleton = new DoubleDoor("./data/def/json/double_doors.txt");
+			singleton = new DoubleDoor("./data/def/doors/double_doors.txt");
 		}
 		return singleton;
 	}
@@ -367,19 +367,20 @@ public final class DoubleDoor {
 			singleton.processLineByLine();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 		System.out.println("Loaded "+ doors.size() +" double doors in "+ (System.currentTimeMillis() - start) +"ms.");
 	}
 	
-	private final void processLineByLine() throws FileNotFoundException {
-		Scanner scanner = new Scanner(new FileReader(doorFile));
-	    	try {
-	    		while(scanner.hasNextLine()) {
-	    			processLine(scanner.nextLine());
-	    		}
-	  	 } finally {
-	    		scanner.close();
-	  	 }
+	private final void processLineByLine() throws IOException {
+		FileReader fileReader = new FileReader(doorFile);
+		Scanner scanner = new Scanner(fileReader);
+	    while(scanner.hasNextLine()) {
+	    	processLine(scanner.nextLine());
+	    }
+	    scanner.close();
+	    fileReader.close();
 	}
 	
 	protected void processLine(String line){

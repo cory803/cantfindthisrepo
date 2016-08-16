@@ -60,6 +60,7 @@ import com.runelive.world.content.skill.impl.woodcutting.Woodcutting;
 import com.runelive.world.content.skill.impl.woodcutting.WoodcuttingData;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
+import com.runelive.world.doors.DoorManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.TownCrier;
@@ -1079,7 +1080,6 @@ public final class ActionHandler {
             // + " in ObjectActionPacketListener: " + id + " -
             // FIRST_CLICK_OPCODE");
         }
-
         if (player.getRights() == PlayerRights.DEVELOPER)
             player.getPacketSender().sendConsoleMessage(
                     "First click object id; [id, position] : [" + id + ", " + gameObject.getPosition().toString() + "]");
