@@ -19,6 +19,7 @@ The stats on the following items have been corrected to match original rs:
 	Completionist cape (nerfed)
 	Tokhaar-kal (nerfed)
 The combat formula used in full dharoks has been redone.
+The random absorbtion on dharok's armour has been removed.
 	
 Abyssal vine whips now have the correct requirements to wield them (80 slayer, 85 attack).
 Abyssal vine whips now have a chance to poison you (mildly).
