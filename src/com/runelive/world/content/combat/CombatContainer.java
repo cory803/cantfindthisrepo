@@ -141,7 +141,7 @@ public class CombatContainer {
 			if (((Player) attacker).getCombatSpecial() == CombatSpecial.DRAGON_CLAWS && hitAmount == 4) {
 				int total = array[0].getHit().getDamage();
 				int totalPossible = DesolaceFormulas.calculateMaxMeleeHit(attacker, victim);
-
+				//System.out.println("Total possible in dragon claw spec: "+totalPossible);
 				array[0].getHit().setDamage(total / 2);
 				array[1].getHit().setDamage(total / 4);
 				array[2].getHit().setDamage(total / 8);

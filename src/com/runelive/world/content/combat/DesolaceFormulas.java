@@ -75,6 +75,10 @@ public class DesolaceFormulas {
 			}
 
 			maxHit *= specialBonus;
+
+			if(player.isSpecialActivated()) {
+				maxHit *= player.getCombatSpecial().getStrengthBonus();
+			}
 		}
 
 		if (victim.isPlayer()) {

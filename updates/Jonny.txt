@@ -13,16 +13,35 @@ Bonecrusher has been re-added.
 The frost dragons in the wilderness now drop noted frost dragon bones.
 Frost dragon spawns have been made so there are only 4 in distinct locations.
 The stats on the following items have been corrected to match original rs:
-	Chaotic maul (nerfed)
-	Abyssal vine whips (nerfed)
-	Dragonfire shield (buffed)
-	Completionist cape (nerfed)
-	Tokhaar-kal (nerfed)
+	All chaotics
+	Abyssal vine whips
+	Dragonfire shield
+	Completionist cape
+	Tokhaar-kal
+	Staff of light
+	Full karils
+	Ragefire boots
+	Full torva
+	Full pernix
+	Full virtus
+	Morrigan's leather body
+	Morrigan's chaps
+	Zuriel's robe top
+	Zuriel's robe bottoms
+	Max cape
 The combat formula used in full dharoks has been redone.
 The formulas for void armour has been redone to match the correct formulas.
+Elite void armour is now 10% overall better than regular void.
 Abyssal vine whips now have the correct requirements to wield them (80 slayer, 85 attack).
 Abyssal vine whips now have a chance to poison you (mildly).
 When enchanting your void armour the message that was mis-spelt is now fixed.
 The range accuracy boost on eye of the ranger has been removed.
+The absorbtions in the equipment tab have been disabled since they do not work.
+A typo in the barrows gloves has been fixed, they are now named 'barrows' instead of 'barrow'.
+Accuracy on dragon claws has been buffed 10%.
+
+
 
 Polls:
+Would you like to see the home location set to Edgeville instead of Varrock?
+Do you think that Drygore weapons should be nerfed?

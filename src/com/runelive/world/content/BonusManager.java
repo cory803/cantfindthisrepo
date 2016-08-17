@@ -65,8 +65,8 @@ public class BonusManager {
 			{ "1678", "Magic" }, { "1679", "Range" },
 
 			{ "1680", "Stab" }, { "1681", "Slash" }, { "1682", "Crush" }, { "1683", "Magic" }, { "1684", "Range" },
-			{ "19148", "Summoning" }, { "19149", "Absorb Melee" }, { "19150", "Absorb Magic" },
-			{ "19151", "Absorb Ranged" },
+			{ "19148", "Summoning" }, { "1", "Absorb Melee" }, { "1", "Absorb Magic" },
+			{ "1", "Absorb Ranged" },
 
 			{ "1686", "Strength" }, { "19152", "Ranged Strength" }, { "1687", "Prayer" }, { "19153", "Magic Damage" }};
 
