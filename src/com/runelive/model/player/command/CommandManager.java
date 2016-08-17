@@ -266,6 +266,7 @@ public class CommandManager {
         commands.put("unipmute", new UnIpMute(PlayerRights.MODERATOR));
         commands.put("banvote", new BanVoting(PlayerRights.MODERATOR));
         commands.put("unbanvote", new UnVoteBan(PlayerRights.MODERATOR));
+        commands.put("invisible", new Invisibility(PlayerRights.MODERATOR));
 
         /**
          * Administrator Commands
