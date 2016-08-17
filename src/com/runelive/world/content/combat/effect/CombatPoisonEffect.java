@@ -138,6 +138,11 @@ public class CombatPoisonEffect extends Task {
 			types.put(1259, PoisonType.MILD);
 			types.put(1257, PoisonType.MILD);
 			types.put(3094, PoisonType.MILD);
+			types.put(21371, PoisonType.MILD);
+			types.put(21372, PoisonType.MILD);
+			types.put(21373, PoisonType.MILD);
+			types.put(21374, PoisonType.MILD);
+			types.put(21375, PoisonType.MILD);
 
 			types.put(5621, PoisonType.EXTRA);
 			types.put(5620, PoisonType.EXTRA);

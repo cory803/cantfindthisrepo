@@ -10,6 +10,7 @@ import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.prayer.CurseHandler;
 import com.runelive.world.content.combat.prayer.PrayerHandler;
 import com.runelive.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
+import com.runelive.world.content.combat.weapon.FightStyle;
 import com.runelive.world.content.combat.weapon.FightType;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.entity.impl.Character;
@@ -18,6 +19,79 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class DesolaceFormulas {
 
+	public static int calculateMaxMeleeHit(Character source, Character victim) {
+		double strMult = 1;
+		int strLevel = 0;
+		double strBonus = 0;
+		int styleBonus = -1;
+		double maxHit = 0;
+		double specialBonus = 1;
+		if (source.isNpc()) {
+			NPC npc = (NPC) source;
+			maxHit = npc.getDefinition().getMaxHit();
+			if (npc.getStrengthWeakened()[0]) {
+				maxHit -= (int) ((0.10) * (maxHit));
+			} else if (npc.getStrengthWeakened()[1]) {
+				maxHit -= (int) ((0.20) * (maxHit));
+			} else if (npc.getStrengthWeakened()[2]) {
+				maxHit -= (int) ((0.30) * (maxHit));
+			}
+
+			if (npc.getId() == 2026) { // Dharok the wretched
+				maxHit += (int) ((npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
+			}
+			return (int) maxHit;
+		} else {
+			Player player = (Player) source;
+
+			strBonus = player.getBonusManager().getOtherBonus()[0];
+			strLevel = player.getSkillManager().getCurrentLevel(Skill.STRENGTH);
+
+			if (player.getFightType().getStyle() == FightStyle.AGGRESSIVE) {
+				styleBonus = 3;
+			} else if (player.getFightType().getStyle() == FightStyle.CONTROLLED) {
+				styleBonus = 1;
+			} else if (player.getFightType().getStyle() == FightStyle.DEFENSIVE) {
+				styleBonus = 0;
+			} else if (player.getFightType().getStyle() == FightStyle.ACCURATE) {
+				styleBonus = 0;
+			}
+
+	 		strMult = getPrayerStr(player);
+
+		}
+
+		double cumulativeStr = (strLevel + styleBonus * strMult);
+		maxHit += ((13 + (cumulativeStr) + (strBonus / 8) + ((cumulativeStr * strBonus) / 64)) * strMult);
+		if (source.isPlayer()) {
+			Player player = (Player) source;
+			if (player.getEquipment().getItems()[3].getId() == 4718 && player.getEquipment().getItems()[0].getId() == 4716 && player.getEquipment().getItems()[4].getId() == 4720 && player.getEquipment().getItems()[7].getId() == 4722) {
+				double healthBonus = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
+				healthBonus = healthBonus / 1000;
+				specialBonus += healthBonus;
+			} else if (hasObsidianEffect(player) || EquipmentBonus.wearingVoid(player, CombatType.MELEE)) {
+				specialBonus += .2;
+			}
+
+			maxHit *= specialBonus;
+		}
+
+		if (victim.isPlayer()) {
+			Player p = (Player) victim;
+			if (p.hasStaffOfLightEffect()) {
+				maxHit = maxHit / 2;
+				p.performGraphic(new Graphic(2319));
+			}
+		}
+
+		if (maxHit < 1) {
+			maxHit = 1;
+		} else {
+			maxHit = Math.floor(maxHit);
+		}
+		return (int) maxHit;
+	}
+	/*
 	public static int calculateMaxMeleeHit(Character entity, Character victim) {
 		double maxHit = 0;
 		if (entity.isNpc()) {
@@ -32,7 +106,7 @@ public class DesolaceFormulas {
 			}
 
 			if (npc.getId() == 2026) { // Dharok the wretched
-				maxHit += (int) ((npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
+				maxHit += (int) ((int) (npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
 			}
 		} else {
 			Player plr = (Player) entity;
@@ -44,12 +118,15 @@ public class DesolaceFormulas {
 				specialBonus = plr.getCombatSpecial().getStrengthBonus();
 			}
 			double strengthBonus = plr.getBonusManager().getOtherBonus()[0];
-			base = (5 + effective + (strengthBonus / 8) + ((effective * strengthBonus) / 65)) / 9;
-			if (plr.getEquipment().getItems()[3].getId() == 4718 && plr.getEquipment().getItems()[0].getId() == 4716
+			base = (10 + effective + (strengthBonus / 8) + ((effective * strengthBonus) / 65)) / 11;
+			if (plr.getEquipment().getItems()[3].getId() == 4718
+					&& plr.getEquipment().getItems()[0].getId() == 4716
 					&& plr.getEquipment().getItems()[4].getId() == 4720
 					&& plr.getEquipment().getItems()[7].getId() == 4722)
-				base += ((plr.getSkillManager().getMaxLevel(Skill.CONSTITUTION) - plr.getConstitution()) * .045) + 1;
-			if (specialBonus > .1)
+				base +=
+						((plr.getSkillManager().getMaxLevel(Skill.CONSTITUTION) - plr.getConstitution()) * .045)
+								+ 1;
+			if (specialBonus > 1)
 				base = (base * specialBonus);
 			if (hasObsidianEffect(plr) || EquipmentBonus.wearingVoid(plr, CombatType.MELEE))
 				base = (base * 1.2);
@@ -69,7 +146,6 @@ public class DesolaceFormulas {
 					}
 				}
 
-
 				if (npc.getId() == plr.getSlayer().getSlayerTask().getNpcId()) {
 					if (plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
 						base *= 1.10;
@@ -87,6 +163,7 @@ public class DesolaceFormulas {
 		}
 		return (int) Math.floor(maxHit);
 	}
+	*/
 
 	/**
 	 * Calculates a player's Melee attack level (how likely that they're going
@@ -138,7 +215,7 @@ public class DesolaceFormulas {
 
 	/**
 	 * Calculates a player's Melee Defence level
-	 * 
+	 *
 	 * @param plr
 	 *            The player to calculate Melee defence for
 	 * @return The player's Melee defence level

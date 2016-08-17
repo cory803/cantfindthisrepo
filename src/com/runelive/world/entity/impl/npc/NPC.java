@@ -622,13 +622,10 @@ public class NPC extends Character {
         Position targetPos = a.getWalkingQueue().getNextPosition();
         Direction direction;
         if (!isSummoningNpc() && makeArea.distance(targetPos) > determineStrategy().attackDistance(this)) {
-            System.out.println("Yup3");
             if (getCombatBuilder().getLastAttacker() == null) {
-                System.out.println("Yup2");
                 return;
             }
             if (getCombatBuilder().getLastAttacker().getCombatBuilder().isAttacking() == false) {
-                System.out.println("Yup1");
                 return;
             }
             direction = NPC.moveAwayDirection(targetPos, area);
@@ -641,7 +638,6 @@ public class NPC extends Character {
         if (projectileClipping ? World.projectileDirectionBlocked(direction, getPosition().getZ(), getPosition().getX(), getPosition().getY(), this.getSize()) : World.directionBlocked(direction, getPosition().getZ(), getPosition().getX(), getPosition().getY(), this.getSize())) {
             return;
         }
-        System.out.println("Yup");
         walkingQueue.addStepInternal(getPosition().getX() + direction.getX(), getPosition().getY() + direction.getY());
     }
 

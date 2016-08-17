@@ -12,5 +12,15 @@ When dieng and walking directly after your death it will no longer make it so yo
 Bonecrusher has been re-added.
 The frost dragons in the wilderness now drop noted frost dragon bones.
 Frost dragon spawns have been made so there are only 4 in distinct locations.
+The stats on the following items have been corrected to match original rs:
+	Chaotic maul (nerfed)
+	Abyssal vine whips (nerfed)
+	Dragonfire shield (buffed)
+	Completionist cape (nerfed)
+	Tokhaar-kal (nerfed)
+The combat formula used in full dharoks has been redone.
+	
+Abyssal vine whips now have the correct requirements to wield them (80 slayer, 85 attack).
+Abyssal vine whips now have a chance to poison you (mildly).
 
 Polls:
