@@ -138,7 +138,10 @@ public abstract class Character extends Entity {
 	 * @param hit
 	 *            the damage to be dealt.
 	 */
-	public void dealDamage(Hit hit) {
+	public void dealDamage(Character attacker, Hit hit) {
+		if (attacker != null) {
+			getCombatBuilder().addDamage(attacker, hit.getDamage());
+		}
 		if (getUpdateFlag().flagged(Flag.SINGLE_HIT)) {
 			dealSecondaryDamage(hit);
 			return;
@@ -183,8 +186,8 @@ public abstract class Character extends Entity {
 	 * @param secondHit
 	 *            the second hit.
 	 */
-	public void dealDoubleDamage(Hit hit, Hit secondHit) {
-		dealDamage(hit);
+	public void dealDoubleDamage(Character attacker, Hit hit, Hit secondHit) {
+		dealDamage(attacker, hit);
 		dealSecondaryDamage(secondHit);
 	}
 
@@ -198,8 +201,8 @@ public abstract class Character extends Entity {
 	 * @param thirdHit
 	 *            the third hit.
 	 */
-	public void dealTripleDamage(Hit hit, Hit secondHit, final Hit thirdHit) {
-		dealDoubleDamage(hit, secondHit);
+	public void dealTripleDamage(Character attacker, Hit hit, Hit secondHit, final Hit thirdHit) {
+		dealDoubleDamage(attacker, hit, secondHit);
 
 		TaskManager.submit(new Task(1, this, false) {
 			@Override
@@ -208,7 +211,7 @@ public abstract class Character extends Entity {
 					this.stop();
 					return;
 				}
-				dealDamage(thirdHit);
+				dealDamage(attacker, thirdHit);
 				this.stop();
 			}
 		});
@@ -226,8 +229,8 @@ public abstract class Character extends Entity {
 	 * @param fourthHit
 	 *            the fourth hit.
 	 */
-	public void dealQuadrupleDamage(Hit hit, Hit secondHit, final Hit thirdHit, final Hit fourthHit) {
-		dealDoubleDamage(hit, secondHit);
+	public void dealQuadrupleDamage(Character attacker, Hit hit, Hit secondHit, final Hit thirdHit, final Hit fourthHit) {
+		dealDoubleDamage(attacker, hit, secondHit);
 
 		TaskManager.submit(new Task(1, this, false) {
 			@Override
@@ -236,7 +239,7 @@ public abstract class Character extends Entity {
 					this.stop();
 					return;
 				}
-				dealDoubleDamage(thirdHit, fourthHit);
+				dealDoubleDamage(attacker, thirdHit, fourthHit);
 				this.stop();
 			}
 		});

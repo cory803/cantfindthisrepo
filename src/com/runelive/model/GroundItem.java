@@ -16,8 +16,7 @@ public class GroundItem extends Entity {
 		this.globalTimer = globalTimer;
 	}
 
-	public GroundItem(Item item, Position pos, String owner, String fromIP, boolean isGlobal, int showDelay,
-			boolean goGlobal, int globalTimer, int address) {
+	public GroundItem(Item item, Position pos, String owner, String fromIP, boolean isGlobal, int showDelay, boolean goGlobal, int globalTimer, int address) {
 		super(pos);
 		this.setItem(item);
 		this.owner = owner;
@@ -27,6 +26,20 @@ public class GroundItem extends Entity {
 		this.goGlobal = goGlobal;
 		this.globalTimer = globalTimer;
 		this.address = address;
+	}
+
+	public GroundItem(Item item, Position pos, String owner, String fromIP, boolean isGlobal, int showDelay, boolean goGlobal, int globalTimer, int address, boolean isIronManPked, String oldOwner) {
+		super(pos);
+		this.setItem(item);
+		this.owner = owner;
+		this.fromIP = fromIP;
+		this.isGlobal = isGlobal;
+		this.showDelay = showDelay;
+		this.goGlobal = goGlobal;
+		this.globalTimer = globalTimer;
+		this.address = address;
+		this.isIronmanPked = isIronManPked;
+		this.oldOwner = oldOwner;
 	}
 
 	public GroundItem(Item item, Position pos, String owner, String fromIP, boolean isGlobal, int showDelay,
@@ -53,6 +66,8 @@ public class GroundItem extends Entity {
 	private boolean refreshNeeded;
 	private boolean shouldProcess = true;
 	private int address;
+	private boolean isIronmanPked = false;
+	private String oldOwner;
 
 	public Item getItem() {
 		return item;
@@ -140,5 +155,21 @@ public class GroundItem extends Entity {
 
 	public void setShouldProcess(boolean shouldProcess) {
 		this.shouldProcess = shouldProcess;
+	}
+
+	public boolean isIronmanPked() {
+		return isIronmanPked;
+	}
+
+	public void setIronmanPked(boolean ironmanPked) {
+		isIronmanPked = ironmanPked;
+	}
+
+	public String getOldOwner() {
+		return oldOwner;
+	}
+
+	public void setOldOwner(String oldOwner) {
+		this.oldOwner = oldOwner;
 	}
 }

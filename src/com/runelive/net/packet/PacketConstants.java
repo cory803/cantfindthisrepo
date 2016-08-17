@@ -1,43 +1,6 @@
 package com.runelive.net.packet;
 
-import com.runelive.net.packet.impl.ButtonClickPacketListener;
-import com.runelive.net.packet.impl.ChangeAppearancePacketListener;
-import com.runelive.net.packet.impl.ChangeRelationStatusPacketListener;
-import com.runelive.net.packet.impl.ChatPacketListener;
-import com.runelive.net.packet.impl.ClickTextMenuPacketListener;
-import com.runelive.net.packet.impl.CloseInterfacePacketListener;
-import com.runelive.net.packet.impl.CommandPacketListener;
-import com.runelive.net.packet.impl.DialoguePacketListener;
-import com.runelive.net.packet.impl.DropItemPacketListener;
-import com.runelive.net.packet.impl.DuelAcceptancePacketListener;
-import com.runelive.net.packet.impl.DungeoneeringPartyInvitatationPacketListener;
-import com.runelive.net.packet.impl.EnterInputPacketListener;
-import com.runelive.net.packet.impl.EquipPacketListener;
-import com.runelive.net.packet.impl.ExamineItemPacketListener;
-import com.runelive.net.packet.impl.ExamineNpcPacketListener;
-import com.runelive.net.packet.impl.FinalizedMapRegionChangePacketListener;
-import com.runelive.net.packet.impl.FollowPlayerPacketListener;
-import com.runelive.net.packet.impl.GESelectItemPacketListener;
-import com.runelive.net.packet.impl.HeightCheckPacketListener;
-import com.runelive.net.packet.impl.IdleLogoutPacketListener;
-import com.runelive.net.packet.impl.ItemActionPacketListener;
-import com.runelive.net.packet.impl.ItemContainerActionPacketListener;
-import com.runelive.net.packet.impl.MagicOnItemsPacketListener;
-import com.runelive.net.packet.impl.MagicOnPlayerPacketListener;
-import com.runelive.net.packet.impl.MovementPacketListener;
-import com.runelive.net.packet.impl.NPCOptionPacketListener;
-import com.runelive.net.packet.impl.ObjectActionPacketListener;
-import com.runelive.net.packet.impl.PickupItemPacketListener;
-import com.runelive.net.packet.impl.PlayerOptionPacketListener;
-import com.runelive.net.packet.impl.PlayerRelationPacketListener;
-import com.runelive.net.packet.impl.PrestigeSkillPacketListener;
-import com.runelive.net.packet.impl.RegionChangePacketListener;
-import com.runelive.net.packet.impl.SendClanChatMessagePacketListener;
-import com.runelive.net.packet.impl.SilencedPacketListener;
-import com.runelive.net.packet.impl.SwitchItemSlotPacketListener;
-import com.runelive.net.packet.impl.TradeInvitationPacketListener;
-import com.runelive.net.packet.impl.UseItemPacketListener;
-import com.runelive.net.packet.impl.WithdrawMoneyFromPouchPacketListener;
+import com.runelive.net.packet.impl.*;
 
 public class PacketConstants {
 
@@ -96,6 +59,8 @@ public class PacketConstants {
 		PACKETS[222] = new ClickTextMenuPacketListener();
 		PACKETS[223] = new PrestigeSkillPacketListener();
 		PACKETS[229] = new HeightCheckPacketListener();
+
+		PACKETS[NotesPacketListener.NOTE_COMMAND_OPCODE] = PACKETS[NotesPacketListener.NOTE_TEXT_OPCODE] = new NotesPacketListener();
 	}
 
 	/**
@@ -110,8 +75,8 @@ public class PacketConstants {
 			-1, 8, 0, 0, 0, 0, 0, 0, 0, 0, // 60
 			6, 0, 2, 2, 8, 6, 0, -1, 0, 6, // 70
 			-1, 0, 0, 0, 0, 1, 4, 6, 0, 0, // 80
-			2, 2, 0, 0, 0, 3, 0, 0, -1, 0, // 90
-			0, 13, 0, -1, 0, 0, 0, 0, 0, 0, // 100
+			2, 2, 0, -2, 0, 3, 0, 0, -1, 0, // 90
+			0, 13, 0, -1, -1, 4, 0, 0, 0, 0, // 100
 			0, 0, 0, 0, 0, 0, 0, 6, 0, 0, // 110
 			1, 0, 6, 0, 0, 0, -1, 0, 2, 6, // 120
 			0, 4, 6, 8, 0, 6, 0, 0, 6, 2, // 130

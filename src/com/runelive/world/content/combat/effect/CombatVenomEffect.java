@@ -71,7 +71,7 @@ public class CombatVenomEffect extends Task {
 			return;
 		}
 		// Deal the damage, then try and decrement the damage count.
-		entity.dealDamage(new Hit(entity.getAndDecrementVenomDamage(), Hitmask.DARK_GREEN, CombatIcon.NONE));
+		entity.dealDamage(null, new Hit(entity.getAndDecrementVenomDamage(), Hitmask.DARK_GREEN, CombatIcon.NONE));
 		/*
 		 * if(entity.isPlayer()) {
 		 * ((Player)entity).getPacketSender().sendInterfaceRemoval(); }

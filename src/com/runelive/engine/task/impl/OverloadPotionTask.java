@@ -29,7 +29,7 @@ public class OverloadPotionTask extends Task {
 		int timer = player.getOverloadPotionTimer();
 		if (timer == 600 || timer == 598 || timer == 596 || timer == 594 || timer == 592) {
 			player.performAnimation(new Animation(3170));
-			player.dealDamage(new Hit(100, Hitmask.RED, CombatIcon.NONE));
+			player.dealDamage(null, new Hit(100, Hitmask.RED, CombatIcon.NONE));
 		}
 		if (timer == 600 || timer == 570 || timer == 540 || timer == 510 || timer == 480 || timer == 450 || timer == 420
 				|| timer == 390 || timer == 360 || timer == 330 || timer == 300 || timer == 270 || timer == 240

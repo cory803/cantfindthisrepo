@@ -212,13 +212,13 @@ public class CombatContainer {
 				tick++;
 				if(tick == 1) {
 					if (hits.length == 1) {
-						victim.dealDamage(hits[0].getHit());
+						victim.dealDamage(attacker, hits[0].getHit());
 					} else if (hits.length == 2) {
-						victim.dealDoubleDamage(hits[0].getHit(), hits[1].getHit());
+						victim.dealDoubleDamage(attacker, hits[0].getHit(), hits[1].getHit());
 					} else if (hits.length == 3) {
-						victim.dealTripleDamage(hits[0].getHit(), hits[1].getHit(), hits[2].getHit());
+						victim.dealTripleDamage(attacker, hits[0].getHit(), hits[1].getHit(), hits[2].getHit());
 					} else if (hits.length == 4) {
-						victim.dealQuadrupleDamage(hits[0].getHit(), hits[1].getHit(), hits[2].getHit(), hits[3].getHit());
+						victim.dealQuadrupleDamage(attacker, hits[0].getHit(), hits[1].getHit(), hits[2].getHit(), hits[3].getHit());
 					}
 					stop();
 				}

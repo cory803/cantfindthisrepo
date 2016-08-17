@@ -79,6 +79,11 @@ public class PlayerDeathTask extends Task {
 						&& loc != Location.ZULRAH_PIT
 						&& loc != Location.RECIPE_FOR_DISASTER && loc != Location.GRAVEYARD) {
 					Player killer = player.getCombatBuilder().getKiller(true);
+					if (killer == null) {
+						System.out.println("Null killer");
+					} else {
+						System.out.println(killer.getUsername());
+					}
 					// final boolean doubleDeath = player.isDying() &&
 					// killer.getConstitution() <= 0;
 					// if(killer.getLocation() == Location.WILDERNESS ||
@@ -109,30 +114,27 @@ public class PlayerDeathTask extends Task {
 								if (spawnItems && !itemsToKeep.contains(item)) {
 									if(item.getDefinition().getName().contains("(deg)")) {
 										int address = Misc.random(0, Integer.MAX_VALUE);
-										GroundItemManager.spawnGroundItem(
-												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer
-														: player),
-												new GroundItem(new Item(995, item.getDefinition().getValue()), position,
+										GroundItemManager.spawnGroundItem((killer != null ? killer : player), new GroundItem(new Item(995, item.getDefinition().getValue()), position,
 														killer != null ? killer.getUsername() : player.getUsername(),
-														player.getHostAddress(), false, 150, true, 150, address));
+														player.getHostAddress(), false, 150, true, 150, address, (killer != null && killer.getGameModeAssistant().isIronMan()), player.getUsername()));
 										continue;
 									} else if(item.getDefinition().getName().toLowerCase().contains("chaotic")) {
 										int address = Misc.random(0, Integer.MAX_VALUE);
 										GroundItemManager.spawnGroundItem(
-												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer
+												(killer != null ? killer
 														: player),
 												new GroundItem(new Item(995, 5000000), position,
 														killer != null ? killer.getUsername() : player.getUsername(),
-														player.getHostAddress(), false, 150, true, 150, address));
+														player.getHostAddress(), false, 150, true, 150, address, (killer != null && killer.getGameModeAssistant().isIronMan()), player.getUsername()));
 										continue;
 									} else if (item != null && item.getId() > 0 && item.getAmount() > 0) {
 										int address = Misc.random(0, Integer.MAX_VALUE);
 										GroundItemManager.spawnGroundItem(
-												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer
+												(killer != null ? killer
 														: player),
 												new GroundItem(item, position,
 														killer != null ? killer.getUsername() : player.getUsername(),
-														player.getHostAddress(), false, 150, true, 150, address));
+														player.getHostAddress(), false, 150, true, 150, address, (killer != null && killer.getGameModeAssistant().isIronMan()), player.getUsername()));
 										if (killer != null) {
 											PlayerLogs.kills(killer, player, item);
 										}

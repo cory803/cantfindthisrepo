@@ -25,6 +25,7 @@ import com.runelive.net.mysql.SQLCallback;
 import com.runelive.net.mysql.impl.AccountExistsQuery;
 import com.runelive.util.MD5;
 import com.runelive.util.Misc;
+import com.runelive.world.content.NoteHandler;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class PlayerSaving {
@@ -196,6 +197,7 @@ public class PlayerSaving {
 		object.addProperty("donor-rights", player.getDonorRights());
 		object.addProperty("game-mode", player.getGameModeAssistant().getGameMode().name());
 		//object.addProperty("exp-rate", player.getExpRate().name());
+		object.addProperty("player-invisibility", player.isInvisible());
 		object.addProperty("withdrawx", new Integer(player.getWithdrawX()));
 		object.addProperty("last-login", player.getLastLogin());
 		object.addProperty("last-ip-address", player.getLastIpAddress());
@@ -382,6 +384,9 @@ public class PlayerSaving {
 		object.add("achievements-completion", builder.toJsonTree(player.getAchievementAttributes().getCompletion()));
 		object.add("achievements-progress", builder.toJsonTree(player.getAchievementAttributes().getProgress()));
 		object.add("last-duel-rules", builder.toJsonTree(player.lastDuelRules));
+
+		object.add("notes", builder.toJsonTree(player.getNotes()));
+		object.add("colours", builder.toJsonTree(player.getNoteColours()));
 
 		return builder.toJson(object);
 	}

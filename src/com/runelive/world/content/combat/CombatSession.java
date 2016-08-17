@@ -43,7 +43,6 @@ public class CombatSession {
 			}
 			return;
 		}
-
 		if (!CombatFactory.checkHook(builder.getCharacter(), builder.getVictim())) {
 			if (builder.getCharacter().isNpc()) {
 				builder.reset(true);
@@ -68,6 +67,7 @@ public class CombatSession {
 
 			if (!CombatFactory.checkAttackDistance(builder)) {
 				if (builder.getCharacter().isNpc() && builder.getVictim().isPlayer()) {
+					((NPC) builder.getCharacter()).follow(builder.getVictim());
 					if (builder.getLastAttack().elapsed(4500)) {
 						((NPC) builder.getCharacter()).setFindNewTarget(true);
 					}
@@ -81,6 +81,10 @@ public class CombatSession {
 			if (!builder.getCharacter().getPosition().isWithinDistance(builder.getVictim().getPosition(), 14)) {
 				//builder.getCharacter().getMovementQueue().setFollowCharacter(null);
 				return;
+			}
+
+			if (builder.getCharacter().isNpc() && builder.getStrategy() == null) {
+				builder.determineStrategy();
 			}
 
 			// Check if the attack can be made on this hook

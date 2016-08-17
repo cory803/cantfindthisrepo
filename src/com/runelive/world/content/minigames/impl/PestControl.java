@@ -537,7 +537,7 @@ public class PestControl {
 		if (npc.getCombatBuilder().getAttackTimer() == 0) {
 			int damage = ((int) (Math.random() * maxhit));
 			npc.performAnimation(new Animation(anim));
-			knight.dealDamage(new Hit(damage, Hitmask.RED, icon));
+			knight.dealDamage(null, new Hit(damage, Hitmask.RED, icon));
 			knight.getLastCombat().reset();
 			npc.getCombatBuilder().setAttackTimer(3 + Misc.getRandom(3));
 			npc.getLastCombat().reset();

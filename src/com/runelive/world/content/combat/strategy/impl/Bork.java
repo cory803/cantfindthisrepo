@@ -71,7 +71,7 @@ public class Bork implements CombatStrategy {
 								.handleAttack();
 						bork.setChargingAttack(false);
 						if(target.getConstitution() <= 100 && target.getConstitution() > 0) {
-							target.dealDamage(new Hit(target.getConstitution(), Hitmask.RED2, CombatIcon.NONE));
+							target.dealDamage(null, new Hit(target.getConstitution(), Hitmask.RED2, CombatIcon.NONE));
 							bork.forceChat("Hehehehe poisoned");
 						}
 						int random = Misc.random(5, 10);
@@ -89,7 +89,7 @@ public class Bork implements CombatStrategy {
 											"Bow to me, I am a god!",
 											"Protection hmm? Take that!",
 									};
-									target.dealDamage(new Hit(Misc.random(25, 100), Hitmask.DARK_PURPLE, CombatIcon.NONE));
+									target.dealDamage(null, new Hit(Misc.random(25, 100), Hitmask.DARK_PURPLE, CombatIcon.NONE));
 									bork.forceChat(forceChats[(int) (Math.random() * forceChats.length)]);
 									PrayerHandler.resetPrayers(target, PrayerHandler.OVERHEAD_PRAYERS, -1);
 									CurseHandler.deactivateCurses(target, CurseHandler.OVERHEAD_CURSES);

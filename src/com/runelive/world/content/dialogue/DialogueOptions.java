@@ -1390,7 +1390,7 @@ public class DialogueOptions {
 						player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
 						int hp = target.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
 						Hit hit = new Hit(hp);
-						target.dealDamage(hit);
+						target.dealDamage(null, hit);
 						player.getPacketSender().sendInterfaceRemoval();
 						player.getPacketSender().sendMessage("You paid 50m to have Grenade killed. He will be slayed!");
 						World.sendMessage("<img=4> @blu@" + player.getUsername()

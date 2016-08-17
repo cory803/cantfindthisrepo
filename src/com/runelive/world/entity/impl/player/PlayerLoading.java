@@ -307,6 +307,11 @@ public class PlayerLoading {
 				player.getGameModeAssistant().setGameMode(GameMode.SIR);
 			}
 		}
+
+		if (reader.has("player-invisibility")) {
+			player.setInvisible(reader.get("player-invisibility").getAsBoolean());
+		}
+
 		if (reader.has("last-login")) {
 			player.setLastLogin(reader.get("last-login").getAsLong());
 		}
@@ -980,6 +985,23 @@ public class PlayerLoading {
 		if (reader.has("object")) {
 			player.lastDuelRules = builder.fromJson(reader.get("object").getAsJsonArray(), boolean[].class);
 		}
+
+		if (reader.has("notes")) {
+			List<String> notes_list = new ArrayList<>();
+			String[] notes = builder.fromJson(reader.get("notes").getAsJsonArray(), String[].class);
+			for(String n : notes)
+				notes_list.add(n);
+			player.setNotes(notes_list);
+		}
+
+		if (reader.has("colours")) {
+			List<Integer> colours_list = new ArrayList<>();
+			int[] colours = builder.fromJson(reader.get("colours").getAsJsonArray(), int[].class);
+			for(int c : colours)
+				colours_list.add(c);
+			player.setNoteColours(colours_list);
+		}
+
 		return reader;
 	}
 

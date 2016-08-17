@@ -35,8 +35,7 @@ public class Tsutsuroth implements CombatStrategy {
 
 	@Override
 	public boolean canAttack(Character entity, Character victim) {
-		return victim.isPlayer()
-				&& ((Player) victim).getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom();
+		return victim.isPlayer() && ((Player) victim).getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom();
 	}
 
 	@Override

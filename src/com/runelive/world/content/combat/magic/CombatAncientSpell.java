@@ -89,22 +89,19 @@ public abstract class CombatAncientSpell extends CombatSpell {
 						if (p2.getLocation() == Location.FREE_FOR_ALL_ARENA) {
 							cast.getCurrentlyCasting().endGraphic(next).ifPresent(next::performGraphic);
 							int calc = Misc.inclusiveRandom(0, maximumHit());
-							next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-							next.getCombatBuilder().addDamage(cast, calc);
+							next.dealDamage(cast, new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
 							spellEffect(cast, next, calc);
 						}
 					} else {
 						cast.getCurrentlyCasting().endGraphic(next).ifPresent(next::performGraphic);
 						int calc = Misc.inclusiveRandom(0, maximumHit());
-						next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-						next.getCombatBuilder().addDamage(cast, calc);
+						next.dealDamage(cast, new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
 						spellEffect(cast, next, calc);
 					}
 				} else {
 					cast.getCurrentlyCasting().endGraphic(next).ifPresent(next::performGraphic);
 					int calc = Misc.inclusiveRandom(0, maximumHit());
-					next.dealDamage(new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-					next.getCombatBuilder().addDamage(cast, calc);
+					next.dealDamage(cast, new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
 					spellEffect(cast, next, calc);
 				}
 			}

@@ -196,6 +196,11 @@ public class Summoning {
 					return;
 				}
 
+				int distance = familiar.getSummonNpc().distance(player);
+				if (distance > 45) {
+					moveFollower(true);
+				}
+
 				boolean underAttack = player.getCombatBuilder().isBeingAttacked()
 						&& player.getCombatBuilder().getLastAttacker() != null
 						&& player.getCombatBuilder().getLastAttacker().getCombatBuilder().getVictim() != null
@@ -310,6 +315,7 @@ public class Summoning {
 				getFamiliar().getSummonNpc().moveTo(movePos);
 				getFamiliar().getSummonNpc().performGraphic(new Graphic(1315));
 				getFamiliar().getSummonNpc().setLocation(Location.getLocation(getFamiliar().getSummonNpc()));
+				getFamiliar().getSummonNpc().follow(player);
 				player.getLastSummon().reset();
 				if (!forced) {
 					player.getPacketSender().sendMessage("You've called your familiar.");

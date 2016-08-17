@@ -59,7 +59,6 @@ public class CorporealBeast implements CombatStrategy {
 
 		int attackStyle = RandomGenerator.nextInt(4);
 		if (attackStyle == 0) { // melee
-			System.out.println("0");
 			int distanceX = target.getPosition().getX() - cB.getPosition().getX();
 			int distanceY = target.getPosition().getY() - cB.getPosition().getY();
 			if (distanceX > 4 || distanceX < -1 || distanceY > 4 || distanceY < -1)
@@ -72,12 +71,10 @@ public class CorporealBeast implements CombatStrategy {
 				return true;
 			}
 		} else if (attackStyle == 1) { // powerful mage spiky ball
-			System.out.println("1");
 			cB.performAnimation(attack_anim2);
 			cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 2, CombatType.MAGIC, true));
 			new Projectile(cB, target, 1825, 44, 3, 43, 43, 0).sendProjectile();
 		} else if (attackStyle == 2) { // translucent ball of energy
-			System.out.println("2");
 			cB.performAnimation(attack_anim2);
 			if (target.getLocation() == Location.BOSS_SYSTEM)
 				cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 2, CombatType.MAGIC, true));
@@ -99,7 +96,6 @@ public class CorporealBeast implements CombatStrategy {
 			});
 		}
 		if (attackStyle == 4) {
-			System.out.println("4");
 			cB.performAnimation(attack_anim2);
 			for (Player t : Misc.getCombinedPlayerList(target)) {
 				if (t == null || t.getLocation() != Location.BOSS_SYSTEM)

@@ -1,6 +1,7 @@
 package com.runelive.net.packet;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.runelive.GameSettings;
@@ -467,6 +468,24 @@ public class PacketSender {
 		sendTabInterface(GameSettings.OPTIONS_TAB, 904);
 		sendTabInterface(GameSettings.EMOTES_TAB, 147);
 		sendTabInterface(GameSettings.SUMMONING_TAB, 54017);
+		return this;
+	}
+
+	public PacketSender sendNotes(List<String> notes, List<Integer> colours) {
+		PacketBuilder out = new PacketBuilder(93, PacketType.SHORT);
+		out.putShort(notes.size());
+		for(int i = 0; i < notes.size(); i++) {
+			out.putShort(colours.get(i));
+			out.putString(notes.get(i));
+		}
+		player.getSession().queueMessage(out);
+		return this;
+	}
+
+	public PacketSender sendNoteReset() {
+		PacketBuilder out = new PacketBuilder(93, PacketType.SHORT);
+		out.putShort(0);
+		player.getSession().queueMessage(out);
 		return this;
 	}
 

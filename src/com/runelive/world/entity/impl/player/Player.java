@@ -798,6 +798,10 @@ public class Player extends Character {
     public int homeLocation = 0;
     public boolean completedDailyTask = false;
 
+    private List<String> notes = new ArrayList<>();
+    private List<Integer> noteColours = new ArrayList<>();
+    private String temp_note = "";
+
     private Zulrah zulrah = new Zulrah(this);
 
     public Zulrah getZulrah() {
@@ -810,6 +814,55 @@ public class Player extends Character {
     /*
      * Getters & Setters
      */
+
+
+    public String getTempNote() {
+        return temp_note;
+    }
+
+    public void setTempNote(String text) {
+        temp_note = text;
+    }
+
+    public List<String> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<String> list) {
+        notes = list;
+    }
+
+    public void addNote(String note) {
+        notes.add(note);
+    }
+
+    public void deleteNote(int index) {
+        notes.remove(index);
+    }
+
+    public void setNote(int index, String note) {
+        notes.set(index, note);
+    }
+
+    public void setNoteColours(List<Integer> list) {
+        noteColours = list;
+    }
+
+    public List<Integer> getNoteColours() {
+        return noteColours;
+    }
+
+    public void addNoteColour(int colour) {
+        noteColours.add(colour);
+    }
+
+    public void deleteNoteColour(int index) {
+        noteColours.remove(index);
+    }
+
+    public void setNoteColour(int index, int colour) {
+        noteColours.set(index, colour);
+    }
 
     public boolean isInvisible() {
         return invisible;

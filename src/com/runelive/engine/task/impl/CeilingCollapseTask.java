@@ -34,6 +34,6 @@ public class CeilingCollapseTask extends Task {
 		player.performGraphic(new Graphic(60));
 		player.getPacketSender().sendMessage("Some rocks fall from the ceiling and hit you.");
 		player.forceChat("Ouch!");
-		player.dealDamage(new Hit(30 + Misc.getRandom(20), Hitmask.RED, CombatIcon.BLOCK));
+		player.dealDamage(null, new Hit(30 + Misc.getRandom(20), Hitmask.RED, CombatIcon.BLOCK));
 	}
 }

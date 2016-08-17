@@ -53,6 +53,7 @@ public class NPC extends Character {
         this.projectileClipping = NPC.isProjectileNpc(id);
         this.walkingDistance = NPC.getWalkingDistance(id);
         this.walkingRandom = NPC.getWalkingRandom(id);
+        this.maximumDistance = NPC.getMaximumDistance(id);
         setLocation(Location.getLocation(this));
     }
 
@@ -476,6 +477,61 @@ public class NPC extends Character {
         return 3;
     }
 
+    private static int getMaximumDistance(int id) {
+        switch (id) {
+            case 6203:
+                return 35;
+            case 7133:
+            case 7134:
+                return 15;
+            case 3200:
+                return 15;
+            case 3034:
+            case 8133:
+                return 500;
+            case 1158:
+            case 1160:
+                return 75;
+            case 50:
+                return 30;
+            case 6222:
+                return 35;
+            case 6260:
+                return 35;
+            case 13447:
+                return 500;
+            case 6358:
+            case 6359:
+            case 6360:
+                return 20;
+            case 5419:
+            case 5420:
+                return 15;
+            case 6247:
+                return 35;
+            case 3747:
+            case 3751:
+            case 3727:
+            case 3731:
+            case 3732:
+            case 3741:
+            case 3752:
+            case 3761:
+            case 3762:
+            case 3771:
+            case 3772:
+            case 3776:
+                return 70;
+            case 8597:
+                return 50;
+            case 8596:
+                return 50;
+
+            default:
+                return 8;
+        }
+    }
+
     private static int getWalkingRandom(int id) {
         switch (id) {
             case 659:
@@ -611,9 +667,8 @@ public class NPC extends Character {
         }
         int distance = this.distance(a);
         if (!isSummoningNpc()) {
-            if (determineStrategy().getCombatType() != CombatType.MELEE) {
+            if (determineStrategy().getCombatType() != CombatType.MELEE && determineStrategy().getCombatType() != CombatType.MIXED) {
                 if (distance <= (determineStrategy().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a))) {
-                    System.out.println("Yup4");
                     return;
                 }
             }
@@ -621,7 +676,7 @@ public class NPC extends Character {
         Area area = Area.create(getPosition(), NpcDefinition.forId(id).getSize() - 1);
         Position targetPos = a.getWalkingQueue().getNextPosition();
         Direction direction;
-        if (!isSummoningNpc() && makeArea.distance(targetPos) > determineStrategy().attackDistance(this)) {
+        if (!isSummoningNpc() && makeArea.distance(targetPos) > maximumDistance) {
             if (getCombatBuilder().getLastAttacker() == null) {
                 return;
             }

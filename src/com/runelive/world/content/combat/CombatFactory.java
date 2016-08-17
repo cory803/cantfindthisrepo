@@ -1383,7 +1383,7 @@ public final class CombatFactory {
                         return;
                     if (recDamage > t2.getConstitution())
                         recDamage = t2.getConstitution();
-                    attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
+                    attacker.dealDamage(target, new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
                     ItemDegrading.handleItemDegrading(t2, DegradingItem.RING_OF_RECOIL);
                 } else if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 19672) { //Eye of the ranger
                     if(combatType == CombatType.RANGED) {
@@ -1392,7 +1392,7 @@ public final class CombatFactory {
                             return;
                         if (recDamage > t2.getConstitution())
                             recDamage = t2.getConstitution();
-                        attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
+                        attacker.dealDamage(target, new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
                     }
                 } else if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 19674) { //Eye of the mage
                     if(combatType == CombatType.MAGIC) {
@@ -1401,7 +1401,7 @@ public final class CombatFactory {
                             return;
                         if (recDamage > t2.getConstitution())
                             recDamage = t2.getConstitution();
-                        attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
+                        attacker.dealDamage(target, new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
                     }
                 } else if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 19673) { //Eye of the warrior
                     if(combatType == CombatType.MELEE) {
@@ -1410,7 +1410,7 @@ public final class CombatFactory {
                             return;
                         if (recDamage > t2.getConstitution())
                             recDamage = t2.getConstitution();
-                        attacker.dealDamage(new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
+                        attacker.dealDamage(target, new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
                     }
                 }
 
@@ -1526,7 +1526,7 @@ public final class CombatFactory {
                 if (PrayerHandler.isActivated(victim, PrayerHandler.RETRIBUTION) && victim.getConstitution() < 1) {
                     victim.performGraphic(new Graphic(437));
                     if (p.getPosition().isWithinDistance(victim.getPosition(), CombatFactory.RETRIBUTION_RADIUS)) {
-                        p.dealDamage(new Hit(Misc.inclusiveRandom(CombatFactory.MAXIMUM_RETRIBUTION_DAMAGE),
+                        p.dealDamage(victim, new Hit(Misc.inclusiveRandom(CombatFactory.MAXIMUM_RETRIBUTION_DAMAGE),
                                 Hitmask.RED, CombatIcon.DEFLECT));
                     }
                 } else if (CurseHandler.isActivated(victim, CurseHandler.WRATH) && victim.getConstitution() < 1) {
@@ -1534,7 +1534,7 @@ public final class CombatFactory {
                     victim.performAnimation(new Animation(12583));
                     if (p.getPosition().isWithinDistance(victim.getPosition(), CombatFactory.RETRIBUTION_RADIUS)) {
                         p.performGraphic(new Graphic(2260));
-                        p.dealDamage(new Hit(Misc.inclusiveRandom(CombatFactory.MAXIMUM_RETRIBUTION_DAMAGE),
+                        p.dealDamage(victim, new Hit(Misc.inclusiveRandom(CombatFactory.MAXIMUM_RETRIBUTION_DAMAGE),
                                 Hitmask.RED, CombatIcon.DEFLECT));
                     }
                 }
@@ -1743,7 +1743,7 @@ public final class CombatFactory {
                             if (attacker == null || attacker.getConstitution() <= 0) {
                                 stop();
                             } else
-                                attacker.dealDamage(new Hit(toDeflect, Hitmask.RED, CombatIcon.DEFLECT));
+                                attacker.dealDamage(target, new Hit(toDeflect, Hitmask.RED, CombatIcon.DEFLECT));
                             stop();
                         }
                     });
@@ -1762,7 +1762,7 @@ public final class CombatFactory {
                 t.setHasVengeance(false);
                 t.forceChat("Taste Vengeance!");
                 int returnDamage = (int) (damage * 0.75);
-                attacker.dealDamage(new Hit(returnDamage, Hitmask.RED, CombatIcon.DEFLECT));
+                attacker.dealDamage(target, new Hit(returnDamage, Hitmask.RED, CombatIcon.DEFLECT));
             }
         }
     }
@@ -1798,9 +1798,8 @@ public final class CombatFactory {
                         break;
                     case 4:
                         Hit h = new Hit(50 + Misc.getRandom(150), Hitmask.RED, CombatIcon.MAGIC);
-                        target.dealDamage(h);
+                        target.dealDamage(player, h);
                         target.performGraphic(new Graphic(1167, GraphicHeight.HIGH));
-                        target.getCombatBuilder().addDamage(player, h.getDamage());
                         target.getLastCombat().reset();
                         stop();
                         break;

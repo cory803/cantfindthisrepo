@@ -251,10 +251,9 @@ public class DwarfMultiCannon {
 		Hit dmg = new Hit(Misc.getRandom(266) - Misc.getRandom(n.getDefinition().getDefenceRange()), Hitmask.RED,
 				CombatIcon.CANNON);
 		new Projectile(cannon.getObject(), n, 53, 44, 3, 43, 31, 0).sendProjectile();
-		n.dealDamage(dmg);
+		n.dealDamage(player, dmg);
 		n.getLastCombat().reset();
 		n.performAnimation(new Animation(n.getDefinition().getDefenceAnimation()));
-		n.getCombatBuilder().addDamage(player, dmg.getDamage());
 		Achievements.doProgress(player, AchievementData.DEAL_EASY_DAMAGE_USING_RANGED, dmg.getDamage());
 		Achievements.doProgress(player, AchievementData.DEAL_MEDIUM_DAMAGE_USING_RANGED, dmg.getDamage());
 		Achievements.doProgress(player, AchievementData.DEAL_HARD_DAMAGE_USING_RANGED, dmg.getDamage());

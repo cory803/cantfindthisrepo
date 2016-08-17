@@ -141,7 +141,6 @@ public class HitQueue {
 				if (container.getCombatType() == CombatType.MELEE) {
 					CombatFactory.giveExperience(builder, container, damage);
 				}
-				victim.getCombatBuilder().addDamage(attacker, damage);
 				container.dealDamage();
 
 				/** MISC **/

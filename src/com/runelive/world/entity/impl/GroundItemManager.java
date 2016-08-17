@@ -215,6 +215,26 @@ public class GroundItemManager {
 																				// safe
 			return;
 		else {
+			/**
+			 * Start our Ironman Pked check
+			 */
+			if (gt.isIronmanPked()) {
+				if (gt.getOwner().equals(p.getUsername())) {
+					p.getPacketSender().sendMessage("Unfortunately since you are an ironman you cannot pickup your pked loots.");
+					return;
+				} else if (gt.getOldOwner().equals(p.getUsername())) {
+					p.getPacketSender().sendMessage("You got totally pwn'd by a ironman, so you don't deserve this stuff anymore");
+					return;
+				} else {
+					p.getPacketSender().sendMessage("Items of a player killed by an ironman cannot be retrieved");
+					return;
+				}
+			}
+
+			/**
+			 * End our Ironman PKed check
+			 */
+
 			if (p.getGameModeAssistant().isIronMan() && !Dungeoneering.doingDungeoneering(p)) {
 				if ((gt.getOwner() != null && !gt.getOwner().equals("null") && !gt.getOwner().equals(p.getUsername()))
 						|| (gt.getIronman() && p.getGameModeAssistant().isIronMan())) {

@@ -1,6 +1,5 @@
 package com.runelive.world.entity.impl.npc;
 
-import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.world.content.combat.strategy.impl.Nex;

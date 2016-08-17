@@ -179,7 +179,7 @@ public class Nex implements CombatStrategy {
 								}
 								if (ticks == 5) {
 									if (origX == p_.getPosition().getX() && origY == p_.getPosition().getY()) {
-										p_.dealDamage(new Hit(100 + Misc.getRandom(100), Hitmask.RED, CombatIcon.NONE));
+										p_.dealDamage(null, new Hit(100 + Misc.getRandom(100), Hitmask.RED, CombatIcon.NONE));
 										p_.getPacketSender().sendMessage("The shadows begin to damage you!");
 										this.stop();
 									}
@@ -220,7 +220,7 @@ public class Nex implements CombatStrategy {
 										NEX.getPosition().getY());
 								if (dist < 3) {
 									p_.getPacketSender().sendMessage("The shadows begin to consume you!");
-									p_.dealDamage(new Hit(10, Hitmask.RED, CombatIcon.NONE));
+									p_.dealDamage(null, new Hit(10, Hitmask.RED, CombatIcon.NONE));
 									setShadow(p_, 20);
 								}
 								if (dist >= 3 && dist < 5)
@@ -336,7 +336,7 @@ public class Nex implements CombatStrategy {
 					@Override
 					public void execute() {
 						if (p.getPosition().getX() == origX && p.getPosition().getY() == origY) {
-							p.dealDamage(new Hit(250 + Misc.getRandom(150), Hitmask.RED, CombatIcon.NONE));
+							p.dealDamage(null, new Hit(250 + Misc.getRandom(150), Hitmask.RED, CombatIcon.NONE));
 						}
 						for (int x = origX - 1; x < origX + 1; x++) {
 							for (int y = origY - 1; y < origY + 1; y++) {
@@ -381,7 +381,7 @@ public class Nex implements CombatStrategy {
 
 										if(p_.getLocation() == Location.GODWARS_DUNGEON) {
 											if (p_.getPosition().getX() == x && p_.getPosition().getY() == y)
-												p_.dealDamage(
+												p_.dealDamage(null,
 														new Hit(150 + Misc.getRandom(110), Hitmask.RED, CombatIcon.NONE));
 										}
 									}
@@ -552,7 +552,7 @@ public class Nex implements CombatStrategy {
 					if (p == null)
 						continue;
 					if (p.getPosition().distanceToPoint(x, y) <= 3) {
-						p.dealDamage(new Hit(150, Hitmask.RED, CombatIcon.NONE));
+						p.dealDamage(null, new Hit(150, Hitmask.RED, CombatIcon.NONE));
 					}
 					if (p.getPosition().distanceToPoint(x, y) <= 20) {
 

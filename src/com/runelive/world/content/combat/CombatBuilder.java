@@ -43,6 +43,10 @@ public class CombatBuilder {
 	}
 
 	public void process() {
+		if (character.isNpc() && isBeingAttacked() && combatSession == null) {
+			setCombatSession(new CombatSession(this));
+
+		}
 		hitQueue.process();
 		if (distanceSession != null) {
 			distanceSession.process();
@@ -192,7 +196,7 @@ public class CombatBuilder {
 			// Check if the key for this entry is dead or has logged
 			// out.
 			Player player = entry.getKey();
-			if (player.getConstitution() <= 0 || !player.isRegistered()) {
+			if (!player.isRegistered()) {
 				continue;
 			}
 

@@ -410,7 +410,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 				return damage;
 			}
 			target.performGraphic(new Graphic(754));
-			player.dealDamage(new Hit(priceDamage, Hitmask.RED, CombatIcon.RANGED));
+			player.dealDamage(target, new Hit(priceDamage, Hitmask.RED, CombatIcon.RANGED));
 			return dmg2;
 		case 9243:
 			target.performGraphic(new Graphic(758, GraphicHeight.MIDDLE));

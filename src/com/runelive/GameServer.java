@@ -35,7 +35,7 @@ public class GameServer {
 	private static ThreadedSQL hiscores_sql = null;
 	private static final GameEngine engine = new GameEngine();
 	public static RSCache cache;
-	private static File cacheRepository = new File(System.getProperty("user.home") + File.separator + "runelive" + File.separator);
+	private static File cacheRepository = new File("." + File.separator + "cache" + File.separator);
 
 	public static ThreadedSQL getCharacterPool() {
 		return characters_sql;

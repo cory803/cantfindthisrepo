@@ -269,7 +269,7 @@ public enum ObstacleData {
 					if (!success) {
 						player.moveTo(new Position(2550, 9950, 0));
 						Agility.addExperience(player, 18);
-						player.dealDamage(new Hit(Misc.getRandom(50), Hitmask.RED, CombatIcon.NONE));
+						player.dealDamage(null, new Hit(Misc.getRandom(50), Hitmask.RED, CombatIcon.NONE));
 						player.getPacketSender().sendMessage("You failed to swing your way across.");
 						stop();
 						return;
@@ -319,7 +319,7 @@ public enum ObstacleData {
 							public void execute() {
 								if (tick2 == 0) {
 									player.moveTo(new Position(2546, 3547));
-									player.dealDamage(new Hit(Misc.getRandom(50), Hitmask.RED, CombatIcon.NONE));
+									player.dealDamage(null, new Hit(Misc.getRandom(50), Hitmask.RED, CombatIcon.NONE));
 								}
 								tick2++;
 								player.setSkillAnimation(772);
@@ -398,7 +398,7 @@ public enum ObstacleData {
 							@Override
 							public void execute() {
 								player.moveTo(new Position(2535, 3546, 0));
-								player.dealDamage(new Hit(Misc.getRandom(50), Hitmask.RED, CombatIcon.NONE));
+								player.dealDamage(null, new Hit(Misc.getRandom(50), Hitmask.RED, CombatIcon.NONE));
 								player.getWalkingQueue().walkStep(0, -1);
 								player.setCrossedObstacle(3, false).setSkillAnimation(-1);
 								player.getUpdateFlag().flag(Flag.APPEARANCE);
@@ -646,7 +646,7 @@ public enum ObstacleData {
 					if (tick == 2) {
 						if (fail) {
 							player.moveTo(new Position(3004, 10356));
-							player.dealDamage(new Hit(Misc.getRandom(60), Hitmask.RED, CombatIcon.NONE));
+							player.dealDamage(null, new Hit(Misc.getRandom(60), Hitmask.RED, CombatIcon.NONE));
 							Agility.addExperience(player, 40);
 							player.getPacketSender().sendMessage("You failed to swing your way across.");
 							stop();
@@ -723,7 +723,7 @@ public enum ObstacleData {
 						stop();
 					else if (fail && tick >= 3) {
 						player.moveTo(new Position(3000, 10346));
-						player.dealDamage(new Hit(Misc.getRandom(60), Hitmask.RED, CombatIcon.NONE));
+						player.dealDamage(null, new Hit(Misc.getRandom(60), Hitmask.RED, CombatIcon.NONE));
 						stop();
 					}
 				}

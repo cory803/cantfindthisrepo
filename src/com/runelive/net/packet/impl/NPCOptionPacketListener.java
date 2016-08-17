@@ -44,6 +44,7 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (player.getCombatBuilder().getStrategy() == null) {
 			player.getCombatBuilder().determineStrategy();
 		}
+
 		if (CombatFactory.checkAttackDistance(player, interact)) {
 			player.getWalkingQueue().clear();
 		}
@@ -61,6 +62,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			}
 		}
 		player.getCombatBuilder().attack(interact);
+		interact.getCombatBuilder().setVictim(player);
 	}
 
 	@Override

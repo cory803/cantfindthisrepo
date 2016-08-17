@@ -63,7 +63,7 @@ public class DropItemPacketListener implements PacketListener {
 						player.getWalkingQueue().clear();
 						return;
 					}
-					player.dealDamage(new Hit((player.getConstitution() - 1) == 0 ? 1 : player.getConstitution() - 1,
+					player.dealDamage(null, new Hit((player.getConstitution() - 1) == 0 ? 1 : player.getConstitution() - 1,
 							Hitmask.CRITICAL, CombatIcon.BLUE_SHIELD));
 					player.performGraphic(new Graphic(1750));
 					player.getPacketSender().sendMessage("The potion explodes in your face as you drop it!");
