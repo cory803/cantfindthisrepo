@@ -2231,6 +2231,7 @@ public final class ActionHandler {
                 player.moveTo(new Position(3412, 3541, 1));
                 break;
             case 2491:
+                player.setInteractingObject(gameObject);
                 player.setDialogueActionId(48);
                 DialogueManager.start(player, 87);
                 break;

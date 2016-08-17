@@ -1916,7 +1916,9 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 48:
-				Mining.startMining(player, new GameObject(24444, player.getInteractingObject().getPosition()));
+				if (player.getInteractingObject() != null) {
+					Mining.startMining(player, new GameObject(24444, player.getInteractingObject().getPosition()));
+				}
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 56:
@@ -2180,7 +2182,9 @@ public class DialogueOptions {
 						player.getSpellbook().getTeleportType());
 				break;
 			case 48:
-				Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()));
+				if (player.getInteractingObject() != null) {
+					Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()));
+				}
 				player.getPacketSender().sendInterfaceRemoval();
 				break;
 			case 56:

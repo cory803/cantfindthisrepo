@@ -1,8 +1,6 @@
 Game Updates:
 Mining essence has been fixed.
 
-
-
 Polls:
 Would you like to see the home location set to Edgeville instead of Varrock?
 Do you think that Drygore weapons should be nerfed?
