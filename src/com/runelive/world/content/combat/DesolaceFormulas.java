@@ -3,15 +3,12 @@ package com.runelive.world.content.combat;
 import com.runelive.model.Graphic;
 import com.runelive.model.Skill;
 import com.runelive.model.container.impl.Equipment;
-import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.util.Misc;
 import com.runelive.world.content.combat.effect.EquipmentBonus;
 import com.runelive.world.content.combat.magic.CombatSpell;
 import com.runelive.world.content.combat.prayer.CurseHandler;
 import com.runelive.world.content.combat.prayer.PrayerHandler;
-import com.runelive.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
 import com.runelive.world.content.combat.weapon.FightStyle;
-import com.runelive.world.content.combat.weapon.FightType;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -70,7 +67,11 @@ public class DesolaceFormulas {
 				healthBonus = healthBonus / 1000;
 				specialBonus += healthBonus;
 			} else if (hasObsidianEffect(player) || EquipmentBonus.wearingVoid(player, CombatType.MELEE)) {
-				specialBonus += .2;
+				if(EquipmentBonus.wearingVoid(player, CombatType.MELEE)) {
+					specialBonus += .1;
+				} else {
+					specialBonus += .2;
+				}
 			}
 
 			maxHit *= specialBonus;
@@ -91,79 +92,6 @@ public class DesolaceFormulas {
 		}
 		return (int) maxHit;
 	}
-	/*
-	public static int calculateMaxMeleeHit(Character entity, Character victim) {
-		double maxHit = 0;
-		if (entity.isNpc()) {
-			NPC npc = (NPC) entity;
-			maxHit = npc.getDefinition().getMaxHit();
-			if (npc.getStrengthWeakened()[0]) {
-				maxHit -= (int) ((0.10) * (maxHit));
-			} else if (npc.getStrengthWeakened()[1]) {
-				maxHit -= (int) ((0.20) * (maxHit));
-			} else if (npc.getStrengthWeakened()[2]) {
-				maxHit -= (int) ((0.30) * (maxHit));
-			}
-
-			if (npc.getId() == 2026) { // Dharok the wretched
-				maxHit += (int) ((int) (npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
-			}
-		} else {
-			Player plr = (Player) entity;
-
-			double base = 0;
-			double effective = getEffectiveStr(plr);
-			double specialBonus = 1;
-			if (plr.isSpecialActivated()) {
-				specialBonus = plr.getCombatSpecial().getStrengthBonus();
-			}
-			double strengthBonus = plr.getBonusManager().getOtherBonus()[0];
-			base = (10 + effective + (strengthBonus / 8) + ((effective * strengthBonus) / 65)) / 11;
-			if (plr.getEquipment().getItems()[3].getId() == 4718
-					&& plr.getEquipment().getItems()[0].getId() == 4716
-					&& plr.getEquipment().getItems()[4].getId() == 4720
-					&& plr.getEquipment().getItems()[7].getId() == 4722)
-				base +=
-						((plr.getSkillManager().getMaxLevel(Skill.CONSTITUTION) - plr.getConstitution()) * .045)
-								+ 1;
-			if (specialBonus > 1)
-				base = (base * specialBonus);
-			if (hasObsidianEffect(plr) || EquipmentBonus.wearingVoid(plr, CombatType.MELEE))
-				base = (base * 1.2);
-
-			if (victim.isNpc()) {
-				NPC npc = (NPC) victim;
-				if (npc.getDefenceWeakened()[0]) {
-					base += (int) ((0.10) * (base));
-				} else if (npc.getDefenceWeakened()[1]) {
-					base += (int) ((0.20) * (base));
-				} else if (npc.getDefenceWeakened()[2]) {
-					base += (int) ((0.30) * (base));
-				}
-				if (npc.getId() == plr.getSlayer().getSlayerTask().getNpcId()) {
-					if (plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 15492) {
-						base *= 1.20;
-					}
-				}
-
-				if (npc.getId() == plr.getSlayer().getSlayerTask().getNpcId()) {
-					if (plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
-						base *= 1.10;
-					}
-				}
-			}
-			maxHit = (base *= 10);
-		}
-		if (victim.isPlayer()) {
-			Player p = (Player) victim;
-			if (p.hasStaffOfLightEffect()) {
-				maxHit = maxHit / 2;
-				p.performGraphic(new Graphic(2319));
-			}
-		}
-		return (int) Math.floor(maxHit);
-	}
-	*/
 
 	/**
 	 * Calculates a player's Melee attack level (how likely that they're going
@@ -184,7 +112,6 @@ public class DesolaceFormulas {
 			attackLevel += 1;
 			break;
 		}
-		boolean hasVoid = EquipmentBonus.wearingVoid(plr, CombatType.MELEE);
 
 		if (PrayerHandler.isActivated(plr, PrayerHandler.CLARITY_OF_THOUGHT)) {
 			attackLevel += plr.getSkillManager().getMaxLevel(Skill.ATTACK) * 0.05;
@@ -201,15 +128,15 @@ public class DesolaceFormulas {
 		} else if (CurseHandler.isActivated(plr, CurseHandler.TURMOIL)) {
 			attackLevel += plr.getSkillManager().getMaxLevel(Skill.ATTACK) * 0.3 + plr.getLeechedBonuses()[2];
 		}
-
-		if (hasVoid) {
-			attackLevel += plr.getSkillManager().getMaxLevel(Skill.ATTACK) * 0.1;
-		}
 		attackLevel *= plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() : 1;
 		int i = (int) plr.getBonusManager().getAttackBonus()[bestMeleeAtk(plr)];
 
-		if (hasObsidianEffect(plr) || hasVoid)
+		if (hasObsidianEffect(plr)) {
 			i *= 1.20;
+		} else if(EquipmentBonus.wearingVoid(plr, CombatType.MELEE)) {
+			i *= 1.1;
+		}
+
 		return (int) (attackLevel + (attackLevel * 0.15) + (i + i * 0.04));
 	}
 
@@ -344,11 +271,8 @@ public class DesolaceFormulas {
 		} else if (plr.getCurseActive()[CurseHandler.LEECH_RANGED]) {
 			rangeLevel *= 1.10;
 		}
-		if (plr.getEquipment().contains(19672)) {
-			rangeLevel *= 1.00;
-		}
-		if (hasVoid && accuracy > 1.15)
-			rangeLevel *= 1.68;
+		if (hasVoid)
+			rangeLevel *= 1.10;
 		/*
 		 * Slay helm if(plr.getAdvancedSkills().getSlayer().getSlayerTask() !=
 		 * null && plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() ==
@@ -396,7 +320,7 @@ public class DesolaceFormulas {
 		boolean voidEquipment = EquipmentBonus.wearingVoid(plr, CombatType.MAGIC);
 		int attackLevel = plr.getSkillManager().getCurrentLevel(Skill.MAGIC);
 		if (voidEquipment)
-			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.2;
+			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.3;
 		if (plr.getPrayerActive()[PrayerHandler.MYSTIC_WILL] || plr.getCurseActive()[CurseHandler.SAP_MAGE]) {
 			attackLevel *= 1.05;
 		} else if (plr.getPrayerActive()[PrayerHandler.MYSTIC_LORE]) {
@@ -519,11 +443,7 @@ public class DesolaceFormulas {
 			case 21021:
 			case 21022:
 			case 21023:
-				if (EquipmentBonus.wearingVoid(p, CombatType.RANGED)) {
-					damage = maxHit = 480;
-				} else {
-					damage = maxHit = 420;
-				}
+				damage = maxHit = 420;
 				break;
 			case 13905:
 			case 13907:

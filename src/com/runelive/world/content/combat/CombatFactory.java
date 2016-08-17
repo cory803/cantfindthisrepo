@@ -671,139 +671,6 @@ public final class CombatFactory {
     }
 
     /**
-     * Calculates the maximum melee hit for the argued {@link Character} without
-     * taking the victim into consideration.
-     *
-     * @param entity
-     *            the entity to calculate the maximum hit for.
-     * @param victim
-     *            the victim being attacked.
-     * @return the maximum melee hit that this entity can deal.
-     */
-    @SuppressWarnings("incomplete-switch")
-    public static int calculateMaxMeleeHit(Character entity, Character victim) {
-        int maxHit = 0;
-
-        if (entity.isNpc()) {
-            NPC npc = (NPC) entity;
-            maxHit = npc.getDefinition().getMaxHit();
-            if (npc.getStrengthWeakened()[0]) {
-                maxHit -= (int) ((0.10) * (maxHit));
-            } else if (npc.getStrengthWeakened()[1]) {
-                maxHit -= (int) ((0.20) * (maxHit));
-            } else if (npc.getStrengthWeakened()[2]) {
-                maxHit -= (int) ((0.30) * (maxHit));
-            }
-
-            /** CUSTOM NPCS **/
-            if (npc.getId() == 2026) { // Dharok the wretched
-                maxHit += (int) ((npc.getDefaultConstitution() - npc.getConstitution()) * 0.2);
-            }
-            return maxHit;
-        }
-
-        Player player = (Player) entity;
-        double specialMultiplier = 1;
-        double prayerMultiplier = 1;
-        // TODO: void melee = 1.2, slayer helm = 1.15, salve amulet = 1.15, //
-        // salve amulet(e) = 1.2
-        double otherBonusMultiplier = 1;
-        int strengthLevel = player.getSkillManager().getCurrentLevel(Skill.STRENGTH);
-        int attackLevel = player.getSkillManager().getCurrentLevel(Skill.ATTACK);
-        int combatStyleBonus = 0;
-
-        if (PrayerHandler.isActivated(player, PrayerHandler.BURST_OF_STRENGTH)) {
-            prayerMultiplier = 1.05;
-        } else if (PrayerHandler.isActivated(player, PrayerHandler.SUPERHUMAN_STRENGTH)) {
-            prayerMultiplier = 1.1;
-        } else if (PrayerHandler.isActivated(player, PrayerHandler.ULTIMATE_STRENGTH)) {
-            prayerMultiplier = 1.15;
-        } else if (PrayerHandler.isActivated(player, PrayerHandler.CHIVALRY)) {
-            prayerMultiplier = 1.18;
-        } else if (PrayerHandler.isActivated(player, PrayerHandler.PIETY)) {
-            prayerMultiplier = 1.23;
-        } else if (CurseHandler.isActivated(player, CurseHandler.LEECH_STRENGTH)) {
-            prayerMultiplier = 1.05 + +(player.getLeechedBonuses()[2] * 0.01);
-        } else if (CurseHandler.isActivated(player, CurseHandler.TURMOIL)) {
-            prayerMultiplier = 1.23 + (player.getLeechedBonuses()[2] * 0.01);
-        }
-
-        switch (player.getFightType().getStyle()) {
-            case AGGRESSIVE:
-                combatStyleBonus = 3;
-                break;
-            case CONTROLLED:
-                combatStyleBonus = 1;
-                break;
-        }
-
-        if (EquipmentBonus.wearingVoid(player, CombatType.MELEE)) {
-            otherBonusMultiplier = 1.1;
-        }
-
-        if (strengthLevel <= 10 || attackLevel <= 10) {
-            otherBonusMultiplier = 1.8;
-        }
-
-        int effectiveStrengthDamage = (int) ((strengthLevel * prayerMultiplier * otherBonusMultiplier)
-                + combatStyleBonus);
-        double baseDamage = 1.3 + (effectiveStrengthDamage / 10)
-                + (player.getBonusManager().getOtherBonus()[BonusManager.BONUS_STRENGTH] / 80)
-                + ((effectiveStrengthDamage * player.getBonusManager().getOtherBonus()[BonusManager.BONUS_STRENGTH])
-                / 640);
-
-        if (player.isSpecialActivated()) {
-            specialMultiplier = player.getCombatSpecial().getStrengthBonus();
-        }
-
-        maxHit = (int) (baseDamage * specialMultiplier);
-        maxHit *= 10;
-
-        if (CombatFactory.fullDharoks(player)) {
-            maxHit += (player.getSkillManager().getMaxLevel(Skill.CONSTITUTION)
-                    - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)) * 0.35;
-        }
-
-        if (victim.isNpc()) {
-            NPC npc = (NPC) victim;
-            if (npc.getDefenceWeakened()[0]) {
-                maxHit += (int) ((0.10) * (maxHit));
-            } else if (npc.getDefenceWeakened()[1]) {
-                maxHit += (int) ((0.20) * (maxHit));
-            } else if (npc.getDefenceWeakened()[2]) {
-                maxHit += (int) ((0.30) * (maxHit));
-            }
-            /** Hastas on dragons **/
-            if (NpcDefinition.forId(npc.getId()).getName().contains("dragon")) {
-                if (ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()).getName()
-                        .endsWith("hasta")) {
-                    maxHit *= 1.17;
-                }
-            }
-
-            /** Zamorak Spear on Corpeareal Beast **/
-            if (NpcDefinition.forId(npc.getId()).getName().equalsIgnoreCase("Corporeal beast")) {
-                if (ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId()).getName()
-                        .equals("Zamorakian spear")
-                        || ItemDefinition.forId(player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId())
-                        .getName().equals("Zamorakian hasta")) {
-                    maxHit *= 1.35;
-                }
-            }
-
-            /** SLAYER HELMET **/
-            if (npc.getId() == player.getSlayer().getSlayerTask().getNpcId()) {
-                if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
-                    maxHit *= 1.12;
-                }
-            }
-
-        }
-        return maxHit;
-
-    }
-
-    /**
      * Calculates the maximum ranged hit for the argued {@link Character}
      * without taking the victim into consideration.
      *
@@ -850,7 +717,7 @@ public final class CombatFactory {
         }
 
         if (EquipmentBonus.wearingVoid(player, CombatType.RANGED)) {
-            otherBonusMultiplier = 1.1;
+            otherBonusMultiplier = 1.2;
         }
 
         int effectiveRangeDamage = (int) ((rangeLevel * prayerMultiplier * otherBonusMultiplier) + combatStyleBonus);

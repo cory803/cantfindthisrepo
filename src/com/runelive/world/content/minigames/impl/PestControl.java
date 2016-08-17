@@ -655,7 +655,7 @@ public class PestControl {
 				} else {
 					name = ItemDefinition.forId(id2).getName();
 					p.getPacketSender().sendMessage(
-							"You need to have " + Misc.anOrA(name) + " " + name + " to purhcase this uppgrade.");
+							"You need to have " + Misc.anOrA(name) + " " + name + " to purchase this upgrade.");
 					return;
 				}
 			}

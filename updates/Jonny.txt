@@ -19,9 +19,10 @@ The stats on the following items have been corrected to match original rs:
 	Completionist cape (nerfed)
 	Tokhaar-kal (nerfed)
 The combat formula used in full dharoks has been redone.
-The random absorbtion on dharok's armour has been removed.
-	
+The formulas for void armour has been redone to match the correct formulas.
 Abyssal vine whips now have the correct requirements to wield them (80 slayer, 85 attack).
 Abyssal vine whips now have a chance to poison you (mildly).
+When enchanting your void armour the message that was mis-spelt is now fixed.
+The range accuracy boost on eye of the ranger has been removed.
 
 Polls:
