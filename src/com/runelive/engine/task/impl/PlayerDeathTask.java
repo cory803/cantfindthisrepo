@@ -131,7 +131,7 @@ public class PlayerDeathTask extends Task {
 												(killer != null && !killer.getGameModeAssistant().isIronMan() ? killer
 														: player),
 												new GroundItem(item, position,
-														killer != null && !killer.getGameModeAssistant().isIronMan() ? killer.getUsername() : player.getUsername(),
+														killer != null ? killer.getUsername() : player.getUsername(),
 														player.getHostAddress(), false, 150, true, 150, address));
 										if (killer != null) {
 											PlayerLogs.kills(killer, player, item);
