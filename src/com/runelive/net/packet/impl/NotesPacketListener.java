@@ -17,7 +17,6 @@ public class NotesPacketListener implements PacketListener {
 	@Override
 	public void handleMessage(Player player, Packet packet) {
 		int code = packet.getOpcode();
-		System.out.println(code);
 		switch (code) {
 		case NOTE_TEXT_OPCODE:
 			saveNote(player, packet);
@@ -53,7 +52,6 @@ public class NotesPacketListener implements PacketListener {
 	}
 	
 	private void saveNote(Player player, Packet packet) {
-		System.out.println("Okay RIP");
 		String message = Misc.readString(packet.getBuffer());
 		System.out.println(message);
 		if(player.getTempNote() == "")
