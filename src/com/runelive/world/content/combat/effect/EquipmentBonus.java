@@ -7,34 +7,80 @@ import com.runelive.world.entity.impl.player.Player;
 
 public class EquipmentBonus {
 
+	/*
+	* Tells you if you are wearing void armour
+	*/
 	public static boolean wearingVoid(Player player, CombatType attackType) {
 		int amount = 0;
+		boolean hasHelmet = false;
 		Item head = player.getEquipment().getItems()[Equipment.HEAD_SLOT];
 		Item body = player.getEquipment().getItems()[Equipment.BODY_SLOT];
 		Item legs = player.getEquipment().getItems()[Equipment.LEG_SLOT];
 		Item gloves = player.getEquipment().getItems()[Equipment.HANDS_SLOT];
 		Item shield = player.getEquipment().getItems()[Equipment.SHIELD_SLOT];
-
-		if(attackType == CombatType.RANGED) {
-			for(int i = 0; i < VOID_ARMOUR.length; i++) {
-				if(head.getId() == VOID_ARMOUR[i]) {
-					amount++;
-				} else if(body.getId() == VOID_ARMOUR[i]) {
-					amount++;
-				} else if(legs.getId() == VOID_ARMOUR[i]) {
-					amount++;
-				} else if(gloves.getId() == VOID_ARMOUR[i]) {
-					amount++;
-				} else if(shield.getId() == VOID_ARMOUR[i]) {
-					amount++;
-				}
+		for(int i = 0; i < VOID_ARMOUR.length; i++) {
+			if(body.getId() == VOID_ARMOUR[i]) {
+				amount++;
+			} else if(legs.getId() == VOID_ARMOUR[i]) {
+				amount++;
+			} else if(gloves.getId() == VOID_ARMOUR[i]) {
+				amount++;
+			} else if(shield.getId() == VOID_ARMOUR[i]) {
+				amount++;
 			}
 		}
-		return amount >= 4;
+		if(attackType == CombatType.RANGED) {
+			if(head.getId() == RANGED_VOID_HELM) {
+				hasHelmet = true;
+			}
+		} else if(attackType == CombatType.MAGIC) {
+			if(head.getId() == MAGE_VOID_HELM) {
+				hasHelmet = true;
+			}
+		} else if(attackType == CombatType.MELEE) {
+			if(head.getId() == MELEE_VOID_HELM) {
+				hasHelmet = true;
+			}
+		}
+		return amount >= 3 && hasHelmet;
 	}
 
+	/*
+	* Tells you if you are wearing elite void armour
+	*/
 	public static boolean wearingEliteVoid(Player player, CombatType attackType) {
-
+		int amount = 0;
+		boolean hasHelmet = false;
+		Item head = player.getEquipment().getItems()[Equipment.HEAD_SLOT];
+		Item body = player.getEquipment().getItems()[Equipment.BODY_SLOT];
+		Item legs = player.getEquipment().getItems()[Equipment.LEG_SLOT];
+		Item gloves = player.getEquipment().getItems()[Equipment.HANDS_SLOT];
+		Item shield = player.getEquipment().getItems()[Equipment.SHIELD_SLOT];
+		for(int i = 0; i < ELITE_VOID_ARMOUR.length; i++) {
+			if(body.getId() == ELITE_VOID_ARMOUR[i]) {
+				amount++;
+			} else if(legs.getId() == ELITE_VOID_ARMOUR[i]) {
+				amount++;
+			} else if(gloves.getId() == ELITE_VOID_ARMOUR[i]) {
+				amount++;
+			} else if(shield.getId() == ELITE_VOID_ARMOUR[i]) {
+				amount++;
+			}
+		}
+		if(attackType == CombatType.RANGED) {
+			if(head.getId() == RANGED_VOID_HELM) {
+				hasHelmet = true;
+			}
+		} else if(attackType == CombatType.MAGIC) {
+			if(head.getId() == MAGE_VOID_HELM) {
+				hasHelmet = true;
+			}
+		} else if(attackType == CombatType.MELEE) {
+			if(head.getId() == MELEE_VOID_HELM) {
+				hasHelmet = true;
+			}
+		}
+		return amount >= 3 && hasHelmet;
 	}
 
 	private static final int MAGE_VOID_HELM = 11663;
@@ -43,15 +89,7 @@ public class EquipmentBonus {
 
 	private static final int MELEE_VOID_HELM = 11665;
 
-	private static final int VOID_KNIGHT_DEFLECTOR = 19712;
-
-	public static final int[][] BERSERKER_BUFF = { { Equipment.AMULET_SLOT, 11128 }, { Equipment.RING_SLOT, 6737 },
-			{ Equipment.WEAPON_SLOT, 6528 } };
-
-	public static final int[][] BERSERKER_I_BUFF = { { Equipment.AMULET_SLOT, 11128 }, { Equipment.RING_SLOT, 15220 },
-			{ Equipment.WEAPON_SLOT, 6528 } };
-
 	public static int[] VOID_ARMOUR = new int[]{8839, 8840, 8842, 19711};
 
-	public static final int[] ELITE_VOID_ARMOUR = { 19785, 19786, 8842 };
+	public static final int[] ELITE_VOID_ARMOUR = { 19785, 19786, 19787, 19788, 19789, 19790, 8842, 19711};
 }

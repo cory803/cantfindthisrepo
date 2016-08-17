@@ -718,6 +718,8 @@ public final class CombatFactory {
 
         if (EquipmentBonus.wearingVoid(player, CombatType.RANGED)) {
             otherBonusMultiplier = 1.2;
+        } else if(EquipmentBonus.wearingEliteVoid(player, CombatType.RANGED)) {
+            otherBonusMultiplier = 1.3;
         }
 
         int effectiveRangeDamage = (int) ((rangeLevel * prayerMultiplier * otherBonusMultiplier) + combatStyleBonus);

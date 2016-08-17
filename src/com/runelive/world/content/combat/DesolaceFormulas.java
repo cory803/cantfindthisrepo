@@ -66,7 +66,7 @@ public class DesolaceFormulas {
 				double healthBonus = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
 				healthBonus = healthBonus / 1000;
 				specialBonus += healthBonus;
-			} else if (hasObsidianEffect(player) || EquipmentBonus.wearingVoid(player, CombatType.MELEE)) {
+			} else if (hasObsidianEffect(player) || EquipmentBonus.wearingVoid(player, CombatType.MELEE) || EquipmentBonus.wearingEliteVoid(player, CombatType.MELEE)) {
 				if(EquipmentBonus.wearingVoid(player, CombatType.MELEE)) {
 					specialBonus += .1;
 				} else {
@@ -135,6 +135,8 @@ public class DesolaceFormulas {
 			i *= 1.20;
 		} else if(EquipmentBonus.wearingVoid(plr, CombatType.MELEE)) {
 			i *= 1.1;
+		} else if(EquipmentBonus.wearingEliteVoid(plr, CombatType.MELEE)) {
+			i *= 1.2;
 		}
 
 		return (int) (attackLevel + (attackLevel * 0.15) + (i + i * 0.04));
@@ -271,8 +273,11 @@ public class DesolaceFormulas {
 		} else if (plr.getCurseActive()[CurseHandler.LEECH_RANGED]) {
 			rangeLevel *= 1.10;
 		}
-		if (hasVoid)
+		if (hasVoid) {
 			rangeLevel *= 1.10;
+		} else if(EquipmentBonus.wearingEliteVoid(plr, CombatType.RANGED)) {
+			rangeLevel *= 1.20;
+		}
 		/*
 		 * Slay helm if(plr.getAdvancedSkills().getSlayer().getSlayerTask() !=
 		 * null && plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() ==
@@ -318,9 +323,13 @@ public class DesolaceFormulas {
 
 	public static int getMagicAttack(Player plr) {
 		boolean voidEquipment = EquipmentBonus.wearingVoid(plr, CombatType.MAGIC);
+		boolean eliteVoidEquipment = EquipmentBonus.wearingEliteVoid(plr, CombatType.MAGIC);
 		int attackLevel = plr.getSkillManager().getCurrentLevel(Skill.MAGIC);
-		if (voidEquipment)
+		if (voidEquipment) {
 			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.3;
+		} else if(eliteVoidEquipment) {
+			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.4;
+		}
 		if (plr.getPrayerActive()[PrayerHandler.MYSTIC_WILL] || plr.getCurseActive()[CurseHandler.SAP_MAGE]) {
 			attackLevel *= 1.05;
 		} else if (plr.getPrayerActive()[PrayerHandler.MYSTIC_LORE]) {

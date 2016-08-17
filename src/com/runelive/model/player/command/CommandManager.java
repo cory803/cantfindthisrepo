@@ -7,7 +7,9 @@ import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.PlayersOnlineInterface;
 import com.runelive.world.content.combat.CombatFactory;
+import com.runelive.world.content.combat.CombatType;
 import com.runelive.world.content.combat.DesolaceFormulas;
+import com.runelive.world.content.combat.effect.EquipmentBonus;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.transportation.TeleportHandler;
 import com.runelive.world.content.transportation.TeleportType;
@@ -386,6 +388,13 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, PlayerRights privilege) {
                 player.getBank(player.getCurrentBankTab()).open();
+            }
+        });
+        commands.put("elitevoid", new Command(PlayerRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, PlayerRights privilege) {
+                player.getPacketSender().sendMessage("Wearing void armour: "+ EquipmentBonus.wearingVoid(player, CombatType.MELEE));
+                player.getPacketSender().sendMessage("Wearing elite void armour: "+ EquipmentBonus.wearingEliteVoid(player, CombatType.MELEE));
             }
         });
 
