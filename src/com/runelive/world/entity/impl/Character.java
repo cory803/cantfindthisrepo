@@ -394,9 +394,9 @@ public abstract class Character extends Entity {
 	public boolean moving;
 
 	public void delayedMoveTo(final Position teleportTarget, final int delay) {
-		if (moving)
-			return;
-		moving = true;
+		//if (moving)
+		//	return;
+		//moving = true;
 		TaskManager.submit(new Task(delay, this, false) {
 			@Override
 			protected void execute() {
