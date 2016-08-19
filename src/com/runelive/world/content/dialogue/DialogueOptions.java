@@ -956,7 +956,7 @@ public class DialogueOptions {
 		} else if (id == FIRST_OPTION_OF_FOUR) {
 			switch (player.getDialogueActionId()) {
 			case 300:
-				TeleportHandler.teleportPlayer(player, new Position(3364, 2999),
+				TeleportHandler.teleportPlayer(player, new Position(2717, 9805),
 						player.getSpellbook().getTeleportType());
 				break;
 			case 550:
