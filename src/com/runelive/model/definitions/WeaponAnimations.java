@@ -72,16 +72,18 @@ public final class WeaponAnimations {
 			playerWalkIndex = 4194;
 			playerRunIndex = 4194;
 		} else if (weaponName.contains("longsword") || weaponName.contains("scimitar")) {
-			playerStandIndex = 15069;// 12021;
+			playerStandIndex = 15069;// -1;
 			playerRunIndex = 15070;// 12023;
 			playerWalkIndex = 15073; // 12024;
 		} else if (weaponName.contains("silverlight") || weaponName.contains("korasi's")) {
 			playerStandIndex = 12021;
 			playerRunIndex = 1210;
-			playerWalkIndex = 12024;/*
-									 * playerStandIndex = 8980; playerRunIndex =
-									 * 1210; playerWalkIndex = 1146;
-									 */
+			playerWalkIndex = 12024;
+		} else if (weaponName.contains("rapier")) {
+			playerStandIndex = 8980;
+			playerRunIndex = 1210;
+			playerWalkIndex = 1146;
+		}/*
 		} else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21114 || item.getId() == 21079
 				|| item.getId() == 21108) {
 			playerStandIndex = 809;
@@ -106,15 +108,9 @@ public final class WeaponAnimations {
 			playerWalkIndex = 819;
 			playerRunIndex = 824;
 		}
-		if (weaponName.toLowerCase().contains("rapier")) {
-			playerStandIndex = 12021;
-			playerWalkIndex = 12024;
-			playerRunIndex = 1210;
-			/*
-			 * playerStandIndex = 8980; playerRunIndex = 1210; playerWalkIndex =
-			 * 1146;
-			 */
-		}
+		*/
+
+
 		if (weaponName.toLowerCase().contains("fixed device")) {
 			playerStandIndex = 2316;
 			/*
@@ -340,7 +336,7 @@ public final class WeaponAnimations {
 		case 18353:
 			return 13055;
 		case 18349:
-			return 386;
+			return 13049;
 		case 19146:
 			return 386;
 		case 4755: // verac
@@ -435,7 +431,7 @@ public final class WeaponAnimations {
 		case 14007:
 			return 12806;
 		case 18349:
-			return 12030;
+			return 13038;
 		case 18353:
 			return 13054;
 		case 18351:

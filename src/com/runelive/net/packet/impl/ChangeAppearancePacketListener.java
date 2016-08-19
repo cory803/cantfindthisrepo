@@ -33,8 +33,8 @@ public class ChangeAppearancePacketListener implements PacketListener {
 			int currentPartIndex = 1;
 			for (int i = 0; i < apperances.length; i++, currentPartIndex++) {
 				int value = Integer.parseInt(parts[currentPartIndex]);
-				if (value < (gender == 0 ? MALE_VALUES[i][0] : FEMALE_VALUES[i][0])
-						|| value > (gender == 0 ? MALE_VALUES[i][1] : FEMALE_VALUES[i][1]))
+				System.out.println("Appearance value: "+value);
+				if (value < (gender == 0 ? MALE_VALUES[i][0] : FEMALE_VALUES[i][0]) || value > (gender == 0 ? MALE_VALUES[i][1] : FEMALE_VALUES[i][1]))
 					value = (gender == 0 ? MALE_VALUES[i][0] : FEMALE_VALUES[i][0]);
 				apperances[i] = value;
 			}
@@ -79,21 +79,23 @@ public class ChangeAppearancePacketListener implements PacketListener {
 			{ 0, 7 } // skin color
 	};
 
-	private static final int[][] FEMALE_VALUES = { { 45, 54 }, // head
+	private static final int[][] FEMALE_VALUES = {
+		    { 45, 362 }, // head
 			{ -1, -1 }, // jaw
-			{ 56, 60 }, // torso
-			{ 61, 65 }, // arms
-			{ 67, 68 }, // hands
-			{ 70, 77 }, // legs
-			{ 79, 80 }, // feet
+			{ 56, 587 }, // torso
+			{ 61, 426 }, // arms
+			{ 67, 538 }, // hands
+			{ 70, 506 }, // legs
+			{ 79, 555 }, // feet
 	};
 
-	private static final int[][] MALE_VALUES = { { 0, 8 }, // head
-			{ 10, 17 }, // jaw
-			{ 18, 25 }, // torso
-			{ 26, 31 }, // arms
-			{ 33, 34 }, // hands
-			{ 36, 40 }, // legs
-			{ 42, 43 }, // feet
+	private static final int[][] MALE_VALUES = {
+			{ 0, 352 }, // head
+			{ 10, 308 }, // jaw
+			{ 18, 474 }, // torso
+			{ 26, 619 }, // arms
+			{ 33, 394 }, // hands
+			{ 36, 651 }, // legs
+			{ 42, 442 }, // feet
 	};
 }

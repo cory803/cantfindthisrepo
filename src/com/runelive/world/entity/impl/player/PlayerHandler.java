@@ -160,7 +160,7 @@ public class PlayerHandler {
 				.sendConfig(player.getFightType().getParentId(), player.getFightType().getChildId()).sendRunStatus()
 				.sendRunEnergy().sendConstitutionOrbPoison(player.isPoisoned())
 				.sendConstitutionOrbVenom(player.isVenomed()).sendString(8135, "" + player.getMoneyInPouch())
-				.sendInteractionOption("Follow", 3, false).sendInteractionOption("Trade With", 4, false)
+				.sendInteractionOption("Follow", 3, false).sendInteractionOption("Trade with", 4, false)
 				.sendInterfaceRemoval()
 				.sendString(39161, "@or2@Server time: @or2@[ @yel@" + Misc.getCurrentServerTime() + "@or2@ ]");
 

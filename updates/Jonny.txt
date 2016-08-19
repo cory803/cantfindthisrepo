@@ -1,6 +1,10 @@
 Game Updates:
 Mining essence has been fixed.
+When right clicking a player their combat level no longer displays as level-(combat level) but instead level: (combat level) like original rs.
+When right clicking a player the 'Trade with' option is now correctly capitalized.
+Fixed the timer on hitsplats, it was too slow.
+2011/634 characters have been added.
+The rapier weilding/walking/attacking animations have been fixed.
 
 Polls:
-Would you like to see the home location set to Edgeville instead of Varrock?
-Do you think that Drygore weapons should be nerfed?
+
