@@ -129,10 +129,6 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
 			PlayerPanel.refreshPanel(player);
 			break;
-		case 10882:
-			DialogueManager.start(player, 230);
-			player.setDialogueActionId(230);
-			break;
 		case -10423:
 			player.setTourneyToggle(!player.tourney_toggle);
 			PlayerPanel.refreshPanel(player);
@@ -178,7 +174,7 @@ public class ButtonClickPacketListener implements PacketListener {
 			int tlNeeded = 149;
 			if (player.getSkillManager().getTotalLevel() < tlNeeded) {
 				player.getPacketSender().sendMessage(
-						"You cannot the players online until you have over " + (tlNeeded + 1) + " total level.");
+						"You cannot view the players online until you have over " + (tlNeeded + 1) + " total level.");
 			} else {
 				PlayersOnlineInterface.showInterface(player);
 			}
@@ -284,40 +280,6 @@ public class ButtonClickPacketListener implements PacketListener {
 		case -10330:
 			player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
 			break;
-		case 13053:
-		case 7455:
-		case 30266:
-			player.setDialogueActionId(36);
-			DialogueManager.start(player, 65);
-			break;
-		case -10435:
-			player.getPacketSender().sendString(1, "www.rune.live/");
-			player.getPacketSender().sendMessage("Attempting to open: rune.live/");
-			break;
-		case -10434:
-			player.getPacketSender().sendString(1, "www.rune.live/forum");
-			player.getPacketSender().sendMessage("Attempting to open: rune.live/forum");
-			break;
-		case -10433:
-			player.getPacketSender().sendString(1, "www.rune.live/vote");
-			player.getPacketSender().sendMessage("Attempting to open: rune.live/vote");
-			break;
-		case -10432:
-			player.getPacketSender().sendString(1, "www.rune.live/store/");
-			player.getPacketSender().sendMessage("Attempting to open: rune.live/store");
-			break;
-		case -10431:
-			player.getPacketSender().sendString(1, "www.rune.live/apply");
-			player.getPacketSender().sendMessage("Attempting to open: www.rune.live/apply");
-			break;
-		case -10430:
-			player.getPacketSender().sendString(1, "www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
-			player.getPacketSender().sendMessage("Attempting to open: www.runelive-2.wikia.com/wiki/Ikov_2_Wikia");
-			break;
-		case -10429:
-			player.getPacketSender().sendString(1, "www.rune.live/forum/?app=tickets");
-			player.getPacketSender().sendMessage("Attempting to open: www.rune.live/forum/?app=tickets");
-			break;
 		case -10329:
 			RecipeForDisaster.openQuestLog(player);
 			break;
@@ -348,10 +310,6 @@ public class ButtonClickPacketListener implements PacketListener {
 					.sendMessage("To autocast a spell, please right-click it and choose the autocast option.")
 					.sendTab(GameSettings.MAGIC_TAB).sendConfig(108, player.getAutocastSpell() == null ? 3 : 1);
 			break;
-		case 12162:
-			DialogueManager.start(player, 61);
-			player.setDialogueActionId(28);
-			break;
 		case 29335:
 			if (player.getInterfaceId() > 0) {
 				player.getPacketSender()
@@ -369,10 +327,6 @@ public class ButtonClickPacketListener implements PacketListener {
 			}
 			ClanChatManager.toggleLootShare(player);
 			break;
-		case 8658:
-			DialogueManager.start(player, 55);
-			player.setDialogueActionId(26);
-			break;
 		case 30000:
 		case 1195:
 			if (player.homeLocation == 0) {
@@ -382,63 +336,6 @@ public class ButtonClickPacketListener implements PacketListener {
 				TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION_EDGEVILLE.copy(),
 						player.getSpellbook().getTeleportType());
 			}
-			break;
-		case 1540:
-		case 13061:
-		case 30162:
-			DialogueManager.start(player, 35);
-			player.setDialogueActionId(19);
-			break;
-		case 8667:
-			TeleportHandler.teleportPlayer(player, new Position(2742, 3443), player.getSpellbook().getTeleportType());
-			break;
-		case 8672:
-			TeleportHandler.teleportPlayer(player, new Position(2595, 4772), player.getSpellbook().getTeleportType());
-			player.getPacketSender().sendMessage(
-					"<img=4> To get started with Runecrafting, buy a talisman and use the locate option on it.");
-			break;
-		case 8861:
-			TeleportHandler.teleportPlayer(player, new Position(2914, 3450), player.getSpellbook().getTeleportType());
-			break;
-		case 8656:
-			player.setDialogueActionId(47);
-			DialogueManager.start(player, 86);
-			break;
-		case 8659:
-			TeleportHandler.teleportPlayer(player, new Position(3024, 9741), player.getSpellbook().getTeleportType());
-			break;
-		case 8664:
-			TeleportHandler.teleportPlayer(player, new Position(2662, 3305), player.getSpellbook().getTeleportType());
-			break;
-		case 8666:
-			TeleportHandler.teleportPlayer(player, new Position(3085, 3496), player.getSpellbook().getTeleportType());
-			break;
-		case 8671:
-			player.setDialogueActionId(56);
-			DialogueManager.start(player, 89);
-			break;
-		case 8670:
-			TeleportHandler.teleportPlayer(player, new Position(2715, 3493), player.getSpellbook().getTeleportType());
-			break;
-		case 8668:
-			TeleportHandler.teleportPlayer(player, new Position(2709, 3437), player.getSpellbook().getTeleportType());
-			break;
-		case 8665:
-		case 8662:
-			TeleportHandler.teleportPlayer(player, new Position(2809, 3440), player.getSpellbook().getTeleportType());
-			break;
-		case 13928:
-			TeleportHandler.teleportPlayer(player, new Position(3052, 3304), player.getSpellbook().getTeleportType());
-			break;
-		case 28179:
-			TeleportHandler.teleportPlayer(player, new Position(2209, 5348), player.getSpellbook().getTeleportType());
-			break;
-		case 18470:
-			TeleportHandler.teleportPlayer(player, new Position(2762, 2782), player.getSpellbook().getTeleportType());
-			break;
-		case 28178:
-			DialogueManager.start(player, 54);
-			player.setDialogueActionId(25);
 			break;
 		case 1159: // Bones to Bananas
 		case 15877:// Bones to peaches
@@ -546,47 +443,6 @@ public class ButtonClickPacketListener implements PacketListener {
 				player.getSummoning().toInventory();
 			else if (id == 1018)
 				player.getSummoning().toInventory();
-			break;
-		case 1174:
-		case 30250:
-		case 13079:
-			player.setDialogueActionId(178);
-			DialogueManager.start(player, 178);
-			break;
-		case 30083:
-		case 13045:
-			DialogueManager.sendStatement(player, "Please select a skill that you would like to train.");
-			player.getPacketSender().sendTab(GameSettings.SKILLS_TAB);
-			break;
-		case 8654:
-		case 8657:
-		case 8655:
-		case 8663:
-		case 8669:
-		case 8660:
-		case 1164:
-		case 30064:
-		case 13035:
-			player.setDialogueActionId(0);
-			DialogueManager.start(player, 0);
-			break;
-		case 1167:
-		case 30106:
-		case 13087:
-			DialogueManager.start(player, 25);
-			player.setDialogueActionId(15);
-			break;
-		case 1541:
-		case 30138:
-		case 13069:
-			DialogueManager.start(player, 22);
-			player.setDialogueActionId(14);
-			break;
-		case 30226:
-		case 1170:
-		case 13095:
-			DialogueManager.start(player, 21);
-			player.setDialogueActionId(12);
 			break;
 		case 2799:
 		case 2798:
@@ -730,18 +586,6 @@ public class ButtonClickPacketListener implements PacketListener {
 			player.setExperienceLocked(!player.experienceLocked());
 			String type = player.experienceLocked() ? "locked" : "unlocked";
 			player.getPacketSender().sendMessage("Your experience is now " + type + ".");
-			PlayerPanel.refreshPanel(player);
-			break;
-		case -10421:
-			player.setShowIpAddressOnLogin(!player.showIpAddress());
-			String mode = player.showIpAddress() ? "Disabled" : "Enabled";
-			player.getPacketSender().sendMessage("Your IP address shown on login has been: " + mode + ".");
-			PlayerPanel.refreshPanel(player);
-			break;
-		case -10420:
-			player.setShowHomeOnLogin(!player.showHomeOnLogin());
-			String home = player.showHomeOnLogin() ? "Enabled" : "Disabled";
-			player.getPacketSender().sendMessage("Your Home Location appearing on login has been: " + home + ".");
 			PlayerPanel.refreshPanel(player);
 			break;
 		case 27651:
