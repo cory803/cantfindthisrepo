@@ -75,12 +75,6 @@ public class CurseHandler {
 			activateCurse(player, data);
 	}
 
-	public static void deactivateCurse(Player player, int curseId) {
-		CurseData data = CurseData.ids.get(curseId);
-		if (data != null)
-			deactivateCurse(player, data);
-	}
-
 	public static void activateCurse(Player player, CurseData curse) {
 		if (player.getPrayerbook() == Prayerbook.NORMAL)
 			return;
@@ -139,8 +133,6 @@ public class CurseHandler {
 			deactivateCurses(player, MAGIC_CURSES);
 			break;
 		case SAP_SPIRIT:
-			deactivateCurses(player, SPECIAL_ATTACK_CURSES);
-			break;
 		case LEECH_SPECIAL_ATTACK:
 			deactivateCurses(player, SPECIAL_ATTACK_CURSES);
 			deactivateCurse(player, CurseData.TURMOIL);
@@ -210,9 +202,6 @@ public class CurseHandler {
 		if (!player.getCurseActive()[curse.ordinal()]) {
 			return;
 		}
-		// SoundEffects.sendSoundEffect(player,
-		// SoundEffects.SoundData.DEACTIVATE_PRAYER_OR_CURSE, 10,
-		// 0);
 		player.getPacketSender().sendConfig(curse.configId, 0);
 		player.setCurseActive(curse.ordinal(), false);
 		player.getAppearance().setHeadHint(getHeadHint(player));

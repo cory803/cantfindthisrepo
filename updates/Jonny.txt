@@ -5,6 +5,12 @@ When right clicking a player the 'Trade with' option is now correctly capitalize
 Fixed the timer on hitsplats, it was too slow.
 2011/634 characters have been added.
 The rapier weilding/walking/attacking animations have been fixed.
+You can no longer use sap spirit with turmoil at the same time.
+
+To-do:
+Fix equipment interface so it looks like this - http://1.bp.blogspot.com/-VW6P481pZxE/Td4bX8vq_fI/AAAAAAAAABE/LaYdY2d7JxA/s1600/mager.png
+Fix combat level difference colors
+Fix the colors when pming people in private messages
 
 Polls:
 

@@ -83,7 +83,6 @@ public final class WeaponAnimations {
 			playerStandIndex = 8980;
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
-		}/*
 		} else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21114 || item.getId() == 21079
 				|| item.getId() == 21108) {
 			playerStandIndex = 809;
@@ -108,8 +107,6 @@ public final class WeaponAnimations {
 			playerWalkIndex = 819;
 			playerRunIndex = 824;
 		}
-		*/
-
 
 		if (weaponName.toLowerCase().contains("fixed device")) {
 			playerStandIndex = 2316;
