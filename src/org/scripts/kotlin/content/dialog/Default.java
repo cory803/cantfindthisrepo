@@ -24,7 +24,7 @@ public class Default extends Dialog {
 
     @Override
     public DialogMessage getMessage() {
-        switch(getState()) {
+        switch (getState()) {
             case 0:
                 return Dialog.createNpc("Welcome to @red@RuneLive@bla@ adventurer! Can I help you in any way?");
             case 1:
@@ -44,59 +44,60 @@ public class Default extends Dialog {
                         "Learn about Legend mode",
                         "Learn about Lord mode",
                         "Next Page:") {
-                       @Override
-                       public void execute(Player player, OptionType option) {
-                           switch (option) {
-                               case OPTION_1_OF_5:
-                                   setState(8);
-                                   player.getDialog().sendDialog(dialog);
-                                   break;
-                               case OPTION_2_OF_5:
-                                   setState(9);
-                                   player.getDialog().sendDialog(dialog);
-                                   break;
-                               case OPTION_3_OF_5:
-                                   setState(10);
-                                   player.getDialog().sendDialog(dialog);
-                                   break;
-                               case OPTION_4_OF_5:
-                                   setState(11);
-                                   player.getDialog().sendDialog(dialog);
-                                   break;
-                               case OPTION_5_OF_5:
-                                   setState(7);
-                                   player.getDialog().sendDialog(dialog);
-                                   break;
-                           }
-                       }
-                });
-            case 7: return Dialog.createOption(new FourOption(
-                    "Learn about Sir mode",
-                    "Learn about Ironman mode",
-                    "I have choose a game mode!",
-                    "<- Back") {
-                @Override
-                public void execute(Player player, OptionType option) {
-                    switch (option) {
-                        case OPTION_1_OF_4:
-                            setState(12);
-                            player.getDialog().sendDialog(dialog);
-                        break;
-                        case OPTION_2_OF_4:
-                            setState(13);
-                            player.getDialog().sendDialog(dialog);
-                        break;
-                        case OPTION_3_OF_4:
-                            setState(14);
-                            player.getDialog().sendDialog(dialog);
-                        break;
-                        case OPTION_4_OF_4:
-                            setState(6);
-                            player.getDialog().sendDialog(dialog);
-                        break;
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_5:
+                                setState(8);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_2_OF_5:
+                                setState(9);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_3_OF_5:
+                                setState(10);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_4_OF_5:
+                                setState(11);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_5_OF_5:
+                                setState(7);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                        }
                     }
-                }
-            });
+                });
+            case 7:
+                return Dialog.createOption(new FourOption(
+                        "Learn about Sir mode",
+                        "Learn about Ironman mode",
+                        "I have choose a game mode!",
+                        "<- Back") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_4:
+                                setState(12);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_2_OF_4:
+                                setState(13);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_3_OF_4:
+                                setState(14);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_4_OF_4:
+                                setState(6);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                        }
+                    }
+                });
             case 8:
                 setState(5);
                 return Dialog.createNpc("Realism is the most prestigious game mode, on Realism you will be playing on 5x exp rates, you also get 15x drop rate, 40% prayer drain rates, and recover spec every 5 seconds!");
@@ -119,87 +120,88 @@ public class Default extends Dialog {
                 return Dialog.createNpc("So you think you are ready? Okay then what game mode would you like to play on?");
             case 15:
                 return Dialog.createOption(new FiveOption(
-                    "Realism Mode",
-                    "Extreme Mode",
-                    "Legend Mode",
-                    "Lord Mode",
-                    "Next Page:") {
+                        "Realism Mode",
+                        "Extreme Mode",
+                        "Legend Mode",
+                        "Lord Mode",
+                        "Next Page:") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
-                        case OPTION_1_OF_5: {
-                            gameMode = GameMode.REALISM;
-                            setState(17);
-                            player.getDialog().sendDialog(dialog);
-                        }
-                        case OPTION_2_OF_5: {
-                            gameMode = GameMode.EXTREME;
-                            setState(17);
-                            player.getDialog().sendDialog(dialog);
-                        }
-                        case OPTION_3_OF_5: {
-                            gameMode = GameMode.LEGEND;
-                            setState(17);
-                            player.getDialog().sendDialog(dialog);
-                        }
-                        case OPTION_4_OF_5: {
-                            gameMode = GameMode.LORD;
-                            setState(17);
-                            player.getDialog().sendDialog(dialog);
-                        }
-                        case OPTION_5_OF_5: {
-                            setState(16);
-                            player.getDialog().sendDialog(dialog);
+                            case OPTION_1_OF_5: {
+                                gameMode = GameMode.REALISM;
+                                setState(17);
+                                player.getDialog().sendDialog(dialog);
+                            }
+                            case OPTION_2_OF_5: {
+                                gameMode = GameMode.EXTREME;
+                                setState(17);
+                                player.getDialog().sendDialog(dialog);
+                            }
+                            case OPTION_3_OF_5: {
+                                gameMode = GameMode.LEGEND;
+                                setState(17);
+                                player.getDialog().sendDialog(dialog);
+                            }
+                            case OPTION_4_OF_5: {
+                                gameMode = GameMode.LORD;
+                                setState(17);
+                                player.getDialog().sendDialog(dialog);
+                            }
+                            case OPTION_5_OF_5: {
+                                setState(16);
+                                player.getDialog().sendDialog(dialog);
+                            }
                         }
                     }
-                }
-            });
-            case 16: return Dialog.createOption(new ThreeOption(
-                    "Sir Mode",
-                    "Ironman mode",
-                    "<- Back") {
-                @Override
-                public void execute(Player player, OptionType option) {
-                    switch (option) {
-                       case OPTION_1_OF_3:
-                            gameMode = GameMode.SIR;
-                            setState(17);
-                            player.getDialog().sendDialog(dialog);
-                           break;
-                       case OPTION_2_OF_3:
-                            gameMode = GameMode._IRONMAN;
-                            setState(17);
-                            player.getDialog().sendDialog(dialog);
-                           break;
-                        case OPTION_3_OF_3:
-                            setState(15);
-                            player.getDialog().sendDialog(dialog);
-                        break;
+                });
+            case 16:
+                return Dialog.createOption(new ThreeOption(
+                        "Sir Mode",
+                        "Ironman mode",
+                        "<- Back") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_3:
+                                gameMode = GameMode.SIR;
+                                setState(17);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_2_OF_3:
+                                gameMode = GameMode._IRONMAN;
+                                setState(17);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_3_OF_3:
+                                setState(15);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                        }
                     }
-                }
-            });
+                });
             case 17:
                 return Dialog.createPlayer("I want to choose " + gameMode.getModeName() + "!");
             case 18:
                 return Dialog.createNpc(gameMode.getModeName() + " is the perfect game mode! However I want to want to make sure that is what you want.");
             case 19:
                 return Dialog.createOption(new TwoOption(
-                    "Yes I would like to play on " + gameMode.getModeName(),
-                    "No, I want to choose another game mode!") {
-                @Override
-                public void execute(Player player, OptionType option) {
-                    switch (option) {
-                        case OPTION_1_OF_2:
-                            setState(20);
-                            player.getDialog().sendDialog(dialog);
-                            break;
-                        case OPTION_2_OF_2:
-                            setState(15);
-                            player.getDialog().sendDialog(dialog);
-                        break;
+                        "Yes I would like to play on " + gameMode.getModeName(),
+                        "No, I want to choose another game mode!") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_2:
+                                setState(20);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_2_OF_2:
+                                setState(15);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                        }
                     }
-                }
-            });
+                });
             case 20:
                 getPlayer().getGameModeAssistant().setGameMode(gameMode);
                 PlayerPanel.refreshPanel(getPlayer());
@@ -211,17 +213,17 @@ public class Default extends Dialog {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
-                        case OPTION_1_OF_2:
-                            setState(24);
-                            player.getDialog().sendDialog(dialog);
-                        break;
-                        case OPTION_2_OF_2:
-                            setState(22);
-                            player.getDialog().sendDialog(dialog);
-                            break;
+                            case OPTION_1_OF_2:
+                                setState(24);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_2_OF_2:
+                                setState(22);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                        }
                     }
-                }
-            });
+                });
             case 22:
                 return Dialog.createPlayer("I think that I can manage from here, thanks!");
             case 23:
