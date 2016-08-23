@@ -1,161 +1,245 @@
-/*
-
 package org.scripts.kotlin.content.dialog;
 
+import com.runelive.model.options.fiveoption.FiveOption;
+import com.runelive.model.options.fouroption.FourOption;
+import com.runelive.model.options.threeoption.ThreeOption;
+import com.runelive.model.options.twooption.TwoOption;
+import com.runelive.model.player.GameMode;
 import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.content.BankPin;
+import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.entity.impl.player.Player;
 
-public class Default {
+public class Default extends Dialog {
 
-    public Dialog dialog;
+    public Dialog dialog = this;
 
-    public GameMode gameMode;
+    public GameMode gameMode = null;
 
-    init {
-        setEndState(14)
+    public Default(Player player) {
+        super(player);
+        setEndState(27);
     }
 
-    override fun getMessage(): DialogMessage? {
-        when (state) {
-            0 -> return createNpc("Hello there, " + player.username + ", I have the ability to help you with your account settings. What would you like to do?")
-            1 -> return createOption(object : FiveOption(
-                    "Set email-address (used when recovering your password)",
-                    if (player.bankPinAttributes.hasBankPin()) "Delete your account pin." else "Set account-pin (used to protect against hackers)",
-                    "Change Gamemode",
-                    "Change Password",
-                    "Cancel") {
-                override fun execute(player: Player, option: OptionType) {
-                    when (option) {
-                        OptionType.OPTION_1_OF_5 -> {
-                            setEndState(state)
-                            player.inputHandling = SetEmail()
-                            player.packetSender.sendEnterInputPrompt("Enter your email address:")
-                        }
-                        OptionType.OPTION_2_OF_5 -> {
-                            setEndState(state)
-                            if (player.bankPinAttributes.hasBankPin()) {
-                                player.optionContainer.display(object : TwoOption("Delete bank pin", "Cancel") {
-                                    override fun execute(player: Player, option: OptionType) {
-                                        when (option) {
-                                            OptionType.OPTION_1_OF_2 -> BankPin.deletePin(player)
-                                            OptionType.OPTION_2_OF_2 -> player.packetSender.sendInterfaceRemoval()
-                                        }
-                                    }
-                                })
-                            } else {
-                                BankPin.init(player, false)
-                            }
-                        }
-                        OptionType.OPTION_3_OF_5 -> {
-                            state = 2
-                            player.dialog.sendDialog(dialog)
-                        }
-                        OptionType.OPTION_4_OF_5 -> {
-                            setEndState(state)
-                            player.inputHandling = ChangePassword()
-                            player.packetSender.sendEnterInputPrompt("Enter a new password:")
-                        }
-                        OptionType.OPTION_5_OF_5 -> player.packetSender.sendInterfaceRemoval()
+    @Override
+    public DialogMessage getMessage() {
+        switch(getState()) {
+            case 0:
+                return Dialog.createNpc("Welcome to @red@RuneLive@bla@ adventurer! Can I help you in any way?");
+            case 1:
+                return Dialog.createPlayer("Yes, please! How can I get started?");
+            case 2:
+                return Dialog.createNpc("Im glad you asked! The first thing we need to do is get you setup on a game mode.");
+            case 3:
+                return Dialog.createNpc("Here at RuneLive we have several game modes for you to choose from. We have Sir, Lord, Legend, Extreme, Realism, and Ironman");
+            case 4:
+                return Dialog.createPlayer("That is a lot to choose from! Where do I start?");
+            case 5:
+                return Dialog.createNpc("That a wonderful question let me help you out.  What mode would you like to learn about?");
+            case 6:
+                return Dialog.createOption(new FiveOption(
+                        "Learn about Realism mode",
+                        "Learn about Extreme mode",
+                        "Learn about Legend mode",
+                        "Learn about Lord mode",
+                        "Next Page:") {
+                       @Override
+                       public void execute(Player player, OptionType option) {
+                           switch (option) {
+                               case OPTION_1_OF_5:
+                                   setState(8);
+                                   player.getDialog().sendDialog(dialog);
+                                   break;
+                               case OPTION_2_OF_5:
+                                   setState(9);
+                                   player.getDialog().sendDialog(dialog);
+                                   break;
+                               case OPTION_3_OF_5:
+                                   setState(10);
+                                   player.getDialog().sendDialog(dialog);
+                                   break;
+                               case OPTION_4_OF_5:
+                                   setState(11);
+                                   player.getDialog().sendDialog(dialog);
+                                   break;
+                               case OPTION_5_OF_5:
+                                   setState(7);
+                                   player.getDialog().sendDialog(dialog);
+                                   break;
+                           }
+                       }
+                });
+            case 7: return Dialog.createOption(new FourOption(
+                    "Learn about Sir mode",
+                    "Learn about Ironman mode",
+                    "I have choose a game mode!",
+                    "<- Back") {
+                @Override
+                public void execute(Player player, OptionType option) {
+                    switch (option) {
+                        case OPTION_1_OF_4:
+                            setState(12);
+                            player.getDialog().sendDialog(dialog);
+                        break;
+                        case OPTION_2_OF_4:
+                            setState(13);
+                            player.getDialog().sendDialog(dialog);
+                        break;
+                        case OPTION_3_OF_4:
+                            setState(14);
+                            player.getDialog().sendDialog(dialog);
+                        break;
+                        case OPTION_4_OF_4:
+                            setState(6);
+                            player.getDialog().sendDialog(dialog);
+                        break;
                     }
                 }
-            })
-            2 -> {
-                if (!player.equipment.isNaked) {
-                    setEndState(state)
-                    return createNpc("You need to have all equipment removed to change game modes")
+            });
+            case 8:
+                setState(5);
+                return Dialog.createNpc("Realism is the most prestigious game mode, on Realism you will be playing on 5x exp rates, you also get 15x drop rate, 40% prayer drain rates, and recover spec every 5 seconds!");
+            case 9:
+                setState(5);
+                return Dialog.createNpc("Extreme mode is the second hardest mode here at RuneLive. You will be playing on 15x exp rates. You also get 12x drop rate, 50% prayer drain rates, and recover spec every 8 seconds!");
+            case 10:
+                setState(5);
+                return Dialog.createNpc("On Legend mode you will be playing on 35x exp rates. You also get 10x drop rate, 60% prayer drain rates, and recover spec every 10 seconds!");
+            case 11:
+                setState(5);
+                return Dialog.createNpc("On Lord mode you will be playing on 80x exp rates. You also get 8x drop rate, 75% prayer drain rates, and recover spec every 15 seconds!");
+            case 12:
+                setState(6);
+                return Dialog.createNpc("On Sir mode you will be playing on 125x exp rates. You also get 5x drop rate, and recover spec every 20 seconds!");
+            case 13:
+                setState(6);
+                return Dialog.createNpc("On Ironman you will not be able to use shops or trade with other players. You be on 25x exp rates, 12x drops, 55% prayer drain, and recover spec every 8 seconds!");
+            case 14:
+                return Dialog.createNpc("So you think you are ready? Okay then what game mode would you like to play on?");
+            case 15:
+                return Dialog.createOption(new FiveOption(
+                    "Realism Mode",
+                    "Extreme Mode",
+                    "Legend Mode",
+                    "Lord Mode",
+                    "Next Page:") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                        case OPTION_1_OF_5: {
+                            gameMode = GameMode.REALISM;
+                            setState(17);
+                            player.getDialog().sendDialog(dialog);
+                        }
+                        case OPTION_2_OF_5: {
+                            gameMode = GameMode.EXTREME;
+                            setState(17);
+                            player.getDialog().sendDialog(dialog);
+                        }
+                        case OPTION_3_OF_5: {
+                            gameMode = GameMode.LEGEND;
+                            setState(17);
+                            player.getDialog().sendDialog(dialog);
+                        }
+                        case OPTION_4_OF_5: {
+                            gameMode = GameMode.LORD;
+                            setState(17);
+                            player.getDialog().sendDialog(dialog);
+                        }
+                        case OPTION_5_OF_5: {
+                            setState(16);
+                            player.getDialog().sendDialog(dialog);
+                        }
+                    }
                 }
-                return createNpc("Awh, so I see you want to change game modes? Let me first explain how this process works.")
+            });
+            case 16: return Dialog.createOption(new ThreeOption(
+                    "Sir Mode",
+                    "Ironman mode",
+                    "<- Back") {
+                @Override
+                public void execute(Player player, OptionType option) {
+                    switch (option) {
+                       case OPTION_1_OF_3:
+                            gameMode = GameMode.SIR;
+                            setState(17);
+                            player.getDialog().sendDialog(dialog);
+                           break;
+                       case OPTION_2_OF_3:
+                            gameMode = GameMode._IRONMAN;
+                            setState(17);
+                            player.getDialog().sendDialog(dialog);
+                           break;
+                        case OPTION_3_OF_3:
+                            setState(15);
+                            player.getDialog().sendDialog(dialog);
+                        break;
+                    }
+                }
+            });
+            case 17:
+                return Dialog.createPlayer("I want to choose " + gameMode.getModeName() + "!");
+            case 18:
+                return Dialog.createNpc(gameMode.getModeName() + " is the perfect game mode! However I want to want to make sure that is what you want.");
+            case 19:
+                return Dialog.createOption(new TwoOption(
+                    "Yes I would like to play on " + gameMode.getModeName(),
+                    "No, I want to choose another game mode!") {
+                @Override
+                public void execute(Player player, OptionType option) {
+                    switch (option) {
+                        case OPTION_1_OF_2:
+                            setState(20);
+                            player.getDialog().sendDialog(dialog);
+                            break;
+                        case OPTION_2_OF_2:
+                            setState(15);
+                            player.getDialog().sendDialog(dialog);
+                        break;
+                    }
+                }
+            });
+            case 20:
+                getPlayer().getGameModeAssistant().setGameMode(gameMode);
+                PlayerPanel.refreshPanel(getPlayer());
+                getPlayer().updateRank();
+                getPlayer().getPacketSender().sendRights();
+                return Dialog.createNpc("Perfect, you are now a " + gameMode.getModeName() + "! Would you like me to show you around RuneLive?");
+            case 21:
+                return Dialog.createOption(new TwoOption("Yes, can you please show me around RuneLive?", "I think that I can manage from here, thanks!") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                        case OPTION_1_OF_2:
+                            setState(24);
+                            player.getDialog().sendDialog(dialog);
+                        break;
+                        case OPTION_2_OF_2:
+                            setState(22);
+                            player.getDialog().sendDialog(dialog);
+                            break;
+                    }
+                }
+            });
+            case 22:
+                return Dialog.createPlayer("I think that I can manage from here, thanks!");
+            case 23:
+                getPlayer().setContinueSkipTutorial(true);
+                setState(26);
+                return Dialog.createNpc("Alright, sounds good, however we must first set you up with a bank pin to make sure your account is safe from mischievous players.");
+            case 24:
+                return Dialog.createPlayer("Yes, can you please show me around RuneLive?");
+            case 25:
+                getPlayer().setContinueTutorial(true);
+                return Dialog.createNpc("Of course I can! Lets make sure you are all setup to proceed on your new journey!");
+            case 26:
+                return Dialog.createNpc("First thing is we are going to set you up with a bank pin to make sure your account is safe from mischievous players.");
+            case 27: {
+                BankPin.init(getPlayer(), false);
+                return null;
             }
-            3 -> return createNpc("When you are moving from a higher game mode to a lower one, all your stats and achievements will be reset to ensure " + "that it is fair for everyone.")
-            4 -> return createNpc("However, if you are moving from a lower game mode to a higher one, your skills will be adjust to that of the game mode you choose.")
-            5 -> return createNpc("After hearing about how game mode switching works would you still like to proceed?")
-            6 -> return createOption(object : TwoOption("Yes, I still want to change game modes.", "No thanks, I will stick with my current game mode.") {
-                override fun execute(player: Player, option: OptionType) {
-                    when (option) {
-                        OptionType.OPTION_1_OF_2 -> {
-                            state = 7
-                            player.dialog.sendDialog(dialog)
-                        }
-                        OptionType.OPTION_2_OF_2 -> player.packetSender.sendInterfaceRemoval()
-                    }
-                }
-            })
-            7 -> return createPlayer("Yes, I still want to change game modes.")
-            8 -> return createNpc("Perfect, What game mode would you then like to change to?")
-            9 -> {
-                if (player.gameModeAssistant.gameMode == GameMode.IRONMAN) {
-                    return createOption(object : FiveOption(
-                            "Play in @blu@Realism@bla@ mode (@blu@5x@bla@ XP)",
-                            "Play in @blu@Extreme@bla@ mode (@blu@15x@bla@ XP)",
-                            "Play in @blu@Legend@bla@ mode (@blu@35x@bla@ XP)",
-                            "Play in @blu@Lord@bla@ mode (@blu@80x@bla@ XP)",
-                            "Play in @blu@Ironman@bla@ mode (@blu@25x@bla@ XP)") {
-                        override fun execute(player: Player, option: OptionType) {
-                            when (option) {
-                                OptionType.OPTION_1_OF_5 -> gameMode = GameMode.REALISM
-                                OptionType.OPTION_2_OF_5 -> gameMode = GameMode.EXTREME
-                                OptionType.OPTION_3_OF_5 -> gameMode = GameMode.LEGEND
-                                OptionType.OPTION_4_OF_5 -> gameMode = GameMode.LORD
-                                OptionType.OPTION_5_OF_5 -> gameMode = GameMode._IRONMAN
-                            }
-                            state = 10
-                            player.dialog.sendDialog(dialog)
-                        }
-                    })
-                } else {
-                    return createOption(object : FiveOption(
-                            "Play in @blu@Realism@bla@ mode (@blu@5x@bla@ XP)",
-                            "Play in @blu@Extreme@bla@ mode (@blu@15x@bla@ XP)",
-                            "Play in @blu@Legend@bla@ mode (@blu@35x@bla@ XP)",
-                            "Play in @blu@Lord@bla@ mode (@blu@80x@bla@ XP)",
-                            "Play in @blu@Sir@bla@ mode (@blu@125x@bla@ XP)") {
-                        override fun execute(player: Player, option: OptionType) {
-                            when (option) {
-                                OptionType.OPTION_1_OF_5 -> gameMode = GameMode.REALISM
-                                OptionType.OPTION_2_OF_5 -> gameMode = GameMode.EXTREME
-                                OptionType.OPTION_3_OF_5 -> gameMode = GameMode.LEGEND
-                                OptionType.OPTION_4_OF_5 -> gameMode = GameMode.LORD
-                                OptionType.OPTION_5_OF_5 -> gameMode = GameMode.SIR
-                            }
-                            state = 10
-                            player.dialog.sendDialog(dialog)
-                        }
-                    })
-                }
-            }
-            10 -> {
-                if (player.gameModeAssistant.gameMode == gameMode) {
-                    setEndState(state)
-                    return createNpc("You are already a " + player.gameModeAssistant.modeName + " and therefore cannot change to the game game mode.")
-                } else {
-                    return createNpc("So you would like to change to " + gameMode!!.modeName + "?")
-                }
-            }
-            11 -> return createOption(object : TwoOption("Yes, I would like to change to " + gameMode!!.modeName, "No, I changed my mind.") {
-                override fun execute(player: Player, option: OptionType) {
-                    when (option) {
-                        OptionType.OPTION_1_OF_2 -> {
-                            state = 12
-                            player.dialog.sendDialog(dialog)
-                        }
-                        OptionType.OPTION_2_OF_2 -> player.packetSender.sendInterfaceRemoval()
-                    }
-                }
-            })
-            12 -> return createNpc("I will ask one more time, once you switch to " + gameMode!!.modeName + " it is permanent and cannot be reversed. Are you sure you want to switch modes?")
-            13 -> return createOption(object : TwoOption("Yes, I would like to change to " + gameMode!!.modeName, "No, I changed my mind.") {
-                override fun execute(player: Player, option: OptionType) {
-                    when (option) {
-                        OptionType.OPTION_1_OF_2 -> {
-                            player.gameModeAssistant.setNewGamemode(gameMode)
-                            state = 14
-                            player.dialog.sendDialog(dialog)
-                        }
-                        OptionType.OPTION_2_OF_2 -> player.packetSender.sendInterfaceRemoval()
-                    }
-                }
-            })
-            14 -> return createNpc("Congratulations, you are now playing in " + gameMode!!.modeName)
         }
-        return null
+        return null;
     }
 }
