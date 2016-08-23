@@ -200,7 +200,6 @@ public final class ActionHandler {
             case 8028:
                 DesoSpan.siphon(player, npc);
                 break;
-                break;
             case 6807:
             case 6994:
             case 6995:
@@ -374,7 +373,6 @@ public final class ActionHandler {
         switch (npc.getId()) {
             case 6537:
                 Artifacts.sellArtifacts(player);
-                break;
                 break;
             case 2127:
                 if (!GameSettings.POS_ENABLED) {
