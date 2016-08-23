@@ -1,12 +1,12 @@
 package org.scripts.kotlin.content.commands
 
-import com.runelive.model.Locations
-import com.runelive.model.PlayerRights
-import com.runelive.model.Position
-import com.runelive.model.player.command.Command
-import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
-import com.runelive.world.content.transportation.TeleportHandler
-import com.runelive.world.entity.impl.player.Player
+import com.chaos.model.Locations
+import com.chaos.model.PlayerRights
+import com.chaos.model.Position
+import com.chaos.model.player.command.Command
+import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
+import com.chaos.world.content.transportation.TeleportHandler
+import com.chaos.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas

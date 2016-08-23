@@ -1,12 +1,12 @@
 package org.scripts.kotlin.content.commands
 
-import com.runelive.GameSettings
-import com.runelive.model.Locations
-import com.runelive.model.MagicSpellbook
-import com.runelive.model.PlayerRights
-import com.runelive.model.player.command.Command
-import com.runelive.world.content.combat.magic.Autocasting
-import com.runelive.world.entity.impl.player.Player
+import com.chaos.GameSettings
+import com.chaos.model.Locations
+import com.chaos.model.MagicSpellbook
+import com.chaos.model.PlayerRights
+import com.chaos.model.player.command.Command
+import com.chaos.world.content.combat.magic.Autocasting
+import com.chaos.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas

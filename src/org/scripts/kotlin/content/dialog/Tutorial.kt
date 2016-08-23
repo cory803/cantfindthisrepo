@@ -1,16 +1,16 @@
 package org.scripts.kotlin.content.dialog
 
-import com.runelive.model.options.Option
-import com.runelive.model.options.fiveoption.FiveOption
-import com.runelive.model.options.fouroption.FourOption
-import com.runelive.model.options.threeoption.ThreeOption
-import com.runelive.model.options.twooption.TwoOption
-import com.runelive.model.player.GameMode
-import com.runelive.model.player.dialog.Dialog
-import com.runelive.model.player.dialog.DialogMessage
-import com.runelive.world.content.BankPin
-import com.runelive.world.content.PlayerPanel
-import com.runelive.world.entity.impl.player.Player
+import com.chaos.model.options.Option
+import com.chaos.model.options.fiveoption.FiveOption
+import com.chaos.model.options.fouroption.FourOption
+import com.chaos.model.options.threeoption.ThreeOption
+import com.chaos.model.options.twooption.TwoOption
+import com.chaos.model.player.GameMode
+import com.chaos.model.player.dialog.Dialog
+import com.chaos.model.player.dialog.DialogMessage
+import com.chaos.world.content.BankPin
+import com.chaos.world.content.PlayerPanel
+import com.chaos.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -31,10 +31,10 @@ class Tutorial(player: Player) : Dialog(player) {
 
     override fun getMessage(): DialogMessage? {
         when (state) {
-            0 -> return Dialog.createNpc("Welcome to @red@RuneLive@bla@ adventurer! Can I help you in any way?")
+            0 -> return Dialog.createNpc("Welcome to @red@Chaos@bla@ adventurer! Can I help you in any way?")
             1 -> return Dialog.createPlayer("Yes, please! How can I get started?")
             2 -> return Dialog.createNpc("Im glad you asked! The first thing we need to do is get you setup on a game mode.")
-            3 -> return Dialog.createNpc("Here at RuneLive we have several game modes for you to choose from. We have Sir, Lord, Legend, Extreme, Realism, and Ironman")
+            3 -> return Dialog.createNpc("Here at Chaos we have several game modes for you to choose from. We have Sir, Lord, Legend, Extreme, Realism, and Ironman")
             4 -> return Dialog.createPlayer("That is a lot to choose from! Where do I start?")
             5 -> return Dialog.createNpc("That a wonderful question let me help you out.  What mode would you like to learn about?")
             6 -> return Dialog.createOption(object : FiveOption(
@@ -100,7 +100,7 @@ class Tutorial(player: Player) : Dialog(player) {
             }
             9 -> {
                 state = 5
-                return Dialog.createNpc("Extreme mode is the second hardest mode here at RuneLive. You will be playing on 15x exp rates. You also get 12x drop rate, 50% prayer drain rates, and recover spec every 8 seconds!")
+                return Dialog.createNpc("Extreme mode is the second hardest mode here at Chaos. You will be playing on 15x exp rates. You also get 12x drop rate, 50% prayer drain rates, and recover spec every 8 seconds!")
             }
             10 -> {
                 state = 5
@@ -201,9 +201,9 @@ class Tutorial(player: Player) : Dialog(player) {
                 player.updateRank()
                 player.packetSender.sendRights()
                 //player.packetSender.sendIronmanMode()
-                return Dialog.createNpc("Perfect, you are now a " + gameMode!!.modeName + "! Would you like me to show you around RuneLive?")
+                return Dialog.createNpc("Perfect, you are now a " + gameMode!!.modeName + "! Would you like me to show you around Chaos?")
             }
-            21 -> return Dialog.createOption(object : TwoOption("Yes, can you please show me around RuneLive?", "I think that I can manage from here, thanks!") {
+            21 -> return Dialog.createOption(object : TwoOption("Yes, can you please show me around Chaos?", "I think that I can manage from here, thanks!") {
                 override fun execute(player: Player, option: Option.OptionType) {
                     when (option) {
                         Option.OptionType.OPTION_1_OF_2 -> {
@@ -223,7 +223,7 @@ class Tutorial(player: Player) : Dialog(player) {
                 state = 26
                 return Dialog.createNpc("Alright, sounds good, however we must first set you up with a bank pin to make sure your account is safe from mischievous players.")
             }
-            24 -> return Dialog.createPlayer("Yes, can you please show me around RuneLive?")
+            24 -> return Dialog.createPlayer("Yes, can you please show me around Chaos?")
             25 -> {
                 player.setContinueTutorial(true)
                 return Dialog.createNpc("Of course I can! Lets make sure you are all setup to proceed on your new journey!")

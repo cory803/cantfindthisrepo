@@ -1,14 +1,14 @@
 package org.scripts.kotlin.content.commands
 
-import com.runelive.model.Flag
-import com.runelive.model.PlayerRights
-import com.runelive.model.container.impl.Equipment
-import com.runelive.model.definitions.WeaponAnimations
-import com.runelive.model.definitions.WeaponInterfaces
-import com.runelive.model.player.command.Command
-import com.runelive.world.World
-import com.runelive.world.content.BonusManager
-import com.runelive.world.entity.impl.player.Player
+import com.chaos.model.Flag
+import com.chaos.model.PlayerRights
+import com.chaos.model.container.impl.Equipment
+import com.chaos.model.definitions.WeaponAnimations
+import com.chaos.model.definitions.WeaponInterfaces
+import com.chaos.model.player.command.Command
+import com.chaos.world.World
+import com.chaos.world.content.BonusManager
+import com.chaos.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas

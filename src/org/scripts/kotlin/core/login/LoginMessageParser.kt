@@ -1,8 +1,8 @@
 package org.scripts.kotlin.core.login
 
-import com.runelive.world.entity.impl.player.Player;
-import com.runelive.GameSettings
-import com.runelive.world.content.WellOfGoodwill
+import com.chaos.world.entity.impl.player.Player;
+import com.chaos.GameSettings
+import com.chaos.world.content.WellOfGoodwill
 import java.util.concurrent.TimeUnit
 
 /**
@@ -14,10 +14,10 @@ class LoginMessageParser {
         fun sendLogin(player: Player) {
             if (GameSettings.DOUBLE_EXP) {
                 player.getPacketSender().sendMessage(
-                        "@bla@Welcome to RuneLive! We're currently in Double EXP mode! (@red@X2.0@bla@)")
+                        "@bla@Welcome to Chaos! We're currently in Double EXP mode! (@red@X2.0@bla@)")
             } else {
                 player.getPacketSender().sendMessage(
-                        "@bla@Welcome to RuneLive! We're currently in Normal EXP mode! (@red@X1.0@bla@)")
+                        "@bla@Welcome to Chaos! We're currently in Normal EXP mode! (@red@X1.0@bla@)")
             }
             if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
                 player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.")
@@ -46,17 +46,17 @@ class LoginMessageParser {
 
             if (GameSettings.DOUBLE_POINTS) {
                 player.getPacketSender().sendMessage(
-                        "<img=4> <col=008FB2>RuneLive currently has a double points event going on, make sure to use it!")
+                        "<img=4> <col=008FB2>Chaos currently has a double points event going on, make sure to use it!")
             }
 
             if (GameSettings.DOUBLE_VOTE_TOKENS) {
                 player.getPacketSender().sendMessage(
-                        "<img=4> <col=008FB2>RuneLive currently has a double vote rewards event going on, make sure to use it!")
+                        "<img=4> <col=008FB2>Chaos currently has a double vote rewards event going on, make sure to use it!")
             }
 
             if (GameSettings.TRIPLE_VOTE_TOKENS) {
                 player.getPacketSender().sendMessage(
-                        "<img=4> <col=008FB2>RuneLive currently has a triple vote rewards event going on, make sure to use it!")
+                        "<img=4> <col=008FB2>Chaos currently has a triple vote rewards event going on, make sure to use it!")
             }
 
             if (WellOfGoodwill.isActive()) {

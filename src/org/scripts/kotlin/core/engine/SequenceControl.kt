@@ -1,9 +1,9 @@
 package org.scripts.kotlin.core.engine
 
-import com.runelive.world.content.EvilTrees
-import com.runelive.world.content.ShootingStar
-import com.runelive.world.content.minigames.impl.FightPit
-import com.runelive.world.content.minigames.impl.PestControl
+import com.chaos.world.content.EvilTrees
+import com.chaos.world.content.ShootingStar
+import com.chaos.world.content.minigames.impl.FightPit
+import com.chaos.world.content.minigames.impl.PestControl
 
 /**
  * Created by Dave on 05/07/2016.
@@ -20,6 +20,6 @@ object SequenceControl {
         PestControl.sequence()
         ShootingStar.sequence()
         EvilTrees.sequence()
-        System.out.println("RuneLive has successfully started up World sequences.")
+        System.out.println("Chaos has successfully started up World sequences.")
     }
 }

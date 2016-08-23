@@ -1,19 +1,19 @@
 package org.scripts.kotlin.content.commands
 
-import com.runelive.GameServer
-import com.runelive.engine.task.Task
-import com.runelive.engine.task.TaskManager
-import com.runelive.model.PlayerRights
-import com.runelive.model.player.command.Command
-import com.runelive.util.FilterExecutable
-import com.runelive.world.World
-import com.runelive.world.content.Scoreboard
-import com.runelive.world.content.WellOfGoodwill
-import com.runelive.world.content.clan.ClanChatManager
-import com.runelive.world.content.grandexchange.GrandExchangeOffers
-import com.runelive.world.content.pos.PlayerOwnedShops
-import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering
-import com.runelive.world.entity.impl.player.Player
+import com.chaos.GameServer
+import com.chaos.engine.task.Task
+import com.chaos.engine.task.TaskManager
+import com.chaos.model.PlayerRights
+import com.chaos.model.player.command.Command
+import com.chaos.util.FilterExecutable
+import com.chaos.world.World
+import com.chaos.world.content.Scoreboard
+import com.chaos.world.content.WellOfGoodwill
+import com.chaos.world.content.clan.ClanChatManager
+import com.chaos.world.content.grandexchange.GrandExchangeOffers
+import com.chaos.world.content.pos.PlayerOwnedShops
+import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
+import com.chaos.world.entity.impl.player.Player
 
 import java.io.IOException
 

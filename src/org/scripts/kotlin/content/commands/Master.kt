@@ -1,11 +1,11 @@
 package org.scripts.kotlin.content.commands
 
-import com.runelive.model.Flag
-import com.runelive.model.PlayerRights
-import com.runelive.model.Skill
-import com.runelive.model.player.command.Command
-import com.runelive.world.content.skill.SkillManager
-import com.runelive.world.entity.impl.player.Player
+import com.chaos.model.Flag
+import com.chaos.model.PlayerRights
+import com.chaos.model.Skill
+import com.chaos.model.player.command.Command
+import com.chaos.world.content.skill.SkillManager
+import com.chaos.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas

@@ -1,15 +1,15 @@
 package org.runelive.world.content.combat.instanced
 
-import com.runelive.engine.task.Task
-import com.runelive.engine.task.TaskManager
-import com.runelive.model.GameObject
-import com.runelive.model.Locations.Location
-import com.runelive.model.Position
-import com.runelive.model.RegionInstance
-import com.runelive.model.RegionInstance.RegionInstanceType
-import com.runelive.world.World
-import com.runelive.world.entity.impl.npc.NPC
-import com.runelive.world.entity.impl.player.Player
+import com.chaos.engine.task.Task
+import com.chaos.engine.task.TaskManager
+import com.chaos.model.GameObject
+import com.chaos.model.Locations.Location
+import com.chaos.model.Position
+import com.chaos.model.RegionInstance
+import com.chaos.model.RegionInstance.RegionInstanceType
+import com.chaos.world.World
+import com.chaos.world.entity.impl.npc.NPC
+import com.chaos.world.entity.impl.player.Player
 
 /**
  * @Author Vados
