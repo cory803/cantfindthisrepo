@@ -1,6 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.runelive.model.PlayerRights
+import com.runelive.model.container.impl.Shop
 import com.runelive.model.definitions.ItemDefinition
 import com.runelive.model.npc.drops.LootSystem
 import com.runelive.model.player.command.Command
@@ -47,6 +48,10 @@ class Reload(playerRights: PlayerRights) : Command(playerRights) {
                 "itemdef" -> {
                     ItemDefinition.init()
                     player.packetSender.sendMessage("Successfully reloaded item defs.")
+                }
+                "shops" -> {
+                    Shop.ShopManager.parseShops().load()
+                    player.packetSender.sendMessage("Successfully reloaded shops.")
                 }
             }
         }

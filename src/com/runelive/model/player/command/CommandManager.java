@@ -429,6 +429,7 @@ public class CommandManager {
             }
         });
         commands.put("reload", new Reload(PlayerRights.OWNER));
+        commands.put("openshop", new OpenShop(PlayerRights.OWNER));
         commands.put("findnpc", new FindNPC(PlayerRights.OWNER));
         commands.put("tasks", new Command(PlayerRights.OWNER) {
             @Override
