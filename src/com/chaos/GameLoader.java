@@ -34,7 +34,6 @@ import com.chaos.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData
 import com.chaos.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
 import com.chaos.world.content.combat.strategy.CombatStrategies;
 import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.grandexchange.GrandExchangeOffers;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.entity.impl.npc.NPC;
 
@@ -65,16 +64,12 @@ public final class GameLoader {
 
 	public void init() throws Exception {
 		ConnectionHandler.init();
-		//RegionClipping.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
 		FontUtils.initialize(new Archive(GameServer.cache.getFile(0, 1)));
-		//Region.init();
 		GameObjectDefinition.init();
 		World.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
 		CustomObjects.init();
 		ItemDefinition.init().load();
 		Lottery.init();
-		GrandExchangeOffers.init();
-		//SingleDoor.getSingleton().load();
 		DoorManager.init();
 		PlayerOwnedShops.init();
 		WellOfGoodwill.init();

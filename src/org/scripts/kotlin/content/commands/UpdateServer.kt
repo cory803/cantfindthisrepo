@@ -10,7 +10,6 @@ import com.chaos.world.World
 import com.chaos.world.content.Scoreboard
 import com.chaos.world.content.WellOfGoodwill
 import com.chaos.world.content.clan.ClanChatManager
-import com.chaos.world.content.grandexchange.GrandExchangeOffers
 import com.chaos.world.content.pos.PlayerOwnedShops
 import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.chaos.world.entity.impl.player.Player
@@ -58,7 +57,6 @@ class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
                             }
                         })
                         WellOfGoodwill.save()
-                        GrandExchangeOffers.save()
                         PlayerOwnedShops.saveShops()
                         try {
                             Scoreboard.save()

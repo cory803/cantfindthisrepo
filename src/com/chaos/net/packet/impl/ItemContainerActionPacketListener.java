@@ -34,8 +34,6 @@ import com.chaos.world.content.Trading;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.magic.Autocasting;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
-import com.chaos.world.content.grandexchange.GrandExchange;
-import com.chaos.world.content.grandexchange.GrandExchangeOffer;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
@@ -69,12 +67,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			// + " - " + interfaceId + " - " + slot + "");
 		}
 		switch (interfaceId) {
-		case GrandExchange.COLLECT_ITEM_PURCHASE_INTERFACE:
-			GrandExchange.collectItem(player, id, slot, GrandExchangeOffer.OfferType.BUYING);
-			break;
-		case GrandExchange.COLLECT_ITEM_SALE_INTERFACE:
-			GrandExchange.collectItem(player, id, slot, GrandExchangeOffer.OfferType.SELLING);
-			break;
 		case Trading.INTERFACE_ID:
 			if (player.getTrading().inTrade()) {
 				player.getTrading().tradeItem(id, 1, slot);

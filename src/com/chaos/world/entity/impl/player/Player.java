@@ -63,7 +63,6 @@ import com.chaos.world.content.combat.strategy.CombatStrategy;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightType;
 import com.chaos.world.content.dialogue.Dialogue;
-import com.chaos.world.content.grandexchange.GrandExchangeSlot;
 import com.chaos.world.content.minigames.MinigameAttributes;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
@@ -614,7 +613,6 @@ public class Player extends Character {
     private WeaponInterface weapon;
     private Item untradeableDropItem;
     private Object[] usableObject;
-    private GrandExchangeSlot[] grandExchangeSlots = new GrandExchangeSlot[6];
     private Task currentTask;
     private Position resetPosition;
     private Pouch selectedPouch;
@@ -2455,18 +2453,6 @@ public class Player extends Character {
 
     public void setGePricePerItem(int gePricePerItem) {
         this.gePricePerItem = gePricePerItem;
-    }
-
-    public GrandExchangeSlot[] getGrandExchangeSlots() {
-        return grandExchangeSlots;
-    }
-
-    public void setGrandExchangeSlots(GrandExchangeSlot[] GrandExchangeSlots) {
-        this.grandExchangeSlots = GrandExchangeSlots;
-    }
-
-    public void setGrandExchangeSlot(int index, GrandExchangeSlot state) {
-        this.grandExchangeSlots[index] = state;
     }
 
     public void setSelectedGeSlot(int slot) {

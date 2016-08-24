@@ -315,16 +315,6 @@ public class ItemActionPacketListener implements PacketListener {
 			} else
 				player.getInventory().add(413, 1);
 			break;
-		case 405:
-			//TODO: Redo these weird caskets
-			player.getInventory().delete(405, 1);
-			if (Misc.getRandom(1) < 1) {
-				int coins = Misc.getRandom(30000);
-				player.getInventory().add(995, coins);
-				player.getPacketSender().sendMessage("The casket contained " + coins + " coins!");
-			} else
-				player.getPacketSender().sendMessage("The casket was empty.");
-			break;
 		case 15084:
 			if (player.getClanChatName() == null) {
 				player.getPacketSender().sendMessage("You need to be in a clanchat channel to roll a dice.");

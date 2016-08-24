@@ -1,11 +1,9 @@
 package com.chaos.net.packet.impl;
 
-import com.chaos.GameSettings;
 import com.chaos.model.Item;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
-import com.chaos.world.content.grandexchange.GrandExchange;
 import com.chaos.world.entity.impl.player.Player;
 
 public class GESelectItemPacketListener implements PacketListener {
@@ -22,12 +20,6 @@ public class GESelectItemPacketListener implements PacketListener {
 						.sendMessage("This item can currently not be purchased or sold in the Grand Exchange.");
 				return;
 			}
-			if (GameSettings.DEBUG_MODE) {
-				// PlayerLogs.log(player,
-				// "" + player.getUsername() + " in GESelectItemPacketListener:
-				// " + item + "");
-			}
-			GrandExchange.setSelectedItem(player, item);
 		}
 	}
 

@@ -141,10 +141,6 @@ public class LootSystem {
          * Handle random caskets, keys, and wilderness scrolls.
          */
         if (goGlobal) {
-            if (p.getLocation() == Locations.Location.WILDERNESS || p.getLocation() == Locations.Location.WILDKEY_ZONE) {
-                wildernessScrollDrop(p, n.getPosition().copy());
-            }
-            casketDrop(p, n.getDefinition().getCombatLevel(), n.getPosition().copy());
             if (p.getLocation() == Locations.Location.WILDERNESS) {
                 wildKeys(p, n.getDefinition().getCombatLevel(), n.getPosition().copy());
             }
@@ -322,26 +318,13 @@ public class LootSystem {
         }
     }
 
-    /**
-     * Jonny wanted these to be in the drop system.  Since I don't know much about them I will keep them the same.
-     * @param player
-     * @param combat
-     * @param pos
-     */
-    private static void casketDrop(Player player, int combat, Position pos) {
-        int chance = 1 + combat;
-        if (Misc.getRandom(combat <= 50 ? 1300 : 1000) < chance) {
-            GroundItemManager.spawnGroundItem(player,
-                    new GroundItem(new Item(7956), pos, player.getUsername(), false, 150, true, 200));
-        }
-    }
-
     private static int selectKey(int[] array) {
         int rnd = new Random().nextInt(array.length);
         return array[rnd];
     }
 
     private static void wildKeys(Player player, int combat, Position pos) {
+        //TODO: Redo wilderness key systems
         if (Misc.getRandom(combat <= 50 ? 400 : 350) < 5) {
             GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(selectKey(player.allKeys)), pos,
                     player.getUsername(), false, 150, true, 200));

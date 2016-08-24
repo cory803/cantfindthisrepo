@@ -45,7 +45,6 @@ import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightType;
 import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.dialogue.DialogueOptions;
-import com.chaos.world.content.grandexchange.GrandExchange;
 import com.chaos.world.content.minigames.impl.ClawQuest;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.FarmingQuest;
@@ -1048,9 +1047,6 @@ public class ButtonClickPacketListener implements PacketListener {
 			return true;
 		}
 		if (PlayersOnlineInterface.handleButton(player, id)) {
-			return true;
-		}
-		if (GrandExchange.handleButton(player, id)) {
 			return true;
 		}
 		if (PlayerOwnedShops.posButtons(player, id)) {

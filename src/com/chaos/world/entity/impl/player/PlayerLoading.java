@@ -30,7 +30,6 @@ import com.chaos.world.content.KillsTracker;
 import com.chaos.world.content.KillsTracker.KillsEntry;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.combat.weapon.FightType;
-import com.chaos.world.content.grandexchange.GrandExchangeSlot;
 import com.chaos.world.content.skill.SkillManager.Skills;
 import com.chaos.world.content.skill.impl.slayer.SlayerMaster;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
@@ -927,12 +926,6 @@ public class PlayerLoading {
 		if (reader.has("bank-8")) {
 			player.setBank(8, new Bank(player)).getBank(8)
 					.addItems(builder.fromJson(reader.get("bank-8").getAsJsonArray(), Item[].class), false);
-		}
-
-		if (reader.has("ge-slots")) {
-			GrandExchangeSlot[] slots = builder.fromJson(reader.get("ge-slots").getAsJsonArray(),
-					GrandExchangeSlot[].class);
-			player.setGrandExchangeSlots(slots);
 		}
 
 		if (reader.has("store")) {
