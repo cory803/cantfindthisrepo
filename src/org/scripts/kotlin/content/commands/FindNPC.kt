@@ -23,8 +23,11 @@ class FindNPC(staffRights: StaffRights) : Command(staffRights) {
             var found = false
             player.packetSender.sendMessage("Trying to find name id for npc name " + name)
             for (i in 0..NpcDefinition.getMaxAmountOfNpcs() - 1 - 1) {
+                if(NpcDefinition.forId(i) == null) {
+                    continue
+                }
                 if (NpcDefinition.forId(i).name.toLowerCase().contains(name)) {
-                    player.packetSender.sendMessage("Found npc with name [" + ItemDefinition.forId(i).getName() + "] - id: " + i)
+                    player.packetSender.sendMessage("Found npc with name [" + NpcDefinition.forId(i).getName() + "] - id: " + i)
                     found = true
                 }
             }

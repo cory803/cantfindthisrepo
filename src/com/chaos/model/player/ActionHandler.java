@@ -53,12 +53,6 @@ public final class ActionHandler {
             player.getWalkingQueue().clear();
             return;
         }
-        if (GameSettings.DEBUG_MODE) {
-            // PlayerLogs.log(player, "" + player.getUsername()
-            // + " in NPCOptionPacketListener: " + npc.getId() + " -
-            // FIRST_CLICK_OPCODE");
-        }
-
         if (SummoningData.beastOfBurden(npc.getId())) {
             Summoning summoning = player.getSummoning();
             if (summoning.getBeastOfBurden() != null && summoning.getFamiliar() != null
@@ -72,6 +66,14 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //Duel arena healers
+            case 959:
+            case 960:
+            case 961:
+            case 962:
+                player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Healers(player));
+                break;
+
             case 501:
                 DialogueManager.start(player, 224);
                 player.setDialogueActionId(224);
@@ -221,6 +223,14 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Duel arena healers
+            case 959:
+            case 960:
+            case 961:
+            case 962:
+                player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.HealersQuickOption(player));
+                break;
+
             case 1:
             case 2:
             case 3:
@@ -245,7 +255,6 @@ public final class ActionHandler {
             case 1308:
             case 1314:
                 ThievingManager.initMobData(player, ThievingManager.forMobData(npc.getId()));
-                break;
             case 6874:
             case 6873:
                 if (player.getSummoning().getFamiliar() == null
