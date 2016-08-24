@@ -1,5 +1,7 @@
 package com.chaos.model;
 
+import com.chaos.world.entity.impl.player.Player;
+
 public enum DonatorRights {
 
     PLAYER("Player", "<col=ff0000>", "", 0),
@@ -79,6 +81,14 @@ public enum DonatorRights {
      */
     public int getCrown() {
         return this.crown;
+    }
+
+    public double getSpecialAccuracyBoost(Player player) {
+        if(player.getLocation() == Locations.Location.WILDERNESS || player.getLocation() == Locations. Location.WILDKEY_ZONE) {
+            return 0;
+        } else {
+            return this.ordinal() / 100;
+        }
     }
 
 }
