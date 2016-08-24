@@ -140,19 +140,19 @@ public enum Direction {
 		case NORTH:
 			return new int[] { 0, 1 };
 		case NORTH_EAST:
-			return new int[] { 1, 1 }; // TODO: check
+			return new int[] { 1, 1 };
 		case EAST:
 			return new int[] { 1, 0 };
 		case SOUTH_EAST:
-			return new int[] { 1, -1 }; // TODO: check
+			return new int[] { 1, -1 };
 		case SOUTH:
 			return new int[] { 0, -1 };
 		case SOUTH_WEST:
-			return new int[] { -1, -1 }; // TODO: check
+			return new int[] { -1, -1 };
 		case WEST:
 			return new int[] { -1, 0 };
 		case NORTH_WEST:
-			return new int[] { -1, 1 }; // TODO: check
+			return new int[] { -1, 1 };
 		default:
 			return new int[] { 0, 0 };
 		}

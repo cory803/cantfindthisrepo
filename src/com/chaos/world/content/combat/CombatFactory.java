@@ -1348,7 +1348,6 @@ public final class CombatFactory {
      * @param damage
      *            the total amount of damage dealt.
      */
-    // TODO: Use abstraction for this, will need it when more effects are added.
     protected static void handleArmorEffects(Character attacker, Character target, int damage, CombatType combatType) {
 
         if (attacker.getConstitution() > 0 && damage > 0) {

@@ -162,13 +162,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	}
 
 	public static void fireProjectile(Character e, Character victim, final AmmunitionData ammo, boolean dBow) {
-		TaskManager.submit(new Task(1, e.getCombatBuilder(), false) { // TODO
-																		// FIX
-																		// THIS
-																		// PROJECTILE,
-																		// SHOULDNT
-																		// BE A
-																		// TASK
+		TaskManager.submit(new Task(1, e.getCombatBuilder(), false) {
 			@Override
 			protected void execute() {
 				new Projectile(e, victim, ammo.getProjectileId(), ammo.getProjectileDelay() + 16,

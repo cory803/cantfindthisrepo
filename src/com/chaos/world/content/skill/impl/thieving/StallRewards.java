@@ -6,6 +6,8 @@ import java.util.Arrays;
 
 public enum StallRewards {
 
+    //TODO: Redo thieving rewards
+
     BAKERS_STALL(
             new WeightedItem(2309, 1, 1),
             new WeightedItem(1891, 1, 2),

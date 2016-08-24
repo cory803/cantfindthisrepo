@@ -130,16 +130,12 @@ public class LootSystem {
 
         final boolean goGlobal = p.getPosition().getZ() >= 0 && p.getPosition().getZ() < 4;
 
-        //TODO: Setup RDT drops.
-
         /**
          * Drop charms
          */
         if (table.getCharms() != null) {
             dropCharm(p, n.getPosition().copy(), table.getCharms());
         }
-
-        //TODO: Setup clue scrolls when we add them.
 
         /**
          * Handle random caskets, keys, and wilderness scrolls.
@@ -326,25 +322,6 @@ public class LootSystem {
         }
     }
 
-    //TODO: Once we setup the rare drop table.
-    /*private static Item rollRareDropTable(Player pl, NPC n, int[][][] table) {
-        if (table == null) {
-            return null;
-        }
-
-        /**
-         * Influence the drop table with a ROW
-         */
-        /*boolean ROW = (pl.getEquipment().get(Equipment.RING_SLOT).getId() == 2572 || pl.getEquipment().get(Equipment.RING_SLOT).getId() == 21110);
-
-        if (dice.nextInt(2000) <= (ROW ? 24 : 9)) {
-
-        }
-
-        return null;
-    }*/
-
-
     /**
      * Jonny wanted these to be in the drop system.  Since I don't know much about them I will keep them the same.
      * @param player
@@ -356,14 +333,6 @@ public class LootSystem {
         if (Misc.getRandom(combat <= 50 ? 1300 : 1000) < chance) {
             GroundItemManager.spawnGroundItem(player,
                     new GroundItem(new Item(7956), pos, player.getUsername(), false, 150, true, 200));
-        }
-    }
-
-    private static void wildernessScrollDrop(Player player, Position pos) {
-        int chance = 50;
-        if (Misc.getRandom(chance) == 3) {
-            GroundItemManager.spawnGroundItem(player,
-                    new GroundItem(new Item(15355), pos, player.getUsername(), false, 150, true, 200));
         }
     }
 

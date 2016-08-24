@@ -11,7 +11,6 @@ import com.chaos.world.entity.impl.player.Player;
  */
 public class CombatRangedAmmo {
 
-	// TODO: Add poisonous ammo
 	public enum RangedWeaponData {
 
 		LONGBOW(new int[] { 839 }, new AmmunitionData[] { AmmunitionData.BRONZE_ARROW },

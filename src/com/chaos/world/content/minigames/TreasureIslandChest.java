@@ -12,6 +12,8 @@ import com.chaos.world.entity.impl.player.Player;
  */
 public class TreasureIslandChest {
 
+	//TODO: Remove treasure island
+
 	public static int KEY_OF_FEAR = 9725;
 	public static int KEY_OF_DEATH = 9722;
 	public static int KEY_OF_COBRA = 9724;

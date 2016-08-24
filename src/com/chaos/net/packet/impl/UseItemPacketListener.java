@@ -569,19 +569,6 @@ public class UseItemPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("The cracker explodes and you receive a Party hat!");
 			player.getInventory().add(1038 + Misc.getRandom(10), 1);
 			target.getPacketSender().sendMessage("" + player.getUsername() + " has received a Party hat!");
-			/*
-			 * if(Misc.getRandom(1) == 1) {
-			 * target.getPacketSender().sendMessage(
-			 * "The cracker explodes and you receive a Party hat!");
-			 * target.getInventory().add((1038 + Misc.getRandom(5)*2), 1);
-			 * player.getPacketSender().sendMessage(""+target.getUsername()+
-			 * " has received a Party hat!"); } else {
-			 * player.getPacketSender().sendMessage(
-			 * "The cracker explodes and you receive a Party hat!");
-			 * player.getInventory().add((1038 + Misc.getRandom(5)*2), 1);
-			 * target.getPacketSender().sendMessage(""+player.getUsername()+
-			 * " has received a Party hat!"); }
-			 */
 			break;
 		case 11211:
 			if(!player.isSpecialPlayer()) {
@@ -643,7 +630,7 @@ public class UseItemPacketListener implements PacketListener {
 			itemOnObject(player, packet);
 			break;
 		case ITEM_ON_GROUND_ITEM:
-			// TODO
+			//TODO: Add item on ground packet for telegrab etc
 			break;
 		case ITEM_ON_NPC:
 			itemOnNpc(player, packet);

@@ -524,35 +524,35 @@ public class Sounds {
 		case 13:
 			return 473;
 		case 14:
-			// TODO find pirate music
+
 		case 15:
 			return 141;
 		case 16:
-			// TODO find abbys music
+
 		case 17:
 			return 172;
 		case 18:
-			// TODO find bandit camp music
+
 		case 19:
 			return 66;
 		case 20:
-			// TODO find bedibin camp music lol wut
+
 		case 21:
-			// TODO find the song "morooned"
+
 		case 22:
 			return 119;
 		case 23:
 			return 87;
 		case 24:
-			// TODO find burthrope music
+
 		case 25:
 			return 104;
 		case 26:
-			// TODO find canifis "village" music
+
 		case 27:
-			// TODO find maze music (random
+
 		case 28:
-			// TODO find cranador music lol
+
 		case 29:
 			return 151;
 		case 30:
@@ -564,21 +564,21 @@ public class Sounds {
 		case 33:
 			return 23;
 		case 34:
-			// TODO find ham hideout music
+
 		case 35:
 			return 114;
 		case 36:
 			return 412;
 		case 37:
-			// TODO find misc music
+
 		case 38:
 			return 286;
 		case 39:
-			// TODO find port Phasmatys music
+
 		case 40:
 			return 35;
 		case 41:
-			// TODO find long way home song
+
 		case 42:
 			return 7;
 		case 43:
@@ -602,7 +602,7 @@ public class Sounds {
 		case 52:
 			return 28;
 		case 53:
-			// TODO find kalphite queen music
+
 		case 54:
 			return 2;
 		case 55:

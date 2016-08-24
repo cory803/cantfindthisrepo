@@ -19,7 +19,7 @@ public class GroundItemManager {
 
 	/*
 	 * Our list which holds all grounditems, used an CopyOnWriteArrayList to
-	 * prevent modification issues TODO: Change into a queue of some sort
+	 * prevent modification issues
 	 */
 	private static CopyOnWriteArrayList<GroundItem> groundItems = new CopyOnWriteArrayList<GroundItem>();
 

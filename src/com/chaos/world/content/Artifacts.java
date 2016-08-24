@@ -14,28 +14,7 @@ public class Artifacts {
 			14887, 14888, 14889, 14890, 14891, 14892 };
 
 	public static void sellArtifacts(Player c) {
-		c.getPacketSender().sendInterfaceRemoval();
-		boolean artifact = false;
-		for (int k = 0; k < artifacts.length; k++) {
-			if (c.getInventory().contains(artifacts[k])) {
-				artifact = true;
-			}
-		}
-		if (!artifact) {
-			c.getPacketSender().sendMessage("You do not have any Artifacts in your inventory to sell to Mandrith.");
-			return;
-		}
-		for (int i = 0; i < artifacts.length; i++) {
-			for (Item item : c.getInventory().getValidItems()) {
-				if (item.getId() == artifacts[i]) {
-					c.getInventory().delete(artifacts[i], 1);
-					c.getInventory().add(995, ItemDefinition.forId(artifacts[i]).getValue());
-					c.getInventory().refreshItems();
-				}
-			}
-		}
-		c.getPacketSender().sendMessage("You've sold your artifacts.");
-
+		c.getPacketSender().sendMessage("Artifacts needs to be redone");
 	}
 
 	/*

@@ -9,6 +9,8 @@ import com.chaos.util.Misc;
 
 public enum SlayerTasks {
 
+	//TODO: Redo slayer tasks
+
 	NO_TASK(null, 0, null, 0, null),
 
 	/**

@@ -96,6 +96,7 @@ public class Lottery {
 	 *            The player who wants to enter the lottery.
 	 */
 	public static void enterLottery(Player p) {
+		//TODO: Redo lottery
 		if (!LOTTERY_ENABLED) {
 			p.getPacketSender().sendInterfaceRemoval()
 					.sendMessage("The lottery is currently not active. Try again soon!");

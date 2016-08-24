@@ -239,9 +239,7 @@ public class DwarfMultiCannon {
 		Sounds.sendGlobalSound(c, Sound.ROTATING_CANNON);
 	}
 
-	public static void attack(Player player) { // TODO: Bad hardcoding of
-												// setting damage, switch to
-												// combathittask
+	public static void attack(Player player) {
 		DwarfCannon cannon = player.getCannon();
 		if (cannon == null)
 			return;

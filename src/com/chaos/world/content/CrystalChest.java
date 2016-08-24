@@ -43,11 +43,8 @@ public class CrystalChest {
 		p.getClickDelay().reset();
 	}
 
-	private static final Item[][] itemRewards = { { new Item(1969, 1), new Item(995, 200000) }, // set
-																								// 1
-																								// SPINACH
-																								// ROLL
-			{ new Item(1631, 1) }, // set 2 Dragonstone only set
+	//TODO: Redo crystal key chest rewards
+	private static final Item[][] itemRewards = { { new Item(1969, 1), new Item(995, 200000) },
 			{ new Item(995, 100000), new Item(373, 1) }, // set 3 Swordfish set
 			{ new Item(554, 50), new Item(555, 50), new Item(556, 50), new Item(557, 50), new Item(558, 50),
 					new Item(559, 50), new Item(560, 10), new Item(561, 10), new Item(562, 10), new Item(563, 10),

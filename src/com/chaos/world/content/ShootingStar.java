@@ -108,34 +108,6 @@ public class ShootingStar {
 		return gilded[(int) (Math.random() * gilded.length)];
 	}
 
-	public static void starDustExchange(Player player) {
-			if (!player.getInventory().contains(13727)) {
-				DialogueManager.sendStatement(player, "You do not have any Star dust to exchange.");
-				return;
-			} else {
-				int piece = randomPiece();
-				int gildedChance = Misc.inclusiveRandom(1, 256);
-				int amount = player.getInventory().getAmount(13727);
-				if(gildedChance == 1 && amount >= 200) {
-					World.sendMessage("<icon=1><col=FF8C38>" + player.getUsername() + " has just received " + ItemDefinition.forId(piece).getName() + " from Star dust!");
-					player.getInventory().delete(13727, player.getInventory().getAmount(13727), true);
-					player.getSkillManager().addExactExperience(Skill.MINING, 70*amount);
-					player.getInventory().add(piece, 1);
-					player.getPacketSender().sendMessage("Due to you getting a rare item, Miner Magnus refuses");
-					player.getPacketSender().sendMessage("Anymore rewards apart from your experience");
-					return;
-				}
-				player.getInventory().delete(13727, player.getInventory().getAmount(13727), true);
-				player.getSkillManager().addExactExperience(Skill.MINING, 70*amount);
-				player.getInventory().add(995, 1_000*amount);
-				player.getInventory().add(448, amount/3); // Mithril Ore
-				player.getInventory().add(450, amount/4); // Adamant Ore
-				player.getInventory().add(452, amount/5); // Runite Ore
-				player.getPacketSender().sendMessage("You have recieved "+30*amount+" experience for exchanging your dust.");
-				return;
-				}
-		}
-
 	public static void despawn(boolean respawn) {
 		if (respawn) {
 			timer.reset(0);

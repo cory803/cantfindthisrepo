@@ -259,7 +259,6 @@ public class CommandManager {
         commands.put("massban", new MassBan(StaffRights.MODERATOR));
         commands.put("unmassban", new UnMassBan(StaffRights.MODERATOR));
         commands.put("teletome", new TeleportPlayerToMe(StaffRights.MODERATOR));
-        //TODO: Yell banning
         commands.put("ban", new Ban(StaffRights.MODERATOR));
         commands.put("unban", new Unban(StaffRights.MODERATOR));
         commands.put("ipmute", new IpMute(StaffRights.MODERATOR));

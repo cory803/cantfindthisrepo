@@ -316,6 +316,7 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getInventory().add(413, 1);
 			break;
 		case 405:
+			//TODO: Redo these weird caskets
 			player.getInventory().delete(405, 1);
 			if (Misc.getRandom(1) < 1) {
 				int coins = Misc.getRandom(30000);

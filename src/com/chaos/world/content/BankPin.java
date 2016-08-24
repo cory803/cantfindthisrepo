@@ -109,6 +109,7 @@ public class BankPin {
 					player.setNewPlayer(false);
 					player.getPacketSender().sendInterfaceRemoval();
 					if (ConnectionHandler.getStarters(player.getHostAddress()) <= GameSettings.MAX_STARTERS_PER_IP) {
+						// TODO: Redo the starter
 						if (!player.getGameModeAssistant().isIronMan()) {
 							player.getInventory().add(995, 10000).add(1153, 1).add(1115, 1).add(1067, 1).add(1323, 1)
 									.add(1191, 1).add(841, 1).add(882, 50).add(1167, 1).add(1129, 1).add(1095, 1)
