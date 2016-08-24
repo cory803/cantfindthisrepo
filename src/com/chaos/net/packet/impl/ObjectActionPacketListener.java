@@ -1021,7 +1021,24 @@ public class ObjectActionPacketListener implements PacketListener {
 									index = 3;
 									movePos = new Position(2925, leaveRoom ? 5332 : 5331, 2);
 								}
-								int killcount = 20;
+								int killcount = 10;
+								switch(player.getDonatorRights()) {
+									case PREMIUM:
+										killcount = 8;
+										break;
+									case EXTREME:
+										killcount = 5;
+										break;
+									case LEGENDARY:
+										killcount = 0;
+										break;
+									case UBER:
+										killcount = 0;
+										break;
+									case PLATINUM:
+										killcount = 0;
+										break;
+								}
 								if (!leaveRoom && (!player.getStaffRights().isManagement() && player.getMinigameAttributes()
 										.getGodwarsDungeonAttributes().getKillcount()[index] < killcount)) {
 									player.getPacketSender().sendMessage("You need " + Misc.anOrA(bossRoom) + " " + bossRoom

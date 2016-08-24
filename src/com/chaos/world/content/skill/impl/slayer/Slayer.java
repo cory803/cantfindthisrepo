@@ -63,27 +63,6 @@ public class Slayer {
 		}
 	}
 
-	public void resetSlayerTask() {
-		SlayerTasks task = getSlayerTask();
-		if (task == SlayerTasks.NO_TASK)
-			return;
-		this.slayerTask = SlayerTasks.NO_TASK;
-		this.amountToSlay = 0;
-		this.taskStreak = 0;
-		player.getPointsHandler().setSlayerPoints(player.getPointsHandler().getSlayerPoints() - 5, false);
-		PlayerPanel.refreshPanel(player);
-		Player duo = duoPartner == null ? null : World.getPlayerByName(duoPartner);
-		if (duo != null) {
-			duo.getSlayer().setSlayerTask(SlayerTasks.NO_TASK).setAmountToSlay(0).setTaskStreak(0);
-			duo.getPacketSender()
-					.sendMessage("Your partner exchanged 5 Slayer points to reset your team's Slayer task.");
-			PlayerPanel.refreshPanel(duo);
-			player.getPacketSender().sendMessage("You've successfully reset your team's Slayer task.");
-		} else {
-			player.getPacketSender().sendMessage("Your Slayer task has been reset.");
-		}
-	}
-
 	public void killedNpc(NPC npc) {
 		npc.getDefinition();
 		String taskName = NpcDefinition.forId(player.getSlayer().getSlayerTask().getNpcId()).getName();
@@ -141,11 +120,27 @@ public class Slayer {
 	}
 
 	public void giveReward(Player p, int amountToGive) {
+		switch(p.getDonatorRights()) {
+			case PREMIUM:
+				amountToGive *= 1.2;
+				break;
+			case EXTREME:
+				amountToGive *= 1.4;
+				break;
+			case LEGENDARY:
+				amountToGive *= 1.6;
+				break;
+			case UBER:
+				amountToGive *= 1.8;
+				break;
+			case PLATINUM:
+				amountToGive *= 2.0;
+				break;
+		}
 		player.getPointsHandler().setSlayerPoints(amountToGive, true);
 		player.getPacketSender().sendMessage("You received " + amountToGive + " Slayer points.");
 	}
 
-	@SuppressWarnings("incomplete-switch")
 	public void givePoints(SlayerMaster master) {
 		int pointsReceived = 4;
 		switch (master) {

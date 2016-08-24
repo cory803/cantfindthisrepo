@@ -34,6 +34,8 @@ import java.util.logging.Level;
  */
 public class LootSystem {
 
+    //TODO: Redo drop rate systematics
+
     /**
      * Holds all of the drop table information
      */
