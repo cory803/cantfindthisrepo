@@ -6,6 +6,7 @@ import com.chaos.model.options.fiveoption.FiveOption
 import com.chaos.model.options.twooption.TwoOption
 import com.chaos.model.player.GameMode
 import com.chaos.model.player.dialog.Dialog
+import com.chaos.model.player.dialog.DialogHandler
 import com.chaos.model.player.dialog.DialogMessage
 import com.chaos.world.content.BankPin
 import com.chaos.world.entity.impl.player.Player
@@ -29,7 +30,7 @@ class TownCrier(player: Player) : Dialog(player) {
 
     override fun getMessage(): DialogMessage? {
         when (state) {
-            0 -> return createNpc("Hello there, " + player.username + ", I have the ability to help you with your account settings. What would you like to do?")
+            0 -> return createNpc(DialogHandler.CALM, "Hello there, " + player.username + ", I have the ability to help you with your account settings. What would you like to do?")
             1 -> return createOption(object : FiveOption(
                     "Set email-address (used when recovering your password)",
                     if (player.bankPinAttributes.hasBankPin()) "Delete your account pin." else "Set account-pin (used to protect against hackers)",
@@ -74,13 +75,13 @@ class TownCrier(player: Player) : Dialog(player) {
             2 -> {
                 if (!player.equipment.isNaked) {
                     setEndState(state)
-                    return createNpc("You need to have all equipment removed to change game modes")
+                    return createNpc(DialogHandler.CALM, "You need to have all equipment removed to change game modes")
                 }
-                return createNpc("Awh, so I see you want to change game modes? Let me first explain how this process works.")
+                return createNpc(DialogHandler.CALM, "Awh, so I see you want to change game modes? Let me first explain how this process works.")
             }
-            3 -> return createNpc("When you are moving from a higher game mode to a lower one, all your stats and achievements will be reset to ensure " + "that it is fair for everyone.")
-            4 -> return createNpc("However, if you are moving from a lower game mode to a higher one, your skills will be adjust to that of the game mode you choose.")
-            5 -> return createNpc("After hearing about how game mode switching works would you still like to proceed?")
+            3 -> return createNpc(DialogHandler.CALM, "When you are moving from a higher game mode to a lower one, all your stats and achievements will be reset to ensure " + "that it is fair for everyone.")
+            4 -> return createNpc(DialogHandler.CALM, "However, if you are moving from a lower game mode to a higher one, your skills will be adjust to that of the game mode you choose.")
+            5 -> return createNpc(DialogHandler.CALM, "After hearing about how game mode switching works would you still like to proceed?")
             6 -> return createOption(object : TwoOption("Yes, I still want to change game modes.", "No thanks, I will stick with my current game mode.") {
                 override fun execute(player: Player, option: OptionType) {
                     when (option) {
@@ -92,8 +93,8 @@ class TownCrier(player: Player) : Dialog(player) {
                     }
                 }
             })
-            7 -> return createPlayer("Yes, I still want to change game modes.")
-            8 -> return createNpc("Perfect, What game mode would you then like to change to?")
+            7 -> return createPlayer(DialogHandler.CALM, "Yes, I still want to change game modes.")
+            8 -> return createNpc(DialogHandler.CALM, "Perfect, What game mode would you then like to change to?")
             9 -> {
                 if (player.gameModeAssistant.gameMode == GameMode.IRONMAN) {
                     return createOption(object : FiveOption(
@@ -138,9 +139,9 @@ class TownCrier(player: Player) : Dialog(player) {
             10 -> {
                 if (player.gameModeAssistant.gameMode == gameMode) {
                     setEndState(state)
-                    return createNpc("You are already a " + player.gameModeAssistant.modeName + " and therefore cannot change to the game game mode.")
+                    return createNpc(DialogHandler.CALM, "You are already a " + player.gameModeAssistant.modeName + " and therefore cannot change to the game game mode.")
                 } else {
-                    return createNpc("So you would like to change to " + gameMode!!.modeName + "?")
+                    return createNpc(DialogHandler.CALM, "So you would like to change to " + gameMode!!.modeName + "?")
                 }
             }
             11 -> return createOption(object : TwoOption("Yes, I would like to change to " + gameMode!!.modeName, "No, I changed my mind.") {
@@ -154,7 +155,7 @@ class TownCrier(player: Player) : Dialog(player) {
                     }
                 }
             })
-            12 -> return createNpc("I will ask one more time, once you switch to " + gameMode!!.modeName + " it is permanent and cannot be reversed. Are you sure you want to switch modes?")
+            12 -> return createNpc(DialogHandler.CALM, "I will ask one more time, once you switch to " + gameMode!!.modeName + " it is permanent and cannot be reversed. Are you sure you want to switch modes?")
             13 -> return createOption(object : TwoOption("Yes, I would like to change to " + gameMode!!.modeName, "No, I changed my mind.") {
                 override fun execute(player: Player, option: OptionType) {
                     when (option) {
@@ -167,7 +168,7 @@ class TownCrier(player: Player) : Dialog(player) {
                     }
                 }
             })
-            14 -> return createNpc("Congratulations, you are now playing in " + gameMode!!.modeName)
+            14 -> return createNpc(DialogHandler.CALM, "Congratulations, you are now playing in " + gameMode!!.modeName)
         }
         return null
     }

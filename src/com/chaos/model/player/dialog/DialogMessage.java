@@ -4,9 +4,10 @@ import com.chaos.model.options.Option;
 
 public final class DialogMessage {
 
-	public DialogMessage(DialogType type, String ...lines) {
+	public DialogMessage(DialogType type, int dialogueAnimation, String ...lines) {
 		this.type = type;
 		this.lines = lines;
+		this.dialogueAnimation = dialogueAnimation;
 	}
 
 	public DialogMessage(Option option) {
@@ -38,8 +39,17 @@ public final class DialogMessage {
 		return this.option;
 	}
 
+	/**
+	 * Returns the dialogue animation
+	 * @return
+	 */
+	public int getDialogueAnimation() {
+		return this.dialogueAnimation;
+	}
+
 	private Option option;
 	private String[] lines;
 	private DialogType type;
+	private int dialogueAnimation;
 
 }

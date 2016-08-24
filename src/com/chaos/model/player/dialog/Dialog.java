@@ -6,36 +6,32 @@ import com.chaos.world.entity.impl.player.Player;
 
 public abstract class Dialog {
 
-	public static DialogMessage createNpc(String string) {
-		return create(DialogType.NPC, FontUtils.wrapText(FontUtils.FontSize.FANCY, string, 350));
+	public static DialogMessage createNpc(int animation, String string) {
+		return create(DialogType.NPC, animation, FontUtils.wrapText(FontUtils.FontSize.FANCY, string, 350));
 	}
 
-	public static DialogMessage createPlayer(String string) {
-		return create(DialogType.PLAYER, FontUtils.wrapText(FontUtils.FontSize.FANCY, string, 350));
+	public static DialogMessage createPlayer(int animation, String string) {
+		return create(DialogType.PLAYER, animation, FontUtils.wrapText(FontUtils.FontSize.FANCY, string, 350));
 	}
 
-	public static DialogMessage create(DialogType type, String ...lines) {
-		return new DialogMessage(type, lines);
+	public static DialogMessage create(DialogType type, int animation, String ...lines) {
+		return new DialogMessage(type, animation, lines);
 	}
 
-	public static DialogMessage createNpc(String ...lines) {
-		return create(DialogType.NPC, lines);
+	public static DialogMessage createNpc(int animation, String ...lines) {
+		return create(DialogType.NPC, animation, lines);
 	}
 
-	public static DialogMessage createPlayer(String ...lines) {
-		return create(DialogType.PLAYER, lines);
+	public static DialogMessage createPlayer(int animation, String ...lines) {
+		return create(DialogType.PLAYER, animation, lines);
 	}
 
-	public static DialogMessage createStatement(String ...lines) {
-		return create(DialogType.STATEMENT, lines);
+	public static DialogMessage createStatement(int animation, String ...lines) {
+		return create(DialogType.STATEMENT, animation, lines);
 	}
 
 	public static DialogMessage createOption(Option option) {
 		return new DialogMessage(option);
-	}
-
-	public static DialogMessage createEmpty() {
-		return create(DialogType.EMPTY);
 	}
 
 	public Dialog(Player player) {

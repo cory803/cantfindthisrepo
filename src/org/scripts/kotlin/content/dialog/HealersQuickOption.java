@@ -3,6 +3,7 @@ package org.scripts.kotlin.content.dialog;
 import com.chaos.model.Skill;
 import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
+import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -43,7 +44,7 @@ public class HealersQuickOption extends Dialog {
                         }
                     }
                 }
-                return Dialog.createNpc("You have been healed!");
+                return Dialog.createNpc(DialogHandler.CALM, "You have been healed!");
             }
         return null;
     }

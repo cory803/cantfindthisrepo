@@ -7,6 +7,7 @@ import com.chaos.model.options.threeoption.ThreeOption
 import com.chaos.model.options.twooption.TwoOption
 import com.chaos.model.player.GameMode
 import com.chaos.model.player.dialog.Dialog
+import com.chaos.model.player.dialog.DialogHandler
 import com.chaos.model.player.dialog.DialogMessage
 import com.chaos.world.content.BankPin
 import com.chaos.world.content.PlayerPanel
@@ -31,12 +32,12 @@ class Tutorial(player: Player) : Dialog(player) {
 
     override fun getMessage(): DialogMessage? {
         when (state) {
-            0 -> return Dialog.createNpc("Welcome to @red@Chaos@bla@ adventurer! Can I help you in any way?")
-            1 -> return Dialog.createPlayer("Yes, please! How can I get started?")
-            2 -> return Dialog.createNpc("Im glad you asked! The first thing we need to do is get you setup on a game mode.")
-            3 -> return Dialog.createNpc("Here at Chaos we have several game modes for you to choose from. We have Sir, Lord, Legend, Extreme, Realism, and Ironman")
-            4 -> return Dialog.createPlayer("That is a lot to choose from! Where do I start?")
-            5 -> return Dialog.createNpc("That a wonderful question let me help you out.  What mode would you like to learn about?")
+            0 -> return Dialog.createNpc(DialogHandler.CALM, "Welcome to @red@Chaos@bla@ adventurer! Can I help you in any way?")
+            1 -> return Dialog.createPlayer(DialogHandler.CALM, "Yes, please! How can I get started?")
+            2 -> return Dialog.createNpc(DialogHandler.CALM, "Im glad you asked! The first thing we need to do is get you setup on a game mode.")
+            3 -> return Dialog.createNpc(DialogHandler.CALM, "Here at Chaos we have several game modes for you to choose from. We have Sir, Lord, Legend, Extreme, Realism, and Ironman")
+            4 -> return Dialog.createPlayer(DialogHandler.CALM, "That is a lot to choose from! Where do I start?")
+            5 -> return Dialog.createNpc(DialogHandler.CALM, "That a wonderful question let me help you out.  What mode would you like to learn about?")
             6 -> return Dialog.createOption(object : FiveOption(
                     "Learn about Realism mode",
                     "Learn about Extreme mode",
@@ -96,29 +97,29 @@ class Tutorial(player: Player) : Dialog(player) {
             })
             8 -> {
                 state = 5
-                return Dialog.createNpc("Realism is the most prestigious game mode, on Realism you will be playing on 5x exp rates, you also get 15x drop rate, 40% prayer drain rates, and recover spec every 5 seconds!")
+                return Dialog.createNpc(DialogHandler.CALM, "Realism is the most prestigious game mode, on Realism you will be playing on 5x exp rates, you also get 15x drop rate, 40% prayer drain rates, and recover spec every 5 seconds!")
             }
             9 -> {
                 state = 5
-                return Dialog.createNpc("Extreme mode is the second hardest mode here at Chaos. You will be playing on 15x exp rates. You also get 12x drop rate, 50% prayer drain rates, and recover spec every 8 seconds!")
+                return Dialog.createNpc(DialogHandler.CALM, "Extreme mode is the second hardest mode here at Chaos. You will be playing on 15x exp rates. You also get 12x drop rate, 50% prayer drain rates, and recover spec every 8 seconds!")
             }
             10 -> {
                 state = 5
-                return Dialog.createNpc("On Legend mode you will be playing on 35x exp rates. You also get 10x drop rate, 60% prayer drain rates, and recover spec every 10 seconds!")
+                return Dialog.createNpc(DialogHandler.CALM, "On Legend mode you will be playing on 35x exp rates. You also get 10x drop rate, 60% prayer drain rates, and recover spec every 10 seconds!")
             }
             11 -> {
                 state = 5
-                return Dialog.createNpc("On Lord mode you will be playing on 80x exp rates. You also get 8x drop rate, 75% prayer drain rates, and recover spec every 15 seconds!")
+                return Dialog.createNpc(DialogHandler.CALM, "On Lord mode you will be playing on 80x exp rates. You also get 8x drop rate, 75% prayer drain rates, and recover spec every 15 seconds!")
             }
             12 -> {
                 state = 6
-                return Dialog.createNpc("On Sir mode you will be playing on 125x exp rates. You also get 5x drop rate, and recover spec every 20 seconds!")
+                return Dialog.createNpc(DialogHandler.CALM, "On Sir mode you will be playing on 125x exp rates. You also get 5x drop rate, and recover spec every 20 seconds!")
             }
             13 -> {
                 state = 6
-                return Dialog.createNpc("On Ironman you will not be able to use shops or trade with other players. You be on 25x exp rates, 12x drops, 55% prayer drain, and recover spec every 8 seconds!")
+                return Dialog.createNpc(DialogHandler.CALM, "On Ironman you will not be able to use shops or trade with other players. You be on 25x exp rates, 12x drops, 55% prayer drain, and recover spec every 8 seconds!")
             }
-            14 -> return Dialog.createNpc("So you think you are ready? Okay then what game mode would you like to play on?")
+            14 -> return Dialog.createNpc(DialogHandler.CALM, "So you think you are ready? Okay then what game mode would you like to play on?")
             15 -> return Dialog.createOption(object : FiveOption(
                     "Realism Mode",
                     "Extreme Mode",
@@ -177,8 +178,8 @@ class Tutorial(player: Player) : Dialog(player) {
                     }
                 }
             })
-            17 -> return Dialog.createPlayer("I want to choose " + gameMode!!.modeName + "!")
-            18 -> return Dialog.createNpc(gameMode!!.modeName + " is the perfect game mode! However I want to want to make sure that is what you want.")
+            17 -> return Dialog.createPlayer(DialogHandler.CALM, "I want to choose " + gameMode!!.modeName + "!")
+            18 -> return Dialog.createNpc(DialogHandler.CALM, gameMode!!.modeName + " is the perfect game mode! However I want to want to make sure that is what you want.")
             19 -> return Dialog.createOption(object : TwoOption(
                     "Yes I would like to play on " + gameMode!!.modeName,
                     "No, I want to choose another game mode!") {
@@ -199,7 +200,7 @@ class Tutorial(player: Player) : Dialog(player) {
                 player.gameModeAssistant.gameMode = gameMode
                 PlayerPanel.refreshPanel(player)
                 player.packetSender.sendRights()
-                return Dialog.createNpc("Perfect, you are now a " + gameMode!!.modeName + "! Would you like me to show you around Chaos?")
+                return Dialog.createNpc(DialogHandler.CALM, "Perfect, you are now a " + gameMode!!.modeName + "! Would you like me to show you around Chaos?")
             }
             21 -> return Dialog.createOption(object : TwoOption("Yes, can you please show me around Chaos?", "I think that I can manage from here, thanks!") {
                 override fun execute(player: Player, option: Option.OptionType) {
@@ -215,18 +216,18 @@ class Tutorial(player: Player) : Dialog(player) {
                     }
                 }
             })
-            22 -> return Dialog.createPlayer("I think that I can manage from here, thanks!")
+            22 -> return Dialog.createPlayer(DialogHandler.CALM, "I think that I can manage from here, thanks!")
             23 -> {
                 player.setContinueSkipTutorial(true)
                 state = 26
-                return Dialog.createNpc("Alright, sounds good, however we must first set you up with a bank pin to make sure your account is safe from mischievous players.")
+                return Dialog.createNpc(DialogHandler.CALM, "Alright, sounds good, however we must first set you up with a bank pin to make sure your account is safe from mischievous players.")
             }
-            24 -> return Dialog.createPlayer("Yes, can you please show me around Chaos?")
+            24 -> return Dialog.createPlayer(DialogHandler.CALM, "Yes, can you please show me around Chaos?")
             25 -> {
                 player.setContinueTutorial(true)
-                return Dialog.createNpc("Of course I can! Lets make sure you are all setup to proceed on your new journey!")
+                return Dialog.createNpc(DialogHandler.CALM, "Of course I can! Lets make sure you are all setup to proceed on your new journey!")
             }
-            26 -> return Dialog.createNpc("First thing is we are going to set you up with a bank pin to make sure your account is safe from mischievous players.")
+            26 -> return Dialog.createNpc(DialogHandler.CALM, "First thing is we are going to set you up with a bank pin to make sure your account is safe from mischievous players.")
             27 -> {
                 BankPin.init(player, false)
                 return null

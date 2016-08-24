@@ -42,10 +42,10 @@ public final class DialogHandler {
 		if (message.getLines() != null || message.getType() == DialogType.OPTION) {
 			switch (message.getType()) {
 				case PLAYER:
-					this.sendPlayerChat(message.getLines());
+					this.sendPlayerChat(message.getDialogueAnimation(), message.getLines());
 					break;
 				case NPC:
-					this.sendNpcChat(message.getLines());
+					this.sendNpcChat(message.getDialogueAnimation(), message.getLines());
 					break;
 				case STATEMENT:
 					this.sendStatement(message.getLines());
@@ -176,7 +176,7 @@ public final class DialogHandler {
 	/**
 	 * NPC dialogue.
 	 */
-	public void sendNpcChat(String... lines) {
+	public void sendNpcChat(int dialogueAnimation, String... lines) {
 		int emotion = DialogHandler.HAPPY;
 		this.sendNpcChat(lines, emotion);
 	}
@@ -227,26 +227,29 @@ public final class DialogHandler {
 		player.getPacketSender().sendChatboxInterface(4900);
 	}
 
-	public void sendPlayerChat(String... s) {
+	public void sendPlayerChat(int dialogueAnimation, String... s) {
 		switch (s.length) {
 			case 1:
-				this.sendPlayerChat1(s[0]);
+				this.sendPlayerChat1(dialogueAnimation, s[0]);
 				break;
 			case 2:
-				this.sendPlayerChat2(s[0], s[1]);
+				this.sendPlayerChat2(dialogueAnimation, s[0], s[1]);
 				break;
 			case 3:
-				this.sendPlayerChat3(s[0], s[1], s[2]);
+				this.sendPlayerChat3(dialogueAnimation, s[0], s[1], s[2]);
 				break;
 			case 4:
-				this.sendPlayerChat4(s[0], s[1], s[2], s[3]);
+				this.sendPlayerChat4(dialogueAnimation, s[0], s[1], s[2], s[3]);
 				break;
 		}
 	}
 
-	private void sendPlayerChat1(String s) {
+	private void sendPlayerChat1(int animationId, String s) {
 		if (player.isTeleporting()) {
 			return;
+		}
+		if(animationId < 1) {
+			animationId = CALM;
 		}
 		if (player.getTrading().inTrade()) {
 			player.getTrading().declineTrade(true);
@@ -255,15 +258,18 @@ public final class DialogHandler {
 			player.getDueling().declineDuel(true);
 		}
 		player.getPacketSender().sendPlayerHeadOnInterface(969);
-		player.getPacketSender().sendInterfaceAnimation(969, new Animation(CALM));
+		player.getPacketSender().sendInterfaceAnimation(969, new Animation(animationId));
 		player.getPacketSender().sendString(970, player.getUsername());
 		player.getPacketSender().sendString(971, s);
 		player.getPacketSender().sendChatboxInterface(968);
 	}
 
-	private void sendPlayerChat2(String s, String s1) {
+	private void sendPlayerChat2(int animationId, String s, String s1) {
 		if (player.isTeleporting()) {
 			return;
+		}
+		if(animationId < 1) {
+			animationId = CALM;
 		}
 		if (player.getTrading().inTrade()) {
 			player.getTrading().declineTrade(true);
@@ -271,7 +277,7 @@ public final class DialogHandler {
 		if (player.getDueling().inDuelScreen && player.getDueling().inDuelWith == -1) {
 			player.getDueling().declineDuel(true);
 		}
-		player.getPacketSender().sendInterfaceAnimation(974, new Animation(CALM));
+		player.getPacketSender().sendInterfaceAnimation(974, new Animation(animationId));
 		player.getPacketSender().sendString(player.getUsername(), 975);
 		player.getPacketSender().sendString(s, 976);
 		player.getPacketSender().sendString(s1, 977);
@@ -279,9 +285,12 @@ public final class DialogHandler {
 		player.getPacketSender().sendChatboxInterface(973);
 	}
 
-	private void sendPlayerChat3(String s, String s1, String s2) {
+	private void sendPlayerChat3(int animationId, String s, String s1, String s2) {
 		if (player.isTeleporting()) {
 			return;
+		}
+		if(animationId < 1) {
+			animationId = CALM;
 		}
 		if (player.getTrading().inTrade()) {
 			player.getTrading().declineTrade(true);
@@ -289,7 +298,7 @@ public final class DialogHandler {
 		if (player.getDueling().inDuelScreen && player.getDueling().inDuelWith == -1) {
 			player.getDueling().declineDuel(true);
 		}
-		player.getPacketSender().sendInterfaceAnimation(980, new Animation(CALM));
+		player.getPacketSender().sendInterfaceAnimation(980, new Animation(animationId));
 		player.getPacketSender().sendString(player.getUsername(), 981);
 		player.getPacketSender().sendString(s, 982);
 		player.getPacketSender().sendString(s1, 983);
@@ -298,9 +307,12 @@ public final class DialogHandler {
 		player.getPacketSender().sendChatboxInterface(979);
 	}
 
-	private void sendPlayerChat4(String s, String s1, String s2, String s3) {
+	private void sendPlayerChat4(int animationId, String s, String s1, String s2, String s3) {
 		if (player.isTeleporting()) {
 			return;
+		}
+		if(animationId < 1) {
+			animationId = CALM;
 		}
 		if (player.getTrading().inTrade()) {
 			player.getTrading().declineTrade(true);
@@ -308,7 +320,7 @@ public final class DialogHandler {
 		if (player.getDueling().inDuelScreen && player.getDueling().inDuelWith == -1) {
 			player.getDueling().declineDuel(true);
 		}
-		player.getPacketSender().sendInterfaceAnimation(987, new Animation(CALM));
+		player.getPacketSender().sendInterfaceAnimation(987, new Animation(animationId));
 		player.getPacketSender().sendString(player.getUsername(), 988);
 		player.getPacketSender().sendString(s, 989);
 		player.getPacketSender().sendString(s1, 990);

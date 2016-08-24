@@ -5,6 +5,7 @@ import com.chaos.model.options.Option
 import com.chaos.model.options.twooption.TwoOption
 import com.chaos.model.player.command.Command
 import com.chaos.model.player.dialog.Dialog
+import com.chaos.model.player.dialog.DialogHandler
 import com.chaos.model.player.dialog.DialogMessage
 import com.chaos.world.entity.impl.player.Player
 
@@ -30,7 +31,7 @@ class Empty(staffRights: StaffRights) : Command(staffRights) {
 
         override fun getMessage(): DialogMessage? {
             when (state) {
-                0 -> return Dialog.createNpc("Are you sure you want to delete all the items in your inventory? They will not be dropped to the ground rather permanently deleted.")
+                0 -> return Dialog.createNpc(DialogHandler.CALM, "Are you sure you want to delete all the items in your inventory? They will not be dropped to the ground rather permanently deleted.")
                 1 -> return Dialog.createOption(object : TwoOption("Yes, delete all my inventory items", "No, I have changed my mind.") {
                     override fun execute(player: Player, option: Option.OptionType) {
                         when (option) {

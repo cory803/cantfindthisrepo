@@ -7,6 +7,7 @@ import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
+import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.PlayerPanel;
@@ -25,11 +26,11 @@ public class Healers extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc("Hello! Would you like to be healed?");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like to be healed?");
             case 1:
-                return Dialog.createPlayer("Yes, please.");
+                return Dialog.createPlayer(DialogHandler.CALM, "Yes, please.");
             case 2:
-                return Dialog.createNpc("Okay no problem!");
+                return Dialog.createNpc(DialogHandler.CALM, "Okay no problem!");
             case 3:
                 getPlayer().getSkillManager().setCurrentLevel(Skill.CONSTITUTION, (getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION)));
                 if(getPlayer().getDonatorRights().isDonator()) {
@@ -55,7 +56,7 @@ public class Healers extends Dialog {
                         }
                     }
                 }
-                return Dialog.createPlayer("Thank you!");
+                return Dialog.createPlayer(DialogHandler.CALM, "Thank you!");
             }
         return null;
     }
