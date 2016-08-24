@@ -1,6 +1,6 @@
 package com.chaos.model.player.command;
 
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -14,7 +14,10 @@ public abstract class Command {
 
     /**
      * Constructs our command
+     * @param staffRights
      */
+    public Command(StaffRights staffRights) {
+        this.staffRights = staffRights;
     }
 
     /**
@@ -23,13 +26,18 @@ public abstract class Command {
      * @param args The args that the player passed threw
      * @param privilege The rights of the player.
      */
+    public abstract void execute(Player player, String[] args, StaffRights privilege);
 
     /**
+     * Returns the staff rights needed to execute the command.
      * @return
      */
+    public StaffRights getStaffRights() {
+        return staffRights;
     }
 
     /**
      * The player rights needed to execute this command
      */
+    private final StaffRights staffRights;
 }
