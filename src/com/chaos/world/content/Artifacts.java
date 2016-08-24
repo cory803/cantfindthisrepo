@@ -14,7 +14,7 @@ public class Artifacts {
 			14887, 14888, 14889, 14890, 14891, 14892 };
 
 	public static void sellArtifacts(Player c) {
-		c.getPacketSender().sendMessage("Artifacts needs to be redone");
+		//TODO: Redo artifacts loot
 	}
 
 	/*

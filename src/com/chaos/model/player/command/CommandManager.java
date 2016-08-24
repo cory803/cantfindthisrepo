@@ -106,6 +106,12 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("Attempting to open: www.rune.live/wiki/");
             }
         });
+        commands.put("test", new Command(StaffRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getPacketSender().sendMessage(""+player.getCombatSpecial().getAccuracyBonus() + player.getDonatorRights().ordinal()+"");
+            }
+        });
         commands.put("discord", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

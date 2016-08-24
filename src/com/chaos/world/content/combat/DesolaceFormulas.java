@@ -132,7 +132,7 @@ public class DesolaceFormulas {
 		} else if (CurseHandler.isActivated(plr, CurseHandler.TURMOIL)) {
 			attackLevel += plr.getSkillManager().getMaxLevel(Skill.ATTACK) * 0.3 + plr.getLeechedBonuses()[2];
 		}
-		attackLevel *= plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() : 1;
+		attackLevel *= plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() + plr.getDonatorRights().ordinal() / 100 : 1;
 		int i = (int) plr.getBonusManager().getAttackBonus()[bestMeleeAtk(plr)];
 
 		if (hasObsidianEffect(plr)) {
@@ -261,7 +261,7 @@ public class DesolaceFormulas {
 	public static int getRangedAttack(Player plr) {
 		int rangeLevel = plr.getSkillManager().getCurrentLevel(Skill.RANGED);
 		boolean hasVoid = EquipmentBonus.wearingVoid(plr, CombatType.RANGED);
-		double accuracy = plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() : 1;
+		double accuracy = plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() + plr.getDonatorRights().ordinal() / 100 : 1;
 		rangeLevel *= accuracy;
 		if (hasVoid) {
 			rangeLevel += SkillManager.getLevelForExperience(plr.getSkillManager().getExperience(Skill.RANGED)) * 0.15;
@@ -345,7 +345,7 @@ public class DesolaceFormulas {
 		} else if (plr.getCurseActive()[CurseHandler.LEECH_MAGIC]) {
 			attackLevel *= 1.18;
 		}
-		attackLevel *= plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() : 1;
+		attackLevel *= plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() + plr.getDonatorRights().ordinal() / 100 : 1;
 
 		return (int) (attackLevel + (plr.getBonusManager().getAttackBonus()[3] * 2));
 	}

@@ -43,8 +43,27 @@ public class BountyHunter {
 					assignTargets(player, target);
 			}
 		}
-		if (System.currentTimeMillis() - player.getPlayerKillingAttributes()
-				.getLastTargetPercentageIncrease() >= TARGET_PERCENTAGE_INCREASEMENT_TIMER) {
+		long timer = TARGET_PERCENTAGE_INCREASEMENT_TIMER;
+		if(player.getDonatorRights().isDonator()) {
+			switch(player.getDonatorRights()) {
+				case PREMIUM:
+					timer *= .80;
+					break;
+				case EXTREME:
+					timer *= .70;
+					break;
+				case LEGENDARY:
+					timer *= .50;
+					break;
+				case UBER:
+					timer *= .30;
+					break;
+				case PLATINUM:
+					timer *= .10;
+					break;
+			}
+		}
+		if (System.currentTimeMillis() - player.getPlayerKillingAttributes().getLastTargetPercentageIncrease() >= timer) {
 			addTargetPercentage(player, 1);
 			player.getPlayerKillingAttributes().setLastTargetPercentageIncrease(System.currentTimeMillis());
 		}

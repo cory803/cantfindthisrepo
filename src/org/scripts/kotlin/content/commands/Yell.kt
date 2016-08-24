@@ -22,6 +22,18 @@ class Yell(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("You must be a donator in order to use this command.")
             return
         }
+        var timer = 0;
+        when (player.donatorRights) {
+            DonatorRights.PREMIUM -> timer = 20000
+            DonatorRights.EXTREME -> timer = 10000
+            DonatorRights.LEGENDARY -> timer = 0
+            DonatorRights.UBER -> timer = 0
+            DonatorRights.PLATINUM -> timer = 0
+        }
+        if(timer != 0 && !player.yellTimer.elapsed(timer.toLong())) {
+            player.packetSender.sendMessage("You must wait "+timer / 1000+" seconds in between yell messages.")
+            return
+        }
         if (args == null) {
             player.packetSender.sendMessage("Please use the command as ::yell-message no spaces use -")
             return
@@ -112,7 +124,7 @@ class Yell(staffRights: StaffRights) : Command(staffRights) {
             builder.append(": ")
             builder.append(yellmessage)
         }
-
+        player.yellTimer.reset();
         World.sendYell(builder.toString(), player)
     }
 }

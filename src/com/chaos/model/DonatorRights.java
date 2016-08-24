@@ -3,7 +3,7 @@ package com.chaos.model;
 public enum DonatorRights {
 
     PLAYER("Player", "<col=ff0000>", "", 0),
-    PREMIUM("Premium", "<col=1F659D>", "", 7),
+    PREMIUM("Premium", "<col=ff0000>", "", 7),
     EXTREME("Extreme", "<col=2FAC45>", "<shad=0>", 9),
     LEGENDARY("Legendary", "<col=255>", "<shad=0>", 8),
     UBER("Uber", "<col=ffff00>", "<shad=0>", 11),

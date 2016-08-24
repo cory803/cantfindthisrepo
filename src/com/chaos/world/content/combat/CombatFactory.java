@@ -594,7 +594,7 @@ public final class CombatFactory {
             }
 
             if (player.isSpecialActivated()) {
-                specialBonus = player.getCombatSpecial().getAccuracyBonus();
+                specialBonus = player.getCombatSpecial().getAccuracyBonus() + player.getDonatorRights().ordinal() / 100;
             }
         }
 
