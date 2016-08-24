@@ -1,7 +1,7 @@
 package com.chaos.world.entity.impl.player;
 
 import com.chaos.model.Locations.Location;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Skill;
 import com.chaos.util.Misc;
 import com.chaos.world.content.LoyaltyProgramme;
@@ -48,16 +48,7 @@ public class PlayerProcess {
 		if (player.getLocation() == Location.WILDERNESS) {
 			boolean continue_method = true;
 			boolean continue_lower_stats = false;
-			/*if (player.isSpecialPlayer()) {
-				continue_method = false;
-			}*/
-			if (player.getRights() == PlayerRights.OWNER) {
-				continue_method = false;
-			}
-			if (player.getRights() == PlayerRights.DEVELOPER) {
-				continue_method = false;
-			}
-			if (player.getRights() == PlayerRights.MANAGER) {
+			if (player.getStaffRights().isManagement()) {
 				continue_method = false;
 			}
 			if (continue_method) {

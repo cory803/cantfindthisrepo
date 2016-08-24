@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.chaos.model.*;
 import com.chaos.model.action.ActionQueue;
 import com.chaos.model.options.OptionContainer;
 import com.chaos.model.player.ActionHandler;
@@ -22,21 +23,6 @@ import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.engine.task.impl.PlayerDeathTask;
 import com.chaos.engine.task.impl.WalkToTask;
-import com.chaos.model.Animation;
-import com.chaos.model.Appearance;
-import com.chaos.model.CharacterAnimations;
-import com.chaos.model.ChatMessage;
-import com.chaos.model.DwarfCannon;
-import com.chaos.model.Flag;
-import com.chaos.model.GameObject;
-import com.chaos.model.Item;
-import com.chaos.model.MagicSpellbook;
-import com.chaos.model.PlayerInteractingOption;
-import com.chaos.model.PlayerRelations;
-import com.chaos.model.PlayerRights;
-import com.chaos.model.Position;
-import com.chaos.model.Prayerbook;
-import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.model.container.impl.Bank.BankSearchAttributes;
 import com.chaos.model.container.impl.Equipment;
@@ -400,33 +386,6 @@ public class Player extends Character {
         return CombatStrategies.getDefaultMeleeStrategy();
     }
 
-    public void updateRank() {
-        PlayerRights currentRank = getRights();
-        if (currentRank.isStaff() || currentRank.equals(PlayerRights.YOUTUBER) || currentRank.equals(PlayerRights.WIKI_EDITOR) || currentRank.equals(PlayerRights.WIKI_MANAGER)) {
-            if (getRights().getRights() < getDonorRights()) {
-                getRights().setRights(getDonorRights());
-            }
-            return;
-        }
-        if (getGameModeAssistant().isIronMan()) {
-            setRights(PlayerRights.IRONMAN);
-            getRights().setRights(getDonorRights());
-            return;
-        }
-        PlayerRights[] DONORS = {
-                PlayerRights.REGULAR_DONOR,
-                PlayerRights.SUPER_DONOR,
-                PlayerRights.EXTREME_DONOR,
-                PlayerRights.LEGENDARY_DONOR,
-                PlayerRights.UBER_DONOR
-        };
-        if (getDonorRights() > 0) {
-            setRights(DONORS[getDonorRights() - 1]);
-        } else {
-            setRights(PlayerRights.PLAYER);
-        }
-    }
-
     public int responseId = 2;
     public boolean xpRate = true;
     // public boolean loginQue = false;
@@ -614,9 +573,9 @@ public class Player extends Character {
     private final PointsHandler pointsHandler = new PointsHandler(this);
     private final PacketSender packetSender = new PacketSender(this);
     private final Appearance appearance = new Appearance(this);
-    private PlayerRights rights = PlayerRights.PLAYER;
+    private StaffRights staffRights = StaffRights.PLAYER;
+    private DonatorRights donatorRights = DonatorRights.PLAYER;
     private Thieving thieving = new Thieving(this);
-    private int donatorRights = 0;
     private SkillManager skillManager = new SkillManager(this);
     private PlayerRelations relations = new PlayerRelations(this);
     private GameModeAssistant gameModeAssistant = new GameModeAssistant(this);
@@ -1235,21 +1194,29 @@ public class Player extends Character {
         return this;
     }
 
-    public int getDonorRights() {
+    public StaffRights getStaffRights() {
+        return staffRights;
+    }
+
+    public DonatorRights getDonatorRights() {
         return donatorRights;
     }
-
-    public void setDonorRights(int donorRights) {
-        this.donatorRights = donorRights;
+    public int getCrown() {
+        if(this.getStaffRights().isStaff()) {
+            return this.getStaffRights().getCrown();
+        } else if(this.getDonatorRights().isDonator()) {
+            return this.getDonatorRights().getCrown();
+        } else {
+            return this.getGameModeAssistant().getGameMode().getCrown();
+        }
     }
 
-    public PlayerRights getRights() {
-        return rights;
+    public void setStaffRights(StaffRights rights) {
+       this.staffRights = rights;
     }
 
-    public Player setRights(PlayerRights rights) {
-        this.rights = rights;
-        return this;
+    public void setDonatorRights(DonatorRights rights) {
+       this.donatorRights = rights;
     }
 
     public ChatMessage getChatMessages() {
@@ -2827,11 +2794,6 @@ public class Player extends Character {
 
     public void setReceivedStarter(boolean receivedStarter) {
         this.receivedStarter = receivedStarter;
-    }
-
-    public Object getPlayerRights() {
-        // TODO Auto-generated method stub
-        return null;
     }
 
     private boolean drankQuestPotion = false;

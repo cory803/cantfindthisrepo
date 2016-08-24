@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.chaos.GameServer;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Achievements.AchievementData;
@@ -106,7 +106,7 @@ public class Lottery {
 			return;
 		}
 		boolean usePouch = p.getMoneyInPouch() >= PRICE_TO_ENTER;
-		if (p.getInventory().getAmount(995) < PRICE_TO_ENTER && !usePouch || p.getRights() == PlayerRights.OWNER || p.getRights() == PlayerRights.DEVELOPER) {
+		if (p.getInventory().getAmount(995) < PRICE_TO_ENTER && !usePouch || p.getStaffRights().isManagement()) {
 			p.getPacketSender().sendInterfaceRemoval().sendMessage("")
 					.sendMessage("You do not have enough money in your inventory to enter this week's lottery.")
 					.sendMessage("The lottery for this week costs "

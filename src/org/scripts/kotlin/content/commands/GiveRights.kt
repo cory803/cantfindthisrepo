@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.World
 import com.chaos.world.entity.impl.player.Player
@@ -12,33 +12,33 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class GiveRights(playerRights: PlayerRights) : Command(playerRights) {
+class GiveRights(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::giverights-playername-rights")
         } else {
             val p = World.getPlayerByName(args[0])
             val rights = args[1].toLowerCase()
-            var playerRights = PlayerRights.PLAYER
+            var staffRights = StaffRights.PLAYER
             when (rights) {
-                "demote", "derank" -> playerRights = PlayerRights.PLAYER
+                "demote", "derank" -> staffRights = StaffRights.PLAYER
 
-                "ss", "serversupport", "support" -> playerRights = PlayerRights.SUPPORT
+                "ss", "serversupport", "support" -> staffRights = StaffRights.SUPPORT
 
-                "mod", "moderator" -> playerRights = PlayerRights.MODERATOR
+                "mod", "moderator" -> staffRights = StaffRights.MODERATOR
 
-                "globalmod", "gmod", "global_mod", "globalmoderator" -> playerRights = PlayerRights.GLOBAL_MOD
+                "globalmod", "gmod", "global_mod", "globalmoderator" -> staffRights = StaffRights.GLOBAL_MOD
 
-                "youtube", "youtuber" -> playerRights = PlayerRights.YOUTUBER
+                "youtube", "youtuber" -> staffRights = StaffRights.YOUTUBER
 
                 else -> player.packetSender.sendMessage("We were unable to find that command")
             }
 
-            p!!.rights = playerRights
+            p!!.staffRights = staffRights
             p.packetSender.sendRights()
-            p.packetSender.sendMessage("You have been give " + playerRights.rightName + " rights.")
-            player.packetSender.sendMessage("You have given " + args[0] + " rights: " + playerRights.rightName)
+            p.packetSender.sendMessage("You have been give " + staffRights.title + " rights.")
+            player.packetSender.sendMessage("You have given " + args[0] + " rights: " + staffRights.title)
         }
     }
 }

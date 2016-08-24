@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.entity.impl.player.Player
 
@@ -11,9 +11,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class GetPosition(playerRights: PlayerRights) : Command(playerRights) {
+class GetPosition(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         player.packetSender.sendMessage(player.position.toString())
     }
 }

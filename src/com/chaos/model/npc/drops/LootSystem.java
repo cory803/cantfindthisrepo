@@ -232,7 +232,7 @@ public class LootSystem {
             }
 
             case DONOR:
-                return player.getDonorRights() > 0;
+                return player.getDonatorRights().isDonator();
 
         }
         return false;
@@ -254,7 +254,7 @@ public class LootSystem {
         /**
          * Make it so donors have better drop rates.
          */
-        rollReq += player.getDonorRights();
+        rollReq += player.getDonatorRights().ordinal();
 
 
         int x = npc.getDefinition().getCombatLevel() - npc.getDefinition().getCombatLevel() % 225;

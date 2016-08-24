@@ -47,7 +47,7 @@ public final class ActionHandler {
         }
         player.setEntityInteraction(npc);
         player.setNpcClickId(npc.getId());
-        if (player.getRights() == PlayerRights.DEVELOPER)
+        if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender().sendMessage("First click npc id: " + npc.getId());
         if (BossPets.pickup(player, npc)) {
             player.getWalkingQueue().clear();
@@ -212,7 +212,7 @@ public final class ActionHandler {
         }
         player.setEntityInteraction(npc);
         player.setNpcClickId(npc.getId());
-        if (player.getRights() == PlayerRights.DEVELOPER)
+        if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender().sendConsoleMessage("Second click npc id: " + npc.getId());
 
         if (GameSettings.DEBUG_MODE) {
@@ -321,7 +321,7 @@ public final class ActionHandler {
         player.setEntityInteraction(npc).setPositionToFace(npc.getPosition().copy());
         npc.setPositionToFace(player.getPosition());
         player.setNpcClickId(npc.getId());
-        if (player.getRights() == PlayerRights.DEVELOPER)
+        if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender().sendMessage("Third click npc id: " + npc.getId());
 
         if (GameSettings.DEBUG_MODE) {
@@ -347,31 +347,7 @@ public final class ActionHandler {
                 player.setPlayerOwnedShopping(true);
                 break;
             case 961:
-                if (player.getDonorRights() == 0) {
-                    player.getPacketSender().sendMessage("This feature is currently only available for members.");
-                    return;
-                }
-                boolean restore = player.getSpecialPercentage() < 100;
-                // if(restore) {
-                // player.setSpecialPercentage(100);
-                // CombatSpecial.updateBar(player);
-                // player.getPacketSender().sendMessage("Your special attack
-                // energy has been
-                // restored.");
-                // }
-                for (Skill skill : Skill.values()) {
-                    if (player.getSkillManager().getCurrentLevel(skill) < player.getSkillManager()
-                            .getMaxLevel(skill)) {
-                        player.getSkillManager().setCurrentLevel(skill,
-                                player.getSkillManager().getMaxLevel(skill));
-                        restore = true;
-                    }
-                }
-                if (restore) {
-                    player.performGraphic(new Graphic(1302));
-                    player.getPacketSender().sendMessage("Your stats have been restored.");
-                } else
-                    player.getPacketSender().sendMessage("Your stats do not need to be restored at the moment.");
+                //Stat restore npc here
                 break;
         }
         npc.setPositionToFace(player.getPosition());
@@ -386,7 +362,7 @@ public final class ActionHandler {
         }
         player.setEntityInteraction(npc);
         player.setNpcClickId(npc.getId());
-        if (player.getRights() == PlayerRights.DEVELOPER)
+        if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender().sendMessage("Fourth click npc id: " + npc.getId());
 
         if (GameSettings.DEBUG_MODE) {
@@ -407,9 +383,9 @@ public final class ActionHandler {
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 break;
             case 4657:
-                if (player.getDonorRights() == 0) {
+                if (!player.getDonatorRights().isDonator()) {
                     player.getPacketSender().sendMessage("You need to be a member to teleport to this zone.")
-                            .sendMessage("To become a member, visit rune.live and purchase a scroll.");
+                            .sendMessage("To become a member, visit chaosps.com and purchase a scroll.");
                     return;
                 }
                 TeleportHandler.teleportPlayer(player, new Position(3424, 2919),

@@ -5,7 +5,7 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Animation;
 import com.chaos.model.Graphic;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.Sounds;
@@ -142,8 +142,7 @@ public class TeleportHandler {
 		}
 		if (player.getLocation() == Location.WILDKEY_ZONE || player.getLocation() == Location.WILDERNESS) {
 			if (player.getWildernessLevel() > 20) {
-				if (player.getRights() == PlayerRights.DEVELOPER || player.getRights() == PlayerRights.OWNER
-						|| player.getRights() == PlayerRights.MANAGER) {
+				if (player.getStaffRights().isManagement()) {
 					player.getPacketSender()
 							.sendMessage("@red@You've teleported out of deep Wilderness, logs have been written.");
 					return true;

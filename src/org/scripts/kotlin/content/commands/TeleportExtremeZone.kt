@@ -1,7 +1,8 @@
 package org.scripts.kotlin.content.commands
 
+import com.chaos.model.DonatorRights
 import com.chaos.model.Locations
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.Position
 import com.chaos.model.player.command.Command
 import com.chaos.util.Misc
@@ -16,9 +17,13 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class TeleportExtremeZone(playerRights: PlayerRights) : Command(playerRights) {
+class TeleportExtremeZone(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
+        if (player.donatorRights.ordinal < 3) {
+            player.packetSender.sendMessage("You must be a Legendary donator in order to use this command.")
+            return
+        }
         if (Dungeoneering.doingDungeoneering(player)) {
             player.packetSender.sendMessage("You can't use this command in a dungeon.")
             return

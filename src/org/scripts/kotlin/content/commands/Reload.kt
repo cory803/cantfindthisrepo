@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.container.impl.Shop
 import com.chaos.model.definitions.ItemDefinition
 import com.chaos.model.npc.drops.LootSystem
@@ -17,9 +17,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class Reload(playerRights: PlayerRights) : Command(playerRights) {
+class Reload(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::reload-object")
             player.packetSender.sendMessage("Objects: npcs, drops, commands, itemdef")

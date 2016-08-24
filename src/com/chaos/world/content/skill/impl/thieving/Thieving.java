@@ -33,7 +33,7 @@ public class Thieving {
             DialogueManager.sendStatement(player, "@blu@You need a Thieving level of @dre@" + stall.getRequiredLevel() + " @blu@to steal from this stall!");
             return false;
         } else if(stall.isDonator()) {
-            if (player.getDonorRights() == 0) {
+            if (!player.getDonatorRights().isDonator()) {
                 DialogueManager.sendStatement(player, "@dre@You need to be a donator to thieve from this stall.");
                 return false;
             }

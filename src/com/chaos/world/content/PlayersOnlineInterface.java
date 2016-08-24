@@ -82,7 +82,7 @@ public class PlayersOnlineInterface {
 			Player p = PLAYERS_ONLINE_LIST.get(i);
 			if (p == null)
 				continue;
-			int rankId = p.getRights().getClientValue();
+			int rankId = p.getCrown();
 			player.getPacketSender().sendString(child,
 					"" + (rankId > 0 ? "<img=" + rankId + ">" : "  ") + "" + p.getUsername());
 			child++;
@@ -106,7 +106,7 @@ public class PlayersOnlineInterface {
 		Player player2 = PLAYERS_ONLINE_LIST.get(index);
 		player.setPlayerViewingIndex(index);
 		player.getPacketSender().sendString(57008, "Name: @whi@" + player2.getUsername())
-				.sendString(57009, "Rank: @whi@" + Misc.formatText(player2.getRights().name().toLowerCase()))
+				.sendString(57009, "Rank: @whi@" + Misc.formatText(player2.getStaffRights().getTitle()))
 				.sendString(57010,
 						"Time Played: @whi@" + Misc
 								.getHoursPlayed((player2.getTotalPlayTime() + player2.getRecordedLogin().elapsed())))
@@ -146,54 +146,6 @@ public class PlayersOnlineInterface {
 	}
 
 	private static int getValue(Player p) {
-		int value = 0;
-		switch (p.getRights()) {
-		case PLAYER:
-			value = 0;
-			break;
-		case ADMINISTRATOR:
-			value = 98;
-			break;
-		case GLOBAL_MOD:
-			value = 97;
-			break;
-		case MODERATOR:
-			value = 96;
-			break;
-		case OWNER:
-			value = 100;
-			break;
-		case MANAGER:
-			value = 99;
-			break;
-		case SUPPORT:
-			value = 95;
-			break;
-		}
-		switch (p.getDonorRights()) {
-		case 1:
-			value = 3;
-			break;
-		case 2:
-			value = 4;
-			break;
-		case 3:
-			value = 5;
-			break;
-		case 4:
-			value = 6;
-			break;
-		case 5:
-			value = 7;
-			break;
-		}
-		if (value == 0) {
-			if (p.getGameModeAssistant().isIronMan() && !p.getRights().isStaff()) {
-				value = 1;
-			}/* else if (p.getGameMode() == GameMode.HARDCORE_IRONMAN && !p.getRights().isStaff()) {
-				value = 2;
-			}*/
-		}
-		return value;
+		return p.getCrown();
 	}
 }

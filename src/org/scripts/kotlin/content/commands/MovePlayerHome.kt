@@ -2,7 +2,7 @@ package org.scripts.kotlin.content.commands
 
 import com.chaos.GameSettings
 import com.chaos.model.Locations
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.World
 import com.chaos.world.entity.impl.player.Player
@@ -14,9 +14,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class MovePlayerHome(playerRights: PlayerRights) : Command(playerRights) {
+class MovePlayerHome(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::movehome-playername")
         } else {

@@ -44,7 +44,7 @@ public class ForumDatabase {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
 						if (rs.next()) {
-							int donator_rank = player.getDonorRights();
+							int donator_rank = player.getDonatorRights().ordinal();
 							if (donator_rank == 1) {
 								donator_rank = regular_donator;
 							} else if (donator_rank == 2) {

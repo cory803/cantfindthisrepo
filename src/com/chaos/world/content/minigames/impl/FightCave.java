@@ -55,15 +55,7 @@ public class FightCave {
 				player.getRegionInstance().getNpcsList().remove(n);
 			leaveCave(player, true);
 			DialogueManager.start(player, 37);
-			if (player.getDonorRights() == 1) {
-				player.getInventory().add(6570, 1).add(6529, 2000 + Misc.getRandom(4000));
-			} else if (player.getDonorRights() == 2) {
-				player.getInventory().add(6570, 1).add(6529, 4000 + Misc.getRandom(8000));
-			} else if (player.getDonorRights() >= 3) {
-				player.getInventory().add(6570, 1).add(6529, 8000 + Misc.getRandom(16000));
-			} else {
-				player.getInventory().add(6570, 1).add(6529, 2000 + Misc.getRandom(4000));
-			}
+			player.getInventory().add(6570, 1).add(6529, 2000 + Misc.getRandom(4000));
 		}
 	}
 }

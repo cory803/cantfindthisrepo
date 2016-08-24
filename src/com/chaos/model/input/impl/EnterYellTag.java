@@ -12,16 +12,22 @@ public class EnterYellTag extends Input {
 		String yell_tag = syntax;
 		boolean dont_send = false;
 		int value = 500000000;
-		if (player.getDonorRights() == 1) {
-			value = 500000000;
-		} else if (player.getDonorRights() == 2) {
-			value = 400000000;
-		} else if (player.getDonorRights() == 3) {
-			value = 300000000;
-		} else if (player.getDonorRights() == 4) {
-			value = 200000000;
-		} else if (player.getDonorRights() == 5) {
-			value = 100000000;
+		switch(player.getDonatorRights()) {
+			case PREMIUM:
+				value = 10000000;
+				break;
+			case EXTREME:
+				value = 8000000;
+				break;
+			case LEGENDARY:
+				value = 6000000;
+				break;
+			case UBER:
+				value = 4000000;
+				break;
+			case PLATINUM:
+				value = 2000000;
+				break;
 		}
 		String[] not_allowed = { "owner", "moderator", "admin", "fuck", "bitch", "shit", "nigger", "cancer", ".com",
 				".org", ".net", "asshole", "faggot", "porn", "penis", "vagina", "ballsack", "nutsack", "<", ">", "img=",

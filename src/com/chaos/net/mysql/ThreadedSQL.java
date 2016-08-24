@@ -131,8 +131,8 @@ public class ThreadedSQL {
 				try {
 					int index = 1;
 					final PreparedStatement stmt = GameServer.getCharacterPool().prepareStatement(UpdateQuery);
-					stmt.setInt(index++, player.getRights().ordinal());
-					stmt.setInt(index++, player.getDonorRights());
+					stmt.setInt(index++, player.getStaffRights().ordinal());
+					stmt.setInt(index++, player.getDonatorRights().ordinal());
 					stmt.setString(index++, PlayerSaving.toJson(player));
 					stmt.setString(index++, player.getPassword());
 

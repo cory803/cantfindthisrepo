@@ -283,7 +283,7 @@ public class PlayerRelations {
 			player.getPacketSender().sendMessage("You are muted and cannot chat.");
 			return;
 		}
-		if (this.player.getSkillManager().getTotalLevel() < tlNeeded && !friend.getRights().isStaff()) {
+		if (this.player.getSkillManager().getTotalLevel() < tlNeeded && !friend.getStaffRights().isStaff()) {
 			this.player.getPacketSender().sendMessage(
 					"You cannot use the private message until you have over " + (tlNeeded + 1) + " total level.");
 			this.player.getPacketSender().sendMessage(
@@ -310,7 +310,7 @@ public class PlayerRelations {
 			// size).replaceAll(";", ".")+"");
 			return;
 		}
-		friend.getPacketSender().sendPrivateMessage(player.getLongUsername(), player.getRights(), message, size,
+		friend.getPacketSender().sendPrivateMessage(player.getLongUsername(), player.getStaffRights(), message, size,
 				player);
 		// Logs.write_data(friend.getUsername()+ ".txt", "private_messages",
 		// "Recieved from

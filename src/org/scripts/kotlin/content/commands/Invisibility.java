@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands;
 
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.player.command.Command;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -13,12 +13,12 @@ import com.chaos.world.entity.impl.player.Player;
  */
 public class Invisibility extends Command {
 
-    public Invisibility(PlayerRights playerRights) {
-        super(playerRights);
+    public Invisibility(StaffRights staffRights) {
+        super(staffRights);
     }
 
     @Override
-    public void execute(Player player, String[] args, PlayerRights privilege) {
+    public void execute(Player player, String[] args, StaffRights privilege) {
         if (args == null) {
             player.setInvisible(!player.isInvisible());
             player.getPacketSender().sendMessage("You are now " + (player.isInvisible() ? "invisible." : "visible."));

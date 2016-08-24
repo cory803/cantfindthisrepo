@@ -112,7 +112,7 @@ public class Locations {
 		DONATOR_ZONE(new int[] { 2489, 2636 }, new int[] { 3827, 3933 }, false, true, true, true, true, true) {
 			@Override
 			public void process(Player player) {
-				if (player.getDonorRights() == 0 && !player.newPlayer()) {
+				if (!player.getDonatorRights().isDonator() && !player.newPlayer()) {
 					player.moveTo(new Position(3086, 3502));
 				}
 			}
@@ -188,7 +188,7 @@ public class Locations {
 			@Override
 			public boolean canTeleport(Player player) {
 				if (player.getWildernessLevel() > 20) {
-					if (player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.MANAGER || player.getRights() == PlayerRights.DEVELOPER) {
+					if (player.getStaffRights() == StaffRights.OWNER || player.getStaffRights() == StaffRights.MANAGER) {
 						player.getPacketSender()
 								.sendMessage("@red@You've teleported out of deep Wilderness, logs have been written.");
 						return true;
@@ -289,8 +289,7 @@ public class Locations {
 			@Override
 			public boolean canTeleport(Player player) {
 				if (player.getWildernessLevel() > 20) {
-					if (player.getRights() == PlayerRights.DEVELOPER || player.getRights() == PlayerRights.OWNER
-							|| player.getRights() == PlayerRights.MANAGER) {
+					if (player.getStaffRights().isManagement()) {
 						player.getPacketSender()
 								.sendMessage("@red@You've teleported out of deep Wilderness, logs have been written.");
 						return true;

@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.World
 import com.chaos.world.entity.impl.player.Player
@@ -12,14 +12,14 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class DemoteWiki(playerRights: PlayerRights) : Command(playerRights) {
+class DemoteWiki(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
-        if (player.rights != PlayerRights.WIKI_MANAGER) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
+        if (player.staffRights != StaffRights.WIKI_MANAGER && player.staffRights.ordinal < 8) {
             player.packetSender.sendMessage("You do not have sufficient privileges to use this command.")
             return
         }
-        if (args ==null) {
+        if (args == null) {
             player.packetSender.sendMessage("Please use the command as ::demote-playername")
             return
         }
@@ -28,8 +28,8 @@ class DemoteWiki(playerRights: PlayerRights) : Command(playerRights) {
             player.packetSender.sendMessage("Either the player is not online or you typed in the name incorrectly.")
             return
         }
-        if (demote.rights == PlayerRights.WIKI_EDITOR) {
-            demote.rights = PlayerRights.PLAYER
+        if (demote.staffRights == StaffRights.WIKI_EDITOR) {
+            demote.staffRights = StaffRights.PLAYER
             demote.packetSender.sendRights()
             demote.packetSender.sendMessage("Your Wiki Editor rank has been taken away.")
             demote.packetSender.sendRights()

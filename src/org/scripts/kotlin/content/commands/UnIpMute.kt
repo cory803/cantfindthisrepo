@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.World
 import com.chaos.world.content.PlayerPunishment
@@ -13,11 +13,11 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class UnIpMute(playerRights: PlayerRights) : Command(playerRights) {
+class UnIpMute(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
-            player.packetSender.sendMessage("Exmaple usage: ::unipmute-playername")
+            player.packetSender.sendMessage("Example usage: ::unipmute-playername")
         } else {
             val p = World.getPlayerByName(args[0])
             if (p == null) {

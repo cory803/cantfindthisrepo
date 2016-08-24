@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.chaos.model.Flag
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.Skill
 import com.chaos.model.player.command.Command
 import com.chaos.world.content.skill.SkillManager
@@ -14,9 +14,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class ResetSkills(playerRights: PlayerRights) : Command(playerRights) {
+class ResetSkills(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         for (skill in Skill.values()) {
             val level = if (skill == Skill.CONSTITUTION) 100 else if (skill == Skill.PRAYER) 10 else 1
             player.skillManager.setCurrentLevel(skill, level).setMaxLevel(skill, level).setExperience(skill,

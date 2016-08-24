@@ -3,7 +3,7 @@ package com.chaos.world.content.skill.impl.construction;
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Animation;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.model.Skill;
@@ -867,7 +867,7 @@ public class Construction {
 
 	public static String hasReqs(Player p, Furniture f, HotSpots hs) {
 
-		if (p.getRights().equals(PlayerRights.ADMINISTRATOR))
+		if (p.getStaffRights().isManagement())
 			return null;
 		if (p.getSkillManager().getCurrentLevel(Skill.CONSTRUCTION) < f.getLevel()) {
 			return "You need a Construction level of at least " + f.getLevel() + " to build this.";

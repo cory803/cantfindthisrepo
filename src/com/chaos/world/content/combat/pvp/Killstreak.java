@@ -62,7 +62,7 @@ public class Killstreak {
 					+ " killstreak bounty of 500 PK Points!");
 			break;
 		}
-		player.getPointsHandler().setPkPoints(pkPoints, true, false);
+		player.getPointsHandler().setPkPoints(pkPoints, true);
 		player.getPacketSender().sendMessage("You've received " + pkPoints + " PK Points!");
 	}
 }

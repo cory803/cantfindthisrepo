@@ -12,7 +12,7 @@ import com.chaos.model.CombatIcon;
 import com.chaos.model.Hit;
 import com.chaos.model.Hitmask;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.Projectile;
 import com.chaos.model.Skill;
@@ -256,24 +256,6 @@ public class PestControl {
 				leave(p, false);
 				if (won && p.getMinigameAttributes().getPestControlAttributes().getDamageDealt() >= 50) {
 					int point_amount = 15;
-					if (p.getDonorRights() == 1) {
-						point_amount = 17;
-					}
-					if (p.getDonorRights() == 2) {
-						point_amount = 20;
-					}
-					if (p.getDonorRights() == 3) {
-						point_amount = 25;
-					}
-					if (p.getDonorRights() == 4) {
-						point_amount = 28;
-					}
-					if (p.getDonorRights() == 5) {
-						point_amount = 30;
-					}
-					if (p.getPestControlSolo()) {
-						// point_amount *= 2;
-					}
 					p.getPacketSender()
 							.sendMessage("The portals were successfully closed. You've been rewarded for your effort.");
 					p.getPacketSender().sendMessage("You've received " + point_amount + " Commendations and "
@@ -623,8 +605,7 @@ public class PestControl {
 	 *            The amount it costs to buy this item
 	 */
 	public static void buyFromShop(Player p, boolean item, int id, int amount, int cost) {
-		if (p.getPointsHandler().getCommendations() < cost && p.getRights() != PlayerRights.OWNER
-				&& p.getRights() != PlayerRights.MANAGER && p.getRights() != PlayerRights.DEVELOPER) {
+		if (p.getPointsHandler().getCommendations() < cost && !p.getStaffRights().isManagement()) {
 			p.getPacketSender().sendMessage("You don't have enough Commendations to purchase this.");
 			return;
 		}

@@ -10,7 +10,7 @@ import com.chaos.model.GameObject;
 import com.chaos.model.Graphic;
 import com.chaos.model.Item;
 import com.chaos.model.PlayerInteractingOption;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.Skill;
 import com.chaos.model.container.ItemContainer;
@@ -818,7 +818,7 @@ public class PacketSender {
 	 */
 	public PacketSender sendRights() {
 		PacketBuilder out = new PacketBuilder(127);
-		out.put(player.getRights().getClientValue());
+		out.put(player.getCrown());
 		player.getSession().queueMessage(out);
 		return this;
 	}
@@ -884,11 +884,11 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendPrivateMessage(long name, PlayerRights rights, byte[] message, int size, Player me) {
+	public PacketSender sendPrivateMessage(long name, StaffRights rights, byte[] message, int size, Player me) {
 		PacketBuilder out = new PacketBuilder(196, PacketType.BYTE);
 		out.putLong(name);
 		out.putInt(player.getRelations().getPrivateMessageId());
-		int rank = rights.getClientValue();
+		int rank = rights.ordinal();
 		out.put(rank);
 		out.putBytes(message, size);
 		player.getSession().queueMessage(out);

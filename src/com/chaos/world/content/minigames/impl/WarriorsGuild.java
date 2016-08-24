@@ -8,7 +8,7 @@ import com.chaos.model.Graphic;
 import com.chaos.model.GroundItem;
 import com.chaos.model.Item;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
@@ -48,8 +48,7 @@ public class WarriorsGuild {
 	 *            That animator object which the player is using an item on
 	 */
 	public static boolean itemOnAnimator(final Player player, final Item item, final GameObject object) {
-		if (player.getMinigameAttributes().getWarriorsGuildAttributes().hasSpawnedArmour()
-				&& player.getRights() != PlayerRights.DEVELOPER) {
+		if (player.getMinigameAttributes().getWarriorsGuildAttributes().hasSpawnedArmour()) {
 			player.getPacketSender().sendMessage("You have already spawned some animated armour.");
 			return true;
 		} else {

@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.chaos.model.Flag
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.container.impl.Equipment
 import com.chaos.model.definitions.WeaponAnimations
 import com.chaos.model.definitions.WeaponInterfaces
@@ -17,9 +17,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class CheckEquipment(playerRights: PlayerRights) : Command(playerRights) {
+class CheckEquipment(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Exmaple usage: ::checkequip-playername")
         } else {

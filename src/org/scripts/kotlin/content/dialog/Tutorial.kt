@@ -198,9 +198,7 @@ class Tutorial(player: Player) : Dialog(player) {
             20 -> {
                 player.gameModeAssistant.gameMode = gameMode
                 PlayerPanel.refreshPanel(player)
-                player.updateRank()
                 player.packetSender.sendRights()
-                //player.packetSender.sendIronmanMode()
                 return Dialog.createNpc("Perfect, you are now a " + gameMode!!.modeName + "! Would you like me to show you around Chaos?")
             }
             21 -> return Dialog.createOption(object : TwoOption("Yes, can you please show me around Chaos?", "I think that I can manage from here, thanks!") {

@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.chaos.GameSettings
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.entity.impl.player.Player
 
@@ -12,9 +12,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class OpenStore(playerRights: PlayerRights) : Command(playerRights) {
+class OpenStore(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (!GameSettings.STORE_CONNECTIONS) {
             player.packetSender.sendMessage("The Store is currently turned off, please try again in 30 minutes!")
             return

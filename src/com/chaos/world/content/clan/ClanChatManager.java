@@ -355,7 +355,7 @@ public class ClanChatManager {
 					continue;
 				}
 				// continue;
-				int img = player.getRights().getClientValue();
+				int img = player.getCrown();
 				String rankImg = img > 0 ? " <img=" + img + "> " : " ";
 				memberPlayer.getPacketSender()
 						.sendMessage(":clan:" + bracketColor + "[" + clanNameColor + clan.getName() + bracketColor + "]"
@@ -467,7 +467,7 @@ public class ClanChatManager {
 		}
 		checkFriendsRank(player, clan, false);
 		ClanChatRank rank = clan.getRank(player);
-		if (player.getRights().isStaff()) {
+		if (player.getStaffRights().isStaff()) {
 			if (rank == null || rank != ClanChatRank.OWNER) {
 				rank = ClanChatRank.STAFF;
 				clan.giveRank(player, ClanChatRank.STAFF);
@@ -550,7 +550,7 @@ public class ClanChatManager {
 			player.getPacketSender().sendMessage("That clanchat name is already taken.");
 			return;
 		}
-		if (clan.getLastAction().elapsed(5000) || player.getRights().isStaff()) {
+		if (clan.getLastAction().elapsed(5000) || player.getStaffRights().isStaff()) {
 			new File(FILE_DIRECTORY + clan.getName()).delete();
 			clan.setName(NameUtils.capitalizeWords(newName));
 			for (Player member : clan.getMembers()) {
@@ -635,7 +635,7 @@ public class ClanChatManager {
 					return;
 				}
 			}
-			if (player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getRights().isStaff()) {
+			if (player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getStaffRights().isStaff()) {
 				player.getCurrentClanChat().giveRank(target, rank);
 				updateList(player.getCurrentClanChat());
 				sendMessage(player.getCurrentClanChat(),
@@ -657,7 +657,7 @@ public class ClanChatManager {
 				player.getPacketSender().sendMessage("That player cannot be promoted or demoted.");
 				return;
 			}
-			if (player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getRights().isStaff()) {
+			if (player.getCurrentClanChat().getLastAction().elapsed(5000) || player.getStaffRights().isStaff()) {
 				player.getCurrentClanChat().getRankedNames().remove(target.getUsername());
 				checkFriendsRank(target, player.getCurrentClanChat(), false);
 				updateList(player.getCurrentClanChat());
@@ -714,7 +714,7 @@ public class ClanChatManager {
 			player.getPacketSender().sendMessage("You're not in a clan channel.");
 			return;
 		}
-		if (!player.getRights().isStaff()) {
+		if (!player.getStaffRights().isStaff()) {
 			if (clan.getOwner() == null)
 				return;
 			if (!clan.getOwner().equals(player)) {
@@ -722,7 +722,7 @@ public class ClanChatManager {
 				return;
 			}
 		}
-		if (clan.getLastAction().elapsed(5000) || player.getRights().isStaff()) {
+		if (clan.getLastAction().elapsed(5000) || player.getStaffRights().isStaff()) {
 			clan.setLootShare(!clan.getLootShare());
 			sendMessage(clan, "<col=16777215>[<col=255>" + clan.getName() + "<col=16777215>] <col=3300CC>"
 					+ player.getUsername() + " has " + (clan.getLootShare() ? "enabled" : "disabled") + " Lootshare.");

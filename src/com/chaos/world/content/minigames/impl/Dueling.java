@@ -8,7 +8,7 @@ import com.chaos.model.Flag;
 import com.chaos.model.Item;
 import com.chaos.model.Locations;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.container.impl.Inventory;
@@ -173,8 +173,7 @@ public class Dueling {
 		int amountInPlayerInv = player.getInventory().getAmount(itemId);
 		int amountInOtherInv = playerToDuel.getInventory().getAmount(itemId);
 		Item itemAmount = new Item(itemId, amount);
-		if (player.getRights() != PlayerRights.OWNER && playerToDuel.getRights() != PlayerRights.DEVELOPER
-				&& player.getRights() != PlayerRights.MANAGER && playerToDuel.getRights() != PlayerRights.MANAGER) {
+		if (player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
 			if (!new Item(itemId).tradeable()) {
 				player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
 				return;

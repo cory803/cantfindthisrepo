@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.chaos.model.Locations
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.Position
 import com.chaos.model.player.command.Command
 import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
@@ -15,9 +15,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class TeleportDuel(playerRights: PlayerRights) : Command(playerRights) {
+class TeleportDuel(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (Dungeoneering.doingDungeoneering(player)) {
             player.packetSender.sendMessage("You can't use this command in a dungeon.")
             return

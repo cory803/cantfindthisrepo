@@ -3,7 +3,7 @@ package org.scripts.kotlin.content.commands
 import com.chaos.GameServer
 import com.chaos.engine.task.Task
 import com.chaos.engine.task.TaskManager
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.util.FilterExecutable
 import com.chaos.world.World
@@ -24,9 +24,9 @@ import java.io.IOException
 
  * @author Seba
  */
-class UpdateServer(playerRights: PlayerRights) : Command(playerRights) {
+class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::update-time")
         } else {

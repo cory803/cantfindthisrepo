@@ -100,7 +100,7 @@ public class ObjectActionPacketListener implements PacketListener {
 			// FIRST_CLICK_OPCODE");
 		}
 
-		if (player.getRights() == PlayerRights.DEVELOPER)
+		if (player.getStaffRights().isDeveloper(player))
 			player.getPacketSender().sendConsoleMessage(
 					"First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 
@@ -776,7 +776,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 
 							case 11356:
-								if (player.getDonorRights() == 0) {
+								if (!player.getDonatorRights().isDonator()) {
 									player.getPacketSender().sendMessage("You are not a donator... Get out of here!");
 									player.moveTo(new Position(3087, 3502, 0));
 									return;
@@ -785,7 +785,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								player.getPacketSender().sendMessage("You step through the portal..");
 								break;
 							case 47180:
-								if (player.getDonorRights() >= 3) {
+								if (player.getDonatorRights().ordinal() >= 3) {
 									player.getPacketSender().sendMessage("You activate the device..");
 									player.moveTo(new Position(2793, 3794));
 								} else {
@@ -795,7 +795,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 10091:
 							case 8702:
 								if (gameObject.getId() == 8702) {
-									if (player.getDonorRights() < 2) {
+									if (player.getDonatorRights().ordinal() < 2) {
 										player.getPacketSender()
 												.sendMessage("You must be at least a Super Donator to use this.");
 										return;
@@ -1021,24 +1021,11 @@ public class ObjectActionPacketListener implements PacketListener {
 									index = 3;
 									movePos = new Position(2925, leaveRoom ? 5332 : 5331, 2);
 								}
-								int killcount_amount = 20;
-								if (player.getDonorRights() == 1) {
-									killcount_amount = 15;
-								} else if (player.getDonorRights() == 2) {
-									killcount_amount = 10;
-								} else if (player.getDonorRights() == 3) {
-									killcount_amount = 5;
-								} else if (player.getDonorRights() == 4) {
-									killcount_amount = 2;
-								} else if (player.getDonorRights() == 5) {
-									killcount_amount = 0;
-								}
-								if (!leaveRoom && (player.getRights() != PlayerRights.ADMINISTRATOR
-										&& player.getRights() != PlayerRights.DEVELOPER && player.getRights() != PlayerRights.DEVELOPER
-										&& player.getRights() != PlayerRights.MANAGER && player.getMinigameAttributes()
-										.getGodwarsDungeonAttributes().getKillcount()[index] < killcount_amount)) {
+								int killcount = 20;
+								if (!leaveRoom && (!player.getStaffRights().isManagement() && player.getMinigameAttributes()
+										.getGodwarsDungeonAttributes().getKillcount()[index] < killcount)) {
 									player.getPacketSender().sendMessage("You need " + Misc.anOrA(bossRoom) + " " + bossRoom
-											+ " killcount of at least " + killcount_amount + " to enter this room.");
+											+ " killcount of at least " + killcount + " to enter this room.");
 									return;
 								}
 								player.moveTo(movePos);
@@ -1842,7 +1829,7 @@ public class ObjectActionPacketListener implements PacketListener {
 					.sendMessage("Please report the error to a staff member.");
 			return;
 		}
-		if (player.getRights() == PlayerRights.DEVELOPER)
+		if (player.getStaffRights().isDeveloper(player))
 			player.getPacketSender()
 					.sendConsoleMessage("Second click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setPositionToFace(gameObject.getPosition());
@@ -1990,7 +1977,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		int size = distanceX > distanceY ? distanceX : distanceY;
 		gameObject.setSize(size);
 		player.setInteractingObject(gameObject);
-		if (player.getRights() == PlayerRights.DEVELOPER)
+		if (player.getStaffRights().isDeveloper(player))
 			player.getPacketSender()
 					.sendMessage("Third click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
@@ -2024,7 +2011,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		int size = distanceX > distanceY ? distanceX : distanceY;
 		gameObject.setSize(size);
 		player.setInteractingObject(gameObject);
-		if (player.getRights() == PlayerRights.DEVELOPER)
+		if (player.getStaffRights().isDeveloper(player))
 			player.getPacketSender()
 					.sendMessage("Fourth click object id; [id, position] : [" + id + ", " + position.toString() + "]");
 		player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {

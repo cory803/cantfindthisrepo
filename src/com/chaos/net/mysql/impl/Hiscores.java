@@ -1,7 +1,7 @@
 package com.chaos.net.mysql.impl;
 
 import com.chaos.GameServer;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Skill;
 import com.chaos.net.mysql.SQLCallback;
 import com.chaos.world.content.skill.SkillManager;
@@ -38,11 +38,10 @@ public class Hiscores implements SQLCallback {
      * @return
      */
     public Hiscores execute() {
-        switch(player.getRights()) {
+        switch(player.getStaffRights()) {
             case OWNER:
-            case STAFF_MANAGER:
-            case DEVELOPER:
             case MANAGER:
+            case ADMINISTRATOR:
                 return this;
         }
         try {
@@ -73,7 +72,7 @@ public class Hiscores implements SQLCallback {
      * @return
      */
     private int getRank() {
-        PlayerRights rights = player.getRights();
+        StaffRights rights = player.getStaffRights();
         switch (rights) {
             case SUPPORT:
                 return 6;
@@ -90,7 +89,7 @@ public class Hiscores implements SQLCallback {
             case MODERATOR:
                 return 13;
             case PLAYER: {
-                switch (player.getDonorRights()) {
+                switch (player.getDonatorRights().ordinal()) {
                     case 1:
                         return 1;
                     case 2:

@@ -68,7 +68,7 @@ public final class LoginManager {
 			player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
 		}
 		if (player.getResponse() == LoginResponses.LOGIN_SUCCESSFUL) {
-			int rank = player.getRights().getClientValue();
+			int rank = player.getCrown();
 			/**
 			 * Successful login.
 			 */

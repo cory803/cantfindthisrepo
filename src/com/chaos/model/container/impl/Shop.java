@@ -464,7 +464,7 @@ public class Shop extends ItemContainer {
 			}
 		} else if (id == GAMBLING_STORE) {
 			if (item.getId() == 15084 || item.getId() == 299) {
-				if (player.getDonorRights() == 0) {
+				if (player.getDonatorRights().isDonator()) {
 					player.getPacketSender().sendMessage("You need to be a member to use these items.");
 					return this;
 				}
@@ -490,7 +490,7 @@ public class Shop extends ItemContainer {
 						}
 					} else {
 						if (id == PKING_REWARDS_STORE) {
-							player.getPointsHandler().setPkPoints(-value, true, true);
+							player.getPointsHandler().setPkPoints(-value, true);
 						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value, true);
 						} else if (id == DUNGEONEERING_STORE) {
@@ -534,7 +534,7 @@ public class Shop extends ItemContainer {
 						}
 					} else {
 						if (id == PKING_REWARDS_STORE) {
-							player.getPointsHandler().setPkPoints(-value * canBeBought, true, true);
+							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
 						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
 						} else if (id == DUNGEONEERING_STORE) {

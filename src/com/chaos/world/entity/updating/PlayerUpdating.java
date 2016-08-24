@@ -339,7 +339,7 @@ public class PlayerUpdating {
 	 * @return The PlayerUpdating instance.
 	 */
 	private static void updateChat(PacketBuilder builder, Player target) {
-		int rankId = target.getRights().getClientValue();
+		int rankId = target.getCrown();
 		Message message = target.getChatMessages().get();
 		byte[] bytes = message.getText();
 		builder.putShort(((message.getColour() & 0xff) << 8) | (message.getEffects() & 0xff), ByteOrder.LITTLE);
@@ -500,7 +500,7 @@ public class PlayerUpdating {
 	 * @return The PlayerUpdating instance.
 	 */
 	private static void updateAppearance(Player player, PacketBuilder out, Player target) {
-		int rankId = target.getRights().getClientValue();
+		int rankId = target.getCrown();
 		Appearance appearance = target.getAppearance();
 		Equipment equipment = target.getEquipment();
 		PacketBuilder properties = new PacketBuilder();

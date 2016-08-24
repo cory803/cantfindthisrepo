@@ -209,17 +209,23 @@ public class DialogueManager {
 				lines[i] = "Add " + amount_of_scales + " Zulrah's scales to your Toxic staff (uncharged)";
 			}
 			if (lines[i].contains("Set my yell tag (500M)")) {
-				int value = 500000000;
-				if (player.getDonorRights() == 1) {
-					value = 500;
-				} else if (player.getDonorRights() == 2) {
-					value = 400;
-				} else if (player.getDonorRights() == 3) {
-					value = 300;
-				} else if (player.getDonorRights() == 4) {
-					value = 200;
-				} else if (player.getDonorRights() == 5) {
-					value = 100;
+				int value = 10;
+				switch(player.getDonatorRights()) {
+					case PREMIUM:
+						value = 10;
+						break;
+					case EXTREME:
+						value = 8;
+						break;
+					case LEGENDARY:
+						value = 6;
+						break;
+					case UBER:
+						value = 4;
+						break;
+					case PLATINUM:
+						value = 2;
+						break;
 				}
 				lines[i] = "Set my yell tag (" + value + "M)";
 			}

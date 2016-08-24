@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.entity.impl.player.Player
 
@@ -11,9 +11,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class GetHelp(playerRights: PlayerRights) : Command(playerRights) {
+class GetHelp(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         player.packetSender.sendString(1, "rune.live/forum/?app=tickets")
         player.packetSender.sendMessage("Attempting to open: www.rune.live/forum/?app=tickets")
         player.packetSender.sendMessage("Please note this requires you to register on the forums, type ::register!")

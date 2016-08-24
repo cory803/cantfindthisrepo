@@ -3,7 +3,7 @@ package org.scripts.kotlin.content.commands
 import com.chaos.GameSettings
 import com.chaos.model.Locations
 import com.chaos.model.MagicSpellbook
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.content.combat.magic.Autocasting
 import com.chaos.world.entity.impl.player.Player
@@ -15,9 +15,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class EnableAncients(playerRights: PlayerRights) : Command(playerRights) {
+class EnableAncients(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (player.location != null && player.location === Locations.Location.WILDERNESS) {
             player.packetSender.sendMessage("You cannot do this at the moment.")
             return

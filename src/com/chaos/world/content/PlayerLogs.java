@@ -37,7 +37,7 @@ public class PlayerLogs {
 				GameServer.getCharacterPool().executeQuery(
 						"INSERT INTO `commands`(`username`, `rights`, `time`, `ip address`, `serial address`, `command`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
-								+ player.getRights().ordinal() + "','" + getTime() + "','" + player.getHostAddress()
+								+ player.getStaffRights().ordinal() + "','" + getTime() + "','" + player.getHostAddress()
 								+ "','" + player.getSerialNumber() + "','" + command.replaceAll("[\"\\\'/]", "") + "')",
 						new SQLCallback() {
 							@Override
@@ -102,7 +102,7 @@ public class PlayerLogs {
 						.executeQuery(
 								"INSERT INTO `drops`(`username`, `rights`, `time`, `ip address`, `serial address`, `item address`, `item id`, `item amount`, `item name`) VALUES ('"
 										+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
-										+ player.getRights().ordinal() + "','" + getTime() + "','"
+										+ player.getStaffRights().ordinal() + "','" + getTime() + "','"
 										+ player.getHostAddress() + "','" + player.getSerialNumber() + "','" + address
 										+ "','" + drop.getId() + "','" + drop.getAmount() + "','"
 										+ drop.getDefinition().getName().replaceAll("[\"\\\'/]", "") + "')",
@@ -168,7 +168,7 @@ public class PlayerLogs {
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','" + type + "','" + getTime()
 								+ "','" + player.getHostAddress() + "','" + player.getSerialNumber() + "','"
 								+ player.getMacAddress().replaceAll("[\"\\\'/]", "") + "','"
-								+ player.getRights().ordinal() + "')",
+								+ player.getStaffRights().ordinal() + "')",
 						new SQLCallback() {
 							@Override
 							public void queryComplete(ResultSet rs) throws SQLException {
@@ -263,7 +263,7 @@ public class PlayerLogs {
 						.executeQuery(
 								"INSERT INTO `pickups`(`username`, `rights`, `time`, `ip address`, `serial address`, `item address`, `item id`, `item amount`, `item name`) VALUES ('"
 										+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
-										+ player.getRights().ordinal() + "','" + getTime() + "','"
+										+ player.getStaffRights().ordinal() + "','" + getTime() + "','"
 										+ player.getHostAddress() + "','" + player.getSerialNumber() + "','" + address
 										+ "','" + drop.getId() + "','" + drop.getAmount() + "','"
 										+ drop.getDefinition().getName().replaceAll("[\"\\\'/]", "") + "')",
@@ -301,7 +301,7 @@ public class PlayerLogs {
 						.executeQuery(
 								"INSERT INTO `pins`(`username`, `rights`, `time`, `ip address`, `serial address`, `action`, `pin`) VALUES ('"
 										+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
-										+ player.getRights().ordinal() + "','" + getTime() + "','"
+										+ player.getStaffRights().ordinal() + "','" + getTime() + "','"
 										+ player.getHostAddress() + "','" + player.getSerialNumber() + "','"
 										+ action.replaceAll("[\"\\\'/]", "") + "','" + builder.toString() + "')",
 								new SQLCallback() {
@@ -333,7 +333,7 @@ public class PlayerLogs {
 				GameServer.getCharacterPool().executeQuery(
 						"INSERT INTO `other`(`username`, `rights`, `time`, `ip address`, `serial address`, `action`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
-								+ player.getRights().ordinal() + "','" + getTime() + "','" + player.getHostAddress()
+								+ player.getStaffRights().ordinal() + "','" + getTime() + "','" + player.getHostAddress()
 								+ "','" + player.getSerialNumber() + "','" + action.replaceAll("[\"\\\'/]", "") + "')",
 						new SQLCallback() {
 							@Override

@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.options.Option
 import com.chaos.model.options.twooption.TwoOption
 import com.chaos.model.player.command.Command
@@ -16,9 +16,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class IpMute(playerRights: PlayerRights) : Command(playerRights) {
+class IpMute(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::ipmute-playername-time-timeunit")
             player.packetSender.sendMessage("Time units are M for minutes, H for hours, D for days.")

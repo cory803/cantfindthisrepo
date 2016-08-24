@@ -99,18 +99,6 @@ public class LoyaltyProgramme {
 
 	public static void incrementPoints(Player player) {
 		double pts = 1;
-		if (WellOfGoodwill.bonusLoyaltyPoints(player))
-			pts *= 1.5;
-		if (player.getDonorRights() == 1)
-			pts *= 1.1;
-		if (player.getDonorRights() == 2)
-			pts *= 1.2;
-		if (player.getDonorRights() == 3)
-			pts *= 1.3;
-		if (player.getDonorRights() == 4)
-			pts *= 1.4;
-		if (player.getDonorRights() == 5)
-			pts *= 1.5;
 		player.getPointsHandler().incrementLoyaltyPoints(pts);
 		player.getAchievementAttributes().incrementTotalLoyaltyPointsEarned(pts);
 

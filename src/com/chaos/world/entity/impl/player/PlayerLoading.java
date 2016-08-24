@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.chaos.model.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -18,13 +19,7 @@ import com.chaos.GameServer;
 import com.chaos.GameSettings;
 import com.chaos.engine.task.impl.FamiliarSpawnTask;
 import com.chaos.model.player.GameMode;
-import com.chaos.model.Gender;
-import com.chaos.model.Item;
-import com.chaos.model.MagicSpellbook;
 import com.chaos.model.PlayerRelations.PrivateChatStatus;
-import com.chaos.model.PlayerRights;
-import com.chaos.model.Position;
-import com.chaos.model.Prayerbook;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.net.login.LoginManager;
 import com.chaos.net.login.LoginResponses;
@@ -191,8 +186,8 @@ public class PlayerLoading {
 							}
 							if (matches) {
 								player.setUsername(rs.getString("username"));
-								player.setRights(PlayerRights.forId(rs.getInt("staffrights")));
-								player.setDonorRights(rs.getInt("donorrights"));
+								player.setStaffRights(StaffRights.forId(rs.getInt("staffrights")));
+								player.setDonatorRights(DonatorRights.forId(rs.getInt("donatorrights")));
 
 								final String jsonString = rs.getString("json");
 								if (jsonString != null) {
@@ -292,11 +287,11 @@ public class PlayerLoading {
 		}
 
 		if (reader.has("staff-rights")) {
-			player.setRights(PlayerRights.valueOf(reader.get("staff-rights").getAsString()));
+			player.setStaffRights(StaffRights.valueOf(reader.get("staff-rights").getAsString()));
 		}
 
-		if (reader.has("donor-rights")) {
-			player.setDonorRights(reader.get("donor-rights").getAsInt());
+		if (reader.has("donator-rights")) {
+			player.setDonatorRights(DonatorRights.valueOf(reader.get("donator-rights").getAsString()));
 		}
 
 		if (reader.has("game-mode")) {
@@ -516,7 +511,7 @@ public class PlayerLoading {
 		}
 
 		if (reader.has("pk-points")) {
-			player.getPointsHandler().setPkPoints(reader.get("pk-points").getAsInt(), false, false);
+			player.getPointsHandler().setPkPoints(reader.get("pk-points").getAsInt(), false);
 		}
 
 		if (reader.has("boss-points")) {

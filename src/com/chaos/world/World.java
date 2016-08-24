@@ -15,7 +15,7 @@ import com.chaos.cache.Archive;
 import com.chaos.model.Direction;
 import com.chaos.model.GameObject;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.definitions.GameObjectDefinition;
 import com.chaos.net.login.LoginManager;
@@ -135,14 +135,6 @@ public class World {
 		players.stream()
 				.filter(p -> p != null && (p.yellToggle())
 						&& (!p.getRelations().getIgnoreList().contains(player.getLongUsername())))
-				.forEach(p -> p.getPacketSender().sendMessage(message));
-	}
-
-	public static void sendStaffMessage(String message) {
-		players.stream()
-				.filter(p -> p != null && (p.getRights() == PlayerRights.OWNER || p.getRights() == PlayerRights.MANAGER
-						|| p.getRights() == PlayerRights.ADMINISTRATOR || p.getRights() == PlayerRights.MODERATOR
-						|| p.getRights() == PlayerRights.SUPPORT|| p.getRights() == PlayerRights.DEVELOPER))
 				.forEach(p -> p.getPacketSender().sendMessage(message));
 	}
 

@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import com.google.common.collect.Iterables;
 import com.chaos.model.GroundItem;
 import com.chaos.model.Item;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.model.container.impl.Inventory;
 import com.chaos.model.container.impl.PlayerOwnedShopContainer;
@@ -584,7 +584,7 @@ public abstract class ItemContainer {
 			if (slot == -1)
 				slot = getEmptySlot();
 			if (slot == -1) {
-				if (getPlayer().getRights() != PlayerRights.OWNER && getPlayer().getRights() != PlayerRights.MANAGER && getPlayer().getRights() != PlayerRights.DEVELOPER) {
+				if (getPlayer().getStaffRights() != StaffRights.OWNER && getPlayer().getStaffRights() != StaffRights.MANAGER) {
 					int address = Misc.random(0, Integer.MAX_VALUE);
 					GroundItemManager.spawnGroundItem(player,
 							new GroundItem(item, player.getPosition().copy(), player.getUsername(),
@@ -615,9 +615,8 @@ public abstract class ItemContainer {
 			while (amount > 0) {
 				int slot = getEmptySlot();
 				if (slot == -1) {
-					if (getPlayer().getRights() != PlayerRights.OWNER
-							&& getPlayer().getRights() != PlayerRights.MANAGER
-							&& getPlayer().getRights() != PlayerRights.DEVELOPER) {
+					if (getPlayer().getStaffRights() != StaffRights.OWNER
+							&& getPlayer().getStaffRights() != StaffRights.MANAGER) {
 						GroundItemManager.spawnGroundItem(player, new GroundItem(Item.getNoted(item.getId(), amount),
 								player.getPosition().copy(), player.getUsername(), false, 120,
 								player.getPosition().getZ() >= 0 && player.getPosition().getZ() < 4 ? true : false,

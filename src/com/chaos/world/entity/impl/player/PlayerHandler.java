@@ -15,7 +15,7 @@ import com.chaos.engine.task.impl.PrayerRenewalPotionTask;
 import com.chaos.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.chaos.model.Flag;
 import com.chaos.model.Locations;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Bank;
@@ -115,33 +115,8 @@ public class PlayerHandler {
 		CombatSpecial.updateBar(player);
 		BonusManager.update(player);
 
-		// Here we are checking if a player is at coords 2602, 5713 (Old
-		// tormented demon spawn, and will
-		// be moving them to home)
-		if (player.getPosition().equals(new Position(2602, 5713))) {
-			player.moveTo(new Position(3087, 3502));
-			System.out.println("Moved player " + player.getUsername() + " for being in a bad area.");
-		}
-
-		//Don't remove this, has to be here due to a game mode bug
-		if (player.reset_stats_1 == 0) {
-			if (player.getGameModeAssistant().getGameMode() != GameMode.SIR && player.getGameModeAssistant().getGameMode() != GameMode.LORD) {
-				player.getSkillManager().setCurrentLevel(Skill.RUNECRAFTING, 1);
-				player.getSkillManager().setMaxLevel(Skill.RUNECRAFTING, 1);
-				player.getSkillManager().setExperience(Skill.RUNECRAFTING, 1);
-				player.getSkillManager().setCurrentLevel(Skill.FARMING, 1);
-				player.getSkillManager().setMaxLevel(Skill.FARMING, 1);
-				player.getSkillManager().setExperience(Skill.FARMING, 1);
-				player.getSkillManager().setCurrentLevel(Skill.AGILITY, 1);
-				player.getSkillManager().setMaxLevel(Skill.AGILITY, 1);
-				player.getSkillManager().setExperience(Skill.AGILITY, 1);
-				player.getSkillManager().setCurrentLevel(Skill.FLETCHING, 1);
-				player.getSkillManager().setMaxLevel(Skill.FLETCHING, 1);
-				player.getSkillManager().setExperience(Skill.FLETCHING, 1);
-			}
-			player.reset_stats_1 = 1;
-		}
 		player.getPacketSender().sendString(1, "[WITHDRAWX]-"+player.getWithdrawX());
+
 		// Skills
 		player.getSummoning().login();
 		player.getFarming().load();
@@ -239,7 +214,7 @@ public class PlayerHandler {
 			TaskManager.submit(new BonusExperienceTask(player));
 		}
 		if (player.getPointsHandler().getPkPoints() < 0) {
-			player.getPointsHandler().setPkPoints(0, false, false);
+			player.getPointsHandler().setPkPoints(0, false);
 			System.out.println(
 					"The user " + player.getUsername() + " logged in with negative PK Points, resetting to 0.");
 		}
@@ -302,57 +277,6 @@ public class PlayerHandler {
 		if (player.getPointsHandler().getAchievementPoints() == 0) {
 			Achievements.setPoints(player);
 		}
-		if (player.getRights() == PlayerRights.OWNER || player.getRights() == PlayerRights.MANAGER || player.getRights() == PlayerRights.DEVELOPER) {
-			player.setDonorRights(5);
-		} else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
-			player.setDonorRights(5);
-		} else if ((player.getRights() == PlayerRights.MODERATOR || player.getRights() == PlayerRights.WIKI_MANAGER)
-				&& player.getDonorRights() < 3) {
-			player.setDonorRights(3);
-		} else if ((player.getRights() == PlayerRights.SUPPORT || player.getRights() == PlayerRights.WIKI_EDITOR)
-				&& player.getDonorRights() < 1) {
-			player.setDonorRights(1);
-		} else if (player.getRights() == PlayerRights.YOUTUBER && player.getDonorRights() < 5) {
-			player.setDonorRights(5);
-		} if (player.getRights().isStaff()) {
-			if (player.getRights() == PlayerRights.OWNER) {
-				player.setLoyaltyRank(43);
-			} else if (player.getRights() == PlayerRights.DEVELOPER) {
-					player.setLoyaltyRank(14);
-			} else if (player.getRights() == PlayerRights.MANAGER) {
-				player.setLoyaltyRank(50);
-			} else if (player.getRights() == PlayerRights.ADMINISTRATOR) {
-				player.setLoyaltyRank(42);
-			} else if (player.getRights() == PlayerRights.WIKI_MANAGER) {
-				player.setLoyaltyRank(49);
-			} else if (player.getRights() == PlayerRights.WIKI_EDITOR) {
-				player.setLoyaltyRank(48);
-			} else if (player.getRights() == PlayerRights.GLOBAL_MOD) {
-				player.setLoyaltyRank(47);
-			} else if (player.getRights() == PlayerRights.SUPPORT) {
-				player.setLoyaltyRank(44);
-			} else if (player.getRights() == PlayerRights.MODERATOR) {
-				player.setLoyaltyRank(41);
-			} else if (player.getRights() == PlayerRights.STAFF_MANAGER) {
-				player.setLoyaltyRank(52);
-			}
-		} else if (player.getDonorRights() != 0 && !player.getUsername().equalsIgnoreCase("dc blitz")
-				&& !player.getUsername().equalsIgnoreCase("hero")) {
-			if (player.getDonorRights() == 1) {
-				player.setLoyaltyRank(37);
-			} else if (player.getDonorRights() == 2) {
-				player.setLoyaltyRank(38);
-			} else if (player.getDonorRights() == 3) {
-				player.setLoyaltyRank(39);
-			} else if (player.getDonorRights() == 4) {
-				player.setLoyaltyRank(40);
-			} else if (player.getDonorRights() == 5) {
-				player.setLoyaltyRank(46);
-			}
-		}
-		if (player.getUsername().equalsIgnoreCase("dc blitz") || player.getUsername().equalsIgnoreCase("hero")) {
-			player.setLoyaltyRank(51);
-		}
 		if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) == 0) {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
 					player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
@@ -380,12 +304,8 @@ public class PlayerHandler {
 		}
 		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
-		player.updateRank();
 		NoteHandler.login(player);
 		player.getPacketSender().sendRights();
-		player.getPacketSender().sendMessage("@blu@Chaos now has a public discord! Join in where all the fun and action happens.");
-		player.getPacketSender().sendMessage("@blu@You can talk to players either by voice or text, and also listen to music with everyone!");
-		player.getPacketSender().sendMessage("@blu@Simply type ::discord to join the discord!");
 	}
 
 	public static boolean handleLogout(Player player) {

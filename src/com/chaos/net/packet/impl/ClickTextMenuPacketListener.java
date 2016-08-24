@@ -1,7 +1,7 @@
 package com.chaos.net.packet.impl;
 
 import com.chaos.GameSettings;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.world.content.clan.ClanChatManager;
@@ -15,9 +15,8 @@ public class ClickTextMenuPacketListener implements PacketListener {
 		int interfaceId = packet.readShort();
 		int menuId = packet.readByte();
 
-		if (player.getRights() == PlayerRights.DEVELOPER) {
+		if(player.getStaffRights().isDeveloper(player))
 			player.getPacketSender().sendConsoleMessage("Clicked text menu: " + interfaceId + ", menuId: " + menuId);
-		}
 		if (GameSettings.DEBUG_MODE) {
 			// PlayerLogs.log(player,
 			// "" + player.getUsername()

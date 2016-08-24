@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.google.common.collect.Sets
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.World
 import com.chaos.world.entity.impl.player.Player
@@ -13,10 +13,10 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class PromoteWiki(playerRights: PlayerRights) : Command(playerRights) {
+class PromoteWiki(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player?, args: Array<String>?, privilege: PlayerRights) {
-        if (player!!.rights != PlayerRights.WIKI_MANAGER) {
+    override fun execute(player: Player?, args: Array<String>?, privilege: StaffRights) {
+        if (player!!.staffRights != StaffRights.WIKI_MANAGER && !player!!.staffRights.isManagement) {
             player.packetSender.sendMessage("You do not have sufficient privileges to use this command.")
             return
         }
@@ -30,8 +30,8 @@ class PromoteWiki(playerRights: PlayerRights) : Command(playerRights) {
             return
         }
 
-        if (PROMOTABLE.contains(promote.rights)) {
-            promote.rights = PlayerRights.WIKI_EDITOR
+        if (PROMOTABLE.contains(promote.staffRights)) {
+            promote.staffRights = StaffRights.WIKI_EDITOR
             promote.packetSender.sendRights()
             promote.packetSender.sendMessage("Congratulations, " + player!!.username + " has promoted you to a Wiki Editor!")
             player.packetSender.sendMessage("You have promoted " + promote.username + " to a Wiki Editor!")
@@ -42,7 +42,6 @@ class PromoteWiki(playerRights: PlayerRights) : Command(playerRights) {
 
     companion object {
 
-        private val PROMOTABLE = Sets.immutableEnumSet(
-                PlayerRights.PLAYER, PlayerRights.IRONMAN, PlayerRights.HARDCORE_IRONMAN, PlayerRights.REGULAR_DONOR, PlayerRights.LEGENDARY_DONOR, PlayerRights.EXTREME_DONOR, PlayerRights.SUPER_DONOR, PlayerRights.UBER_DONOR)
+        private val PROMOTABLE = Sets.immutableEnumSet(StaffRights.PLAYER)
     }
 }

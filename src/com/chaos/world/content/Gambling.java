@@ -15,10 +15,6 @@ public class Gambling {
 
 	public static void rollDice(Player player) {
 		int amount = Misc.getRandom(100);
-		if (player.getDonorRights() == 0) {
-			player.getPacketSender().sendMessage("You need to be a member to use this item.");
-			return;
-		}
 		if (player.getLocation() != Location.GAMBLE) {
 			player.getPacketSender().sendMessage("").sendMessage("This dice can only be used in the gambling area!")
 					.sendMessage("To get there, talk to the gambler.");
@@ -54,10 +50,6 @@ public class Gambling {
 	}
 
 	public static void plantSeed(Player player) {
-		if (player.getDonorRights() == 0) {
-			player.getPacketSender().sendMessage("You need to be a member to use this item.");
-			return;
-		}
 		if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
 			player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 			return;

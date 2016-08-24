@@ -2,7 +2,7 @@ package com.chaos.net.packet.impl;
 
 import com.chaos.GameSettings;
 import com.chaos.model.Gender;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.options.Option;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.Position;
@@ -85,9 +85,8 @@ public class ButtonClickPacketListener implements PacketListener {
 
 		int id = packet.readShort();
 
-		if (player.getRights() == PlayerRights.OWNER) {
+		if (player.getStaffRights().isDeveloper(player))
 			player.getPacketSender().sendMessage("Clicked button: " + id);
-		}
 
 		if (checkOptionContainer(player, id)) {
 			return;

@@ -60,7 +60,7 @@ class LoginMessageParser {
             }
 
             if (WellOfGoodwill.isActive()) {
-                if (player.getDonorRights() > 0) {
+                if (player.getDonatorRights().isDonator()) {
                     player.getPacketSender().sendMessage(
                             "<img=4> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "
                                     + WellOfGoodwill.getMinutesRemaining() + " minutes.")

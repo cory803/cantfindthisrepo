@@ -6,7 +6,7 @@ import com.chaos.model.CombatIcon;
 import com.chaos.model.Hit;
 import com.chaos.model.Hitmask;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Skill;
 import com.chaos.world.content.Consumables;
 import com.chaos.world.entity.impl.player.Player;
@@ -47,7 +47,7 @@ public class OverloadPotionTask extends Task {
 			player.getPacketSender().sendMessage("@red@Your Overload's effect is about to run out.");
 		if (player.getOverloadPotionTimer() <= 0 || player.getLocation() == Location.DUEL_ARENA
 				|| player.getLocation() == Location.DUNGEONEERING || player.getLocation() == Location.WILDERNESS
-						&& player.getRights() != PlayerRights.DEVELOPER) {
+						&& !player.getStaffRights().isManagement()) {
 			player.getPacketSender().sendMessage("@red@Your Overload's effect has run out.");
 			for (int i = 0; i < 7; i++) {
 				if (i == 3 || i == 5)

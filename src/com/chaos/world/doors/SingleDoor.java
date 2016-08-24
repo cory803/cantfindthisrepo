@@ -1,7 +1,7 @@
 package com.chaos.world.doors;
 
 import com.chaos.model.GameObject;
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -106,7 +106,7 @@ public final class SingleDoor {
 			}
 			break;
 		default:
-			if (player.getRights() == PlayerRights.DEVELOPER) {
+			if (player.getStaffRights().isDeveloper(player)) {
 				player.getPacketSender().sendMessage("@red@Unhandled door rotation: " + gameObject.getRotation());
 			}
 			break;

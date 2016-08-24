@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.Skill
 import com.chaos.model.player.command.Command
 import com.chaos.world.entity.impl.player.Player
@@ -12,9 +12,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class ProPker(playerRights: PlayerRights) : Command(playerRights) {
+class ProPker(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         player.skillManager.setCurrentLevel(Skill.ATTACK, 125, true)
         player.skillManager.setCurrentLevel(Skill.STRENGTH, 145, true)
         player.skillManager.setCurrentLevel(Skill.RANGED, 145, true)

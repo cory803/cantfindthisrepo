@@ -1,6 +1,6 @@
 package com.chaos.net.packet.impl;
 
-import com.chaos.model.PlayerRights;
+import com.chaos.model.StaffRights;
 import com.chaos.model.action.distance.DistanceToNpcAction;
 import com.chaos.model.action.executable.NpcMenuActionFourExecutable;
 import com.chaos.model.action.executable.NpcMenuActionOneExecutable;
@@ -49,7 +49,7 @@ public class NPCOptionPacketListener implements PacketListener {
 			player.getWalkingQueue().clear();
 		}
 
-		if (player.getRights() == PlayerRights.DEVELOPER) {
+		if (player.getStaffRights().isDeveloper(player)) {
 			player.getPacketSender().sendMessage("Attacking npc id: " + interact.getId());
 		}
 		if (interact.getId() == 1172) {

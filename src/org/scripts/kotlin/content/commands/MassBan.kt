@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.options.Option
 import com.chaos.model.options.twooption.TwoOption
 import com.chaos.model.player.command.Command
@@ -17,9 +17,9 @@ import com.chaos.world.entity.impl.player.PlayerSaving
 
  * @author Seba
  */
-class MassBan(playerRights: PlayerRights) : Command(playerRights) {
+class MassBan(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::mass-playername-time-timeunit")
             player.packetSender.sendMessage("Time units are M for minutes, H for hours, D for days.")

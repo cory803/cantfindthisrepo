@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.entity.impl.player.Player
 
@@ -11,9 +11,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class ChangePassword(playerRights: PlayerRights) : Command(playerRights) {
+class ChangePassword(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         player.inputHandling = com.chaos.model.input.impl.ChangePassword()
         player.packetSender.sendEnterInputPrompt("Enter a new password:")
     }

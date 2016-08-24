@@ -14,10 +14,7 @@ public abstract class Command {
 
     /**
      * Constructs our command
-     * @param playerRights
      */
-    public Command(PlayerRights playerRights) {
-        this.playerRights = playerRights;
     }
 
     /**
@@ -26,18 +23,13 @@ public abstract class Command {
      * @param args The args that the player passed threw
      * @param privilege The rights of the player.
      */
-    public abstract void execute(Player player, String[] args, PlayerRights privilege);
 
     /**
-     * Returns the player rights needed to execute the command.
      * @return
      */
-    public PlayerRights getPlayerRights() {
-        return playerRights;
     }
 
     /**
      * The player rights needed to execute this command
      */
-    private final PlayerRights playerRights;
 }

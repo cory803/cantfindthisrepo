@@ -1,7 +1,8 @@
 package org.scripts.kotlin.content.commands
 
 import com.chaos.GameSettings
-import com.chaos.model.PlayerRights
+import com.chaos.model.DonatorRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.World
 import com.chaos.world.content.PlayerPunishment
@@ -14,9 +15,13 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class Yell(playerRights: PlayerRights) : Command(playerRights) {
+class Yell(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
+        if (player.donatorRights == DonatorRights.PLAYER) {
+            player.packetSender.sendMessage("You must be a donator in order to use this command.")
+            return
+        }
         if (args == null) {
             player.packetSender.sendMessage("Please use the command as ::yell-message no spaces use -")
             return
@@ -42,56 +47,66 @@ class Yell(playerRights: PlayerRights) : Command(playerRights) {
             player.packetSender.sendMessage("You are not allowed to put these symbols in your yell message.")
             return
         }
-        if (yellmessage.contains("hitbox") || yellmessage.contains("HITBOX") || yellmessage.contains(".TV") || yellmessage.contains(".tv") && !player.rights.canStream()) {
-            player.packetSender.sendMessage("You are not permitted to advertise streams.")
-            return
-        }
 
         val builder = StringBuilder(1024)
-        val isStaff = player.rights.isStaff || player.rights == PlayerRights.WIKI_EDITOR || player.rights == PlayerRights.WIKI_MANAGER
+        val isStaff = player.staffRights.ordinal > 0
 
         /**
          * Time to build our message
          */
         run {
-            if (!isStaff) {
+            if(!player.staffRights.isStaff) {
                 builder.append("<img=")
-                builder.append(player.rights.clientValue)
+                builder.append(player.crown)
                 builder.append("> ")
             }
 
-            builder.append("<col=0>[<col=")
-            builder.append(player.rights.yellColor)
-            builder.append(">")
+            if (!isStaff) {
+                builder.append("<col=0>[")
+                builder.append(player.donatorRights.color)
 
-            if (player.rights.shadow != null) {
-                builder.append("<shad=")
-                builder.append(player.rights.shadow)
-                builder.append(">")
+                if (player.donatorRights.shad != null) {
+                    builder.append(player.donatorRights.shad)
+                }
+            } else {
+                builder.append("<col=0>[")
+                builder.append(player.staffRights.color)
+
+                if (player.staffRights.shad != null) {
+                    builder.append(player.staffRights.shad)
+                }
             }
 
             if (isStaff) {
                 builder.append("<img=")
-                builder.append(player.rights.clientValue)
+                builder.append(player.crown)
                 builder.append(">")
             }
 
             if (player.yellTag != "invalid_yell_tag_set") {
                 builder.append(player.yellTag)
             } else {
-                builder.append(player.rights.rightName.replace(" Donor", ""))
+                if(player.staffRights.isStaff) {
+                    builder.append(player.staffRights.title)
+                } else {
+                    builder.append(player.donatorRights.title)
+                }
             }
 
             if (isStaff) {
                 builder.append("<img=")
-                builder.append(player.rights.clientValue)
+                builder.append(player.crown)
                 builder.append(">")
             }
-
-            if (player.rights.shadow != null) {
-                builder.append("</shad>")
+            if(player.staffRights.isStaff) {
+                if (player.staffRights.shad != null) {
+                    builder.append("</shad>")
+                }
+            } else {
+                if (player.donatorRights.shad != null) {
+                    builder.append("</shad>")
+                }
             }
-
             builder.append("<col=0>] ")
             builder.append(player.username)
             builder.append(": ")

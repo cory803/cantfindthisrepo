@@ -205,7 +205,6 @@ public class Default extends Dialog {
             case 20:
                 getPlayer().getGameModeAssistant().setGameMode(gameMode);
                 PlayerPanel.refreshPanel(getPlayer());
-                getPlayer().updateRank();
                 getPlayer().getPacketSender().sendRights();
                 return Dialog.createNpc("Perfect, you are now a " + gameMode.getModeName() + "! Would you like me to show you around Chaos?");
             case 21:

@@ -77,11 +77,7 @@ public class SkillManager {
 	 */
 	public SkillManager addSkillExperience(Skill skill, int experience) {
 		if(WellOfGoodwill.isActive()) {
-			if(player.getDonorRights() > 0) {
-				experience *= 1.5;
-			} else {
-				experience *= 1.3;
-			}
+			experience *= 1.3;
 		}
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);

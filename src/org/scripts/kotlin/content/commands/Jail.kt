@@ -1,6 +1,6 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.Position
 import com.chaos.model.player.command.Command
 import com.chaos.util.Misc
@@ -15,9 +15,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class Jail(playerRights: PlayerRights) : Command(playerRights) {
+class Jail(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::jail-playername-time-timeunit")
             player.packetSender.sendMessage("Time units are M for minutes, H for hours, D for days.")
@@ -55,7 +55,7 @@ class Jail(playerRights: PlayerRights) : Command(playerRights) {
             val unit = u[0]
 
             if (unit == 'd') {
-                if (player.rights.rights < PlayerRights.OWNER.rights) {
+                if (player.staffRights != StaffRights.OWNER) {
                     player.packetSender.sendMessage("You must be an an owner to use the day parameter.")
                     return
                 }

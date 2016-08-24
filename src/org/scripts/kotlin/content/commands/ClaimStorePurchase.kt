@@ -2,7 +2,7 @@ package org.scripts.kotlin.content.commands
 
 import com.chaos.GameSettings
 import com.chaos.model.Locations
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.Store
 import com.chaos.model.player.command.Command
 import com.chaos.world.entity.impl.player.Player
@@ -14,9 +14,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class ClaimStorePurchase(playerRights: PlayerRights) : Command(playerRights) {
+class ClaimStorePurchase(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (!GameSettings.STORE_CONNECTIONS) {
             player.packetSender.sendMessage("The store is currently offline! Try again in 30 minutes.")
             return

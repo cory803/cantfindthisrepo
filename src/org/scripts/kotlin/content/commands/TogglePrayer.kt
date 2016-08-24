@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.chaos.GameSettings
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.Prayerbook
 import com.chaos.model.Skill
 import com.chaos.model.player.command.Command
@@ -16,9 +16,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class TogglePrayer(playerRights: PlayerRights) : Command(playerRights) {
+class TogglePrayer(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (player.skillManager.getMaxLevel(Skill.DEFENCE) < 30) {
             player.packetSender.sendMessage("You need a Defence level of at least 30 to use this altar.")
             return

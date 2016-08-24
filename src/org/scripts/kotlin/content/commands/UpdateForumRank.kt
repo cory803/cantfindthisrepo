@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.commands
 
 import com.chaos.GameSettings
-import com.chaos.model.PlayerRights
+import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.util.ForumDatabase
 import com.chaos.world.entity.impl.player.Player
@@ -13,9 +13,9 @@ import com.chaos.world.entity.impl.player.Player
 
  * @author Seba
  */
-class UpdateForumRank(playerRights: PlayerRights) : Command(playerRights) {
+class UpdateForumRank(staffRights: StaffRights) : Command(staffRights) {
 
-    override fun execute(player: Player, args: Array<String>?, privilege: PlayerRights) {
+    override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (player.forumConnections > 0) {
             player.packetSender.sendMessage("You have just used this command, please relog and try again!")
             return
@@ -24,7 +24,7 @@ class UpdateForumRank(playerRights: PlayerRights) : Command(playerRights) {
             player.packetSender.sendMessage("This is currently disabled, try again in 30 minutes!")
             return
         }
-        if (!player.rights.isStaff) {
+        if (player.staffRights.ordinal == 0) {
             try {
                 player.addForumConnections(60)
                 ForumDatabase.forumRankUpdate(player)

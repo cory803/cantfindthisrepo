@@ -190,8 +190,8 @@ public class PlayerSaving {
 		object.addProperty("password_change", new Integer(player.getPasswordChange()));
 		object.addProperty("email", player.getEmailAddress() == null ? "null" : player.getEmailAddress().trim());
 		object.addProperty("yell-tag", player.getYellTag());
-		object.addProperty("staff-rights", player.getRights().name());
-		object.addProperty("donor-rights", player.getDonorRights());
+		object.addProperty("staff-rights", player.getStaffRights().name());
+		object.addProperty("donator-rights", player.getDonatorRights().name());
 		object.addProperty("game-mode", player.getGameModeAssistant().getGameMode().name());
 		//object.addProperty("exp-rate", player.getExpRate().name());
 		object.addProperty("player-invisibility", player.isInvisible());
