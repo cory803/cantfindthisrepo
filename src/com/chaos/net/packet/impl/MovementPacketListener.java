@@ -11,7 +11,6 @@ import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.dialogue.impl.Tutorial;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.entity.impl.player.Player;
@@ -117,19 +116,6 @@ public class MovementPacketListener implements PacketListener {
 			player.performAnimation(new Animation(11788));
 			WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
 			player.getUpdateFlag().flag(Flag.APPEARANCE);
-			return false;
-		}
-		if (player.continueTutorial() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {
-			DialogueManager.start(player, Tutorial.get(player, 15));
-			return false;
-		}
-		/*if (player.continueSkipTutorial() && player.isPlayerLocked() && !player.getBankPinAttributes().hasBankPin()) {
-			DialogueManager.start(player, Tutorial.get(player, 17));
-			return false;
-		}*/
-		if (player.continueLoginAccountPin() && player.isPlayerLocked()
-				&& !player.getBankPinAttributes().hasBankPin()) {
-			DialogueManager.start(player, Tutorial.get(player, 17));
 			return false;
 		}
 		if (player.getPasswordChanging() && player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {

@@ -5,7 +5,6 @@ import com.chaos.model.input.Input;
 import com.chaos.util.NameUtils;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.dialogue.impl.Tutorial;
 import com.chaos.world.entity.impl.player.Player;
 
 public class ChangePassword extends Input {
@@ -32,7 +31,7 @@ public class ChangePassword extends Input {
 			if (!player.getBankPinAttributes().hasBankPin()) {
 				player.setPlayerLocked(true);
 				player.setLoginAccountPin(true);
-				DialogueManager.start(player, Tutorial.get(player, 17));
+				//TODO: Guy doesnt have an account pin so make his ass set one!
 			}
 		}
 	}

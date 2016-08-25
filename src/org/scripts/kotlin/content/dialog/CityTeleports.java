@@ -40,7 +40,7 @@ public class CityTeleports extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2965, 3378, 0), TeleportType.NORMAL);
                                 break;
                             case OPTION_3_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2757, 3477, 0), TeleportType.NORMAL);
+                                TeleportHandler.teleportPlayer(player, new Position(3222, 3219, 0), TeleportType.NORMAL);
                                 break;
                             case OPTION_4_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(3104, 3249, 0), TeleportType.NORMAL);

@@ -9,7 +9,6 @@ import com.chaos.GameSettings;
 import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.util.JsonLoader;
 import com.chaos.world.content.BankPin;
-import com.chaos.world.content.dialogue.impl.Tutorial;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -159,27 +158,6 @@ public class DialogueManager {
 		}
 	}
 
-	/**
-	 * Handles the clicking of 'click here to continue', option1, option2 and so
-	 * on.
-	 * 
-	 * @param player
-	 *            The player who will continue the dialogue.
-	 */
-	public static void tutorialDialogue(Player player) {
-		if (player.getDialogue() == null) {
-			player.getPacketSender().sendInterfaceRemoval();
-			return;
-		}
-		Dialogue next = Tutorial.get(player, 15);
-		if (next == null)
-			next = dialogues.get(player.getDialogue().nextDialogueId());
-		if (next == null || next.id() < 0) {
-			player.getPacketSender().sendInterfaceRemoval();
-			return;
-		}
-		start(player, next);
-	}
 
 	/**
 	 * Configures the dialogue's type and shows the dialogue interface and sets

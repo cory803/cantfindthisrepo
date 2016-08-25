@@ -15,7 +15,6 @@ import com.chaos.engine.task.impl.PrayerRenewalPotionTask;
 import com.chaos.engine.task.impl.StaffOfLightSpecialAttackTask;
 import com.chaos.model.Flag;
 import com.chaos.model.Locations;
-import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Bank;
@@ -23,7 +22,6 @@ import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.model.input.impl.ChangePassword;
-import com.chaos.model.player.GameMode;
 import com.chaos.net.PlayerSession;
 import com.chaos.net.SessionState;
 import com.chaos.net.login.LoginResponses;
@@ -46,7 +44,6 @@ import com.chaos.world.content.combat.pvp.BountyHunter;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.dialogue.impl.Tutorial;
 import com.chaos.world.content.minigames.impl.Barrows;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
@@ -253,9 +250,9 @@ public class PlayerHandler {
 		if (player.newPlayer()) {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 			player.save();
-			// player.setClanChatName("chaos");
 			player.setPlayerLocked(true);
-			player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Tutorial(player));
+			//TODO: Redo the starter
+			//player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Tutorial(player));
 		} else {
 			if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
 				player.setPlayerLocked(true);
@@ -263,11 +260,7 @@ public class PlayerHandler {
 				player.setInputHandling(new ChangePassword());
 				player.getPacketSender().sendEnterInputPrompt("Please enter a new password to set for your account:");
 			} else {
-				if (!player.getBankPinAttributes().hasBankPin()) {
-					player.setPlayerLocked(true);
-					player.setLoginAccountPin(true);
-					DialogueManager.start(player, Tutorial.get(player, 17));
-				}
+				//TODO: Check if the player has an account pin, if not make him set one
 			}
 		}
 
