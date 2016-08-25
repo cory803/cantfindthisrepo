@@ -297,7 +297,7 @@ public class PlayerLoading {
 			try {
 				player.getGameModeAssistant().setGameMode(GameMode.valueOf(reader.get("game-mode").getAsString()));
 			} catch (Exception e) {
-				player.getGameModeAssistant().setGameMode(GameMode.SIR);
+				player.getGameModeAssistant().setGameMode(GameMode.KNIGHT);
 			}
 		}
 

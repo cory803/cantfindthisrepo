@@ -250,8 +250,7 @@ public class SkillManager {
 		float MAX_EXP = MAX_EXPERIENCE;
 		float experience = player.getSkillManager().getExperience(skill);
 		int basePoints = skill.getPrestigePoints();
-		double bonusPointsModifier = player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN ? 1.3
-				: player.getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN ? 1.6 : 1;
+		double bonusPointsModifier = 1;
 		bonusPointsModifier += (experience / MAX_EXP) * 5;
 		int totalPoints = (int) (basePoints * bonusPointsModifier);
 		return totalPoints;

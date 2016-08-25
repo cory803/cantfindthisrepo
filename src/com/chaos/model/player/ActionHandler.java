@@ -381,12 +381,8 @@ public final class ActionHandler {
         }
         switch (npc.getId()) {
             case 946:
-                if (player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN || player.getGameModeAssistant().getGameMode() == GameMode._IRONMAN || player.getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN) {
-                    player.getPacketSender().sendMessage("You're an ironman you can't do this");
-                } else {
                     DialogueManager.start(player, 252);
                     player.setDialogueActionId(252);
-                }
                 break;
             case 2217:
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");

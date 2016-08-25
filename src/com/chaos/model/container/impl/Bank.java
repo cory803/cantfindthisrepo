@@ -31,10 +31,6 @@ public class Bank extends ItemContainer {
 		if (Dungeoneering.doingDungeoneering(getPlayer())) {
 			return this;
 		}
-		if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.HARDCORE_IRONMAN) {
-			getPlayer().getPacketSender().sendMessage("Hardcore Ironmen cannot use the bank.");
-			return this;
-		}
 		if (getPlayer().getBankPinAttributes().hasBankPin() && !getPlayer().getBankPinAttributes().hasEnteredBankPin()
 				&& getPlayer().getBankPinAttributes().onDifferent(getPlayer())) {
 			BankPin.init(getPlayer(), true);

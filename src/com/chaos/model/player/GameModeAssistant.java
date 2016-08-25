@@ -33,7 +33,7 @@ public class GameModeAssistant {
     /**
      * Define what game mode the player is on. If they dont have one we will give them default by default.
      */
-    private GameMode gameMode = GameMode.SIR;
+    private GameMode gameMode = GameMode.KNIGHT;
 
     /**
      * Returns the ordinal of the game mode.  We will use this for saving.
@@ -56,10 +56,7 @@ public class GameModeAssistant {
      * @return
      */
     public String getModeName() {
-        if(this.gameMode == GameMode.HARDCORE_IRONMAN)
-            return Misc.formatText("HC Ironman");
-        else
-            return Misc.formatText(this.gameMode.toString().toLowerCase().replace("_", ""));
+        return Misc.formatText(this.gameMode.toString().toLowerCase().replace("_", ""));
     }
 
     /**
@@ -107,7 +104,7 @@ public class GameModeAssistant {
      * @return
      */
     public boolean isIronMan() {
-        return this.gameMode == GameMode.IRONMAN || this.gameMode == GameMode.HARDCORE_IRONMAN || this.gameMode == GameMode._IRONMAN;
+        return this.gameMode == GameMode.IRONMAN;
     }
 
     /**
