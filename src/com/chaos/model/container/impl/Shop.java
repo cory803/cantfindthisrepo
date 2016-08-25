@@ -100,13 +100,11 @@ public class Shop extends ItemContainer {
 	 * @return The shop instance
 	 */
 	public Shop open(Player player) {
-		if ((id == 0 || id == 1 || id == 2 || id == 3 || id == 4 || id == 5 || id == 6 || id == 7 || id == 13
-				|| id == 14 || id == 15 || id == 16 || id == 19 || id == 26 || id == 27 || id == 34 || id == 35
-				|| id == 41 || id == 59)
-				&& (player.getGameModeAssistant().isIronMan())) {
-			player.getPacketSender()
-					.sendMessage("You're unable to access this shop because you're an " + player.getGameModeAssistant().getGameMode() + ".");
-			return this;
+		if (player.getGameModeAssistant().isIronMan()) {
+			if (id != IRON_SLAYER_STORE || id != IRON_VOTING_REWARDS_STORE) {
+				player.getPacketSender().sendMessage("You're unable to access this shop because you're an iron man.");
+				return this;
+			}
 		}
 		setPlayer(player);
 		if (id == 44) {
@@ -174,8 +172,7 @@ public class Shop extends ItemContainer {
 					? currency.getDefinition().getName().toLowerCase()
 					: currency.getDefinition().getName().toLowerCase() + "s";
 			/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
-			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == ENERGY_FRAGMENT_STORE
-					|| id == AGILITY_TICKET_STORE || id == GRAVEYARD_STORE) {
+			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == AGILITY_TICKET_STORE) {
 				Object[] obj = ShopManager.getCustomShopData(id, item.getId());
 				if (obj == null)
 					return;
@@ -212,8 +209,9 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
-		if (id == DONATOR_STORE || id == DONATOR_STORE_MISC || id == CREDIT_STORE_1 || id == CREDIT_STORE_2
-				|| id == CREDIT_STORE_3) {
+		if (id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3
+//				id == DONATOR_STORE || id == DONATOR_STORE_MISC
+				) {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
 		}
@@ -405,8 +403,8 @@ public class Shop extends ItemContainer {
 				}
 			} else {
 				/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
-				if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == ENERGY_FRAGMENT_STORE
-						|| id == AGILITY_TICKET_STORE || id == GRAVEYARD_STORE || id == CREDIT_STORE_1
+				if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE
+						|| id == AGILITY_TICKET_STORE || id == CREDIT_STORE_1
 						|| id == CREDIT_STORE_2 || id == CREDIT_STORE_3) {
 					value = (int) ShopManager.getCustomShopData(id, item.getId())[0];
 				}
@@ -421,10 +419,8 @@ public class Shop extends ItemContainer {
 				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
 			} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getVotingPoints();
-			} else if (id == DUNGEONEERING_STORE) {
-				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
-			} else if (id == PRESTIGE_STORE) {
-				playerCurrencyAmount = player.getPointsHandler().getPrestigePoints();
+//			} else if (id == DUNGEONEERING_STORE) {
+//				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
 			} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getSlayerPoints();
 			} else if (id == CREDIT_STORE_1) {
@@ -433,8 +429,6 @@ public class Shop extends ItemContainer {
 				playerCurrencyAmount = player.getCredits();
 			} else if (id == CREDIT_STORE_3) {
 				playerCurrencyAmount = player.getCredits();
-			} else if (id == BOSS_POINT_STORE) {
-				playerCurrencyAmount = player.getBossPoints();
 			}
 		}
 		if (value <= 0) {
@@ -462,13 +456,6 @@ public class Shop extends ItemContainer {
 					return this;
 				}
 			}
-		} else if (id == GAMBLING_STORE) {
-			if (item.getId() == 15084 || item.getId() == 299) {
-				if (player.getDonatorRights().isDonator()) {
-					player.getPacketSender().sendMessage("You need to be a member to use these items.");
-					return this;
-				}
-			}
 		}
 
 		for (int i = amountBuying; i > 0; i--) {
@@ -493,10 +480,8 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setPkPoints(-value, true);
 						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value, true);
-						} else if (id == DUNGEONEERING_STORE) {
-							player.getPointsHandler().setDungeoneeringTokens(-value, true);
-						} else if (id == PRESTIGE_STORE) {
-							player.getPointsHandler().setPrestigePoints(-value, true);
+//						} else if (id == DUNGEONEERING_STORE) {
+//							player.getPointsHandler().setDungeoneeringTokens(-value, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value, true);
 						} else if (id == CREDIT_STORE_1) {
@@ -505,8 +490,6 @@ public class Shop extends ItemContainer {
 							player.setCredits(-value, true);
 						} else if (id == CREDIT_STORE_3) {
 							player.setCredits(-value, true);
-						} else if (id == BOSS_POINT_STORE) {
-							player.addBossPoints(-value);
 						}
 					}
 
@@ -537,10 +520,8 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
 						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
-						} else if (id == DUNGEONEERING_STORE) {
-							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
-						} else if (id == PRESTIGE_STORE) {
-							player.getPointsHandler().setPrestigePoints(-value * canBeBought, true);
+//						} else if (id == DUNGEONEERING_STORE) {
+//							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
 						} else if (id == CREDIT_STORE_1) {
@@ -549,8 +530,6 @@ public class Shop extends ItemContainer {
 							player.setCredits(-value * canBeBought, true);
 						} else if (id == CREDIT_STORE_3) {
 							player.setCredits(-value * canBeBought, true);
-						} else if (id == BOSS_POINT_STORE) {
-							player.addBossPoints(-value * canBeBought);
 						}
 					}
 					super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
@@ -684,14 +663,12 @@ public class Shop extends ItemContainer {
 	}
 
 	public static boolean shopBuysItem(int shopId, Item item) {
-		if (shopId == GENERAL_STORE || shopId == CREDIT_STORE_1 || shopId == CREDIT_STORE_2 || shopId == CREDIT_STORE_3)
+		if (shopId == GENERAL_STORE)
 			return true;
-		if (shopId == DUNGEONEERING_STORE || shopId == PKING_REWARDS_STORE || shopId == BOSS_POINT_STORE
-				|| shopId == STARDUST_EXCHANGE_STORE || shopId == VOTING_REWARDS_STORE
-				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == RECIPE_FOR_DISASTER_STORE
-				|| shopId == ENERGY_FRAGMENT_STORE || shopId == AGILITY_TICKET_STORE || shopId == GRAVEYARD_STORE
-				|| shopId == TOKKUL_EXCHANGE_STORE || shopId == PRESTIGE_STORE || shopId == SLAYER_STORE
-				|| shopId == IRON_SLAYER_STORE)
+		if (shopId == STARDUST_EXCHANGE_STORE|| shopId == RECIPE_FOR_DISASTER_STORE
+				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE
+				|| shopId == AGILITY_TICKET_STORE || shopId == TOKKUL_EXCHANGE_STORE
+				|| shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
 		if (shop != null && shop.getOriginalStock() != null) {
@@ -730,178 +707,90 @@ public class Shop extends ItemContainer {
 		}
 
 		public static Object[] getCustomShopData(int shop, int item) {
-			if (shop == VOTING_REWARDS_STORE || shop == IRON_VOTING_REWARDS_STORE) {
-				switch (item) {
-				// iron man shop
-				case 1275:
-				case 1359:
-					return new Object[] { 5, "Voting points" };
-				case 22215:
-				case 22216:
-				case 22217:
-				case 22218:
-					return new Object[] { 10, "Voting points" };
-				case 4587:
-				case 1215:
-				case 1540:
-					return new Object[] { 10, "Voting points" };
-				case 10499:
-					return new Object[] { 3, "Voting points" };
-				// iron man shop end
-				case 21047: // kraken whip
-					return new Object[] { 100, "Voting points" };
-				case 18744: // Guthix Halo
-				case 18745: // Saradomin Halo
-				case 18746: // Zamorak Halo
-					return new Object[] { 125, "Voting points" };
-				case 6:
-				case 8:
-				case 10:
-				case 12:
-					return new Object[] { 10, "Voting points" };
-				case 19336:
-				case 19337:
-				case 19338:
-				case 19339:
-				case 19340:
-					return new Object[] { 15, "Voting points" };
-				case 9813:
-					return new Object[] { 50, "Voting points" };
-				case 20084:
-				case 11850:
-				case 11856:
-				case 11854:
-				case 11852:
-				case 11846:
-				case 11848:
-				case 19335:
-					return new Object[] { 25, "Voting points" };
-				case 6199:
-					return new Object[] { 4, "Voting points" };
-				case 15501:
-				case 15018:
-				case 15019:
-				case 15020:
-					return new Object[] { 10, "Voting points" };
-				case 15220:
-					return new Object[] { 30, "Voting points" };
-				case 13262:
-					return new Object[] { 6, "Voting points" };
-				case 6585:
-					return new Object[] { 8, "Voting points" };
-				case 6570:
-					return new Object[] { 5, "Voting points" };
-				case 19111:
-				case 14004:
-				case 14005:
-				case 14006:
-				case 14007:
-				case 2577:
-					return new Object[] { 15, "Voting points" };
-				case 15332:
-					return new Object[] { 2, "Voting points" };
-				case 14000:
-				case 14001:
-				case 14002:
-				case 14003:
-					return new Object[] { 30, "Voting points" };
-				case 13663:
-					return new Object[] { 1, "Voting points" };
-				case 6666:
-					return new Object[] { 350, "Voting points" };
-				case 13101:
-					return new Object[] { 350, "Voting points" };
-				case 21128:
-				case 21129:
-				case 21130:
-				case 21131:
-				case 21132:
-				case 21133:
-					return new Object[] { 500, "Voting points" };
-				}
-			} else if (shop == DONATOR_STORE) {
-				switch (item) {
-				case 1038:
-				case 1040:
-				case 1042:
-				case 1044:
-				case 1046:
-				case 1048:
-					return new Object[] { 150, "Donator points" };
-				case 6199:
-					return new Object[] { 20, "Donator points" };
-				case 1050:
-				case 11694:
-					return new Object[] { 100, "Donator points" };
-				case 1053:
-				case 1055:
-				case 1057:
-					return new Object[] { 70, "Donator points" };
-				case 4084:
-				case 1419:
-				case 1037:
-				case 1947:
-					return new Object[] { 60, "Donator points" };
-				case 14008:
-				case 14009:
-				case 14010:
-				case 14011:
-				case 14012:
-				case 14013:
-				case 14014:
-				case 14015:
-				case 14016:
-					return new Object[] { 100, "Donator points" };
-				case 13887:
-				case 13893:
-					return new Object[] { 70, "Donator points" };
-				case 13896:
-				case 13884:
-				case 13890:
-				case 11724:
-				case 11726:
-					return new Object[] { 50, "Donator points" };
-				case 14484:
-				case 19780:
-					return new Object[] { 150, "Donator points" };
-				case 20171:
-					return new Object[] { 15000, "Donator points" };
-				case 13899:
-				case 13902:
-				case 11698:
-				case 11700:
-				case 11696:
-					return new Object[] { 75, "Donator points" };
-				}
-			} else if (shop == DONATOR_STORE_MISC) {
-				switch (item) {
-				case 6199:
-				case 15220:
-				case 15020:
-				case 15019:
-				case 15018:
-					return new Object[] { 20, "Donator points" };
-				case 6585:
-				case 19111:
-				case 2577:
-				case 2581:
-				case 11235:
-					return new Object[] { 25, "Donator points" };
-				case 4151:
-				case 6570:
-					return new Object[] { 15, "Donator points" };
-				case 10551:
-				case 10548:
-				case 10547:
-				case 11730:
-					return new Object[] { 50, "Donator points" };
-				case 2572:
-				case 15241:
-					return new Object[] { 50, "Donator points" };
-				case 5:
-					return new Object[] { 25, "Donator points" };
-				}
-			} else if (shop == PKING_REWARDS_STORE) {
+//			if (shop == DONATOR_STORE) {
+//				switch (item) {
+//				case 1038:
+//				case 1040:
+//				case 1042:
+//				case 1044:
+//				case 1046:
+//				case 1048:
+//					return new Object[] { 150, "Donator points" };
+//				case 6199:
+//					return new Object[] { 20, "Donator points" };
+//				case 1050:
+//				case 11694:
+//					return new Object[] { 100, "Donator points" };
+//				case 1053:
+//				case 1055:
+//				case 1057:
+//					return new Object[] { 70, "Donator points" };
+//				case 4084:
+//				case 1419:
+//				case 1037:
+//				case 1947:
+//					return new Object[] { 60, "Donator points" };
+//				case 14008:
+//				case 14009:
+//				case 14010:
+//				case 14011:
+//				case 14012:
+//				case 14013:
+//				case 14014:
+//				case 14015:
+//				case 14016:
+//					return new Object[] { 100, "Donator points" };
+//				case 13887:
+//				case 13893:
+//					return new Object[] { 70, "Donator points" };
+//				case 13896:
+//				case 13884:
+//				case 13890:
+//				case 11724:
+//				case 11726:
+//					return new Object[] { 50, "Donator points" };
+//				case 14484:
+//				case 19780:
+//					return new Object[] { 150, "Donator points" };
+//				case 20171:
+//					return new Object[] { 15000, "Donator points" };
+//				case 13899:
+//				case 13902:
+//				case 11698:
+//				case 11700:
+//				case 11696:
+//					return new Object[] { 75, "Donator points" };
+//				}
+//			} else if (shop == DONATOR_STORE_MISC) {
+//				switch (item) {
+//				case 6199:
+//				case 15220:
+//				case 15020:
+//				case 15019:
+//				case 15018:
+//					return new Object[] { 20, "Donator points" };
+//				case 6585:
+//				case 19111:
+//				case 2577:
+//				case 2581:
+//				case 11235:
+//					return new Object[] { 25, "Donator points" };
+//				case 4151:
+//				case 6570:
+//					return new Object[] { 15, "Donator points" };
+//				case 10551:
+//				case 10548:
+//				case 10547:
+//				case 11730:
+//					return new Object[] { 50, "Donator points" };
+//				case 2572:
+//				case 15241:
+//					return new Object[] { 50, "Donator points" };
+//				case 5:
+//					return new Object[] { 25, "Donator points" };
+//				}
+//			} else
+				if (shop == PKING_REWARDS_STORE) {
 				switch (item) {
 
 				case 14484:
@@ -1112,13 +1001,6 @@ public class Shop extends ItemContainer {
 				case 21007:
 					return new Object[] { 10000, "Credits" };
 				}
-			} else if (shop == BOSS_POINT_STORE) {
-				switch (item) {
-				case 4151:
-					return new Object[] { 150, "Boss Points" };
-				case 7968:
-					return new Object[] { 250, "Boss Points" };
-				}
 			} else if (shop == CREDIT_STORE_3) {
 				switch (item) {
 				case 15272:
@@ -1158,23 +1040,6 @@ public class Shop extends ItemContainer {
 				case 15220:
 					return new Object[] { 3000, "Credits" };
 				}
-			} else if (shop == ENERGY_FRAGMENT_STORE) {
-				switch (item) {
-				case 5509:
-					return new Object[] { 400, "energy fragments" };
-				case 5510:
-					return new Object[] { 750, "energy fragments" };
-				case 5512:
-					return new Object[] { 1000, "energy fragments" };
-				case 13613:
-					return new Object[] { 800, "energy fragments" };
-				case 13619:
-					return new Object[] { 1000, "energy fragments" };
-				case 13622:
-					return new Object[] { 1000, "energy fragments" };
-				case 13623:
-					return new Object[] { 450, "energy fragments" };
-				}
 			} else if (shop == AGILITY_TICKET_STORE) {
 				switch (item) {
 				case 14936:
@@ -1190,47 +1055,26 @@ public class Shop extends ItemContainer {
 				}
 			} else if (shop == STARDUST_EXCHANGE_STORE) {
 				switch (item) {
-				case 6180:
-				case 6181:
-				case 6182:
-					return new Object[] { 2500, "stardust" };
-				case 7409:
-					return new Object[] { 3500, "stardust" };
-				case 20786:
-					return new Object[] { 5000, "stardust" };
-				case 453:
-					return new Object[] { 5, "stardust" };
-				case 9185:
-					return new Object[] { 250, "stardust" };
-				case 20787:
-				case 20788:
-					return new Object[] { 500, "stardust" };
-				case 20789:
-					return new Object[] { 1000, "stardust" };
-				case 20791:
-				case 20790:
-					return new Object[] { 2500, "stardust" };
-				}
-			} else if (shop == GRAVEYARD_STORE) {
-				switch (item) {
-				case 10499:
-					return new Object[] { 200, "zombie fragments" };
-				case 10551:
-					return new Object[] { 500, "zombie fragments" };
-				case 10548:
-				case 10549:
-				case 10550:
-					return new Object[] { 200, "zombie fragments" };
-				case 7592:
-				case 7593:
-				case 7594:
-				case 7595:
-				case 7596:
-					return new Object[] { 25, "zombie fragments" };
-				case 15241:
-					return new Object[] { 500, "zombie fragments" };
-				case 15243:
-					return new Object[] { 2, "zombie fragments" };
+					case 6180:
+					case 6181:
+					case 6182:
+						return new Object[]{2500, "stardust"};
+					case 7409:
+						return new Object[]{3500, "stardust"};
+					case 20786:
+						return new Object[]{5000, "stardust"};
+					case 453:
+						return new Object[]{5, "stardust"};
+					case 9185:
+						return new Object[]{250, "stardust"};
+					case 20787:
+					case 20788:
+						return new Object[]{500, "stardust"};
+					case 20789:
+						return new Object[]{1000, "stardust"};
+					case 20791:
+					case 20790:
+						return new Object[]{2500, "stardust"};
 				}
 			} else if (shop == TOKKUL_EXCHANGE_STORE) {
 				switch (item) {
@@ -1277,79 +1121,6 @@ public class Shop extends ItemContainer {
 				case 6568:
 					return new Object[] { 800, "tokkul" };
 				}
-			} else if (shop == DUNGEONEERING_STORE) {
-				switch (item) {
-				case 18351:
-				case 18349:
-				case 18353:
-				case 18357:
-				case 18355:
-				case 18359:
-				case 18361:
-				case 18363:
-					return new Object[] { 200000, "Dungeoneering tokens" };
-				case 18344:
-					return new Object[] { 153000, "Dungeoneering tokens" };
-				case 18839:
-					return new Object[] { 140000, "Dungeoneering tokens" };
-				case 18346:
-					return new Object[] { 100000, "Dungeoneering tokens" };
-				case 18335:
-					return new Object[] { 75000, "Dungeoneering tokens" };
-				case 19669:
-					return new Object[] { 50000, "Dungeoneering tokens" };
-				case 6500:
-					return new Object[] { 75000, "Dungeoneering tokens" };
-				case 18337:
-					return new Object[] { 75000, "Dungeoneering tokens" };
-				}
-			} else if (shop == PRESTIGE_STORE) {
-				switch (item) {
-				case 14018:
-					return new Object[] { 90, "Prestige points" };
-				case 19335:
-					return new Object[] { 30, "Prestige points" };
-				case 15220:
-				case 15020:
-				case 15019:
-				case 15018:
-					return new Object[] { 20, "Prestige points" };
-				case 20000:
-				case 20001:
-				case 20002:
-					return new Object[] { 50, "Prestige points" };
-				case 4084:
-					return new Object[] { 170, "Prestige points" };
-				case 13855:
-				case 13848:
-				case 13856:
-				case 13854:
-				case 13853:
-				case 138352:
-				case 13851:
-				case 13850:
-				case 13849:
-				case 13857:
-					return new Object[] { 5, "Prestige points" };
-				case 10400:
-				case 10402:
-				case 10416:
-				case 10418:
-				case 10408:
-				case 10410:
-				case 10412:
-				case 10414:
-				case 10404:
-				case 10406:
-					return new Object[] { 2, "Prestige points" };
-				case 13852:
-				case 14595:
-				case 14603:
-					return new Object[] { 5, "Prestige points" };
-				case 14602:
-				case 14605:
-					return new Object[] { 3, "Prestige points" };
-				}
 			} else if (shop == SLAYER_STORE) {
 				switch (item) {
 				case 13263:
@@ -1377,16 +1148,6 @@ public class Shop extends ItemContainer {
 					return new Object[] { 500, "Slayer points" };
 				case 21110:
 					return new Object[] { 1250, "Slayer points" };
-				}
-			} else if (shop == IRON_SLAYER_STORE) {
-				switch (item) {
-				case 5574:
-				case 5575:
-				case 5576:
-					return new Object[] { 50, "Slayer points" };
-				case 544:
-				case 542:
-					return new Object[] { 10, "Slayer points" };
 				}
 			}
 			return null;
@@ -1417,32 +1178,32 @@ public class Shop extends ItemContainer {
 	/*
 	 * Declared shops
 	 */
-	public static final int GENERAL_STORE = 12;
+	public static final int GENERAL_STORE = 0;
 	public static final int RECIPE_FOR_DISASTER_STORE = 36;
 
 	public static final int POS = 100;
 
-	private static final int VOTING_REWARDS_STORE = 27;
-	private static final int IRON_VOTING_REWARDS_STORE = 82;
-	private static final int PKING_REWARDS_STORE = 26;
-	private static final int CREDIT_STORE_1 = 79;
-	private static final int CREDIT_STORE_2 = 80;
-	private static final int CREDIT_STORE_3 = 81;
-	private static final int BOSS_POINT_STORE = 84;
-	private static final int DONATOR_STORE = 54;
-	private static final int DONATOR_STORE_MISC = 55;
-	private static final int ENERGY_FRAGMENT_STORE = 33;
-	private static final int AGILITY_TICKET_STORE = 39;
-	private static final int GRAVEYARD_STORE = 42;
-	private static final int TOKKUL_EXCHANGE_STORE = 43;
-	private static final int STARDUST_EXCHANGE_STORE = 78;
 	private static final int SKILLCAPE_STORE_1 = 8;
 	private static final int SKILLCAPE_STORE_2 = 9;
 	private static final int SKILLCAPE_STORE_3 = 10;
-	private static final int GAMBLING_STORE = 41;
-	private static final int DUNGEONEERING_STORE = 44;
-	private static final int PRESTIGE_STORE = 46;
-	private static final int SLAYER_STORE = 47;
-	private static final int IRON_SLAYER_STORE = 85;
-	private static final int EXTREME_DONATOR_STORE = 113;
+	private static final int SKILLCAPE_STORE_4 = 11;
+
+	private static final int CREDIT_STORE_1 = 12;
+	private static final int CREDIT_STORE_2 = 13;
+	private static final int CREDIT_STORE_3 = 14;
+
+	private static final int SLAYER_STORE = 15;
+	private static final int IRON_SLAYER_STORE = 16;
+
+	private static final int TOKKUL_EXCHANGE_STORE = 17;
+
+	private static final int STARDUST_EXCHANGE_STORE = 18;
+
+	private static final int VOTING_REWARDS_STORE = 19;
+	private static final int IRON_VOTING_REWARDS_STORE = 20;
+
+	private static final int AGILITY_TICKET_STORE = 21;
+
+	private static final int PKING_REWARDS_STORE = 22;
+
 }
