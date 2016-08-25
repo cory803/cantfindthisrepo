@@ -14,6 +14,9 @@ public final class DialogHandler {
 	public static final int HAPPY = 9760, CALM = 9805, CALM_CONTINUED = 590, CONTENT = 9803, EVIL = 592, EVIL_CONTINUED = 593, DELIGHTED_EVIL = 594, ANNOYED = 595, DISTRESSED = 596, DISTRESSED_CONTINUED = 597, NEAR_TEARS = 598, SAD = 599, DISORIENTED_LEFT = 600, DISORIENTED_RIGHT = 601, UNINTERESTED = 602, SLEEPY = 603, PLAIN_EVIL = 604, LAUGHING = 605, LONGER_LAUGHING = 606, LONGER_LAUGHING_2 = 607, LAUGHING_2 = 608, EVIL_LAUGH_SHORT = 609, SLIGHTLY_SAD = 9773, VERY_SAD = 9768, OTHER = 612, NEAR_TEARS_2 = 9765, ANGRY_1 = 9781, ANGRY_2 = 615, ANGRY_3 = 9789, ANGRY_4 = 9785, SCARED = 9777;
 
 	private static boolean canSendDialog(Player player) {
+		if(player.newPlayer()) {
+			return true;
+		}
 		if (player.isTeleporting()) {
 			return false;
 		}

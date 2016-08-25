@@ -24,7 +24,7 @@
 {
 "id": 1,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -46,7 +46,7 @@
 {
 "id": 2,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -68,7 +68,7 @@
 {
 "id": 3,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -90,7 +90,7 @@
 {
 "id": 4,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -112,7 +112,7 @@
 {
 "id": 5,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -134,7 +134,7 @@
 {
 "id": 6,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -530,7 +530,7 @@
 {
 "id": 24,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -552,7 +552,7 @@
 {
 "id": 25,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -2928,7 +2928,7 @@
 {
 "id": 132,
 "name": "Blitz",
-"examine": "A master attacker of RuneLive.",
+"examine": "A master attacker of Chaos.",
 "combat": 913,
 "size": 2,
 "attackable": true,
@@ -2950,7 +2950,7 @@
 {
 "id": 133,
 "name": "Cobra",
-"examine": "A master mager of RuneLive.",
+"examine": "A master mager of Chaos.",
 "combat": 903,
 "size": 2,
 "attackable": true,
@@ -2994,7 +2994,7 @@
 {
 "id": 135,
 "name": "Fear",
-"examine": "A master ranger of RuneLive.",
+"examine": "A master ranger of Chaos.",
 "combat": 844,
 "size": 2,
 "attackable": true,
@@ -3764,7 +3764,7 @@
 {
 "id": 170,
 "name": "Man",
-"examine": "One of RuneLive's many citizens, apparently trying to be an explorer.",
+"examine": "One of Chaos's many citizens, apparently trying to be an explorer.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -7768,7 +7768,7 @@
 {
 "id": 351,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 4,
 "size": 1,
 "attackable": true,
@@ -7790,7 +7790,7 @@
 {
 "id": 352,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 3,
 "size": 1,
 "attackable": true,
@@ -7812,7 +7812,7 @@
 {
 "id": 353,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 4,
 "size": 1,
 "attackable": true,
@@ -7834,7 +7834,7 @@
 {
 "id": 354,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 3,
 "size": 1,
 "attackable": true,
@@ -7944,7 +7944,7 @@
 {
 "id": 359,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -7966,7 +7966,7 @@
 {
 "id": 360,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 4,
 "size": 1,
 "attackable": true,
@@ -7988,7 +7988,7 @@
 {
 "id": 361,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 12,
 "size": 1,
 "attackable": true,
@@ -8010,7 +8010,7 @@
 {
 "id": 362,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 3,
 "size": 1,
 "attackable": true,
@@ -8032,7 +8032,7 @@
 {
 "id": 363,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 14,
 "size": 1,
 "attackable": true,
@@ -16010,7 +16010,7 @@
 {
 "id": 726,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -16032,7 +16032,7 @@
 {
 "id": 727,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -16054,7 +16054,7 @@
 {
 "id": 728,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -16076,7 +16076,7 @@
 {
 "id": 729,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -16098,7 +16098,7 @@
 {
 "id": 730,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -20870,8 +20870,8 @@
 },
 {
 "id": 945,
-"name": "RuneLive Guide",
-"examine": "RuneLive Guide introduces you.",
+"name": "Chaos Guide",
+"examine": "Chaos Guide introduces you.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -20959,7 +20959,7 @@
 {
 "id": 949,
 "name": "Quest Guide",
-"examine": "Your introduction to the world of RuneLive.",
+"examine": "Your introduction to the world of Chaos.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -23973,7 +23973,7 @@
 {
 "id": 1086,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -28571,7 +28571,7 @@
 {
 "id": 1287,
 "name": "Council workman",
-"examine": "Supposedly fixes things around RuneLive.",
+"examine": "Supposedly fixes things around Chaos.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -32641,7 +32641,7 @@
 {
 "id": 1472,
 "name": "Death",
-"examine": "A master attacker of RuneLive.",
+"examine": "A master attacker of Chaos.",
 "combat": 913,
 "size": 2,
 "attackable": true,
@@ -59555,7 +59555,7 @@
 {
 "id": 2675,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -61777,7 +61777,7 @@
 {
 "id": 2775,
 "name": "Null",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 1,
 "size": 1,
 "attackable": false,
@@ -61799,7 +61799,7 @@
 {
 "id": 2776,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -64088,7 +64088,7 @@
 {
 "id": 2872,
 "name": "Child",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -64110,7 +64110,7 @@
 {
 "id": 2873,
 "name": "Child",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -64132,7 +64132,7 @@
 {
 "id": 2874,
 "name": "Child",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -64154,7 +64154,7 @@
 {
 "id": 2875,
 "name": "Child",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -64176,7 +64176,7 @@
 {
 "id": 2876,
 "name": "Child",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -64198,7 +64198,7 @@
 {
 "id": 2877,
 "name": "Child",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -68556,7 +68556,7 @@
 {
 "id": 3075,
 "name": "Illegal Monk",
-"examine": "One of the illegal bretheren of RuneLive.",
+"examine": "One of the illegal bretheren of Chaos.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -71790,7 +71790,7 @@
 {
 "id": 3222,
 "name": "Drunken man",
-"examine": "One of RuneLive's many citizens, currently incapacitated by alcohol.",
+"examine": "One of Chaos's many citizens, currently incapacitated by alcohol.",
 "combat": 3,
 "size": 1,
 "attackable": true,
@@ -71812,7 +71812,7 @@
 {
 "id": 3223,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -71834,7 +71834,7 @@
 {
 "id": 3224,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -71856,7 +71856,7 @@
 {
 "id": 3225,
 "name": "Man",
-"examine": "One of RuneLive's many citizens. He looks worried about something.",
+"examine": "One of Chaos's many citizens. He looks worried about something.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -71878,7 +71878,7 @@
 {
 "id": 3226,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -71900,7 +71900,7 @@
 {
 "id": 3227,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens. She looks rich.",
+"examine": "One of Chaos's many citizens. She looks rich.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -81184,7 +81184,7 @@
 {
 "id": 3650,
 "name": "Confusion beast",
-"examine": "What on RuneLive is that?!?",
+"examine": "What on Chaos is that?!?",
 "combat": 43,
 "size": 2,
 "attackable": true,
@@ -81206,7 +81206,7 @@
 {
 "id": 3651,
 "name": "Confusion beast",
-"examine": "What on RuneLive is that?!?",
+"examine": "What on Chaos is that?!?",
 "combat": 43,
 "size": 2,
 "attackable": true,
@@ -81228,7 +81228,7 @@
 {
 "id": 3652,
 "name": "Confusion beast",
-"examine": "What on RuneLive is that?!?",
+"examine": "What on Chaos is that?!?",
 "combat": 43,
 "size": 2,
 "attackable": true,
@@ -81250,7 +81250,7 @@
 {
 "id": 3653,
 "name": "Confusion beast",
-"examine": "What on RuneLive is that?!?",
+"examine": "What on Chaos is that?!?",
 "combat": 43,
 "size": 2,
 "attackable": true,
@@ -81272,7 +81272,7 @@
 {
 "id": 3654,
 "name": "Confusion beast",
-"examine": "What on RuneLive is that?!?",
+"examine": "What on Chaos is that?!?",
 "combat": 43,
 "size": 2,
 "attackable": true,
@@ -81536,7 +81536,7 @@
 {
 "id": 3666,
 "name": "Confusion beast",
-"examine": "What on RuneLive is that?!?",
+"examine": "What on Chaos is that?!?",
 "combat": 63,
 "size": 2,
 "attackable": true,
@@ -87014,7 +87014,7 @@
 {
 "id": 3915,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -97134,7 +97134,7 @@
 {
 "id": 4375,
 "name": "Security Guard",
-"examine": "A retired RuneLive security guard.",
+"examine": "A retired Chaos security guard.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -100808,7 +100808,7 @@
 {
 "id": 4542,
 "name": "'Eagle-eye' Shultz",
-"examine": "A RuneLive-eyed lookout with a telescope.",
+"examine": "A Chaos-eyed lookout with a telescope.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -104482,7 +104482,7 @@
 {
 "id": 4709,
 "name": "Vertida Sefalatis",
-"examine": "A quiet, war-weary man with the RuneLive eye of a ranger.",
+"examine": "A quiet, war-weary man with the Chaos eye of a ranger.",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -111764,7 +111764,7 @@
 {
 "id": 5040,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 0,
 "size": 1,
 "attackable": false,
@@ -111852,7 +111852,7 @@
 {
 "id": 5044,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 30,
 "size": 1,
 "attackable": true,
@@ -111874,7 +111874,7 @@
 {
 "id": 5045,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 32,
 "size": 1,
 "attackable": true,
@@ -115570,7 +115570,7 @@
 {
 "id": 5213,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 37,
 "size": 1,
 "attackable": true,
@@ -115592,7 +115592,7 @@
 {
 "id": 5214,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 42,
 "size": 1,
 "attackable": true,
@@ -115614,7 +115614,7 @@
 {
 "id": 5215,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 47,
 "size": 1,
 "attackable": true,
@@ -115636,7 +115636,7 @@
 {
 "id": 5216,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 56,
 "size": 1,
 "attackable": true,
@@ -115658,7 +115658,7 @@
 {
 "id": 5217,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 61,
 "size": 1,
 "attackable": true,
@@ -115680,7 +115680,7 @@
 {
 "id": 5218,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 68,
 "size": 1,
 "attackable": true,
@@ -115702,7 +115702,7 @@
 {
 "id": 5219,
 "name": "Penance Fighter",
-"examine": "What on RuneLive is that?",
+"examine": "What on Chaos is that?",
 "combat": 77,
 "size": 1,
 "attackable": true,
@@ -130355,7 +130355,7 @@
 {
 "id": 5923,
 "name": "Man",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -130377,7 +130377,7 @@
 {
 "id": 5924,
 "name": "Woman",
-"examine": "One of RuneLive's many citizens.",
+"examine": "One of Chaos's many citizens.",
 "combat": 2,
 "size": 1,
 "attackable": true,
@@ -130531,7 +130531,7 @@
 {
 "id": 5931,
 "name": "Historian Minas",
-"examine": "Seth Minas - an aged expert in RuneLive history.",
+"examine": "Seth Minas - an aged expert in Chaos history.",
 "combat": 0,
 "size": 1,
 "attackable": false,

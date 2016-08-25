@@ -48,6 +48,7 @@ import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.entity.impl.npc.NPC;
+import org.scripts.kotlin.content.dialog.Tutorial;
 
 public class PlayerHandler {
 
@@ -250,8 +251,9 @@ public class PlayerHandler {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 			player.save();
 			player.setPlayerLocked(true);
-			//TODO: Redo the starter
-			//player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Tutorial(player));
+			player.moveTo(new Position(3230, 3232, player.getIndex() * 4));
+			player.setNpcClickId(945);
+			player.getDialog().sendDialog(new Tutorial(player));
 		} else {
 			if (player.getPasswordChange() != GameSettings.PASSWORD_CHANGE) {
 				player.setPlayerLocked(true);

@@ -1,16 +1,15 @@
 Game Updates:
-Mining essence has been fixed.
-When right clicking a player their combat level no longer displays as level-(combat level) but instead level: (combat level) like original rs.
-When right clicking a player the 'Trade with' option is now correctly capitalized.
-Fixed the timer on hitsplats, it was too slow.
-2011/634 characters have been added.
-The rapier weilding/walking/attacking animations have been fixed.
-You can no longer use sap spirit with turmoil at the same time.
 
-To-do:
-Fix equipment interface so it looks like this - http://1.bp.blogspot.com/-VW6P481pZxE/Td4bX8vq_fI/AAAAAAAAABE/LaYdY2d7JxA/s1600/mager.png
-Fix combat level difference colors
-Fix the colors when pming people in private messages
+Tomorrows to-dos:
+Finish tutorial/starter
+Finish shops
+Finish teleports
+Revert rock crab map
+Add rock crab spawns
+Finish redoing drop rate
+Add make-over mage
+Add sailor to switch spellbooks
+Add any training npcs around lumbridge (with drop rates)
 
 Polls:
 

@@ -21,7 +21,7 @@ public class DialoguePacketListener implements PacketListener {
 				player.currentDialog.incrementState();
 				player.getDialog().sendDialog(player.currentDialog);
 			} else {
-
+				player.getPacketSender().sendInterfaceRemoval();
 			}
 			break;
 		}
