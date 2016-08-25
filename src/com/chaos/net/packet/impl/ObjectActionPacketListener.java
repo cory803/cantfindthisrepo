@@ -27,7 +27,6 @@ import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.minigames.TreasureIslandChest;
 import com.chaos.world.content.minigames.impl.*;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.impl.agility.Agility;
@@ -288,9 +287,6 @@ public class ObjectActionPacketListener implements PacketListener {
 										player.moveTo(new Position(2962, 9650, 0));
 									}
 								});
-								break;
-							case 11339:
-								TreasureIslandChest.openChest(player);
 								break;
 							case 1734:
 								if (player.getPosition().getX() == 3045 && player.getPosition().getY() == 10323) {
