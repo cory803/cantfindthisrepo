@@ -13,7 +13,6 @@ import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.Emotes.Skillcape_Data;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -102,10 +101,6 @@ public class Slayer {
 			} else if (slayerTask.getTaskMaster() == SlayerMaster.SUMONA) {
 				Achievements.finishAchievement(player, AchievementData.COMPLETE_AN_ELITE_SLAYER_TASK);
 			}
-			if (player.dailyTask == 12 || player.dailyTask == 17
-					|| player.dailyTask == 27 && !player.completedDailyTask) {
-				DailyTaskManager.doTaskProgress(player);
-			}
 			lastTask = slayerTask;
 			slayerTask = SlayerTasks.NO_TASK;
 			amountToSlay = 0;
@@ -138,7 +133,6 @@ public class Slayer {
 				break;
 		}
 		player.getPointsHandler().setSlayerPoints(amountToGive, true);
-		player.getPacketSender().sendMessage("You received " + amountToGive + " Slayer points.");
 	}
 
 	public void givePoints(SlayerMaster master) {
@@ -166,7 +160,7 @@ public class Slayer {
 			player.getPacketSender().sendMessage("You received a bonus in slayer points for wearing a slayer helm.");
 		}
 		if (player.getSlayer().getTaskStreak() == 5) {
-			player.getPointsHandler().setSlayerPoints(per5, true);
+			giveReward(player, per5);
 			player.getPacketSender().sendMessage("You received @red@" + per5 + "@bla@ Slayer points.");
 		} else if (player.getSlayer().getTaskStreak() == 10) {
 			player.getPointsHandler().setSlayerPoints(per10, true);
@@ -175,7 +169,7 @@ public class Slayer {
 			player.getSlayer().setTaskStreak(0);
 		} else if (player.getSlayer().getTaskStreak() >= 0 && player.getSlayer().getTaskStreak() < 5
 				|| player.getSlayer().getTaskStreak() >= 6 && player.getSlayer().getTaskStreak() < 10) {
-			player.getPointsHandler().setSlayerPoints(pointsReceived, true);
+			giveReward(player, pointsReceived);
 			player.getPacketSender().sendMessage("You received " + pointsReceived + " Slayer points.");
 		}
 		player.getPointsHandler().refreshPanel();

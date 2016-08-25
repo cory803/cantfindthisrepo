@@ -9,7 +9,6 @@ import com.chaos.model.Skill;
 import com.chaos.model.input.impl.EnterAmountToInfuse;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -91,9 +90,6 @@ public class PouchMaking {
 						player.getInventory().delete(pouch.getsecondIngredientId(), 1);
 						player.getSkillManager().addSkillExperience(Skill.SUMMONING, pouch.getExp());
 						player.getInventory().add(pouch.getPouchId(), 1);
-						if (player.dailyTask == 7 && !player.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(player);
-						}
 						if (pouch == Pouch.SPIRIT_DREADFOWL)
 							Achievements.finishAchievement(player, AchievementData.INFUSE_A_DREADFOWL_POUCH);
 						else if (pouch == Pouch.STEEL_TITAN) {

@@ -7,7 +7,6 @@ import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.entity.impl.player.Player;
 
 import java.util.Arrays;
@@ -48,14 +47,6 @@ public class Thieving {
 
         if(stall == ThievingStall.BAKERS_STALL) {
             Achievements.doProgress(player, Achievements.AchievementData.STEAL_A_RING);
-        }
-
-
-        if (player.dailyTask == 2 && player.dailyTaskProgress < 100 && !player.completedDailyTask) {
-            DailyTaskManager.doTaskProgress(player);
-            if (player.dailyTask == 2 && player.dailyTaskProgress == 100 && !player.completedDailyTask) {
-                DailyTaskManager.handleTaskReward(player);
-            }
         }
 
         // Loot generation code

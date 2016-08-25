@@ -14,7 +14,6 @@ import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.content.combat.strategy.impl.KalphiteQueen;
 import com.chaos.world.content.combat.strategy.impl.Nex;
 import com.chaos.world.content.minigames.impl.WarriorsGuild;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -107,26 +106,6 @@ public class NPCDeathTask extends Task {
 					} else if (npc.getId() == 3200) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CHAOS_ELEMENTAL);
 					} else if (npc.getId() == 8349) {
-						if (killer.dailyTask == 22 && killer.dailyTaskProgress <= 4 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-							if (killer.dailyTask == 22 && killer.dailyTaskProgress >= 5 && !killer.completedDailyTask) {
-								DailyTaskManager.handleTaskReward(killer);
-							}
-						}
-						if (killer.dailyTask == 24 && killer.dailyTaskProgress <= 9 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-							if (killer.dailyTask == 24 && killer.dailyTaskProgress >= 10
-									&& !killer.completedDailyTask) {
-								DailyTaskManager.handleTaskReward(killer);
-							}
-						}
-						if (killer.dailyTask == 32 && killer.dailyTaskProgress <= 14 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-							if (killer.dailyTask == 32 && killer.dailyTaskProgress >= 15
-									&& !killer.completedDailyTask) {
-								DailyTaskManager.handleTaskReward(killer);
-							}
-						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_A_TORMENTED_DEMON);
 					} else if (npc.getId() == 3491) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CULINAROMANCER);
@@ -137,17 +116,9 @@ public class NPCDeathTask extends Task {
 					} else if (npc.getId() == 4540) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_BANDOS_AVATAR);
 					} else if (npc.getId() == 6260) {
-						if (killer.dailyTask == 13 || killer.dailyTask == 18
-								|| killer.dailyTask == 28 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_GENERAL_GRAARDOR);
 						killer.getAchievementAttributes().setGodKilled(0, true);
 					} else if (npc.getId() == 6222) {
-						if (killer.dailyTask == 16 || killer.dailyTask == 21
-								|| killer.dailyTask == 31 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_KREE_ARRA);
 						killer.getAchievementAttributes().setGodKilled(1, true);
 					} else if(npc.getId() == 4278 || npc.getId() == 4279 || npc.getId() == 4280 || npc.getId() == 4281
@@ -155,30 +126,14 @@ public class NPCDeathTask extends Task {
 						WarriorsGuild.handleDrop(killer, npc);
 						killer.getMinigameAttributes().getWarriorsGuildAttributes().setSpawnedArmour(false);
 					} else if (npc.getId() == 6247) {
-						if (killer.dailyTask == 14 || killer.dailyTask == 19
-								|| killer.dailyTask == 29 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_COMMANDER_ZILYANA);
 						killer.getAchievementAttributes().setGodKilled(2, true);
 					} else if (npc.getId() == 6203) {
-						if (killer.dailyTask == 15 || killer.dailyTask == 20
-								|| killer.dailyTask == 30 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_KRIL_TSUTSAROTH);
 						killer.getAchievementAttributes().setGodKilled(3, true);
 					} else if (npc.getId() == 8133) {
-						if (killer.dailyTask == 23 || killer.dailyTask == 25
-								|| killer.dailyTask == 33 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CORPOREAL_BEAST);
 					} else if (npc.getId() == 13447) {
-						if (killer.dailyTask == 26 || killer.dailyTask == 20
-								|| killer.dailyTask == 30 && !killer.completedDailyTask) {
-							DailyTaskManager.doTaskProgress(killer);
-						}
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_NEX);
 						killer.getAchievementAttributes().setGodKilled(4, true);
 					}

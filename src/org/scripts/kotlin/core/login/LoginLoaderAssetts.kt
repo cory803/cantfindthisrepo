@@ -5,7 +5,6 @@ import com.chaos.world.content.Achievements
 import com.chaos.world.content.Lottery
 import com.chaos.world.content.PlayerPanel
 import com.chaos.world.content.clan.ClanChatManager
-import com.chaos.world.content.tasks.DailyTaskManager
 import com.chaos.world.entity.impl.player.Player
 
 /**
@@ -23,7 +22,6 @@ class LoginLoaderAssetts {
             Locations.login(player)
             player.getPacketSender().sendString(1, "[CLEAR]")
             ClanChatManager.handleLogin(player)
-            DailyTaskManager.giveNewTask(player)
             PlayerPanel.refreshPanel(player)
         }
     }

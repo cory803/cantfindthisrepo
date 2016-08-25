@@ -51,7 +51,6 @@ import com.chaos.world.content.minigames.impl.Barrows;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.entity.impl.npc.NPC;
 
 public class PlayerHandler {
@@ -302,7 +301,6 @@ public class PlayerHandler {
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
-		DailyTaskManager.giveNewTask(player);
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 		NoteHandler.login(player);
 		player.getPacketSender().sendRights();

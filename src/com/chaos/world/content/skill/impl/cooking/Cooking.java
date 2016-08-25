@@ -8,7 +8,6 @@ import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.EnterAmountToCook;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Cooking {
@@ -49,9 +48,6 @@ public class Cooking {
 				} else {
 					player.getInventory().add(fish.getCookedItem(), 1);
 					player.getSkillManager().addSkillExperience(Skill.COOKING, fish.getXp());
-					if (player.dailyTask == 6 && !player.completedDailyTask) {
-						DailyTaskManager.doTaskProgress(player);
-					}
 					if (fish == CookingData.SALMON) {
 						Achievements.finishAchievement(player, AchievementData.COOK_A_SALMON);
 					} else if (fish == CookingData.ROCKTAIL) {

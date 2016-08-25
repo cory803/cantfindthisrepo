@@ -18,7 +18,6 @@ import com.chaos.world.content.ShootingStar;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
 import com.chaos.world.content.skill.impl.mining.MiningData.Ores;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Mining {
@@ -109,9 +108,6 @@ public class Mining {
 									}
 								}
 								if (cycle == reqCycle) {
-									if (player.dailyTask == 9 && !player.completedDailyTask) {
-										DailyTaskManager.doTaskProgress(player);
-									}
 									if (o == Ores.Iron) {
 										Achievements.finishAchievement(player, AchievementData.MINE_SOME_IRON);
 									} else if (o == Ores.Runite) {

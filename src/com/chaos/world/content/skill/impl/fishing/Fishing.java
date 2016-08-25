@@ -11,7 +11,6 @@ import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.Emotes.Skillcape_Data;
-import com.chaos.world.content.tasks.DailyTaskManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Fishing {
@@ -219,9 +218,6 @@ public class Fishing {
 					} else if(s.getRawFish()[fishIndex] == 15271) {
 						Achievements.doProgress(p, AchievementData.FISH_25_ROCKTAILS);
 						Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
-					}
-					if (p.dailyTask == 0 && !p.completedDailyTask) {
-						DailyTaskManager.doTaskProgress(p);
 					}
 					p.getSkillManager().addSkillExperience(Skill.FISHING, s.getXp()[fishIndex]);
 					setupFishing(p, s);
