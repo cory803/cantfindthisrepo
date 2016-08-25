@@ -20,7 +20,7 @@ public class OptionContainer {
 			return false;
 		}
 		Option oldOption = option;
-		player.getPacketSender().sendInterfaceRemoval();
+		//player.getPacketSender().sendInterfaceRemoval();
 		this.close();
 		oldOption.execute(player, type);
 		return true;
