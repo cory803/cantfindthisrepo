@@ -12,7 +12,6 @@ import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.Emotes.Skillcape_Data;
 import com.chaos.world.content.PlayerPanel;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -50,14 +49,12 @@ public class Slayer {
 		player.getPacketSender().sendInterfaceRemoval();
 		this.amountToSlay = slayerTaskAmount;
 		this.slayerTask = taskToSet;
-		DialogueManager.start(player, SlayerDialogues.receivedTask(player, getSlayerMaster(), getSlayerTask()));
 		PlayerPanel.refreshPanel(player);
 		if (duoSlayer) {
 			Player duo = World.getPlayerByName(duoPartner);
 			duo.getSlayer().setSlayerTask(taskToSet);
 			duo.getSlayer().setAmountToSlay(slayerTaskAmount);
 			duo.getPacketSender().sendInterfaceRemoval();
-			DialogueManager.start(duo, SlayerDialogues.receivedTask(duo, slayerMaster, taskToSet));
 			PlayerPanel.refreshPanel(duo);
 		}
 	}
