@@ -1,7 +1,5 @@
 package com.chaos.world.content.minigames;
 
-import com.chaos.world.content.skill.impl.dungeoneering.DungeoneeringParty;
-
 /**
  * Holds different minigame attributes for a player
  * 
@@ -22,7 +20,6 @@ public class MinigameAttributes {
 	// SoulWarsAttributes();
 	private final GodwarsDungeonAttributes godwarsDungeonAttributes = new GodwarsDungeonAttributes();
 	private final GraveyardAttributes graveyardAttributes = new GraveyardAttributes();
-	private final DungeoneeringAttributes dungeoneeringAttributes = new DungeoneeringAttributes();
 
 	public class GraveyardAttributes {
 
@@ -325,16 +322,6 @@ public class MinigameAttributes {
 		}
 	}
 
-	/*
-	 * public class SoulWarsAttributes { private int activity = 30; private int
-	 * productChosen = -1; private int team = -1; public int getActivity() {
-	 * return activity; } public void setActivity(int activity) { this.activity
-	 * = activity; } public int getProductChosen() { return productChosen; }
-	 * public void setProductChosen(int prodouctChosen) { this.productChosen =
-	 * prodouctChosen; } public int getTeam() { return team; } public void
-	 * setTeam(int team) { this.team = team; } }
-	 */
-
 	public class GodwarsDungeonAttributes {
 		private int[] killcount = new int[4]; // 0 = armadyl, 1 = bandos, 2 =
 												// saradomin, 3 = zamorak
@@ -368,75 +355,6 @@ public class MinigameAttributes {
 		public GodwarsDungeonAttributes setAltarDelay(long altarDelay) {
 			this.altarDelay = altarDelay;
 			return this;
-		}
-	}
-
-	public class DungeoneeringAttributes {
-		private DungeoneeringParty party;
-		private DungeoneeringParty invitation;
-		private long lastInvitation;
-		private int[] boundItems = new int[5];
-		private int damageDealt;
-		private int deaths;
-
-		public DungeoneeringParty getParty() {
-			return party;
-		}
-
-		public void setParty(DungeoneeringParty dungeoneeringParty) {
-			this.party = dungeoneeringParty;
-		}
-
-		public int[] getBoundItems() {
-			return boundItems;
-		}
-
-		public void setBoundItems(int[] boundItems) {
-			this.boundItems = boundItems;
-		}
-
-		public void setBoundItems(int index, int boundItems) {
-			this.boundItems[index] = boundItems;
-		}
-
-		public long getLastInvitation() {
-			return lastInvitation;
-		}
-
-		public void setLastInvitation(long lastInvitation) {
-			this.lastInvitation = lastInvitation;
-		}
-
-		public DungeoneeringParty getPartyInvitation() {
-			return invitation;
-		}
-
-		public void setPartyInvitation(DungeoneeringParty partyInvitation) {
-			this.invitation = partyInvitation;
-		}
-
-		public void incrementDamageDealt(int damage) {
-			this.damageDealt += damage;
-		}
-
-		public void setDamageDealt(int damage) {
-			this.damageDealt = damage;
-		}
-
-		public int getDamageDealt() {
-			return this.damageDealt;
-		}
-
-		public void setDeaths(int deaths) {
-			this.deaths = deaths;
-		}
-
-		public void incrementDeaths() {
-			this.deaths++;
-		}
-
-		public int getDeaths() {
-			return deaths;
 		}
 	}
 
@@ -482,10 +400,6 @@ public class MinigameAttributes {
 
 	public GodwarsDungeonAttributes getGodwarsDungeonAttributes() {
 		return godwarsDungeonAttributes;
-	}
-
-	public DungeoneeringAttributes getDungeoneeringAttributes() {
-		return dungeoneeringAttributes;
 	}
 
 	public MinigameAttributes() {

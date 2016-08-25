@@ -2,7 +2,6 @@ package org.scripts.kotlin.core.login
 
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.GameSettings
-import com.chaos.world.content.WellOfGoodwill
 import java.util.concurrent.TimeUnit
 
 /**
@@ -57,18 +56,6 @@ class LoginMessageParser {
             if (GameSettings.TRIPLE_VOTE_TOKENS) {
                 player.getPacketSender().sendMessage(
                         "<img=4> <col=008FB2>Chaos currently has a triple vote rewards event going on, make sure to use it!")
-            }
-
-            if (WellOfGoodwill.isActive()) {
-                if (player.getDonatorRights().isDonator()) {
-                    player.getPacketSender().sendMessage(
-                            "<img=4> <col=008FB2>The Well of Goodwill is granting 50% bonus experience for another "
-                                    + WellOfGoodwill.getMinutesRemaining() + " minutes.")
-                } else {
-                    player.getPacketSender().sendMessage(
-                            "<img=4> <col=008FB2>The Well of Goodwill is granting 30% bonus experience for another "
-                                    + WellOfGoodwill.getMinutesRemaining() + " minutes.")
-                }
             }
         }
     }

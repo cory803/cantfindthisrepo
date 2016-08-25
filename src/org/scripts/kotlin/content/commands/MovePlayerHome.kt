@@ -33,10 +33,6 @@ class MovePlayerHome(staffRights: StaffRights) : Command(staffRights) {
                 player.packetSender.sendMessage("You cannot move yourself out of the wild.")
                 return
             }
-            if (player2.location === Locations.Location.DUNGEONEERING) {
-                player.packetSender.sendMessage("You cannot move someone out of dung.")
-                return
-            }
             player2.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy())
             player2.packetSender.sendMessage("You've been teleported home by " + player.username + ".")
             player.packetSender.sendMessage("Sucessfully moved " + player2.username + " to home.")

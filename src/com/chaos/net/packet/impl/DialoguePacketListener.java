@@ -2,7 +2,6 @@ package com.chaos.net.packet.impl;
 
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -22,7 +21,7 @@ public class DialoguePacketListener implements PacketListener {
 				player.currentDialog.incrementState();
 				player.getDialog().sendDialog(player.currentDialog);
 			} else {
-				DialogueManager.next(player);
+
 			}
 			break;
 		}

@@ -2,10 +2,6 @@ package com.chaos.world.content;
 
 import com.chaos.model.DonatorRights;
 import com.chaos.model.Store;
-import com.chaos.world.content.dialogue.Dialogue;
-import com.chaos.world.content.dialogue.DialogueExpression;
-import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.dialogue.DialogueType;
 import com.chaos.world.entity.impl.player.Player;
 
 public class MemberScrolls {

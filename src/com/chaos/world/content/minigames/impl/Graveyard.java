@@ -10,7 +10,6 @@ import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -21,7 +20,6 @@ public class Graveyard {
 		player.getPacketSender().sendInterfaceRemoval();
 		player.moveTo(new Position(3503, 3568, player.getIndex() * 4));
 		player.setRegionInstance(new RegionInstance(player, RegionInstanceType.GRAVEYARD));
-		DialogueManager.start(player, 97);
 		player.getMinigameAttributes().getGraveyardAttributes().setEntered(true).setWave(1).setLevel(0);
 		spawn(player, 1, 0);
 		player.getPacketSender()

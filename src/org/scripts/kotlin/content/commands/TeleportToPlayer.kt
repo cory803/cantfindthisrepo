@@ -31,15 +31,11 @@ class TeleportToPlayer(staffRights: StaffRights) : Command(staffRights) {
                 return
             }
             val canTele = TeleportHandler.checkReqs(player, teleTo.position.copy()) && player.regionInstance == null && teleTo.regionInstance == null
-            if (canTele && player.location !== Locations.Location.DUNGEONEERING) {
+            if (canTele) {
                 TeleportHandler.teleportPlayer(player, teleTo.position.copy(), TeleportType.NORMAL)
                 player.packetSender.sendMessage("Teleporting to player: " + teleTo.username + "")
             } else {
-                if (teleTo.location === Locations.Location.DUNGEONEERING) {
-                    player.packetSender.sendMessage("You can not teleport to this player while they are dungeoneering.")
-                } else {
-                    player.packetSender.sendMessage("You can not teleport to this player at the moment. Minigame maybe?")
-                }
+                player.packetSender.sendMessage("You can not teleport to this player at the moment. Minigame maybe?")
             }
         }
     }

@@ -180,8 +180,7 @@ public class NPCDeathTask extends Task {
 
 		// respawn
 		if (npc.getDefinition().getRespawnTime() > 0 && npc.getLocation() != Location.BOSS_SYSTEM
-				&& npc.getLocation() != Location.GRAVEYARD && npc.getLocation() != Location.DUNGEONEERING
-				&& npc.getLocation() != Location.WILDKEY_ZONE
+				&& npc.getLocation() != Location.GRAVEYARD && npc.getLocation() != Location.WILDKEY_ZONE
 				&& npc.getLocation() != Location.SHREKS_HUT) {
 			TaskManager.submit(new NPCRespawnTask(npc, npc.getDefinition().getRespawnTime()));
 		}

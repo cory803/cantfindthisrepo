@@ -89,11 +89,6 @@ public class MoneyPouch {
 			plr.getPacketSender().sendMessage("Your money pouch is empty.");
 			return false;
 		}
-		if (plr.getLocation() == Location.DUNGEONEERING) {
-			plr.getPacketSender()
-					.sendMessage("You cannot withdraw from your pouch in dungeoneering. You will lose this money.");
-			return false;
-		}
 		boolean allowWithdraw = plr.getTrading().inTrade() || plr.getDueling().inDuelScreen;
 		// Disabled ^ because players would be able to add more than max stack
 		// into trade/stake

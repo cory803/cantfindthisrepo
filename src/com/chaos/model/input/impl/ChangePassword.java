@@ -4,7 +4,6 @@ import com.chaos.GameSettings;
 import com.chaos.model.input.Input;
 import com.chaos.util.NameUtils;
 import com.chaos.world.content.PlayerLogs;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class ChangePassword extends Input {

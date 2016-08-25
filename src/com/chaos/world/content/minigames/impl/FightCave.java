@@ -9,7 +9,6 @@ import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -19,7 +18,6 @@ public class FightCave {
 
 	public static void enterCave(Player player) {
 		player.moveTo(new Position(2413, 5117, player.getIndex() * 4));
-		DialogueManager.start(player, 36);
 		player.setRegionInstance(new RegionInstance(player, RegionInstanceType.FIGHT_CAVE));
 		spawnJad(player);
 	}
@@ -54,7 +52,6 @@ public class FightCave {
 			if (player.getRegionInstance() != null)
 				player.getRegionInstance().getNpcsList().remove(n);
 			leaveCave(player, true);
-			DialogueManager.start(player, 37);
 			player.getInventory().add(6570, 1).add(6529, 2000 + Misc.getRandom(4000));
 		}
 	}

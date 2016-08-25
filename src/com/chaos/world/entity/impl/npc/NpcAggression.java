@@ -3,7 +3,6 @@ package com.chaos.world.entity.impl.npc;
 import com.chaos.model.Locations.Location;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.strategy.impl.Nex;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -25,13 +24,11 @@ public final class NpcAggression {
 		if (player.isPlayerLocked())
 			return;
 
-		final boolean dung = Dungeoneering.doingDungeoneering(player);
-
 		// Loop through all of the aggressive npcs.
 		for (NPC npc : player.getLocalNpcs()) {
 
 			if (npc == null || npc.getConstitution() <= 0
-					|| !(dung && npc.getId() != 11226) && !npc.getDefinition().isAggressive()) {
+					|| !(npc.getId() != 11226) && !npc.getDefinition().isAggressive()) {
 				continue;
 			}
 
@@ -59,7 +56,7 @@ public final class NpcAggression {
 					|| gwdMob) {
 				if (player.getTolerance().elapsed() > (NPC_TOLERANCE_SECONDS * 1000)
 						&& player.getLocation() != Location.GODWARS_DUNGEON
-						&& player.getLocation() != Location.DAGANNOTH_DUNGEON && !dung) {
+						&& player.getLocation() != Location.DAGANNOTH_DUNGEON) {
 					break;
 				}
 
@@ -74,13 +71,12 @@ public final class NpcAggression {
 				}
 
 				if (player.getSkillManager().getCombatLevel() > (npc.getDefinition().getCombatLevel() * 2)
-						&& player.getLocation() != Location.WILDERNESS && !dung) {
+						&& player.getLocation() != Location.WILDERNESS) {
 					continue;
 				}
 
 				if (Location.ignoreFollowDistance(npc) || gwdMob
-						|| npc.getDefaultPosition().distanceTo(player.getPosition()) < npc.determineStrategy().attackDistance(npc)
-						|| dung) {
+						|| npc.getDefaultPosition().distanceTo(player.getPosition()) < npc.determineStrategy().attackDistance(npc)) {
 					if (CombatFactory.checkHook(npc, player)) {
 						player.setTargeted(true);
 						//npc.follow(player);

@@ -3,12 +3,9 @@ package com.chaos.world.content;
 import com.chaos.model.Animation;
 import com.chaos.model.GameObject;
 import com.chaos.model.Position;
-import com.chaos.model.Skill;
-import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.util.Stopwatch;
 import com.chaos.world.World;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class ShootingStar {

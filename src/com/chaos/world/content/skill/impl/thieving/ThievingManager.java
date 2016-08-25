@@ -8,7 +8,6 @@ import com.chaos.model.Item;
 import com.chaos.model.Skill;
 import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class ThievingManager {
@@ -83,12 +82,12 @@ public class ThievingManager {
 
     public static void initMobData(Player player, MobData data) {
         if (player.getInventory().getFreeSlots() == 0) {
-            DialogueManager.sendStatement(player, "You do not have enough space in your inventory.");
+
             return;
         }
 
         if (player.getSkillManager().getCurrentLevel(Skill.THIEVING) < data.getRequirements()) {
-            DialogueManager.sendStatement(player, "@blu@You need a Thieving level of @dre@" + data.getRequirements() + "@blu@.");
+
             return;
         }
 

@@ -8,7 +8,6 @@ import com.chaos.model.Position;
 import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.world.World;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -47,7 +46,6 @@ public class Digging {
 				if (player.getInventory().contains(2677) && player.getPosition().getX() == 2969 && player.getPosition().getY() == 3415) {
 					player.getInventory().delete(2677, 1);
 					player.getInventory().add(2714, 1);
-					DialogueManager.sendStatement(player, "You've found a casket!");
 				} else if (player.getLocation() == Location.WILDKEY_ZONE) {
 					if (player.getInventory().contains(1543)) { // red best
 						player.getInventory().deleteAmount(1543, 1);

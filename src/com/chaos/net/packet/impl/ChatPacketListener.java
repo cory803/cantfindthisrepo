@@ -6,7 +6,6 @@ import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.content.PlayerPunishment;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -30,10 +29,6 @@ public class ChatPacketListener implements PacketListener {
 
 		String str = Misc.textUnpack(text, size).toLowerCase().replaceAll(";", ".");
 		if (Misc.blockedWord(str)) {
-			// Logs.write_data(player.getUsername()+ ".txt", "advertisers",
-			// "Player was caught saying in
-			// global chat: "+str+"");
-			DialogueManager.sendStatement(player, "A word was blocked in your sentence. Please do not repeat it!");
 			return;
 		}
 		// Logs.write_data(player.getUsername()+ ".txt", "global_chats",

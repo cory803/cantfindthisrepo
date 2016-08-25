@@ -6,7 +6,6 @@ import com.chaos.world.World;
 import com.chaos.world.content.BossSystem;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.pvp.BountyHunter;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.minigames.impl.Barrows;
 import com.chaos.world.content.minigames.impl.FightCave;
 import com.chaos.world.content.minigames.impl.FightPit;
@@ -14,7 +13,6 @@ import com.chaos.world.content.minigames.impl.Graveyard;
 import com.chaos.world.content.minigames.impl.Nomad;
 import com.chaos.world.content.minigames.impl.PestControl;
 import com.chaos.world.content.minigames.impl.RecipeForDisaster;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.Entity;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
@@ -41,53 +39,6 @@ public class Locations {
 	public static int PLAYERS_IN_DUEL_ARENA;
 
 	public enum Location {
-		DUNGEONEERING(new int[] { 3433, 3459, 2421, 2499 }, new int[] { 3694, 3729, 4915, 4990 }, true, false, true,
-				false, true, false) {
-			@Override
-			public void login(Player player) {
-				player.getPacketSender().sendDungeoneeringTabIcon(true).sendTabInterface(GameSettings.QUESTS_TAB, 27224)
-						.sendTab(GameSettings.QUESTS_TAB);
-			}
-
-			@Override
-			public void leave(Player player) {
-				Dungeoneering.leave(player, true, true);
-			}
-
-			@Override
-			public void enter(Player player) {
-				player.getPacketSender().sendDungeoneeringTabIcon(true).sendTabInterface(GameSettings.QUESTS_TAB, 27224)
-						.sendTab(GameSettings.QUESTS_TAB);
-				DialogueManager.start(player, 104);
-			}
-
-			@Override
-			public void onDeath(Player player) {
-				if (Dungeoneering.doingDungeoneering(player)) {
-					Dungeoneering.handlePlayerDeath(player);
-				}
-			}
-
-			@Override
-			public boolean handleKilledNPC(Player killer, NPC npc) {
-				if (Dungeoneering.doingDungeoneering(killer)) {
-					Dungeoneering.handleNpcDeath(killer, npc);
-					return true;
-				}
-				return false;
-			}
-
-			@Override
-			public void process(Player player) {
-				if (Dungeoneering.doingDungeoneering(player)) {
-					if (player.getWalkableInterfaceId() != 37500) {
-						player.getPacketSender().sendWalkableInterface(37500);
-					}
-				} else if (player.getWalkableInterfaceId() == 37500) {
-					player.getPacketSender().sendWalkableInterface(-1);
-				}
-			}
-		},
 		MEMBER_ZONE(new int[] { 3415, 3435 }, new int[] { 2900, 2926 }, false, true, true, false, false, true) {
 		},
 		VARROCK(new int[] { 3167, 3272 }, new int[] { 3263, 3504 }, false, true, true, true, true, true) {

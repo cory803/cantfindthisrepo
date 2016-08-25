@@ -43,7 +43,7 @@ public class ZamorakianMage implements CombatStrategy {
 
     @Override
     public int attackDistance(Character entity) {
-        return entity.getLocation() == Location.DUNGEONEERING ? 6 : 50;
+        return 6;
     }
 
     @Override

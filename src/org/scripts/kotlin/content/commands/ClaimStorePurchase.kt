@@ -21,10 +21,6 @@ class ClaimStorePurchase(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("The store is currently offline! Try again in 30 minutes.")
             return
         }
-        if (player.location === Locations.Location.DUNGEONEERING || player.location === Locations.Location.WILDERNESS) {
-            player.packetSender.sendMessage("You cannot do this here, you'll lose your scroll!")
-            return
-        }
         if (player.claimingStoreItems) {
             player.packetSender.sendMessage("You already have a active store claim process going...")
             return

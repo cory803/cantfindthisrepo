@@ -62,7 +62,6 @@ import com.chaos.world.content.combat.strategy.CombatStrategies;
 import com.chaos.world.content.combat.strategy.CombatStrategy;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightType;
-import com.chaos.world.content.dialogue.Dialogue;
 import com.chaos.world.content.minigames.MinigameAttributes;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
@@ -70,12 +69,6 @@ import com.chaos.world.content.minigames.impl.zulrah.Zulrah;
 import com.chaos.world.content.pos.PosDetails;
 import com.chaos.world.content.pos.PosOffer;
 import com.chaos.world.content.skill.SkillManager;
-import com.chaos.world.content.skill.impl.construction.ConstructionData;
-import com.chaos.world.content.skill.impl.construction.ConstructionData.HouseLocation;
-import com.chaos.world.content.skill.impl.construction.ConstructionData.HouseTheme;
-import com.chaos.world.content.skill.impl.construction.HouseFurniture;
-import com.chaos.world.content.skill.impl.construction.Portal;
-import com.chaos.world.content.skill.impl.construction.Room;
 import com.chaos.world.content.skill.impl.farming.Farming;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.content.skill.impl.summoning.Pouch;
@@ -550,8 +543,6 @@ public class Player extends Character {
     private final CopyOnWriteArrayList<KillsEntry> killsTracker = new CopyOnWriteArrayList<KillsEntry>();
     public final ArrayList<String> playersAttacked = new ArrayList<String>();
     private final CopyOnWriteArrayList<DropLogEntry> dropLog = new CopyOnWriteArrayList<DropLogEntry>();
-    private ArrayList<HouseFurniture> houseFurniture = new ArrayList<HouseFurniture>();
-    private ArrayList<Portal> housePortals = new ArrayList<>();
     private final List<Player> localPlayers = new LinkedList<Player>();
     private final List<NPC> localNpcs = new LinkedList<NPC>();
 
@@ -588,7 +579,6 @@ public class Player extends Character {
     private Farming farming = new Farming(this);
     private Summoning summoning = new Summoning(this);
     private Bank[] bankTabs = new Bank[9];
-    private Room[][][] houseRooms = new Room[5][13][13];
     private PlayerInteractingOption playerInteractingOption = PlayerInteractingOption.NONE;
     private CombatType lastCombatType = CombatType.MELEE;
     private FightType fightType = FightType.UNARMED_PUNCH;
@@ -601,10 +591,7 @@ public class Player extends Character {
     private Shop shop;
     private PlayerOwnedShopContainer player_owned_shop;
     private GameObject interactingObject;
-    private ConstructionData.HouseLocation houseLocation = HouseLocation.TAVERLY;
-    private ConstructionData.HouseTheme houseTheme = HouseTheme.BASIC_WOOD;
     private Item interactingItem;
-    private Dialogue dialogue;
     public Dialog currentDialog;
     private DwarfCannon cannon;
     private CombatSpell autocastSpell, castSpell, previousCastSpell;
@@ -1948,22 +1935,6 @@ public class Player extends Character {
         this.posShopping = shopping;
     }
 
-    public ConstructionData.HouseLocation getHouseLocation() {
-        return houseLocation;
-    }
-
-    public void setHouseLocation(ConstructionData.HouseLocation houseLocation) {
-        this.houseLocation = houseLocation;
-    }
-
-    public ConstructionData.HouseTheme getHouseTheme() {
-        return houseTheme;
-    }
-
-    public void setHouseTheme(HouseTheme houseTheme) {
-        this.houseTheme = houseTheme;
-    }
-
     public Shop getShop() {
         return shop;
     }
@@ -1999,20 +1970,8 @@ public class Player extends Character {
         this.interactingItem = interactingItem;
     }
 
-    public Dialogue getDialogue() {
-        return this.dialogue;
-    }
-
-    public void setDialogue(Dialogue dialogue) {
-        this.dialogue = dialogue;
-    }
-
     public int getDialogueActionId() {
         return dialogueActionId;
-    }
-
-    public void setDialogueActionId(int dialogueActionId) {
-        this.dialogueActionId = dialogueActionId;
     }
 
     public void setSettingUpCannon(boolean settingUpCannon) {
@@ -2704,30 +2663,6 @@ public class Player extends Character {
 
     public void setCombatRingType(int combatRingType) {
         this.combatRingType = combatRingType;
-    }
-
-    public Room[][][] getHouseRooms() {
-        return houseRooms;
-    }
-
-    public void setHouseRooms(Room[][][] houseRooms) {
-        this.houseRooms = houseRooms;
-    }
-
-    public ArrayList<Portal> getHousePortals() {
-        return housePortals;
-    }
-
-    public void setHousePortals(ArrayList<Portal> housePortals) {
-        this.housePortals = housePortals;
-    }
-
-    public void setHouseFurniture(ArrayList<HouseFurniture> houseFurniture) {
-        this.houseFurniture = houseFurniture;
-    }
-
-    public ArrayList<HouseFurniture> getHouseFurniture() {
-        return houseFurniture;
     }
 
     public int getConstructionInterface() {

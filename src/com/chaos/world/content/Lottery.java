@@ -10,14 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.chaos.GameServer;
-import com.chaos.model.StaffRights;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Achievements.AchievementData;
-import com.chaos.world.content.dialogue.Dialogue;
-import com.chaos.world.content.dialogue.DialogueExpression;
-import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.dialogue.DialogueType;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -102,10 +97,6 @@ public class Lottery {
 					.sendMessage("The lottery is currently not active. Try again soon!");
 			return;
 		}
-		if (CONTESTERS.contains(p.getUsername())) {
-			DialogueManager.start(p, 17);
-			return;
-		}
 		boolean usePouch = p.getMoneyInPouch() >= PRICE_TO_ENTER;
 		if (p.getInventory().getAmount(995) < PRICE_TO_ENTER && !usePouch || p.getStaffRights().isManagement()) {
 			p.getPacketSender().sendInterfaceRemoval().sendMessage("")
@@ -123,7 +114,6 @@ public class Lottery {
 		addToLottery(p.getUsername());
 		p.getPacketSender().sendMessage("You have entered the lottery!")
 				.sendMessage("A winner is announced every Friday.");
-		DialogueManager.start(p, 18);
 		Achievements.finishAchievement(p, AchievementData.ENTER_THE_LOTTERY);
 		Achievements.doProgress(p, AchievementData.ENTER_THE_LOTTERY_THREE_TIMES);
 	}
@@ -267,70 +257,6 @@ public class Lottery {
 			rewardPlayer(p, false);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-	}
-
-	public static class Dialogues {
-
-		public static Dialogue getCurrentPot(Player p) {
-			return new Dialogue() {
-
-				@Override
-				public DialogueType type() {
-					return DialogueType.NPC_STATEMENT;
-				}
-
-				@Override
-				public DialogueExpression animation() {
-					return DialogueExpression.NORMAL;
-				}
-
-				@Override
-				public int npcId() {
-					return 4249;
-				}
-
-				@Override
-				public String[] dialogue() {
-					return new String[] { "The pot is currently at:",
-							"" + Misc.insertCommasToNumber("" + Lottery.getPot()) + " coins." };
-				}
-
-				@Override
-				public Dialogue nextDialogue() {
-					return DialogueManager.getDialogues().get(15);
-				}
-			};
-		}
-
-		public static Dialogue getLastWinner(Player p) {
-			return new Dialogue() {
-
-				@Override
-				public DialogueType type() {
-					return DialogueType.NPC_STATEMENT;
-				}
-
-				@Override
-				public DialogueExpression animation() {
-					return DialogueExpression.NORMAL;
-				}
-
-				@Override
-				public int npcId() {
-					return 4249;
-				}
-
-				@Override
-				public String[] dialogue() {
-					return new String[] { "Last week's winner was " + Lottery.getLastWinner() + "." };
-				}
-
-				@Override
-				public Dialogue nextDialogue() {
-					return DialogueManager.getDialogues().get(15);
-				}
-			};
 		}
 	}
 }

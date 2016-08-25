@@ -13,7 +13,6 @@ import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -38,13 +37,11 @@ public class Firemaking {
 		boolean objectExists2 = CustomObjects.objectExists(player.getPosition().copy());
 		boolean objectExists = CustomObjects
 				.objectExists(new Position(player.getPosition().getLocalX() + 1, (player.getPosition().getLocalY())));
-		if (!Dungeoneering.doingDungeoneering(player)) {
-			if (objectExists || objectExists2 && !addingToFire || player.getPosition().getZ() > 0
-					|| !player.getWalkingQueue().canWalk(1, 0) && !player.getWalkingQueue().canWalk(-1, 0)
-							&& !player.getWalkingQueue().canWalk(0, 1) && !player.getWalkingQueue().canWalk(0, -1)) {
-				player.getPacketSender().sendMessage("You can not light a fire here.");
-				return;
-			}
+		if (objectExists || objectExists2 && !addingToFire || player.getPosition().getZ() > 0
+				|| !player.getWalkingQueue().canWalk(1, 0) && !player.getWalkingQueue().canWalk(-1, 0)
+						&& !player.getWalkingQueue().canWalk(0, 1) && !player.getWalkingQueue().canWalk(0, -1)) {
+			player.getPacketSender().sendMessage("You can not light a fire here.");
+			return;
 		}
 		final Logdata.logData logData = Logdata.getLogData(player, log);
 		if (logData == null)

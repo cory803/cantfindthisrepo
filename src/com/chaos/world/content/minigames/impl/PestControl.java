@@ -12,7 +12,6 @@ import com.chaos.model.CombatIcon;
 import com.chaos.model.Hit;
 import com.chaos.model.Hitmask;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.Projectile;
 import com.chaos.model.Skill;
@@ -21,7 +20,6 @@ import com.chaos.model.movement.PathFinder;
 import com.chaos.model.movement.WalkingQueue;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -236,7 +234,6 @@ public class PestControl {
 		p.getSession().clearMessages();
 		p.moveTo(new Position(2658, 2611, 0));
 		p.getWalkingQueue().setLockMovement(false).clear();
-		DialogueManager.start(p, 26);
 		PLAYERS_IN_BOAT--;
 	}
 
@@ -271,7 +268,6 @@ public class PestControl {
 					p.getPacketSender().sendMessage("You didn't participate enough to receive a reward.");
 				else {
 					p.getPacketSender().sendMessage("You failed to kill all the portals in time.");
-					DialogueManager.start(p, 356);
 				}
 				p.getMinigameAttributes().getPestControlAttributes().setDamageDealt(0);
 			}

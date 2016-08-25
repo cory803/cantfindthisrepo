@@ -4,7 +4,6 @@ import com.chaos.GameSettings;
 import com.chaos.model.Skill;
 import com.chaos.model.input.EnterAmount;
 import com.chaos.util.Misc;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class BuyDungExperience extends EnterAmount {
@@ -17,9 +16,9 @@ public class BuyDungExperience extends EnterAmount {
 		}
 		// player.getPacketSender().sendInterfaceRemoval();
 		if (player.getPointsHandler().getDungeoneeringTokens() < value / 3) {
-			DialogueManager.sendStatement(player, "You do not have enough Dungeoneering Tokens for this!");
+
 		} else if (value < 100) {
-			DialogueManager.sendStatement(player, "You can't purchase under 100 experience.");
+
 		} else {
 			int amt = (int) value / 3;
 			int xp = (int) value;
@@ -28,7 +27,7 @@ public class BuyDungExperience extends EnterAmount {
 				xp /= 2;
 			}
 			player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, xp);
-			DialogueManager.sendStatement(player, "You have purchased " + Misc.format(value) + " experience.");
+
 		}
 	}
 

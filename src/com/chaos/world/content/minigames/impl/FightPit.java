@@ -7,7 +7,6 @@ import java.util.Map;
 import com.chaos.GameSettings;
 import com.chaos.model.Position;
 import com.chaos.util.Misc;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class FightPit {
@@ -156,9 +155,7 @@ public class FightPit {
 					if (giveTokkul) {
 						int amount = 400 + (200 * TOTAL_PLAYERS) + Misc.getRandom(200);
 						player.getInventory().add(TOKKUL_ID, amount);
-						DialogueManager.start(player, 359);
-					} else
-						DialogueManager.start(player, 360);
+					}
 					return true;
 				}
 			}

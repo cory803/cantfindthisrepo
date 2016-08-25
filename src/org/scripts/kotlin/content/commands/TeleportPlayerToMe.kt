@@ -42,11 +42,6 @@ class TeleportPlayerToMe(staffRights: StaffRights) : Command(staffRights) {
                 return
             }
 
-            if (t.location === Locations.Location.DUNGEONEERING) {
-                player.packetSender.sendMessage("You cannot teleport someone who is in dung.")
-                return
-            }
-
             val canTele = TeleportHandler.checkReqs(player, t.position.copy()) && player.regionInstance == null && t.regionInstance == null
 
             if (canTele) {

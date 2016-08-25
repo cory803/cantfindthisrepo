@@ -12,7 +12,6 @@ import com.chaos.world.World;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.impl.player.Player;
 
 public class GroundItemManager {
@@ -77,14 +76,6 @@ public class GroundItemManager {
 			p.getPacketSender().sendMessage("The cape vanishes as it touches the ground.");
 			return;
 		}
-		if (Dungeoneering.doingDungeoneering(p)) {
-			g = new GroundItem(item, g.getPosition(), "Dungeoneering", true, -1, false, -1);
-			p.getMinigameAttributes().getDungeoneeringAttributes().getParty().getGroundItems().add(g);
-			if (item.getId() == 17489) {
-				p.getMinigameAttributes().getDungeoneeringAttributes().getParty()
-						.setGatestonePosition(g.getPosition().copy());
-			}
-		}
 		if (ItemDefinition.forId(item.getId()).isStackable()) {
 			GroundItem it = getGroundItem(p, item, g.getPosition());
 			if (it != null) {
@@ -124,14 +115,6 @@ public class GroundItemManager {
 		if (item.getId() >= 2412 && item.getId() <= 2414) {
 			p.getPacketSender().sendMessage("The cape vanishes as it touches the ground.");
 			return;
-		}
-		if (Dungeoneering.doingDungeoneering(p)) {
-			g = new GroundItem(item, g.getPosition(), "Dungeoneering", true, -1, false, -1);
-			p.getMinigameAttributes().getDungeoneeringAttributes().getParty().getGroundItems().add(g);
-			if (item.getId() == 17489) {
-				p.getMinigameAttributes().getDungeoneeringAttributes().getParty()
-						.setGatestonePosition(g.getPosition().copy());
-			}
 		}
 		if (ItemDefinition.forId(item.getId()).isStackable()) {
 			GroundItem it = getGroundItem(p, item, g.getPosition());
@@ -176,8 +159,6 @@ public class GroundItemManager {
 						groundItem.getPosition().getY(), groundItem.getItem().getAmount());
 		}
 		if (listGItem) {
-			if (Location.getLocation(groundItem) == Location.DUNGEONEERING)
-				groundItem.setShouldProcess(false);
 			groundItems.add(groundItem);
 			GroundItemsTask.fireTask();
 		}
@@ -234,15 +215,12 @@ public class GroundItemManager {
 			 * End our Ironman PKed check
 			 */
 
-			if (p.getGameModeAssistant().isIronMan() && !Dungeoneering.doingDungeoneering(p)) {
+			if (p.getGameModeAssistant().isIronMan()) {
 				if ((gt.getOwner() != null && !gt.getOwner().equals("null") && !gt.getOwner().equals(p.getUsername()))
 						|| (gt.getIronman() && p.getGameModeAssistant().isIronMan())) {
 					p.getPacketSender().sendMessage("You cannot pick this item up because it was not spawned for you.");
 					return;
 				}
-			}
-			if (item.getId() == 17489 && Dungeoneering.doingDungeoneering(p)) {
-				p.getMinigameAttributes().getDungeoneeringAttributes().getParty().setGatestonePosition(null);
 			}
 			item = gt.getItem();
 			gt.setPickedUp(true);

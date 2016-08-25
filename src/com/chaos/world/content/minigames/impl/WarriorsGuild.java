@@ -8,16 +8,12 @@ import com.chaos.model.Graphic;
 import com.chaos.model.GroundItem;
 import com.chaos.model.Item;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
-import com.chaos.world.content.dialogue.Dialogue;
-import com.chaos.world.content.dialogue.DialogueExpression;
-import com.chaos.world.content.dialogue.DialogueType;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -151,38 +147,6 @@ public class WarriorsGuild {
 			foundIndex++;
 		}
 		return DEFENDERS[foundIndex];
-	}
-
-	/**
-	 * Warriors guild dialogue, handles what Kamfreena says.
-	 */
-	public static Dialogue warriorsGuildDialogue(final Player player) {
-		return new Dialogue() {
-
-			@Override
-			public DialogueType type() {
-				return DialogueType.NPC_STATEMENT;
-			}
-
-			@Override
-			public DialogueExpression animation() {
-				return DialogueExpression.NORMAL;
-			}
-
-			@Override
-			public String[] dialogue() {
-				int defender = getDefender(player);
-				return new String[] { "I'll release some Cyclops which might drop",
-						"" + ItemDefinition.forId(defender).getName().replace(" defender", "") + " Defenders for you.",
-						"Good luck warrior!" };
-			}
-
-			@Override
-			public int npcId() {
-				return 2948;
-			}
-
-		};
 	}
 
 	/**

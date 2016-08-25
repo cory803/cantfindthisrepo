@@ -2,7 +2,6 @@ package com.chaos.model.input.impl;
 
 import com.chaos.model.Item;
 import com.chaos.model.input.Input;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 public class EnterYellTag extends Input {
@@ -34,7 +33,7 @@ public class EnterYellTag extends Input {
 				"col=", "shad=", "hair pube", "@" };
 		for (int i = 0; i < not_allowed.length; i++) {
 			if (yell_tag.toLowerCase().contains(not_allowed[i])) {
-				DialogueManager.sendStatement(player, "You are not allowed to have that in your yell tag!");
+
 				dont_send = true;
 			}
 		}
@@ -47,7 +46,7 @@ public class EnterYellTag extends Input {
 			player.setMoneyInPouch((player.getMoneyInPouch() - value));
 		}
 		player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
-		DialogueManager.sendStatement(player, "Your yell tag has been set to " + yell_tag + "!");
+
 		player.setYellTag(yell_tag);
 	}
 }

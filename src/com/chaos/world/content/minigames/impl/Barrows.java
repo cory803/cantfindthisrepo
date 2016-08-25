@@ -11,7 +11,6 @@ import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -393,8 +392,6 @@ public class Barrows {
 			player.getMinigameAttributes().getBarrowsMinigameAttributes().setRandomCoffin(getRandomCoffin());
 		if (COFFIN_AND_BROTHERS[player.getMinigameAttributes().getBarrowsMinigameAttributes()
 				.getRandomCoffin()][0] == coffinId) {
-			DialogueManager.start(player, 27);
-			player.setDialogueActionId(16);
 			return true;
 		}
 		return false;

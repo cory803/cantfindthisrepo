@@ -9,7 +9,6 @@ import com.chaos.model.Hit;
 import com.chaos.model.Hitmask;
 import com.chaos.model.Position;
 import com.chaos.util.Misc;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -187,11 +186,10 @@ public enum ObstacleData {
 					player.getClickDelay().reset();
 					player.getUpdateFlag().flag(Flag.APPEARANCE);
 					if (Agility.passedAllObstacles(player)) {
-						DialogueManager.start(player, DialogueManager.getDialogues().get(57 + Misc.getRandom(2)));
 						player.getInventory().add(2996, 2);
 						Agility.addExactExperience(player, 5000 + Misc.getRandom(1000));
 					} else {
-						DialogueManager.start(player, DialogueManager.getDialogues().get(56));
+
 					}
 					Agility.resetProgress(player);
 					player.getPacketSender().sendMessage("You manage to make your way through the pipe.");
@@ -235,11 +233,9 @@ public enum ObstacleData {
 					player.getClickDelay().reset();
 					player.getUpdateFlag().flag(Flag.APPEARANCE);
 					if (Agility.passedAllObstacles(player)) {
-						DialogueManager.start(player, DialogueManager.getDialogues().get(57 + Misc.getRandom(2)));
 						player.getInventory().add(2996, 2);
 						Agility.addExperience(player, 10200 + Misc.getRandom(1000));
 					} else {
-						DialogueManager.start(player, DialogueManager.getDialogues().get(56));
 					}
 					player.getPacketSender().sendMessage("You manage to make your way through the pipe.");
 					Agility.resetProgress(player);
@@ -463,12 +459,10 @@ public enum ObstacleData {
 					player.setCrossingObstacle(false).setCrossedObstacle(first ? 5 : 6, true);
 					if (player.getPosition().getX() == 2543 && player.getPosition().getY() == 3553) {
 						if (Agility.passedAllObstacles(player)) {
-							DialogueManager.start(player, 57);
 							player.getInventory().add(2996, 4);
 							Agility.addExactExperience(player, 6500 + Misc.getRandom(1000));
 							Agility.resetProgress(player);
 						} else {
-							DialogueManager.start(player, 56);
 						}
 						player.getPacketSender().sendMessage("You manage to jump over the wall.");
 					}
@@ -758,11 +752,11 @@ public enum ObstacleData {
 					player.setCrossedObstacle(6, true).setCrossingObstacle(false);
 					Agility.addExperience(player, 100);
 					if (Agility.passedAllObstacles(player)) {
-						DialogueManager.start(player, 57);
+
 						player.getInventory().add(2996, 6);
 						Agility.addExactExperience(player, 8000 + Misc.getRandom(2000));
 					} else {
-						DialogueManager.start(player, 56);
+
 					}
 					player.getPacketSender().sendMessage("You manage to climb up the wall.");
 					Agility.resetProgress(player);

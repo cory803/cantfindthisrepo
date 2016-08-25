@@ -28,12 +28,10 @@ import com.chaos.net.security.ConnectionHandler;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.Lottery;
 import com.chaos.world.content.Scoreboard;
-import com.chaos.world.content.WellOfGoodwill;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
 import com.chaos.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
 import com.chaos.world.content.combat.strategy.CombatStrategies;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.entity.impl.npc.NPC;
 
@@ -72,7 +70,6 @@ public final class GameLoader {
 		Lottery.init();
 		DoorManager.init();
 		PlayerOwnedShops.init();
-		WellOfGoodwill.init();
 		ClanChatManager.init();
 		CombatPoisonData.init();
 		CombatVenomData.init();
@@ -83,7 +80,6 @@ public final class GameLoader {
 		WeaponInterfaces.parseInterfaces().load();
 		ShopManager.parseShops().load();
 		PlayerOwnedShopManager.load();
-		DialogueManager.parseDialogues().load();
 		NPC.init();
 	}
 

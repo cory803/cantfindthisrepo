@@ -5,7 +5,6 @@ import com.chaos.model.Position
 import com.chaos.model.player.command.Command
 import com.chaos.util.Misc
 import com.chaos.world.World
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.chaos.world.entity.impl.player.Player
 
 /**
@@ -29,10 +28,6 @@ class Jail(staffRights: StaffRights) : Command(staffRights) {
             if (victim == null) {
                 player.packetSender.sendMessage("The offending player is not currently online.")
                 return
-            }
-
-            if (Dungeoneering.doingDungeoneering(victim)) {
-                Dungeoneering.leave(victim, false, true)
             }
 
             var time = -1

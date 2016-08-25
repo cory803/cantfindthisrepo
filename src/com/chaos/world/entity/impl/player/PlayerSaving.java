@@ -342,8 +342,6 @@ public class PlayerSaving {
 				builder.toJsonTree(player.getMinigameAttributes().getFarmQuestAttributes().getQuestParts()));
 		object.addProperty("recipe-for-disaster-wave",
 				new Integer(player.getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted()));
-		object.add("dung-items-bound",
-				builder.toJsonTree(player.getMinigameAttributes().getDungeoneeringAttributes().getBoundItems()));
 		object.addProperty("rune-ess", new Integer(player.getStoredRuneEssence()));
 		object.addProperty("pure-ess", new Integer(player.getStoredPureEssence()));
 		object.addProperty("has-bank-pin", new Boolean(player.getBankPinAttributes().hasBankPin()));

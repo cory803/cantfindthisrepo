@@ -34,26 +34,6 @@ public class Trading {
 			player.getPacketSender().sendMessage("Ironman-players are not allowed to trade.");
 			return;
 		}
-		if (player2.getGameModeAssistant().isIronMan()) {
-			player.getPacketSender()
-					.sendMessage("That player is a Hardcore-ironman-player and can therefore not stake.");
-			return;
-		}
-		if (player.getLocation() == Location.DUNGEONEERING) {
-			player.getPacketSender().sendMessage("You cannot trade while in a dungeon!");
-			return;
-		}
-		if (player2.getLocation() == Location.DUNGEONEERING) {
-			player.getPacketSender().sendMessage("You cannot trade while in a dungeon!");
-			return;
-		}
-
-		/*
-		 * if(Misc.getMinutesPlayed(player) < 15) {
-		 * player.getPacketSender().sendMessage(
-		 * "You must have played for at least 15 minutes in order to trade someone."
-		 * ); return; }
-		 */
 		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);

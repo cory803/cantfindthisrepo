@@ -6,7 +6,6 @@ import com.chaos.model.StaffRights
 import com.chaos.model.Position
 import com.chaos.model.player.command.Command
 import com.chaos.util.Misc
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.chaos.world.content.transportation.TeleportHandler
 import com.chaos.world.entity.impl.player.Player
 
@@ -22,10 +21,6 @@ class TeleportExtremeZone(staffRights: StaffRights) : Command(staffRights) {
     override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (player.donatorRights.ordinal < 3) {
             player.packetSender.sendMessage("You must be a Legendary donator in order to use this command.")
-            return
-        }
-        if (Dungeoneering.doingDungeoneering(player)) {
-            player.packetSender.sendMessage("You can't use this command in a dungeon.")
             return
         }
         if (player.location === Locations.Location.WILDERNESS && player.wildernessLevel >= 20) {

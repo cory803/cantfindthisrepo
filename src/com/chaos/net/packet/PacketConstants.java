@@ -54,7 +54,6 @@ public class PacketConstants {
 		PACKETS[249] = new MagicOnPlayerPacketListener();
 		PACKETS[153] = new PlayerOptionPacketListener();
 		PACKETS[DuelAcceptancePacketListener.OPCODE] = new DuelAcceptancePacketListener();
-		PACKETS[12] = new DungeoneeringPartyInvitatationPacketListener();
 		PACKETS[204] = new GESelectItemPacketListener();
 		PACKETS[222] = new ClickTextMenuPacketListener();
 		PACKETS[223] = new PrestigeSkillPacketListener();

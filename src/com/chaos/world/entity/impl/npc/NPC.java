@@ -72,8 +72,7 @@ public class NPC extends Character {
         if (constitution < defaultConstitution) {
             if (!isDying) {
                 if (getLastCombat().elapsed((id == 13447 || id == 3200 ? 50000 : 5000))
-                        && !getCombatBuilder().isAttacking() && getLocation() != Location.PEST_CONTROL_GAME
-                        && getLocation() != Location.DUNGEONEERING) {
+                        && !getCombatBuilder().isAttacking() && getLocation() != Location.PEST_CONTROL_GAME) {
                     setConstitution(constitution + (int) (defaultConstitution * 0.1));
                     if (constitution > defaultConstitution)
                         setConstitution(defaultConstitution);
@@ -211,9 +210,6 @@ public class NPC extends Character {
     }
 
     public boolean switchesVictim() {
-        if (getLocation() == Location.DUNGEONEERING) {
-            return true;
-        }
         return id == 6263 || id == 6265 || id == 6203 || id == 6208 || id == 6206 || id == 6247 || id == 6250
                 || id == 3200 || id == 4540 || id == 1158 || id == 1160 || id == 8133 || id == 13447 || id == 13451
                 || id == 13452 || id == 13453 || id == 13454 || id == 2896 || id == 2882 || id == 2881 || id == 6260

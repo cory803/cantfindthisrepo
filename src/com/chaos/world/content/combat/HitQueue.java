@@ -149,8 +149,6 @@ public class HitQueue {
 					if (damage > 0) {
 						if (p.getLocation() == Location.PEST_CONTROL_GAME) {
 							p.getMinigameAttributes().getPestControlAttributes().incrementDamageDealt(damage);
-						} else if (p.getLocation() == Location.DUNGEONEERING) {
-							p.getMinigameAttributes().getDungeoneeringAttributes().incrementDamageDealt(damage);
 						}
 						/** ACHIEVEMENTS **/
 						if (container.getCombatType() == CombatType.MELEE) {

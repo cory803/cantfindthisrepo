@@ -911,7 +911,7 @@ public final class CombatFactory {
                     return false;
                 }
             }
-            if (npc.getLocation() != Location.DUNGEONEERING && npc.getDefinition().getSlayerLevel() > ((Player) entity)
+            if (npc.getDefinition().getSlayerLevel() > ((Player) entity)
                     .getSkillManager().getCurrentLevel(Skill.SLAYER)) {
                 ((Player) entity).getPacketSender().sendMessage("You need a Slayer level of at least "
                         + npc.getDefinition().getSlayerLevel() + " to attack this creature.");

@@ -1,7 +1,6 @@
 package com.chaos.model.container.impl;
 
 import com.chaos.model.Flag;
-import com.chaos.model.player.GameMode;
 import com.chaos.model.Item;
 import com.chaos.model.container.ItemContainer;
 import com.chaos.model.container.StackType;
@@ -11,7 +10,6 @@ import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.model.input.impl.ItemSearch;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.BonusManager;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -28,9 +26,6 @@ public class Bank extends ItemContainer {
 
 	public Bank open() {
 		getPlayer().getPacketSender().sendClientRightClickRemoval();
-		if (Dungeoneering.doingDungeoneering(getPlayer())) {
-			return this;
-		}
 		if (getPlayer().getBankPinAttributes().hasBankPin() && !getPlayer().getBankPinAttributes().hasEnteredBankPin()
 				&& getPlayer().getBankPinAttributes().onDifferent(getPlayer())) {
 			BankPin.init(getPlayer(), true);

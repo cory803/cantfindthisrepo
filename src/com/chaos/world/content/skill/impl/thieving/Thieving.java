@@ -6,7 +6,6 @@ import com.chaos.model.Skill;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.player.Player;
 
 import java.util.Arrays;
@@ -28,14 +27,6 @@ public class Thieving {
         } else if (player.getInventory().getFreeSlots() == 0) {
             player.getPacketSender().sendMessage("You do not have enough inventory space to steal from this stall!");
             return false;
-        } else if (player.getSkillManager().getCurrentLevel(Skill.THIEVING) < stall.getRequiredLevel()) {
-            DialogueManager.sendStatement(player, "@blu@You need a Thieving level of @dre@" + stall.getRequiredLevel() + " @blu@to steal from this stall!");
-            return false;
-        } else if(stall.isDonator()) {
-            if (!player.getDonatorRights().isDonator()) {
-                DialogueManager.sendStatement(player, "@dre@You need to be a donator to thieve from this stall.");
-                return false;
-            }
         }
 
         player.getSkillManager().addSkillExperience(Skill.THIEVING, stall.getExperience());

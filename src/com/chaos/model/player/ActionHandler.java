@@ -7,14 +7,12 @@ import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.PosSearchShop;
 import com.chaos.world.content.*;
 import com.chaos.world.content.combat.magic.CombatSpells;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
 import com.chaos.world.content.skill.impl.runecrafting.DesoSpan;
-import com.chaos.world.content.skill.impl.slayer.SlayerDialogues;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.content.skill.impl.summoning.Summoning;
@@ -75,8 +73,6 @@ public final class ActionHandler {
                 break;
 
             case 501:
-                DialogueManager.start(player, 224);
-                player.setDialogueActionId(224);
                 for (Item item : player.getInventory().getItems()) {
                     ItemDefinition def = ItemDefinition.forId(item.getId() + 1);
                     if (def.getName().toLowerCase().startsWith("raw")) {
@@ -96,8 +92,6 @@ public final class ActionHandler {
                     player.getPacketSender().sendMessage("Player owned shops have been disabled.");
                     return;
                 }
-                player.setDialogueActionId(214);
-                DialogueManager.start(player, 214);
                 break;
             case 8710:
             case 8707:
@@ -113,31 +107,6 @@ public final class ActionHandler {
                     player.getPacketSender().sendMessage("This is not your current Slayer master.");
                     return;
                 }
-                DialogueManager.start(player, SlayerDialogues.dialogue(player));
-                break;
-            case 8591:
-                if (!player.getMinigameAttributes().getNomadAttributes().hasFinishedPart(0)) {
-                    DialogueManager.start(player, 48);
-                    player.setDialogueActionId(23);
-                } else if (player.getMinigameAttributes().getNomadAttributes().hasFinishedPart(0)
-                        && !player.getMinigameAttributes().getNomadAttributes().hasFinishedPart(1)) {
-                    DialogueManager.start(player, 50);
-                    player.setDialogueActionId(24);
-                } else if (player.getMinigameAttributes().getNomadAttributes().hasFinishedPart(1))
-                    DialogueManager.start(player, 53);
-                break;
-            case 3385:
-                if (player.getMinigameAttributes().getRecipeForDisasterAttributes().hasFinishedPart(0) && player
-                        .getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted() < 6) {
-                    DialogueManager.start(player, 39);
-                    return;
-                }
-                if (player.getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted() == 6) {
-                    DialogueManager.start(player, 46);
-                    return;
-                }
-                DialogueManager.start(player, 38);
-                player.setDialogueActionId(20);
                 break;
             case 3789:
                 player.getPacketSender().sendInterface(18730);
@@ -288,16 +257,6 @@ public final class ActionHandler {
                 break;
             case 1597:
             case 9085:
-            case 7780:
-                if (npc.getId() != player.getSlayer().getSlayerMaster().getNpcId()) {
-                    player.getPacketSender().sendMessage("This is not your current Slayer master.");
-                    return;
-                }
-                if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK)
-                    player.getSlayer().assignTask();
-                else
-                    DialogueManager.start(player, SlayerDialogues.findAssignment(player));
-                break;
             case 8591:
                 if (!player.getMinigameAttributes().getNomadAttributes().hasFinishedPart(1)) {
                     player.getPacketSender()
@@ -380,10 +339,6 @@ public final class ActionHandler {
             // FOURTH_CLICK_OPCODE");
         }
         switch (npc.getId()) {
-            case 946:
-                    DialogueManager.start(player, 252);
-                    player.setDialogueActionId(252);
-                break;
             case 2217:
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 break;
@@ -410,13 +365,6 @@ public final class ActionHandler {
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 player.setInputHandling(new PosSearchShop());
                 player.setPlayerOwnedShopping(true);
-                break;
-            case 1597:
-            case 9085:
-            case 8275:
-            case 7780:
-                player.setDialogueActionId(188);
-                DialogueManager.start(player, 188);
                 break;
         }
         npc.setPositionToFace(player.getPosition());

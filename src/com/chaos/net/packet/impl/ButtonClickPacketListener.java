@@ -22,20 +22,13 @@ import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightType;
-import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.dialogue.DialogueOptions;
 import com.chaos.world.content.minigames.impl.*;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.pos.PosDetails;
 import com.chaos.world.content.skill.ChatboxInterfaceSkillAction;
 import com.chaos.world.content.skill.Enchanting;
-import com.chaos.world.content.skill.impl.construction.Construction;
-import com.chaos.world.content.skill.impl.construction.sawmill.SawmillOperator;
 import com.chaos.world.content.skill.impl.crafting.LeatherMaking;
 import com.chaos.world.content.skill.impl.crafting.Tanning;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
-import com.chaos.world.content.skill.impl.dungeoneering.DungeoneeringParty;
-import com.chaos.world.content.skill.impl.dungeoneering.ItemBinding;
 import com.chaos.world.content.skill.impl.fletching.Fletching;
 import com.chaos.world.content.skill.impl.herblore.IngridientsBook;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
@@ -98,9 +91,6 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
 
             case -10425:
-                // player.setMusicActive(!player.musicActive());
-                DialogueManager.sendStatement(player, "You can adjust the music volume in the settings tab.");
-                player.setDialogueActionId(-1);
                 player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
                 PlayerPanel.refreshPanel(player);
                 break;
@@ -112,9 +102,6 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getDueling().setLastDuelRules(player);
                 break;
             case -10424:
-                // player.setSoundsActive(!player.soundsActive());
-                DialogueManager.sendStatement(player, "You can adjust the sound volume in the settings tab.");
-                player.setDialogueActionId(-1);
                 player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
                 PlayerPanel.refreshPanel(player);
                 break;
@@ -154,34 +141,6 @@ public class ButtonClickPacketListener implements PacketListener {
                     PlayersOnlineInterface.showInterface(player);
                 }
                 break;
-            case 27229:
-                DungeoneeringParty.create(player);
-                break;
-            case 26226:
-            case 26229:
-                if (Dungeoneering.doingDungeoneering(player)) {
-                    DialogueManager.start(player, 114);
-                    player.setDialogueActionId(71);
-                } else {
-                    Dungeoneering.leave(player, false, true);
-                }
-                break;
-            case 26250:
-                player.setInputHandling(new InviteToDungeoneering());
-                player.getPacketSender().sendEnterInputPrompt("Enter the name of the player to invite:");
-                break;
-            case 26244:
-            case 26247:
-                if (player.getMinigameAttributes().getDungeoneeringAttributes().getParty() != null) {
-                    if (player.getMinigameAttributes().getDungeoneeringAttributes().getParty().getOwner().getUsername()
-                            .equals(player.getUsername())) {
-                        DialogueManager.start(player, id == 26247 ? 106 : 105);
-                        player.setDialogueActionId(id == 26247 ? 68 : 67);
-                    } else {
-                        player.getPacketSender().sendMessage("Only the party owner can change this setting.");
-                    }
-                }
-                break;
             case 28180:
                 TeleportHandler.teleportPlayer(player, new Position(3450, 3715), player.getSpellbook().getTeleportType());
                 break;
@@ -196,7 +155,6 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getPacketSender().sendInterfaceRemoval();
                 if (player.getUntradeableDropItem() != null
                         && player.getInventory().contains(player.getUntradeableDropItem().getId())) {
-                    ItemBinding.unbindItem(player, player.getUntradeableDropItem().getId());
                     player.getInventory().delete(player.getUntradeableDropItem());
                     player.getPacketSender().sendMessage("Your item vanishes as it hits the floor.");
                     Sounds.sendSound(player, Sound.DROP_ITEM);
@@ -291,8 +249,6 @@ public class ButtonClickPacketListener implements PacketListener {
                             .sendMessage("Please close the interface you have open before opening another one.");
                     return;
                 }
-                DialogueManager.start(player, 60);
-                player.setDialogueActionId(27);
                 break;
             case 29455:
                 if (player.getInterfaceId() > 0) {
@@ -377,14 +333,10 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
             case 5294:
                 player.getPacketSender().sendClientRightClickRemoval().sendInterfaceRemoval();
-                player.setDialogueActionId(player.getBankPinAttributes().hasBankPin() ? 8 : 7);
-                DialogueManager.start(player,
-                        DialogueManager.getDialogues().get(player.getBankPinAttributes().hasBankPin() ? 12 : 9));
                 break;
             case 15002:
             case 27653:
-                if (!player.busy() && !player.getCombatBuilder().isBeingAttacked()
-                        && !Dungeoneering.doingDungeoneering(player)) {
+                if (!player.busy() && !player.getCombatBuilder().isBeingAttacked()) {
                     player.getSkillManager().stopSkilling();
                     player.getPriceChecker().open();
                 } else {
@@ -953,29 +905,6 @@ public class ButtonClickPacketListener implements PacketListener {
     }
 
     private boolean checkHandlers(Player player, int id) {
-        if (Construction.handleButtonClick(id, player)) {
-            return true;
-        }
-        if (SawmillOperator.handleButtonClick(id, player))
-            return true;
-        switch (id) {
-            case 2494:
-            case 2495:
-            case 2496:
-            case 2497:
-            case 2498:
-            case 2471:
-            case 2472:
-            case 2473:
-            case 2461:
-            case 2462:
-            case 2482:
-            case 2483:
-            case 2484:
-            case 2485:
-                DialogueOptions.handle(player, id);
-                return true;
-        }
         if (player.isPlayerLocked() && id != 2458 && (id < 14873 && id > 14882)) {
             return true;
         }

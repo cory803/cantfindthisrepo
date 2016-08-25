@@ -15,7 +15,6 @@ import com.chaos.world.content.BankPin;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
-import com.chaos.world.content.skill.impl.dungeoneering.ItemBinding;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -54,7 +53,7 @@ public class DropItemPacketListener implements PacketListener {
 		player.setCastSpell(null);
 		player.getCombatBuilder().cooldown(false);
 		if (item != null && item.getId() != -1 && item.getAmount() >= 1) {
-			if (item.tradeable() && !ItemBinding.isBoundItem(item.getId())) {
+			if (item.tradeable()) {
 				player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
 				if (item.getId() == 4045) {
 

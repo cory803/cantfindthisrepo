@@ -14,18 +14,13 @@ import com.chaos.world.World;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.ItemForging;
 import com.chaos.world.content.PlayerLogs;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.minigames.impl.WarriorsGuild;
-import com.chaos.world.content.skill.impl.construction.ConstructionActions;
-import com.chaos.world.content.skill.impl.construction.sawmill.Plank;
-import com.chaos.world.content.skill.impl.construction.sawmill.SawmillOperator;
 import com.chaos.world.content.skill.impl.cooking.Cooking;
 import com.chaos.world.content.skill.impl.cooking.CookingData;
 import com.chaos.world.content.skill.impl.cooking.CookingWilderness;
 import com.chaos.world.content.skill.impl.cooking.CookingWildernessData;
 import com.chaos.world.content.skill.impl.crafting.Gems;
 import com.chaos.world.content.skill.impl.crafting.LeatherMaking;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.firemaking.Firemaking;
 import com.chaos.world.content.skill.impl.fletching.Fletching;
 import com.chaos.world.content.skill.impl.herblore.Herblore;
@@ -34,7 +29,6 @@ import com.chaos.world.content.skill.impl.herblore.WeaponPoison;
 import com.chaos.world.content.skill.impl.prayer.BonesOnAltar;
 import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.runecrafting.DustOfArmadyl;
-import com.chaos.world.content.skill.impl.slayer.SlayerDialogues;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
@@ -84,8 +78,6 @@ public class UseItemPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You need a Crafting level of at least 59 to make that item.");
 				return;
 			}
-			player.setDialogueActionId(184);
-			DialogueManager.start(player, 184);
 		}
 		if (usedWith.getId() == 12435 || itemUsedWith.getId() == 12435) {
 			if (itemUsedWith.getId() == 12435) {
@@ -328,12 +320,8 @@ public class UseItemPacketListener implements PacketListener {
 			return;
 		final GameObject gameObject = new GameObject(objectId,
 				new Position(objectX, objectY, player.getPosition().getZ()));
-		if (objectId > 0 && objectId != 6 && objectId != 1765 && objectId != 9682
-				&& !Dungeoneering.doingDungeoneering(player) && !World.objectExists(gameObject)) {
-			// player.getPacketSender().sendMessage("An error occured. Error
-			// code:
-			// "+objectId).sendMessage("Please report the error to a staff
-			// member.");
+		if (objectId > 0 && !World.objectExists(gameObject)) {
+			 player.getPacketSender().sendMessage("An error occured. Error code:"+objectId).sendMessage("Please report the error to a staff member.");
 			return;
 		}
 		player.setInteractingObject(gameObject);
@@ -355,8 +343,6 @@ public class UseItemPacketListener implements PacketListener {
 							Cooking.selectionInterface(player, CookingData.forFish(item.getId()));
 							return;
 						}
-						if (ConstructionActions.handleItemOnObject(player, objectId, item.getId()))
-							return;
 						if (Prayer.isBone(itemId) && objectId == 409) {
 							BonesOnAltar.openInterface(player, itemId, false);
 							return;
@@ -513,36 +499,6 @@ public class UseItemPacketListener implements PacketListener {
 			 */
 			player.getPacketSender().sendMessage("This feature is disabled.");
 			break;
-		case 4250:
-			if (item_id == 1511 || item_id == 1521 || item_id == 6333 || item_id == 6332) {
-				Plank plank = Plank.forId(item_id);
-				SawmillOperator.Exchange(player, plank, player.getInventory().getAmount(item_id));
-			} else {
-				npc.forceChat("I can't do anything with those");
-			}
-			break;
-		case 1093: // billy
-			if (itemDef.isNoted()) {
-				if (freeSlots == 0) {
-					player.getPacketSender().sendMessage("You dont have any free slots.");
-					return;
-				}
-				if (itemAmount > freeSlots) {
-					itemAmount = freeSlots;
-					player.getInventory().delete(item_id, itemAmount);
-					player.getInventory().add(Item.getUnNoted(item_id), itemAmount);
-					PlayerLogs.other(player,
-							"Player unnoted " + itemDef.getName().toLowerCase() + " " + itemAmount + " with Billy.");
-					player.getPacketSender().sendMessage("You had " + itemAmount + " noted "
-							+ itemDef.getName().toLowerCase() + " deleted and placed in your inventory.");
-				} else {
-					player.getInventory().delete(item_id, itemAmount);
-					player.getInventory().add(Item.getUnNoted(item_id), itemAmount);
-				}
-			} else {
-				player.getPacketSender().sendMessage("This item is not noted, you cannot not unnote a normal item.");
-			}
-			break;
 		}
 	}
 
@@ -607,7 +563,6 @@ public class UseItemPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("This player is currently busy.");
 					return;
 				}
-				DialogueManager.start(duoPartner, SlayerDialogues.inviteDuo(duoPartner, player));
 				player.getPacketSender()
 						.sendMessage("You have invited " + duoPartner.getUsername() + " to join your Slayer duo team.");
 			}

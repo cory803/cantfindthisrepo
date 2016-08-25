@@ -3,7 +3,6 @@ package com.chaos.world.content.transportation.jewelry;
 import com.chaos.model.Item;
 import com.chaos.model.Position;
 import com.chaos.model.container.impl.Equipment;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.entity.impl.player.Player;
@@ -13,8 +12,6 @@ public class SkillsTeleporting {
     public static void rub(Player player, int item) {
         if (player.getInterfaceId() > 0)
             player.getPacketSender().sendInterfaceRemoval();
-        player.setDialogueActionId(48);
-        DialogueManager.start(player, 88);
         player.setSelectedSkillingItem(item);
     }
 

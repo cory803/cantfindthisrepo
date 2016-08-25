@@ -10,7 +10,6 @@ import com.chaos.model.Position;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.impl.player.Player;
 
 public class TeleportHandler {
@@ -60,14 +59,7 @@ public class TeleportHandler {
 						player.performAnimation(teleportType.getEndAnimation());
 						player.performGraphic(teleportType.getEndGraphic());
 						player.setInConstructionDungeon(false);
-						if (Dungeoneering.doingDungeoneering(player)) {
-							final Position dungEntrance = player.getMinigameAttributes().getDungeoneeringAttributes()
-									.getParty().getDungeoneeringFloor().getEntrance().copy()
-									.setZ(player.getPosition().getZ());
-							player.moveTo(dungEntrance).setPosition(dungEntrance);
-						} else {
-							player.moveTo(targetLocation).setPosition(targetLocation);
-						}
+						player.moveTo(targetLocation).setPosition(targetLocation);
 
 						player.setTeleporting(false);
 					} else if (tick == teleportType.getStartTick() + 3) {
@@ -100,20 +92,11 @@ public class TeleportHandler {
 			BankPin.init(player, false);
 			return;
 		}
-		if (player.getLocation() == Location.DUNGEONEERING && Dungeoneering.doingDungeoneering(player)
-				|| player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
+		if (player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
 			player.getPacketSender().sendMessage("You cannot do this now");
 			return;
 		}
 		teleportPlayer(player, targetLocation, teleportType, false);
-	}
-
-	public static boolean interfaceOpen(Player player) {
-		if (player.getInterfaceId() > 0 && player.getInterfaceId() != 50100) {
-			player.getPacketSender().sendMessage("Please close the interface you have open before opening another.");
-			return true;
-		}
-		return false;
 	}
 
 	/**

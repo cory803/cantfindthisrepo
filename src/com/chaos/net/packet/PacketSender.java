@@ -20,9 +20,6 @@ import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.net.packet.Packet.PacketType;
 import com.chaos.world.content.CustomObjects;
-import com.chaos.world.content.skill.impl.construction.ConstructionData.Furniture;
-import com.chaos.world.content.skill.impl.construction.Palette;
-import com.chaos.world.content.skill.impl.construction.Palette.PaletteTile;
 import com.chaos.world.entity.Entity;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -595,24 +592,6 @@ public class PacketSender {
 			player.performAnimation(new Animation(11788));
 			WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
 		}
-		/*
-		 * if(player.getMinigameAttributes().getFishingTrawlerAttributes().
-		 * isViewingInterface()) {
-		 * sendClientRightClickRemoval().sendItemsOnInterface(Shop.INTERFACE_ID,
-		 * new Item[]{new Item(-1)});
-		 * player.getMinigameAttributes().getFishingTrawlerAttributes().
-		 * setViewingInterface(false). getRewards().clear(); }
-		 * if(player.getAdvancedSkills().getSummoning().isStoring()) {
-		 * sendClientRightClickRemoval();
-		 * player.getAdvancedSkills().getSummoning().setStoring(false); }
-		 * if(player.isPriceChecking()) { sendClientRightClickRemoval();
-		 * PriceChecker.closePriceChecker(player); }
-		 * if(player.getBankSearchingAttributes().isSearchingBank())
-		 * BankSearchAttributes.stopSearch(player, false);
-		 * if(player.isBanking()) { sendClientRightClickRemoval();
-		 * player.setBanking(false); }
-		 */
-		player.setDialogueActionId(-1);
 		player.setInterfaceId(-1);
 		player.currentDialog = null;
 		player.getAppearance().setCanChangeAppearance(false);
@@ -985,26 +964,8 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendGroundItemAmount(Position position, Item item, int amount) {
-		sendPosition(position);
-		PacketBuilder out = new PacketBuilder(84);
-		out.put(0);
-		out.putShort(item.getId()).putShort(item.getAmount()).putShort(amount);
-		player.getSession().queueMessage(out);
-		return this;
-	}
-
 	public PacketSender createGroundItem(int itemID, int itemX, int itemY, int itemAmount) {
 		sendPosition(new Position(itemX, itemY));
-		PacketBuilder out = new PacketBuilder(44);
-		out.putShort(itemID, ValueType.A, ByteOrder.LITTLE);
-		out.putShort(itemAmount).put(0);
-		player.getSession().queueMessage(out);
-		return this;
-	}
-
-	public PacketSender createGroundItem(int itemID, Position position, int itemAmount) {
-		sendPosition(position);
 		PacketBuilder out = new PacketBuilder(44);
 		out.putShort(itemID, ValueType.A, ByteOrder.LITTLE);
 		out.putShort(itemAmount).put(0);
@@ -1037,20 +998,6 @@ public class PacketSender {
 		return this;
 	}
 
-	public PacketSender sendInterfaceSpriteChange(int childId, int firstSprite, int secondSprite) {
-		// player.write(new
-		// PacketBuilder(140).writeShort(childId).writeByte((firstSprite << 0) +
-		// (secondSprite & 0x0)).toPacket());
-		return this;
-	}
-
-	public int getRegionOffset(Position position) {
-		int x = position.getX() - (position.getRegionX() << 4);
-		int y = position.getY() - (position.getRegionY() & 0x7);
-		int offset = ((x & 0x7)) << 4 + (y & 0x7);
-		return offset;
-	}
-
 	public PacketSender(Player player) {
 		this.player = player;
 	}
@@ -1073,100 +1020,6 @@ public class PacketSender {
 		out.put(16);
 		out.put(64);
 		player.getSession().queueMessage(out);
-		return this;
-	}
-
-	public void sendAllProjectile(Position position, Position offset, int angle, int speed, int gfxMoving,
-			int startHeight, int endHeight, int lockon, int time) {
-		for (Player all : player.getLocalPlayers()) {
-			if (all == null) {
-				continue;
-			}
-
-			if (all.getPosition().isViewableFrom(position)) {
-				all.getPacketSender().sendProjectile(position, offset, angle, speed, gfxMoving, startHeight, endHeight,
-						lockon, time);
-			}
-		}
-	}
-
-	public PacketSender sendCombatBoxData(Character character) {
-
-		return this;
-	}
-
-	public PacketSender sendHideCombatBox() {
-		player.getSession().queueMessage(new PacketBuilder(128));
-		return this;
-	}
-
-	public void sendObject_cons(int objectX, int objectY, int objectId, int face, int objectType, int height) {
-		sendPosition(new Position(objectX, objectY));
-		PacketBuilder bldr = new PacketBuilder(152);
-		if (objectId != -1) // removing
-			player.getSession().queueMessage(bldr.put(0, ValueType.S).putShort(objectId, ByteOrder.LITTLE)
-					.put((objectType << 2) + (face & 3), ValueType.S).put(height));
-		if (objectId == -1 || objectId == 0 || objectId == 6951) {
-			CustomObjects.spawnObject(player, new GameObject(objectId, new Position(objectX, objectY, height)));
-		}
-	}
-
-	/*
-	 * public PacketSender constructMapRegion(Palette palette) { PacketBuilder
-	 * bldr = new PacketBuilder(241, PacketType.SHORT); if(palette != null) {
-	 * bldr.putString("palette"); //Inits map construction sequence
-	 * bldr.putString(""+(player.getPosition().getRegionY() + 6)+"");
-	 * bldr.putString(""+(player.getPosition().getRegionX() + 6)+""); for (int z
-	 * = 0; z < 4; z++) { for (int x = 0; x < 13; x++) { for (int y = 0; y < 13;
-	 * y++) { PaletteTile tile = palette.getTile(x, y, z); boolean b = false; if
-	 * (x < 2 || x > 10 || y < 2 || y > 10) b = true; int toWrite = !b && tile
-	 * != null ? 5 : 0; bldr.putString(""+toWrite+""); if(toWrite == 5) { int
-	 * val = tile.getX() << 14 | tile.getY() << 3 | tile.getZ() << 24 |
-	 * tile.getRotation() << 1; bldr.putString(""+val+""); } } } } } else {
-	 * bldr.putString("null"); //Resets map construction sequence }
-	 * player.getSession().queueMessage(bldr); return this; }
-	 */
-	public PacketSender constructMapRegion(Palette palette) {
-		PacketBuilder bldr = new PacketBuilder(241, PacketType.SHORT);
-		if (palette != null) {
-			bldr.putString("palette"); // Inits map construction sequence
-			bldr.putString("" + (player.getPosition().getRegionY() + 6) + "");
-			bldr.putString("" + (player.getPosition().getRegionX() + 6) + "");
-			for (int z = 0; z < 4; z++) {
-				for (int x = 0; x < 13; x++) {
-					for (int y = 0; y < 13; y++) {
-						PaletteTile tile = palette.getTile(x, y, z);
-						int toWrite = tile != null ? 5 : 0;
-						bldr.putString("" + toWrite + "");
-						if (toWrite == 5) {
-							int val = tile.getX() << 14 | tile.getY() << 3 | tile.getZ() << 24
-									| tile.getRotation() << 1;
-							bldr.putString("" + val + "");
-						}
-					}
-				}
-			}
-		} else {
-			bldr.putString("null"); // Resets map construction sequence
-		}
-		player.getSession().queueMessage(bldr);
-		return this;
-	}
-
-	public PacketSender sendConstructionInterfaceItems(ArrayList<Furniture> items) {
-		PacketBuilder builder = new PacketBuilder(53, PacketType.SHORT);
-		builder.putShort(38274);
-		builder.putShort(items.size());
-		for (int i = 0; i < items.size(); i++) {
-			builder.put(1);
-			builder.putShort(items.get(i).getItemId() + 1, ValueType.A, ByteOrder.LITTLE);
-		}
-		player.getSession().queueMessage(builder);
-		return this;
-	}
-
-	public PacketSender sendObjectsRemoval(int chunkX, int chunkY, int height) {
-		player.getSession().queueMessage(new PacketBuilder(153).put(chunkX).put(chunkY).put(height));
 		return this;
 	}
 }

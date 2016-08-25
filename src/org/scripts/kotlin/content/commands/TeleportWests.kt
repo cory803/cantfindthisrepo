@@ -4,7 +4,6 @@ import com.chaos.model.Locations
 import com.chaos.model.StaffRights
 import com.chaos.model.Position
 import com.chaos.model.player.command.Command
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.chaos.world.content.transportation.TeleportHandler
 import com.chaos.world.entity.impl.player.Player
 
@@ -18,10 +17,6 @@ import com.chaos.world.entity.impl.player.Player
 class TeleportWests(staffRights: StaffRights) : Command(staffRights) {
 
     override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
-        if (Dungeoneering.doingDungeoneering(player)) {
-            player.packetSender.sendMessage("You can't use this command in a dungeon.")
-            return
-        }
         if (player.location === Locations.Location.WILDERNESS && player.wildernessLevel >= 20) {
             player.packetSender.sendMessage("You cannot do this at the moment.")
             return

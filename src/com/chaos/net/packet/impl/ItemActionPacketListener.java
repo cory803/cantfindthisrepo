@@ -2,7 +2,6 @@ package com.chaos.net.packet.impl;
 
 import com.chaos.GameSettings;
 import com.chaos.model.*;
-import com.chaos.model.Locations.Location;
 import com.chaos.model.input.impl.EnterAmountToDice;
 import com.chaos.model.input.impl.EnterForumAccountTokens;
 import com.chaos.net.packet.Packet;
@@ -16,10 +15,6 @@ import com.chaos.world.content.ExperienceLamps;
 import com.chaos.world.content.Gambling;
 import com.chaos.world.content.MoneyPouch;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
-import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.skill.impl.construction.Construction;
-import com.chaos.world.content.skill.impl.construction.ConstructionConstants;
-import com.chaos.world.content.skill.impl.dungeoneering.ItemBinding;
 import com.chaos.world.content.skill.impl.herblore.Herblore;
 import com.chaos.world.content.skill.impl.herblore.IngridientsBook;
 import com.chaos.world.content.skill.impl.hunter.BoxTrap;
@@ -32,7 +27,6 @@ import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.runecrafting.Runecrafting;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingPouches;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingPouches.RunecraftingPouch;
-import com.chaos.world.content.skill.impl.slayer.SlayerDialogues;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.summoning.SummoningData;
 import com.chaos.world.content.skill.impl.woodcutting.BirdNests;
@@ -63,10 +57,6 @@ public class ItemActionPacketListener implements PacketListener {
 		if (GameSettings.DEBUG_MODE) {
 			// PlayerLogs.log(player, "" + player.getUsername() + " in
 			// ItemActionPacketListener: " + itemId + "");
-		}
-		if (interfaceId == 38274) {
-			Construction.handleItemClick(itemId, player);
-			return;
 		}
 		if (slot < 0 || slot > player.getInventory().capacity())
 			return;
@@ -116,24 +106,6 @@ public class ItemActionPacketListener implements PacketListener {
 				}
 					player.getPacketSender().sendMessage("You do not have 100 Shards of Armadyl");
 				break;
-		case 8007:
-			if (!TeleportHandler.checkReqs(player, null))
-				break;
-			player.getInventory().delete(itemId, 1);
-			TeleportHandler.teleportPlayer(player,
-					new Position(ConstructionConstants.VARROCK_X, ConstructionConstants.VARROCK_Y),
-					TeleportType.TELE_TAB);
-			break;
-		case 7500:
-			DialogueManager.start(player, 323);
-			break;
-		case 8008:
-			if (!TeleportHandler.checkReqs(player, null))
-				break;
-			player.getInventory().delete(itemId, 1);
-			TeleportHandler.teleportPlayer(player,
-					new Position(ConstructionConstants.LUMBY_X, ConstructionConstants.LUMBY_Y), TeleportType.TELE_TAB);
-			break;
 		case 12437:
 			if (player.getSummoning().getFamiliar() != null) {
 				if (player.getSummoning().getFamiliar().getSummonNpc().getId() == 6869) {
@@ -161,44 +133,6 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender()
 						.sendMessage("You must have a wolpertinger summoned in order to use this scroll.");
 			}
-			break;
-		case 19476:
-			if (!TeleportHandler.checkReqs(player, null))
-				break;
-			player.setDialogueActionId(225);
-			DialogueManager.start(player, 225);
-			break;
-		case 8009:
-			if (!TeleportHandler.checkReqs(player, null))
-				break;
-			player.getInventory().delete(itemId, 1);
-			TeleportHandler.teleportPlayer(player,
-					new Position(ConstructionConstants.FALADOR_X, ConstructionConstants.FALADOR_Y),
-					TeleportType.TELE_TAB);
-			break;
-		case 8010:
-			if (!TeleportHandler.checkReqs(player, null))
-				break;
-			player.getInventory().delete(itemId, 1);
-			TeleportHandler.teleportPlayer(player,
-					new Position(ConstructionConstants.CAMELOT_X, ConstructionConstants.CAMELOT_Y),
-					TeleportType.TELE_TAB);
-			break;
-		case 8011:
-			if (!TeleportHandler.checkReqs(player, null))
-				break;
-			player.getInventory().delete(itemId, 1);
-			TeleportHandler.teleportPlayer(player,
-					new Position(ConstructionConstants.ARDOUGNE_X, ConstructionConstants.ARDOUGNE_Y),
-					TeleportType.TELE_TAB);
-			break;
-		case 8012:
-			if (!TeleportHandler.checkReqs(player, null))
-				break;
-			player.getInventory().delete(itemId, 1);
-			TeleportHandler.teleportPlayer(player,
-					new Position(ConstructionConstants.WATCHTOWER_X, ConstructionConstants.WATCHTOWER_Y),
-					TeleportType.TELE_TAB);
 			break;
 		case 10943:
 			player.currentScroll = 10943;
@@ -235,13 +169,6 @@ public class ItemActionPacketListener implements PacketListener {
 			}
 			player.setInputHandling(new EnterAmountToDice(1, 1));
 			player.getPacketSender().sendEnterAmountPrompt("What would you like to roll?");
-			break;
-		case 4490:
-			if(!player.isSpecialPlayer()) {
-				return;
-			}
-			player.setDialogueActionId(137);
-			DialogueManager.start(player, 137);
 			break;
 		case 4142:
 			if(!player.isSpecialPlayer()) {
@@ -283,8 +210,6 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You can not do this right now.");
 				return;
 			}
-			player.setDialogueActionId(70);
-			//DialogueManager.start(player, player.getGameModeAssistant().getGameMode() == GameMode.NORMAL ? 108 : 109);
 			break;
 		case 7956:
 			player.getInventory().delete(7956, 1);
@@ -343,7 +268,6 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("Your Enchanted gem will only work if you have a Slayer task.");
 				return;
 			}
-			DialogueManager.start(player, SlayerDialogues.dialogue(player));
 			break;
 		case 11858:
 		case 11860:
@@ -484,23 +408,11 @@ public class ItemActionPacketListener implements PacketListener {
 																						// 3
 			};
 			double superiorNumGen = Math.random();
-			/**
-			 * Chances 54% chance of Uncommon Items - various high-end
-			 * coin-bought gear 30% chance of Rare Items - Highest-end
-			 * coin-bought gear, Some poor voting-point/pk-point equipment 11%
-			 * chance of Epic Items -Better voting-point/pk-point equipment 5%
-			 * chance of Legendary Items - Only top-notch voting-point/pk-point
-			 * equipment
-			 */
 			int superiorRewardGrade = superiorNumGen >= 0.46 ? 0
 					: superiorNumGen >= 0.16 ? 1 : superiorNumGen >= 0.05 ? 2 : 3;
 			int superiorRewardPos = Misc.getRandom(superiorRewards[superiorRewardGrade].length - 1);
 			player.getInventory().delete(15501, 1);
 			player.getInventory().add(superiorRewards[superiorRewardGrade][superiorRewardPos], 1).refreshItems();
-			break;
-		case 3849:
-			player.setDialogueActionId(550);
-			DialogueManager.start(player, 550);
 			break;
 		case 11882:
 			player.getInventory().delete(11882, 1);
@@ -644,10 +556,6 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		if (SummoningData.isPouch(player, itemId, 3)) {
-			return;
-		}
-		if (ItemBinding.isBindable(itemId)) {
-			ItemBinding.bindItem(player, itemId);
 			return;
 		}
 		switch (itemId) {
@@ -838,15 +746,12 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You can not do this right now.");
 				return;
 			}
-			player.setDialogueActionId(71);
 			break;
 		case 6500:
 			player.getPacketSender().sendMessage("You're currently gain experience and picking up charms.");
 			break;
 		case 4155:
 			player.getPacketSender().sendInterfaceRemoval();
-			DialogueManager.start(player, 103);
-			player.setDialogueActionId(65);
 			break;
 		case 13281:
 		case 13282:

@@ -8,10 +8,8 @@ import com.chaos.model.player.command.Command
 import com.chaos.util.FilterExecutable
 import com.chaos.world.World
 import com.chaos.world.content.Scoreboard
-import com.chaos.world.content.WellOfGoodwill
 import com.chaos.world.content.clan.ClanChatManager
 import com.chaos.world.content.pos.PlayerOwnedShops
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering
 import com.chaos.world.entity.impl.player.Player
 
 import java.io.IOException
@@ -42,11 +40,6 @@ class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
                 World.executeAll(object : FilterExecutable<Player>() {
                     override fun execute(player: Player) {
                         player.packetSender.sendSystemUpdate(time)
-                        if (Dungeoneering.doingDungeoneering(player)) {
-                            Dungeoneering.leave(player, false, true)
-                            player.clickDelay.reset()
-                            player.packetSender.sendMessage("You have been forced out of your dungeon due to an update, sorry!")
-                        }
                     }
                 })
                 TaskManager.submit(object : Task(time) {
@@ -56,7 +49,6 @@ class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
                                 World.deregister(player)
                             }
                         })
-                        WellOfGoodwill.save()
                         PlayerOwnedShops.saveShops()
                         try {
                             Scoreboard.save()

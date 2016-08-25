@@ -76,9 +76,7 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager addSkillExperience(Skill skill, int experience) {
-		if(WellOfGoodwill.isActive()) {
-			experience *= 1.3;
-		}
+		//TODO: Redo exp rates
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);
 	}
@@ -132,7 +130,6 @@ public class SkillManager {
 			}
 			// player.getPacketSender().sendFlashingSidebar(Constants.SKILLS_TAB);
 
-			player.setDialogue(null);
 			player.getPacketSender().sendString(4268, "Congratulations! You have achieved a " + skillName + " level!");
 			player.getPacketSender().sendString(4269, "Well done. You are now level " + newLevel + ".");
 			player.getPacketSender().sendString(358, "Click here to continue.");

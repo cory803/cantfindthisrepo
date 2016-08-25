@@ -26,13 +26,10 @@ import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.minigames.impl.*;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.impl.agility.Agility;
-import com.chaos.world.content.skill.impl.construction.Construction;
 import com.chaos.world.content.skill.impl.crafting.Flax;
-import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.fishing.Fishing.Spot;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
@@ -72,10 +69,8 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int y = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if (id > 0 && id != 6 && id != 1765 && id != 5959 && id != 1306 && id != 1530 && id != 1276 && id != 2213 && id != 411
-				&& id != 21772 && id != 881 && !Dungeoneering.doingDungeoneering(player)
-				&& !World.objectExists(gameObject)) {
-			System.out.println("Object dont exist");
+		if (id > 0 && !World.objectExists(gameObject)) {
+			player.getPacketSender().sendMessage("Something has gone wrong, please report this! "+x+", "+y+", id: "+id+".");
 			return;
 		}
 		int distanceX = (player.getPosition().getX() - position.getX());
@@ -119,8 +114,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							Woodcutting.cutWood(player, gameObject, false);
 							return;
 						}
-						if (Construction.handleFirstObjectClick(x, y, id, player))
-							return;
 						if (MiningData.forRock(gameObject.getId()) != null) {
 							Mining.startMining(player, gameObject);
 							return;
@@ -157,7 +150,6 @@ public class ObjectActionPacketListener implements PacketListener {
 									if (player.getMinigameAttributes().getShrek1Attributes().getDoorKicks() == 0) {
 										player.setDirection(Direction.EAST);
 										player.performAnimation(new Animation(2555));
-										DialogueManager.start(player, 239);
 										player.getPacketSender()
 												.sendMessage("You hear a very intimidating voice from inside yelling.");
 										player.getMinigameAttributes().getShrek1Attributes().setDoorKicks(1);
@@ -165,7 +157,6 @@ public class ObjectActionPacketListener implements PacketListener {
 										player.setDirection(Direction.EAST);
 										player.performAnimation(new Animation(2555));
 										// spawn shrek
-										DialogueManager.sendStatement(player, "You upset the ogre and he came out!");
 										TaskManager.submit(new Task(2, player, false) {
 											@Override
 											public void execute() {
@@ -241,8 +232,6 @@ public class ObjectActionPacketListener implements PacketListener {
 								player.moveTo(new Position(3236, 3458, 0));
 								break;
 							case 881:
-								// player.moveTo(new Position(1240, 1226, 0));
-								// InstancedCerberus.enterDungeon(player);
 								InstancedCerberus.enterDungeon(player);
 								break;
 							case 2995:
@@ -571,9 +560,6 @@ public class ObjectActionPacketListener implements PacketListener {
 												player.getPacketSender().sendMessage("You jump over the wall.");
 											}
 										});
-									} else if (player.getPosition().getX() > 3350) {
-										DialogueManager.start(player, 142);
-										player.setDialogueActionId(142);
 									} else {
 										player.getPacketSender().sendMessage(
 												"You need an Agility level of at least 50 to get past this obstacle.");
@@ -596,13 +582,8 @@ public class ObjectActionPacketListener implements PacketListener {
 								if (player.getPosition().getX() >= 3653) { // :)
 									player.moveTo(new Position(3652, player.getPosition().getY()));
 								} else {
-									if (player.getRevsWarning()) {
-										player.setDialogueActionId(73);
-										DialogueManager.start(player, 115);
-									} else {
-										player.getPacketSender().sendInterfaceRemoval();
-										player.moveTo(new Position(3653, player.getPosition().getY()));
-									}
+									player.getPacketSender().sendInterfaceRemoval();
+									player.moveTo(new Position(3653, player.getPosition().getY()));
 								}
 								break;
 							case 10805:
@@ -681,10 +662,6 @@ public class ObjectActionPacketListener implements PacketListener {
 									});
 								}
 								break;
-							case 398:
-								DialogueManager.start(player, 227);
-								player.setDialogueActionId(227);
-								break;
 							case 1766:// poison spider ladder KBD
 								if (player.getTeleblockTimer() > 0) {
 									player.getPacketSender()
@@ -723,23 +700,6 @@ public class ObjectActionPacketListener implements PacketListener {
 											.sendMessage("The portal does not seem to be functioning properly.");
 								}
 								break;
-							case 45803:
-							case 1767:
-								DialogueManager.start(player, 114);
-								player.setDialogueActionId(72);
-								break;
-							case 7352:
-								if (Dungeoneering.doingDungeoneering(player) && player.getMinigameAttributes()
-										.getDungeoneeringAttributes().getParty().getGatestonePosition() != null) {
-									player.moveTo(player.getMinigameAttributes().getDungeoneeringAttributes().getParty()
-											.getGatestonePosition());
-									player.setEntityInteraction(null);
-									player.getPacketSender().sendMessage("You are teleported to your party's gatestone.");
-									player.performGraphic(new Graphic(1310));
-								} else
-									player.getPacketSender().sendMessage(
-											"Your party must drop a Gatestone somewhere in the dungeon to use this portal.");
-								break;
 							case 7353:
 								player.moveTo(new Position(2439, 4956, player.getPosition().getZ()));
 								break;
@@ -758,10 +718,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 7318:
 								player.moveTo(new Position(2464, 4963, player.getPosition().getZ()));
 								break;
-							// case 7319:
-							// player.moveTo(new Position(2467, 4940,
-							// player.getPosition().getZ()));
-							// break;
 							case 7324:
 								player.moveTo(new Position(2481, 4956, player.getPosition().getZ()));
 								break;
@@ -869,8 +825,6 @@ public class ObjectActionPacketListener implements PacketListener {
 														+ "/100 weeds to the compost bin.");
 										if (player.getMinigameAttributes().getFarmQuestAttributes().getProduce() > 99) {
 											player.getMinigameAttributes().getFarmQuestAttributes().setQuestParts(3);
-											DialogueManager.sendStatement(player,
-													"You have put 100 weeds in the bin. Vanessa should be informed.");
 										}
 									}
 								} else {
@@ -1253,10 +1207,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 4496:
 								player.moveTo(new Position(3412, 3541, 1));
 								break;
-							case 2491:
-								player.setDialogueActionId(48);
-								DialogueManager.start(player, 87);
-								break;
 							case 25339:
 							case 25340:
 								player.moveTo(new Position(1778, 5346, player.getPosition().getZ() == 0 ? 1 : 0));
@@ -1371,17 +1321,11 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							case 57225:
 								if (!player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()) {
-									player.setDialogueActionId(44);
-									DialogueManager.start(player, 79);
+
 								} else {
 									player.moveTo(new Position(2906, 5204));
 									player.getMinigameAttributes().getGodwarsDungeonAttributes().setHasEnteredRoom(false);
 								}
-								break;
-							case 884:
-							case 26945:
-								player.setDialogueActionId(41);
-								DialogueManager.start(player, 75);
 								break;
 							case 9294:
 								if (player.getSkillManager().getCurrentLevel(Skill.AGILITY) < 80) {
@@ -1587,7 +1531,6 @@ public class ObjectActionPacketListener implements PacketListener {
 														.sendMessage("You need at least 70 tokens to enter this area.");
 												return;
 											}
-											DialogueManager.start(player, WarriorsGuild.warriorsGuildDialogue(player));
 											player.moveTo(new Position(2847, player.getPosition().getY(), 2));
 											WarriorsGuild.handleTokenRemoval(player);
 										} else if (player.getPosition().getX() == 2847) {
@@ -1623,10 +1566,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 19182:
 							case 19178:
 								Hunter.lootTrap(player, gameObject);
-								break;
-							case 30205:
-								player.setDialogueActionId(11);
-								DialogueManager.start(player, 20);
 								break;
 							case 28716:
 								if (!player.busy()) {
@@ -1898,7 +1837,6 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							case 884:
 							case 26945:
-								player.setDialogueActionId(41);
 								player.setInputHandling(new DonateToWell());
 								player.getPacketSender().sendInterfaceRemoval()
 										.sendEnterAmountPrompt("How much money would you like to contribute with?");
@@ -2030,7 +1968,6 @@ public class ObjectActionPacketListener implements PacketListener {
 		player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 			@Override
 			public void execute() {
-				Construction.handleFourthObjectClick(x, y, id, player);
 				switch (id) {
 				}
 			}
@@ -2043,15 +1980,10 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int x = packet.readShort();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if (!Construction.buildingHouse(player)) {
 			if (id > 0 && !World.objectExists(gameObject)) {
-				// player.getPacketSender().sendMessage("An error occured. Error
-				// code:
-				// "+id).sendMessage("Please report the error to a staff
-				// member.");
+				player.getPacketSender().sendMessage("An error occured. Error code: "+id).sendMessage("Please report the error to a staffmember.");
 				return;
 			}
-		}
 		if (!player.getDragonSpear().elapsed(3000)) {
 			player.getPacketSender().sendMessage("You are stunned!");
 			return;
@@ -2071,7 +2003,6 @@ public class ObjectActionPacketListener implements PacketListener {
 			public void execute() {
 				switch (id) {
 				}
-				Construction.handleFifthObjectClick(x, y, id, player);
 			}
 		}));
 	}

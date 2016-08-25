@@ -77,10 +77,6 @@ public class CommandManager {
         commands.put("commands", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                if (player.getLocation() == Locations.Location.DUNGEONEERING) {
-                    player.getPacketSender().sendMessage("You cannot open the commands in dungeoneering.");
-                    return;
-                }
                 player.getPacketSender().sendTab(GameSettings.QUESTS_TAB);
                 com.chaos.world.content.Command.open(player);
             }

@@ -10,7 +10,6 @@ import com.chaos.model.input.impl.ChangePassword;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.world.content.BankPin;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.entity.impl.player.Player;

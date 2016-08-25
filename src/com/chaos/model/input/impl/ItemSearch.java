@@ -5,15 +5,12 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.model.input.Input;
-import com.chaos.world.content.dialogue.DialogueManager;
-import com.chaos.world.content.dialogue.impl.ExplorerJack;
 import com.chaos.world.entity.impl.player.Player;
 
 public class ItemSearch extends Input {
 
 	@Override
 	public void handleSyntax(Player player, final String syntax) {
-		DialogueManager.start(player, 72);
 		player.getWalkingQueue().setLockMovement(true);
 		TaskManager.submit(new Task(5, player, false) {
 			@Override
@@ -25,7 +22,7 @@ public class ItemSearch extends Input {
 
 					player.getPacketSender().sendInterfaceRemoval();
 					if (syntaxCopy.length() <= 3) {
-						DialogueManager.start(player, 74);
+
 						return;
 					}
 
@@ -73,10 +70,9 @@ public class ItemSearch extends Input {
 					}
 
 					if (itemId == -1 || npcDropId == -1) {
-						DialogueManager.start(player, 73);
+
 					} else {
-						DialogueManager.start(player,
-								ExplorerJack.foundDrop(syntaxCopy, NpcDefinition.forId(npcDropId).getName()));
+
 					}
 				} catch (Exception e) {
 				}

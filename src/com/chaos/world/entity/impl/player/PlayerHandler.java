@@ -43,7 +43,6 @@ import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.pvp.BountyHunter;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.content.minigames.impl.Barrows;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.hunter.Hunter;

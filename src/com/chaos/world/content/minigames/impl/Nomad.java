@@ -8,7 +8,6 @@ import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.world.World;
 import com.chaos.world.content.PlayerPanel;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -51,7 +50,6 @@ public class Nomad {
 		if (killed) {
 			p.restart();
 			p.getMinigameAttributes().getNomadAttributes().setPartFinished(1, true);
-			DialogueManager.start(p, 53);
 			PlayerPanel.refreshPanel(p);
 		}
 	}

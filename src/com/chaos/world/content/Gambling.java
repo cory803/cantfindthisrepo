@@ -7,7 +7,6 @@ import com.chaos.model.Locations.Location;
 import com.chaos.model.movement.WalkingQueue;
 import com.chaos.util.Misc;
 import com.chaos.world.content.clan.ClanChatManager;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -21,7 +20,7 @@ public class Gambling {
 			return;
 		}
 		if (player.getCurrentClanChat() == null) {
-			DialogueManager.sendStatement(player, "You need to be in a clanchat channel to roll a dice.");
+
 			return;
 		}
 		if (player.getClanChatName() == null) {
@@ -77,9 +76,7 @@ public class Gambling {
 		player.performAnimation(new Animation(827));
 		player.getPacketSender().sendMessage("You plant the seed..");
 		player.getWalkingQueue().clear();
-		player.setDialogueActionId(42);
 		player.setInteractingObject(flower);
-		DialogueManager.start(player, 78);
 		WalkingQueue.stepAway(player);
 		CustomObjects.globalObjectRemovalTask(flower, 90);
 		player.setPositionToFace(flower.getPosition());

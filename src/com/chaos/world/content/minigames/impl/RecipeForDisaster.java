@@ -14,7 +14,6 @@ import com.chaos.world.World;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
-import com.chaos.world.content.dialogue.DialogueManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -77,7 +76,6 @@ public class RecipeForDisaster {
 			player.getMinigameAttributes().getRecipeForDisasterAttributes().setPartFinished(8, true);
 			player.moveTo(new Position(3081, 3500, 0));
 			player.restart();
-			DialogueManager.start(player, 46);
 			PlayerPanel.refreshPanel(player);
 			break;
 		}
