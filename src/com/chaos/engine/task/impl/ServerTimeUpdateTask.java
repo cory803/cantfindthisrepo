@@ -222,13 +222,6 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.MYSQL_PLAYER_SAVING = false;
 								}
-							} else if (line.contains("pvp_world")) {
-								args = line.split(": ");
-								if (args[1].toLowerCase().equals("on")) {
-									GameSettings.PVP_WORLD = true;
-								} else {
-									GameSettings.PVP_WORLD = false;
-								}
 							} else if (line.contains("password_change")) {
 								args = line.split(": ");
 								GameSettings.PASSWORD_CHANGE = Integer.parseInt(args[1]);

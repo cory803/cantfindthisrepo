@@ -283,10 +283,6 @@ public class PlayerHandler {
 		// LoginChecksParser.checkLogin(player);
 		if (GameSettings.DOUBLE_EXP) {
 			player.getPacketSender().sendMessage("Welcome to <col=3385ff>Chaos@bla@, We're currently in <col=ff1a1a>Double EXP @bla@mode!");
-		} else if(GameSettings.PVP_WORLD) {
-			player.getPacketSender().sendMessage("Welcome to <col=3385ff>Chaos@bla@.");
-			player.getPacketSender().sendWalkableInterface(197);
-			displayCombatLevels(player);
 		} else {
 			player.getPacketSender().sendMessage(
 					"Welcome to <col=3385ff>Chaos@bla@.");
