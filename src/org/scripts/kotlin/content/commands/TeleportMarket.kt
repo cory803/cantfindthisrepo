@@ -24,10 +24,10 @@ class TeleportMarket(staffRights: StaffRights) : Command(staffRights) {
         }
         val random = Misc.getRandom(3)
         when (random) {
-            0 -> TeleportHandler.teleportPlayer(player, Position(3212, 3429, 0), player.spellbook.teleportType)
-            1 -> TeleportHandler.teleportPlayer(player, Position(3213, 3429, 0), player.spellbook.teleportType)
-            2 -> TeleportHandler.teleportPlayer(player, Position(3213, 3428, 0), player.spellbook.teleportType)
-            3 -> TeleportHandler.teleportPlayer(player, Position(3212, 3428, 0), player.spellbook.teleportType)
+            0 -> TeleportHandler.teleportPlayer(player, Position(3164, 3483, 0), player.spellbook.teleportType)
+            1 -> TeleportHandler.teleportPlayer(player, Position(3165, 3483, 0), player.spellbook.teleportType)
+            2 -> TeleportHandler.teleportPlayer(player, Position(3164, 3482, 0), player.spellbook.teleportType)
+            3 -> TeleportHandler.teleportPlayer(player, Position(3165, 3482, 0), player.spellbook.teleportType)
         }
         player.packetSender.sendMessage("Welcome to the Market!")
     }

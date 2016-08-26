@@ -21,6 +21,8 @@ import com.chaos.world.content.skill.impl.thieving.ThievingManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.Horvik;
+import org.scripts.kotlin.content.dialog.Tutorial;
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -70,6 +72,11 @@ public final class ActionHandler {
             case 961:
             case 962:
                 player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Healers(player));
+                break;
+
+            //Horvik's armour shop
+            case 549:
+                player.getDialog().sendDialog(new Horvik(player));
                 break;
 
             case 501:
@@ -198,6 +205,11 @@ public final class ActionHandler {
             case 961:
             case 962:
                 player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.HealersQuickOption(player));
+                break;
+
+            //Horvik's armour shop
+            case 549:
+                Shop.ShopManager.getShops().get(1).open(player);
                 break;
 
             case 1:
