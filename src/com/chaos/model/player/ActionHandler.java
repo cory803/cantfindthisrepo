@@ -23,6 +23,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.Horvik;
 import org.scripts.kotlin.content.dialog.Tutorial;
+import org.scripts.kotlin.content.dialog.Zeke;
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -77,6 +78,11 @@ public final class ActionHandler {
             //Horvik's armour shop
             case 549:
                 player.getDialog().sendDialog(new Horvik(player));
+                break;
+
+            //Zeke's weapon shop
+            case 541:
+                player.getDialog().sendDialog(new Zeke(player));
                 break;
 
             case 501:
@@ -210,6 +216,11 @@ public final class ActionHandler {
             //Horvik's armour shop
             case 549:
                 Shop.ShopManager.getShops().get(1).open(player);
+                break;
+
+            //Zeke's weapon shop
+            case 541:
+                Shop.ShopManager.getShops().get(2).open(player);
                 break;
 
             case 1:
