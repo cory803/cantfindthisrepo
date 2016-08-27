@@ -37,7 +37,7 @@ import com.chaos.world.content.skill.impl.summoning.PouchMaking;
 import com.chaos.world.content.skill.impl.summoning.SummoningTab;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.CityTeleports;
+import org.scripts.kotlin.content.dialog.teleports.CityTeleports;
 
 /**
  * This packet listener manages a button that the player has clicked upon.

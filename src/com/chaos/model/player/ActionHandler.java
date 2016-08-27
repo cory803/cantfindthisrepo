@@ -13,7 +13,6 @@ import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
 import com.chaos.world.content.skill.impl.runecrafting.DesoSpan;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.content.skill.impl.summoning.Summoning;
 import com.chaos.world.content.skill.impl.summoning.SummoningData;
@@ -21,9 +20,8 @@ import com.chaos.world.content.skill.impl.thieving.ThievingManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.Horvik;
-import org.scripts.kotlin.content.dialog.Tutorial;
-import org.scripts.kotlin.content.dialog.Zeke;
+import org.scripts.kotlin.content.dialog.healers.Healers;
+import org.scripts.kotlin.content.dialog.npcs.*;
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -72,17 +70,42 @@ public final class ActionHandler {
             case 960:
             case 961:
             case 962:
-                player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.Healers(player));
+                player.getDialog().sendDialog(new Healers(player));
                 break;
 
-            //Horvik's armour shop
+            //Talk to Horvik
             case 549:
                 player.getDialog().sendDialog(new Horvik(player));
                 break;
 
-            //Zeke's weapon shop
+            //Talk to Zeke
             case 541:
                 player.getDialog().sendDialog(new Zeke(player));
+                break;
+
+            //Talk to Zaff
+            case 546:
+                player.getDialog().sendDialog(new Zaff(player));
+                break;
+
+            //Talk to Lowe
+            case 550:
+                player.getDialog().sendDialog(new Lowe(player));
+                break;
+
+            //Talk to Giles
+            case 2538:
+                player.getDialog().sendDialog(new Giles(player));
+                break;
+
+            //Talk to Thessalia
+            case 548:
+                player.getDialog().sendDialog(new Thessalia(player));
+                break;
+
+            //Talk to Shopkeeper
+            case 520:
+                player.getDialog().sendDialog(new Shopkeeper(player));
                 break;
 
             case 501:
@@ -210,7 +233,7 @@ public final class ActionHandler {
             case 960:
             case 961:
             case 962:
-                player.getDialog().sendDialog(new org.scripts.kotlin.content.dialog.HealersQuickOption(player));
+                player.getDialog().sendDialog(new Giles.HealersQuickOption(player));
                 break;
 
             //Horvik's armour shop
@@ -221,6 +244,31 @@ public final class ActionHandler {
             //Zeke's weapon shop
             case 541:
                 Shop.ShopManager.getShops().get(2).open(player);
+                break;
+
+            //Zaff's magic shop
+            case 546:
+                Shop.ShopManager.getShops().get(5).open(player);
+                break;
+
+            //Lowe's range shop
+            case 550:
+                Shop.ShopManager.getShops().get(4).open(player);
+                break;
+
+            //Giles's supply shop
+            case 2538:
+                Shop.ShopManager.getShops().get(3).open(player);
+                break;
+
+            //Thessalia's clothes store
+            case 548:
+                Shop.ShopManager.getShops().get(3).open(player);
+                break;
+
+            //Shopkeeper's general store
+            case 520:
+                Shop.ShopManager.getShops().get(3).open(player);
                 break;
 
             case 1:
