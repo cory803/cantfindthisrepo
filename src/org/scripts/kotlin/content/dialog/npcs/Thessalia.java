@@ -29,7 +29,7 @@ public class Thessalia extends Dialog {
                 public void execute(Player player, OptionType option) {
                     switch(option) {
                         case OPTION_1_OF_2:
-                            Shop.ShopManager.getShops().get(5).open(player);
+                            Shop.ShopManager.getShops().get(20).open(player);
                             break;
                         case OPTION_2_OF_2:
                             player.getPacketSender().sendInterfaceRemoval();

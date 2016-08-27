@@ -11,6 +11,7 @@ import com.chaos.model.input.impl.*;
 import com.chaos.model.options.Option;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
+import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.*;
 import com.chaos.world.content.Sounds.Sound;
@@ -258,16 +259,21 @@ public class ButtonClickPacketListener implements PacketListener {
                 }
                 ClanChatManager.toggleLootShare(player);
                 break;
+
+            //Home Teleport
             case 30000:
             case 1195:
-                if (player.homeLocation == 0) {
-                    TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION_VARROCK.copy(),
-                            player.getSpellbook().getTeleportType());
-                } else {
-                    TeleportHandler.teleportPlayer(player, GameSettings.DEFAULT_POSITION_EDGEVILLE.copy(),
-                            player.getSpellbook().getTeleportType());
+                int random = Misc.random(1);
+                switch(random) {
+                    case 0:
+                        TeleportHandler.teleportPlayer(player, new Position(3087, 3502, 0), player.getSpellbook().getTeleportType());
+                        break;
+                    case 1:
+                        TeleportHandler.teleportPlayer(player, new Position(3086, 3502, 0), player.getSpellbook().getTeleportType());
+                        break;
                 }
                 break;
+
             case 1159: // Bones to Bananas
             case 15877:// Bones to peaches
             case 30306:

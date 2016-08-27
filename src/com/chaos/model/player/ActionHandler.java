@@ -108,6 +108,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Shopkeeper(player));
                 break;
 
+            //Talk to Wise Old Man
+            case 2253:
+                player.getDialog().sendDialog(new WiseOldMan(player));
+                break;
+
             case 501:
                 for (Item item : player.getInventory().getItems()) {
                     ItemDefinition def = ItemDefinition.forId(item.getId() + 1);
@@ -263,12 +268,12 @@ public final class ActionHandler {
 
             //Thessalia's clothes store
             case 548:
-                Shop.ShopManager.getShops().get(3).open(player);
+                Shop.ShopManager.getShops().get(20).open(player);
                 break;
 
             //Shopkeeper's general store
             case 520:
-                Shop.ShopManager.getShops().get(3).open(player);
+                Shop.ShopManager.getShops().get(0).open(player);
                 break;
 
             case 1:
