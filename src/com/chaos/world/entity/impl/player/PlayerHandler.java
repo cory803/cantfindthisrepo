@@ -281,11 +281,6 @@ public class PlayerHandler {
 			player.getPacketSender().sendMessage(
 					"Welcome to <col=3385ff>Chaos@bla@.");
 		}
-		if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
-			player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.");
-		} else if (player.getHomeLocation() == 1 && player.showHomeOnLogin()) {
-			player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Edgeville@blu@.");
-		}
 		PlayerLogs.connections(player, "Login");
 		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()
 				&& player.getBankPinAttributes().onDifferent(player)) {

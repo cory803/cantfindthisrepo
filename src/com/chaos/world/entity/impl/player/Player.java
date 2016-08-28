@@ -2689,16 +2689,8 @@ public class Player extends Character {
         return this.recoilCharges;
     }
 
-    public int getHomeLocation() {
-        return this.homeLocation;
-    }
-
     public int setRecoilCharges(int recoilCharges) {
         return this.recoilCharges = recoilCharges;
-    }
-
-    public int setHomeLocation(int homeLocation) {
-        return this.homeLocation = homeLocation;
     }
 
     public boolean voteMessageSent() {

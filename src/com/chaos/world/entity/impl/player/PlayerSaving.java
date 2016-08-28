@@ -313,7 +313,6 @@ public class PlayerSaving {
 				player.getSlayer().getDuoPartner() == null ? "null" : player.getSlayer().getDuoPartner());
 		object.addProperty("double-slay-xp", player.getSlayer().doubleSlayerXP);
 		object.addProperty("recoil-deg", new Integer(player.getRecoilCharges()));
-		object.addProperty("home-loc", new Integer(player.getHomeLocation()));
 		object.add("brawler-deg", builder.toJsonTree(player.getBrawlerChargers()));
 		object.add("vesta-deg", builder.toJsonTree(player.getVestaCharges()));
 		object.add("zuriel-deg", builder.toJsonTree(player.getZurielsCharges()));

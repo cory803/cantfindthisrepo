@@ -740,10 +740,6 @@ public class PlayerLoading {
 			player.setRecoilCharges(reader.get("recoil-deg").getAsInt());
 		}
 
-		if (reader.has("home-loc")) {
-			player.setHomeLocation(reader.get("home-loc").getAsInt());
-		}
-
 		if (reader.has("brawler-deg")) {
 			player.setBrawlerCharges(builder.fromJson(reader.get("brawler-deg").getAsJsonArray(), int[].class));
 		}

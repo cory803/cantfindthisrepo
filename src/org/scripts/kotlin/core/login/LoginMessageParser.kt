@@ -18,11 +18,6 @@ class LoginMessageParser {
                 player.getPacketSender().sendMessage(
                         "@bla@Welcome to Chaos! We're currently in Normal EXP mode! (@red@X1.0@bla@)")
             }
-            if (player.getHomeLocation() == 0 && player.showHomeOnLogin()) {
-                player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Varrock@blu@.")
-            } else if (player.getHomeLocation() == 1 && player.showHomeOnLogin()) {
-                player.getPacketSender().sendMessage("@blu@Your home location is set to: @dre@Edgeville@blu@.")
-            }
             val days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin())
 
             if (player.getLastIpAddress() != null && player.showIpAddress()) {
