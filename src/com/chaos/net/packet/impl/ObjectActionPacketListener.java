@@ -47,6 +47,7 @@ import com.chaos.world.content.skill.impl.woodcutting.WoodcuttingData;
 import com.chaos.world.content.skill.impl.woodcutting.WoodcuttingData.Hatchet;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
+import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -102,9 +103,6 @@ public class ObjectActionPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("You are stunned!");
 			return;
 		}
-		//if (DoorManager.isDoor(gameObject)) {
-		//return;
-		//}
 		player.setInteractingObject(gameObject)
 				.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
 					@Override
@@ -120,6 +118,9 @@ public class ObjectActionPacketListener implements PacketListener {
 						}
 						if (player.getFarming().click(player, x, y, 1))
 							return;
+						if (DoorManager.isDoor(gameObject)) {
+							return;
+						}
 						if (Runecrafting.runecraftingAltar(player, gameObject.getId())) {
 							RunecraftingData.RuneData rune = RunecraftingData.RuneData.forId(gameObject.getId());
 							if (rune == null)

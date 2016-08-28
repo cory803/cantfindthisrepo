@@ -4,11 +4,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.GameObject;
-import com.chaos.model.GroundItem;
-import com.chaos.model.Item;
-import com.chaos.model.Position;
+import com.chaos.model.*;
 import com.chaos.world.World;
+import com.chaos.world.doors.Door;
+import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -23,6 +22,7 @@ public class CustomObjects {
 	private static final int DISTANCE_SPAWN = 70; // Spawn if within 70 squares
 													// of distance
 	private static final CopyOnWriteArrayList<GameObject> CUSTOM_OBJECTS = new CopyOnWriteArrayList<GameObject>();
+	public static final CopyOnWriteArrayList<GameObject> REMOVE_OBJECTS = new CopyOnWriteArrayList<GameObject>();
 
 	public static void init() {
 		for (int i = 0; i < CLIENT_OBJECTS.length; i++) {
@@ -130,6 +130,13 @@ public class CustomObjects {
 	}
 
 	public static void handleRegionChange(Player p) {
+		for (GameObject object : REMOVE_OBJECTS) {
+			if (object == null)
+				continue;
+			if (object.getPosition().isWithinDistance(p.getPosition(), DISTANCE_SPAWN)) {
+				deleteObject(p, object);
+			}
+		}
 		for (GameObject object : CUSTOM_OBJECTS) {
 			if (object == null)
 				continue;

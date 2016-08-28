@@ -30,7 +30,7 @@ public final class GameObjectDefinition {
 		}
 		return false;
 	}
-
+/*
 	public static boolean removedObject(int id) {
 		return id == 2956 || id == 463 || id == 462 || id == 25026 || id == 25020 || id == 25019 || id == 25024
 				|| id == 25025 || id == 25016 || id == 10527 || id == 10529 || id == 40257 || id == 296 || id == 300
@@ -49,6 +49,7 @@ public final class GameObjectDefinition {
 				|| id == 8985 || id == 307 || id == 23633 || id == 23897 || id == 52843 || id == 4651 || id == 4655
 				|| id == 4656 || id == 23987;
 	}
+	*/
 
 	private static GameObjectDefinition forId667(int id) {
 		if (id > totalObjects667 || id > streamIndices667.length - 1) {
@@ -62,10 +63,13 @@ public final class GameObjectDefinition {
 		cacheIndex = (cacheIndex + 1) % 20;
 		GameObjectDefinition object = cache[cacheIndex];
 		/* Removing doors etc */
+
+		/*
 		if (removedObject(id)) {
 			object.unwalkable = false;
 			return object;
 		}
+		*/
 		dataBuffer667.position(streamIndices667[id]);
 		object.id = id;
 		object.nullLoader();

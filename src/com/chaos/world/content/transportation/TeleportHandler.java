@@ -8,6 +8,7 @@ import com.chaos.model.Locations.Location;
 import com.chaos.model.StaffRights;
 import com.chaos.model.Position;
 import com.chaos.world.content.BankPin;
+import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
 import com.chaos.world.entity.impl.player.Player;

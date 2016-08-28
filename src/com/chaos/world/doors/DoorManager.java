@@ -36,24 +36,27 @@ public final class DoorManager {
 	}
 	
 	public static boolean isDoor(GameObject gameObject) {
-		System.out.println("Its a door");
 		Door door = GLOBAL_DOORS.get(new HashedPosition(gameObject.getPosition()));
 		
 		if (door != null) {
-			System.out.println("Doors not null");
 			GameObject newDoor = null;
 			boolean removeClipping = false;
 			
 			if (gameObject.getId() == door.getOpenState().getId()) {
-				System.out.println("Doors is opened");
 				//the door is opened and we are going to close it
 				newDoor = new GameObject(door.getClosedState().getId(), door.getClosedState().getDirection(),
 						gameObject.getType(), door.getClosedState().getPosition());
+				for (GameObject object : CustomObjects.REMOVE_OBJECTS) {
+					if (newDoor.getId() == object.getId() && newDoor.getPosition().getX() == object.getPosition().getX() && newDoor.getPosition().getY() == object.getPosition().getY()) {
+						CustomObjects.REMOVE_OBJECTS.remove(object);
+					}
+				}
 			} else if (gameObject.getId() == door.getClosedState().getId()) {
 				//the door is closed and we are going to open it
 				newDoor = new GameObject(door.getOpenState().getId(), door.getOpenState().getDirection(),
 						gameObject.getType(), door.getOpenState().getPosition());
 				removeClipping = true;
+				CustomObjects.REMOVE_OBJECTS.add(gameObject);
 			}
 			
 			if (newDoor != null) {
@@ -63,10 +66,9 @@ public final class DoorManager {
 					//RegionClipping.removeClipping(newDoor);
 					//RegionClipping.removeClipping(gameObject);
 				}
-				System.out.println("Change the door.");
-
+				gameObject.setType(0);
+				newDoor.setType(0);
 				CustomObjects.deleteGlobalObject(gameObject);
-				CustomObjects.spawnGlobalObject(new GameObject(-1, gameObject.getRotation(), gameObject.getType(), gameObject.getPosition()));
 				CustomObjects.spawnGlobalObject(newDoor);
 			}
 			
@@ -76,5 +78,5 @@ public final class DoorManager {
 		return false;
 	}
 	
-	private static final Map<HashedPosition, Door> GLOBAL_DOORS = new HashMap<>();
+	public static final Map<HashedPosition, Door> GLOBAL_DOORS = new HashMap<>();
 }

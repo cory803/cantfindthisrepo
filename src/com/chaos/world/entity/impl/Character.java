@@ -6,6 +6,7 @@ import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.movement.WalkingQueue;
 import com.chaos.util.Stopwatch;
+import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.combat.CombatBuilder;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.magic.CombatSpell;

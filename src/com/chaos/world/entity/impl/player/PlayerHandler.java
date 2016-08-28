@@ -75,10 +75,10 @@ public class PlayerHandler {
 				+ player.getHostAddress() + "]");
 		ConnectionHandler.add(player.getHostAddress());
 		World.getPlayers().add(player);
+		CustomObjects.handleRegionChange(player);
 		World.updatePlayersOnline();
 		PlayersOnlineInterface.add(player);
 		player.getSession().setState(SessionState.LOGGED_IN);
-
 		// Packets
 		player.getPacketSender().sendMapRegion().sendDetails();
 
