@@ -5,6 +5,7 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.*;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.PlayersOnlineInterface;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
@@ -13,10 +14,13 @@ import com.chaos.world.content.combat.effect.EquipmentBonus;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
+import com.chaos.world.doors.DoorManager;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.commands.*;
 import org.scripts.kotlin.content.commands.Spawn;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 
@@ -384,6 +388,31 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.getBank(player.getCurrentBankTab()).open();
+            }
+        });
+        commands.put("reload", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                switch(args[0]) {
+                    case "doors":
+                    case "door":
+                        try {
+                            DoorManager.init();
+                            player.getPacketSender().sendMessage("All doors have been reloaded.");
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                    case "npc":
+                    case "npcs":
+                      //  for(NPC npc : World.getNpcs()) {
+                            //World.deregister(npc);
+                      //  }
+                        //NPC.init();
+                        //player.getPacketSender().sendMessage("All npc spawns have been reloaded.");
+                        break;
+
+                }
             }
         });
         commands.put("elitevoid", new Command(StaffRights.OWNER) {

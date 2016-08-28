@@ -1,1 +1,12 @@
-[]
+[
+  {
+    "username": "Adam",
+    "kills": 0,
+    "longamt": 0
+  },
+  {
+    "username": "Gkit",
+    "kills": 0,
+    "longamt": 0
+  }
+]

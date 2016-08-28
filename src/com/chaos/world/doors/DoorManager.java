@@ -16,7 +16,9 @@ import com.chaos.world.content.CustomObjects;
  */
 public final class DoorManager {
 		
-	public static void init() throws IOException {		
+	public static void init() throws IOException {
+		GLOBAL_DOORS.clear();
+
 		int amount = 0;
 		final long startup = System.currentTimeMillis();
 		

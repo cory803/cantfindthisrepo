@@ -766,6 +766,99 @@
         "z": 0
       }
     }
+  },  
+  
+  { 
+	# Edgeville - PKP shop door
+	"openState": {
+	  "id": 1531,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3070,
+        "y": 3514,
+        "z": 0
+      }
+    },
+	"closedState": {
+		"id": 1530,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3070,
+        "y": 3515,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Edgeville - PKP shop door
+	"openState": {
+	  "id": 24380,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3079,
+        "y": 3496,
+        "z": 0
+      }
+    },
+	"closedState": {
+		"id": 24381,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3079,
+        "y": 3497,
+        "z": 0
+      }
+    }
+  },  
+  { 
+	# Edgeville - Gate
+	"openState": {
+	  "id": 15515,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3078,
+        "y": 3500,
+        "z": 0
+      }
+    },
+	"closedState": {
+		"id": 15516,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3079,
+        "y": 3501,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Edgeville - Gate
+	"openState": {
+	  "id": 15515,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3080,
+        "y": 3500,
+        "z": 0
+      }
+    },
+	"closedState": {
+		"id": 15514,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3080,
+        "y": 3501,
+        "z": 0
+      }
+    }
   },
   {
 	# Fire Giant - Double Door

@@ -9,6 +9,7 @@ import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.GameObjectDefinition;
+import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.input.impl.DonateToWell;
 import com.chaos.model.input.impl.EnterAmountOfLogsToAdd;
 import com.chaos.net.packet.Packet;
@@ -225,6 +226,44 @@ public class ObjectActionPacketListener implements PacketListener {
 											setEventRunning(false);
 											player.moveTo(new Position(3240, 3191, 0));
 											player.getPacketSender().sendMessage("You squeeze through the fence.");
+										}
+									});
+								}
+								break;
+							case 23271:
+								if (player.getPosition().getY() == 3520 || player.getPosition().getY() == 3519) {
+									player.performAnimation(new Animation(6132));
+									TaskManager.submit(new Task(1, player, true) {
+										int tick = 1;
+										@Override
+										public void execute() {
+											if(tick == 3) {
+												stop();
+											}
+											tick++;
+										}
+
+										@Override
+										public void stop() {
+											player.moveTo(new Position(player.getPosition().getX(), 3523, 0));
+										}
+
+									});
+								} else if (player.getPosition().getY() == 3523 || player.getPosition().getY() == 3524) {
+									player.performAnimation(new Animation(6132));
+									TaskManager.submit(new Task(1, player, true) {
+										int tick = 1;
+										@Override
+										public void execute() {
+											if(tick == 3) {
+												stop();
+											}
+											tick++;
+										}
+
+										@Override
+										public void stop() {
+											player.moveTo(new Position(player.getPosition().getX(), 3520, 0));
 										}
 									});
 								}
