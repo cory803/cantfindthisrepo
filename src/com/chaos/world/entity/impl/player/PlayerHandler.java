@@ -149,8 +149,8 @@ public class PlayerHandler {
 		player.getPacketSender().sendString(13048, "Teleport to skillable locations.");
 		player.getPacketSender().sendString(13055, "Boss Teleports");
 		player.getPacketSender().sendString(13056, "Teleport to Bosses on Chaos.");
-		player.getPacketSender().sendString(13063, "Quests");
-		player.getPacketSender().sendString(13064, "Teleport to start quests.");
+		player.getPacketSender().sendString(13063, "Skilling Areas");
+		player.getPacketSender().sendString(13064, "Teleport to skilling areas.");
 		player.getPacketSender().sendString(13071, "Dungeons");
 		player.getPacketSender().sendString(13072, "Teleport to dungeons.");
 		player.getPacketSender().sendString(13081, "City Teleports");
@@ -168,8 +168,8 @@ public class PlayerHandler {
 		player.getPacketSender().sendString(1351, "Teleport to the wilderness.");
 		player.getPacketSender().sendString(1382, "City Teleports");
 		player.getPacketSender().sendString(1383, "Teleport to various citys.");
-		player.getPacketSender().sendString(1415, "Quests");
-		player.getPacketSender().sendString(1416, "Teleport to start quests.");
+		player.getPacketSender().sendString(1415, "Skilling Areas");
+		player.getPacketSender().sendString(1416, "Teleport to skilling areas.");
 		player.getPacketSender().sendString(1454, "Dungeons");
 		player.getPacketSender().sendString(1455, "Teleport to dungeons.");
 		player.getPacketSender().sendString(7457, "Boss Teleports");
@@ -276,10 +276,10 @@ public class PlayerHandler {
 		}
 		// LoginChecksParser.checkLogin(player);
 		if (GameSettings.DOUBLE_EXP) {
-			player.getPacketSender().sendMessage("Welcome to <col=3385ff>Chaos@bla@, We're currently in <col=ff1a1a>Double EXP @bla@mode!");
+			player.getPacketSender().sendMessage("Welcome to <col=f04141>Chaos@bla@, We're currently in <col=ff1a1a>Double EXP @bla@mode!");
 		} else {
 			player.getPacketSender().sendMessage(
-					"Welcome to <col=3385ff>Chaos@bla@.");
+					"Welcome to <col=f04141>Chaos@bla@.");
 		}
 		PlayerLogs.connections(player, "Login");
 		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()

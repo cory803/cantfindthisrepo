@@ -38,7 +38,7 @@ import com.chaos.world.content.skill.impl.summoning.PouchMaking;
 import com.chaos.world.content.skill.impl.summoning.SummoningTab;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.teleports.CityTeleports;
+import org.scripts.kotlin.content.dialog.teleports.*;
 
 /**
  * This packet listener manages a button that the player has clicked upon.
@@ -89,6 +89,48 @@ public class ButtonClickPacketListener implements PacketListener {
             case 13079: //Ancients
             case 30250: //Lunars
                 player.getDialog().sendDialog(new CityTeleports(player));
+                break;
+
+            //Training teleports
+            case 1164: //Moderns
+            case 13035: //Ancients
+            case 30064: //Lunars
+                player.getDialog().sendDialog(new TrainingTeleports(player));
+                break;
+
+            //Wilderness areas
+            case 1170: //Moderns
+            case 13095: //Ancients
+            case 30226: //Lunars
+                player.getDialog().sendDialog(new WildernessAreas(player));
+                break;
+
+            //Dungeons
+            case 1541: //Moderns
+            case 13069: //Ancients
+            case 30138: //Lunars
+                player.getDialog().sendDialog(new Dungeons(player));
+                break;
+
+            //Minigames
+            case 1167: //Moderns
+            case 13087: //Ancients
+            case 30106: //Lunars
+                player.getDialog().sendDialog(new Minigames(player));
+                break;
+
+            //Boss Teleports
+            case 7455: //Moderns
+            case 13053: //Ancients
+            case 30266: //Lunars
+                player.getDialog().sendDialog(new BossTeleports(player));
+                break;
+
+            //Skilling Areas
+            case 1540: //Moderns
+            case 13061: //Ancients
+            case 30083: //Lunars
+                player.getDialog().sendDialog(new SkillingAreas(player));
                 break;
 
             case -10425:
