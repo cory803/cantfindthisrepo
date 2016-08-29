@@ -17,6 +17,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.ItemsKeptOnDeath;
 import com.chaos.world.content.PlayerLogs;
+import com.chaos.world.content.Degrading;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -47,6 +48,7 @@ public class PlayerDeathTask extends Task {
 	Position oldPosition;
 	Location loc;
 	ArrayList<Item> itemsToKeep = null;
+	Degrading degrading;
 	NPC death;
 
 	@Override
@@ -94,10 +96,12 @@ public class PlayerDeathTask extends Task {
 					boolean spawnItems = false;
 					if (dropItems) {
 						deletePvpArmour(player);
+//						degrading.deleteBarrowsAmour(player);
 						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
 						final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
 						playerItems.addAll(player.getInventory().getValidItems());
 						playerItems.addAll(player.getEquipment().getValidItems());
+						playerItems.addAll(degrading.getBarrowsItems()); //adds degraded barrows items
 						final Position position = player.getPosition();
 						if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 							spawnItems = true;

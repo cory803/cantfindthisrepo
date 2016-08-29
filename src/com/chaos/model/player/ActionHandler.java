@@ -113,6 +113,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new WiseOldMan(player));
                 break;
 
+            //Talk to Bob
+            case 519:
+                player.getDialog().sendDialog(new Bob(player));
+                break;
+
             case 501:
                 for (Item item : player.getInventory().getItems()) {
                     ItemDefinition def = ItemDefinition.forId(item.getId() + 1);

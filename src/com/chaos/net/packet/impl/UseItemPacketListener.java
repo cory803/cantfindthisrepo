@@ -7,11 +7,14 @@ import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.EnterAmountToDiceOther;
+import com.chaos.model.player.dialog.Dialog;
+import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.BankPin;
+import com.chaos.world.content.Degrading;
 import com.chaos.world.content.ItemForging;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.minigames.impl.WarriorsGuild;
@@ -34,6 +37,8 @@ import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.npcs.Bob2;
+import org.scripts.kotlin.content.dialog.npcs.Bob3;
 
 /**
  * This packet listener is called when a player 'uses' an item on another
@@ -479,6 +484,25 @@ public class UseItemPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
+			case 519:
+				for (Degrading.barrowsArmour barrowID: Degrading.barrowsArmour.values()) {
+					if (player.getInventory().contains(barrowID.getDegradeID())) {
+						if (player.getMoneyInPouch() >= barrowID.getRepairPrice()) {
+							if (player.getInventory().getFreeSlots() > 1) {
+								player.setMoneyInPouch(player.getMoneyInPouch() - (long) barrowID.getRepairPrice());
+								player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
+								player.getPacketSender().sendString(1, ":moneypouchloss:" + barrowID.getRepairPrice());
+								player.getInventory().delete(barrowID.getDegradeID(), 1);
+								player.getInventory().add(barrowID.getBarrowsID(), 1);
+							}
+						} else {
+							player.getDialog().sendDialog(new Bob2(player));
+						}
+					} else {
+						player.getDialog().sendDialog(new Bob3(player));
+					}
+				}
+			break;
 		case 4249:
 			/*
 			 * if (!player.getLastRoll().elapsed(5000)) {
