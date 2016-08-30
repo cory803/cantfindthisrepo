@@ -26,7 +26,7 @@ public class CopyWriteNpc extends Command {
 
     @Override
     public void execute(Player player, String[] args, StaffRights privilege) {
-        if (args == null || player.idNpcSpawn == 0) {
+        if (player.idNpcSpawn == 0) {
             player.getPacketSender().sendMessage("Error with command.");
         } else {
             if (SpawnList.spawnList == null) {
