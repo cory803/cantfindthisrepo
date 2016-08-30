@@ -26,8 +26,8 @@ class FindNPC(staffRights: StaffRights) : Command(staffRights) {
                 if(NpcDefinition.forId(i) == null) {
                     continue
                 }
-                if (NpcDefinition.forId(i).name.toLowerCase().contains(name)) {
-                    player.packetSender.sendMessage("Found npc with name [" + NpcDefinition.forId(i).getName() + "] - id: " + i)
+                if (NpcDefinition.forId(i).name.toLowerCase().equals(name)) {
+                    player.packetSender.sendMessage("Found npc with name [" + NpcDefinition.forId(i).getName() + " lvl "+NpcDefinition.forId(i).combatLevel+"] - id: " + i)
                     found = true
                 }
             }
