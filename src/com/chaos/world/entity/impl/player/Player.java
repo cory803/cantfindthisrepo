@@ -97,6 +97,10 @@ public class Player extends Character {
         return false;
     }
 
+    public int idNpcSpawn = 0;
+    public boolean canWalkNpcSpawn = false;
+    public int radiusNpcSpawn = 0;
+
     public int withdrawX = 0;
     public int getWithdrawX() {
         return this.withdrawX;

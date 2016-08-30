@@ -433,7 +433,7 @@ public final class CombatFactory {
                 int maxMelee = DesolaceFormulas.calculateMaxMeleeHit(entity, victim);
                 double meleeValue = maxMelee * .95;
                 int meleeHit = Misc.inclusiveRandom(1, maxMelee);
-                System.out.println("max possible hit: "+maxMelee);
+                //System.out.println("max possible hit: "+maxMelee);
                 if(meleeHit > (int)meleeValue) {
                     return new Hit(meleeHit, Hitmask.CRITICAL, CombatIcon.MELEE);
                 } else {

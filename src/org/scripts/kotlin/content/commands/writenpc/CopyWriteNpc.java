@@ -16,18 +16,18 @@ import java.util.HashMap;
  *
  * @author Seba
  */
-public class WriteNPC extends Command {
+public class CopyWriteNpc extends Command {
 
     File file = new File("./data/def/npcSpawns.dat");
 
-    public WriteNPC(StaffRights staffRights) {
+    public CopyWriteNpc(StaffRights staffRights) {
         super(staffRights);
     }
 
     @Override
     public void execute(Player player, String[] args, StaffRights privilege) {
-        if (args == null && args.length != 3) {
-            player.getPacketSender().sendMessage("Example usage: ::writenpc-npcid-canwalk-radius");
+        if (args == null || player.idNpcSpawn == 0) {
+            player.getPacketSender().sendMessage("Error with command.");
         } else {
             if (SpawnList.spawnList == null) {
                 SpawnList.spawnList = new HashMap<>();
@@ -37,21 +37,9 @@ public class WriteNPC extends Command {
             int npcId;
             int radius;
             boolean canWalk;
-
-            try {
-                npcId = Integer.parseInt(args[0]);
-                radius = Integer.parseInt(args[2]);
-            } catch (NumberFormatException e) {
-                player.getPacketSender().sendMessage("Please use valid arguments.");
-                return;
-            }
-
-            try {
-                canWalk = Boolean.parseBoolean(args[1]);
-            } catch (Exception e) {
-                player.getPacketSender().sendMessage("Please use valid arguments.");
-                return;
-            }
+            npcId = player.idNpcSpawn;
+            radius = player.radiusNpcSpawn;
+            canWalk = player.canWalkNpcSpawn;
 
             SpawnList spawnList;
 
@@ -71,10 +59,6 @@ public class WriteNPC extends Command {
             spawn.setWalking(canWalk ? Spawn.STATE.TRUE : Spawn.STATE.FALSE);
             spawn.setRadius(radius);
             spawn.setWorld(Spawn.WORLD.ALL);
-
-            player.canWalkNpcSpawn = canWalk;
-            player.radiusNpcSpawn = radius;
-            player.idNpcSpawn = npcId;
 
             spawnList.spawns.add(spawn);
 
