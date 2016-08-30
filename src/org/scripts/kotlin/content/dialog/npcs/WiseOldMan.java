@@ -10,8 +10,6 @@ import com.chaos.world.entity.impl.player.Player;
 
 public class WiseOldMan extends Dialog {
 
-    public Dialog dialog = this;
-
     public WiseOldMan(Player player) {
         super(player);
         setEndState(1);

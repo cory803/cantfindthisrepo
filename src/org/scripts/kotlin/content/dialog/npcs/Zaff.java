@@ -9,8 +9,6 @@ import com.chaos.world.entity.impl.player.Player;
 
 public class Zaff extends Dialog {
 
-    public Dialog dialog = this;
-
     public Zaff(Player player) {
         super(player);
         setEndState(1);
@@ -20,7 +18,7 @@ public class Zaff extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like to see what magic items I have for sale?");
+                return createNpc(DialogHandler.CALM, "Hello! Would you like to see what magic items I have for sale?");
             case 1:
             return Dialog.createOption(new TwoOption(
                     "Yes, show me what your selling.",

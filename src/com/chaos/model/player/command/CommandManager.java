@@ -19,6 +19,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.commands.*;
 import org.scripts.kotlin.content.commands.Spawn;
+import org.scripts.kotlin.content.commands.writenpc.WriteNPC;
 
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -426,6 +427,8 @@ public class CommandManager {
         /**
          * Owner Commands
          */
+
+        commands.put("writenpc", new WriteNPC(StaffRights.OWNER));
         commands.put("zulrah", new Command(StaffRights.OWNER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

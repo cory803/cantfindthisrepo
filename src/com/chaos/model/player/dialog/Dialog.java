@@ -10,6 +10,10 @@ public abstract class Dialog {
 		return create(DialogType.NPC, animation, FontUtils.wrapText(FontUtils.FontSize.FANCY, string, 350));
 	}
 
+	public static DialogMessage createNpc(String string) {
+		return create(DialogType.NPC, DialogHandler.CALM, FontUtils.wrapText(FontUtils.FontSize.FANCY, string, 350));
+	}
+
 	public static DialogMessage createPlayer(int animation, String string) {
 		return create(DialogType.PLAYER, animation, FontUtils.wrapText(FontUtils.FontSize.FANCY, string, 350));
 	}

@@ -9,8 +9,6 @@ import com.chaos.world.entity.impl.player.Player;
 
 public class Lowe extends Dialog {
 
-    public Dialog dialog = this;
-
     public Lowe(Player player) {
         super(player);
         setEndState(1);

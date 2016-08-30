@@ -9,8 +9,6 @@ import com.chaos.world.entity.impl.player.Player;
 
 public class Shopkeeper extends Dialog {
 
-    public Dialog dialog = this;
-
     public Shopkeeper(Player player) {
         super(player);
         setEndState(1);

@@ -9,8 +9,6 @@ import com.chaos.world.entity.impl.player.Player;
 
 public class Thessalia extends Dialog {
 
-    public Dialog dialog = this;
-
     public Thessalia(Player player) {
         super(player);
         setEndState(1);
