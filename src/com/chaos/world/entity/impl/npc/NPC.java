@@ -201,7 +201,7 @@ public class NPC extends Character {
         Nex.spawn();
         PuroPuro.spawn();
         DesoSpan.spawn();
-        KalphiteQueen.spawn(1158, new Position(3485, 9509));
+        KalphiteQueen.spawn(1158, new Position(3478, 9490));
     }
 
     @Override
