@@ -946,6 +946,81 @@ public class ButtonClickPacketListener implements PacketListener {
                     return true;
                 break;
             }
+            case 8654:
+                QuickChat.handleButtons(player, 0);
+                break;
+            case 8655:
+                QuickChat.handleButtons(player, 3);
+                break;
+            case 8656:
+                QuickChat.handleButtons(player, 14);
+                break;
+            case 8657:
+                QuickChat.handleButtons(player, 2);
+                break;
+            case 8658:
+                QuickChat.handleButtons(player, 16);
+                break;
+            case 8659:
+                QuickChat.handleButtons(player, 13);
+                break;
+            case 8660:
+                QuickChat.handleButtons(player, 1);
+                break;
+            case 8661:
+                QuickChat.handleButtons(player, 15);
+                break;
+            case 8662:
+                QuickChat.handleButtons(player, 10);
+                break;
+            case 8663:
+                QuickChat.handleButtons(player, 4);
+                break;
+            case 8664:
+                QuickChat.handleButtons(player, 17);
+                break;
+            case 8665:
+                QuickChat.handleButtons(player, 7);
+                break;
+            case 8666:
+                QuickChat.handleButtons(player, 5);
+                break;
+            case 8667:
+                QuickChat.handleButtons(player, 12);
+                break;
+            case 8668:
+                QuickChat.handleButtons(player, 11);
+                break;
+            case 8669:
+                QuickChat.handleButtons(player, 6);
+                break;
+            case 8670:
+                QuickChat.handleButtons(player, 9);
+                break;
+            case 8671:
+                QuickChat.handleButtons(player, 8);
+                break;
+            case 8672:
+                QuickChat.handleButtons(player, 20);
+                break;
+            case 12162:
+                QuickChat.handleButtons(player, 18);
+                break;
+            case 13928:
+                QuickChat.handleButtons(player, 19);
+                break;
+            case 28177: //construction
+//                QuickChat.handleButtons(player, 0);
+                break;
+            case 28178:
+                QuickChat.handleButtons(player, 22);
+                break;
+            case 28179:
+                QuickChat.handleButtons(player, 23);
+                break;
+            case 28180:
+                QuickChat.handleButtons(player, 24);
+                break;
 
         }
 

