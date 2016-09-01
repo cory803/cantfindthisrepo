@@ -9,6 +9,7 @@ import com.chaos.model.Hit;
 import com.chaos.model.Hitmask;
 import com.chaos.model.Position;
 import com.chaos.util.Misc;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -188,6 +189,7 @@ public enum ObstacleData {
 					if (Agility.passedAllObstacles(player)) {
 						player.getInventory().add(2996, 2);
 						Agility.addExactExperience(player, 5000 + Misc.getRandom(1000));
+						Achievements.finishAchievement(player, Achievements.AchievementData.GNOME_COURSE);
 					} else {
 
 					}

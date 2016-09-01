@@ -122,11 +122,17 @@ public class Woodcutting {
 												Achievements.doProgress(player, AchievementData.BURN_100_MAGIC_LOGS);
 												Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
 											}
+											if (fmLog == logData.WILLOW) {
+												Achievements.finishAchievement(player, AchievementData.BURN_WILLOW);
+											}
 										}
 									}
 									if (t == Trees.MAGIC) {
 										Achievements.doProgress(player, AchievementData.CUT_100_MAGIC_LOGS);
 										Achievements.doProgress(player, AchievementData.CUT_5000_MAGIC_LOGS);
+									}
+									if (t == Trees.WILLOW) {
+										Achievements.finishAchievement(player, AchievementData.CHOP_WILLOW);
 									}
 								}
 							}

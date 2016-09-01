@@ -314,6 +314,7 @@ public class ButtonClickPacketListener implements PacketListener {
                         TeleportHandler.teleportPlayer(player, new Position(3086, 3502, 0), player.getSpellbook().getTeleportType());
                         break;
                 }
+                Achievements.finishAchievement(player, Achievements.AchievementData.TELEPORT_HOME);
                 break;
 
             case 1159: // Bones to Bananas

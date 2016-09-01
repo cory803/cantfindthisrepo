@@ -231,6 +231,9 @@ public class Consumables {
 			if (food == FoodType.CAKE || food == FoodType.SECOND_CAKE_SLICE) {
 				player.getInventory().add(new Item(food.item.getId() + 2, 1));
 			}
+			if (food == FoodType.LOBSTER) {
+				Achievements.finishAchievement(player, AchievementData.EAT_LOBSTER);
+			}
 			String e = food.toString() == "BANDAGES" ? "use" : "eat";
 			player.getPacketSender().sendMessage("You " + e + " the " + food.name + ".");
 			player.setConstitution(player.getConstitution() + heal);

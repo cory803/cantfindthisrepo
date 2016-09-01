@@ -48,7 +48,9 @@ public class Cooking {
 				} else {
 					player.getInventory().add(fish.getCookedItem(), 1);
 					player.getSkillManager().addSkillExperience(Skill.COOKING, fish.getXp());
-					if (fish == CookingData.ROCKTAIL) {
+				if (fish == CookingData.LOBSTER) {
+					Achievements.finishAchievement(player, AchievementData.COOK_LOBSTER);
+				} else if (fish == CookingData.ROCKTAIL) {
 						Achievements.doProgress(player, AchievementData.COOK_25_ROCKTAILS);
 						Achievements.doProgress(player, AchievementData.COOK_1000_ROCKTAILS);
 					}

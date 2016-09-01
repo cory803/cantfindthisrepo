@@ -99,6 +99,9 @@ public class Firemaking {
 					Achievements.doProgress(player, AchievementData.BURN_100_MAGIC_LOGS);
 					Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
 				}
+				if (logData == Logdata.logData.WILLOW) {
+					Achievements.finishAchievement(player, AchievementData.BURN_WILLOW);
+				}
 				Sounds.sendSound(player, Sound.LIGHT_FIRE);
 				if (player.getInventory().contains(2946) && player.getDonatorRights().isDonator()) {
 					player.getSkillManager().addSkillExperience(Skill.FIREMAKING, logData.getXp() * 2);

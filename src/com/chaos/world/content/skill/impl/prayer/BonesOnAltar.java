@@ -51,7 +51,10 @@ public class BonesOnAltar {
 					player.setPositionToFace(player.getInteractingObject().getPosition().copy());
 					player.getInteractingObject().performGraphic(new Graphic(624));
 				}
-				else if (currentBone == BonesData.FROSTDRAGON_BONES) {
+				if (currentBone == BonesData.BIG_BONES) {
+					Achievements.finishAchievement(player, AchievementData.BURY_BIG_BONE);
+				}
+				if (currentBone == BonesData.FROSTDRAGON_BONES) {
 					Achievements.doProgress(player, AchievementData.BURY_25_FROST_DRAGON_BONES);
 					Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);
 				}

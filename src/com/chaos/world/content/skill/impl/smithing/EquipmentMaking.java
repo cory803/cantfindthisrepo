@@ -7,6 +7,7 @@ import com.chaos.model.Graphic;
 import com.chaos.model.Item;
 import com.chaos.model.Skill;
 import com.chaos.model.definitions.ItemDefinition;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
 import com.chaos.world.entity.impl.player.Player;
@@ -93,6 +94,9 @@ public class EquipmentMaking {
 				Sounds.sendSound(player, Sound.SMITH_ITEM);
 				player.getInventory().delete(bar);
 				player.getInventory().add(itemToSmith);
+				if (itemToSmith == new Item(1203)) {
+					Achievements.finishAchievement(player, Achievements.AchievementData.SMITH_IRON_DAGGER);
+				}
 				player.getInventory().refreshItems();
 				player.getSkillManager().addSkillExperience(Skill.SMITHING, (SmithingData.getData(itemToSmith, "xp")));
 			}

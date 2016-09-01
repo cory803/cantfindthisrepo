@@ -210,7 +210,9 @@ public class Fishing {
 						p.getInventory().add(s.getRawFish()[fishIndex] + 1, 1);
 					}
 					p.getInventory().add(s.getRawFish()[fishIndex], 1);
-					if (s.getRawFish()[fishIndex] == 15270) {
+					if (s.getRawFish()[fishIndex] == 377) {
+						Achievements.finishAchievement(p, AchievementData.CATCH_LOBSTER);
+					} else if (s.getRawFish()[fishIndex] == 15270) {
 						Achievements.doProgress(p, AchievementData.FISH_25_ROCKTAILS);
 						Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
 					} else if(s.getRawFish()[fishIndex] == 15271) {

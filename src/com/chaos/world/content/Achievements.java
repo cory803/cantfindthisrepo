@@ -7,6 +7,18 @@ public class Achievements {
 
 	public enum AchievementData {
 
+		TELEPORT_HOME(Difficulty.EASY, "Teleport home using your spellbook", 37005, null),
+		BURY_BIG_BONE(Difficulty.EASY, "Bury a big bone", 37006, null),
+		CATCH_LOBSTER(Difficulty.EASY, "Catch a lobster while fishing", 37007, null),
+		COOK_LOBSTER(Difficulty.EASY, "Cook a raw lobster succesfully", 37008, null),
+		EAT_LOBSTER(Difficulty.EASY, "Eat a cooked lobster", 37009, null),
+		MINE_IRON(Difficulty.EASY, "Mine iron ore", 37010, null),
+		SMELT_IRON(Difficulty.EASY, "Smelt an iron bar", 37011, null),
+		SMITH_IRON_DAGGER(Difficulty.EASY, "Smith an iron dagger", 37012, null),
+		CHOP_WILLOW(Difficulty.EASY, "Chop a willow tree", 37013, null),
+		BURN_WILLOW(Difficulty.EASY, "Burn a willow log", 37014, null),
+		MAKE_POTION(Difficulty.EASY, "Make any potion", 37015, null),
+		GNOME_COURSE(Difficulty.EASY, "Complete the gnome agility course", 37016, null),
 
 		ENTER_THE_LOTTERY_THREE_TIMES(Difficulty.MEDIUM, "Enter the Lottery 3 times", 37037, new int[] { 3, 1 }),
 		FILL_WELL_OF_GOODWILL_50M(Difficulty.MEDIUM, "Pour 50M into the Well", 37038, new int[] { 4, 50000000 }),
