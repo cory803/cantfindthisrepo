@@ -140,13 +140,13 @@ public class NPCDeathTask extends Task {
 					/** ACHIEVEMENTS **/
 					switch (killer.getLastCombatType()) {
 					case MAGIC:
-						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MAGIC);
+//						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MAGIC);
 						break;
 					case MELEE:
-						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MELEE);
+//						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MELEE);
 						break;
 					case RANGED:
-						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_RANGED);
+//						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_RANGED);
 						break;
 					}
 

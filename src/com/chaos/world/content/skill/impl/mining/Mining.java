@@ -108,9 +108,7 @@ public class Mining {
 									}
 								}
 								if (cycle == reqCycle) {
-									if (o == Ores.Iron) {
-										Achievements.finishAchievement(player, AchievementData.MINE_SOME_IRON);
-									} else if (o == Ores.Runite) {
+									if (o == Ores.Runite) {
 										Achievements.doProgress(player, AchievementData.MINE_25_RUNITE_ORES);
 										Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
 									}

@@ -134,7 +134,6 @@ public class Plant {
 					player.getPacketSender().sendMessage("You harvest " + Misc.anOrA(name) + " " + name + ".");
 					player.getSkillManager().addSkillExperience(Skill.FARMING,
 							(int) Plants.values()[plant].harvestExperience);
-					Achievements.finishAchievement(player, AchievementData.HARVEST_A_CROP);
 					if (harvested == 3 && player.getInventory().contains(18336)
 							|| Skillcape_Data.MASTER_FARMING.isWearingCape(player)
 									&& Misc.getRandom(Skillcape_Data.FARMING.isWearingCape(player) ? 6 : 4) == 0) {

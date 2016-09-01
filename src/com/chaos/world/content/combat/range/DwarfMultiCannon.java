@@ -75,7 +75,6 @@ public class DwarfMultiCannon {
 
 				case 1:
 					setupTicks = 5;
-					Achievements.finishAchievement(c, AchievementData.SET_UP_A_CANNON);
 					c.setSettingUpCannon(false);
 					stop();
 					break;
@@ -252,7 +251,6 @@ public class DwarfMultiCannon {
 		n.dealDamage(player, dmg);
 		n.getLastCombat().reset();
 		n.performAnimation(new Animation(n.getDefinition().getDefenceAnimation()));
-		Achievements.doProgress(player, AchievementData.DEAL_EASY_DAMAGE_USING_RANGED, dmg.getDamage());
 		Achievements.doProgress(player, AchievementData.DEAL_MEDIUM_DAMAGE_USING_RANGED, dmg.getDamage());
 		Achievements.doProgress(player, AchievementData.DEAL_HARD_DAMAGE_USING_RANGED, dmg.getDamage());
 		if (player.getXpRate()) {

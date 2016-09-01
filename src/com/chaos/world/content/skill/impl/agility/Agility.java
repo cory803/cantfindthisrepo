@@ -35,7 +35,7 @@ public class Agility {
 			// p.getPacketSender().sendRunStatus();
 			// }
 			agilityObject.cross(p);
-			Achievements.finishAchievement(p, AchievementData.CLIMB_AN_AGILITY_OBSTACLE);
+//			Achievements.finishAchievement(p, AchievementData.CLIMB_AN_AGILITY_OBSTACLE);
 			Achievements.doProgress(p, AchievementData.CLIMB_50_AGILITY_OBSTACLES);
 		}
 		return false;

@@ -118,17 +118,13 @@ public class Woodcutting {
 											player.getSkillManager().addExactExperience(Skill.FIREMAKING, fmLog.getXp());
 											player.getPacketSender().sendMessage(
 													"Your Inferno Adze burns the log, granting you Firemaking experience.");
-											if (fmLog == Logdata.logData.OAK) {
-												Achievements.finishAchievement(player, AchievementData.BURN_AN_OAK_LOG);
-											} else if (fmLog == Logdata.logData.MAGIC) {
+											if (fmLog == Logdata.logData.MAGIC) {
 												Achievements.doProgress(player, AchievementData.BURN_100_MAGIC_LOGS);
 												Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
 											}
 										}
 									}
-									if (t == Trees.OAK) {
-										Achievements.finishAchievement(player, AchievementData.CUT_AN_OAK_TREE);
-									} else if (t == Trees.MAGIC) {
+									if (t == Trees.MAGIC) {
 										Achievements.doProgress(player, AchievementData.CUT_100_MAGIC_LOGS);
 										Achievements.doProgress(player, AchievementData.CUT_5000_MAGIC_LOGS);
 									}

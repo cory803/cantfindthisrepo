@@ -153,9 +153,7 @@ public class PuroPuro {
 				player.getInventory().delete(11260, 1).add(implingData.impJar, 1);
 				player.getPacketSender().sendMessage("You successfully catch the impling.");
 				player.getSkillManager().addSkillExperience(Skill.HUNTER, implingData.XPReward);
-				if (implingData == ImpData.YOUNG)
-					Achievements.finishAchievement(player, AchievementData.CATCH_A_YOUNG_IMPLING);
-				else if (implingData == ImpData.KINGLY) {
+				if (implingData == ImpData.KINGLY) {
 					Achievements.doProgress(player, AchievementData.CATCH_5_KINGLY_IMPLINGS);
 					Achievements.doProgress(player, AchievementData.CATCH_100_KINGLY_IMPLINGS);
 				}

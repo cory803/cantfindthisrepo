@@ -47,7 +47,6 @@ public class Runecrafting {
 		player.performGraphic(new Graphic(129));
 		player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP());
 		player.getPacketSender().sendMessage("You bind the altar's power into " + rune.getName() + "s..");
-		Achievements.finishAchievement(player, AchievementData.RUNECRAFT_SOME_RUNES);
 		player.getClickDelay().reset();
 	}
 

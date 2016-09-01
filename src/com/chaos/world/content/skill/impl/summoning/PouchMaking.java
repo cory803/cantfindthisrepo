@@ -90,9 +90,7 @@ public class PouchMaking {
 						player.getInventory().delete(pouch.getsecondIngredientId(), 1);
 						player.getSkillManager().addSkillExperience(Skill.SUMMONING, pouch.getExp());
 						player.getInventory().add(pouch.getPouchId(), 1);
-						if (pouch == Pouch.SPIRIT_DREADFOWL)
-							Achievements.finishAchievement(player, AchievementData.INFUSE_A_DREADFOWL_POUCH);
-						else if (pouch == Pouch.STEEL_TITAN) {
+						if (pouch == Pouch.STEEL_TITAN) {
 							Achievements.doProgress(player, AchievementData.INFUSE_25_TITAN_POUCHES);
 							Achievements.doProgress(player, AchievementData.INFUSE_500_STEEL_TITAN_POUCHES);
 						}

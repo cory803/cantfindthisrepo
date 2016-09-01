@@ -114,7 +114,6 @@ public class Lottery {
 		addToLottery(p.getUsername());
 		p.getPacketSender().sendMessage("You have entered the lottery!")
 				.sendMessage("A winner is announced every Friday.");
-		Achievements.finishAchievement(p, AchievementData.ENTER_THE_LOTTERY);
 		Achievements.doProgress(p, AchievementData.ENTER_THE_LOTTERY_THREE_TIMES);
 	}
 

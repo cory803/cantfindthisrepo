@@ -65,11 +65,7 @@ public class Prayer {
 				player.getPacketSender().sendMessage("..and bury the " + bone.getDefinition().getName() + ".");
 				player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP());
 				Sounds.sendSound(player, Sound.BURY_BONE);
-				if (currentBone == BonesData.BIG_BONES)
-					Achievements.finishAchievement(player, AchievementData.BURY_A_BIG_BONE);
-				if (currentBone == BonesData.DRAGON_BONES)
-					Achievements.finishAchievement(player, AchievementData.BURY_A_DRAGON_BONE);
-				else if (currentBone == BonesData.FROSTDRAGON_BONES) {
+				if (currentBone == BonesData.FROSTDRAGON_BONES) {
 					Achievements.doProgress(player, AchievementData.BURY_25_FROST_DRAGON_BONES);
 					Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);
 				}
@@ -91,10 +87,6 @@ public class Prayer {
 			player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP());
 			return;
 		}
-		if (currentBone == BonesData.BIG_BONES)
-			Achievements.finishAchievement(player, AchievementData.BURY_A_BIG_BONE);
-		if (currentBone == BonesData.DRAGON_BONES)
-			Achievements.finishAchievement(player, AchievementData.BURY_A_DRAGON_BONE);
 		else if (currentBone == BonesData.FROSTDRAGON_BONES) {
 			Achievements.doProgress(player, AchievementData.BURY_25_FROST_DRAGON_BONES);
 			Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);

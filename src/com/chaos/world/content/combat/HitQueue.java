@@ -152,20 +152,14 @@ public class HitQueue {
 						}
 						/** ACHIEVEMENTS **/
 						if (container.getCombatType() == CombatType.MELEE) {
-							Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_MELEE, damage);
 							Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_MELEE, damage);
 							Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_MELEE, damage);
 						} else if (container.getCombatType() == CombatType.RANGED) {
-							Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_RANGED, damage);
 							Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_RANGED, damage);
 							Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_RANGED, damage);
 						} else if (container.getCombatType() == CombatType.MAGIC) {
-							Achievements.doProgress(p, AchievementData.DEAL_EASY_DAMAGE_USING_MAGIC, damage);
 							Achievements.doProgress(p, AchievementData.DEAL_MEDIUM_DAMAGE_USING_MAGIC, damage);
 							Achievements.doProgress(p, AchievementData.DEAL_HARD_DAMAGE_USING_MAGIC, damage);
-						}
-						if (victim.isPlayer()) {
-							Achievements.finishAchievement(p, AchievementData.FIGHT_ANOTHER_PLAYER);
 						}
 					}
 				} else {

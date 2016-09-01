@@ -230,8 +230,6 @@ public class Consumables {
 			}
 			if (food == FoodType.CAKE || food == FoodType.SECOND_CAKE_SLICE) {
 				player.getInventory().add(new Item(food.item.getId() + 2, 1));
-			} else if (food == FoodType.SALMON) {
-				Achievements.finishAchievement(player, AchievementData.EAT_A_SALMON);
 			}
 			String e = food.toString() == "BANDAGES" ? "use" : "eat";
 			player.getPacketSender().sendMessage("You " + e + " the " + food.name + ".");

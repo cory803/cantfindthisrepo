@@ -353,7 +353,6 @@ public class Fletching {
 							player.getInventory().getSlot(arr.getItem2()), true);
 					player.getInventory().add(arr.getOutcome(), 15);
 					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (int) (arr.getXp()));
-					Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
 					if (arr == ArrowData.RUNE) {
 						Achievements.doProgress(player, AchievementData.FLETCH_450_RUNE_ARROWS, 15);
 						Achievements.doProgress(player, AchievementData.FLETCH_5000_RUNE_ARROWS, 15);
@@ -385,7 +384,6 @@ public class Fletching {
 							player.getInventory().getSlot(bolt.getItem2()), true);
 					player.getInventory().add(bolt.getOutcome(), 15);
 					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (bolt.getXp()));
-					Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
 					if (bolt == BoltData.RUNE) {
 						Achievements.doProgress(player, AchievementData.FLETCH_450_RUNE_ARROWS, 15);
 						Achievements.doProgress(player, AchievementData.FLETCH_5000_RUNE_ARROWS, 15);
@@ -414,7 +412,6 @@ public class Fletching {
 							player.getInventory().getSlot(tip.getItem()), true);
 					player.getInventory().add(tip.getOutcome(), 15);
 					player.getSkillManager().addSkillExperience(Skill.FLETCHING, (tip.getXp()));
-					Achievements.finishAchievement(player, AchievementData.FLETCH_SOME_ARROWS);
 				} else {
 					player.getPacketSender().sendMessage("You must have at least 15 of each supply to make bolts.");
 				}

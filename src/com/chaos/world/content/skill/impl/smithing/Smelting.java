@@ -62,7 +62,7 @@ public class Smelting {
 					Achievements.doProgress(player, AchievementData.SMELT_1000_RUNE_BARS);
 				}
 			} else if (SmithingData.ironOreSuccess(player)) {
-				Achievements.finishAchievement(player, AchievementData.SMELT_AN_IRON_BAR);
+//				Achievements.finishAchievement(player, AchievementData.SMELT_AN_IRON_BAR);
 				player.getInventory().add(barId, 1);
 				player.getSkillManager().addSkillExperience(Skill.SMITHING, getExperience(barId));
 			} else

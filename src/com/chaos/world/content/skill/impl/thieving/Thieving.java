@@ -36,10 +36,6 @@ public class Thieving {
         // Achievement call
         Achievements.doProgress(player, Achievements.AchievementData.STEAL_5000_SCIMITARS);
 
-        if(stall == ThievingStall.BAKERS_STALL) {
-            Achievements.doProgress(player, Achievements.AchievementData.STEAL_A_RING);
-        }
-
         // Loot generation code
         List<WeightedItem> weightedItems = Arrays.asList(stall.getStallRewards().getRewards());
         int hitSlot = Misc.getRandom(stall.getStallRewards().getWeightSum());

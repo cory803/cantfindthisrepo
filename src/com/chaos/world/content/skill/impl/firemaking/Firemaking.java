@@ -95,9 +95,7 @@ public class Firemaking {
 					player.getPacketSender().sendMessage("The fire catches and the logs begin to burn.");
 					stop();
 				}
-				if (logData == Logdata.logData.OAK) {
-					Achievements.finishAchievement(player, AchievementData.BURN_AN_OAK_LOG);
-				} else if (logData == Logdata.logData.MAGIC) {
+				if (logData == Logdata.logData.MAGIC) {
 					Achievements.doProgress(player, AchievementData.BURN_100_MAGIC_LOGS);
 					Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
 				}

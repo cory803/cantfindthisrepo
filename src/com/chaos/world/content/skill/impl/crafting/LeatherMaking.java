@@ -113,9 +113,7 @@ public class LeatherMaking {
 						player.getInventory().delete(1734, 1);
 					player.getInventory().delete(l.getLeather(), l.getHideAmount()).add(l.getProduct(), 1);
 					player.getSkillManager().addSkillExperience(Skill.CRAFTING, ((int) l.getXP()));
-					if (l == leatherData.LEATHER_BOOTS) {
-						Achievements.finishAchievement(player, AchievementData.CRAFT_A_PAIR_OF_LEATHER_BOOTS);
-					} else if (l == leatherData.BLACK_DHIDE_BODY) {
+					if (l == leatherData.BLACK_DHIDE_BODY) {
 						Achievements.doProgress(player, AchievementData.CRAFT_20_BLACK_DHIDE_BODIES);
 					}
 					player.performAnimation(new Animation(1249));
