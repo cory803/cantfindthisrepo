@@ -94,6 +94,9 @@ public class PouchMaking {
 							Achievements.doProgress(player, AchievementData.INFUSE_25_TITAN_POUCHES);
 							Achievements.doProgress(player, AchievementData.INFUSE_500_STEEL_TITAN_POUCHES);
 						}
+						if (pouch == Pouch.SPIRIT_WOLF) {
+							Achievements.doProgress(player, AchievementData.INFUSE_WOLF_POUCH);
+						}
 						x--;
 					}
 				}
