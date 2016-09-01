@@ -107,6 +107,6 @@ public class LoyaltyProgramme {
 		if (player.getInterfaceId() == 43000) {
 			player.getPacketSender().sendString(43120, "Your Loyalty Points: " + totalPoints);
 		}
-		player.getPacketSender().sendString(55081, "@red@Loyalty Points: @gre@" + Misc.format(totalPoints));
+		//TODO: Add loyalty points for player panel
 	}
 }

@@ -93,8 +93,7 @@ public class PlayerProcess {
 		}
 
 		if (timerTick >= 1) {
-			player.getPacketSender().sendString(55076, "@red@Time played:  @gre@"
-					+ Misc.getTimePlayed((player.getTotalPlayTime() + player.getRecordedLogin().elapsed())));
+			//TODO: Add time played for player panel
 			timerTick = 0;
 		}
 		timerTick++;

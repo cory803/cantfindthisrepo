@@ -104,7 +104,7 @@ public class BossTeleports extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(3050, 9573, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_5_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(3102, 3965, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(3102, 2965, 0), player.getSpellbook().getTeleportType());
                                 break;
                         }
                     }
