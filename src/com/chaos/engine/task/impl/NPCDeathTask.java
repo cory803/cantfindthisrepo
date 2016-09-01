@@ -136,17 +136,23 @@ public class NPCDeathTask extends Task {
 					} else if (npc.getId() == 13447) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_NEX);
 						killer.getAchievementAttributes().setGodKilled(4, true);
+					} else if (npc.getId() == 5529) {
+						Achievements.finishAchievement(killer, AchievementData.KILL_YAK);
+					} else if (npc.getId() == 1265) {
+						Achievements.finishAchievement(killer, AchievementData.KILL_ROCKCRAB);
+					} else if (npc.getId() == 90) {
+						Achievements.finishAchievement(killer, AchievementData.KILL_SKELETON);
 					}
 					/** ACHIEVEMENTS **/
 					switch (killer.getLastCombatType()) {
 					case MAGIC:
-//						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MAGIC);
+						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MAGIC);
 						break;
 					case MELEE:
-//						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MELEE);
+						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_MELEE);
 						break;
 					case RANGED:
-//						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_RANGED);
+						Achievements.finishAchievement(killer, AchievementData.KILL_A_MONSTER_USING_RANGED);
 						break;
 					}
 

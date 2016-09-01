@@ -19,6 +19,25 @@ public class Achievements {
 		BURN_WILLOW(Difficulty.EASY, "Burn a willow log", 37014, null),
 		MAKE_POTION(Difficulty.EASY, "Make any potion", 37015, null),
 		GNOME_COURSE(Difficulty.EASY, "Complete the gnome agility course", 37016, null),
+		FLETCH_ARROW_SHAFT(Difficulty.EASY, "Fletch an arrow shaft", 37016, null),
+		RUNECRAFT_RUNES(Difficulty.EASY, "Runecraft any elemental rune", 37017, null),
+		CREATE_DUNG_PARTY(Difficulty.EASY, "Create a dungeoneering party", 37018, null), //TODO
+		KILL_ROCKCRAB(Difficulty.EASY, "Kill a rock crab", 37019, null),
+		KILL_SKELETON(Difficulty.EASY, "Kill a skeleton", 37020, null),
+		KILL_YAK(Difficulty.EASY, "Kill a yak", 37021, null),
+		INFUSE_WOLF_POUCH(Difficulty.EASY, "Infuse a wolf pouch", 37022, null),
+		CREATE_CLAN_CHAT(Difficulty.EASY, "Create a clan chat", 37023, null), //TODO
+		ADD_FRIEND(Difficulty.EASY, "Add a friend", 37025, null), //TODO
+		GET_SLAYER_TASK(Difficulty.EASY, "Get a slayer task", 37025, null),
+		SWITCH_SPELLBOOK(Difficulty.EASY, "Switch to another spellbook", 37026, null),
+		SWITCH_PRAYBOOK(Difficulty.EASY, "Switch to the curse prayers", 37027, null),
+		KILL_A_MONSTER_USING_MELEE(Difficulty.EASY, "Kill a Monster using Melee", 37028, null),
+		KILL_A_MONSTER_USING_RANGED(Difficulty.EASY, "Kill a Monster using Ranged", 37029, null),
+		KILL_A_MONSTER_USING_MAGIC(Difficulty.EASY, "Kill a Monster using Magic", 37030, null),
+		DEAL_EASY_DAMAGE_USING_MELEE(Difficulty.EASY, "Deal 1000 Melee Damage", 37031, new int[] {0, 1000 }),
+		DEAL_EASY_DAMAGE_USING_RANGED(Difficulty.EASY, "Deal 1000 Ranged Damage", 37032, new int[] {1, 1000 }),
+		DEAL_EASY_DAMAGE_USING_MAGIC(Difficulty.EASY, "Deal 1000 Magic Damage", 37033, new int[] {2, 1000 }),
+		PERFORM_A_SPECIAL_ATTACK(Difficulty.EASY, "Perform a Special Attack", 37034, null),
 
 		ENTER_THE_LOTTERY_THREE_TIMES(Difficulty.MEDIUM, "Enter the Lottery 3 times", 37037, new int[] { 3, 1 }),
 		FILL_WELL_OF_GOODWILL_50M(Difficulty.MEDIUM, "Pour 50M into the Well", 37038, new int[] { 4, 50000000 }),

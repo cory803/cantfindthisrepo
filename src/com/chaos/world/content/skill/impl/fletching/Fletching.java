@@ -225,6 +225,7 @@ public class Fletching {
 		case 8895: // Arrow shafts
 			if (player.getSelectedSkillingItem() == 1511) {
 				int amt = button == 8897 ? 1 : button == 8896 ? 5 : 10;
+				Achievements.finishAchievement(player, AchievementData.FLETCH_ARROW_SHAFT);
 				fletchBow(player, 52, amt);
 				return true;
 			}

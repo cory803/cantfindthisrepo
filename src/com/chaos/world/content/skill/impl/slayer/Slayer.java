@@ -57,6 +57,7 @@ public class Slayer {
 			duo.getPacketSender().sendInterfaceRemoval();
 			PlayerPanel.refreshPanel(duo);
 		}
+		Achievements.finishAchievement(player, AchievementData.GET_SLAYER_TASK);
 	}
 
 	public void killedNpc(NPC npc) {

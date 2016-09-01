@@ -739,6 +739,7 @@ public enum CombatSpecial {
 		CombatSpecial.updateBar(player);
 		if (!player.isRecoveringSpecialAttack())
 			TaskManager.submit(new PlayerSpecialAmountTask(player));
+			Achievements.finishAchievement(player, AchievementData.PERFORM_A_SPECIAL_ATTACK);
 	}
 
 	/**
