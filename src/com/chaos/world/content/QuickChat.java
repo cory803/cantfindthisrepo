@@ -8,24 +8,24 @@ import com.chaos.world.entity.impl.player.Player;
  */
 public class QuickChat {
 
+    private static Stopwatch timer = new Stopwatch().reset();
+
     public static String[] quickChat = new String[] { "Attack", "Defence", "Strength", "Constitution",
     "Range", "Prayer", "Magic", "Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting",
     "Smithing", "Mining", "Herblore", "Agility", "Thieving", "Slayer", "Farming", "Runecrafting",
     "Construction", "Hunter", "Summoning", "Dungeoneering"};
 
     public static void handleButtons(Player player, int id) {
-        Stopwatch timer = new Stopwatch();
-        if (timer.elapsed(5000)) {
-            if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
-                player.getPacketSender().sendMessage("You are muted and cannot chat.");
-                return;
-            }
-            player.forceChat("[CHAOS] My " + quickChat[id] + " level is "
-                    + player.getSkillManager().getMaxLevel(id) + ".");
-            timer.reset();
-        } else {
+        if (!timer.elapsed(5000)) {
             player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+            return;
         }
+        if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
+            player.getPacketSender().sendMessage("You are muted and cannot chat.");
+            return;
+        }
+        player.forceChat("[CHAOS] My " + quickChat[id] + " level is "
+                + player.getSkillManager().getMaxLevel(id) + ".");
+        timer.reset();
     }
-
 }

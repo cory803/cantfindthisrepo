@@ -967,7 +967,7 @@ public class ButtonClickPacketListener implements PacketListener {
             case 8660:
                 QuickChat.handleButtons(player, 1);
                 break;
-            case 8661:
+            case 8861:
                 QuickChat.handleButtons(player, 15);
                 break;
             case 8662:
