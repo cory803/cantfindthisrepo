@@ -21,6 +21,7 @@ import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.healers.Healers;
+import org.scripts.kotlin.content.dialog.healers.HealersQuickOption;
 import org.scripts.kotlin.content.dialog.npcs.*;
 
 /**
@@ -118,6 +119,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Bob(player));
                 break;
 
+            //Talk to Sailor
+            case 1304:
+                player.getDialog().sendDialog(new Sailor(player));
+                break;
+
             case 501:
                 for (Item item : player.getInventory().getItems()) {
                     ItemDefinition def = ItemDefinition.forId(item.getId() + 1);
@@ -133,12 +139,7 @@ public final class ActionHandler {
             case 4707: // bolt enchanter
                 Enchanting.update_interface(player);
                 break;
-            case 2127:
-                if (!GameSettings.POS_ENABLED) {
-                    player.getPacketSender().sendMessage("Player owned shops have been disabled.");
-                    return;
-                }
-                break;
+
             case 8710:
             case 8707:
             case 8706:
@@ -243,7 +244,7 @@ public final class ActionHandler {
             case 960:
             case 961:
             case 962:
-                player.getDialog().sendDialog(new Giles.HealersQuickOption(player));
+                player.getDialog().sendDialog(new HealersQuickOption(player));
                 break;
 
             //Horvik's armour shop

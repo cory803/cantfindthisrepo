@@ -1763,7 +1763,7 @@ public class ObjectActionPacketListener implements PacketListener {
 										: MagicSpellbook.ANCIENT);
 								player.getPacketSender()
 										.sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId())
-										.sendMessage("Your magic spellbook is changed..");
+										.sendMessage("You feel a sense of energy as your spellbook changes.");
 								Autocasting.resetAutocast(player, true);
 								break;
 							case 410:

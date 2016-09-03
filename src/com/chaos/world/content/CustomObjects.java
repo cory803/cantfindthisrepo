@@ -226,7 +226,7 @@ public class CustomObjects {
 	// spawn, this is just
 	// clipping!
 	private static final int[][] CLIENT_OBJECTS = {
-
+			{ 6552, 3232, 2887, 0, 0 },
 			// 1 = west
 			// 2 = north
 			// 3 = east

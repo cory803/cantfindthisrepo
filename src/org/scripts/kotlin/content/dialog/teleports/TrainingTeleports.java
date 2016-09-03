@@ -64,7 +64,7 @@ public class TrainingTeleports extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2679, 3720, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_2_OF_3:
-                                TeleportHandler.teleportPlayer(player, new Position(2113, 3042, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2113, 3942, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_3:
                                 TeleportHandler.teleportPlayer(player, new Position(2547, 3759, 0), player.getSpellbook().getTeleportType());
