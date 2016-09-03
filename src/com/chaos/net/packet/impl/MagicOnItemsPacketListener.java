@@ -60,6 +60,19 @@ public class MagicOnItemsPacketListener implements PacketListener {
 			Spell spell = magicSpell.getSpell();
 			switch (magicSpell) {
 			case LOW_ALCHEMY:
+				if (!item.tradeable() || item.getId() == 995) {
+					player.getPacketSender().sendMessage("This spell can not be cast on this item.");
+					return;
+				}
+				if (spell == null || !spell.canCast(player, true))
+					return;
+				player.getInventory().delete(itemId, 1).add(995, 72 + item.getDefinition().getLowAlchValue());
+				player.performAnimation(new Animation(712));
+				player.performGraphic(
+						new Graphic(112, GraphicHeight.LOW));
+				player.getSkillManager().addSkillExperience(Skill.MAGIC, spell.baseExperience());
+				player.getPacketSender().sendTab(GameSettings.MAGIC_TAB);
+				break;
 			case HIGH_ALCHEMY:
 				if (!item.tradeable() || item.getId() == 995) {
 					player.getPacketSender().sendMessage("This spell can not be cast on this item.");
@@ -67,11 +80,10 @@ public class MagicOnItemsPacketListener implements PacketListener {
 				}
 				if (spell == null || !spell.canCast(player, true))
 					return;
-				player.getInventory().delete(itemId, 1).add(995, 200
-						+ (int) (item.getDefinition().getValue() * (magicSpell == MagicSpells.HIGH_ALCHEMY ? 1 : 0.8)));
+				player.getInventory().delete(itemId, 1).add(995, 108 + item.getDefinition().getHighAlchValue());
 				player.performAnimation(new Animation(712));
 				player.performGraphic(
-						new Graphic(magicSpell == MagicSpells.HIGH_ALCHEMY ? 113 : 112, GraphicHeight.LOW));
+						new Graphic(113, GraphicHeight.LOW));
 				player.getSkillManager().addSkillExperience(Skill.MAGIC, spell.baseExperience());
 				player.getPacketSender().sendTab(GameSettings.MAGIC_TAB);
 				break;
