@@ -47,11 +47,6 @@ public class ItemForging {
 			p.getPacketSender().sendMessage("You make " + Misc.anOrA(itemName) + " " + itemName + ".");
 			p.getClickDelay().reset();
 			p.getSkillManager().addExactExperience(skill, data.skillRequirement[2]);
-			if (data == ItemForgeData.ARMADYL_GODSWORD || data == ItemForgeData.BANDOS_GODSWORD
-					|| data == ItemForgeData.ZAMORAK_GODSWORD || data == ItemForgeData.SARADOMIN_GODSWORD) {
-				Achievements.finishAchievement(p, AchievementData.ASSEMBLE_A_GODSWORD);
-				Achievements.doProgress(p, AchievementData.ASSEMBLE_5_GODSWORDS);
-			}
 			return;
 		} else {
 			p.getPacketSender().sendMessage("You need " + Misc.anOrA(skill.getFormatName()) + " "

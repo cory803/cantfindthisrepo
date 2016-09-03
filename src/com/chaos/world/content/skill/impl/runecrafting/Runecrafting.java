@@ -40,8 +40,10 @@ public class Runecrafting {
 			amountMade += amountToMake;
 			player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP());
 		}
+		if (rune == RuneData.NATURE_RUNE) {
+			Achievements.doProgress(player, AchievementData.RUNECRAFT_500_NATS, amountMade);
+		}
 		if (rune == RuneData.BLOOD_RUNE) {
-			Achievements.doProgress(player, AchievementData.RUNECRAFT_500_BLOOD_RUNES, amountMade);
 			Achievements.doProgress(player, AchievementData.RUNECRAFT_8000_BLOOD_RUNES, amountMade);
 		}
 		player.performGraphic(new Graphic(129));

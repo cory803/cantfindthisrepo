@@ -54,6 +54,9 @@ public class BonesOnAltar {
 				if (currentBone == BonesData.BIG_BONES) {
 					Achievements.finishAchievement(player, AchievementData.BURY_BIG_BONE);
 				}
+				if (currentBone == BonesData.DRAGON_BONES) {
+					Achievements.doProgress(player, AchievementData.BURY_50_DRAGON_BONES);
+				}
 				if (currentBone == BonesData.FROSTDRAGON_BONES) {
 					Achievements.doProgress(player, AchievementData.BURY_25_FROST_DRAGON_BONES);
 					Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);

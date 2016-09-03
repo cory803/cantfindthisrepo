@@ -95,8 +95,10 @@ public class Firemaking {
 					player.getPacketSender().sendMessage("The fire catches and the logs begin to burn.");
 					stop();
 				}
+				if (logData == Logdata.logData.MAPLE) {
+					Achievements.doProgress(player, AchievementData.BURN_200_MAPLE_LOGS);
+				}
 				if (logData == Logdata.logData.MAGIC) {
-					Achievements.doProgress(player, AchievementData.BURN_100_MAGIC_LOGS);
 					Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
 				}
 				if (logData == Logdata.logData.WILLOW) {

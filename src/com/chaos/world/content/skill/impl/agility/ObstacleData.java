@@ -462,6 +462,7 @@ public enum ObstacleData {
 					if (player.getPosition().getX() == 2543 && player.getPosition().getY() == 3553) {
 						if (Agility.passedAllObstacles(player)) {
 							player.getInventory().add(2996, 4);
+							Achievements.finishAchievement(player, Achievements.AchievementData.BARB_AGILITY);
 							Agility.addExactExperience(player, 6500 + Misc.getRandom(1000));
 							Agility.resetProgress(player);
 						} else {

@@ -67,6 +67,8 @@ public class Prayer {
 				Sounds.sendSound(player, Sound.BURY_BONE);
 				if (currentBone == BonesData.BIG_BONES) {
 					Achievements.finishAchievement(player, AchievementData.BURY_BIG_BONE);
+				} else if (currentBone == BonesData.DRAGON_BONES) {
+						Achievements.doProgress(player, AchievementData.BURY_50_DRAGON_BONES);
 				} else if (currentBone == BonesData.FROSTDRAGON_BONES) {
 					Achievements.doProgress(player, AchievementData.BURY_25_FROST_DRAGON_BONES);
 					Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);
@@ -92,6 +94,9 @@ public class Prayer {
 		else if (currentBone == BonesData.FROSTDRAGON_BONES) {
 			Achievements.doProgress(player, AchievementData.BURY_25_FROST_DRAGON_BONES);
 			Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);
+		}
+		if (currentBone == BonesData.DRAGON_BONES) {
+			Achievements.doProgress(player, AchievementData.BURY_50_DRAGON_BONES);
 		}
 		player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP());
 		player.getPacketSender().sendMessage("Your bonecrusher has crushed "+ItemDefinition.forId(itemId).getName()+" for "+currentBone.getBuryingXP() * player.getGameModeAssistant().getModeExpRate()+" prayer experience.");

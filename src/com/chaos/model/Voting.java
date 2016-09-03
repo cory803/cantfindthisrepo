@@ -35,7 +35,6 @@ public class Voting {
 							} else {
 								player.getInventory().add(10944, 1);
 							}
-							Achievements.doProgress(player, Achievements.AchievementData.VOTE_100_TIMES);
 							player.getPacketSender().sendMessage("Your auth code has been claimed!");
 							player.save();
 						}

@@ -119,16 +119,20 @@ public class Woodcutting {
 											player.getPacketSender().sendMessage(
 													"Your Inferno Adze burns the log, granting you Firemaking experience.");
 											if (fmLog == Logdata.logData.MAGIC) {
-												Achievements.doProgress(player, AchievementData.BURN_100_MAGIC_LOGS);
 												Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
+											}
+											if (fmLog == Logdata.logData.MAPLE) {
+												Achievements.doProgress(player, AchievementData.BURN_200_MAPLE_LOGS);
 											}
 											if (fmLog == logData.WILLOW) {
 												Achievements.finishAchievement(player, AchievementData.BURN_WILLOW);
 											}
 										}
 									}
+									if (t == Trees.MAPLE) {
+										Achievements.doProgress(player, AchievementData.CHOP_250_MAPLE_LOGS);
+									}
 									if (t == Trees.MAGIC) {
-										Achievements.doProgress(player, AchievementData.CUT_100_MAGIC_LOGS);
 										Achievements.doProgress(player, AchievementData.CUT_5000_MAGIC_LOGS);
 									}
 									if (t == Trees.WILLOW) {
