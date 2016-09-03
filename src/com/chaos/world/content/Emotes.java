@@ -93,6 +93,8 @@ public class Emotes {
 		// Normal emotes
 		if (emoteData != null) {
 			animation(player, emoteData.animation, emoteData.graphic);
+			if (buttonId == 11100)
+				Achievements.finishAchievement(player, Achievements.AchievementData.BLOW_KISS);
 			return true;
 			// Skillcapes
 		} else if (buttonId == 154) {

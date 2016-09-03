@@ -81,9 +81,6 @@ public class PlayerKillingAttributes {
 			/** ACHIEVEMENTS AND LOYALTY TITLES **/
 			Achievements.doProgress(player, AchievementData.DEFEAT_10_PLAYERS);
 			Achievements.doProgress(player, AchievementData.DEFEAT_30_PLAYERS);
-			if (this.playerKillStreak >= 6) {
-				Achievements.finishAchievement(player, AchievementData.REACH_A_KILLSTREAK_OF_6);
-			}
 		}
 	}
 

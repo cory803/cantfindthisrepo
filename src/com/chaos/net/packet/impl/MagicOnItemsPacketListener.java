@@ -8,6 +8,7 @@ import com.chaos.model.Item;
 import com.chaos.model.Skill;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.combat.magic.MagicSpells;
 import com.chaos.world.content.combat.magic.Spell;
 import com.chaos.world.entity.impl.player.Player;
@@ -72,6 +73,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 						new Graphic(112, GraphicHeight.LOW));
 				player.getSkillManager().addSkillExperience(Skill.MAGIC, spell.baseExperience());
 				player.getPacketSender().sendTab(GameSettings.MAGIC_TAB);
+				Achievements.doProgress(player, Achievements.AchievementData.LOW_ALCH_ITEMS);
 				break;
 			case HIGH_ALCHEMY:
 				if (!item.tradeable() || item.getId() == 995) {
