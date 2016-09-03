@@ -51,6 +51,8 @@ import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.npcs.Sailor;
+import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
 
 /**
  * This packet listener is called when a player clicked on a game object.
@@ -143,6 +145,15 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						switch (id) {
+							//Edgeville coffins
+							case 26935:
+							case 26937:
+							case 26939:
+							case 26941:
+								player.setNpcClickId(945);
+								player.getDialog().sendDialog(new EdgevilleCoffins(player));
+								break;
+
 							case 2406:
 								if (!player.getClickDelay().elapsed(3000))
 									return;
