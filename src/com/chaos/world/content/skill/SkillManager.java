@@ -174,7 +174,6 @@ public class SkillManager {
 		}
 		updateSkill(skill);
 		this.totalGainedExp += experience;
-		Scoreboard.update(player, 3);
 		return this;
 	}
 

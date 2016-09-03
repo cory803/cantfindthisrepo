@@ -28,7 +28,6 @@ import com.chaos.net.PipelineFactory;
 import com.chaos.net.security.ConnectionHandler;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.Lottery;
-import com.chaos.world.content.Scoreboard;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
 import com.chaos.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
@@ -75,7 +74,6 @@ public final class GameLoader {
 		CombatPoisonData.init();
 		CombatVenomData.init();
 		CombatStrategies.init();
-		Scoreboard.load();
 		NpcDefinition.parseNpcs().load();
 		LootSystem.loadDropTables();
 		WeaponInterfaces.parseInterfaces().load();
