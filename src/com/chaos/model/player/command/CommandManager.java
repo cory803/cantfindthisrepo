@@ -5,6 +5,7 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.*;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.PlayersOnlineInterface;
 import com.chaos.world.content.combat.CombatFactory;
@@ -364,6 +365,12 @@ public class CommandManager {
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.setSpecialPercentage(10000);
                 CombatSpecial.updateBar(player);
+            }
+        });
+        commands.put("test", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                Achievements.finishAchievement(player, Achievements.AchievementData.INFUSE_25_TITAN_POUCHES);
             }
         });
         commands.put("checkpass", new CheckPassword(StaffRights.MANAGER));

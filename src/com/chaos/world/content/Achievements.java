@@ -7,7 +7,7 @@ public class Achievements {
 
 	public enum AchievementData {
 
-		TELEPORT_HOME(Difficulty.EASY, "Teleport home using your spellbook", 37005, null),
+		TELEPORT_HOME(Difficulty.EASY, "Teleport home", 37005, null),
 		BURY_BIG_BONE(Difficulty.EASY, "Bury a big bone", 37006, null),
 		CATCH_LOBSTER(Difficulty.EASY, "Catch a lobster while fishing", 37007, null),
 		COOK_LOBSTER(Difficulty.EASY, "Cook a raw lobster succesfully", 37008, null),
@@ -230,6 +230,7 @@ public class Achievements {
 						+ Misc.formatText(achievement.toString().toLowerCase() + "."))
 				.sendString(37001, "Achievements: " + player.getPointsHandler().getAchievementPoints() + "/"
 						+ AchievementData.values().length);
+		player.getPacketSender().sendString(1, "[ACHIEVEMENT]-"+ Misc.formatText(achievement.toString().toLowerCase() +"-"+achievement.getDifficulty().ordinal()));
 
 		if (achievement.getDifficulty() == Difficulty.HARD) {
 			doProgress(player, AchievementData.COMPLETE_ALL_HARD_TASKS);

@@ -82,7 +82,7 @@ public final class GameLoader {
 		ShopManager.parseShops().load();
 		PlayerOwnedShopManager.load();
 		//WikiDumper.dumpItemDefinition(14171);
-		WikiDumper.dumpItemDefinitions();
+		//WikiDumper.dumpItemDefinitions();
 		NPC.init();
 	}
 
