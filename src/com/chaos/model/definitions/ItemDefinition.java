@@ -43,6 +43,8 @@ public class ItemDefinition {
 					definition.description = reader.get("description").getAsString();
 					definition.stackable = reader.get("stackable").getAsBoolean();
 					definition.value = reader.get("value").getAsInt();
+					definition.highAlch = reader.get("highAlch").getAsInt();
+					definition.lowAlch = reader.get("lowAlch").getAsInt();
 					definition.noted = reader.get("noted").getAsBoolean();
 					definition.isTwoHanded = reader.get("isTwoHanded").getAsBoolean();
 					definition.has_charges = reader.get("has_charges").getAsBoolean();
@@ -198,12 +200,52 @@ public class ItemDefinition {
 	private int value;
 
 	/**
+	 * The item's high alch value.
+	 */
+	private int highAlch;
+
+	/**
+	 * The item's low alch value.
+	 */
+	private int lowAlch;
+
+	/**
 	 * Gets the item's shop value.
 	 *
 	 * @return value.
 	 */
 	public int getValue() {
 		return value;
+	}
+
+	/**
+	 * Gets the item's high alch value.
+	 *
+	 * @return highAlch.
+	 */
+	public int getHighAlchValue() {
+		return highAlch;
+	}
+
+	/**
+	 * Gets the item's high alch value.
+	 *
+	 * @return highAlch.
+	 */
+	public int getLowAlchValue() {
+		return lowAlch;
+	}
+
+	public void setHighAlchValue(int value) {
+		this.highAlch = value;
+	}
+
+	public void setLowAlchValue(int value) {
+		this.lowAlch = value;
+	}
+
+	public void setValue(int value) {
+		this.value = value;
 	}
 
 	/**
@@ -298,6 +340,10 @@ public class ItemDefinition {
 
 	public void setAction(int index, String action) {
 		actions[index] = action;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getAction(int index) {

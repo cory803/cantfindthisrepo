@@ -11,6 +11,7 @@ import com.chaos.cache.Archive;
 import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.FontUtils;
+import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
 import com.chaos.world.doors.DoorManager;
 import org.jboss.netty.bootstrap.ServerBootstrap;
@@ -80,6 +81,8 @@ public final class GameLoader {
 		WeaponInterfaces.parseInterfaces().load();
 		ShopManager.parseShops().load();
 		PlayerOwnedShopManager.load();
+		//WikiDumper.dumpItemDefinition(14171);
+		WikiDumper.dumpItemDefinitions();
 		NPC.init();
 	}
 
