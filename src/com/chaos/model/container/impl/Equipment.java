@@ -108,31 +108,31 @@ public class Equipment extends ItemContainer {
 
 	public int getBoost() {
 		int boost = 0;
-		if(getPlayer().getEquipment().contains(14008)) {
+		if(getPlayer().getEquipment().contains(20135)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14009)) {
+		if(getPlayer().getEquipment().contains(20139)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14010)) {
+		if(getPlayer().getEquipment().contains(20143)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14011)) {
+		if(getPlayer().getEquipment().contains(20147)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14012)) {
+		if(getPlayer().getEquipment().contains(20151)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14013)) {
+		if(getPlayer().getEquipment().contains(20155)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14014)) {
+		if(getPlayer().getEquipment().contains(20159)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14015)) {
+		if(getPlayer().getEquipment().contains(20163)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
-		if(getPlayer().getEquipment().contains(14016)) {
+		if(getPlayer().getEquipment().contains(20167)) {
 			boost += getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION) * .20;
 		}
 		return boost;

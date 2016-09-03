@@ -94,9 +94,7 @@ public class Bank extends ItemContainer {
 			if (to instanceof Inventory) {
 				boolean withdrawAsNote = getPlayer().withdrawAsNote() && def != null && def.isNoted()
 						&& item.getDefinition() != null
-						&& def.getName().equalsIgnoreCase(item.getDefinition().getName())
-						&& !def.getName().contains("Torva") && !def.getName().contains("Virtus")
-						&& !def.getName().contains("Pernix") && !def.getName().contains("Torva");
+						&& def.getName().equalsIgnoreCase(item.getDefinition().getName());
 				int checkId = withdrawAsNote ? item.getId() + 1 : item.getId();
 				if (to.getAmount(checkId) + item.getAmount() > Integer.MAX_VALUE
 						|| to.getAmount(checkId) + item.getAmount() <= 0) {
@@ -112,9 +110,7 @@ public class Bank extends ItemContainer {
 		}
 		if (getPlayer().withdrawAsNote()) {
 			if (def != null && def.isNoted() && item.getDefinition() != null
-					&& def.getName().equalsIgnoreCase(item.getDefinition().getName())
-					&& !def.getName().contains("Torva") && !def.getName().contains("Virtus")
-					&& !def.getName().contains("Pernix") && !def.getName().contains("Torva")) {
+					&& def.getName().equalsIgnoreCase(item.getDefinition().getName())) {
 				item.setId(item.getId() + 1);
 			} else {
 				getPlayer().getPacketSender().sendMessage("This item cannot be withdrawn as a note.");

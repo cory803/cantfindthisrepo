@@ -275,24 +275,6 @@ public class EquipPacketListener implements PacketListener {
 					}
 				}
 			}
-			/*
-			 * NEX ARMOURS if (equipItem.getId() == 14008 || equipItem.getId()
-			 * == 14009 || equipItem.getId() == 14010 || equipItem.getId() ==
-			 * 14011 || equipItem.getId() == 14012 || equipItem.getId() == 14013
-			 * || equipItem.getId() == 14014 || equipItem.getId() == 14015 ||
-			 * equipItem.getId() == 14016) { int newLevel =
-			 * player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)+
-			 * player. calculateMaxLifePoints();
-			 * player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
-			 * newLevel, true); player.getPacketSender().sendMessage(
-			 * "Your new hp is: " +
-			 * player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)); }
-			 */
-			if (GameSettings.DEBUG_MODE) {
-				// PlayerLogs.log(player, "" + player.getUsername()
-				// + " in EquipPacketListener: " + item.getId() + " from
-				// Inventory");
-			}
 			if (player.hasStaffOfLightEffect()
 					&& equipItem.getDefinition().getName().toLowerCase().contains("staff of light")) {
 				player.setStaffOfLightEffect(-1);
