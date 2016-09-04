@@ -27,7 +27,7 @@ class SpawnObject(staffRights: StaffRights) : Command(staffRights) {
                 player.packetSender.sendMessage("Error parsing the int value. Use numbers")
             }
 
-            player.packetSender.sendObject(GameObject(id, player.position, 10, face))
+            player.packetSender.sendObject(GameObject(id, player.position, 0, face))
             player.packetSender.sendMessage("Sending object: " + id + " Direction: "+face);
         }
     }

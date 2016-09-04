@@ -455,7 +455,53 @@
       }
     }
   },
-
+  
+  { 
+	# Lumbridge door
+    "openState": {
+      "id": 1531,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3233,
+        "y": 3207,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3234,
+        "y": 3207,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Lumbridge d
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3235,
+        "y": 3199,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3235,
+        "y": 3198,
+        "z": 0
+      }
+    }
+  },
   { 
 	# Port Sarim - Fishing Store
     "openState": {
@@ -1047,6 +1093,247 @@
         "hashed": true,
         "x": 2582,
         "y": 9875,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Lumbridge Tutorial House
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3230,
+        "y": 3236,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3230,
+        "y": 3235,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Lumbridge Tutorial Hut 2
+    "openState": {
+      "id": 1531,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3229,
+        "y": 3240,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3228,
+        "y": 3240,
+        "z": 0
+      }
+    }
+  },
+    { 
+	# Goblin Hut
+    "openState": {
+      "id": 1531,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3246,
+        "y": 3243,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3246,
+        "y": 3244,
+        "z": 0
+      }
+    }
+  },
+ { 
+	# Lumbridge castle part 1
+    "openState": {
+      "id": 1520,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3216,
+        "y": 3219,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3217,
+        "y": 3219,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Lumbridge castle part 2
+    "openState": {
+      "id": 1517,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3216,
+        "y": 3218,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3217,
+        "y": 3218,
+        "z": 0
+      }
+    }
+  },
+ { 
+	# Lumbridge castle door
+    "openState": {
+      "id": 1537,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3215,
+        "y": 3212,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1536,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3215,
+        "y": 3211,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Lumbridge Castle door 3
+    "openState": {
+      "id": 1531,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3208,
+        "y": 3211,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3208,
+        "y": 3212,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Varrock Magic Store
+    "openState": {
+      "id": 24375,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3204,
+        "y": 3432,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 24376,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3205,
+        "y": 3432,
+        "z": 0
+      }
+    }
+  },
+    { 
+	# Falador thesselia
+    "openState": {
+      "id": 11708,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2948,
+        "y": 3379,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 11707,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2949,
+        "y": 3379,
+        "z": 0
+      }
+    }
+  },
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+   { 
+	# Lumbridge Church
+	"openState": {
+      "id": 1534,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3237,
+        "y": 3210,
+        "z": 0
+      }
+    },
+	"closedState": {
+      "id": 1533,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3238,
+        "y": 3210,
         "z": 0
       }
     }
