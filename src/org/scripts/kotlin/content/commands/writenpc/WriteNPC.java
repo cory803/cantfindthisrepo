@@ -1,6 +1,7 @@
 package org.scripts.kotlin.content.commands.writenpc;
 
 import com.chaos.model.StaffRights;
+import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.model.player.command.Command;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.npc.NPC;
@@ -45,7 +46,10 @@ public class WriteNPC extends Command {
                 player.getPacketSender().sendMessage("Please use valid arguments.");
                 return;
             }
-
+            if(NpcDefinition.forId(npcId) == null) {
+                player.getPacketSender().sendMessage("This npc is not added to the npc definitions.");
+                return;
+            }
             try {
                 canWalk = Boolean.parseBoolean(args[1]);
             } catch (Exception e) {
