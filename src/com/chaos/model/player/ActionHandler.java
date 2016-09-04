@@ -380,7 +380,7 @@ public final class ActionHandler {
             // THIRD_CLICK_OPCODE");
         }
         switch (npc.getId()) {
-            case 6537:
+            case 747:
                 Artifacts.sellArtifacts(player);
                 break;
             case 2127:
