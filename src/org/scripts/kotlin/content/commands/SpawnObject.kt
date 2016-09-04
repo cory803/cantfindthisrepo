@@ -19,14 +19,16 @@ class SpawnObject(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("Example usage: ::object-objectid")
         } else {
             var id = 0
+            var face = 0
             try {
                 id = Integer.parseInt(args[0])
+                face = Integer.parseInt(args[1])
             } catch (e: NumberFormatException) {
                 player.packetSender.sendMessage("Error parsing the int value. Use numbers")
             }
 
-            player.packetSender.sendObject(GameObject(id, player.position, 10, 3))
-            player.packetSender.sendMessage("Sending object: " + id)
+            player.packetSender.sendObject(GameObject(id, player.position, 10, face))
+            player.packetSender.sendMessage("Sending object: " + id + " Direction: "+face);
         }
     }
 }
