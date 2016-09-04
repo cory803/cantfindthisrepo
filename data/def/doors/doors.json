@@ -721,24 +721,48 @@
   },
   
   { 
-	# Edgeville - Double Door
+	# Lumbridge Door
 	"openState": {
-      "id": 26911,
+      "id": 1531,
       "direction": 3,
       "position": {
         "hashed": true,
-        "x": 3100,
-        "y": 3509,
+        "x": 3227,
+        "y": 3214,
         "z": 0
       }
     },
 	"closedState": {
-      "id": 26910,
-      "direction": 0,
+      "id": 1530,
+      "direction": 2,
       "position": {
         "hashed": true,
-        "x": 3101,
-        "y": 3509,
+        "x": 3226,
+        "y": 3214,
+        "z": 0
+      }
+    }
+  },  
+  
+  { 
+	# Lumbridge Door
+	"openState": {
+      "id": 1531,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 3227,
+        "y": 3223,
+        "z": 0
+      }
+    },
+	"closedState": {
+      "id": 1530,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3226,
+        "y": 3223,
         "z": 0
       }
     }

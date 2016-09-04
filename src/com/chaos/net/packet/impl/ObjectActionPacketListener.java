@@ -100,7 +100,7 @@ public class ObjectActionPacketListener implements PacketListener {
 
 		if (player.getStaffRights().isDeveloper(player))
 			player.getPacketSender().sendConsoleMessage(
-					"First click object id; [id, position] : [" + id + ", " + position.toString() + "]");
+					"First click object id; [id, position, direction] : [" + id + ", "+gameObject.getRotation()+", " + position.toString() + "]");
 
 		if (!player.getDragonSpear().elapsed(3000)) {
 			player.getPacketSender().sendMessage("You are stunned!");
