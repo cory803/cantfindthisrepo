@@ -489,6 +489,7 @@ public class CommandManager {
         commands.put("anim", new PlayAnimation(StaffRights.OWNER));
         commands.put("gfx", new PlayGFX(StaffRights.OWNER));
         commands.put("object", new SpawnObject(StaffRights.OWNER));
+        commands.put("test", new TestingCommand(StaffRights.OWNER));
     }
 
     public static boolean execute(Player player, String input) {

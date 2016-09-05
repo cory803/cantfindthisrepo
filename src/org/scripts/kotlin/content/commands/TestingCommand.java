@@ -1,5 +1,8 @@
 package org.scripts.kotlin.content.commands;
 
+import com.chaos.ect.dropwriting.Drop;
+import com.chaos.ect.dropwriting.DropManager;
+import com.chaos.ect.dropwriting.DropTable;
 import com.chaos.model.StaffRights;
 import com.chaos.model.player.command.Command;
 import com.chaos.world.entity.impl.player.Player;
@@ -22,11 +25,8 @@ public class TestingCommand extends Command {
         /**
          * Lets just send the person the message they pass threw so example ::test-send this message back to the player.
          */
-        if (args == null || args.length != 1) {
-            player.getPacketSender().sendMessage("Please use the command like ::test-message");
-            return;
-        }
-
-        player.getPacketSender().sendMessage(args[0]);
+        DropManager.addDrop(1665, 11694, 1, 1, Drop.RARITY.EPIC, Drop.CONDITION.NONE);
+        DropManager.addCharm(1665, DropTable.CHARM.BLUE, 1, 20);
+        DropManager.saveDrops();
     }
 }

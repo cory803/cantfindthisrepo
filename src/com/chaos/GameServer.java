@@ -1,6 +1,9 @@
 package com.chaos;
 
 import com.chaos.cache.RSCache;
+import com.chaos.ect.dropwriting.Drop;
+import com.chaos.ect.dropwriting.DropManager;
+import com.chaos.ect.dropwriting.DropTable;
 import com.chaos.engine.task.impl.ServerTimeUpdateTask;
 import com.chaos.net.mysql.*;
 import com.chaos.threading.GameEngine;
