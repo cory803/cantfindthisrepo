@@ -38,8 +38,8 @@ public class GamePanel extends JFrame {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(() -> {
 			try {
-				GamePanel frame = new GamePanel();
-				frame.setVisible(true);
+				//GamePanel frame = new GamePanel();
+				//frame.setVisible(true);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

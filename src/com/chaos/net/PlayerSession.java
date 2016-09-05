@@ -114,7 +114,7 @@ public final class PlayerSession {
 			long time = System.currentTimeMillis() - start;
 			if (time > 50) {
 				msg.setTime(time);
-				GameServer.getPanel().addPacket(msg);
+				//GameServer.getPanel().addPacket(msg);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

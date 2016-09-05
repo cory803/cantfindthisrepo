@@ -20,7 +20,7 @@ import com.chaos.world.content.pos.PlayerOwnedShops;
  */
 public final class GameEngine implements Runnable {
 
-	private final GamePanel panel = GameServer.getPanel();
+	//private final GamePanel panel = GameServer.getPanel();
 
 	private final ScheduledExecutorService logicService = GameEngine.createLogicService();
 
@@ -46,9 +46,9 @@ public final class GameEngine implements Runnable {
 			long taskCycle = task_start - start;
 			World.sequence();
 			long end = System.currentTimeMillis() - start;
-			panel.addCycleTime(end);
-			panel.addTaskCycle(taskCycle);
-			panel.addGeneral();
+			//panel.addCycleTime(end);
+			//panel.addTaskCycle(taskCycle);
+			//panel.addGeneral();
 		} catch (Throwable e) {
 			e.printStackTrace();
 			World.logError("game_engine_error_log.txt", (Exception) e);

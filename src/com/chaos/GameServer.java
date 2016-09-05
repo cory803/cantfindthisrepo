@@ -24,7 +24,7 @@ import java.util.logging.Logger;
  */
 public class GameServer {
 
-	private static final GamePanel panel = new GamePanel();
+	//private static final GamePanel panel = new GamePanel();
 	private static final GameLoader loader = new GameLoader(GameSettings.GAME_PORT);
 	private static final Logger logger = Logger.getLogger("Chaos");
 	private static boolean updating;
@@ -73,7 +73,7 @@ public class GameServer {
 		startTime = System.currentTimeMillis();
 		Runtime.getRuntime().addShutdownHook(new ShutdownHook());
 		try {
-			panel.setVisible(true);
+			//panel.setVisible(true);
 			logger.info("Initializing the loader...");
 			LoaderProperties.load();
 			System.out.println("Connecting to MYSQL character database...");
@@ -116,14 +116,15 @@ public class GameServer {
 			ServerTimeUpdateTask.start_configuration_process();
 			logger.info("Chaos is now online on port " + GameSettings.GAME_PORT + "!");
 		} catch (Exception ex) {
-			logger.log(Level.SEVERE, "Could not start Chaos! Program terminated.", ex);
+			logger.log(Level.SEVERE, "Could not " +
+					" Chaos! Program terminated.", ex);
 			System.exit(1);
 		}
 	}
 
-	public static GamePanel getPanel() {
+	/*public static GamePanel getPanel() {
 		return panel;
-	}
+	}*/
 
 	public static GameLoader getLoader() {
 		return loader;

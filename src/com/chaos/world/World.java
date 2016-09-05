@@ -348,7 +348,7 @@ public class World {
 		long end = System.currentTimeMillis();
 		long entityUpdateCycle = end - player_start;
 		// long cycleTime = end - start;
-		GameServer.getPanel().addWorldCycle(loginCycle, logoutCycle, minigameCycle, entityUpdateCycle);
+		//GameServer.getPanel().addWorldCycle(loginCycle, logoutCycle, minigameCycle, entityUpdateCycle);
 	}
 
 	public static void logError(String name, Exception ex) {
