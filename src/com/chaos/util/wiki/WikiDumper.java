@@ -1,9 +1,13 @@
 package com.chaos.util.wiki;
 
+import com.chaos.ect.dropwriting.Drop;
+import com.chaos.ect.dropwriting.DropManager;
+import com.chaos.ect.dropwriting.DropTable;
 import com.chaos.model.definitions.ItemDefinition;
+import com.chaos.model.definitions.NpcDefinition;
+import com.chaos.world.World;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.sun.webkit.WebPage;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -12,124 +16,321 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by Jonathan on 9/1/2016.
  */
 public class WikiDumper {
 
-    public static void dumpItemDefinitions() {
-        // Create the path and file objects.
-        Path path = Paths.get("./wiki/", "ItemDefinitions.json");
-        File file = path.toFile();
-        file.getParentFile().setWritable(true);
+    public static ArrayList<Integer> NPCS_TO_DUMP = new ArrayList<Integer>();
 
-        // Attempt to make the player save directory if it doesn't
-        // exist.
-        if (!file.getParentFile().exists()) {
-            try {
-                file.getParentFile().mkdirs();
-            } catch (SecurityException e) {
-                System.out.println("Unable to create directory for wiki data!");
+    public static void dumpNpcDefinitions() {
+        for (int i = 0; i <= World.getNpcs().size(); i++) {
+            if(World.getNpcs().get(i) == null) {
+                continue;
             }
-        }
-        try (FileWriter writer = new FileWriter(file)) {
-            for (int i = 0; i <= ItemDefinition.getDefinitions().length - 1; i++) {
-                if (ItemDefinition.getDefinitions()[i] == null) {
-                    continue;
-                }
-                if (ItemDefinition.getDefinitions()[i].getName().equalsIgnoreCase("null")) {
-                    Gson builder = new GsonBuilder().setPrettyPrinting().create();
-                    ItemDefinition.getDefinitions()[i].setId(i);
-                    writer.write(builder.toJson(ItemDefinition.getDefinitions()[i]));
-                    writer.write(System.getProperty("line.separator"));
-                    continue;
-                }
-                if(ItemDefinition.getDefinitions()[i].getHighAlchValue() > 0 && ItemDefinition.getDefinitions()[i].getLowAlchValue() > 0 && ItemDefinition.getDefinitions()[i].getValue() > 0) {
-                    System.out.println("Dumping item definition " + i + "");
-                    Gson builder = new GsonBuilder().setPrettyPrinting().create();
-                    ItemDefinition.getDefinitions()[i].setId(i);
-                    writer.write(builder.toJson(ItemDefinition.getDefinitions()[i]));
-                    writer.write(System.getProperty("line.separator"));
-                    continue;
-                }
-                WikiDumper.dumpItemDefinition(i);
-                System.out.println("Dumping item definition " + i + "");
-                Gson builder = new GsonBuilder().setPrettyPrinting().create();
-                ItemDefinition.getDefinitions()[i].setId(i);
-                writer.write(builder.toJson(ItemDefinition.getDefinitions()[i]));
-                writer.write(System.getProperty("line.separator"));
+            if(!NPCS_TO_DUMP.contains(World.getNpcs().get(i).getId()) && World.getNpcs().get(i).getDefinition().isAttackable()) {
+                NPCS_TO_DUMP.add(World.getNpcs().get(i).getId());
+                System.out.println("Dumping npc definition " + World.getNpcs().get(i).getId() + "");
+                WikiDumper.dumpNpcDropDefinition(World.getNpcs().get(i).getId());
             }
-            writer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 
-    public static void dumpItemDefinition(int itemId) {
-        System.out.println("Starting wiki dump of Item ID: "+itemId);
-        ArrayList<String> lines = getItemPage(ItemDefinition.forId(itemId).getName().replaceAll(" ", "_"));
+    public static void dumpNpcDropDefinition(int npcId) {
+        System.out.println("Starting wiki dump of npc drop ID: "+npcId);
+        ArrayList<String> lines = getNpcPage(NpcDefinition.forId(npcId).getName().replaceAll(" ", "_"));
         Iterator<String> iterator = lines.iterator();
         try {
             while (iterator.hasNext()) {
                 String line = iterator.next();
-                if (line.contains("High Level Alchemy\">High alch</a></th>")) {
-                    if(ItemDefinition.forId(itemId).getHighAlchValue() <= 0 || ItemDefinition.forId(itemId).getValue() <= 0) {
-                        if(line.contains("Grand Exchange")) {
-                            String[] globalValue = line.split("<span class=\"infobox-quantity-replace\">");
-                            String price = globalValue[1];
-                            price = price.substring(0, price.indexOf("</span> coins (<a href=\"/wik"));
-                            price = price.replaceAll(",", "");
-                            System.out.println("Successfully dumped exchange value: " + price + "");
-                            ItemDefinition.forId(itemId).setValue(Integer.parseInt(price));
-                        } else {
-                            String[] globalValue = line.split("\"/wiki/Value\" title=\"Value\">Value</a></th><td>");
-                            String price = globalValue[1];
-                            if(price.contains("coin</td></tr><tr><th><a href=\"/wiki/High_Leve")) {
-                                price = price.substring(0, price.indexOf(" coin</td></tr><tr><th><a href=\"/wiki/High_Leve"));
-                            } else {
-                                price = price.substring(0, price.indexOf(" coins</td></tr><tr><th><a href=\"/wiki/High_Leve"));
+                if(line.contains("</td><td style=\"text-align:left;\"> ")) {
+                    String[] itemNameVars = line.split("title=\"");
+                    String itemName = itemNameVars[1];
+                    itemName = itemName.substring(0, itemName.indexOf("\"> "));
+                    line = iterator.next();
+                    String[] valueVars = line.split("</td><td> ");
+                    String valueAmount = valueVars[1];
+                    String value1 = "none";
+                    String value2 = "none";
+                    boolean noted = false;
+                    int itemId = 0;
+                    if(valueAmount.contains("–")) {
+                        if(valueAmount.contains(";")) {
+                            switch(npcId) {
+                                case 4381:
+                                case 4382:
+                                case 4383:
+                                    if(itemName.toLowerCase().equals("blood rune")) {
+                                        value1 = "3";
+                                        value2 = "16";
+                                    }
+                                    break;
+                                case 6225:
+                                    if(itemName.toLowerCase().equals("coins")) {
+                                        value1 = "50";
+                                        value2 = "500";
+                                    }
+                                    break;
+                                case 1154:
+                                    if(itemName.toLowerCase().equals("air rune")) {
+                                        value1 = "15";
+                                        value2 = "29";
+                                    }
+                                    if(itemName.toLowerCase().equals("fire rune")) {
+                                        value1 = "6";
+                                        value2 = "60";
+                                    }
+                                    break;
                             }
-                            price = price.replaceAll(",", "");
-                            System.out.println("Successfully dumped regular value: " + price + "");
-                            ItemDefinition.forId(itemId).setValue(Integer.parseInt(price));
+                        } else {
+                            String[] valueVars2 = valueAmount.split("–");
+                            value1 = valueVars2[0];
+                            value2 = valueVars2[1];
+                        }
+                    } else {
+                        value1 = valueAmount;
+                    }
+                    if(value1.contains(" (noted)") || value2.contains(" (noted)")) {
+                        noted = true;
+                        value1 = value1.replace(" (noted)", "");
+                        value2 = value2.replace(" (noted)", "");
+                    }
+                    line = iterator.next();
+                    String[] rarityVars = line.split("; color:#000000;\"> ");
+                    String rarityName = rarityVars[1];
+                    if(rarityName.toLowerCase().contains("very rare")) {
+                        rarityName = "epic";
+                    }
+                    if(rarityName.contains("<small>")) {
+                        rarityName = rarityName.substring(0, rarityName.indexOf(" <small>"));
+                        if(rarityName.toLowerCase().contains("rare")) {
+                            rarityName = "very rare";
                         }
                     }
-                    if(ItemDefinition.forId(itemId).getHighAlchValue() <= 0) {
-                        String[] highAlch;
-                        if(line.contains("High Level Alchemy\">High alch</a></th><td data-attr-param=\"high\">")) {
-                            highAlch = line.split("High Level Alchemy\">High alch</a></th><td data-attr-param=\"high\">");
-                        } else {
-                            highAlch = line.split("High Level Alchemy\">High alch</a></th><td>");
-                        }
-                        String price = highAlch[1];
-                        if(price.contains(" coins</td></tr><tr><th><a href=\"/wiki/Low_L")) {
-                            price = price.substring(0, price.indexOf(" coins</td></tr><tr><th><a href=\"/wiki/Low_L"));
-                        } else {
-                            price = price.substring(0, price.indexOf(" coin</td></tr><tr><th><a href=\"/wiki/Low_L"));
-                        }
-                        price = price.replaceAll(",", "");
-                        System.out.println("Successfully dumped high alch value: " + price + "");
-                        ItemDefinition.forId(itemId).setHighAlchValue(Integer.parseInt(price));
+                    if(rarityName.contains(" <sup id=\"cite_ref")) {
+                        rarityName = rarityName.substring(0, rarityName.indexOf(" <sup id=\"cite_ref"));
                     }
-                    if(ItemDefinition.forId(itemId).getLowAlchValue() <= 0) {
-                        String[] lowAlch;
-                        if(line.contains("itle=\"Low Level Alchemy\">Low alch</a></th><td data-attr-param=\"low\">")) {
-                            lowAlch = line.split("itle=\"Low Level Alchemy\">Low alch</a></th><td data-attr-param=\"low\">");
-                        } else {
-                            lowAlch = line.split("itle=\"Low Level Alchemy\">Low alch</a></th><td>");
-                        }
-                        String price = lowAlch[1];
-                        if(price.contains(" coins</td></tr><tr><th><a href=\"/wiki/Destroy_(action)\" ")) {
-                            price = price.substring(0, price.indexOf(" coins</td></tr><tr><th><a href=\"/wiki/Destroy_(action)\" "));
-                        } else {
-                            price = price.substring(0, price.indexOf(" coin</td></tr><tr><th><a href=\"/wiki/Destroy_(action)\" "));
-                        }
-                        price = price.replaceAll(",", "");
-                        System.out.println("Successfully dumped low alch value: " + price + "");
-                        ItemDefinition.forId(itemId).setLowAlchValue(Integer.parseInt(price));
+                    Drop.RARITY rarity = Drop.RARITY.COMMON;
+                    switch(rarityName.toLowerCase()) {
+                        case "always":
+                            rarity = Drop.RARITY.ALWAYS;
+                            break;
+                        case "common":
+                            rarity = Drop.RARITY.COMMON;
+                            break;
+                        case "uncommon":
+                            rarity = Drop.RARITY.UNCOMMON;
+                            break;
+                        case "rare":
+                            rarity = Drop.RARITY.RARE;
+                            break;
+                        case "very rare":
+                            rarity = Drop.RARITY.VERY_RARE;
+                            break;
+                        case "epic":
+                            rarity = Drop.RARITY.EPIC;
+                            break;
                     }
+                    if(itemName.contains(" axe")) {
+                       itemName = itemName.replace("axe", "hatchet");
+                    }
+                    if(itemName.contains("Runite ")) {
+                       itemName = itemName.replace("Runite", "Rune");
+                    }
+                    if(itemName.contains("half of key")) {
+                       itemName = itemName.replace("half of key", "half of a key");
+                    }
+                    if(itemName.contains(" leaf")) {
+                       itemName = itemName.replace(" leaf", "");
+                    }
+                    if(itemName.contains("ranarr weed")) {
+                       itemName = itemName.replace(" weed", "");
+                    }
+                    if(itemName.contains("Ranarr weed")) {
+                       itemName = itemName.replace("Ranarr weed", "Grimy ranarr weed");
+                    }
+                    if(itemName.contains("Mystic robe bottom (blue)")) {
+                       itemName = itemName.replace("Mystic robe bottom (blue)", "Mystic robe bottom");
+                    }
+                    if(itemName.contains("Blue d'hide vamb")) {
+                       itemName = itemName.replace("Blue d'hide vamb", "Blue d'hide vambraces");
+                    }
+                    if(itemName.contains("Rune ore")) {
+                       itemName = itemName.replace("Rune ore", "Runite ore");
+                    }
+                    if(itemName.contains("Mystic robe top (blue)")) {
+                       itemName = itemName.replace("Mystic robe top (blue)", "Mystic robe top");
+                    }
+                    if(itemName.contains("Dwarf weed")) {
+                       itemName = itemName.replace("Dwarf weed", "Grimy dwarf weed");
+                    }
+                    if(itemName.contains("\" class=\"mw-redirect")) {
+                       itemName = itemName.replace("\" class=\"mw-redirect", "");
+                    }
+                    if(itemName.contains("Mystic boots (blue)")) {
+                       itemName = itemName.replace("Mystic boots (blue)", "Mystic boots");
+                    }
+                    if(itemName.contains("Mystic gloves (blue)")) {
+                       itemName = itemName.replace("Mystic gloves (blue)", "Mystic gloves");
+                    }
+                    if(itemName.contains("Blue wizard hat")) {
+                       itemName = itemName.replace("Blue wizard hat", "Wizard hat");
+                    }
+                    if(itemName.contains("Blue wizard robe")) {
+                       itemName = itemName.replace("Blue wizard robe", "Wizard robe");
+                    }
+                    if(itemName.contains("Wizard hat (black)")) {
+                       itemName = itemName.replace("Wizard hat (black)", "Wizard hat");
+                    }
+                    if(itemName.contains("Adamantite bar")) {
+                       itemName = itemName.replace("Adamantite bar", "Adamant bar");
+                    }
+                    if(itemName.contains("strength(3)")) {
+                       itemName = itemName.replace("strength(3)", "strength (3)");
+                    }
+                    if(itemName.contains("attack(3)")) {
+                       itemName = itemName.replace("attack(3)", "attack (3)");
+                    }
+                    if(itemName.contains("defence(3)")) {
+                       itemName = itemName.replace("defence(3)", "defence (3)");
+                    }
+                    if(itemName.contains("potion(3)")) {
+                       itemName = itemName.replace("potion(3)", "potion (3)");
+                    }
+                    if(itemName.contains(" strength(1)")) {
+                       itemName = itemName.replace(" strength(1)", " strength (1)");
+                    }
+                    if(itemName.contains(" defence(2)")) {
+                       itemName = itemName.replace(" defence(2)", " defence (2)");
+                    }
+                    if(itemName.contains(" defence(")) {
+                       itemName = itemName.replace(" defence(", " defence (");
+                    }
+                    if(itemName.contains(" restore(")) {
+                       itemName = itemName.replace(" restore(", " restore (");
+                    }
+                    if(itemName.contains("Mystic hat (dark)")) {
+                       itemName = itemName.replace("Mystic hat (dark)", "Mystic hat");
+                    }
+                    if(itemName.contains("Mystic boots (dark)")) {
+                       itemName = itemName.replace("Mystic boots (dark)", "Mystic boots");
+                    }
+                    if(itemName.contains(" restore(3)")) {
+                       itemName = itemName.replace(" restore(3)", " restore (3)");
+                    }
+                    if(itemName.contains(" potion(")) {
+                       itemName = itemName.replace(" potion(", " potion (");
+                    }
+                    if(itemName.contains(" strength(")) {
+                       itemName = itemName.replace(" strength(", " strength (");
+                    }
+                    if(itemName.contains(" brew(3)")) {
+                       itemName = itemName.replace(" brew(3)", " brew (3)");
+                    }
+                    if(itemName.contains("Rune bolt")) {
+                       itemName = itemName.replace("Rune bolt", "Runite bolt");
+                    }
+                    if(itemName.contains("Rune limb")) {
+                       itemName = itemName.replace("Rune limb", "Runite limb");
+                    }
+                    if(itemName.contains("Red d'hide vamb")) {
+                       itemName = itemName.replace("Red d'hide vamb", "Red d'hide vambraces");
+                    }
+                    if(itemName.contains("Seers ring")) {
+                       itemName = itemName.replace("Seers ring", "Seers' ring");
+                    }
+                    if(itemName.contains("Antifire potion")) {
+                       itemName = itemName.replace("Antifire potion", "Antifire");
+                    }
+                    if(itemName.contains(" attack(")) {
+                       itemName = itemName.replace(" attack(", " attack (");
+                    }
+                    if(itemName.contains(" brew(")) {
+                       itemName = itemName.replace(" brew(", " brew (");
+                    }
+                    if(itemName.contains("Mystic robe bottom (dark)")) {
+                       itemName = itemName.replace("Mystic robe bottom (dark)", "Mystic robe bottom");
+                    }
+                    if(itemName.contains("Mystic robe top (dark)")) {
+                       itemName = itemName.replace("Mystic robe top (dark)", "Mystic robe top");
+                    }
+                    if(itemName.contains("Mystic gloves (dark)")) {
+                       itemName = itemName.replace("Mystic gloves (dark)", "Mystic gloves");
+                    }
+                    if(itemName.contains("Antipoison(")) {
+                       itemName = itemName.replace("Antipoison(", "Antipoison (");
+                    }
+                    if(itemName.contains("Grimy dwarf weed seed")) {
+                       itemName = itemName.replace("Grimy dwarf weed seed", "Dwarf weed seed");
+                    }
+                    if(itemName.contains("Grimy ranarr weed")) {
+                       itemName = itemName.replace("Grimy ranarr weed", "Grimy ranarr");
+                    }
+                    if(itemName.contains("Archers ring")) {
+                       itemName = itemName.replace("Archers ring", "Archers' ring");
+                    }
+
+                    boolean found = false;
+                    for (int i = 0; i < ItemDefinition.getMaxAmountOfItems() - 1; i++) {
+                        if (found) {
+                            continue;
+                        }
+                        if (ItemDefinition.forId(i).getName().toLowerCase().equalsIgnoreCase(itemName.toLowerCase())) {
+                            itemId = i;
+                            found = true;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("No drop found for npc id "+npcId+", item name: "+itemName);
+                        continue;
+                    }
+                    if(value2.equals("none")) {
+                        value2 = value1;
+                    }
+                    if(value1.toLowerCase().equals("unknown") || value2.toLowerCase().equals("unknown")) {
+                        value1 = value1.replaceAll("Unknown", "1");
+                        value2 = value2.replaceAll("Unknown", "1");
+                    }
+                    value1 = value1.replaceAll(",", "");
+                    value2 = value2.replaceAll(",", "");
+
+                    if(noted) {
+                        ItemDefinition definition1 = ItemDefinition.forId(itemId);
+                        ItemDefinition definition2 = ItemDefinition.forId(itemId + 1);
+                        if(!definition1.isNoted() && definition2.isNoted() && definition1.getName().equals(definition2.getName())) {
+                            itemId = itemId + 1;
+                        }
+                    }
+
+                    if(value1.contains(";")) {
+                        value1 = value1.substring(0, value1.indexOf(";"));
+                        value2 = value2.substring(value2.lastIndexOf(";") + 2);
+                    }
+
+                    if(itemId == 617) { //Coins fix
+                        itemId = 995;
+                    }
+                    //System.out.println("Item name: " + itemName + ", Amount: " + value1 + "-" + value2 + ", Rarity: " + rarityName);
+
+                    NpcDefinition npcDef = NpcDefinition.forId(npcId);
+                    if(npcDef.getCombatLevel() < 20) {
+                        DropManager.addCharm(npcId, DropTable.CHARM.GOLD, 1, 100);
+                    } else if(npcDef.getCombatLevel() < 50) {
+                        DropManager.addCharm(npcId, DropTable.CHARM.GOLD, 1, 50);
+                        DropManager.addCharm(npcId, DropTable.CHARM.GREEN, 1, 50);
+                    } else if(npcDef.getCombatLevel() < 100) {
+                        DropManager.addCharm(npcId, DropTable.CHARM.CRIMS, 1, 50);
+                        DropManager.addCharm(npcId, DropTable.CHARM.GREEN, 1, 25);
+                    } else if(npcDef.getCombatLevel() < 150) {
+                        DropManager.addCharm(npcId, DropTable.CHARM.CRIMS, 1, 30);
+                        DropManager.addCharm(npcId, DropTable.CHARM.GREEN, 1, 25);
+                        DropManager.addCharm(npcId, DropTable.CHARM.BLUE, 1, 50);
+                    } else {
+                        DropManager.addCharm(npcId, DropTable.CHARM.GREEN, 1, 50);
+                        DropManager.addCharm(npcId, DropTable.CHARM.BLUE, 1, 50);
+                    }
+                    DropManager.addDrop(npcId, itemId, Integer.parseInt(value1), Integer.parseInt(value2), rarity, Drop.CONDITION.NONE);
                 }
             }
         } catch (Exception e) {
@@ -137,7 +338,10 @@ public class WikiDumper {
         }
     }
 
-    public static ArrayList<String> getItemPage(String name) {
+    public static ArrayList<String> getNpcPage(String name) {
+        if(name.equals("Grave_scorpion")) {
+            name = "Scorpion";
+        }
         ArrayList<String> PAGE_LINES = new ArrayList<String>();
         URL url;
         InputStream is = null;
@@ -145,7 +349,7 @@ public class WikiDumper {
         String line;
 
         try {
-            url = new URL("http://runescape.wikia.com/wiki/"+name);
+            url = new URL("http://2007.runescape.wikia.com/wiki/"+name);
             is = url.openStream();  // throws an IOException
             br = new BufferedReader(new InputStreamReader(is));
 

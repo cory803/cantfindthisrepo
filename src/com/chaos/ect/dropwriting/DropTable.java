@@ -4,13 +4,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.*;
+import java.util.HashMap;
 import java.util.Map;
 
 public class DropTable {
     public int id;
     public int[] similiarIds;
-    public ObservableList<Drop> drops = FXCollections.emptyObservableList();
-    public ObservableList<Charm> charmRate;
+    public ObservableList<Drop> drops = FXCollections.observableArrayList();
+    public ObservableList<Charm> charmRate = FXCollections.observableArrayList();
     public boolean accessRareTable;
     public float clueChance;
 
@@ -20,7 +21,7 @@ public class DropTable {
         this.clueChance = 0.0F;
     }
 
-    public static Map<Integer, DropTable> dropTables;
+    public static Map<Integer, DropTable> dropTables = new HashMap<Integer, DropTable>();
 
     public static Drop[][] sortByRarity(DropTable d) {
         int highestRarity = 0;

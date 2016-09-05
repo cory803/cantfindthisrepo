@@ -89,7 +89,7 @@ public class DropManager {
          * Check to see if the npc already has a charm to be dropped.  If not we make a new list for the charm to be added.
          */
         if (dropTable.charmRate == null) {
-            dropTable.charmRate = FXCollections.emptyObservableList();
+            dropTable.charmRate = FXCollections.observableArrayList();
         }
 
         /**
