@@ -124,6 +124,9 @@ public class Woodcutting {
 											if (fmLog == Logdata.logData.MAPLE) {
 												Achievements.doProgress(player, AchievementData.BURN_200_MAPLE_LOGS);
 											}
+											if (fmLog == Logdata.logData.YEW) {
+												Achievements.doProgress(player, AchievementData.BURN_500_YEW_LOGS);
+											}
 											if (fmLog == logData.WILLOW) {
 												Achievements.finishAchievement(player, AchievementData.BURN_WILLOW);
 											}
@@ -131,6 +134,9 @@ public class Woodcutting {
 									}
 									if (t == Trees.MAPLE) {
 										Achievements.doProgress(player, AchievementData.CHOP_250_MAPLE_LOGS);
+									}
+									if (t == Trees.YEW) {
+										Achievements.doProgress(player, AchievementData.CHOP_750_YEW_LOGS);
 									}
 									if (t == Trees.MAGIC) {
 										Achievements.doProgress(player, AchievementData.CUT_5000_MAGIC_LOGS);

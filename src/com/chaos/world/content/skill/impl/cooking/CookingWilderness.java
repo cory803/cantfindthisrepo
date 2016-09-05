@@ -64,6 +64,8 @@ public class CookingWilderness {
 						Achievements.finishAchievement(player, AchievementData.COOK_LOBSTER);
 					} else if (fish == CookingWildernessData.SHARK) {
 						Achievements.doProgress(player, AchievementData.COOK_100_SHARKS);
+					} else if (fish == CookingWildernessData.MANTA_RAY) {
+						Achievements.doProgress(player, AchievementData.COOK_500_MANTA);
 					} else if (fish == CookingWildernessData.ROCKTAIL) {
 						Achievements.doProgress(player, AchievementData.COOK_1000_ROCKTAILS);
 					}

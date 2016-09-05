@@ -88,6 +88,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 						new Graphic(113, GraphicHeight.LOW));
 				player.getSkillManager().addSkillExperience(Skill.MAGIC, spell.baseExperience());
 				player.getPacketSender().sendTab(GameSettings.MAGIC_TAB);
+				Achievements.doProgress(player, Achievements.AchievementData.HIGH_ALCH_ITEMS);
 				break;
 			case SUPERHEAT_ITEM:
 				for (int i = 0; i < ORE_DATA.length; i++) {
