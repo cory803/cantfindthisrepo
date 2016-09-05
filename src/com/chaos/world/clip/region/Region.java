@@ -726,6 +726,26 @@ public final class Region {
         return null;
     }
 
+//    public GameObject gateAtPosition(String name, int x, int y) {
+//        for (GameObject object : objects) {
+//            if(object == null) {
+//                continue;
+//            }
+//            if(object.getName().toLowerCase().equals(name.toLowerCase())) {
+//                if(x == object.getPosition().getX() + 1 || x == object.getPosition().getX() - 1 || x == object.getPosition().getX()) {
+//                    if(y == object.getPosition().getY() + 1 || y == object.getPosition().getY() - 1) {
+//                        return object;
+//                    }
+//                } else if(x == object.getPosition().getX() + 1 || x == object.getPosition().getX() - 1) {
+//                    if(y == object.getPosition().getY() + 1 || y == object.getPosition().getY() - 1 || y == object.getPosition().getY()) {
+//                        return object;
+//                    }
+//                }
+//            }
+//        }
+//        return null;
+//    }
+
     public GameObject getObject(Position position, int type) {
         for (GameObject object : objects) {
             if(object == null) {

@@ -452,6 +452,11 @@ public class World {
 			return;
 		}
 		if (!definition.unwalkable) {
+			if(definition.getName() != null) {
+				if(definition.getName().equalsIgnoreCase("gate")) {
+					return;
+				}
+			}
 			return;
 		}
 		Position position = object.getPosition();
@@ -587,6 +592,11 @@ public class World {
 			return;
 		}
 		if (!definition.unwalkable) {
+			if(definition.getName() != null) {
+				if(definition.getName().equalsIgnoreCase("gate")) {
+					return;
+				}
+			}
 			return;
 		}
 		int type = object.getType();

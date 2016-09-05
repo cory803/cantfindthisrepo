@@ -62,14 +62,13 @@ public final class GameObjectDefinition {
 		}
 		cacheIndex = (cacheIndex + 1) % 20;
 		GameObjectDefinition object = cache[cacheIndex];
-		/* Removing doors etc */
-
-		/*
-		if (removedObject(id)) {
-			object.unwalkable = false;
-			return object;
+		/* Removing objects etc */
+		for (int ids = 0; ids < removeObjects.length; ids++) {
+			if (id == removeObjects[ids]) {
+				object.unwalkable = false;
+				return object;
+			}
 		}
-		*/
 		dataBuffer667.position(streamIndices667[id]);
 		object.id = id;
 		object.nullLoader();
@@ -80,7 +79,8 @@ public final class GameObjectDefinition {
 		}
 		return object;
 	}
-
+	private static final int[] removeObjects = {12988, 12989, 12987, 15514, 15516, 12986, 28122, 23987, 4651, 4565, 52843, 23897, 23633, 307, 8985, 57264, 23983, 632, 4656,
+			24265, 24271, 24272, 24274, 24273, 24275, 24266, 24267, 24268, 24269, 24270};
 	public static GameObjectDefinition forId(int i) {
 		if (i > streamIndices525.length) {
 			return forId667(i);
@@ -100,11 +100,12 @@ public final class GameObjectDefinition {
 		}
 
 		dataBuffer525.position(streamIndices525[i]);
-		/* Removing doors etc */
-		boolean removeObject = i == 28122;
-		if (removeObject) {
-			class46.unwalkable = false;
-			return class46;
+		/* Removing objects etc */
+		for (int ids = 0; ids < removeObjects.length; ids++) {
+			if (i == removeObjects[ids]) {
+				class46.unwalkable = false;
+				return class46;
+			}
 		}
 		class46.id = i;
 		class46.nullLoader();

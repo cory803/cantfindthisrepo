@@ -17,6 +17,7 @@ import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.ChaosTunnelHandler;
 import com.chaos.world.World;
+import com.chaos.world.clip.region.Region;
 import com.chaos.world.content.CrystalChest;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.ShootingStar;
@@ -69,6 +70,7 @@ public class ObjectActionPacketListener implements PacketListener {
 	// Logger.getLogger(ObjectActionPacketListener.class);
 	private static void firstClick(final Player player, Packet packet) {
 		final int x = packet.readLEShortA();
+		System.out.println(""+x);
 		final int id = packet.readUnsignedShort();
 		final int y = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
@@ -122,6 +124,15 @@ public class ObjectActionPacketListener implements PacketListener {
 						if (player.getFarming().click(player, x, y, 1))
 							return;
 						if (DoorManager.isDoor(gameObject)) {
+//							if(gameObject.getName().toLowerCase().contains("gate")) {
+//								Region region = World.loadRegion(x, y);
+//								int positionX = gameObject.getPosition().getX();
+//								int positionY = gameObject.getPosition().getY();
+//								GameObject doubleDoor = region.gateAtPosition("gate", positionX, positionY);
+//								if(doubleDoor != null) {
+//									DoorManager.isDoor(doubleDoor);
+//								}
+//							}
 							return;
 						}
 						if (Runecrafting.runecraftingAltar(player, gameObject.getId())) {
