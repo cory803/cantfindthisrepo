@@ -1910,5 +1910,27 @@
       }
     ],
     "currency": -1
+  },
+  {
+    "id": 24,
+    "name": "Vote Shop",
+    "items": [
+      {
+        "id": 11517,
+        "amount": 2000000000
+      }
+    ],
+    "currency": -1
+  },
+  {
+    "id": 25,
+    "name": "Ironman Vote Shop",
+    "items": [
+      {
+        "id": 11517,
+        "amount": 2000000000
+      }
+    ],
+    "currency": -1
   }
 ]
