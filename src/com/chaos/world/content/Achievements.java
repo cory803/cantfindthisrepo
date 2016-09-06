@@ -143,14 +143,14 @@ public class Achievements {
 			return false;
 		}
 		int index = -1;
-		if (button >= -28531 && button <= -28502) {
+		if (button >= -28531 && button <= -28500) {
 			index = 28531 + button;
-		} else if (button >= -28499 && button <= -28469) {
-			index = 30 + 28499 + button;
-		} else if (button >= -28466 && button <= -28435) {
-			index = 61 + 28466 + button;
-		} else if (button >= -28432 && button <= -28425) {
-			index = 93 + 28432 + button;
+		} else if(button >= -28497 && button <= -28468) {
+			index = 28529 + button;
+		} else if(button >= -28465 && button <= -28441) {
+			index = 28527 + button;
+		} else if(button >= -28439 && button <= -28425) {
+			index = 28526 + button;
 		}
 		if (index >= 0 && index < AchievementData.values().length) {
 			AchievementData achievement = AchievementData.values()[index];
