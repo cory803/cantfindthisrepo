@@ -1,5 +1,6 @@
 package com.chaos.ect.dropwriting;
 
+import com.chaos.model.definitions.ItemDefinition;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -9,6 +10,7 @@ public class Charm {
 
     public Charm(int id, int amount, int chance) {
         this.item.set(id);
+        this.charm.set(ItemDefinition.forId(id).getName().replace("charm", ""));
         this.amount.set(amount);
         this.chance.set(chance);
     }

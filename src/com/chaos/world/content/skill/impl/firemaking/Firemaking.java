@@ -98,6 +98,9 @@ public class Firemaking {
 				if (logData == Logdata.logData.MAPLE) {
 					Achievements.doProgress(player, AchievementData.BURN_200_MAPLE_LOGS);
 				}
+				if (logData == Logdata.logData.YEW) {
+					Achievements.doProgress(player, AchievementData.BURN_500_YEW_LOGS);
+				}
 				if (logData == Logdata.logData.MAGIC) {
 					Achievements.doProgress(player, AchievementData.BURN_2500_MAGIC_LOGS);
 				}

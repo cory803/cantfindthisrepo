@@ -4,6 +4,7 @@ import com.chaos.model.Animation;
 import com.chaos.model.Graphic;
 import com.chaos.model.Item;
 import com.chaos.model.Skill;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -86,6 +87,7 @@ public class Enchanting {
 							player.performGraphic(new Graphic(759));
 							player.getInventory().add(new Item(d.getEnchantedBoltId(), 10));
 							player.getSkillManager().addSkillExperience(Skill.MAGIC, d.getExperience());
+							Achievements.doProgress(player, Achievements.AchievementData.ENCHANT_1000_BOLTS, 10);
 						} else {
 							player.getPacketSender().sendMessage("You do not have the required runes for this spell.");
 						}

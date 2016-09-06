@@ -231,7 +231,47 @@ public class LootSystem {
      * @return The item that has been chosen to drop.
      */
     private static Item rollDrop(Player player, NPC npc, LootItem[][] table) {
-        //TODO: Redo drop rate systematics @return new Item();
+        /**
+         * Increase the drop rarity.
+         */
+        int rollReq = player.getGameModeAssistant().getMonsterDropRate();
+
+        /**
+         * Make it so donors have better drop rates.
+         */
+        rollReq += player.getDonatorRights().ordinal();
+
+
+        int x = npc.getDefinition().getCombatLevel() - npc.getDefinition().getCombatLevel() % 225;
+        rollReq += x / 225;
+
+        /**
+         * Lets roll our drop table.
+         */
+        for (int i = 1; i < table.length; i++) {
+            if (dice.nextInt(100 + ((i - 1) * 8)) <= rollReq && i != table.length - 1){
+                continue;
+            }
+            if (table[i].length == 0) {
+                return null;
+            }
+            LootItem loot = table[i][dice.nextInt(table[i].length)];
+            if (loot.getId() != -1) {
+                if (meetsCondition(player, loot.getCondition(), loot.getId(), npc)) {
+                    return new Item(loot.getId(), loot.getRandomAmount());
+                } else {
+                    if (!player.getCurrentClanChat().getLootShare()) {
+                        if (loot.getCondition() == LootItem.CONDITION.DONOR) {
+                            player.getPacketSender().sendMessage("You have missed out on a donor only drop! You can get this drop next time by getting a donor rank.");
+                        } else if (loot.getCondition() == LootItem.CONDITION.TASK) {
+                            player.getPacketSender().sendMessage("You have missed out on a slayer task only drop. You can get a slayer task from a slayer master.");
+                        }
+                    }
+                    int randomAmount = i * (12_000 + dice.nextInt(500));
+                    return new Item(995, randomAmount);
+                }
+            }
+        }
         return null;
     }
 

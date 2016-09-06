@@ -8,6 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import com.chaos.cache.Archive;
+import com.chaos.ect.dropwriting.DropManager;
 import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.FontUtils;
@@ -79,9 +80,10 @@ public final class GameLoader {
 		WeaponInterfaces.parseInterfaces().load();
 		ShopManager.parseShops().load();
 		PlayerOwnedShopManager.load();
-		//WikiDumper.dumpItemDefinition(14171);
-		//WikiDumper.dumpItemDefinitions();
 		NPC.init();
+		//WikiDumper.dumpNpcDefinitions();
+		//DropManager.saveDrops();
+		//WikiDumper.dumpItemDefinitions();
 	}
 
 	public GameEngine getEngine() {

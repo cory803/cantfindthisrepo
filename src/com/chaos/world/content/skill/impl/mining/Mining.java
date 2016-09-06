@@ -109,8 +109,13 @@ public class Mining {
 								}
 								if (cycle == reqCycle) {
 									if (o == Ores.Runite) {
-										Achievements.doProgress(player, AchievementData.MINE_200_COAL);
 										Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
+									}
+									if (o == Ores.Coal) {
+										Achievements.doProgress(player, AchievementData.MINE_400_COAL);
+									}
+									if (o == Ores.Adamantite) {
+										Achievements.doProgress(player, AchievementData.MINE_400_ADDY);
 									}
 									if (o == Ores.Iron) {
 										Achievements.finishAchievement(player, AchievementData.MINE_IRON);

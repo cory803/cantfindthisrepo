@@ -214,6 +214,8 @@ public class Fishing {
 						Achievements.finishAchievement(p, AchievementData.CATCH_LOBSTER);
 					} else if (s.getRawFish()[fishIndex] == 383) {
 						Achievements.doProgress(p, AchievementData.FISH_100_SHARKS);
+					} else if (s.getRawFish()[fishIndex] == 389) {
+						Achievements.doProgress(p, AchievementData.FISH_700_MANTA);
 					} else if (s.getRawFish()[fishIndex] == 15270) {
 						Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
 					} else if(s.getRawFish()[fishIndex] == 15271) {

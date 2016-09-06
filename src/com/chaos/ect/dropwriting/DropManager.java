@@ -3,6 +3,7 @@ package com.chaos.ect.dropwriting;
 import javafx.collections.FXCollections;
 
 import java.io.File;
+import java.util.HashMap;
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -29,8 +30,10 @@ public class DropManager {
      */
     public static void addDrop(int npcId, int itemId, int minimum, int maximum, Drop.RARITY rarity, Drop.CONDITION condition) {
         if (DropTable.dropTables == null) {
+            DropTable.dropTables = new HashMap<>();
             DropTable.deSerialize(file);
         }
+
         DropTable dropTable;
 
         /**
@@ -54,6 +57,7 @@ public class DropManager {
         drop.setRarity(rarity);
         drop.setCondition(condition);
 
+
         /**
          * Add the drop to the drop table.
          */
@@ -69,6 +73,7 @@ public class DropManager {
      */
     public static void addCharm(int npcId, DropTable.CHARM charm, int amount, int chance) {
         if (DropTable.dropTables == null) {
+            DropTable.dropTables = new HashMap<>();
             DropTable.deSerialize(file);
         }
 
@@ -89,18 +94,21 @@ public class DropManager {
          * Check to see if the npc already has a charm to be dropped.  If not we make a new list for the charm to be added.
          */
         if (dropTable.charmRate == null) {
-            dropTable.charmRate = FXCollections.emptyObservableList();
+            dropTable.charmRate = FXCollections.observableArrayList(new Charm[]{new Charm(12158, 1, 0), new Charm(12159, 1, 0), new Charm(12160, 1, 0), new Charm(12163, 1, 0), new Charm(12162, 1, 0), new Charm(12161, 1, 0), new Charm(12168, 1, 0)});
         }
 
         /**
          * Makes a new charm drop
          */
-        Charm charm1 = new Charm(charm.getCharm(), amount, chance);
 
-        /**
-         * Add the charm to the drop table.
-         */
-        dropTable.charmRate.add(charm1);
+        for (Charm charm1 : dropTable.charmRate) {
+            if (charm1.getId() == charm.getCharm()) {
+                charm1.setChance(chance);
+                charm1.setAmount(amount);
+                break;
+            }
+        }
+
     }
 
     /**

@@ -9,7 +9,7 @@ import java.util.Map;
 public class DropTable {
     public int id;
     public int[] similiarIds;
-    public ObservableList<Drop> drops = FXCollections.emptyObservableList();
+    public ObservableList<Drop> drops = FXCollections.observableArrayList();
     public ObservableList<Charm> charmRate;
     public boolean accessRareTable;
     public float clueChance;
