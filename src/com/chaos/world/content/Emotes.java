@@ -95,6 +95,8 @@ public class Emotes {
 			animation(player, emoteData.animation, emoteData.graphic);
 			if (buttonId == 11100)
 				Achievements.finishAchievement(player, Achievements.AchievementData.BLOW_KISS);
+			if (buttonId == 154)
+				Achievements.finishAchievement(player, Achievements.AchievementData.SKILLCAPE_EMOTE);
 			return true;
 			// Skillcapes
 		} else if (buttonId == 154) {
@@ -141,7 +143,6 @@ public class Emotes {
 						protected void execute() {
 							switch (tick) {
 							case 0:
-								Achievements.finishAchievement(player, Achievements.AchievementData.SKILLCAPE_EMOTE);
 								player.performAnimation(new Animation(13190));
 								player.performGraphic(new Graphic(2442));
 								break;

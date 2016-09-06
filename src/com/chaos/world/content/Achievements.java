@@ -70,7 +70,6 @@ public class Achievements {
 		DEFEAT_NOMAD(Difficulty.MEDIUM, "Defeat Nomad", 37066, null),
 		DEFEAT_10_PLAYERS(Difficulty.MEDIUM, "Defeat 10 Players", 37067, new int[] {23, 10 }),
 		LOW_ALCH_ITEMS(Difficulty.MEDIUM, "Low Alch 300 Items", 37068, new int[] { 24, 300 }),
-        SKILLCAPE_EMOTE(Difficulty.MEDIUM, "Preform a Skillcape Emote", 37069, null),
 
 		BURY_500_FROST_DRAGON_BONES(Difficulty.HARD, "Bury 500 Frost Dragon Bones", 37072, new int[] {25, 500 }),
 		CHOP_750_YEW_LOGS(Difficulty.HARD, "Cut 750 Yew Logs", 37073, new int[] { 26, 750 }),
