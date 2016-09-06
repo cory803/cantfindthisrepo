@@ -879,10 +879,13 @@ public class Shop extends ItemContainer {
 	private static final int STARDUST_EXCHANGE_STORE = 18;
 
 	private static final int VOTING_REWARDS_STORE = 19;
-	private static final int IRON_VOTING_REWARDS_STORE = 20;
-
-	private static final int AGILITY_TICKET_STORE = 21;
+	private static final int VOTING_REWARDS_STORE2 = 20;
+	private static final int IRON_VOTING_REWARDS_STORE = 21;
 
 	private static final int PKING_REWARDS_STORE = 22;
+	private static final int PKING_REWARDS_STORE2= 23;
+
+	private static final int AGILITY_TICKET_STORE = 25;
+
 
 }
