@@ -111,8 +111,8 @@ public class Achievements {
 		CUT_AN_ONYX_STONE(Difficulty.ELITE, "Cut an Onyx Stone", 37110, null),
 		REACH_MAX_EXP_IN_A_SKILL(Difficulty.ELITE, "Reach Max Exp in a Skill", 37111, null),
 		HIT_700_WITH_SPECIAL_ATTACK(Difficulty.ELITE, "Hit 700 with Special Attack", 37112, new int[] { 52, 1 }),
-		DEFEAT_10000_MONSTERS(Difficulty.ELITE, "Defeat 10,000 Monsters", 37112, new int[] { 53, 10000 }),
-		DEFEAT_500_BOSSES(Difficulty.ELITE, "Defeat 500 Boss Monsters", 37113, new int[] { 54, 500 }),
+		DEFEAT_10000_MONSTERS(Difficulty.ELITE, "Defeat 10,000 Monsters", 37113, new int[] { 53, 10000 }),
+		DEFEAT_500_BOSSES(Difficulty.ELITE, "Defeat 500 Boss Monsters", 37114, new int[] { 54, 500 }),
 		;
 		public static int SIZE = AchievementData.values().length;
 
@@ -138,7 +138,7 @@ public class Achievements {
 	}
 
 	public static boolean handleButton(Player player, int button) {
-		if (!(button >= -28531 && button <= -28425)) {
+		if (!(button >= -28531 && button <= -28422)) {
 			return false;
 		}
 		int index = -1;
@@ -146,10 +146,10 @@ public class Achievements {
 			index = 28531 + button;
 		} else if(button >= -28497 && button <= -28468) {
 			index = 28529 + button;
-		} else if(button >= -28465 && button <= -28441) {
-			index = 28527 + button;
-		} else if(button >= -28439 && button <= -28425) {
+		} else if(button >= -28464 && button <= -28440) {
 			index = 28526 + button;
+		} else if(button >= -28437 && button <= -28422) {
+			index = 28524 + button;
 		}
 		if (index >= 0 && index < AchievementData.values().length) {
 			AchievementData achievement = AchievementData.values()[index];
