@@ -1534,8 +1534,29 @@
       }
     }
   },
-  
-  
+ {
+	# Wiseoldman Draynor
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3088,
+        "y": 3251,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3088,
+        "y": 3250,
+        "z": 0
+      }
+    }
+  },
   
   
   
