@@ -112,7 +112,7 @@ public class Achievements {
 		REACH_MAX_EXP_IN_A_SKILL(Difficulty.ELITE, "Reach Max Exp in a Skill", 37111, null),
 		HIT_700_WITH_SPECIAL_ATTACK(Difficulty.ELITE, "Hit 700 with Special Attack", 37112, new int[] { 52, 1 }),
 		DEFEAT_10000_MONSTERS(Difficulty.ELITE, "Defeat 10,000 Monsters", 37112, new int[] { 53, 10000 }),
-		DEFEAT_500_BOSSES(Difficulty.ELITE, "Defeat 500 Boss Monsters", 37114, new int[] { 54, 500 }),
+		DEFEAT_500_BOSSES(Difficulty.ELITE, "Defeat 500 Boss Monsters", 37113, new int[] { 54, 500 }),
 		;
 		public static int SIZE = AchievementData.values().length;
 
