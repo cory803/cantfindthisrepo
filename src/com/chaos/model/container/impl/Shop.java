@@ -417,7 +417,7 @@ public class Shop extends ItemContainer {
 			currencyName = (String) obj[1];
 			if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
-			} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
+			} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getVotingPoints();
 //			} else if (id == DUNGEONEERING_STORE) {
 //				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
@@ -478,7 +478,7 @@ public class Shop extends ItemContainer {
 					} else {
 						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value, true);
-						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
+						} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value, true);
 //						} else if (id == DUNGEONEERING_STORE) {
 //							player.getPointsHandler().setDungeoneeringTokens(-value, true);
@@ -518,7 +518,7 @@ public class Shop extends ItemContainer {
 					} else {
 						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
-						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
+						} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
 //						} else if (id == DUNGEONEERING_STORE) {
 //							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
@@ -666,7 +666,7 @@ public class Shop extends ItemContainer {
 		if (shopId == GENERAL_STORE)
 			return true;
 		if (shopId == STARDUST_EXCHANGE_STORE|| shopId == RECIPE_FOR_DISASTER_STORE
-				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE
+				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE2
 				|| shopId == AGILITY_TICKET_STORE || shopId == TOKKUL_EXCHANGE_STORE
 				|| shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE)
 			return false;
@@ -707,128 +707,133 @@ public class Shop extends ItemContainer {
 		}
 
 		public static Object[] getCustomShopData(int shop, int item) {
-			if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2) {
+			if (shop == VOTING_REWARDS_STORE || shop == VOTING_REWARDS_STORE2) {
+				switch (item) {
+					case 14484: // id
+						return new Object[] { 5, "Vote points" }; //5 = how many vote points
+				}
+			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2) {
 				switch (item) {
 
-				case 14484:
-					return new Object[] { 5500, "Pk points" };
+					case 14484:
+						return new Object[] { 5500, "Pk points" };
 
-				case 11694:
-					return new Object[] { 5750, "Pk points" };
+					case 11694:
+						return new Object[] { 5750, "Pk points" };
 
-				case 19780:
-					return new Object[] { 6500, "Pk points" };
+					case 19780:
+						return new Object[] { 6500, "Pk points" };
 
-				case 13920:
-					return new Object[] {1000, "Pk points" };
+					case 13920:
+						return new Object[] {1000, "Pk points" };
 
-				case 13908:
-					return new Object[] {1500, "Pk points" };
+					case 13908:
+						return new Object[] {1500, "Pk points" };
 
-				case 13914:
-					return new Object[] {1500, "Pk points" };
+					case 13914:
+						return new Object[] {1500, "Pk points" };
 
-				case 13926:
-					return new Object[] {2000, "Pk points" };
+					case 13926:
+						return new Object[] {2000, "Pk points" };
 
-				case 13911:
-					return new Object[] {2500, "Pk points" };
+					case 13911:
+						return new Object[] {2500, "Pk points" };
 
-				case 13917:
-					return new Object[] {2500, "Pk points" };
+					case 13917:
+						return new Object[] {2500, "Pk points" };
 
-				case 13923:
-					return new Object[] {3000, "Pk points" };
+					case 13923:
+						return new Object[] {3000, "Pk points" };
 
-				case 13929:
-					return new Object[] {2250, "Pk points" };
+					case 13929:
+						return new Object[] {2250, "Pk points" };
 
-				case 13950:
-					return new Object[] {500, "Pk points" };
+					case 13950:
+						return new Object[] {500, "Pk points" };
 
-				case 13944:
-					return new Object[] {1000, "Pk points" };
+					case 13944:
+						return new Object[] {1000, "Pk points" };
 
-				case 13947:
-					return new Object[] {1000, "Pk points" };
+					case 13947:
+						return new Object[] {1000, "Pk points" };
 
-				case 13938:
-					return new Object[] {500, "Pk points" };
+					case 13938:
+						return new Object[] {500, "Pk points" };
 
-				case 13932:
-					return new Object[] {1000, "Pk points" };
+					case 13932:
+						return new Object[] {1000, "Pk points" };
 
-				case 13935:
-					return new Object[] {1000, "Pk points" };
+					case 13935:
+						return new Object[] {1000, "Pk points" };
 
-				case 11517:
-					return new Object[] {10, "Pk points" };
+					case 11517:
+						return new Object[] {10, "Pk points" };
 
-				case 11525:
-					return new Object[] {10, "Pk points" };
+					case 11525:
+						return new Object[] {10, "Pk points" };
 
-				case 6570:
-					return new Object[] {500, "Pk points" };
+					case 6570:
+						return new Object[] {500, "Pk points" };
 
-				case 19111:
-					return new Object[] {2000, "Pk points" };
+					case 19111:
+						return new Object[] {2000, "Pk points" };
 
-				case 8850:
-					return new Object[] {500, "Pk points" };
+					case 8850:
+						return new Object[] {500, "Pk points" };
 
-				case 13262:
-					return new Object[] {1000, "Pk points" };
+					case 13262:
+						return new Object[] {1000, "Pk points" };
 
-				case 10551:
-					return new Object[] {1000, "Pk points" };
+					case 10551:
+						return new Object[] {1000, "Pk points" };
 
-				case 4151:
-					return new Object[] {500, "Pk points" };
+					case 4151:
+						return new Object[] {500, "Pk points" };
 
-				case 11283:
-					return new Object[] {750, "Pk points" };
+					case 11283:
+						return new Object[] {750, "Pk points" };
 
-				case 6585:
-					return new Object[] {500, "Pk points" };
+					case 6585:
+						return new Object[] {500, "Pk points" };
 
-				case 21140:
-					return new Object[] {7500, "Pk points" };
+					case 21140:
+						return new Object[] {7500, "Pk points" };
 
-				case 15126:
-					return new Object[] {500, "Pk points" };
+					case 15126:
+						return new Object[] {500, "Pk points" };
 
-				case 13576:
-					return new Object[] {3000, "Pk points" };
+					case 13576:
+						return new Object[] {3000, "Pk points" };
 
-				case 20171:
-					return new Object[] {12000, "Pk points" };
+					case 20171:
+						return new Object[] {12000, "Pk points" };
 
-				case 12926:
-					return new Object[] {22500, "Pk points" };
+					case 12926:
+						return new Object[] {22500, "Pk points" };
 
-				case 21144:
-					return new Object[] {30000, "Pk points" };
+					case 21144:
+						return new Object[] {30000, "Pk points" };
 
-				case 21146:
-					return new Object[] {15, "Pk points" };
+					case 21146:
+						return new Object[] {15, "Pk points" };
 
-				case 21107:
-					return new Object[] {7500, "Pk points" };
+					case 21107:
+						return new Object[] {7500, "Pk points" };
 
-				case 19672:
-					return new Object[] {9000, "Pk points" };
+					case 19672:
+						return new Object[] {9000, "Pk points" };
 
-				case 19673:
-					return new Object[] {9000, "Pk points" };
+					case 19673:
+						return new Object[] {9000, "Pk points" };
 
-				case 19674:
-					return new Object[] {9000, "Pk points" };
+					case 19674:
+						return new Object[] {9000, "Pk points" };
 
-				case 7968:
-					return new Object[] {1000, "Pk points" };
+					case 7968:
+						return new Object[] {1000, "Pk points" };
 
-				case 11601:
-					return new Object[] {35000, "Pk points" };
+					case 11601:
+						return new Object[] {35000, "Pk points" };
 
 				}
 			}
