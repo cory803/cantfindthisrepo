@@ -415,7 +415,7 @@ public class Shop extends ItemContainer {
 				return this;
 			value = (int) obj[0];
 			currencyName = (String) obj[1];
-			if (id == PKING_REWARDS_STORE) {
+			if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
 			} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getVotingPoints();
@@ -476,7 +476,7 @@ public class Shop extends ItemContainer {
 							player.getInventory().delete(currency.getId(), value, false);
 						}
 					} else {
-						if (id == PKING_REWARDS_STORE) {
+						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value, true);
 						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value, true);
@@ -516,7 +516,7 @@ public class Shop extends ItemContainer {
 							player.getInventory().delete(currency.getId(), value * canBeBought, false);
 						}
 					} else {
-						if (id == PKING_REWARDS_STORE) {
+						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
 						} else if (id == VOTING_REWARDS_STORE || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
@@ -707,7 +707,7 @@ public class Shop extends ItemContainer {
 		}
 
 		public static Object[] getCustomShopData(int shop, int item) {
-			if (shop == PKING_REWARDS_STORE) {
+			if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2) {
 				switch (item) {
 
 				case 14484:
@@ -879,7 +879,7 @@ public class Shop extends ItemContainer {
 	private static final int STARDUST_EXCHANGE_STORE = 18;
 
 	private static final int PKING_REWARDS_STORE = 21;
-	private static final int PKING_REWARDS_STORE2= 22;
+	private static final int PKING_REWARDS_STORE2 = 22;
 
 	private static final int VOTING_REWARDS_STORE = 23;
 	private static final int VOTING_REWARDS_STORE2 = 24;

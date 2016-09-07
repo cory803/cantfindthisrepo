@@ -66,6 +66,11 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //Oziach
+            case 747:
+                player.getDialog().sendDialog(new Oziach(player));
+                break;
+
             //Duel arena healers
             case 959:
             case 960:
