@@ -4,6 +4,7 @@ import com.chaos.GameSettings;
 import com.chaos.model.*;
 import com.chaos.model.input.impl.EnterAmountToDice;
 import com.chaos.model.input.impl.EnterForumAccountTokens;
+import com.chaos.model.player.dialog.Dialog;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
@@ -36,6 +37,8 @@ import com.chaos.world.content.transportation.jewelry.CombatTeleporting;
 import com.chaos.world.content.transportation.jewelry.GloryTeleporting;
 import com.chaos.world.content.transportation.jewelry.SkillsTeleporting;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.KnightLamp;
+import org.scripts.kotlin.content.dialog.teleports.CityTeleports;
 
 public class ItemActionPacketListener implements PacketListener {
 
@@ -92,6 +95,9 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 10586:
+				player.getDialog().sendDialog(new KnightLamp(player));
+				break;
 			case 21776:
 				if (player.getInventory().contains(21776) && player.getInventory().getAmount(21776) >= 100) {
 					if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) >= 80) {
