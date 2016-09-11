@@ -5,6 +5,9 @@ import com.chaos.model.*;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.PosSearchShop;
+import com.chaos.model.options.twooption.TwoOption;
+import com.chaos.model.player.dialog.Dialog;
+import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.content.*;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.pos.PlayerOwnedShops;
@@ -244,6 +247,10 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Oziach
+            case 747:
+                Artifacts.sellArtifacts(player);
+                break;
             //Duel arena healers
             case 959:
             case 960:
@@ -385,9 +392,6 @@ public final class ActionHandler {
             // THIRD_CLICK_OPCODE");
         }
         switch (npc.getId()) {
-            case 747:
-                Artifacts.sellArtifacts(player);
-                break;
             case 2127:
                 if (!GameSettings.POS_ENABLED) {
                     player.getPacketSender().sendMessage("Player owned shops have been disabled.");
