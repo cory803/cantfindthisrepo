@@ -38,6 +38,7 @@ import com.chaos.world.content.skill.impl.summoning.PouchMaking;
 import com.chaos.world.content.skill.impl.summoning.SummoningTab;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.ClanChatDialogue;
 import org.scripts.kotlin.content.dialog.teleports.*;
 
 /**
@@ -287,11 +288,11 @@ public class ButtonClickPacketListener implements PacketListener {
                         .sendTab(GameSettings.MAGIC_TAB).sendConfig(108, player.getAutocastSpell() == null ? 3 : 1);
                 break;
             case 29335:
-                if (player.getInterfaceId() > 0) {
-                    player.getPacketSender()
-                            .sendMessage("Please close the interface you have open before opening another one.");
+                if(player.getInterfaceId() > 0) {
+                    player.getPacketSender().sendMessage("Please close the interface you have open before opening another one.");
                     return;
                 }
+                player.getDialog().sendDialog(new ClanChatDialogue(player));
                 break;
             case 29455:
                 if (player.getInterfaceId() > 0) {
