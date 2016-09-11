@@ -8,17 +8,22 @@ import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.entity.impl.player.Player;
 
 public class KnightLamp extends Dialog {
-    String msg = "";
-    private String bonusLevel(Player player, Skill skill) {
+
+    private String msg = "";
+
+    private void bonusLevel(Player player, Skill skill) {
+        player.getPacketSender().sendInterfaceRemoval();
         if (player.getInventory().contains(10586)) {
+            player.getPacketSender().sendInterfaceRemoval();
             player.getInventory().delete(10586, 1);
             player.getSkillManager().setMaxLevel(skill, 99);
             player.getSkillManager().setCurrentLevel(skill, 99);
-            player.getSkillManager().setExperience(skill, 99, true);
+            player.getSkillManager().setExperience(skill, 13034431, true);
             player.getPacketSender().sendInterfaceRemoval();
-            return "You have boosted your " + skill.getName() + " level to 99.";
+            msg = "You have boosted your " + skill.getName() + " level to 99.";
+        } else {
+            msg = "You do not have a lamp in your inventory.";
         }
-        return "You do not have a lamp in your inventory.";
     }
 
     public Dialog dialog = this;
@@ -44,19 +49,29 @@ public class KnightLamp extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_5:
-                                msg = bonusLevel(player, Skill.ATTACK);
+                                bonusLevel(player, Skill.ATTACK);
+                                setState(2);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                             case OPTION_2_OF_5:
-                                msg = bonusLevel(player, Skill.DEFENCE);
+                                bonusLevel(player, Skill.DEFENCE);
+                                setState(2);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                             case OPTION_3_OF_5:
-                                msg = bonusLevel(player, Skill.STRENGTH);
+                                bonusLevel(player, Skill.STRENGTH);
+                                setState(2);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                             case OPTION_4_OF_5:
-                                msg = bonusLevel(player, Skill.RANGED);
+                                bonusLevel(player, Skill.RANGED);
+                                setState(2);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                             case OPTION_5_OF_5:
-                                msg = bonusLevel(player, Skill.MAGIC);
+                                bonusLevel(player, Skill.MAGIC);
+                                setState(2);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                         }
                     }
