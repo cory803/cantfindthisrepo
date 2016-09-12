@@ -1,7 +1,7 @@
 package com.chaos.net.mysql;
 
 /**
- * The Chaos Database Informations
+ * The Chaos Database Information
  *
  * @author Jonny
  *
@@ -14,8 +14,7 @@ public class DatabaseInformationCharacters {
 
 	public static String password = "";
 
-	public static String database = "chaos";
-
+	public static String database = "chaosps";
 
 	public static int port = 3306;
 

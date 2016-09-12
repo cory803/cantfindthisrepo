@@ -101,7 +101,7 @@ public class PlayerDeathTask extends Task {
 						final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
 						playerItems.addAll(player.getInventory().getValidItems());
 						playerItems.addAll(player.getEquipment().getValidItems());
-						playerItems.addAll(degrading.getBarrowsItems()); //adds degraded barrows items
+						//playerItems.addAll(degrading.getBarrowsItems()); //adds degraded barrows items
 						final Position position = player.getPosition();
 						if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 							spawnItems = true;

@@ -31,9 +31,9 @@ public class Tutorial extends Dialog {
                 return Dialog.createNpc(DialogHandler.CALM, "Hello, Welcome to Chaos!\\nWhat Game Mode would you like?");
             case 1:
                 return Dialog.createOption(new FourOption(
-                        "Knight (x5000)",
-                        "Realism (x50)",
-                        "Ironman (x2000)",
+                        "Knight (x1000)",
+                        "Realism (x10)",
+                        "Ironman (x100)",
                         "Learn about these modes") {
                     @Override
                     public void execute(Player player, OptionType option) {
@@ -84,6 +84,45 @@ public class Tutorial extends Dialog {
                                 break;
                             case OPTION_2_OF_4:
                                 player.getGameModeAssistant().setGameMode(GameMode.REALISM);
+                                //Equipment
+                                player.getEquipment().set(Equipment.HEAD_SLOT, new Item(1153, 1));
+                                player.getEquipment().set(Equipment.BODY_SLOT, new Item(1115, 1));
+                                player.getEquipment().set(Equipment.LEG_SLOT, new Item(1067, 1));
+                                player.getEquipment().set(Equipment.FEET_SLOT, new Item(3105, 1));
+                                player.getEquipment().set(Equipment.SHIELD_SLOT, new Item(1191, 1));
+                                player.getEquipment().set(Equipment.HANDS_SLOT, new Item(11118, 1));
+                                player.getEquipment().set(Equipment.RING_SLOT, new Item(2552, 1));
+                                player.getEquipment().set(Equipment.CAPE_SLOT, new Item(1052, 1));
+                                player.getEquipment().set(Equipment.WEAPON_SLOT, new Item(1323, 1));
+                                player.getEquipment().set(Equipment.AMULET_SLOT, new Item(1712, 1));
+                                player.getEquipment().refreshItems();
+                                player.getUpdateFlag().flag(Flag.APPEARANCE);
+                                EquipPacketListener.resetWeapon(player);
+
+                                //Inventory
+                                player.getInventory().add(new Item(7947, 50), true);
+                                player.getInventory().add(new Item(386, 25), true);
+                                player.getInventory().add(new Item(2434, 2), true);
+                                player.getInventory().add(new Item(841, 1), true);
+                                player.getInventory().add(new Item(843, 1), true);
+                                player.getInventory().add(new Item(884, 250), true);
+                                player.getInventory().add(new Item(886, 100), true);
+                                player.getInventory().add(new Item(1169, 1), true);
+                                player.getInventory().add(new Item(1129, 1), true);
+                                player.getInventory().add(new Item(1095, 1), true);
+                                player.getInventory().add(new Item(1381, 1), true);
+                                player.getInventory().add(new Item(577, 1), true);
+                                player.getInventory().add(new Item(1011, 1), true);
+                                player.getInventory().add(new Item(579, 1), true);
+                                player.getInventory().add(new Item(558, 200), true);
+                                player.getInventory().add(new Item(554, 200), true);
+                                player.getInventory().add(new Item(555, 200), true);
+                                player.getInventory().add(new Item(557, 200), true);
+                                player.getInventory().add(new Item(562, 75), true);
+                                player.getInventory().add(new Item(1333, 1), true);
+                                player.getInventory().add(new Item(995, 300000), true);
+                                player.getInventory().refreshItems();
+
                                 setState(2);
                                 player.getDialog().sendDialog(dialog);
                                 break;

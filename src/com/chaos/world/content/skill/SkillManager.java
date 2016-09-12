@@ -76,7 +76,6 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager addSkillExperience(Skill skill, int experience) {
-		//TODO: Redo exp rates
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);
 	}

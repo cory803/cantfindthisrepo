@@ -1322,22 +1322,12 @@ public final class CombatFactory {
             } else {
                 for (int i : container.getExperience()) {
                     Skill skill = Skill.forId(i);
-                    if (player.getXpRate()) {
-                        player.getSkillManager().addSkillExperience(skill,
-                                (int) (((damage * .90) * skill.getExperienceMultiplier())
-                                        / container.getExperience().length));
-                    } else {
-                        player.getSkillManager().addSkillExperience(skill,
-                                (int) (((damage * .90) / container.getExperience().length)));
-                    }
+                    int exp = (int) (damage * .4);
+                    player.getSkillManager().addSkillExperience(skill, exp);
                 }
             }
-            if (player.getXpRate()) {
-                player.getSkillManager().addSkillExperience(Skill.CONSTITUTION,
-                        (int) (damage * .70) * Skill.CONSTITUTION.getExperienceMultiplier());
-            } else {
-                player.getSkillManager().addSkillExperience(Skill.CONSTITUTION, (int) (damage * .70));
-            }
+            int exp = (int) (damage * .133);
+            player.getSkillManager().addSkillExperience(Skill.CONSTITUTION, exp);
         }
     }
 
