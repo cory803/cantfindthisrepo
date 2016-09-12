@@ -92,8 +92,8 @@ public class PlayerProcess {
 			loyaltyTick++;
 		}
 
-		if (timerTick >= 1) {
-			//TODO: Add time played for player panel
+		if (timerTick >= 45) {
+			player.getPacketSender().sendString(55077, "   >- Play Time: @cha@" + Misc.getMinutesPlayed(player) + " Minutes");
 			timerTick = 0;
 		}
 		timerTick++;
