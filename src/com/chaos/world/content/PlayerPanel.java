@@ -12,7 +12,9 @@ public class PlayerPanel {
 		int kdr = 0;
 		if (player.getPlayerKillingAttributes().getPlayerDeaths() > 0) {
 			kdr = player.getPlayerKillingAttributes().getPlayerKills() / player.getPlayerKillingAttributes().getPlayerDeaths();
-		}
+		} else {
+		    kdr = player.getPlayerKillingAttributes().getPlayerKills();
+        }
 		player.getPacketSender().sendString(55072, "  @whi@[Population]");
 		player.getPacketSender().sendString(55073, "   >- Players online: @cha@"+ World.getPlayers().size());
 		player.getPacketSender().sendString(55074, "   >- Staff online: @cha@"+ World.getPlayers().size());
