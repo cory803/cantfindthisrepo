@@ -18,6 +18,7 @@ import com.chaos.model.Position;
 import com.chaos.util.Misc;
 import com.chaos.util.NameUtils;
 import com.chaos.world.World;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -206,6 +207,7 @@ public class ClanChatManager {
 			}
 			player.getPacketSender().sendMessage(
 					"You now have a clanchat channel. To enter the chat, simply use your name as keyword.");
+			Achievements.finishAchievement(player, Achievements.AchievementData.CREATE_CLAN_CHAT);
 		}
 	}
 
