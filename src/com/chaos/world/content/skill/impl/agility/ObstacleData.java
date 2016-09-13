@@ -2,12 +2,8 @@ package com.chaos.world.content.skill.impl.agility;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.Animation;
-import com.chaos.model.CombatIcon;
-import com.chaos.model.Flag;
-import com.chaos.model.Hit;
-import com.chaos.model.Hitmask;
-import com.chaos.model.Position;
+import com.chaos.engine.task.impl.WalkToTask;
+import com.chaos.model.*;
 import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.entity.impl.player.Player;
@@ -251,6 +247,9 @@ public enum ObstacleData {
 	ROPE_SWING(2282, true) {
 		@Override
 		public void cross(final Player player) {
+			if (player.getPosition().getY() < 3552) {
+				return;
+			}
 			Agility.resetProgress(player);
 			player.getPacketSender().sendMessage("You attempt to swing on the ropeswing..");
 			player.moveTo(new Position(2551, 3554));
