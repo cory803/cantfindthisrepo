@@ -1889,6 +1889,7 @@ public class ObjectActionPacketListener implements PacketListener {
 										.sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId())
 										.sendMessage("Your magic spellbook is changed..");
 								Autocasting.resetAutocast(player, true);
+								Achievements.finishAchievement(player, Achievements.AchievementData.SWITCH_SPELLBOOK);
 								break;
 							case 2274:
 								player.setRevsWarning(true);
