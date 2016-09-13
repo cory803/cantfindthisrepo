@@ -69,6 +69,11 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //Bankers
+            case 494:
+                player.getBank(0).open();
+                break;
+
             //Oziach
             case 747:
                 player.getDialog().sendDialog(new Oziach(player));
