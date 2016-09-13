@@ -6,6 +6,7 @@ import java.util.List;
 import com.chaos.util.Misc;
 import com.chaos.util.NameUtils;
 import com.chaos.world.World;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.PlayerPunishment;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.entity.impl.player.Player;
@@ -183,6 +184,7 @@ public class PlayerRelations {
 					ClanChatManager.checkFriendsRank(friend, player.getCurrentClanChat(), true);
 				}
 			}
+			Achievements.finishAchievement(player, Achievements.AchievementData.ADD_FRIEND);
 		}
 		player.getPacketSender().sendString(5067,
 				"Friends List (" + player.getRelations().getFriendList().size() + "/200)");
