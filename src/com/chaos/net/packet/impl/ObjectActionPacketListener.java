@@ -1877,6 +1877,19 @@ public class ObjectActionPacketListener implements PacketListener {
 						if (player.getThieving().stealFromStall(ThievingStall.forId(id)))
 							return;
 						switch (gameObject.getId()) {
+							case 17010:
+								if (player.getSkillManager().getMaxLevel(Skill.DEFENCE) < 40) {
+								player.getPacketSender().sendMessage("You need a Defence level of at least 40 to use this altar.");
+								return;
+								}
+								player.performAnimation(new Animation(645));
+								player.setSpellbook(player.getSpellbook() == MagicSpellbook.LUNAR ? MagicSpellbook.NORMAL
+										: MagicSpellbook.LUNAR);
+								player.getPacketSender()
+										.sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId())
+										.sendMessage("Your magic spellbook is changed..");
+								Autocasting.resetAutocast(player, true);
+								break;
 							case 2274:
 								player.setRevsWarning(true);
 								player.getPacketSender().sendMessage("You have re-enabled the revs warning toggle.");
