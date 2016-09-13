@@ -188,11 +188,11 @@ public class PlayerDeathTask extends Task {
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 				loc.onDeath(player);
 				if (player.getPosition().equals(oldPosition))
-					if (player.homeLocation == 0) {
-						player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
-					} else {
-						player.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
-					}
+//					if (player.homeLocation == 0) {
+//						player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
+//					} else {
+						player.moveTo(new Position(3094 + Misc.random(1), 3478 + Misc.random(5), 0));
+//					}
 				player = null;
 				oldPosition = null;
 				stop();
