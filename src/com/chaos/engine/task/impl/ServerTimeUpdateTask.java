@@ -78,6 +78,7 @@ public class ServerTimeUpdateTask extends Task {
 				if (GameSettings.PLAYERS_ONLINE) {
 					WebsiteOnline.updateOnline(World.getPlayers().size());
 				}
+				/*
 				if (!GameSettings.spawned_1) {
 					NPC advertiser_1 = new NPC(4002, new Position(2453, 3091));
 					World.register(advertiser_1);
@@ -91,7 +92,7 @@ public class ServerTimeUpdateTask extends Task {
 					advertiser_2.setDirection(Direction.EAST);
 					GameSettings.advertiser_2 = advertiser_2;
 					GameSettings.spawned_2 = true;
-				}
+				}*/
 				if (GameSettings.gambler_timer_1 < 14400) {
 					if (GameSettings.gambler_1) {
 						GameSettings.advertiser_1
