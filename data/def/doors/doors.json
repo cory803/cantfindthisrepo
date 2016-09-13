@@ -1557,19 +1557,6 @@
       }
     }
   },
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-
    {
 	# Lumbridge Church
 	"openState": {
@@ -1589,6 +1576,29 @@
         "hashed": true,
         "x": 3238,
         "y": 3210,
+        "z": 0
+      }
+    }
+  },
+  {
+	# Chaos altar Door
+    "openState": {
+      "id": 1531,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2940,
+        "y": 3517,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2941,
+        "y": 3517,
         "z": 0
       }
     }
