@@ -18,10 +18,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.ChaosTunnelHandler;
 import com.chaos.world.World;
 import com.chaos.world.clip.region.Region;
-import com.chaos.world.content.CrystalChest;
-import com.chaos.world.content.CustomObjects;
-import com.chaos.world.content.ShootingStar;
-import com.chaos.world.content.WildernessObelisks;
+import com.chaos.world.content.*;
 import com.chaos.world.content.combat.instanced.InstancedCerberus;
 import com.chaos.world.content.combat.magic.Autocasting;
 import com.chaos.world.content.combat.prayer.CurseHandler;
@@ -1716,10 +1713,12 @@ public class ObjectActionPacketListener implements PacketListener {
 									player.getPacketSender()
 											.sendMessage("You sense a surge of power flow through your body!");
 									player.setPrayerbook(Prayerbook.CURSES);
+									Achievements.finishAchievement(player, Achievements.AchievementData.SWITCH_PRAYBOOK);
 								} else {
 									player.getPacketSender()
 											.sendMessage("You sense a surge of purity flow through your body!");
 									player.setPrayerbook(Prayerbook.NORMAL);
+									Achievements.finishAchievement(player, Achievements.AchievementData.SWITCH_PRAYBOOK);
 								}
 								player.getPacketSender().sendTabInterface(GameSettings.PRAYER_TAB,
 										player.getPrayerbook().getInterfaceId());
