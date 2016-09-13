@@ -251,7 +251,7 @@ public class PlayerHandler {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 			player.save();
 			player.setPlayerLocked(true);
-			player.moveTo(new Position(3230, 3232, player.getIndex() * 4));
+			player.moveTo(new Position(3230, 3232, 0));
 			player.setNpcClickId(945);
 			player.getDialog().sendDialog(new Tutorial(player));
 		} else {

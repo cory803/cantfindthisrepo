@@ -22,7 +22,7 @@ class TeleportHome(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("You cannot do this at the moment.")
             return
         }
-        val position = Position(3212, 3428, 0)
+        val position = Position(3087, 3502, 0)
         TeleportHandler.teleportPlayer(player, position, player.spellbook.teleportType)
         player.packetSender.sendMessage("Teleporting you home!")
         Achievements.finishAchievement(player, Achievements.AchievementData.TELEPORT_HOME)
