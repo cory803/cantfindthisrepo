@@ -1,6 +1,8 @@
 package com.chaos.net.packet.impl;
 
 import com.chaos.GameSettings;
+import com.chaos.engine.task.Task;
+import com.chaos.engine.task.TaskManager;
 import com.chaos.model.*;
 import com.chaos.model.input.impl.EnterAmountToDice;
 import com.chaos.model.input.impl.EnterForumAccountTokens;
@@ -8,13 +10,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
-import com.chaos.world.content.CompletionistCapes;
-import com.chaos.world.content.Consumables;
-import com.chaos.world.content.Digging;
-import com.chaos.world.content.Effigies;
-import com.chaos.world.content.ExperienceLamps;
-import com.chaos.world.content.Gambling;
-import com.chaos.world.content.MoneyPouch;
+import com.chaos.world.content.*;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.skill.impl.herblore.Herblore;
 import com.chaos.world.content.skill.impl.herblore.IngridientsBook;
@@ -110,7 +106,49 @@ public class ItemActionPacketListener implements PacketListener {
 						return;
 					}
 				}
-					player.getPacketSender().sendMessage("You do not have 100 Shards of Armadyl");
+				player.getPacketSender().sendMessage("You do not have 100 Shards of Armadyl");
+				break;
+			case 8013:
+				if (player.isJailed()) {
+					player.getPacketSender().sendMessage("You can't teleport out of jail.");
+					return;
+				}
+				if (!player.getClickDelay().elapsed(4500) || player.getWalkingQueue().isLockMovement())
+					return;
+				if (!TeleportHandler.checkReqs(player, new Position(3087, 3502, 0), false)) {
+					return;
+				}
+				player.getInventory().delete(itemId, 1);
+				if(player.getTabTimer().elapsed(1500)) {
+					Sounds.sendSound(player, Sounds.Sound.TELEPORT);
+					player.currentDialog = null;
+					player.setTeleporting(true).getWalkingQueue().setLockMovement(true).clear();
+					TeleportHandler.cancelCurrentActions(player);
+					TaskManager.submit(new Task(1, player, true) {
+						int tick = 0;
+						@Override
+						public void execute() {
+							if (tick == 0) {
+								player.performAnimation(new Animation(9597));
+							} else if (tick == 4) {
+								player.moveTo(new Position(3087, 3502, 0));
+								player.performAnimation(new Animation(9598));
+								player.performGraphic(new Graphic(678));
+								player.getWalkingQueue().setLockMovement(false).clear();
+								stop();
+							}
+							tick++;
+						}
+
+						@Override
+						public void stop() {
+							setEventRunning(false);
+							player.setTeleporting(false);
+							player.getClickDelay().reset(0);
+						}
+					});
+				}
+				player.getTabTimer().reset();
 				break;
 		case 12437:
 			if (player.getSummoning().getFamiliar() != null) {

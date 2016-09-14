@@ -137,6 +137,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Sailor(player));
                 break;
 
+            //Talk to chaos guide
+            case 945:
+                player.getDialog().sendDialog(new ChaosGuide(player));
+                break;
+
             case 501:
                 for (Item item : player.getInventory().getItems()) {
                     ItemDefinition def = ItemDefinition.forId(item.getId() + 1);

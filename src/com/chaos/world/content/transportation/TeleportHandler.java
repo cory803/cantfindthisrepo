@@ -141,7 +141,7 @@ public class TeleportHandler {
 		if (player.getLocation() == null) {
 			player.getPacketSender().sendInterfaceRemoval();
 			player.getPacketSender()
-					.sendMessage("The location you have tried to teleport to is null, please report @ :;support!");
+					.sendMessage("The location you have tried to teleport to is null, please report @ ::support!");
 			return false;
 		}
 		if (player.isPlayerLocked() || player.isCrossingObstacle()) {
