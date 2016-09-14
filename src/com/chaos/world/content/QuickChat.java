@@ -8,7 +8,7 @@ import com.chaos.world.entity.impl.player.Player;
  */
 public class QuickChat {
 
-    private static Stopwatch timer = new Stopwatch().reset();
+    private static Stopwatch timer = new Stopwatch();
 
     public static String[] quickChat = new String[] { "Attack", "Defence", "Strength", "Constitution",
     "Range", "Prayer", "Magic", "Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting",
@@ -16,7 +16,7 @@ public class QuickChat {
     "Construction", "Hunter", "Summoning", "Dungeoneering"};
 
     public static void handleButtons(Player player, int id) {
-        if (timer.elapsed(5000)) {
+        if (!timer.elapsed(5000)) {
             player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
             return;
         }
