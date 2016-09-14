@@ -22,6 +22,7 @@ public class ChaosGuide extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
+                return Dialog.createNpc(DialogHandler.CALM, "Hello "+getPlayer().getUsername()+", do you need any assistance?");
             case 1:
                 return Dialog.createOption(new FourOption(
                         "I need to change my password.",
@@ -58,6 +59,7 @@ public class ChaosGuide extends Dialog {
             case 3:
                 return Dialog.createNpc(DialogHandler.CALM, "If you need more help with making money, go to wiki.chaosps.com in your browser to view a list of money making methods.");
             case 4:
+                return Dialog.createNpc(DialogHandler.CALM, "Need help? Contact a staff member. If they can't help you with your issue go to chaosps.com/support in your browser to contact a owner.");
             case 5:
                 return Dialog.createNpc(DialogHandler.CALM, "The tutorial will be created at a later date.");
         }
