@@ -159,9 +159,15 @@ public class World {
 		return players;
 	}
 
+	/*
+	 * Tells you how many staff are online
+	 */
 	public static int staffOnline() {
 		int total = 0;
 		for (Player player : players) {
+			if(player == null) {
+				continue;
+			}
 			if(player.getStaffRights() != StaffRights.PLAYER) {
 				total++;
 			}

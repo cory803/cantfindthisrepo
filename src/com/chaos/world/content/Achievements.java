@@ -223,6 +223,7 @@ public class Achievements {
 	public static void finishAchievement(Player player, AchievementData achievement) {
 		if (player.getAchievementAttributes().getCompletion()[achievement.ordinal()])
 			return;
+		player.getPointsHandler().setAchievementPoints(1, true);
 		player.getAchievementAttributes().getCompletion()[achievement.ordinal()] = true;
 		player.getPacketSender().sendString(achievement.interfaceFrame, ("@gre@") + achievement.interfaceLine)
 				.sendMessage("<img=4> <col=339900>You have completed the achievement "
@@ -230,7 +231,6 @@ public class Achievements {
 				.sendString(37001, "Achievements: " + player.getPointsHandler().getAchievementPoints() + "/"
 						+ AchievementData.values().length);
 		player.getPacketSender().sendString(1, "[ACHIEVEMENT]-"+ Misc.formatText(achievement.toString().toLowerCase() +"-"+achievement.getDifficulty().ordinal()));
-		player.getPointsHandler().setAchievementPoints(1, true);
 	}
 
 	public static class AchievementAttributes {
