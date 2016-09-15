@@ -290,12 +290,13 @@ public final class WalkingQueue {
                         if (player.getEquipment().get(Equipment.LEG_SLOT).getId() == 14938) {
                             armorBenefit += 15;
                         }
-                        player.setRunEnergy(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F)));
                         if (player.getRunEnergy() <= 0) {
                             this.setRunningToggled(false);
                             player.getPacketSender().sendMessage("You ran out of run energy!");
 							player.getPacketSender().sendRunStatus();
-                        }
+                        } else {
+							player.setRunEnergy(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F)));
+						}
                     }
                 }
             }
