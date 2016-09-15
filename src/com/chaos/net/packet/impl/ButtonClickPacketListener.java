@@ -38,6 +38,8 @@ import com.chaos.world.content.skill.impl.summoning.PouchMaking;
 import com.chaos.world.content.skill.impl.summoning.SummoningTab;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.BankPin.BankPinDial;
+import org.scripts.kotlin.content.dialog.BankPin.DeletePin;
 import org.scripts.kotlin.content.dialog.ClanChatDialogue;
 import org.scripts.kotlin.content.dialog.teleports.*;
 
@@ -383,6 +385,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
             case 5294:
                 player.getPacketSender().sendClientRightClickRemoval().sendInterfaceRemoval();
+                player.getDialog().sendDialog(player.getBankPinAttributes().hasBankPin() ? new DeletePin(player) : new BankPinDial(player));
                 break;
             case 15002:
             case 27653:

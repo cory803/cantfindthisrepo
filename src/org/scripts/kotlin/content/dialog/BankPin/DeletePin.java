@@ -13,15 +13,13 @@ public class DeletePin extends Dialog {
 
     public DeletePin(Player player) {
         super(player);
-        setEndState(1);
+        setEndState(0);
     }
 
     @Override
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "You do not have a bank PIN set. Would you like to set one?");
-            case 1:
                 return Dialog.createOption(new TwoOption(
                         "Delete my Pin : Make my account Vulnerable",
                         "Keep my Pin : I want my account Safe") {
