@@ -23,7 +23,7 @@ class TeleportGamble(staffRights: StaffRights) : Command(staffRights) {
         }
         val position = Position(2441, 3090, 0)
         TeleportHandler.teleportPlayer(player, position, player.spellbook.teleportType)
-        player.packetSender.sendMessage("Welcome to the Gambling Area, make sure you always use a middle man for high bets!")
-        player.packetSender.sendMessage("Recording your stake will only get the player banned if they scam.")
+        player.packetSender.sendMessage("<col=3A3DA4>Welcome to the Gambling Area, make sure you always use a middle man for high bets!")
+        player.packetSender.sendMessage("<col=3A3DA4>Recording your stake will only get the player banned if they scam.")
     }
 }
