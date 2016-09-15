@@ -1581,28 +1581,15 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 15638:
 								player.moveTo(new Position(2840, 3539, 0));
 								break;
-							case 15644:
-							case 15641:
-								switch (player.getPosition().getZ()) {
-									case 0:
-										player.moveTo(new Position(2855, player.getPosition().getY() >= 3546 ? 3545 : 3546));
-										break;
-									case 2:
-										if (player.getPosition().getX() == 2846) {
-											if (player.getInventory().getAmount(8851) < 70) {
-												player.getPacketSender()
-														.sendMessage("You need at least 70 tokens to enter this area.");
-												return;
-											}
-											player.moveTo(new Position(2847, player.getPosition().getY(), 2));
-											WarriorsGuild.handleTokenRemoval(player);
-										} else if (player.getPosition().getX() == 2847) {
-											WarriorsGuild.resetCyclopsCombat(player);
-											player.moveTo(new Position(2846, player.getPosition().getY(), 2));
-											player.getMinigameAttributes().getWarriorsGuildAttributes()
-													.setEnteredTokenRoom(false);
-										}
-										break;
+							case 15653:
+								if(player.getSkillManager().getCurrentLevel(Skill.ATTACK) + player.getSkillManager().getCurrentLevel(Skill.STRENGTH) < 130) {
+									player.getPacketSender().sendMessage("A true warrior requires a total of 130 Strength & Attack.");
+									return;
+								}
+								if(player.getPosition().getX() == 2877) {
+									player.moveTo(new Position(2876, 3546, 0));
+								} else {
+									player.moveTo(new Position(2877, 3546, 0));
 								}
 								break;
 							case 28714:

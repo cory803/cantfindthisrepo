@@ -1,6 +1,7 @@
 package org.scripts.kotlin.content.dialog.teleports;
 
 import com.chaos.model.Position;
+import com.chaos.model.Skill;
 import com.chaos.model.options.fiveoption.FiveOption;
 import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
@@ -32,6 +33,11 @@ public class Minigames extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_5:
+                                if(player.getSkillManager().getCurrentLevel(Skill.ATTACK) + player.getSkillManager().getCurrentLevel(Skill.STRENGTH) < 130) {
+                                    player.getPacketSender().sendMessage("A true warrior requires a total of 130 Strength & Attack.");
+                                    player.getPacketSender().sendInterfaceRemoval();
+                                    return;
+                                }
                                 TeleportHandler.teleportPlayer(player, new Position(2873, 3546, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_2_OF_5:
