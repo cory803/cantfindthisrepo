@@ -4,6 +4,8 @@ import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.engine.task.impl.WalkToTask;
 import com.chaos.model.*;
+import com.chaos.model.container.impl.Equipment;
+import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.entity.impl.player.Player;
@@ -41,6 +43,80 @@ public enum ObstacleData {
 					Agility.addExperience(player, 60);
 					player.getUpdateFlag().flag(Flag.APPEARANCE);
 					player.getPacketSender().sendMessage("You manage to safely make your way across the log.");
+				}
+			});
+		}
+	},
+	UNDERWALL_TUNNEL(9311, true) {
+		@Override
+		public void cross(final Player player) {
+			player.setPositionToFace(new Position(3139, 3516));
+			player.performAnimation(new Animation(2589));
+			player.getCharacterAnimations().setStandingAnimation(2590);
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+			player.getPacketSender().sendMessage("You climb under the wall...");
+			TaskManager.submit(new Task(1, player, false) {
+				int tick = 6;
+
+				@Override
+				public void execute() {
+					if(tick == 2) {
+						player.moveTo(new Position(3144, 3514, 0));
+					} else if(tick == 1) {
+						player.performAnimation(new Animation(2591));
+						WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+						player.getUpdateFlag().flag(Flag.APPEARANCE);
+					}
+					if (tick <= 0)
+						stop();
+
+					tick--;
+				}
+
+				@Override
+				public void stop() {
+					setEventRunning(false);
+					player.setCrossedObstacle(0, true).setCrossingObstacle(false).setSkillAnimation(-1);
+					Agility.addExperience(player, 91);
+					player.getUpdateFlag().flag(Flag.APPEARANCE);
+					player.getPacketSender().sendMessage("You manage to climb under the wall.");
+				}
+			});
+		}
+	},
+	UNDERWALL_TUNNEL2(9312, true) {
+		@Override
+		public void cross(final Player player) {
+			player.setPositionToFace(new Position(3143, 3514));
+			player.performAnimation(new Animation(2589));
+			player.getCharacterAnimations().setStandingAnimation(2590);
+			player.getUpdateFlag().flag(Flag.APPEARANCE);
+			player.getPacketSender().sendMessage("You climb under the wall...");
+			TaskManager.submit(new Task(1, player, false) {
+				int tick = 6;
+
+				@Override
+				public void execute() {
+					if(tick == 2) {
+						player.moveTo(new Position(3138, 3516, 0));
+					} else if(tick == 1) {
+						player.performAnimation(new Animation(2591));
+						WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+						player.getUpdateFlag().flag(Flag.APPEARANCE);
+					}
+					if (tick <= 0)
+						stop();
+
+					tick--;
+				}
+
+				@Override
+				public void stop() {
+					setEventRunning(false);
+					player.setCrossedObstacle(0, true).setCrossingObstacle(false).setSkillAnimation(-1);
+					Agility.addExperience(player, 91);
+					player.getUpdateFlag().flag(Flag.APPEARANCE);
+					player.getPacketSender().sendMessage("You manage to climb under the wall.");
 				}
 			});
 		}

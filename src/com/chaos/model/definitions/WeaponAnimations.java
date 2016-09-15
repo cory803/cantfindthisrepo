@@ -44,6 +44,10 @@ public final class WeaponAnimations {
 			playerStandIndex = 809;
 			playerWalkIndex = 1146;
 			playerRunIndex = 1210;
+		} else if (weaponName.contains("halberd") || weaponName.contains("guthan")) {
+			playerStandIndex = 809;
+			playerWalkIndex = 1146;
+			playerRunIndex = 1210;
 		} else if (weaponName.startsWith("basket")) {
 			playerWalkIndex = 1836;
 			playerRunIndex = 1836;

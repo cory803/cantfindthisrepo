@@ -21,6 +21,12 @@ public class Agility {
 			}
 			p.getPacketSender().sendMessage("If you get stuck in this course, type ::stuck!");
 		}
+		if (object.getId() == 9311 || object.getId() == 9312) {
+			if (p.getSkillManager().getMaxLevel(Skill.AGILITY) < 21) {
+				p.getPacketSender().sendMessage("You need an Agility level of at least 21 to use this obstacle.");
+				return true;
+			}
+		}
 		ObstacleData agilityObject = ObstacleData.forId(object.getId());
 		if (agilityObject != null) {
 			if (p.isCrossingObstacle())
@@ -29,13 +35,7 @@ public class Agility {
 			p.setPositionToFace(object.getPosition());
 			p.setResetPosition(p.getPosition());
 			p.setCrossingObstacle(true);
-			// boolean wasRunning = p.getAttributes().isRunning();
-			// if(agilityObject.mustWalk()) {
-			// p.getAttributes().setRunning(false);
-			// p.getPacketSender().sendRunStatus();
-			// }
 			agilityObject.cross(p);
-//			Achievements.finishAchievement(p, AchievementData.CLIMB_AN_AGILITY_OBSTACLE);
 			Achievements.doProgress(p, AchievementData.CLIMB_50_AGILITY_OBSTACLES);
 		}
 		return false;

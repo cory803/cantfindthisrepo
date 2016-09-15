@@ -67,7 +67,6 @@ public class ObjectActionPacketListener implements PacketListener {
 	// Logger.getLogger(ObjectActionPacketListener.class);
 	private static void firstClick(final Player player, Packet packet) {
 		final int x = packet.readLEShortA();
-		System.out.println(""+x);
 		final int id = packet.readUnsignedShort();
 		final int y = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
@@ -153,6 +152,11 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						switch (id) {
+							//Grand exchange agility
+							//case 9311:
+
+							//v	break;
+
 							//Edgeville coffins
 							case 26935:
 							case 26937:

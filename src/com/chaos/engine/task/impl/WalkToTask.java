@@ -72,7 +72,9 @@ public class WalkToTask {
 					|| (player.getPosition().getX() == 3101 && player.getPosition().getY() == 2958)
 					|| (player.getPosition().getX() == 3100 && player.getPosition().getY() == 2958)
 					|| (player.getPosition().getX() == 3104 && player.getPosition().getY() == 2958)
-						|| (player.getPosition().getX() == 3103 && player.getPosition().getY() == 2958)) {
+					|| (player.getPosition().getX() == 3103 && player.getPosition().getY() == 2958)
+
+					) {
 				finalizedTask.execute();
 				player.setEntityInteraction(null);
 				player.setWalkToTask(null);
