@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 
 import com.chaos.model.Item;
+import com.chaos.model.Locations;
 import com.chaos.util.Misc;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
@@ -42,33 +43,39 @@ public class ItemsKeptOnDeath {
 		 */
 		int size = getAmountToKeep(player);
 		String[] infoToFill = new String[6];
-		switch (size) {
-		case 0: // Player must be skulled WITHOUT the protect item prayer/curse
-				// active, player will
-				// keep 0 items.
-			infoToFill[0] = "You are skulled and will";
-			infoToFill[1] = "not keep any items on";
-			infoToFill[2] = "death.";
-			break;
-		case 1: // Player must be skulled but have the protect item prayer/curse
-				// active, player will
-				// keep 1 item.
-		case 4: // Player is not skulled & has protect item prayer/curse active,
-				// player will keep 4
-				// items. Send this info.
-			infoToFill[0] = "You have the Protect Item";
-			infoToFill[1] = "prayer/curse active.";
-			infoToFill[2] = "Therefore`, you will keep";
-			infoToFill[3] = "an extra item on death.";
-			break;
-		case 2: // No such case where a player can keep 2 items.
-			break;
-		case 3: // Player has no factors active, size of array is 3 and player
-				// will keep 3 items.
-			infoToFill[0] = "You will keep 3 items";
+		if(player.getLocation() == Locations.Location.WILDERNESS) {
+			switch (size) {
+			case 0: // Player must be skulled WITHOUT the protect item prayer/curse
+					// active, player will
+					// keep 0 items.
+				infoToFill[0] = "You are skulled and will";
+				infoToFill[1] = "not keep any items on";
+				infoToFill[2] = "death.";
+				break;
+			case 1: // Player must be skulled but have the protect item prayer/curse
+					// active, player will
+					// keep 1 item.
+			case 4: // Player is not skulled & has protect item prayer/curse active,
+					// player will keep 4
+					// items. Send this info.
+				infoToFill[0] = "You have the Protect Item";
+				infoToFill[1] = "prayer/curse active.";
+				infoToFill[2] = "Therefore`, you will keep";
+				infoToFill[3] = "an extra item on death.";
+				break;
+			case 2: // No such case where a player can keep 2 items.
+				break;
+			case 3: // Player has no factors active, size of array is 3 and player
+					// will keep 3 items.
+				infoToFill[0] = "You will keep 3 items";
+				infoToFill[1] = "on death since you";
+				infoToFill[2] = "have no factors active.";
+				break;
+			}
+		} else {
+			infoToFill[0] = "You will keep all items";
 			infoToFill[1] = "on death since you";
-			infoToFill[2] = "have no factors active.";
-			break;
+			infoToFill[2] = "aren't in the wilderness.";
 		}
 		infoToFill[4] = "@red@All untradeable items";
 		infoToFill[5] = "@red@are automatically kept.";
