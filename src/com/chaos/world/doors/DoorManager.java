@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.chaos.model.Position;
 import com.google.gson.GsonBuilder;
 import com.chaos.model.GameObject;
 import com.chaos.model.HashedPosition;
@@ -35,6 +36,9 @@ public final class DoorManager {
 		
 		reader.close();
 		System.out.println("Loaded " + amount + " door configurations in " + (System.currentTimeMillis() - startup) + "ms");
+
+		isDoor(new GameObject(1516, new Position(2445, 3089))); //Castle wars door
+		isDoor(new GameObject(1519, new Position(2445, 3090))); //Castle wars door
 	}
 	
 	public static boolean isDoor(GameObject gameObject) {
