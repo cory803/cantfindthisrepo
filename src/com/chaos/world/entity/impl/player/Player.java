@@ -514,6 +514,7 @@ public class Player extends Character {
     private long totalPlayTime;
     // Timers (Stopwatches)
     private final Stopwatch tabTimer = new Stopwatch();
+    private final Stopwatch quickChat = new Stopwatch();
     private final Stopwatch yellTimer = new Stopwatch();
     private final Stopwatch voteTimer = new Stopwatch();
     private final Stopwatch dragon_scimitar_timer = new Stopwatch();
@@ -2197,6 +2198,10 @@ public class Player extends Character {
 
     public Stopwatch getYellTimer() {
         return yellTimer;
+    }
+
+    public Stopwatch getQuickChat() {
+        return quickChat;
     }
 
     public Stopwatch getVoteTimer() {

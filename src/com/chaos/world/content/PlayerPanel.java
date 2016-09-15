@@ -1,6 +1,7 @@
 package com.chaos.world.content;
 
 import com.chaos.util.Misc;
+import com.chaos.util.Stopwatch;
 import com.chaos.world.World;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.entity.impl.player.Player;
@@ -8,7 +9,6 @@ import com.chaos.world.entity.impl.player.Player;
 public class PlayerPanel {
 
 	public static void refreshPanel(Player player) {
-		//TODO: Add player panel
 		int kdr = 0;
 		if (player.getPlayerKillingAttributes().getPlayerDeaths() > 0) {
 			kdr = player.getPlayerKillingAttributes().getPlayerKills() / player.getPlayerKillingAttributes().getPlayerDeaths();
@@ -29,7 +29,7 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(55083, "   >- Vote points: @cha@ " + player.getPointsHandler().getVotingPoints());
 		player.getPacketSender().sendString(55084, "   >- Slayer points: @cha@ " + player.getPointsHandler().getSlayerPoints());
 		player.getPacketSender().sendString(55085, "   >- Commedations: @cha@ " + player.getPointsHandler().getCommendations());
-		player.getPacketSender().sendString(55086, "   >- Dung points: @cha@ " + player.getPointsHandler().getDungeoneeringTokens());
+		player.getPacketSender().sendString(55086, "   >- Dung tokens: @cha@ " + player.getPointsHandler().getDungeoneeringTokens());
 		player.getPacketSender().sendString(55087, "  @whi@[PvP]");
 		player.getPacketSender().sendString(55088, "   >- KDR: @cha@ " + kdr);
 		player.getPacketSender().sendString(55089, "   >- Kills: @cha@ " + player.getPlayerKillingAttributes().getPlayerKills());
