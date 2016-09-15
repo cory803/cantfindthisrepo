@@ -321,6 +321,11 @@ public class ButtonClickPacketListener implements PacketListener {
                 Achievements.finishAchievement(player, Achievements.AchievementData.TELEPORT_HOME);
                 break;
 
+            //Ape atoll teleport
+            case 18470:
+                TeleportHandler.teleportPlayer(player, new Position(2765, 2785, 0), player.getSpellbook().getTeleportType());
+                break;
+
             case 1159: // Bones to Bananas
             case 15877:// Bones to peaches
             case 30306:
