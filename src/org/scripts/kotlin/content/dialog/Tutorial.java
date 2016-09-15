@@ -79,6 +79,7 @@ public class Tutorial extends Dialog {
                                 player.getInventory().add(new Item(562, 75), true);
                                 player.getInventory().add(new Item(1333, 1), true);
                                 player.getInventory().add(new Item(995, 300000), true);
+                                player.getInventory().add(new Item(10586, 1), true);
                                 player.getInventory().refreshItems();
 
                                 setState(2);

@@ -18,7 +18,7 @@ public class Achievements {
 		CHOP_WILLOW(Difficulty.EASY, "Chop a willow tree", 37013, null),
 		BURN_WILLOW(Difficulty.EASY, "Burn a willow log", 37014, null),
 		MAKE_POTION(Difficulty.EASY, "Make any potion", 37015, null),
-		GNOME_COURSE(Difficulty.EASY, "Complete the gnome agility course", 37016, null),
+		GNOME_COURSE(Difficulty.EASY, "Complete gnome agility course", 37016, null),
 		FLETCH_ARROW_SHAFT(Difficulty.EASY, "Fletch an arrow shaft", 37017, null),
 		RUNECRAFT_RUNES(Difficulty.EASY, "Runecraft any elemental rune", 37018, null),
 		CREATE_DUNG_PARTY(Difficulty.EASY, "Create a dungeoneering party", 37019, null), //TODO
