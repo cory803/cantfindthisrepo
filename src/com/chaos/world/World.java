@@ -159,6 +159,16 @@ public class World {
 		return players;
 	}
 
+	public static int staffOnline() {
+		int total = 0;
+		for (Player player : players) {
+			if(player.getStaffRights() != StaffRights.PLAYER) {
+				total++;
+			}
+		}
+		return total;
+	}
+
 	public static CharacterList<NPC> getNpcs() {
 		return npcs;
 	}

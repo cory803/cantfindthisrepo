@@ -17,7 +17,7 @@ public class PlayerPanel {
         }
 		player.getPacketSender().sendString(55072, "  @whi@[Population]");
 		player.getPacketSender().sendString(55073, "   >- Players online: @cha@"+ World.getPlayers().size());
-		player.getPacketSender().sendString(55074, "   >- Staff online: @cha@"+ World.getPlayers().size());
+		player.getPacketSender().sendString(55074, "   >- Staff online: @cha@"+ World.staffOnline());
 		player.getPacketSender().sendString(55075, "  @whi@[Personal]");
 		player.getPacketSender().sendString(55076, "   >- Title: @cha@None");
 //		player.getPacketSender().sendString(55077, "   >- Play Time: @cha@" + player.getTotalPlayTime());
