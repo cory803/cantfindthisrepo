@@ -12,6 +12,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.net.packet.impl.EquipPacketListener;
+import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.world.entity.updating.PlayerUpdating;
 
@@ -40,6 +41,7 @@ public class Tutorial extends Dialog {
                         switch(option) {
                             case OPTION_1_OF_4:
                                 player.getGameModeAssistant().setGameMode(GameMode.KNIGHT);
+                                PlayerPanel.refreshPanel(player);
                                 //Equipment
                                 player.getEquipment().set(Equipment.HEAD_SLOT, new Item(1153, 1));
                                 player.getEquipment().set(Equipment.BODY_SLOT, new Item(1115, 1));
@@ -84,6 +86,7 @@ public class Tutorial extends Dialog {
                                 break;
                             case OPTION_2_OF_4:
                                 player.getGameModeAssistant().setGameMode(GameMode.REALISM);
+                                PlayerPanel.refreshPanel(player);
                                 //Equipment
                                 player.getEquipment().set(Equipment.HEAD_SLOT, new Item(1153, 1));
                                 player.getEquipment().set(Equipment.BODY_SLOT, new Item(1115, 1));
@@ -128,6 +131,7 @@ public class Tutorial extends Dialog {
                                 break;
                             case OPTION_3_OF_4:
                                 player.getGameModeAssistant().setGameMode(GameMode.IRONMAN);
+                                PlayerPanel.refreshPanel(player);
                                 setState(2);
                                 player.getDialog().sendDialog(dialog);
                                 break;
