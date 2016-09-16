@@ -57,8 +57,8 @@ public class Mining {
 		player.setInteractingObject(oreObject);
 		player.setPositionToFace(oreObject.getPosition());
 		final Ores o = MiningData.forRock(oreObject.getId());
-		final boolean giveGem = o != Ores.Rune_essence && o != Ores.Pure_essence;
-		final int reqCycle = o == Ores.Runite ? 6 + Misc.getRandom(2) : Misc.getRandom(o.getTicks() - 1);
+		final boolean giveGem = o != Ores.RUNE_ESSENCE && o != Ores.PURE_ESSENCE;
+		final int reqCycle = o == Ores.RUNITE ? 6 + Misc.getRandom(2) : Misc.getRandom(o.getTicks() - 1);
 		if (o != null) {
 			final int pickaxe = MiningData.getPickaxe(player);
 			final int miningLevel = player.getSkillManager().getCurrentLevel(Skill.MINING);
@@ -92,7 +92,7 @@ public class Mining {
 									player.performAnimation(new Animation(p.getAnim()));
 								}
 								if (giveGem) {
-									boolean onyx = (o == Ores.Runite || o == Ores.CRASHED_STAR)
+									boolean onyx = (o == Ores.RUNITE || o == Ores.CRASHED_STAR)
 											&& Misc.getRandom(o == Ores.CRASHED_STAR ? 20000 : 5000) == 1;
 									if (onyx || Misc.getRandom(o == Ores.CRASHED_STAR ? 35 : 50) == 15) {
 										int gemId = onyx ? 6571
@@ -101,23 +101,23 @@ public class Mining {
 										player.getInventory().add(gemId, 1);
 										player.getPacketSender().sendMessage("You've found a gem!");
 										if (gemId == 6571) {
-											String s = o == Ores.Runite ? "Runite ore" : "Crashed star";
+											String s = o == Ores.RUNITE ? "RUNITE ore" : "Crashed star";
 											World.sendMessage("<img=4><col=009966> " + player.getUsername()
 													+ " has just received an Uncut Onyx from mining a " + s + "!");
 										}
 									}
 								}
 								if (cycle == reqCycle) {
-									if (o == Ores.Runite) {
+									if (o == Ores.RUNITE) {
 										Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
 									}
-									if (o == Ores.Coal) {
+									if (o == Ores.COAL) {
 										Achievements.doProgress(player, AchievementData.MINE_400_COAL);
 									}
-									if (o == Ores.Adamantite) {
+									if (o == Ores.ADAMANTITE) {
 										Achievements.doProgress(player, AchievementData.MINE_400_ADDY);
 									}
-									if (o == Ores.Iron) {
+									if (o == Ores.IRON) {
 										Achievements.finishAchievement(player, AchievementData.MINE_IRON);
 									}
 									int multiplier = (Skillcape_Data.MINING.isWearingCape(player)
