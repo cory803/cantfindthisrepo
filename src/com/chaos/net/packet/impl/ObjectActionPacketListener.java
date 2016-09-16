@@ -575,7 +575,7 @@ public class ObjectActionPacketListener implements PacketListener {
 											@Override
 											public void stop() {
 												setEventRunning(false);
-												Agility.addExperience(player, 100);
+												Agility.addExperience(player, 13);
 												player.getPacketSender().sendMessage("You jump over the wall.");
 											}
 										});
@@ -597,7 +597,7 @@ public class ObjectActionPacketListener implements PacketListener {
 											@Override
 											public void stop() {
 												setEventRunning(false);
-												Agility.addExperience(player, 100);
+												Agility.addExperience(player, 13);
 												player.getPacketSender().sendMessage("You jump over the wall.");
 											}
 										});
@@ -619,7 +619,7 @@ public class ObjectActionPacketListener implements PacketListener {
 											@Override
 											public void stop() {
 												setEventRunning(false);
-												Agility.addExperience(player, 100);
+												Agility.addExperience(player, 13);
 												player.getPacketSender().sendMessage("You jump over the wall.");
 											}
 										});

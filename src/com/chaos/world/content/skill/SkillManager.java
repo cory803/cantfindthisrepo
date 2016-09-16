@@ -75,16 +75,19 @@ public class SkillManager {
 	 *            The amount of experience to add to the skill.
 	 * @return The Skills instance.
 	 */
-	public SkillManager addSkillExperience(Skill skill, int experience) {
+	public SkillManager addSkillExperience(Skill skill, double experience) {
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);
 	}
 
-	public SkillManager addExactExperience(Skill skill, int experience) {
+	public SkillManager addExactExperience(Skill skill, double experience) {
 		if (player.experienceLocked())
 			return this;
 		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
 			return this;
+		if(experience == 0) {
+			return this;
+		}
 		int startingLevel = isNewSkill(skill) ? (int) (skills.maxLevel[skill.ordinal()] / 10)
 				: skills.maxLevel[skill.ordinal()];
 		String skillName = Misc.formatText(skill.toString().toLowerCase());
@@ -105,8 +108,8 @@ public class SkillManager {
 		/*
 		 * Adds the experience to the skill's experience.
 		 */
-		this.skills.experience[skill.ordinal()] = this.skills.experience[skill.ordinal()] + experience > MAX_EXPERIENCE
-				? MAX_EXPERIENCE : this.skills.experience[skill.ordinal()] + experience;
+		this.skills.experience[skill.ordinal()] = this.skills.experience[skill.ordinal()] + (int) experience > MAX_EXPERIENCE
+				? MAX_EXPERIENCE : this.skills.experience[skill.ordinal()] + (int) experience;
 		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE) {
 			Achievements.finishAchievement(player, AchievementData.REACH_MAX_EXP_IN_A_SKILL);
 		}

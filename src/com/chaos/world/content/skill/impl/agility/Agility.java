@@ -58,14 +58,8 @@ public class Agility {
 		return Misc.getRandom(player.getSkillManager().getCurrentLevel(Skill.AGILITY) / 2) > 1;
 	}
 
-	public static void addExperience(Player player, int experience) {
-		boolean agile = player.getEquipment().get(Equipment.BODY_SLOT).getId() == 14936
-				&& player.getEquipment().get(Equipment.LEG_SLOT).getId() == 14938;
+	public static void addExperience(Player player, double experience) {
+		boolean agile = player.getEquipment().get(Equipment.BODY_SLOT).getId() == 14936 && player.getEquipment().get(Equipment.LEG_SLOT).getId() == 14938;
 		player.getSkillManager().addSkillExperience(Skill.AGILITY, agile ? (experience *= 1.5) : experience);
-	}
-	public static void addExactExperience(Player player, int experience) {
-		boolean agile = player.getEquipment().get(Equipment.BODY_SLOT).getId() == 14936
-				&& player.getEquipment().get(Equipment.LEG_SLOT).getId() == 14938;
-		player.getSkillManager().addExactExperience(Skill.AGILITY, agile ? (experience *= 1.5) : experience);
 	}
 }

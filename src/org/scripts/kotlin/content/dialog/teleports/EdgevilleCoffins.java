@@ -33,7 +33,7 @@ public class EdgevilleCoffins extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_4:
-                                TeleportHandler.teleportPlayer(player, new Position(2940, 3512, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2971, 3915, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_2_OF_4:
                                 TeleportHandler.teleportPlayer(player, new Position(3293, 3926, 0), player.getSpellbook().getTeleportType());

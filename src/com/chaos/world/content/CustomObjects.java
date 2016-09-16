@@ -250,5 +250,8 @@ public class CustomObjects {
 	 */
 
 	// Objects that are handled by the server on regionchange
-	private static final int[][] CUSTOM_OBJECTS_SPAWNS = { { 2274, 3652, 3488, 0, 0 }, };
+	private static final int[][] CUSTOM_OBJECTS_SPAWNS = {
+			{ 2274, 3652, 3488, 0, 0 },
+			{ 9326, 3001, 3960, 0, 0 },
+	};
 }
