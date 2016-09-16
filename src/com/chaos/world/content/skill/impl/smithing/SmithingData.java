@@ -848,62 +848,63 @@ public class SmithingData {
 		return 1;
 	}
 
-	public static int getData(Item item, String type) {
-		int xp = 1;
+	public static double getData(Item item, String type) {
+		double xp = 1;
 		int reqLvl = 1;
 		@SuppressWarnings("unused")
 		int amount = getItemAmount(item);
 		switch (item.getId()) {
 		case 2:
-			xp = 26;
+			xp = 25.5;
+			reqLvl = 35;
 			break;
 		case 1205: // Bronze dagger
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 1;
 			break;
 
 		case 1351: // Bronze Hatchet
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 1;
 			break;
 
 		case 1422: // Bronze Mace
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 2;
 			break;
 
 		case 1139: // Bronze Med Helm
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 3;
 			break;
 
 		case 9375: // Bronze Bolts
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 3;
 			break;
 
 		case 1277: // Bronze Sword
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 4;
 			break;
 
 		case 4819: // Bronze nails
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 4;
 			break;
 
 		case 1794: // Bronze Wire
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 4;
 			break;
 
 		case 819: // Bronze Dart Tips
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 4;
 			break;
 
 		case 39: // Bronze Arrowtips
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 5;
 			break;
 
@@ -923,7 +924,7 @@ public class SmithingData {
 			break;
 
 		case 9420: // Bronze Limbs
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 6;
 			break;
 
@@ -933,7 +934,7 @@ public class SmithingData {
 			break;
 
 		case 864: // Bronze Throwing Knives
-			xp = 13;
+			xp = 12.5;
 			reqLvl = 7;
 			break;
 
@@ -943,22 +944,22 @@ public class SmithingData {
 			break;
 
 		case 1337: // Bronze Warhammer
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 9;
 			break;
 
 		case 1375: // Bronze Battleaxe
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 10;
 			break;
 
 		case 1103: // Bronze Chainbody
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 11;
 			break;
 
 		case 1189: // Bronze Kiteshield
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 12;
 			break;
 
@@ -968,22 +969,22 @@ public class SmithingData {
 			break;
 
 		case 1307: // Bronze 2h Sword
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 14;
 			break;
 
 		case 1087: // Bronze Plateskirt
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 16;
 			break;
 
 		case 1075: // Bronze Platelegs
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 16;
 			break;
 
 		case 1117: // Bronze Platebody
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 18;
 			break;
 
@@ -1123,39 +1124,39 @@ public class SmithingData {
 			break;
 
 		case 1207: // steel Dagger
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 30;
 			break;
 		case 1353: // steel Hatchet
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 31;
 			break;
 		case 1424: // steel Mace
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 32;
 			break;
 		case 1141: // steel Med Helm
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 33;
 			break;
 		case 9141: // steel bolts
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 33;
 			break;
 		case 1539: // steel sword
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 34;
 			break;
 		case 1281: // steel sword
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 34;
 			break;
 		case 821: // steel dart Tips
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 34;
 			break;
 		case 41: // steel Arrowtips
-			xp = 38;
+			xp = 37.5;
 			reqLvl = 35;
 			break;
 
@@ -1172,11 +1173,11 @@ public class SmithingData {
 			reqLvl = 36;
 			break;
 		case 2370: // steel studs
-			xp = 75;
+			xp = 37.5;
 			reqLvl = 36;
 			break;
 		case 9425: // steel crossbow limbs
-			xp = 75;
+			xp = 37.5;
 			reqLvl = 36;
 			break;
 		case 1157: // steel full helm
@@ -1184,7 +1185,7 @@ public class SmithingData {
 			reqLvl = 37;
 			break;
 		case 865: // steel Knifes
-			xp = 75;
+			xp = 37.5;
 			reqLvl = 37;
 			break;
 		case 1177: // steel sq Shield
@@ -1196,35 +1197,35 @@ public class SmithingData {
 			reqLvl = 39;
 			break;
 		case 1365: // steel Battleaxe
-			xp = 113;
+			xp = 112.5;
 			reqLvl = 40;
 			break;
 		case 1105: // steel Chainbody
-			xp = 113;
+			xp = 112.5;
 			reqLvl = 41;
 			break;
 		case 1193: // steel Kiteshield
-			xp = 113;
+			xp = 112.5;
 			reqLvl = 42;
 			break;
 		case 3097: // steel Claws
-			xp = 113;
+			xp = 75;
 			reqLvl = 43;
 			break;
 		case 1311: // steel 2h Sword
-			xp = 113;
+			xp = 112.5;
 			reqLvl = 44;
 			break;
 		case 1084: // steel Plateskirt
-			xp = 113;
+			xp = 112.5;
 			reqLvl = 46;
 			break;
 		case 1069: // steel Platelegs
-			xp = 113;
+			xp = 112.5;
 			reqLvl = 46;
 			break;
 		case 1119: // steel Platebody
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 48;
 			break;
 
@@ -1334,7 +1335,7 @@ public class SmithingData {
 			break;
 
 		case 3099: // Mithril claws
-			xp = 150;
+			xp = 100;
 			reqLvl = 63;
 			break;
 
@@ -1349,7 +1350,7 @@ public class SmithingData {
 			break;
 
 		case 1071: // Mithril plateleggs
-			xp = 150;
+			xp = 250;
 			reqLvl = 66;
 			break;
 
@@ -1358,39 +1359,39 @@ public class SmithingData {
 			reqLvl = 68;
 			break;
 		case 1211: // Adamant Dagger
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 70;
 			break;
 		case 1357: // Adamant Hatchet
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 71;
 			break;
 		case 1430: // Adamant Mace
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 72;
 			break;
 		case 1145: // Adamant Med Helm
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 73;
 			break;
 		case 9143: // Adamant Bolts
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 73;
 			break;
 		case 1287: // Adamant Sword
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 74;
 			break;
 		case 4823: // Adamant nails
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 74;
 			break;
 		case 823: // Adamant dart tips
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 74;
 			break;
 		case 43: // Adamant Arrowtips
-			xp = 63;
+			xp = 62.5;
 			reqLvl = 75;
 			break;
 		case 1331: // Adamant Scimitar
@@ -1421,19 +1422,19 @@ public class SmithingData {
 			reqLvl = 78;
 			break;
 		case 1345: // Adamant warhammer
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 79;
 			break;
 		case 1371: // Adamant Battleaxe
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 80;
 			break;
 		case 1111: // Adamant Chainbody
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 81;
 			break;
 		case 1199: // Adamant Kiteshield
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 82;
 			break;
 		case 3100: // Adamant Claws
@@ -1441,19 +1442,19 @@ public class SmithingData {
 			reqLvl = 83;
 			break;
 		case 1317: // Adamant 2h sword
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 84;
 			break;
 		case 1091: // Adamant Plateskirt
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 86;
 			break;
 		case 1073: // Adamant Platelegs
-			xp = 188;
+			xp = 187.5;
 			reqLvl = 86;
 			break;
 		case 1123: // Adamant Platebody
-			xp = 313;
+			xp = 312.5;
 			reqLvl = 88;
 			break;
 		case 1213: // Rune Dagger
