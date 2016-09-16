@@ -10,7 +10,7 @@ import com.chaos.world.entity.impl.player.Player;
 public class WoodcuttingData {
 
 	public static enum Hatchet {
-		BRONZE(1351, 1, 879, 1.0), IRON(1349, 1, 877, 1.3), STEEL(1353, 6, 875, 1.5), BLACK(1361, 6, 873, 1.7), MITHRIL(
+		BRONZE(1351, 1, 879, 1.0), IRON(1349, 1, 877, 1.3), STEEL(1353, 6, 875, 1.5), BLACK(1361, 11, 873, 1.7), MITHRIL(
 				1355, 21, 871, 1.9), ADAMANT(1357, 31, 869,
 						2), RUNE(1359, 41, 867, 2.2), DRAGON(6739, 61, 2846, 2.28), ADZE(13661, 80, 10227, 2.5),
 		INFERNO(12706, 90, 2846, 2.5);
@@ -59,8 +59,8 @@ public class WoodcuttingData {
 						1318, 1319, 1330, 1331, 1332, 1365, 1383, 1384, 3033, 3034, 3035, 3036, 3881, 3882, 3883, 5902,
 						5903, 5904 }, 4, false),
 		ACHEY(1, 25, 2862, new int[] { 2023 }, 4, false),
-		OAK(15, 38, 1521, new int[] { 1281, 3037 }, 5, true),
-		WILLOW(30, 68, 1519, new int[] { 1308, 5551, 5552, 5553 }, 6, true),
+		OAK(15, 37.5, 1521, new int[] { 1281, 3037 }, 5, true),
+		WILLOW(30, 67.5, 1519, new int[] { 1308, 5551, 5552, 5553 }, 6, true),
 		TEAK(35, 85, 6333, new int[] { 9036 }, 7, true),
 		DRAMEN(36, 6581, 771, new int[] { 1292 }, 7, true),
 		MAPLE(45, 100, 1517, new int[] { 1307, 4677 }, 7, true),
@@ -71,10 +71,11 @@ public class WoodcuttingData {
 		EVIL_TREE(80, 300, 14666, new int[] { 11434 }, 9, true);
 
 		private int[] objects;
-		private int req, xp, log, ticks;
+		private int req, log, ticks;
+		private double xp;
 		private boolean multi;
 
-		private Trees(int req, int xp, int log, int[] obj, int ticks, boolean multi) {
+		private Trees(int req, double xp, int log, int[] obj, int ticks, boolean multi) {
 			this.req = req;
 			this.xp = xp;
 			this.log = log;
@@ -95,7 +96,7 @@ public class WoodcuttingData {
 			return log;
 		}
 
-		public int getXp() {
+		public double getXp() {
 			return xp;
 		}
 
