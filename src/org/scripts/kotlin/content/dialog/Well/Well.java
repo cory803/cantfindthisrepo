@@ -5,7 +5,7 @@ import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.content.WellOfGoodwill;
+import com.chaos.world.content.Well.WellOfGoodwill;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Well extends Dialog {
@@ -47,33 +47,6 @@ public class Well extends Dialog {
                         }
                     }
                 });
-            case 2:
-                return Dialog.createPlayer(DialogHandler.HAPPY, "I would like to play as a "+getPlayer().getGameModeAssistant().getGameMode().getModeName()+".");
-            case 3:
-                return Dialog.createNpc(DialogHandler.CALM_CONTINUED, "A very interesting choice! Would you like to go through the Chaos tutorial to help you learn how to make money and other sorts of stuff?");
-            case 4:
-                return Dialog.createOption(new TwoOption(
-                        "Yes, take the tutorial.",
-                        "No, skip the tutorial.") {
-                    @Override
-                    public void execute(Player player, OptionType option) {
-                        switch(option) {
-                            case OPTION_1_OF_2:
-                                player.setNewPlayer(false);
-                                player.setPlayerLocked(false);
-                                player.getPacketSender().sendInterfaceRemoval();
-                                //TODO: Start the tutorial
-                                break;
-                            case OPTION_2_OF_2:
-                                player.setNewPlayer(false);
-                                player.setPlayerLocked(false);
-                                player.getPacketSender().sendInterfaceRemoval();
-                                //TODO: Continue to setting an account pin
-                                break;
-                        }
-                    }
-                });
-
         }
         return null;
     }

@@ -20,9 +20,8 @@ public class WellStatement extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "The Well of Goodwill, brought to us by Saradomin. It is said that the well can hold a hundred million coins, and that if it is filled, Players will recieve 30% bonus experience");
-            case 1:
-                return Dialog.createNpc(DialogHandler.CALM, "and Donators will receive 50% bonus experience for 2 hours. It is also said that those who contributed will be blessed even further, and receive bonus Loyalty points too, during these 2 hours.");
+                return Dialog.createNpc(DialogHandler.CALM, "The Well of Goodness has 3 different wells inside it. " +
+                        "You can donate towards getting bonus xp rates, bonus drop rates and/or bonus pkp. They apply globally to every player online.");
         }
         return null;
     }
