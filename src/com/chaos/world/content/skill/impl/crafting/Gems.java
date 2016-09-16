@@ -15,17 +15,17 @@ public class Gems {
 
 	enum GEM_DATA {
 
-		OPAL(1625, 1609, 8, 15, new Animation(886)),
+		OPAL(1625, 1609, 1, 15, new Animation(886)),
 		JADE(1627, 1611, 13, 20, new Animation(886)),
 		RED_TOPAZ(1629, 1613, 16, 25, new Animation(887)),
 		SAPPHIRE(1623, 1607, 20, 50, new Animation(888)),
-		EMERALD(1621, 1605, 27, 67, new Animation(889)),
+		EMERALD(1621, 1605, 27, 67.5, new Animation(889)),
 		RUBY(1619, 1603, 34, 85, new Animation(892)),
-		DIAMOND(1617, 1601, 43, 107, new Animation(886)),
-		DRAGONSTONE(1631, 1615, 55, 137, new Animation(885)),
-		ONYX(6571, 6573, 67, 197, new Animation(885));
+		DIAMOND(1617, 1601, 43, 107.5, new Animation(886)),
+		DRAGONSTONE(1631, 1615, 55, 137.5, new Animation(885)),
+		ONYX(6571, 6573, 67, 167.5, new Animation(885));
 
-		GEM_DATA(int uncutGem, int cutGem, int levelReq, int xpReward, Animation animation) {
+		GEM_DATA(int uncutGem, int cutGem, int levelReq, double xpReward, Animation animation) {
 			this.uncutGem = uncutGem;
 			this.cutGem = cutGem;
 			this.levelReq = levelReq;
@@ -33,7 +33,10 @@ public class Gems {
 			this.animation = animation;
 		}
 
-		private int uncutGem, cutGem, levelReq, xpReward;
+		private int uncutGem, cutGem, levelReq;
+
+		double xpReward;
+
 		private Animation animation;
 
 		public int getUncutGem() {
@@ -48,7 +51,7 @@ public class Gems {
 			return levelReq;
 		}
 
-		public int getXpReward() {
+		public double getXpReward() {
 			return xpReward;
 		}
 
