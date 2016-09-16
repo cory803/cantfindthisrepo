@@ -15,8 +15,8 @@ public enum CookingData {
 
 	SHRIMP(317, 315, 7954, 1, 30, 33, false, "shrimp"),
 	ANCHOVIES(321, 319, 323, 1, 30, 34, false, "anchovies"),
-	SARDINE(327, 325, 324, 1, 30, 34, false, "sardine"),
-	HERRING(345, 347, 324, 5, 30, 34, false, "herring"),
+	SARDINE(327, 325, 324, 1, 40, 34, false, "sardine"),
+	HERRING(345, 347, 324, 5, 50, 34, false, "herring"),
 	TROUT(335, 333, 343, 15, 70, 50, false, "trout"),
 	COD(341, 339, 343, 18, 75, 54,false, "cod"),
 	SALMON(331, 329, 343, 25, 90, 58, false, "salmon"),
@@ -26,9 +26,9 @@ public enum CookingData {
 	SWORDFISH(371, 373, 375, 45, 140, 86, true, "swordfish"),
 	MONKFISH(7944, 7946, 7948, 62, 150, 92, true, "monkfish"),
 	SHARK(383, 385, 387, 80, 210, 99, true, "shark"),
-	SEA_TURTLE(395, 397, 399, 82, 212, 105, false, "sea turtle"),
-	MANTA_RAY(389, 391, 393, 91, 216, 105, false, "manta ray"),
-	ROCKTAIL(15270, 15272, 15274, 92, 250, 94, true, "rocktail"),
+	SEA_TURTLE(395, 397, 399, 82, 211.3, 105, false, "sea turtle"),
+	MANTA_RAY(389, 391, 393, 91, 216.2, 105, false, "manta ray"),
+	ROCKTAIL(15270, 15272, 15274, 93, 225, 94, true, "rocktail"),
 	CAVEFISH(15264, 15266, 15268, 88, 214, 94, true, "cavefish"),
 	KARAMBWAN(3142, 3144, 3148, 30, 190, 90, false, "karambwan"),
 	HEIM_CRAB(17797, 18159, 18179, 5, 22, 40, false, "heim crab"),
@@ -41,11 +41,12 @@ public enum CookingData {
 	SALVE_EEL(17811, 18173, 18193, 60, 168, 81, false, "salve eel"),
 	BLUE_CRAB(17813, 18175, 18195, 75, 191, 92, false, "blue crab");
 
-	int rawItem, cookedItem, burntItem, levelReq, xp, stopBurn;
+	int rawItem, cookedItem, burntItem, levelReq, stopBurn;
+	double xp;
 	boolean withGloves;
 	String name;
 
-	CookingData(int rawItem, int cookedItem, int burntItem, int levelReq, int xp, int stopBurn, boolean withGloves, String name) {
+	CookingData(int rawItem, int cookedItem, int burntItem, int levelReq, double xp, int stopBurn, boolean withGloves, String name) {
 		this.rawItem = rawItem;
 		this.cookedItem = cookedItem;
 		this.burntItem = burntItem;
@@ -72,7 +73,7 @@ public enum CookingData {
 		return levelReq;
 	}
 
-	public int getXp() {
+	public double getXp() {
 		return xp;
 	}
 
