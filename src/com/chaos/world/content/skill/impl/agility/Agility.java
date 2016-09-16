@@ -1,6 +1,7 @@
 package com.chaos.world.content.skill.impl.agility;
 
 import com.chaos.model.GameObject;
+import com.chaos.model.Locations;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.util.Misc;
@@ -24,6 +25,12 @@ public class Agility {
 		if (object.getId() == 9311 || object.getId() == 9312) {
 			if (p.getSkillManager().getMaxLevel(Skill.AGILITY) < 21) {
 				p.getPacketSender().sendMessage("You need an Agility level of at least 21 to use this obstacle.");
+				return true;
+			}
+		}
+		if((p.getPosition().getX() >= 2989 && p.getPosition().getX() <= 3009) && (p.getPosition().getY() >= 3916 && p.getPosition().getY() <= 3966)) {
+			if (p.getSkillManager().getMaxLevel(Skill.AGILITY) < 52) {
+				p.getPacketSender().sendMessage("You need an Agility level of at least 52 to use this course.");
 				return true;
 			}
 		}
