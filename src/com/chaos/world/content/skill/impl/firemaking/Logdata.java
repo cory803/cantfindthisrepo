@@ -8,13 +8,13 @@ public class Logdata {
 
 		LOG(1511, 1, 40, 30), ACHEY(2862, 1, 40, 30), OAK(1521, 15, 60, 40), WILLOW(1519, 30, 90, 45), TEAK(
 				6333, 35, 105, 45), ARCTIC_PINE(10810, 42, 125, 45), MAPLE(1517, 45, 135, 45), MAHOGANY(6332, 50,
-						158,
-						45), EUCALYPTUS(12581, 58, 194, 45), YEW(1515, 60, 203, 50), MAGIC(1513, 75, 304, 50);
+						157.5,
+						45), EUCALYPTUS(12581, 58, 194, 45), YEW(1515, 60, 202.5, 50), MAGIC(1513, 75, 303.8, 50);
 
 		private int logId, level, burnTime;
-		private int xp;
+		private double xp;
 
-		private logData(int logId, int level, int xp, int burnTime) {
+		private logData(int logId, int level, double xp, int burnTime) {
 			this.logId = logId;
 			this.level = level;
 			this.xp = xp;
@@ -29,7 +29,7 @@ public class Logdata {
 			return level;
 		}
 
-		public int getXp() {
+		public double getXp() {
 			return xp;
 		}
 
