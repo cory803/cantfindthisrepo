@@ -10,7 +10,7 @@ public enum ThievingStall {
     FUR_STALL(2563, 35, 36, StallRewards.FUR_STALL, 10, false),
     SILVER_STALL(2565, 50, 54, StallRewards.SILVER_STALL, 30, false),
     SPICE_STALL(2564, 65, 81, StallRewards.SPICE_STALL, 80, false),
-    MAGIC_STALL(4877, 80, 100, StallRewards.MAGIC_STALL, 80, false),
+    MAGIC_STALL(4877, 65, 100, StallRewards.MAGIC_STALL, 80, false),
     GEM_STALL(2562, 75, 160, StallRewards.GEM_STALL, 180, false),
     VEGETABLE_STALL(4706, 45, 160, StallRewards.VEGETABLE_STALL, 180, true),
     DONATOR_FISH_STALL(4705, 50, 200, StallRewards.DONATOR_FISH_STALL, 180, true),
