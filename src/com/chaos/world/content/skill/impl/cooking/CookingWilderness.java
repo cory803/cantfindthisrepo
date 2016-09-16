@@ -59,7 +59,7 @@ public class CookingWilderness {
 					} else {
 						player.getInventory().add(fish.getCookedItem(), 1);
 					}
-					player.getSkillManager().addSkillExperience(Skill.COOKING, fish.getXp() + 1000);
+					player.getSkillManager().addSkillExperience(Skill.COOKING, fish.getXp());
 					if (fish == CookingWildernessData.LOBSTER) {
 						Achievements.finishAchievement(player, AchievementData.COOK_LOBSTER);
 					} else if (fish == CookingWildernessData.SHARK) {
