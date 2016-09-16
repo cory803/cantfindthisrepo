@@ -74,7 +74,7 @@ public class Woodcutting {
 									cycle++;
 									player.performAnimation(new Animation(h.getAnim()));
 								} else if (cycle >= reqCycle) {
-									int xp = t.getXp();
+									double xp = t.getXp();
 									if (lumberJack(player))
 										xp *= 1.5;
 									if(infernalAxe(player))
