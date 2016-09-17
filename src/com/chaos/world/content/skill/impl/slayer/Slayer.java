@@ -41,10 +41,17 @@ public class Slayer {
 		int[] taskData = SlayerTasks.getNewTaskData(slayerMaster);
 		int slayerTaskId = taskData[0], slayerTaskAmount = taskData[1];
 		SlayerTasks taskToSet = SlayerTasks.forId(slayerTaskId);
-		if (taskToSet == player.getSlayer().getLastTask() || NpcDefinition.forId(taskToSet.getNpcId())
-				.getSlayerLevel() > player.getSkillManager().getMaxLevel(Skill.SLAYER)) {
+		if (taskToSet == player.getSlayer().getLastTask()) {
 			assignTask();
 			return;
+		}
+		for(int i = 0; i < taskToSet.getNpcId().length; ++i) {
+			if(NpcDefinition.forId(taskToSet.getNpcId()[i]).getSlayerLevel() > player.getSkillManager().getMaxLevel(Skill.SLAYER)) {
+				if(NpcDefinition.forId(taskToSet.getNpcId()[i]) == null) {
+					continue;
+				}
+				return;
+			}
 		}
 		player.getPacketSender().sendInterfaceRemoval();
 		this.amountToSlay = slayerTaskAmount;
