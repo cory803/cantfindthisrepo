@@ -14,7 +14,7 @@ public class Well extends Dialog {
 
     public Well(Player player) {
         super(player);
-        setEndState(4);
+        setEndState(0);
     }
 
     @Override
@@ -36,13 +36,10 @@ public class Well extends Dialog {
                                 WellOfGoodwill.lookDownWell(player);
                                 break;
                             case OPTION_3_OF_4:
-                                setState(2);
-                                player.getDialog().sendDialog(dialog);
+                                player.getDialog().sendDialog(new DonateToWellDial(player));
                                 break;
                             case OPTION_4_OF_4:
-
-                                setState(1);
-                                player.getDialog().sendDialog(dialog);
+                                player.getPacketSender().sendInterfaceRemoval();
                                 break;
                         }
                     }
