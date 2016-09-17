@@ -15,7 +15,7 @@ public class InstancedCerberus {
 	public static final int NPC_ID = 5866;
 
 	public static void enterDungeon(Player player) {
-		if (player.getSlayer().getSlayerTask().getNpcId() != 5866) {
+		if (!player.getSlayer().getSlayerTask().onSlayerTask(5866)) {
 			player.getPacketSender().sendMessage("You must be on a Cerberus slayer task to enter Cerberus's Cave.");
 		} else {
 			player.moveTo(new Position(1240, 1226, player.getIndex() * 4));

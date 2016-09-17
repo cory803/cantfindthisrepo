@@ -69,19 +69,18 @@ public class Slayer {
 
 	public void killedNpc(NPC npc) {
 		npc.getDefinition();
-		String taskName = NpcDefinition.forId(player.getSlayer().getSlayerTask().getNpcId()).getName();
-		if (slayerTask != SlayerTasks.NO_TASK) {
-			// if (slayerTask.getNpcId() == npc.getId()) {
-			if (npc.getDefinition().getName().contains(taskName)) {
-				handleSlayerTaskDeath(true);
-				if (duoPartner != null) {
-					Player duo = World.getPlayerByName(duoPartner);
-					if (duo != null) {
-						if (checkDuoSlayer(player, false)) {
-							duo.getSlayer().handleSlayerTaskDeath(
-									Locations.goodDistance(player.getPosition(), duo.getPosition(), 20));
-						} else {
-							resetDuo(player, duo);
+		for(int i = 0; i < slayerTask.getNpcId().length; ++i) {
+			if (slayerTask != SlayerTasks.NO_TASK) {
+				if (slayerTask.getNpcId()[i] == npc.getId()) {
+					handleSlayerTaskDeath(npc, true);
+					if (duoPartner != null) {
+						Player duo = World.getPlayerByName(duoPartner);
+						if (duo != null) {
+							if (checkDuoSlayer(player, false)) {
+								duo.getSlayer().handleSlayerTaskDeath(npc, Locations.goodDistance(player.getPosition(), duo.getPosition(), 20));
+							} else {
+								resetDuo(player, duo);
+							}
 						}
 					}
 				}
@@ -89,11 +88,16 @@ public class Slayer {
 		}
 	}
 
-	public void handleSlayerTaskDeath(boolean giveXp) {
-		//int xp = slayerTask.getXP() + Misc.getRandom(slayerTask.getXP() / 5);
-
-		int xp = NpcDefinition.forId(slayerTask.getNpcId()).getHitpoints()/10;
-
+	public void handleSlayerTaskDeath(NPC npc, boolean giveXp) {
+		int xp = 0; //Might not give exp for some npcs because doesn't get reached
+		for(int i = 0; i < slayerTask.getNpcId().length; ++i) {
+			if(NpcDefinition.forId(slayerTask.getNpcId()[i]) == null) {
+				continue;
+			}
+			if(npc.getId() == slayerTask.getNpcId()[i]) {
+				xp = NpcDefinition.forId(slayerTask.getNpcId()[i]).getHitpoints()/10;
+			}
+		}
 		if (amountToSlay > 1) {
 			amountToSlay--;
 		} else {

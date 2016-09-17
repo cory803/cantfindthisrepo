@@ -2,6 +2,7 @@ package com.chaos.world.content.skill.impl.slayer;
 
 import com.chaos.model.Position;
 import com.chaos.util.Misc;
+import com.chaos.world.entity.impl.player.Player;
 
 /**
  * @author Gabriel Hannason
@@ -146,6 +147,15 @@ public enum SlayerTasks {
 
 	public int[] getNpcId() {
 		return this.npcId;
+	}
+
+	public boolean onSlayerTask(int id) {
+		for(int i = 0; i < this.npcId.length; ++i) {
+			if(id == this.npcId[i]) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public String getNpcLocation() {

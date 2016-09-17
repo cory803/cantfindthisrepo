@@ -199,7 +199,7 @@ public class LootSystem {
                 return true;
 
             case TASK:
-                return player.getSlayer().getSlayerTask().getNpcId() == n.getId();
+                return player.getSlayer().getSlayerTask().onSlayerTask(n.getId());
 
             case ONE_ITEM: {
                 for (Bank bank : player.getBanks()) {
