@@ -35,7 +35,6 @@ public class WellOfGoodness {
         String line;
             try {
                 BufferedReader reader = new BufferedReader(new FileReader("./data/saves/edgeville-well.txt"));
-//                BufferedReader reader = new BufferedReader(new FileReader(new File("config.txt")));
                 while ((line = reader.readLine()) != null) {
                     if (line.contains("well-exp")) {
                         args = line.split(": ");
@@ -130,6 +129,7 @@ public class WellOfGoodness {
             }
         return false;
     }
+
     public static void donate(Player player, int amount, String well) {
         if (checkFull(player, well)) {
             return;
@@ -162,10 +162,26 @@ public class WellOfGoodness {
         }
         Dialog.createStatement(DialogHandler.CALM, "Thank you for your donation.");
         if (getMissingAmount(well) <= 0) {
-            STATE = WellState.FULL;
-            START_TIMER[getWell(well)] = System.currentTimeMillis();
-            World.sendMessage("<img=4> <col=6666FF>The Well of Goodwill has been filled!");
-            World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% bonus experience.");
+            switch(getWell(well)) {
+                case 1:
+//                    STATE = WellState.FULL;
+                    START_TIMER[getWell(well)] = System.currentTimeMillis();
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Exp has been filled!");
+                    World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% bonus experience.");
+                    break;
+                case 2:
+//                    STATE = WellState.FULL;
+                    START_TIMER[getWell(well)] = System.currentTimeMillis();
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Wealth has been filled!");
+                    World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus xp rates.");
+                    break;
+                case 3:
+//                    STATE = WellState.FULL;
+                    START_TIMER[getWell(well)] = System.currentTimeMillis();
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Execution has been filled!");
+                    World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus pk points.");
+                    break;
+            }
         }
     }
 }

@@ -12,6 +12,8 @@ import com.chaos.model.definitions.GameObjectDefinition;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.input.impl.DonateToWell;
 import com.chaos.model.input.impl.EnterAmountOfLogsToAdd;
+import com.chaos.model.player.dialog.Dialog;
+import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
@@ -49,6 +51,7 @@ import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.npcs.Sailor;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
 
@@ -1927,9 +1930,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							case 884:
 							case 26945:
-								player.setInputHandling(new DonateToWell());
-								player.getPacketSender().sendInterfaceRemoval()
-										.sendEnterAmountPrompt("How much money would you like to contribute with?");
+								player.getDialog().sendDialog(new DonateToWellDial(player));
 								break;
 							case 28716:
 								if (player.getSkillManager().getCurrentLevel(Skill.SUMMONING) == player.getSkillManager()
