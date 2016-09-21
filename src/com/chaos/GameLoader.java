@@ -14,6 +14,7 @@ import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.FontUtils;
 import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.doors.DoorManager;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
@@ -81,6 +82,7 @@ public final class GameLoader {
 		ShopManager.parseShops().load();
 		PlayerOwnedShopManager.load();
 		NPC.init();
+		WellOfGoodness.init();
 		//WikiDumper.dumpNpcDefinitions();
 		//DropManager.saveDrops();
 		//WikiDumper.dumpItemDefinitions();

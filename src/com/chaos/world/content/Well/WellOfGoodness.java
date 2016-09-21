@@ -15,10 +15,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class WellOfGoodness {
 
-    public enum WellState {
-        EMPTY, FULL;
-    }
-
     private static final int LEAST_DONATE_AMOUNT_ACCEPTED = 1000000; // 1m
 
     private static final int[] AMOUNT_NEEDED = { 10000000, 25000000, 30000000 };
@@ -26,9 +22,9 @@ public class WellOfGoodness {
 
     private static CopyOnWriteArrayList<Player> DONATORS = new CopyOnWriteArrayList<Player>();
 
-    private static WellState STATE = WellState.EMPTY;
     private static long[] START_TIMER = { 0, 0,0 };
     private static int[] MONEY_IN_WELL = { 0, 0, 0 };
+    private static boolean[] isFull = { false, false, false };
 
     public static void init() {
         String[] args;
@@ -39,21 +35,21 @@ public class WellOfGoodness {
                     if (line.contains("well-exp")) {
                         args = line.split(": ");
                         if (Long.parseLong(args[1]) > 0) {
-                            STATE = WellState.FULL;
+                            isFull[0] = true;
                             START_TIMER[0] = Long.parseLong(args[1]);
                             MONEY_IN_WELL[0] = AMOUNT_NEEDED[0];
                         }
                     } else if (line.contains("well-drops")) {
                         args = line.split(": ");
                         if (Long.parseLong(args[1]) > 0) {
-                            STATE = WellState.FULL;
+                            isFull[1] = true;
                             START_TIMER[1] = Long.parseLong(args[1]);
                             MONEY_IN_WELL[1] = AMOUNT_NEEDED[1];
                         }
                     } else if (line.contains("well-pkp")) {
                         args = line.split(": ");
                         if (Long.parseLong(args[1]) > 0) {
-                            STATE = WellState.FULL;
+                            isFull[2] = true;
                             START_TIMER[0] = Long.parseLong(args[1]);
                             MONEY_IN_WELL[1] = AMOUNT_NEEDED[1];
                         }
@@ -111,22 +107,22 @@ public class WellOfGoodness {
     }
 
     public static boolean checkFull(Player player, String well) {
-            if (well == "exp") {
-                if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
-                    return true;
-                }
-                return false;
-            } else if (well == "drops") {
-                if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
-                    return true;
-                }
-                return false;
-            } else if (well == "pkp") {
-                if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
-                    return true;
-                }
-                return false;
+        if (well == "exp") {
+            if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
+                return isFull[getWell(well)] = true;
             }
+            return isFull[getWell(well)] = false;
+        } else if (well == "drops") {
+            if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
+                return isFull[getWell(well)] = true;
+            }
+            return isFull[getWell(well)] = false;
+        } else if (well == "pkp") {
+            if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
+                return isFull[getWell(well)] = true;
+            }
+            return isFull[getWell(well)] = false;
+        }
         return false;
     }
 
@@ -152,35 +148,70 @@ public class WellOfGoodness {
         } else {
             player.getInventory().delete(995, amount);
         }
-        if (!DONATORS.contains(player)) {
-            DONATORS.add(player);
-        }
+//        if (!DONATORS.contains(player)) {
+//            DONATORS.add(player);
+//        }
         MONEY_IN_WELL[getWell(well)] += amount;
         if (amount > 25000000) {
-            World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
-                    + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Goodwill!");
+            switch (getWell(well)) {
+                case 1:
+                    World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
+                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Exp!");
+                    break;
+                case 2:
+                    World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
+                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Wealth!");
+                    break;
+                case 3:
+                    World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
+                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Execution!");
+                    break;
+                default:
+                    System.out.println("Wtf..... donated to which well?!?");
+            }
         }
         Dialog.createStatement(DialogHandler.CALM, "Thank you for your donation.");
         if (getMissingAmount(well) <= 0) {
             switch(getWell(well)) {
                 case 1:
-//                    STATE = WellState.FULL;
+                    isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Exp has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% bonus experience.");
                     break;
                 case 2:
-//                    STATE = WellState.FULL;
+                    isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Wealth has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus xp rates.");
                     break;
                 case 3:
-//                    STATE = WellState.FULL;
+                    isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Execution has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus pk points.");
                     break;
+            }
+        }
+    }
+
+    public static int getMinutesRemaining(String well) {
+        return (BONUSES_DURATION[getWell(well)] - Misc.getMinutesPassed(System.currentTimeMillis() - START_TIMER[getWell(well)]));
+    }
+
+    public static void setDefaults(String well) {
+        isFull[getWell(well)] = false;
+        START_TIMER[getWell(well)] = 0;
+        MONEY_IN_WELL[getWell(well)] = 0;
+    }
+
+    public static void updateState(String well) {
+        if (isFull[getWell(well)]) {
+            if (getMinutesRemaining(well) <= 0) {
+                World.sendMessage("<img=4> <col=6666FF>The Well of Goodwill is no longer granting bonus experience.");
+                World.getPlayers()
+                        .forEach(p -> p.getPacketSender().sendString(39163, "@or2@Well of Goodwill: @yel@N/A"));
+                setDefaults(well);
             }
         }
     }

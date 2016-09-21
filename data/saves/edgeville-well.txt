@@ -1,1 +1,3 @@
-0
+well-exp: 0
+well-drops: 0
+well-pkp: 0
