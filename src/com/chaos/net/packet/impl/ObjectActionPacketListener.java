@@ -1842,7 +1842,54 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 11402:
 							case 26969:
 							case 75:
+							case 2497:
 								player.getBank(player.getCurrentBankTab()).open();
+								break;
+							case 21304:
+								Flax.showSpinInterface(player);
+								break;
+							case 21514: //ladder up at neiznot
+								player.performAnimation(new Animation(828));
+								TaskManager.submit(new Task(1, player, true) {
+									int tick = 1;
+									@Override
+									public void execute() {
+										tick++;
+										if (tick == 4) {
+											stop();
+										}
+									}
+
+									@Override
+									public void stop() {
+										setEventRunning(false);
+										if (player.getPosition().getY() < 3805) {
+											player.moveTo(new Position(2329, 3802, 1));
+										} else {
+											player.getPacketSender().sendMessage("You cannot climb this ladder.");
+										}
+									}
+								});
+								break;
+							case 21515:// ladder down neitznot
+								player.performAnimation(new Animation(827));
+								TaskManager.submit(new Task(1, player, true) {
+									int tick = 1;
+
+									@Override
+									public void execute() {
+										tick++;
+										if (tick == 4) {
+											stop();
+										}
+									}
+
+									@Override
+									public void stop() {
+										setEventRunning(false);
+										player.moveTo(new Position(player.getPosition().getX()+1, player.getPosition().getY(), 0));
+									}
+								});
 								break;
 						}
 					}

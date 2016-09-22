@@ -25,7 +25,7 @@ public class SkillingAreas extends Dialog {
                         "Agility Courses",
                         "Catherby",
                         "Training Grounds",
-                        "Neitiznot North",
+                        "Neitiznot",
                         "Wilderness Skillzone") {
                     @Override
                     public void execute(Player player, OptionType option) {
@@ -37,10 +37,10 @@ public class SkillingAreas extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2809, 3435, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2517, 3661, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2517, 3360, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_4_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2314, 3836, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2332, 3802, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_5_OF_5:
                                 break;
