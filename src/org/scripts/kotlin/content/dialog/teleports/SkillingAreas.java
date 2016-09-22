@@ -31,7 +31,8 @@ public class SkillingAreas extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2552, 3556, 0), player.getSpellbook().getTeleportType());
+                                setState(1);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                             case OPTION_2_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(2809, 3435, 0), player.getSpellbook().getTeleportType());
