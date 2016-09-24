@@ -5,14 +5,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.chaos.GameSettings;
-import com.chaos.model.Animation;
-import com.chaos.model.GameObject;
-import com.chaos.model.Graphic;
-import com.chaos.model.Item;
-import com.chaos.model.PlayerInteractingOption;
-import com.chaos.model.StaffRights;
-import com.chaos.model.Position;
-import com.chaos.model.Skill;
+import com.chaos.model.*;
 import com.chaos.model.container.ItemContainer;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.container.impl.PlayerOwnedShopContainer;
@@ -21,7 +14,9 @@ import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.net.packet.Packet.PacketType;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.entity.Entity;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import com.chaos.world.entity.impl.Character;
 
 /**
  * This class manages making the packets that will be sent (when called upon)
@@ -42,6 +37,39 @@ public class PacketSender {
 		out.put(1, ValueType.A);
 		out.putShort(player.getIndex());
 		player.getSession().queueMessage(out);
+		return this;
+	}
+
+	public PacketSender sendCombatBoxData(Character character) {
+		PacketBuilder out = new PacketBuilder(125, PacketType.BYTE);
+		out.putShort(character.getIndex());
+		out.put(character.isPlayer() ? 0 : 1);
+		if(character.isPlayer()) {
+			player.getSession().queueMessage(out);
+		} else {
+			NPC npc = (NPC) character;
+			boolean sendList = npc.getDefaultConstitution() >= 2500 && Locations.Location.inMulti(npc);
+			out.put(sendList ? 1 : 0);
+			if(sendList) {
+				List<DamageDealer> list = npc.fetchNewDamageMap() ? npc.getCombatBuilder().getTopKillers(npc) : npc.getDamageDealerMap();
+				if(npc.fetchNewDamageMap()) {
+					npc.setDamageDealerMap(list);
+					npc.setFetchNewDamageMap(false);
+				}
+				out.put(list.size());
+				for(int i = 0; i < list.size(); i++) {
+					DamageDealer dd = list.get(i);
+					out.putString(dd.getPlayer().getUsername());
+					out.putShort(dd.getDamage());
+				}
+			}
+			player.getSession().queueMessage(out);
+		}
+		return this;
+	}
+
+	public PacketSender sendHideCombatBox() {
+		player.getSession().queueMessage(new PacketBuilder(128));
 		return this;
 	}
 

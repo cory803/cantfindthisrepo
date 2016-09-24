@@ -263,7 +263,7 @@ public class HitQueue {
 
 			} else if (attacker.isPlayer()) {
 				Player player = (Player) attacker;
-
+				player.getPacketSender().sendCombatBoxData(victim);
 				/** SKULLS **/
 				if (player.getLocation() == Location.WILDERNESS
 						|| player.getLocation() == Location.WILDKEY_ZONE && victim.isPlayer()) {

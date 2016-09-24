@@ -5,13 +5,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.chaos.GameSettings;
 import com.chaos.engine.task.Task;
-import com.chaos.model.Animation;
-import com.chaos.model.Flag;
-import com.chaos.model.GroundItem;
-import com.chaos.model.Item;
+import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.Position;
-import com.chaos.model.Skill;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
@@ -79,12 +74,8 @@ public class PlayerDeathTask extends Task {
 						&& loc != Location.FIGHT_PITS_WAIT_ROOM && loc != Location.FIGHT_CAVES
 						&& loc != Location.ZULRAH_PIT
 						&& loc != Location.RECIPE_FOR_DISASTER && loc != Location.GRAVEYARD) {
-					Player killer = player.getCombatBuilder().getKiller(true);
-					if (killer == null) {
-						System.out.println("Null killer");
-					} else {
-						System.out.println(killer.getUsername());
-					}
+					DamageDealer damageDealer = player.getCombatBuilder().getTopDamageDealer(true, null);
+					Player killer = damageDealer == null ? null : damageDealer.getPlayer();
 					// final boolean doubleDeath = player.isDying() &&
 					// killer.getConstitution() <= 0;
 					// if(killer.getLocation() == Location.WILDERNESS ||

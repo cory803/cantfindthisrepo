@@ -2,6 +2,7 @@ package com.chaos.world.entity.impl.npc;
 
 import com.chaos.engine.task.TaskManager;
 import com.chaos.engine.task.impl.NPCDeathTask;
+import com.chaos.model.DamageDealer;
 import com.chaos.model.Direction;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.Position;
@@ -27,6 +28,8 @@ import com.chaos.world.entity.impl.player.Player;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -53,6 +56,14 @@ public class NPC extends Character {
         this.walkingRandom = NPC.getWalkingRandom(id);
         this.maximumDistance = NPC.getMaximumDistance(id);
         setLocation(Location.getLocation(this));
+    }
+    private List<DamageDealer> damageDealerMap = new ArrayList<DamageDealer>();
+    public List<DamageDealer> getDamageDealerMap() {
+        return damageDealerMap;
+    }
+
+    public void setDamageDealerMap(List<DamageDealer> damageDealerMap) {
+        this.damageDealerMap = damageDealerMap;
     }
 
     public void sequence() {
@@ -264,6 +275,7 @@ public class NPC extends Character {
     private boolean visible = true;
     private boolean healed, chargingAttack;
     private boolean findNewTarget;
+    private boolean fetchNewDamageMap;
     public boolean projectileClipping;
     private boolean randomWalks;
     private boolean walkEnabled = true;
@@ -275,7 +287,13 @@ public class NPC extends Character {
 	/*
 	 * Getters and setters
 	 */
+    public void setFetchNewDamageMap(boolean fetchNewDamageMap) {
+        this.fetchNewDamageMap = fetchNewDamageMap;
+    }
 
+    public boolean fetchNewDamageMap() {
+        return fetchNewDamageMap;
+    }
     public int getId() {
         return id;
     }

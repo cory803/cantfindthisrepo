@@ -1,9 +1,12 @@
 package com.chaos.world.content.combat;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+import com.chaos.model.DamageDealer;
 import com.chaos.model.action.distance.CombatFollowMobileAction;
 import com.chaos.util.Misc;
 import com.chaos.util.Stopwatch;
@@ -168,7 +171,7 @@ public class CombatBuilder {
 	 * @return the player who killed this entity, or <code>null</code> if an npc
 	 *         or something else killed this entity.
 	 */
-	public Player getKiller(boolean clearMap) {
+	public DamageDealer getTopDamageDealer(boolean clearMap, List<String> ignores) {
 
 		// Return null if no players killed this entity.
 		if (damageMap.size() == 0) {
@@ -195,7 +198,11 @@ public class CombatBuilder {
 			// Check if the key for this entry is dead or has logged
 			// out.
 			Player player = entry.getKey();
-			if (!player.isRegistered()) {
+			if (player.getConstitution() <= 0 || !player.isRegistered()) {
+				continue;
+			}
+
+			if(ignores != null && ignores.contains(player.getUsername())) {
 				continue;
 			}
 
@@ -212,9 +219,22 @@ public class CombatBuilder {
 			damageMap.clear();
 
 		// Return the killer placeholder.
-		return killer;
+		return new DamageDealer(killer, damage);
 	}
 
+	public List<DamageDealer> getTopKillers(NPC npc) {
+		List<DamageDealer> list = new ArrayList<DamageDealer>();
+		List<String> ignores = new ArrayList<String>();
+		for(int i = 0; i < 5; i++) {
+			DamageDealer damageDealer = getTopDamageDealer(false, ignores);
+			if(damageDealer == null || damageDealer.getPlayer() == null) {
+				break;
+			}
+			list.add(damageDealer);
+			ignores.add(damageDealer.getPlayer().getUsername());
+		}
+		return list;
+	}
 	/**
 	 * Adds damage to the damage map, as long as the argued amount of damage is
 	 * above 0 and the argued entity is a player.

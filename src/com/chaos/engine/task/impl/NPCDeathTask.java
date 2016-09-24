@@ -3,6 +3,7 @@ package com.chaos.engine.task.impl;
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Animation;
+import com.chaos.model.DamageDealer;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.world.World;
@@ -63,7 +64,9 @@ public class NPCDeathTask extends Task {
 			switch (ticks) {
 			case 2:
 				npc.getWalkingQueue().setLockMovement(true).clear();
-				killer = npc.getCombatBuilder().getKiller(true);
+				DamageDealer damageDealer = npc.getCombatBuilder().getTopDamageDealer(true, null);
+				killer = damageDealer == null ? null : damageDealer.getPlayer();
+
 				if (!(npc.getId() >= 6142 && npc.getId() <= 6145) && !(npc.getId() > 5070 && npc.getId() < 5081))
 					npc.performAnimation(new Animation(npc.getDefinition().getDeathAnimation()));
 
