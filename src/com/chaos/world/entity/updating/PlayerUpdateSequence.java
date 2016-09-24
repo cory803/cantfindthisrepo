@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Phaser;
 
 import com.chaos.world.World;
+import com.chaos.world.entity.impl.npc.NpcAggression;
 import com.chaos.world.entity.impl.player.Player;
 
 public class PlayerUpdateSequence implements UpdateSequence<Player> {
@@ -38,7 +39,7 @@ public class PlayerUpdateSequence implements UpdateSequence<Player> {
 			if (t.getWalkToTask() != null)
 				t.getWalkToTask().tick();
 			t.getWalkingQueue().processNextMovement();
-			//NpcAggression.target(t);
+			NpcAggression.target(t);
 		} catch (Exception e) {
 			e.printStackTrace();
 			World.deregister(t);
