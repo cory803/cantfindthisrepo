@@ -1120,6 +1120,201 @@
       }
     }
   },
+   { 
+	# Catherby 1
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2815,
+        "y": 3449,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2815,
+        "y": 3448,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Catherby near bank
+    "openState": {
+      "id": 1534,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2806,
+        "y": 3452,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1533,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2805,
+        "y": 3452,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Catherby cooking room
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2816,
+        "y": 3439,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2816,
+        "y": 3438,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Catherby bank chest room
+    "openState": {
+      "id": 1531,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2827,
+        "y": 3450,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2828,
+        "y": 3450,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Neiz shield room
+    "openState": {
+      "id": 21341,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2339,
+        "y": 3800,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 21340,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2339,
+        "y": 3801,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Neiz bedroom next to shield
+    "openState": {
+      "id": 21342,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2347,
+        "y": 3800,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 21341,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2347,
+        "y": 3801,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Neiz bedroom next to waterfall
+    "openState": {
+      "id": 21342,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2346,
+        "y": 3807,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 21341,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2345,
+        "y": 3807,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Neiz last bedroom
+    "openState": {
+      "id": 21342,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2353,
+        "y": 3801,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 21341,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2352,
+        "y": 3801,
+        "z": 0
+      }
+    }
+  },
+ 
+ 
+ 
+  
+  
+  
+  
+  
+  
+  
+  
   {
 	# Lumbridge Tutorial Hut 2
     "openState": {
