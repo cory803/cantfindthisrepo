@@ -109,19 +109,25 @@ public class WellOfGoodness {
     public static boolean checkFull(Player player, String well) {
         if (well == "exp") {
             if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
-                return isFull[getWell(well)] = true;
+                isFull[getWell(well)] = true;
+                return true;
             }
-            return isFull[getWell(well)] = false;
+            isFull[getWell(well)] = false;
+            return false;
         } else if (well == "drops") {
             if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
-                return isFull[getWell(well)] = true;
+                isFull[getWell(well)] = true;
+                return true;
             }
-            return isFull[getWell(well)] = false;
+            isFull[getWell(well)] = false;
+            return false;
         } else if (well == "pkp") {
             if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
-                return isFull[getWell(well)] = true;
+                isFull[getWell(well)] = true;
+                return true;
             }
-            return isFull[getWell(well)] = false;
+            isFull[getWell(well)] = false;
+            return false;
         }
         return false;
     }
