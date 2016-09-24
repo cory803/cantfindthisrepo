@@ -126,6 +126,10 @@ public class CombatBuilder {
 		strategy = null;
 		cooldown = 0;
 		character.setEntityInteraction(null);
+
+        if(character.isPlayer()) {
+            ((Player)character).getPacketSender().sendHideCombatBox();
+        }
 	}
 
 	public void reset() {
