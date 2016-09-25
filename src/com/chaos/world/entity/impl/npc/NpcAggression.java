@@ -70,11 +70,13 @@ public final class NpcAggression {
 					}
 				}
 
-				if (player.getSkillManager().getCombatLevel() > (npc.getDefinition().getCombatLevel() * 2)
-						&& player.getLocation() != Location.WILDERNESS) {
+				if (player.getSkillManager().getCombatLevel() > (npc.getDefinition().getCombatLevel() * 2) && player.getLocation() != Location.WILDERNESS && !npc.getDefinition().isAggressive()) {
 					continue;
 				}
-				if (npc.getId() == 1265 || Location.ignoreFollowDistance(npc) || gwdMob
+				if(!npc.getDefinition().isAggressive()) {
+					continue;
+				}
+				if (Location.ignoreFollowDistance(npc) || gwdMob
 						|| npc.getDefaultPosition().distanceTo(player.getPosition()) < npc.determineStrategy().attackDistance(npc)) {
 					if (CombatFactory.checkHook(npc, player)) {
 						player.setTargeted(true);
