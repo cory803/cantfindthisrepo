@@ -1144,6 +1144,28 @@
 "defenceMage": 90
 },
 {
+"id": 6593,
+"name": "Lava dragon",
+"examine": "A dragon from the realm of lava.",
+"combat": 252,
+"size": 4,
+"attackable": true,
+"aggressive": false,
+"retreats": false,
+"poisonous": false,
+"respawn": 20,
+"maxHit": 230,
+"hitpoints": 2300,
+"attackSpeed": 4,
+"attackAnim": 25,
+"defenceAnim": 89,
+"deathAnim": 92,
+"attackBonus": 230,
+"defenceMelee": 80,
+"defenceRange": 70,
+"defenceMage": 80
+},
+{
 "id": 10775,
 "name": "Frost dragon",
 "examine": "A dragon who was born and bread in the Icey parts of the wilderness.",

@@ -78,7 +78,6 @@ public final class NpcAggression {
 						|| npc.getDefaultPosition().distanceTo(player.getPosition()) < npc.determineStrategy().attackDistance(npc)) {
 					if (CombatFactory.checkHook(npc, player)) {
 						player.setTargeted(true);
-						System.out.println("TEST2");
 						//npc.follow(player);
 						npc.getCombatBuilder().attack(player);
 						npc.setFindNewTarget(false);
