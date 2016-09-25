@@ -44767,6 +44767,28 @@
 "defenceMage": 250
 },
 {
+"id": 6609,
+"name": "Callisto",
+"examine": "I wouldn't want to eat his Porridge.",
+"combat": 470,
+"size": 5,
+"attackable": true,
+"aggressive": true,
+"retreats": false,
+"poisonous": false,
+"respawn": 25,
+"maxHit": 600,
+"hitpoints": 2550,
+"attackSpeed": 4,
+"attackAnim": 4925,
+"defenceAnim": 4927,
+"deathAnim": 4929,
+"attackBonus": 370,
+"defenceMelee": 150,
+"defenceRange": 230,
+"defenceMage": 900
+},
+{
 "id": 2002,
 "name": "Null",
 "examine": "It's an NPC.",
