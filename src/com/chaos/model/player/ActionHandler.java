@@ -71,6 +71,7 @@ public final class ActionHandler {
         switch (npc.getId()) {
             //Bankers
             case 494:
+            case 4519:
                 player.getBank(0).open();
                 break;
 
@@ -257,6 +258,12 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Bankers
+            case 494:
+            case 4519:
+                player.getBank(0).open();
+                break;
+
             //Oziach
             case 747:
                 Artifacts.sellArtifacts(player);

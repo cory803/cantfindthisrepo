@@ -155,10 +155,6 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						switch (id) {
-							//Grand exchange agility
-							//case 9311:
-
-							//v	break;
 
 							//Edgeville coffins
 							case 26935:
@@ -167,6 +163,13 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 26941:
 								player.setNpcClickId(945);
 								player.getDialog().sendDialog(new EdgevilleCoffins(player));
+								break;
+							//Bounty hunter caves
+							case 28119:
+								player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY() - 11, 0));
+								break;
+							case 28121:
+								player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY() + 11, 0));
 								break;
 
 							case 2406:

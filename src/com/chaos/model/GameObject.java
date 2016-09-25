@@ -186,18 +186,22 @@ public class GameObject extends Entity {
 			return 1;
 
 		switch (id) {
-		case 2515:
-			return 1;
-		case 38660:
-		case 410:
-		case 2320:
-			return 2;
-		case 2282:
-			return 5;
-		case 1767:
-			return 9;
-		case 5013:
-			return 1;
+			case 2515:
+				return 1;
+			case 38660:
+			case 410:
+			case 2320:
+				return 2;
+			case 2282:
+				return 5;
+			case 1767:
+				return 9;
+			case 5013:
+				return 1;
+			case 28119:
+				return 3;
+			case 28121:
+				return 1;
 		}
 
 		if (definition.getSizeX() == 1)

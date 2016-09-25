@@ -65,7 +65,7 @@ public class WalkToTask {
 				player.setWalkToTask(null);
 				return;
 			}
-			//Add distanced object clipping here
+			//This tells you if you don't want to use that object on that position
 			if((player.getPosition().getX() == 2688 && player.getPosition().getY() == 3707)
 				|| (player.getPosition().getX() == 2800 && player.getPosition().getY() == 10134)
 					|| (player.getPosition().getX() == 3102 && player.getPosition().getY() == 2958)
@@ -73,6 +73,12 @@ public class WalkToTask {
 					|| (player.getPosition().getX() == 3100 && player.getPosition().getY() == 2958)
 					|| (player.getPosition().getX() == 3104 && player.getPosition().getY() == 2958)
 					|| (player.getPosition().getX() == 3103 && player.getPosition().getY() == 2958)
+					|| (player.getPosition().getX() == 3165 && player.getPosition().getY() == 3685)
+					|| (player.getPosition().getX() == 3164 && player.getPosition().getY() == 3685)
+					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3685)
+					|| (player.getPosition().getX() == 3165 && player.getPosition().getY() == 3696)
+					|| (player.getPosition().getX() == 3164 && player.getPosition().getY() == 3696)
+					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3696)
 
 					) {
 				finalizedTask.execute();
@@ -81,9 +87,22 @@ public class WalkToTask {
 			} else {
 				if (Locations.goodDistance(player.getPosition().getX(), player.getPosition().getY(), destination.getX(),
 						destination.getY(), distance) || destination.equals(player.getPosition())) {
-					finalizedTask.execute();
-					player.setEntityInteraction(null);
-					player.setWalkToTask(null);
+					if(
+						(player.getPosition().getX() == 3162 && player.getPosition().getY() == 3696) ||
+						(player.getPosition().getX() == 3161 && player.getPosition().getY() == 3696) ||
+						(player.getPosition().getX() == 3160 && player.getPosition().getY() == 3696) ||
+						(player.getPosition().getX() == 3159 && player.getPosition().getY() == 3696) ||
+						(player.getPosition().getX() == 3158 && player.getPosition().getY() == 3696) ||
+						(player.getPosition().getX() == 3157 && player.getPosition().getY() == 3696) ||
+						(player.getPosition().getX() == 3156 && player.getPosition().getY() == 3696) ||
+						(player.getPosition().getX() == 3155 && player.getPosition().getY() == 3696)
+							) {
+
+					} else {
+						finalizedTask.execute();
+						player.setEntityInteraction(null);
+						player.setWalkToTask(null);
+					}
 				}
 			}
 		}

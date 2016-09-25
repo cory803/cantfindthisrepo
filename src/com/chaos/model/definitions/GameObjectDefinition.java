@@ -81,6 +81,7 @@ public final class GameObjectDefinition {
 	}
 	private static final int[] removeObjects = {12988, 12989, 12987, 15514, 15516, 12986, 28122, 23987, 4651, 4565, 52843, 23897, 23633, 307, 8985, 57264, 23983, 632, 4656,
 			24265, 24271, 24272, 24274, 24273, 24275, 24266, 24267, 24268, 24269, 24270, 55349, 2309};
+
 	public static GameObjectDefinition forId(int i) {
 		if (i > streamIndices525.length) {
 			return forId667(i);
@@ -593,6 +594,12 @@ public final class GameObjectDefinition {
 	}
 
 	public int getSizeX() {
+		switch(id) {
+			case 28119:
+				return 2;
+			case 28121:
+				return 2;
+		}
 		return tileSizeX;
 	}
 
