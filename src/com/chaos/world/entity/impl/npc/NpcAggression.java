@@ -76,8 +76,7 @@ public final class NpcAggression {
 				if(!npc.getDefinition().isAggressive()) {
 					continue;
 				}
-				if (Location.ignoreFollowDistance(npc) || gwdMob
-						|| npc.getDefaultPosition().distanceTo(player.getPosition()) < npc.determineStrategy().attackDistance(npc)) {
+				if (Location.ignoreFollowDistance(npc) || gwdMob || CombatFactory.checkAttackDistance(player, npc)) {
 					if (CombatFactory.checkHook(npc, player)) {
 						player.setTargeted(true);
 						//npc.follow(player);
