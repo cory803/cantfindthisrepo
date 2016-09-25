@@ -24,8 +24,8 @@ public class WildernessAreas extends Dialog {
             case 0:
                 return Dialog.createOption(new FiveOption(
                         "Varrock Wilderness",
+                        "Bounty Hunter",
                         "West Wilderness",
-                        "Chaos Temple",
                         "East Wilderness",
                         "Mage Bank") {
                     @Override
@@ -35,10 +35,10 @@ public class WildernessAreas extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(3244, 3512, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_2_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2979, 3600, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(3182, 3685, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(3236, 3635, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2979, 3600, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_4_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(3369, 3695, 0), player.getSpellbook().getTeleportType());
