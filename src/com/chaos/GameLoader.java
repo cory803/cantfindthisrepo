@@ -85,7 +85,8 @@ public final class GameLoader {
 		WellOfGoodness.init();
 		//WikiDumper.dumpNpcDefinitions();
 		//DropManager.saveDrops();
-		//WikiDumper.dumpItemDefinitions();
+		//WikiDumper.dumpNpcDropDefinition(6593);
+		//DropManager.saveDrops();
 	}
 
 	public GameEngine getEngine() {

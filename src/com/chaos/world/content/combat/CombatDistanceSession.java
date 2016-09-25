@@ -44,12 +44,13 @@ public class CombatDistanceSession {
 			}
 		}*/
 
-		if (Locations.goodDistance(builder.getCharacter().getPosition(), victim.getPosition(),
-				builder.getStrategy().attackDistance(builder.getCharacter()))) {
+		//if (Locations.goodDistance(builder.getCharacter().getPosition(), victim.getPosition(), builder.getStrategy().attackDistance(builder.getCharacter()))) {
 			sucessFul();
 			this.stop();
-			return;
-		}
+			//return;
+		//} else {
+			//System.out.println("Debug 1");
+		//}
 	}
 
 	public void stop() {

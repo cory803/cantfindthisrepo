@@ -44771,7 +44771,7 @@
 "name": "Callisto",
 "examine": "I wouldn't want to eat his Porridge.",
 "combat": 470,
-"size": 5,
+"size": 3,
 "attackable": true,
 "aggressive": true,
 "retreats": false,
