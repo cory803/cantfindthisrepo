@@ -28,12 +28,7 @@ import com.chaos.world.entity.impl.player.Player;
 
 public class DropItemPacketListener implements PacketListener {
 
-	@Override
-	public void handleMessage(Player player, Packet packet) {
-		int id = packet.readUnsignedShortA();
-		@SuppressWarnings("unused")
-		int interfaceIndex = packet.readUnsignedShort();
-		int itemSlot = packet.readUnsignedShortA();
+	public static void dropItem(Player player, int id, int itemSlot) {
 		if (player.getConstitution() <= 0 || player.getInterfaceId() > 0)
 			return;
 		if (itemSlot < 0 || itemSlot > player.getInventory().capacity())
@@ -59,7 +54,7 @@ public class DropItemPacketListener implements PacketListener {
 				if (item.getId() == 4045) {
 
 					if (player.isJailed()) {
-						player.getPacketSender().sendMessage("You cannot do this while in Jail.");
+						player.getPacketSender().sendMessage("You cannot drop this item while in jail.");
 						player.getWalkingQueue().clear();
 						return;
 					}
@@ -90,6 +85,15 @@ public class DropItemPacketListener implements PacketListener {
 				destroyItemInterface(player, item);
 			}
 		}
+	}
+
+	@Override
+	public void handleMessage(Player player, Packet packet) {
+		int id = packet.readUnsignedShortA();
+		@SuppressWarnings("unused")
+		int interfaceIndex = packet.readUnsignedShort();
+		int itemSlot = packet.readUnsignedShortA();
+		dropItem(player, id, itemSlot);
 	}
 
 	public static void destroyItemInterface(Player player, Item item) {// Destroy

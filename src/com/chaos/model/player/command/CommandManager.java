@@ -145,6 +145,7 @@ public class CommandManager {
             }
         });
         commands.put("help", new GetHelp(StaffRights.PLAYER));
+        commands.put("dropselecteditems", new DropSelectedItems(StaffRights.PLAYER));
         commands.put("support", new GetHelp(StaffRights.PLAYER));
         commands.put("register", new Command(StaffRights.PLAYER) {
             @Override
