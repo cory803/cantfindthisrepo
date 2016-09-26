@@ -1304,7 +1304,75 @@
       }
     }
   },
- 
+   { 
+	# Trainging grounds ore door
+    "openState": {
+      "id": 1531,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2523,
+        "y": 3375,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2522,
+        "y": 3375,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Tripe bed room training grounds
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2521,
+        "y": 3382,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2521,
+        "y": 3381,
+        "z": 0
+      }
+    }
+  },
+  { 
+	# Long house door training grounds
+    "openState": {
+      "id": 1531,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2510,
+        "y": 3381,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2510,
+        "y": 3380,
+        "z": 0
+      }
+    }
+  },
  
  
   
