@@ -251,7 +251,10 @@ public final class ActionHandler {
         player.setNpcClickId(npc.getId());
         if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender().sendConsoleMessage("Second click npc id: " + npc.getId());
-
+        if (BossPets.pickup(player, npc)) {
+            player.getWalkingQueue().clear();
+            return;
+        }
         if (GameSettings.DEBUG_MODE) {
             // PlayerLogs.log(player, "" + player.getUsername()
             // + " in NPCOptionPacketListener: " + npc.getId() + " -

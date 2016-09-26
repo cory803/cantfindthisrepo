@@ -44789,6 +44789,28 @@
 "defenceMage": 900
 },
 {
+"id": 497,
+"name": "Callisto cub",
+"examine": "I wouldn't want to eat his Porridge.",
+"combat": 0,
+"size": 2,
+"attackable": false,
+"aggressive": false,
+"retreats": false,
+"poisonous": false,
+"respawn": 1,
+"maxHit": 0,
+"hitpoints": 0,
+"attackSpeed": 0,
+"attackAnim": 4925,
+"defenceAnim": 4927,
+"deathAnim": 4929,
+"attackBonus": 370,
+"defenceMelee": 150,
+"defenceRange": 230,
+"defenceMage": 900
+},
+{
 "id": 2002,
 "name": "Null",
 "examine": "It's an NPC.",
