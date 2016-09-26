@@ -1390,7 +1390,8 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							case 57225:
 								if (!player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()) {
-									//TODO: Add nex room enter dialogue
+									player.moveTo(new Position(2911, 5204));
+									player.getMinigameAttributes().getGodwarsDungeonAttributes().setHasEnteredRoom(true);
 								} else {
 									player.moveTo(new Position(2906, 5204));
 									player.getMinigameAttributes().getGodwarsDungeonAttributes().setHasEnteredRoom(false);
