@@ -27,6 +27,9 @@ public class Thieving {
         } else if (player.getInventory().getFreeSlots() == 0) {
             player.getPacketSender().sendMessage("You do not have enough inventory space to steal from this stall!");
             return false;
+        } else if (player.getSkillManager().getMaxLevel(Skill.THIEVING) < stall.getRequiredLevel()) {
+            player.getPacketSender().sendMessage("You need a thieving level of " + stall.getRequiredLevel() + " to steal from this stall.");
+            return false;
         }
 
         player.getSkillManager().addSkillExperience(Skill.THIEVING, stall.getExperience());
