@@ -36,7 +36,12 @@ public class ShopRestockTask extends Task {
 		} else {
 			for (Item it : shop.getValidItems()) {
 				int delete = getDeleteRatio(it.getAmount());
-				shop.delete(it.getId(), delete > 1 ? delete : 1);
+				if(shop.getId() == 0) {
+					if (it.getId() == 590 || it.getId() == 1755 || it.getId() == 2347 || it.getId() == 952 || it.getId() == 946 || it.getId() == 228 || it.getId() == 1540 || it.getId() == 1523 || it.getId() == 1734 || it.getId() == 1733 || it.getId() == 314) {
+						continue;
+					}
+				}
+				shop.delete(it.getId(), 1);
 			}
 		}
 		shop.publicRefresh();

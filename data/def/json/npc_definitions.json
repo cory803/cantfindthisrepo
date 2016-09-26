@@ -21309,28 +21309,6 @@
 "defenceMage": 0
 },
 {
-"id": 964,
-"name": "Ima",
-"examine": "A citizen of Al Kharid.",
-"combat": 0,
-"size": 1,
-"attackable": false,
-"aggressive": false,
-"retreats": false,
-"poisonous": false,
-"respawn": 10,
-"maxHit": 0,
-"hitpoints": 0,
-"attackSpeed": 0,
-"attackAnim": 0,
-"defenceAnim": 0,
-"deathAnim": 0,
-"attackBonus": 0,
-"defenceMelee": 0,
-"defenceRange": 0,
-"defenceMage": 0
-},
-{
 "id": 965,
 "name": "Sabeil",
 "examine": "A citizen of Al Kharid.",
@@ -129253,7 +129231,7 @@
 "defenceMage": 0
 },
 {
-"id": 5870,
+"id": 964,
 "name": "Hellpuppy",
 "examine": "A puppy from hell",
 "combat": 624,
