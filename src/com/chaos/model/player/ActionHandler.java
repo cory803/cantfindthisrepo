@@ -69,6 +69,11 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //farmer shop
+            case 3917:
+                Shop.ShopManager.getShops().get(25).open(player);
+                break;
+
             //Bankers
             case 494:
             case 4519:
