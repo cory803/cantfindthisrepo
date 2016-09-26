@@ -31,7 +31,7 @@ public class CopyWriteNpc extends Command {
         } else {
             if (SpawnList.spawnList == null) {
                 SpawnList.spawnList = new HashMap<>();
-                SpawnList.deSerialize(file); //TODO: Add file.
+                SpawnList.deSerialize(file);
             }
 
             int npcId;

@@ -42,6 +42,7 @@ import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BankPin.BankPinDial;
 import org.scripts.kotlin.content.dialog.BankPin.DeletePin;
 import org.scripts.kotlin.content.dialog.ClanChatDialogue;
+import org.scripts.kotlin.content.dialog.Report;
 import org.scripts.kotlin.content.dialog.teleports.*;
 
 /**
@@ -87,6 +88,11 @@ public class ButtonClickPacketListener implements PacketListener {
         }
 
         switch (id) {
+
+            //Report button
+            case 1314:
+                player.getDialog().sendDialog(new Report(player));
+                break;
 
             //City teleports
             case 1174: //Moderns

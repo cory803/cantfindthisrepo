@@ -27,7 +27,7 @@ public class Achievements {
 		KILL_YAK(Difficulty.EASY, "Kill a yak", 37022, null),
 		INFUSE_WOLF_POUCH(Difficulty.EASY, "Infuse a wolf pouch", 37023, null),
 		CREATE_CLAN_CHAT(Difficulty.EASY, "Create a clan chat", 37024, null), //TODO
-		ADD_FRIEND(Difficulty.EASY, "Add a friend", 37025, null), //TODO
+		ADD_FRIEND(Difficulty.EASY, "Add a friend", 37025, null),
 		GET_SLAYER_TASK(Difficulty.EASY, "Get a slayer task", 37026, null),
 		SWITCH_SPELLBOOK(Difficulty.EASY, "Switch to another spellbook", 37027, null), //TODO
 		SWITCH_PRAYBOOK(Difficulty.EASY, "Switch to the curse prayers", 37028, null), //TODO

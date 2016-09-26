@@ -455,6 +455,151 @@ public class UseItemPacketListener implements PacketListener {
 				}));
 	}
 
+	private static void itemOnGround(Player player, Packet packet) {
+		final int var1 = packet.readShort();
+		final int objectId = packet.readShort();
+		final int objectY = packet.readLEShortA();
+		final int itemSlot = packet.readLEShort();
+		final int objectX = packet.readLEShortA();
+		final int itemId = packet.readShort();
+		System.out.println(""+var1);
+		if (itemSlot < 0 || itemSlot > player.getInventory().capacity())
+			return;
+		final Item item = player.getInventory().getItems()[itemSlot];
+		if (item == null)
+			return;
+		final GameObject gameObject = new GameObject(objectId,
+				new Position(objectX, objectY, player.getPosition().getZ()));
+		if (objectId > 0 && !World.objectExists(gameObject)) {
+			 player.getPacketSender().sendMessage("An error occured. Error code:"+objectId).sendMessage("Please report the error to a staff member.");
+			return;
+		}
+		player.setInteractingObject(gameObject);
+		player.setWalkToTask(new WalkToTask(player, gameObject.getPosition().copy(), gameObject.getSize(),
+				new FinalizedMovementTask() {
+					@Override
+					public void execute() {
+						if (gameObject.getPosition().getX() == 3036 && gameObject.getPosition().getY() == 3708) {
+							if (CookingWildernessData.forFish(item.getId() - 1) != null
+									&& CookingWildernessData.isRange(objectId)) {
+								player.setPositionToFace(gameObject.getPosition());
+								CookingWilderness.selectionInterface(player,
+										CookingWildernessData.forFish(item.getId() - 1));
+								return;
+							}
+						}
+						if (CookingData.forFish(item.getId()) != null && CookingData.isRange(objectId)) {
+							player.setPositionToFace(gameObject.getPosition());
+							Cooking.selectionInterface(player, CookingData.forFish(item.getId()));
+							return;
+						}
+						if (Prayer.isBone(itemId) && objectId == 409) {
+							BonesOnAltar.openInterface(player, itemId, false);
+							return;
+						}
+						if (player.getFarming().plant(itemId, objectId, objectX, objectY))
+							return;
+						if (player.getFarming().useItemOnPlant(itemId, objectX, objectY))
+							return;
+						if (objectId == 15621) { // Warriors guild
+							// animator
+							if (!WarriorsGuild.itemOnAnimator(player, item, gameObject))
+								player.getPacketSender().sendMessage("Nothing interesting happens..");
+							return;
+						}
+						/*if (player.getGameMode() == GameMode.HARDCORE_IRONMAN) {
+							if (GameObjectDefinition.forId(objectId) != null) {
+								GameObjectDefinition def = GameObjectDefinition.forId(objectId);
+								if (def.name != null && def.name.toLowerCase().contains("bank") && def.actions != null
+										&& def.actions[0] != null && def.actions[0].toLowerCase().contains("use")) {
+									ItemDefinition def1 = ItemDefinition.forId(itemId);
+									ItemDefinition def2;
+									int newId = def1.isNoted() ? itemId - 1 : itemId + 1;
+									def2 = ItemDefinition.forId(newId);
+									if (def2 != null && def1.getName().equals(def2.getName())) {
+										int amt = player.getInventory().getAmount(itemId);
+										if (!def2.isNoted()) {
+											if (amt > player.getInventory().getFreeSlots())
+												amt = player.getInventory().getFreeSlots();
+										}
+										if (amt == 0) {
+											player.getPacketSender().sendMessage(
+													"You do not have enough space in your inventory to do that.");
+											return;
+										}
+										player.getInventory().delete(itemId, amt).add(newId, amt);
+
+									} else {
+										player.getPacketSender().sendMessage("You cannot do this with that item.");
+									}
+									return;
+								}
+							}
+						}*/
+						switch (objectId) {
+						case 6189:
+							if (itemId == 6573 || itemId == 1597 || itemId == 1759) {
+								if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 80) {
+									player.getPacketSender()
+											.sendMessage("You need a Crafting level of at least 80 to make that item.");
+									return;
+								}
+								if (player.getInventory().contains(6573)) {
+									if (player.getInventory().contains(1597)) {
+										if (player.getInventory().contains(1759)) {
+											player.performAnimation(new Animation(896));
+											player.getInventory().delete(new Item(1759)).delete(new Item(6573))
+													.add(new Item(6585));
+											player.getPacketSender().sendMessage(
+													"You put the items into the furnace to forge an Amulet of Fury.");
+										} else {
+											player.getPacketSender()
+													.sendMessage("You need some Ball of Wool to do this.");
+										}
+									} else {
+										player.getPacketSender().sendMessage("You need a Necklace mould to do this.");
+									}
+								}
+							} else if (itemId == 229) {
+								if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 47) {
+									player.getPacketSender().sendMessage(
+											"You need a Crafting level of at least 47 to make molten glass.");
+									return;
+								}
+								if (player.getInventory().hasRoomFor(1775, 3)) {
+									player.performAnimation(new Animation(896));
+									player.getSkillManager().addExactExperience(Skill.CRAFTING, 980);
+									player.getInventory().delete(new Item(229)).add(new Item(1775, 4));
+									player.getPacketSender().sendMessage("You create some molten glass...");
+								} else {
+									player.getPacketSender().sendMessage(
+											"You do not have enough inventory space, you need atleast 3 slots!");
+								}
+							}
+							break;
+						case 7836:
+						case 7808:
+							if (itemId == 6055) {
+								int amt = player.getInventory().getAmount(6055);
+								if (amt > 0) {
+									player.getInventory().delete(6055, amt);
+									player.getPacketSender().sendMessage("You put the weed in the compost bin.");
+									player.getSkillManager().addExactExperience(Skill.FARMING, 20 * amt);
+								}
+							}
+							break;
+						case 4306:
+							if (itemId == 11620 || itemId == 11621 || itemId == 11622 || itemId == 11623) {
+								RoyalCrossBow.makeCrossbow(player);
+							} else {
+								EquipmentMaking.handleAnvil(player);
+							}
+							break;
+						}
+					}
+				}));
+	}
+
 	private static void itemOnNpc(final Player player, Packet packet) {
 		int item_id = packet.readShortA();
 		int npc_id = packet.readLEShort();
@@ -628,7 +773,7 @@ public class UseItemPacketListener implements PacketListener {
 
 	public final static int ITEM_ON_OBJECT = 192;
 
-	public final static int ITEM_ON_GROUND_ITEM = 25;
+	public final static int ITEM_ON_GROUND_ITEM = 109;
 
 	public static final int ITEM_ON_PLAYER = 14;
 }

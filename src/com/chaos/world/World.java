@@ -144,9 +144,6 @@ public class World {
 	}
 
 	public static void updatePlayersOnline() {
-		//players.forEach(p -> p.getPacketSender().sendString(55073,
-				//"@red@Players online:   @gre@(@gre@" + (players.size()) + "@gre@)"));
-		//TODO: Add players online for player panel
 		players.forEach(
 				p -> p.getPacketSender().sendString(57003, "Players:  @gre@" + (World.getPlayers().size()) + ""));
 	}
