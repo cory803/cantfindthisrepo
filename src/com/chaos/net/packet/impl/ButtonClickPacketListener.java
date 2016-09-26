@@ -430,7 +430,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 else if (id == 1019 || id == -11501)
                     SummoningTab.callFollower(player);
                 else if (id == 1021 || id == -11498)
-                    SummoningTab.handleDismiss(player, false);
+                    SummoningTab.handleDismiss(player, true);
                 else if (id == -11507)
                     player.getSummoning().toInventory();
                 else if (id == 1018)
