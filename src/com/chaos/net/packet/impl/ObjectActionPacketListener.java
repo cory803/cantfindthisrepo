@@ -51,6 +51,7 @@ import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.BountyPortal;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.npcs.Sailor;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
@@ -170,6 +171,11 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							case 28121:
 								player.moveTo(new Position(player.getPosition().getX(), player.getPosition().getY() + 11, 0));
+								break;
+							//Bount hunter portal
+							case 42219:
+								player.setNpcClickId(945);
+								player.getDialog().sendDialog(new BountyPortal(player));
 								break;
 
 							case 2406:
