@@ -31,7 +31,7 @@ public class WarriorsGuild {
 	/*
 	 * The available defenders which players can receive from this minigame.
 	 */
-	private static final int[] DEFENDERS = new int[] { 8844, 8845, 8846, 8847, 8848, 8849, 8850, 13262 };
+	private static final int[] DEFENDERS = new int[] { 8844, 8845, 8846, 8847, 8848, 8849, 8850, 20072 };
 
 	/**
 	 * Handles what happens when a player uses an item on the animator.

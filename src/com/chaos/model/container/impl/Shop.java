@@ -786,7 +786,8 @@ public class Shop extends ItemContainer {
 					case 8850:
 						return new Object[] {500, "Pk points" };
 
-					case 13262:
+					case 20072:
+					case 12954:
 						return new Object[] {1000, "Pk points" };
 
 					case 10551:
