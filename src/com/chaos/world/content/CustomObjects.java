@@ -227,6 +227,8 @@ public class CustomObjects {
 	// clipping!
 	private static final int[][] CLIENT_OBJECTS = {
 			/* Training Grounds Skillzone */
+			//giant crystal
+			{ 62, 2508, 3363, 0, 2 },
 			//dummies
 			{ -1, 2516, 3369, 0, 0 },
 			{ -1, 2514, 3369, 0, 0 },

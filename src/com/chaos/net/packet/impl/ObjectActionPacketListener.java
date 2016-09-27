@@ -151,6 +151,31 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						switch (id) {
+							//Giant Crystal
+							case 62:
+								Emotes.doEmote(player, 666);
+								TaskManager.submit(new Task(1, player, true) {
+									int tick = 1;
+
+									@Override
+									public void execute() {
+										tick++;
+										if (tick == 7) {
+											player.performGraphic(new Graphic(191));
+										}
+										if (tick == 8) {
+											stop();
+										}
+									}
+
+									@Override
+									public void stop() {
+										setEventRunning(false);
+										player.moveTo(new Position(2595, 4772, 0));
+										player.getPacketSender().sendMessage("<img=4> To get started with Runecrafting, buy a talisman and use the locate option on it.");
+									}
+								});
+								break;
 							//Well of Goodness
 							case 26945:
 								player.getDialog().sendDialog(new WellStatement(player));
