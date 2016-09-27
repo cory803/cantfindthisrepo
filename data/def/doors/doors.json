@@ -1865,5 +1865,115 @@
         "z": 0
       }
     }
+  },
+   { 
+	# Barb bar 1/2
+    "openState": {
+      "id": 11622,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3078,
+        "y": 3435,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 11621,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3078,
+        "y": 3435,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Barb village bar 2/2
+    "openState": {
+      "id": 11621,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3079,
+        "y": 3435,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 11620,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3079,
+        "y": 3435,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Barb village fishing hut
+    "openState": {
+      "id": 11617,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3098,
+        "y": 3427,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 11616,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3098,
+        "y": 3426,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Barb village tiny hut
+    "openState": {
+      "id": 11617,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3082,
+        "y": 3427,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 11616,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3082,
+        "y": 3426,
+        "z": 0
+      }
+    }
   }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 ]
