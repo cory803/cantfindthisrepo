@@ -21,6 +21,7 @@ public class PointsHandler {
 	}
 
 	public PointsHandler refreshPanel() {
+		/*
 		p.getPacketSender().sendString(55079, "@red@Prestige Points: @gre@" + Misc.format(prestigePoints));
 		p.getPacketSender().sendString(55080, "@red@Commendations: @gre@ " + Misc.format(commendations));
 		p.getPacketSender().sendString(55081, "@red@Loyalty Points: @gre@" + Misc.format((int) loyaltyPoints));
@@ -38,7 +39,7 @@ public class PointsHandler {
 				"@red@Arena Victories: @gre@" + Misc.format(p.getDueling().arenaStats[0]));
 		p.getPacketSender().sendString(55090, "@red@Arena Losses: @gre@" + Misc.format(p.getDueling().arenaStats[1]));
 		p.getPacketSender().sendString(55091, "@red@Tourney Points: @gre@" + Misc.format(tournamentPoints));
-
+*/
 		return this;
 	}
 
