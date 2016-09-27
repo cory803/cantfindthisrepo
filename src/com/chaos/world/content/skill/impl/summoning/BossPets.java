@@ -1,7 +1,10 @@
 package com.chaos.world.content.skill.impl.summoning;
 
+import com.chaos.model.player.dialog.Dialog;
+import com.chaos.util.Misc;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.pets.*;
 
 public class BossPets {
 
@@ -105,14 +108,14 @@ public class BossPets {
 		HELLPUPPY(1158, 964, 13247),
 
 		/**
-		 *  Venenatis Spiderling
+		 *  Venenatis spiderling
 		 *	Have unlimited prayer points
 		 *	@Venenatis
 		 */
 		VENENATIS_SPIDERLING(2000, 495, 13177),
 
 		/**
-		 *  Callisto Cub
+		 *  Callisto cub
 		 *	Block 25% of all damage.
 		 *	@Callisto
 		 */
@@ -134,7 +137,7 @@ public class BossPets {
 		SCORPIAS_OFFSPRING(2001, 5547, 13181),
 
 		/**
-		 *  Scorpia's offspring
+		 *  Vet'ion Jr.
 		 *	Protect yourself from venom & poison.
 		 *	@Scorpia
 		 */
@@ -171,7 +174,6 @@ public class BossPets {
 		 *	@Mining
 		 */
 		ROCK_GOLEM(6716, 6716, 13321),
-
 
 		/**
 		 *  Snakeling
@@ -234,5 +236,87 @@ public class BossPets {
 			player.getPacketSender().sendMessage("You need atleast 1 free inventory space to pickup your pet.");
 			return false;
 		}
+	}
+
+	public static boolean talkTo(Player player, NPC npc) {
+		Dialog dialog = getDialog(player, npc.getId());
+		if(dialog != null) {
+			player.setEntityInteraction(npc);
+			player.setNpcClickId(npc.getId());
+			player.getDialog().sendDialog(getDialog(player, npc.getId()));
+			return true;
+		}
+		return false;
+	}
+
+	public static Dialog getDialog(Player player, int npcId) {
+		switch(npcId) {
+			case 5907:
+				return new ChaosElementalJr(player);
+			case 6652:
+				return new PrinceBlackDragon(player);
+			case 6644:
+				return new GeneralGraardorJr(player);
+			case 5892:
+				int chance = Misc.random(3);
+				if(chance >= 2) {
+					return new TzRekJad1(player);
+				} else {
+					return new TzRekJad2(player);
+				}
+			case 388:
+				return new DarkCore(player);
+			case 6643:
+				return new KreearraJr(player);
+			case 6647:
+				return new KrilTsutsarothJr(player);
+			case 6646:
+				return new ZilyanaJr(player);
+			case 6626:
+				return new DagannothSupremeJr(player);
+			case 6627:
+				return new DagannothPrimeJr(player);
+			case 6641:
+				return new DagannothRexJr(player);
+			case 6653:
+				return new KalphitePrincess(player);
+			case 964:
+				int chance2 = Misc.random(4);
+				switch(chance2) {
+					case 1:
+						return new Hellpuppy2(player);
+					case 2:
+						return new Hellpuppy3(player);
+					case 3:
+						return new Hellpuppy4(player);
+					case 4:
+						return new Hellpuppy5(player);
+					default:
+						return new Hellpuppy1(player);
+				}
+			case 495:
+				return new VenenatisSpiderling(player);
+			case 497:
+				return new CallistoCub(player);
+			case 6656:
+				return new Kraken(player);
+			case 5547:
+				return new ScorpiasOffspring(player);
+			case 5536:
+				return new VetionJr(player);
+			case 6655:
+				return new SmokeDevil(player);
+			case 6717:
+				return new Beaver(player);
+			case 6715:
+				return new Heron(player);
+			case 6716:
+				return new RockGolem(player);
+			case 2127:
+			case 2129:
+			case 2128:
+				return new Snakeling(player);
+		}
+		return null;
 	}
 }

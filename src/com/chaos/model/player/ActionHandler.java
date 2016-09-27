@@ -52,7 +52,7 @@ public final class ActionHandler {
         player.setNpcClickId(npc.getId());
         if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender().sendMessage("First click npc id: " + npc.getId());
-        if (BossPets.pickup(player, npc)) {
+        if (BossPets.talkTo(player, npc)) {
             player.getWalkingQueue().clear();
             return;
         }

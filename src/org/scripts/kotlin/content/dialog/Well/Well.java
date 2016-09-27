@@ -30,7 +30,7 @@ public class Well extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_4:
-                                    player.getDialog().sendDialog(new WellStatement(player));
+                                player.getDialog().sendDialog(new WellStatement(player));
                                 break;
                             case OPTION_2_OF_4:
                                 WellOfGoodwill.lookDownWell(player);

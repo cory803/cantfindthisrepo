@@ -13,7 +13,7 @@ public class WellStatement extends Dialog {
     Player player;
     public WellStatement(Player player) {
         super(player);
-        setEndState(1);
+        setEndState(0);
     }
 
     @Override
@@ -22,9 +22,6 @@ public class WellStatement extends Dialog {
             case 0:
                 return Dialog.createNpc(DialogHandler.CALM, "The Well of Goodness has 3 different wells inside it. " +
                         "You can donate towards getting bonus xp rates, bonus drop rates and/or bonus pkp. They apply globally to every player online.");
-            case 1:
-                player.getDialog().sendDialog(new Well(player));
-                return null;
         }
         return null;
     }

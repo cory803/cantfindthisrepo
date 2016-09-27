@@ -1,24 +1,26 @@
-package org.scripts.kotlin.content.dialog.Well;
+package org.scripts.kotlin.content.dialog.pets;
 
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.entity.impl.player.Player;
 
-public class WellFull extends Dialog {
+public class Hellpuppy2 extends Dialog {
 
     public Dialog dialog = this;
 
-    public WellFull(Player player) {
+    public Hellpuppy2(Player player) {
         super(player);
-        setEndState(0);
+        setEndState(1);
     }
 
     @Override
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "This well is full and bonus is currently active.");
+                return Dialog.createPlayer(DialogHandler.CALM, "I wonder if I need to invest in a trowel when I take you out for a walk.");
+            case 1:
+                return Dialog.createNpc(DialogHandler.CALM, "More like a shovel.");
         }
         return null;
     }
