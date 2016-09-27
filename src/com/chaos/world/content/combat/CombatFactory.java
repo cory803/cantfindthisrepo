@@ -24,6 +24,7 @@ import com.chaos.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
 import com.chaos.world.content.combat.strategy.impl.Nex;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightStyle;
+import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.entity.impl.Character;
@@ -1216,6 +1217,19 @@ public final class CombatFactory {
                             }
                         }
                     });
+                }
+                if(builder.getCharacter().isNpc()) {
+                    NPC killer = (NPC) builder.getVictim();
+                    Player playerVictim = (Player) builder.getVictim();
+                    if(killer.getId() == BossPets.BossPet.PET_DARK_CORE.getBossId()) {
+                        if(BossPets.hasPet(playerVictim, BossPets.BossPet.PET_DARK_CORE)) {
+                            container.allHits(context -> {
+                                if (context.getHit().getDamage() > 0) {
+                                    context.getHit().incrementAbsorbedDamage((int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.75)));
+                                }
+                            });
+                        }
+                    }
                 }
             } else if (builder.getCharacter().isPlayer()) {
                 Player attacker = (Player) builder.getCharacter();

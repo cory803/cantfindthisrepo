@@ -31,13 +31,6 @@ public class BossPets {
 		PRINCE_BLACK_DRAGON(50, 6652, 12653),
 
 		/**
-		 *  General Graardor Jr.
-		 *	Require no kill count to enter Bandos.
-		 *	@Godwars
-		 */
-		PET_GENERAL_GRAARDOR(3031, 6644, 12650),
-
-		/**
 		 *  TzRek-Jad
 		 *	Trade a fire cape or tokhaar kal to a player.
 		 *	@All Players
@@ -50,6 +43,13 @@ public class BossPets {
 		 *	@Corporeal Beast
 		 */
 		PET_DARK_CORE(8133, 388, 12816),
+
+		/**
+		 *  General Graardor Jr.
+		 *	Require no kill count to enter Bandos.
+		 *	@Godwars
+		 */
+		PET_GENERAL_GRAARDOR(3031, 6644, 12650),
 
 		/**
 		 *  Kree'arra Jr.
