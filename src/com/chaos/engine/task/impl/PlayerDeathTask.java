@@ -13,6 +13,7 @@ import com.chaos.world.World;
 import com.chaos.world.content.ItemsKeptOnDeath;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.Degrading;
+import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -145,7 +146,7 @@ public class PlayerDeathTask extends Task {
 							player.getPlayerKillingAttributes()
 									.setPlayerDeaths(player.getPlayerKillingAttributes().getPlayerDeaths() + 1);
 							player.getPlayerKillingAttributes().setPlayerKillStreak(0);
-							player.getPointsHandler().refreshPanel();
+							PlayerPanel.refreshPanel(player);
 						}
 						if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 							player.getInventory().resetItems().refreshItems();
