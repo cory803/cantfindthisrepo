@@ -21,7 +21,7 @@ public class Frumscone extends Dialog {
                 return Dialog.createNpc(DialogHandler.CALM, "Hey Traveler, would you like to see my supplies?");
             case 1:
             return Dialog.createOption(new ThreeOption(
-                    "Let me see your runecrafting items",
+                    "Let me see your talisman collection",
                     "I would like to exchange my energy fragments",
                     "No Thanks I don't need anything") {
                 @Override

@@ -6,6 +6,7 @@ import com.chaos.model.container.impl.Equipment;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.teleports.jewlery.Jewelery;
 
 public class CombatTeleporting {
 
@@ -13,6 +14,7 @@ public class CombatTeleporting {
         if (player.getInterfaceId() > 0)
             player.getPacketSender().sendInterfaceRemoval();
         player.setSelectedSkillingItem(item);
+        player.getDialog().sendDialog(new Jewelery(player));
     }
 
     public static void teleport(Player player, Position location) {
