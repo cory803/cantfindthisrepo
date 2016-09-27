@@ -69,6 +69,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //rc shop
+            case 460:
+                player.getDialog().sendDialog(new Frumscone(player));
+                break;
             //farmer shop
             case 3917:
                 Shop.ShopManager.getShops().get(25).open(player);
