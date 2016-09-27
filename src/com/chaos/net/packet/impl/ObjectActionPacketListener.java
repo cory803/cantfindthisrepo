@@ -37,6 +37,7 @@ import com.chaos.world.content.skill.impl.runecrafting.Runecrafting;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingData;
 import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.Smelting;
+import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.content.skill.impl.thieving.ThievingStall;
 import com.chaos.world.content.skill.impl.woodcutting.Woodcutting;
 import com.chaos.world.content.skill.impl.woodcutting.WoodcuttingData;
@@ -1086,6 +1087,28 @@ public class ObjectActionPacketListener implements PacketListener {
 										break;
 									case PLATINUM:
 										killcount = 0;
+										break;
+								}
+								switch(index) {
+									case 0:
+										if(BossPets.hasPet(player, BossPets.BossPet.PET_KREE_ARRA)) {
+											killcount = 0;
+										}
+										break;
+									case 1:
+										if(BossPets.hasPet(player, BossPets.BossPet.PET_GENERAL_GRAARDOR)) {
+											killcount = 0;
+										}
+										break;
+									case 2:
+										if(BossPets.hasPet(player, BossPets.BossPet.PET_ZILYANA)) {
+											killcount = 0;
+										}
+										break;
+									case 3:
+										if(BossPets.hasPet(player, BossPets.BossPet.PET_KRIL_TSUTSAROTH)) {
+											killcount = 0;
+										}
 										break;
 								}
 								if (!leaveRoom && (!player.getStaffRights().isManagement() && player.getMinigameAttributes()
