@@ -15,7 +15,7 @@ public class GESelectItemPacketListener implements PacketListener {
 			return;
 		ItemDefinition def = ItemDefinition.forId(item);
 		if (def != null) {
-			if (def.getValue() <= 0 || !Item.tradeable(item) || item == 995) {
+			if (def.getValue() <= 0 || !Item.tradeable(player, item) || item == 995) {
 				player.getPacketSender()
 						.sendMessage("This item can currently not be purchased or sold in the Grand Exchange.");
 				return;

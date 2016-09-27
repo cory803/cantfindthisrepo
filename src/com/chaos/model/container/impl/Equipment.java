@@ -147,21 +147,6 @@ public class Equipment extends ItemContainer {
 		return true;
 	}
 
-
-	public boolean wearingHalberd() {
-		ItemDefinition def = ItemDefinition.forId(getPlayer().getEquipment().getItems()[Equipment.WEAPON_SLOT].getId());
-		return def != null && def.getName().toLowerCase().endsWith("halberd");
-	}
-
-	public boolean properEquipmentForWilderness() {
-		int count = 0;
-		for (Item item : getValidItems()) {
-			if (item != null && item.tradeable())
-				count++;
-		}
-		return count >= 3;
-	}
-
 	/**
 	 * Gets the amount of item of a type a player has, for example, gets how
 	 * many Zamorak items a player is wearing for GWD

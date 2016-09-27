@@ -27,20 +27,20 @@ class GetPlayerGold(staffRights: StaffRights) : Command(staffRights) {
             var gold: Long = 0
 
             for (item in p!!.inventory.items) {
-                if (item != null && item.id > 0 && item.tradeable()) {
+                if (item != null && item.id > 0 && item.tradeable(player)) {
                     gold += item.definition.value.toLong()
                 }
             }
 
             for (item in p.equipment.items) {
-                if (item != null && item.id > 0 && item.tradeable()) {
+                if (item != null && item.id > 0 && item.tradeable(player)) {
                     gold += item.definition.value.toLong()
                 }
             }
 
             for (i in 0..8) {
                 for (item in p.getBank(i).items) {
-                    if (item != null && item.id > 0 && item.tradeable()) {
+                    if (item != null && item.id > 0 && item.tradeable(player)) {
                         gold += item.definition.value.toLong()
                     }
                 }
@@ -48,7 +48,7 @@ class GetPlayerGold(staffRights: StaffRights) : Command(staffRights) {
 
             if(p.summoning.familiar != null && p.summoning.familiar.summonNpc != null && p.summoning.beastOfBurden != null) {
                 for (item in p.summoning.beastOfBurden.items) {
-                    if (item != null && item.id > 0 && item.tradeable()) {
+                    if (item != null && item.id > 0 && item.tradeable(player)) {
                         gold += item.definition.value.toLong()
                     }
                 }

@@ -182,7 +182,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		if (amountToSell == 0)
 			return;
 		int itemId = itemToSell.getId();
-		if (!itemToSell.tradeable()) {
+		if (!itemToSell.tradeable(player)) {
 			player.getPacketSender().sendMessage("You can't sell this item.");
 			return;
 		}

@@ -128,7 +128,7 @@ public class ItemsKeptOnDeath {
 	public static ArrayList<Item> getItemsToKeep(Player player) {
 		ArrayList<Item> items = new ArrayList<Item>();
 		for (Item item : Misc.concat(player.getInventory().getItems(), player.getEquipment().getItems())) {
-			if (item == null || item.getId() <= 0 || item.getAmount() <= 0 || !item.tradeable()) {
+			if (item == null || item.getId() <= 0 || item.getAmount() <= 0 || !item.tradeable(player)) {
 				continue;
 			}
 			items.add(item);

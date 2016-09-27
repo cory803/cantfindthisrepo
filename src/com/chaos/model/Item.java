@@ -3,6 +3,8 @@ package com.chaos.model;
 import com.chaos.GameSettings;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.world.content.Effigies;
+import com.chaos.world.content.skill.impl.summoning.BossPets;
+import com.chaos.world.entity.impl.player.Player;
 
 /**
  * Represents an item which is owned by a player.
@@ -212,6 +214,34 @@ public class Item {
 		return ItemDefinition.forId(id);
 	}
 
+	public boolean tradeable(Player player) {
+		String name = getDefinition().getName().toLowerCase();
+		if (name.contains("clue scroll"))
+			return false;
+		if (name.contains("overload") || name.contains("extreme") || name.contains("renewal"))
+			return false;
+		if (name.contains("infernal"))
+			return false;
+		if (name.toLowerCase().contains("brawling") || name.toLowerCase().contains("(deg)"))
+			return false;
+		if (name.toLowerCase().contains("chaotic") || name.toLowerCase().contains("eagle-eye")
+				|| name.toLowerCase().contains("farseer ki"))
+			return false;
+		for (int i : GameSettings.UNTRADEABLE_ITEMS) {
+			if(id == 6570 || id == 19111) {
+				if(BossPets.hasPet(player, BossPets.BossPet.TZREK_JAD)) {
+					return true;
+				}
+			}
+			if (id == i) {
+				return false;
+			}
+		}
+		if (Effigies.isEffigy(id))
+			return false;
+		return true;
+	}
+
 	public boolean tradeable() {
 		String name = getDefinition().getName().toLowerCase();
 		if (name.contains("clue scroll"))
@@ -226,8 +256,9 @@ public class Item {
 				|| name.toLowerCase().contains("farseer ki"))
 			return false;
 		for (int i : GameSettings.UNTRADEABLE_ITEMS) {
-			if (id == i)
+			if (id == i) {
 				return false;
+			}
 		}
 		if (Effigies.isEffigy(id))
 			return false;
@@ -281,8 +312,8 @@ public class Item {
 		return id;
 	}
 
-	public static boolean tradeable(int item) {
-		return new Item(item).tradeable();
+	public static boolean tradeable(Player player, int item) {
+		return new Item(item).tradeable(player);
 	}
 
 	public static boolean sellable(int item) {

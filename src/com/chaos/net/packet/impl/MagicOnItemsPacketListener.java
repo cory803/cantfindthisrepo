@@ -61,7 +61,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 			Spell spell = magicSpell.getSpell();
 			switch (magicSpell) {
 			case LOW_ALCHEMY:
-				if (!item.tradeable() || item.getId() == 995) {
+				if (!item.tradeable(player) || item.getId() == 995) {
 					player.getPacketSender().sendMessage("This spell can not be cast on this item.");
 					return;
 				}
@@ -76,7 +76,7 @@ public class MagicOnItemsPacketListener implements PacketListener {
 				Achievements.doProgress(player, Achievements.AchievementData.LOW_ALCH_ITEMS);
 				break;
 			case HIGH_ALCHEMY:
-				if (!item.tradeable() || item.getId() == 995) {
+				if (!item.tradeable(player) || item.getId() == 995) {
 					player.getPacketSender().sendMessage("This spell can not be cast on this item.");
 					return;
 				}

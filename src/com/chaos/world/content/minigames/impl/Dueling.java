@@ -174,7 +174,7 @@ public class Dueling {
 		int amountInOtherInv = playerToDuel.getInventory().getAmount(itemId);
 		Item itemAmount = new Item(itemId, amount);
 		if (player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
-			if (!new Item(itemId).tradeable()) {
+			if (!new Item(itemId).tradeable(player)) {
 				player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
 				return;
 			}

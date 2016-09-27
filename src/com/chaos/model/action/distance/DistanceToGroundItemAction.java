@@ -40,7 +40,7 @@ public final class DistanceToGroundItemAction extends PlayerAction {
 			player.getInventory().full();
 			return Executable.STOP;
 		}
-		if(!groundItem.getItem().tradeable() && !groundItem.getOwner().equals(player.getUsername())) {
+		if(!groundItem.getItem().tradeable(player) && !groundItem.getOwner().equals(player.getUsername())) {
 			player.getPacketSender().sendMessage("You cannot pickup other player's untradable items.");
 			return Executable.STOP;
 		}

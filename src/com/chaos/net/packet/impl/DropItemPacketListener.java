@@ -49,7 +49,7 @@ public class DropItemPacketListener implements PacketListener {
 		player.setCastSpell(null);
 		player.getCombatBuilder().cooldown(false);
 		if (item != null && item.getId() != -1 && item.getAmount() >= 1) {
-			if (item.tradeable()) {
+			if (item.tradeable(player)) {
 				player.getInventory().setItem(itemSlot, new Item(-1, 0)).refreshItems();
 				if (item.getId() == 4045) {
 

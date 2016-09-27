@@ -98,7 +98,7 @@ public class PlayerDeathTask extends Task {
 						if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 							spawnItems = true;
 							for (Item item : playerItems) {
-								if (!item.tradeable() || itemsToKeep.contains(item)) {
+								if (!item.tradeable(player) || itemsToKeep.contains(item)) {
 									if (!itemsToKeep.contains(item)) {
 										if(!item.getDefinition().getName().toLowerCase().contains("(deg)") && !item.getDefinition().getName().toLowerCase().contains("chaotic") ) {
 											itemsToKeep.add(item);

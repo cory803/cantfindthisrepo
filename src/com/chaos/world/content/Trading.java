@@ -172,7 +172,7 @@ public class Trading {
 		Player player2 = World.getPlayers().get(getTradeWith());
 		if (player2 == null || player == null)
 			return;
-		if (!new Item(itemId).tradeable()) {
+		if (!new Item(itemId).tradeable(player)) {
 			player.getPacketSender().sendMessage("This item is currently untradeable and cannot be traded.");
 			return;
 		}

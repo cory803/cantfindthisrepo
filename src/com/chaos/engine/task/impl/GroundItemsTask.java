@@ -21,8 +21,9 @@ public class GroundItemsTask extends Task {
 				GroundItemManager.add(gi, false); // Spawns the ground item
 				gi.setRefreshNeeded(false);
 			}
-			if (!gi.getItem().tradeable() && gi.shouldGoGlobal())
+			if (!gi.getItem().tradeable() && gi.shouldGoGlobal()) {
 				gi.setGoGlobal(false);
+			}
 			final int showDelay = gi.getShowDelay();
 			if (showDelay > 0) // Decrease the grounditems show delay.
 				gi.setShowDelay(showDelay - 1);
