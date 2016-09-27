@@ -11,7 +11,7 @@ public class WellFull extends Dialog {
 
     public WellFull(Player player) {
         super(player);
-        setEndState(1);
+        setEndState(0);
     }
 
     @Override
