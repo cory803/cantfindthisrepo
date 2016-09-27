@@ -9,17 +9,12 @@ import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.GameObjectDefinition;
-import com.chaos.model.definitions.WeaponAnimations;
-import com.chaos.model.input.impl.DonateToWell;
 import com.chaos.model.input.impl.EnterAmountOfLogsToAdd;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.ChaosTunnelHandler;
 import com.chaos.world.World;
-import com.chaos.world.clip.region.Region;
 import com.chaos.world.content.*;
 import com.chaos.world.content.combat.instanced.InstancedCerberus;
 import com.chaos.world.content.combat.magic.Autocasting;
@@ -53,7 +48,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
-import org.scripts.kotlin.content.dialog.npcs.Sailor;
+import org.scripts.kotlin.content.dialog.Well.WellStatement;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
 
 /**
@@ -156,7 +151,10 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						switch (id) {
-
+							//Well of Goodness
+							case 26945:
+								player.getDialog().sendDialog(new WellStatement(player));
+								break;
 							//Edgeville coffins
 							case 26935:
 							case 26937:
