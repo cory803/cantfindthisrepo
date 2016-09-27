@@ -35,7 +35,6 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (!NpcDefinition.getDefinitions()[interact.getId()].isAttackable()) {
 			return;
 		}
-
 		if (interact.getConstitution() <= 0) {
 			player.getWalkingQueue().clear();
 			return;

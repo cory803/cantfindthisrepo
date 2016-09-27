@@ -1,5 +1,7 @@
 package com.chaos.world.content.skill.impl.summoning;
 
+import com.chaos.model.Position;
+import com.chaos.model.Skill;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.util.Misc;
 import com.chaos.world.entity.impl.npc.NPC;
@@ -193,6 +195,22 @@ public class BossPets {
 
 		public int npcId, spawnNpcId, itemId;
 
+		/**
+		 * Grabs the npc id of the pet.
+		 * @return
+		 */
+		public int getSpawnNpcId() {
+			return this.spawnNpcId;
+		}
+
+		/**
+		 * Grabs the npc id of the boss for the pet.
+		 * @return
+		 */
+		public int getBossId() {
+			return this.npcId;
+		}
+
 		public static BossPet forId(int itemId) {
 			for (BossPet p : BossPet.values()) {
 				if (p != null && p.itemId == itemId) {
@@ -318,5 +336,14 @@ public class BossPets {
 				return new Snakeling(player);
 		}
 		return null;
+	}
+
+	public static boolean hasPet(Player player, BossPet pet) {
+		if(player.getSummoning().getFamiliar().getSummonNpc() != null) {
+			if (pet.getSpawnNpcId() == player.getSummoning().getFamiliar().getSummonNpc().getId()) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

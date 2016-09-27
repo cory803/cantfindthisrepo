@@ -12,6 +12,7 @@ import com.chaos.world.World;
 import com.chaos.world.content.combat.CombatContainer;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.strategy.CombatStrategy;
+import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -96,11 +97,12 @@ public class ChaosElemental implements CombatStrategy {
 					int randomX = victim.getPosition().getX() - Misc.getRandom(30);
 					int randomY = victim.getPosition().getY();
 					if (World.getMask(randomX, randomY, 0) == 0) {
-						victim.moveTo(new Position(randomX, randomY));
+						if(!BossPets.hasPet((Player) victim, BossPets.BossPet.PET_CHAOS_ELEMENTAL)) {
+							victim.moveTo(new Position(randomX, randomY));
+						}
 						((Player) victim).getPacketSender().sendMessage("The Chaos elemental has teleported you away!");
 					}
 				}
-
 				stop();
 			}
 		});

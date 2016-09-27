@@ -9,8 +9,10 @@ import com.chaos.util.Misc;
 import com.chaos.world.content.combat.CombatContainer;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.strategy.CombatStrategy;
+import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
+import com.chaos.world.entity.impl.player.Player;
 
 public class Dragon implements CombatStrategy {
 
@@ -31,8 +33,7 @@ public class Dragon implements CombatStrategy {
 			dragon.getCombatBuilder().setAttackTimer(4);
 			return true;
 		}
-		if (Locations.goodDistance(dragon.getPosition().copy(), victim.getPosition().copy(), 1)
-				&& Misc.getRandom(5) <= 3) {
+		if ((Locations.goodDistance(dragon.getPosition().copy(), victim.getPosition().copy(), 1) && Misc.getRandom(5) <= 3) || BossPets.hasPet((Player) victim, BossPets.BossPet.PRINCE_BLACK_DRAGON)) {
 			dragon.performAnimation(new Animation(dragon.getDefinition().getAttackAnimation()));
 			dragon.getCombatBuilder().setContainer(new CombatContainer(dragon, victim, 1, 1, CombatType.MELEE, true));
 		} else {
