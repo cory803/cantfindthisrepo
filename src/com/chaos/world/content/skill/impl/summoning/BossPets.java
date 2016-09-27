@@ -158,7 +158,7 @@ public class BossPets {
 
 		/**
 		 *  Heron
-		 *	Catch double hunter entitys.
+		 *	Catch double hunter entities.
 		 *	Stackable with all other benefits.
 		 *	@Hunter
 		 */
@@ -178,6 +178,7 @@ public class BossPets {
 		 *	-Undecided-
 		 *	@return null
 		 */
+		//TODO: Zulrah isn't added yet
 		ZULRAH_RANGE(2127, 2127, 12921),
 		ZULRAH_MAGE(2129, 2129, 12940),
 		ZULRAH_MELEE(2128, 2128, 12939);
