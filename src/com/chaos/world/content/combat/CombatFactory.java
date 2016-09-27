@@ -1298,6 +1298,31 @@ public final class CombatFactory {
                     }
                 });
             }
+            if(npc.getId() == BossPets.BossPet.PET_DAGANNOTH_SUPREME.getBossId()) {
+                if(BossPets.hasPet(attacker, BossPets.BossPet.PET_DAGANNOTH_SUPREME)) {
+                    container.allHits(context -> {
+                        int hit = context.getHit().getDamage();
+                        double mod = hit * .10;
+                        context.getHit().setDamage(hit + (int) mod);
+                    });
+                }
+            } else if(npc.getId() == BossPets.BossPet.PET_DAGANNOTH_REX.getBossId()) {
+                if(BossPets.hasPet(attacker, BossPets.BossPet.PET_DAGANNOTH_REX)) {
+                    container.allHits(context -> {
+                        int hit = context.getHit().getDamage();
+                        double mod = hit * .10;
+                        context.getHit().setDamage(hit + (int) mod);
+                    });
+                }
+            } else if(npc.getId() == BossPets.BossPet.PET_DAGANNOTH_PRIME.getBossId()) {
+                if(BossPets.hasPet(attacker, BossPets.BossPet.PET_DAGANNOTH_PRIME)) {
+                    container.allHits(context -> {
+                        int hit = context.getHit().getDamage();
+                        double mod = hit * .10;
+                        context.getHit().setDamage(hit + (int) mod);
+                    });
+                }
+            }
         }
     }
 
