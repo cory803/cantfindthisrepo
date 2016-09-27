@@ -45913,28 +45913,6 @@
 "defenceMage": 0
 },
 {
-"id": 2054,
-"name": "Zogre",
-"examine": "A partially decomposing zombie ogre.",
-"combat": 44,
-"size": 2,
-"attackable": true,
-"aggressive": false,
-"retreats": false,
-"poisonous": false,
-"respawn": 10,
-"maxHit": 1,
-"hitpoints": 72,
-"attackSpeed": 7,
-"attackAnim": 422,
-"defenceAnim": 404,
-"deathAnim": 2304,
-"attackBonus": 93,
-"defenceMelee": 93,
-"defenceRange": 93,
-"defenceMage": 0
-},
-{
 "id": 2055,
 "name": "Zogre",
 "examine": "A partially decomposing zombie ogre.",
@@ -71062,7 +71040,7 @@
 "defenceMage": 0
 },
 {
-"id": 3200,
+"id": 2054,
 "name": "Chaos Elemental",
 "examine": "pUre A cHaOs of crEatuRe!",
 "combat": 305,

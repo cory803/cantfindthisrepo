@@ -222,7 +222,7 @@ public class NPC extends Character {
 
     public boolean switchesVictim() {
         return id == 6263 || id == 6265 || id == 6203 || id == 6208 || id == 6206 || id == 6247 || id == 6250
-                || id == 3200 || id == 4540 || id == 1158 || id == 1160 || id == 8133 || id == 13447 || id == 13451
+                || id == 2054 || id == 4540 || id == 1158 || id == 1160 || id == 8133 || id == 13447 || id == 13451
                 || id == 13452 || id == 13453 || id == 13454 || id == 2896 || id == 2882 || id == 2881 || id == 6260
                 || id == 5866;
     }
@@ -500,7 +500,7 @@ public class NPC extends Character {
             case 7133:
             case 7134:
                 return 15;
-            case 3200:
+            case 2054:
                 return 15;
             case 3034:
             case 8133:

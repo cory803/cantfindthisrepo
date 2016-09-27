@@ -1219,7 +1219,7 @@ public final class CombatFactory {
                     });
                 }
                 if(builder.getCharacter().isNpc()) {
-                    NPC killer = (NPC) builder.getVictim();
+                    NPC killer = (NPC) builder.getCharacter();
                     Player playerVictim = (Player) builder.getVictim();
                     if(killer.getId() == BossPets.BossPet.PET_DARK_CORE.getBossId()) {
                         if(BossPets.hasPet(playerVictim, BossPets.BossPet.PET_DARK_CORE)) {

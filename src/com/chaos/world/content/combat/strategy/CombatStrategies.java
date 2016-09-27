@@ -49,7 +49,7 @@ public class CombatStrategies {
 		STRATEGIES.put(2745, new Jad());
 		STRATEGIES.put(8528, new Nomad());
 		STRATEGIES.put(8349, new TormentedDemon());
-		STRATEGIES.put(3200, new ChaosElemental());
+		STRATEGIES.put(2054, new ChaosElemental());
 		STRATEGIES.put(4540, new BandosAvatar());
 		STRATEGIES.put(5871, new Bork());
 		STRATEGIES.put(8133, new CorporealBeast());

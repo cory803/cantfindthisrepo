@@ -21,7 +21,7 @@ public class BossPets {
 		 *	Don't get teleported away in combat
 		 *	@Chaos Elemental
 		 */
-		PET_CHAOS_ELEMENTAL(3200, 5907, 11995),
+		PET_CHAOS_ELEMENTAL(2054, 5907, 11995),
 
 		/**
 		 *  Prince Black Dragon

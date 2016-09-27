@@ -106,7 +106,7 @@ public class NPCDeathTask extends Task {
 					Achievements.doProgress(killer, AchievementData.DEFEAT_10000_MONSTERS);
 					if (npc.getId() == 50) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_KING_BLACK_DRAGON);
-					} else if (npc.getId() == 3200) {
+					} else if (npc.getId() == 2054) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CHAOS_ELEMENTAL);
 					} else if (npc.getId() == 8349) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_A_TORMENTED_DEMON);
