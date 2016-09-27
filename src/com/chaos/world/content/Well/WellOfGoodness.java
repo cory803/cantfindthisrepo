@@ -6,6 +6,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.Well.LookDownWell;
+import org.scripts.kotlin.content.dialog.Well.WellFull;
 
 import java.io.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -110,6 +111,7 @@ public class WellOfGoodness {
         if (well == "exp") {
             if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
                 isFull[getWell(well)] = true;
+                player.getDialog().sendDialog(new WellFull(player));
                 return true;
             }
             isFull[getWell(well)] = false;
@@ -117,6 +119,7 @@ public class WellOfGoodness {
         } else if (well == "drops") {
             if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
                 isFull[getWell(well)] = true;
+                player.getDialog().sendDialog(new WellFull(player));
                 return true;
             }
             isFull[getWell(well)] = false;
@@ -124,6 +127,7 @@ public class WellOfGoodness {
         } else if (well == "pkp") {
             if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
                 isFull[getWell(well)] = true;
+                player.getDialog().sendDialog(new WellFull(player));
                 return true;
             }
             isFull[getWell(well)] = false;

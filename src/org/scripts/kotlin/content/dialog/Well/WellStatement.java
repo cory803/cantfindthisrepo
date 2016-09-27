@@ -10,7 +10,7 @@ import com.chaos.world.entity.impl.player.Player;
 public class WellStatement extends Dialog {
 
     public Dialog dialog = this;
-
+    Player player;
     public WellStatement(Player player) {
         super(player);
         setEndState(1);
@@ -22,6 +22,9 @@ public class WellStatement extends Dialog {
             case 0:
                 return Dialog.createNpc(DialogHandler.CALM, "The Well of Goodness has 3 different wells inside it. " +
                         "You can donate towards getting bonus xp rates, bonus drop rates and/or bonus pkp. They apply globally to every player online.");
+            case 1:
+                player.getDialog().sendDialog(new Well(player));
+                return null;
         }
         return null;
     }
