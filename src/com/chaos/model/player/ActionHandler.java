@@ -69,6 +69,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //agility
+            case 437:
+                player.getDialog().sendDialog(new Agility(player));
+                break;
             //tokkul
             case 2622:
                 Shop.ShopManager.getShops().get(17).open(player);

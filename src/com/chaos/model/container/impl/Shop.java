@@ -842,6 +842,64 @@ public class Shop extends ItemContainer {
 						return new Object[] {35000, "Pk points" };
 
 				}
+			} else if (shop == TOKKUL_EXCHANGE_STORE) {
+				switch (item) {
+					case 11978:
+						return new Object[]{300000, "tokkul"};
+					case 438:
+					case 436:
+						return new Object[]{10, "tokkul"};
+					case 440:
+						return new Object[]{25, "tokkul"};
+					case 453:
+						return new Object[]{30, "tokkul"};
+					case 442:
+						return new Object[]{30, "tokkul"};
+					case 444:
+						return new Object[]{40, "tokkul"};
+					case 447:
+						return new Object[]{70, "tokkul"};
+					case 449:
+						return new Object[]{120, "tokkul"};
+					case 451:
+						return new Object[]{250, "tokkul"};
+					case 1623:
+						return new Object[]{20, "tokkul"};
+					case 1621:
+						return new Object[]{40, "tokkul"};
+					case 1619:
+						return new Object[]{70, "tokkul"};
+					case 1617:
+						return new Object[]{150, "tokkul"};
+					case 1631:
+						return new Object[]{1600, "tokkul"};
+					case 6571:
+						return new Object[]{50000, "tokkul"};
+					case 11128:
+						return new Object[]{22000, "tokkul"};
+					case 6522:
+						return new Object[]{20, "tokkul"};
+					case 6524:
+					case 6523:
+					case 6526:
+						return new Object[]{5000, "tokkul"};
+					case 6528:
+					case 6568:
+						return new Object[]{800, "tokkul"};
+				}
+			} else if (shop == AGILITY_TICKET_STORE) {
+				switch (item) {
+					case 14936:
+					case 14938:
+						return new Object[] { 60, "agility tickets" };
+					case 10941:
+					case 10939:
+					case 10940:
+					case 10933:
+						return new Object[] { 20, "agility tickets" };
+					case 20786:
+						return new Object[] { 100, "agility tickets" };
+				}
 			}
 			return null;
 		}
@@ -896,7 +954,7 @@ public class Shop extends ItemContainer {
 	private static final int VOTING_REWARDS_STORE2 = 24;
 	private static final int IRON_VOTING_REWARDS_STORE = 25;
 
-	private static final int AGILITY_TICKET_STORE = 26;
+	private static final int AGILITY_TICKET_STORE = 28;
 
 
 }
