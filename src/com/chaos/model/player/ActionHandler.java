@@ -69,6 +69,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //tokkul
+            case 2622:
+                Shop.ShopManager.getShops().get(17).open(player);
+                break;
             //rc shop
             case 460:
                 player.getDialog().sendDialog(new Frumscone(player));
@@ -270,6 +274,10 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //tokkul
+            case 2622:
+                Shop.ShopManager.getShops().get(17).open(player);
+                break;
             //Bankers
             case 494:
             case 4519:
