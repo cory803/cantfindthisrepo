@@ -1,7 +1,9 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
 import com.chaos.model.container.impl.Shop;
-import com.chaos.model.options.threeoption.threeOption;
+import com.chaos.model.input.impl.BuyAgilityExperience;
+import com.chaos.model.options.threeoption.ThreeOption;
+import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
@@ -13,7 +15,7 @@ public class Agility extends Dialog {
 
     public Agility(Player player) {
         super(player);
-        setEndState(1);
+        setEndState(2);
     }
 
     @Override
@@ -30,7 +32,10 @@ public class Agility extends Dialog {
                 public void execute(Player player, OptionType option) {
                     switch(option) {
                         case OPTION_1_OF_3:
-                            DialogueManager.start(player, AgilityTicketExchange.getDialogue(player));
+                            Dialog.createNpc(DialogHandler.CALM, "@bla@Would you like to exchange tickets for experience?" +
+                                    " One ticket currently grants @red@7680@bla@ Agility experience.?");
+                            setState(2);
+                            player.getDialog().sendDialog(dialog);
                             break;
                         case OPTION_2_OF_3:
                             Shop.ShopManager.getShops().get(28).open(player);
@@ -41,6 +46,24 @@ public class Agility extends Dialog {
                     }
                 }
             });
+            case 2:
+                return Dialog.createOption(new TwoOption(
+                        "Yes I want to exchange some tickets",
+                        "Cancel") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch(option) {
+                            case OPTION_1_OF_2:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                player.setInputHandling(new BuyAgilityExperience());
+                                player.getPacketSender().sendEnterAmountPrompt("How many tickets would you like to exchange?");
+                                break;
+                            case OPTION_2_OF_2:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                break;
+                        }
+                    }
+                });
             }
         return null;
     }
