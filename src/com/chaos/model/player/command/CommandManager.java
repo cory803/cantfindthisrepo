@@ -380,6 +380,7 @@ public class CommandManager {
         commands.put("resetpin", new ResetPin(StaffRights.MANAGER));
         commands.put("propker", new ProPker(StaffRights.MANAGER));
         commands.put("godmode", new GodMode(StaffRights.MANAGER));
+        commands.put("region", new GrabRegion(StaffRights.OWNER));
         commands.put("reset", new ResetSkills(StaffRights.MANAGER));
         commands.put("givedonor", new GiveDonor(StaffRights.MANAGER));
         commands.put("givedonator", new GiveDonor(StaffRights.MANAGER));
