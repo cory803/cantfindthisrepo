@@ -443,7 +443,7 @@ public class ItemActionPacketListener implements PacketListener {
 					{ 11133, 15126, 10828, 3751, 3753, 10589, 10564, 6809, 4587, 1249, 3204, 1305, 1377, 1434, 6528,
 							7158, 4153, 6, 8, 10, 12, 4675, 6914, 6889 }, // Uncommon,
 																			// 0
-					{ 6739, 15259, 15332, 2579, 6920, 6922, 15241, 11882, 11884, 11906, 20084 }, // Rare,
+					{ 6739, 15259, 15332, 2579, 6920, 6922, 15241, 11882, 11884, 20084 }, // Rare,
 																									// 1
 					{ 6570, 15018, 15019, 15020, 15220, 11730, 18349, 18353, 13896, 18357, 13899, 10551, 4151, 2577, }, // Epic,
 																														// 2
@@ -471,12 +471,13 @@ public class ItemActionPacketListener implements PacketListener {
 			player.getInventory().add(2593, 1).refreshItems();
 			player.getInventory().add(2597, 1).refreshItems();
 			break;
-		case 11906:
-			player.getInventory().delete(11906, 1);
-			player.getInventory().add(7394, 1).refreshItems();
-			player.getInventory().add(7390, 1).refreshItems();
-			player.getInventory().add(7386, 1).refreshItems();
-			break;
+		//Wizard set
+//		case 11906:
+//			player.getInventory().delete(11906, 1);
+//			player.getInventory().add(7394, 1).refreshItems();
+//			player.getInventory().add(7390, 1).refreshItems();
+//			player.getInventory().add(7386, 1).refreshItems();
+//			break;
 		case 15262:
 			if (!player.getClickDelay().elapsed(1000))
 				return;

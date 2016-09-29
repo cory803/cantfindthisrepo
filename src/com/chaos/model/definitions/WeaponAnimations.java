@@ -88,7 +88,7 @@ public final class WeaponAnimations {
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
 		} else if (item.getId() == 21074 || item.getId() == 21077 || item.getId() == 21114 || item.getId() == 21079
-				|| item.getId() == 21108) {
+				|| item.getId() == 11905 || item.getId() == 12899 || item.getId() == 12900) {
 			playerStandIndex = 809;
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
@@ -141,7 +141,7 @@ public final class WeaponAnimations {
 			playerRunIndex = 13220;
 			break;
 		case 4151:
-		case 21047:
+		case 12006:
 		case 13444:
 		case 15441: // whip
 		case 15442: // whip
@@ -236,7 +236,7 @@ public final class WeaponAnimations {
 				return 13048;
 			return 13049;
 		}
-		if (weaponName.equals("staff of light") || weaponId == 21005 || weaponId == 21010 || weaponId == 21108
+		if (weaponName.equals("staff of light") || weaponId == 21005 || weaponId == 21010 || weaponId == 11905 || weaponId == 12899 || weaponId == 12900
 				|| weaponId == 21104) {
 			if (prop.contains("stab"))
 				return 13044;
@@ -348,7 +348,7 @@ public final class WeaponAnimations {
 			return 5865;
 		case 4151:
 		case 13444:
-		case 21047:
+		case 12006:
 		case 15441: // whip
 		case 15442: // whip
 		case 15443: // whip
@@ -410,7 +410,7 @@ public final class WeaponAnimations {
 		case 21006: // whip
 		case 21007: // whip
 		case 13444:
-		case 21047:
+		case 12006:
 		case 15441: // whip
 		case 15442: // whip
 		case 15443: // whip
@@ -419,7 +419,9 @@ public final class WeaponAnimations {
 		case 15486:
 		case 21077:
 		case 21114:
-		case 21108:
+		case 11905:
+		case 12900:
+		case 12899:
 		case 21079:
 		case 15502:
 		case 22209:

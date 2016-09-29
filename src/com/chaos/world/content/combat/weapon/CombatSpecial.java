@@ -123,7 +123,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.MELEE, true);
 		}
 	},
-	ABYSSAL_WHIP(new int[] { 21047, 21372, 4151, 15441, 15442, 15443, 15444, 21000, 21001, 21002, 21003, 21004, 21005,
+	ABYSSAL_WHIP(new int[] { 12006, 21372, 4151, 15441, 15442, 15443, 15444, 21000, 21001, 21002, 21003, 21004, 21005,
 			21006, 21007 }, 50, 1, 1, CombatType.MELEE, WeaponInterface.WHIP) {
 		@Override
 		public CombatContainer container(Player player, Character target) {

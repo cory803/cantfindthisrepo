@@ -423,7 +423,7 @@ public class Sounds {
 		}
 		if (c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 4151
 				|| c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 21372
-				|| c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 21047
+				|| c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12006
 				|| (c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() >= 21000
 						&& c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() <= 21007)) {
 			return 1080;
@@ -433,7 +433,7 @@ public class Sounds {
 	}
 
 	public static int specialSounds(int id) {
-		if (id == 4151 || id == 21372 || id == 21047 || id == 21000 || id == 21001 || id == 21002 || id == 21003
+		if (id == 4151 || id == 21372 || id == 12006 || id == 21000 || id == 21001 || id == 21002 || id == 21003
 				|| id == 21004 || id == 21005 || id == 21006 || id == 21007) // whip
 		{
 			return 1081;

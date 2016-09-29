@@ -200,7 +200,7 @@ public class Player extends Character {
         String weapon = equipment.get(Equipment.WEAPON_SLOT).getDefinition().getName();
         int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
         if (getCurrentlyCasting() != null) {
-            if (equipment.get(Equipment.WEAPON_SLOT).getId() == 21108) {
+            if (equipment.get(Equipment.WEAPON_SLOT).getId() == 11905 || equipment.get(Equipment.WEAPON_SLOT).getId() == 12899) {
                 return 4;
             }
             if (getCurrentlyCasting() == CombatSpells.BLOOD_BLITZ.getSpell()
