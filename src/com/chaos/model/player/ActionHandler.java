@@ -390,7 +390,6 @@ public final class ActionHandler {
             case 4657:
 
                 break;
-            case 1597:
             case 9085:
             case 8591:
                 if (!player.getMinigameAttributes().getNomadAttributes().hasFinishedPart(1)) {
