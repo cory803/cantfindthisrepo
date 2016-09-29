@@ -1244,9 +1244,6 @@ public final class CombatFactory {
                 if (PrayerHandler.isActivated(victim, PrayerHandler.getProtectingPrayer(container.getCombatType()))
                         || CurseHandler.isActivated(victim,
                         CurseHandler.getProtectingPrayer(container.getCombatType()))) {
-                    if(victim.isNpc()) {
-
-                    }
                     container.allHits(context -> {
                         // First reduce the damage.
                         int hit = context.getHit().getDamage();

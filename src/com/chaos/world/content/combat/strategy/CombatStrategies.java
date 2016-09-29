@@ -73,7 +73,7 @@ public class CombatStrategies {
 		STRATEGIES.put(6250, new Growler());
 		STRATEGIES.put(1382, new Glacor());
 		STRATEGIES.put(9939, new PlaneFreezer());
-		STRATEGIES.put(2000, new Venantis());
+		STRATEGIES.put(2000, new Venenatis());
 		STRATEGIES.put(3334, new WildyWyrm());
 		STRATEGIES.put(2001, new Scorpia());
 		STRATEGIES.put(133, defaultMagicStrategy);
@@ -105,6 +105,7 @@ public class CombatStrategies {
 		STRATEGIES.put(5363, dragonStrategy);
 		STRATEGIES.put(3068, dragonStrategy);
 		STRATEGIES.put(3069, dragonStrategy);
+		STRATEGIES.put(6611, new Vetion());
 
 		Aviansie aviansieStrategy = new Aviansie();
 		STRATEGIES.put(6246, aviansieStrategy);

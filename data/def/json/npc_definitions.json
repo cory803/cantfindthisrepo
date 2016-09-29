@@ -44723,6 +44723,28 @@
 "defenceMage": 250
 },
 {
+"id": 6611,
+"name": "Vet'ion",
+"examine": "I wouldn't want to eat his Porridge.",
+"combat": 454,
+"size": 3,
+"attackable": true,
+"aggressive": true,
+"retreats": false,
+"poisonous": false,
+"respawn": 25,
+"maxHit": 450,
+"hitpoints": 2550,
+"attackSpeed": 4,
+"attackAnim": 12632,
+"defenceAnim": 5489,
+"deathAnim": 5491,
+"attackBonus": 370,
+"defenceMelee": 200,
+"defenceRange": 270,
+"defenceMage": 250
+},
+{
 "id": 6609,
 "name": "Callisto",
 "examine": "I wouldn't want to eat his Porridge.",

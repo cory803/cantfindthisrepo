@@ -18,7 +18,7 @@ import com.chaos.world.entity.impl.player.Player;
  * Vados 14/05/2016 22:40PM
  */
 
-public class Venantis implements CombatStrategy {
+public class Venenatis implements CombatStrategy {
 
 	private static final Animation attack_anim = new Animation(5327);
 	private static final Graphic graphic1 = new Graphic(1200, GraphicHeight.MIDDLE);
