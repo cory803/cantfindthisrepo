@@ -752,6 +752,7 @@ public abstract class ItemContainer {
 			items[slot].setAmount(items[slot].getAmount() - item.getAmount());
 			if (items[slot].getAmount() < 1) {
 				items[slot].setId(-1);
+				items[slot].setCharges(0);
 			}
 		} else {
 			int amount = item.getAmount();
@@ -761,6 +762,7 @@ public abstract class ItemContainer {
 				}
 				items[slot].setId(-1);
 				items[slot].setAmount(0);
+				items[slot].setCharges(0);
 				slot = getSlot(item.getId());
 				amount--;
 			}
