@@ -75,19 +75,19 @@ public class Digging {
 				 * Barrows
 				 */
 				if (inArea(player.getPosition(), 3553, 3301, 3561, 3294))
-					targetPosition = new Position(3578, 9706, -1);
+					targetPosition = new Position(3578, 9706, 3);
 				else if (inArea(player.getPosition(), 3550, 3287, 3557, 3278))
-					targetPosition = new Position(3568, 9683, -1);
+					targetPosition = new Position(3568, 9683, 3);
 				else if (inArea(player.getPosition(), 3561, 3292, 3568, 3285))
-					targetPosition = new Position(3557, 9703, -1);
+					targetPosition = new Position(3557, 9703, 3);
 				else if (inArea(player.getPosition(), 3570, 3302, 3579, 3293))
-					targetPosition = new Position(3556, 9718, -1);
+					targetPosition = new Position(3556, 9718, 3);
 				else if (inArea(player.getPosition(), 3571, 3285, 3582, 3278))
-					targetPosition = new Position(3534, 9704, -1);
+					targetPosition = new Position(3534, 9704, 3);
 				else if (inArea(player.getPosition(), 3562, 3279, 3569, 3273))
-					targetPosition = new Position(3546, 9684, -1);
+					targetPosition = new Position(3546, 9684, 3);
 				else if (inArea(player.getPosition(), 2986, 3370, 3013, 3388))
-					targetPosition = new Position(3546, 9684, -1);
+					targetPosition = new Position(3546, 9684, 3);
 				if (targetPosition != null)
 					player.moveTo(targetPosition);
 				else
