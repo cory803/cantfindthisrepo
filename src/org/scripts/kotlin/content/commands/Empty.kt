@@ -37,6 +37,7 @@ class Empty(staffRights: StaffRights) : Command(staffRights) {
                         when (option) {
                             Option.OptionType.OPTION_1_OF_2 -> for (item in player.inventory.items) {
                                 player.inventory.delete(item)
+                                player.packetSender.sendInterfaceRemoval()
                             }
                             Option.OptionType.OPTION_2_OF_2 -> player.packetSender.sendInterfaceRemoval()
                         }

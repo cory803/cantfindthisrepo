@@ -13,14 +13,13 @@ import com.chaos.world.entity.impl.player.Player;
 public class LookDownWell extends Dialog {
 
     public Dialog dialog = this;
-
+    Player p;
     String wellName = "";
     String wellNameActual = "";
 
-    public LookDownWell(Player player, String well) {
+    public LookDownWell(Player player) {
         super(player);
         setEndState(1);
-        wellName = well;
     }
 
     @Override
@@ -56,7 +55,11 @@ public class LookDownWell extends Dialog {
                     }
                 });
             case 1:
-                return Dialog.createNpc(DialogHandler.CALM, "The well of " + wellNameActual + " needs another " + Misc.insertCommasToNumber("" + WellOfGoodness.getMissingAmount(wellName) + "") + " coins before it is active.");
+                if (WellOfGoodness.checkFull(p, wellName)) {
+                    return Dialog.createNpc(DialogHandler.CALM, "The well of " + wellNameActual + "full and bonus is currently active.");
+                } else {
+                    return Dialog.createNpc(DialogHandler.CALM, "The well of " + wellNameActual + " needs another " + Misc.insertCommasToNumber("" + WellOfGoodness.getMissingAmount(wellName) + "") + " coins before it is active.");
+                }
         }
         return null;
     }

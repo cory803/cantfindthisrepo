@@ -33,7 +33,7 @@ public class Well extends Dialog {
                                 player.getDialog().sendDialog(new WellStatement(player));
                                 break;
                             case OPTION_2_OF_4:
-                                WellOfGoodwill.lookDownWell(player);
+                                player.getDialog().sendDialog(new LookDownWell(player));
                                 break;
                             case OPTION_3_OF_4:
                                 player.getDialog().sendDialog(new DonateToWellDial(player));

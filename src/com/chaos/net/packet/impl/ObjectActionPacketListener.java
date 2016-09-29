@@ -71,7 +71,7 @@ public class ObjectActionPacketListener implements PacketListener {
 		final int y = packet.readUnsignedShortA();
 		final Position position = new Position(x, y, player.getPosition().getZ());
 		final GameObject gameObject = new GameObject(id, position);
-		if (id > 0 && !World.objectExists(gameObject)) {
+		if (id > 0 && id != 2465 && !World.objectExists(gameObject)) {
 			player.getPacketSender().sendMessage("Something has gone wrong, please report this! "+x+", "+y+", id: "+id+".");
 			return;
 		}
@@ -152,6 +152,17 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						switch (id) {
+							//runecrafting portals
+							case 2465:
+							case 2466:
+							case 2467:
+							case 2468:
+							case 2469:
+							case 2470:
+							case 2474:
+							case 2475:
+								player.moveTo(new Position(3093, 3496, 0));
+								break;
 							//Giant Crystal
 							case 62:
 								Emotes.doEmote(player, 666);
@@ -790,16 +801,16 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 9312: // Grand Exchange Underwall Tunnel
 								Position position = new Position(3164, 3484, 0);
 								break;
-							case 2465:
-								if (player.getLocation() == Location.EDGEVILLE) {
-									player.getPacketSender().sendMessage(
-											"<img=4> @blu@Welcome to the free-for-all arena! You will not lose any items on death here.");
-									player.moveTo(new Position(2815, 5511));
-								} else {
-									player.getPacketSender()
-											.sendMessage("The portal does not seem to be functioning properly.");
-								}
-								break;
+//							case 2465:
+//								if (player.getLocation() == Location.EDGEVILLE) {
+//									player.getPacketSender().sendMessage(
+//											"<img=4> @blu@Welcome to the free-for-all arena! You will not lose any items on death here.");
+//									player.moveTo(new Position(2815, 5511));
+//								} else {
+//									player.getPacketSender()
+//											.sendMessage("The portal does not seem to be functioning properly.");
+//								}
+//								break;
 							case 7353:
 								player.moveTo(new Position(2439, 4956, player.getPosition().getZ()));
 								break;
