@@ -84,7 +84,7 @@ public class WellOfGoodness {
         } else if (well == "pkp") {
             return 2;
         } else {
-            return 5;
+            return 0;
         }
     }
 
@@ -98,13 +98,6 @@ public class WellOfGoodness {
         } else {
             return 0;
         }
-    }
-
-    public static void lookDownWell(Player player, String well) {
-        if (checkFull(player, well)) {
-            return;
-        }
-        player.getDialog().sendDialog(new LookDownWell(player, well));
     }
 
     public static boolean checkFull(Player player, String well) {
@@ -219,8 +212,6 @@ public class WellOfGoodness {
         if (isFull[getWell(well)]) {
             if (getMinutesRemaining(well) <= 0) {
                 World.sendMessage("<img=4> <col=6666FF>The Well of Goodwill is no longer granting bonus experience.");
-                World.getPlayers()
-                        .forEach(p -> p.getPacketSender().sendString(39163, "@or2@Well of Goodwill: @yel@N/A"));
                 setDefaults(well);
             }
         }
