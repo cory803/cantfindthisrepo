@@ -282,6 +282,7 @@ public class CustomObjects {
 			{ 4878, 2523, 3369, 0, 2 },
 
 			{ 6552, 3232, 2887, 0, 0 },
+
 			// 1 = west
 			// 2 = north
 			// 3 = east

@@ -80,7 +80,8 @@ public enum CombatSpells {
 		public int spellId() {
 			return 1152;
 		}
-	}), CONFUSE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
+	}),
+	CONFUSE(new CombatEffectSpell(MagicSpellbook.NORMAL) {
 		@Override
 		public Optional<Animation> castAnimation() {
 			return Optional.of(new Animation(716));
@@ -204,7 +205,115 @@ public enum CombatSpells {
 		public int spellId() {
 			return 1154;
 		}
-	}), EARTH_STRIKE(new CombatNormalSpell() {
+	}),
+	TENTACLE_STRIKE(new CombatNormalSpell() {
+		@Override
+		public Optional<Animation> castAnimation() {
+			return Optional.of(new Animation(3618));
+		}
+
+		@Override
+		public Optional<Projectile> castProjectile(Character cast, Character castOn) {
+			return Optional.of(new Projectile(cast, castOn, 2705, 44, 3, 43, 31,
+					0));
+		}
+
+		@Override
+		public Optional<Graphic> endGraphic(Character castOn) {
+			return Optional.of(new Graphic(2708, GraphicHeight.MIDDLE));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 49;
+		}
+
+		@Override
+		public Optional<Graphic> startGraphic() {
+			return Optional.of(new Graphic(2701));
+		}
+
+		@Override
+		public int baseExperience() {
+			return 45;
+		}
+
+		@Override
+		public Optional<Item[]> equipmentRequired(Player player) {
+			return Optional.empty();
+		}
+
+		@Override
+		public Optional<Item[]> itemsRequired(Player player) {
+			return Optional.of(new Item[] { new Item(555), new Item(556),
+					new Item(558) });
+		}
+
+		@Override
+		public int levelRequired() {
+			return 5;
+		}
+
+		@Override
+		public int spellId() {
+			return 1154;
+		}
+	}),
+	KRAKEN_STRIKE(new CombatNormalSpell() {
+		@Override
+		public Optional<Animation> castAnimation() {
+			return Optional.of(new Animation(3992));
+		}
+
+		@Override
+		public Optional<Projectile> castProjectile(Character cast, Character castOn) {
+			return Optional.of(new Projectile(cast, castOn, 2705, 44, 3, 43, 31,
+					0));
+		}
+
+		@Override
+		public Optional<Graphic> endGraphic(Character castOn) {
+			return Optional.of(new Graphic(2708, GraphicHeight.MIDDLE));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 280;
+		}
+
+		@Override
+		public Optional<Graphic> startGraphic() {
+			return Optional.of(new Graphic(2701));
+		}
+
+		@Override
+		public int baseExperience() {
+			return 45;
+		}
+
+		@Override
+		public Optional<Item[]> equipmentRequired(Player player) {
+			return Optional.empty();
+		}
+
+		@Override
+		public Optional<Item[]> itemsRequired(Player player) {
+			return Optional.of(new Item[] { new Item(555), new Item(556),
+					new Item(558) });
+		}
+
+		@Override
+		public int levelRequired() {
+			return 5;
+		}
+
+		@Override
+		public int spellId() {
+			return 1154;
+		}
+	}),
+
+	EARTH_STRIKE(new CombatNormalSpell() {
 		@Override
 		public Optional<Animation> castAnimation() {
 			return Optional.of(new Animation(14222));

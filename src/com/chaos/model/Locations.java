@@ -892,6 +892,27 @@ public class Locations {
 		},
 		EZONE_DONOR(new int[] { 3342, 3385 }, new int[] { 9618, 9661 }, false, true, true, false, false, false) {
 		},
+		KRAKEN(new int[]{3680, 3712}, new int[]{5791, 5824}, true, false, true, false, false, true) {
+			@Override
+			public boolean canTeleport(Player player) {
+				player.resetKraken();
+				return true;
+			}
+
+			@Override
+			public void logout(Player player) {
+				player.resetKraken();
+			}
+
+			@Override
+			public void onDeath(Player player) {
+				player.resetKraken();
+			}
+			@Override
+			public void leave(Player player) {
+				player.resetKraken();
+			}
+		},
 		DEFAULT(null, null, false, true, true, true, true, true) {
 		};
 

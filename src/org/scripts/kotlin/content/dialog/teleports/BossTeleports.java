@@ -16,7 +16,7 @@ public class BossTeleports extends Dialog {
 
     public BossTeleports(Player player) {
         super(player);
-        setEndState(3);
+        setEndState(4);
     }
 
     @Override
@@ -54,7 +54,7 @@ public class BossTeleports extends Dialog {
                 });
             case 1:
                 return Dialog.createOption(new FiveOption(
-                        "Slash Bash",
+                        "Kraken",
                         "Nomad",
                         "Nex",
                         "Cerberus",
@@ -63,7 +63,7 @@ public class BossTeleports extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2547, 9448, 0), player.getSpellbook().getTeleportType());
+                                player.getKraken().enter(player, true);
                                 break;
                             case OPTION_2_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(1891, 3177, 0), player.getSpellbook().getTeleportType());
@@ -87,7 +87,7 @@ public class BossTeleports extends Dialog {
                         "Phoenix",
                         "Bandos Avatar",
                         "Glacors",
-                        "Bork") {
+                        "Next Page") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
@@ -104,7 +104,8 @@ public class BossTeleports extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(3050, 9573, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_5_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(3102, 2965, 0), player.getSpellbook().getTeleportType());
+                                setState(4);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                         }
                     }
@@ -129,6 +130,22 @@ public class BossTeleports extends Dialog {
                                 break;
                             case OPTION_4_OF_4:
                                 TeleportHandler.teleportPlayer(player, new Position(2872, 5268, 2), player.getSpellbook().getTeleportType());
+                                break;
+                        }
+                    }
+                });
+            case 4:
+                return Dialog.createOption(new TwoOption(
+                        "Bork",
+                        "Slash Bash") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_2:
+                                TeleportHandler.teleportPlayer(player, new Position(3102, 2965, 0), player.getSpellbook().getTeleportType());
+                                break;
+                            case OPTION_2_OF_2:
+                                TeleportHandler.teleportPlayer(player, new Position(2547, 9448, 0), player.getSpellbook().getTeleportType());
                                 break;
                         }
                     }

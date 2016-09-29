@@ -16,6 +16,7 @@ import com.chaos.world.content.combat.strategy.impl.Nex;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.KrakenLoot;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -209,8 +210,12 @@ public class HitQueue {
 			if (victim.getCombatBuilder().getAttackTimer() <= 2) {
 				if (victim.isPlayer()) {
 					victim.performAnimation(new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));
-					if (((Player) victim).getInterfaceId() > 0)
-						((Player) victim).getPacketSender().sendInterfaceRemoval();
+					if (((Player) victim).getInterfaceId() > 0) {
+						if(((Player) victim).getDialog() != null && victim.getLocation() == Location.KRAKEN) {
+						} else {
+							((Player) victim).getPacketSender().sendInterfaceRemoval();
+						}
+					}
 				} else if (victim.isNpc()) {
 					if (!(((NPC) victim).getId() >= 6142 && ((NPC) victim).getId() <= 6145))
 						victim.performAnimation(new Animation(((NPC) victim).getDefinition().getDefenceAnimation()));
@@ -219,6 +224,19 @@ public class HitQueue {
 
 			// Fire the container's dynamic hit method.
 			container.onHit(damage, container.isAccurate());
+
+			//Handles Kraken whirlpools
+			if(victim.isNpc() && attacker.isPlayer()) {
+				NPC vic = ((NPC) victim);
+				Player player = ((Player) attacker);
+				if(vic.getId() == 493) {
+					player.getKraken().incrementPools(player, vic);
+				} else if(vic.getId() == 496) {
+					if(player.getKraken().getPoolsDisturbed() == 4) {
+						player.getKraken().incrementPools(player, vic);
+					}
+				}
+			}
 
 			// And finally auto-retaliate if needed.
 			if (!victim.getCombatBuilder().isAttacking() || victim.getCombatBuilder().isCooldown()

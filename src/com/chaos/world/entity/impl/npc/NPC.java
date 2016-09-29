@@ -66,6 +66,19 @@ public class NPC extends Character {
         this.damageDealerMap = damageDealerMap;
     }
 
+    public void removeInstancedNpcs(Location loc, int height) {
+        int checks = loc.getX().length - 1;
+        for(int i = 0; i <= checks; i+=2) {
+            if(getPosition().getX() >= loc.getX()[i] && getPosition().getX() <= loc.getX()[i + 1]) {
+                if(getPosition().getY() >= loc.getY()[i] && getPosition().getY() <= loc.getY()[i + 1]) {
+                    if(getPosition().getZ() == height) {
+                        World.deregister(this);
+                    }
+                }
+            }
+        }
+    }
+
     public void sequence() {
 
         /** COMBAT **/

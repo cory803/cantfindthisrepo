@@ -368,12 +368,7 @@ public class CommandManager {
                 CombatSpecial.updateBar(player);
             }
         });
-        commands.put("test", new Command(StaffRights.MANAGER) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                Achievements.finishAchievement(player, Achievements.AchievementData.INFUSE_25_TITAN_POUCHES);
-            }
-        });
+
         commands.put("checkpass", new CheckPassword(StaffRights.MANAGER));
         commands.put("setpass", new SetPassword(StaffRights.MANAGER));
         commands.put("checkpin", new CheckPin(StaffRights.MANAGER));
@@ -491,7 +486,18 @@ public class CommandManager {
         commands.put("anim", new PlayAnimation(StaffRights.OWNER));
         commands.put("gfx", new PlayGFX(StaffRights.OWNER));
         commands.put("object", new SpawnObject(StaffRights.OWNER));
-        commands.put("test", new TestingCommand(StaffRights.OWNER));
+        commands.put("test", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getKraken().enter(player, true);
+            }
+        });
+        commands.put("location", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getPacketSender().sendMessage("Current location: "+player.getLocation().toString());
+            }
+        });
     }
 
     public static boolean execute(Player player, String input) {

@@ -2,18 +2,7 @@ package com.chaos.world.content.combat.strategy.impl;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.Animation;
-import com.chaos.model.CombatIcon;
-import com.chaos.model.Flag;
-import com.chaos.model.Graphic;
-import com.chaos.model.GraphicHeight;
-import com.chaos.model.GroundItem;
-import com.chaos.model.Hit;
-import com.chaos.model.Hitmask;
-import com.chaos.model.Item;
-import com.chaos.model.Position;
-import com.chaos.model.Projectile;
-import com.chaos.model.Skill;
+import com.chaos.model.*;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
@@ -281,6 +270,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		if (player.getWeapon() == WeaponInterface.BLOWPIPE) {
 			return;
 		}
+
 		// Set the ammo we are currently using.
 		player.setFireAmmo(player.getEquipment().get(slot).getId());
 		int[] compIds = { 14022, 21085, 21086, 21087, 21094, 21093, 21095, 21096, 21097, 21098, 21099 };
@@ -307,7 +297,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		// Decrement the ammo in the selected slot.
 		player.getEquipment().get(slot).decrementAmount();
 
-		if (!avas && player.getFireAmmo() != 15243) {
+		if (!avas && player.getFireAmmo() != 15243 && player.getLocation() != Locations.Location.KRAKEN) {
 			GroundItemManager.spawnGroundItem(player,
 					new GroundItem(new Item(player.getFireAmmo()), pos, player.getUsername(), false, 120, true, 120));
 		}

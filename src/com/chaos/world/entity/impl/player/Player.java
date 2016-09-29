@@ -15,6 +15,7 @@ import com.chaos.model.player.GameModeAssistant;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.mysql.impl.Hiscores;
+import com.chaos.world.content.Kraken;
 import com.chaos.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
 
@@ -88,14 +89,6 @@ public class Player extends Character {
             return true;
 		return false;
 	}
-
-    public boolean isDeveloper() {
-        for (String name : GameSettings.DEVELOPER) {
-            if (getUsername().equalsIgnoreCase(name))
-                return true;
-        }
-        return false;
-    }
 
     public int idNpcSpawn = 0;
     public boolean canWalkNpcSpawn = false;
@@ -608,6 +601,7 @@ public class Player extends Character {
     private Object[] usableObject;
     private Task currentTask;
     private Position resetPosition;
+    private Kraken kraken = new Kraken();
     private Pouch selectedPouch;
     private final DialogHandler dialogueHandler = new DialogHandler(this);
     private OptionContainer optionContainer = new OptionContainer(this);
@@ -1187,6 +1181,15 @@ public class Player extends Character {
 
     public StaffRights getStaffRights() {
         return staffRights;
+    }
+
+    public Kraken getKraken() {
+        return this.kraken;
+    }
+
+    public void resetKraken() {
+        this.getKraken().reset();
+        this.kraken = new Kraken();
     }
 
     public DonatorRights getDonatorRights() {

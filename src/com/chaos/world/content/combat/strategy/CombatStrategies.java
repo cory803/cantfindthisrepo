@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.chaos.world.content.combat.strategy.impl.*;
+import com.chaos.world.content.combat.strategy.impl.kraken.Kraken;
+import com.chaos.world.content.combat.strategy.impl.kraken.Tentacles;
 import com.chaos.world.content.minigames.impl.zulrah.Zulrah;
 
 public class CombatStrategies {
@@ -15,6 +17,8 @@ public class CombatStrategies {
 
 	public static void init() {
 		DefaultMagicCombatStrategy defaultMagicStrategy = new DefaultMagicCombatStrategy();
+		STRATEGIES.put(502, new Kraken());
+		STRATEGIES.put(5535, new Tentacles());
 		STRATEGIES.put(912, defaultMagicStrategy);
 		STRATEGIES.put(913, defaultMagicStrategy);
 		STRATEGIES.put(914, defaultMagicStrategy);

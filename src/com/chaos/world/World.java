@@ -1067,10 +1067,55 @@ public class World {
 			mapGroundFileIds[i] = in.getUnsignedShort();
 			mapObjectsFileIds[i] = in.getUnsignedShort();
 		}
+		//Zulrah
+		regionIds[107] = 8751;
+		mapGroundFileIds[107] = 1946;
+		mapObjectsFileIds[107] = 1947;
+
+		regionIds[108] = 8752;
+		mapGroundFileIds[108] = 938;
+		mapObjectsFileIds[108] = 939;
+
+		regionIds[129] = 9007;
+		mapGroundFileIds[129] = 1938;
+		mapObjectsFileIds[129] = 1939;
+
+		regionIds[130] = 9008;
+		mapGroundFileIds[130] = 946;
+		mapObjectsFileIds[130] = 947;
+
+		regionIds[149] = 9263;
+		mapGroundFileIds[149] = 1210;
+		mapObjectsFileIds[149] = 1211;
+
+		regionIds[150] = 9264;
+		mapGroundFileIds[150] = 956;
+		mapObjectsFileIds[150] = 957;
+
+		//Kraken Cave
+		regionIds[941] = 14681;
+		mapGroundFileIds[941] = 1960;
+		mapObjectsFileIds[941] = 1961;
+
+		regionIds[1604] = 14682;
+		mapGroundFileIds[1604] = 1870;
+		mapObjectsFileIds[1604] = 1871;
+
+		regionIds[1605] = -1;
+		mapGroundFileIds[1605] = -1;
+		mapObjectsFileIds[1605] = -1;
+
+		//Cerberus
+		regionIds[151] = 4883;
+		mapGroundFileIds[151] = 1984;
+		mapObjectsFileIds[151] = 1985;
+
+
 		regions = new HashMap<>(size);
 		for (int i = 0; i < size; i++) {
 			regions.put(regionIds[i], new Region(regionIds[i], mapGroundFileIds[i], mapObjectsFileIds[i]));
 		}
+
         /*World.flag(2378, 3084, 0, Region.TILE_BLOCKED);
         World.flag(2378, 3085, 0, Region.TILE_BLOCKED);
         World.flag(2377, 3085, 0, Region.TILE_BLOCKED);

@@ -1108,7 +1108,11 @@ public final class CombatFactory {
 
     public static int getNewDistance(Character character) {
         if (character.isNpc()) {
-            if (character.determineStrategy().getCombatType().equals(CombatType.MAGIC) || character.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
+            if(character.determineStrategy().getCombatType() == null) {
+                return 0;
+            }
+            if (character.determineStrategy().getCombatType().equals(CombatType.MAGIC)
+                    || character.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
                 return 10;
             }
             return 2;

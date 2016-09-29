@@ -10,12 +10,15 @@ import com.chaos.model.container.impl.Bank;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.DropLog;
+import com.chaos.world.content.Kraken;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.summoning.CharmingImp;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.KnightLamp;
+import org.scripts.kotlin.content.dialog.KrakenLoot;
 
 import java.io.DataInputStream;
 import java.io.File;
@@ -162,7 +165,17 @@ public class LootSystem {
                         Prayer.crushBone(p, table.getSortedLoot()[0][i].getId());
                     }
                 } else {
-                    GroundItemManager.spawnGroundItem(ClanChatManager.lootshare(p, n.getPosition().copy(), table.getSortedLoot()[0][i].getId(), amt), new GroundItem(new Item(table.getSortedLoot()[0][i].getId(), amt), n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                    Player clanLooter = ClanChatManager.lootshare(p, n.getPosition().copy(), table.getSortedLoot()[0][i].getId(), amt);
+                    if(p.getLocation() == Locations.Location.KRAKEN && clanLooter != null) {
+                        GroundItemManager.spawnGroundItem(clanLooter, new GroundItem(new Item(table.getSortedLoot()[0][i].getId(), amt), clanLooter.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                        clanLooter.getKraken().setKrakenStage(Kraken.KrakenStage.DEFEATED);
+                        clanLooter.getKraken().stopTentacleAttack();
+                        clanLooter.setNpcClickId(6656);
+                        clanLooter.getDialog().sendDialog(new KrakenLoot(clanLooter));
+                        clanLooter.getPacketSender().sendMessage("Your loot from defeating Kraken has been placed under you.");
+                    } else {
+                        GroundItemManager.spawnGroundItem(clanLooter, new GroundItem(new Item(table.getSortedLoot()[0][i].getId(), amt), n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                    }
                 }
             }
         }
@@ -177,7 +190,16 @@ public class LootSystem {
 
             if (roll != null) {
                 Player pl = ClanChatManager.lootshare(p, n.getPosition().copy(), roll.getId(), roll.getAmount());
-                GroundItemManager.spawnGroundItem(pl, new GroundItem(roll, n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                if(p.getLocation() == Locations.Location.KRAKEN) {
+                    GroundItemManager.spawnGroundItem(pl, new GroundItem(roll, p.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                    p.getKraken().setKrakenStage(Kraken.KrakenStage.DEFEATED);
+                    p.getKraken().stopTentacleAttack();
+                    p.setNpcClickId(6656);
+                    p.getDialog().sendDialog(new KrakenLoot(p));
+                    p.getPacketSender().sendMessage("Your loot from defeating Kraken has been placed under you.");
+                } else {
+                    GroundItemManager.spawnGroundItem(pl, new GroundItem(roll, n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                }
                 DropLog.submit(pl, new DropLog.DropLogEntry(roll.getId(), roll.getAmount()));
                 announcement.sendAnnouncment(pl.getUsername(), roll, n.getDefinition().getName());
             }
@@ -305,7 +327,11 @@ public class LootSystem {
                 if (player.getInventory().contains(6500) && CharmingImp.handleCharmDrop(pl, LootCharm.CHARM.values()[i].getCharm(), amt)) {
                     return;
                 }
-                GroundItemManager.spawnGroundItem(pl, new GroundItem(new Item(LootCharm.CHARM.values()[i].getCharm(), amt), p, pl.getUsername(), false, 150, true, 200));
+                if(pl.getLocation() == Locations.Location.KRAKEN) {
+                    GroundItemManager.spawnGroundItem(pl, new GroundItem(new Item(LootCharm.CHARM.values()[i].getCharm(), amt), pl.getPosition(), pl.getUsername(), false, 150, true, 200));
+                } else {
+                    GroundItemManager.spawnGroundItem(pl, new GroundItem(new Item(LootCharm.CHARM.values()[i].getCharm(), amt), p, pl.getUsername(), false, 150, true, 200));
+                }
                 return;
             }
         }

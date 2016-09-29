@@ -146,6 +146,9 @@ public class NPCDeathTask extends Task {
 					} else if (npc.getId() == 90) {
 						Achievements.finishAchievement(killer, AchievementData.KILL_SKELETON);
 					}
+					if(npc.getId() == 502) {
+						killer.resetKraken();
+					}
 					/** ACHIEVEMENTS **/
 					switch (killer.getLastCombatType()) {
 					case MAGIC:
