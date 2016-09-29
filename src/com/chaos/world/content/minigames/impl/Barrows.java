@@ -13,6 +13,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.BarrowsTunnel;
 
 /**
  * Handles the Barrows minigame and it's objects, npcs, etc.
@@ -392,6 +393,7 @@ public class Barrows {
 			player.getMinigameAttributes().getBarrowsMinigameAttributes().setRandomCoffin(getRandomCoffin());
 		if (COFFIN_AND_BROTHERS[player.getMinigameAttributes().getBarrowsMinigameAttributes()
 				.getRandomCoffin()][0] == coffinId) {
+			player.getDialog().sendDialog(new BarrowsTunnel(player));
 			return true;
 		}
 		return false;
