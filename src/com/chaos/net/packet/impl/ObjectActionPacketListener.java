@@ -50,7 +50,6 @@ import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.Well.Well;
-import org.scripts.kotlin.content.dialog.Well.WellStatement;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
 
 /**
@@ -180,6 +179,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							//Well of Goodness
 							case 26945:
+								player.setNpcClickId(945);
 								player.getDialog().sendDialog(new Well(player));
 								break;
 							//Edgeville coffins
