@@ -238,6 +238,16 @@ public class HitQueue {
 				}
 			}
 
+			//Handles item degrading
+			if(attacker.isPlayer()) {
+				Player attackerPlayer = ((Player) attacker);
+				attackerPlayer.getDegrading().processDegrade(attackerPlayer, attacker.isPlayer());
+			}
+			if(victim.isPlayer()) {
+				Player victimPlayer = ((Player) victim);
+				victimPlayer.getDegrading().processDegrade(victimPlayer, attacker.isPlayer());
+			}
+
 			// And finally auto-retaliate if needed.
 			if (!victim.getCombatBuilder().isAttacking() || victim.getCombatBuilder().isCooldown()
 					|| victim.isNpc() && ((NPC) victim).findNewTarget()) {

@@ -15,7 +15,7 @@ import com.chaos.model.player.GameModeAssistant;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.mysql.impl.Hiscores;
-import com.chaos.world.content.Kraken;
+import com.chaos.world.content.*;
 import com.chaos.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
 
@@ -42,12 +42,9 @@ import com.chaos.net.packet.PacketSender;
 import com.chaos.util.Stopwatch;
 import com.chaos.world.content.Achievements.AchievementAttributes;
 import com.chaos.world.content.BankPin.BankPinAttributes;
-import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.DropLog.DropLogEntry;
 import com.chaos.world.content.KillsTracker.KillsEntry;
 import com.chaos.world.content.LoyaltyProgramme.LoyaltyTitles;
-import com.chaos.world.content.PointsHandler;
-import com.chaos.world.content.Trading;
 import com.chaos.world.content.clan.ClanChat;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
@@ -602,6 +599,7 @@ public class Player extends Character {
     private Task currentTask;
     private Position resetPosition;
     private Kraken kraken = new Kraken();
+    private Degrading degrading = new Degrading();
     private Pouch selectedPouch;
     private final DialogHandler dialogueHandler = new DialogHandler(this);
     private OptionContainer optionContainer = new OptionContainer(this);
@@ -1183,8 +1181,20 @@ public class Player extends Character {
         return staffRights;
     }
 
+    /**
+     * Grabs the Kraken boss instance
+     * @return
+     */
     public Kraken getKraken() {
         return this.kraken;
+    }
+
+    /**
+     * Grabs all player degrading items
+     * @return
+     */
+    public Degrading getDegrading() {
+        return this.degrading;
     }
 
     public void resetKraken() {

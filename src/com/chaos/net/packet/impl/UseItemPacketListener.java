@@ -630,23 +630,23 @@ public class UseItemPacketListener implements PacketListener {
 
 		switch (npc.getId()) {
 			case 519:
-				for (Degrading.barrowsArmour barrowID: Degrading.barrowsArmour.values()) {
-					if (player.getInventory().contains(barrowID.getDegradeID())) {
-						if (player.getMoneyInPouch() >= barrowID.getRepairPrice()) {
-							if (player.getInventory().getFreeSlots() > 1) {
-								player.setMoneyInPouch(player.getMoneyInPouch() - (long) barrowID.getRepairPrice());
-								player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
-								player.getPacketSender().sendString(1, ":moneypouchloss:" + barrowID.getRepairPrice());
-								player.getInventory().delete(barrowID.getDegradeID(), 1);
-								player.getInventory().add(barrowID.getBarrowsID(), 1);
-							}
-						} else {
-							player.getDialog().sendDialog(new Bob2(player));
-						}
-					} else {
-						player.getDialog().sendDialog(new Bob3(player));
-					}
-				}
+//				for (Degrading.barrowsArmour barrowID: Degrading.barrowsArmour.values()) {
+//					if (player.getInventory().contains(barrowID.getDegradeID())) {
+//						if (player.getMoneyInPouch() >= barrowID.getRepairPrice()) {
+//							if (player.getInventory().getFreeSlots() > 1) {
+//								player.setMoneyInPouch(player.getMoneyInPouch() - (long) barrowID.getRepairPrice());
+//								player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
+//								player.getPacketSender().sendString(1, ":moneypouchloss:" + barrowID.getRepairPrice());
+//								player.getInventory().delete(barrowID.getDegradeID(), 1);
+//								player.getInventory().add(barrowID.getBarrowsID(), 1);
+//							}
+//						} else {
+//							player.getDialog().sendDialog(new Bob2(player));
+//						}
+//					} else {
+//						player.getDialog().sendDialog(new Bob3(player));
+//					}
+//				}
 			break;
 		case 4249:
 			/*

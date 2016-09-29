@@ -505,6 +505,9 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		if (SummoningData.isPouch(player, itemId, 2))
 			return;
+		if(player.getDegrading().isCheckCharges(player, itemId, slot)) {
+			return;
+		}
 		switch (itemId) {
 		case 14022:
 		case 21085:
@@ -597,6 +600,9 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		if (JarData.forJar(itemId) != null) {
 			PuroPuro.lootJar(player, new Item(itemId, 1), JarData.forJar(itemId));
+			return;
+		}
+		if (SummoningData.isPouch(player, itemId, 3)) {
 			return;
 		}
 		if (SummoningData.isPouch(player, itemId, 3)) {
