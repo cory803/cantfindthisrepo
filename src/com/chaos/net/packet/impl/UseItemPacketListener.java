@@ -37,6 +37,8 @@ import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.BountyPortal;
+import org.scripts.kotlin.content.dialog.TentacleCombination;
 import org.scripts.kotlin.content.dialog.npcs.Bob2;
 import org.scripts.kotlin.content.dialog.npcs.Bob3;
 
@@ -83,6 +85,11 @@ public class UseItemPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You need a Crafting level of at least 59 to make that item.");
 				return;
 			}
+		}
+		if((usedWith.getId() == 12004 && itemUsedWith.getId() == 4151) || (usedWith.getId() == 4151 && itemUsedWith.getId() == 12004)) {
+			player.setNpcClickId(6656);
+			player.getDialog().sendDialog(new TentacleCombination(player));
+			return;
 		}
 		if (usedWith.getId() == 12435 || itemUsedWith.getId() == 12435) {
 			if (itemUsedWith.getId() == 12435) {

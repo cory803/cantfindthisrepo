@@ -25,7 +25,6 @@ public class Item {
 	public Item(int id, int amount) {
 		this.id = id;
 		this.amount = amount;
-		this.charges = getDefinition().getCharges();
 	}
 
 	/**
@@ -42,27 +41,6 @@ public class Item {
 	 * The item id.
 	 */
 	private int id;
-
-	/**
-	 * The item id.
-	 */
-	private int charges;
-
-	/**
-	 * Removes charges from your item
-	 * @param i
-	 */
-	public void decrementCharges(int charges) {
-		this.charges -= charges;
-	}
-
-	/**
-	 * Grabs how many charges you have on your item.
-	 * @return
-	 */
-	public int getCharges() {
-		return this.charges;
-	}
 
 	/**
 	 * Gets the item's id.
@@ -109,16 +87,6 @@ public class Item {
 	 */
 	public Item setAmount(int amount) {
 		this.amount = amount;
-		return this;
-	}
-
-	/**
-	 * Sets charges for your item
-	 * @param charges
-	 * @return
-	 */
-	public Item setCharges(int charges) {
-		this.charges = charges;
 		return this;
 	}
 
