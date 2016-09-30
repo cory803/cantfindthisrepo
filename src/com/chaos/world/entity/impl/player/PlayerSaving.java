@@ -312,16 +312,9 @@ public class PlayerSaving {
 		object.addProperty("duo-partner",
 				player.getSlayer().getDuoPartner() == null ? "null" : player.getSlayer().getDuoPartner());
 		object.addProperty("double-slay-xp", player.getSlayer().doubleSlayerXP);
-		object.addProperty("recoil-deg", new Integer(player.getRecoilCharges()));
-		object.add("brawler-deg", builder.toJsonTree(player.getBrawlerChargers()));
-		object.add("vesta-deg", builder.toJsonTree(player.getVestaCharges()));
-		object.add("zuriel-deg", builder.toJsonTree(player.getZurielsCharges()));
-		object.add("statius-deg", builder.toJsonTree(player.getStatiusCharges()));
-		object.add("morrigans-deg", builder.toJsonTree(player.getMorrigansCharges()));
-		object.add("corrupt-vesta-deg", builder.toJsonTree(player.getCorruptVestaCharges()));
-		object.add("corrupt-zuriel-deg", builder.toJsonTree(player.getCorruptZurielsCharges()));
-		object.add("corrupt-statius-deg", builder.toJsonTree(player.getCorruptStatiusCharges()));
-		object.add("corrupt-morrigans-deg", builder.toJsonTree(player.getCorruptMorrigansCharges()));
+
+
+		object.add("charges", builder.toJsonTree(player.getDegrading().getCharges()));
 		object.add("killed-players", builder.toJsonTree(player.getPlayerKillingAttributes().getKilledPlayers()));
 		object.add("killed-gods", builder.toJsonTree(player.getAchievementAttributes().getGodsKilled()));
 		object.add("barrows-brother",

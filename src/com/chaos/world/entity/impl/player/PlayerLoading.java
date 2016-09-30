@@ -736,45 +736,6 @@ public class PlayerLoading {
 			player.getSlayer().doubleSlayerXP = reader.get("double-slay-xp").getAsBoolean();
 		}
 
-		if (reader.has("recoil-deg")) {
-			player.setRecoilCharges(reader.get("recoil-deg").getAsInt());
-		}
-
-		if (reader.has("brawler-deg")) {
-			player.setBrawlerCharges(builder.fromJson(reader.get("brawler-deg").getAsJsonArray(), int[].class));
-		}
-
-		if (reader.has("vesta-deg")) {
-			player.setVestaCharges(builder.fromJson(reader.get("vesta-deg").getAsJsonArray(), int[].class));
-		}
-
-		if (reader.has("zuriel-deg")) {
-			player.setZurielsCharges(builder.fromJson(reader.get("zuriel-deg").getAsJsonArray(), int[].class));
-		}
-
-		if (reader.has("statius-deg")) {
-			player.setStatiusCharges(builder.fromJson(reader.get("statius-deg").getAsJsonArray(), int[].class));
-		}
-
-		if (reader.has("morrigans-deg")) {
-			player.setMorrigansCharges(builder.fromJson(reader.get("morrigans-deg").getAsJsonArray(), int[].class));
-		}
-		if (reader.has("corrupt-vesta-deg")) {
-			player.setVestaCharges(builder.fromJson(reader.get("vesta-deg").getAsJsonArray(), int[].class));
-		}
-
-		if (reader.has("corrupt-zuriel-deg")) {
-			player.setZurielsCharges(builder.fromJson(reader.get("zuriel-deg").getAsJsonArray(), int[].class));
-		}
-
-		if (reader.has("corrupt-statius-deg")) {
-			player.setStatiusCharges(builder.fromJson(reader.get("statius-deg").getAsJsonArray(), int[].class));
-		}
-
-		if (reader.has("corrupt-morrigans-deg")) {
-			player.setMorrigansCharges(builder.fromJson(reader.get("morrigans-deg").getAsJsonArray(), int[].class));
-		}
-
 		if (reader.has("killed-players")) {
 			List<String> list = new ArrayList<String>();
 			String[] killed_players = builder.fromJson(reader.get("killed-players").getAsJsonArray(), String[].class);
@@ -791,6 +752,10 @@ public class PlayerLoading {
 		if (reader.has("barrows-brother")) {
 			player.getMinigameAttributes().getBarrowsMinigameAttributes()
 					.setBarrowsData(builder.fromJson(reader.get("barrows-brother").getAsJsonArray(), int[][].class));
+		}
+
+		if (reader.has("charges")) {
+			player.getDegrading().setCharges(builder.fromJson(reader.get("charges").getAsJsonArray(), int[].class));
 		}
 
 		if (reader.has("random-coffin")) {

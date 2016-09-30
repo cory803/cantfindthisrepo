@@ -11,8 +11,6 @@ import com.chaos.util.Misc;
 import com.chaos.world.clip.region.Region;
 import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.Emotes;
-import com.chaos.world.content.ItemDegrading;
-import com.chaos.world.content.ItemDegrading.DegradingItem;
 import com.chaos.world.content.combat.effect.CombatPoisonEffect;
 import com.chaos.world.content.combat.effect.CombatPoisonEffect.PoisonType;
 import com.chaos.world.content.combat.effect.CombatVenomEffect;
@@ -1386,27 +1384,9 @@ public final class CombatFactory {
     protected static void handleArmorEffects(Character attacker, Character target, int damage, CombatType combatType) {
 
         if (attacker.getConstitution() > 0 && damage > 0) {
-            if (attacker.isPlayer()) {
-                Player t = (Player) attacker;
-                /** PK ARMOR **/
-                for (Item item : t.getEquipment().getItems()) {
-                    DegradingItem deg = ItemDegrading.DegradingItem.forID(item.getId());
-                    if (deg != null && t.getEquipment().getSlot(item.getId()) != 3) {
-                        ItemDegrading.handleItemDegrading(t, deg);
-                    }
-                }
-            }
-
             if (target != null && target.isPlayer()) {
                 Player t2 = (Player) target;
 
-                /** PK ARMOR **/
-                for (Item item : t2.getEquipment().getItems()) {
-                    DegradingItem deg = ItemDegrading.DegradingItem.forID(item.getId());
-                    if (deg != null && t2.getEquipment().getSlot(item.getId()) != 3) {
-                        ItemDegrading.handleItemDegrading(t2, deg);
-                    }
-                }
 
                 /** RECOIL **/
                 if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 2550) {
@@ -1416,7 +1396,7 @@ public final class CombatFactory {
                     if (recDamage > t2.getConstitution())
                         recDamage = t2.getConstitution();
                     attacker.dealDamage(target, new Hit(recDamage, Hitmask.RED, CombatIcon.DEFLECT));
-                    ItemDegrading.handleItemDegrading(t2, DegradingItem.RING_OF_RECOIL);
+                    //TODO: Add ring of recoil degrading
                 } else if (t2.getEquipment().getItems()[Equipment.RING_SLOT].getId() == 19672) { //Eye of the ranger
                     if(combatType == CombatType.RANGED) {
                         int recDamage = (int) (damage * 0.13);
