@@ -37,8 +37,6 @@ import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.TentacleCombination;
-import org.scripts.kotlin.content.dialog.TentacleStatement;
 import org.scripts.kotlin.content.dialog.npcs.Bob2;
 import org.scripts.kotlin.content.dialog.npcs.Bob3;
 
@@ -138,10 +136,6 @@ public class UseItemPacketListener implements PacketListener {
 		 * return; } player.setDialogueActionId(186);
 		 * DialogueManager.start(player, 186); }
 		 */
-		if (usedWith.getId() == 4151 && itemUsedWith.getId() == 13 || usedWith.getId() == 13 && itemUsedWith.getId() == 4151) {
-			player.getDialog().sendDialog(new TentacleCombination(player));
-			return;
-		}
 		if (usedWith.getId() == 6573 || itemUsedWith.getId() == 6573) {
 			player.getPacketSender().sendMessage("To make an Amulet of Fury, you need to put an onyx in a furnace.");
 			return;
