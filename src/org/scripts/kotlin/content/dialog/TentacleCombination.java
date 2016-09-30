@@ -10,7 +10,8 @@ import com.chaos.world.entity.impl.player.Player;
 public class TentacleCombination extends Dialog {
 
     public Dialog dialog = this;
-
+    final int krakWhip = 13;
+    final int abbyWhip = 4151;
     public TentacleCombination(Player player) {
         super(player);
         setEndState(1);
@@ -29,7 +30,11 @@ public class TentacleCombination extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_2:
-                                //if(player.getInventory().contains())
+
+                                    player.getInventory().delete(krakWhip, 1);
+                                    player.getInventory().delete(abbyWhip, 1);
+                                    player.getInventory().add(21369, 1);
+                                    player.getDialog().sendDialog(new TentacleStatement(player));
                                 break;
                             case OPTION_2_OF_2:
                                 player.getPacketSender().sendInterfaceRemoval();
