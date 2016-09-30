@@ -226,8 +226,16 @@ public class CustomObjects {
 	// spawn, this is just
 	// clipping!
 	private static final int[][] CLIENT_OBJECTS = {
-			/* Training Grounds Skillzone */
+			//rune ore @ BH
+			{ 14859, 3118, 3690, 0, 1 },
+			{ 14859, 3117, 3691, 0, 1 },
+			{ 14859, 3119, 3689, 0, 1 },
+			{ 14859, 3117, 3688, 0, 1 },
+			{ 14859, 3116, 3688, 0, 1 },
+			{ 14859, 3115, 3690, 0, 1 },
+			{ 14859, 3116, 3689, 0, 1 },
 			//giant crystal
+			/* Training Grounds Skillzone */
 			{ 62, 2508, 3363, 0, 2 },
 			//dummies
 			{ -1, 2516, 3369, 0, 0 },
