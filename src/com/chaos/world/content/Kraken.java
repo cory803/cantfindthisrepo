@@ -68,6 +68,10 @@ public class Kraken {
 	 * you have disturbed.
 	 */
 	public void incrementPools(Player player, NPC npc) {
+		int transformationId = getTransformationId(npc);
+		if(tentacle[transformationId - 1] != null && npc.getId() != 496) {
+			return;
+		}
 		this.pools++;
 		if(pools == 4) {
 			this.setKrakenStage(KrakenStage.DISTURBED_POOLS);
@@ -151,6 +155,24 @@ public class Kraken {
 	 * @param npc
 	 */
 	public void transformPool(Player player, NPC npc) {
+		int transformationId = getTransformationId(npc);
+		if(tentacle[transformationId - 1] != null) {
+			return;
+		}
+		tentacle[transformationId - 1] = new NPC(5535, npc.getPosition()).setSpawnedFor(player);
+		whirlpool[transformationId] = null;
+
+		World.register(tentacle[transformationId - 1]);
+		tentacle[transformationId - 1].getCombatBuilder().attack(player);
+		World.deregister(npc);
+	}
+
+	/**
+	 * This gets the ID for the tentacle you are transforming to.
+	 * @param npc
+	 * @return
+	 */
+	public int getTransformationId(NPC npc) {
 		int transform = 1;
 		if(matchCoordinates(npc, whirlpool[2])) {
 			transform = 2;
@@ -159,13 +181,7 @@ public class Kraken {
 		} else if(matchCoordinates(npc, whirlpool[4])) {
 			transform = 4;
 		}
-
-		tentacle[transform - 1] = new NPC(5535, npc.getPosition()).setSpawnedFor(player);
-		whirlpool[transform] = null;
-
-		World.register(tentacle[transform - 1]);
-		tentacle[transform - 1].getCombatBuilder().attack(player);
-		World.deregister(npc);
+		return transform;
 	}
 
 	/**
