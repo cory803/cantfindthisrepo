@@ -238,6 +238,13 @@ public class HitQueue {
 							player.getKraken().incrementPools(player, vic);
 						}
 					}
+				} else {
+					Player player = ((Player) attacker);
+					if(player.getLocation() == Location.KRAKEN) {
+						if (!World.getNpcs().contains(vic)) {
+							return;
+						}
+					}
 				}
 			}
 

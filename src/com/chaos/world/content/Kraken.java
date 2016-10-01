@@ -156,7 +156,7 @@ public class Kraken {
 	 */
 	public void transformPool(Player player, NPC npc) {
 		int transformationId = getTransformationId(npc);
-		if(tentacle[transformationId] != null) {
+		if(tentacle[transformationId - 1] != null) {
 			return;
 		}
 		tentacle[transformationId - 1] = new NPC(5535, npc.getPosition()).setSpawnedFor(player);
