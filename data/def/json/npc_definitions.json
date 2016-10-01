@@ -138100,6 +138100,28 @@
 "defenceMage": 100
 },
 {
+"id": 6619,
+"name": "Chaos Fanatic",
+"examine": "A member of the Black Guard with a crossbow.",
+"combat": 292,
+"size": 1,
+"attackable": true,
+"aggressive": true,
+"retreats": false,
+"poisonous": false,
+"respawn": 35,
+"maxHit": 310,
+"hitpoints": 2250,
+"attackSpeed": 2,
+"attackAnim": 2771,
+"defenceAnim": 1834,
+"deathAnim": 836,
+"attackBonus": 150,
+"defenceMelee": 100,
+"defenceRange": 100,
+"defenceMage": 100
+},
+{
 "id": 8783,
 "name": "Black Guard berserker",
 "examine": "An elite member of the black guard.",
