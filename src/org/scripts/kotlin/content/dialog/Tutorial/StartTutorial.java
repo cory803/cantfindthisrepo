@@ -1,7 +1,9 @@
-package org.scripts.kotlin.content.dialog;
+package org.scripts.kotlin.content.dialog.Tutorial;
 
+import com.chaos.model.Direction;
 import com.chaos.model.Flag;
 import com.chaos.model.Item;
+import com.chaos.model.Position;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
@@ -15,14 +17,16 @@ import com.chaos.net.packet.impl.EquipPacketListener;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.world.entity.updating.PlayerUpdating;
+import org.scripts.kotlin.content.dialog.BankPin.BankPinDial;
+import org.scripts.kotlin.content.dialog.BankPin.BankPinTut;
 
-public class Tutorial extends Dialog {
+public class StartTutorial extends Dialog {
 
     public Dialog dialog = this;
-
-    public Tutorial(Player player) {
+    Player p;
+    public StartTutorial(Player player) {
         super(player);
-        setEndState(4);
+        setEndState(7);
     }
 
     @Override
@@ -156,21 +160,30 @@ public class Tutorial extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_2:
-                                player.setNewPlayer(false);
-                                player.setPlayerLocked(false);
-                                player.getPacketSender().sendInterfaceRemoval();
-                                //TODO: Start the tutorial
+                                setState(5);
+                                player.getDialog().sendDialog(dialog);
                                 break;
                             case OPTION_2_OF_2:
                                 player.setNewPlayer(false);
                                 player.setPlayerLocked(false);
                                 player.getPacketSender().sendInterfaceRemoval();
-                                //TODO: Continue to setting an account pin
+                                player.getDialog().sendDialog(new BankPinTut(player));
                                 break;
                         }
                     }
                 });
-
+            case 5:
+//                p.getPacketSender().sendCameraAngle(200,120, 2, 1, 103);
+                p.moveTo(new Position(3182, 3676, 3));
+                return Dialog.createNpc(DialogHandler.HAPPY, "We have an active Bounty Hunter with Revenants and Scorpia. There are also some resourace areas for skilling located inside the crator.");
+            case 6:
+                return Dialog.createNpc(DialogHandler.HAPPY, "There are specific areas on the teleports that designate areas just for skilling. It makes it easier to interact with other skillers!");
+            case 7:
+                p.setNewPlayer(false);
+                p.setPlayerLocked(false);
+                p.moveTo(new Position(3333, 3333, 0));
+                p.setDirection(Direction.NORTH);
+                return Dialog.createNpc(DialogHandler.HAPPY, "You will be placed in the global 'Chaos' clan chat and near a bank in the tutorial.");
         }
         return null;
     }
