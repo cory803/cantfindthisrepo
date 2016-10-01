@@ -9,6 +9,7 @@ import com.chaos.model.Locations.Location;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.util.Misc;
+import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.Sounds;
@@ -228,12 +229,21 @@ public class HitQueue {
 			//Handles Kraken whirlpools
 			if(victim.isNpc() && attacker.isPlayer()) {
 				NPC vic = ((NPC) victim);
-				Player player = ((Player) attacker);
-				if(vic.getId() == 493) {
-					player.getKraken().incrementPools(player, vic);
-				} else if(vic.getId() == 496) {
-					if(player.getKraken().getPoolsDisturbed() == 4) {
+				if(World.getNpcs().contains(vic)) {
+					Player player = ((Player) attacker);
+					if (vic.getId() == 493) {
 						player.getKraken().incrementPools(player, vic);
+					} else if (vic.getId() == 496) {
+						if (player.getKraken().getPoolsDisturbed() == 4) {
+							player.getKraken().incrementPools(player, vic);
+						}
+					}
+				} else {
+					Player player = ((Player) attacker);
+					if(player.getLocation() == Location.KRAKEN) {
+						if (!World.getNpcs().contains(vic)) {
+							return;
+						}
 					}
 				}
 			}
