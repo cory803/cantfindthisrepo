@@ -22,9 +22,9 @@ public class WellOfGoodness {
     public static final int BONUSDROPPERCENT = 3; //3% higher rolls
     public static final int BONUSEXPRATE = 30; //30% more xp
 
-    private static final int LEAST_DONATE_AMOUNT_ACCEPTED = 1000000; // 1m
+    private static final int LEAST_DONATE_AMOUNT_ACCEPTED = 10000; // 1m
 
-    private static final int[] AMOUNT_NEEDED = { 10000000, 25000000, 12000000 };
+    private static final int[] AMOUNT_NEEDED = { 1800000, 2500000, 1200000 };
     private static int[] BONUSES_DURATION = { 120, 120, 120 }; // number in minutes
 
     private static CopyOnWriteArrayList<Player> DONATORS = new CopyOnWriteArrayList<Player>();
@@ -171,7 +171,7 @@ public class WellOfGoodness {
             return;
         }
         if (amount < LEAST_DONATE_AMOUNT_ACCEPTED) {
-            Dialog.createStatement(DialogHandler.CALM, "You must donate at least 1 million coins.");
+            Dialog.createStatement(DialogHandler.CALM, "You must donate at least 10k coins.");
             return;
         }
         if (amount > getMissingAmount(well)) {
@@ -192,7 +192,7 @@ public class WellOfGoodness {
 //            DONATORS.add(player);
 //        }
         MONEY_IN_WELL[getWell(well)] += amount;
-        if (amount > 25000000) {
+        if (amount > 200000) {
             switch (getWell(well)) {
                 case 0:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
