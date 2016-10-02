@@ -1,0 +1,6 @@
+Chaos Fanatic:
+No drop found for npc id 6619, item name: Zamorak robe (top)
+No drop found for npc id 6619, item name: Zamorak robe (bottom)
+No drop found for npc id 6619, item name: Mysterious emblem
+No drop found for npc id 6619, item name: Odium shard 1
+No drop found for npc id 6619, item name: Malediction shard 1

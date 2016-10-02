@@ -15,7 +15,8 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
- * Vados 14/05/2016 22:40PM
+ * @Author Jonny
+ * Handles the combat mechanics for Bork
  */
 
 public class Bork implements CombatStrategy {

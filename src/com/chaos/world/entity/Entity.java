@@ -177,4 +177,5 @@ public class Entity {
 	public boolean isGameObject() {
 		return this instanceof GameObject;
 	}
+
 }

@@ -103,6 +103,13 @@ public final class Projectile {
 				startHeight, endHeight, curve);
 	}
 
+	public Projectile(Position entityPosition, Position victimPosition, Entity victim, int projectileId, int delay, int speed, int startHeight,
+			int endHeight, int curve) {
+		this(entityPosition, victimPosition,
+				(victim.isPlayer() ? -victim.getIndex() - 1 : victim.getIndex() + 1), projectileId, delay, speed,
+				startHeight, endHeight, curve);
+	}
+
 	/**
 	 * Sends one projectiles using the values set when the {@link Projectile}
 	 * was constructed.

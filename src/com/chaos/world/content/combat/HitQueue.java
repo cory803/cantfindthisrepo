@@ -210,7 +210,14 @@ public class HitQueue {
 			// Send the defensive animations.
 			if (victim.getCombatBuilder().getAttackTimer() <= 2) {
 				if (victim.isPlayer()) {
-					victim.performAnimation(new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));
+					if(attacker.isNpc()) {
+						NPC npcAttacker = ((NPC)attacker);
+						if(npcAttacker.getId() != 6619) {
+							victim.performAnimation(new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));
+						}
+					} else {
+						victim.performAnimation(new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));
+					}
 					if (((Player) victim).getInterfaceId() > 0) {
 						if(((Player) victim).getDialog() != null && victim.getLocation() == Location.KRAKEN) {
 						} else {

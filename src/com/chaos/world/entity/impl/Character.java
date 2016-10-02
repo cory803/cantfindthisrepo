@@ -706,4 +706,8 @@ public abstract class Character extends Entity {
 		}
 		return distX > distY ? distX : distY;
 	}
+
+	public int getProjectileLockonIndex(Character character) {
+		return (character.isPlayer() ? -character.getIndex() - 1 : character.getIndex() + 1);
+	}
 }
