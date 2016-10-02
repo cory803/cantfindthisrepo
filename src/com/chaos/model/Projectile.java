@@ -129,6 +129,23 @@ public final class Projectile {
 	}
 
 	/**
+	 * Sends one projectiles using the values set when the {@link Projectile}
+	 * was constructed.
+	 */
+	public void sendProjectile(Position pLocation, int lockon, byte offsetX, byte offsetY) {
+		for (Player player : World.getPlayers()) {
+			if (player == null) {
+				continue;
+			}
+
+			if (pLocation.isViewableFrom(player.getPosition())) {
+				player.getPacketSender().sendProjectile(pLocation, new Position(offsetX, offsetY), 0, speed, projectileId, startHeight, endHeight, lockon, delay);
+
+			}
+		}
+	}
+
+	/**
 	 * Sends <code>count</code> projectiles using the values set when the
 	 * {@link Projectile} was constructed.
 	 * 

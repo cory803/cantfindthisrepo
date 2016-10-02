@@ -8,15 +8,12 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Phaser;
 import java.util.logging.Level;
 
+import com.chaos.model.*;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.GameServer;
 import com.chaos.GameSettings;
 import com.chaos.cache.Archive;
-import com.chaos.model.Direction;
-import com.chaos.model.GameObject;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.StaffRights;
-import com.chaos.model.Position;
 import com.chaos.model.definitions.GameObjectDefinition;
 import com.chaos.net.login.LoginManager;
 import com.chaos.net.login.LoginResponses;
@@ -150,6 +147,27 @@ public class World {
 
 	public static void savePlayers() {
 		players.forEach(p -> p.save());
+	}
+
+	/**
+	 * Sets a still graphic to a location
+	 *
+	 * @param id
+	 *            The id of the graphic
+	 * @param delay
+	 *            The delay of the graphic
+	 * @param location
+	 *            The location of the graphic
+	 */
+	public static void sendStillGraphic(int id, int delay, Position location) {
+		for (Player player : players) {
+			if(player == null) {
+				continue;
+			}
+			if(location.isViewableFrom(player.getPosition())) {
+				player.getPacketSender().sendGraphic(new Graphic(id, delay), location);
+			}
+		}
 	}
 
 	public static CharacterList<Player> getPlayers() {

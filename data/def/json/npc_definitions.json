@@ -138122,6 +138122,28 @@
 "defenceMage": 280
 },
 {
+"id": 6618,
+"name": "Crazy archaeologist",
+"examine": "When academics go bad...",
+"combat": 204,
+"size": 1,
+"attackable": true,
+"aggressive": false,
+"retreats": false,
+"poisonous": false,
+"respawn": 35,
+"maxHit": 150,
+"hitpoints": 2250,
+"attackSpeed": 2,
+"attackAnim": 806,
+"defenceAnim": -1,
+"deathAnim": 836,
+"attackBonus": 167,
+"defenceMelee": 30,
+"defenceRange": 250,
+"defenceMage": 250
+},
+{
 "id": 6620,
 "name": "Miniature chaotic clouds",
 "examine": "A member of the Black Guard with a crossbow.",
