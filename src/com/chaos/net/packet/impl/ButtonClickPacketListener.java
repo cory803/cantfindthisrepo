@@ -15,6 +15,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.*;
 import com.chaos.world.content.Sounds.Sound;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChat;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.combat.magic.Autocasting;
@@ -88,6 +89,26 @@ public class ButtonClickPacketListener implements PacketListener {
         }
 
         switch (id) {
+            //Wells
+            case -10435:
+                if(WellOfGoodness.isActive("exp")) {
+                    player.getPacketSender().sendMessage("This well is active for " + WellOfGoodness.getMinutesRemaining("exp") + " more minutes.");
+            } else {
+                player.getPacketSender().sendMessage("This well is not active");
+            }
+                break;
+            case -10434:
+                if(WellOfGoodness.isActive("drops")) {
+                    player.getPacketSender().sendMessage("This well is active for " + WellOfGoodness.getMinutesRemaining("drops") + " more minutes.");
+                } else {
+                    player.getPacketSender().sendMessage("This well is not active");
+                }
+                break;
+            case -10433:
+                } else {
+                    player.getPacketSender().sendMessage("This well is not active");
+                }
+                break;
 
             //Report button
             case 1314:

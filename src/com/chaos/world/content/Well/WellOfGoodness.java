@@ -6,7 +6,6 @@ import com.chaos.util.Misc;
 import com.chaos.util.ShutdownHook;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.Well.LookDownWell;
 import org.scripts.kotlin.content.dialog.Well.WellFull;
 
 import java.io.*;
@@ -192,7 +191,7 @@ public class WellOfGoodness {
 //            DONATORS.add(player);
 //        }
         MONEY_IN_WELL[getWell(well)] += amount;
-        if (amount > 200000) {
+        if (amount > 20000) {
             switch (getWell(well)) {
                 case 0:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
@@ -208,21 +207,25 @@ public class WellOfGoodness {
                     break;
             }
         }
+        String wellName = "";
         if (getMissingAmount(well) <= 0) {
             switch(getWell(well)) {
                 case 0:
+                    wellName = "Exp";
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Exp has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% bonus experience.");
                     break;
                 case 1:
+                    wellName = "Wealth";
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Wealth has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus xp rates.");
                     break;
                 case 2:
+                    wellName = "Execution";
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Execution has been filled!");
@@ -230,7 +233,7 @@ public class WellOfGoodness {
                     break;
             }
         }
-        player.getPacketSender().sendMessage("You donated " + amount + " to the well of");
+        player.getPacketSender().sendMessage("You donated " + Misc.insertCommasToNumber("" + amount) + " to the Well of " + wellName + ". Thanks for donating.");
     }
 
     public static int getMinutesRemaining(String well) {

@@ -16,8 +16,8 @@ public class QuickChat {
     "Construction", "Hunter", "Summoning", "Dungeoneering"};
 
     public static void handleButtons(Player player, int id) {
-        if (!player.getQuickChat().elapsed(5000)) {
-            player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+        if (!player.getQuickChat().elapsed(2500)) {
+            player.getPacketSender().sendMessage("Please wait 2 seconds before using the quick chat again.");
             return;
         }
         if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {

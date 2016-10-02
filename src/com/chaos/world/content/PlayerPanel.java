@@ -3,6 +3,7 @@ package com.chaos.world.content;
 import com.chaos.util.Misc;
 import com.chaos.util.Stopwatch;
 import com.chaos.world.World;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -51,7 +52,17 @@ public class PlayerPanel {
 		} else {
 			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@: None");
 		}
-		for (int i = 55099; i < 55117; i++) {
+		player.getPacketSender().sendString(55100, "  @whi@[Wells]");
+
+		if (WellOfGoodness.isActive("exp")) {
+		} else {
+		}
+		if (WellOfGoodness.isActive("drops")) {
+		} else {
+		}
+		if (WellOfGoodness.isActive("pkp")) {
+		} else {
+		}
 			player.getPacketSender().sendString(i, " ");
 		}
 	}
