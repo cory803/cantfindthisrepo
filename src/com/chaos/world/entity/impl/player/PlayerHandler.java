@@ -49,6 +49,7 @@ import com.chaos.world.content.skill.impl.hunter.Hunter;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.entity.impl.npc.NPC;
 import org.scripts.kotlin.content.dialog.Tutorial.StartTutorial;
+import org.scripts.kotlin.core.login.LoginMessageParser;
 
 public class PlayerHandler {
 
@@ -232,8 +233,8 @@ public class PlayerHandler {
 		player.getUpdateFlag().flag(Flag.APPEARANCE);
 
 		// Loads login messages from Kotlin
-		// new org.scripts.kotlin.core.login.LoginMessageParser();
-		// LoginMessageParser.LoginMessageParser.sendLogin(player);
+		 new org.scripts.kotlin.core.login.LoginMessageParser();
+		 LoginMessageParser.LoginMessageParser.sendLogin(player);
 		// Loads Assetts
 		// new org.scripts.kotlin.core.login.LoginLoaderAssetts();
 		// LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);

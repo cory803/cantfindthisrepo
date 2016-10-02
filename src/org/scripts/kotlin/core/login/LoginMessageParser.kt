@@ -2,6 +2,7 @@ package org.scripts.kotlin.core.login
 
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.GameSettings
+import com.chaos.world.content.Well.WellOfGoodness
 import java.util.concurrent.TimeUnit
 
 /**
@@ -18,8 +19,8 @@ class LoginMessageParser {
                 player.getPacketSender().sendMessage(
                         "@bla@Welcome to Chaos! We're currently in Normal EXP mode! (@red@X1.0@bla@)")
             }
+            /*
             val days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin())
-
             if (player.getLastIpAddress() != null && player.showIpAddress()) {
                 if (days > 0) {
                     player.getPacketSender().sendMessage("You last logged in @blu@" + days + "@bla@ "
@@ -35,6 +36,7 @@ class LoginMessageParser {
                     player.getPacketSender().sendMessage("You last logged in earlier today.")
                 }
             }
+            */
             if (player.experienceLocked())
                 player.getPacketSender().sendMessage("@red@Warning: your experience is currently locked.")
 
@@ -52,6 +54,25 @@ class LoginMessageParser {
                 player.getPacketSender().sendMessage(
                         "<img=4> <col=008FB2>Chaos currently has a triple vote rewards event going on, make sure to use it!")
             }
+
+            if (WellOfGoodness.isActive("exp")) {
+                player.getPacketSender().sendMessage(
+                        "<img=4><col=008FB2> The Well of Exp is granting " + WellOfGoodness.BONUSEXPRATE + "% bonus experience for another "
+                                + WellOfGoodness.getMinutesRemaining("exp") + " minutes.")
+            }
+
+            if (WellOfGoodness.isActive("drops")) {
+                player.getPacketSender().sendMessage(
+                        "<img=4><col=008FB2> The Well of Wealth is granting " + WellOfGoodness.BONUSDROPPERCENT + " % higher rolls on drops for another "
+                                + WellOfGoodness.getMinutesRemaining("exp") + " minutes.")
+            }
+
+            if (WellOfGoodness.isActive("pkp")) {
+                player.getPacketSender().sendMessage(
+                        "<img=4><col=008FB2> The Well of Execution is granting " + WellOfGoodness.BONUSPKP + "x pk points for another "
+                                + WellOfGoodness.getMinutesRemaining("exp") + " minutes.")
+            }
+
         }
     }
 }
