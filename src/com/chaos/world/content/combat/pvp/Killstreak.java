@@ -2,6 +2,7 @@ package com.chaos.world.content.combat.pvp;
 
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Killstreak {
@@ -61,6 +62,9 @@ public class Killstreak {
 			World.sendMessage("<icon=2><shad=ff0000>" + player.getUsername() + " is currently on a " + killstreak
 					+ " killstreak bounty of 500 PK Points!");
 			break;
+		}
+		if(WellOfGoodness.isActive("pkp")) {
+			pkPoints *= 2;
 		}
 		player.getPointsHandler().setPkPoints(pkPoints, true);
 		player.getPacketSender().sendMessage("You've received " + pkPoints + " PK Points!");

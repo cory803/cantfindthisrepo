@@ -7,6 +7,7 @@ import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.util.FilterExecutable
 import com.chaos.world.World
+import com.chaos.world.content.Well.WellOfGoodness
 import com.chaos.world.content.clan.ClanChatManager
 import com.chaos.world.content.pos.PlayerOwnedShops
 import com.chaos.world.entity.impl.player.Player
@@ -50,6 +51,7 @@ class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
                         })
                         PlayerOwnedShops.saveShops()
                         ClanChatManager.save()
+                        WellOfGoodness.save()
                         GameServer.getLogger().info("Update task finished!")
                         stop()
                     }

@@ -15,6 +15,7 @@ import com.chaos.world.World;
 import com.chaos.world.content.*;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.Sounds.Sound;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.entity.impl.player.Player;
@@ -76,6 +77,9 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager addSkillExperience(Skill skill, double experience) {
+		if(WellOfGoodness.isActive("exp")) {
+			experience *= 1.3;
+		}
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);
 	}

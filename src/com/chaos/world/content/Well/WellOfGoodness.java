@@ -3,6 +3,7 @@ package com.chaos.world.content.Well;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.util.Misc;
+import com.chaos.util.ShutdownHook;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.Well.LookDownWell;
@@ -10,15 +11,20 @@ import org.scripts.kotlin.content.dialog.Well.WellFull;
 
 import java.io.*;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.logging.Logger;
 
 /**
  * Created by high105 on 9/16/2016.
  */
 public class WellOfGoodness {
 
+    public static final int BONUSPKP = 2; //multiplier to pkp
+    public static final int BONUSDROPPERCENT = 3; //3% higher rolls
+    public static final int BONUSEXPRATE = 30; //30% more xp
+
     private static final int LEAST_DONATE_AMOUNT_ACCEPTED = 1000000; // 1m
 
-    private static final int[] AMOUNT_NEEDED = { 10000000, 25000000, 30000000 };
+    private static final int[] AMOUNT_NEEDED = { 10000000, 25000000, 12000000 };
     private static int[] BONUSES_DURATION = { 120, 120, 120 }; // number in minutes
 
     private static CopyOnWriteArrayList<Player> DONATORS = new CopyOnWriteArrayList<Player>();
@@ -27,11 +33,13 @@ public class WellOfGoodness {
     private static int[] MONEY_IN_WELL = { 0, 0, 0 };
     private static boolean[] isFull = { false, false, false };
 
+    private static final Logger logger = Logger.getLogger(ShutdownHook.class.getName());
+
     public static void init() {
         String[] args;
         String line;
             try {
-                BufferedReader reader = new BufferedReader(new FileReader("./data/saves/edgeville-well.txt"));
+                BufferedReader reader = new BufferedReader(new FileReader("./data/saves/wells.txt"));
                 while ((line = reader.readLine()) != null) {
                     if (line.contains("well-exp")) {
                         args = line.split(": ");
@@ -57,6 +65,7 @@ public class WellOfGoodness {
                     }
                 }
                 reader.close();
+                logger.info("Loaded data from wells that had money in them...");
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -64,7 +73,7 @@ public class WellOfGoodness {
 
     public static void save() {
         try {
-            BufferedWriter out = new BufferedWriter(new FileWriter("./data/saves/edgeville-well.txt"));
+            BufferedWriter out = new BufferedWriter(new FileWriter("./data/saves/wells.txt"));
             out.write("well-exp: " + START_TIMER[0]);
             out.newLine();
             out.write("well-drops: " + START_TIMER[1]);
@@ -72,6 +81,7 @@ public class WellOfGoodness {
             out.write("well-pkp: " + START_TIMER[2]);
             out.newLine();
             out.close();
+            logger.info("Saved the wells in to wells.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -97,6 +107,33 @@ public class WellOfGoodness {
             return (AMOUNT_NEEDED[getWell(well)] - MONEY_IN_WELL[getWell(well)]);
         } else {
             return 0;
+        }
+    }
+
+    public static boolean checkActive(String well) {
+        if (well == "exp") {
+            if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
+                isFull[getWell(well)] = true;
+                return true;
+            }
+            isFull[getWell(well)] = false;
+            return false;
+        } else if (well == "drops") {
+            if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
+                isFull[getWell(well)] = true;
+                return true;
+            }
+            isFull[getWell(well)] = false;
+            return false;
+        } else if (well == "pkp") {
+            if (MONEY_IN_WELL[getWell(well)] == AMOUNT_NEEDED[getWell(well)]) {
+                isFull[getWell(well)] = true;
+                return true;
+            }
+            isFull[getWell(well)] = false;
+            return false;
+        } else {
+            return false;
         }
     }
 
@@ -157,38 +194,35 @@ public class WellOfGoodness {
         MONEY_IN_WELL[getWell(well)] += amount;
         if (amount > 25000000) {
             switch (getWell(well)) {
-                case 1:
+                case 0:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
                             + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Exp!");
                     break;
-                case 2:
+                case 1:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
                             + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Wealth!");
                     break;
-                case 3:
+                case 2:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
                             + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Execution!");
                     break;
-                default:
-                    System.out.println("Wtf..... donated to which well?!?");
             }
         }
-        Dialog.createStatement(DialogHandler.CALM, "Thank you for your donation.");
         if (getMissingAmount(well) <= 0) {
             switch(getWell(well)) {
-                case 1:
+                case 0:
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Exp has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% bonus experience.");
                     break;
-                case 2:
+                case 1:
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Wealth has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus xp rates.");
                     break;
-                case 3:
+                case 2:
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Execution has been filled!");
@@ -196,6 +230,7 @@ public class WellOfGoodness {
                     break;
             }
         }
+        player.getPacketSender().sendMessage("You donated " + amount + " to the well of");
     }
 
     public static int getMinutesRemaining(String well) {
@@ -208,11 +243,29 @@ public class WellOfGoodness {
         MONEY_IN_WELL[getWell(well)] = 0;
     }
 
+    public static boolean isActive(String well) {
+        if (isFull[getWell(well)] == true) {
+            updateState(well);
+            return true;
+        } else {
+            updateState(well);
+            return false;
+        }
+    }
+
     public static void updateState(String well) {
         if (isFull[getWell(well)]) {
             if (getMinutesRemaining(well) <= 0) {
-                World.sendMessage("<img=4> <col=6666FF>The Well of Goodwill is no longer granting bonus experience.");
-                setDefaults(well);
+                if (well == "exp") {
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Exp is no longer granting bonus experience.");
+                    setDefaults(well);
+                } else if (well == "drops") {
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Wealth is no longer granting bonus drop rates.");
+                    setDefaults(well);
+                } else if (well == "pkp") {
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Execution is no longer granting bonus pkp.");
+                    setDefaults(well);
+                }
             }
         }
     }
