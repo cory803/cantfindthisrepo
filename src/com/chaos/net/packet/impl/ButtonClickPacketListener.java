@@ -105,6 +105,8 @@ public class ButtonClickPacketListener implements PacketListener {
                 }
                 break;
             case -10433:
+                if(WellOfGoodness.isActive("pkp")) {
+                    player.getPacketSender().sendMessage("This well is active for " + WellOfGoodness.getMinutesRemaining("pkp") + " more minutes.");
                 } else {
                     player.getPacketSender().sendMessage("This well is not active");
                 }

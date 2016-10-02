@@ -55,14 +55,21 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(55100, "  @whi@[Wells]");
 
 		if (WellOfGoodness.isActive("exp")) {
+			player.getPacketSender().sendString(55101, "   >- Well of Exp: @cha@ Active");
 		} else {
+			player.getPacketSender().sendString(55101, "   >- Well of Exp: @cha@ N/A");
 		}
 		if (WellOfGoodness.isActive("drops")) {
+			player.getPacketSender().sendString(55102, "   >- Well of Wealth: @cha@ Active");
 		} else {
+			player.getPacketSender().sendString(55102, "   >- Well of Wealth: @cha@ N/A");
 		}
 		if (WellOfGoodness.isActive("pkp")) {
+			player.getPacketSender().sendString(55103, "   >- Well of Execution: @cha@ Active");
 		} else {
+			player.getPacketSender().sendString(55103, "   >- Well of Execution: @cha@ N/A");
 		}
+		for (int i = 55104; i < 55117; i++) {
 			player.getPacketSender().sendString(i, " ");
 		}
 	}
