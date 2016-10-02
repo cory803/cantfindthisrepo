@@ -64,6 +64,11 @@ public class MiningData {
 		MITHRIL(new int[] { 14855, 14853, 14854, 25370, 25368, 5786, 5784, 11942, 11943, 11944, 11945, 11946, 29236, 11947, 11942, 11943 }, 55, 80, 447, 6, 11),
 		ADAMANTITE(new int[] { 14862, 11941, 11939, 29233, 29235 }, 70, 95, 449, 7, 14),
 		RUNITE(new int[] { 14859, 14860, 4860, 2106, 2107 }, 85, 125, 451, 7, 45),
+		RESOURCE_IRON(new int[] { 7455 }, 15, 65, 441, 5, 5),
+		RESOURCE_COAL(new int[] { 4389 }, 30, 10, 454, 5, 7),
+		RESOURCE_GOLD(new int[] { 7491 }, 40, 77, 445, 5, 10),
+		RESOURCE_MITHRIL(new int[] { 7459 }, 55, 95, 448, 6, 16),
+		RESOURCE_ADAMANTITE(new int[] { 7493 }, 70, 125, 450, 7, 18),
 		CRASHED_STAR(new int[] { 38660 }, 80, 114, 13727, 7, -1);
 
 		private int objid[];

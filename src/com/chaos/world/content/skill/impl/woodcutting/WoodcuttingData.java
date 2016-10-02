@@ -68,7 +68,9 @@ public class WoodcuttingData {
 		YEW(60, 175, 1515, new int[] { 1309 }, 8, true),
 		MAGIC(75, 250, 1513, new int[] { 1306 }, 9, true),
 		CURSED_MAGIC(75, 275, 1514, new int[] { 37821 }, 9, true),
-		EVIL_TREE(80, 300, 14666, new int[] { 11434 }, 9, true);
+		EVIL_TREE(80, 300, 14666, new int[] { 11434 }, 9, true),
+		RESOURCE_YEW(60, 230, 1516, new int[] { 1753 }, 8, true),
+		RESOURCE_MAGIC(75, 315, 1514, new int[] { 1761 }, 9, true);
 
 		private int[] objects;
 		private int req, log, ticks;

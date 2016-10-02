@@ -235,6 +235,8 @@ public final class ActionHandler {
                 }
                 player.getSummoning().store();
                 break;
+            case 322:
+            case 321:
             case 318:
             case 316:
             case 313:

@@ -312,27 +312,27 @@ public class ServerTimeUpdateTask extends Task {
 			switch (random) {
 			case 1:
 				World.sendMessage(
-						"<icon=2> <shad=FFFF00>Don't forget to vote every 12 hours by typing @dre@::vote<shad=FFFF00>!");
+						"<icon=2><shad=ff0000>Don't forget to vote every 12 hours by typing @dre@::vote<shad=ff0000>!");
 				break;
 			case 2:
 				World.sendMessage(
-						"<icon=2><shad=FFFF00>If you need any help join the @bla@'@dre@Chaos@bla@'<shad=FFFF00> clan chat!");
+						"<icon=2><shad=ff0000>If you need any help join the @bla@'@dre@Chaos@bla@'<shad=ff0000> clan chat!");
 				break;
 			case 3:
 				World.sendMessage(
-						"<icon=2><shad=FFFF00>Do not forget to register on the forums with the command @dre@::register<shad=FFFF00>!");
+						"<icon=2><shad=ff0000>Check the forums daily for events and information!");
 				break;
 			case 4:
 				World.sendMessage(
-						"<icon=2><shad=FFFF00>Did you know that? There is a @dre@::market<shad=FFFF00> for the GE!");
+						"<icon=2><shad=ff0000>Did you know that? Bounty Hunter Cave contains revenants and a boss");
 				break;
 			case 5:
 				World.sendMessage(
-						"<icon=2><shad=FFFF00>Remember to read all the ingame and forum rules on the forums @dre@::forums<shad=FFFF00>!");
+						"<icon=2><shad=ff0000>Did you know that? The resource skilling area gives noted items and bonus xp!");
 				break;
 			default:
 				World.sendMessage(
-						"<icon=2><shad=FFFF00>Don't forget to vote every 12 hours by typing @dre@::vote<shad=FFFF00>!");
+						"<icon=2><shad=ff0000>Don't forget to vote every 12 hours by typing @dre@::vote<shad=ff0000>!");
 			}
 
 		}
@@ -341,7 +341,7 @@ public class ServerTimeUpdateTask extends Task {
 			if (Locations.PLAYERS_IN_WILD > Locations.PLAYERS_IN_DUEL_ARENA
 					&& Locations.PLAYERS_IN_WILD > PestControl.TOTAL_PLAYERS
 					|| Misc.getRandom(3) == 1 && Locations.PLAYERS_IN_WILD >= 2) {
-				World.sendMessage("<icon=2><shad=FFFF00>There are currently " + Locations.PLAYERS_IN_WILD
+				World.sendMessage("<icon=2><shad=ff0000>There are currently " + Locations.PLAYERS_IN_WILD
 						+ " players roaming the Wilderness!");
 			}
 			tick = 0;

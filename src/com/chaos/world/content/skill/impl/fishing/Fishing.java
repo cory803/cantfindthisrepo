@@ -57,12 +57,9 @@ public class Fishing {
 
 		KARAM(2859, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 105 }, 621),
 
-		WILDERNESS_ROCKTAIL(2724, new int[] { 15270 }, 309, 25, new int[] { 89 }, false, new int[] { 380 }, 623),
+		RESOURCE_ROCKTAIL(321, new int[] { 15271 }, 309, 25, new int[] { 89 }, false, new int[] { 480 }, 623),
 
-		WILDERNESS_MONKFISH(3019, new int[] { 7944, 3142, 389 }, 305, -1, new int[] { 60, 63, 79 }, false,
-				new int[] { 120, 105, 130 }, 621),
-
-		WILDERNESS_KARAM(2722, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 105 }, 621);
+		RESOURCE_KARAM(322, new int[] { 3143 }, 305, -1, new int[] { 65 }, false, new int[] { 225 }, 621);
 
 		int npcId, equipment, bait, anim;
 		int[] rawFish, fishingReqs, xp;
@@ -206,9 +203,9 @@ public class Fishing {
 					rollPet(p);
 					if (s.getBait() != -1)
 						p.getInventory().delete(s.getBait(), 1);
-					if (p.getLocation() == Locations.Location.WILDERNESS) {
-						p.getInventory().add(s.getRawFish()[fishIndex] + 1, 1);
-					}
+//					if (p.getLocation() == Locations.Location.WILDERNESS) {
+//						p.getInventory().add(s.getRawFish()[fishIndex] + 1, 1);
+//					}
 					p.getInventory().add(s.getRawFish()[fishIndex], 1);
 					if (s.getRawFish()[fishIndex] == 377) {
 						Achievements.finishAchievement(p, AchievementData.CATCH_LOBSTER);
