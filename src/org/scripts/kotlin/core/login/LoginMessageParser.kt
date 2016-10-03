@@ -64,13 +64,13 @@ class LoginMessageParser {
             if (WellOfGoodness.isActive("drops")) {
                 player.getPacketSender().sendMessage(
                         "<img=4><col=008FB2> The Well of Wealth is granting " + WellOfGoodness.BONUSDROPPERCENT + " % higher rolls on drops for another "
-                                + WellOfGoodness.getMinutesRemaining("exp") + " minutes.")
+                                + WellOfGoodness.getMinutesRemaining("drops") + " minutes.")
             }
 
             if (WellOfGoodness.isActive("pkp")) {
                 player.getPacketSender().sendMessage(
                         "<img=4><col=008FB2> The Well of Execution is granting " + WellOfGoodness.BONUSPKP + "x pk points for another "
-                                + WellOfGoodness.getMinutesRemaining("exp") + " minutes.")
+                                + WellOfGoodness.getMinutesRemaining("pkp") + " minutes.")
             }
 
         }
