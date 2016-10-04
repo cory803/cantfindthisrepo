@@ -349,6 +349,15 @@ public class UseItemPacketListener implements PacketListener {
 								return;
 							}
 						}
+						if (gameObject.getPosition().getX() == 3188 && gameObject.getPosition().getY() == 3930) {
+							if (CookingWildernessData.forFish(item.getId() - 1) != null) {
+								player.setPositionToFace(gameObject.getPosition());
+								CookingWilderness.selectionInterface(player,
+										CookingWildernessData.forFish(item.getId() - 1));
+								return;
+							}
+						}
+
 						if (CookingData.forFish(item.getId()) != null && CookingData.isRange(objectId)) {
 							player.setPositionToFace(gameObject.getPosition());
 							Cooking.selectionInterface(player, CookingData.forFish(item.getId()));
