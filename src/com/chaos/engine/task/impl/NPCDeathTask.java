@@ -167,7 +167,7 @@ public class NPCDeathTask extends Task {
 					/** PARSE DROPS **/
 					LootSystem.drop(killer, npc);
 
-					//TODO: Slayer check if killed npc...
+					killer.getSlayer().killedNpc(npc.getId());
 				}
 				stop();
 				break;

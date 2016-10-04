@@ -16,6 +16,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.mysql.impl.Hiscores;
 import com.chaos.world.content.*;
+import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
 
@@ -598,6 +599,7 @@ public class Player extends Character {
     private Position resetPosition;
     private Kraken kraken = new Kraken();
     private Degrading degrading = new Degrading();
+    private Slayer slayer = new Slayer(this);
     private Pouch selectedPouch;
     private final DialogHandler dialogueHandler = new DialogHandler(this);
     private OptionContainer optionContainer = new OptionContainer(this);
@@ -1193,6 +1195,14 @@ public class Player extends Character {
      */
     public Degrading getDegrading() {
         return this.degrading;
+    }
+
+    /**
+     * Gets the players slayer setup
+     * @return
+     */
+    public Slayer getSlayer() {
+        return this.slayer;
     }
 
     public void resetKraken() {

@@ -5,9 +5,6 @@ import com.chaos.model.*;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.PosSearchShop;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.content.*;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.pos.PlayerOwnedShops;
@@ -16,6 +13,7 @@ import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
 import com.chaos.world.content.skill.impl.runecrafting.DesoSpan;
+import com.chaos.world.content.skill.impl.slayer.SlayerDialog;
 import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.content.skill.impl.summoning.Summoning;
 import com.chaos.world.content.skill.impl.summoning.SummoningData;
@@ -69,6 +67,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //Turael
+            case 401:
+                player.getDialog().sendDialog(new SlayerDialog(player, 0));
+                break;
             //agility
             case 437:
                 player.getDialog().sendDialog(new Agility(player));

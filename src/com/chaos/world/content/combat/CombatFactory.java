@@ -738,16 +738,15 @@ public final class CombatFactory {
             } else if (npc.getDefenceWeakened()[2]) {
                 maxHit += (int) ((0.30) * (maxHit));
             }
-//            /** SLAYER HELMET **/
-//            for(int i = 0; i < player.getSlayer().getSlayerTask().getNpcId().length; ++i) {
-//                if (npc.getId() == player.getSlayer().getSlayerTask().getNpcId()[i]) {
-//                    if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
-//                        maxHit *= 1.12;
-//                        break;
-//                    }
-//                }
-//            }
-            //TODO: Add all slayer items
+            /** SLAYER HELMET **/
+            for(int i = 0; i < player.getSlayer().getSlayerTask().getNpcIds().length; ++i) {
+                if (npc.getId() == player.getSlayer().getSlayerTask().getNpcIds()[i]) {
+                    if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
+                        maxHit *= 1.12;
+                        break;
+                    }
+                }
+            }
         }
         maxHit *= 10;
         return maxHit;

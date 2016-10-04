@@ -193,6 +193,16 @@ public class PlayerSaving {
 		object.addProperty("staff-rights", player.getStaffRights().name());
 		object.addProperty("donator-rights", player.getDonatorRights().name());
 		object.addProperty("game-mode", player.getGameModeAssistant().getGameMode().name());
+		if(player.getSlayer().getSlayerMaster() != null) {
+			object.addProperty("slayer-master", player.getSlayer().getSlayerMaster().name());
+		}
+		if(player.getSlayer().getSlayerTask() != null) {
+			object.addProperty("slayer-task", player.getSlayer().getSlayerTask().name());
+		}
+		if(player.getSlayer().getAmountLeft() > 0) {
+			object.addProperty("slayer-amount", new Integer(player.getSlayer().getAmountLeft()));
+		}
+		object.addProperty("slayer-streak", new Integer(player.getSlayer().getSlayerStreak()));
 		//object.addProperty("exp-rate", player.getExpRate().name());
 		object.addProperty("player-invisibility", player.isInvisible());
 		object.addProperty("withdrawx", new Integer(player.getWithdrawX()));

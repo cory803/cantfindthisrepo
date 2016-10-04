@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.chaos.model.*;
+import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
+import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -299,6 +301,43 @@ public class PlayerLoading {
 			}
 		}
 
+		if (reader.has("slayer-master")) {
+			try {
+				player.getSlayer().setSlayerMaster(SlayerMasters.valueOf(reader.get("slayer-master").getAsString()));
+			} catch (Exception e) {
+				player.getSlayer().setSlayerMaster(null);
+				player.getSlayer().setSlayerTask(null);
+				player.getSlayer().setAmountLeft(0);
+			}
+		}
+
+		if (reader.has("slayer-task")) {
+			try {
+				player.getSlayer().setSlayerTask(SlayerTasks.valueOf(reader.get("slayer-task").getAsString()));
+				if(player.getSlayer().getSlayerMaster() == null) {
+					player.getSlayer().setSlayerMaster(null);
+					player.getSlayer().setSlayerTask(null);
+					player.getSlayer().setAmountLeft(0);
+				}
+			} catch (Exception e) {
+				player.getSlayer().setSlayerMaster(null);
+				player.getSlayer().setSlayerTask(null);
+				player.getSlayer().setAmountLeft(0);
+			}
+		}
+
+		if (reader.has("slayer-amount")) {
+			player.getSlayer().setAmountLeft(reader.get("slayer-amount").getAsInt());
+			if(player.getSlayer().getAmountLeft() < 1 || player.getSlayer().getSlayerMaster() == null || player.getSlayer().getSlayerTask() == null) {
+				player.getSlayer().setSlayerMaster(null);
+				player.getSlayer().setSlayerTask(null);
+				player.getSlayer().setAmountLeft(0);
+			}
+		}
+
+		if (reader.has("slayer-streak")) {
+			player.getSlayer().setSlayerStreak(reader.get("slayer-streak").getAsInt());
+		}
 		if (reader.has("player-invisibility")) {
 			player.setInvisible(reader.get("player-invisibility").getAsBoolean());
 		}
