@@ -1,10 +1,7 @@
 package com.chaos.world.content;
 
-import com.chaos.util.Misc;
-import com.chaos.util.Stopwatch;
 import com.chaos.world.World;
 import com.chaos.world.content.Well.WellOfGoodness;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.entity.impl.player.Player;
 
 public class PlayerPanel {
@@ -39,19 +36,19 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(55092, "   >- Duel Victories: @cha@ " + player.getDueling().arenaStats[0]);
 		player.getPacketSender().sendString(55093, "   >- Duel Losses: @cha@ " + player.getDueling().arenaStats[1]);
 		player.getPacketSender().sendString(55094, "  @whi@[Slayer]");
-		player.getPacketSender().sendString(55095, "   >- Slayer Master: @cha@" + Misc.formatText(player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " ")));
-		if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK) {
-			player.getPacketSender().sendString(55096, "   >- Task: @cha@" + Misc.formatText(player.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " ")));
-		} else {
-			player.getPacketSender().sendString(55096, "   >- Task: @cha@" + Misc.formatText(player.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " ")) + "s");
-		}
-		player.getPacketSender().sendString(55097, "   >- Task Amount: @cha@" + player.getSlayer().getAmountToSlay());
-		player.getPacketSender().sendString(55098, "   >- Task Streak: @cha@" + player.getSlayer().getTaskStreak());
-		if (player.getSlayer().getDuoPartner() != null) {
-			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@" + player.getSlayer().getDuoPartner() + "");
-		} else {
-			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@: None");
-		}
+//		player.getPacketSender().sendString(55095, "   >- Slayer Master: @cha@" + Misc.formatText(player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " ")));
+//		if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK) {
+//			player.getPacketSender().sendString(55096, "   >- Task: @cha@" + Misc.formatText(player.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " ")));
+//		} else {
+//			player.getPacketSender().sendString(55096, "   >- Task: @cha@" + Misc.formatText(player.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " ")) + "s");
+//		}
+//		player.getPacketSender().sendString(55097, "   >- Task Amount: @cha@" + player.getSlayer().getAmountToSlay());
+//		player.getPacketSender().sendString(55098, "   >- Task Streak: @cha@" + player.getSlayer().getTaskStreak());
+//		if (player.getSlayer().getDuoPartner() != null) {
+//			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@" + player.getSlayer().getDuoPartner() + "");
+//		} else {
+//			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@: None");
+//		}
 		player.getPacketSender().sendString(55100, "  @whi@[Wells]");
 
 		if (WellOfGoodness.isActive("exp")) {

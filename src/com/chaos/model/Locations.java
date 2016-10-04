@@ -1108,10 +1108,12 @@ public class Locations {
 				Player player = (Player) gc;
 				gc.getLocation().process(player);
 				if (Location.inMulti(player)) {
-					if (player.getMultiIcon() != 1)
+					if (player.getMultiIcon() != 1) {
 						player.getPacketSender().sendMultiIcon(1);
-				} else if (player.getMultiIcon() == 1)
+					}
+				} else if (player.getMultiIcon() == 1) {
 					player.getPacketSender().sendMultiIcon(0);
+				}
 			}
 		} else {
 			Location prev = gc.getLocation();

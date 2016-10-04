@@ -182,15 +182,6 @@ public final class ActionHandler {
             case 8705:
                 EnergyHandler.rest(player);
                 break;
-            case 1597:
-            case 8275:
-            case 9085:
-            case 7780:
-                if (npc.getId() != player.getSlayer().getSlayerMaster().getNpcId()) {
-                    player.getPacketSender().sendMessage("This is not your current Slayer master.");
-                    return;
-                }
-                break;
             case 3789:
                 player.getPacketSender().sendInterface(18730);
                 player.getPacketSender().sendString(18729,

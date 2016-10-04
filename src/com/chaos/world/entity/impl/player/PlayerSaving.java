@@ -304,16 +304,6 @@ public class PlayerSaving {
 				player.getAutocastSpell() != null ? player.getAutocastSpell().spellId() : -1);
 		object.addProperty("dfs-charges", player.getDfsCharges());
 		object.addProperty("coins-gambled", new Integer(player.getAchievementAttributes().getCoinsGambled()));
-		object.addProperty("slayer-master", player.getSlayer().getSlayerMaster().name());
-		object.addProperty("slayer-task", player.getSlayer().getSlayerTask().name());
-		object.addProperty("prev-slayer-task", player.getSlayer().getLastTask().name());
-		object.addProperty("task-amount", player.getSlayer().getAmountToSlay());
-		object.addProperty("task-streak", player.getSlayer().getTaskStreak());
-		object.addProperty("duo-partner",
-				player.getSlayer().getDuoPartner() == null ? "null" : player.getSlayer().getDuoPartner());
-		object.addProperty("double-slay-xp", player.getSlayer().doubleSlayerXP);
-
-
 		object.add("charges", builder.toJsonTree(player.getDegrading().getCharges()));
 		object.add("killed-players", builder.toJsonTree(player.getPlayerKillingAttributes().getKilledPlayers()));
 		object.add("killed-gods", builder.toJsonTree(player.getAchievementAttributes().getGodsKilled()));

@@ -5,7 +5,6 @@ import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.content.skill.SkillManager;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -193,8 +192,7 @@ public class GameModeAssistant {
         this.gameMode = gamemode;
         PlayerPanel.refreshPanel(player);
         Achievements.updateInterface(player);
-        player.getSlayer().setSlayerTask(SlayerTasks.NO_TASK);
-        player.getSlayer().setAmountToSlay(0);
+        //TODO: Remove slayer task
     }
 
 }

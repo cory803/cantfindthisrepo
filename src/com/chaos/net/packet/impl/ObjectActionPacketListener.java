@@ -16,7 +16,6 @@ import com.chaos.util.Misc;
 import com.chaos.world.ChaosTunnelHandler;
 import com.chaos.world.World;
 import com.chaos.world.content.*;
-import com.chaos.world.content.combat.instanced.InstancedCerberus;
 import com.chaos.world.content.combat.magic.Autocasting;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
@@ -341,9 +340,6 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							case 21772:
 								player.moveTo(new Position(3236, 3458, 0));
-								break;
-							case 881:
-								InstancedCerberus.enterDungeon(player);
 								break;
 							case 2995:
 								player.openBank();

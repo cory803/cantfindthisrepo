@@ -33,8 +33,6 @@ import com.chaos.world.content.skill.impl.crafting.LeatherMaking;
 import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fletching.Fletching;
 import com.chaos.world.content.skill.impl.herblore.IngridientsBook;
-import com.chaos.world.content.skill.impl.slayer.Slayer;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.smithing.SmithingData;
 import com.chaos.world.content.skill.impl.summoning.PouchMaking;
 import com.chaos.world.content.skill.impl.summoning.SummoningTab;
@@ -895,42 +893,18 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.forceChat("[CHAOS] I have lost "+player.getDueling().arenaStats[1]+" duels.");
                 player.getQuickChat().reset();
                 break;
-            case -10441:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
-                    return;
-                }
-                player.forceChat("[CHAOS] My slayer master is: "+ Misc.formatText(player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " "))+".");
-                player.getQuickChat().reset();
-                break;
             case -10440:
                 if (!player.getQuickChat().elapsed(5000)) {
                     player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
                     return;
                 }
-                if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK) {
-                    player.forceChat("[CHAOS] I currently do not have a slayer task.");
-                } else {
-                    player.forceChat("[CHAOS] My slayer task is: "+ Misc.formatText(player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " "))+"s.");
-                }
-                player.forceChat("[CHAOS] My slayer task is: "+ Misc.formatText(player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " "))+".");
-                player.getQuickChat().reset();
-                break;
-            case -10439:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
-                    return;
-                }
-                player.forceChat("[CHAOS] I have "+player.getSlayer().getAmountToSlay()+" monsters left in my slayer task.");
-                player.getQuickChat().reset();
-                break;
-            case -10438:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
-                    return;
-                }
-                player.forceChat("[CHAOS] I have completed "+player.getSlayer().getTaskStreak()+" slayer tasks in a row.");
-                player.getQuickChat().reset();
+//                if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK) {
+//                    player.forceChat("[CHAOS] I currently do not have a slayer task.");
+//                } else {
+//                    player.forceChat("[CHAOS] My slayer task is: "+ Misc.formatText(player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " "))+"s.");
+//                }
+//                player.forceChat("[CHAOS] My slayer task is: "+ Misc.formatText(player.getSlayer().getSlayerMaster().toString().toLowerCase().replaceAll("_", " "))+".");
+//                player.getQuickChat().reset();
                 break;
 
             case 4454: // knife, thrownaxe, dart & javelin
@@ -1281,9 +1255,6 @@ public class ButtonClickPacketListener implements PacketListener {
             return true;
         }
         if (player.getLocation() == Location.DUEL_ARENA && Dueling.handleDuelingButtons(player, id)) {
-            return true;
-        }
-        if (Slayer.handleRewardsInterface(player, id)) {
             return true;
         }
         if (ExperienceLamps.handleButton(player, id)) {

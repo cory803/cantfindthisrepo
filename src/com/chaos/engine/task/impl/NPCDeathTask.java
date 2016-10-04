@@ -81,10 +81,6 @@ public class NPCDeathTask extends Task {
 								.sendMessage("The Shaikahan dropped a certificate you need to show the king.");
 					}
 				}
-				if (npc.getLocation() == Location.BOSS_SYSTEM) {
-					LootSystem.drop(killer, npc);
-					killer.getSlayer().killedNpc(npc);
-				}
 				break;
 			case 0:
 				if (killer != null) {
@@ -171,8 +167,7 @@ public class NPCDeathTask extends Task {
 					/** PARSE DROPS **/
 					LootSystem.drop(killer, npc);
 
-					/** SLAYER **/
-					killer.getSlayer().killedNpc(npc);
+					//TODO: Slayer check if killed npc...
 				}
 				stop();
 				break;

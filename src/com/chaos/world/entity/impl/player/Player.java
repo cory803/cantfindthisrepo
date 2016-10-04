@@ -68,7 +68,6 @@ import com.chaos.world.content.pos.PosDetails;
 import com.chaos.world.content.pos.PosOffer;
 import com.chaos.world.content.skill.SkillManager;
 import com.chaos.world.content.skill.impl.farming.Farming;
-import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.content.skill.impl.summoning.Pouch;
 import com.chaos.world.content.skill.impl.summoning.Summoning;
 import com.chaos.world.entity.impl.Character;
@@ -571,7 +570,6 @@ public class Player extends Character {
     private PriceChecker priceChecker = new PriceChecker(this);
     private Trading trading = new Trading(this);
     private Dueling dueling = new Dueling(this);
-    private Slayer slayer = new Slayer(this);
     private Farming farming = new Farming(this);
     private Summoning summoning = new Summoning(this);
     private Bank[] bankTabs = new Bank[9];
@@ -2566,10 +2564,6 @@ public class Player extends Character {
 
     public Position getResetPosition() {
         return resetPosition;
-    }
-
-    public Slayer getSlayer() {
-        return slayer;
     }
 
     public Summoning getSummoning() {

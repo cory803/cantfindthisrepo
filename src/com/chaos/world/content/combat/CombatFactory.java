@@ -738,15 +738,16 @@ public final class CombatFactory {
             } else if (npc.getDefenceWeakened()[2]) {
                 maxHit += (int) ((0.30) * (maxHit));
             }
-            /** SLAYER HELMET **/
-            for(int i = 0; i < player.getSlayer().getSlayerTask().getNpcId().length; ++i) {
-                if (npc.getId() == player.getSlayer().getSlayerTask().getNpcId()[i]) {
-                    if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
-                        maxHit *= 1.12;
-                        break;
-                    }
-                }
-            }
+//            /** SLAYER HELMET **/
+//            for(int i = 0; i < player.getSlayer().getSlayerTask().getNpcId().length; ++i) {
+//                if (npc.getId() == player.getSlayer().getSlayerTask().getNpcId()[i]) {
+//                    if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
+//                        maxHit *= 1.12;
+//                        break;
+//                    }
+//                }
+//            }
+            //TODO: Add all slayer items
         }
         maxHit *= 10;
         return maxHit;
@@ -868,22 +869,6 @@ public final class CombatFactory {
                 if (player.getSummoning().getFamiliar() != null
                         && player.getSummoning().getFamiliar().getSummonNpc() != null
                         && player.getSummoning().getFamiliar().getSummonNpc().getIndex() == npc.getIndex()) {
-                    return false;
-                }
-            }
-            if (npc.getId() == 5866) {
-                if (!((Player) entity).getSlayer().getSlayerTask().onSlayerTask(5866)) {
-                    ((Player) entity).getPacketSender().sendMessage("You must be on a slayer task to kill this monster.");
-                    entity.getCombatBuilder().reset();
-                    return false;
-                }
-            }
-            if (npc.getId() == 3068) {
-                Player player = ((Player) entity);
-                if (!((Player) entity).getSlayer().getSlayerTask().onSlayerTask(3068)) {
-                    ((Player) entity).getPacketSender()
-                            .sendMessage("You must be on a slayer task to kill this monster, or in the wilderness.");
-                    entity.getCombatBuilder().reset();
                     return false;
                 }
             }

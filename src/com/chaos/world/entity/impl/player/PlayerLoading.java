@@ -31,8 +31,6 @@ import com.chaos.world.content.KillsTracker.KillsEntry;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.combat.weapon.FightType;
 import com.chaos.world.content.skill.SkillManager.Skills;
-import com.chaos.world.content.skill.impl.slayer.SlayerMaster;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 
 public class PlayerLoading {
 
@@ -694,46 +692,6 @@ public class PlayerLoading {
 
 		if (reader.has("coins-gambled")) {
 			player.getAchievementAttributes().setCoinsGambled(reader.get("coins-gambled").getAsInt());
-		}
-
-		if (reader.has("slayer-master")) {
-			player.getSlayer().setSlayerMaster(SlayerMaster.valueOf(reader.get("slayer-master").getAsString()));
-		}
-
-		if (reader.has("slayer-task")) {
-			try {
-				player.getSlayer().setSlayerTask(SlayerTasks.valueOf(reader.get("slayer-task").getAsString()));
-			} catch (Exception e) {
-				player.getSlayer().setSlayerTask(SlayerTasks.NO_TASK);
-			}
-		}
-
-		if (reader.has("prev-slayer-task")) {
-			try {
-				player.getSlayer().setLastTask(SlayerTasks.valueOf(reader.get("prev-slayer-task").getAsString()));
-			} catch (Exception e) {
-				player.getSlayer().setLastTask(SlayerTasks.NO_TASK);
-			}
-		}
-
-		if (reader.has("task-amount")) {
-			player.getSlayer().setAmountToSlay(reader.get("task-amount").getAsInt());
-			if (player.getSlayer().getSlayerTask() == null && player.getSlayer().getAmountToSlay() > 0) {
-				player.getSlayer().setAmountToSlay(0);
-			}
-		}
-
-		if (reader.has("task-streak")) {
-			player.getSlayer().setTaskStreak(reader.get("task-streak").getAsInt());
-		}
-
-		if (reader.has("duo-partner")) {
-			String partner = reader.get("duo-partner").getAsString();
-			player.getSlayer().setDuoPartner(partner.equals("null") ? null : partner);
-		}
-
-		if (reader.has("double-slay-xp")) {
-			player.getSlayer().doubleSlayerXP = reader.get("double-slay-xp").getAsBoolean();
 		}
 
 		if (reader.has("killed-players")) {

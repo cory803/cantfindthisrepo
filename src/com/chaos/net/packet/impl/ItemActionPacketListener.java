@@ -24,7 +24,6 @@ import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.runecrafting.Runecrafting;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingPouches;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingPouches.RunecraftingPouch;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.summoning.SummoningData;
 import com.chaos.world.content.skill.impl.woodcutting.BirdNests;
 import com.chaos.world.content.transportation.TeleportHandler;
@@ -34,7 +33,6 @@ import com.chaos.world.content.transportation.jewelry.GloryTeleporting;
 import com.chaos.world.content.transportation.jewelry.SkillsTeleporting;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.KnightLamp;
-import org.scripts.kotlin.content.dialog.teleports.CityTeleports;
 
 public class ItemActionPacketListener implements PacketListener {
 
@@ -306,13 +304,6 @@ public class ItemActionPacketListener implements PacketListener {
 		case 15106:
 			player.getPacketSender().sendMessage("Combine this with the three other missing parts...");
 			return;
-		case 4155:
-			if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK) {
-				player.getPacketSender().sendInterfaceRemoval();
-				player.getPacketSender().sendMessage("Your Enchanted gem will only work if you have a Slayer task.");
-				return;
-			}
-			break;
 		case 11858:
 		case 11860:
 		case 11862:
@@ -554,16 +545,6 @@ public class ItemActionPacketListener implements PacketListener {
 		case 11126:
 			player.getPacketSender().sendMessage("Your bracelet has run out of charges.");
 			break;
-		case 13281:
-		case 13282:
-		case 13283:
-		case 13284:
-		case 13285:
-		case 13286:
-		case 13287:
-		case 13288:
-			player.getSlayer().handleSlayerRingTP(itemId);
-			break;
 		case 5509:
 		case 5510:
 		case 5512:
@@ -802,22 +783,6 @@ public class ItemActionPacketListener implements PacketListener {
 			break;
 		case 4155:
 			player.getPacketSender().sendInterfaceRemoval();
-			break;
-		case 13281:
-		case 13282:
-		case 13283:
-		case 13284:
-		case 13285:
-		case 13286:
-		case 13287:
-		case 13288:
-			player.getPacketSender().sendInterfaceRemoval();
-			player.getPacketSender().sendMessage(player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK
-					? ("You do not have a Slayer task.")
-					: ("Your current task is to kill another " + (player.getSlayer().getAmountToSlay()) + " "
-							+ Misc.formatText(
-									player.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " "))
-							+ "s."));
 			break;
 		case 6570:
 			if (player.getInventory().contains(6570) && player.getInventory().getAmount(6529) >= 50000) {

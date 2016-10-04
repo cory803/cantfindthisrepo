@@ -32,7 +32,6 @@ import com.chaos.world.content.skill.impl.herblore.WeaponPoison;
 import com.chaos.world.content.skill.impl.prayer.BonesOnAltar;
 import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.runecrafting.DustOfArmadyl;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
@@ -711,37 +710,6 @@ public class UseItemPacketListener implements PacketListener {
 			player.setInputHandling(new EnterAmountToDiceOther(1, 1));
 			player.getPacketSender().sendEnterAmountPrompt("What would you like " + target.getUsername() + " to roll (next)?");
 			player.dice_other_name = target.getUsername();
-			break;
-		case 4155:
-			if (player.getSlayer().getDuoPartner() != null) {
-				player.getPacketSender().sendMessage("You already have a duo partner.");
-				return;
-			}
-			if (player.getSlayer().getSlayerTask() != SlayerTasks.NO_TASK) {
-				player.getPacketSender().sendMessage("You already have a Slayer task. You must reset it first.");
-				return;
-			}
-			Player duoPartner = World.getPlayers().get(targetIndex);
-			if (duoPartner != null) {
-				if (duoPartner.getSlayer().getDuoPartner() != null) {
-					player.getPacketSender().sendMessage("This player already has a duo partner.");
-					return;
-				}
-				if (duoPartner.getSlayer().getSlayerTask() != SlayerTasks.NO_TASK) {
-					player.getPacketSender().sendMessage("This player already has a Slayer task.");
-					return;
-				}
-				if (duoPartner.getSlayer().getSlayerMaster() != player.getSlayer().getSlayerMaster()) {
-					player.getPacketSender().sendMessage("You do not have the same Slayer master as that player.");
-					return;
-				}
-				if (duoPartner.busy() || duoPartner.getLocation() == Location.WILDERNESS) {
-					player.getPacketSender().sendMessage("This player is currently busy.");
-					return;
-				}
-				player.getPacketSender()
-						.sendMessage("You have invited " + duoPartner.getUsername() + " to join your Slayer duo team.");
-			}
 			break;
 		}
 	}

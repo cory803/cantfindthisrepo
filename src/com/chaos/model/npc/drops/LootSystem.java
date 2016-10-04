@@ -220,8 +220,9 @@ public class LootSystem {
             case NONE:
                 return true;
 
-            case TASK:
-                return player.getSlayer().getSlayerTask().onSlayerTask(n.getId());
+//            case TASK:
+//                return player.getSlayer().getSlayerTask().onSlayerTask(n.getId());
+            //TODO: Add slayer task drops
 
             case ONE_ITEM: {
                 for (Bank bank : player.getBanks()) {

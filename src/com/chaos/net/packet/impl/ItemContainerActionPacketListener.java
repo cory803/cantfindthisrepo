@@ -36,7 +36,6 @@ import com.chaos.world.content.combat.magic.Autocasting;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
-import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.SmithingData;
 import com.chaos.world.content.transportation.TeleportHandler;
@@ -371,17 +370,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				case 19709:
 					TeleportHandler.teleportPlayer(player, new Position(3450, 3715), TeleportType.DUNGEONEERING, false);
 					break;
-			case 13263:
-			case 15492:
-				final SlayerTasks task = player.getSlayer().getSlayerTask();
-				if (player.getSlayer().getSlayerTask() != null && player.getSlayer().getAmountToSlay() >= 1) {
-					player.getPacketSender()
-							.sendMessage("Your current task is to kill " + (player.getSlayer().getAmountToSlay())
-									+ " x " + task.toString().toLowerCase().replaceAll("_", " ") + "'s.");
-				} else {
-					player.getPacketSender().sendMessage("You currently do not have a slayer task assigned");
-				}
-				break;
 			case 11283:
 				int charges = player.getDfsCharges();
 				if (!player.getDragonfireShield().elapsed(30000)) {
