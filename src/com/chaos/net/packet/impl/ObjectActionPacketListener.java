@@ -2042,6 +2042,7 @@ public class ObjectActionPacketListener implements PacketListener {
 								break;
 							case 884:
 							case 26945:
+								player.setNpcClickId(945);
 								player.getDialog().sendDialog(new DonateToWellDial(player));
 								break;
 							case 28716:

@@ -58,8 +58,8 @@ public class WellOfGoodness {
                         args = line.split(": ");
                         if (Long.parseLong(args[1]) > 0) {
                             isFull[2] = true;
-                            START_TIMER[0] = Long.parseLong(args[1]);
-                            MONEY_IN_WELL[1] = AMOUNT_NEEDED[1];
+                            START_TIMER[2] = Long.parseLong(args[1]);
+                            MONEY_IN_WELL[2] = AMOUNT_NEEDED[2];
                         }
                     }
                 }
@@ -93,7 +93,7 @@ public class WellOfGoodness {
         } else if (well == "pkp") {
             return 2;
         } else {
-            return 0;
+            return 5;
         }
     }
 
