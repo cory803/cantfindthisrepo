@@ -1739,6 +1739,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 12692:
 							case 2783:
 							case 4306:
+							case 2097:
 								player.setInteractingObject(gameObject);
 								EquipmentMaking.handleAnvil(player);
 								break;
@@ -2094,6 +2095,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 6189:
 							case 26814:
 							case 11666:
+							case 26300:
 								Smelting.openInterface(player);
 								break;
 							case 2152:
