@@ -225,8 +225,6 @@ public class Player extends Character {
         }
         if(weapon.contains("rapier") || weapon.contains("hatchet")) {
             return 5;
-        } else if(weapon.contains("maul") || weapon.contains("longsword")) {
-            return 6;
         } else if(weaponId == 21089) {
             return 5;
         } else if(weaponId == 21100) {
@@ -237,6 +235,10 @@ public class Player extends Character {
             return 4;
         } else if(fightType == FightType.DART_RAPID || fightType == FightType.KNIFE_RAPID) {
             return 2;
+        } else if(weapon.contains("Sir owen's longsword")) {
+            return 2;
+        } else if(weapon.contains("maul") || weapon.contains("longsword")) {
+            return 6;
         } else if(fightType == FightType.THROWNAXE_RAPID) {
             return 4;
         } else if(weapon.contains("throwing axe") && fightType != FightType.THROWNAXE_RAPID) {

@@ -213,7 +213,10 @@ public class HitQueue {
 					if(attacker.isNpc()) {
 						NPC npcAttacker = ((NPC)attacker);
 						if(npcAttacker.getId() != 6619) {
-							victim.performAnimation(new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));
+							int blockAnim = WeaponAnimations.getBlockAnimation(((Player) victim));
+							if(blockAnim != -1) {
+								victim.performAnimation(new Animation(blockAnim));
+							}
 						}
 					} else {
 						victim.performAnimation(new Animation(WeaponAnimations.getBlockAnimation(((Player) victim))));

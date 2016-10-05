@@ -36,9 +36,9 @@ public class StartTutorial extends Dialog {
                 return Dialog.createNpc(DialogHandler.CALM, "Hello, Welcome to Chaos!\\nWhat Game Mode would you like?");
             case 1:
                 return Dialog.createOption(new FourOption(
-                        "Knight (x1000)",
-                        "Realism (x10)",
-                        "Ironman (x100)",
+                        "Play in Knight mode (1000XP Per Hit)",
+                        "Play in Realism mode (10XP Per Hit)",
+                        "Play in Ironman mode (No trading & 100XP Per Hit)",
                         "Learn about these modes") {
                     @Override
                     public void execute(Player player, OptionType option) {
@@ -129,6 +129,7 @@ public class StartTutorial extends Dialog {
                                 player.getInventory().add(new Item(562, 75), true);
                                 player.getInventory().add(new Item(1333, 1), true);
                                 player.getInventory().add(new Item(995, 300000), true);
+                                player.getInventory().add(new Item(16389, 1), true);
                                 player.getInventory().refreshItems();
 
                                 setState(2);

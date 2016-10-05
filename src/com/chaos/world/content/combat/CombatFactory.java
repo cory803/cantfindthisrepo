@@ -739,11 +739,13 @@ public final class CombatFactory {
                 maxHit += (int) ((0.30) * (maxHit));
             }
             /** SLAYER HELMET **/
-            for(int i = 0; i < player.getSlayer().getSlayerTask().getNpcIds().length; ++i) {
-                if (npc.getId() == player.getSlayer().getSlayerTask().getNpcIds()[i]) {
-                    if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
-                        maxHit *= 1.12;
-                        break;
+            if(player.getSlayer().getSlayerTask() != null) {
+                for (int i = 0; i < player.getSlayer().getSlayerTask().getNpcIds().length; ++i) {
+                    if (npc.getId() == player.getSlayer().getSlayerTask().getNpcIds()[i]) {
+                        if (player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13263) {
+                            maxHit *= 1.12;
+                            break;
+                        }
                     }
                 }
             }

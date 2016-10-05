@@ -75,7 +75,7 @@ public final class WeaponAnimations {
 			playerStandIndex = 4193;
 			playerWalkIndex = 4194;
 			playerRunIndex = 4194;
-		} else if (weaponName.contains("longsword") || weaponName.contains("scimitar")) {
+		} else if (weaponName.contains("longsword") || weaponName.contains("scimitar") || weaponName.contains("sir owen")) {
 			playerStandIndex = 15069;// -1;
 			playerRunIndex = 15070;// 12023;
 			playerWalkIndex = 15073; // 12024;
@@ -265,6 +265,11 @@ public final class WeaponAnimations {
 				return 12029;
 			return 12028;
 		}
+		if (weaponName.contains("rapier") || weaponName.contains("sir owen")) {
+			if (prop.contains("slash") && !weaponName.contains("sir owen"))
+				return 12029;
+			return 386;
+		}
 		if (weaponName.contains("scimitar") || weaponName.contains("longsword") || weaponName.contains("korasi's")) {
 			if (prop.contains("lunge"))
 				return 15072;
@@ -276,11 +281,6 @@ public final class WeaponAnimations {
 			else if (prop.contains("slash"))
 				return 13047;
 			return 13044;
-		}
-		if (weaponName.contains("rapier")) {
-			if (prop.contains("slash"))
-				return 12029;
-			return 386;
 		}
 		if (weaponName.contains("claws"))
 			return 393;
@@ -377,6 +377,9 @@ public final class WeaponAnimations {
 		String weapon = ItemDefinition.forId(weaponId).getName().toLowerCase();
 		if (shield.contains("defender"))
 			return 4177;
+		if(weaponId == 16389) {
+			return -1;
+		}
 		if (shield.contains("2h"))
 			return 7050;
 		if (shield.contains("book") && (weapon.contains("wand")))
