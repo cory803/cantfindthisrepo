@@ -30,6 +30,7 @@ public class SlayerDialog extends Dialog {
                 if(getPlayer().getSlayer().hasMasterRequirements(slayerMaster)) {
                     return Dialog.createNpc(DialogHandler.CALM, "Hello! How may I assist you today?");
                 } else {
+                    setEndState(0);
                     return Dialog.createNpc(DialogHandler.CALM, "Hmm a creature of a interesting kind... Come back when you have atleast "+slayerMaster.getCombatLevelRequirement()+" combat!");
                 }
             case 1:
@@ -99,6 +100,9 @@ public class SlayerDialog extends Dialog {
                  setEndState(8);
                  getPlayer().getPacketSender().sendMessage("Congratulations! You have completed "+getPlayer().getSlayer().getSlayerStreak()+" tasks in a row and gained "+getPlayer().getSlayer().getPointsToGive()+" Slayer Points.");
                  return Dialog.createNpc(DialogHandler.CALM, "Congratulations! You have completed "+getPlayer().getSlayer().getSlayerStreak()+" tasks in a row and gained "+getPlayer().getSlayer().getPointsToGive()+" Slayer Points.");
+            case 9:
+                setEndState(9);
+                return Dialog.createNpc(DialogHandler.CALM, "Hmm a creature of a interesting kind... Come back when you have atleast "+slayerMaster.getCombatLevelRequirement()+" combat!");
         }
         return null;
     }

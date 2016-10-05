@@ -14,6 +14,7 @@ import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
 import com.chaos.world.content.skill.impl.runecrafting.DesoSpan;
 import com.chaos.world.content.skill.impl.slayer.SlayerDialog;
+import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.content.skill.impl.summoning.BossPets;
 import com.chaos.world.content.skill.impl.summoning.Summoning;
 import com.chaos.world.content.skill.impl.summoning.SummoningData;
@@ -67,8 +68,13 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
-            //Turael
+            //Slayer masters
             case 401:
+            case 402:
+            case 403:
+            case 404:
+            case 405:
+            case 490:
                 player.getDialog().sendDialog(new SlayerDialog(player, 0));
                 break;
             //agility
@@ -273,6 +279,20 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Slayer masters
+            case 401:
+            case 402:
+            case 403:
+            case 404:
+            case 405:
+            case 490:
+                if(player.getSlayer().hasMasterRequirements(SlayerMasters.forNpcId(npc.getId()))) {
+                    player.getSlayer().assignSlayerTask(SlayerMasters.forNpcId(npc.getId()), false);
+                } else {
+                    player.getDialog().sendDialog(new SlayerDialog(player, 9));
+                }
+                break;
+
             //tokkul
             case 2622:
                 Shop.ShopManager.getShops().get(17).open(player);

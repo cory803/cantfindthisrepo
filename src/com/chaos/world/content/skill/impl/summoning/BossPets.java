@@ -337,9 +337,11 @@ public class BossPets {
 	}
 
 	public static boolean hasPet(Player player, BossPet pet) {
-		if(player.getSummoning().getFamiliar().getSummonNpc() != null) {
-			if (pet.getSpawnNpcId() == player.getSummoning().getFamiliar().getSummonNpc().getId()) {
-				return true;
+		if(player.getSummoning().getFamiliar() != null) {
+			if (player.getSummoning().getFamiliar().getSummonNpc() != null) {
+				if (pet.getSpawnNpcId() == player.getSummoning().getFamiliar().getSummonNpc().getId()) {
+					return true;
+				}
 			}
 		}
 		return false;

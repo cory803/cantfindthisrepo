@@ -107,7 +107,7 @@ public enum SlayerMasters {
     }
 
     /**
-     * Gets a slayer master depending on a npc id
+     * Gets a slayer master depend
      * @param npcId
      * @return
      */

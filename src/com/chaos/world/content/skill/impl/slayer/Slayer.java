@@ -103,7 +103,7 @@ public class Slayer {
         }
         ArrayList<SlayerTasks> possibleTasks = new ArrayList<>();
         for(SlayerTasks slayerTasks: SlayerTasks.values()) {
-            if(slayerTasks.getSlayerMaster() == slayerMaster) {
+            if(slayerTasks.getSlayerMaster() == slayerMaster || slayerTasks.getSlayerMaster().ordinal() == slayerMaster.ordinal() - 1) {
                 if(!possibleTasks.contains(slayerTasks)) {
                     possibleTasks.add(slayerTasks);
                 }
@@ -170,7 +170,7 @@ public class Slayer {
         }
         for(int i = 0; i <= player.getSlayer().getSlayerTask().getNpcIds().length; i++) {
             if(player.getSlayer().getSlayerTask().getNpcId(i) == npcId) {
-                player.getSlayer().decrementAmountLeft(1);
+                player.getSlayer().decrementAmountLeft(1, i);
                 break;
             }
         }
@@ -181,8 +181,8 @@ public class Slayer {
      * of kills you have left to kill on your task.
      * @param decrement
      */
-    public void decrementAmountLeft(int decrement) {
-        player.getSkillManager().addSkillExperience(Skill.SLAYER, player.getSlayer().getSlayerTask().getExperience());
+    public void decrementAmountLeft(int decrement, int taskIndex) {
+        player.getSkillManager().addSkillExperience(Skill.SLAYER, player.getSlayer().getSlayerTask().getExperience(taskIndex));
         this.amountLeft -= decrement;
         if(this.amountLeft == 0) {
             player.getSlayer().addSlayerStreak(1);
