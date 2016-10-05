@@ -151,6 +151,34 @@ public class ObjectActionPacketListener implements PacketListener {
 							return;
 						}
 						switch (id) {
+							//corp lair
+							case 37929:
+								player.performAnimation(new Animation(844));
+								TaskManager.submit(new Task(1, player, true) {
+									int tick = 1;
+
+									@Override
+									public void execute() {
+										tick++;
+										if (tick == 3) {
+											stop();
+										}
+									}
+
+									@Override
+									public void stop() {
+										setEventRunning(false);
+										if (player.getPosition().getX() < 2919) {
+											player.moveTo(new Position(2921, 4384, 0));
+											player.setDirection(Direction.EAST);
+											player.getPacketSender().sendMessage("You have awoken the beast.");
+										} else {
+											player.moveTo(new Position(2917, 4384, 0));
+											player.setDirection(Direction.WEST);
+										}
+									}
+								});
+								break;
 							//runecrafting portals
 							case 2465:
 							case 2466:
