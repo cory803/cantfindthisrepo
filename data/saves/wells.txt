@@ -1,3 +1,3 @@
 well-exp: 0
-well-drops: 1475555117985
+well-drops: 0
 well-pkp: 0

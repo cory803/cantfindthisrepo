@@ -24,6 +24,8 @@ import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.runecrafting.Runecrafting;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingPouches;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingPouches.RunecraftingPouch;
+import com.chaos.world.content.skill.impl.slayer.SlayerDialog;
+import com.chaos.world.content.skill.impl.slayer.SlayerTeleports;
 import com.chaos.world.content.skill.impl.summoning.SummoningData;
 import com.chaos.world.content.skill.impl.woodcutting.BirdNests;
 import com.chaos.world.content.transportation.TeleportHandler;
@@ -89,6 +91,16 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			//slayer
+			case 4155:
+				if(player.getSlayer().getSlayerTask() != null) {
+					player.getDialog().sendDialog(new SlayerDialog(player, 5));
+					return;
+				} else {
+					player.getPacketSender().sendInterfaceRemoval();
+					player.getPacketSender().sendMessage("Your Enchanted gem will only work if you have a Slayer task.");
+				}
+				break;
 			case 10586:
 				player.getDialog().sendDialog(new KnightLamp(player));
 				break;
@@ -782,7 +794,7 @@ public class ItemActionPacketListener implements PacketListener {
 			player.getPacketSender().sendMessage("You're currently gain experience and picking up charms.");
 			break;
 		case 4155:
-			player.getPacketSender().sendInterfaceRemoval();
+				player.getDialog().sendDialog(new SlayerTeleports(player));
 			break;
 		case 6570:
 			if (player.getInventory().contains(6570) && player.getInventory().getAmount(6529) >= 50000) {
