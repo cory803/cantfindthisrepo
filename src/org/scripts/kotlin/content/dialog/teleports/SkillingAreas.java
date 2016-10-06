@@ -41,7 +41,7 @@ public class SkillingAreas extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2517, 3360, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2332, 3802, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2336, 3803, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_4_OF_5:
                                 player.getDialog().sendDialog(new ResourceArea(player));

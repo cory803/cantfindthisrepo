@@ -1239,9 +1239,6 @@ public class ButtonClickPacketListener implements PacketListener {
         if (PouchMaking.pouchInterface(player, id)) {
             return true;
         }
-        if (LoyaltyProgramme.handleButton(player, id)) {
-            return true;
-        }
         if (Fletching.fletchingButton(player, id)) {
             return true;
         }

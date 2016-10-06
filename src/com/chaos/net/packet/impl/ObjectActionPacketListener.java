@@ -2125,6 +2125,7 @@ public class ObjectActionPacketListener implements PacketListener {
 							case 26814:
 							case 11666:
 							case 26300:
+							case 21303:
 								Smelting.openInterface(player);
 								break;
 							case 2152:
