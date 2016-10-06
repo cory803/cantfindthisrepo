@@ -167,7 +167,7 @@ public class Slayer {
         if(player.getSlayer().getSlayerTask() == null) {
             return;
         }
-        for(int i = 0; i <= player.getSlayer().getSlayerTask().getNpcIds().length; i++) {
+        for(int i = 0; i < player.getSlayer().getSlayerTask().getNpcIds().length; i++) {
             if(player.getSlayer().getSlayerTask().getNpcId(i) == npcId) {
                 player.getSlayer().decrementAmountLeft(1, i);
                 break;

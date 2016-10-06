@@ -33,7 +33,6 @@ public class ChangeAppearancePacketListener implements PacketListener {
 			int currentPartIndex = 1;
 			for (int i = 0; i < apperances.length; i++, currentPartIndex++) {
 				int value = Integer.parseInt(parts[currentPartIndex]);
-				System.out.println("Appearance value: "+value);
 				if (value < (gender == 0 ? MALE_VALUES[i][0] : FEMALE_VALUES[i][0]) || value > (gender == 0 ? MALE_VALUES[i][1] : FEMALE_VALUES[i][1]))
 					value = (gender == 0 ? MALE_VALUES[i][0] : FEMALE_VALUES[i][0]);
 				apperances[i] = value;

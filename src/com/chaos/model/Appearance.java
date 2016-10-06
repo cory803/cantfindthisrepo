@@ -175,22 +175,40 @@ public class Appearance {
 	 */
 	public void set() {
 		if (gender == Gender.MALE) {
-			look[HEAD] = 3;
-			look[CHEST] = 18;
-			look[ARMS] = 26;
-			look[HANDS] = 34;
-			look[LEGS] = 38;
-			look[FEET] = 42;
-			look[BEARD] = 14;
+			look = new int[] {
+				0,
+				349,
+				466,
+				615,
+				386,
+				645,
+				436,
+				98,
+				3,
+				13,
+				2,
+				3,
+				0
+			};
 		} else {
-			look[HEAD] = 48;
-			look[CHEST] = 57;
-			look[ARMS] = 65;
-			look[HANDS] = 68;
-			look[LEGS] = 77;
-			look[FEET] = 80;
-			look[BEARD] = 57;
+			look = new int[] {
+				1,
+				360,
+				585,
+				425,
+				538,
+				492,
+				554,
+				-1,
+				7,
+				1,
+				4,
+				5,
+				0
+			};
 		}
+
+
 		look[HAIR_COLOUR] = 2;
 		look[TORSO_COLOUR] = 14;
 		look[LEG_COLOUR] = 5;

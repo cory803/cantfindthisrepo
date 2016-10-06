@@ -191,6 +191,6 @@ public enum SlayerTasks {
      * @return
      */
     public String getName() {
-        return Misc.formatText(this.toString().toLowerCase().replace("_", ""));
+        return Misc.formatText(this.toString().toLowerCase().replace("_", " "));
     }
 }

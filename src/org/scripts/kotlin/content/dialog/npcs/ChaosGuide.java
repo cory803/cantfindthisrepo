@@ -1,6 +1,5 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.model.Skill;
 import com.chaos.model.input.impl.ChangePassword;
 import com.chaos.model.options.fiveoption.FiveOption;
 import com.chaos.model.options.fouroption.FourOption;
@@ -58,6 +57,7 @@ public class ChaosGuide extends Dialog {
                                     if(player.getInventory().getAmount(995) >= 40000000) {
                                         player.getInventory().delete(995, 40000000);
                                         player.getInventory().add(16389, 1);
+                                        player.getPacketSender().sendInterfaceRemoval();
                                     } else {
                                         setState(6);
                                         setEndState(6);
@@ -100,9 +100,10 @@ public class ChaosGuide extends Dialog {
                                     if(player.getInventory().getAmount(995) >= 5000000) {
                                         player.getInventory().delete(995, 5000000);
                                         player.getInventory().add(1052, 1);
+                                        player.getPacketSender().sendInterfaceRemoval();
                                     } else {
-                                        setState(6);
-                                        setEndState(6);
+                                        setState(7);
+                                        setEndState(7);
                                         player.getDialog().sendDialog(dialog);
                                     }
                                     break;
@@ -151,6 +152,8 @@ public class ChaosGuide extends Dialog {
                 return Dialog.createNpc(DialogHandler.CALM, "The tutorial will be created at a later date.");
             case 6:
                 return Dialog.createNpc(DialogHandler.CALM, "Sure but that will be 40 million gp! Come back when you have the money sir.");
+            case 7:
+                return Dialog.createNpc(DialogHandler.CALM, "Sure but that will be 5 million gp! Come back when you have the money sir.");
         }
         return null;
     }
