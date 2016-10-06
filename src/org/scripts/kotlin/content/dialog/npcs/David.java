@@ -18,7 +18,7 @@ public class David extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like to see what range items I have for sale?");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like to see what skilling items I have for sale?");
             case 1:
             return Dialog.createOption(new TwoOption(
                     "Yes, show me what your selling.",

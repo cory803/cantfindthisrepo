@@ -44,6 +44,18 @@ public class ShopRestockTask extends Task {
 				shop.delete(it.getId(), 1);
 			}
 		}
+		if(shop.getId() == Shop.GENERAL_STORE) {
+			for (int shopItemIndex = 0; shopItemIndex < shop.getOriginalStock().length; shopItemIndex++) {
+				int originalStockAmount = shop.getOriginalStock()[shopItemIndex].getAmount();
+				int currentStockAmount = shop.getItems()[shopItemIndex].getAmount();
+				Item it = new Item(shop.getItems()[shopItemIndex].getId(), shop.getItems()[shopItemIndex].getAmount());
+				if (it.getId() == 590 || it.getId() == 1755 || it.getId() == 2347 || it.getId() == 952 || it.getId() == 946 || it.getId() == 228 || it.getId() == 1540 || it.getId() == 1523 || it.getId() == 1734 || it.getId() == 1733 || it.getId() == 314) {
+					if (originalStockAmount > currentStockAmount) {
+						shop.add(shop.getItems()[shopItemIndex].getId(), 1);
+					}
+				}
+			}
+		}
 		shop.publicRefresh();
 		shop.refreshItems();
 		if (shop.fullyRestocked())
