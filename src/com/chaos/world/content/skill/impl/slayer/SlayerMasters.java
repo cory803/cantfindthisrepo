@@ -37,16 +37,16 @@ public enum SlayerMasters {
     /**
      * Nieve slayer master
      * Located in Tree Gnome Stronghold
-     * Requires: Combat level 85
+     * Requires: Combat level 90
      */
-    NIEVE(490, 85, 12, 60, 180),
+    NIEVE(490, 90, 12, 60, 180),
 
     /**
      * Duradel slayer master
      * Located in Shilo Village
-     * Requires: Combat level 123
+     * Requires: Combat level 120
      */
-    DURADEL(405, 123, 15, 75, 225);
+    DURADEL(405, 120, 15, 75, 225);
 
     SlayerMasters(int npcId, int combatLevelRequirement, int pointsPerTask, int tenTaskBonus, int fiftyTaskBonus) {
         this.npcId = npcId;
