@@ -68,6 +68,11 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //Aubury
+            case 553:
+                player.getDialog().sendDialog(new SlayerDialog(player, 0));
+                break;
+
             //Slayer masters
             case 401:
             case 402:
@@ -279,6 +284,11 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Aubury
+            case 553:
+                Shop.ShopManager.getShops().get(29).open(player);
+                break;
+
             //Slayer masters
             case 401:
             case 402:
@@ -447,6 +457,11 @@ public final class ActionHandler {
             // THIRD_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Aubury
+            case 553:
+                TeleportHandler.teleportPlayer(player, new Position(2911, 4832, 0), player.getSpellbook().getTeleportType());
+                break;
+
             case 2127:
                 if (!GameSettings.POS_ENABLED) {
                     player.getPacketSender().sendMessage("Player owned shops have been disabled.");
