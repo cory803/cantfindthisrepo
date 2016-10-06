@@ -70,7 +70,12 @@ public final class ActionHandler {
         switch (npc.getId()) {
             //Aubury
             case 553:
-                player.getDialog().sendDialog(new SlayerDialog(player, 0));
+                player.getDialog().sendDialog(new Aubury(player));
+                break;
+
+            //David skilling shop
+            case 817:
+                player.getDialog().sendDialog(new David(player));
                 break;
 
             //Slayer masters
@@ -287,6 +292,11 @@ public final class ActionHandler {
             //Aubury
             case 553:
                 Shop.ShopManager.getShops().get(29).open(player);
+                break;
+
+            //David skilling shop
+            case 817:
+                Shop.ShopManager.getShops().get(30).open(player);
                 break;
 
             //Slayer masters

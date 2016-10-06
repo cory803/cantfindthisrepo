@@ -265,4 +265,5 @@ public class GameSettings {
 
 			SUMMONING_TAB = 7, FRIEND_TAB = 8, IGNORE_TAB = 9, CLAN_CHAT_TAB = 10, LOGOUT = 13, OPTIONS_TAB = 11,
 			EMOTES_TAB = 12, NOTES_TAB = 14;
+
 }

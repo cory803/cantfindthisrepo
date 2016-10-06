@@ -30,7 +30,7 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(55085, "   >- Commedations: @cha@ " + player.getPointsHandler().getCommendations());
 		player.getPacketSender().sendString(55086, "   >- Dung tokens: @cha@ " + player.getPointsHandler().getDungeoneeringTokens());
 		player.getPacketSender().sendString(55087, "  @whi@[PvP]");
-		player.getPacketSender().sendString(55088, "   >- KDR: @cha@ " + kdr);
+		player.getPacketSender().sendString(55088, "   >- Kdr: @cha@ " + kdr);
 		player.getPacketSender().sendString(55089, "   >- Kills: @cha@ " + player.getPlayerKillingAttributes().getPlayerKills());
 		player.getPacketSender().sendString(55090, "   >- Deaths: @cha@ " + player.getPlayerKillingAttributes().getPlayerDeaths());
 		player.getPacketSender().sendString(55091, "   >- Killstreak: @cha@ " + player.getPlayerKillingAttributes().getPlayerKillStreak());
