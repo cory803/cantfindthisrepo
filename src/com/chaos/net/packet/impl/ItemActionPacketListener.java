@@ -94,6 +94,7 @@ public class ItemActionPacketListener implements PacketListener {
 			//slayer
 			case 4155:
 				if(player.getSlayer().getSlayerTask() != null) {
+					player.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());
 					player.getDialog().sendDialog(new SlayerDialog(player, 5));
 					return;
 				} else {

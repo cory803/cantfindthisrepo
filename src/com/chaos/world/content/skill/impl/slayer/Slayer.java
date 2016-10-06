@@ -192,6 +192,7 @@ public class Slayer {
             player.getSlayer().setSlayerTask(null);
             player.getSlayer().setAmountLeft(0);
         } else if(this.amountLeft == 10 || this.amountLeft == 25 || this.amountLeft == 50 || this.amountLeft == 100 || this.amountLeft == 200) {
+            player.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());
             player.getPacketSender().sendMessage("You have "+this.amountLeft+" "+player.getSlayer().getTaskName()+"s left on your current Slayer Task.");
         }
         PlayerPanel.refreshPanel(player);
