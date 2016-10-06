@@ -68,6 +68,11 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+			//Warriors Guild
+            case 650:
+                Shop.ShopManager.getShops().get(31).open(player);
+                break;
+				
             //Aubury
             case 553:
                 player.getDialog().sendDialog(new Aubury(player));
