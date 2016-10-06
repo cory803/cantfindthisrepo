@@ -273,13 +273,6 @@ public class PlayerHandler {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
 					player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
 		}
-		// LoginChecksParser.checkLogin(player);
-		if (GameSettings.DOUBLE_EXP) {
-			player.getPacketSender().sendMessage("Welcome to <col=f04141>Chaos@bla@, We're currently in <col=ff1a1a>Double EXP @bla@mode!");
-		} else {
-			player.getPacketSender().sendMessage(
-					"Welcome to <col=f04141>Chaos@bla@.");
-		}
 		PlayerLogs.connections(player, "Login");
 		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()
 				&& player.getBankPinAttributes().onDifferent(player)) {
