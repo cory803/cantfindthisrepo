@@ -1,5 +1,7 @@
 package com.chaos.world.content.skill.impl.slayer;
 
+import com.chaos.util.Misc;
+
 /**
  * All Chaos Slayer Tasks
  * @Author Jonny
@@ -182,5 +184,13 @@ public enum SlayerTasks {
      */
     public int getEquipmentId() {
         return this.equipmentId;
+    }
+
+    /**
+     * Returns the formatted name of the slayer task.
+     * @return
+     */
+    public String getName() {
+        return Misc.formatText(this.toString().toLowerCase().replace("_", ""));
     }
 }

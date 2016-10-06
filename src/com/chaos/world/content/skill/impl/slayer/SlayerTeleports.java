@@ -13,7 +13,6 @@ import com.chaos.world.entity.impl.player.Player;
 public class SlayerTeleports extends Dialog {
 
     public Dialog dialog = this;
-    public SlayerMasters slayerMaster;
 
     public SlayerTeleports(Player player) {
         super(player);
@@ -22,7 +21,6 @@ public class SlayerTeleports extends Dialog {
 
     @Override
     public DialogMessage getMessage() {
-        slayerMaster = SlayerMasters.forNpcId(getPlayer().getNpcClickId());
         switch (getState()) {
             case 0:
                     return Dialog.createOption(new FiveOption(
@@ -55,29 +53,27 @@ public class SlayerTeleports extends Dialog {
                         }
                     });
                     case 1:
-                        if(getPlayer().getSlayer().getSlayerTask() != null) {
-                            return Dialog.createOption(new ThreeOption(
-                                    "Nieve (Level 85 Minimum)",
-                                    "Duradel (Level 123 Minimum)",
-                                    "Previous Page") {
-                                @Override
-                                public void execute(Player player, OptionType option) {
-                                    switch (option) {
-                                        case OPTION_1_OF_3:
-                                            TeleportHandler.teleportPlayer(player, new Position(2436, 3421, 0), TeleportType.NORMAL);
-                                            break;
-                                        case OPTION_2_OF_3:
-                                            TeleportHandler.teleportPlayer(player, new Position(2869, 2982, 0), TeleportType.NORMAL);
-                                            player.setDirection(Direction.SOUTH);
-                                            break;
-                                        case OPTION_3_OF_3:
-                                            setState(0);
-                                            player.getDialog().sendDialog(dialog);
-                                            break;
-                                    }
+                        return Dialog.createOption(new ThreeOption(
+                                "Nieve (Level 85 Minimum)",
+                                "Duradel (Level 123 Minimum)",
+                                "Previous Page") {
+                            @Override
+                            public void execute(Player player, OptionType option) {
+                                switch (option) {
+                                    case OPTION_1_OF_3:
+                                        TeleportHandler.teleportPlayer(player, new Position(2436, 3421, 0), TeleportType.NORMAL);
+                                        break;
+                                    case OPTION_2_OF_3:
+                                        TeleportHandler.teleportPlayer(player, new Position(2869, 2982, 0), TeleportType.NORMAL);
+                                        player.setDirection(Direction.SOUTH);
+                                        break;
+                                    case OPTION_3_OF_3:
+                                        setState(0);
+                                        player.getDialog().sendDialog(dialog);
+                                        break;
                                 }
-                            });
-                }
+                            }
+                });
         }
         return null;
     }

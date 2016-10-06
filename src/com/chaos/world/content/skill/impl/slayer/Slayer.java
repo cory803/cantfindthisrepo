@@ -1,7 +1,6 @@
 package com.chaos.world.content.skill.impl.slayer;
 
 import com.chaos.model.Skill;
-import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
@@ -124,7 +123,7 @@ public class Slayer {
      * @return
      */
     public String getTaskName() {
-        return NpcDefinition.forId(player.getSlayer().getSlayerTask().getNpcId(0)).getName();
+        return this.getSlayerTask().getName();
     }
 
     /**
