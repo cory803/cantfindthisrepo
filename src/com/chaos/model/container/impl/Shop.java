@@ -900,6 +900,44 @@ public class Shop extends ItemContainer {
 					case 20786:
 						return new Object[] { 100, "agility tickets" };
 				}
+			} else if (shop == SLAYER_STORE) {
+				switch (item) {
+					case 13263:
+						return new Object[] { 250, "slayer points" };
+					case 13281:
+						return new Object[] { 5, "slayer points" };
+					case 15403:
+					case 11730:
+					case 10887:
+					case 15241:
+						return new Object[] { 300, "slayer points" };
+					case 15490:
+					case 15488:
+					case 21369:
+						return new Object[] { 125, "slayer points" };
+					case 11235:
+					case 4151:
+					case 15486:
+						return new Object[] { 250, "slayer points" };
+					case 15243:
+						return new Object[] { 3, "slayer points" };
+					case 10551:
+						return new Object[] { 200, "slayer points" };
+					case 2572:
+						return new Object[] { 500, "slayer points" };
+					case 21110:
+						return new Object[] { 1250, "slayer points" };
+				}
+			} else if (shop == IRON_SLAYER_STORE) {
+				switch (item) {
+					case 5574:
+					case 5575:
+					case 5576:
+						return new Object[] { 50, "slayer points" };
+					case 544:
+					case 542:
+						return new Object[] { 10, "slayer points" };
+				}
 			}
 			return null;
 		}
@@ -941,7 +979,7 @@ public class Shop extends ItemContainer {
 	private static final int CREDIT_STORE_3 = 14;
 
 	private static final int SLAYER_STORE = 15;
-	private static final int IRON_SLAYER_STORE = 16;
+	private static final int IRON_SLAYER_STORE = 33;
 
 	private static final int TOKKUL_EXCHANGE_STORE = 17;
 

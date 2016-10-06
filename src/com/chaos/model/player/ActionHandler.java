@@ -1,11 +1,14 @@
 package com.chaos.model.player;
 
 import com.chaos.GameSettings;
-import com.chaos.model.*;
+import com.chaos.model.Item;
+import com.chaos.model.Position;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.PosSearchShop;
-import com.chaos.world.content.*;
+import com.chaos.world.content.Artifacts;
+import com.chaos.world.content.BankPin;
+import com.chaos.world.content.EnergyHandler;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.Enchanting;
@@ -68,11 +71,11 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
-			//Warriors Guild
+            //Warriors Guild
             case 650:
                 Shop.ShopManager.getShops().get(31).open(player);
                 break;
-				
+
             //Aubury
             case 553:
                 player.getDialog().sendDialog(new Aubury(player));
@@ -315,7 +318,7 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
-                if(player.getSlayer().hasMasterRequirements(SlayerMasters.forNpcId(npc.getId()))) {
+                if (player.getSlayer().hasMasterRequirements(SlayerMasters.forNpcId(npc.getId()))) {
                     player.getSlayer().assignSlayerTask(SlayerMasters.forNpcId(npc.getId()), false);
                 } else {
                     player.getDialog().sendDialog(new SlayerDialog(player, 9));
@@ -476,6 +479,16 @@ public final class ActionHandler {
             // THIRD_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Slayer masters
+            case 401:
+            case 402:
+            case 403:
+            case 404:
+            case 405:
+            case 490:
+                Shop.ShopManager.getShops().get(32).open(player);
+                break;
+
             //Aubury
             case 553:
                 TeleportHandler.teleportPlayer(player, new Position(2911, 4832, 0), player.getSpellbook().getTeleportType());
@@ -519,6 +532,19 @@ public final class ActionHandler {
             // FOURTH_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Slayer masters
+            case 401:
+            case 402:
+            case 403:
+            case 404:
+            case 405:
+            case 490:
+                if (player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+                    Shop.ShopManager.getShops().get(7).open(player);
+                } else {
+                    Shop.ShopManager.getShops().get(15).open(player);
+                }
+                break;
             case 2217:
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 break;

@@ -2670,5 +2670,43 @@
       }
     ],
     "currency": 995
+  },
+  {
+    "id": 32,
+    "name": "Slayer Items",
+    "items": [
+      {
+        "id": 4155,
+        "amount": 2000000000
+      }
+    ],
+    "currency": 995
+  },
+  {
+    "id": 33,
+    "name": "Iron Man Slayer Shop",
+    "items": [
+      {
+        "id": 5574,
+        "amount": 2000000000
+      },
+      {
+        "id": 5575,
+        "amount": 2000000000
+      },
+      {
+        "id": 5576,
+        "amount": 2000000000
+      },
+      {
+        "id": 544,
+        "amount": 2000000000
+      },
+      {
+        "id": 542,
+        "amount": 2000000000
+      }
+    ],
+    "currency": -1
   }
 ]

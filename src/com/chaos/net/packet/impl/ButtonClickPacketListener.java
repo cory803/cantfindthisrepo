@@ -6,6 +6,7 @@ import com.chaos.model.Locations.Location;
 import com.chaos.model.Position;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.model.container.impl.Bank.BankSearchAttributes;
+import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.chaos.model.input.impl.*;
 import com.chaos.model.options.Option;
