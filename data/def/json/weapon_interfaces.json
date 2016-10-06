@@ -1165,6 +1165,11 @@
     "interface": "SCIMITAR"
   },
   {
+    "hash": 16389,
+    "item-id": 16389,
+    "interface": "SCIMITAR"
+  },
+  {
     "hash": 7668,
     "item-id": 7668,
     "interface": "UNARMED"
@@ -2702,11 +2707,6 @@
   {
     "hash": 16387,
     "item-id": 16387,
-    "interface": "LONGSWORD"
-  },
-  {
-    "hash": 16389,
-    "item-id": 16389,
     "interface": "LONGSWORD"
   },
   {

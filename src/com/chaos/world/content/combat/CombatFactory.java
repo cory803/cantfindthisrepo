@@ -7,6 +7,7 @@ import com.chaos.engine.task.impl.CombatSkullEffect;
 import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.container.impl.Equipment;
+import com.chaos.model.player.GameMode;
 import com.chaos.util.Misc;
 import com.chaos.world.clip.region.Region;
 import com.chaos.world.content.BonusManager;
@@ -850,6 +851,24 @@ public final class CombatFactory {
                     || ((Player) victim).isPlayerLocked()) {
                 entity.getCombatBuilder().cooldown = 10;
                 return false;
+            }
+        }
+
+        if(entity.isPlayer()) {
+            Player killer = ((Player) entity);
+            if(killer.getEquipment().contains(16389)) {
+                if(killer.getGameModeAssistant().getGameMode() != GameMode.REALISM) {
+                    killer.getPacketSender().sendMessage("You can't seem to figure out how to use your Sir owen's longsword.");
+                    killer.getCombatBuilder().reset();
+                    return false;
+                }
+            }
+            if(victim.isPlayer()) {
+                if(killer.getEquipment().contains(16389)) {
+                    killer.getPacketSender().sendMessage("It seems as if your Sir owen's longsword doesn't work against players.");
+                    killer.getCombatBuilder().reset();
+                    return false;
+                }
             }
         }
 

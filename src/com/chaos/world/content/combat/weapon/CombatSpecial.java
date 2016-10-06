@@ -94,6 +94,22 @@ public enum CombatSpecial {
 			}
 		}
 	},
+	SIR_OWENS_LONGSWORD(new int[] { 16389 }, 50, 1, 1, CombatType.MELEE, WeaponInterface.SCIMITAR) {
+		@Override
+		public void onActivation(Player player, Character target) {
+			player.performGraphic(new Graphic(1618, GraphicHeight.LOW));
+			player.performAnimation(new Animation(8973));
+			player.forceChat("For sir owen!");
+			CombatSpecial.drain(player, SIR_OWENS_LONGSWORD.drainAmount);
+			Consumables.drinkStatPotion(player, -1, -1, -1, Skill.STRENGTH.ordinal(), true);
+			Consumables.drinkStatPotion(player, -1, -1, -1, Skill.ATTACK.ordinal(), true);
+		}
+
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			throw new UnsupportedOperationException("Dragon battleaxe does not have a special attack!");
+		}
+	},
 	MORRIGANS_JAVELIN(new int[] { 13879 }, 50, 1.40, 1.30, CombatType.RANGED, WeaponInterface.JAVELIN) {
 		@Override
 		public CombatContainer container(Player player, Character target) {

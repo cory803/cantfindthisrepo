@@ -9,6 +9,7 @@ import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.container.impl.Inventory;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
+import com.chaos.model.player.GameMode;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
@@ -76,6 +77,12 @@ public class EquipPacketListener implements PacketListener {
 							.sendMessage("You need " + Misc.anOrA(skill.getName()) + " "
 									+ Misc.formatText(skill.getName()) + " level of at least "
 									+ item.getDefinition().getRequirement()[skill.ordinal()] + " to wear this.");
+					return;
+				}
+			}
+			if(item.getId() == 16389) {
+				if(player.getGameModeAssistant().getGameMode() != GameMode.REALISM) {
+					player.getPacketSender().sendMessage("You can't seem to figure out how to weild this item.");
 					return;
 				}
 			}
