@@ -21,7 +21,7 @@ public enum BonesData {
 	}
 
 	public int getBuryingXP() {
-		return this.buryXP * 2;
+		return this.buryXP;
 	}
 
 	public static BonesData forId(int bone) {
