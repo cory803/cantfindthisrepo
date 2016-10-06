@@ -90,7 +90,11 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
-                player.getDialog().sendDialog(new SlayerDialog(player, 0));
+                if (player.getSlayer().getTaskName() == null) {
+                    player.getDialog().sendDialog(new SlayerDialog(player, 0));
+                } else {
+                    player.getDialog().sendDialog(new SlayerDialog(player, 10));
+                }
                 break;
             //agility
             case 437:

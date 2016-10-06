@@ -4,6 +4,7 @@ import com.chaos.model.Skill;
 import com.chaos.util.Misc;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.Slayer.ResetTask;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -196,6 +197,18 @@ public class Slayer {
             player.getPacketSender().sendMessage("You have "+this.amountLeft+" "+player.getSlayer().getTaskName()+"s left on your current Slayer Task.");
         }
         PlayerPanel.refreshPanel(player);
+    }
+
+    public void resetTask() {
+        if (player.getSlayer().getTaskName() == null) {
+            return;
+        }
+        if (player.getPointsHandler().getSlayerPoints() > 4) {
+            player.getDialog().sendDialog(new ResetTask(player));
+        } else {
+            player.getPacketSender().sendInterfaceRemoval();
+            player.getPacketSender().sendMessage("You do not have enough slayer points to reset your task.");
+        }
     }
 
     /**

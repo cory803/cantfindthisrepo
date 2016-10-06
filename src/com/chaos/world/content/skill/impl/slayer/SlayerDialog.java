@@ -10,6 +10,7 @@ import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.Slayer.ResetTask;
 
 public class SlayerDialog extends Dialog {
 
@@ -77,7 +78,7 @@ public class SlayerDialog extends Dialog {
                 }
             case 2:
                 setEndState(2);
-                return Dialog.createNpc(DialogHandler.CALM, "You are already assigned to kill "+getPlayer().getSlayer().getAmountLeft()+" "+getPlayer().getSlayer().getTaskName()+"s! Come back when you are done for a new assignment.");
+                return Dialog.createNpc(DialogHandler.CALM, "You are assigned to kill "+getPlayer().getSlayer().getAmountLeft()+" "+getPlayer().getSlayer().getTaskName()+"s! Come back when you are done for a new assignment.");
             case 3:
                 setEndState(4);
                 return Dialog.createNpc(DialogHandler.CALM, "You have been assigned to kill "+getPlayer().getSlayer().getAmountLeft()+" "+getPlayer().getSlayer().getTaskName()+"s.");
@@ -103,6 +104,31 @@ public class SlayerDialog extends Dialog {
             case 9:
                 setEndState(9);
                 return Dialog.createNpc(DialogHandler.CALM, "Hmm a creature of a interesting kind... Come back when you have atleast "+slayerMaster.getCombatLevelRequirement()+" combat!");
+            case 10:
+                return Dialog.createNpc(DialogHandler.CALM, "You already have a task, what can I do for you?");
+            case 11:
+                if(getPlayer().getSlayer().getSlayerTask() != null) {
+                    return Dialog.createOption(new ThreeOption(
+                            "Tell me about my task",
+                            "Reset my task",
+                            "Cancel") {
+                        @Override
+                        public void execute(Player player, OptionType option) {
+                            switch (option) {
+                                case OPTION_1_OF_3:
+                                    setState(2);
+                                    player.getDialog().sendDialog(dialog);
+                                    break;
+                                case OPTION_2_OF_3:
+                                    player.getSlayer().resetTask();
+                                    break;
+                                case OPTION_3_OF_3:
+                                    player.getPacketSender().sendInterfaceRemoval();
+                                    break;
+                            }
+                        }
+                    });
+                }
         }
         return null;
     }
