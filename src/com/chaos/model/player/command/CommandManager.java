@@ -144,6 +144,13 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("Attempting to open: www.rune.live/vote/");
             }
         });
+        commands.put("register", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/register/");
+                player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/forums/index.php?/register/");
+            }
+        });
         commands.put("help", new GetHelp(StaffRights.PLAYER));
         commands.put("dropselecteditems", new DropSelectedItems(StaffRights.PLAYER));
         commands.put("support", new GetHelp(StaffRights.PLAYER));
