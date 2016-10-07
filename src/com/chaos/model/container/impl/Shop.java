@@ -851,7 +851,7 @@ public class Shop extends ItemContainer {
 				}
 			} else if (shop == TOKKUL_EXCHANGE_STORE) {
 				switch (item) {
-					case 11978:
+					case 13225:
 						return new Object[]{300000, "tokkul"};
 					case 438:
 					case 436:
