@@ -2035,17 +2035,17 @@
       "position": {
         "hashed": true,
         "x": 2091,
-        "y": 3916,
+        "y": 3917,
         "z": 0
       }
     },
     "closedState": {
       "id": 16776,
-      "direction": 2,
+      "direction": 1,
       "position": {
         "hashed": true,
         "x": 2091,
-        "y": 3917,
+        "y": 3916,
         "z": 0
       }
     }
