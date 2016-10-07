@@ -28,7 +28,7 @@ public enum SlayerTasks {
      * Mazchna's slayer tasks
      * @SlayerMaster.MAZCHNA
      */
-    SKELETON(new int[] {90, 2036, 4385, 4386, 6104, 6105}, new int[] {28, 110, 72, 90, 160, 160}, SlayerMasters.MAZCHNA, 15, 65, -1),
+    SKELETON(new int[] {90, 92, 2036, 4385, 4386, 6104, 6105}, new int[] {28, 28, 110, 72, 90, 160, 160}, SlayerMasters.MAZCHNA, 15, 65, -1),
     CHAOS_DRUID(new int[] {181}, new int[] {32}, SlayerMasters.MAZCHNA, 15, 65, -1),
     ZOMBIE(new int[] {73, 75, 76, 5377, 5379}, new int[] {18, 34, 36, 45, 60}, SlayerMasters.MAZCHNA, 15, 65, -1),
     GHOST(new int[] {103, 4387}, new int[] {25, 90}, SlayerMasters.MAZCHNA, 15, 65, -1),
