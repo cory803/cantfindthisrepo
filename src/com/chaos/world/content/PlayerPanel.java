@@ -3,6 +3,7 @@ package com.chaos.world.content;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.minigames.impl.RecipeForDisaster;
 import com.chaos.world.entity.impl.player.Player;
 
 public class PlayerPanel {
@@ -72,6 +73,18 @@ public class PlayerPanel {
 			player.getPacketSender().sendString(55103, "   >- Well of Execution: @cha@ N/A");
 		}
 		for (int i = 55104; i < 55117; i++) {
+			player.getPacketSender().sendString(i, " ");
+		}
+
+
+		/*   ********* Quest Panel **********     */
+
+
+		player.getPacketSender().sendString(55202, "Quest Points: " + player.getQuestPoints());
+
+		player.getPacketSender().sendString(55207,
+				RecipeForDisaster.getQuestTabPrefix(player) + "Recipe For Disaster");
+		for (int i = 55208; i < 55240; i++) {
 			player.getPacketSender().sendString(i, " ");
 		}
 	}
