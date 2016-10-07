@@ -55,7 +55,7 @@ public class BossTeleports extends Dialog {
             case 1:
                 return Dialog.createOption(new FiveOption(
                         "Kraken",
-                        "Nomad",
+                        "King Black Dragon @bla@(@red@Wild@bla@)",
                         "Nex",
                         "Cerberus",
                         "Next Page") {
@@ -66,7 +66,7 @@ public class BossTeleports extends Dialog {
                                 player.getKraken().enter(player, true);
                                 break;
                             case OPTION_2_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(1891, 3177, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2999, 3850, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(2903, 5204, 0), player.getSpellbook().getTeleportType());

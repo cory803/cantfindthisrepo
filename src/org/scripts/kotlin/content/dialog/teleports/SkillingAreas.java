@@ -29,7 +29,7 @@ public class SkillingAreas extends Dialog {
                         "Catherby",
                         "Training Grounds",
                         "Neitiznot",
-                        "Resource Area (@red@Wild@bla@)",
+                        "Resource Area @bla@(@red@Wild@bla@)",
                         "Next Page") {
                     @Override
                     public void execute(Player player, OptionType option) {

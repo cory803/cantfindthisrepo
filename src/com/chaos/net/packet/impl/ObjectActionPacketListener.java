@@ -747,7 +747,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                     @Override
                                     public void stop() {
                                         setEventRunning(false);
-                                        player.moveTo(new Position(3055, 10271, 0));
+                                        player.moveTo(new Position(3069, 10255, 0));
                                     }
                                 });
                                 break;
