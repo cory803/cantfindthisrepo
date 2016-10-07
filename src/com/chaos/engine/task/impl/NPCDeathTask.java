@@ -121,7 +121,7 @@ public class NPCDeathTask extends Task {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_KREE_ARRA);
 						killer.getAchievementAttributes().setGodKilled(1, true);
 					} else if(npc.getId() == 4278 || npc.getId() == 4279 || npc.getId() == 4280 || npc.getId() == 4281
-							|| npc.getId() == 4282 || npc.getId() == 4283 || npc.getId() == 4284) {
+							|| npc.getId() == 4282 || npc.getId() == 4283 || npc.getId() == 4284 || npc.getId() == 4291) {
 						WarriorsGuild.handleDrop(killer, npc);
 						killer.getMinigameAttributes().getWarriorsGuildAttributes().setSpawnedArmour(false);
 					} else if (npc.getId() == 6247) {

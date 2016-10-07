@@ -13,7 +13,7 @@ public enum StaffRights {
     FORUM_MOD("Forum Mod", "<col=855ABD>", "<shad=000000>", 0),
     GLOBAL_MOD("Global Mod", "<col=289C39>", "<shad=000000>", 6),
     ADMINISTRATOR("Administrator", "<col=FFFF00>", "<shad=000000>", 2),
-    MANAGER("Manager", "<col=1138cc>", "<shad=000000>", 14),
+    MANAGER("Manager", "<col=ff0000>", "<shad=000000>", 14),
     OWNER("Owner", "<col=ff0000>", "<shad=000000>", 3);
 
     private String title;

@@ -54,8 +54,8 @@ public class SlayerTeleports extends Dialog {
                     });
                     case 1:
                         return Dialog.createOption(new ThreeOption(
-                                "Nieve (Level 85 Minimum)",
-                                "Duradel (Level 123 Minimum)",
+                                "Nieve (Level 90 Minimum)",
+                                "Duradel (Level 120 Minimum)",
                                 "Previous Page") {
                             @Override
                             public void execute(Player player, OptionType option) {

@@ -548,18 +548,6 @@ public class ButtonClickPacketListener implements PacketListener {
                     BankSearchAttributes.stopSearch(player, true);
                 }
                 break;
-            case 14002:
-            case 14003:
-            case 14004:
-            case 14005:
-            case 14006:
-            case 14007:
-            case 14008:
-            case 14009:
-            case 14010:
-            case 14011:
-                CompletionistCapes.handleButton(player, id);
-                break;
             case 22845:
             case 24115:
             case 24010:
