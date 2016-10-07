@@ -295,18 +295,18 @@ public class EquipPacketListener implements PacketListener {
 				equipItem.setAmount(amount);
 				player.getEquipment().refreshItems();
 			} else {
-				if (item.getDefinition().isTwoHanded()
-						&& item.getDefinition().getEquipmentSlot() == Equipment.WEAPON_SLOT) {
+				if (item.getDefinition().isTwoHanded() && item.getDefinition().getEquipmentSlot() == Equipment.WEAPON_SLOT) {
 					int slotsNeeded = 0;
-					if (player.getEquipment().isSlotOccupied(Equipment.SHIELD_SLOT)
-							&& player.getEquipment().isSlotOccupied(Equipment.WEAPON_SLOT)) {
+					if (player.getEquipment().isSlotOccupied(Equipment.SHIELD_SLOT) && player.getEquipment().isSlotOccupied(Equipment.WEAPON_SLOT)) {
 						slotsNeeded++;
 					}
 					if (player.getInventory().getFreeSlots() >= slotsNeeded) {
 						Item shield = player.getEquipment().getItems()[Equipment.SHIELD_SLOT];
-						player.getInventory().setItem(slot, equipItem);
 						player.getInventory().add(shield);
+						player.getInventory().delete(item);
 						player.getEquipment().delete(shield);
+						player.getInventory().add(equipItem);
+						player.getInventory().add(shield);
 						player.getEquipment().setItem(equipmentSlot, item);
 					} else {
 						player.getInventory().full();
