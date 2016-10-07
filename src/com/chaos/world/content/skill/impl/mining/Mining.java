@@ -111,13 +111,13 @@ public class Mining {
 									if (o == Ores.RUNITE) {
 										Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
 									}
-									if (o == Ores.COAL) {
+									if (o == Ores.COAL || o == Ores.RESOURCE_COAL) {
 										Achievements.doProgress(player, AchievementData.MINE_400_COAL);
 									}
-									if (o == Ores.ADAMANTITE) {
+									if (o == Ores.ADAMANTITE || o == Ores.RESOURCE_ADAMANTITE) {
 										Achievements.doProgress(player, AchievementData.MINE_400_ADDY);
 									}
-									if (o == Ores.IRON) {
+									if (o == Ores.IRON || o == Ores.RESOURCE_IRON) {
 										Achievements.finishAchievement(player, AchievementData.MINE_IRON);
 									}
 									int multiplier = (Skillcape_Data.MINING.isWearingCape(player)

@@ -94,11 +94,11 @@ public class EquipmentMaking {
 				Sounds.sendSound(player, Sound.SMITH_ITEM);
 				player.getInventory().delete(bar);
 				player.getInventory().add(itemToSmith);
-				if (itemToSmith == new Item(1203)) {
-					Achievements.finishAchievement(player, Achievements.AchievementData.SMITH_IRON_DAGGER);
-				}
 				player.getInventory().refreshItems();
 				player.getSkillManager().addSkillExperience(Skill.SMITHING, (SmithingData.getData(itemToSmith, "xp")));
+				if (itemToSmith.getDefinition().getName().equalsIgnoreCase("iron dagger")) {
+					Achievements.finishAchievement(player, Achievements.AchievementData.SMITH_IRON_DAGGER);
+				}
 			}
 		});
 		TaskManager.submit(player.getCurrentTask());
