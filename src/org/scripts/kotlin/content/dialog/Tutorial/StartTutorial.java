@@ -1,6 +1,5 @@
 package org.scripts.kotlin.content.dialog.Tutorial;
 
-import com.chaos.model.Direction;
 import com.chaos.model.Flag;
 import com.chaos.model.Item;
 import com.chaos.model.Position;
@@ -21,7 +20,7 @@ public class StartTutorial extends Dialog {
     public Dialog dialog = this;
     public StartTutorial(Player player) {
         super(player);
-        setEndState(7);
+        setEndState(9);
     }
 
     @Override
@@ -160,8 +159,6 @@ public class StartTutorial extends Dialog {
                                 player.getDialog().sendDialog(dialog);
                                 break;
                             case OPTION_2_OF_2:
-                                player.setNewPlayer(false);
-                                player.setPlayerLocked(false);
                                 player.getPacketSender().sendInterfaceRemoval();
                                 player.getDialog().sendDialog(new BankPinTut(player));
                                 break;
@@ -169,17 +166,36 @@ public class StartTutorial extends Dialog {
                     }
                 });
             case 5:
-                getPlayer().getPacketSender().sendCameraAngle(180,120, 2, 1, 103);
                 getPlayer().moveTo(new Position(3182, 3676, 3));
                 return Dialog.createNpc(DialogHandler.HAPPY, "We have an active Bounty Hunter with Revenants and Scorpia. There are also some resourace areas for skilling located inside the crator.");
             case 6:
-                return Dialog.createNpc(DialogHandler.HAPPY, "There are specific areas on the teleports that designate areas just for skilling. It makes it easier to interact with other skillers!");
+                getPlayer().moveTo(new Position(3094, 3476, 0));
+                return Dialog.createNpc(DialogHandler.HAPPY, "We give players every reason imaginable to want to be in the wilderness from skilling to killing wild bosses." +
+                        " These coffins will take you close to those areas.");
             case 7:
-                getPlayer().setNewPlayer(false);
-                getPlayer().setPlayerLocked(false);
-                getPlayer().moveTo(new Position(3333, 3333, 0));
-                getPlayer().setDirection(Direction.NORTH);
-                return Dialog.createNpc(DialogHandler.HAPPY, "You will be placed in the global 'Chaos' clan chat and near a bank in the tutorial.");
+                getPlayer().moveTo(new Position(2528, 3370, 0));
+                return Dialog.createNpc(DialogHandler.HAPPY, "There are areas made just for skilling, this is the training grounds. You can train most skills here or by getting to them from this zone.");
+            case 8:
+                getPlayer().moveTo(new Position(3093, 3502, 0));
+                return Dialog.createNpc(DialogHandler.HAPPY, "This is where the basic shops are located you can explore the rest of Chaos by playing! For safety reasons we need you to set your pin");
+            case 9:
+                return Dialog.createOption(new TwoOption(
+                        "Setup Account Pin",
+                        "Setup Bank Pin") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch(option) {
+                            case OPTION_1_OF_2:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                player.getDialog().sendDialog(new BankPinTut(player));
+                                break;
+                            case OPTION_2_OF_2:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                player.getDialog().sendDialog(new BankPinTut(player));
+                                break;
+                        }
+                    }
+                });
         }
         return null;
     }

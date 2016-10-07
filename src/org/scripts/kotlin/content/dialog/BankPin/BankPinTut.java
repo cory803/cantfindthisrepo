@@ -31,9 +31,13 @@ public class BankPinTut extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_2:
+                                getPlayer().setNewPlayer(false);
+                                getPlayer().setPlayerLocked(false);
                                 BankPin.init(player, false);
                                 break;
                             case OPTION_2_OF_2:
+                                getPlayer().setNewPlayer(false);
+                                getPlayer().setPlayerLocked(false);
                                 BankPin.init(player, false);
                                 break;
                         }

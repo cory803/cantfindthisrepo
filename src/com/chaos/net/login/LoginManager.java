@@ -65,6 +65,7 @@ public final class LoginManager {
 		final boolean newAccount = player.getResponse() == LoginResponses.NEW_ACCOUNT;
 		if (newAccount) {
 			player.setNewPlayer(true);
+			player.setPlayerLocked(true);
 			player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
 		}
 		if (player.getResponse() == LoginResponses.LOGIN_SUCCESSFUL) {
