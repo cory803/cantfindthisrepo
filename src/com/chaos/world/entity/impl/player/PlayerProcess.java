@@ -4,6 +4,7 @@ import com.chaos.model.Locations.Location;
 import com.chaos.model.StaffRights;
 import com.chaos.model.Skill;
 import com.chaos.util.Misc;
+import com.chaos.world.World;
 import com.chaos.world.content.LoyaltyProgramme;
 import com.chaos.world.content.combat.pvp.BountyHunter;
 import com.chaos.world.entity.impl.GroundItemManager;
@@ -93,6 +94,8 @@ public class PlayerProcess {
 		}
 
 		if (timerTick >= 1) {
+			player.getPacketSender().sendString(55073, "   >- Players online: @cha@"+ World.getPlayers().size());
+			player.getPacketSender().sendString(55074, "   >- Staff online: @cha@"+ World.staffOnline());
 			player.getPacketSender().sendString(55077, "   >- Play Time: @cha@" + Misc.getMinutesPlayed(player) + " Minutes");
 			timerTick = 0;
 		}
