@@ -72,6 +72,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //summoning
+            case 6970:
+                player.getDialog().sendDialog(new Pikkupstix(player, 0));
+                break;
             //Rfd
             case 3385:
                 if (player.getMinigameAttributes().getRecipeForDisasterAttributes()
@@ -315,6 +319,10 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //summoning
+            case 6970:
+                player.getDialog().sendDialog(new Pikkupstix(player, 1));
+                break;
             //Aubury
             case 553:
                 Shop.ShopManager.getShops().get(29).open(player);
