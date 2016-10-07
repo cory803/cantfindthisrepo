@@ -2141,6 +2141,98 @@
         "z": 0
       }
     }
+  },
+   { 
+	# Warrios guild door 1/2
+    "openState": {
+      "id": 1531,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2851,
+        "y": 3551,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2851,
+        "y": 3550,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Warrios guild door 2/2
+    "openState": {
+      "id": 15650,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2854,
+        "y": 3554,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 15651,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2853,
+        "y": 3554,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# yak double door 1/2
+    "openState": {
+      "id": 21508,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2328,
+        "y": 3805,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 21507,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2329,
+        "y": 3805,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Yak double door 2/2
+    "openState": {
+      "id": 21506,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2328,
+        "y": 3804,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 21505,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2329,
+        "y": 3804,
+        "z": 0
+      }
+    }
   }
   
   
