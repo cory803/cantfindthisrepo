@@ -320,7 +320,7 @@ public class Barrows {
 	public static void searchCoffin(final Player player, final int obj, final int coffinId, int npcId,
 			Position spawnPos) {
 		player.getPacketSender().sendInterfaceRemoval();
-		if (player.getPosition().getZ() == -1) {
+		if (player.getPosition().getZ() == 3) {
 			if (selectCoffin(player, obj))
 				return;
 		}
@@ -329,7 +329,7 @@ public class Barrows {
 				player.setRegionInstance(new RegionInstance(player, RegionInstanceType.BARROWS));
 				NPC npc_ = new NPC(npcId, spawnPos).setSpawnedFor(player);
 				npc_.forceChat(
-						player.getPosition().getZ() == -1 ? "You dare disturb my rest!" : "You dare steal from us!");
+						player.getPosition().getZ() == 3 ? "You dare disturb my rest!" : "You dare steal from us!");
 				npc_.getCombatBuilder().setAttackTimer(3);
 				npc_.setSpawnedFor(player);
 				npc_.getCombatBuilder().attack(player);
