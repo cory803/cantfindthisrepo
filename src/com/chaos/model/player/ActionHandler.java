@@ -25,6 +25,7 @@ import com.chaos.world.content.skill.impl.thieving.ThievingManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.Rfd;
 import org.scripts.kotlin.content.dialog.healers.Healers;
 import org.scripts.kotlin.content.dialog.healers.HealersQuickOption;
 import org.scripts.kotlin.content.dialog.npcs.*;
@@ -71,6 +72,23 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //Rfd
+            case 3385:
+                if (player.getMinigameAttributes().getRecipeForDisasterAttributes()
+                        .hasFinishedPart(0)
+                        && player.getMinigameAttributes().getRecipeForDisasterAttributes()
+                        .getWavesCompleted() < 6) {
+                    player.getDialog().sendDialog(new Rfd(player, 2));
+                    return;
+                }
+                if (player.getMinigameAttributes().getRecipeForDisasterAttributes()
+                        .getWavesCompleted() == 6) {
+                    player.getDialog().sendDialog(new Rfd(player, 6));
+                    return;
+                }
+                player.getDialog().sendDialog(new Rfd(player, 0));
+                break;
+
             //Warriors Guild
             case 650:
                 Shop.ShopManager.getShops().get(31).open(player);

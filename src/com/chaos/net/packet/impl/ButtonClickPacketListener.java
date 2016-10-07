@@ -294,9 +294,6 @@ public class ButtonClickPacketListener implements PacketListener {
             case -10328:
                 Nomad.openQuestLog(player);
                 break;
-            case -10327:
-                ClawQuest.openQuestLog(player);
-                break;
             case -23636:
                 if (player.getShop() != null && player.getShop().id == 44 && player.isShopping()) {
                     player.setInputHandling(new BuyDungExperience());
@@ -309,9 +306,6 @@ public class ButtonClickPacketListener implements PacketListener {
                     }
                     PlayerOwnedShops.openItemSearch(player, false);
                 }
-                break;
-            case -10326:
-                FarmingQuest.openQuestLog(player);
                 break;
             case 350:
                 player.getPacketSender()

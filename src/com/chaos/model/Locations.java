@@ -819,7 +819,7 @@ public class Locations {
 			public void leave(Player player) {
 				if (player.getRegionInstance() != null)
 					player.getRegionInstance().destruct();
-				player.moveTo(new Position(3203, 3424));
+				player.moveTo(new Position(3078, 3492));
 			}
 
 			@Override
