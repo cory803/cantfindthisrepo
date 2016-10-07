@@ -72,6 +72,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //mercant
+            case 1282:
+                player.getDialog().sendDialog(new Merchant(player));
+                break;
             //summoning
             case 6970:
                 player.getDialog().sendDialog(new Pikkupstix(player, 0));
@@ -319,6 +323,10 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //mercant
+            case 1282:
+                Shop.ShopManager.getShops().get(0).open(player);
+                break;
             //summoning
             case 6970:
                 player.getDialog().sendDialog(new Pikkupstix(player, 1));
