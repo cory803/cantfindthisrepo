@@ -135,10 +135,10 @@ public class Woodcutting {
 									if (t == Trees.MAPLE) {
 										Achievements.doProgress(player, AchievementData.CHOP_250_MAPLE_LOGS);
 									}
-									if (t == Trees.YEW) {
+									if (t == Trees.YEW || t == Trees.RESOURCE_YEW) {
 										Achievements.doProgress(player, AchievementData.CHOP_750_YEW_LOGS);
 									}
-									if (t == Trees.MAGIC) {
+									if (t == Trees.MAGIC || t == Trees.RESOURCE_MAGIC) {
 										Achievements.doProgress(player, AchievementData.CUT_5000_MAGIC_LOGS);
 									}
 									if (t == Trees.WILLOW) {
