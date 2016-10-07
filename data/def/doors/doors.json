@@ -1957,7 +1957,192 @@
         "z": 0
       }
     }
+  },
+   { 
+	# Zeke lunar door
+    "openState": {
+      "id": 16777,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2104,
+        "y": 3910,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 16776,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2104,
+        "y": 3911,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# General store lunar
+    "openState": {
+      "id": 16779,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2096,
+        "y": 3908,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 16778,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2096,
+        "y": 3909,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Range shop lunarisle
+    "openState": {
+      "id": 16777,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2088,
+        "y": 3909,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 16776,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2088,
+        "y": 3910,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Water room lunar isle
+    "openState": {
+      "id": 16777,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2091,
+        "y": 3916,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 16776,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2091,
+        "y": 3917,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Lumby church door 1/2
+    "openState": {
+      "id": 1520,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3243,
+        "y": 3215,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3243,
+        "y": 3216,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Lumby church 2/2
+    "openState": {
+      "id": 1517,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 3244,
+        "y": 3215,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3244,
+        "y": 3216,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Slayer tower door 1/2
+    "openState": {
+      "id": 10528,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3426,
+        "y": 3555,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 10527,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3426,
+        "y": 3556,
+        "z": 0
+      }
+    }
+  },
+     { 
+	# Slayer tower door 2/2
+    "openState": {
+      "id": 10530,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 3427,
+        "y": 3555,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 10529,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 3427,
+        "y": 3556,
+        "z": 0
+      }
+    }
   }
+  
   
   
   
