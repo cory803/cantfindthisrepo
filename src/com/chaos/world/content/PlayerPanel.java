@@ -50,11 +50,11 @@ public class PlayerPanel {
 		}
 		player.getPacketSender().sendString(55097, "   >- Task Amount: @cha@" + player.getSlayer().getAmountLeft());
 		player.getPacketSender().sendString(55098, "   >- Task Streak: @cha@" + player.getSlayer().getSlayerStreak());
-//		if (player.getSlayer().getDuoPartner() != null) {
-//			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@" + player.getSlayer().getDuoPartner() + "");
-//		} else {
-//			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@: None");
-//		}
+		if (player.getSlayer().getDuoSlayerName() != null) {
+			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@" + player.getSlayer().getDuoSlayerName() + "");
+		} else {
+			player.getPacketSender().sendString(55099, "   >- Duo Partner: @cha@None");
+		}
 		player.getPacketSender().sendString(55100, "  @whi@[Wells]");
 
 		if (WellOfGoodness.isActive("exp")) {

@@ -851,7 +851,7 @@ public enum CombatSpecial {
 			final CombatSpecial spec = player.getCombatSpecial();
 			boolean instantSpecial = spec == CombatSpecial.GRANITE_MAUL || spec == CombatSpecial.DRAGON_BATTLEAXE
 					|| spec == CombatSpecial.STAFF_OF_LIGHT || spec == CombatSpecial.TOXIC_STAFF_OF_DEAD
-					|| spec == CombatSpecial.STAFF_OF_DEAD;
+					|| spec == CombatSpecial.STAFF_OF_DEAD || spec == SIR_OWENS_LONGSWORD;
 			if (spec != CombatSpecial.STAFF_OF_LIGHT && spec != CombatSpecial.TOXIC_STAFF_OF_DEAD
 					&& spec != CombatSpecial.STAFF_OF_DEAD && player.isAutocast()) {
 				Autocasting.resetAutocast(player, true);

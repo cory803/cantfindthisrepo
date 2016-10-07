@@ -307,6 +307,7 @@ public class PlayerLoading {
 			} catch (Exception e) {
 				player.getSlayer().setSlayerMaster(null);
 				player.getSlayer().setSlayerTask(null);
+				player.getSlayer().setDuoSlayer(null);
 				player.getSlayer().setAmountLeft(0);
 			}
 		}
@@ -338,6 +339,11 @@ public class PlayerLoading {
 		if (reader.has("slayer-streak")) {
 			player.getSlayer().setSlayerStreak(reader.get("slayer-streak").getAsInt());
 		}
+
+		if (reader.has("slayer-partner")) {
+			player.getSlayer().setDuoSlayer(reader.get("slayer-partner").getAsString());
+		}
+
 		if (reader.has("player-invisibility")) {
 			player.setInvisible(reader.get("player-invisibility").getAsBoolean());
 		}
@@ -631,7 +637,7 @@ public class PlayerLoading {
 			player.getZulrah().setZulrahRotation(reader.get("zulrah-rotation").getAsInt());
 		}
 		if (reader.has("accept-aid")) {
-			player.setAcceptAid(reader.get("accept-aid").getAsBoolean());
+			player.setRequestingAssistance(reader.get("accept-aid").getAsBoolean());
 		}
 		if (reader.has("poison-damage")) {
 			player.setPoisonDamage(reader.get("poison-damage").getAsInt());

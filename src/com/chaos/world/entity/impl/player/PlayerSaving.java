@@ -203,6 +203,7 @@ public class PlayerSaving {
 			object.addProperty("slayer-amount", new Integer(player.getSlayer().getAmountLeft()));
 		}
 		object.addProperty("slayer-streak", new Integer(player.getSlayer().getSlayerStreak()));
+		object.addProperty("slayer-partner", player.getSlayer().getDuoSlayerName());
 		//object.addProperty("exp-rate", player.getExpRate().name());
 		object.addProperty("player-invisibility", player.isInvisible());
 		object.addProperty("withdrawx", new Integer(player.getWithdrawX()));
@@ -284,7 +285,7 @@ public class PlayerSaving {
 		object.addProperty("sol-effect", new Integer(player.getStaffOfLightEffect()));
 		object.addProperty("skull-timer", new Integer(player.getSkullTimer()));
 		object.addProperty("zulrah-rotation", new Integer(player.getZulrah().getZulrahRotation()));
-		object.addProperty("accept-aid", new Boolean(player.isAcceptAid()));
+		object.addProperty("accept-aid", new Boolean(player.isRequestAssistance()));
 		object.addProperty("poison-damage", new Integer(player.getPoisonDamage()));
 		object.addProperty("poison-immunity", new Integer(player.getPoisonImmunity()));
 		object.addProperty("venom-damage", new Integer(player.getVenomDamage()));

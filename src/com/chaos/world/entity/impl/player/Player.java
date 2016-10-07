@@ -106,6 +106,23 @@ public class Player extends Character {
     public boolean forceOffline = false;
     public String changingPasswordOf = "none";
     public int reset_stats_1 = 0;
+    private boolean requestAssistance = false;
+
+    /**
+     * Tells you if you request assistance/aid is on or off.
+     * @return
+     */
+    public boolean isRequestAssistance() {
+        return this.requestAssistance;
+    }
+
+    /**
+     * Sets your request assistance/aid to something
+     * @param assistance
+     */
+    public void setRequestingAssistance(boolean assistance) {
+        this.requestAssistance = assistance;
+    }
 
     public static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
 
@@ -711,7 +728,6 @@ public class Player extends Character {
     private boolean hasVengeance;
     private boolean killsTrackerOpen;
     private boolean questTabOpen;
-    private boolean acceptingAid;
     private boolean autoRetaliate;
     private boolean autocast;
     private boolean specialActivated;
@@ -1590,14 +1606,6 @@ public class Player extends Character {
     public Player setBank(int index, Bank bank) {
         this.bankTabs[index] = bank;
         return this;
-    }
-
-    public boolean isAcceptAid() {
-        return acceptingAid;
-    }
-
-    public void setAcceptAid(boolean acceptingAid) {
-        this.acceptingAid = acceptingAid;
     }
 
     public Trading getTrading() {

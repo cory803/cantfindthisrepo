@@ -192,6 +192,7 @@ public class GameModeAssistant {
         this.gameMode = gamemode;
         player.getSlayer().setSlayerMaster(null);
         player.getSlayer().setSlayerTask(null);
+        player.getSlayer().setDuoSlayer(null);
         player.getSlayer().setAmountLeft(0);
         PlayerPanel.refreshPanel(player);
         Achievements.updateInterface(player);

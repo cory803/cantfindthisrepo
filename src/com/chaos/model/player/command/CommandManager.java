@@ -20,6 +20,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.commands.*;
 import org.scripts.kotlin.content.commands.Spawn;
+import org.scripts.kotlin.content.commands.writenpc.Camera;
 import org.scripts.kotlin.content.commands.writenpc.CopyWriteNpc;
 import org.scripts.kotlin.content.commands.writenpc.WriteNPC;
 
@@ -485,6 +486,7 @@ public class CommandManager {
             }
         });
         commands.put("sendstring", new SendFrame(StaffRights.OWNER));
+        //commands.put("camera", new Camera(StaffRights.MANAGER));
         commands.put("frame", new SendFrame(StaffRights.OWNER));
         commands.put("npc", new SpawnNPC(StaffRights.OWNER));
         commands.put("playnpc", new PlayerToNPC(StaffRights.OWNER));

@@ -88,6 +88,14 @@ public class ButtonClickPacketListener implements PacketListener {
         }
 
         switch (id) {
+            case 12464:
+                player.setRequestingAssistance(!player.isRequestAssistance());
+                if (player.isRequestAssistance()) {
+                    player.getPacketSender().sendConfig(427, 0);
+                } else {
+                    player.getPacketSender().sendConfig(427, 1);
+                }
+                break;
             //Wells
             case -10435:
                 if(WellOfGoodness.isActive("exp")) {

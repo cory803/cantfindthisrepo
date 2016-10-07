@@ -32,6 +32,7 @@ public class ResetTask extends Dialog {
                             case OPTION_1_OF_2:
                                 player.getSlayer().setSlayerMaster(null);
                                 player.getSlayer().setSlayerTask(null);
+                                player.getSlayer().setDuoSlayer(null);
                                 player.getSlayer().setAmountLeft(0);
 
                                 player.getPointsHandler().setSlayerPoints(-5, true);

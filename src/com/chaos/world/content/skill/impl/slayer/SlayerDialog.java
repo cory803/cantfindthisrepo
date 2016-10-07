@@ -2,6 +2,7 @@ package com.chaos.world.content.skill.impl.slayer;
 
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.definitions.NpcDefinition;
+import com.chaos.model.options.fiveoption.FiveOption;
 import com.chaos.model.options.fouroption.FourOption;
 import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
@@ -16,11 +17,13 @@ public class SlayerDialog extends Dialog {
 
     public Dialog dialog = this;
     public SlayerMasters slayerMaster;
+    public Player other;
 
-    public SlayerDialog(Player player, int state) {
+    public SlayerDialog(Player player, int state, Player other) {
         super(player);
         setState(state);
-        setEndState(20);
+        setEndState(13);
+        this.other = other;
     }
 
     @Override
@@ -36,25 +39,29 @@ public class SlayerDialog extends Dialog {
                 }
             case 1:
                 if(getPlayer().getSlayer().getSlayerTask() != null) {
-                    return Dialog.createOption(new FourOption(
+                    return Dialog.createOption(new FiveOption(
                             "I need a slayer assignment.",
                             "How many slayer kills do I have left?",
                             "Do you have any advice for my current task?",
-                            "Can you give me an easier task please.") {
+                            "Can you give me an easier task please.",
+                            "Can you reset my slayer task?") {
                         @Override
                         public void execute(Player player, OptionType option) {
                             switch (option) {
-                                case OPTION_1_OF_4:
+                                case OPTION_1_OF_5:
                                     player.getSlayer().assignSlayerTask(slayerMaster, false);
                                     break;
-                                case OPTION_2_OF_4:
+                                case OPTION_2_OF_5:
                                     player.getSlayer().checkAmountLeft();
                                     break;
-                                case OPTION_3_OF_4:
+                                case OPTION_3_OF_5:
                                     player.getSlayer().checkRecommendations();
                                     break;
-                                case OPTION_4_OF_4:
+                                case OPTION_4_OF_5:
                                     player.getSlayer().giveEasierTask(slayerMaster);
+                                    break;
+                                case OPTION_5_OF_5:
+                                    player.getSlayer().resetTask();
                                     break;
                             }
                         }
@@ -107,28 +114,28 @@ public class SlayerDialog extends Dialog {
             case 10:
                 return Dialog.createNpc(DialogHandler.CALM, "You already have a task, what can I do for you?");
             case 11:
-                if(getPlayer().getSlayer().getSlayerTask() != null) {
-                    return Dialog.createOption(new ThreeOption(
-                            "Tell me about my task",
-                            "Reset my task",
-                            "Cancel") {
-                        @Override
-                        public void execute(Player player, OptionType option) {
-                            switch (option) {
-                                case OPTION_1_OF_3:
-                                    setState(2);
-                                    player.getDialog().sendDialog(dialog);
-                                    break;
-                                case OPTION_2_OF_3:
-                                    player.getSlayer().resetTask();
-                                    break;
-                                case OPTION_3_OF_3:
-                                    player.getPacketSender().sendInterfaceRemoval();
-                                    break;
-                            }
+                setEndState(12);
+                return Dialog.createNpc(DialogHandler.CALM, "Hello! My student "+other.getUsername()+" is wanting to do a duo slayer task with you. He is currently assigned to slay "+other.getSlayer().getAmountLeft()+" "+other.getSlayer().getSlayerTask().getName()+"s.");
+            case 12:
+                return Dialog.createOption(new TwoOption(
+                        "Accept duo assignment",
+                        "Decline duo assignment") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_2:
+                                player.getSlayer().assignDuoTask(other);
+                                setEndState(13);
+                                break;
+                            case OPTION_2_OF_2:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                break;
                         }
-                    });
-                }
+                    }
+                });
+            case 13:
+                setEndState(13);
+                return Dialog.createNpc(DialogHandler.CALM, "Goodluck, your assignment has been set!");
         }
         return null;
     }

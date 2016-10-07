@@ -103,6 +103,11 @@ public class PlayerHandler {
 				player.setBank(i, new Bank(player));
 			}
 		}
+		if (player.isRequestAssistance()) {
+			player.getPacketSender().sendConfig(427, 0);
+		} else {
+			player.getPacketSender().sendConfig(427, 1);
+		}
 		player.getInventory().refreshItems();
 		player.getEquipment().refreshItems();
 

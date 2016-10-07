@@ -697,6 +697,13 @@ public class UseItemPacketListener implements PacketListener {
 		if (target == null)
 			return;
 		switch (itemId) {
+			case 4155:
+				if(!target.isRequestAssistance()) {
+					player.getPacketSender().sendMessage("The player "+target.getUsername()+" does not have accept aid on.");
+					return;
+				}
+				player.getSlayer().duoSlayerOption(target);
+				break;
 		case 962:
 			if (!player.getInventory().contains(962))
 				return;

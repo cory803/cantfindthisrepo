@@ -111,11 +111,7 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
-                if (player.getSlayer().getTaskName() == null) {
-                    player.getDialog().sendDialog(new SlayerDialog(player, 0));
-                } else {
-                    player.getDialog().sendDialog(new SlayerDialog(player, 10));
-                }
+                player.getDialog().sendDialog(new SlayerDialog(player, 0, null));
                 break;
             //agility
             case 437:
@@ -339,7 +335,7 @@ public final class ActionHandler {
                 if (player.getSlayer().hasMasterRequirements(SlayerMasters.forNpcId(npc.getId()))) {
                     player.getSlayer().assignSlayerTask(SlayerMasters.forNpcId(npc.getId()), false);
                 } else {
-                    player.getDialog().sendDialog(new SlayerDialog(player, 9));
+                    player.getDialog().sendDialog(new SlayerDialog(player, 9, null));
                 }
                 break;
 
