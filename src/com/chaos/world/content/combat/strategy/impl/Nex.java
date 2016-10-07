@@ -431,7 +431,7 @@ public class Nex implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		20;
+		return 20;
 	}
 
 	/** MISC **/
