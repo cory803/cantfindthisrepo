@@ -1,1 +1,17 @@
-Anim 8973 for cool sword animation
+Any updates that are completed put into this file.
+Make sure you format them as you would want to see them publicly.
+
+~UPDATES~
+The manager yell colour has been fixed.
+The requirement to enter the warriors guild has been changed from 70 to 50 tokens.
+Cyclops now drop defenders correctly.
+The dialog that shows the requirement for each slayer master now has the correct combat level requirement.
+Resetting your slayer task will now also reset your slayer streak.
+The get a slayer task achievement has been fixed.
+
+~TODO~
+
+Tanner:
+Make the magic tree in wilderness resource area work for achievement.
+
+Adam:

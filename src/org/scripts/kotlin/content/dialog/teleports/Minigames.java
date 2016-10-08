@@ -34,7 +34,7 @@ public class Minigames extends Dialog {
                         switch (option) {
                             case OPTION_1_OF_5:
                                 if(player.getSkillManager().getCurrentLevel(Skill.ATTACK) + player.getSkillManager().getCurrentLevel(Skill.STRENGTH) < 130) {
-                                    player.getPacketSender().sendMessage("A true warrior requires a total of 130 Strength & Attack.");
+                                    player.getPacketSender().sendMessage("A true warrior requires a total of 130 Strength and Attack.");
                                     player.getPacketSender().sendInterfaceRemoval();
                                     return;
                                 }

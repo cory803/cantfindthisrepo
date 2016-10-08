@@ -514,17 +514,7 @@ public class ItemActionPacketListener implements PacketListener {
 		}
 		switch (itemId) {
 		case 14022:
-		case 21085:
-		case 21086:
-		case 21087:
-		case 21093:
-		case 21094:
-		case 21095:
-		case 21096:
-		case 21097:
-		case 21098:
-		case 21099:
-			CompletionistCapes.openInterface(player, itemId);
+			//TODO: Add completionist ape customization
 			break;
 		case 6500:
 			player.getPacketSender().sendMessage("You're already gaining EXP and picking up charms! don't be greedy");

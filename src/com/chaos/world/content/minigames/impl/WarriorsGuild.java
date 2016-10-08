@@ -12,6 +12,7 @@ import com.chaos.model.Position;
 import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.model.definitions.ItemDefinition;
+import com.chaos.model.player.GameMode;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.GroundItemManager;
@@ -122,7 +123,11 @@ public class WarriorsGuild {
 				armour = null;
 			}
 		} else if (npc.getId() == 4291 && player.getPosition().getZ() == 2) {
-			if (Misc.getRandom(12) == 11) {
+			int random = 50;
+			if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM) {
+				random = 25;
+			}
+			if (Misc.getRandom(random) == 11) {
 				GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(getDefender(player)),
 						npc.getPosition().copy(), player.getUsername(), false, 100, false, -1));
 			}

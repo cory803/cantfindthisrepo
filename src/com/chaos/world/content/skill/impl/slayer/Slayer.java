@@ -3,6 +3,7 @@ package com.chaos.world.content.skill.impl.slayer;
 import com.chaos.model.Skill;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.entity.impl.player.Player;
@@ -120,6 +121,7 @@ public class Slayer {
         player.getSlayer().setDuoSlayer(null);
         player.setNpcClickId(slayerMaster.getNpcId());
         player.getDialog().sendDialog(new SlayerDialog(player, 3, null));
+        Achievements.doProgress(player, Achievements.AchievementData.GET_SLAYER_TASK);
         PlayerPanel.refreshPanel(player);
     }
 

@@ -1686,9 +1686,9 @@ public class ObjectActionPacketListener implements PacketListener {
                                         break;
                                     case 2:
                                         if (player.getPosition().getX() == 2846) {
-                                            if (player.getInventory().getAmount(8851) < 70) {
+                                            if (player.getInventory().getAmount(8851) < 50) {
                                                 player.getPacketSender()
-                                                        .sendMessage("You need at least 70 tokens to enter this area.");
+                                                        .sendMessage("You need at least 50 tokens to enter this area.");
                                                 return;
                                             }
                                             player.moveTo(new Position(2847, player.getPosition().getY(), 2));
@@ -1704,7 +1704,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 break;
                             case 15653:
                                 if (player.getSkillManager().getCurrentLevel(Skill.ATTACK) + player.getSkillManager().getCurrentLevel(Skill.STRENGTH) < 130) {
-                                    player.getPacketSender().sendMessage("A true warrior requires a total of 130 Strength & Attack.");
+                                    player.getPacketSender().sendMessage("A true warrior requires a total of 130 Strength and Attack.");
                                     return;
                                 }
                                 if (player.getPosition().getX() == 2877) {

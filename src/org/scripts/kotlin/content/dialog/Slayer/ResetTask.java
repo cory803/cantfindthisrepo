@@ -34,7 +34,7 @@ public class ResetTask extends Dialog {
                                 player.getSlayer().setSlayerTask(null);
                                 player.getSlayer().setDuoSlayer(null);
                                 player.getSlayer().setAmountLeft(0);
-
+                                player.getSlayer().setSlayerStreak(0);
                                 player.getPointsHandler().setSlayerPoints(-5, true);
                                 PlayerPanel.refreshPanel(player);
                                 player.getPacketSender().sendInterfaceRemoval();
