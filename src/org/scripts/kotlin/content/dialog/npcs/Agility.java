@@ -55,8 +55,8 @@ public class Agility extends Dialog {
                         switch(option) {
                             case OPTION_1_OF_2:
                                 player.getPacketSender().sendInterfaceRemoval();
-                                player.setInputHandling(new BuyAgilityExperience());
                                 player.getPacketSender().sendEnterAmountPrompt("How many tickets would you like to exchange?");
+                                player.setInputHandling(new BuyAgilityExperience());
                                 break;
                             case OPTION_2_OF_2:
                                 player.getPacketSender().sendInterfaceRemoval();

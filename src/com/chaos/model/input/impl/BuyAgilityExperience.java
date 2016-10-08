@@ -27,11 +27,11 @@ public class BuyAgilityExperience extends EnterAmount {
 		}
 
 		//TODO: Redo agility ticket rewards
-		//int exp = ticketAmount * 76;
-		//player.getInventory().delete(2996, ticketAmount);
-		//player.getSkillManager().addSkillExperience(Skill.AGILITY, exp);
-		//player.getPacketSender().sendMessage("You've bought " + exp + " Agility experience for " + ticketAmount
-				//+ " Agility ticket" + (ticketAmount == 1 ? "" : "s") + ".");
+		int exp = ticketAmount * 4;
+		player.getInventory().delete(2996, ticketAmount);
+		player.getSkillManager().addSkillExperience(Skill.AGILITY, exp);
+		player.getPacketSender().sendMessage("You've bought " + exp + " Agility experience for " + ticketAmount
+				+ " Agility ticket" + (ticketAmount == 1 ? "" : "s") + ".");
 	}
 
 }
