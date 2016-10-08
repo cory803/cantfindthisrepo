@@ -152,11 +152,18 @@ public class Slayer {
                 Player partner = World.getPlayerByName(this.duoPlayer);
                 if(partner != null) {
                     partner.getPacketSender().sendMessage("Your partner has left the duo slayer assignment.");
-                    partner.getSlayer().setDuoSlayer(null);
+                    partner.getSlayer().resetDuoPlayer();
                 }
             }
         }
         this.duoPlayer = name;
+    }
+
+    /**
+     * Completely resets the duo partners slayer task.
+     */
+    public void resetDuoPlayer() {
+        this.duoPlayer = null;
     }
 
     /**
