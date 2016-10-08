@@ -30,7 +30,7 @@ public class StartTutorial extends Dialog {
                 return Dialog.createNpc(DialogHandler.CALM, "Hello, Welcome to Chaos!\\nWhat Game Mode would you like?");
             case 1:
                 return Dialog.createOption(new FourOption(
-                        "Play in @red@Knight@bla@ mode (@blu@1000XP@bla@ Per Hit)",
+                        "Play in @red@Knight@bla@ mode (@blu@500XP@bla@ Per Hit)",
                         "Play in @red@Realism@bla@ mode (@blu@10XP@bla@ Per Hit)",
                         "Play in @red@Ironman@bla@ mode (@blu@No trading & 100XP Per Hit@bla@)",
                         "Learn about these modes") {

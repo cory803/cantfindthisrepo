@@ -4,7 +4,7 @@ import com.chaos.util.Misc;
 
 public enum GameMode {
 
-	KNIGHT(1000, 5, 1, 20, 0),
+	KNIGHT(500, 5, 1, 20, 0),
 	REALISM(10, 15, .50, 10, 0),
 	IRONMAN(100, 10, .75, 15, 0);
 
