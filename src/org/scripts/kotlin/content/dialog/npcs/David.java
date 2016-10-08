@@ -1,7 +1,7 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
 import com.chaos.model.container.impl.Shop;
-import com.chaos.model.options.twooption.TwoOption;
+import com.chaos.model.options.fouroption.FourOption;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
@@ -20,16 +20,24 @@ public class David extends Dialog {
             case 0:
                 return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like to see what skilling items I have for sale?");
             case 1:
-            return Dialog.createOption(new TwoOption(
-                    "Yes, show me what your selling.",
-                    "No, I don't want to see.") {
+            return Dialog.createOption(new FourOption(
+                    "Show me your skilling supplies",
+                    "Fishing Shop",
+                    "Hunter Shop",
+                    "Cancel") {
                 @Override
                 public void execute(Player player, OptionType option) {
                     switch(option) {
-                        case OPTION_1_OF_2:
+                        case OPTION_1_OF_4:
                             Shop.ShopManager.getShops().get(30).open(player);
                             break;
-                        case OPTION_2_OF_2:
+                        case OPTION_2_OF_4:
+                            Shop.ShopManager.getShops().get(38).open(player);
+                            break;
+                        case OPTION_3_OF_4:
+                            Shop.ShopManager.getShops().get(39).open(player);
+                            break;
+                        case OPTION_4_OF_4:
                             player.getPacketSender().sendInterfaceRemoval();
                             break;
                     }
