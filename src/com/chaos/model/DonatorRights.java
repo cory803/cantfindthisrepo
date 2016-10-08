@@ -9,7 +9,7 @@ public enum DonatorRights {
     EXTREME("Extreme", "<col=2FAC45>", "<shad=0>", 9),
     LEGENDARY("Legendary", "<col=255>", "<shad=0>", 8),
     UBER("Uber", "<col=ffff00>", "<shad=0>", 11),
-    PLATINUM("Platinum", "<col=1F1F1F>", "<shad=D7D7D7>", 10);
+    PLATINUM("Platinum", "<col=060000>", "<shad=FFFFF9>", 10);
 
     private String title;
     private String color;
