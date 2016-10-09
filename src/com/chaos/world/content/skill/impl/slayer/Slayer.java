@@ -280,19 +280,6 @@ public class Slayer {
             player.getSkillManager().addSkillExperience(Skill.SLAYER, player.getSlayer().getSlayerTask().getExperience(taskIndex));
         }
         this.amountLeft -= decrement;
-        if(this.amountLeft == 0) {
-            player.getSlayer().addSlayerStreak(1);
-            player.getPointsHandler().setSlayerPoints(this.getPointsToGive(), true);
-            player.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());
-            player.getDialog().sendDialog(new SlayerDialog(player, 8, null));
-            player.getSlayer().setSlayerMaster(null);
-            player.getSlayer().setSlayerTask(null);
-            player.getSlayer().setDuoSlayer(null);
-            player.getSlayer().setAmountLeft(0);
-        } else if(this.amountLeft == 10 || this.amountLeft == 25 || this.amountLeft == 50 || this.amountLeft == 100 || this.amountLeft == 200) {
-            player.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());
-            player.getPacketSender().sendMessage("You have "+this.amountLeft+" "+player.getSlayer().getTaskName()+"s left on your current Slayer Task.");
-        }
         if(this.getDuoSlayerName() != null) {
             Player partner = World.getPlayerByName(this.getDuoSlayerName());
             if(partner != null) {
@@ -306,6 +293,19 @@ public class Slayer {
                     }
                 }
             }
+        }
+        if(this.amountLeft == 0) {
+            player.getSlayer().addSlayerStreak(1);
+            player.getPointsHandler().setSlayerPoints(this.getPointsToGive(), true);
+            player.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());
+            player.getDialog().sendDialog(new SlayerDialog(player, 8, null));
+            player.getSlayer().setSlayerMaster(null);
+            player.getSlayer().setSlayerTask(null);
+            player.getSlayer().setDuoSlayer(null);
+            player.getSlayer().setAmountLeft(0);
+        } else if(this.amountLeft == 10 || this.amountLeft == 25 || this.amountLeft == 50 || this.amountLeft == 100 || this.amountLeft == 200) {
+            player.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());
+            player.getPacketSender().sendMessage("You have "+this.amountLeft+" "+player.getSlayer().getTaskName()+"s left on your current Slayer Task.");
         }
         PlayerPanel.refreshPanel(player);
     }

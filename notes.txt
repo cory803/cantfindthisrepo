@@ -8,6 +8,15 @@ Cyclops now drop defenders correctly.
 The dialog that shows the requirement for each slayer master now has the correct combat level requirement.
 Resetting your slayer task will now also reset your slayer streak.
 The get a slayer task achievement has been fixed.
+Divine sigil is now dropped by corporeal beast.
+Nex now drops the correct nex pieces.
+The experience rate that knights now get is 500x instead of 1000x.
+The doors at slayer tower have been removed.
+A anti-pkp farming system has been added.
+The well of execution now gives a 30% pkp boost instead of 2x.
+The amount of PKP you get per kill has been decreased.
+The prices of some items in the PKP shop have been increased.
+
 
 ~TODO~
 
