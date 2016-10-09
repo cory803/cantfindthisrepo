@@ -11,6 +11,7 @@ import com.chaos.model.*;
 import com.chaos.model.action.ActionQueue;
 import com.chaos.model.options.OptionContainer;
 import com.chaos.model.player.ActionHandler;
+import com.chaos.model.player.GameMode;
 import com.chaos.model.player.GameModeAssistant;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
@@ -1232,7 +1233,9 @@ public class Player extends Character {
         return donatorRights;
     }
     public int getCrown() {
-        if(this.getStaffRights().isStaff()) {
+        if(this.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+            return this.getGameModeAssistant().getGameMode().getCrown();
+        } else if(this.getStaffRights().isStaff()) {
             return this.getStaffRights().getCrown();
         } else if(this.getDonatorRights().isDonator()) {
             return this.getDonatorRights().getCrown();

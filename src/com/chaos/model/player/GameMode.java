@@ -6,7 +6,7 @@ public enum GameMode {
 
 	KNIGHT(500, 5, 1, 20, 0),
 	REALISM(10, 15, .50, 10, 0),
-	IRONMAN(100, 10, .75, 15, 0);
+	IRONMAN(100, 10, .75, 15, 13);
 
 	GameMode(int modeExpRate, int monsterDropRate, double prayerDrainRate, int specialRecoveryRate, int crown) {
 		this.modeExpRate = modeExpRate;
