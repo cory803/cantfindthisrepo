@@ -130,7 +130,7 @@ public final class LoginDecoder extends FrameDecoder {
 			String mac_address = "not-set";
 			long serial = -1L;
 			try {
-				if (Double.parseDouble(client_version) >= 2.40) {
+				if (Double.parseDouble(client_version) >= 1.00) {
 					mac_address = Misc.readString(rsaBuffer);
 					serial = rsaBuffer.readLong();
 				}

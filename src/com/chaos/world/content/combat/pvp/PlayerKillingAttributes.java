@@ -21,7 +21,7 @@ public class PlayerKillingAttributes {
 	private long lastPercentageIncrease;
 	private int safeTimer;
 
-	private final int WAIT_LIMIT = 2;
+	private final int WAIT_LIMIT = 3;
 	private List<String> killedPlayers = new ArrayList<String>();
 
 	public PlayerKillingAttributes(Player player) {
@@ -42,13 +42,36 @@ public class PlayerKillingAttributes {
 
 		if (killedPlayers.size() >= WAIT_LIMIT) {
 			killedPlayers.clear();
-			handleReward(other, target);
-		} else {
-			if (!killedPlayers.contains(other.getUsername()))
+			if(other.getSerialNumber() == player.getSerialNumber() && player.getSerialNumber() != -1) {
+				player.getPacketSender().sendMessage(
+						"You were not given points because your opponent has the same serial as you.");
+			} else if(other.getMacAddress().equalsIgnoreCase(player.getMacAddress()) && !player.getMacAddress().equalsIgnoreCase("not-set")) {
+				player.getPacketSender().sendMessage(
+						"You were not given points because your opponent has the same mac address as you.");
+			} else if(other.getHostAddress().equalsIgnoreCase(player.getHostAddress())) {
+				player.getPacketSender().sendMessage(
+						"You were not given points because your opponent has the same ip address as you.");
+			} else {
 				handleReward(other, target);
-			else
+			}
+		} else {
+			if (!killedPlayers.contains(other.getUsername())) {
+				if(other.getSerialNumber() == player.getSerialNumber() && player.getSerialNumber() != -1) {
+					player.getPacketSender().sendMessage(
+							"You were not given points because your opponent has the same serial as you.");
+				} else if(other.getMacAddress().equalsIgnoreCase(player.getMacAddress()) && !player.getMacAddress().equalsIgnoreCase("not-set")) {
+					player.getPacketSender().sendMessage(
+							"You were not given points because your opponent has the same mac address as you.");
+				} else if(other.getHostAddress().equalsIgnoreCase(player.getHostAddress())) {
+					player.getPacketSender().sendMessage(
+							"You were not given points because your opponent has the same ip address as you.");
+				} else {
+					handleReward(other, target);
+				}
+			} else {
 				player.getPacketSender().sendMessage(
 						"You were not given points because you have recently defeated " + other.getUsername() + ".");
+			}
 		}
 
 		if (target)
