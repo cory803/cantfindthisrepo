@@ -2,19 +2,19 @@ package com.chaos.world.content.skill.impl.thieving;
 
 public enum ThievingStall {
 
-    GENERAL_STALL(4876, 1, 4, StallRewards.GENERAL_STALL, 7, false),
-    CRAFTING_STALL(4874, 5, 9, StallRewards.CRAFTING_STALL, 7, false),
-    FOOD_STALL(4875, 15, 12, StallRewards.FOOD_STALL, 7, false),
-    SILK_STALL(2560, 20, 14, StallRewards.SILK_STALL, 5, false),
-    FUR_STALL(2563, 35, 22, StallRewards.FUR_STALL, 10, false),
-    VEGETABLE_STALL(4706, 45, 30, StallRewards.VEGETABLE_STALL, 180, true),
-    DONATOR_FISH_STALL(4705, 50, 32, StallRewards.DONATOR_FISH_STALL, 180, true),
-    SILVER_STALL(2565, 50, 36, StallRewards.SILVER_STALL, 30, false),
-    BAKERS_STALL(2561, 55, 39, StallRewards.BAKERS_STALL, 2, false),
-    SPICE_STALL(2564, 65, 42, StallRewards.SPICE_STALL, 80, false),
-    MAGIC_STALL(4877, 65, 42, StallRewards.MAGIC_STALL, 80, false),
-    GEM_STALL(2562, 75, 52, StallRewards.GEM_STALL, 80, false),
-    SCIMITAR_STALL(4878, 95, 65, StallRewards.SCIMITAR_STALL, 180, false);
+    BAKERS_STALL(2561, 55, 16, StallRewards.BAKERS_STALL, 2, false),
+    CRAFTING_STALL(4874, 5, 16, StallRewards.CRAFTING_STALL, 7, false),
+    FOOD_STALL(4875, 15, 16, StallRewards.FOOD_STALL, 7, false),
+    GENERAL_STALL(4876, 1, 16, StallRewards.GENERAL_STALL, 7, false),
+    SILK_STALL(2560, 20, 24, StallRewards.SILK_STALL, 5, false),
+    FUR_STALL(2563, 35, 36, StallRewards.FUR_STALL, 10, false),
+    SILVER_STALL(2565, 50, 54, StallRewards.SILVER_STALL, 30, false),
+    SPICE_STALL(2564, 65, 81, StallRewards.SPICE_STALL, 80, false),
+    MAGIC_STALL(4877, 65, 100, StallRewards.MAGIC_STALL, 80, false),
+    GEM_STALL(2562, 75, 160, StallRewards.GEM_STALL, 180, false),
+    VEGETABLE_STALL(4706, 45, 160, StallRewards.VEGETABLE_STALL, 180, true),
+    DONATOR_FISH_STALL(4705, 50, 200, StallRewards.DONATOR_FISH_STALL, 180, true),
+    SCIMITAR_STALL(4878, 95, 200, StallRewards.SCIMITAR_STALL, 180, false);
 
     private int objectId, requiredLevel, experience, respawnDelay;
     private StallRewards stallRewards;
