@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.chaos.GameServer;
 import com.chaos.GameSettings;
+import com.chaos.model.DonatorRights;
 import com.chaos.net.mysql.SQLCallback;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
@@ -113,6 +114,38 @@ public class AccountTools {
 								if (victim.getPassword() != null) {
 									staff.getPacketSender().sendMessage("The player " + victimUsername
 											+ "'s password has been changed to: " + newPassword + "");
+								}
+								if (GameSettings.MYSQL_PLAYER_SAVING)
+									PlayerSaving.saveGame(victim);
+								if (GameSettings.JSON_PLAYER_SAVING)
+									PlayerSaving.save(victim);
+							} else {
+								staff.getPacketSender().sendMessage("Player logged in!");
+							}
+						}
+					}
+
+					@Override
+					public void queryError(SQLException e) {
+						e.printStackTrace();
+					}
+				});
+		return victim;
+	}
+
+	public static Player setDonator(Player staff, String victimUsername, DonatorRights rights, Player victim) {
+		GameServer.getCharacterPool().executeQuery(
+				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
+					@Override
+					public void queryComplete(ResultSet rs) throws SQLException {
+						if (rs.next()) {
+							Player other = World.getPlayerByName(victimUsername);
+							if (other == null) {
+								String json = rs.getString("json");
+								PlayerLoading.decodeJson(victim, json);
+								victim.setDonatorRights(rights);
+								if (victim.getDonatorRights() != null) {
+									staff.getPacketSender().sendMessage("You have given the rank "+rights.getTitle()+" to "+victim.getUsername()+" while they were offline.");
 								}
 								if (GameSettings.MYSQL_PLAYER_SAVING)
 									PlayerSaving.saveGame(victim);

@@ -1,4 +1,4 @@
-package org.scripts.kotlin.content.commands.writenpc;
+package org.scripts.kotlin.content.commands;
 
 import com.chaos.model.StaffRights;
 import com.chaos.model.player.command.Command;
