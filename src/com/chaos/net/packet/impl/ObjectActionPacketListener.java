@@ -151,6 +151,16 @@ public class ObjectActionPacketListener implements PacketListener {
                             return;
                         }
                         switch (id) {
+                            //rune ess
+                            case 2491:
+                                if(player.getInteractingObject() != null) {
+                                    if (player.getSkillManager().getMaxLevel(Skill.MINING) <= 21) {
+                                        Mining.startMining(player, new GameObject(24444, player.getInteractingObject().getPosition()));
+                                    } else {
+                                        Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()));
+                                    }
+                                }
+                                break;
                             //corp lair
                             case 37929:
                                 player.performAnimation(new Animation(844));
