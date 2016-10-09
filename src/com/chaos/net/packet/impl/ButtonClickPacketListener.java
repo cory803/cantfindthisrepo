@@ -88,6 +88,9 @@ public class ButtonClickPacketListener implements PacketListener {
         }
 
         switch (id) {
+            case -320:
+                player.getPacketSender().sendInterfaceRemoval();
+                break;
             case 12464:
                 player.setRequestingAssistance(!player.isRequestAssistance());
                 if (player.isRequestAssistance()) {
@@ -194,8 +197,11 @@ public class ButtonClickPacketListener implements PacketListener {
             case -10415:
                 DropLog.open(player);
                 break;
-            case -10417:
-                KillsTracker.open(player);
+            case -30283:
+                KillsTracker.open(player, 0);
+                break;
+            case -30282:
+                KillsTracker.open(player, 1);
                 break;
             case -10465:
                 player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55200);

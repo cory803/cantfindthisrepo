@@ -22,12 +22,9 @@ public class KillsTracker {
 		} else {
 			player.getKillsTracker().add(kill);
 		}
-		if (player.isKillsTrackerOpen()) {
-			open(player);
-		}
 	}
 
-	public static void open(Player player) {
+	public static void open(Player player, int page) {
 		try {
 			/* RESORT THE KILLS */
 			Collections.sort(player.getKillsTracker(), new Comparator<KillsEntry>() {
@@ -58,28 +55,27 @@ public class KillsTracker {
 			/* SHOW THE INTERFACE */
 			player.setKillsTrackerOpen(true);
 			resetInterface(player);
-			player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55000);
-			player.getPacketSender().sendString(55020, "@or3@ - @whi@ Boss Kills");
-			int index = 1;
-			for (KillsEntry entry : player.getKillsTracker()) {
-				if (55020 + index >= 55064)
-					break;
-				if (entry.boss) {
-					player.getPacketSender().sendString(55020 + index,
-							"@or2@ " + entry.npcName + ": " + entry.amount + "");
+			player.getPacketSender().sendInterface(35250);
+			int index = 0;
+			if (page == 0) {
+				for (KillsEntry entry : player.getKillsTracker()) {
+					if (35261 + index >= 35311)
+						break;
+					if (!entry.boss) {
+						player.getPacketSender().sendString(35261 + index,
+								"@or2@ " + entry.npcName + ": " + entry.amount + "");
+						index++;
+					}
+				}
+			} else if (page == 1) {
+				for (KillsEntry entry : player.getKillsTracker()) {
+					if (!entry.boss)
+						continue;
+					if (35261 + index >= 35311)
+						break;
+					player.getPacketSender().sendString(35261 + index, "@or2@ " + entry.npcName + ": " + entry.amount + "");
 					index++;
 				}
-			}
-			index += 2;
-			player.getPacketSender().sendString(55020 + index, "@or3@ - @whi@ Other Kills");
-			index++;
-			for (KillsEntry entry : player.getKillsTracker()) {
-				if (entry.boss)
-					continue;
-				if (55020 + index >= 55064)
-					break;
-				player.getPacketSender().sendString(55020 + index, "@or2@ " + entry.npcName + ": " + entry.amount + "");
-				index++;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -87,7 +83,7 @@ public class KillsTracker {
 	}
 
 	public static void resetInterface(Player player) {
-		for (int i = 55020; i < 55064; i++) {
+		for (int i = 35261; i < 35311; i++) {
 			player.getPacketSender().sendString(i, "");
 		}
 	}

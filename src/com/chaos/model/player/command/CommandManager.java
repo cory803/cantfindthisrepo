@@ -496,6 +496,7 @@ public class CommandManager {
         commands.put("gfx", new PlayGFX(StaffRights.OWNER));
         commands.put("object", new SpawnObject(StaffRights.OWNER));
         commands.put("door", new SpawnDoor(StaffRights.OWNER));
+        commands.put("tracker", new KillsTracker(StaffRights.OWNER));
         commands.put("test", new Command(StaffRights.MANAGER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
