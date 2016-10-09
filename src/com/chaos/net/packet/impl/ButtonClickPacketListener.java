@@ -198,6 +198,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 DropLog.open(player);
                 break;
             case -30283:
+            case -10431:
                 KillsTracker.open(player, 0);
                 break;
             case -30282:
