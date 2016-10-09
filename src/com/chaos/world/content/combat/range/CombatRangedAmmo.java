@@ -13,9 +13,9 @@ public class CombatRangedAmmo {
 
 	public enum RangedWeaponData {
 
-		LONGBOW(new int[] { 839 }, new AmmunitionData[] { AmmunitionData.BRONZE_ARROW },
+		LONGBOW(new int[] { 839 }, new AmmunitionData[] { AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW },
 				RangedWeaponType.LONGBOW), SHORTBOW(new int[] { 841 },
-						new AmmunitionData[] { AmmunitionData.BRONZE_ARROW },
+						new AmmunitionData[] { AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW },
 						RangedWeaponType.SHORTBOW), OAK_LONGBOW(new int[] { 845 },
 								new AmmunitionData[] { AmmunitionData.BRONZE_ARROW, AmmunitionData.IRON_ARROW,
 										AmmunitionData.STEEL_ARROW },

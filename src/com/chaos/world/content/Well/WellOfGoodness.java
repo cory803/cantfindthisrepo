@@ -222,7 +222,7 @@ public class WellOfGoodness {
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Wealth has been filled!");
-                    World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus xp rates.");
+                    World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 10% extra drop rate.");
                     break;
                 case 2:
                     wellName = "Execution";

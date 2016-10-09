@@ -752,7 +752,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if (player.isShopping()) {
-				player.getShop().sellItem(player, slot, player.getInventory().forSlot(slot).getAmount());
+				player.getShop().sellItem(player, slot, player.getInventory().getAmount(player.getInventory().get(slot).getId()));
 				return;
 			}
 			break;
