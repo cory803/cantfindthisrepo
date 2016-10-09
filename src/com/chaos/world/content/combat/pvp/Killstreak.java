@@ -8,7 +8,7 @@ import com.chaos.world.entity.impl.player.Player;
 public class Killstreak {
 
 	public static void kill(Player player, Player other, int killstreak) {
-		int pkPoints = player.getWildernessLevel() + (player.getWildernessLevel() / 2) + Misc.random(60, 100);
+		int pkPoints = player.getWildernessLevel() + (player.getWildernessLevel() / 6) + Misc.random(40, 70);
 		int otherKillstreak = other.getPlayerKillingAttributes().getPlayerKillStreak();
 		if (otherKillstreak >= 10 && otherKillstreak < 25) {
 			pkPoints += 25;

@@ -718,10 +718,10 @@ public class Shop extends ItemContainer {
 				switch (item) {
 
 					case 14484:
-						return new Object[] { 5500, "Pk points" };
+						return new Object[] { 5750, "Pk points" };
 
 					case 11694:
-						return new Object[] { 5750, "Pk points" };
+						return new Object[] { 6500, "Pk points" };
 
 					case 11700:
 					case 11698:
@@ -729,7 +729,7 @@ public class Shop extends ItemContainer {
 						return new Object[] {3000, "Pk points" };
 
 					case 19780:
-						return new Object[] {6500, "Pk points" };
+						return new Object[] {6000, "Pk points" };
 
 					case 13920:
 						return new Object[] {1000, "Pk points" };
@@ -805,7 +805,7 @@ public class Shop extends ItemContainer {
 						return new Object[] {500, "Pk points" };
 
 					case 21140:
-						return new Object[] {750, "Pk points" };
+						return new Object[] {5000, "Pk points" };
 
 					case 15126:
 						return new Object[] {500, "Pk points" };
@@ -817,10 +817,10 @@ public class Shop extends ItemContainer {
 						return new Object[] {3250, "Pk points" };
 
 					case 12926:
-						return new Object[] {6500, "Pk points" };
+						return new Object[] {7500, "Pk points" };
 
 					case 21144:
-						return new Object[] {4000, "Pk points" };
+						return new Object[] {12000, "Pk points" };
 
 					case 21146:
 						return new Object[] {15, "Pk points" };
