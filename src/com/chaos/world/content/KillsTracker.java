@@ -63,7 +63,7 @@ public class KillsTracker {
 						break;
 					if (!entry.boss) {
 						player.getPacketSender().sendString(35261 + index,
-								"@or2@ " + entry.npcName + ": " + entry.amount + "");
+								"@whi@ " + entry.npcName + ": " + entry.amount + "");
 						index++;
 					}
 				}

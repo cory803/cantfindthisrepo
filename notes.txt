@@ -19,16 +19,18 @@ The prices of some items in the PKP shop have been increased.
 The imgur api on the screenshot button has been fixed.
 Bork no longer drops mass amounts of amulet of furys.
 The platinum donator crown has been fixed.
+The ironman crown is fixed.
 Tutorial is now finished
 David the skiller has upgraded:
 	Hunting Shop
 	Fishing Shop
 	Iron Man can now use david
-Thieving xp rates were adjusted
-A merchant was added to the training grounds near the thieving stalls
-Crystal Key Chest was place inside the edge bank
-A prayer altar has been added along the east wall against the general store
-Kill Tracker has been added and is a button inside the quest tab at the bottom
+Thieving xp rates were adjusted.
+A merchant was added to the training grounds near the thieving stalls.
+Crystal Key Chest was place inside the edge bank.
+A prayer altar has been added along the east wall against the general store.
+Kill Tracker has been added and is a button inside the quest tab at the bottom.
+The fight pits cave has been fixed (no longer shows weird blue colors).
 
 ~TODO~
 
