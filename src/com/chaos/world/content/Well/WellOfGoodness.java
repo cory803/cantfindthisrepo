@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class WellOfGoodness {
 
-    public static final int BONUSPKP = 2; //multiplier to pkp
+    public static final double BONUSPKP = 1.3; //multiplier to pkp
     public static final int BONUSDROPPERCENT = 3; //3% higher rolls
     public static final int BONUSEXPRATE = 30; //30% more xp
 
@@ -229,7 +229,7 @@ public class WellOfGoodness {
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
                     World.sendMessage("<img=4> <col=6666FF>The Well of Execution has been filled!");
-                    World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of bonus pk points.");
+                    World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% extra pk points.");
                     break;
             }
         }

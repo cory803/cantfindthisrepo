@@ -8,7 +8,7 @@ import com.chaos.world.entity.impl.player.Player;
 public class Killstreak {
 
 	public static void kill(Player player, Player other, int killstreak) {
-		int pkPoints = player.getWildernessLevel() + (player.getWildernessLevel() / 6) + Misc.random(40, 70);
+		double pkPoints = player.getWildernessLevel() + (player.getWildernessLevel() / 6) + Misc.random(40, 70);
 		int otherKillstreak = other.getPlayerKillingAttributes().getPlayerKillStreak();
 		if (otherKillstreak >= 10 && otherKillstreak < 25) {
 			pkPoints += 25;
@@ -64,9 +64,9 @@ public class Killstreak {
 			break;
 		}
 		if(WellOfGoodness.isActive("pkp")) {
-			pkPoints *= 2;
+			pkPoints *= WellOfGoodness.BONUSPKP;
 		}
-		player.getPointsHandler().setPkPoints(pkPoints, true);
+		player.getPointsHandler().setPkPoints((int) pkPoints, true);
 		player.getPacketSender().sendMessage("You've received " + pkPoints + " PK Points!");
 	}
 }
