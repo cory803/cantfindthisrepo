@@ -7,6 +7,7 @@ import com.chaos.model.Locations;
 import com.chaos.model.Position;
 import com.chaos.world.World;
 import com.chaos.world.content.transportation.TeleportHandler;
+import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -131,7 +132,11 @@ public class Kraken {
 			int tick = 0;
 			@Override
 			public void execute() {
-				if(tick == 3) {
+				int spawnTick = 3;
+				if(player.getSpellbook().getTeleportType() == TeleportType.ANCIENT) {
+					spawnTick = 4;
+				}
+				if(tick == spawnTick) {
 					whirlpool[0] = new NPC(496, new Position(3694, 5810, player.getPosition().getZ())).setSpawnedFor(player); //Boss
 					World.register(whirlpool[0]);
 					whirlpool[1] = new NPC(493, new Position(3700, 5809, player.getPosition().getZ())).setSpawnedFor(player);
