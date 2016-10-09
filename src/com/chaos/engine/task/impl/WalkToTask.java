@@ -88,6 +88,10 @@ public class WalkToTask {
 				if (Locations.goodDistance(player.getPosition().getX(), player.getPosition().getY(), destination.getX(),
 						destination.getY(), distance) || destination.equals(player.getPosition())) {
 					if(
+						(player.getPosition().getX() == 2552 && player.getPosition().getY() == 3549) ||
+						(player.getPosition().getX() == 2551 && player.getPosition().getY() == 3549) ||
+						(player.getPosition().getX() == 2550 && player.getPosition().getY() == 3549) ||
+						(player.getPosition().getX() == 3156 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3162 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3161 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3160 && player.getPosition().getY() == 3696) ||
