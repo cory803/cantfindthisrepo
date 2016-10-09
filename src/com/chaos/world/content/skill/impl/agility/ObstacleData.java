@@ -325,9 +325,6 @@ public enum ObstacleData {
 	ROPE_SWING(2282, true) {
 		@Override
 		public void cross(final Player player) {
-			if (player.getPosition().getY() < 3552) {
-				return;
-			}
 			Agility.resetProgress(player);
 			player.getPacketSender().sendMessage("You attempt to swing on the ropeswing..");
 			player.moveTo(new Position(2551, 3554));
