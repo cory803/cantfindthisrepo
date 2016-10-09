@@ -16,7 +16,7 @@ A anti-pkp farming system has been added.
 The well of execution now gives a 30% pkp boost instead of 2x.
 The amount of PKP you get per kill has been decreased.
 The prices of some items in the PKP shop have been increased.
-
+The imgur api on the screenshot button has been fixed.
 
 ~TODO~
 
