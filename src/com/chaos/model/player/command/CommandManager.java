@@ -102,8 +102,8 @@ public class CommandManager {
         commands.put("wiki", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendString(1, "http://wiki.rune.live");
-                player.getPacketSender().sendMessage("Attempting to open: www.rune.live/wiki/");
+                player.getPacketSender().sendString(1, "http://wiki.chaosps.com");
+                player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/wiki/");
             }
         });
         commands.put("discord", new Command(StaffRights.PLAYER) {
@@ -137,8 +137,8 @@ public class CommandManager {
                     player.getPacketSender().sendMessage("Voting is currently turned off, please try again in 30 minutes!");
                     return;
                 }
-                player.getPacketSender().sendString(1, "www.rune.live/vote/");
-                player.getPacketSender().sendMessage("Attempting to open: www.rune.live/vote/");
+                player.getPacketSender().sendString(1, "www.chaosps.com/vote/");
+                player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/vote/");
             }
         });
         commands.put("register", new Command(StaffRights.PLAYER) {
@@ -151,25 +151,18 @@ public class CommandManager {
         commands.put("help", new GetHelp(StaffRights.PLAYER));
         commands.put("dropselecteditems", new DropSelectedItems(StaffRights.PLAYER));
         commands.put("support", new GetHelp(StaffRights.PLAYER));
-        commands.put("register", new Command(StaffRights.PLAYER) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendString(1, "www.rune.live/forum/index.php?app=core&module=global&section=register");
-                player.getPacketSender().sendMessage("Attempting to open: www.rune.live/forum/index.php?app=core&module=global&section=register");
-            }
-        });
         commands.put("forum", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendString(1, "www.rune.live/forum/");
-                player.getPacketSender().sendMessage("Attempting to open: www.rune.live/forum/");
+                player.getPacketSender().sendString(1, "www.chaosps.com/forums/");
+                player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/forums/");
             }
         });
         commands.put("forums", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendString(1, "www.rune.live/forum/");
-                player.getPacketSender().sendMessage("Attempting to open: www.rune.live/forum/");
+                player.getPacketSender().sendString(1, "www.chaosps.com/forums/");
+                player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/forums/");
             }
         });
         commands.put("scores", new OpenHiscores(StaffRights.PLAYER));
@@ -182,7 +175,7 @@ public class CommandManager {
                     player.getPacketSender().sendMessage("Please use the command as ::thread-topic");
                     return;
                 }
-                player.getPacketSender().sendString(1, "www.rune.live/forum/index.php?/topic/" + args[0] + "-threadcommand/");
+                player.getPacketSender().sendString(1, "www.chaosps.com/forum/index.php?/topic/" + args[0] + "-threadcommand/");
                 player.getPacketSender().sendMessage("Attempting to open: Thread " + args[0]);
             }
         });
@@ -195,7 +188,7 @@ public class CommandManager {
         commands.put("teamspeak", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendMessage("Teamspeak address: ts3.rune.live");
+                player.getPacketSender().sendMessage("Teamspeak address: ts3.chaosps.com");
             }
         });
         commands.put("market", new TeleportMarket(StaffRights.PLAYER));
