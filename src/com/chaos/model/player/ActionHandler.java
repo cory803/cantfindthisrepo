@@ -72,6 +72,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //miner star dust
+            case 4756:
+                Shop.ShopManager.getShops().get(41).open(player);
+            break;
             //mercant
             case 1282:
                 player.getDialog().sendDialog(new Merchant(player));

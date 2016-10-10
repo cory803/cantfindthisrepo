@@ -13,6 +13,9 @@ The objects in the resource area go towards achievement
 You can now attack players in the resource area 
 You can now mine rune ess/pure ess depending on your mining level
 	- You can get to the ess mine talking to Aubry in varrock
+The message when exchanging agility tickets now tells you the correct xp
+Star dust shop
+
 ~TODO~
 
 Tanner:
