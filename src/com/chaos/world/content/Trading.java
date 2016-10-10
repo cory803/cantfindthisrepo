@@ -184,9 +184,6 @@ public class Trading {
 		}
 		if (!player.getInventory().contains(itemId))
 			return;
-		if (itemId == 868) {
-			System.out.println(player.getUsername() + " is trying to trade " + amount + " RuneKnives.");
-		}
 		if (slot >= player.getInventory().capacity() || player.getInventory().getItems()[slot].getId() != itemId
 				|| player.getInventory().getItems()[slot].getAmount() <= 0)
 			return;

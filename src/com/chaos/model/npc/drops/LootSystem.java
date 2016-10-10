@@ -258,12 +258,6 @@ public class LootSystem {
          */
         int rollReq = player.getGameModeAssistant().getMonsterDropRate();
 
-        /**
-         * Make it so donors have better drop rates.
-         */
-        rollReq += player.getDonatorRights().ordinal();
-
-
         int x = npc.getDefinition().getCombatLevel() - npc.getDefinition().getCombatLevel() % 225;
         rollReq += x / 225;
 
