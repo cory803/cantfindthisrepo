@@ -19,7 +19,7 @@ class OpenStore(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("The Store is currently turned off, please try again in 30 minutes!")
             return
         }
-        player.packetSender.sendString(1, "www.rune.live/store/")
-        player.packetSender.sendMessage("Attempting to open: www.rune.live/store/")
+        player.packetSender.sendString(1, "www.chaosps.com/store")
+        player.packetSender.sendMessage("Attempting to open: www.chaosps.com/store")
     }
 }
