@@ -12,6 +12,8 @@ import com.chaos.ect.dropwriting.DropManager;
 import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.FontUtils;
+import com.chaos.util.ItemListDumper;
+import com.chaos.util.NpcListDumper;
 import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
 import com.chaos.world.content.Well.WellOfGoodness;
@@ -83,9 +85,23 @@ public final class GameLoader {
 		PlayerOwnedShopManager.load();
 		NPC.init();
 		WellOfGoodness.init();
-		//WikiDumper.dumpNpcDefinitions();
-		//DropManager.saveDrops();
-		//WikiDumper.dumpNpcDropDefinition(6618);
+
+		/**
+		 * Dumps a list of item definitions into
+		 * lists/items.txt
+		 */
+		//ItemListDumper.dump();
+
+		/**
+		 * Dumps a list of npc definitions into
+		 * lists/npcs.txt
+		 */
+		//NpcListDumper.dump();
+
+		/**
+		 * Dump a drop table for a specific npc id.
+		 */
+		//WikiDumper.dumpNpcDropDefinition(50);
 		//DropManager.saveDrops();
 	}
 
