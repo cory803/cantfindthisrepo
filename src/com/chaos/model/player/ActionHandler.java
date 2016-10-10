@@ -25,6 +25,7 @@ import com.chaos.world.content.skill.impl.thieving.ThievingManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.Report;
 import org.scripts.kotlin.content.dialog.Rfd;
 import org.scripts.kotlin.content.dialog.healers.Healers;
 import org.scripts.kotlin.content.dialog.healers.HealersQuickOption;
@@ -227,6 +228,7 @@ public final class ActionHandler {
                         }
                     }
                 }
+                player.getDialog().sendDialog(new QueenRevenant(player));
                 break;
             case 4707: // bolt enchanter
                 Enchanting.update_interface(player);
