@@ -405,7 +405,7 @@ public class PrayerHandler {
 	 *            The player to start prayer drain for.
 	 */
 	private static void startDrain(final Player player) {
-		if (getDrain(player) <= 0 && !player.isDrainingPrayer())
+		if (getDrain(player) <= 0 && !player.isDrainingPrayer() || player.getEquipment().contains(4657))
 			return;
 		player.setDrainingPrayer(true);
 		TaskManager.submit(new Task(1, player, true) {
