@@ -2,6 +2,7 @@ package com.chaos.model.input.impl;
 
 import com.chaos.model.Skill;
 import com.chaos.model.input.EnterAmount;
+import com.chaos.util.Misc;
 import com.chaos.world.entity.impl.player.Player;
 
 public class BuyAgilityExperience extends EnterAmount {
@@ -30,7 +31,8 @@ public class BuyAgilityExperience extends EnterAmount {
 		int exp = ticketAmount * 4;
 		player.getInventory().delete(2996, ticketAmount);
 		player.getSkillManager().addSkillExperience(Skill.AGILITY, exp);
-		player.getPacketSender().sendMessage("You've bought " + exp + " Agility experience for " + ticketAmount
+		int expM = exp * player.getGameModeAssistant().getModeExpRate();
+		player.getPacketSender().sendMessage("You've bought " + expM + " Agility experience for " + ticketAmount
 				+ " Agility ticket" + (ticketAmount == 1 ? "" : "s") + ".");
 	}
 
