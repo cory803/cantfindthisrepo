@@ -946,6 +946,29 @@ public class Shop extends ItemContainer {
 					case 542:
 						return new Object[] { 10, "slayer points" };
 				}
+			} else if (shop == STARDUST_EXCHANGE_STORE) {
+				switch (item) {
+					case 6180:
+					case 6181:
+					case 6182:
+						return new Object[] {2500, "stardust"};
+					case 7409:
+						return new Object[] {3500, "stardust"};
+					case 20786:
+						return new Object[] {5000, "stardust"};
+					case 453:
+						return new Object[] {5, "stardust"};
+					case 9185:
+						return new Object[] {250, "stardust"};
+					case 20787:
+					case 20788:
+						return new Object[] {500, "stardust"};
+					case 20789:
+						return new Object[] {1000, "stardust"};
+					case 20791:
+					case 20790:
+						return new Object[] {2500, "stardust"};
+				}
 			}
 			return null;
 		}
