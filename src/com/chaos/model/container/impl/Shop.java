@@ -991,7 +991,7 @@ public class Shop extends ItemContainer {
 
 	private static final int TOKKUL_EXCHANGE_STORE = 17;
 
-	private static final int STARDUST_EXCHANGE_STORE = 18;
+	private static final int STARDUST_EXCHANGE_STORE = 41;
 
 	private static final int PKING_REWARDS_STORE = 21;
 	private static final int PKING_REWARDS_STORE2 = 22;
