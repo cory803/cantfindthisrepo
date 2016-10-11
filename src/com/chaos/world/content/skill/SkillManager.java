@@ -80,6 +80,9 @@ public class SkillManager {
 		if(WellOfGoodness.isActive("exp")) {
 			experience *= 1.3;
 		}
+		if (player.getEquipment().contains(4657)) {
+			experience *= 2;
+		}
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);
 	}
