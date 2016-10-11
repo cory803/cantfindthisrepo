@@ -14,6 +14,7 @@ Agility tickets have been converted to 'Marks of grace' which on OSRS is obtaine
 	You can now make money from agility by selling your marks of grace to players.
 The experience you get from agility has been doubled.
 2 extra fishing spots have been added to catherby fishing.
+When staff members use punishment commands it now correctly closes the dialogue.
 
 ~TODO~
 

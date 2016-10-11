@@ -66,6 +66,7 @@ class Mute(staffRights: StaffRights) : Command(staffRights) {
      * Process our mute
      */
     private fun mutePlayer(player: Player, victim: String, time: Long) {
+        player.packetSender.sendInterfaceRemoval()
         val v = World.getPlayerByName(victim)
         if (v == null) {
             PlayerSaving.accountExists(victim) { rs ->

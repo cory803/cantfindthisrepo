@@ -65,6 +65,7 @@ class BanVoting(staffRights: StaffRights) : Command(staffRights) {
     }
 
     private fun handleVoteBan(player: Player, victim: String, time: Long?) {
+        player.packetSender.sendInterfaceRemoval()
         PlayerSaving.accountExists(victim) { rs ->
             if (rs.next()) {
                 if (PlayerPunishment.isVoteBanned(victim)) {

@@ -65,6 +65,7 @@ class Ban(staffRights: StaffRights) : Command(staffRights) {
     }
 
     private fun handleBan(player: Player, victim: String, time: Long?) {
+        player.packetSender.sendInterfaceRemoval()
         PlayerSaving.accountExists(victim) { rs ->
             if (rs.next()) {
                 if (PlayerPunishment.isPlayerBanned(victim)) {

@@ -64,6 +64,7 @@ class MassBan(staffRights: StaffRights) : Command(staffRights) {
     }
 
     private fun handleMassBan(player: Player, victim: String, time: Long?) {
+        player.packetSender.sendInterfaceRemoval()
         PlayerSaving.accountExists(victim) { rs ->
             if (rs.next()) {
                 val v = World.getPlayerByName(victim)

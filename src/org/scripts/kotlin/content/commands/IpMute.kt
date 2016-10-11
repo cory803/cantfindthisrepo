@@ -64,6 +64,7 @@ class IpMute(staffRights: StaffRights) : Command(staffRights) {
     }
 
     private fun handleMute(player: Player, victim: String, time: Long?) {
+        player.packetSender.sendInterfaceRemoval()
         val p = World.getPlayerByName(victim)
         if (p == null) {
             player.packetSender.sendMessage("That player is not online.")

@@ -26,7 +26,7 @@ public class BuyAgilityExperience extends EnterAmount {
 		if (player.getInventory().getAmount(11849) < ticketAmount) {
 			return;
 		}
-		
+
 		int exp = ticketAmount * 8;
 		player.getInventory().delete(11849, ticketAmount);
 		player.getSkillManager().addSkillExperience(Skill.AGILITY, exp);
