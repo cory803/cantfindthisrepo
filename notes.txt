@@ -6,6 +6,10 @@ The amount of experience you get from lunge now divides correctly.
 You now get the correct amount of prayer experience that you get from using a bone on an altar has been fixed.
 The required magic level to cast wind bolt has been fixed from 75 to 17.
 Void Knight Rewards shop has been created
+The gnome agility course and the barbarian agility course has been swapped around in the skilling teleports.
+The barbarian agility course now requires level 35 agility to teleport to it.
+The chance of getting a skill pet has been removed until we re-add the working skilling pets.
+Frost dragons have been added to the frost dragon ezone teleport.
 
 ~TODO~
 
