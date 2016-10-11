@@ -14,26 +14,25 @@ public class BuyAgilityExperience extends EnterAmount {
 			amount = Integer.MAX_VALUE;
 		}
 		player.getPacketSender().sendInterfaceRemoval();
-		int ticketAmount = player.getInventory().getAmount(2996);
+		int ticketAmount = player.getInventory().getAmount(11849);
 		if (ticketAmount == 0) {
-			player.getPacketSender().sendMessage("You do not have any tickets.");
+			player.getPacketSender().sendMessage("You do not have any marks of grace.");
 			return;
 		}
 		if (ticketAmount > amount) {
 			ticketAmount = amount;
 		}
 
-		if (player.getInventory().getAmount(2996) < ticketAmount) {
+		if (player.getInventory().getAmount(11849) < ticketAmount) {
 			return;
 		}
-
-		//TODO: Redo agility ticket rewards
-		int exp = ticketAmount * 4;
-		player.getInventory().delete(2996, ticketAmount);
+		
+		int exp = ticketAmount * 8;
+		player.getInventory().delete(11849, ticketAmount);
 		player.getSkillManager().addSkillExperience(Skill.AGILITY, exp);
 		int expM = exp * player.getGameModeAssistant().getModeExpRate();
 		player.getPacketSender().sendMessage("You've bought " + expM + " Agility experience for " + ticketAmount
-				+ " Agility ticket" + (ticketAmount == 1 ? "" : "s") + ".");
+				+ " Mark"+(ticketAmount == 1 ? "" : "s") + " of grace.");
 	}
 
 }
