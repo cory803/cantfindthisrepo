@@ -1371,6 +1371,9 @@ public final class CombatFactory {
                 for (int i : container.getExperience()) {
                     Skill skill = Skill.forId(i);
                     int exp = (int) (damage * .4);
+                    if(container.getExperience().length > 1) {
+                        exp = exp / 3;
+                    }
                     player.getSkillManager().addSkillExperience(skill, exp);
                 }
             }

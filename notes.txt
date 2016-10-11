@@ -2,20 +2,7 @@ Any updates that are completed put into this file.
 Make sure you format them as you would want to see them publicly.
 
 ~UPDATES~
-Teleporting to kraken and your whirlpools not spawning has been fixed
-Right clicking and selecting an option and it opening the wrong option has been fixed
-The bug where 'Sell all' in the stores would only sell 1 item has been fixed
-The forum button on the client nav bar has been fixed
-All broken spiritual mages have been removed from the game
-Spiritual mages have been added to the saradomin godwars boss teleport
-You can now use iron arrows with regular shortbows/longbows
-The objects in the resource area go towards achievement
-You can now attack players in the resource area 
-You can now mine rune ess/pure ess depending on your mining level
-	- You can get to the ess mine talking to Aubry in varrock
-The message when exchanging agility tickets now tells you the correct xp
-Star dust shop has been added
-Iron Man can sell items to the general store, but not buy them
+The amount of experience you get from lunge now divides correctly.
 
 ~TODO~
 
