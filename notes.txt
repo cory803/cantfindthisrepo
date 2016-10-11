@@ -13,6 +13,7 @@ Frost dragons have been added to the frost dragon ezone teleport.
 Agility tickets have been converted to 'Marks of grace' which on OSRS is obtained in order to get graceful agility pieces.
 	You can now make money from agility by selling your marks of grace to players.
 The experience you get from agility has been doubled.
+2 extra fishing spots have been added to catherby fishing.
 
 ~TODO~
 
