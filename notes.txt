@@ -15,6 +15,8 @@ Agility tickets have been converted to 'Marks of grace' which on OSRS is obtaine
 The experience you get from agility has been doubled.
 2 extra fishing spots have been added to catherby fishing.
 When staff members use punishment commands it now correctly closes the dialogue.
+When pickpocketing it no longer shows the message that the npc is not your familiar.
+Thieving now deals damage when being stunned.
 
 ~TODO~
 

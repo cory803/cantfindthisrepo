@@ -2,10 +2,7 @@ package com.chaos.world.content.skill.impl.thieving;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.Animation;
-import com.chaos.model.Graphic;
-import com.chaos.model.Item;
-import com.chaos.model.Skill;
+import com.chaos.model.*;
 import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.entity.impl.player.Player;
@@ -117,6 +114,7 @@ public class ThievingManager {
                             player.getPacketSender().sendMessage("You have been stunned.");
                             player.performGraphic(new Graphic(80));
                             player.performAnimation(new Animation(65535));
+                            player.dealDamage(null, new Hit(Misc.random(10, 50), Hitmask.LIGHT_YELLOW, CombatIcon.NONE));
                             failed = true;
                         } else {
                             player.getSkillManager().addSkillExperience(Skill.THIEVING, data.getXP());

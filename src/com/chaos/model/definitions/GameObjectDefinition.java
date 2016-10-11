@@ -599,11 +599,17 @@ public final class GameObjectDefinition {
 				return 2;
 			case 28121:
 				return 2;
+			//case 14584:
+				//return 2;
 		}
 		return tileSizeX;
 	}
 
 	public int getSizeY() {
+		switch(id) {
+			//case 14584:
+				//return 2;
+		}
 		return tileSizeY;
 	}
 
