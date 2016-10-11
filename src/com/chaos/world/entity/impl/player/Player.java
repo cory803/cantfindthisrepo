@@ -500,6 +500,12 @@ public class Player extends Character {
         player.getWalkingQueue().addClippedStep(player.getPosition().getX() + offsetX, player.getPosition().getY() + offsetY);
     }
 
+    public void getVoidShop() {
+        getPacketSender().sendInterface(18730);
+        getPacketSender().sendString(18729,
+                "Commendations: " + Integer.toString(getPointsHandler().getCommendations()));
+    }
+
 	/*
 	 * Fields
 	 */

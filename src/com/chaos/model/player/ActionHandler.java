@@ -241,9 +241,7 @@ public final class ActionHandler {
                 EnergyHandler.rest(player);
                 break;
             case 3789:
-                player.getPacketSender().sendInterface(18730);
-                player.getPacketSender().sendString(18729,
-                        "Commendations: " + Integer.toString(player.getPointsHandler().getCommendations()));
+                player.getDialog().sendDialog(new VoidKnight(player));
                 break;
             case 6055:
             case 6056:
@@ -329,6 +327,10 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //void knight shop
+            case 3789:
+                player.getVoidShop();
+                break;
             //mercant
             case 1282:
                 Shop.ShopManager.getShops().get(0).open(player);

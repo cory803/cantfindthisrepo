@@ -770,7 +770,7 @@ public class ButtonClickPacketListener implements PacketListener {
                     player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
                     return;
                 }
-                player.forceChat("[CHAOS] I have played for: " + Misc.getMinutesPlayed(player) + ".");
+                player.forceChat("[CHAOS] I have played for: " + Misc.getMinutesPlayed(player) + " minutes.");
                 player.getQuickChat().reset();
                 break;
             case -10458:
