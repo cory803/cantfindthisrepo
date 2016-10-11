@@ -326,12 +326,12 @@ public class Hunter {
 								client.getInventory().add(10033, 1);
 								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[6]);
 								client.getPacketSender().sendMessage("You've succesfully caught a chinchompa!");
-								rollPet(client);
+								//rollPet(client);
 							} else if (theTrap.getGameObject().getId() == 19189) {
 								client.getInventory().add(10034, 1);
 								client.getSkillManager().addSkillExperience(Skill.HUNTER, exps[7]);
 								client.getPacketSender().sendMessage("You've succesfully caught a red chinchompa!");
-								rollPet(client);
+								//rollPet(client);
 							}
 						}
 						deregister(theTrap);

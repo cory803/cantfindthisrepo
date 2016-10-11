@@ -140,7 +140,7 @@ public class Mining {
 									} else {
 										player.getPacketSender().sendMessage("You mine some ore.");
 									}
-									rollPet(player);
+									//rollPet(player);
 									Sounds.sendSound(player, Sound.MINE_ITEM);
 									cycle = 0;
 									this.stop();

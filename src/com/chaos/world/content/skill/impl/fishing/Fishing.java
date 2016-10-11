@@ -200,7 +200,7 @@ public class Fishing {
 						def = def.substring(0, def.length() - 1);
 					p.getPacketSender().sendMessage(
 							"You catch " + Misc.anOrA(def) + " " + def.toLowerCase().replace("_", " ") + ".");
-					rollPet(p);
+					//rollPet(p);
 					if (s.getBait() != -1)
 						p.getInventory().delete(s.getBait(), 1);
 //					if (p.getLocation() == Locations.Location.WILDERNESS) {

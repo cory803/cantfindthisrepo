@@ -82,7 +82,7 @@ public class Woodcutting {
 									player.getSkillManager().addSkillExperience(Skill.WOODCUTTING, xp);
 									cycle = 0;
 									BirdNests.dropNest(player);
-									rollPet(player);
+									//rollPet(player);
 									this.stop();
 									if (object.getId() == 11434) {
 										if (EvilTrees.SPAWNED_TREE == null || EvilTrees.SPAWNED_TREE.getTreeObject()
@@ -100,11 +100,11 @@ public class Woodcutting {
 										treeRespawn(player, object);
 										player.getPacketSender().sendMessage("You've chopped the tree down.");
 										player.performAnimation(new Animation(65535));
-										rollPet(player);
+										//rollPet(player);
 									} else {
 										cutWood(player, object, true);
 										player.getPacketSender().sendMessage("You get some logs..");
-										rollPet(player);
+										//rollPet(player);
 									}
 									Sounds.sendSound(player, Sound.WOODCUT);
 									if(infernalAxe(player)) {
