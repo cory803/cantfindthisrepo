@@ -530,7 +530,7 @@ public enum CombatSpells {
 
 		@Override
 		public int levelRequired() {
-			return 75;
+			return 17;
 		}
 
 		@Override

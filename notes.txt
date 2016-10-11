@@ -3,6 +3,8 @@ Make sure you format them as you would want to see them publicly.
 
 ~UPDATES~
 The amount of experience you get from lunge now divides correctly.
+You now get the correct amount of prayer experience that you get from using a bone on an altar has been fixed.
+The required magic level to cast wind bolt has been fixed from 75 to 17.
 
 ~TODO~
 
