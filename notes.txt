@@ -10,6 +10,9 @@ The gnome agility course and the barbarian agility course has been swapped aroun
 The barbarian agility course now requires level 35 agility to teleport to it.
 The chance of getting a skill pet has been removed until we re-add the working skilling pets.
 Frost dragons have been added to the frost dragon ezone teleport.
+Agility tickets have been converted to 'Marks of grace' which on OSRS is obtained in order to get graceful agility pieces.
+	You can now make money from agility by selling your marks of grace to players.
+The experience you get from agility has been doubled.
 
 ~TODO~
 
