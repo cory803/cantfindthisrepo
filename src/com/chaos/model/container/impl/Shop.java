@@ -213,7 +213,7 @@ public class Shop extends ItemContainer {
 			return;
 		}
 		if (id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3
-//				id == DONATOR_STORE || id == DONATOR_STORE_MISC
+				|| id == DONATOR_STORE || id == DONATOR_STORE_MISC
 				) {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
@@ -970,6 +970,78 @@ public class Shop extends ItemContainer {
 					case 20790:
 						return new Object[] {2500, "stardust"};
 				}
+			} else if (shop == DONATOR_STORE || shop == DONATOR_STORE_MISC) {
+				switch (item) {
+//					case 21109:
+//						return new Object[] {100, "Donator points"};
+					case 4084: // sled
+					case 1053:
+					case 1055:
+					case 1057:
+					case 5607: // grain
+					case 6082: //fixed device
+					case 5608: //fox
+						return new Object[] {75, "Donator points"};
+					case 1419:
+					case 1037:
+					case 9924: //skele body
+					case 9920: //jack latern mask
+					case 1050:
+						return new Object[] {60, "Donator points"};
+					case 1038:
+					case 1040:
+					case 1042:
+					case 1044:
+					case 1046:
+					case 1048:
+					case 9923: //skele legs
+					case 9925: //skele mask
+						return new Object[] {50, "Donator points"};
+					case 19780:
+						return new Object[] {45, "Donator points"};
+					case 15352: //skele cloack
+					case 11694:
+					case 14484:
+						return new Object[] {40, "Donator points"};
+					case 20171:
+					case 9921: //skele boots
+					case 9922: //skele gloves
+						return new Object[] {25, "Donator points"};
+					case 13899:
+					case 13902:
+					case 11698:
+					case 11700:
+					case 11696:
+					case 11283:
+						return new Object[] {5, "Donator points"};
+					case 6199:
+					case 15220:
+					case 15020:
+					case 15019:
+					case 15018:
+					case 19111:
+					case 11235:
+					case 10551:
+					case 10548:
+					case 10547:
+					case 11730:
+					case 2572: //ring of wealth
+					case 15126: // amulet of range
+						return new Object[] {4, "Donator points"};
+					case 4151:
+					case 6570:
+					case 2577: //robin boots
+					case 2581: //robin hat
+						return new Object[] {3, "Donator points"};
+					case 15241: //hc
+					case 11732:
+					case 6585:
+						return new Object[] {2, "Donator points"};
+					case 6737:
+					case 6731:
+					case 6733:
+						return new Object[] {1, "Donator points"};
+				}
 			}
 			return null;
 		}
@@ -1025,6 +1097,9 @@ public class Shop extends ItemContainer {
 	private static final int IRON_VOTING_REWARDS_STORE = 25;
 
 	private static final int AGILITY_TICKET_STORE = 28;
+
+	private static final int DONATOR_STORE = 42;
+	private static final int DONATOR_STORE_MISC = 43;
 
 
 }
