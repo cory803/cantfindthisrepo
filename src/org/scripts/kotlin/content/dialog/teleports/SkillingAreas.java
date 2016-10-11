@@ -78,22 +78,27 @@ public class SkillingAreas extends Dialog {
                 });
             case 2:
                 return Dialog.createOption(new FourOption(
-                        "Barbarian Course",
                         "Gnome Agility Course",
+                        "Barbarian Course",
                         "Wilderness Course (@red@Wild@bla@)",
                         "Cancel") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_4:
-                                TeleportHandler.teleportPlayer(player, new Position(2552, 3556, 0), player.getSpellbook().getTeleportType());
-                                break;
-                            case OPTION_2_OF_4:
                                 TeleportHandler.teleportPlayer(player, new Position(2474, 3438, 0), player.getSpellbook().getTeleportType());
                                 break;
+                            case OPTION_2_OF_4:
+                                if(player.getSkillManager().getMaxLevel(Skill.AGILITY) < 35) {
+                                    player.getPacketSender().sendInterfaceRemoval();
+                                    player.getPacketSender().sendMessage("You need an Agility level of at least level 35 to use this course.");
+                                    return;
+                                }
+                                TeleportHandler.teleportPlayer(player, new Position(2552, 3556, 0), player.getSpellbook().getTeleportType());
+                                break;
                             case OPTION_3_OF_4:
-                                player.getPacketSender().sendInterfaceRemoval();
                                 if(player.getSkillManager().getMaxLevel(Skill.AGILITY) < 55) {
+                                    player.getPacketSender().sendInterfaceRemoval();
                                     player.getPacketSender().sendMessage("You need an Agility level of at least level 55 to use this course.");
                                     return;
                                 }
