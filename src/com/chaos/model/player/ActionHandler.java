@@ -442,6 +442,7 @@ public final class ActionHandler {
             case 1308:
             case 1314:
                 ThievingManager.initMobData(player, ThievingManager.forMobData(npc.getId()));
+                break;
             case 6874:
             case 6873:
                 if (player.getSummoning().getFamiliar() == null

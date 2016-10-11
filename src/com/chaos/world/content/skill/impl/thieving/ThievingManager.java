@@ -95,7 +95,10 @@ public class ThievingManager {
             if (player.busy()) {
                 return;
             }
-
+            if ((System.currentTimeMillis() - player.lastThieve) < 1500) {
+                return;
+            }
+            player.lastThieve = System.currentTimeMillis();
             TaskManager.submit(new Task() {
 
                 int cycle = 0;
