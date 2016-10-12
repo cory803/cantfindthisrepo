@@ -245,6 +245,7 @@ public final class GameObjectDefinition {
 		object.id = id;
 		object.nullLoader();
 		try {
+			System.out.println("Checking OSRS object "+id);
 			object.readValues(dataBufferOsrs);
 		} catch (Exception e) {
 			e.printStackTrace();
