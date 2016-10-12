@@ -20,6 +20,10 @@ Thieving now deals damage when being stunned.
 Play time quick chat is now correct
 Player Panel has been updated
 Timed message about how many players are in the wild is now located on the player panel
+Resource Area safe spots have been patched
+Red Vine Worms have been removed and replaced with Living Minerals
+The star dust shop has been updated
+Debugger for finding a common problem with nulled accounts
 
 
 ~TODO~
