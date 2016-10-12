@@ -757,7 +757,7 @@ public class ButtonClickPacketListener implements PacketListener {
             case 3803:
                 player.setFightType(FightType.MACE_BLOCK);
                 break;
-            case -10460:
+            case -10459:
                 if (!player.getQuickChat().elapsed(5000)) {
                     player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
                     return;
@@ -765,7 +765,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.forceChat("[CHAOS] My title is: None.");
                 player.getQuickChat().reset();
                 break;
-            case -10459:
+            case -10458:
                 if (!player.getQuickChat().elapsed(5000)) {
                     player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
                     return;
@@ -773,20 +773,12 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.forceChat("[CHAOS] I have played for: " + Misc.getMinutesPlayed(player) + " minutes.");
                 player.getQuickChat().reset();
                 break;
-            case -10458:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
-                    return;
-                }
-                player.forceChat("[CHAOS] My game mode is: "+player.getGameModeAssistant().getModeName()+".");
-                player.getQuickChat().reset();
-                break;
             case -10457:
                 if (!player.getQuickChat().elapsed(5000)) {
                     player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
                     return;
                 }
-                player.forceChat("[CHAOS] My rank mode is: "+player.getStaffRights().getTitle()+".");
+                player.forceChat("[CHAOS] My game mode is: "+player.getGameModeAssistant().getModeName()+".");
                 player.getQuickChat().reset();
                 break;
             case -10456:

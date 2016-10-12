@@ -336,16 +336,10 @@ public class ServerTimeUpdateTask extends Task {
 			}
 
 		}
-		if (tick >= 6 && (Locations.PLAYERS_IN_WILD >= 3 || Locations.PLAYERS_IN_DUEL_ARENA >= 3
-				|| PestControl.TOTAL_PLAYERS >= 3)) {
-			if (Locations.PLAYERS_IN_WILD > Locations.PLAYERS_IN_DUEL_ARENA
-					&& Locations.PLAYERS_IN_WILD > PestControl.TOTAL_PLAYERS
-					|| Misc.getRandom(3) == 1 && Locations.PLAYERS_IN_WILD >= 2) {
-				World.sendMessage("<icon=2><shad=ff0000>There are currently " + Locations.PLAYERS_IN_WILD
-						+ " players roaming the Wilderness!");
-			}
-			tick = 0;
-		}
-		tick++;
+//		if (tick >= 6 && Locations.PLAYERS_IN_DUEL_ARENA >= 3 || PestControl.TOTAL_PLAYERS >= 3)) {
+//
+//			tick = 0;
+//		}
+//		tick++;
 	}
 }

@@ -17,6 +17,10 @@ The experience you get from agility has been doubled.
 When staff members use punishment commands it now correctly closes the dialogue.
 When pickpocketing it no longer shows the message that the npc is not your familiar.
 Thieving now deals damage when being stunned.
+Play time quick chat is now correct
+Player Panel has been updated
+Timed message about how many players are in the wild is now located on the player panel
+
 
 ~TODO~
 
