@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.chaos.world.content.PlayerDebugging;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.channel.ChannelStateEvent;
 import org.jboss.netty.channel.ExceptionEvent;
@@ -71,6 +72,11 @@ public class ChannelHandler extends IdleStateAwareChannelUpstreamHandler {
 
 	@Override
 	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
+		if(player == null) {
+			PlayerDebugging.log("channelClosed", "Variable player null on channel close");
+		} else {
+			PlayerDebugging.log("channelClosed", "Player: "+player.getUsername()+", Session state: "+player.getSession().getState()+", Is in logout queue: "+World.getLogoutQueue().contains(player));
+		}
 		if (player != null) {
 			if (player.getSession().getState() != SessionState.LOGGED_OUT) {
 				if (!World.getLogoutQueue().contains(player)) {
@@ -80,5 +86,4 @@ public class ChannelHandler extends IdleStateAwareChannelUpstreamHandler {
 			}
 		}
 	}
-
 }
