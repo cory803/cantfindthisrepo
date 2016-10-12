@@ -30,6 +30,149 @@ public final class GameObjectDefinition {
 		}
 		return false;
 	}
+
+	private static final int[] osrsObjects = {
+			//Cerberus
+			21772,
+
+			//Kraken
+			316,
+			324,
+			536,
+			538,
+			655,
+			816,
+			1457,
+			1459,
+			1460,
+			2745,
+			4909,
+			5456,
+			5587,
+			12299,
+			14390,
+			14456,
+			14457,
+			14459,
+			14460,
+			14468,
+			26529,
+			26530,
+			26534,
+			26552,
+			26555,
+
+			//Resource area (wilderness)
+			10627,
+			14437,
+			14438,
+			14461,
+			14464,
+			14465,
+			14466,
+			14467,
+			14468,
+			14471,
+			14497,
+			14498,
+			14499,
+			14665,
+			14677,
+			14678,
+			14679,
+			14684,
+			14691,
+			179,
+			197,
+			332,
+			333,
+			334,
+			706,
+			733,
+			909,
+			1287,
+			1288,
+			1643,
+			1753,
+			1761,
+			1791,
+			1815,
+			2097,
+			2741,
+			2742,
+			2743,
+			2745,
+			2759,
+			2767,
+			7389,
+			7455,
+			7459,
+			7489,
+			7491,
+			7493,
+			11726,
+			11735,
+			11852,
+			14389,
+			14416,
+			14417,
+			14418,
+			14419,
+			14420,
+			14421,
+			14422,
+			14423,
+			14424,
+			14425,
+			14426,
+			14427,
+			14455,
+			14470,
+			14500,
+			14501,
+			14502,
+			14508,
+			14509,
+			14510,
+			14511,
+			14526,
+			14578,
+			14584,
+			14605,
+			14703,
+			14704,
+			14705,
+			14707,
+			14708,
+			14714,
+			14723,
+			14724,
+			14725,
+			14726,
+			14729,
+			14730,
+			14738,
+			16390,
+			16443,
+			16490,
+			16553,
+			16554,
+			26185,
+			26300,
+			26759,
+			26760,
+			29056,
+			14666,
+			14673,
+			14675,
+			14676,
+			14680,
+			14685,
+
+			//Chaos fanatic
+			26765,
+	};
+
 /*
 	public static boolean removedObject(int id) {
 		return id == 2956 || id == 463 || id == 462 || id == 25026 || id == 25020 || id == 25019 || id == 25024
@@ -79,10 +222,51 @@ public final class GameObjectDefinition {
 		}
 		return object;
 	}
+
+	private static GameObjectDefinition forIdOsrs(int id) {
+		if (id > totalObjectsOsrs || id > streamIndicesOsrs.length - 1) {
+			id = 0;
+		}
+		for (int j = 0; j < 20; j++) {
+			if (cache[j].id == id) {
+				return cache[j];
+			}
+		}
+		cacheIndex = (cacheIndex + 1) % 20;
+		GameObjectDefinition object = cache[cacheIndex];
+		/* Removing objects etc */
+		for (int ids = 0; ids < removeObjects.length; ids++) {
+			if (id == removeObjects[ids]) {
+				object.unwalkable = false;
+				return object;
+			}
+		}
+		dataBufferOsrs.position(streamIndicesOsrs[id]);
+		object.id = id;
+		object.nullLoader();
+		try {
+			object.readValues(dataBufferOsrs);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return object;
+	}
+
 	private static final int[] removeObjects = {5126, 10527, 10529, 12988, 12989, 12987, 15514, 15516, 12986, 28122, 23987, 4651, 4565, 52843, 23897, 23633, 307, 8985, 57264, 23983, 632, 4656,
 			24265, 24271, 24272, 24274, 24273, 24275, 24266, 24267, 24268, 24269, 24270, 55349, 2309};
 
 	public static GameObjectDefinition forId(int i) {
+
+		boolean oldschoolObjects = false;
+		for (int is = 0; is < osrsObjects.length; is++) {
+			if(osrsObjects[is] == i) {
+				oldschoolObjects = true;
+			}
+		}
+		if(oldschoolObjects) {
+			return forIdOsrs(i);
+		}
+
 		if (i > streamIndices525.length) {
 			return forId667(i);
 		}
@@ -180,8 +364,10 @@ public final class GameObjectDefinition {
 
 	private static ByteBuffer dataBuffer525;
 	private static ByteBuffer dataBuffer667;
+	private static ByteBuffer dataBufferOsrs;
 
 	public static int totalObjects667;
+	public static int totalObjectsOsrs;
 
 	public static void init() {
 		dataBuffer525 = ByteBuffer.wrap(getBuffer("loc.dat"));
@@ -190,8 +376,12 @@ public final class GameObjectDefinition {
 		dataBuffer667 = ByteBuffer.wrap(getBuffer("667loc.dat"));
 		ByteBuffer idxBuffer667 = ByteBuffer.wrap(getBuffer("667loc.idx"));
 
+		dataBufferOsrs = ByteBuffer.wrap(getBuffer("osrsloc.dat"));
+		ByteBuffer idxBufferOsrs = ByteBuffer.wrap(getBuffer("osrsloc.idx"));
+
 		int totalObjects525 = idxBuffer525.getShort() & 0xFFFF;
 		totalObjects667 = idxBuffer667.getShort() & 0xFFFF;
+		totalObjectsOsrs = idxBufferOsrs.getShort() & 0xFFFF;
 
 		streamIndices525 = new int[totalObjects525];
 		int i = 2;
@@ -206,6 +396,14 @@ public final class GameObjectDefinition {
 		for (int j = 0; j < totalObjects667; j++) {
 			streamIndices667[j] = i;
 			i += idxBuffer667.getShort() & 0xFFFF;
+		}
+
+		streamIndicesOsrs = new int[totalObjectsOsrs];
+
+		i = 2;
+		for (int j = 0; j < totalObjectsOsrs; j++) {
+			streamIndicesOsrs[j] = i;
+			i += idxBufferOsrs.getShort() & 0xFFFF;
 		}
 
 		cache = new GameObjectDefinition[20];
@@ -559,6 +757,7 @@ public final class GameObjectDefinition {
 	public int id;
 	public static int[] streamIndices525;
 	public static int[] streamIndices667;
+	public static int[] streamIndicesOsrs;
 	public boolean impenetrable;
 	public int anInt758;
 	public int childrenIDs[];
