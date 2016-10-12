@@ -949,6 +949,8 @@ public class Shop extends ItemContainer {
 				}
 			} else if (shop == STARDUST_EXCHANGE_STORE) {
 				switch (item) {
+					case 15259:
+						return new Object[] {2100, "stardust"};
 					case 6180:
 					case 6181:
 					case 6182:
