@@ -53,11 +53,11 @@ public class Fishing {
 
 		BAIT(316, new int[] { 327, 345 }, 307, 313, new int[] { 5, 10 }, true, new int[] { 20, 30 }, 623),
 
-		ROCKTAIL(309, new int[] { 15270 }, 309, 25, new int[] { 91 }, false, new int[] { 380 }, 623),
+		ROCKTAIL(309, new int[] { 15270 }, 309, 15263, new int[] { 91 }, false, new int[] { 380 }, 623),
 
 		KARAM(2859, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 105 }, 621),
 
-		RESOURCE_ROCKTAIL(321, new int[] { 15271, 15270 }, 309, 25, new int[] { 89, 89 }, false, new int[] { 480, 480 }, 623),
+		RESOURCE_ROCKTAIL(321, new int[] { 15271, 15270 }, 309, 15263, new int[] { 89, 89 }, false, new int[] { 480, 480 }, 623),
 
 		RESOURCE_KARAM(322, new int[] { 3143, 3142 }, 305, -1, new int[] { 65, 65 }, false, new int[] { 225, 225 }, 621);
 
