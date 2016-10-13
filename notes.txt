@@ -2,8 +2,15 @@ Any updates that are completed put into this file.
 Make sure you format them as you would want to see them publicly.
 
 ~UPDATES~
+David's trade option now opens the correct shop for iron man
+Warriors Guild drop chance for defenders has increased
 
 ~TODO~
+Vote
+Hiscores
+Donations
+
+Charming imp
 
 Tanner:
 
