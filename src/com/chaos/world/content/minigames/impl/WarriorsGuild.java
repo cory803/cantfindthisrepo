@@ -123,11 +123,11 @@ public class WarriorsGuild {
 				armour = null;
 			}
 		} else if (npc.getId() == 4291 && player.getPosition().getZ() == 2) {
-			int random = 25;
+			int random = 17;
 			if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM) {
-				random = 10;
+				random = 12;
 			}
-			if (Misc.getRandom(random) == 11) {
+			if (Misc.getRandom(random) <= 12 ) {
 				GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(getDefender(player)),
 						npc.getPosition().copy(), player.getUsername(), false, 100, false, -1));
 			}

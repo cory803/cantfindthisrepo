@@ -346,7 +346,11 @@ public final class ActionHandler {
 
             //David skilling shop
             case 817:
-                Shop.ShopManager.getShops().get(30).open(player);
+                if (player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+                    Shop.ShopManager.getShops().get(40).open(player);
+                } else {
+                    Shop.ShopManager.getShops().get(30).open(player);
+                }
                 break;
 
             //Slayer masters
