@@ -2,33 +2,9 @@ Any updates that are completed put into this file.
 Make sure you format them as you would want to see them publicly.
 
 ~UPDATES~
-The amount of experience you get from lunge now divides correctly.
-You now get the correct amount of prayer experience that you get from using a bone on an altar has been fixed.
-The required magic level to cast wind bolt has been fixed from 75 to 17.
-Void Knight Rewards shop has been created
-The gnome agility course and the barbarian agility course has been swapped around in the skilling teleports.
-The barbarian agility course now requires level 35 agility to teleport to it.
-The chance of getting a skill pet has been removed until we re-add the working skilling pets.
-Frost dragons have been added to the frost dragon ezone teleport.
-Agility tickets have been converted to 'Marks of grace' which on OSRS is obtained in order to get graceful agility pieces.
-	You can now make money from agility by selling your marks of grace to players.
-The experience you get from agility has been doubled.
-2 extra fishing spots have been added to catherby fishing.
-When staff members use punishment commands it now correctly closes the dialogue.
-When pickpocketing it no longer shows the message that the npc is not your familiar.
-Thieving now deals damage when being stunned.
-Play time quick chat is now correct
-Player Panel has been updated
-Timed message about how many players are in the wild is now located on the player panel
-Resource Area safe spots have been patched
-Red Vine Worms have been removed and replaced with Living Minerals
-The star dust shop has been updated
-Debugger for finding a common problem with nulled accounts
-
 
 ~TODO~
 
 Tanner:
 
 Adam:
-Dump model for mark of grace
