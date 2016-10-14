@@ -11,9 +11,7 @@ import com.chaos.cache.Archive;
 import com.chaos.ect.dropwriting.DropManager;
 import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
-import com.chaos.util.FontUtils;
-import com.chaos.util.ItemListDumper;
-import com.chaos.util.NpcListDumper;
+import com.chaos.util.*;
 import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
 import com.chaos.world.content.Well.WellOfGoodness;
@@ -85,6 +83,16 @@ public final class GameLoader {
 		PlayerOwnedShopManager.load();
 		NPC.init();
 		WellOfGoodness.init();
+
+		/**
+		 * Test drop rate formulas
+		 */
+		TestDropChance.chance(6609);
+
+		/**
+		 * Test formulas for the game
+		 */
+		//Formulas.generate();
 
 		/**
 		 * Dumps a list of item definitions into

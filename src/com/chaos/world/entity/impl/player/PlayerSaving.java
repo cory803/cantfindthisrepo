@@ -317,6 +317,7 @@ public class PlayerSaving {
 		object.addProperty("coins-gambled", new Integer(player.getAchievementAttributes().getCoinsGambled()));
 		object.add("charges", builder.toJsonTree(player.getDegrading().getCharges()));
 		object.add("killed-players", builder.toJsonTree(player.getPlayerKillingAttributes().getKilledPlayers()));
+		object.add("attacked-players", builder.toJsonTree(player.playersAttacked));
 		object.add("killed-gods", builder.toJsonTree(player.getAchievementAttributes().getGodsKilled()));
 		object.add("barrows-brother",
 				builder.toJsonTree(player.getMinigameAttributes().getBarrowsMinigameAttributes().getBarrowsData()));

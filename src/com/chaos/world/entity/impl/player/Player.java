@@ -563,7 +563,7 @@ public class Player extends Character {
 
     /*** INSTANCES ***/
     private final CopyOnWriteArrayList<KillsEntry> killsTracker = new CopyOnWriteArrayList<KillsEntry>();
-    public final ArrayList<String> playersAttacked = new ArrayList<String>();
+    public ArrayList<String> playersAttacked = new ArrayList<String>();
     private final CopyOnWriteArrayList<DropLogEntry> dropLog = new CopyOnWriteArrayList<DropLogEntry>();
     private final List<Player> localPlayers = new LinkedList<Player>();
     private final List<NPC> localNpcs = new LinkedList<NPC>();

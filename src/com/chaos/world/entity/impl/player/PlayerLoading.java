@@ -747,6 +747,14 @@ public class PlayerLoading {
 			player.getPlayerKillingAttributes().setKilledPlayers(list);
 		}
 
+		if (reader.has("attacked-players")) {
+			ArrayList<String> list = new ArrayList<String>();
+			String[] killed_players = builder.fromJson(reader.get("attacked-players").getAsJsonArray(), String[].class);
+			for (String s : killed_players)
+				list.add(s);
+			player.playersAttacked = list;
+		}
+
 		if (reader.has("killed-gods")) {
 			player.getAchievementAttributes()
 					.setGodsKilled(builder.fromJson(reader.get("killed-gods").getAsJsonArray(), boolean[].class));

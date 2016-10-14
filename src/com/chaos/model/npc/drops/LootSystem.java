@@ -40,7 +40,7 @@ public class LootSystem {
     /**
      * Holds all of the drop table information
      */
-    private static Map<Integer, LootTable> tables = new HashMap<>();
+    public static Map<Integer, LootTable> tables = new HashMap<>();
 
     /**
      * This holds the rare drop table information.
@@ -246,49 +246,68 @@ public class LootSystem {
     }
 
     /**
-     * Rolls the drop table to get a new drop for the {@link Player}
-     * @param player {@link Player} the player we are generating for.
-     * @param npc {@link NPC} The npc killed, used to adjust our formula.
-     * @param table {@link LootItem} The table of items that can be dropped.
-     * @return The item that has been chosen to drop.
+     * Rolls the drop table
+     * 1/4 chance to get a specific table.
+     * 1/x chance to get a specific drop in that table.
+     * Tables:
+     * 1 = common
+     * 2 = uncommon
+     * 3 = rare
+     * 4 = very rare
+     * 5 = epic
      */
-    private static Item rollDrop(Player player, NPC npc, LootItem[][] table) {
-        /**
-         * Increase the drop rarity.
-         */
-        int rollReq = player.getGameModeAssistant().getMonsterDropRate();
-
-        int x = npc.getDefinition().getCombatLevel() - npc.getDefinition().getCombatLevel() % 225;
-        rollReq += x / 225;
-
-        /**
-         * Lets roll our drop table.
-         */
-        for (int i = 1; i < table.length; i++) {
-            if (dice.nextInt(100 + ((i - 1) * 8)) <= rollReq && i != table.length - 1){
+    public static Item rollDrop(Player player, NPC npc, LootItem[][] table) {
+        //Table chance (1/4)
+        Item item = null;
+        int tableChance = Misc.inclusiveRandom(2, 5);
+        for (int i = 2; i < table.length; i++) {
+            if(table[i].length > 0) {
+            } else {
                 continue;
             }
-            if (table[i].length == 0) {
-                return null;
-            }
-            LootItem loot = table[i][dice.nextInt(table[i].length)];
-            if (loot.getId() != -1) {
-                if (meetsCondition(player, loot.getCondition(), loot.getId(), npc)) {
-                    return new Item(loot.getId(), loot.getRandomAmount());
-                } else {
-                    if (!player.getCurrentClanChat().getLootShare()) {
-                        if (loot.getCondition() == LootItem.CONDITION.DONOR) {
-                            player.getPacketSender().sendMessage("You have missed out on a donor only drop! You can get this drop next time by getting a donor rank.");
-                        } else if (loot.getCondition() == LootItem.CONDITION.TASK) {
-                            player.getPacketSender().sendMessage("You have missed out on a slayer task only drop. You can get a slayer task from a slayer master.");
-                        }
+            //Uncommon drops (1/10)
+            if(tableChance == 2) {
+                if(i == 2) {
+                    int chance = Misc.inclusiveRandom(1, 100);
+                    if (chance == 5) {
+                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length)];
+                        item = new Item(loot.getId(), loot.getRandomAmount());
                     }
-                    int randomAmount = i * (12_000 + dice.nextInt(500));
-                    return new Item(995, randomAmount);
+                }
+            }
+            //Rare drops (1/50)
+            if(tableChance == 3) {
+                if(i == 3) {
+                    int chance = Misc.inclusiveRandom(1, 50);
+                    if (chance == 5) {
+                        LootItem loot = table[i]
+                                [Misc.inclusiveRandom(0, table[i].length)];
+                        item = new Item(loot.getId(), loot.getRandomAmount());
+                    }
+                }
+            }
+            //Very rare drops (1/200)
+            if(tableChance == 4) {
+                if(i == 4) {
+                    int chance = Misc.inclusiveRandom(1, 200);
+                    if (chance == 5) {
+                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length)];
+                        item = new Item(loot.getId(), loot.getRandomAmount());
+                    }
+                }
+            }
+            //Epic drops (1/1000)
+            if(tableChance == 5) {
+                if(i == 5) {
+                    int chance = Misc.inclusiveRandom(1, 1000);
+                    if (chance == 5) {
+                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length)];
+                        item = new Item(loot.getId(), loot.getRandomAmount());
+                    }
                 }
             }
         }
-        return null;
+        return item;
     }
 
     private static void dropCharm(Player player, Position p, LootCharm[] charms) {

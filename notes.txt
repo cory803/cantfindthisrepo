@@ -2,6 +2,7 @@ Any updates that are completed put into this file.
 Make sure you format them as you would want to see them publicly.
 
 ~UPDATES~
+Fixed a skull glitching bug with relogging.
 
 ~TODO~
 
