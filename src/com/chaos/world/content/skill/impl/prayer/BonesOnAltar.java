@@ -64,7 +64,7 @@ public class BonesOnAltar {
 				amountSacrificed++;
 				player.getInventory().delete(boneId, 1);
 				player.performAnimation(new Animation(713));
-				player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP() * 3.5);
+				player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP() * 1.5);
 			}
 
 			@Override

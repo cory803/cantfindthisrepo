@@ -175,7 +175,8 @@ public class Shop extends ItemContainer {
 					? currency.getDefinition().getName().toLowerCase()
 					: currency.getDefinition().getName().toLowerCase() + "s";
 			/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
-			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == AGILITY_TICKET_STORE) {
+			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == AGILITY_TICKET_STORE
+					|| id == DONATOR_STORE || id == DONATOR_STORE_MISC) {
 				Object[] obj = ShopManager.getCustomShopData(id, item.getId());
 				if (obj == null)
 					return;
@@ -402,7 +403,8 @@ public class Shop extends ItemContainer {
 				/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
 				if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE
 						|| id == AGILITY_TICKET_STORE || id == CREDIT_STORE_1
-						|| id == CREDIT_STORE_2 || id == CREDIT_STORE_3) {
+						|| id == CREDIT_STORE_2 || id == CREDIT_STORE_3
+						|| id == DONATOR_STORE || id == DONATOR_STORE_MISC) {
 					value = (int) ShopManager.getCustomShopData(id, item.getId())[0];
 				}
 			}
@@ -974,8 +976,12 @@ public class Shop extends ItemContainer {
 				}
 			} else if (shop == DONATOR_STORE || shop == DONATOR_STORE_MISC) {
 				switch (item) {
-//					case 21109:
-//						return new Object[] {100, "Donator points"};
+					case 21118:
+						return new Object[] {150, "donator tokens"};
+					case 21119:
+						return new Object[] {100, "donator tokens"};
+					case 21109:
+						return new Object[] {85, "donator tokens"};
 					case 4084: // sled
 					case 1053:
 					case 1055:
@@ -983,13 +989,15 @@ public class Shop extends ItemContainer {
 					case 5607: // grain
 					case 6082: //fixed device
 					case 5608: //fox
-						return new Object[] {75, "Donator points"};
+						return new Object[] {75, "donator tokens"};
 					case 1419:
 					case 1037:
 					case 9924: //skele body
 					case 9920: //jack latern mask
 					case 1050:
-						return new Object[] {60, "Donator points"};
+						return new Object[] {60, "donator tokens"};
+					case 19780:
+						return new Object[] {55, "donator tokens"};
 					case 1038:
 					case 1040:
 					case 1042:
@@ -998,24 +1006,23 @@ public class Shop extends ItemContainer {
 					case 1048:
 					case 9923: //skele legs
 					case 9925: //skele mask
-						return new Object[] {50, "Donator points"};
-					case 19780:
-						return new Object[] {45, "Donator points"};
+						return new Object[] {50, "donator tokens"};
 					case 15352: //skele cloack
 					case 11694:
+						return new Object[] {40, "donator tokens"};
 					case 14484:
-						return new Object[] {40, "Donator points"};
+						return new Object[] {35, "donator tokens"};
 					case 20171:
 					case 9921: //skele boots
 					case 9922: //skele gloves
-						return new Object[] {25, "Donator points"};
+						return new Object[] {25, "donator tokens"};
 					case 13899:
 					case 13902:
 					case 11698:
 					case 11700:
 					case 11696:
 					case 11283:
-						return new Object[] {5, "Donator points"};
+						return new Object[] {5, "donator tokens"};
 					case 6199:
 					case 15220:
 					case 15020:
@@ -1029,20 +1036,19 @@ public class Shop extends ItemContainer {
 					case 11730:
 					case 2572: //ring of wealth
 					case 15126: // amulet of range
-						return new Object[] {4, "Donator points"};
 					case 4151:
 					case 6570:
 					case 2577: //robin boots
 					case 2581: //robin hat
-						return new Object[] {3, "Donator points"};
 					case 15241: //hc
 					case 11732:
+						return new Object[] {4, "donator tokens"};
 					case 6585:
-						return new Object[] {2, "Donator points"};
+						return new Object[] {3, "donator tokens"};
 					case 6737:
 					case 6731:
 					case 6733:
-						return new Object[] {1, "Donator points"};
+						return new Object[] {1, "donator tokens"};
 				}
 			}
 			return null;

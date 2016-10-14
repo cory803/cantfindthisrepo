@@ -58,7 +58,7 @@ public class Locations {
 		},
 		EDGEVILLE(new int[] { 3073, 3134 }, new int[] { 3457, 3518 }, false, true, true, false, false, true) {
 		},
-		LUMBRIDGE(new int[] { 3175, 3238 }, new int[] { 3179, 3302 }, false, true, true, true, true, true) {
+		LUMBRIDGE(new int[] { 3200, 3229 }, new int[] { 3198, 3236 }, false, true, true, true, true, true) {
 		},
 		DONATOR_ZONE(new int[] { 2489, 2636 }, new int[] { 3827, 3933 }, false, true, true, true, true, true) {
 			@Override
