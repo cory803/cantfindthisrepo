@@ -57,7 +57,7 @@ public class SkillingAreas extends Dialog {
                 return Dialog.createOption(new ThreeOption(
                         "Agility Courses",
                         "Hunter",
-                        "Next Page") {
+                        "Previous Page") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
