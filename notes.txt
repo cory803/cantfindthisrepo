@@ -8,6 +8,7 @@ Bones on altar has been slightly nurfed to make prayer more rewarding
 A banker has been added to mage banker
 Spider webs have been removed until a slashing system is implemented
 The building north of the resource area has had it's doors removed
+The Lumbridge castle's staircase is now functioning
 
 ~TODO~
 Vote

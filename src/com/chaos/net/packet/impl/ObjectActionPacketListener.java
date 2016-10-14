@@ -47,6 +47,7 @@ import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
+import org.scripts.kotlin.content.dialog.LumbyStairs;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.Well.Well;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
@@ -1672,9 +1673,10 @@ public class ObjectActionPacketListener implements PacketListener {
                                 }
                                 break;
                             case 1738:
-                                if (player.getLocation() == Location.LUMBRIDGE && player.getPosition().getZ() == 0) {
-                                    player.moveTo(
-                                            new Position(player.getPosition().getX(), player.getPosition().getY(), 1));
+                                if (player.getPosition().getX() > 3204 || player.getLocation() == Location.LUMBRIDGE) {
+                                    if (player.getPosition().getX() < 3207)
+                                    player.moveTo(new Position(player.getPosition().getX(),
+                                                                player.getPosition().getY(), 1));
                                 } else if (player.getLocation() != Location.WARRIORS_GUILD
                                         && player.getPosition().getZ() == 0) {
                                     player.moveTo(new Position(2729, 3462, 1));
@@ -1682,8 +1684,12 @@ public class ObjectActionPacketListener implements PacketListener {
                                     player.moveTo(new Position(2840, 3539, 2));
                                 }
                                 break;
+                            case 1739:
+                                player.getDialog().sendDialog(new LumbyStairs(player));
+                                break;
                             case 1740:
-                                player.moveTo(new Position(2729, 3462, 0));
+                                player.moveTo(new Position(player.getPosition().getX(),
+                                        player.getPosition().getY(), player.getPosition().getZ() - 1));
                                 break;
                             case 15638:
                                 player.moveTo(new Position(2840, 3539, 0));
