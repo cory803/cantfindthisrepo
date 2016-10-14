@@ -1,0 +1,47 @@
+package org.scripts.kotlin.content.dialog.npcs;
+
+import com.chaos.model.container.impl.Shop;
+import com.chaos.model.options.fouroption.FourOption;
+import com.chaos.model.options.threeoption.ThreeOption;
+import com.chaos.model.player.GameMode;
+import com.chaos.model.player.dialog.Dialog;
+import com.chaos.model.player.dialog.DialogHandler;
+import com.chaos.model.player.dialog.DialogMessage;
+import com.chaos.world.entity.impl.player.Player;
+
+public class DonatorShop extends Dialog {
+
+    public DonatorShop(Player player) {
+        super(player);
+        setEndState(1);
+    }
+
+    @Override
+    public DialogMessage getMessage() {
+        switch (getState()) {
+            case 0:
+                return Dialog.createNpc(DialogHandler.CALM, "Hello I have my own shops, but I only take donator tokens as currency.");
+            case 1:
+            return Dialog.createOption(new ThreeOption(
+                    "Buy Rares",
+                    "Buy Gear",
+                    "Cancel") {
+                @Override
+                public void execute(Player player, OptionType option) {
+                    switch(option) {
+                        case OPTION_1_OF_3:
+                            Shop.ShopManager.getShops().get(43).open(player);
+                            break;
+                        case OPTION_2_OF_3:
+                            Shop.ShopManager.getShops().get(42).open(player);
+                            break;
+                        case OPTION_3_OF_3:
+                            player.getPacketSender().sendInterfaceRemoval();
+                            break;
+                    }
+                }
+            });
+            }
+        return null;
+    }
+}
