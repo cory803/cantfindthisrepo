@@ -708,6 +708,7 @@ public class Player extends Character {
     private Player killed_player;
 
     /*** BOOLEANS ***/
+    public boolean hasQC = false;
     private boolean invisible = false;
     public boolean ignoreClip = true;
     private boolean canWearDungItems = false;

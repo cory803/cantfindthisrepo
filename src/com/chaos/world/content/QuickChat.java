@@ -11,16 +11,19 @@ public class QuickChat {
     "Range", "Prayer", "Magic", "Cooking", "Woodcutting", "Fletching", "Fishing", "Firemaking", "Crafting",
     "Smithing", "Mining", "Herblore", "Agility", "Thieving", "Slayer", "Farming", "Runecrafting",
     "Construction", "Hunter", "Summoning", "Dungeoneering"};
-
     public static void handleButtons(Player player, int id) {
         if (!player.getQuickChat().elapsed(2500)) {
-            player.getPacketSender().sendMessage("Please wait 2 seconds before using the quick chat again.");
+                if (!player.hasQC) {
+                    player.getPacketSender().sendMessage("Please wait 2 seconds before using the quick chat again.");
+                    player.hasQC = true;
+                }
             return;
         }
         if (PlayerPunishment.isMuted(player.getUsername()) || PlayerPunishment.isIpMuted(player.getHostAddress())) {
             player.getPacketSender().sendMessage("You are muted and cannot chat.");
             return;
         }
+        player.hasQC = false;
         player.forceChat("[CHAOS] My " + quickChat[id] + " level is "
                 + player.getSkillManager().getMaxLevel(id) + ".");
         player.getQuickChat().reset();
