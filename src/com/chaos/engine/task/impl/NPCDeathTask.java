@@ -165,9 +165,7 @@ public class NPCDeathTask extends Task {
 					}
 
 					/** PARSE DROPS **/
-					for (int i = 0; i < 10000; i++) {
-						LootSystem.drop(killer, npc);
-					}
+					LootSystem.drop(killer, npc);
 
 					killer.getSlayer().killedNpc(npc.getId());
 				}

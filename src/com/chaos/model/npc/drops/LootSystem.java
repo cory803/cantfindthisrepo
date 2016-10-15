@@ -323,6 +323,13 @@ public class LootSystem {
                     }
                 }
             }
+            if(item == null) {
+                int i2 = 1;
+                if(table[i2].length > 0) {
+                    LootItem loot = table[i2][Misc.inclusiveRandom(0, table[i2].length - 1)];
+                    item = new Item(loot.getId(), loot.getRandomAmount());
+                }
+            }
         }
         return item;
     }
