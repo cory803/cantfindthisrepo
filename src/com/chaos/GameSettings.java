@@ -9,7 +9,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 
 public class GameSettings {
 
-	public static boolean TEST_SETTING = false;
+	public static boolean STARTED_SERVER = false;
 
 	/**
 	 * The game port

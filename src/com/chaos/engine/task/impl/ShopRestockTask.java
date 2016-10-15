@@ -24,7 +24,6 @@ public class ShopRestockTask extends Task {
 
 				int originalStockAmount = shop.getOriginalStock()[shopItemIndex].getAmount();
 				int currentStockAmount = shop.getItems()[shopItemIndex].getAmount();
-
 				if (originalStockAmount > currentStockAmount) {
 					shop.add(shop.getItems()[shopItemIndex].getId(), 1);
 				} else if (originalStockAmount < currentStockAmount) {

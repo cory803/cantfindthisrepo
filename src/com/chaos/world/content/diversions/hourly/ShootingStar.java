@@ -55,9 +55,8 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	public void diversionPulse() {
 		if (stage == null) {
 			ticks++;
-			System.out.println("Tick: "+ticks);
-			if (ticks >= SPAWN_TIMER || (!GameSettings.TEST_SETTING && ticks >= 25)) {
-				GameSettings.TEST_SETTING = true;
+			if (ticks >= SPAWN_TIMER || (!GameSettings.STARTED_SERVER && ticks >= 50)) {
+				GameSettings.STARTED_SERVER = true;
 				stage = Stage.values()[0];
 				setPosition(location.getPosition());
 				
@@ -68,7 +67,6 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 				varrockMeteora = new NPC(4515, new Position(3220, 3436), Direction.SOUTH) {
 
 				};
-				System.out.println(""+this.getId());
 				CustomObjects.spawnGlobalObject(this);
 				World.register(varrockMeteora);
 				World.sendMessage("<icon=0><shad=FF8C38>A shooting star has just crashed " + location.getClue() + "!");

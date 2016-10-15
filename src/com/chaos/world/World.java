@@ -9,7 +9,6 @@ import java.util.concurrent.Phaser;
 import java.util.logging.Level;
 
 import com.chaos.model.*;
-import com.chaos.world.content.ShootingStarOld;
 import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.GameServer;

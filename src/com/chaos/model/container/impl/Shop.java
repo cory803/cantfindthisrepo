@@ -531,6 +531,11 @@ public class Shop extends ItemContainer {
 							player.setCredits(-value * canBeBought, true);
 						}
 					}
+					if (getItems()[slot].getAmount() - canBeBought <= 0 && id != GENERAL_STORE) {
+						canBeBought -= 1;
+						player.getInventory().add(item.getId(), 1);
+						player.getPacketSender().sendMessage("The shop has run out of stock for this item.");
+					}
 					super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
 					playerCurrencyAmount -= value;
 					break;

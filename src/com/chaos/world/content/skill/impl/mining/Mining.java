@@ -15,7 +15,6 @@ import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.Emotes.Skillcape_Data;
-import com.chaos.world.content.ShootingStarOld;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
 import com.chaos.world.content.skill.impl.mining.MiningData.Ores;
@@ -71,7 +70,6 @@ public class Mining {
 						final int delay = o.getTicks() - MiningData.getReducedTimer(player, p) + 1;
 						player.setCurrentTask(new Task(delay >= 2 ? delay : 1, player, false) {
 							int cycle = 0;
-
 							@Override
 							public void execute() {
 								if (player.getInteractingObject() == null
@@ -126,7 +124,7 @@ public class Mining {
 									if (o.getItemId() != -1) {
 										player.getInventory().add(o.getItemId(), 1 * multiplier);
 									}
-									player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount() * 1.4));
+									player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
 									if(player.getInventory().contains(20786) || player.getEquipment().contains(20786)) {
 										if(MathUtil.random(3) == 0) {
 											if (o == Ores.RUNITE) {
@@ -146,7 +144,7 @@ public class Mining {
 											if (o.getItemId() != -1) {
 												player.getInventory().add(o.getItemId(), 1 * multiplier2);
 											}
-											player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount() * 1.4));
+											player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
 										}
 									}
 									player.getPacketSender().sendMessage("You mine some ore.");

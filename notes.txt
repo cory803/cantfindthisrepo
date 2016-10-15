@@ -51,12 +51,14 @@ Shooting stars have been redone:
 	The sprite npc has been added.
 	You now can only exchange star dust to the alien sprite.
 	Golden cracker has been added with a 1/10 rate (every 200 star dusts):
-		Use it on a player to obtain 1 golden mining armour piece
-	Golden dragon pickaxe has been added with a 1/50 rate (every 200 star dusts)
+		Use it on a player to obtain 1 golden mining armour piece.
+	Gilded dragon pickaxe has been added with a 1/50 rate (every 200 star dusts)
+		Gives a 1/4 chance to get a extra ore from mining.
+		Gives double stardust when mining shooting stars.
 David now sells shears to everyone, including iron men
 Sheep have been added to the lumbridge pasture and also at a house north of the crafting guild
 You can now spin wool into a wool ball in addition to flax
-
+Items restocking in the shop has been fixed.
 
 ~TODO~
 Vote
