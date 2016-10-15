@@ -8,6 +8,7 @@ import com.chaos.model.Locations;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.ItemDefinition;
+import com.chaos.util.MathUtil;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
@@ -126,6 +127,28 @@ public class Mining {
 										player.getInventory().add(o.getItemId(), 1 * multiplier);
 									}
 									player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount() * 1.4));
+									if(player.getInventory().contains(20786) || player.getEquipment().contains(20786)) {
+										if(MathUtil.random(3) == 0) {
+											if (o == Ores.RUNITE) {
+												Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
+											}
+											if (o == Ores.COAL || o == Ores.RESOURCE_COAL) {
+												Achievements.doProgress(player, AchievementData.MINE_400_COAL);
+											}
+											if (o == Ores.ADAMANTITE || o == Ores.RESOURCE_ADAMANTITE) {
+												Achievements.doProgress(player, AchievementData.MINE_400_ADDY);
+											}
+											if (o == Ores.IRON || o == Ores.RESOURCE_IRON) {
+												Achievements.finishAchievement(player, AchievementData.MINE_IRON);
+											}
+											int multiplier2 = (Skillcape_Data.MINING.isWearingCape(player)
+													&& Misc.inclusiveRandom(0, 9) == 0) ? 2 : 1;
+											if (o.getItemId() != -1) {
+												player.getInventory().add(o.getItemId(), 1 * multiplier2);
+											}
+											player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount() * 1.4));
+										}
+									}
 									player.getPacketSender().sendMessage("You mine some ore.");
 									//rollPet(player);
 									Sounds.sendSound(player, Sound.MINE_ITEM);

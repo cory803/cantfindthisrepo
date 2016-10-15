@@ -4,6 +4,7 @@ import com.chaos.GameSettings;
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.*;
+import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.util.MathUtil;
 import com.chaos.util.Misc;
@@ -149,6 +150,11 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 							stardustPossesed++;
 							player.getInventory().add(new Item(STARDUST, 1));
 							player.getPacketSender().sendMessage("You manage to collect some minerals.");
+							if(player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20786 || player.getInventory().contains(20786)) {
+								player.getInventory().add(new Item(STARDUST, 1));
+								stardustPossesed++;
+								minerals++;
+							}
 						}
 						player.getSkillManager().addSkillExperience(Skill.MINING, stage.getExperience());
 						minerals++;
@@ -309,7 +315,7 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	
 	public static final int STARDUST = 13727;
 	
-	private static final int STARDUST_LIMIT = 600;
+	private static final int STARDUST_LIMIT = 20000;
 	
 	private static final int SPAWN_TIMER = 2400;
 	

@@ -97,6 +97,12 @@ public final class GameLoader {
 		//Formulas.generate();
 
 		/**
+		 * Dumps a list of item drops into
+		 * lists/drops.txt
+		 */
+		//DropListDumper.dump();
+
+		/**
 		 * Dumps a list of item definitions into
 		 * lists/items.txt
 		 */

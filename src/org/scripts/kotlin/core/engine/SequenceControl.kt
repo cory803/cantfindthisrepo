@@ -1,7 +1,6 @@
 package org.scripts.kotlin.core.engine
 
 import com.chaos.world.content.EvilTrees
-import com.chaos.world.content.ShootingStarOld
 import com.chaos.world.content.minigames.impl.FightPit
 import com.chaos.world.content.minigames.impl.PestControl
 
@@ -18,7 +17,6 @@ object SequenceControl {
     @JvmStatic fun sequenceStarter() {
         FightPit.sequence()
         PestControl.sequence()
-        ShootingStarOld.sequence()
         EvilTrees.sequence()
         System.out.println("Chaos has successfully started up World sequences.")
     }
