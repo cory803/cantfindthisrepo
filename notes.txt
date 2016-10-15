@@ -50,7 +50,9 @@ Shooting stars have been redone:
 	It is now on a much more stable system.
 	The sprite npc has been added.
 	You now can only exchange star dust to the alien sprite.
-
+	Golden cracker has been added with a 1/10 rate (every 200 star dusts):
+		Use it on a player to obtain 1 golden mining armour piece
+	Golden dragon pickaxe has been added with a 1/50 rate (every 200 star dusts)
 			
 
 ~TODO~
