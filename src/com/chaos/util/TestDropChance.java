@@ -21,7 +21,7 @@ public class TestDropChance {
 		int total = 0;
 		LootTable table = LootSystem.tables.get(npcId);
 		for (int i = 0; i < 100000; i++) {
-			Item roll = LootSystem.rollDrop(null, null, table.getSortedLoot());
+			Item roll = LootSystem.rollDrop(null, null, table.getSortedLoot(), npcId);
 			if(roll == null) {
 				continue;
 			}

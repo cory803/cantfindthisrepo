@@ -87,7 +87,7 @@ public final class GameLoader {
 		/**
 		 * Test drop rate formulas
 		 */
-		TestDropChance.chance(6609);
+		//TestDropChance.chance(6609);
 
 		/**
 		 * Test formulas for the game

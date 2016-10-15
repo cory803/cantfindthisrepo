@@ -47,6 +47,15 @@ public class NpcDefinition {
 	/** The npc size. */
 	private int size;
 
+	/** The rare drop chance. */
+	private int rare;
+
+	/** The very rare drop chance. */
+	private int veryRare;
+
+	/** The epic rare drop chance. */
+	private int epicRare;
+
 	/** If the npc is attackable. */
 	private boolean attackable;
 
@@ -123,6 +132,21 @@ public class NpcDefinition {
 				if (reader.get("venomous") != null) {
 					definitions[index].setVenomous(reader.get("venomous").getAsBoolean());
 				}
+				if (reader.get("rareChance") != null) {
+					definitions[index].setRare(reader.get("rareChance").getAsInt());
+				} else {
+					definitions[index].setRare(50);
+				}
+				if (reader.get("veryRareChance") != null) {
+					definitions[index].setVeryRare(reader.get("veryRareChance").getAsInt());
+				} else {
+					definitions[index].setVeryRare(200);
+				}
+				if (reader.get("epicRareChance") != null) {
+					definitions[index].setEpic(reader.get("epicRareChance").getAsInt());
+				} else {
+					definitions[index].setEpic(1000);
+				}
 				definitions[index].setRespawnTime(reader.get("respawn").getAsInt());
 				definitions[index].setMaxHit(reader.get("maxHit").getAsInt());
 				definitions[index].setHitpoints(reader.get("hitpoints").getAsInt());
@@ -162,6 +186,33 @@ public class NpcDefinition {
 	 */
 	public int getId() {
 		return id;
+	}
+
+	/**
+	 * Gets the rare chance of a drop via npc.
+	 *
+	 * @return the rare.
+	 */
+	public int getRare() {
+		return rare;
+	}
+
+	/**
+	 * Gets the very rare chance of a drop via npc.
+	 *
+	 * @return the rare.
+	 */
+	public int getVeryRare() {
+		return veryRare;
+	}
+
+	/**
+	 * Gets the epic rare chance of a drop via npc.
+	 *
+	 * @return the rare.
+	 */
+	public int getEpicRare() {
+		return epicRare;
 	}
 
 	/**
@@ -343,6 +394,30 @@ public class NpcDefinition {
 	 */
 	public void setVenomous(boolean venomous) {
 		this.venomous = venomous;
+	}
+
+	/**
+	 * Sets the rare chance in this drop table for
+	 * a specific monster.
+	 */
+	public void setRare(int rare) {
+		this.rare = rare;
+	}
+
+	/**
+	 * Sets the very rare chance in this drop table for
+	 * a specific monster.
+	 */
+	public void setVeryRare(int rare) {
+		this.veryRare = rare;
+	}
+
+	/**
+	 * Sets the epic chance in this drop table for
+	 * a specific monster.
+	 */
+	public void setEpic(int rare) {
+		this.epicRare = rare;
 	}
 
 	/**

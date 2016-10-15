@@ -7,6 +7,8 @@ import com.chaos.model.Item;
 import com.chaos.model.Locations;
 import com.chaos.model.Position;
 import com.chaos.model.container.impl.Bank;
+import com.chaos.model.container.impl.Equipment;
+import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.DropLog;
@@ -186,7 +188,7 @@ public class LootSystem {
          * Loops how many times we drop a random item.
          */
         for (int t = 0; t < dropCount; t++) {
-            Item roll = rollDrop(p, n, table.getSortedLoot());
+            Item roll = rollDrop(p, n, table.getSortedLoot(), n.getId());
 
             if (roll != null) {
                 Player pl = ClanChatManager.lootshare(p, n.getPosition().copy(), roll.getId(), roll.getAmount());
@@ -256,8 +258,17 @@ public class LootSystem {
      * 4 = very rare
      * 5 = epic
      */
-    public static Item rollDrop(Player player, NPC npc, LootItem[][] table) {
+    public static Item rollDrop(Player player, NPC npc, LootItem[][] table, int npcId) {
         //Table chance (1/4)
+        double extraChance = .50;
+        if(player != null) {
+            extraChance = player.getGameModeAssistant().getGameMode().getMonsterDropRate();
+            if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 2572) {
+                extraChance += .5;
+            } else if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 21110) {
+                extraChance += .10;
+            }
+        }
         Item item = null;
         int tableChance = Misc.inclusiveRandom(2, 5);
         for (int i = 2; i < table.length; i++) {
@@ -268,9 +279,9 @@ public class LootSystem {
             //Uncommon drops (1/10)
             if(tableChance == 2) {
                 if(i == 2) {
-                    int chance = Misc.inclusiveRandom(1, 100);
+                    int chance = Misc.inclusiveRandom(1, 5);
                     if (chance == 5) {
-                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length)];
+                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length - 1)];
                         item = new Item(loot.getId(), loot.getRandomAmount());
                     }
                 }
@@ -278,10 +289,12 @@ public class LootSystem {
             //Rare drops (1/50)
             if(tableChance == 3) {
                 if(i == 3) {
-                    int chance = Misc.inclusiveRandom(1, 50);
+                    int rarity = NpcDefinition.forId(npcId).getRare();
+                    double conversion = ((int) extraChance * rarity / 4);
+                    int chance = Misc.inclusiveRandom(1, rarity / 4 - ((int) conversion));
                     if (chance == 5) {
                         LootItem loot = table[i]
-                                [Misc.inclusiveRandom(0, table[i].length)];
+                                [Misc.inclusiveRandom(0, table[i].length - 1)];
                         item = new Item(loot.getId(), loot.getRandomAmount());
                     }
                 }
@@ -289,9 +302,11 @@ public class LootSystem {
             //Very rare drops (1/200)
             if(tableChance == 4) {
                 if(i == 4) {
-                    int chance = Misc.inclusiveRandom(1, 200);
+                    int rarity = NpcDefinition.forId(npcId).getVeryRare();
+                    double conversion = ((int) extraChance * rarity / 4);
+                    int chance = Misc.inclusiveRandom(1, rarity / 4 - ((int) conversion));
                     if (chance == 5) {
-                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length)];
+                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length - 1)];
                         item = new Item(loot.getId(), loot.getRandomAmount());
                     }
                 }
@@ -299,9 +314,11 @@ public class LootSystem {
             //Epic drops (1/1000)
             if(tableChance == 5) {
                 if(i == 5) {
-                    int chance = Misc.inclusiveRandom(1, 1000);
+                    int rarity = NpcDefinition.forId(npcId).getEpicRare();
+                    double conversion = (extraChance * rarity / 4);
+                    int chance = Misc.inclusiveRandom(1, rarity / 4 - ((int) conversion));
                     if (chance == 5) {
-                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length)];
+                        LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length - 1)];
                         item = new Item(loot.getId(), loot.getRandomAmount());
                     }
                 }

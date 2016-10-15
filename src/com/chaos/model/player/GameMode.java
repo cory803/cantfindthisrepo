@@ -4,11 +4,11 @@ import com.chaos.util.Misc;
 
 public enum GameMode {
 
-	KNIGHT(500, 5, 1, 20, 0),
-	REALISM(10, 15, .50, 10, 0),
-	IRONMAN(100, 10, .75, 15, 13);
+	KNIGHT(500, 0, 1, 20, 0),
+	REALISM(10, .50, .50, 10, 0),
+	IRONMAN(100, .35, .75, 15, 13);
 
-	GameMode(int modeExpRate, int monsterDropRate, double prayerDrainRate, int specialRecoveryRate, int crown) {
+	GameMode(int modeExpRate, double monsterDropRate, double prayerDrainRate, int specialRecoveryRate, int crown) {
 		this.modeExpRate = modeExpRate;
 		this.monsterDropRate = monsterDropRate;
 		this.prayerDrainRate = prayerDrainRate;
@@ -17,7 +17,7 @@ public enum GameMode {
 	}
 
 	private int modeExpRate;
-	private int monsterDropRate;
+	private double monsterDropRate;
 	private double prayerDrainRate;
 	private int specialRecoveryRate;
 	private int crown;
@@ -34,7 +34,7 @@ public enum GameMode {
 	 * Gets the drop rate for the mode.
 	 * @return
 	 */
-	public int getMonsterDropRate() {
+	public double getMonsterDropRate() {
 		return monsterDropRate;
 	}
 

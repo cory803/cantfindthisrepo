@@ -70,7 +70,7 @@ public class GameModeAssistant {
      * Returns the drop rate of the game mode.
      * @return
      */
-    public int getMonsterDropRate() {
+    public double getMonsterDropRate() {
         return this.gameMode.getMonsterDropRate();
     }
 
