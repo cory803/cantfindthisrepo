@@ -39,7 +39,9 @@ public class MovementPacketListener implements PacketListener {
 
 		if (!checkReqs(player, packet.getOpcode()))
 			return;
-
+		if (player.getDiversionTask() != null) {
+			player.getDiversionTask().stop();
+		}
 		player.getPacketSender().sendInterfaceRemoval();
 		player.setTeleporting(false);
 		player.setInactive(false);

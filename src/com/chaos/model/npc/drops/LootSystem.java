@@ -268,6 +268,7 @@ public class LootSystem {
             } else if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 21110) {
                 extraChance += .10;
             }
+            extraChance += player.getDonatorRights().ordinal();
         }
         Item item = null;
         int tableChance = Misc.inclusiveRandom(2, 5);

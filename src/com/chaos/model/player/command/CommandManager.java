@@ -6,6 +6,7 @@ import com.chaos.model.*;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.PlayersOnlineInterface;
+import com.chaos.world.content.ShootingStarOld;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.DesolaceFormulas;
@@ -189,6 +190,13 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.getPacketSender().sendMessage("Teamspeak address: ts3.chaosps.com");
+            }
+        });
+        commands.put("shootingstar", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getPacketSender().sendMessage("You have respawned the shooting star...");
+                ShootingStarOld.despawn(true);
             }
         });
         commands.put("market", new TeleportMarket(StaffRights.PLAYER));

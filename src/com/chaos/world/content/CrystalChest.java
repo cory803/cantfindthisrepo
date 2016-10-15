@@ -5,6 +5,7 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Animation;
 import com.chaos.model.GameObject;
 import com.chaos.model.Item;
+import com.chaos.model.player.GameMode;
 import com.chaos.util.Misc;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -15,6 +16,10 @@ public class CrystalChest {
 			return;
 		if (!p.getInventory().contains(989)) {
 			p.getPacketSender().sendMessage("This chest can only be opened with a Crystal key.");
+			return;
+		}
+		if(p.getInventory().getFreeSlots() < 1) {
+			p.getPacketSender().sendMessage("You need atleast 1 free inventory slots to open this chest.");
 			return;
 		}
 		p.performAnimation(new Animation(827));
@@ -30,6 +35,45 @@ public class CrystalChest {
 					Item[] loot = itemRewards[Misc.getRandom(itemRewards.length - 1)];
 					for (Item item : loot) {
 						p.getInventory().add(item);
+					}
+					int chance = Misc.inclusiveRandom(1, 50);
+					switch(p.getGameModeAssistant().getGameMode()) {
+						case KNIGHT:
+							if(chance >= 1 && chance <= 5) {
+								//Lamp of 100K
+								p.getInventory().add(new Item(11185, 1), true);
+							} else if(chance >= 6 && chance <= 8) {
+								//Lamp of 500K
+								p.getInventory().add(new Item(11186, 1), true);
+							} else if(chance == 9 || chance == 10) {
+								//Lamp of 1M
+								p.getInventory().add(new Item(11187, 1), true);
+							} else if(chance == 11) {
+								//Lamp of 2M
+								p.getInventory().add(new Item(11188, 1), true);
+							}
+							break;
+						case IRONMAN:
+						case REALISM:
+							if(chance >= 1 && chance <= 5) {
+								//Lamp of 10K
+								p.getInventory().add(new Item(11137, 1), true);
+							} else if(chance >= 6 && chance <= 8) {
+								//Lamp of 25K
+								p.getInventory().add(new Item(11139, 1), true);
+							} else if(chance == 9 || chance == 10) {
+								//Lamp of 50K
+								p.getInventory().add(new Item(11141, 1), true);
+							} else if(chance == 11) {
+								//Lamp of 100K
+								p.getInventory().add(new Item(11185, 1), true);
+							}
+							if(p.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+								if(chance == 12) {
+									p.getInventory().add(new Item(11186, 1), true);
+								}
+							}
+							break;
 					}
 					p.getPacketSender().sendMessage("..and find some items!");
 					CustomObjects.objectRespawnTask(p, new GameObject(173, chest.getPosition().copy(), 10, 1), chest,

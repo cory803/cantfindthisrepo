@@ -9,6 +9,8 @@ import java.util.concurrent.Phaser;
 import java.util.logging.Level;
 
 import com.chaos.model.*;
+import com.chaos.world.content.ShootingStarOld;
+import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.GameServer;
 import com.chaos.GameSettings;
@@ -22,7 +24,6 @@ import com.chaos.util.Filter;
 import com.chaos.util.FilterExecutable;
 import com.chaos.util.Misc;
 import com.chaos.world.clip.region.Region;
-import com.chaos.world.content.ShootingStar;
 import com.chaos.world.content.minigames.impl.FightPit;
 import com.chaos.world.content.minigames.impl.PestControl;
 import com.chaos.world.entity.Entity;
@@ -358,7 +359,7 @@ public class World {
 
 		FightPit.sequence();
 		PestControl.sequence();
-		ShootingStar.sequence();
+		HourlyDiversionManager.pulse();
 		// EvilTrees.sequence();
 		long player_start = System.currentTimeMillis();
 		long minigameCycle = player_start - minigame_start;

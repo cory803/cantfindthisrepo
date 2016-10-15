@@ -17,6 +17,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.mysql.impl.Hiscores;
 import com.chaos.world.content.*;
+import com.chaos.world.content.diversions.Diversion;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
@@ -117,6 +118,30 @@ public class Player extends Character {
         return this.requestAssistance;
     }
 
+    /**
+     * The current diversion this player is executing.
+     */
+    private transient Diversion diversion;
+
+    public Diversion getDiversion() {
+        return diversion;
+    }
+    /**
+     * This is the task for the player's current diversion.
+     */
+    private transient Task diversionTask;
+
+    public void setDiversion(Diversion diversion) {
+        this.diversion = diversion;
+    }
+
+    public Task getDiversionTask() {
+        return diversionTask;
+    }
+
+    public void setDiversionTask(Task diversionTask) {
+        this.diversionTask = diversionTask;
+    }
     /**
      * Sets your request assistance/aid to something
      * @param assistance

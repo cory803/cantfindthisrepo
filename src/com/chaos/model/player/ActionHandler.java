@@ -60,6 +60,10 @@ public final class ActionHandler {
             player.getWalkingQueue().clear();
             return;
         }
+        if (npc.getDialogue(player) != null) {
+            player.getDialog().sendDialog(npc.getDialogue(player));
+            return;
+        }
         if (SummoningData.beastOfBurden(npc.getId())) {
             Summoning summoning = player.getSummoning();
             if (summoning.getBeastOfBurden() != null && summoning.getFamiliar() != null

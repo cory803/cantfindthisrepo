@@ -37,9 +37,11 @@ import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
+import org.scripts.kotlin.content.dialog.GoldenMiningArmour;
 import org.scripts.kotlin.content.dialog.TentacleCombination;
 import org.scripts.kotlin.content.dialog.npcs.Bob2;
 import org.scripts.kotlin.content.dialog.npcs.Bob3;
+import org.scripts.kotlin.content.dialog.npcs.Merchant;
 
 /**
  * This packet listener is called when a player 'uses' an item on another
@@ -704,6 +706,12 @@ public class UseItemPacketListener implements PacketListener {
 				}
 				player.getSlayer().duoSlayerOption(target);
 				break;
+		case 20083:
+			if(player.getInventory().contains(20083)) {
+				player.setPositionToFace(target.getPosition());
+				player.getDialog().sendDialog(new GoldenMiningArmour(player));
+			}
+			break;
 		case 962:
 			if (!player.getInventory().contains(962))
 				return;

@@ -44929,6 +44929,28 @@
 "defenceMage": 0
 },
 {
+"id": 8091,
+"name": "Null",
+"examine": "It's an NPC.",
+"combat": 1,
+"size": 1,
+"attackable": false,
+"aggressive": false,
+"retreats": false,
+"poisonous": false,
+"respawn": 10,
+"maxHit": 1,
+"hitpoints": 10,
+"attackSpeed": 7,
+"attackAnim": 422,
+"defenceAnim": 404,
+"deathAnim": 2304,
+"attackBonus": 13,
+"defenceMelee": 13,
+"defenceRange": 13,
+"defenceMage": 0
+},
+{
 "id": 495,
 "name": "Venenatis spiderling",
 "examine": "A red-haired woman.",

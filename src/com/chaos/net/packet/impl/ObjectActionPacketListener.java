@@ -21,6 +21,7 @@ import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
+import com.chaos.world.content.diversions.hourly.ShootingStar;
 import com.chaos.world.content.minigames.impl.*;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.impl.agility.Agility;
@@ -161,6 +162,17 @@ public class ObjectActionPacketListener implements PacketListener {
                                         Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()));
                                     }
                                 }
+                                break;
+                            case 38660:
+                            case 38661:
+                            case 38662:
+                            case 38663:
+                            case 38664:
+                            case 38665:
+                            case 38666:
+                            case 38667:
+                            case 38668:
+                                ShootingStar.getInstance().hasMenuAction(player, 1);
                                 break;
                             //corp lair
                             case 37929:
@@ -715,11 +727,6 @@ public class ObjectActionPacketListener implements PacketListener {
                                     }
                                 } else {
                                     player.getPacketSender().sendMessage("You need 50 agility in order to cross this...");
-                                }
-                                break;
-                            case 38660:
-                                if (ShootingStar.CRASHED_STAR != null) {
-
                                 }
                                 break;
                             case 5259:
@@ -2056,6 +2063,18 @@ public class ObjectActionPacketListener implements PacketListener {
                         if (player.getThieving().stealFromStall(ThievingStall.forId(id)))
                             return;
                         switch (gameObject.getId()) {
+                            case 38660:
+                            case 38661:
+                            case 38662:
+                            case 38663:
+                            case 38664:
+                            case 38665:
+                            case 38666:
+                            case 38667:
+                            case 38668:
+                                ShootingStar.getInstance().hasMenuAction(player, 2);
+                                break;
+
                             case 17010:
                                 if (player.getSkillManager().getMaxLevel(Skill.DEFENCE) < 40) {
                                     player.getPacketSender().sendMessage("You need a Defence level of at least 40 to use this altar.");
