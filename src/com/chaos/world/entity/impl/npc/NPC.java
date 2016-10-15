@@ -12,6 +12,7 @@ import com.chaos.util.RandomGenerator;
 import com.chaos.world.World;
 import com.chaos.world.clip.region.Region;
 import com.chaos.world.content.Area;
+import com.chaos.world.content.Sheep;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.effect.CombatPoisonEffect.PoisonType;
@@ -256,6 +257,7 @@ public class NPC extends Character {
         Nex.spawn();
         PuroPuro.spawn();
         DesoSpan.spawn();
+        Sheep.spawnSheep();
         KalphiteQueen.spawn(1158, new Position(3478, 9490));
     }
 
@@ -482,6 +484,9 @@ public class NPC extends Character {
 
     public static int getWalkingDistance(int id) {
         switch (id) {
+            case 42:
+            case 43:
+                return 10;
             case 6053:
             case 6054:
             case 6055:

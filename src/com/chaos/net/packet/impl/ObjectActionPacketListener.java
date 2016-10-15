@@ -49,6 +49,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
 import org.scripts.kotlin.content.dialog.LumbyStairs;
+import org.scripts.kotlin.content.dialog.Spin;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.Well.Well;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
@@ -1966,7 +1967,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.getBank(player.getCurrentBankTab()).open();
                                 break;
                             case 21304:
-                                Flax.showSpinInterface(player);
+                                player.getDialog().sendDialog(new Spin(player));
                                 break;
                             case 21514: //ladder up at neiznot
                                 player.performAnimation(new Animation(828));
@@ -2151,7 +2152,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.getClickDelay().reset();
                                 break;
                             case 2644:
-                                Flax.showSpinInterface(player);
+                                player.getDialog().sendDialog(new Spin(player));
                                 break;
                             case 6:
                                 DwarfCannon cannon = player.getCannon();

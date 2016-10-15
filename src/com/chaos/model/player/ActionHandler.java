@@ -9,6 +9,7 @@ import com.chaos.model.input.impl.PosSearchShop;
 import com.chaos.world.content.Artifacts;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.EnergyHandler;
+import com.chaos.world.content.Sheep;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.Enchanting;
@@ -77,6 +78,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //sheep
+            case 43:
+                Sheep.shearSheep(player, npc);
+                break;
             //miner star dust
             case 4756:
                 Shop.ShopManager.getShops().get(41).open(player);
