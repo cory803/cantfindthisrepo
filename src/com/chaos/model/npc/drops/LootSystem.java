@@ -260,7 +260,7 @@ public class LootSystem {
      */
     public static Item rollDrop(Player player, NPC npc, LootItem[][] table, int npcId) {
         //Table chance (1/4)
-        double extraChance = .50;
+        double extraChance = 0;
         if(player != null) {
             extraChance = player.getGameModeAssistant().getGameMode().getMonsterDropRate();
             if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 2572) {
