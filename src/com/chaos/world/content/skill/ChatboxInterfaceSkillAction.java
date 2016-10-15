@@ -32,7 +32,7 @@ public class ChatboxInterfaceSkillAction {
 		if (player.getInputHandling() instanceof EnterAmountOfGemsToCut)
 			Gems.cutGem(player, amount, player.getSelectedSkillingItem());
 		else if (player.getInputHandling() instanceof EnterAmountToSpin)
-			Flax.spinFlax(player, amount);
+			Flax.spinFlax(player, amount, true);
 		else if (player.getInputHandling() instanceof EnterAmountOfBonesToSacrifice)
 			BonesOnAltar.offerBones(player, amount);
 		else if (player.getInputHandling() instanceof GrindArmadylRune)
