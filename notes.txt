@@ -4,76 +4,13 @@ Make sure you format them as you would want to see them publicly.
 Object 3769 for cool fire
 
 ~UPDATES~
-Fixed a skull glitching bug with relogging.
-David's trade option now opens the correct shop for iron man
-Warriors Guild drop chance for defenders has increased
-Bones on altar has been slightly nurfed to make prayer more rewarding
-A banker has been added to mage banker
-Spider webs have been removed until a slashing system is implemented
-The building north of the resource area has had it's doors removed
-The Lumbridge castle's staircase is now functioning
-The overall drop rate system has been redone.
-	We can now say that a specific npc has a drop rate of X for a certain item.
-	Ring of wealths now work perfectly.
-		Regular ring of wealth gives a 5% boost.
-		Ring of wealth (i) gives a 10% boost.
-	Game mode drop rates have been fixed.
-		Realism gives a 50% drop rate boost (1/1000 turns into 1/500).
-		Ironman gives a 35% drop rate boost.
-	Items that are in a specific table with another item have the same drop rate.
-		Example: Bandos tassets & chestplate are in the same group so they have the same drop rate.
-	Donators now have a drop rate boost:
-		Premium = 1%
-		Extreme = 2%
-		Legendary = 3%
-		Uber = 4%
-		Platinum = 5%
-Experience lamps have been added and added to the crystal key chest.
-The following lamps are obtainable for each game mode (the higher = more rare):
-	There is a 1/10 chance to get the lowest possible lamp.
-	Knight:
-		Lamp of 100K
-		Lamp of 500K
-		Lamo of 1M
-		Lamp of 2M
-	Realism:
-		Lamp of 10K
-		Lamp of 25K
-		Lamp of 50K
-		Lamp of 100K
-	Ironman:
-		Lamp of 10K
-		Lamp of 25K
-		Lamp of 50K
-		Lamp of 100K
-		Lamp of 500K
-Shooting stars have been redone:
-	There are now all 9 tiers of shooting stars.
-	It is now on a much more stable system.
-	The sprite npc has been added.
-	You now can only exchange star dust to the alien sprite.
-	Golden cracker has been added with a 1/40 rate (every 50 star dusts):
-		Use it on a player to obtain 1 golden mining armour piece.
-	Gilded dragon pickaxe has been added with a 1/200 rate (every 50 star dusts)
-		Gives a 1/4 chance to get a extra ore from mining.
-		Gives double stardust when mining shooting stars.
-David now sells shears to everyone, including iron men
-Sheep have been added to the lumbridge pasture and also at a house north of the crafting guild
-You can now spin wool into a wool ball in addition to flax
-Items restocking in the shop has been fixed.
-The fire you create when firemaking has been replaced with one that has a working animation.
-Lighting fires are now faster (meaning you can light your next fire faster to go in a row).
-The amount of time that a fire will stay burning for has been doubled.
-When completing an achievement it now displays the correct wording in the interface announcement.
-All tooth keys have been converted to the rare drop table instead of common.
-The ::thread (thread number) command has been fixed.
-The Legendary rank has been coloured to purple.
 
 ~TODO~
 Vote
 Hiscores
 Donations
 Charming imp
+Add herblore shop
 
 Tanner:
 
