@@ -24,7 +24,7 @@ import com.chaos.world.entity.impl.player.Player;
 public class Firemaking {
 
 	public static void lightFire(final Player player, int log, final boolean addingToFire, final int amount) {
-		if (!player.getClickDelay().elapsed(2000) || player.getWalkingQueue().isLockMovement())
+		if (!player.getClickDelay().elapsed(1500) || player.getWalkingQueue().isLockMovement())
 			return;
 		if (player.getPosition().getX() == 2352 && player.getPosition().getY() == 3703) {
 			player.getPacketSender().sendMessage("You can not light a fire on this spot try going south a few paces.");
