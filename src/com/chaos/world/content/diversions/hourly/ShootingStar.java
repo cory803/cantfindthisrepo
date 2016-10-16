@@ -271,19 +271,21 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 			//rewards.add(lamp);
 
 		//Rare rewards
-		if(stardust >= 200) {
-			for (int x = 0; x < stardust / 200; x++) {
+		if(stardust >= 50) {
+			for (int x = 0; x < stardust / 50; x++) {
 				int chance = Misc.inclusiveRandom(0, 1);
 				switch(chance) {
 					case 0:
-						int chance2 = Misc.inclusiveRandom(1, 10 / 2);
+						int chance2 = Misc.inclusiveRandom(1, 400 / 2);
 						if(chance2 == 1) {
-							player.getInventory().add(new Item(20768, 1), true);
+							player.getPacketSender().sendMessage("You have received a Gilded dragon pickaxe from a Shooting Star!");
+							player.getInventory().add(new Item(20786, 1), true);
 						}
 						break;
 					case 1:
-						int chance3 = Misc.inclusiveRandom(1, 100 / 2);
+						int chance3 = Misc.inclusiveRandom(1, 40 / 2);
 						if(chance3 == 1) {
+							player.getPacketSender().sendMessage("You have received a Golden cracker from a Shooting Star!");
 							player.getInventory().add(new Item(20083, 1), true);
 						}
 						break;

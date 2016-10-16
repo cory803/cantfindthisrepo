@@ -52,9 +52,9 @@ Shooting stars have been redone:
 	It is now on a much more stable system.
 	The sprite npc has been added.
 	You now can only exchange star dust to the alien sprite.
-	Golden cracker has been added with a 1/10 rate (every 200 star dusts):
+	Golden cracker has been added with a 1/40 rate (every 50 star dusts):
 		Use it on a player to obtain 1 golden mining armour piece.
-	Gilded dragon pickaxe has been added with a 1/50 rate (every 200 star dusts)
+	Gilded dragon pickaxe has been added with a 1/200 rate (every 50 star dusts)
 		Gives a 1/4 chance to get a extra ore from mining.
 		Gives double stardust when mining shooting stars.
 David now sells shears to everyone, including iron men
