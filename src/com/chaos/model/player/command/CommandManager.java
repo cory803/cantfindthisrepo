@@ -175,7 +175,7 @@ public class CommandManager {
                     player.getPacketSender().sendMessage("Please use the command as ::thread-topic");
                     return;
                 }
-                player.getPacketSender().sendString(1, "www.chaosps.com/forum/index.php?/topic/" + args[0] + "-threadcommand/");
+                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/topic/"+args[0]+"-thread-command/");
                 player.getPacketSender().sendMessage("Attempting to open: Thread " + args[0]);
             }
         });

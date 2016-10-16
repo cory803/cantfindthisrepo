@@ -66,6 +66,8 @@ Lighting fires are now faster (meaning you can light your next fire faster to go
 The amount of time that a fire will stay burning for has been doubled.
 When completing an achievement it now displays the correct wording in the interface announcement.
 All tooth keys have been converted to the rare drop table instead of common.
+The ::thread (thread number) command has been fixed.
+The Legendary rank has been coloured to purple.
 
 ~TODO~
 Vote

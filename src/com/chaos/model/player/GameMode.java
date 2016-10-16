@@ -5,8 +5,8 @@ import com.chaos.util.Misc;
 public enum GameMode {
 
 	KNIGHT(500, 0, 1, 20, 0),
-	REALISM(10, .50, .50, 10, 0),
-	IRONMAN(100, .35, .75, 15, 13);
+	REALISM(10, .35, .50, 10, 0),
+	IRONMAN(100, .50, .75, 15, 13);
 
 	GameMode(int modeExpRate, double monsterDropRate, double prayerDrainRate, int specialRecoveryRate, int crown) {
 		this.modeExpRate = modeExpRate;
