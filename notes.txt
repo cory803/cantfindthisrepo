@@ -11,6 +11,7 @@ Hiscores
 Donations
 Charming imp
 Add herblore shop
+Add hunter npcs
 
 Tanner:
 
