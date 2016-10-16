@@ -270,29 +270,6 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 		//if (lamp != null)
 			//rewards.add(lamp);
 
-		//Rare rewards
-		if(stardust >= 50) {
-			for (int x = 0; x < stardust / 50; x++) {
-				int chance = Misc.inclusiveRandom(0, 1);
-				switch(chance) {
-					case 0:
-						int chance2 = Misc.inclusiveRandom(1, 400 / 2);
-						if(chance2 == 1) {
-							player.getPacketSender().sendMessage("You have received a Gilded dragon pickaxe from a Shooting Star!");
-							player.getInventory().add(new Item(20786, 1), true);
-						}
-						break;
-					case 1:
-						int chance3 = Misc.inclusiveRandom(1, 40 / 2);
-						if(chance3 == 1) {
-							player.getPacketSender().sendMessage("You have received a Golden cracker from a Shooting Star!");
-							player.getInventory().add(new Item(20083, 1), true);
-						}
-						break;
-				}
-			}
-		}
-
 		if (MathUtil.random(3) == 0) {
 			rewards.add(new Item(990, 2));
 		} else if (MathUtil.random(3) == 0) {
@@ -315,7 +292,7 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	
 	public static final int STARDUST = 13727;
 	
-	private static final int STARDUST_LIMIT = 20000;
+	public static final int STARDUST_LIMIT = 20000;
 	
 	private static final int SPAWN_TIMER = 2400;
 	

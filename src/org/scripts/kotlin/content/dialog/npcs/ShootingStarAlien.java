@@ -8,6 +8,7 @@ import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
+import com.chaos.util.Misc;
 import com.chaos.world.content.diversions.hourly.ShootingStar;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -41,6 +42,34 @@ public class ShootingStarAlien extends Dialog {
                                 player.getInventory().delete(new Item(ShootingStar.STARDUST, amount));
                                 for (Item item : rewards) {
                                     player.getInventory().add(item);
+                                }
+                                int stardust = player.getInventory().getAmount(ShootingStar.STARDUST);
+                                if (stardust <= 0)
+                                    return;
+
+                                if (stardust > ShootingStar.STARDUST_LIMIT)
+                                    stardust = ShootingStar.STARDUST_LIMIT;
+                                //Rare rewards
+                                if(stardust >= 50) {
+                                    for (int x = 0; x < stardust / 50; x++) {
+                                        int chance = Misc.inclusiveRandom(0, 1);
+                                        switch(chance) {
+                                            case 0:
+                                                int chance2 = Misc.inclusiveRandom(1, 400 / 2);
+                                                if(chance2 == 1) {
+                                                    player.getPacketSender().sendMessage("You have received a Gilded dragon pickaxe from a Shooting Star!");
+                                                    player.getInventory().add(new Item(20786, 1), true);
+                                                }
+                                                break;
+                                            case 1:
+                                                int chance3 = Misc.inclusiveRandom(1, 40 / 2);
+                                                if(chance3 == 1) {
+                                                    player.getPacketSender().sendMessage("You have received a Golden cracker from a Shooting Star!");
+                                                    player.getInventory().add(new Item(20083, 1), true);
+                                                }
+                                                break;
+                                        }
+                                    }
                                 }
                                 setState(3);
                                 setEndState(3);
