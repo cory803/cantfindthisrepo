@@ -230,7 +230,7 @@ public class Achievements {
 						+ Misc.formatText(achievement.toString().toLowerCase() + "."))
 				.sendString(37001, "Achievements: " + player.getPointsHandler().getAchievementPoints() + "/"
 						+ AchievementData.values().length);
-		player.getPacketSender().sendString(1, "[ACHIEVEMENT]-"+ Misc.formatText(achievement.toString().toLowerCase() +"-"+achievement.getDifficulty().ordinal()));
+		player.getPacketSender().sendString(1, "[ACHIEVEMENT]-"+ achievement.interfaceLine +"-"+achievement.getDifficulty().ordinal()));
 	}
 
 	public static class AchievementAttributes {

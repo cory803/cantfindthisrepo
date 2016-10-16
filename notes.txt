@@ -64,13 +64,14 @@ Items restocking in the shop has been fixed.
 The fire you create when firemaking has been replaced with one that has a working animation.
 Lighting fires are now faster (meaning you can light your next fire faster to go in a row).
 The amount of time that a fire will stay burning for has been doubled.
+When completing an achievement it now displays the correct wording in the interface announcement.
+All tooth keys have been converted to the rare drop table instead of common.
 
 ~TODO~
 Vote
 Hiscores
 Donations
 Charming imp
-Change all tooth half keys/loop half keys to RARE drops.
 
 Tanner:
 
