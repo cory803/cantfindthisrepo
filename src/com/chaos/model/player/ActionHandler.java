@@ -82,10 +82,6 @@ public final class ActionHandler {
             case 43:
                 Sheep.shearSheep(player, npc);
                 break;
-            //miner star dust
-            case 4756:
-                Shop.ShopManager.getShops().get(41).open(player);
-            break;
             //mercant
             case 1282:
                 player.getDialog().sendDialog(new Merchant(player));
