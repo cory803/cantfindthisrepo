@@ -63,6 +63,7 @@ You can now spin wool into a wool ball in addition to flax
 Items restocking in the shop has been fixed.
 The fire you create when firemaking has been replaced with one that has a working animation.
 Lighting fires are now faster (meaning you can light your next fire faster to go in a row).
+The amount of time that a fire will stay burning for has been doubled.
 
 ~TODO~
 Vote
