@@ -1,6 +1,8 @@
 Any updates that are completed put into this file.
 Make sure you format them as you would want to see them publicly.
 
+Object 3769 for cool fire
+
 ~UPDATES~
 Fixed a skull glitching bug with relogging.
 David's trade option now opens the correct shop for iron man
@@ -59,6 +61,7 @@ David now sells shears to everyone, including iron men
 Sheep have been added to the lumbridge pasture and also at a house north of the crafting guild
 You can now spin wool into a wool ball in addition to flax
 Items restocking in the shop has been fixed.
+The fire you create when firemaking has been replaced with one that has a working animation.
 
 ~TODO~
 Vote

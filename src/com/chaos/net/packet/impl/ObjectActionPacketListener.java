@@ -1797,6 +1797,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.setInteractingObject(gameObject);
                                 EquipmentMaking.handleAnvil(player);
                                 break;
+                            case 41687:
                             case 2732:
                                 EnterAmountOfLogsToAdd.openInterface(player);
                                 break;

@@ -89,7 +89,7 @@ public class Firemaking {
 					}
 					CustomObjects
 							.globalFiremakingTask(
-									new GameObject(2732, new Position(player.getPosition().getX(),
+									new GameObject(41687, new Position(player.getPosition().getX(),
 											player.getPosition().getY(), player.getPosition().getZ())),
 									player, logData.getBurnTime());
 					player.getPacketSender().sendMessage("The fire catches and the logs begin to burn.");
