@@ -33,7 +33,7 @@ public class PlayerSaving {
 
 	/*
 	 * public static boolean accountExists(Player player, String name,
-	 * SQLCallback callback) { GameServer.getCharacterPool().executeQuery(
+	 * SQLCallback callback) { GameServer.getServerPool().executeQuery(
 	 * "SELECT username FROM `accounts` as acc WHERE LOWER (`username`) = LOWER('"
 	 * + name + "') LIMIT 1", new SQLCallback() {
 	 * 
@@ -45,7 +45,7 @@ public class PlayerSaving {
 	 */
 
 	public static void updatePassword(Player p, String password, String salt) {
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(),
 				new SQLCallback() {
 					@Override
@@ -71,7 +71,7 @@ public class PlayerSaving {
 			query = "INSERT INTO `accounts` (username, password, salt) VALUES ('" + p.getUsername() + "', '"
 					+ p.getPassword() + ", " + p.getSalt() + "')";
 		}
-		GameServer.getCharacterPool().executeQuery(query, new SQLCallback() {
+		GameServer.getServerPool().executeQuery(query, new SQLCallback() {
 			@Override
 			public void queryError(SQLException e) {
 				p.setResponse(3);
@@ -93,7 +93,7 @@ public class PlayerSaving {
 			return;
 		}
 		final Player p = player;
-		GameServer.getCharacterPool().executeLogoutQuery(p, new SQLCallback() {
+		GameServer.getServerPool().executeLogoutQuery(p, new SQLCallback() {
 			@Override
 			public void queryComplete(ResultSet result) throws SQLException {
 

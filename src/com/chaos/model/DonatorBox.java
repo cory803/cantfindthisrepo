@@ -3,7 +3,6 @@ package com.chaos.model;
 import com.chaos.GameServer;
 import com.chaos.net.mysql.SQLCallback;
 import com.chaos.world.content.MemberScrolls;
-import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -54,7 +53,7 @@ public class DonatorBox {
     }
     public static void claimItem(Player player) {
         player.claimingStoreItems = true;
-        GameServer.getForumPool().executeQuery(
+        GameServer.getWebsitePool().executeQuery(
                 "SELECT * FROM donation WHERE username = " + player.getUsername().replaceAll(" ", "_"), new SQLCallback() {
                     @Override
                     public void queryComplete(ResultSet rs) throws SQLException {
@@ -87,7 +86,7 @@ public class DonatorBox {
                                     .sendMessage("You currently don't have anything in your collection box!");
                             return;
                         }
-                        GameServer.getForumPool().executeQuery(
+                        GameServer.getWebsitePool().executeQuery(
                                 "DELETE FROM `donation` WHERE `username` = '" + player.getUsername() + "'",
                                 new SQLCallback() {
                                     @Override

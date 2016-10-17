@@ -132,7 +132,7 @@ public class PlayerLoading {
 
 	public static void performSqlRequest(Player player) {
 		// Perform a standard threaded query
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + player.getUsername() + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -205,7 +205,7 @@ public class PlayerLoading {
 							}
 							LoginManager.finalizeLogin(player);
 						} else {
-							GameServer.getCharacterPool()
+							GameServer.getServerPool()
 									.executeQuery("SELECT username FROM `accounts` as acc WHERE username = '"
 											+ player.getUsername() + "' LIMIT 1", new SQLCallback() {
 												@Override

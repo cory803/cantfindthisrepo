@@ -6,7 +6,7 @@ package com.chaos.net.mysql;
  * @author Nikki
  *
  */
-public class DatabaseInformationForums {
+public class DatabaseInformationWebsite {
 
 	public static String host = "149.56.129.176";
 

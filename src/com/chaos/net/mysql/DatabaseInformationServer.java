@@ -6,7 +6,7 @@ package com.chaos.net.mysql;
  * @author Jonny
  *
  */
-public class DatabaseInformationCharacters {
+public class DatabaseInformationServer {
 
 	public static String host = "localhost";
 
