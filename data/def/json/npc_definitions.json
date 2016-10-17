@@ -44934,7 +44934,7 @@
 "name": "Star sprite",
 "examine": "It's an NPC.",
 "combat": 1,
-"size": 1,
+"size": 2,
 "attackable": false,
 "aggressive": false,
 "retreats": false,
