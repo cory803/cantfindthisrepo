@@ -78,6 +78,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //donor shop
+            case 4358:
+                player.getDialog().sendDialog(new DonatorShop(player));
+                break;
             //sheep
             case 43:
                 Sheep.shearSheep(player, npc);
