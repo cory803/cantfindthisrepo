@@ -170,6 +170,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
 
             //Skilling Areas
+            case 13045: // ancient2
             case 1540: //Moderns
             case 13061: //Ancients
             case 30083: //Lunars
