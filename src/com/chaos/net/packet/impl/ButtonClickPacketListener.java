@@ -822,7 +822,7 @@ public class ButtonClickPacketListener implements PacketListener {
                     player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
                     return;
                 }
-                player.forceChat("[CHAOS] I have "+player.getPointsHandler().getCommendations()+" commedations.");
+                player.forceChat("[CHAOS] I have "+player.getPointsHandler().getCommendations()+" commendations.");
                 player.getQuickChat().reset();
                 break;
             case -10450:

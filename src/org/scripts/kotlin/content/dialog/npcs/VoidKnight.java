@@ -20,7 +20,7 @@ public class VoidKnight extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "Hello warrior, I can help you exchange your commedations for all you've done.");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello warrior, I can help you exchange your commendations for all you've done.");
             case 1:
             return Dialog.createOption(new TwoOption(
                     "Yes, show me what your selling",
