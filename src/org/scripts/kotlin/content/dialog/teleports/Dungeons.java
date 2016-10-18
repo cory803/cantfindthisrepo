@@ -22,7 +22,7 @@ public class Dungeons extends Dialog {
             case 0:
                 return Dialog.createOption(new FiveOption(
                         "Edgeville Dungeon",
-                        "Taverly Dungeon",
+                        "Taverley Dungeon",
                         "Brimhaven Dungeon",
                         "Ancient Cavern",
                         "Strykewyrm Cavern") {
