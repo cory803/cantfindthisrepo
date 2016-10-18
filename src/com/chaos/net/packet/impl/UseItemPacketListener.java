@@ -132,7 +132,7 @@ public class UseItemPacketListener implements PacketListener {
 		 * if ((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080) ||
 		 * (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
 		 * boolean already_has = false; for (int i = 0; i < 9; i++) { for (Item
-		 * item : player.getBank(i).getItems()) { if (item != null &&
+		 * item : player.getBank(i).getRareDrops()) { if (item != null &&
 		 * item.getId() > 0 && item.getId() == 21077) already_has = true; } } if
 		 * (player.getInventory().contains(21077) ||
 		 * player.getEquipment().contains(21077) || already_has) {

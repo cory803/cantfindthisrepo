@@ -1,6 +1,7 @@
 package com.chaos.net.packet.impl;
 
 import com.chaos.GameSettings;
+import com.chaos.model.input.impl.DropGeneratorAmount;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;

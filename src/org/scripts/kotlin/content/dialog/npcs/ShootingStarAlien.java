@@ -28,7 +28,7 @@ public class ShootingStarAlien extends Dialog {
         final List<Item> rewards = ShootingStar.getRewards(getPlayer());
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.JOYOUS_TALK, "Is that stardust? Will you be willing to exchange it for some rewards I have collected?");
+                return Dialog.createNpc(DialogHandler.JOYOUS_TALK, "Is that stardust? Will you be willing to exchange 200 of it for some rewards I have collected?");
             case 1:
             return Dialog.createOption(new TwoOption(
                     "Yes",
@@ -38,8 +38,8 @@ public class ShootingStarAlien extends Dialog {
                     switch(option) {
                         case OPTION_1_OF_2:
                             int amount = player.getInventory().getAmount(ShootingStar.STARDUST);
-                            if (amount >= 20) {
-                                player.getInventory().delete(new Item(ShootingStar.STARDUST, amount));
+                            if (amount >= 200) {
+                                player.getInventory().delete(new Item(ShootingStar.STARDUST, 200));
                                 for (Item item : rewards) {
                                     player.getInventory().add(item);
                                 }
@@ -47,35 +47,29 @@ public class ShootingStarAlien extends Dialog {
                                 if (stardust <= 0)
                                     return;
 
-                                if (stardust > ShootingStar.STARDUST_LIMIT)
-                                    stardust = ShootingStar.STARDUST_LIMIT;
-                                //Rare rewards
-                                if(stardust >= 50) {
-                                    for (int x = 0; x < stardust / 50; x++) {
-                                        int chance = Misc.inclusiveRandom(0, 1);
-                                        switch(chance) {
-                                            case 0:
-                                                int chance2 = Misc.inclusiveRandom(1, 400 / 2);
-                                                if(chance2 == 1) {
-                                                    player.getPacketSender().sendMessage("You have received a Gilded dragon pickaxe from a Shooting Star!");
-                                                    player.getInventory().add(new Item(20786, 1), true);
-                                                }
-                                                break;
-                                            case 1:
-                                                int chance3 = Misc.inclusiveRandom(1, 40 / 2);
-                                                if(chance3 == 1) {
-                                                    player.getPacketSender().sendMessage("You have received a Golden cracker from a Shooting Star!");
-                                                    player.getInventory().add(new Item(20083, 1), true);
-                                                }
-                                                break;
+                                int chance = Misc.inclusiveRandom(0, 1);
+                                switch(chance) {
+                                    case 0:
+                                        int chance2 = Misc.inclusiveRandom(1, 50);
+                                        if(chance2 == 1) {
+                                            player.getPacketSender().sendMessage("You have received a Gilded dragon pickaxe from a Shooting Star!");
+                                            player.getInventory().add(new Item(20786, 1), true);
                                         }
-                                    }
+                                        break;
+                                    case 1:
+                                        int chance3 = Misc.inclusiveRandom(1, 20);
+                                        if(chance3 == 1) {
+                                            player.getPacketSender().sendMessage("You have received a Golden cracker from a Shooting Star!");
+                                            player.getInventory().add(new Item(20083, 1), true);
+                                        }
+                                        break;
                                 }
+
                                 setState(3);
                                 setEndState(3);
                                 player.getDialog().sendDialog(dialog);
                             } else {
-                                player.getPacketSender().sendMessage("You need at least 20 stardusts to claim a reward.");
+                                player.getPacketSender().sendMessage("You need at least 200 stardusts to claim a reward.");
                                 player.getPacketSender().sendInterfaceRemoval();
                             }
                             break;

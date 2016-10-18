@@ -3,7 +3,7 @@ package com.chaos.net.mysql;
 /**
  * The Chaos Database Informations
  *
- * @author Nikki
+ * @author Jonny
  *
  */
 public class DatabaseInformationWebsite {

@@ -19,7 +19,6 @@ import com.chaos.world.content.skill.impl.summoning.CharmingImp;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.KnightLamp;
 import org.scripts.kotlin.content.dialog.KrakenLoot;
 
 import java.io.DataInputStream;
@@ -188,7 +187,7 @@ public class LootSystem {
          * Loops how many times we drop a random item.
          */
         for (int t = 0; t < dropCount; t++) {
-            Item roll = rollDrop(p, n, table.getSortedLoot(), n.getId());
+            Item roll = rollDrop(p, n, table.getSortedLoot(), n.getId(), false);
 
             if (roll != null) {
                 Player pl = ClanChatManager.lootshare(p, n.getPosition().copy(), roll.getId(), roll.getAmount());
@@ -247,6 +246,19 @@ public class LootSystem {
         return false;
     }
 
+    public static double getExtraChance(Player player) {
+        double extraChance = 0;
+        if(player != null) {
+            extraChance = player.getGameModeAssistant().getGameMode().getMonsterDropRate();
+            if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 2572) {
+                extraChance += .05;
+            } else if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 21110) {
+                extraChance += .10;
+            }
+            extraChance += player.getDonatorRights().ordinal() / 100;
+        }
+        return extraChance;
+    }
     /**
      * Rolls the drop table
      * 1/4 chance to get a specific table.
@@ -258,18 +270,9 @@ public class LootSystem {
      * 4 = very rare
      * 5 = epic
      */
-    public static Item rollDrop(Player player, NPC npc, LootItem[][] table, int npcId) {
+    public static Item rollDrop(Player player, NPC npc, LootItem[][] table, int npcId, boolean generator) {
         //Table chance (1/4)
-        double extraChance = 0;
-        if(player != null) {
-            extraChance = player.getGameModeAssistant().getGameMode().getMonsterDropRate();
-            if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 2572) {
-                extraChance += .5;
-            } else if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 21110) {
-                extraChance += .10;
-            }
-            extraChance += player.getDonatorRights().ordinal();
-        }
+        double extraChance = getExtraChance(player);
         Item item = null;
         int tableChance = Misc.inclusiveRandom(2, 5);
         for (int i = 2; i < table.length; i++) {
@@ -282,6 +285,11 @@ public class LootSystem {
                 if(i == 2) {
                     int chance = Misc.inclusiveRandom(1, 5);
                     if (chance == 5) {
+                        if(generator) {
+                            if(player != null) {
+                                player.getDropGenerator().setRarity(i);
+                            }
+                        }
                         LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length - 1)];
                         item = new Item(loot.getId(), loot.getRandomAmount());
                     }
@@ -291,8 +299,8 @@ public class LootSystem {
             if(tableChance == 3) {
                 if(i == 3) {
                     int rarity = NpcDefinition.forId(npcId).getRare();
-                    double conversion = ((int) extraChance * rarity / 4);
-                    int chance = Misc.inclusiveRandom(1, rarity / 4 - ((int) conversion));
+                    double conversion = ((extraChance * rarity) / 4);
+                    int chance = Misc.inclusiveRandom(1, (rarity / 4) - ((int) conversion));
                     if (chance == 5) {
                         LootItem loot = table[i]
                                 [Misc.inclusiveRandom(0, table[i].length - 1)];
@@ -304,11 +312,16 @@ public class LootSystem {
             if(tableChance == 4) {
                 if(i == 4) {
                     int rarity = NpcDefinition.forId(npcId).getVeryRare();
-                    double conversion = ((int) extraChance * rarity / 4);
-                    int chance = Misc.inclusiveRandom(1, rarity / 4 - ((int) conversion));
+                    double conversion = ((extraChance * rarity) / 4);
+                    int chance = Misc.inclusiveRandom(1, (rarity / 4) - ((int) conversion));
                     if (chance == 5) {
                         LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length - 1)];
                         item = new Item(loot.getId(), loot.getRandomAmount());
+                        if(generator) {
+                            if(player != null) {
+                                player.getDropGenerator().setRarity(i);
+                                player.getDropGenerator().getRareDrops().add(item.getId());}
+                        }
                     }
                 }
             }
@@ -316,11 +329,17 @@ public class LootSystem {
             if(tableChance == 5) {
                 if(i == 5) {
                     int rarity = NpcDefinition.forId(npcId).getEpicRare();
-                    double conversion = (extraChance * rarity / 4);
-                    int chance = Misc.inclusiveRandom(1, rarity / 4 - ((int) conversion));
+                    double conversion = ((extraChance * rarity) / 4);
+                    int chance = Misc.inclusiveRandom(1, (rarity / 4) - ((int) conversion));
                     if (chance == 5) {
                         LootItem loot = table[i][Misc.inclusiveRandom(0, table[i].length - 1)];
                         item = new Item(loot.getId(), loot.getRandomAmount());
+                        if(generator) {
+                            if(player != null) {
+                                player.getDropGenerator().setRarity(i);
+                                player.getDropGenerator().getEpicDrops().add(item.getId());
+                            }
+                        }
                     }
                 }
             }

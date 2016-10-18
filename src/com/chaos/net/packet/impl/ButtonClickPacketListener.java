@@ -201,6 +201,10 @@ public class ButtonClickPacketListener implements PacketListener {
             case -10431:
                 KillsTracker.open(player, 0);
                 break;
+            case -10430:
+                player.setInputHandling(new DropGeneratorNpcId());
+                player.getPacketSender().sendEnterAmountPrompt("Enter a npc id:");
+                break;
             case -30282:
                 KillsTracker.open(player, 1);
                 break;

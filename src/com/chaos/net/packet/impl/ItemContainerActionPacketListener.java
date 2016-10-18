@@ -66,6 +66,29 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			// + " - " + interfaceId + " - " + slot + "");
 		}
 		switch (interfaceId) {
+			//Drop generator interfaces
+			case -22933:
+			case -22932:
+			case -22931:
+			case -22930:
+			case -22929:
+			case -22928:
+			case -22927:
+			case -22926:
+			case -22925:
+			case -22924:
+			case -22923:
+			case -22922:
+			case -22921:
+			case -22920:
+			case -22919:
+			case -22918:
+			case -22917:
+			case -22916:
+			case -22915:
+			case -22914:
+				player.getDropGenerator().checkChance(player, id);
+				break;
 		case Trading.INTERFACE_ID:
 			if (player.getTrading().inTrade()) {
 				player.getTrading().tradeItem(id, 1, slot);

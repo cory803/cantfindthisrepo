@@ -224,59 +224,30 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 			stardust = STARDUST_LIMIT;
 		
 		final List<Item> rewards = new ArrayList<>();
-		if (stardust >= 600 && MathUtil.random(40) == 0) {
-			rewards.add(new Item(13661, 1));
-			rewards.add(new Item(COSMIC_RUNES, 1820));
-			rewards.add(new Item(ASTRAL_RUNES, 520));
-			rewards.add(new Item(GOLD_ORES, 300));
-			rewards.add(new Item(995, 300_000));
-		} else if (stardust >= 550) {
-			rewards.add(new Item(COSMIC_RUNES, 1520));
-			rewards.add(new Item(ASTRAL_RUNES, 520));
-			rewards.add(new Item(GOLD_ORES, 200));
-			rewards.add(new Item(995, 500_000));
-		} else if (stardust >= 500) {
-			rewards.add(new Item(COSMIC_RUNES, 1380));
-			rewards.add(new Item(ASTRAL_RUNES, 450));
-			rewards.add(new Item(GOLD_ORES, 165));
-			rewards.add(new Item(995, 584_200));
-		} else if (stardust >= 450) {
-			rewards.add(new Item(COSMIC_RUNES, 1180));
-			rewards.add(new Item(ASTRAL_RUNES, 430));
-			rewards.add(new Item(GOLD_ORES, 140));
-			rewards.add(new Item(995, 435_000));
-		} else if (stardust >= 400) {
-			rewards.add(new Item(COSMIC_RUNES, 1020));
-			rewards.add(new Item(ASTRAL_RUNES, 380));
-			rewards.add(new Item(GOLD_ORES, 125));
-			rewards.add(new Item(995, 400_000));
-		} else if (stardust >= 300) {
-			rewards.add(new Item(COSMIC_RUNES, 860));
-			rewards.add(new Item(ASTRAL_RUNES, 340));
-			rewards.add(new Item(GOLD_ORES, 112));
-			rewards.add(new Item(995, 300_000));
-		} else if (stardust >= 100) {
-			rewards.add(new Item(COSMIC_RUNES, 800));
-			rewards.add(new Item(ASTRAL_RUNES, 300));
-			rewards.add(new Item(GOLD_ORES, 95));
-			rewards.add(new Item(995, 200_000));
-		} else if (stardust >= 50) {
-			rewards.add(new Item(COSMIC_RUNES, 600));
-			rewards.add(new Item(ASTRAL_RUNES, 150));
-			rewards.add(new Item(GOLD_ORES, 50));
-			rewards.add(new Item(995, 100_000));
-		}
-		
-		//if (lamp != null)
-			//rewards.add(lamp);
 
-		if (MathUtil.random(3) == 0) {
-			rewards.add(new Item(990, 2));
-		} else if (MathUtil.random(3) == 0) {
-			rewards.add(new Item(986, 2));
-		} else if (MathUtil.random(3) == 0) {
-			rewards.add(new Item(988, 2));
+		rewards.add(new Item(995, 1500000));
+		rewards.add(new Item(2358, 30));
+
+		if(Misc.inclusiveRandom(1, 2) == 1) {
+			rewards.add(new Item(2364, Misc.inclusiveRandom(5, 10)));
+		} else {
+			rewards.add(new Item(452, Misc.inclusiveRandom(5, 10)));
 		}
+
+		if(Misc.inclusiveRandom(1, 2) == 1) {
+			rewards.add(new Item(450, Misc.inclusiveRandom(5, 10)));
+		} else {
+			rewards.add(new Item(2362, Misc.inclusiveRandom(5, 10)));
+		}
+
+		if(Misc.inclusiveRandom(1, 2) == 1) {
+			rewards.add(new Item(1632, Misc.inclusiveRandom(5, 10)));
+		} else {
+			rewards.add(new Item(1618, Misc.inclusiveRandom(5, 10)));
+		}
+
+		rewards.add(new Item(9075, Misc.inclusiveRandom(50, 100)));
+
 		return rewards;
 	}
 

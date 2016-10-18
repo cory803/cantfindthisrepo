@@ -284,7 +284,7 @@ public class DesolaceFormulas {
 		}
 		/*
 		 * Slay helm if(plr.getAdvancedSkills().getSlayer().getSlayerTask() !=
-		 * null && plr.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() ==
+		 * null && plr.getEquipment().getRareDrops()[Equipment.HEAD_SLOT].getId() ==
 		 * 15492) { if(plr.getCombatAttributes().getCurrentEnemy() != null &&
 		 * plr.getCombatAttributes().getCurrentEnemy().isNpc()) { NPC n =
 		 * (NPC)plr.getCombatAttributes().getCurrentEnemy(); if(n != null &&
