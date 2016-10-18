@@ -176,21 +176,21 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getDialog().sendDialog(new SkillingAreas(player));
                 break;
 
-            case -10425:
-                player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
-                PlayerPanel.refreshPanel(player);
-                break;
-            case -10423:
-                player.setTourneyToggle(!player.tourney_toggle);
-                PlayerPanel.refreshPanel(player);
-                break;
+//            case -10425:
+//                player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
+//                PlayerPanel.refreshPanel(player);
+//                break;
+//            case -10423:
+//                player.setTourneyToggle(!player.tourney_toggle);
+//                PlayerPanel.refreshPanel(player);
+//                break;
             case -24136:
                 player.getDueling().setLastDuelRules(player);
                 break;
-            case -10424:
-                player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
-                PlayerPanel.refreshPanel(player);
-                break;
+//            case -10424:
+//                player.getPacketSender().sendTab(GameSettings.OPTIONS_TAB);
+//                PlayerPanel.refreshPanel(player);
+//                break;
             case -26370:
                 player.getPacketSender().sendMessage("Coming soon...");
                 break;
@@ -254,10 +254,10 @@ public class ButtonClickPacketListener implements PacketListener {
             case 1013:
                 player.getSkillManager().setTotalGainedExp(0);
                 break;
-            case -10426:
-                player.setYellToggle(!player.yell_toggle);
-                PlayerPanel.refreshPanel(player);
-                break;
+//            case -10426:
+//                player.setYellToggle(!player.yell_toggle);
+//                PlayerPanel.refreshPanel(player);
+//                break;
             case -10416:
                 if (player.getPlayerKillingAttributes().getTarget() != null) {
                     int my_x = player.getPosition().getX();
