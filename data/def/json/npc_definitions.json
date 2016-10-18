@@ -136634,13 +136634,8 @@
 "id": 13447,
 "name": "Nex",
 "examine": "A god whom does not like intruders!",
-<<<<<<< HEAD
 "rareChance": 50,
 "veryRareChance": 75,
-=======
-"rareChance": 75,
-"veryRareChance": 200,
->>>>>>> origin/master
 "epicRareChance": 1000,
 "combat": 565,
 "size": 2,
