@@ -1,12 +1,8 @@
 package org.scripts.kotlin.content.commands;
 
-import com.chaos.ect.dropwriting.Drop;
-import com.chaos.ect.dropwriting.DropManager;
-import com.chaos.ect.dropwriting.DropTable;
 import com.chaos.model.StaffRights;
 import com.chaos.model.player.command.Command;
 import com.chaos.net.packet.impl.DropItemPacketListener;
-import com.chaos.world.content.BankPin;
 import com.chaos.world.entity.impl.player.Player;
 
 /**

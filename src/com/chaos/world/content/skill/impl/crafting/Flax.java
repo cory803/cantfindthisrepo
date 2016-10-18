@@ -11,21 +11,23 @@ import com.chaos.world.entity.impl.player.Player;
 public class Flax {
 
 	private static final int FLAX_ID = 1779;
+	private static final int BALL_WOOL = 1759;
+	private static final int WOOL = 1737;
 
-	public static void showSpinInterface(Player player) {
+	public static void showSpinInterface(Player player, boolean flax) {
 		player.getPacketSender().sendInterfaceRemoval();
 		player.getSkillManager().stopSkilling();
-		if (!player.getInventory().contains(1779)) {
+		if (!player.getInventory().contains(flax ? FLAX_ID : WOOL)) {
 			player.getPacketSender().sendMessage("You do not have any Flax to spin.");
 			return;
 		}
-		player.setInputHandling(new EnterAmountToSpin());
-		player.getPacketSender().sendString(2799, "Flax").sendInterfaceModel(1746, FLAX_ID, 150)
+		player.setInputHandling(new EnterAmountToSpin(flax ? true : false));
+		player.getPacketSender().sendString(2799, flax ? "Flax" : "Wool").sendInterfaceModel(1746, flax ? FLAX_ID : WOOL, 150)
 				.sendChatboxInterface(4429);
 		player.getPacketSender().sendString(2800, "How many would you like to make?");
 	}
 
-	public static void spinFlax(final Player player, final int amount) {
+	public static void spinFlax(final Player player, final int amount, boolean flax) {
 		if (amount <= 0)
 			return;
 		player.getSkillManager().stopSkilling();
@@ -38,14 +40,14 @@ public class Flax {
 
 			@Override
 			public void execute() {
-				if (!player.getInventory().contains(FLAX_ID)) {
+				if (!player.getInventory().contains(flax ? FLAX_ID : WOOL)) {
 					stop();
 					return;
 				}
 				player.getSkillManager().addSkillExperience(Skill.CRAFTING, 15);
 				player.performAnimation(new Animation(896));
-				player.getInventory().delete(FLAX_ID, 1);
-				player.getInventory().add(1777, 1);
+				player.getInventory().delete(flax ? FLAX_ID : WOOL, 1);
+				player.getInventory().add(flax ? 1777 : BALL_WOOL, 1);
 				amountSpan++;
 				if (amountSpan >= amount)
 					stop();

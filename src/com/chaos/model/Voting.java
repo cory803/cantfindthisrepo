@@ -17,7 +17,7 @@ public class Voting {
 			player.getPacketSender().sendMessage("Your auth code can only be under 10 characters.");
 			return;
 		}
-		GameServer.getVotingPool().executeQuery("Select * from `auth` WHERE `auth` = '" + auth + "'",
+		GameServer.getWebsitePool().executeQuery("Select * from `auth` WHERE `auth` = '" + auth + "'",
 				new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -42,7 +42,7 @@ public class Voting {
 							player.getPacketSender().sendMessage("You have entered an invalid auth code.");
 							return;
 						}
-						GameServer.getVotingPool().executeQuery("DELETE FROM `auth` WHERE `auth` = '" + auth + "'",
+						GameServer.getWebsitePool().executeQuery("DELETE FROM `auth` WHERE `auth` = '" + auth + "'",
 								new SQLCallback() {
 									@Override
 									public void queryComplete(ResultSet rs) throws SQLException {

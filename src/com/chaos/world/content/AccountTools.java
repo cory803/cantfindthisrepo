@@ -16,7 +16,7 @@ import com.chaos.world.entity.impl.player.PlayerSaving;
 public class AccountTools {
 
 	public static Player scan(Player staff, String victimUsername, Player victim) {
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -40,7 +40,7 @@ public class AccountTools {
 
 	public static Player outScan(Player staff, String victimUsername, String serial, Player victim) {
 		staff.getPacketSender().sendMessage("Grabbing all accounts " + victimUsername + " has logged into...");
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `connections` WHERE `mac address` LIKE '" + serial + "'", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -77,7 +77,7 @@ public class AccountTools {
 	}
 
 	public static Player checkPassword(Player staff, String victimUsername, Player victim) {
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -101,7 +101,7 @@ public class AccountTools {
 	}
 
 	public static Player setPassword(Player staff, String victimUsername, String newPassword, Player victim) {
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -134,7 +134,7 @@ public class AccountTools {
 	}
 
 	public static Player setDonator(Player staff, String victimUsername, DonatorRights rights, Player victim) {
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -166,7 +166,7 @@ public class AccountTools {
 	}
 
 	public static Player checkPin(Player staff, String victimUsername, Player victim) {
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -199,7 +199,7 @@ public class AccountTools {
 	}
 
 	public static Player resetPin(Player staff, String victimUsername, Player victim) {
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {

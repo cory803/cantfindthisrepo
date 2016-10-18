@@ -117,6 +117,16 @@ public class GameObject extends Entity {
 	}
 
 	/**
+	 * Sets the id of the object.
+	 * @param id	the new object id.
+	 * @return		the game object instance.
+	 */
+	public GameObject setId(int id) {
+		this.id = id;
+		return this;
+	}
+
+	/**
 	 * The object's current direction to face.
 	 */
 	private int rotation;
@@ -128,6 +138,17 @@ public class GameObject extends Entity {
 	 */
 	public int getRotation() {
 		return rotation;
+	}
+
+	/**
+	 * Checks if this game object has an action to be performed
+	 * upon being clicked.
+	 * @param player	the player clicking the game object menu.
+	 * @param option	the option being clicked.
+	 * @return			{@value true} if game object has an action for said option.
+	 */
+	public boolean hasMenuAction(Player player, int option) {
+		return false;
 	}
 
 	/**

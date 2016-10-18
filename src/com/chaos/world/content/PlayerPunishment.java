@@ -13,7 +13,7 @@ public class PlayerPunishment {
 
 	/*
 	 * public static boolean isPlayerBanned(String username) { boolean
-	 * continuation = false; GameServer.getCharacterPool().executeQuery(
+	 * continuation = false; GameServer.getServerPool().executeQuery(
 	 * "SELECT * FROM `punishments` WHERE LOWER (`username`) = LOWER('" +
 	 * username + "') LIMIT 1", new SQLCallback() { boolean continuation;
 	 * 
@@ -130,7 +130,7 @@ public class PlayerPunishment {
 
 	public static void massBan(Player staff, String victimUsername, Long time) {
 		Player victim = new Player(null);
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -161,7 +161,7 @@ public class PlayerPunishment {
 	public static Player unmassBan(Player staff, String victimUsername) {
 		staff.getPacketSender().sendInterfaceRemoval();
 		Player victim = new Player(null);
-		GameServer.getCharacterPool().executeQuery(
+		GameServer.getServerPool().executeQuery(
 				"SELECT * FROM `accounts` WHERE username = '" + victimUsername + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {

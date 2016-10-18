@@ -621,6 +621,7 @@ public class PacketSender {
 			WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
 		}
 		player.setInterfaceId(-1);
+		player.setDiversion(null);
 		player.currentDialog = null;
 		player.getAppearance().setCanChangeAppearance(false);
 		player.getSession().queueMessage(new PacketBuilder(219));

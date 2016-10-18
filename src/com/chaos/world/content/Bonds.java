@@ -1,10 +1,11 @@
 package com.chaos.world.content;
 
 import com.chaos.model.DonatorRights;
-import com.chaos.model.Store;
 import com.chaos.world.entity.impl.player.Player;
 
-public class MemberScrolls {
+public class Bonds {
+
+	public static final int BOND = 13190;
 
 	public static void checkForRankUpdate(Player player) {
 		int donated = player.getAmountDonated();
@@ -36,22 +37,17 @@ public class MemberScrolls {
 		}
 	}
 
-	public static boolean handleScroll(Player player, String name) {
-		int item = player.currentScroll;
-		switch (item) {
-		case 10943:
-			Store.addTokensFromScroll(player, name, 10, item);
-			break;
-		case 10934:
-			Store.addTokensFromScroll(player, name, 25, item);
-			break;
-		case 10935:
-			Store.addTokensFromScroll(player, name, 50, item);
-			break;
-		case 7629:
-			Store.addTokensFromScroll(player, name, 125, item);
-			break;
+	public static void handleBond(Player player) {
+		if (player.getInventory().contains(BOND)) {
+			if (player.getInventory().hasRoomFor(20435, 5)) {
+				player.getInventory().delete(BOND, 1);
+				player.getInventory().add(20435, 5);
+				player.getPacketSender().sendMessage("You claimed one bond and received 5 donator tokens.");
+			} else {
+				player.getPacketSender().sendMessage("You need more room in your inventory before opening this bond.");
+			}
+		} else {
+			player.getPacketSender().sendMessage("You do not have any bonds to open.");
 		}
-		return false;
 	}
 }

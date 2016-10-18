@@ -191,7 +191,7 @@ public class CustomObjects {
 			@Override
 			public void execute() {
 				deleteGlobalObject(fire);
-				if (player.getInteractingObject() != null && player.getInteractingObject().getId() == 2732) {
+				if (player.getInteractingObject() != null && (player.getInteractingObject().getId() == 2732 || player.getInteractingObject().getId() == 41687)) {
 					player.setInteractingObject(null);
 				}
 				this.stop();

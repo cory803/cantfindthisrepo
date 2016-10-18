@@ -7,10 +7,12 @@ import com.chaos.model.Direction;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.Position;
 import com.chaos.model.definitions.NpcDefinition;
+import com.chaos.model.player.dialog.Dialog;
 import com.chaos.util.RandomGenerator;
 import com.chaos.world.World;
 import com.chaos.world.clip.region.Region;
 import com.chaos.world.content.Area;
+import com.chaos.world.content.Sheep;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.effect.CombatPoisonEffect.PoisonType;
@@ -57,6 +59,26 @@ public class NPC extends Character {
         this.maximumDistance = NPC.getMaximumDistance(id);
         setLocation(Location.getLocation(this));
     }
+
+    public NPC(int id, Position position, Direction direction) {
+        super(position);
+        NpcDefinition definition = NpcDefinition.forId(id);
+        if (definition == null)
+            throw new NullPointerException("NPC " + id + " is not defined!");
+        this.defaultPosition = position;
+        this.id = id;
+        this.definition = definition;
+        this.makeArea = Area.create(position, definition.getSize());
+        this.defaultConstitution = definition.getHitpoints() < 100 ? 100 : definition.getHitpoints();
+        this.constitution = defaultConstitution;
+        this.projectileClipping = NPC.isProjectileNpc(id);
+        this.walkingDistance = NPC.getWalkingDistance(id);
+        this.walkingRandom = NPC.getWalkingRandom(id);
+        this.maximumDistance = NPC.getMaximumDistance(id);
+        this.setDirection(direction);
+        setLocation(Location.getLocation(this));
+    }
+
     private List<DamageDealer> damageDealerMap = new ArrayList<DamageDealer>();
     public List<DamageDealer> getDamageDealerMap() {
         return damageDealerMap;
@@ -77,6 +99,16 @@ public class NPC extends Character {
                 }
             }
         }
+    }
+
+    /**
+     * The {@link org.niobe.world.content.dialogue.Dialogue} this {@link Mob}
+     * will have upon their {@value Talk-to} action has been clicked upon.
+     * @param player	The {@link Player} speaking to this {@link Mob}.
+     * @return			{@value null} if this {@link Mob} does not speak to {@link Player}s.
+     */
+    public Dialog getDialogue(Player player) {
+        return null;
     }
 
     public void sequence() {
@@ -225,6 +257,7 @@ public class NPC extends Character {
         Nex.spawn();
         PuroPuro.spawn();
         DesoSpan.spawn();
+        Sheep.spawnSheep();
         KalphiteQueen.spawn(1158, new Position(3478, 9490));
     }
 
@@ -451,6 +484,9 @@ public class NPC extends Character {
 
     public static int getWalkingDistance(int id) {
         switch (id) {
+            case 42:
+            case 43:
+                return 10;
             case 6053:
             case 6054:
             case 6055:

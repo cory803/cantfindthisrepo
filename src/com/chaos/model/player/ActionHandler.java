@@ -9,6 +9,7 @@ import com.chaos.model.input.impl.PosSearchShop;
 import com.chaos.world.content.Artifacts;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.EnergyHandler;
+import com.chaos.world.content.Sheep;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.Enchanting;
@@ -60,6 +61,10 @@ public final class ActionHandler {
             player.getWalkingQueue().clear();
             return;
         }
+        if (npc.getDialogue(player) != null) {
+            player.getDialog().sendDialog(npc.getDialogue(player));
+            return;
+        }
         if (SummoningData.beastOfBurden(npc.getId())) {
             Summoning summoning = player.getSummoning();
             if (summoning.getBeastOfBurden() != null && summoning.getFamiliar() != null
@@ -73,10 +78,14 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
-            //miner star dust
-            case 4756:
-                Shop.ShopManager.getShops().get(41).open(player);
-            break;
+            //donor shop
+            case 4358:
+                player.getDialog().sendDialog(new DonatorShop(player));
+                break;
+            //sheep
+            case 43:
+                Sheep.shearSheep(player, npc);
+                break;
             //mercant
             case 1282:
                 player.getDialog().sendDialog(new Merchant(player));

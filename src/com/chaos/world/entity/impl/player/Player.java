@@ -9,6 +9,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.chaos.model.*;
 import com.chaos.model.action.ActionQueue;
+import com.chaos.model.npc.drops.DropGenerator;
 import com.chaos.model.options.OptionContainer;
 import com.chaos.model.player.ActionHandler;
 import com.chaos.model.player.GameMode;
@@ -17,6 +18,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.mysql.impl.Hiscores;
 import com.chaos.world.content.*;
+import com.chaos.world.content.diversions.Diversion;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
@@ -117,6 +119,30 @@ public class Player extends Character {
         return this.requestAssistance;
     }
 
+    /**
+     * The current diversion this player is executing.
+     */
+    private transient Diversion diversion;
+
+    public Diversion getDiversion() {
+        return diversion;
+    }
+    /**
+     * This is the task for the player's current diversion.
+     */
+    private transient Task diversionTask;
+
+    public void setDiversion(Diversion diversion) {
+        this.diversion = diversion;
+    }
+
+    public Task getDiversionTask() {
+        return diversionTask;
+    }
+
+    public void setDiversionTask(Task diversionTask) {
+        this.diversionTask = diversionTask;
+    }
     /**
      * Sets your request assistance/aid to something
      * @param assistance
@@ -624,6 +650,7 @@ public class Player extends Character {
     private Task currentTask;
     private Position resetPosition;
     private Kraken kraken = new Kraken();
+    private DropGenerator dropGenerator = new DropGenerator();
     private Degrading degrading = new Degrading();
     private Slayer slayer = new Slayer(this);
     private Pouch selectedPouch;
@@ -1216,6 +1243,14 @@ public class Player extends Character {
     }
 
     /**
+     * Grabs the Drop Generator instance.
+     * @return
+     */
+    public DropGenerator getDropGenerator() {
+        return this.dropGenerator;
+    }
+
+    /**
      * Grabs all player degrading items
      * @return
      */
@@ -1231,9 +1266,19 @@ public class Player extends Character {
         return this.slayer;
     }
 
+    /**
+     * Resets the Kraken instance
+     */
     public void resetKraken() {
         this.getKraken().reset();
         this.kraken = new Kraken();
+    }
+
+    /**
+     * Resets the drop generator instance.
+     */
+    public void resetDropGenerator() {
+        this.dropGenerator = new DropGenerator();
     }
 
     public DonatorRights getDonatorRights() {

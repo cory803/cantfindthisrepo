@@ -190,7 +190,7 @@ public class RecipeForDisaster {
 	private static final String questTitle = "Recipe for Disaster";
 	private static final String[] questIntro = { "The Culinaromancer has returned and only you",
 			"             can stop him!                  ", "", };
-	private static final String[] questGuide = {"Talk to the Gypsy found in her tend in Varrock",
+	private static final String[] questGuide = {"Talk to the Gypsy found in her tend in Edgeville",
 			"and agree to help her, Enter the portal.", "Defeat the following bosses:",
 			"- Agrith-Na-Na",
 			"- Flambeed",

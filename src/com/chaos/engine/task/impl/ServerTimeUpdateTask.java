@@ -8,16 +8,11 @@ import java.io.IOException;
 import com.chaos.GameSettings;
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.Direction;
-import com.chaos.model.Locations;
-import com.chaos.model.Position;
 import com.chaos.model.WebsiteOnline;
-import com.chaos.net.mysql.DatabaseInformationCharacters;
-import com.chaos.net.mysql.DatabaseInformationForums;
+import com.chaos.net.mysql.DatabaseInformationServer;
+import com.chaos.net.mysql.DatabaseInformationWebsite;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
-import com.chaos.world.content.minigames.impl.PestControl;
-import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -42,16 +37,16 @@ public class ServerTimeUpdateTask extends Task {
 					args = line.split(": ");
 					if (args.length > 1) {
 						GameSettings.mysql_characters_password = args[1];
-						DatabaseInformationCharacters.password = GameSettings.mysql_characters_password;
+						DatabaseInformationServer.password = GameSettings.mysql_characters_password;
 					}
 				} else if (line.contains("mysql_forum_password")) {
 					args = line.split(": ");
 					GameSettings.mysql_forum_password = args[1];
-					DatabaseInformationForums.password = GameSettings.mysql_forum_password;
+					DatabaseInformationWebsite.password = GameSettings.mysql_forum_password;
 				} else if (line.contains("connection_address")) {
 					args = line.split(": ");
 					GameSettings.connection_address = args[1];
-					DatabaseInformationCharacters.host = GameSettings.connection_address;
+					DatabaseInformationServer.host = GameSettings.connection_address;
 				}
 			}
 			reader.close();

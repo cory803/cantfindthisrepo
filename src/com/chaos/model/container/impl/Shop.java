@@ -531,6 +531,11 @@ public class Shop extends ItemContainer {
 							player.setCredits(-value * canBeBought, true);
 						}
 					}
+					if (getItems()[slot].getAmount() - canBeBought <= 0 && id != GENERAL_STORE) {
+						canBeBought -= 1;
+						player.getInventory().add(item.getId(), 1);
+						player.getPacketSender().sendMessage("The shop has run out of stock for this item.");
+					}
 					super.switchItem(to, new Item(item.getId(), canBeBought), slot, false, false);
 					playerCurrencyAmount -= value;
 					break;
@@ -820,6 +825,8 @@ public class Shop extends ItemContainer {
 						return new Object[] {12000, "Pk points" };
 
 					case 21146:
+					case 13879:
+					case 13883:
 						return new Object[] {15, "Pk points" };
 
 					case 21107:

@@ -106,13 +106,6 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/wiki/");
             }
         });
-        commands.put("discord", new Command(StaffRights.PLAYER) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendString(1, "https://discord.gg/pMG6Btk");
-                player.getPacketSender().sendMessage("Attempting to open: https://discord.gg/pMG6Btk");
-            }
-        });
         commands.put("auth", new ClaimAuth(StaffRights.PLAYER));
         commands.put("attacks", new Command(StaffRights.PLAYER) {
             @Override
@@ -150,6 +143,7 @@ public class CommandManager {
         });
         commands.put("help", new GetHelp(StaffRights.PLAYER));
         commands.put("dropselecteditems", new DropSelectedItems(StaffRights.PLAYER));
+        commands.put("generatedrops", new GenerateDrops(StaffRights.MANAGER));
         commands.put("support", new GetHelp(StaffRights.PLAYER));
         commands.put("forum", new Command(StaffRights.PLAYER) {
             @Override
@@ -175,7 +169,7 @@ public class CommandManager {
                     player.getPacketSender().sendMessage("Please use the command as ::thread-topic");
                     return;
                 }
-                player.getPacketSender().sendString(1, "www.chaosps.com/forum/index.php?/topic/" + args[0] + "-threadcommand/");
+                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/topic/"+args[0]+"-thread-command/");
                 player.getPacketSender().sendMessage("Attempting to open: Thread " + args[0]);
             }
         });
@@ -328,15 +322,6 @@ public class CommandManager {
         /**
          * Manager Commands
          */
-        commands.put("treasurekeys", new Command(StaffRights.MANAGER) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getInventory().add(9725, 1);
-                player.getInventory().add(9722, 1);
-                player.getInventory().add(9724, 1);
-                player.getInventory().add(9722, 1);
-            }
-        });
         commands.put("vengrunes", new Command(StaffRights.MANAGER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
@@ -460,7 +445,7 @@ public class CommandManager {
         });
         commands.put("reload", new Reload(StaffRights.OWNER));
         commands.put("openshop", new OpenShop(StaffRights.OWNER));
-        commands.put("findnpc", new FindNPC(StaffRights.OWNER));
+        commands.put("findnpc", new FindNPC(StaffRights.PLAYER));
         commands.put("tasks", new Command(StaffRights.OWNER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
@@ -489,7 +474,8 @@ public class CommandManager {
         commands.put("test", new Command(StaffRights.MANAGER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getKraken().enter(player, true);
+                for(int i = 0; i < 20; i++)
+                player.getPacketSender().sendItemOnInterface(42603 + i, 14484, 0, 1);
             }
         });
         commands.put("location", new Command(StaffRights.MANAGER) {

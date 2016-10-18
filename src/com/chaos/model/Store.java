@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import com.chaos.GameServer;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.net.mysql.SQLCallback;
-import com.chaos.world.content.MemberScrolls;
+import com.chaos.world.content.Bonds;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
@@ -15,7 +15,7 @@ public class Store {
 
 	public static void claimItem(Player player) {
 		player.claimingStoreItems = true;
-		GameServer.getForumPool().executeQuery(
+		GameServer.getWebsitePool().executeQuery(
 				"Select * from `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -69,7 +69,7 @@ public class Store {
 									}
 								}
 							}
-							MemberScrolls.checkForRankUpdate(player);
+							Bonds.checkForRankUpdate(player);
 							PlayerPanel.refreshPanel(player);
 							player.save();
 						}
@@ -79,7 +79,7 @@ public class Store {
 									.sendMessage("You currently don't have anything in your collection box!");
 							return;
 						}
-						GameServer.getForumPool().executeQuery(
+						GameServer.getWebsitePool().executeQuery(
 								"DELETE FROM `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'",
 								new SQLCallback() {
 									@Override
@@ -102,7 +102,7 @@ public class Store {
 	}
 
 	public static void addTokens(String name, int amount) {
-		GameServer.getForumPool().executeQuery(
+		GameServer.getWebsitePool().executeQuery(
 				"UPDATE `members` SET credits = credits + " + amount + " WHERE `name` = '" + name + "' LIMIT 1",
 				new SQLCallback() {
 					@Override
@@ -120,7 +120,7 @@ public class Store {
 	}
 
 	public static void addTokensFromScroll(Player player, String name, int amount, int item) {
-		GameServer.getForumPool().executeQuery("SELECT `name` FROM `members` WHERE `name` = '" + name + "' LIMIT 1",
+		GameServer.getWebsitePool().executeQuery("SELECT `name` FROM `members` WHERE `name` = '" + name + "' LIMIT 1",
 				new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -131,7 +131,7 @@ public class Store {
 								player.getPacketSender().sendMessage("What happened to your scroll?");
 							} else {
 								player.getInventory().delete(item, 1);
-								GameServer.getForumPool().executeQuery("UPDATE `members` SET credits = credits + "
+								GameServer.getWebsitePool().executeQuery("UPDATE `members` SET credits = credits + "
 										+ amount + " WHERE `name` = '" + name + "' LIMIT 1", new SQLCallback() {
 											@Override
 											public void queryComplete(ResultSet rs) throws SQLException {

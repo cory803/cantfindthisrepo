@@ -21,6 +21,7 @@ import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
+import com.chaos.world.content.diversions.hourly.ShootingStar;
 import com.chaos.world.content.minigames.impl.*;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.impl.agility.Agility;
@@ -48,6 +49,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
 import org.scripts.kotlin.content.dialog.LumbyStairs;
+import org.scripts.kotlin.content.dialog.Spin;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.Well.Well;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
@@ -161,6 +163,17 @@ public class ObjectActionPacketListener implements PacketListener {
                                         Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()));
                                     }
                                 }
+                                break;
+                            case 38660:
+                            case 38661:
+                            case 38662:
+                            case 38663:
+                            case 38664:
+                            case 38665:
+                            case 38666:
+                            case 38667:
+                            case 38668:
+                                ShootingStar.getInstance().hasMenuAction(player, 1);
                                 break;
                             //corp lair
                             case 37929:
@@ -715,11 +728,6 @@ public class ObjectActionPacketListener implements PacketListener {
                                     }
                                 } else {
                                     player.getPacketSender().sendMessage("You need 50 agility in order to cross this...");
-                                }
-                                break;
-                            case 38660:
-                                if (ShootingStar.CRASHED_STAR != null) {
-
                                 }
                                 break;
                             case 5259:
@@ -1789,6 +1797,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.setInteractingObject(gameObject);
                                 EquipmentMaking.handleAnvil(player);
                                 break;
+                            case 41687:
                             case 2732:
                                 EnterAmountOfLogsToAdd.openInterface(player);
                                 break;
@@ -1959,7 +1968,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.getBank(player.getCurrentBankTab()).open();
                                 break;
                             case 21304:
-                                Flax.showSpinInterface(player);
+                                player.getDialog().sendDialog(new Spin(player));
                                 break;
                             case 21514: //ladder up at neiznot
                                 player.performAnimation(new Animation(828));
@@ -2056,6 +2065,18 @@ public class ObjectActionPacketListener implements PacketListener {
                         if (player.getThieving().stealFromStall(ThievingStall.forId(id)))
                             return;
                         switch (gameObject.getId()) {
+                            case 38660:
+                            case 38661:
+                            case 38662:
+                            case 38663:
+                            case 38664:
+                            case 38665:
+                            case 38666:
+                            case 38667:
+                            case 38668:
+                                ShootingStar.getInstance().hasMenuAction(player, 2);
+                                break;
+
                             case 17010:
                                 if (player.getSkillManager().getMaxLevel(Skill.DEFENCE) < 40) {
                                     player.getPacketSender().sendMessage("You need a Defence level of at least 40 to use this altar.");
@@ -2132,7 +2153,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.getClickDelay().reset();
                                 break;
                             case 2644:
-                                Flax.showSpinInterface(player);
+                                player.getDialog().sendDialog(new Spin(player));
                                 break;
                             case 6:
                                 DwarfCannon cannon = player.getCannon();

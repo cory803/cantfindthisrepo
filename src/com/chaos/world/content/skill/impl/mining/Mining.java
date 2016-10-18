@@ -8,13 +8,13 @@ import com.chaos.model.Locations;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.ItemDefinition;
+import com.chaos.util.MathUtil;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.Emotes.Skillcape_Data;
-import com.chaos.world.content.ShootingStar;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
 import com.chaos.world.content.skill.impl.mining.MiningData.Ores;
@@ -70,7 +70,6 @@ public class Mining {
 						final int delay = o.getTicks() - MiningData.getReducedTimer(player, p) + 1;
 						player.setCurrentTask(new Task(delay >= 2 ? delay : 1, player, false) {
 							int cycle = 0;
-
 							@Override
 							public void execute() {
 								if (player.getInteractingObject() == null
@@ -92,9 +91,9 @@ public class Mining {
 									player.performAnimation(new Animation(p.getAnim()));
 								}
 								if (giveGem) {
-									boolean onyx = (o == Ores.RUNITE || o == Ores.CRASHED_STAR)
-											&& Misc.getRandom(o == Ores.CRASHED_STAR ? 20000 : 5000) == 1;
-									if (onyx || Misc.getRandom(o == Ores.CRASHED_STAR ? 35 : 50) == 15) {
+									boolean onyx = (o == Ores.RUNITE)
+											&& Misc.getRandom(20000) == 1;
+									if (onyx || Misc.getRandom(50) == 15) {
 										int gemId = onyx ? 6571
 												: MiningData.RANDOM_GEMS[(int) (MiningData.RANDOM_GEMS.length
 												* Math.random())];
@@ -125,21 +124,30 @@ public class Mining {
 									if (o.getItemId() != -1) {
 										player.getInventory().add(o.getItemId(), 1 * multiplier);
 									}
-									player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount() * 1.4));
-									if (o == Ores.CRASHED_STAR) {
-										if (goldenMiningArmour(player)) {
-											int bonus = Misc.inclusiveRandom(1, 2);
-											if (bonus == 1) {
-												player.forceChat("*CLINK* What was that?");
-												player.getPacketSender().sendMessage(
-														"A big chunk of the star lands on your golden armour.");
-												player.getInventory().add(13727, 1);
+									player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
+									if(player.getInventory().contains(20786) || player.getEquipment().contains(20786)) {
+										if(MathUtil.random(3) == 0) {
+											if (o == Ores.RUNITE) {
+												Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
 											}
+											if (o == Ores.COAL || o == Ores.RESOURCE_COAL) {
+												Achievements.doProgress(player, AchievementData.MINE_400_COAL);
+											}
+											if (o == Ores.ADAMANTITE || o == Ores.RESOURCE_ADAMANTITE) {
+												Achievements.doProgress(player, AchievementData.MINE_400_ADDY);
+											}
+											if (o == Ores.IRON || o == Ores.RESOURCE_IRON) {
+												Achievements.finishAchievement(player, AchievementData.MINE_IRON);
+											}
+											int multiplier2 = (Skillcape_Data.MINING.isWearingCape(player)
+													&& Misc.inclusiveRandom(0, 9) == 0) ? 2 : 1;
+											if (o.getItemId() != -1) {
+												player.getInventory().add(o.getItemId(), 1 * multiplier2);
+											}
+											player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
 										}
-										player.getPacketSender().sendMessage("You mine the crashed star..");
-									} else {
-										player.getPacketSender().sendMessage("You mine some ore.");
 									}
+									player.getPacketSender().sendMessage("You mine some ore.");
 									//rollPet(player);
 									Sounds.sendSound(player, Sound.MINE_ITEM);
 									cycle = 0;
@@ -148,19 +156,7 @@ public class Mining {
 										player.performAnimation(new Animation(65535));
 										oreRespawn(player, oreObject, o);
 									} else {
-										if (oreObject.getId() == 38660) {
-											if (ShootingStar.CRASHED_STAR == null
-													|| ShootingStar.CRASHED_STAR.getStarObject()
-													.getPickAmount() >= ShootingStar.MAXIMUM_MINING_AMOUNT) {
-												player.getPacketSender().sendClientRightClickRemoval();
-												player.getSkillManager().stopSkilling();
-												return;
-											} else {
-												ShootingStar.CRASHED_STAR.getStarObject().incrementPickAmount();
-											}
-										} else {
-											player.performAnimation(new Animation(65535));
-										}
+										player.performAnimation(new Animation(65535));
 										startMining(player, oreObject);
 									}
 								}

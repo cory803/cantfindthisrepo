@@ -34,7 +34,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `commands`(`username`, `rights`, `time`, `ip address`, `serial address`, `command`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
 								+ player.getStaffRights().ordinal() + "','" + getTime() + "','" + player.getHostAddress()
@@ -65,7 +65,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool()
+				GameServer.getServerPool()
 						.executeQuery(
 								"INSERT INTO `trades`(`owner`, `collector`, `item name`, `item id`, `item amount`, `time`) VALUES ('"
 										+ owner.getUsername().replaceAll("[\"\\\'/]", "") + "','"
@@ -98,7 +98,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool()
+				GameServer.getServerPool()
 						.executeQuery(
 								"INSERT INTO `drops`(`username`, `rights`, `time`, `ip address`, `serial address`, `item address`, `item id`, `item amount`, `item name`) VALUES ('"
 										+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
@@ -132,7 +132,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `kills`(`killer`, `looser`, `time`, `item name`, `item id`, `item amount`) VALUES ('"
 								+ killer.getUsername().replaceAll("[\"\\\'/]", "") + "','" + looser.getUsername()
 								+ "','" + getTime() + "','" + loot.getDefinition().getName().replaceAll("[\"\\\'/]", "")
@@ -163,7 +163,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `connections`(`username`, `type`, `time`, `ip address`, `serial address`, `mac address`, `rights`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','" + type + "','" + getTime()
 								+ "','" + player.getHostAddress() + "','" + player.getSerialNumber() + "','"
@@ -195,7 +195,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `donations`(`username`, `forumid`, `tokens`, `item name`, `item id`, `item amount`, `ip address`, `serial address`, `time`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','" + forumId + "','" + tokens
 								+ "','" + item.getDefinition().getName().replaceAll("[\"\\\'/]", "") + "','"
@@ -227,7 +227,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool()
+				GameServer.getServerPool()
 						.executeQuery(
 								"INSERT INTO `scrolls`(`username`, `tokens`, `forum name`, `ip address`, `serial address`, `time`) VALUES ('"
 										+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','" + tokens + "','"
@@ -259,7 +259,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool()
+				GameServer.getServerPool()
 						.executeQuery(
 								"INSERT INTO `pickups`(`username`, `rights`, `time`, `ip address`, `serial address`, `item address`, `item id`, `item amount`, `item name`) VALUES ('"
 										+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
@@ -297,7 +297,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool()
+				GameServer.getServerPool()
 						.executeQuery(
 								"INSERT INTO `pins`(`username`, `rights`, `time`, `ip address`, `serial address`, `action`, `pin`) VALUES ('"
 										+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
@@ -330,7 +330,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `other`(`username`, `rights`, `time`, `ip address`, `serial address`, `action`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','"
 								+ player.getStaffRights().ordinal() + "','" + getTime() + "','" + player.getHostAddress()
@@ -361,7 +361,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `staking`(`winner`, `looser`, `owner`, `item name`, `item id`, `item amount`, `time`) VALUES ('"
 								+ winner.getUsername().replaceAll("[\"\\\'/]", "") + "','"
 								+ looser.getUsername().replaceAll("[\"\\\'/]", "") + "','"
@@ -394,7 +394,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `dicing`(`username`, `time`, `roll`, `ip address`, `serial address`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','" + getTime() + "','" + roll
 								+ "','" + player.getHostAddress() + "','" + player.getSerialNumber() + "')",
@@ -424,7 +424,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `flowers`(`username`, `time`, `plant`, `ip address`, `serial address`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','" + getTime() + "','" + plant
 								+ "','" + player.getHostAddress() + "','" + player.getSerialNumber() + "')",
@@ -454,7 +454,7 @@ public class PlayerLogs {
 		}
 		GameServer.getLoader().getEngine().submit(() -> {
 			try {
-				GameServer.getCharacterPool().executeQuery(
+				GameServer.getServerPool().executeQuery(
 						"INSERT INTO `npcdrops`(`username`, `time`, `ip address`, `serial address`, `item name`, `item id`, `item amount`, `npc name`) VALUES ('"
 								+ player.getUsername().replaceAll("[\"\\\'/]", "") + "','" + getTime() + "','"
 								+ player.getHostAddress() + "','" + player.getSerialNumber() + "','"

@@ -1,9 +1,6 @@
 package com.chaos;
 
 import com.chaos.cache.RSCache;
-import com.chaos.ect.dropwriting.Drop;
-import com.chaos.ect.dropwriting.DropManager;
-import com.chaos.ect.dropwriting.DropTable;
 import com.chaos.engine.task.impl.ServerTimeUpdateTask;
 import com.chaos.net.mysql.*;
 import com.chaos.threading.GameEngine;
@@ -32,28 +29,18 @@ public class GameServer {
 	private static final Logger logger = Logger.getLogger("Chaos");
 	private static boolean updating;
 	private static long startTime;
-	private static ThreadedSQL characters_sql = null;
-	private static ThreadedSQL forums_sql = null;
-	private static ThreadedSQL voting_sql = null;
-	private static ThreadedSQL hiscores_sql = null;
+	private static ThreadedSQL server_sql = null;
+	private static ThreadedSQL website_sql = null;
 	private static final GameEngine engine = new GameEngine();
 	public static RSCache cache;
 	private static File cacheRepository = new File("." + File.separator + "cache" + File.separator);
 
-	public static ThreadedSQL getCharacterPool() {
-		return characters_sql;
+	public static ThreadedSQL getServerPool() {
+		return server_sql;
 	}
 
-	public static ThreadedSQL getForumPool() {
-		return forums_sql;
-	}
-
-	public static ThreadedSQL getVotingPool() {
-		return voting_sql;
-	}
-
-	public static ThreadedSQL getHiscoresPool() {
-		return hiscores_sql;
+	public static ThreadedSQL getWebsitePool() {
+		return website_sql;
 	}
 
 	public static void main(String[] params) {
@@ -67,12 +54,10 @@ public class GameServer {
 
 		logger.info("Grabbing MYSQL passwords...");
 		ServerTimeUpdateTask.grabPasswords();
-		logger.info("Grabbed MYSQL character connection: " + DatabaseInformationCharacters.host + "");
-		logger.info("Grabbed MYSQL character password: " + DatabaseInformationCharacters.password + "");
-		logger.info("Grabbed MYSQL forum connection: " + DatabaseInformationForums.host + "");
-		logger.info("Grabbed MYSQL forum password: " + DatabaseInformationForums.password + "");
-		logger.info("Grabbed MYSQL hiscores connection: " + DatabaseInformationHiscores.host + "");
-		logger.info("Grabbed MYSQL hiscores password: " + DatabaseInformationHiscores.password + "");
+		logger.info("Grabbed MYSQL character connection: " + DatabaseInformationServer.host + "");
+		logger.info("Grabbed MYSQL character server: " + DatabaseInformationServer.password + "");
+		logger.info("Grabbed MYSQL forum connection: " + DatabaseInformationWebsite.host + "");
+		logger.info("Grabbed MYSQL forum password: " + DatabaseInformationWebsite.password + "");
 		startTime = System.currentTimeMillis();
 		Runtime.getRuntime().addShutdownHook(new ShutdownHook());
 		try {
@@ -80,37 +65,26 @@ public class GameServer {
 			logger.info("Initializing the loader...");
 			LoaderProperties.load();
 			System.out.println("Connecting to MYSQL character database...");
-			// Characters SQL
-			MySQLDatabaseConfiguration characters = new MySQLDatabaseConfiguration();
-			characters.setHost(DatabaseInformationCharacters.host);
-			characters.setPort(DatabaseInformationCharacters.port);
-			characters.setUsername(DatabaseInformationCharacters.username);
-			characters.setPassword(DatabaseInformationCharacters.password);
-			characters.setDatabase(DatabaseInformationCharacters.database);
-			characters_sql = new ThreadedSQL(characters, 4);
-			System.out.println("Connecting to MYSQL forum database...");
-			// Forum SQL
-			MySQLDatabaseConfiguration forums = new MySQLDatabaseConfiguration();
-			forums.setHost(DatabaseInformationForums.host);
-			forums.setPort(DatabaseInformationForums.port);
-			forums.setUsername(DatabaseInformationForums.username);
-			forums.setPassword(DatabaseInformationForums.password);
-			forums.setDatabase(DatabaseInformationForums.database);
-			forums_sql = new ThreadedSQL(forums, 4);
-			MySQLDatabaseConfiguration voting = new MySQLDatabaseConfiguration();
-			voting.setHost(DatabaseInformationVoting.host);
-			voting.setPort(DatabaseInformationVoting.port);
-			voting.setUsername(DatabaseInformationVoting.username);
-			voting.setPassword(DatabaseInformationVoting.password);
-			voting.setDatabase(DatabaseInformationVoting.database);
-			voting_sql = new ThreadedSQL(voting, 4);
-			MySQLDatabaseConfiguration hiscores = new MySQLDatabaseConfiguration();
-			hiscores.setHost(DatabaseInformationHiscores.host);
-			hiscores.setPort(DatabaseInformationHiscores.port);
-			hiscores.setUsername(DatabaseInformationHiscores.username);
-			hiscores.setPassword(DatabaseInformationHiscores.password);
-			hiscores.setDatabase(DatabaseInformationHiscores.database);
-			hiscores_sql = new ThreadedSQL(hiscores, 4);
+			// Server SQL
+			MySQLDatabaseConfiguration server = new MySQLDatabaseConfiguration();
+			server.setHost(DatabaseInformationServer.host);
+			server.setPort(DatabaseInformationServer.port);
+			server.setUsername(DatabaseInformationServer.username);
+			server.setPassword(DatabaseInformationServer.password);
+			server.setDatabase(DatabaseInformationServer.database);
+			server_sql = new ThreadedSQL(server, 4);
+			System.out.println("Connecting to MYSQL server database...");
+
+			// Website SQL
+			MySQLDatabaseConfiguration website = new MySQLDatabaseConfiguration();
+			website.setHost(DatabaseInformationWebsite.host);
+			website.setPort(DatabaseInformationWebsite.port);
+			website.setUsername(DatabaseInformationWebsite.username);
+			website.setPassword(DatabaseInformationWebsite.password);
+			website.setDatabase(DatabaseInformationWebsite.database);
+			website_sql = new ThreadedSQL(website, 4);
+			System.out.println("Connecting to MYSQL website database...");
+
 			cache = RSCache.create(cacheRepository);
 			GameServer.engine.start();
 			loader.init();

@@ -15,6 +15,7 @@ import com.chaos.util.*;
 import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
 import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.chaos.world.doors.DoorManager;
 import org.jboss.netty.bootstrap.ServerBootstrap;
 import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
@@ -38,7 +39,7 @@ import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.entity.impl.npc.NPC;
 
 /**
- * testCredit: lare96, Gabbe
+ * testCredit: lare96, Gabbe, Jonny, High105
  */
 public final class GameLoader {
 
@@ -83,6 +84,7 @@ public final class GameLoader {
 		PlayerOwnedShopManager.load();
 		NPC.init();
 		WellOfGoodness.init();
+		HourlyDiversionManager.init();
 
 		/**
 		 * Test drop rate formulas
@@ -93,6 +95,12 @@ public final class GameLoader {
 		 * Test formulas for the game
 		 */
 		//Formulas.generate();
+
+		/**
+		 * Dumps a list of item drops into
+		 * lists/drops.txt
+		 */
+		//DropListDumper.dump();
 
 		/**
 		 * Dumps a list of item definitions into

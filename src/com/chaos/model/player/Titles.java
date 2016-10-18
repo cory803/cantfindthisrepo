@@ -46,7 +46,7 @@ public class Titles {
                     player.setLoyaltyRank(8);
                     break;
                 case FORUM_MOD:
-                    //TODO: Add title for forum moderators
+                    player.setLoyaltyRank(21);
                     break;
                 case GLOBAL_MOD:
                     player.setLoyaltyRank(14);

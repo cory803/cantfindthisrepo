@@ -42,7 +42,7 @@ public class ExperienceLamps {
 							return true;
 						int exp = getExperienceReward(player, lamp, skill);
 						player.getInventory().delete(lamp.getItemId(), 1);
-						player.getSkillManager().addSkillExperience(skill, exp);
+						player.getSkillManager().addExactExperience(skill, exp);
 						player.getPacketSender().sendMessage("You've received some experience in "
 								+ Misc.formatText(skill.toString().toLowerCase()) + ".");
 						break;
@@ -64,28 +64,34 @@ public class ExperienceLamps {
 				return true;
 			player.setUsableObject(1, skill);
 			player.getPacketSender().sendString(38006, Misc.formatText(interfaceButton.toString().toLowerCase()));
-			boolean prestige = player.getUsableObject()[0] != null && player.getUsableObject()[0] instanceof String
-					&& ((player.getUsableObject()[0])).equals("prestige");
-			if (prestige) {
-				int pts = SkillManager.getPrestigePoints(player, skill);
-				player.getPacketSender().sendMessage("<img=4> <col=996633>You will receive " + pts + " Prestige point"
-						+ (pts > 1 ? "s" : "") + " if you prestige in " + skill.getFormatName() + ".");
-			}
 		}
 		return false;
 	}
 
 	enum LampData {
-		NORMAL_XP_LAMP(11137), DRAGONKIN_LAMP(18782);
+		LAMP_10K(11137, 10000),
+		LAMP_25K(11139, 25000),
+		LAMP_50K(11141, 50000),
+		LAMP_100K(11185, 100000),
+		LAMP_500K(11186, 500000),
+		LAMP_1M(11187, 1000000),
+		LAMP_2M(11188, 2000000);
 
-		LampData(int itemId) {
+		LampData(int itemId, int experience) {
 			this.itemId = itemId;
+			this.experience = experience;
 		}
 
 		private int itemId;
 
+		private int experience;
+
 		public int getItemId() {
 			return this.itemId;
+		}
+
+		public int getExperience() {
+			return this.experience;
 		}
 
 		public static LampData forId(int id) {
@@ -123,7 +129,7 @@ public class ExperienceLamps {
 	}
 
 	public static int getExperienceReward(Player player, LampData lamp, Skill skill) {
-		int base = lamp == LampData.DRAGONKIN_LAMP ? 25_000 : 2_000;
+		int base = lamp.getExperience();
 		int maxLvl = player.getSkillManager().getMaxLevel(skill);
 		if (SkillManager.isNewSkill(skill))
 			maxLvl = maxLvl / 10;

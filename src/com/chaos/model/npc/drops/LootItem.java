@@ -67,6 +67,14 @@ public class LootItem {
         return Misc.nextInt(maximum - minimum) + minimum;
     }
 
+    public int getMinimum() {
+        return this.minimum;
+    }
+
+    public int getMaximum() {
+        return this.maximum;
+    }
+
     /**
      * Returns the conditions that need to be met.
      */

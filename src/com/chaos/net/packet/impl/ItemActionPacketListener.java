@@ -5,8 +5,6 @@ import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.*;
 import com.chaos.model.input.impl.EnterAmountToDice;
-import com.chaos.model.input.impl.EnterForumAccountTokens;
-import com.chaos.model.player.dialog.Dialog;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
@@ -91,6 +89,10 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			//bond
+			case 13190:
+				Bonds.handleBond(player);
+				break;
 			//slayer
 			case 4155:
 				if(player.getSlayer().getSlayerTask() != null) {
@@ -188,26 +190,6 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender()
 						.sendMessage("You must have a wolpertinger summoned in order to use this scroll.");
 			}
-			break;
-		case 10943:
-			player.currentScroll = 10943;
-			player.setInputHandling(new EnterForumAccountTokens());
-			player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 10 tokens to:");
-			break;
-		case 10934:
-			player.currentScroll = 10934;
-			player.setInputHandling(new EnterForumAccountTokens());
-			player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 25 tokens to:");
-			break;
-		case 10935:
-			player.currentScroll = 10935;
-			player.setInputHandling(new EnterForumAccountTokens());
-			player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 50 tokens to:");
-			break;
-		case 7629:
-			player.currentScroll = 7629;
-			player.setInputHandling(new EnterForumAccountTokens());
-			player.getPacketSender().sendEnterInputPrompt("Enter a forum account to add 125 tokens to:");
 			break;
 		case 739:
 			if (player.getInventory().contains(739)) {

@@ -3,10 +3,10 @@ package com.chaos.net.mysql;
 /**
  * The Chaos Database Informations
  *
- * @author Nikki
+ * @author Jonny
  *
  */
-public class DatabaseInformationForums {
+public class DatabaseInformationWebsite {
 
 	public static String host = "149.56.129.176";
 

@@ -37,9 +37,11 @@ import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
+import org.scripts.kotlin.content.dialog.GoldenMiningArmour;
 import org.scripts.kotlin.content.dialog.TentacleCombination;
 import org.scripts.kotlin.content.dialog.npcs.Bob2;
 import org.scripts.kotlin.content.dialog.npcs.Bob3;
+import org.scripts.kotlin.content.dialog.npcs.Merchant;
 
 /**
  * This packet listener is called when a player 'uses' an item on another
@@ -130,7 +132,7 @@ public class UseItemPacketListener implements PacketListener {
 		 * if ((usedWith.getId() == 21079 && itemUsedWith.getId() == 21080) ||
 		 * (usedWith.getId() == 21080 && itemUsedWith.getId() == 21079)) {
 		 * boolean already_has = false; for (int i = 0; i < 9; i++) { for (Item
-		 * item : player.getBank(i).getItems()) { if (item != null &&
+		 * item : player.getBank(i).getRareDrops()) { if (item != null &&
 		 * item.getId() > 0 && item.getId() == 21077) already_has = true; } } if
 		 * (player.getInventory().contains(21077) ||
 		 * player.getEquipment().contains(21077) || already_has) {
@@ -704,6 +706,12 @@ public class UseItemPacketListener implements PacketListener {
 				}
 				player.getSlayer().duoSlayerOption(target);
 				break;
+		case 20083:
+			if(player.getInventory().contains(20083)) {
+				player.setPositionToFace(target.getPosition());
+				player.getDialog().sendDialog(new GoldenMiningArmour(player));
+			}
+			break;
 		case 962:
 			if (!player.getInventory().contains(962))
 				return;

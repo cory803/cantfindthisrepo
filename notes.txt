@@ -1,22 +1,17 @@
 Any updates that are completed put into this file.
 Make sure you format them as you would want to see them publicly.
 
+Object 3769 for cool fire
+
 ~UPDATES~
-Fixed a skull glitching bug with relogging.
-David's trade option now opens the correct shop for iron man
-Warriors Guild drop chance for defenders has increased
-Bones on altar has been slightly nurfed to make prayer more rewarding
-A banker has been added to mage banker
-Spider webs have been removed until a slashing system is implemented
-The building north of the resource area has had it's doors removed
-The Lumbridge castle's staircase is now functioning
 
 ~TODO~
 Vote
 Hiscores
 Donations
 Charming imp
-Change all tooth half keys/loop half keys to RARE drops.
+Add herblore shop
+Add hunter npcs
 
 Tanner:
 
