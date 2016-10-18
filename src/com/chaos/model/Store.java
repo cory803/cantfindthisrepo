@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import com.chaos.GameServer;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.net.mysql.SQLCallback;
-import com.chaos.world.content.MemberScrolls;
+import com.chaos.world.content.Bonds;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
@@ -69,7 +69,7 @@ public class Store {
 									}
 								}
 							}
-							MemberScrolls.checkForRankUpdate(player);
+							Bonds.checkForRankUpdate(player);
 							PlayerPanel.refreshPanel(player);
 							player.save();
 						}
