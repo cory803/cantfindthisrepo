@@ -226,7 +226,7 @@ public class PlayerHandler {
 		}
 		if (player.getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted() == 6) {
 			//Achievements.finishAchievement(player, AchievementData.DEFEAT_NOMAD);
-			Achievements.finishAchievement(player, AchievementData.DEFEAT_THE_CULINAROMANCER);
+			//Achievements.finishAchievement(player, AchievementData.DEFEAT_THE_CULINAROMANCER);
 		}
 		if(player.getSkillManager().hasAll99s()) {
 			if (!player.hasAnnouncedMax()) {
