@@ -225,7 +225,7 @@ public class PlayerHandler {
 					.sendMessage("You have logged in with negative Slayer points, they have been set to 0.");
 		}
 		if (player.getMinigameAttributes().getRecipeForDisasterAttributes().getWavesCompleted() == 6) {
-			Achievements.finishAchievement(player, AchievementData.DEFEAT_NOMAD);
+			//Achievements.finishAchievement(player, AchievementData.DEFEAT_NOMAD);
 			Achievements.finishAchievement(player, AchievementData.DEFEAT_THE_CULINAROMANCER);
 		}
 		if(player.getSkillManager().hasAll99s()) {

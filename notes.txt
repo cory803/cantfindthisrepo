@@ -4,6 +4,7 @@ Make sure you format them as you would want to see them publicly.
 Object 3769 for cool fire
 
 ~UPDATES~
+When logging in you will no longer get the achievement for defeating nomad.
 
 ~TODO~
 Vote
