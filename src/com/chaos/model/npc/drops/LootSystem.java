@@ -255,7 +255,7 @@ public class LootSystem {
             } else if(player.getEquipment().get(Equipment.RING_SLOT).getId() == 21110) {
                 extraChance += .10;
             }
-            extraChance += player.getDonatorRights().ordinal() / 100;
+            extraChance += (double) player.getDonatorRights().ordinal() / 100;
         }
         return extraChance;
     }
