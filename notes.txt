@@ -5,6 +5,7 @@ Object 3769 for cool fire
 
 ~UPDATES~
 When logging in you will no longer get the achievement for defeating nomad.
+Black demons no longer drop venenatis spiderlings.
 
 ~TODO~
 Vote
