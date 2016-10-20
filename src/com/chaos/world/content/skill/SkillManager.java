@@ -139,6 +139,11 @@ public class SkillManager {
 			}
 			// player.getPacketSender().sendFlashingSidebar(Constants.SKILLS_TAB);
 
+			if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM) {
+				if(newLevel == 99) {
+					World.sendMessage("<icon=0><shad=ff0000>News: " + player.getUsername() + " has just achieved level 99 "+skillName+" on Realism!");
+				}
+			}
 			player.getPacketSender().sendString(4268, "Congratulations! You have achieved a " + skillName + " level!");
 			player.getPacketSender().sendString(4269, "Well done. You are now level " + newLevel + ".");
 			player.getPacketSender().sendString(358, "Click here to continue.");

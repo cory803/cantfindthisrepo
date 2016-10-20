@@ -231,6 +231,9 @@ public class Consumables {
 			if (food == FoodType.CAKE || food == FoodType.SECOND_CAKE_SLICE) {
 				player.getInventory().add(new Item(food.item.getId() + 2, 1));
 			}
+			if (food == FoodType.CHOCOLATE_CAKE || food == FoodType.CHOCOLATE_SECOND_CAKE_SLICE) {
+				player.getInventory().add(new Item(food.item.getId() + 2, 1));
+			}
 			if (food == FoodType.LOBSTER) {
 				Achievements.finishAchievement(player, AchievementData.EAT_LOBSTER);
 			}
@@ -251,9 +254,9 @@ public class Consumables {
 		 * Fish food types players can get by fishing or purchasing from other
 		 * entities.
 		 */
-		KEBAB(new Item(1971), 40), CHEESE(new Item(1985), 45), CAKE(new Item(1891), 50), SECOND_CAKE_SLICE(
+		KEBAB(new Item(1971), 40), CHEESE(new Item(1985), 45), CAKE(new Item(1891), 40), SECOND_CAKE_SLICE(
 				new Item(1893),
-				50), THIRD_CAKE_SLICE(new Item(1895), 50), BANDAGES(new Item(14640), 120), JANGERBERRIES(new Item(247),
+				40), THIRD_CAKE_SLICE(new Item(1895), 40), BANDAGES(new Item(14640), 120), JANGERBERRIES(new Item(247),
 						20), WORM_CRUNCHIES(new Item(2205), 70), EDIBLE_SEAWEED(new Item(403), 40), ANCHOVIES(
 								new Item(319),
 								10), SHRIMPS(new Item(315), 30), SARDINE(new Item(325), 40), COD(new Item(339),
@@ -267,6 +270,17 @@ public class Consumables {
 																				new Item(391), 220), CAVEFISH(
 																						new Item(15266), 230), ROCKTAIL(
 																								new Item(15272), 230),
+
+		/*
+		 * Chocolate cake
+		 */
+		CHOCOLATE_CAKE(new Item(1897), 50), CHOCOLATE_SECOND_CAKE_SLICE(new Item(1899), 50), CHOCOLATE_THIRD_CAKE_SLICE(new Item(1901), 50),
+
+		/*
+		 * Bread
+		 */
+		BREAD(new Item(2309), 50),
+
 		/*
 		 * Baked goods food types a player can make with the cooking skill.
 		 */

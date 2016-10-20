@@ -177,25 +177,28 @@ public class StartTutorial extends Dialog {
                 return Dialog.createNpc(DialogHandler.HAPPY, "There are areas made just for skilling, this is the training grounds. You can train most skills here or by getting to them from this zone.");
             case 8:
                 getPlayer().moveTo(new Position(3093, 3502, 0));
-                return Dialog.createNpc(DialogHandler.HAPPY, "This is where the basic shops are located you can explore the rest of Chaos by playing! For safety reasons we need you to set your pin");
+                return Dialog.createNpc(DialogHandler.HAPPY, "This is where the basic shops are located you can explore the rest of Chaos by playing!");
             case 9:
-                return Dialog.createOption(new TwoOption(
-                        "Setup Account Pin",
-                        "Setup Bank Pin") {
-                    @Override
-                    public void execute(Player player, OptionType option) {
-                        switch(option) {
-                            case OPTION_1_OF_2:
-                                player.getPacketSender().sendInterfaceRemoval();
-                                player.getDialog().sendDialog(new BankPinTut(player));
-                                break;
-                            case OPTION_2_OF_2:
-                                player.getPacketSender().sendInterfaceRemoval();
-                                player.getDialog().sendDialog(new BankPinTut(player));
-                                break;
-                        }
-                    }
-                });
+                getPlayer().setNewPlayer(false);
+                getPlayer().setPlayerLocked(false);
+                return Dialog.createNpc(DialogHandler.HAPPY, "Have fun playing Chaos! If you need more help you can find me in Lumbridge.");
+//                return Dialog.createOption(new TwoOption(
+//                        "Setup Account Pin",
+//                        "Setup Bank Pin") {
+//                    @Override
+//                    public void execute(Player player, OptionType option) {
+//                        switch(option) {
+//                            case OPTION_1_OF_2:
+//                                player.getPacketSender().sendInterfaceRemoval();
+//                                player.getDialog().sendDialog(new BankPinTut(player));
+//                                break;
+//                            case OPTION_2_OF_2:
+//                                player.getPacketSender().sendInterfaceRemoval();
+//                                player.getDialog().sendDialog(new BankPinTut(player));
+//                                break;
+//                        }
+//                    }
+//                });
         }
         return null;
     }

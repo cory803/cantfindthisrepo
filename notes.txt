@@ -8,6 +8,11 @@ When logging in you will no longer get the achievement for defeating nomad.
 Black demons no longer drop venenatis spiderlings.
 The weird head on the female top in make over mage has been fixed.
 You should no longer get slayer assignments that you can't attack.
+Level 99 global announcements for realisms have been added.
+Removed the account pin requirement when joining until we come up with a better system. 
+You now get the proper amount of experience form the bakers thieving stall.
+You can now eat chocolate cake, and bread.
+The random skilling teleport on the ancient spellbook is fixed.
 
 ~TODO~
 Vote

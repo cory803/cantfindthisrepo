@@ -2,7 +2,7 @@ package com.chaos.world.content.skill.impl.thieving;
 
 public enum ThievingStall {
 
-    BAKERS_STALL(2561, 55, 16, StallRewards.BAKERS_STALL, 2, false),
+    BAKERS_STALL(2561, 55, 45, StallRewards.BAKERS_STALL, 2, false),
     CRAFTING_STALL(4874, 5, 16, StallRewards.CRAFTING_STALL, 7, false),
     FOOD_STALL(4875, 15, 16, StallRewards.FOOD_STALL, 7, false),
     GENERAL_STALL(4876, 1, 16, StallRewards.GENERAL_STALL, 7, false),

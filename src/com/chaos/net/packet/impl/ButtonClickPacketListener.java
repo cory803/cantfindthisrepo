@@ -433,7 +433,8 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
             case 5294:
                 player.getPacketSender().sendClientRightClickRemoval().sendInterfaceRemoval();
-                player.getDialog().sendDialog(player.getBankPinAttributes().hasBankPin() ? new DeletePin(player) : new BankPinDial(player));
+                //TODO: Re-add account pin system
+                //player.getDialog().sendDialog(player.getBankPinAttributes().hasBankPin() ? new DeletePin(player) : new BankPinDial(player));
                 break;
             case 15002:
             case 27653:
