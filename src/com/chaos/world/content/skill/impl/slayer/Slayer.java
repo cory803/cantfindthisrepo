@@ -1,6 +1,7 @@
 package com.chaos.world.content.skill.impl.slayer;
 
 import com.chaos.model.Skill;
+import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
@@ -109,7 +110,9 @@ public class Slayer {
         for(SlayerTasks slayerTasks: SlayerTasks.values()) {
             if(slayerTasks.getSlayerMaster() == slayerMaster || slayerTasks.getSlayerMaster().ordinal() == slayerMaster.ordinal() - 1) {
                 if(!possibleTasks.contains(slayerTasks)) {
-                    possibleTasks.add(slayerTasks);
+                    if (player.getSkillManager().getCurrentLevel(Skill.SLAYER) >= NpcDefinition.forId(slayerTasks.getNpcId(0)).getSlayerLevel()) {
+                        possibleTasks.add(slayerTasks);
+                    }
                 }
             }
         }

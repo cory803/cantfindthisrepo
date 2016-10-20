@@ -6,6 +6,8 @@ Object 3769 for cool fire
 ~UPDATES~
 When logging in you will no longer get the achievement for defeating nomad.
 Black demons no longer drop venenatis spiderlings.
+The weird head on the female top in make over mage has been fixed.
+You should no longer get slayer assignments that you can't attack.
 
 ~TODO~
 Vote
