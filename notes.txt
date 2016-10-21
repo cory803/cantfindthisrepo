@@ -14,6 +14,8 @@ You now get the proper amount of experience form the bakers thieving stall.
 You can now eat chocolate cake, and bread.
 The random skilling teleport on the ancient spellbook is fixed.
 The drop rate bonus that you get from being a donator is now fixed.
+The drop generator now correctly shows nex pieces (npc id = 13447)
+
 
 ~TODO~
 Vote
