@@ -270,9 +270,10 @@ public class ItemActionPacketListener implements PacketListener {
 			break;
 		case 407:
 			player.getInventory().delete(407, 1);
-			if (Misc.getRandom(3) < 3) {
+			int chance = Misc.inclusiveRandom(1, 3);
+			if (chance == 1) {
 				player.getInventory().add(409, 1);
-			} else if (Misc.getRandom(4) < 4) {
+			} else if (chance == 2) {
 				player.getInventory().add(411, 1);
 			} else
 				player.getInventory().add(413, 1);

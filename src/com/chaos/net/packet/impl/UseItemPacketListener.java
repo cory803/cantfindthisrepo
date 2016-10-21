@@ -92,6 +92,16 @@ public class UseItemPacketListener implements PacketListener {
 			player.getDialog().sendDialog(new TentacleCombination(player));
 			return;
 		}
+		if (usedWith.getId() == 1755 && itemUsedWith.getId() == 413 || itemUsedWith.getId() == 1755 && usedWith.getId() == 413) {
+			player.getInventory().delete(413, 1);
+			player.getInventory().add(995, Misc.inclusiveRandom(50_000, 100_000));
+			return;
+		}
+		if (usedWith.getId() == 1755 && itemUsedWith.getId() == 411 || itemUsedWith.getId() == 1755 && usedWith.getId() == 411) {
+			player.getInventory().delete(411, 1);
+			player.getInventory().add(995, Misc.inclusiveRandom(25_000, 50_000));
+			return;
+		}
 		if (usedWith.getId() == 12435 || itemUsedWith.getId() == 12435) {
 			if (itemUsedWith.getId() == 12435) {
 				if (player.getSummoning().getFamiliar() != null) {
