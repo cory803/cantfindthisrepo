@@ -15,6 +15,11 @@ You can now eat chocolate cake, and bread.
 The random skilling teleport on the ancient spellbook is fixed.
 The drop rate bonus that you get from being a donator is now fixed.
 The drop generator now correctly shows nex pieces (npc id = 13447)
+When opening a oyster it now correctly gives you oyster pearl(s).
+Using a chisel on a oyster pearl:
+	Oyster pearl - Get 25,000 - 50,000 coins.
+	Oyster pearls - Get 50,000 - 100,000 coins.
+
 
 
 ~TODO~
