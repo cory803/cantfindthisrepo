@@ -13,6 +13,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.DropLog;
 import com.chaos.world.content.Kraken;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.summoning.CharmingImp;
@@ -256,6 +257,9 @@ public class LootSystem {
                 extraChance += .10;
             }
             extraChance += (double) player.getDonatorRights().ordinal() / 100;
+            if (WellOfGoodness.isActive("drops")) {
+                extraChance += .03;
+            }
         }
         return extraChance;
     }

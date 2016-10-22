@@ -19,6 +19,7 @@ When opening a oyster it now correctly gives you oyster pearl(s).
 Using a chisel on a oyster pearl:
 	Oyster pearl - Get 25,000 - 50,000 coins.
 	Oyster pearls - Get 50,000 - 100,000 coins.
+The well of wealth now correctly gives a .03 (3%) drop boost.
 
 
 
