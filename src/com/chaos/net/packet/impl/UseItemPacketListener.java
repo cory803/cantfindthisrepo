@@ -375,7 +375,7 @@ public class UseItemPacketListener implements PacketListener {
 							Cooking.selectionInterface(player, CookingData.forFish(item.getId()));
 							return;
 						}
-						if (Prayer.isBone(itemId) && objectId == 409) {
+						if (Prayer.isBone(itemId) && (objectId == 409 || objectId == 4859)) {
 							BonesOnAltar.openInterface(player, itemId, false);
 							return;
 						}

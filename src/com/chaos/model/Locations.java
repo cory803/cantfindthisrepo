@@ -39,9 +39,13 @@ public class Locations {
 	public static int PLAYERS_IN_DUEL_ARENA;
 
 	public enum Location {
+		//boolean multi, boolean summonAllowed, boolean followingAllowed,
+		//boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed
 		MEMBER_ZONE(new int[] { 3415, 3435 }, new int[] { 2900, 2926 }, false, true, true, false, false, true) {
 		},
 		VARROCK(new int[] { 3167, 3272 }, new int[] { 3263, 3504 }, false, true, true, true, true, true) {
+		},
+		APE_ATOLL_SKILLING(new int[] { 2786, 2811 }, new int[] { 2769, 2808 }, false, true, true, false, true, true) {
 		},
 		GANODERMIC_BEAST(new int[] { 2230, 2280 }, new int[] { 3175, 3220 }, true, true, true, false, true, true) {
 		},

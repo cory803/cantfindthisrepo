@@ -4,6 +4,7 @@ import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Animation;
 import com.chaos.model.Graphic;
+import com.chaos.model.Locations;
 import com.chaos.model.Skill;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.EnterAmountOfBonesToSacrifice;
@@ -64,7 +65,8 @@ public class BonesOnAltar {
 				amountSacrificed++;
 				player.getInventory().delete(boneId, 1);
 				player.performAnimation(new Animation(713));
-				player.getSkillManager().addSkillExperience(Skill.PRAYER, currentBone.getBuryingXP() * 1.5);
+				double experience = currentBone.getBuryingXP() * 2;
+				player.getSkillManager().addSkillExperience(Skill.PRAYER, experience);
 			}
 
 			@Override

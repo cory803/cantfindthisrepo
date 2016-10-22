@@ -247,6 +247,11 @@ public class LootSystem {
         return false;
     }
 
+    /**
+     * Calculates the extra drop booost for your player.
+     * @param player
+     * @return
+     */
     public static double getExtraChance(Player player) {
         double extraChance = 0;
         if(player != null) {

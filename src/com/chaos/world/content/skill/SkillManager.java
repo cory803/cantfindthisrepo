@@ -3,6 +3,7 @@ package com.chaos.world.content.skill;
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Flag;
+import com.chaos.model.Locations;
 import com.chaos.model.player.GameMode;
 import com.chaos.model.Graphic;
 import com.chaos.model.Locations.Location;
@@ -82,6 +83,9 @@ public class SkillManager {
 		}
 		if (player.getEquipment().contains(4657)) {
 			experience *= 2;
+		}
+		if(player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
+			experience *= 1.1;
 		}
 		experience *= player.getGameModeAssistant().getModeExpRate();
 		return addExactExperience(skill, experience);

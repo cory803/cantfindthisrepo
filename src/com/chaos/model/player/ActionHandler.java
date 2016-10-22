@@ -153,6 +153,7 @@ public final class ActionHandler {
                 break;
 
             //Bankers
+            case 6362:
             case 494:
             case 4519:
                 player.getBank(0).open();
@@ -383,6 +384,7 @@ public final class ActionHandler {
             //Bankers
             case 494:
             case 4519:
+            case 6362:
                 player.getBank(0).open();
                 break;
 
