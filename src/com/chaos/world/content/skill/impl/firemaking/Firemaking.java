@@ -77,8 +77,18 @@ public class Firemaking {
 					return;
 				}
 				player.getInventory().delete(logData.getLogId(), 1);
+				boolean apeAtoll = false;
 				if (addingToFire) {
-					player.performAnimation(new Animation(827));
+					if(player.getInteractingObject() != null) {
+						if(player.getInteractingObject().getId() == 4767) {
+							apeAtoll = true;
+						}
+					}
+					if(apeAtoll) {
+						player.performAnimation(new Animation(9068));
+					} else {
+						player.performAnimation(new Animation(827));
+					}
 					player.getPacketSender().sendMessage("You add some logs to the fire..");
 				} else {
 					if (!player.moving) {

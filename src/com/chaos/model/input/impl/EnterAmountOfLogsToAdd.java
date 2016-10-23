@@ -15,8 +15,10 @@ public class EnterAmountOfLogsToAdd extends EnterAmount {
 			amount = Integer.MAX_VALUE;
 		}
 		Firemaking.lightFire(player, -1, true, amount);
-		if (player.getInteractingObject() != null)
-			player.setPositionToFace(player.getInteractingObject().getPosition());
+		if (player.getInteractingObject() != null) {
+			if(player.getInteractingObject().getId() != 4767)
+				player.setPositionToFace(player.getInteractingObject().getPosition());
+		}
 	}
 
 	public static void openInterface(Player player) {

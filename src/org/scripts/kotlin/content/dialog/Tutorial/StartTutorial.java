@@ -12,6 +12,7 @@ import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.net.packet.impl.EquipPacketListener;
 import com.chaos.world.content.PlayerPanel;
+import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BankPin.BankPinTut;
 
@@ -179,6 +180,7 @@ public class StartTutorial extends Dialog {
                 getPlayer().moveTo(new Position(3093, 3502, 0));
                 return Dialog.createNpc(DialogHandler.HAPPY, "This is where the basic shops are located you can explore the rest of Chaos by playing!");
             case 9:
+                ClanChatManager.join(getPlayer(), "chaos");
                 getPlayer().setNewPlayer(false);
                 getPlayer().setPlayerLocked(false);
                 return Dialog.createNpc(DialogHandler.HAPPY, "Have fun playing Chaos! If you need more help you can find me in Lumbridge.");

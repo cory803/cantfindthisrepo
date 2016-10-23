@@ -103,18 +103,18 @@ public class Shop extends ItemContainer {
 		if (player.getGameModeAssistant().isIronMan()) {
 			if (id != IRON_SLAYER_STORE && id != IRON_VOTING_REWARDS_STORE
 					&& id != SKILLCAPE_STORE_1 && id != SKILLCAPE_STORE_2 && id != SKILLCAPE_STORE_3
-					&& id != 18 && id != 30 && id != 38 && id != 39 && id != 40 && id != GENERAL_STORE) {
+					&& id != 18 && id != 30 && id != 38 && id != 39 && id != 35 && id != 34 && id != 40 && id != GENERAL_STORE) {
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("You're unable to access this shop because you're an iron man.");
 				return this;
 			}
 		}
 		setPlayer(player);
-		if (id == 44) {
-			player.getPacketSender().sendString(41900, "Buy experience");
-		} else {
+		//if (id == 44) {
+			//player.getPacketSender().sendString(41900, "Buy experience");
+		//} else {
 			player.getPacketSender().sendString(41900, "");
-		}
+		//}
 		getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
 		getPlayer().setShop(ShopManager.getShops().get(id)).setInterfaceId(INTERFACE_ID).setShopping(true);
 		refreshItems();
@@ -909,14 +909,14 @@ public class Shop extends ItemContainer {
 				switch (item) {
 					case 14936:
 					case 14938:
-						return new Object[] { 60, "agility tickets" };
+						return new Object[] { 60, "marks of grace" };
 					case 10941:
 					case 10939:
 					case 10940:
 					case 10933:
-						return new Object[] { 20, "agility tickets" };
+						return new Object[] { 20, "marks of grace" };
 					case 20786:
-						return new Object[] { 100, "agility tickets" };
+						return new Object[] { 100, "marks of grace" };
 				}
 			} else if (shop == SLAYER_STORE) {
 				switch (item) {

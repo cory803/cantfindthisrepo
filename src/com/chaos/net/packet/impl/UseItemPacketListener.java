@@ -419,6 +419,8 @@ public class UseItemPacketListener implements PacketListener {
 							}
 						}*/
 						switch (objectId) {
+						case 11666:
+						case 26814:
 						case 6189:
 							if (itemId == 6573 || itemId == 1597 || itemId == 1759) {
 								if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 80) {
@@ -564,7 +566,9 @@ public class UseItemPacketListener implements PacketListener {
 							}
 						}*/
 						switch (objectId) {
-						case 6189:
+							case 11666:
+							case 26814:
+							case 6189:
 							if (itemId == 6573 || itemId == 1597 || itemId == 1759) {
 								if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) < 80) {
 									player.getPacketSender()

@@ -78,17 +78,32 @@ public class SkillManager {
 	 * @return The Skills instance.
 	 */
 	public SkillManager addSkillExperience(Skill skill, double experience) {
-		if(WellOfGoodness.isActive("exp")) {
+		experience *= player.getGameModeAssistant().getModeExpRate();
+		return addExactExperience(skill, experience);
+	}
+
+	/**
+	 * Gets the amount of experience with all boosts added.
+	 * @param experience
+	 * @param exact
+	 * @return
+	 */
+	public double getBoostedExperience(double experience, boolean exact, boolean totalCalculation) {
+		if(!exact || totalCalculation) {
+			experience *= player.getGameModeAssistant().getModeExpRate();
+		}
+
+		if (WellOfGoodness.isActive("exp")) {
 			experience *= 1.3;
 		}
 		if (player.getEquipment().contains(4657)) {
 			experience *= 2;
 		}
-		if(player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
+		if (player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
 			experience *= 1.1;
 		}
-		experience *= player.getGameModeAssistant().getModeExpRate();
-		return addExactExperience(skill, experience);
+
+		return experience;
 	}
 
 	public SkillManager addExactExperience(Skill skill, double experience) {
@@ -99,6 +114,7 @@ public class SkillManager {
 		if(experience == 0) {
 			return this;
 		}
+		experience = getBoostedExperience(experience, true, false);
 		int startingLevel = isNewSkill(skill) ? (int) (skills.maxLevel[skill.ordinal()] / 10)
 				: skills.maxLevel[skill.ordinal()];
 		String skillName = Misc.formatText(skill.toString().toLowerCase());

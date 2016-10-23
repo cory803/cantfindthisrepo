@@ -771,12 +771,12 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getDialog().sendDialog(new SlayerTeleports(player));
 			break;
 		case 6570:
-			if (player.getInventory().contains(6570) && player.getInventory().getAmount(6529) >= 50000) {
-				player.getInventory().delete(6570, 1).delete(6529, 50000).add(19111, 1);
+			if (player.getInventory().contains(6570) && player.getInventory().getAmount(6529) >= 10000) {
+				player.getInventory().delete(6570, 1).delete(6529, 10000).add(19111, 1);
 				player.getPacketSender().sendMessage("You have upgraded your Fire cape into a TokHaar-Kal cape!");
 			} else {
 				player.getPacketSender().sendMessage(
-						"You need at least 50.000 Tokkul to upgrade your Fire Cape into a TokHaar-Kal cape.");
+						"You need at least 50,000 Tokkul to upgrade your Fire Cape into a TokHaar-Kal cape.");
 			}
 			break;
 		case 21077:

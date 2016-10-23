@@ -20,6 +20,62 @@ Using a chisel on a oyster pearl:
 	Oyster pearl - Get 25,000 - 50,000 coins.
 	Oyster pearls - Get 50,000 - 100,000 coins.
 The well of wealth now correctly gives a .03 (3%) drop boost.
+When new players join the game they will automatically be put into the 'chaos' clan chat.
+The format on the well of execution announcement now has the percentage symbol correctly formatted.
+The wilderness in the old ghost town has been removed.
+The resource drops from jungle strykewyrm has been lowered.
+All dragons now drop dragon warhammer.
+A ::droplist command has been added to view the official drop list.
+The get a slayer task achievement should be fixed.
+The experience on fire blast has been fixed.
+The random obelisks inside of the wilderness have been removed.
+The weird mining barrels at like 5 wilderness have been fixed to now be iron ore.
+It now costs 10,000 tokul to upgrade your fire cape instead of 50,000.
+Dark beasts dark bows drop will now appear in the drop generator (npc id = 2783)
+The cave near mage bank towards ice plateau now has npcs:
+	Fire giants added
+	2 Frost dragons added
+	2 Tormented demons added
+A banker has been added to staff zone.
+The movehome command now teleports players to edgeville instead of varrock.
+The agility guy at tree gnome village now takes the correct currency [marks of grace].
+The furnaces in Falador, Lumbridge, and Edgeville now work to create amulet of furys and other items that you use on it.
+You can now buy berserker helms from horvik.
+Infernal axe and infernal pickaxe is now tradeable.
+You now get saradomin killcount, and zamorak killcount for killing spiritual mages.
+Chaotic weapons, arcane stream necklace, and ring of vigour is now tradeable until dungeoneering is added.
+Ironman accounts can now use the summoning shops.
+The cerberus combat system has been changed to something different.
+Clue scrolls have been removed from all monsters drop tables essentially making the chances of rare items easier.
+Dwarf hand cannoners are now added to the new mining cave.
+	They drop hand cannons, and ava's accumulators (good for ironman).
+The old skilling zones have been replaced with new.
+There are 2 skilling zones:
+	Skilling zone (low)
+		Any experience gained here is 1.1x of regular experience.
+		A bunch of the skilling npcs have been redone.
+		Big fire pits to add logs to, that never burns out.
+		Bunch of trees around this area.
+		A mining cave that has a bunch of mining ore, and miner magnus.
+		A dungeon ladder to go to the summoning guy.
+		A anvil for smithing.
+		A furnace for smithing bars.
+		Fishing spots for fishing.
+		A cooking range for cooking.
+		A few other things not important to be listed
+	Skilling zone (high)
+		This will be shilo village (not added yet)
+Abyssal demons now drop whip vine which can be used on a regular whip to get an abyssal vine whip.
+Shooting stars have been updated:
+	Talk to miner magnus to get the current location and time until the next crash.
+		I couldn't test this without waiting like 30 minutes so if it doesn't work don't rage at me!
+	You now get 25% more experience for mining shooting stars in the wilderness.
+	The experience gain has been swapped around so that:
+		Higher level requirement = get more experience
+		Lower level requirement = get less experience
+		
+Other information:
+Someone requested for the PM notification thing to be removed for players on macs, I decided not to remove it because there is a toggle setting to turn it off inside of the settings.
 
 
 
@@ -30,6 +86,8 @@ Donations
 Charming imp
 Add herblore shop
 Add hunter npcs
+Test mazchna slayer master (dialogue)
+Fix bug where you can't follow people through gates
 
 Tanner:
 

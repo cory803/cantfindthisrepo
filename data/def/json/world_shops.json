@@ -197,6 +197,10 @@
       {
         "id": 10828,
         "amount": 100
+      },
+      {
+        "id": 3751,
+        "amount": 100
       }
     ],
     "currency": 995
@@ -2380,7 +2384,7 @@
         "amount": 2000000000
       }
     ],
-    "currency": 2996
+    "currency": 11849
   },
   {
     "id": 29,
@@ -2964,7 +2968,7 @@
   },
   {
     "id": 38,
-    "name": "David's Fishing Supplies",
+    "name": "Martin's Fishing Supplies",
     "items": [
       {
         "id": 303,
@@ -3004,58 +3008,58 @@
       },
       {
         "id": 317,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 321,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 327,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 331,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 341,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 345,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 349,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 353,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 359,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 363,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 377,
-        "amount": 0
+        "amount": 1000
       },
       {
         "id": 371,
-        "amount": 0
+        "amount": 1000
       }
     ],
     "currency": 995
   },
   {
     "id": 39,
-    "name": "David's Hunting Collection",
+    "name": "Aleck's Hunting Collection",
     "items": [
       {
         "id": 10010,
@@ -3090,7 +3094,7 @@
   },
   {
     "id": 40,
-    "name": "Iron Man Store",
+    "name": "David's Ironman Skilling Shop",
     "items": [
       {
         "id": 952,
@@ -3372,5 +3376,68 @@
         }
 	   ],
 	   "currency": 20435
-	}
+	},
+  {
+    "id": 44,
+    "name": "Magnus' Mining Store",
+    "items": [
+      {
+        "id": 1265,
+        "amount": 100
+      },
+      {
+        "id": 1267,
+        "amount": 100
+      },
+      {
+        "id": 1269,
+        "amount": 100
+      },
+      {
+        "id": 1271,
+        "amount": 100
+      },
+      {
+        "id": 1273,
+        "amount": 100
+      },
+      {
+        "id": 1275,
+        "amount": 100
+      },
+      {
+        "id": 436,
+        "amount": 10
+      },
+      {
+        "id": 438,
+        "amount": 10
+      },
+      {
+        "id": 440,
+        "amount": 10
+      },
+      {
+        "id": 442,
+        "amount": 10
+      },
+      {
+        "id": 444,
+        "amount": 10
+      },
+      {
+        "id": 447,
+        "amount": 10
+      },
+      {
+        "id": 449,
+        "amount": 10
+      },
+      {
+        "id": 451,
+        "amount": 10
+      }
+    ],
+    "currency": 995
+  }
 ]

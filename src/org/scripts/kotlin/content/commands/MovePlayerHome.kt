@@ -33,7 +33,7 @@ class MovePlayerHome(staffRights: StaffRights) : Command(staffRights) {
                 player.packetSender.sendMessage("You cannot move yourself out of the wild.")
                 return
             }
-            player2.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy())
+            player2.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy())
             player2.packetSender.sendMessage("You've been teleported home by " + player.username + ".")
             player.packetSender.sendMessage("Sucessfully moved " + player2.username + " to home.")
 

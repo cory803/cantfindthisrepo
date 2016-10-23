@@ -110,7 +110,9 @@ public class ObjectActionPacketListener implements PacketListener {
                 .setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
                     @Override
                     public void execute() {
-                        player.setPositionToFace(gameObject.getPosition());
+                        if(gameObject.getId() != 4767) {
+                            player.setPositionToFace(gameObject.getPosition());
+                        }
                         if (WoodcuttingData.Trees.forId(id) != null) {
                             Woodcutting.cutWood(player, gameObject, false);
                             return;
@@ -1739,15 +1741,11 @@ public class ObjectActionPacketListener implements PacketListener {
                                 break;
                             case 28714:
                                 player.performAnimation(new Animation(828));
-                                player.delayedMoveTo(new Position(3216, 3437), 2);
-                                break;
-                            case 1746:
-                                player.performAnimation(new Animation(827));
-                                player.delayedMoveTo(new Position(2209, 5348), 2);
+                                player.delayedMoveTo(new Position(2806, 2785), 2);
                                 break;
                             case 1756:
                                 player.performAnimation(new Animation(827));
-                                player.delayedMoveTo(new Position(2777, 10161), 2);
+                                player.delayedMoveTo(new Position(2209, 5348), 2);
                                 break;
                             case 2268:
                                 player.performAnimation(new Animation(828));
@@ -1779,7 +1777,11 @@ public class ObjectActionPacketListener implements PacketListener {
                                 }
                                 break;
                             case 2:
-                                player.moveTo(new Position(player.getPosition().getX() > 2690 ? 2687 : 2694, 3714));
+                                if(gameObject.getPosition().equals(2792, 2771)) {
+                                    player.moveTo(new Position(2384, 4706));
+                                } else if(gameObject.getPosition().equals(2383, 4704)) {
+                                    player.moveTo(new Position(2794, 2773));
+                                }
                                 player.getPacketSender().sendMessage("You walk through the entrance..");
                                 break;
                             case 2026:
@@ -1799,6 +1801,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 break;
                             case 41687:
                             case 2732:
+                            case 4767:
                                 EnterAmountOfLogsToAdd.openInterface(player);
                                 break;
                             case 409:
@@ -2033,7 +2036,9 @@ public class ObjectActionPacketListener implements PacketListener {
         if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender()
                     .sendConsoleMessage("Second click object id; [id, position] : [" + id + ", " + position.toString() + "]");
-        player.setPositionToFace(gameObject.getPosition());
+        if(gameObject.getId() != 4767) {
+            player.setPositionToFace(gameObject.getPosition());
+        }
         int distanceX = (player.getPosition().getX() - position.getX());
         int distanceY = (player.getPosition().getY() - position.getY());
         if (distanceX < 0)
@@ -2194,7 +2199,9 @@ public class ObjectActionPacketListener implements PacketListener {
             // staffmember.");
             return;
         }
-        player.setPositionToFace(gameObject.getPosition());
+        if(gameObject.getId() != 4767) {
+            player.setPositionToFace(gameObject.getPosition());
+        }
         int distanceX = (player.getPosition().getX() - position.getX());
         int distanceY = (player.getPosition().getY() - position.getY());
         if (distanceX < 0)
@@ -2228,7 +2235,9 @@ public class ObjectActionPacketListener implements PacketListener {
             // staffmember.");
             return;
         }
-        player.setPositionToFace(gameObject.getPosition());
+        if(gameObject.getId() != 4767) {
+            player.setPositionToFace(gameObject.getPosition());
+        }
         int distanceX = (player.getPosition().getX() - position.getX());
         int distanceY = (player.getPosition().getY() - position.getY());
         if (distanceX < 0)
@@ -2264,7 +2273,9 @@ public class ObjectActionPacketListener implements PacketListener {
             player.getPacketSender().sendMessage("You are stunned!");
             return;
         }
-        player.setPositionToFace(gameObject.getPosition());
+        if(gameObject.getId() != 4767) {
+            player.setPositionToFace(gameObject.getPosition());
+        }
         int distanceX = (player.getPosition().getX() - position.getX());
         int distanceY = (player.getPosition().getY() - position.getY());
         if (distanceX < 0)

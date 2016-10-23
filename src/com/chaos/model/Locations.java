@@ -190,10 +190,10 @@ public class Locations {
 		},
 		// 3653
 		WILDERNESS(
-				new int[] { 2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059, 3008, 3070, 2250, 2295, 2760,
-						2805, 2830, 2885, 2505, 2550 },
-				new int[] { 3525, 3968, 10338, 10366, 3441, 3517, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729,
-						10120, 10180, 10105, 10150, 4760, 4795 },
+				new int[] { 2940, 2940, 3392, 2986, 3012, 3653, 3720, 3653, 3012, 3059, 3008,
+						3070, 2250, 2295, 2760, 2805, 2830, 2885, 2505, 2550 },
+				new int[] { 3525, 3525, 3968, 10338, 10366, 3441, 3457, 3472, 10303, 10351, 10235,
+							10300, 4675, 4729, 10120, 10180, 10105, 10150, 4760, 4795 },
 				false, true, true, true, true, true) {
 			@Override
 			public void process(Player player) {
@@ -770,6 +770,12 @@ public class Locations {
 						|| npc == 6203) // Zamorak
 					index = 3;
 				if (index != -1) {
+					if(npc == 6221) {
+						//Double point npc
+						killer.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[2]++;
+						killer.getPacketSender().sendString((16216 + index),
+								"" + killer.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index]);
+					}
 					killer.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index]++;
 					killer.getPacketSender().sendString((16216 + index),
 							"" + killer.getMinigameAttributes().getGodwarsDungeonAttributes().getKillcount()[index]);

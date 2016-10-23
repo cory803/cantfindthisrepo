@@ -120,11 +120,11 @@ public class Slayer {
         SlayerTasks myTask = possibleTasks.get(0);
         player.getSlayer().setSlayerMaster(slayerMaster);
         player.getSlayer().setSlayerTask(myTask);
-        player.getSlayer().setAmountLeft(Misc.random(myTask.getMinimumAmount(), myTask.getMaximumAmount()));
+        player.getSlayer().setAmountLeft(Misc.inclusiveRandom(myTask.getMinimumAmount(), myTask.getMaximumAmount()));
         player.getSlayer().setDuoSlayer(null);
         player.setNpcClickId(slayerMaster.getNpcId());
         player.getDialog().sendDialog(new SlayerDialog(player, 3, null));
-        Achievements.doProgress(player, Achievements.AchievementData.GET_SLAYER_TASK);
+        Achievements.finishAchievement(player, Achievements.AchievementData.GET_SLAYER_TASK);
         PlayerPanel.refreshPanel(player);
     }
 

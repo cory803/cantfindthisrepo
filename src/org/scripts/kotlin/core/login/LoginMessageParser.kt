@@ -63,7 +63,7 @@ class LoginMessageParser {
 
             if (WellOfGoodness.isActive("drops")) {
                 player.getPacketSender().sendMessage(
-                        "<img=4><col=008FB2> The Well of Wealth is granting " + WellOfGoodness.BONUSDROPPERCENT + " % higher rolls on drops for another "
+                        "<img=4><col=008FB2> The Well of Wealth is granting " + WellOfGoodness.BONUSDROPPERCENT + "% higher rolls on drops for another "
                                 + WellOfGoodness.getMinutesRemaining("drops") + " minutes.")
             }
 

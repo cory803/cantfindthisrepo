@@ -315,17 +315,17 @@ public class ButtonClickPacketListener implements PacketListener {
                 Nomad.openQuestLog(player);
                 break;
             case -23636:
-                if (player.getShop() != null && player.getShop().id == 44 && player.isShopping()) {
-                    player.setInputHandling(new BuyDungExperience());
-                    player.getPacketSender()
-                            .sendEnterAmountPrompt("How much experience would you like to buy? 1 token = 3 exp");
-                } else {
-                    if (player.getGameModeAssistant().isIronMan()) {
-                        player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
-                        return;
-                    }
-                    PlayerOwnedShops.openItemSearch(player, false);
-                }
+//                if (player.getShop() != null && player.getShop().id == 44 && player.isShopping()) {
+//                    player.setInputHandling(new BuyDungExperience());
+//                    player.getPacketSender()
+//                            .sendEnterAmountPrompt("How much experience would you like to buy? 1 token = 3 exp");
+//                } else {
+//                    if (player.getGameModeAssistant().isIronMan()) {
+//                        player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+//                        return;
+//                    }
+//                    PlayerOwnedShops.openItemSearch(player, false);
+                //}
                 break;
             case 350:
                 player.getPacketSender()

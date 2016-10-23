@@ -37,7 +37,6 @@ public class DropTable {
                 index = 0;
                 for (Drop dr : d.drops) {
                     if (dr.getRarity() == r) {
-
                         drops[r.ordinal()][(index++)] = dr;
                     }
                 }

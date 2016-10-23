@@ -190,6 +190,19 @@ public class Position {
 		return (y >> 3) - 6;
 	}
 
+	/**
+	 * Checks if a certain position equals a certain x/y
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public boolean equals(int x, int y) {
+		if(this.x == x && this.y == y) {
+			return true;
+		}
+		return false;
+	}
+
 	public int getRegionId() {
 		int regionX = x >> 3;
 		int regionY = y >> 3;

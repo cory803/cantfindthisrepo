@@ -1,18 +1,15 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
 import com.chaos.model.container.impl.Shop;
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.entity.impl.player.Player;
 
-public class David extends Dialog {
+public class Martin extends Dialog {
 
-    public David(Player player) {
+    public Martin(Player player) {
         super(player);
         setEndState(1);
     }
@@ -21,7 +18,7 @@ public class David extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like to see what skilling items I have for sale?");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like to see what fishing items I have for sale?");
             case 1:
             return Dialog.createOption(new TwoOption(
                     "Yes, show me what you have to offer!",
@@ -30,11 +27,7 @@ public class David extends Dialog {
                 public void execute(Player player, OptionType option) {
                     switch(option) {
                         case OPTION_1_OF_2:
-                            if (player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
-                                Shop.ShopManager.getShops().get(40).open(player);
-                            } else {
-                                Shop.ShopManager.getShops().get(30).open(player);
-                            }
+                            Shop.ShopManager.getShops().get(38).open(player);
                             break;
                         case OPTION_2_OF_2:
                             player.getPacketSender().sendInterfaceRemoval();

@@ -6849,7 +6849,7 @@
 },
 {
 "id": 308,
-"name": "Master fisher",
+"name": "Martin",
 "examine": "The man in charge of the fishing guild.",
 "combat": 0,
 "size": 1,
@@ -62078,6 +62078,9 @@
 "examine": "From a darker dimension.",
 "combat": 182,
 "size": 2,
+"rareChance": 50,
+"veryRareChance": 50,
+"epicRareChance": 1000,
 "attackable": true,
 "aggressive": true,
 "retreats": false,
@@ -120207,7 +120210,7 @@
 },
 {
 "id": 5428,
-"name": "Penguin",
+"name": "Agility Penguin",
 "examine": "A Gentoo penguin.",
 "combat": 0,
 "size": 1,

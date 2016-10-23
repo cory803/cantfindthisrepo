@@ -90,6 +90,12 @@ public final class ActionHandler {
             case 1282:
                 player.getDialog().sendDialog(new Merchant(player));
                 break;
+
+            //Miner magnus
+            case 1396:
+                player.getDialog().sendDialog(new MinerMagnus(player, 0));
+                break;
+
             //summoning
             case 6970:
                 player.getDialog().sendDialog(new Pikkupstix(player, 0));
@@ -126,6 +132,16 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new David(player));
                 break;
 
+            //Aleck hunter shop
+            case 5110:
+                player.getDialog().sendDialog(new Aleck(player, 0));
+                break;
+
+            //Martin fishing shop
+            case 308:
+                player.getDialog().sendDialog(new Martin(player));
+                break;
+
             //Slayer masters
             case 401:
             case 402:
@@ -135,14 +151,12 @@ public final class ActionHandler {
             case 490:
                 player.getDialog().sendDialog(new SlayerDialog(player, 0, null));
                 break;
-            //agility
-            case 437:
-                player.getDialog().sendDialog(new Agility(player));
-                break;
+
             //tokkul
             case 2622:
                 Shop.ShopManager.getShops().get(17).open(player);
                 break;
+
             //rc shop
             case 460:
                 player.getDialog().sendDialog(new Frumscone(player));
@@ -225,6 +239,16 @@ public final class ActionHandler {
             //Talk to chaos guide
             case 945:
                 player.getDialog().sendDialog(new ChaosGuide(player));
+                break;
+
+            //Agility penguin
+            case 5428:
+                player.getDialog().sendDialog(new AgilityPenguin(player, 0));
+                break;
+
+            //Master crafter
+            case 805:
+                player.getDialog().sendDialog(new MasterCrafter(player, 0));
                 break;
 
             case 501:
@@ -311,7 +335,7 @@ public final class ActionHandler {
                 player.getAppearance().setCanChangeAppearance(true);
                 break;
         }
-        if (!(npc.getId() >= 8705 && npc.getId() <= 8710)) {
+        if (!(npc.getId() >= 8705 && npc.getId() <= 8710) && npc.getId() != 1396) {
             npc.setPositionToFace(player.getPosition());
         }
         player.setPositionToFace(npc.getPosition());
@@ -337,6 +361,11 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Agility penguin
+            case 5428:
+                player.getDialog().sendDialog(new AgilityPenguin(player, 5));
+                break;
+
             //void knight shop
             case 3789:
                 player.getVoidShop();
@@ -361,6 +390,21 @@ public final class ActionHandler {
                 } else {
                     Shop.ShopManager.getShops().get(30).open(player);
                 }
+                break;
+
+            //Aleck hunter shop
+            case 5110:
+                Shop.ShopManager.getShops().get(39).open(player);
+                break;
+
+            //Miner magnus shop
+            case 1396:
+                Shop.ShopManager.getShops().get(44).open(player);
+                break;
+
+            //Martin fishing shop
+            case 308:
+                Shop.ShopManager.getShops().get(38).open(player);
                 break;
 
             //Slayer masters
@@ -511,7 +555,9 @@ public final class ActionHandler {
                 Fishing.setupFishing(player, Fishing.forSpot(npc.getId(), true));
                 break;
         }
-        npc.setPositionToFace(player.getPosition());
+        if(npc.getId() != 1396) {
+            npc.setPositionToFace(player.getPosition());
+        }
         player.setPositionToFace(npc.getPosition());
     }
 
@@ -522,7 +568,9 @@ public final class ActionHandler {
             return;
         }
         player.setEntityInteraction(npc).setPositionToFace(npc.getPosition().copy());
-        npc.setPositionToFace(player.getPosition());
+        if(npc.getId() != 1396) {
+            npc.setPositionToFace(player.getPosition());
+        }
         player.setNpcClickId(npc.getId());
         if (player.getStaffRights().isDeveloper(player))
             player.getPacketSender().sendMessage("Third click npc id: " + npc.getId());
@@ -543,9 +591,19 @@ public final class ActionHandler {
                 Shop.ShopManager.getShops().get(32).open(player);
                 break;
 
+            //Agility penguin
+            case 5428:
+                player.getDialog().sendDialog(new AgilityPenguin(player, 4));
+                break;
+
             //Aubury
             case 553:
                 TeleportHandler.teleportPlayer(player, new Position(2911, 4832, 0), player.getSpellbook().getTeleportType());
+                break;
+
+            //Aleck hunter shop
+            case 5110:
+                player.getDialog().sendDialog(new Aleck(player, 2));
                 break;
 
             case 2127:
@@ -565,7 +623,9 @@ public final class ActionHandler {
                 //Stat restore npc here
                 break;
         }
-        npc.setPositionToFace(player.getPosition());
+        if(npc.getId() != 1396) {
+            npc.setPositionToFace(player.getPosition());
+        }
         player.setPositionToFace(npc.getPosition());
     }
 
@@ -627,7 +687,10 @@ public final class ActionHandler {
                 player.setPlayerOwnedShopping(true);
                 break;
         }
-        npc.setPositionToFace(player.getPosition());
+
+        if(npc.getId() != 1396) {
+            npc.setPositionToFace(player.getPosition());
+        }
         player.setPositionToFace(npc.getPosition());
     }
 

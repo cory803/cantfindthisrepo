@@ -3,6 +3,7 @@ package org.scripts.kotlin.content.dialog.npcs;
 import com.chaos.model.input.impl.ChangePassword;
 import com.chaos.model.options.fiveoption.FiveOption;
 import com.chaos.model.options.fouroption.FourOption;
+import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
@@ -25,100 +26,14 @@ public class ChaosGuide extends Dialog {
                 return Dialog.createNpc(DialogHandler.CALM, "Hello "+getPlayer().getUsername()+", do you need any assistance?");
             case 1:
                 if(getPlayer().getGameModeAssistant().getGameMode() == GameMode.REALISM) {
-                    return Dialog.createOption(new FiveOption(
-                            "I need to change my password.",
-                            "How do I make money?",
-                            "What do I do for additional help?",
-                            "I want to retake the tutorial.",
-                            "Can I purchase a Sir owen's longsword for 40M?") {
-                        @Override
-                        public void execute(Player player, OptionType option) {
-                            switch (option) {
-                                case OPTION_1_OF_5:
-                                    player.setInputHandling(new ChangePassword());
-                                    player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
-                                    break;
-                                case OPTION_2_OF_5:
-                                    setState(2);
-                                    setEndState(3);
-                                    player.getDialog().sendDialog(dialog);
-                                    break;
-                                case OPTION_3_OF_5:
-                                    setState(4);
-                                    setEndState(4);
-                                    player.getDialog().sendDialog(dialog);
-                                    break;
-                                case OPTION_4_OF_5:
-                                    setState(5);
-                                    setEndState(5);
-                                    player.getDialog().sendDialog(dialog);
-                                    break;
-                                case OPTION_5_OF_5:
-                                    if(player.getInventory().getAmount(995) >= 40000000) {
-                                        player.getInventory().delete(995, 40000000);
-                                        player.getInventory().add(16389, 1);
-                                        player.getPacketSender().sendInterfaceRemoval();
-                                    } else {
-                                        setState(6);
-                                        setEndState(6);
-                                        player.getDialog().sendDialog(dialog);
-                                    }
-                                    break;
-                            }
-                        }
-                    });
-                } else if(getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT) {
-                    return Dialog.createOption(new FiveOption(
-                            "I need to change my password.",
-                            "How do I make money?",
-                            "What do I do for additional help?",
-                            "I want to retake the tutorial.",
-                            "Can I purchase a Cape of knights for 5M?") {
-                        @Override
-                        public void execute(Player player, OptionType option) {
-                            switch (option) {
-                                case OPTION_1_OF_5:
-                                    player.setInputHandling(new ChangePassword());
-                                    player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
-                                    break;
-                                case OPTION_2_OF_5:
-                                    setState(2);
-                                    setEndState(3);
-                                    player.getDialog().sendDialog(dialog);
-                                    break;
-                                case OPTION_3_OF_5:
-                                    setState(4);
-                                    setEndState(4);
-                                    player.getDialog().sendDialog(dialog);
-                                    break;
-                                case OPTION_4_OF_5:
-                                    setState(5);
-                                    setEndState(5);
-                                    player.getDialog().sendDialog(dialog);
-                                    break;
-                                case OPTION_5_OF_5:
-                                    if(player.getInventory().getAmount(995) >= 5000000) {
-                                        player.getInventory().delete(995, 5000000);
-                                        player.getInventory().add(1052, 1);
-                                        player.getPacketSender().sendInterfaceRemoval();
-                                    } else {
-                                        setState(7);
-                                        setEndState(7);
-                                        player.getDialog().sendDialog(dialog);
-                                    }
-                                    break;
-                            }
-                        }
-                    });
-                } else {
                     return Dialog.createOption(new FourOption(
                             "I need to change my password.",
                             "How do I make money?",
                             "What do I do for additional help?",
-                            "I want to retake the tutorial.") {
+                            "Can I purchase a Sir owen's longsword for 40M?") {
                         @Override
                         public void execute(Player player, OptionType option) {
-                            switch(option) {
+                            switch (option) {
                                 case OPTION_1_OF_4:
                                     player.setInputHandling(new ChangePassword());
                                     player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
@@ -134,8 +49,76 @@ public class ChaosGuide extends Dialog {
                                     player.getDialog().sendDialog(dialog);
                                     break;
                                 case OPTION_4_OF_4:
-                                    setState(5);
-                                    setEndState(5);
+                                    if(player.getInventory().getAmount(995) >= 40000000) {
+                                        player.getInventory().delete(995, 40000000);
+                                        player.getInventory().add(16389, 1);
+                                        player.getPacketSender().sendInterfaceRemoval();
+                                    } else {
+                                        setState(6);
+                                        setEndState(6);
+                                        player.getDialog().sendDialog(dialog);
+                                    }
+                                    break;
+                            }
+                        }
+                    });
+                } else if(getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT) {
+                    return Dialog.createOption(new FourOption(
+                            "I need to change my password.",
+                            "How do I make money?",
+                            "What do I do for additional help?",
+                            "Can I purchase a Cape of knights for 5M?") {
+                        @Override
+                        public void execute(Player player, OptionType option) {
+                            switch (option) {
+                                case OPTION_1_OF_4:
+                                    player.setInputHandling(new ChangePassword());
+                                    player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
+                                    break;
+                                case OPTION_2_OF_4:
+                                    setState(2);
+                                    setEndState(3);
+                                    player.getDialog().sendDialog(dialog);
+                                    break;
+                                case OPTION_3_OF_4:
+                                    setState(4);
+                                    setEndState(4);
+                                    player.getDialog().sendDialog(dialog);
+                                    break;
+                                case OPTION_4_OF_4:
+                                    if(player.getInventory().getAmount(995) >= 5000000) {
+                                        player.getInventory().delete(995, 5000000);
+                                        player.getInventory().add(1052, 1);
+                                        player.getPacketSender().sendInterfaceRemoval();
+                                    } else {
+                                        setState(7);
+                                        setEndState(7);
+                                        player.getDialog().sendDialog(dialog);
+                                    }
+                                    break;
+                            }
+                        }
+                    });
+                } else {
+                    return Dialog.createOption(new ThreeOption(
+                            "I need to change my password.",
+                            "How do I make money?",
+                            "What do I do for additional help?") {
+                        @Override
+                        public void execute(Player player, OptionType option) {
+                            switch(option) {
+                                case OPTION_1_OF_3:
+                                    player.setInputHandling(new ChangePassword());
+                                    player.getPacketSender().sendEnterInputPrompt("Enter a new password:");
+                                    break;
+                                case OPTION_2_OF_3:
+                                    setState(2);
+                                    setEndState(3);
+                                    player.getDialog().sendDialog(dialog);
+                                    break;
+                                case OPTION_3_OF_3:
+                                    setState(4);
+                                    setEndState(4);
                                     player.getDialog().sendDialog(dialog);
                                     break;
                             }

@@ -1299,7 +1299,7 @@ public enum CombatSpells {
 
 		@Override
 		public int baseExperience() {
-			return 803;
+			return 34;
 		}
 
 		@Override

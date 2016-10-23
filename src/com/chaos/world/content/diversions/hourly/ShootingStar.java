@@ -42,13 +42,22 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	public Location getLocation() {
 		return location;
 	}
-	
+
+	/**
+	 * Checks if the shooting star has already crashed.
+	 * @return
+	 */
+	public boolean alreadyCrashed() {
+		int ticksLeft = SPAWN_TIMER - ticks;
+		return ticksLeft <= 0;
+	}
+
 	public String getTimeToCrash() {
 		int ticksLeft = SPAWN_TIMER - ticks;
 		if (ticksLeft <= 0)
-			return "The shooting star has already crashed!";
+			return "the shooting star has already crashed!";
 		
-		return "The shooting star will crash in " + MathUtil.getTimeForTicks(ticksLeft) + ".";
+		return "the next shooting star will crash in " + MathUtil.getTimeForTicks(ticksLeft) + ".";
 	}
 	
 	@Override
@@ -154,7 +163,11 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 								minerals++;
 							}
 						}
-						player.getSkillManager().addSkillExperience(Skill.MINING, stage.getExperience());
+						if(player.getLocation() == Locations.Location.WILDERNESS) {
+							player.getSkillManager().addSkillExperience(Skill.MINING, ((double) stage.getExperience() * 1.25));
+						} else {
+							player.getSkillManager().addSkillExperience(Skill.MINING, stage.getExperience());
+						}
 						minerals++;
 						
 						if (minerals >= stage.getMinerals()) {
@@ -274,23 +287,23 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	private static final int GOLD_ORES = 445;
 	
 	private enum Stage {	
-		NINTH(38660, 10, 500 / 2, 10, 10),
+		NINTH(38660, 10, 50 / 2, 10, 10),
 		
-		EIGTH(38661, 20, 400 / 2, 15, 9),
+		EIGTH(38661, 20, 75 / 2, 15, 9),
 		
-		SEVENTH(38662, 30, 300 / 2, 20, 8),
+		SEVENTH(38662, 30, 100 / 2, 20, 8),
 		
-		SIXTH(38663, 40, 250 / 2, 30, 7),
+		SIXTH(38663, 40, 150 / 2, 30, 7),
 		
 		FIFTH(38664, 50, 200 / 2, 50, 6),
 		
-		FOURTH(38665, 60, 150 / 2, 70, 5),
+		FOURTH(38665, 60, 250 / 2, 70, 5),
 
-		THIRD(38666, 70, 100 / 2, 110, 4),
+		THIRD(38666, 70, 300 / 2, 110, 4),
 		
-		SECOND(38667, 80, 75 / 2, 150, 3),
+		SECOND(38667, 80, 400 / 2, 150, 3),
 		
-		FIRST(38668, 90, 50 / 2, 250, 2);
+		FIRST(38668, 90, 500 / 2, 250, 2);
 		
 		private Stage(int objectId, int levelRequirement, int minerals,
 				int experience, int miningTimerModifier) {
