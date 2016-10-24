@@ -40,7 +40,7 @@ public class DropListDumper {
 				if(NpcDefinition.forId(i) == null) {
 					continue;
 				}
-				write(bw, "Monster: "+NpcDefinition.forId(i).getName()+ "(Level: "+NpcDefinition.forId(i).getCombatLevel()+")");
+				write(bw, "Monster: "+NpcDefinition.forId(i).getName()+ "(Level: "+NpcDefinition.forId(i).getCombatLevel()+") (id = "+i+")");
 				write(bw, "---------------");
 				write(bw, "");
 				LootItem[][] tableSorted = table.getSortedLoot();

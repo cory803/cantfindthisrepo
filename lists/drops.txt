@@ -1,4 +1,4 @@
-Monster: Man(Level: 2)
+Monster: Man(Level: 2) (id = 1)
 ---------------
 
 Always
@@ -26,17 +26,16 @@ Uncommon (1/10)
 1x Bronze med helm
 
 Rare (1/50)
-1x Chaos rune (1/400)
-1x Grimy cadantine (1/400)
-1x Grimy dwarf weed (1/400)
-1x Grimy lantadyme (1/400)
-1x Clue scroll (easy) (1/400)
-1x Earth talisman (1/400)
-1x Cabbage (1/400)
-1x Copper ore (1/400)
+1x Chaos rune (1/350)
+1x Grimy cadantine (1/350)
+1x Grimy dwarf weed (1/350)
+1x Grimy lantadyme (1/350)
+1x Earth talisman (1/350)
+1x Cabbage (1/350)
+1x Copper ore (1/350)
 
 
-Monster: Woman(Level: 2)
+Monster: Woman(Level: 2) (id = 4)
 ---------------
 
 Always
@@ -64,17 +63,16 @@ Uncommon (1/10)
 1x Bronze med helm
 
 Rare (1/50)
-1x Chaos rune (1/400)
-1x Grimy cadantine (1/400)
-1x Grimy dwarf weed (1/400)
-1x Grimy lantadyme (1/400)
-1x Clue scroll (easy) (1/400)
-1x Earth talisman (1/400)
-1x Cabbage (1/400)
-1x Copper ore (1/400)
+1x Chaos rune (1/350)
+1x Grimy cadantine (1/350)
+1x Grimy dwarf weed (1/350)
+1x Grimy lantadyme (1/350)
+1x Earth talisman (1/350)
+1x Cabbage (1/350)
+1x Copper ore (1/350)
 
 
-Monster: Farmer(Level: 7)
+Monster: Farmer(Level: 7) (id = 7)
 ---------------
 
 Always
@@ -101,17 +99,16 @@ Common
 1x Coins
 
 Rare (1/50)
-1x Gardening boots (1/400)
-1x Watering can (1/400)
-1x Seed dibber (1/400)
-1x Grimy ranarr (1/400)
-1x Grimy kwuarm (1/400)
-1x Grimy avantoe (1/400)
-1x Clue scroll (easy) (1/400)
-1x Potato seed (1/400)
+1x Gardening boots (1/350)
+1x Watering can (1/350)
+1x Seed dibber (1/350)
+1x Grimy ranarr (1/350)
+1x Grimy kwuarm (1/350)
+1x Grimy avantoe (1/350)
+1x Potato seed (1/350)
 
 
-Monster: Guard(Level: 21)
+Monster: Guard(Level: 21) (id = 9)
 ---------------
 
 Always
@@ -146,11 +143,8 @@ Rare (1/50)
 1x Watermelon seed (1/450)
 1x Grain (1/450)
 
-Very Rare (1/200)
-1x Clue scroll (medium) (1/200)
 
-
-Monster: Guard(Level: 20)
+Monster: Guard(Level: 20) (id = 32)
 ---------------
 
 Always
@@ -185,11 +179,8 @@ Rare (1/50)
 1x Watermelon seed (1/450)
 1x Grain (1/450)
 
-Very Rare (1/200)
-1x Clue scroll (medium) (1/200)
 
-
-Monster: Chicken(Level: 1)
+Monster: Chicken(Level: 1) (id = 41)
 ---------------
 
 Always
@@ -200,7 +191,7 @@ Common
 5-15x Feather
 
 
-Monster: Rat(Level: 1)
+Monster: Rat(Level: 1) (id = 47)
 ---------------
 
 Always
@@ -211,20 +202,17 @@ Common
 1x Rat's tail
 
 
-Monster: Hellhound(Level: 122)
+Monster: Hellhound(Level: 122) (id = 49)
 ---------------
 
 Always
 1x Bones
 
-Uncommon (1/10)
-1x Clue scroll (hard)
-
 Epic (1/1000)
 1x Smouldering Stone (1/1000)
 
 
-Monster: King Black Dragon(Level: 276)
+Monster: King Black Dragon(Level: 276) (id = 50)
 ---------------
 
 Always
@@ -262,29 +250,29 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/850)
-1x Tooth half of a key (1/850)
-1x Rune spear (1/850)
-1x Rune battleaxe (1/850)
-1x Rune 2h sword (1/850)
-1x Uncut diamond (1/850)
-1x Rune javelin (1/850)
-1x Silver ore (1/850)
-1x Adamant javelin (1/850)
-1x Rune sq shield (1/850)
-1x Steel arrow (1/850)
-1x Rune arrow (1/850)
-1x Law rune (1/850)
-1x Death rune (1/850)
-1x Dragonstone (1/850)
-1x Rune kiteshield (1/850)
-1x Dragon med helm (1/850)
+1x Loop half of a key (1/900)
+1x Tooth half of a key (1/900)
+1x Rune spear (1/900)
+1x Rune battleaxe (1/900)
+1x Rune 2h sword (1/900)
+1x Uncut diamond (1/900)
+1x Rune javelin (1/900)
+1x Silver ore (1/900)
+1x Adamant javelin (1/900)
+1x Rune sq shield (1/900)
+1x Steel arrow (1/900)
+1x Rune arrow (1/900)
+1x Law rune (1/900)
+1x Death rune (1/900)
+1x Dragonstone (1/900)
+1x Rune kiteshield (1/900)
+1x Dragon med helm (1/900)
+1x Dragon med helm (1/900)
 
 Very Rare (1/200)
-1x Dragon med helm (1/800)
-1x Clue scroll (elite) (1/800)
-1x Kbd heads (1/800)
-1x Dragon claws (1/800)
+1x Kbd heads (1/600)
+1x Dragon claws (1/600)
+1x Dragon warhammer (1/600)
 
 Epic (1/1000)
 1x Dragon pickaxe (1/5000)
@@ -294,7 +282,7 @@ Epic (1/1000)
 1x Dragon spear (1/5000)
 
 
-Monster: Frost dragon(Level: 166)
+Monster: Frost dragon(Level: 166) (id = 51)
 ---------------
 
 Always
@@ -370,10 +358,11 @@ Rare (1/50)
 1x Tooth half of a key (1/100)
 
 Very Rare (1/200)
-1x Draconic visage (1/200)
+1x Draconic visage (1/400)
+1x Dragon warhammer (1/400)
 
 
-Monster: Baby Blue dragon(Level: 48)
+Monster: Baby Blue dragon(Level: 48) (id = 52)
 ---------------
 
 Always
@@ -392,7 +381,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Red dragon(Level: 152)
+Monster: Red dragon(Level: 152) (id = 53)
 ---------------
 
 Always
@@ -456,7 +445,7 @@ Rare (1/50)
 1x Dragon med helm (1/1000)
 
 Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
+1x Dragon warhammer (1/200)
 
 Epic (1/1000)
 1x Grimy dwarf weed (1/3000)
@@ -464,7 +453,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Black dragon(Level: 227)
+Monster: Black dragon(Level: 227) (id = 54)
 ---------------
 
 Always
@@ -519,8 +508,7 @@ Rare (1/50)
 1x Dragon med helm (1/950)
 
 Very Rare (1/200)
-1x Clue scroll (hard) (1/400)
-1x Clue scroll (elite) (1/400)
+1x Dragon warhammer (1/200)
 
 Epic (1/1000)
 1x Draconic visage (1/3000)
@@ -528,7 +516,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Blue dragon(Level: 111)
+Monster: Blue dragon(Level: 111) (id = 55)
 ---------------
 
 Always
@@ -591,14 +579,14 @@ Rare (1/50)
 1x Dragon med helm (1/1050)
 
 Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
+1x Dragon warhammer (1/200)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Shadow spider(Level: 52)
+Monster: Shadow spider(Level: 52) (id = 58)
 ---------------
 
 Common
@@ -617,7 +605,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Giant spider(Level: 2)
+Monster: Giant spider(Level: 2) (id = 59)
 ---------------
 
 Common
@@ -650,7 +638,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/200)
 
 
-Monster: Deadly red spider(Level: 34)
+Monster: Deadly red spider(Level: 34) (id = 63)
 ---------------
 
 Common
@@ -678,7 +666,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/400)
 
 
-Monster: Zombie(Level: 25)
+Monster: Zombie(Level: 25) (id = 76)
 ---------------
 
 Always
@@ -708,7 +696,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/150)
 
 
-Monster: Giant bat(Level: 27)
+Monster: Giant bat(Level: 27) (id = 78)
 ---------------
 
 Always
@@ -718,7 +706,7 @@ Common
 1x Giant bat wing
 
 
-Monster: Cow(Level: 2)
+Monster: Cow(Level: 2) (id = 81)
 ---------------
 
 Always
@@ -727,7 +715,7 @@ Always
 1x Bones
 
 
-Monster: Lesser demon(Level: 82)
+Monster: Lesser demon(Level: 82) (id = 82)
 ---------------
 
 Always
@@ -794,7 +782,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Greater demon(Level: 92)
+Monster: Greater demon(Level: 92) (id = 83)
 ---------------
 
 Always
@@ -823,26 +811,25 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1000)
-1x Tooth half of a key (1/1000)
-1x Rune full helm (1/1000)
-1x Thread (1/1000)
-1x Clue scroll (hard) (1/1000)
-1x Rune spear (1/1000)
-1x Rune battleaxe (1/1000)
-1x Rune 2h sword (1/1000)
-1x Uncut diamond (1/1000)
-1x Rune javelin (1/1000)
-1x Silver ore (1/1000)
-1x Adamant javelin (1/1000)
-1x Rune sq shield (1/1000)
-1x Steel arrow (1/1000)
-1x Rune arrow (1/1000)
-1x Law rune (1/1000)
-1x Death rune (1/1000)
-1x Dragonstone (1/1000)
-1x Rune kiteshield (1/1000)
-1x Dragon med helm (1/1000)
+1x Loop half of a key (1/950)
+1x Tooth half of a key (1/950)
+1x Rune full helm (1/950)
+1x Thread (1/950)
+1x Rune spear (1/950)
+1x Rune battleaxe (1/950)
+1x Rune 2h sword (1/950)
+1x Uncut diamond (1/950)
+1x Rune javelin (1/950)
+1x Silver ore (1/950)
+1x Adamant javelin (1/950)
+1x Rune sq shield (1/950)
+1x Steel arrow (1/950)
+1x Rune arrow (1/950)
+1x Law rune (1/950)
+1x Death rune (1/950)
+1x Dragonstone (1/950)
+1x Rune kiteshield (1/950)
+1x Dragon med helm (1/950)
 
 Very Rare (1/200)
 1x Mithril kiteshield (1/200)
@@ -852,7 +839,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Black Demon(Level: 172)
+Monster: Black Demon(Level: 172) (id = 84)
 ---------------
 
 Always
@@ -891,39 +878,35 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Living minerals (1/1150)
-1x Venenatis spiderling (1/1150)
-1x Rune med helm (1/1150)
-1x Rune chainbody (1/1150)
-1x Grimy lantadyme (1/1150)
-1x Grimy dwarf weed (1/1150)
-1x Law rune (1/1150)
-1x Defence potion (3) (1/1150)
-1x Rune spear (1/1150)
-1x Rune battleaxe (1/1150)
-1x Rune 2h sword (1/1150)
-1x Uncut diamond (1/1150)
-1x Rune javelin (1/1150)
-1x Silver ore (1/1150)
-1x Adamant javelin (1/1150)
-1x Rune sq shield (1/1150)
-1x Steel arrow (1/1150)
-1x Rune arrow (1/1150)
-1x Law rune (1/1150)
-1x Death rune (1/1150)
-1x Dragonstone (1/1150)
-1x Rune kiteshield (1/1150)
-1x Dragon med helm (1/1150)
-
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
+1x Living minerals (1/1100)
+1x Rune med helm (1/1100)
+1x Rune chainbody (1/1100)
+1x Grimy lantadyme (1/1100)
+1x Grimy dwarf weed (1/1100)
+1x Law rune (1/1100)
+1x Defence potion (3) (1/1100)
+1x Rune spear (1/1100)
+1x Rune battleaxe (1/1100)
+1x Rune 2h sword (1/1100)
+1x Uncut diamond (1/1100)
+1x Rune javelin (1/1100)
+1x Silver ore (1/1100)
+1x Adamant javelin (1/1100)
+1x Rune sq shield (1/1100)
+1x Steel arrow (1/1100)
+1x Rune arrow (1/1100)
+1x Law rune (1/1100)
+1x Death rune (1/1100)
+1x Dragonstone (1/1100)
+1x Rune kiteshield (1/1100)
+1x Dragon med helm (1/1100)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Giant rat(Level: 3)
+Monster: Giant rat(Level: 3) (id = 86)
 ---------------
 
 Always
@@ -931,7 +914,7 @@ Always
 1x Raw rat meat
 
 
-Monster: Skeleton(Level: 22)
+Monster: Skeleton(Level: 22) (id = 90)
 ---------------
 
 Always
@@ -979,33 +962,32 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1350)
-1x Tooth half of a key (1/1350)
-1x Grimy cadantine (1/1350)
-1x Grimy lantadyme (1/1350)
-1x Grimy dwarf weed (1/1350)
-1x Iron scimitar (1/1350)
-1x Adamant kiteshield (1/1350)
-1x Steel arrow (1/1350)
-1x Fire talisman (1/1350)
-1x Chaos talisman (1/1350)
-1x Nature talisman (1/1350)
-1x Clue scroll (medium) (1/1350)
-1x Rune spear (1/1350)
-1x Rune battleaxe (1/1350)
-1x Rune 2h sword (1/1350)
-1x Uncut diamond (1/1350)
-1x Rune javelin (1/1350)
-1x Silver ore (1/1350)
-1x Adamant javelin (1/1350)
-1x Rune sq shield (1/1350)
-1x Steel arrow (1/1350)
-1x Rune arrow (1/1350)
-1x Law rune (1/1350)
-1x Death rune (1/1350)
-1x Dragonstone (1/1350)
-1x Rune kiteshield (1/1350)
-1x Dragon med helm (1/1350)
+1x Loop half of a key (1/1300)
+1x Tooth half of a key (1/1300)
+1x Grimy cadantine (1/1300)
+1x Grimy lantadyme (1/1300)
+1x Grimy dwarf weed (1/1300)
+1x Iron scimitar (1/1300)
+1x Adamant kiteshield (1/1300)
+1x Steel arrow (1/1300)
+1x Fire talisman (1/1300)
+1x Chaos talisman (1/1300)
+1x Nature talisman (1/1300)
+1x Rune spear (1/1300)
+1x Rune battleaxe (1/1300)
+1x Rune 2h sword (1/1300)
+1x Uncut diamond (1/1300)
+1x Rune javelin (1/1300)
+1x Silver ore (1/1300)
+1x Adamant javelin (1/1300)
+1x Rune sq shield (1/1300)
+1x Steel arrow (1/1300)
+1x Rune arrow (1/1300)
+1x Law rune (1/1300)
+1x Death rune (1/1300)
+1x Dragonstone (1/1300)
+1x Rune kiteshield (1/1300)
+1x Dragon med helm (1/1300)
 
 Epic (1/1000)
 1x Rune spear (1/4000)
@@ -1014,7 +996,7 @@ Epic (1/1000)
 1x Dragon spear (1/4000)
 
 
-Monster: Skeleton(Level: 21)
+Monster: Skeleton(Level: 21) (id = 91)
 ---------------
 
 Always
@@ -1062,33 +1044,32 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1350)
-1x Tooth half of a key (1/1350)
-1x Grimy cadantine (1/1350)
-1x Grimy lantadyme (1/1350)
-1x Grimy dwarf weed (1/1350)
-1x Iron scimitar (1/1350)
-1x Adamant kiteshield (1/1350)
-1x Steel arrow (1/1350)
-1x Fire talisman (1/1350)
-1x Chaos talisman (1/1350)
-1x Nature talisman (1/1350)
-1x Clue scroll (medium) (1/1350)
-1x Rune spear (1/1350)
-1x Rune battleaxe (1/1350)
-1x Rune 2h sword (1/1350)
-1x Uncut diamond (1/1350)
-1x Rune javelin (1/1350)
-1x Silver ore (1/1350)
-1x Adamant javelin (1/1350)
-1x Rune sq shield (1/1350)
-1x Steel arrow (1/1350)
-1x Rune arrow (1/1350)
-1x Law rune (1/1350)
-1x Death rune (1/1350)
-1x Dragonstone (1/1350)
-1x Rune kiteshield (1/1350)
-1x Dragon med helm (1/1350)
+1x Loop half of a key (1/1300)
+1x Tooth half of a key (1/1300)
+1x Grimy cadantine (1/1300)
+1x Grimy lantadyme (1/1300)
+1x Grimy dwarf weed (1/1300)
+1x Iron scimitar (1/1300)
+1x Adamant kiteshield (1/1300)
+1x Steel arrow (1/1300)
+1x Fire talisman (1/1300)
+1x Chaos talisman (1/1300)
+1x Nature talisman (1/1300)
+1x Rune spear (1/1300)
+1x Rune battleaxe (1/1300)
+1x Rune 2h sword (1/1300)
+1x Uncut diamond (1/1300)
+1x Rune javelin (1/1300)
+1x Silver ore (1/1300)
+1x Adamant javelin (1/1300)
+1x Rune sq shield (1/1300)
+1x Steel arrow (1/1300)
+1x Rune arrow (1/1300)
+1x Law rune (1/1300)
+1x Death rune (1/1300)
+1x Dragonstone (1/1300)
+1x Rune kiteshield (1/1300)
+1x Dragon med helm (1/1300)
 
 Epic (1/1000)
 1x Rune spear (1/4000)
@@ -1097,7 +1078,7 @@ Epic (1/1000)
 1x Dragon spear (1/4000)
 
 
-Monster: Skeleton(Level: 25)
+Monster: Skeleton(Level: 25) (id = 92)
 ---------------
 
 Always
@@ -1145,33 +1126,32 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1350)
-1x Tooth half of a key (1/1350)
-1x Grimy cadantine (1/1350)
-1x Grimy lantadyme (1/1350)
-1x Grimy dwarf weed (1/1350)
-1x Iron scimitar (1/1350)
-1x Adamant kiteshield (1/1350)
-1x Steel arrow (1/1350)
-1x Fire talisman (1/1350)
-1x Chaos talisman (1/1350)
-1x Nature talisman (1/1350)
-1x Clue scroll (medium) (1/1350)
-1x Rune spear (1/1350)
-1x Rune battleaxe (1/1350)
-1x Rune 2h sword (1/1350)
-1x Uncut diamond (1/1350)
-1x Rune javelin (1/1350)
-1x Silver ore (1/1350)
-1x Adamant javelin (1/1350)
-1x Rune sq shield (1/1350)
-1x Steel arrow (1/1350)
-1x Rune arrow (1/1350)
-1x Law rune (1/1350)
-1x Death rune (1/1350)
-1x Dragonstone (1/1350)
-1x Rune kiteshield (1/1350)
-1x Dragon med helm (1/1350)
+1x Loop half of a key (1/1300)
+1x Tooth half of a key (1/1300)
+1x Grimy cadantine (1/1300)
+1x Grimy lantadyme (1/1300)
+1x Grimy dwarf weed (1/1300)
+1x Iron scimitar (1/1300)
+1x Adamant kiteshield (1/1300)
+1x Steel arrow (1/1300)
+1x Fire talisman (1/1300)
+1x Chaos talisman (1/1300)
+1x Nature talisman (1/1300)
+1x Rune spear (1/1300)
+1x Rune battleaxe (1/1300)
+1x Rune 2h sword (1/1300)
+1x Uncut diamond (1/1300)
+1x Rune javelin (1/1300)
+1x Silver ore (1/1300)
+1x Adamant javelin (1/1300)
+1x Rune sq shield (1/1300)
+1x Steel arrow (1/1300)
+1x Rune arrow (1/1300)
+1x Law rune (1/1300)
+1x Death rune (1/1300)
+1x Dragonstone (1/1300)
+1x Rune kiteshield (1/1300)
+1x Dragon med helm (1/1300)
 
 Epic (1/1000)
 1x Rune spear (1/4000)
@@ -1180,7 +1160,7 @@ Epic (1/1000)
 1x Dragon spear (1/4000)
 
 
-Monster: Skeleton(Level: 45)
+Monster: Skeleton(Level: 45) (id = 93)
 ---------------
 
 Always
@@ -1215,7 +1195,7 @@ Rare (1/50)
 1x Blue charm (1/50)
 
 
-Monster: Goblin(Level: 2)
+Monster: Goblin(Level: 2) (id = 100)
 ---------------
 
 Always
@@ -1272,7 +1252,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/150)
 
 
-Monster: Goblin(Level: 5)
+Monster: Goblin(Level: 5) (id = 101)
 ---------------
 
 Always
@@ -1329,7 +1309,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/150)
 
 
-Monster: Goblin(Level: 13)
+Monster: Goblin(Level: 13) (id = 102)
 ---------------
 
 Always
@@ -1367,11 +1347,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Fire giant(Level: 86)
+Monster: Fire giant(Level: 86) (id = 110)
 ---------------
 
 Always
@@ -1441,7 +1418,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Ice giant(Level: 53)
+Monster: Ice giant(Level: 53) (id = 111)
 ---------------
 
 Common
@@ -1500,7 +1477,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Moss giant(Level: 42)
+Monster: Moss giant(Level: 42) (id = 112)
 ---------------
 
 Always
@@ -1600,7 +1577,7 @@ Epic (1/1000)
 1x Dragon spear (1/6000)
 
 
-Monster: Jogre(Level: 53)
+Monster: Jogre(Level: 53) (id = 113)
 ---------------
 
 Always
@@ -1646,28 +1623,27 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1100)
-1x Tooth half of a key (1/1100)
-1x Grimy cadantine (1/1100)
-1x Grimy dwarf weed (1/1100)
-1x Grimy lantadyme (1/1100)
-1x Snapdragon seed (1/1100)
-1x Clue scroll (medium) (1/1100)
-1x Rune spear (1/1100)
-1x Rune battleaxe (1/1100)
-1x Rune 2h sword (1/1100)
-1x Uncut diamond (1/1100)
-1x Rune javelin (1/1100)
-1x Silver ore (1/1100)
-1x Adamant javelin (1/1100)
-1x Rune sq shield (1/1100)
-1x Steel arrow (1/1100)
-1x Rune arrow (1/1100)
-1x Law rune (1/1100)
-1x Death rune (1/1100)
-1x Dragonstone (1/1100)
-1x Rune kiteshield (1/1100)
-1x Dragon med helm (1/1100)
+1x Loop half of a key (1/1050)
+1x Tooth half of a key (1/1050)
+1x Grimy cadantine (1/1050)
+1x Grimy dwarf weed (1/1050)
+1x Grimy lantadyme (1/1050)
+1x Snapdragon seed (1/1050)
+1x Rune spear (1/1050)
+1x Rune battleaxe (1/1050)
+1x Rune 2h sword (1/1050)
+1x Uncut diamond (1/1050)
+1x Rune javelin (1/1050)
+1x Silver ore (1/1050)
+1x Adamant javelin (1/1050)
+1x Rune sq shield (1/1050)
+1x Steel arrow (1/1050)
+1x Rune arrow (1/1050)
+1x Law rune (1/1050)
+1x Death rune (1/1050)
+1x Dragonstone (1/1050)
+1x Rune kiteshield (1/1050)
+1x Dragon med helm (1/1050)
 
 Epic (1/1000)
 1x Torstol seed (1/3000)
@@ -1675,7 +1651,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Ogre(Level: 53)
+Monster: Ogre(Level: 53) (id = 115)
 ---------------
 
 Always
@@ -1715,7 +1691,7 @@ Epic (1/1000)
 1x Curved bone (1/1000)
 
 
-Monster: Hill Giant(Level: 28)
+Monster: Hill Giant(Level: 28) (id = 117)
 ---------------
 
 Always
@@ -1803,7 +1779,7 @@ Epic (1/1000)
 1x Dragon spear (1/10000)
 
 
-Monster: Chaos dwarf(Level: 48)
+Monster: Chaos dwarf(Level: 48) (id = 119)
 ---------------
 
 Always
@@ -1864,7 +1840,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Earth warrior(Level: 51)
+Monster: Earth warrior(Level: 51) (id = 124)
 ---------------
 
 Common
@@ -1914,7 +1890,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Ice warrior(Level: 57)
+Monster: Ice warrior(Level: 57) (id = 125)
 ---------------
 
 Common
@@ -1980,14 +1956,14 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Magic axe(Level: 42)
+Monster: Magic axe(Level: 42) (id = 127)
 ---------------
 
 Always
 1x Iron battleaxe
 
 
-Monster: Ganodermic beast(Level: 280)
+Monster: Ganodermic beast(Level: 280) (id = 130)
 ---------------
 
 Always
@@ -2027,7 +2003,7 @@ Very Rare (1/300)
 1x Ganodermic leggings (1/1500)
 
 
-Monster: Poison spider(Level: 64)
+Monster: Poison spider(Level: 64) (id = 134)
 ---------------
 
 Common
@@ -2048,7 +2024,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Dark wizard(Level: 20)
+Monster: Dark wizard(Level: 20) (id = 172)
 ---------------
 
 Always
@@ -2078,7 +2054,7 @@ Rare (1/50)
 1x Fire talisman (1/250)
 
 
-Monster: Dark wizard(Level: 7)
+Monster: Dark wizard(Level: 7) (id = 174)
 ---------------
 
 Always
@@ -2108,7 +2084,7 @@ Rare (1/50)
 1x Fire talisman (1/250)
 
 
-Monster: Black Knight(Level: 33)
+Monster: Black Knight(Level: 33) (id = 178)
 ---------------
 
 Always
@@ -2175,7 +2151,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Chaos druid(Level: 13)
+Monster: Chaos druid(Level: 13) (id = 181)
 ---------------
 
 Always
@@ -2240,7 +2216,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Thug(Level: 10)
+Monster: Thug(Level: 10) (id = 186)
 ---------------
 
 Always
@@ -2272,7 +2248,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Monk of Zamorak(Level: 45)
+Monster: Monk of Zamorak(Level: 45) (id = 190)
 ---------------
 
 Always
@@ -2300,7 +2276,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Bat(Level: 6)
+Monster: Bat(Level: 6) (id = 412)
 ---------------
 
 Always
@@ -2310,7 +2286,7 @@ Common
 1x Bat wing
 
 
-Monster: Kraken(Level: 291)
+Monster: Kraken(Level: 291) (id = 502)
 ---------------
 
 Common
@@ -2376,17 +2352,16 @@ Rare (1/10)
 1x Dragon med helm (1/150)
 
 Very Rare (1/50)
-1x Magic seed (1/250)
-1x Dragonstone ring (1/250)
-1x Clue scroll (elite) (1/250)
-1x Kraken tentacle (1/250)
-1x Trident of the seas (full) (1/250)
+1x Magic seed (1/200)
+1x Dragonstone ring (1/200)
+1x Kraken tentacle (1/200)
+1x Trident of the seas (full) (1/200)
 
 Epic (1/450)
 1x Pet kraken (1/450)
 
 
-Monster: Tree spirit(Level: 101)
+Monster: Tree spirit(Level: 101) (id = 655)
 ---------------
 
 Always
@@ -2396,7 +2371,7 @@ Uncommon (1/10)
 1x Dramen branch
 
 
-Monster: Imp(Level: 2)
+Monster: Imp(Level: 2) (id = 708)
 ---------------
 
 Always
@@ -2439,7 +2414,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Imp(Level: 3)
+Monster: Imp(Level: 3) (id = 709)
 ---------------
 
 Always
@@ -2482,7 +2457,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Angry Barbarian Spirit(Level: 162)
+Monster: Angry Barbarian Spirit(Level: 162) (id = 749)
 ---------------
 
 Always
@@ -2537,7 +2512,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/150)
 
 
-Monster: Enraged Barbarian Spirit(Level: 162)
+Monster: Enraged Barbarian Spirit(Level: 162) (id = 750)
 ---------------
 
 Always
@@ -2592,7 +2567,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/150)
 
 
-Monster: Green dragon(Level: 79)
+Monster: Green dragon(Level: 79) (id = 941)
 ---------------
 
 Always
@@ -2656,14 +2631,14 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
+1x Dragon warhammer (1/200)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Kalphite Soldier(Level: 85)
+Monster: Kalphite Soldier(Level: 85) (id = 1154)
 ---------------
 
 Common
@@ -2738,7 +2713,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Kalphite Guardian(Level: 141)
+Monster: Kalphite Guardian(Level: 141) (id = 1155)
 ---------------
 
 Common
@@ -2807,7 +2782,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Kalphite Queen(Level: 333)
+Monster: Kalphite Queen(Level: 333) (id = 1158)
 ---------------
 
 Common
@@ -2878,17 +2853,16 @@ Rare (1/50)
 1x Dragon med helm (1/1000)
 
 Very Rare (1/200)
-1x Dragon chainbody (1/800)
-1x Dragon 2h sword (1/800)
-1x Clue scroll (elite) (1/800)
-1x Kq head (1/800)
+1x Dragon chainbody (1/600)
+1x Dragon 2h sword (1/600)
+1x Kq head (1/600)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Kalphite Queen(Level: 333)
+Monster: Kalphite Queen(Level: 333) (id = 1160)
 ---------------
 
 Common
@@ -2959,7 +2933,7 @@ Epic (1/1000)
 1x Kalphite princess (1/1000)
 
 
-Monster: The Shaikahan(Level: 283)
+Monster: The Shaikahan(Level: 283) (id = 1172)
 ---------------
 
 Always
@@ -2967,7 +2941,7 @@ Always
 1x Bones
 
 
-Monster: Dire Wolf(Level: 88)
+Monster: Dire Wolf(Level: 88) (id = 1198)
 ---------------
 
 Always
@@ -2989,7 +2963,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Ghoul(Level: 42)
+Monster: Ghoul(Level: 42) (id = 1218)
 ---------------
 
 Always
@@ -3003,7 +2977,7 @@ Common
 1x Blue charm
 
 
-Monster: Leech(Level: 52)
+Monster: Leech(Level: 52) (id = 1219)
 ---------------
 
 Common
@@ -3022,7 +2996,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Vampire(Level: 88)
+Monster: Vampire(Level: 88) (id = 1220)
 ---------------
 
 Always
@@ -3073,7 +3047,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 1265)
 ---------------
 
 Common
@@ -3110,39 +3084,38 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1300)
-1x Tooth half of a key (1/1300)
-1x Chaos rune (1/1300)
-1x Jade bolt tips (1/1300)
-1x Limpwurt root (1/1300)
-1x Grimy ranarr (1/1300)
-1x Grimy avantoe (1/1300)
-1x Tarromin seed (1/1300)
-1x Ranarr seed (1/1300)
-1x Clue scroll (easy) (1/1300)
-1x Casket (1/1300)
-1x Rune spear (1/1300)
-1x Rune battleaxe (1/1300)
-1x Rune 2h sword (1/1300)
-1x Uncut diamond (1/1300)
-1x Rune javelin (1/1300)
-1x Silver ore (1/1300)
-1x Adamant javelin (1/1300)
-1x Rune sq shield (1/1300)
-1x Steel arrow (1/1300)
-1x Rune arrow (1/1300)
-1x Law rune (1/1300)
-1x Death rune (1/1300)
-1x Dragonstone (1/1300)
-1x Rune kiteshield (1/1300)
-1x Dragon med helm (1/1300)
+1x Loop half of a key (1/1250)
+1x Tooth half of a key (1/1250)
+1x Chaos rune (1/1250)
+1x Jade bolt tips (1/1250)
+1x Limpwurt root (1/1250)
+1x Grimy ranarr (1/1250)
+1x Grimy avantoe (1/1250)
+1x Tarromin seed (1/1250)
+1x Ranarr seed (1/1250)
+1x Casket (1/1250)
+1x Rune spear (1/1250)
+1x Rune battleaxe (1/1250)
+1x Rune 2h sword (1/1250)
+1x Uncut diamond (1/1250)
+1x Rune javelin (1/1250)
+1x Silver ore (1/1250)
+1x Adamant javelin (1/1250)
+1x Rune sq shield (1/1250)
+1x Steel arrow (1/1250)
+1x Rune arrow (1/1250)
+1x Law rune (1/1250)
+1x Death rune (1/1250)
+1x Dragonstone (1/1250)
+1x Rune kiteshield (1/1250)
+1x Dragon med helm (1/1250)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Warrior(Level: 132)
+Monster: Warrior(Level: 132) (id = 1318)
 ---------------
 
 Always
@@ -3189,7 +3162,7 @@ Rare (1/50)
 1x Infinity bottoms (1/500)
 
 
-Monster: Dagannoth(Level: 92)
+Monster: Dagannoth(Level: 92) (id = 1341)
 ---------------
 
 Always
@@ -3266,7 +3239,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/500)
 
 
-Monster: Glacor(Level: 276)
+Monster: Glacor(Level: 276) (id = 1382)
 ---------------
 
 Common
@@ -3382,7 +3355,7 @@ Rare (1/20)
 1x Loop half of a key (1/1340)
 
 
-Monster: Fire giant(Level: 86)
+Monster: Fire giant(Level: 86) (id = 1583)
 ---------------
 
 Always
@@ -3452,7 +3425,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Baby dragon(Level: 48)
+Monster: Baby dragon(Level: 48) (id = 1589)
 ---------------
 
 Always
@@ -3479,7 +3452,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/150)
 
 
-Monster: Bronze dragon(Level: 131)
+Monster: Bronze dragon(Level: 131) (id = 1590)
 ---------------
 
 Always
@@ -3534,8 +3507,7 @@ Rare (1/50)
 1x Dragon med helm (1/1050)
 
 Very Rare (1/200)
-1x Rune longsword (1/400)
-1x Clue scroll (hard) (1/400)
+1x Dragon warhammer (1/200)
 
 Epic (1/1000)
 1x Dragon plateskirt (1/4000)
@@ -3544,7 +3516,7 @@ Epic (1/1000)
 1x Dragon spear (1/4000)
 
 
-Monster: Iron dragon(Level: 189)
+Monster: Iron dragon(Level: 189) (id = 1591)
 ---------------
 
 Always
@@ -3580,37 +3552,35 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/900)
-1x Tooth half of a key (1/900)
-3-12x Runite bolts (1/900)
-1x Rune spear (1/900)
-1x Rune battleaxe (1/900)
-1x Rune 2h sword (1/900)
-1x Uncut diamond (1/900)
-1x Rune javelin (1/900)
-1x Silver ore (1/900)
-1x Adamant javelin (1/900)
-1x Rune sq shield (1/900)
-1x Steel arrow (1/900)
-1x Rune arrow (1/900)
-1x Law rune (1/900)
-1x Death rune (1/900)
-1x Dragonstone (1/900)
-1x Rune kiteshield (1/900)
-1x Dragon med helm (1/900)
+1x Loop half of a key (1/1000)
+1x Tooth half of a key (1/1000)
+3-12x Runite bolts (1/1000)
+1x Rune spear (1/1000)
+1x Rune battleaxe (1/1000)
+1x Rune 2h sword (1/1000)
+1x Uncut diamond (1/1000)
+1x Rune javelin (1/1000)
+1x Silver ore (1/1000)
+1x Adamant javelin (1/1000)
+1x Rune sq shield (1/1000)
+1x Steel arrow (1/1000)
+1x Rune arrow (1/1000)
+1x Law rune (1/1000)
+1x Death rune (1/1000)
+1x Dragonstone (1/1000)
+1x Rune kiteshield (1/1000)
+1x Dragon med helm (1/1000)
+1x Dragon plateskirt (1/1000)
+1x Dragon platelegs (1/1000)
 
 Very Rare (1/200)
-1x Dragon plateskirt (1/600)
-1x Dragon platelegs (1/600)
-1x Clue scroll (hard) (1/600)
+1x Dragon warhammer (1/200)
 
 Epic (1/1000)
-1x Draconic visage (1/3000)
-1x Shield left half (1/3000)
-1x Dragon spear (1/3000)
+1x Draconic visage (1/1000)
 
 
-Monster: Steel dragon(Level: 246)
+Monster: Steel dragon(Level: 246) (id = 1592)
 ---------------
 
 Always
@@ -3635,7 +3605,6 @@ Uncommon (1/10)
 1-2x Curry
 1x Super defence (2)
 1x Super strength (1)
-1x Clue scroll (hard)
 1x Uncut emerald
 1x Uncut ruby
 1x Nature talisman
@@ -3644,45 +3613,43 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/950)
-1x Tooth half of a key (1/950)
-1x Rune hatchet (1/950)
-1x Rune full helm (1/950)
-1x Rune spear (1/950)
-1x Rune battleaxe (1/950)
-1x Rune 2h sword (1/950)
-1x Uncut diamond (1/950)
-1x Rune javelin (1/950)
-1x Silver ore (1/950)
-1x Adamant javelin (1/950)
-1x Rune sq shield (1/950)
-1x Steel arrow (1/950)
-1x Rune arrow (1/950)
-1x Law rune (1/950)
-1x Death rune (1/950)
-1x Dragonstone (1/950)
-1x Rune kiteshield (1/950)
-1x Dragon med helm (1/950)
+1x Loop half of a key (1/1050)
+1x Tooth half of a key (1/1050)
+1x Rune hatchet (1/1050)
+1x Rune full helm (1/1050)
+1x Rune spear (1/1050)
+1x Rune battleaxe (1/1050)
+1x Rune 2h sword (1/1050)
+1x Uncut diamond (1/1050)
+1x Rune javelin (1/1050)
+1x Silver ore (1/1050)
+1x Adamant javelin (1/1050)
+1x Rune sq shield (1/1050)
+1x Steel arrow (1/1050)
+1x Rune arrow (1/1050)
+1x Law rune (1/1050)
+1x Death rune (1/1050)
+1x Dragonstone (1/1050)
+1x Rune kiteshield (1/1050)
+1x Dragon med helm (1/1050)
+1x Dragon plateskirt (1/1050)
+1x Dragon platelegs (1/1050)
 
 Very Rare (1/200)
-1x Dragon plateskirt (1/600)
-1x Dragon platelegs (1/600)
-1x Clue scroll (elite) (1/600)
+1x Dragon warhammer (1/200)
 
 Epic (1/1000)
-1x Draconic visage (1/3000)
-1x Shield left half (1/3000)
-1x Dragon spear (1/3000)
+1x Shield left half (1/1000)
 
 
-Monster: Wild dog(Level: 63)
+Monster: Wild dog(Level: 63) (id = 1593)
 ---------------
 
 Always
 1x Bones
 
 
-Monster: Aberrant spectre(Level: 96)
+Monster: Aberrant spectre(Level: 96) (id = 1604)
 ---------------
 
 Common
@@ -3724,26 +3691,25 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1000)
-1x Tooth half of a key (1/1000)
-1x Dwarf weed seed (1/1000)
-1x Snapdragon seed (1/1000)
-1x Clue scroll (hard) (1/1000)
-1x Rune spear (1/1000)
-1x Rune battleaxe (1/1000)
-1x Rune 2h sword (1/1000)
-1x Uncut diamond (1/1000)
-1x Rune javelin (1/1000)
-1x Silver ore (1/1000)
-1x Adamant javelin (1/1000)
-1x Rune sq shield (1/1000)
-1x Steel arrow (1/1000)
-1x Rune arrow (1/1000)
-1x Law rune (1/1000)
-1x Death rune (1/1000)
-1x Dragonstone (1/1000)
-1x Rune kiteshield (1/1000)
-1x Dragon med helm (1/1000)
+1x Loop half of a key (1/950)
+1x Tooth half of a key (1/950)
+1x Dwarf weed seed (1/950)
+1x Snapdragon seed (1/950)
+1x Rune spear (1/950)
+1x Rune battleaxe (1/950)
+1x Rune 2h sword (1/950)
+1x Uncut diamond (1/950)
+1x Rune javelin (1/950)
+1x Silver ore (1/950)
+1x Adamant javelin (1/950)
+1x Rune sq shield (1/950)
+1x Steel arrow (1/950)
+1x Rune arrow (1/950)
+1x Law rune (1/950)
+1x Death rune (1/950)
+1x Dragonstone (1/950)
+1x Rune kiteshield (1/950)
+1x Dragon med helm (1/950)
 
 Very Rare (1/200)
 1x Torstol seed (1/400)
@@ -3754,7 +3720,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Gargoyle(Level: 111)
+Monster: Gargoyle(Level: 111) (id = 1610)
 ---------------
 
 Common
@@ -3782,26 +3748,25 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1000)
-1x Tooth half of a key (1/1000)
-1x Adamant boots (1/1000)
-1x Rune full helm (1/1000)
-1x Clue scroll (hard) (1/1000)
-1x Rune spear (1/1000)
-1x Rune battleaxe (1/1000)
-1x Rune 2h sword (1/1000)
-1x Uncut diamond (1/1000)
-1x Rune javelin (1/1000)
-1x Silver ore (1/1000)
-1x Adamant javelin (1/1000)
-1x Rune sq shield (1/1000)
-1x Steel arrow (1/1000)
-1x Rune arrow (1/1000)
-1x Law rune (1/1000)
-1x Death rune (1/1000)
-1x Dragonstone (1/1000)
-1x Rune kiteshield (1/1000)
-1x Dragon med helm (1/1000)
+1x Loop half of a key (1/950)
+1x Tooth half of a key (1/950)
+1x Adamant boots (1/950)
+1x Rune full helm (1/950)
+1x Rune spear (1/950)
+1x Rune battleaxe (1/950)
+1x Rune 2h sword (1/950)
+1x Uncut diamond (1/950)
+1x Rune javelin (1/950)
+1x Silver ore (1/950)
+1x Adamant javelin (1/950)
+1x Rune sq shield (1/950)
+1x Steel arrow (1/950)
+1x Rune arrow (1/950)
+1x Law rune (1/950)
+1x Death rune (1/950)
+1x Dragonstone (1/950)
+1x Rune kiteshield (1/950)
+1x Dragon med helm (1/950)
 
 Very Rare (1/200)
 1x Granite maul (1/400)
@@ -3812,7 +3777,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Banshee(Level: 23)
+Monster: Banshee(Level: 23) (id = 1612)
 ---------------
 
 Common
@@ -3847,28 +3812,27 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1100)
-1x Tooth half of a key (1/1100)
-1x Iron kiteshield (1/1100)
-1x Grimy cadantine (1/1100)
-1x Grimy lantadyme (1/1100)
-1x Grimy dwarf weed (1/1100)
-1x Clue scroll (easy) (1/1100)
-1x Rune spear (1/1100)
-1x Rune battleaxe (1/1100)
-1x Rune 2h sword (1/1100)
-1x Uncut diamond (1/1100)
-1x Rune javelin (1/1100)
-1x Silver ore (1/1100)
-1x Adamant javelin (1/1100)
-1x Rune sq shield (1/1100)
-1x Steel arrow (1/1100)
-1x Rune arrow (1/1100)
-1x Law rune (1/1100)
-1x Death rune (1/1100)
-1x Dragonstone (1/1100)
-1x Rune kiteshield (1/1100)
-1x Dragon med helm (1/1100)
+1x Loop half of a key (1/1050)
+1x Tooth half of a key (1/1050)
+1x Iron kiteshield (1/1050)
+1x Grimy cadantine (1/1050)
+1x Grimy lantadyme (1/1050)
+1x Grimy dwarf weed (1/1050)
+1x Rune spear (1/1050)
+1x Rune battleaxe (1/1050)
+1x Rune 2h sword (1/1050)
+1x Uncut diamond (1/1050)
+1x Rune javelin (1/1050)
+1x Silver ore (1/1050)
+1x Adamant javelin (1/1050)
+1x Rune sq shield (1/1050)
+1x Steel arrow (1/1050)
+1x Rune arrow (1/1050)
+1x Law rune (1/1050)
+1x Death rune (1/1050)
+1x Dragonstone (1/1050)
+1x Rune kiteshield (1/1050)
+1x Dragon med helm (1/1050)
 
 Very Rare (1/200)
 1x Mystic gloves (1/200)
@@ -3878,7 +3842,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Nechryael(Level: 115)
+Monster: Nechryael(Level: 115) (id = 1613)
 ---------------
 
 Always
@@ -3918,35 +3882,34 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1100)
-1x Tooth half of a key (1/1100)
-1x Chaos rune (1/1100)
-1x Snapdragon seed (1/1100)
-1x Torstol seed (1/1100)
-1x Clue scroll (hard) (1/1100)
-1x Rune spear (1/1100)
-1x Rune battleaxe (1/1100)
-1x Rune 2h sword (1/1100)
-1x Uncut diamond (1/1100)
-1x Rune javelin (1/1100)
-1x Silver ore (1/1100)
-1x Adamant javelin (1/1100)
-1x Rune sq shield (1/1100)
-1x Steel arrow (1/1100)
-1x Rune arrow (1/1100)
-1x Law rune (1/1100)
-1x Death rune (1/1100)
-1x Dragonstone (1/1100)
-1x Rune kiteshield (1/1100)
-1x Dragon med helm (1/1100)
-1x Dragon boots (1/1100)
+1x Loop half of a key (1/1050)
+1x Tooth half of a key (1/1050)
+1x Chaos rune (1/1050)
+1x Snapdragon seed (1/1050)
+1x Torstol seed (1/1050)
+1x Rune spear (1/1050)
+1x Rune battleaxe (1/1050)
+1x Rune 2h sword (1/1050)
+1x Uncut diamond (1/1050)
+1x Rune javelin (1/1050)
+1x Silver ore (1/1050)
+1x Adamant javelin (1/1050)
+1x Rune sq shield (1/1050)
+1x Steel arrow (1/1050)
+1x Rune arrow (1/1050)
+1x Law rune (1/1050)
+1x Death rune (1/1050)
+1x Dragonstone (1/1050)
+1x Rune kiteshield (1/1050)
+1x Dragon med helm (1/1050)
+1x Dragon boots (1/1050)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Abyssal demon(Level: 124)
+Monster: Abyssal demon(Level: 124) (id = 1615)
 ---------------
 
 Always
@@ -4013,15 +3976,14 @@ Rare (1/50)
 
 Very Rare (1/75)
 1x Abyssal whip (1/150)
-1x Clue scroll (hard) (1/150)
+1x Whip vine (1/150)
 
 Epic (1/1000)
-1x Clue scroll (elite) (1/3000)
-1x Shield left half (1/3000)
-1x Dragon spear (1/3000)
+1x Shield left half (1/2000)
+1x Dragon spear (1/2000)
 
 
-Monster: Bloodveld(Level: 76)
+Monster: Bloodveld(Level: 76) (id = 1618)
 ---------------
 
 Always
@@ -4083,15 +4045,12 @@ Rare (1/50)
 1x Rune kiteshield (1/1100)
 1x Dragon med helm (1/1100)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Dust devil(Level: 93)
+Monster: Dust devil(Level: 93) (id = 1624)
 ---------------
 
 Always
@@ -4157,7 +4116,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Turoth(Level: 89)
+Monster: Turoth(Level: 89) (id = 1627)
 ---------------
 
 Always
@@ -4217,7 +4176,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Pyrefiend(Level: 43)
+Monster: Pyrefiend(Level: 43) (id = 1633)
 ---------------
 
 Always
@@ -4256,7 +4215,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Jelly(Level: 78)
+Monster: Jelly(Level: 78) (id = 1640)
 ---------------
 
 Common
@@ -4292,7 +4251,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Infernal Mage(Level: 66)
+Monster: Infernal Mage(Level: 66) (id = 1643)
 ---------------
 
 Always
@@ -4320,7 +4279,7 @@ Very Rare (1/200)
 1x Mystic boots (1/400)
 
 
-Monster: Crawling Hand(Level: 8)
+Monster: Crawling Hand(Level: 8) (id = 1648)
 ---------------
 
 Always
@@ -4371,7 +4330,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Crawling Hand(Level: 8)
+Monster: Crawling Hand(Level: 8) (id = 1652)
 ---------------
 
 Always
@@ -4414,7 +4373,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Crawling Hand(Level: 12)
+Monster: Crawling Hand(Level: 12) (id = 1657)
 ---------------
 
 Always
@@ -4465,7 +4424,7 @@ Epic (1/1000)
 1x Dragon spear (1/2000)
 
 
-Monster: Werewolf(Level: 0)
+Monster: Werewolf(Level: 0) (id = 1665)
 ---------------
 
 Always
@@ -4501,7 +4460,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Experiment(Level: 25)
+Monster: Experiment(Level: 25) (id = 1677)
 ---------------
 
 Always
@@ -4522,7 +4481,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/150)
 
 
-Monster: Cave bug(Level: 6)
+Monster: Cave bug(Level: 6) (id = 1832)
 ---------------
 
 Common
@@ -4550,7 +4509,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Arzinian Avatar of Strength(Level: 125)
+Monster: Arzinian Avatar of Strength(Level: 125) (id = 1851)
 ---------------
 
 Common
@@ -4585,7 +4544,7 @@ Rare (1/50)
 1x Corrupt vesta's spear (1/400)
 
 
-Monster: Arzinian Avatar of Ranging(Level: 75)
+Monster: Arzinian Avatar of Ranging(Level: 75) (id = 1854)
 ---------------
 
 Common
@@ -4618,7 +4577,7 @@ Rare (1/50)
 1x Corrupt morrigan's coif (1/150)
 
 
-Monster: Arzinian Avatar of Magic(Level: 125)
+Monster: Arzinian Avatar of Magic(Level: 125) (id = 1857)
 ---------------
 
 Common
@@ -4649,7 +4608,7 @@ Rare (1/50)
 1x Corrupt zuriel's hood (1/150)
 
 
-Monster: Bandit(Level: 56)
+Monster: Bandit(Level: 56) (id = 1880)
 ---------------
 
 Always
@@ -4697,7 +4656,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/650)
 
 
-Monster: Shadow Hound(Level: 63)
+Monster: Shadow Hound(Level: 63) (id = 1976)
 ---------------
 
 Always
@@ -4719,7 +4678,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Venenatis(Level: 464)
+Monster: Venenatis(Level: 464) (id = 2000)
 ---------------
 
 Common
@@ -4755,15 +4714,14 @@ Rare (1/100)
 1x Grimy snapdragon (1/900)
 
 Very Rare (1/300)
-1x Clue scroll (elite) (1/900)
-1x Serpentine helm (1/900)
-1x Toxic blowpipe (1/900)
+1x Serpentine helm (1/600)
+1x Toxic blowpipe (1/600)
 
 Epic (1/750)
 1x Venenatis spiderling (1/750)
 
 
-Monster: Scorpia(Level: 434)
+Monster: Scorpia(Level: 434) (id = 2001)
 ---------------
 
 Common
@@ -4809,7 +4767,7 @@ Epic (1/750)
 1x Scorpia's offspring (1/750)
 
 
-Monster: Bloodworm(Level: 52)
+Monster: Bloodworm(Level: 52) (id = 2031)
 ---------------
 
 Common
@@ -4828,7 +4786,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Giant crypt rat(Level: 76)
+Monster: Giant crypt rat(Level: 76) (id = 2033)
 ---------------
 
 Always
@@ -4853,7 +4811,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Crypt spider(Level: 56)
+Monster: Crypt spider(Level: 56) (id = 2034)
 ---------------
 
 Always
@@ -4875,7 +4833,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Skeleton(Level: 77)
+Monster: Skeleton(Level: 77) (id = 2036)
 ---------------
 
 Always
@@ -4923,33 +4881,32 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1350)
-1x Tooth half of a key (1/1350)
-1x Grimy cadantine (1/1350)
-1x Grimy lantadyme (1/1350)
-1x Grimy dwarf weed (1/1350)
-1x Iron scimitar (1/1350)
-1x Adamant kiteshield (1/1350)
-1x Steel arrow (1/1350)
-1x Fire talisman (1/1350)
-1x Chaos talisman (1/1350)
-1x Nature talisman (1/1350)
-1x Clue scroll (medium) (1/1350)
-1x Rune spear (1/1350)
-1x Rune battleaxe (1/1350)
-1x Rune 2h sword (1/1350)
-1x Uncut diamond (1/1350)
-1x Rune javelin (1/1350)
-1x Silver ore (1/1350)
-1x Adamant javelin (1/1350)
-1x Rune sq shield (1/1350)
-1x Steel arrow (1/1350)
-1x Rune arrow (1/1350)
-1x Law rune (1/1350)
-1x Death rune (1/1350)
-1x Dragonstone (1/1350)
-1x Rune kiteshield (1/1350)
-1x Dragon med helm (1/1350)
+1x Loop half of a key (1/1300)
+1x Tooth half of a key (1/1300)
+1x Grimy cadantine (1/1300)
+1x Grimy lantadyme (1/1300)
+1x Grimy dwarf weed (1/1300)
+1x Iron scimitar (1/1300)
+1x Adamant kiteshield (1/1300)
+1x Steel arrow (1/1300)
+1x Fire talisman (1/1300)
+1x Chaos talisman (1/1300)
+1x Nature talisman (1/1300)
+1x Rune spear (1/1300)
+1x Rune battleaxe (1/1300)
+1x Rune 2h sword (1/1300)
+1x Uncut diamond (1/1300)
+1x Rune javelin (1/1300)
+1x Silver ore (1/1300)
+1x Adamant javelin (1/1300)
+1x Rune sq shield (1/1300)
+1x Steel arrow (1/1300)
+1x Rune arrow (1/1300)
+1x Law rune (1/1300)
+1x Death rune (1/1300)
+1x Dragonstone (1/1300)
+1x Rune kiteshield (1/1300)
+1x Dragon med helm (1/1300)
 
 Epic (1/1000)
 1x Rune spear (1/4000)
@@ -4958,7 +4915,7 @@ Epic (1/1000)
 1x Dragon spear (1/4000)
 
 
-Monster: Chaos Elemental(Level: 305)
+Monster: Chaos Elemental(Level: 305) (id = 2054)
 ---------------
 
 Common
@@ -5024,15 +4981,14 @@ Rare (1/50)
 1x Dragon med helm (1/1000)
 
 Very Rare (1/200)
-1x Dragon 2h sword (1/600)
-1x Dragon pickaxe (1/600)
-1x Clue scroll (elite) (1/600)
+1x Dragon 2h sword (1/400)
+1x Dragon pickaxe (1/400)
 
 Epic (1/1000)
 1x Pet chaos elemental (1/1000)
 
 
-Monster: Slash Bash(Level: 1072)
+Monster: Slash Bash(Level: 1072) (id = 2060)
 ---------------
 
 Always
@@ -5103,7 +5059,7 @@ Very Rare (1/200)
 1x Eye of the mage (1/200)
 
 
-Monster: Giant Rock Crab(Level: 137)
+Monster: Giant Rock Crab(Level: 137) (id = 2452)
 ---------------
 
 Always
@@ -5177,7 +5133,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Dagannoth spawn(Level: 42)
+Monster: Dagannoth spawn(Level: 42) (id = 2454)
 ---------------
 
 Always
@@ -5197,7 +5153,7 @@ Common
 1x Oyster pearl
 
 
-Monster: Wallasalki(Level: 98)
+Monster: Wallasalki(Level: 98) (id = 2457)
 ---------------
 
 Always
@@ -5270,7 +5226,7 @@ Rare (1/50)
 1x Snapdragon seed (1/200)
 
 
-Monster: TzHaar-Mej(Level: 103)
+Monster: TzHaar-Mej(Level: 103) (id = 2591)
 ---------------
 
 Always
@@ -5299,7 +5255,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: TzHaar-Hur(Level: 74)
+Monster: TzHaar-Hur(Level: 74) (id = 2600)
 ---------------
 
 Always
@@ -5330,7 +5286,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: TzHaar-Xil(Level: 133)
+Monster: TzHaar-Xil(Level: 133) (id = 2605)
 ---------------
 
 Always
@@ -5363,7 +5319,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: TzHaar-Ket(Level: 149)
+Monster: TzHaar-Ket(Level: 149) (id = 2611)
 ---------------
 
 Always
@@ -5386,7 +5342,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Hobgoblin(Level: 28)
+Monster: Hobgoblin(Level: 28) (id = 2685)
 ---------------
 
 Always
@@ -5473,7 +5429,7 @@ Epic (1/1000)
 1x Dragon spear (1/9000)
 
 
-Monster: Hobgoblin(Level: 28)
+Monster: Hobgoblin(Level: 28) (id = 2688)
 ---------------
 
 Always
@@ -5560,7 +5516,7 @@ Epic (1/1000)
 1x Dragon spear (1/9000)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 2783)
 ---------------
 
 Always
@@ -5602,11 +5558,11 @@ Uncommon (1/10)
 1x Grimy dwarf weed
 1x Grimy torstol
 
-Rare (1/50)
+Very Rare (1/50)
 1x Dark bow (1/50)
 
 
-Monster: Dagannoth Supreme(Level: 303)
+Monster: Dagannoth Supreme(Level: 303) (id = 2881)
 ---------------
 
 Always
@@ -5643,7 +5599,6 @@ Uncommon (1/10)
 94-140x Yew logs
 91-140x Maple logs
 1x Grimy ranarr
-1x Clue scroll (hard)
 1x Uncut emerald
 1x Uncut ruby
 1x Nature talisman
@@ -5679,18 +5634,17 @@ Rare (1/50)
 1x Dragon med helm (1/1250)
 
 Very Rare (1/200)
-1x Seercull (1/1200)
-1x Dragon hatchet (1/1200)
-1x Archer helm (1/1200)
-1x Archers' ring (1/1200)
-1-453x Feather (1/1200)
-1x Clue scroll (elite) (1/1200)
+1x Seercull (1/1000)
+1x Dragon hatchet (1/1000)
+1x Archer helm (1/1000)
+1x Archers' ring (1/1000)
+1-453x Feather (1/1000)
 
 Epic (1/1000)
 1x Pet dagannoth supreme (1/1000)
 
 
-Monster: Dagannoth Prime(Level: 303)
+Monster: Dagannoth Prime(Level: 303) (id = 2882)
 ---------------
 
 Always
@@ -5722,7 +5676,6 @@ Uncommon (1/10)
 1x Avantoe seed
 1x Pure essence
 1x Grimy ranarr
-1x Clue scroll (hard)
 1x Uncut emerald
 1x Uncut ruby
 1x Nature talisman
@@ -5758,11 +5711,10 @@ Rare (1/50)
 1x Dragon med helm (1/1250)
 
 Very Rare (1/200)
-1x Mud battlestaff (1/1000)
-1x Dragon hatchet (1/1000)
-1x Farseer helm (1/1000)
-1x Seers' ring (1/1000)
-1x Clue scroll (elite) (1/1000)
+1x Mud battlestaff (1/800)
+1x Dragon hatchet (1/800)
+1x Farseer helm (1/800)
+1x Seers' ring (1/800)
 
 Epic (1/1000)
 1x Shield left half (1/3000)
@@ -5770,7 +5722,7 @@ Epic (1/1000)
 1x Pet dagannoth supreme (1/3000)
 
 
-Monster: Dagannoth Rex(Level: 303)
+Monster: Dagannoth Rex(Level: 303) (id = 2883)
 ---------------
 
 Always
@@ -5807,7 +5759,6 @@ Uncommon (1/10)
 1x Shark
 126-3000x Coins
 1x Grimy ranarr
-1x Clue scroll (hard)
 1x Uncut emerald
 1x Uncut ruby
 1x Nature talisman
@@ -5858,7 +5809,7 @@ Epic (1/1000)
 1x Pet dagannoth supreme (1/1000)
 
 
-Monster: Skeletal Wyvern(Level: 140)
+Monster: Skeletal Wyvern(Level: 140) (id = 3068)
 ---------------
 
 Always
@@ -5924,7 +5875,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/1150)
 
 
-Monster: Wilderness Skeletal Wyvern(Level: 140)
+Monster: Wilderness Skeletal Wyvern(Level: 140) (id = 3069)
 ---------------
 
 Always
@@ -5990,7 +5941,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/1150)
 
 
-Monster: Wildy Wyrm(Level: 382)
+Monster: Wildy Wyrm(Level: 382) (id = 3334)
 ---------------
 
 Always
@@ -6030,7 +5981,7 @@ Epic (1/1000)
 1x Vanguard Boots (1/5000)
 
 
-Monster: Baby black dragon(Level: 83)
+Monster: Baby black dragon(Level: 83) (id = 3376)
 ---------------
 
 Always
@@ -6043,7 +5994,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Hobgoblin(Level: 54)
+Monster: Hobgoblin(Level: 54) (id = 3583)
 ---------------
 
 Always
@@ -6130,7 +6081,7 @@ Epic (1/1000)
 1x Dragon spear (1/9000)
 
 
-Monster: Goblin(Level: 2)
+Monster: Goblin(Level: 2) (id = 4261)
 ---------------
 
 Always
@@ -6168,11 +6119,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Goblin(Level: 2)
+Monster: Goblin(Level: 2) (id = 4262)
 ---------------
 
 Always
@@ -6210,11 +6158,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Goblin(Level: 2)
+Monster: Goblin(Level: 2) (id = 4263)
 ---------------
 
 Always
@@ -6252,11 +6197,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Goblin(Level: 2)
+Monster: Goblin(Level: 2) (id = 4269)
 ---------------
 
 Always
@@ -6294,11 +6236,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Goblin(Level: 2)
+Monster: Goblin(Level: 2) (id = 4270)
 ---------------
 
 Always
@@ -6336,11 +6275,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Cyclops(Level: 56)
+Monster: Cyclops(Level: 56) (id = 4291)
 ---------------
 
 Always
@@ -6400,7 +6336,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Guard(Level: 220)
+Monster: Guard(Level: 220) (id = 4336)
 ---------------
 
 Always
@@ -6447,7 +6383,7 @@ Rare (1/50)
 1x Infinity bottoms (1/500)
 
 
-Monster: Ankou(Level: 75)
+Monster: Ankou(Level: 75) (id = 4381)
 ---------------
 
 Always
@@ -6528,9 +6464,6 @@ Rare (1/50)
 1x Rune kiteshield (1/1500)
 1x Dragon med helm (1/1500)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Lantadyme seed (1/6000)
 1x Snapdragon seed (1/6000)
@@ -6540,7 +6473,7 @@ Epic (1/1000)
 1x Dragon spear (1/6000)
 
 
-Monster: Ankou(Level: 82)
+Monster: Ankou(Level: 82) (id = 4382)
 ---------------
 
 Always
@@ -6621,9 +6554,6 @@ Rare (1/50)
 1x Rune kiteshield (1/1500)
 1x Dragon med helm (1/1500)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Lantadyme seed (1/6000)
 1x Snapdragon seed (1/6000)
@@ -6633,7 +6563,7 @@ Epic (1/1000)
 1x Dragon spear (1/6000)
 
 
-Monster: Ankou(Level: 86)
+Monster: Ankou(Level: 86) (id = 4383)
 ---------------
 
 Always
@@ -6714,9 +6644,6 @@ Rare (1/50)
 1x Rune kiteshield (1/1500)
 1x Dragon med helm (1/1500)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Lantadyme seed (1/6000)
 1x Snapdragon seed (1/6000)
@@ -6726,7 +6653,7 @@ Epic (1/1000)
 1x Dragon spear (1/6000)
 
 
-Monster: Skeleton(Level: 60)
+Monster: Skeleton(Level: 60) (id = 4385)
 ---------------
 
 Always
@@ -6774,33 +6701,32 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1350)
-1x Tooth half of a key (1/1350)
-1x Grimy cadantine (1/1350)
-1x Grimy lantadyme (1/1350)
-1x Grimy dwarf weed (1/1350)
-1x Iron scimitar (1/1350)
-1x Adamant kiteshield (1/1350)
-1x Steel arrow (1/1350)
-1x Fire talisman (1/1350)
-1x Chaos talisman (1/1350)
-1x Nature talisman (1/1350)
-1x Clue scroll (medium) (1/1350)
-1x Rune spear (1/1350)
-1x Rune battleaxe (1/1350)
-1x Rune 2h sword (1/1350)
-1x Uncut diamond (1/1350)
-1x Rune javelin (1/1350)
-1x Silver ore (1/1350)
-1x Adamant javelin (1/1350)
-1x Rune sq shield (1/1350)
-1x Steel arrow (1/1350)
-1x Rune arrow (1/1350)
-1x Law rune (1/1350)
-1x Death rune (1/1350)
-1x Dragonstone (1/1350)
-1x Rune kiteshield (1/1350)
-1x Dragon med helm (1/1350)
+1x Loop half of a key (1/1300)
+1x Tooth half of a key (1/1300)
+1x Grimy cadantine (1/1300)
+1x Grimy lantadyme (1/1300)
+1x Grimy dwarf weed (1/1300)
+1x Iron scimitar (1/1300)
+1x Adamant kiteshield (1/1300)
+1x Steel arrow (1/1300)
+1x Fire talisman (1/1300)
+1x Chaos talisman (1/1300)
+1x Nature talisman (1/1300)
+1x Rune spear (1/1300)
+1x Rune battleaxe (1/1300)
+1x Rune 2h sword (1/1300)
+1x Uncut diamond (1/1300)
+1x Rune javelin (1/1300)
+1x Silver ore (1/1300)
+1x Adamant javelin (1/1300)
+1x Rune sq shield (1/1300)
+1x Steel arrow (1/1300)
+1x Rune arrow (1/1300)
+1x Law rune (1/1300)
+1x Death rune (1/1300)
+1x Dragonstone (1/1300)
+1x Rune kiteshield (1/1300)
+1x Dragon med helm (1/1300)
 
 Epic (1/1000)
 1x Rune spear (1/4000)
@@ -6809,7 +6735,7 @@ Epic (1/1000)
 1x Dragon spear (1/4000)
 
 
-Monster: Skeleton(Level: 85)
+Monster: Skeleton(Level: 85) (id = 4386)
 ---------------
 
 Always
@@ -6857,33 +6783,32 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1350)
-1x Tooth half of a key (1/1350)
-1x Grimy cadantine (1/1350)
-1x Grimy lantadyme (1/1350)
-1x Grimy dwarf weed (1/1350)
-1x Iron scimitar (1/1350)
-1x Adamant kiteshield (1/1350)
-1x Steel arrow (1/1350)
-1x Fire talisman (1/1350)
-1x Chaos talisman (1/1350)
-1x Nature talisman (1/1350)
-1x Clue scroll (medium) (1/1350)
-1x Rune spear (1/1350)
-1x Rune battleaxe (1/1350)
-1x Rune 2h sword (1/1350)
-1x Uncut diamond (1/1350)
-1x Rune javelin (1/1350)
-1x Silver ore (1/1350)
-1x Adamant javelin (1/1350)
-1x Rune sq shield (1/1350)
-1x Steel arrow (1/1350)
-1x Rune arrow (1/1350)
-1x Law rune (1/1350)
-1x Death rune (1/1350)
-1x Dragonstone (1/1350)
-1x Rune kiteshield (1/1350)
-1x Dragon med helm (1/1350)
+1x Loop half of a key (1/1300)
+1x Tooth half of a key (1/1300)
+1x Grimy cadantine (1/1300)
+1x Grimy lantadyme (1/1300)
+1x Grimy dwarf weed (1/1300)
+1x Iron scimitar (1/1300)
+1x Adamant kiteshield (1/1300)
+1x Steel arrow (1/1300)
+1x Fire talisman (1/1300)
+1x Chaos talisman (1/1300)
+1x Nature talisman (1/1300)
+1x Rune spear (1/1300)
+1x Rune battleaxe (1/1300)
+1x Rune 2h sword (1/1300)
+1x Uncut diamond (1/1300)
+1x Rune javelin (1/1300)
+1x Silver ore (1/1300)
+1x Adamant javelin (1/1300)
+1x Rune sq shield (1/1300)
+1x Steel arrow (1/1300)
+1x Rune arrow (1/1300)
+1x Law rune (1/1300)
+1x Death rune (1/1300)
+1x Dragonstone (1/1300)
+1x Rune kiteshield (1/1300)
+1x Dragon med helm (1/1300)
 
 Epic (1/1000)
 1x Rune spear (1/4000)
@@ -6892,7 +6817,7 @@ Epic (1/1000)
 1x Dragon spear (1/4000)
 
 
-Monster: Flesh Crawler(Level: 28)
+Monster: Flesh Crawler(Level: 28) (id = 4389)
 ---------------
 
 Common
@@ -6946,7 +6871,7 @@ Rare (1/50)
 1x Grimy lantadyme (1/300)
 
 
-Monster: Flesh Crawler(Level: 35)
+Monster: Flesh Crawler(Level: 35) (id = 4390)
 ---------------
 
 Common
@@ -7006,7 +6931,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Flesh Crawler(Level: 41)
+Monster: Flesh Crawler(Level: 41) (id = 4391)
 ---------------
 
 Common
@@ -7066,7 +6991,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Rat(Level: 1)
+Monster: Rat(Level: 1) (id = 4396)
 ---------------
 
 Always
@@ -7077,7 +7002,7 @@ Common
 1x Rat's tail
 
 
-Monster: Catablepon(Level: 68)
+Monster: Catablepon(Level: 68) (id = 4399)
 ---------------
 
 Always
@@ -7110,43 +7035,42 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1500)
-1x Tooth half of a key (1/1500)
-1x Grimy harralander (1/1500)
-1x Grimy ranarr (1/1500)
-1x Grimy irit (1/1500)
-1x Grimy avantoe (1/1500)
-1x Grimy kwuarm (1/1500)
-1x Grimy cadantine (1/1500)
-1x Grimy lantadyme (1/1500)
-1x Grimy dwarf weed (1/1500)
-1x Top of sceptre (1/1500)
-5-14x Mithril arrow (1/1500)
-1x Adamant med helm (1/1500)
-1x Uncut diamond (1/1500)
-1x Clue scroll (medium) (1/1500)
-1x Rune spear (1/1500)
-1x Rune battleaxe (1/1500)
-1x Rune 2h sword (1/1500)
-1x Uncut diamond (1/1500)
-1x Rune javelin (1/1500)
-1x Silver ore (1/1500)
-1x Adamant javelin (1/1500)
-1x Rune sq shield (1/1500)
-1x Steel arrow (1/1500)
-1x Rune arrow (1/1500)
-1x Law rune (1/1500)
-1x Death rune (1/1500)
-1x Dragonstone (1/1500)
-1x Rune kiteshield (1/1500)
-1x Dragon med helm (1/1500)
+1x Loop half of a key (1/1450)
+1x Tooth half of a key (1/1450)
+1x Grimy harralander (1/1450)
+1x Grimy ranarr (1/1450)
+1x Grimy irit (1/1450)
+1x Grimy avantoe (1/1450)
+1x Grimy kwuarm (1/1450)
+1x Grimy cadantine (1/1450)
+1x Grimy lantadyme (1/1450)
+1x Grimy dwarf weed (1/1450)
+1x Top of sceptre (1/1450)
+5-14x Mithril arrow (1/1450)
+1x Adamant med helm (1/1450)
+1x Uncut diamond (1/1450)
+1x Rune spear (1/1450)
+1x Rune battleaxe (1/1450)
+1x Rune 2h sword (1/1450)
+1x Uncut diamond (1/1450)
+1x Rune javelin (1/1450)
+1x Silver ore (1/1450)
+1x Adamant javelin (1/1450)
+1x Rune sq shield (1/1450)
+1x Steel arrow (1/1450)
+1x Rune arrow (1/1450)
+1x Law rune (1/1450)
+1x Death rune (1/1450)
+1x Dragonstone (1/1450)
+1x Rune kiteshield (1/1450)
+1x Dragon med helm (1/1450)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Minotaur(Level: 12)
+Monster: Minotaur(Level: 12) (id = 4404)
 ---------------
 
 Always
@@ -7196,15 +7120,12 @@ Rare (1/50)
 1x Rune kiteshield (1/850)
 1x Dragon med helm (1/850)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
-
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Minotaur(Level: 19)
+Monster: Minotaur(Level: 19) (id = 4405)
 ---------------
 
 Always
@@ -7254,15 +7175,12 @@ Rare (1/50)
 1x Rune kiteshield (1/850)
 1x Dragon med helm (1/850)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
-
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Minotaur(Level: 27)
+Monster: Minotaur(Level: 27) (id = 4406)
 ---------------
 
 Always
@@ -7312,15 +7230,12 @@ Rare (1/50)
 1x Rune kiteshield (1/850)
 1x Dragon med helm (1/850)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
-
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Goblin(Level: 5)
+Monster: Goblin(Level: 5) (id = 4407)
 ---------------
 
 Always
@@ -7358,11 +7273,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Goblin(Level: 25)
+Monster: Goblin(Level: 25) (id = 4411)
 ---------------
 
 Always
@@ -7400,11 +7312,8 @@ Rare (1/50)
 1x Chaos rune (1/200)
 1x Nature rune (1/200)
 
-Very Rare (1/200)
-1x Clue scroll (easy) (1/200)
 
-
-Monster: Rat(Level: 1)
+Monster: Rat(Level: 1) (id = 4415)
 ---------------
 
 Always
@@ -7415,7 +7324,7 @@ Common
 1x Rat's tail
 
 
-Monster: Gorak(Level: 145)
+Monster: Gorak(Level: 145) (id = 4418)
 ---------------
 
 Always
@@ -7450,27 +7359,26 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1050)
-1x Tooth half of a key (1/1050)
-1x Rune med helm (1/1050)
-1x Rune chainbody (1/1050)
-1x Ring of life (1/1050)
-1x Clue scroll (hard) (1/1050)
-1x Rune spear (1/1050)
-1x Rune battleaxe (1/1050)
-1x Rune 2h sword (1/1050)
-1x Uncut diamond (1/1050)
-1x Rune javelin (1/1050)
-1x Silver ore (1/1050)
-1x Adamant javelin (1/1050)
-1x Rune sq shield (1/1050)
-1x Steel arrow (1/1050)
-1x Rune arrow (1/1050)
-1x Law rune (1/1050)
-1x Death rune (1/1050)
-1x Dragonstone (1/1050)
-1x Rune kiteshield (1/1050)
-1x Dragon med helm (1/1050)
+1x Loop half of a key (1/1000)
+1x Tooth half of a key (1/1000)
+1x Rune med helm (1/1000)
+1x Rune chainbody (1/1000)
+1x Ring of life (1/1000)
+1x Rune spear (1/1000)
+1x Rune battleaxe (1/1000)
+1x Rune 2h sword (1/1000)
+1x Uncut diamond (1/1000)
+1x Rune javelin (1/1000)
+1x Silver ore (1/1000)
+1x Adamant javelin (1/1000)
+1x Rune sq shield (1/1000)
+1x Steel arrow (1/1000)
+1x Rune arrow (1/1000)
+1x Law rune (1/1000)
+1x Death rune (1/1000)
+1x Dragonstone (1/1000)
+1x Rune kiteshield (1/1000)
+1x Dragon med helm (1/1000)
 
 Very Rare (1/200)
 1x Long bone (1/200)
@@ -7481,7 +7389,7 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Angry juvinate(Level: 130)
+Monster: Angry juvinate(Level: 130) (id = 4465)
 ---------------
 
 Common
@@ -7519,7 +7427,7 @@ Rare (1/50)
 1x Dragon claws (1/250)
 
 
-Monster: Bandos Avatar(Level: 299)
+Monster: Bandos Avatar(Level: 299) (id = 4540)
 ---------------
 
 Always
@@ -7564,7 +7472,7 @@ Epic (1/300)
 1x Korasi's sword (1/300)
 
 
-Monster: Giant rat(Level: 26)
+Monster: Giant rat(Level: 26) (id = 4944)
 ---------------
 
 Always
@@ -7572,7 +7480,7 @@ Always
 1x Raw rat meat
 
 
-Monster: Waterfiend(Level: 115)
+Monster: Waterfiend(Level: 115) (id = 5361)
 ---------------
 
 Always
@@ -7646,31 +7554,30 @@ Uncommon (1/10)
 1x Rune bar
 
 Rare (1/50)
-1x Loop half of a key (1/1250)
-1x Tooth half of a key (1/1250)
-1x Ranarr seed (1/1250)
-1x Dwarf weed seed (1/1250)
-1x Blue d'hide vambraces (1/1250)
-1x Adamant platebody (1/1250)
-1x Grimy kwuarm (1/1250)
-1x Grimy cadantine (1/1250)
-1x Grimy lantadyme (1/1250)
-1x Clue scroll (hard) (1/1250)
-1x Rune spear (1/1250)
-1x Rune battleaxe (1/1250)
-1x Rune 2h sword (1/1250)
-1x Uncut diamond (1/1250)
-1x Rune javelin (1/1250)
-1x Silver ore (1/1250)
-1x Adamant javelin (1/1250)
-1x Rune sq shield (1/1250)
-1x Steel arrow (1/1250)
-1x Rune arrow (1/1250)
-1x Law rune (1/1250)
-1x Death rune (1/1250)
-1x Dragonstone (1/1250)
-1x Rune kiteshield (1/1250)
-1x Dragon med helm (1/1250)
+1x Loop half of a key (1/1200)
+1x Tooth half of a key (1/1200)
+1x Ranarr seed (1/1200)
+1x Dwarf weed seed (1/1200)
+1x Blue d'hide vambraces (1/1200)
+1x Adamant platebody (1/1200)
+1x Grimy kwuarm (1/1200)
+1x Grimy cadantine (1/1200)
+1x Grimy lantadyme (1/1200)
+1x Rune spear (1/1200)
+1x Rune battleaxe (1/1200)
+1x Rune 2h sword (1/1200)
+1x Uncut diamond (1/1200)
+1x Rune javelin (1/1200)
+1x Silver ore (1/1200)
+1x Adamant javelin (1/1200)
+1x Rune sq shield (1/1200)
+1x Steel arrow (1/1200)
+1x Rune arrow (1/1200)
+1x Law rune (1/1200)
+1x Death rune (1/1200)
+1x Dragonstone (1/1200)
+1x Rune kiteshield (1/1200)
+1x Dragon med helm (1/1200)
 
 Epic (1/1000)
 1x Grimy dwarf weed (1/3000)
@@ -7678,11 +7585,11 @@ Epic (1/1000)
 1x Dragon spear (1/3000)
 
 
-Monster: Brutal Green Dragon(Level: 227)
+Monster: Brutal Green Dragon(Level: 227) (id = 5362)
 ---------------
 
 
-Monster: Mithril Dragon(Level: 304)
+Monster: Mithril Dragon(Level: 304) (id = 5363)
 ---------------
 
 Always
@@ -7749,8 +7656,11 @@ Rare (1/50)
 1x Loop half of a key (1/1200)
 1x Starved ancient effigy (1/1200)
 
+Very Rare (1/200)
+1x Dragon warhammer (1/200)
 
-Monster: Skeleton(Level: 77)
+
+Monster: Skeleton(Level: 77) (id = 5386)
 ---------------
 
 Always
@@ -7828,7 +7738,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Zombie(Level: 40)
+Monster: Zombie(Level: 40) (id = 5393)
 ---------------
 
 Always
@@ -7914,7 +7824,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Animated spade(Level: 50)
+Monster: Animated spade(Level: 50) (id = 5414)
 ---------------
 
 Common
@@ -7924,7 +7834,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Terror dog(Level: 210)
+Monster: Terror dog(Level: 210) (id = 5417)
 ---------------
 
 Always
@@ -7934,7 +7844,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Terror dog(Level: 90)
+Monster: Terror dog(Level: 90) (id = 5418)
 ---------------
 
 Always
@@ -7956,7 +7866,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5507)
 ---------------
 
 Common
@@ -7998,7 +7908,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5508)
 ---------------
 
 Common
@@ -8040,7 +7950,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5509)
 ---------------
 
 Common
@@ -8082,7 +7992,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5510)
 ---------------
 
 Common
@@ -8124,7 +8034,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5511)
 ---------------
 
 Common
@@ -8166,7 +8076,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5512)
 ---------------
 
 Common
@@ -8208,7 +8118,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5513)
 ---------------
 
 Common
@@ -8250,7 +8160,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Rock Crab(Level: 13)
+Monster: Rock Crab(Level: 13) (id = 5514)
 ---------------
 
 Common
@@ -8292,7 +8202,7 @@ Epic (1/1000)
 1x Pet Rock crab (1/1000)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 5515)
 ---------------
 
 Always
@@ -8339,7 +8249,7 @@ Very Rare (1/200)
 1x Unarmed (1/200)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 5516)
 ---------------
 
 Always
@@ -8386,7 +8296,7 @@ Very Rare (1/200)
 1x Unarmed (1/200)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 5517)
 ---------------
 
 Always
@@ -8433,7 +8343,7 @@ Very Rare (1/200)
 1x Unarmed (1/200)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 5519)
 ---------------
 
 Always
@@ -8480,7 +8390,7 @@ Very Rare (1/200)
 1x Unarmed (1/200)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 5520)
 ---------------
 
 Always
@@ -8527,7 +8437,7 @@ Very Rare (1/200)
 1x Unarmed (1/200)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 5521)
 ---------------
 
 Always
@@ -8574,7 +8484,7 @@ Very Rare (1/200)
 1x Unarmed (1/200)
 
 
-Monster: Dark beast(Level: 182)
+Monster: Dark beast(Level: 182) (id = 5522)
 ---------------
 
 Always
@@ -8621,7 +8531,7 @@ Very Rare (1/200)
 1x Unarmed (1/200)
 
 
-Monster: Yak(Level: 22)
+Monster: Yak(Level: 22) (id = 5529)
 ---------------
 
 Always
@@ -8631,7 +8541,7 @@ Always
 1x Raw yak meat
 
 
-Monster: Cave bug(Level: 96)
+Monster: Cave bug(Level: 96) (id = 5750)
 ---------------
 
 Common
@@ -8667,7 +8577,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Cerberus(Level: 318)
+Monster: Cerberus(Level: 318) (id = 5866)
 ---------------
 
 Always
@@ -8735,17 +8645,16 @@ Rare (1/50)
 1x Dragon med helm (1/750)
 
 Very Rare (1/350)
-1x Primordial crystal (1/1750)
-1x Pegasian crystal (1/1750)
-1x Eternal crystal (1/1750)
-1x Smouldering Stone (1/1750)
-1x Clue scroll (elite) (1/1750)
+1x Primordial crystal (1/1400)
+1x Pegasian crystal (1/1400)
+1x Eternal crystal (1/1400)
+1x Smouldering Stone (1/1400)
 
 Epic (1/1000)
 1x Hellpuppy (1/1000)
 
 
-Monster: Bork(Level: 841)
+Monster: Bork(Level: 841) (id = 5871)
 ---------------
 
 Always
@@ -8790,7 +8699,7 @@ Very Rare (1/350)
 1x Chaotic crossbow (1/1750)
 
 
-Monster: Guard(Level: 21)
+Monster: Guard(Level: 21) (id = 5919)
 ---------------
 
 Always
@@ -8825,11 +8734,8 @@ Rare (1/50)
 1x Watermelon seed (1/450)
 1x Grain (1/450)
 
-Very Rare (1/200)
-1x Clue scroll (medium) (1/200)
 
-
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6006)
 ---------------
 
 Always
@@ -8865,7 +8771,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 80)
+Monster: Werewolf(Level: 80) (id = 6007)
 ---------------
 
 Always
@@ -8906,15 +8812,14 @@ Uncommon (1/10)
 1x Coal
 
 Rare (1/50)
-1x Grimy kwuarm (1/300)
-1x Grimy lantadyme (1/300)
-1x Grimy dwarf weed (1/300)
-1x Brass key (1/300)
-1x White berries (1/300)
-1x Clue scroll (medium) (1/300)
+1x Grimy kwuarm (1/250)
+1x Grimy lantadyme (1/250)
+1x Grimy dwarf weed (1/250)
+1x Brass key (1/250)
+1x White berries (1/250)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6008)
 ---------------
 
 Always
@@ -8950,7 +8855,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6009)
 ---------------
 
 Always
@@ -8986,7 +8891,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6010)
 ---------------
 
 Always
@@ -9022,7 +8927,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6011)
 ---------------
 
 Always
@@ -9058,7 +8963,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6012)
 ---------------
 
 Always
@@ -9094,7 +8999,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6013)
 ---------------
 
 Always
@@ -9130,7 +9035,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6014)
 ---------------
 
 Always
@@ -9166,7 +9071,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6015)
 ---------------
 
 Always
@@ -9202,7 +9107,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6016)
 ---------------
 
 Always
@@ -9238,7 +9143,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6017)
 ---------------
 
 Always
@@ -9274,7 +9179,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6018)
 ---------------
 
 Always
@@ -9310,7 +9215,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6019)
 ---------------
 
 Always
@@ -9346,7 +9251,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6020)
 ---------------
 
 Always
@@ -9382,7 +9287,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6021)
 ---------------
 
 Always
@@ -9418,7 +9323,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6022)
 ---------------
 
 Always
@@ -9454,7 +9359,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6023)
 ---------------
 
 Always
@@ -9490,7 +9395,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Werewolf(Level: 88)
+Monster: Werewolf(Level: 88) (id = 6024)
 ---------------
 
 Always
@@ -9526,7 +9431,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Big Wolf(Level: 73)
+Monster: Big Wolf(Level: 73) (id = 6046)
 ---------------
 
 Always
@@ -9548,7 +9453,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Skeleton Brute(Level: 132)
+Monster: Skeleton Brute(Level: 132) (id = 6104)
 ---------------
 
 Always
@@ -9603,7 +9508,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/150)
 
 
-Monster: Skeleton Warlord(Level: 132)
+Monster: Skeleton Warlord(Level: 132) (id = 6105)
 ---------------
 
 Always
@@ -9658,7 +9563,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/150)
 
 
-Monster: K'ril Tsutsaroth(Level: 650)
+Monster: K'ril Tsutsaroth(Level: 650) (id = 6203)
 ---------------
 
 Always
@@ -9710,14 +9615,13 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Steam battlestaff (1/1600)
-1x Zamorakian spear (1/1600)
-1x Rune sword (1/1600)
-1x Clue scroll (elite) (1/1600)
-1x Godsword shard 1 (1/1600)
-1x Godsword shard 2 (1/1600)
-1x Godsword shard 3 (1/1600)
-1x Zamorak hilt (1/1600)
+1x Steam battlestaff (1/1400)
+1x Zamorakian spear (1/1400)
+1x Rune sword (1/1400)
+1x Godsword shard 1 (1/1400)
+1x Godsword shard 2 (1/1400)
+1x Godsword shard 3 (1/1400)
+1x Zamorak hilt (1/1400)
 
 Epic (1/1000)
 1x Staff of the dead (1/4000)
@@ -9726,7 +9630,7 @@ Epic (1/1000)
 1x Pet K'ril tsutsaroth (1/4000)
 
 
-Monster: Tstanon Karlak(Level: 145)
+Monster: Tstanon Karlak(Level: 145) (id = 6204)
 ---------------
 
 Always
@@ -9750,14 +9654,11 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Zamorakian spear (1/1000)
 
 
-Monster: Zakl'n Gritch(Level: 142)
+Monster: Zakl'n Gritch(Level: 142) (id = 6206)
 ---------------
 
 Always
@@ -9781,14 +9682,11 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Zamorakian spear (1/1000)
 
 
-Monster: Balfrug Kreeyath(Level: 151)
+Monster: Balfrug Kreeyath(Level: 151) (id = 6208)
 ---------------
 
 Always
@@ -9808,14 +9706,11 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Zamorakian spear (1/1000)
 
 
-Monster: Pyrefiend(Level: 43)
+Monster: Pyrefiend(Level: 43) (id = 6216)
 ---------------
 
 Always
@@ -9859,7 +9754,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Spiritual Warrior(Level: 115)
+Monster: Spiritual Warrior(Level: 115) (id = 6219)
 ---------------
 
 Common
@@ -9912,15 +9807,12 @@ Rare (1/50)
 1x Rune kiteshield (1/950)
 1x Dragon med helm (1/950)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Spiritual Ranger(Level: 118)
+Monster: Spiritual Ranger(Level: 118) (id = 6220)
 ---------------
 
 Always
@@ -9957,7 +9849,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Spiritual Mage(Level: 121)
+Monster: Spiritual Mage(Level: 121) (id = 6221)
 ---------------
 
 Common
@@ -10008,15 +9900,14 @@ Rare (1/50)
 1x Dragon med helm (1/750)
 
 Very Rare (1/200)
-1x Dragon boots (1/400)
-1x Clue scroll (hard) (1/400)
+1x Dragon boots (1/200)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Kree'arra(Level: 580)
+Monster: Kree'arra(Level: 580) (id = 6222)
 ---------------
 
 Always
@@ -10068,21 +9959,20 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Armadyl helmet (1/1800)
-1x Armadyl chestplate (1/1800)
-1x Armadyl chainskirt (1/1800)
-1x Yew seed (1/1800)
-1x Godsword shard 1 (1/1800)
-1x Godsword shard 2 (1/1800)
-1x Godsword shard 3 (1/1800)
-1x Clue scroll (elite) (1/1800)
-1x Armadyl hilt (1/1800)
+1x Armadyl helmet (1/1600)
+1x Armadyl chestplate (1/1600)
+1x Armadyl chainskirt (1/1600)
+1x Yew seed (1/1600)
+1x Godsword shard 1 (1/1600)
+1x Godsword shard 2 (1/1600)
+1x Godsword shard 3 (1/1600)
+1x Armadyl hilt (1/1600)
 
 Epic (1/1000)
 1x Pet kree'arra (1/1000)
 
 
-Monster: Wingman Skree(Level: 141)
+Monster: Wingman Skree(Level: 141) (id = 6223)
 ---------------
 
 Common
@@ -10102,16 +9992,13 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Armadyl helmet (1/3000)
 1x Armadyl chestplate (1/3000)
 1x Armadyl chainskirt (1/3000)
 
 
-Monster: Flockleader Geerin(Level: 149)
+Monster: Flockleader Geerin(Level: 149) (id = 6225)
 ---------------
 
 Common
@@ -10131,16 +10018,13 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Armadyl helmet (1/3000)
 1x Armadyl chestplate (1/3000)
 1x Armadyl chainskirt (1/3000)
 
 
-Monster: Flight Kilisa(Level: 159)
+Monster: Flight Kilisa(Level: 159) (id = 6227)
 ---------------
 
 Common
@@ -10156,16 +10040,13 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Armadyl helmet (1/3000)
 1x Armadyl chestplate (1/3000)
 1x Armadyl chainskirt (1/3000)
 
 
-Monster: Spiritual Ranger(Level: 127)
+Monster: Spiritual Ranger(Level: 127) (id = 6230)
 ---------------
 
 Common
@@ -10194,11 +10075,8 @@ Rare (1/50)
 3-4x Adamant fire arrows (1/150)
 1-2x Magic shortbow (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
 
-
-Monster: Spiritual Mage(Level: 122)
+Monster: Spiritual Mage(Level: 122) (id = 6231)
 ---------------
 
 Common
@@ -10249,11 +10127,10 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Dragon boots (1/400)
-1x Clue scroll (hard) (1/400)
+1x Dragon boots (1/200)
 
 
-Monster: Aviansie(Level: 131)
+Monster: Aviansie(Level: 131) (id = 6246)
 ---------------
 
 Always
@@ -10316,11 +10193,8 @@ Rare (1/50)
 1x Rune kiteshield (1/1050)
 1x Dragon med helm (1/1050)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
 
-
-Monster: Commander Zilyana(Level: 596)
+Monster: Commander Zilyana(Level: 596) (id = 6247)
 ---------------
 
 Always
@@ -10372,21 +10246,20 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Saradomin sword (1/1800)
-1x Armadyl crossbow (1/1800)
-1x Rune sword (1/1800)
-1x Magic seed (1/1800)
-1x Clue scroll (elite) (1/1800)
-1x Godsword shard 1 (1/1800)
-1x Godsword shard 2 (1/1800)
-1x Godsword shard 3 (1/1800)
-1x Saradomin hilt (1/1800)
+1x Saradomin sword (1/1600)
+1x Armadyl crossbow (1/1600)
+1x Rune sword (1/1600)
+1x Magic seed (1/1600)
+1x Godsword shard 1 (1/1600)
+1x Godsword shard 2 (1/1600)
+1x Godsword shard 3 (1/1600)
+1x Saradomin hilt (1/1600)
 
 Epic (1/1000)
 1x Pet zilyana (1/1000)
 
 
-Monster: Starlight(Level: 149)
+Monster: Starlight(Level: 149) (id = 6248)
 ---------------
 
 Always
@@ -10410,14 +10283,11 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Saradomin sword (1/1000)
 
 
-Monster: Growler(Level: 139)
+Monster: Growler(Level: 139) (id = 6250)
 ---------------
 
 Always
@@ -10440,14 +10310,11 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Saradomin sword (1/1000)
 
 
-Monster: Bree(Level: 146)
+Monster: Bree(Level: 146) (id = 6252)
 ---------------
 
 Always
@@ -10470,24 +10337,18 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Saradomin sword (1/1000)
 
 
-Monster: Saradomin priest(Level: 113)
+Monster: Saradomin priest(Level: 113) (id = 6254)
 ---------------
 
 Always
 1x Bones
 
-Rare (1/50)
-1x Clue scroll (hard) (1/50)
 
-
-Monster: Spiritual Warrior(Level: 125)
+Monster: Spiritual Warrior(Level: 125) (id = 6255)
 ---------------
 
 Common
@@ -10540,11 +10401,8 @@ Rare (1/50)
 1x Rune kiteshield (1/1050)
 1x Dragon med helm (1/1050)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
 
-
-Monster: Spiritual Ranger(Level: 122)
+Monster: Spiritual Ranger(Level: 122) (id = 6256)
 ---------------
 
 Common
@@ -10573,11 +10431,8 @@ Rare (1/50)
 3-4x Adamant fire arrows (1/150)
 1-2x Magic shortbow (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
 
-
-Monster: Spiritual Mage(Level: 120)
+Monster: Spiritual Mage(Level: 120) (id = 6257)
 ---------------
 
 Common
@@ -10628,29 +10483,28 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Dragon boots (1/400)
-1x Clue scroll (hard) (1/400)
+1x Dragon boots (1/200)
 
 Epic (1/1000)
 1x Shield left half (1/2000)
 1x Dragon spear (1/2000)
 
 
-Monster: Knight of Saradomin(Level: 103)
+Monster: Knight of Saradomin(Level: 103) (id = 6258)
 ---------------
 
 Always
 1x Bones
 
 
-Monster: Knight of Saradomin(Level: 101)
+Monster: Knight of Saradomin(Level: 101) (id = 6259)
 ---------------
 
 Always
 1x Bones
 
 
-Monster: General Graardor(Level: 624)
+Monster: General Graardor(Level: 624) (id = 6260)
 ---------------
 
 Always
@@ -10700,21 +10554,20 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Rune sword (1/1800)
-1x Bandos chestplate (1/1800)
-1x Bandos tassets (1/1800)
-1x Bandos boots (1/1800)
-1x Godsword shard 1 (1/1800)
-1x Godsword shard 2 (1/1800)
-1x Godsword shard 3 (1/1800)
-1x Clue scroll (elite) (1/1800)
-1x Bandos hilt (1/1800)
+1x Rune sword (1/1600)
+1x Bandos chestplate (1/1600)
+1x Bandos tassets (1/1600)
+1x Bandos boots (1/1600)
+1x Godsword shard 1 (1/1600)
+1x Godsword shard 2 (1/1600)
+1x Godsword shard 3 (1/1600)
+1x Bandos hilt (1/1600)
 
 Epic (1/1000)
 1x Pet general graardor (1/1000)
 
 
-Monster: Sergeant Strongstack(Level: 141)
+Monster: Sergeant Strongstack(Level: 141) (id = 6261)
 ---------------
 
 Always
@@ -10735,16 +10588,13 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Bandos chestplate (1/3000)
 1x Bandos tassets (1/3000)
 1x Bandos boots (1/3000)
 
 
-Monster: Sergeant Steelwill(Level: 141)
+Monster: Sergeant Steelwill(Level: 141) (id = 6263)
 ---------------
 
 Always
@@ -10794,16 +10644,13 @@ Rare (1/50)
 1x Rune kiteshield (1/1000)
 1x Dragon med helm (1/1000)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Bandos chestplate (1/3000)
 1x Bandos tassets (1/3000)
 1x Bandos boots (1/3000)
 
 
-Monster: Sergeant Grimspike(Level: 142)
+Monster: Sergeant Grimspike(Level: 142) (id = 6265)
 ---------------
 
 Always
@@ -10824,16 +10671,13 @@ Rare (1/50)
 1x Godsword shard 2 (1/150)
 1x Godsword shard 3 (1/150)
 
-Very Rare (1/200)
-1x Clue scroll (hard) (1/200)
-
 Epic (1/1000)
 1x Bandos chestplate (1/3000)
 1x Bandos tassets (1/3000)
 1x Bandos boots (1/3000)
 
 
-Monster: Ork(Level: 107)
+Monster: Ork(Level: 107) (id = 6273)
 ---------------
 
 Always
@@ -10869,15 +10713,11 @@ Uncommon (1/10)
 1x Grimy dwarf weed
 
 Rare (1/50)
-1x Grimy ranarr (1/150)
-1x Grimy lantadyme (1/150)
-1x Clue scroll (easy) (1/150)
-
-Epic (1/1000)
-1x Clue scroll (hard) (1/1000)
+1x Grimy ranarr (1/100)
+1x Grimy lantadyme (1/100)
 
 
-Monster: Spiritual Ranger(Level: 115)
+Monster: Spiritual Ranger(Level: 115) (id = 6276)
 ---------------
 
 Always
@@ -10914,7 +10754,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Zamorak warrior(Level: 57)
+Monster: Zamorak warrior(Level: 57) (id = 6363)
 ---------------
 
 Always
@@ -10959,7 +10799,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Zamorak ranger(Level: 57)
+Monster: Zamorak ranger(Level: 57) (id = 6365)
 ---------------
 
 Always
@@ -10990,7 +10830,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Zamorak mage(Level: 57)
+Monster: Zamorak mage(Level: 57) (id = 6367)
 ---------------
 
 Always
@@ -11022,7 +10862,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Giant Ant Worker(Level: 40)
+Monster: Giant Ant Worker(Level: 40) (id = 6379)
 ---------------
 
 Common
@@ -11060,7 +10900,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Giant Ant Soldier(Level: 40)
+Monster: Giant Ant Soldier(Level: 40) (id = 6380)
 ---------------
 
 Common
@@ -11096,7 +10936,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Lava dragon(Level: 252)
+Monster: Lava dragon(Level: 252) (id = 6593)
 ---------------
 
 Always
@@ -11169,13 +11009,10 @@ Rare (1/50)
 1x Dragon med helm (1/1000)
 
 Very Rare (1/200)
-1x Clue scroll (elite) (1/200)
-
-Epic (1/1000)
-1x Draconic visage (1/1000)
+1x Dragon warhammer (1/200)
 
 
-Monster: Callisto(Level: 470)
+Monster: Callisto(Level: 470) (id = 6609)
 ---------------
 
 Always
@@ -11206,14 +11043,13 @@ Uncommon (1/10)
 1x Mahogany logs
 
 Rare (1/50)
-1x Dragon pickaxe (1/400)
-1x Dragon 2h sword (1/400)
-1x Yew seed (1/400)
-1x Magic seed (1/400)
-1x Palm tree seed (1/400)
-1x Uncut dragonstone (1/400)
-1x Grimy toadflax (1/400)
-1x Clue scroll (elite) (1/400)
+1x Dragon pickaxe (1/350)
+1x Dragon 2h sword (1/350)
+1x Yew seed (1/350)
+1x Magic seed (1/350)
+1x Palm tree seed (1/350)
+1x Uncut dragonstone (1/350)
+1x Grimy toadflax (1/350)
 
 Very Rare (1/200)
 1x Serpentine helm (1/200)
@@ -11222,7 +11058,7 @@ Epic (1/1000)
 1x Callisto cub (1/1000)
 
 
-Monster: Vet'ion(Level: 454)
+Monster: Vet'ion(Level: 454) (id = 6611)
 ---------------
 
 Always
@@ -11258,17 +11094,16 @@ Rare (1/10)
 1x Mort myre fungus (1/60)
 
 Very Rare (1/125)
-1x Dragon 2h sword (1/625)
-1x Heavy ballista (1/625)
-1x Clue scroll (elite) (1/625)
-1x Dragon pickaxe (1/625)
-1x Amulet of torture (1/625)
+1x Dragon 2h sword (1/500)
+1x Heavy ballista (1/500)
+1x Dragon pickaxe (1/500)
+1x Amulet of torture (1/500)
 
 Epic (1/600)
 1x Vet'ion jr. (1/600)
 
 
-Monster: Crazy archaeologist(Level: 204)
+Monster: Crazy archaeologist(Level: 204) (id = 6618)
 ---------------
 
 Always
@@ -11328,14 +11163,13 @@ Rare (1/50)
 1x Dragon med helm (1/950)
 
 Very Rare (1/200)
-1x Clue scroll (hard) (1/1000)
-1x Staff of the dead (1/1000)
-1x Ganodermic visor (1/1000)
-1x Ganodermic poncho (1/1000)
-1x Ganodermic leggings (1/1000)
+1x Staff of the dead (1/800)
+1x Ganodermic visor (1/800)
+1x Ganodermic poncho (1/800)
+1x Ganodermic leggings (1/800)
 
 
-Monster: Chaos Fanatic(Level: 202)
+Monster: Chaos Fanatic(Level: 202) (id = 6619)
 ---------------
 
 Always
@@ -11394,16 +11228,15 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Ancient staff (1/800)
-1x Clue scroll (hard) (1/800)
-1x Eye of the mage (1/800)
-1x Toxic staff of the dead (1/800)
+1x Ancient staff (1/600)
+1x Eye of the mage (1/600)
+1x Toxic staff of the dead (1/600)
 
 Epic (1/1000)
 1x Pet chaos elemental (1/1000)
 
 
-Monster: Corporeal Beast(Level: 785)
+Monster: Corporeal Beast(Level: 785) (id = 8133)
 ---------------
 
 Common
@@ -11444,8 +11277,7 @@ Uncommon (1/10)
 1x Ranarr seed
 
 Very Rare (1/200)
-1x Clue scroll (elite) (1/400)
-1x Holy elixir (1/400)
+1x Holy elixir (1/200)
 
 Epic (1/500)
 1x Spectral sigil (1/2500)
@@ -11455,7 +11287,7 @@ Epic (1/500)
 1x Divine sigil (1/2500)
 
 
-Monster: Tormented Demon(Level: 450)
+Monster: Tormented Demon(Level: 450) (id = 8349)
 ---------------
 
 Always
@@ -11528,7 +11360,7 @@ Very Rare (1/200)
 1x Dragon claws (1/200)
 
 
-Monster: Phoenix(Level: 123)
+Monster: Phoenix(Level: 123) (id = 8549)
 ---------------
 
 Always
@@ -11598,7 +11430,7 @@ Very Rare (1/200)
 1x Eye of the ranger (1/200)
 
 
-Monster: Avatar of Creation(Level: 525)
+Monster: Avatar of Creation(Level: 525) (id = 8597)
 ---------------
 
 Always
@@ -11658,7 +11490,7 @@ Epic (1/1000)
 1x Crystal key (1/1000)
 
 
-Monster: Chaos Dwogre(Level: 142)
+Monster: Chaos Dwogre(Level: 142) (id = 8771)
 ---------------
 
 Always
@@ -11684,7 +11516,7 @@ Rare (1/50)
 1x Dragon pickaxe (1/150)
 
 
-Monster: Chaos Dwarf hand cannoneer(Level: 100)
+Monster: Chaos Dwarf hand cannoneer(Level: 100) (id = 8776)
 ---------------
 
 Always
@@ -11704,6 +11536,7 @@ Common
 Uncommon (1/10)
 1x Mithril bar
 1x Air rune
+1x Ava's accumulator
 
 Rare (1/50)
 1x Mithril sq shield (1/150)
@@ -11714,7 +11547,7 @@ Very Rare (1/200)
 1x Dragon pickaxe (1/200)
 
 
-Monster: Ice strykewyrm(Level: 210)
+Monster: Ice strykewyrm(Level: 210) (id = 9463)
 ---------------
 
 Common
@@ -11790,7 +11623,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/750)
 
 
-Monster: Desert strykewyrm(Level: 130)
+Monster: Desert strykewyrm(Level: 130) (id = 9465)
 ---------------
 
 Common
@@ -11864,16 +11697,16 @@ Rare (1/50)
 1x Starved ancient effigy (1/750)
 
 
-Monster: Jungle strykewyrm(Level: 110)
+Monster: Jungle strykewyrm(Level: 110) (id = 9467)
 ---------------
 
 Common
 1x Gold charm
 1x Green charm
 1x Crimson charm
-1x Nature rune
-1x Death rune
-1x Law rune
+20-40x Nature rune
+20-40x Death rune
+20-40x Law rune
 1x Air talisman
 1x Body talisman
 1x Cosmic talisman
@@ -11882,13 +11715,13 @@ Common
 1x Mind talisman
 1x Adamant hatchet
 1x Mithril battleaxe
-1x Coins
+10000-20000x Coins
 1x Papaya fruit
 1x Pure essence
 1x Lobster
 1x Super defence (1)
 1x Mithril bar
-1x Teak logs
+10-20x Teak logs
 
 Uncommon (1/10)
 1x Blue charm
@@ -11938,7 +11771,7 @@ Rare (1/50)
 1x Starved ancient effigy (1/750)
 
 
-Monster: Plane-freezer Lakhrahnaz(Level: 223)
+Monster: Plane-freezer Lakhrahnaz(Level: 223) (id = 9939)
 ---------------
 
 Always
@@ -11989,7 +11822,7 @@ Rare (1/50)
 1x Dragon claws (1/750)
 
 
-Monster: Icefiend(Level: 88)
+Monster: Icefiend(Level: 88) (id = 10216)
 ---------------
 
 Always
@@ -12028,7 +11861,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Frost dragon(Level: 166)
+Monster: Frost dragon(Level: 166) (id = 10775)
 ---------------
 
 Always
@@ -12070,13 +11903,16 @@ Uncommon (1/10)
 1x Grimy cadantine
 
 Rare (1/50)
-1x Grimy ranarr (1/200)
-1x Grimy dwarf weed (1/200)
-1x Grimy torstol (1/200)
-1x Draconic visage (1/200)
+1x Grimy ranarr (1/150)
+1x Grimy dwarf weed (1/150)
+1x Grimy torstol (1/150)
+
+Very Rare (1/200)
+1x Draconic visage (1/400)
+1x Dragon warhammer (1/400)
 
 
-Monster: Nex(Level: 565)
+Monster: Nex(Level: 565) (id = 13447)
 ---------------
 
 Common
@@ -12115,21 +11951,23 @@ Common
 1x Uncut dragonstone
 1x Uncut dragonstone
 
-Rare (1/75)
-1x Uncut onyx (1/825)
-1x Torva full helm (1/825)
-1x Torva platebody (1/825)
-1x Torva platelegs (1/825)
-1x Pernix cowl (1/825)
-1x Zaryte bow (1/825)
-1x Pernix body (1/825)
-1x Pernix chaps (1/825)
-1x Virtus mask (1/825)
-1x Virtus robe top (1/825)
-1x Virtus robe legs (1/825)
+Rare (1/50)
+1x Uncut onyx (1/50)
+
+Very Rare (1/75)
+1x Torva full helm (1/750)
+1x Torva platebody (1/750)
+1x Torva platelegs (1/750)
+1x Pernix cowl (1/750)
+1x Zaryte bow (1/750)
+1x Pernix body (1/750)
+1x Pernix chaps (1/750)
+1x Virtus mask (1/750)
+1x Virtus robe top (1/750)
+1x Virtus robe legs (1/750)
 
 
-Monster: Ancient Warrior(Level: 148)
+Monster: Ancient Warrior(Level: 148) (id = 13456)
 ---------------
 
 Common
@@ -12190,7 +12028,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Ancient Ranger(Level: 167)
+Monster: Ancient Ranger(Level: 167) (id = 13457)
 ---------------
 
 Common
@@ -12251,7 +12089,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Blood Reaver(Level: 147)
+Monster: Blood Reaver(Level: 147) (id = 13458)
 ---------------
 
 Common
@@ -12289,7 +12127,7 @@ Rare (1/50)
 1x Dragon claws (1/250)
 
 
-Monster: Ancient Mage(Level: 165)
+Monster: Ancient Mage(Level: 165) (id = 13459)
 ---------------
 
 Common
@@ -12350,7 +12188,7 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/200)
 
 
-Monster: Revenant Impling(Level: 91)
+Monster: Revenant Impling(Level: 91) (id = 13465)
 ---------------
 
 Rare (1/50)
@@ -12562,7 +12400,7 @@ Epic (1/1000)
 1x Morrigan's throwing axe (1/26000)
 
 
-Monster: Revenant Goblin(Level: 128)
+Monster: Revenant Goblin(Level: 128) (id = 13469)
 ---------------
 
 Rare (1/50)
@@ -12777,7 +12615,7 @@ Epic (1/1000)
 1x Morrigan's throwing axe (1/16000)
 
 
-Monster: Revenant Werewolf(Level: 173)
+Monster: Revenant Werewolf(Level: 173) (id = 13474)
 ---------------
 
 Rare (1/50)
@@ -12999,7 +12837,7 @@ Epic (1/1000)
 1x Vesta's longsword (1/4000)
 
 
-Monster: Revenant Ork(Level: 224)
+Monster: Revenant Ork(Level: 224) (id = 13478)
 ---------------
 
 Uncommon (1/10)
@@ -13223,7 +13061,7 @@ Epic (1/1000)
 1x Vesta's longsword (1/5000)
 
 
-Monster: Revenant Dark Beast(Level: 301)
+Monster: Revenant Dark Beast(Level: 301) (id = 13479)
 ---------------
 
 Uncommon (1/10)
