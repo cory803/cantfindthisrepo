@@ -274,9 +274,16 @@ public class CombatBuilder {
 
 	public boolean isBeingAttacked() {
 		if(getLastAttacker() == null) {
-			return !character.getLastCombat().elapsed(5000);
+			if(isAttacking()) {
+				if(getVictim() != null) {
+					if(getVictim().isNpc()) {
+						return false;
+					}
+				}
+			}
+			return !getLastAttack().elapsed(10000);
 		} else {
-			return !character.getLastCombat().elapsed(5000) && getLastAttacker().getConstitution() > 0;
+			return !character.getLastCombat().elapsed(10000) && getLastAttacker().getConstitution() > 0;
 		}
 	}
 

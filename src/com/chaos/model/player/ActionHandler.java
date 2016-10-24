@@ -82,13 +82,23 @@ public final class ActionHandler {
             case 4358:
                 player.getDialog().sendDialog(new DonatorShop(player));
                 break;
+
             //sheep
             case 43:
                 Sheep.shearSheep(player, npc);
                 break;
+
             //mercant
             case 1282:
                 player.getDialog().sendDialog(new Merchant(player));
+                break;
+
+            //Runecrafting npc
+            case 249:
+                npc.performAnimation(CombatSpells.CONFUSE.getSpell().castAnimation().get());
+                npc.forceChat("Off you go!");
+                TeleportHandler.teleportPlayer(player, new Position(2601, 4770),
+                        player.getSpellbook().getTeleportType());
                 break;
 
             //Miner magnus
@@ -598,6 +608,8 @@ public final class ActionHandler {
 
             //Aubury
             case 553:
+                npc.performAnimation(CombatSpells.CONFUSE.getSpell().castAnimation().get());
+                npc.forceChat("Off you go!");
                 TeleportHandler.teleportPlayer(player, new Position(2911, 4832, 0), player.getSpellbook().getTeleportType());
                 break;
 

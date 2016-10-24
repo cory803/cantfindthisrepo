@@ -63,7 +63,7 @@ public class MinerMagnus extends Dialog {
                 if(ShootingStar.getInstance().alreadyCrashed()) {
                     return Dialog.createNpc(DialogHandler.CALM, "Hmm, according to my calculations " + ShootingStar.getInstance().getTimeToCrash() + ".");
                 } else {
-                    return Dialog.createNpc(DialogHandler.CALM, "Hmm, according to my calculations the Shooting star has already been mined.");
+                    return Dialog.createNpc(DialogHandler.CALM, "Hmm, according to my calculations the Shooting star has not been fully mined yet.");
                 }
             }
         return null;

@@ -468,7 +468,8 @@ public class Player extends Character {
     }
 
     public boolean logout() {
-        if (getCombatBuilder().isBeingAttacked() || getCombatBuilder().isAttacking()) {
+        System.out.println("Is being attacked: "+getCombatBuilder().isBeingAttacked());
+        if (getCombatBuilder().isBeingAttacked()) {
             getPacketSender().sendMessage("You must wait 10 seconds after being out of combat before doing this.");
             return false;
         }

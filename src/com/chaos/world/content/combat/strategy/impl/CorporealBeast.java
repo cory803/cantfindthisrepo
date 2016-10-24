@@ -43,7 +43,7 @@ public class CorporealBeast implements CombatStrategy {
 		Player target = (Player) victim;
 		boolean stomp = false;
 		for (Player t : Misc.getCombinedPlayerList(target)) {
-			if (t == null || t.getLocation() != Location.BOSS_SYSTEM)
+			if (t == null)
 				continue;
 			if (Locations.goodDistance(t.getPosition(), cB.getPosition(), 4)) {
 				stomp = true;
@@ -98,7 +98,7 @@ public class CorporealBeast implements CombatStrategy {
 		if (attackStyle == 4) {
 			cB.performAnimation(attack_anim2);
 			for (Player t : Misc.getCombinedPlayerList(target)) {
-				if (t == null || t.getLocation() != Location.BOSS_SYSTEM)
+				if (t == null)
 					continue;
 				new Projectile(cB, target, 1824, 44, 3, 43, 43, 0).sendProjectile();
 			}
@@ -106,7 +106,7 @@ public class CorporealBeast implements CombatStrategy {
 				@Override
 				public void execute() {
 					for (Player t : Misc.getCombinedPlayerList(target)) {
-						if (t == null || t.getLocation() != Location.BOSS_SYSTEM)
+						if (t == null)
 							continue;
 						cB.getCombatBuilder().setVictim(t);
 						new CombatHit(cB.getCombatBuilder(), new CombatContainer(cB, t, 1, CombatType.RANGED, true))
@@ -126,7 +126,7 @@ public class CorporealBeast implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 12;
+		return 20;
 	}
 
 	@Override

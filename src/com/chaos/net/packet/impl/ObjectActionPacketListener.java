@@ -357,12 +357,13 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 23271:
                                 if (player.getPosition().getY() == 3520 || player.getPosition().getY() == 3519) {
                                     player.performAnimation(new Animation(6132));
-                                    TaskManager.submit(new Task(1, player, true) {
+                                    TaskManager.submit(new Task(1, player, false) {
                                         int tick = 1;
 
                                         @Override
                                         public void execute() {
                                             if (tick == 3) {
+                                                player.moveTo(new Position(player.getPosition().getX(), 3523, 0));
                                                 stop();
                                             }
                                             tick++;
@@ -370,18 +371,19 @@ public class ObjectActionPacketListener implements PacketListener {
 
                                         @Override
                                         public void stop() {
-                                            player.moveTo(new Position(player.getPosition().getX(), 3523, 0));
+
                                         }
 
                                     });
                                 } else if (player.getPosition().getY() == 3523 || player.getPosition().getY() == 3524) {
                                     player.performAnimation(new Animation(6132));
-                                    TaskManager.submit(new Task(1, player, true) {
+                                    TaskManager.submit(new Task(1, player, false) {
                                         int tick = 1;
 
                                         @Override
                                         public void execute() {
                                             if (tick == 3) {
+                                                player.moveTo(new Position(player.getPosition().getX(), 3520, 0));
                                                 stop();
                                             }
                                             tick++;
@@ -389,7 +391,6 @@ public class ObjectActionPacketListener implements PacketListener {
 
                                         @Override
                                         public void stop() {
-                                            player.moveTo(new Position(player.getPosition().getX(), 3520, 0));
                                         }
                                     });
                                 }

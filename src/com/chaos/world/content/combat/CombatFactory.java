@@ -1115,7 +1115,7 @@ public final class CombatFactory {
                 return 0;
             }
             if (character.determineStrategy().getCombatType().equals(CombatType.MAGIC)
-                    || character.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
+                    || character.determineStrategy().getCombatType().equals(CombatType.RANGED) || character.determineStrategy().getCombatType().equals(CombatType.MIXED)) {
                 return 10;
             }
             return 2;
