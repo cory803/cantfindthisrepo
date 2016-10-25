@@ -217,6 +217,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Lowe(player));
                 break;
 
+            //Barrows brother
+            case 572:
+                player.getDialog().sendDialog(new BarrowsBrother(player, 0));
+                break;
+
             //Talk to Giles
             case 2538:
                 player.getDialog().sendDialog(new Giles(player));
