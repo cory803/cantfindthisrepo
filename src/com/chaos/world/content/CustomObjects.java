@@ -226,7 +226,8 @@ public class CustomObjects {
 	// spawn, this is just
 	// clipping!
 	private static final int[][] CLIENT_OBJECTS = {
-
+			//crystal ball
+			{ 589, 3095, 3498, 0, 1 },
 			//Skilling zone (low)
 			{ -1, 2805, 2785, 0, 0 },
 			{ 1278, 2799, 2779, 0, 1 },
