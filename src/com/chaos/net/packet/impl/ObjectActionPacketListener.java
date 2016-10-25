@@ -24,6 +24,7 @@ import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.diversions.hourly.ShootingStar;
 import com.chaos.world.content.minigames.impl.*;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
+import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.agility.Agility;
 import com.chaos.world.content.skill.impl.crafting.Flax;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
@@ -156,6 +157,10 @@ public class ObjectActionPacketListener implements PacketListener {
                             return;
                         }
                         switch (id) {
+                            //Crystal Ball (Bolt Enchanting)
+                            case 589:
+                                Enchanting.update_interface(player);
+                            break;
                             //rune ess
                             case 2491:
                                 if(player.getInteractingObject() != null) {

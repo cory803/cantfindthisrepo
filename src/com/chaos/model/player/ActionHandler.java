@@ -285,9 +285,6 @@ public final class ActionHandler {
                 }
                 player.getDialog().sendDialog(new QueenRevenant(player));
                 break;
-            case 4707: // bolt enchanter
-                Enchanting.update_interface(player);
-                break;
 
             case 8710:
             case 8707:
