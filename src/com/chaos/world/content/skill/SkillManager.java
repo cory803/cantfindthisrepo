@@ -89,6 +89,7 @@ public class SkillManager {
 	 * @return
 	 */
 	public double getBoostedExperience(double experience, boolean exact, boolean totalCalculation) {
+		double boost = 1.0;
 		if(!exact || totalCalculation) {
 			experience *= player.getGameModeAssistant().getModeExpRate();
 		}
@@ -96,15 +97,14 @@ public class SkillManager {
 		if (WellOfGoodness.isActive("exp")) {
 			experience *= 1.3;
 		}
-		if (player.getEquipment().contains(4657)) {
-			experience *= 2;
-		}
 		if (player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
 			experience *= 1.1;
 		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE) {
 			experience *= 1.3;
 		}
-
+		if (player.getEquipment().contains(4657)) {
+			experience *= 2;
+		}
 		return experience;
 	}
 
