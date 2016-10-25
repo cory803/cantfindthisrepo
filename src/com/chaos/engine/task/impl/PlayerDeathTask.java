@@ -180,11 +180,9 @@ public class PlayerDeathTask extends Task {
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 				loc.onDeath(player);
 				player.moveTo(new Position(3094 + Misc.random(1), 3478 + Misc.random(5), 0));
-//				if (player.getPosition().equals(oldPosition))
-//					if (player.homeLocation == 0) {
-//						player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
-//					} else {
-//					}
+				if (player.getPosition().equals(oldPosition)) {
+					player.moveTo(new Position(3094 + Misc.random(1), 3478 + Misc.random(5), 0));
+				}
 				player = null;
 				oldPosition = null;
 				stop();
@@ -195,13 +193,8 @@ public class PlayerDeathTask extends Task {
 			setEventRunning(false);
 			e.printStackTrace();
 			if (player != null) {
-//				if (player.homeLocation == 0) {
-//					player.moveTo(GameSettings.DEFAULT_POSITION_VARROCK.copy());
-//					player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost());
-//				} else {
 					player.moveTo(GameSettings.DEFAULT_POSITION_EDGEVILLE.copy());
 					player.setConstitution(player.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + player.getEquipment().getBoost());
-//				}
 			}
 		}
 	}
