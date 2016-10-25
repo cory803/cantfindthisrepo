@@ -9,7 +9,7 @@ You can no longer dismiss a boss pet from the summoning icon.
 Point shops now have the value of the item(s) formatted with commas such as 5,000.
 The store has been added.
 	Type ::store to open the store on the website to buy scrolls.
-	Talk to Donovan at edgeville bank to view his donation items.
+	Talk to Donovan at edgeville bank to view his donation stores.
 	Use scrolls to gain amount claimed towards donator ranks, and also points.
 		$10 = Premium Donator
 		$50 = Extreme Donator
