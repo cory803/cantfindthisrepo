@@ -47,22 +47,14 @@ public enum StallRewards {
             new WeightedItem(1329, 1, 6),
             new WeightedItem(1333, 1, 2),
             new WeightedItem(4587, 1, 1)),
-    VEGETABLE_STALL(
-            new WeightedItem(995, Misc.inclusiveRandom(200, 1000), 10),
-            new WeightedItem(995, Misc.inclusiveRandom(300, 2000), 9),
-            new WeightedItem(995, Misc.inclusiveRandom(400, 2500), 8),
-            new WeightedItem(995, Misc.inclusiveRandom(500, 2750), 7),
-            new WeightedItem(995, Misc.inclusiveRandom(600, 3250), 6),
-            new WeightedItem(995, Misc.inclusiveRandom(700, 3750), 2),
-            new WeightedItem(995, Misc.inclusiveRandom(800, 4000), 1)),
+    DONATOR_VEGETABLE_STALL(
+            new WeightedItem(995, 10000, 10),
+            new WeightedItem(1965, 1, 9)),
     DONATOR_FISH_STALL(
-            new WeightedItem(995, Misc.inclusiveRandom(200, 1000), 10),
-            new WeightedItem(995, Misc.inclusiveRandom(300, 2000), 9),
-            new WeightedItem(995, Misc.inclusiveRandom(400, 2500), 8),
-            new WeightedItem(995, Misc.inclusiveRandom(500, 2750), 7),
-            new WeightedItem(995, Misc.inclusiveRandom(600, 3250), 6),
-            new WeightedItem(995, Misc.inclusiveRandom(700, 3750), 2),
-            new WeightedItem(995, Misc.inclusiveRandom(800, 4000), 1));
+            new WeightedItem(995, 15000, 10),
+            new WeightedItem(995, 15000, 9),
+            new WeightedItem(15270, 1, 8),
+            new WeightedItem(383, 1, 7));
 
     public final WeightedItem[] rewards;
     public final int weightSum;

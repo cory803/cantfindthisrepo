@@ -21,12 +21,19 @@ You can now eat anchovy pizzas.
 The level 17 wilderness obelisk that was in the wrong location is now fixed.
 The dragon warhammer drop rate has been increased.
 The price on dragon warhammer has been fixed so its not crazy.
+You will no longer get progress toward the 'Steal 5000 scimitar' achievement when thieving from random stalls.
+Frost dragons attack bonus has been lowered.
+The max hit on frost dragons has been changed from 290 to 200.
+The donator zone thieving stalls have been changed:
+	Fish stall - required level 80
+		Thiev up to 15,000 coins, or 1 raw fish.
+	Vegetable stall - required level 50
+		Thiev up to 10,000 coins, or 1 cabbage.
 
 	
 ~TODO~
 Vote
 Hiscores
-Donations
 Charming imp
 Add herblore shop
 Add hunter npcs

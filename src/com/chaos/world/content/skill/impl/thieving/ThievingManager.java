@@ -11,7 +11,6 @@ public class ThievingManager {
 
     private enum MobData {
 
-
         MAN(new int[] {1, 2, 3, 4}, 1, new int[] {995}, 30, 8),
         FARMER(new int[] {7}, 10, new int[] {995, 313, 314}, 15, 14.5),
         HAM_FEMALE(new int[] {1715}, 15, new int[] {4298, 4300, 4302, 4304, 4308, 4310}, 1, 18.5),
@@ -34,7 +33,7 @@ public class ThievingManager {
         private final int amount;
         private final double xp;
 
-        private MobData(int[] npcId, int requirements, int[] items, int amount, double xp) {
+        MobData(int[] npcId, int requirements, int[] items, int amount, double xp) {
             this.npcId = npcId;
             this.requirements = requirements;
             this.items = items;

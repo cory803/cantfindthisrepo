@@ -12,8 +12,8 @@ public enum ThievingStall {
     SPICE_STALL(2564, 65, 81, StallRewards.SPICE_STALL, 80, false),
     MAGIC_STALL(4877, 65, 100, StallRewards.MAGIC_STALL, 80, false),
     GEM_STALL(2562, 75, 160, StallRewards.GEM_STALL, 180, false),
-    VEGETABLE_STALL(4706, 45, 160, StallRewards.VEGETABLE_STALL, 180, true),
-    DONATOR_FISH_STALL(4705, 50, 200, StallRewards.DONATOR_FISH_STALL, 180, true),
+    DONATOR_VEGETABLE_STALL(4706, 50, 75, StallRewards.DONATOR_VEGETABLE_STALL, 180, true),
+    DONATOR_FISH_STALL(4705, 80, 200, StallRewards.DONATOR_FISH_STALL, 180, true),
     SCIMITAR_STALL(4878, 95, 200, StallRewards.SCIMITAR_STALL, 180, false);
 
     private int objectId, requiredLevel, experience, respawnDelay;

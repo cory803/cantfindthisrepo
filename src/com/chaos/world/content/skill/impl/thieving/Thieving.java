@@ -37,7 +37,9 @@ public class Thieving {
         player.performAnimation(new Animation(832));
 
         // Achievement call
-        Achievements.doProgress(player, Achievements.AchievementData.STEAL_5000_SCIMITARS);
+        if(stall == ThievingStall.SCIMITAR_STALL) {
+            Achievements.doProgress(player, Achievements.AchievementData.STEAL_5000_SCIMITARS);
+        }
 
         // Loot generation code
         List<WeightedItem> weightedItems = Arrays.asList(stall.getStallRewards().getRewards());
@@ -48,9 +50,13 @@ public class Thieving {
             weight += reward.getWeight();
 
             if (weight > hitSlot) {
-                int randomAmount = Misc.random(1, reward.getAmount());
+                int randomAmount = Misc.inclusiveRandom(1, reward.getAmount());
                 sendStealNotification(reward.getId(), randomAmount);
-                player.getInventory().add((reward.getId()), reward.getId() == 995 ? reward.getAmount() : randomAmount);
+                if(reward.getId() == 995) {
+                    player.getInventory().add((reward.getId()), randomAmount);
+                } else {
+                    player.getInventory().add((reward.getId()), reward.getId() == 995 ? reward.getAmount() : randomAmount);
+                }
                 return true;
             }
         }
