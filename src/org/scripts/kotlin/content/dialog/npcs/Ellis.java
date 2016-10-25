@@ -39,6 +39,9 @@ public class Ellis extends Dialog {
                             case OPTION_2_OF_3:
                                 player.getDialog().sendDialog(new Ellis(player, 5));
                                 break;
+                            case OPTION_3_OF_3:
+                                player.getDialog().sendDialog(new Ellis(player, 2));
+                                break;
                         }
                     }
                 });
