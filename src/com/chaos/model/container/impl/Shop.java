@@ -212,7 +212,7 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
-		if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
+		if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES || id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
 		}

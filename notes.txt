@@ -40,6 +40,9 @@ Donator zone has been added.
 		Set your yell tag
 		Get him arrested!
 	You get 1.3x experience when training in the donator zone.
+	Fishing Spots have been added
+You can no longer sell items to the pk point shops
+A crystal ball has been placed in the edgeville bank to enchant your bolts
 	
 
 
