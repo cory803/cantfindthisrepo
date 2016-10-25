@@ -41,6 +41,8 @@ public class Locations {
 	public enum Location {
 		//boolean multi, boolean summonAllowed, boolean followingAllowed,
 		//boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed
+		SHILO(new int[] { 2757, 2909 }, new int[] { 2939, 3010 }, false, true, true, false, false, true) {
+		},
 		MEMBER_ZONE(new int[] { 3415, 3435 }, new int[] { 2900, 2926 }, false, true, true, false, false, true) {
 		},
 		VARROCK(new int[] { 3167, 3272 }, new int[] { 3263, 3504 }, false, true, true, true, true, true) {
