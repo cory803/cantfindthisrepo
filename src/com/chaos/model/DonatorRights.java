@@ -91,4 +91,30 @@ public enum DonatorRights {
         }
     }
 
+    /**
+     * Get the amount required to set your yell tag.
+     * @return
+     */
+    public int getYellTagPrice() {
+        int amount = 0;
+        switch(this) {
+            case PREMIUM:
+                amount = 10000000;
+                break;
+            case EXTREME:
+                amount = 8000000;
+                break;
+            case LEGENDARY:
+                amount = 6000000;
+                break;
+            case UBER:
+                amount = 4000000;
+                break;
+            case PLATINUM:
+                amount = 2000000;
+                break;
+        }
+        return amount;
+    }
+
 }

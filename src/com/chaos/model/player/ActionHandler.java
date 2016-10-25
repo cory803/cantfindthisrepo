@@ -102,6 +102,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Donovan(player, 0));
                 break;
 
+            //Ellis donator zone
+            case 595:
+                player.getDialog().sendDialog(new Ellis(player, 0));
+                break;
+
             //Miner magnus
             case 1396:
                 player.getDialog().sendDialog(new MinerMagnus(player, 0));
@@ -385,6 +390,10 @@ public final class ActionHandler {
             //void knight shop
             case 3789:
                 player.getVoidShop();
+                break;
+            //Ellis donator shop
+            case 595:
+                Shop.ShopManager.getShops().get(45).open(player);
                 break;
             //mercant
             case 1282:

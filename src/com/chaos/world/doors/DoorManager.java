@@ -41,6 +41,8 @@ public final class DoorManager {
 		isDoor(new GameObject(1519, new Position(2445, 3090))); //Castle wars door
 		isDoor(new GameObject(11622, new Position(3078, 3435))); //Barbarian village door
 		isDoor(new GameObject(11621, new Position(3079, 3435))); //Barbarian village door
+		isDoor(new GameObject(1516, new Position(2508, 3859))); //Donator zone door
+		isDoor(new GameObject(1519, new Position(2508, 3860))); //Donator zone door
 	}
 	
 	public static boolean isDoor(GameObject gameObject) {
