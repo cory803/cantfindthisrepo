@@ -44,6 +44,8 @@ Add herblore shop
 Add hunter npcs
 Test mazchna slayer master (dialogue)
 Fix bug where you can't follow people through gates
+Fix barrows drop rate
+Make announcement on barrows better.
 
 Tanner:
 
