@@ -40,7 +40,9 @@ Donator zone has been added.
 		Set your yell tag
 		Get him arrested!
 	You get 1.3x experience when training in the donator zone.
-	
+	Frost dragons are north-east in a white snowy area (same as runelive).
+	Misc. skilling stuff around the island.
+You can now enchant bolts by using the crystal ball inside edgeville bank.
 
 
 	
