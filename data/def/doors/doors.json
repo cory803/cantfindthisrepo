@@ -2233,7 +2233,100 @@
         "z": 0
       }
     }
+  },
+     { 
+	# Wilderness church door 1/2
+    "openState": {
+      "id": 1519,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2958,
+        "y": 3821,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1520,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2957,
+        "y": 3821,
+        "z": 0
+      }
+    }
+  },
+     { 
+	# Wilderness Church Door 2/2
+    "openState": {
+      "id": 1516,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2958,
+        "y": 3820,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1517,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2957,
+        "y": 3820,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Donator zone 1/2
+    "openState": {
+      "id": 1520,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2507,
+        "y": 3860,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2508,
+        "y": 3860,
+        "z": 0
+      }
+    }
+  },
+   { 
+	# Donator Zone 2/2
+    "openState": {
+      "id": 1517,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2507,
+        "y": 3859,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2508,
+        "y": 3859,
+        "z": 0
+      }
+    }
   }
+  
   
   
   
