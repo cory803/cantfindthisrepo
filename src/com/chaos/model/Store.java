@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import com.chaos.GameServer;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.net.mysql.SQLCallback;
-import com.chaos.world.content.Bonds;
+import com.chaos.world.content.Scrolls;
 import com.chaos.world.content.PlayerLogs;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
@@ -34,7 +34,7 @@ public class Store {
 							boolean alreadyGotAmountClaimed = false;
 							for (int i = 0; i < item_ids.length; i++) {
 								if (Integer.parseInt(item_ids[i]) == 7629) {
-									credits -= 125;
+									credits -= 100;
 								} else if (Integer.parseInt(item_ids[i]) == 10934) {
 									credits -= 25;
 								} else if (Integer.parseInt(item_ids[i]) == 10935) {
@@ -69,7 +69,7 @@ public class Store {
 									}
 								}
 							}
-							Bonds.checkForRankUpdate(player);
+							Scrolls.updateRank(player);
 							PlayerPanel.refreshPanel(player);
 							player.save();
 						}

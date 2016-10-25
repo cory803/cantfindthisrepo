@@ -228,7 +228,7 @@ public class Consumables {
 					heal = max - player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION);
 				}
 			}
-			if (food == FoodType.CAKE || food == FoodType.SECOND_CAKE_SLICE) {
+			if (food == FoodType.CAKE || food == FoodType.SECOND_CAKE_SLICE || food == FoodType.ANCHOVY_PIZZA) {
 				player.getInventory().add(new Item(food.item.getId() + 2, 1));
 			}
 			if (food == FoodType.CHOCOLATE_CAKE || food == FoodType.CHOCOLATE_SECOND_CAKE_SLICE) {
@@ -280,6 +280,11 @@ public class Consumables {
 		 * Bread
 		 */
 		BREAD(new Item(2309), 50),
+
+		/**
+		 * Anchovy pizza
+		 */
+		ANCHOVY_PIZZA(new Item(2297), 90), ANCHOVY_PIZZA_HALF(new Item(2299), 90),
 
 		/*
 		 * Baked goods food types a player can make with the cooking skill.

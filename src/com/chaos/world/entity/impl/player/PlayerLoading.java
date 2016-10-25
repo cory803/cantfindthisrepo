@@ -489,7 +489,7 @@ public class PlayerLoading {
 		}
 
 		if (reader.has("credits")) {
-			player.addCredits(reader.get("credits").getAsInt());
+			player.setPoints(reader.get("credits").getAsInt());
 		}
 		if (reader.has("quest-points")) {
 			player.setQuestPoints(reader.get("quest-points").getAsInt());

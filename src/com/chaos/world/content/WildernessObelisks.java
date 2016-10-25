@@ -108,7 +108,7 @@ public class WildernessObelisks {
 	/*
 	 * Obelisk coords
 	 */
-	private static final int[][] OBELISK_COORDS = { { 3154, 3618 }, { 3225, 3665 }, { 3033, 3730 }, { 3104, 3792 },
+	private static final int[][] OBELISK_COORDS = { { 3154, 3618 }, { 3217, 3654 }, { 3033, 3730 }, { 3104, 3792 },
 			{ 2978, 3864 }, { 3305, 3914 } };
 
 }

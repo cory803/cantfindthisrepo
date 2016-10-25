@@ -175,8 +175,7 @@ public class Shop extends ItemContainer {
 					? currency.getDefinition().getName().toLowerCase()
 					: currency.getDefinition().getName().toLowerCase() + "s";
 			/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
-			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == AGILITY_TICKET_STORE
-					|| id == DONATOR_STORE || id == DONATOR_STORE_MISC) {
+			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == AGILITY_TICKET_STORE) {
 				Object[] obj = ShopManager.getCustomShopData(id, item.getId());
 				if (obj == null)
 					return;
@@ -199,7 +198,7 @@ public class Shop extends ItemContainer {
 					finalValue = (int) (finalValue * 0.85);
 				}
 			}
-			finalString += "" + finalValue + " " + (String) obj[1] + ".";
+			finalString += "" + Misc.format(finalValue) + " " + (String) obj[1] + ".";
 		}
 		if (player != null && finalValue > 0) {
 			player.getPacketSender().sendMessage(finalString);
@@ -213,9 +212,7 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
-		if (id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3
-				|| id == DONATOR_STORE || id == DONATOR_STORE_MISC
-				) {
+		if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
 		}
@@ -229,8 +226,7 @@ public class Shop extends ItemContainer {
 					.sendMessage("You can't sell this item to this shop, please exchange shards with pikkupstix.");
 			return;
 		}
-		boolean creditShop = id == CREDIT_STORE_1 || id == CREDIT_STORE_2 || id == CREDIT_STORE_3;
-		if (!itemToSell.sellable() && !creditShop) {
+		if (!itemToSell.sellable()) {
 			player.getPacketSender().sendMessage("This item cannot be sold.");
 			return;
 		}
@@ -296,14 +292,6 @@ public class Shop extends ItemContainer {
 					if (!customShop) {
 						player.getInventory().add(new Item(getCurrency().getId(), itemValue), false);
 						player.save();
-					} else {
-						// Return points here
-						if (creditShop) {
-							player.setCredits(itemValue, true);
-							player.getPacketSender().sendMessage("You have sold the item: "
-									+ itemToSell.getDefinition().getName() + " for " + itemValue + " credits.");
-							player.getPacketSender().sendMessage("You now have " + player.getCredits() + " credits.");
-						}
 					}
 				} else {
 					player.getPacketSender().sendMessage("Please free some inventory space before doing that.");
@@ -314,15 +302,6 @@ public class Shop extends ItemContainer {
 					super.switchItem(player.getInventory(), this, itemToSell.getId(), amountToSell);
 					if (!customShop) {
 						player.getInventory().add(new Item(getCurrency().getId(), itemValue * amountToSell), false);
-					} else {
-						if (creditShop) {
-							player.setCredits(itemValue * amountToSell, true);
-							player.getPacketSender()
-									.sendMessage("You have sold the item: " + itemToSell.getDefinition().getName()
-											+ " for " + itemValue * amountToSell + " credits.");
-							player.getPacketSender().sendMessage("You now have " + player.getCredits() + " credits.");
-						}
-						// Return points here
 					}
 					break;
 				} else {
@@ -402,9 +381,7 @@ public class Shop extends ItemContainer {
 			} else {
 				/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
 				if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE
-						|| id == AGILITY_TICKET_STORE || id == CREDIT_STORE_1
-						|| id == CREDIT_STORE_2 || id == CREDIT_STORE_3
-						|| id == DONATOR_STORE || id == DONATOR_STORE_MISC) {
+						|| id == AGILITY_TICKET_STORE) {
 					value = (int) ShopManager.getCustomShopData(id, item.getId())[0];
 				}
 			}
@@ -416,18 +393,14 @@ public class Shop extends ItemContainer {
 			currencyName = (String) obj[1];
 			if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
+			} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
+				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
 			} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getVotingPoints();
 //			} else if (id == DUNGEONEERING_STORE) {
 //				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
 			} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getSlayerPoints();
-			} else if (id == CREDIT_STORE_1) {
-				playerCurrencyAmount = player.getCredits();
-			} else if (id == CREDIT_STORE_2) {
-				playerCurrencyAmount = player.getCredits();
-			} else if (id == CREDIT_STORE_3) {
-				playerCurrencyAmount = player.getCredits();
 			}
 		}
 		if (value <= 0) {
@@ -477,18 +450,12 @@ public class Shop extends ItemContainer {
 					} else {
 						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value, true);
+						} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
+							player.getPointsHandler().setPkPoints(-value, true);
 						} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value, true);
-//						} else if (id == DUNGEONEERING_STORE) {
-//							player.getPointsHandler().setDungeoneeringTokens(-value, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value, true);
-						} else if (id == CREDIT_STORE_1) {
-							player.setCredits(-value, true);
-						} else if (id == CREDIT_STORE_2) {
-							player.setCredits(-value, true);
-						} else if (id == CREDIT_STORE_3) {
-							player.setCredits(-value, true);
 						}
 					}
 
@@ -517,18 +484,14 @@ public class Shop extends ItemContainer {
 					} else {
 						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
+						} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
+							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
 						} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
 //						} else if (id == DUNGEONEERING_STORE) {
 //							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
-						} else if (id == CREDIT_STORE_1) {
-							player.setCredits(-value * canBeBought, true);
-						} else if (id == CREDIT_STORE_2) {
-							player.setCredits(-value * canBeBought, true);
-						} else if (id == CREDIT_STORE_3) {
-							player.setCredits(-value * canBeBought, true);
 						}
 					}
 					if (getItems()[slot].getAmount() - canBeBought <= 0 && id != GENERAL_STORE) {
@@ -718,7 +681,6 @@ public class Shop extends ItemContainer {
 				}
 			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2) {
 				switch (item) {
-
 					case 14484:
 						return new Object[] { 5750, "Pk points" };
 
@@ -981,81 +943,120 @@ public class Shop extends ItemContainer {
 					case 20790:
 						return new Object[] {2500, "stardust"};
 				}
-			} else if (shop == DONATOR_STORE || shop == DONATOR_STORE_MISC) {
+			} else if (shop == DONATOR_STORE_ARMOUR_WEAPONS || shop == DONATOR_STORE_RARES) {
 				switch (item) {
-					case 21118:
-						return new Object[] {150, "donator tokens"};
-					case 21119:
-						return new Object[] {100, "donator tokens"};
-					case 21109:
-						return new Object[] {85, "donator tokens"};
-					case 4084: // sled
-					case 1053:
-					case 1055:
-					case 1057:
-					case 5607: // grain
-					case 6082: //fixed device
-					case 5608: //fox
-						return new Object[] {75, "donator tokens"};
-					case 1419:
-					case 1037:
-					case 9924: //skele body
-					case 9920: //jack latern mask
-					case 1050:
-						return new Object[] {60, "donator tokens"};
-					case 19780:
-						return new Object[] {55, "donator tokens"};
+					/**
+					 * Rare items
+					 */
 					case 1038:
 					case 1040:
 					case 1042:
 					case 1044:
 					case 1046:
 					case 1048:
-					case 9923: //skele legs
-					case 9925: //skele mask
-						return new Object[] {50, "donator tokens"};
-					case 15352: //skele cloack
-					case 11694:
-						return new Object[] {40, "donator tokens"};
-					case 14484:
-						return new Object[] {35, "donator tokens"};
-					case 20171:
-					case 9921: //skele boots
-					case 9922: //skele gloves
-						return new Object[] {25, "donator tokens"};
-					case 13899:
-					case 13902:
-					case 11698:
-					case 11700:
-					case 11696:
-					case 11283:
-						return new Object[] {5, "donator tokens"};
-					case 6199:
-					case 15220:
-					case 15020:
+						return new Object[] {5000, "donator points"};
+					case 1050:
+					case 9920:
+						return new Object[] {3500, "donator points"};
+					case 21048:
+						return new Object[] {22500, "donator points"};
+					case 21024:
+					case 21026:
+						return new Object[] {15000, "donator points"};
+					case 21025:
+						return new Object[] {20000, "donator points"};
+					case 21049:
+						return new Object[] {10000, "donator points"};
+					case 21109:
+					case 21118:
+					case 21119:
+						return new Object[] {12500, "donator points"};
+					case 4084:
+						return new Object[] {7500, "donator points"};
+					case 20135:
+					case 20139:
+					case 20143:
+					case 20159:
+					case 20163:
+					case 20167:
+					case 20147:
+					case 20151:
+					case 20155:
+						return new Object[] {2500, "donator points"};
+					case 1419:
+						return new Object[] {5500, "donator points"};
+					case 1037:
+						return new Object[] {3500, "donator points"};
+					case 9925:
+					case 9924:
+					case 9923:
+					case 9921:
+					case 9922:
+					case 15352:
+						return new Object[] {2000, "donator points"};
+
+					/**
+					 * Armour & weapons
+					 */
+					case 4151:
+						return new Object[] {300, "donator points"};
+					case 21372:
+						return new Object[] {600, "donator points"};
+					case 11235:
+					case 15241:
 					case 15019:
 					case 15018:
-					case 19111:
-					case 11235:
-					case 10551:
-					case 10548:
-					case 10547:
-					case 11730:
-					case 2572: //ring of wealth
-					case 15126: // amulet of range
-					case 4151:
-					case 6570:
-					case 2577: //robin boots
-					case 2581: //robin hat
-					case 15241: //hc
+					case 15020:
+					case 15220:
 					case 11732:
-						return new Object[] {4, "donator tokens"};
+					case 2577:
+					case 6920:
+					case 11283:
 					case 6585:
-						return new Object[] {3, "donator tokens"};
-					case 6737:
-					case 6731:
-					case 6733:
-						return new Object[] {1, "donator tokens"};
+						return new Object[] {300, "donator points"};
+					case 20000:
+					case 20002:
+					case 20001:
+						return new Object[] {800, "donator points"};
+					case 6570:
+					case 6889:
+						return new Object[] {500, "donator points"};
+					case 19111:
+						return new Object[] {1000, "donator points"};
+					case 20072:
+					case 12954:
+						return new Object[] {700, "donator points"};
+					case 13744:
+						return new Object[] {1500, "donator points"};
+					case 13738:
+					case 13742:
+						return new Object[] {3000, "donator points"};
+					case 13740:
+					case 21140:
+						return new Object[] {5000, "donator points"};
+					case 11724:
+						return new Object[] {1500, "donator points"};
+					case 11726:
+						return new Object[] {1500, "donator points"};
+					case 11718:
+					case 11720:
+					case 11722:
+						return new Object[] {1200, "donator points"};
+					case 21075:
+						return new Object[] {3000, "donator points"};
+					case 20171:
+						return new Object[] {2500, "donator points"};
+					case 12926:
+					case 21144:
+						return new Object[] {3500, "donator points"};
+					case 14484:
+					case 11694:
+						return new Object[] {1500, "donator points"};
+					case 19780:
+						return new Object[] {1250, "donator points"};
+					case 21107:
+					case 21148:
+						return new Object[] {3000, "donator points"};
 				}
 			}
 			return null;
@@ -1093,10 +1094,6 @@ public class Shop extends ItemContainer {
 	private static final int SKILLCAPE_STORE_2 = 9;
 	private static final int SKILLCAPE_STORE_3 = 10;
 
-	private static final int CREDIT_STORE_1 = 12;
-	private static final int CREDIT_STORE_2 = 13;
-	private static final int CREDIT_STORE_3 = 14;
-
 	private static final int SLAYER_STORE = 15;
 	private static final int IRON_SLAYER_STORE = 33;
 
@@ -1113,8 +1110,8 @@ public class Shop extends ItemContainer {
 
 	private static final int AGILITY_TICKET_STORE = 28;
 
-	private static final int DONATOR_STORE = 42;
-	private static final int DONATOR_STORE_MISC = 43;
+	private static final int DONATOR_STORE_ARMOUR_WEAPONS = 42;
+	private static final int DONATOR_STORE_RARES = 43;
 
 
 }

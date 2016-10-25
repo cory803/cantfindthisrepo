@@ -4,24 +4,25 @@ Make sure you format them as you would want to see them publicly.
 Object 3769 for cool fire
 
 ~UPDATES~
-The wilderness not being wilderness is fixed.
-The respawn timer for corporeal beast has been fixed.
-Changed the combat attack distance formula to fix safespotting for monsters with magic/range.
-Put something in the code that may fix the issue where you login at random locations.
-The account nulling issue where you would disconnect/ex-log while safe spotting a monster has been fixed.
-The log out timer has been fixed when getting out of combat (it was 5 seconds now its 10).
-The message that was incorrect from miner magnus has been fixed (checking next time for shooting star).
-When teleporting to the rune essence mine aubury now does the correct animation/graphic and says 'off you go!' above her head.
-A npc has been added to the skill zone to teleport you to runecrafting.
+You can no longer dismiss a boss pet from the summoning icon.
+	This was causing players to loose their boss pet.
+Point shops now have the value of the item(s) formatted with commas such as 5,000.
+The store has been added.
+	Type ::store to open the store on the website to buy scrolls.
+	Talk to Donovan at edgeville bank to view his donation items.
+	Use scrolls to gain amount claimed towards donator ranks, and also points.
+		$10 = Premium Donator
+		$50 = Extreme Donator
+		$150 = Legendary Donator
+		$500 = Uber Donator
+		$1,000 = Platinum Donator
+The client login message 'No response from server' now has a correct description that does not say 'test'.
+You can now eat anchovy pizzas.
+The level 17 wilderness obelisk that was in the wrong location is now fixed.
+The dragon warhammer drop rate has been increased.
+The price on dragon warhammer has been fixed so its not crazy.
 
-Other information:
-I haven't fixed the broken fishing spot at skilling zone yet because it requires a client update.
-In the next update, you will see a major improvement on the following skills.
-	Farming
-	Hunter
-	Herblore
-
-
+	
 ~TODO~
 Vote
 Hiscores

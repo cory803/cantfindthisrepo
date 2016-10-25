@@ -33,6 +33,7 @@ import com.chaos.world.content.transportation.jewelry.GloryTeleporting;
 import com.chaos.world.content.transportation.jewelry.SkillsTeleporting;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.KnightLamp;
+import org.scripts.kotlin.content.dialog.npcs.OpenScroll;
 
 public class ItemActionPacketListener implements PacketListener {
 
@@ -89,10 +90,14 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
-			//bond
-			case 13190:
-				Bonds.handleBond(player);
+			//Scrolls
+			case 10934:
+			case 10935:
+			case 10943:
+			case 7629:
+				player.getDialog().sendDialog(new OpenScroll(player, 0, itemId));
 				break;
+
 			//slayer
 			case 4155:
 				if(player.getSlayer().getSlayerTask() != null) {

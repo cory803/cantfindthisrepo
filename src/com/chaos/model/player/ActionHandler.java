@@ -78,10 +78,6 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
-            //donor shop
-            case 4358:
-                player.getDialog().sendDialog(new DonatorShop(player));
-                break;
 
             //sheep
             case 43:
@@ -99,6 +95,11 @@ public final class ActionHandler {
                 npc.forceChat("Off you go!");
                 TeleportHandler.teleportPlayer(player, new Position(2601, 4770),
                         player.getSpellbook().getTeleportType());
+                break;
+
+            //Donovan
+            case 4252:
+                player.getDialog().sendDialog(new Donovan(player, 0));
                 break;
 
             //Miner magnus

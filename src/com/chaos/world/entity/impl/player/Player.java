@@ -468,7 +468,6 @@ public class Player extends Character {
     }
 
     public boolean logout() {
-        System.out.println("Is being attacked: "+getCombatBuilder().isBeingAttacked());
         if (getCombatBuilder().isBeingAttacked()) {
             getPacketSender().sendMessage("You must wait 10 seconds after being out of combat before doing this.");
             return false;
@@ -692,7 +691,7 @@ public class Player extends Character {
     private int overloadPotionTimer, prayerRenewalPotionTimer;
     private int fireImmunity, fireDamageModifier;
     private int amountDonated;
-    private int credits;
+    private int points;
     private int wildernessLevel;
     private int fireAmmo;
     private int specialPercentage = 100;
@@ -2194,23 +2193,23 @@ public class Player extends Character {
         amountDonated = amtdon;
     }
 
-    public int getCredits() {
-        return credits;
+    public int getPoints() {
+        return points;
     }
 
-    public void setCredits(int points, boolean add) {
+    public void setPoints(int points, boolean add) {
         if (add)
-            this.credits += points;
+            this.points += points;
         else
-            this.credits = points;
+            this.points = points;
     }
 
     public void incrementAmountDonated(int amountDonated) {
         this.amountDonated += amountDonated;
     }
 
-    public void addCredits(int cred) {
-        this.credits += cred;
+    public void setPoints(int cred) {
+        this.points += cred;
     }
 
     public long getTotalPlayTime() {

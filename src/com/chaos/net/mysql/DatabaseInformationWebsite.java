@@ -8,13 +8,13 @@ package com.chaos.net.mysql;
  */
 public class DatabaseInformationWebsite {
 
-	public static String host = "149.56.129.176";
+	public static String host = "108.167.189.63";
 
-	public static String username = "ikov";
+	public static String username = "ikov2_store";
 
-	public static String password = "";
+	public static String password = ")(Fq1)n(Q*[k";
 
-	public static String database = "ikov";
+	public static String database = "ikov2_store";
 
 	public static int port = 3306;
 

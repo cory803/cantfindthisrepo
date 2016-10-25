@@ -15,8 +15,13 @@ public class SummoningTab {
 		c.getPacketSender().sendInterfaceRemoval();
 		if (dismiss) {
 			if (c.getSummoning().getFamiliar() != null) {
-				c.getSummoning().unsummon(true, true);
-				c.getPacketSender().sendMessage("You've dismissed your familiar.");
+				BossPets.BossPet pet = BossPets.BossPet.forId(c.getSummoning().getFamiliar().getSummonNpc().getId());
+				if (pet == null) {
+					c.getSummoning().unsummon(true, true);
+					c.getPacketSender().sendMessage("You've dismissed your familiar.");
+				} else {
+					c.getPacketSender().sendMessage("You must pick up your boss pet, not dismiss!");
+				}
 			} else {
 				c.getPacketSender().sendMessage("You don't have a familiar to dismiss.");
 			}
