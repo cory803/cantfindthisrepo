@@ -101,6 +101,8 @@ public class SkillManager {
 		}
 		if (player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
 			experience *= 1.1;
+		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE) {
+			experience *= 1.3;
 		}
 
 		return experience;

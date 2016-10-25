@@ -33,6 +33,14 @@ The donator zone thieving stalls have been changed:
 A 'Barrows brother' npc has been added and has the following features
 	Talk to him to reset your current barrows kill count.
 	He will give you a spade if you ask!
+Donator zone has been added.
+	Access it via ::dzone
+	Ellis npc has been added.
+		Open his donator store.
+		Set your yell tag
+		Get him arrested!
+	You get 1.3x experience when training in the donator zone.
+	
 
 
 	
