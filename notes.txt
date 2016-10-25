@@ -46,7 +46,7 @@ You can no longer sell items to the pk point shops
 You can now enchant bolts by using the crystal ball inside edgeville bank
 The appearance bug(s) showing bandos has been fixed
 The bug where you wouldn't respawn at home has been adjusted
-
+All experience boosts will calculate correctly on top of each other.
 	
 ~TODO~
 Vote

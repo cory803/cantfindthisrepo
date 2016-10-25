@@ -1,5 +1,6 @@
 package com.chaos.world.content.skill;
 
+import com.chaos.GameSettings;
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Flag;
@@ -95,17 +96,20 @@ public class SkillManager {
 		}
 
 		if (WellOfGoodness.isActive("exp")) {
-			experience *= 1.3;
+			boost += .3;
 		}
 		if (player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
-			experience *= 1.1;
+			boost += .1;
 		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE) {
-			experience *= 1.3;
+			boost += .3;
 		}
 		if (player.getEquipment().contains(4657)) {
-			experience *= 2;
+			boost += 1;
 		}
-		return experience;
+		if (GameSettings.DOUBLE_EXP) {
+			boost += 1;
+		}
+		return experience * boost;
 	}
 
 	public SkillManager addExactExperience(Skill skill, double experience) {
