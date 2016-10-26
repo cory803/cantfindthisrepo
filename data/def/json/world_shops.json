@@ -4,6 +4,10 @@
     "name": "General Store",
     "items": [
       {
+        "id": 4155,
+        "amount": 100
+      },
+      {
         "id": 590,
         "amount": 100
       },
