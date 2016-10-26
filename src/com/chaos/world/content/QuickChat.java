@@ -24,6 +24,12 @@ public class QuickChat {
             return;
         }
         player.hasQC = false;
+        if (id == 5 || id == 3) {
+            player.forceChat("[CHAOS] My " + quickChat[id] + " level is "
+                    + player.getSkillManager().getMaxLevel(id)/10 + ".");
+            player.getQuickChat().reset();
+            return;
+        }
         player.forceChat("[CHAOS] My " + quickChat[id] + " level is "
                 + player.getSkillManager().getMaxLevel(id) + ".");
         player.getQuickChat().reset();

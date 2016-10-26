@@ -6,6 +6,9 @@ Object 3769 for cool fire
 ~UPDATES~
 The hard achievement with cooking and fishing manta ray has been adjusted
 The tree blocking a fishing spot at the low level skilling area has been removed
+You can now purchase runecrafting robes from Frumscone
+When quick chatting your prayer or consitution level it will now say the correct level
+
 
 ~TODO~
 Vote
