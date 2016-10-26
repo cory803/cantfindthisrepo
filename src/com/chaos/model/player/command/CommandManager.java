@@ -216,7 +216,7 @@ public class CommandManager {
         /**
          * Extreme Donor Commands
          */
-        commands.put("ezone", new TeleportExtremeZone(StaffRights.PLAYER));
+        commands.put("lzone", new TeleportExtremeZone(StaffRights.PLAYER));
 
         /**
          * Legendary Donor Commands

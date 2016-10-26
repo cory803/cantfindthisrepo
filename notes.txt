@@ -9,6 +9,7 @@ The tree blocking a fishing spot at the low level skilling area has been removed
 You can now purchase runecrafting robes from Frumscone
 When quick chatting your prayer or consitution level it will now say the correct level
 A slayer gem has been added to the general store
+Legendary+ can now use the ::lzone command 
 
 ~TODO~
 Vote
