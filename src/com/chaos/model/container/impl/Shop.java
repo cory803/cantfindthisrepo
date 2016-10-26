@@ -118,6 +118,9 @@ public class Shop extends ItemContainer {
 		getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
 		getPlayer().setShop(ShopManager.getShops().get(id)).setInterfaceId(INTERFACE_ID).setShopping(true);
 		refreshItems();
+		if(id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
+			getPlayer().getPacketSender().sendMessage("You currently have "+Misc.format(getPlayer().getPoints())+" donator points.");
+		}
 		if (Misc.getMinutesPlayed(getPlayer()) <= 190)
 			getPlayer().getPacketSender()
 					.sendMessage("Note: When selling an item to a store, it loses 15% of its original value.");
@@ -394,7 +397,7 @@ public class Shop extends ItemContainer {
 			if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
 			} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
-				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
+				playerCurrencyAmount = player.getPoints();
 			} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getVotingPoints();
 //			} else if (id == DUNGEONEERING_STORE) {
@@ -451,7 +454,7 @@ public class Shop extends ItemContainer {
 						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value, true);
 						} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
-							player.getPointsHandler().setPkPoints(-value, true);
+							player.setPoints(-value, true);
 						} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
@@ -485,7 +488,7 @@ public class Shop extends ItemContainer {
 						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
 							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
 						} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
-							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
+							player.setPoints(-value * canBeBought, true);
 						} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
 //						} else if (id == DUNGEONEERING_STORE) {
