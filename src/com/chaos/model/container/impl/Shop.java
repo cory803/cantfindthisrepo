@@ -178,7 +178,8 @@ public class Shop extends ItemContainer {
 					? currency.getDefinition().getName().toLowerCase()
 					: currency.getDefinition().getName().toLowerCase() + "s";
 			/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
-			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == AGILITY_TICKET_STORE) {
+			if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE || id == AGILITY_TICKET_STORE
+					|| id == ENERGY_FRAGMENT_STORE) {
 				Object[] obj = ShopManager.getCustomShopData(id, item.getId());
 				if (obj == null)
 					return;
@@ -215,7 +216,8 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
-		if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES || id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
+		if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES || id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2
+				|| id == ENERGY_FRAGMENT_STORE ) {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
 		}
@@ -384,7 +386,7 @@ public class Shop extends ItemContainer {
 			} else {
 				/** CUSTOM CURRENCY, CUSTOM SHOP VALUES **/
 				if (id == TOKKUL_EXCHANGE_STORE || id == STARDUST_EXCHANGE_STORE
-						|| id == AGILITY_TICKET_STORE) {
+						|| id == AGILITY_TICKET_STORE || id == ENERGY_FRAGMENT_STORE) {
 					value = (int) ShopManager.getCustomShopData(id, item.getId())[0];
 				}
 			}
@@ -637,7 +639,7 @@ public class Shop extends ItemContainer {
 			return true;
 		if (shopId == STARDUST_EXCHANGE_STORE|| shopId == RECIPE_FOR_DISASTER_STORE
 				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE2
-				|| shopId == AGILITY_TICKET_STORE || shopId == TOKKUL_EXCHANGE_STORE
+				|| shopId == AGILITY_TICKET_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == ENERGY_FRAGMENT_STORE
 				|| shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
@@ -1061,6 +1063,23 @@ public class Shop extends ItemContainer {
 					case 21148:
 						return new Object[] {3000, "donator points"};
 				}
+			} else if (shop == ENERGY_FRAGMENT_STORE) {
+				switch (item) {
+					case 5509:
+						return new Object[] {400, "energy fragments"};
+					case 5510:
+						return new Object[] {750, "energy fragments"};
+					case 5512:
+						return new Object[] {1000, "energy fragments"};
+					case 13613:
+						return new Object[] {800, "energy fragments"};
+					case 13619:
+						return new Object[] {1000, "energy fragments"};
+					case 13622:
+						return new Object[] {1000, "energy fragments"};
+					case 13623:
+						return new Object[] {450, "energy fragments"};
+				}
 			}
 			return null;
 		}
@@ -1110,6 +1129,8 @@ public class Shop extends ItemContainer {
 	private static final int VOTING_REWARDS_STORE = 23;
 	private static final int VOTING_REWARDS_STORE2 = 24;
 	private static final int IRON_VOTING_REWARDS_STORE = 25;
+
+	private static final int ENERGY_FRAGMENT_STORE = 27;
 
 	private static final int AGILITY_TICKET_STORE = 28;
 
