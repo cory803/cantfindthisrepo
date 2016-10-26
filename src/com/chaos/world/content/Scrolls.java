@@ -21,7 +21,7 @@ public class Scrolls {
 		 *
 		 * @Store
 		 */
-		$10_SCROLL(10943, 1000),
+		$10_SCROLL(10943, 1000, 10),
 
 		/**
 		 * $25 Scroll
@@ -29,7 +29,7 @@ public class Scrolls {
 		 *
 		 * @Store
 		 */
-		$25_SCROLL(10934, 2500),
+		$25_SCROLL(10934, 2500, 25),
 
 		/**
 		 * $50 Scroll
@@ -37,7 +37,7 @@ public class Scrolls {
 		 *
 		 * @Store
 		 */
-		$50_SCROLL(10935, 5500),
+		$50_SCROLL(10935, 5500, 50),
 
 		/**
 		 * $100 Scroll
@@ -45,15 +45,17 @@ public class Scrolls {
 		 *
 		 * @Store
 		 */
-		$100_SCROLL(7629, 12000);
+		$100_SCROLL(7629, 12000, 100);
 
-		Scroll(int itemId, int points) {
+		Scroll(int itemId, int points, int claim) {
 			this.itemId = itemId;
 			this.points = points;
+			this.claim = claim;
 		}
 
 		private int itemId;
 		private int points;
+		private int claim;
 
 		/**
 		 * Get the item ID for the donation scroll.
@@ -71,6 +73,15 @@ public class Scrolls {
 		 */
 		public int getPoints() {
 			return this.points;
+		}
+
+		/**
+		 * Get the amount of money claimed per scroll
+		 *
+		 * @return claim
+		 */
+		public int getClaim() {
+			return this.claim;
 		}
 
 		/**
@@ -135,7 +146,11 @@ public class Scrolls {
 		}
 		if (player.getInventory().contains(scroll.getId())) {
 			player.setPoints(scroll.getPoints(), true);
+			player.incrementAmountDonated(scroll.getClaim());
 			player.getInventory().delete(scroll.getId(), 1);
+			Scrolls.updateRank(player);
+			PlayerPanel.refreshPanel(player);
+			player.save();
 			player.setNpcClickId(945);
 			player.getDialog().sendDialog(new OpenScroll(player, 1, itemId));
 		} else {
