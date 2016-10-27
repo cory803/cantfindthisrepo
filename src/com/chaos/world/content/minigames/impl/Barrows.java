@@ -236,11 +236,11 @@ public class Barrows {
 					int b = randomBarrows();
 					int dragonKite = Misc.inclusiveRandom(1, 132);
 					player.getInventory().add(b, 1);
-					World.sendMessage("<icon=1><col=FF8C38> " + player.getUsername() + " has just received " + ItemDefinition.forId(b).getName() + " from Barrows!");
+					World.sendMessage("<icon=1><col=FF8C38><shad=0> " + player.getUsername() + " has just received " + ItemDefinition.forId(b).getName() + " from Barrows!");
 					player.barrowsChestRewards++;
 					if(dragonKite == 1) {
 						player.getInventory().add(11613, 1);
-						World.sendMessage("<icon=1><col=FF8C38> " + player.getUsername() + " has been rewarded a "
+						World.sendMessage("<icon=1><col=FF8C38><shad=0> " + player.getUsername() + " has been rewarded a "
 								+ ItemDefinition.forId(11613).getName() + " from Barrows!");
 						player.barrowsChestRewards++;
 					}
