@@ -10,9 +10,15 @@ public class MiningData {
 
 	public static enum Pickaxe {
 
-		Bronze(1265, 1, 6753, 1.0), Iron(1267, 1, 6754, 1.05), Steel(1269, 6, 6755, 1.1), Mithril(1273, 21, 6757,
-				1.2), Adamant(1271, 31, 6756, 1.25), Rune(1275, 41, 6752, 1.3), Dragon(15259, 61, 12188,
-						1.50), Dragon_G(20786, 61, 12190, 1.65), Adze(13661, 80, 10226, 1.60),
+		BRONZE(1265, 1, 6753, 1.0),
+		IRON(1267, 1, 6754, 1.05),
+		STEEL(1269, 6, 6755, 1.1),
+		MITHRIL(1273, 21, 6757, 1.2),
+		ADAMANT(1271, 31, 6756, 1.25),
+		RUNE(1275, 41, 6752, 1.3),
+		DRAGON(15259, 61, 12188, 1.50),
+		DRAGON_GILDED(20786, 61, 12190, 1.65),
+		ADZE(13661, 80, 10226, 1.60),
 		INFERNAL_PICKAXE(12704, 90, 10226, 1.60);
 
 		private int id, req, anim;
