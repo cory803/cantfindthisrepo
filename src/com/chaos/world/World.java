@@ -482,14 +482,14 @@ public class World {
 		if (definition == null) {
 			return;
 		}
-		if (!definition.unwalkable) {
-			if(definition.getName() != null) {
-				if(definition.getName().equalsIgnoreCase("gate")) {
-					return;
-				}
-			}
-			return;
-		}
+		//if (!definition.unwalkable) {
+		//	return;
+		//}
+		//if(definition.getName() != null) {
+			//if(definition.getName().equalsIgnoreCase("gate")) {
+			//	return;
+			//}
+		//}
 		Position position = object.getPosition();
 		int type = object.getType();
 		int z = position.getZ();
@@ -622,14 +622,9 @@ public class World {
 		if (definition == null) {
 			return;
 		}
-		if (!definition.unwalkable) {
-			if(definition.getName() != null) {
-				if(definition.getName().equalsIgnoreCase("gate")) {
-					return;
-				}
-			}
-			return;
-		}
+		//if (!definition.unwalkable) {
+			//return;
+		//}
 		int type = object.getType();
 		int z = position.getZ();
 		int x = position.getX();

@@ -102,7 +102,7 @@ public class CommandManager {
         commands.put("wiki", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendString(1, "http://wiki.chaosps.com");
+                player.getPacketSender().sendString(1, "www.chaosps.wikia.com");
                 player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/wiki/");
             }
         });
