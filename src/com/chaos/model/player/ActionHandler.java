@@ -254,7 +254,7 @@ public final class ActionHandler {
 
             //Talk to Sailor
             case 1304:
-                player.getDialog().sendDialog(new Sailor(player));
+                player.getDialog().sendDialog(new Sailor(player, 0));
                 break;
 
             //Talk to chaos guide
@@ -388,6 +388,12 @@ public final class ActionHandler {
             case 3789:
                 player.getVoidShop();
                 break;
+
+            //Travel with Sailor
+            case 1304:
+                player.getDialog().sendDialog(new Sailor(player, 1));
+                break;
+
             //Ellis donator shop
             case 595:
                 Shop.ShopManager.getShops().get(45).open(player);

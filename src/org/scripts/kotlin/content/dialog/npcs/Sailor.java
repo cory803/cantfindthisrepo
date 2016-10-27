@@ -15,8 +15,9 @@ public class Sailor extends Dialog {
 
     public Dialog dialog = this;
 
-    public Sailor(Player player) {
+    public Sailor(Player player, int state) {
         super(player);
+        setState(state);
         setEndState(1);
     }
 

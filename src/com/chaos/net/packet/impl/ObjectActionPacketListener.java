@@ -1933,6 +1933,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                         .sendTabInterface(GameSettings.MAGIC_TAB, player.getSpellbook().getInterfaceId())
                                         .sendMessage("You feel a sense of energy as your spellbook changes.");
                                 Autocasting.resetAutocast(player, true);
+                                Achievements.finishAchievement(player, Achievements.AchievementData.SWITCH_SPELLBOOK);
                                 break;
                             case 410:
                                 if (player.getSkillManager().getMaxLevel(Skill.DEFENCE) < 40) {
@@ -1948,6 +1949,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                         .sendMessage("Your magic spellbook is changed..");
                                 ;
                                 Autocasting.resetAutocast(player, true);
+                                Achievements.finishAchievement(player, Achievements.AchievementData.SWITCH_SPELLBOOK);
                                 break;
                             case 2878:
                                 player.moveTo(new Position(2509, 4689));

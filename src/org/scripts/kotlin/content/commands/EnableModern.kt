@@ -5,6 +5,7 @@ import com.chaos.model.Locations
 import com.chaos.model.MagicSpellbook
 import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
+import com.chaos.world.content.Achievements
 import com.chaos.world.content.combat.magic.Autocasting
 import com.chaos.world.entity.impl.player.Player
 
@@ -25,5 +26,6 @@ class EnableModern(staffRights: StaffRights) : Command(staffRights) {
         player.spellbook = MagicSpellbook.NORMAL
         player.packetSender.sendTabInterface(GameSettings.MAGIC_TAB, player.spellbook.interfaceId).sendMessage("Your magic spellbook is changed to moderns..")
         Autocasting.resetAutocast(player, true)
+        Achievements.finishAchievement(player, Achievements.AchievementData.SWITCH_SPELLBOOK)
     }
 }
