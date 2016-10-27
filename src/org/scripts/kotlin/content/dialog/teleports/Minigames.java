@@ -65,7 +65,7 @@ public class Minigames extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_2:
-                                TeleportHandler.teleportPlayer(player, new Position(2480, 5166, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2445, 5170, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_2_OF_2:
                                 TeleportHandler.teleportPlayer(player, new Position(2399, 5177, 0), player.getSpellbook().getTeleportType());
