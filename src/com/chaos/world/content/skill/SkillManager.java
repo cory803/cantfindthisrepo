@@ -143,8 +143,14 @@ public class SkillManager {
 		 */
 		this.skills.experience[skill.ordinal()] = this.skills.experience[skill.ordinal()] + (int) experience > MAX_EXPERIENCE
 				? MAX_EXPERIENCE : this.skills.experience[skill.ordinal()] + (int) experience;
-		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE) {
-			Achievements.finishAchievement(player, AchievementData.REACH_MAX_EXP_IN_A_SKILL);
+		if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM || player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+			if(this.skills.experience[skill.ordinal()] >= EXPERIENCE_FOR_99) {
+				Achievements.finishAchievement(player, AchievementData.REACH_MAX_EXP_IN_A_SKILL);
+			}
+		} else {
+			if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE) {
+				Achievements.finishAchievement(player, AchievementData.REACH_MAX_EXP_IN_A_SKILL);
+			}
 		}
 		/*
 		 * The skill's level after adding the experience.
