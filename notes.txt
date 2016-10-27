@@ -4,18 +4,6 @@ Make sure you format them as you would want to see them publicly.
 Object 3769 for cool fire
 
 ~UPDATES~
-The hard achievement with cooking and fishing manta ray has been adjusted
-The tree blocking a fishing spot at the low level skilling area has been removed
-You can now purchase runecrafting robes from Frumscone
-When quick chatting your prayer or consitution level it will now say the correct level
-A slayer gem has been added to the general store
-Legendary+ can now use the ::lzone command
-Master Farmer has been added to the Low Skilling Area (Farming Supplies + Seeds)
-Every new player will instantly join the Chaos clan chat upon login
-A bug where you could abuse summoning xp and creating pouches has been patched
-
-Iron Man can now exchange energy fragments
-Iron Man can use the agility store
 
 ~TODO~
 Vote
