@@ -215,8 +215,6 @@ public class Item {
 			return false;
 		if (name.contains("overload") || name.contains("extreme") || name.contains("renewal"))
 			return false;
-		if (name.contains("infernal"))
-			return false;
 		if (name.toLowerCase().contains("brawling") || name.toLowerCase().contains("(deg)"))
 			return false;
 		//if (name.toLowerCase().contains("chaotic") || name.toLowerCase().contains("eagle-eye")
@@ -242,8 +240,6 @@ public class Item {
 		if (name.contains("clue scroll"))
 			return false;
 		if (name.contains("overload") || name.contains("extreme") || name.contains("renewal"))
-			return false;
-		if (name.contains("infernal"))
 			return false;
 		if (name.toLowerCase().contains("brawling") || name.toLowerCase().contains("(deg)"))
 			return false;
