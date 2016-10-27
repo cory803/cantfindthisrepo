@@ -253,6 +253,9 @@ public class Player extends Character {
                 return 5;
             }
         }
+        if(weaponId == 4734) {
+            speed = 4;
+        }
         if (weaponId == 1419) {
             speed -= 2;
         }
