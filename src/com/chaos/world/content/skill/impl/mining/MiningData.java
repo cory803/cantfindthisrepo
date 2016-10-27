@@ -65,7 +65,7 @@ public class MiningData {
 		ADAMANTITE(new int[] { 14862, 11941, 11939, 29233, 29235 }, 70, 95, 449, 7, 14),
 		RUNITE(new int[] { 14859, 14860, 4860, 2106, 2107 }, 85, 125, 451, 7, 45),
 		RESOURCE_IRON(new int[] { 7455 }, 15, 65, 441, 5, 5),
-		RESOURCE_COAL(new int[] { 7489, 4389 }, 30, 10, 454, 5, 7), //obj id is 2097 as anvil, for some reason was mining coal
+		RESOURCE_COAL(new int[] { 7489, 4389 }, 30, 70, 454, 5, 7), //obj id is 2097 as anvil, for some reason was mining coal
 		RESOURCE_GOLD(new int[] { 7491 }, 40, 77, 445, 5, 10),
 		RESOURCE_MITHRIL(new int[] { 7459 }, 55, 95, 448, 6, 16),
 		RESOURCE_ADAMANTITE(new int[] { 7493 }, 70, 125, 450, 7, 18);
