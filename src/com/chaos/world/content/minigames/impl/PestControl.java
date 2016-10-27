@@ -253,6 +253,23 @@ public class PestControl {
 				leave(p, false);
 				if (won && p.getMinigameAttributes().getPestControlAttributes().getDamageDealt() >= 50) {
 					int point_amount = 15;
+					switch(p.getDonatorRights()) {
+						case PREMIUM:
+							point_amount += 2;
+							break;
+						case EXTREME:
+							point_amount += 5;
+							break;
+						case LEGENDARY:
+							point_amount += 8;
+							break;
+						case UBER:
+							point_amount += 10;
+							break;
+						case PLATINUM:
+							point_amount += 15;
+							break;
+					}
 					p.getPacketSender()
 							.sendMessage("The portals were successfully closed. You've been rewarded for your effort.");
 					p.getPacketSender().sendMessage("You've received " + point_amount + " Commendations and "
