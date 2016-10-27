@@ -103,7 +103,7 @@ public class Shop extends ItemContainer {
 		if (player.getGameModeAssistant().isIronMan()) {
 			if (id != IRON_SLAYER_STORE && id != IRON_VOTING_REWARDS_STORE
 					&& id != SKILLCAPE_STORE_1 && id != SKILLCAPE_STORE_2 && id != SKILLCAPE_STORE_3
-					&& id != 11 && id != 18 && id != 30 && id != 38 && id != 39 && id != 35 && id != 34 && id != 40 && id != GENERAL_STORE) {
+					&& id != 11 && id != 18 && id != 27 && id != 30 && id != 38 && id != 39 && id != 35 && id != 34 && id != 40 && id != GENERAL_STORE) {
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("You're unable to access this shop because you're an iron man.");
 				return this;
