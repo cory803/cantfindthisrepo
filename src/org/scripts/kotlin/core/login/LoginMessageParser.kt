@@ -19,6 +19,10 @@ class LoginMessageParser {
                 player.getPacketSender().sendMessage(
                         "@bla@Welcome to Chaos! We're currently in Normal EXP mode! (@red@X1.0@bla@)")
             }
+            if (player.isInvisible) {
+                player.getPacketSender().sendMessage(
+                        "@red@You are currently invisible...")
+            }
             /*
             val days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin())
             if (player.getLastIpAddress() != null && player.showIpAddress()) {

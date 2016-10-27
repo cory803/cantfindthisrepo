@@ -28,6 +28,7 @@ public class StartTutorial extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
+                ClanChatManager.join(getPlayer(), "chaos");
                 return Dialog.createNpc(DialogHandler.CALM, "Hello, Welcome to Chaos!\\nWhat Game Mode would you like?");
             case 1:
                 return Dialog.createOption(new FourOption(
@@ -180,7 +181,6 @@ public class StartTutorial extends Dialog {
                 getPlayer().moveTo(new Position(3093, 3502, 0));
                 return Dialog.createNpc(DialogHandler.HAPPY, "This is where the basic shops are located you can explore the rest of Chaos by playing!");
             case 9:
-                ClanChatManager.join(getPlayer(), "chaos");
                 getPlayer().setNewPlayer(false);
                 getPlayer().setPlayerLocked(false);
                 return Dialog.createNpc(DialogHandler.HAPPY, "Have fun playing Chaos! If you need more help you can find me in Lumbridge.");

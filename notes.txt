@@ -11,9 +11,10 @@ When quick chatting your prayer or consitution level it will now say the correct
 A slayer gem has been added to the general store
 Legendary+ can now use the ::lzone command
 Master Farmer has been added to the Low Skilling Area (Farming Supplies + Seeds)
+Every new player will instantly join the Chaos clan chat upon login
 
 Iron Man can now exchange energy fragments
-
+Iron Man can use the agility store
 
 ~TODO~
 Vote
