@@ -81,6 +81,9 @@ public class PouchMaking {
 			public void execute() {
 				int x = amount;
 				while (x > 0) {
+					if (player.getInventory().isFull()) {
+						break;
+					}
 					if (!hasRequirements(player, pouch))
 						break;
 					else {

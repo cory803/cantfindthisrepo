@@ -12,6 +12,7 @@ A slayer gem has been added to the general store
 Legendary+ can now use the ::lzone command
 Master Farmer has been added to the Low Skilling Area (Farming Supplies + Seeds)
 Every new player will instantly join the Chaos clan chat upon login
+A bug where you could abuse summoning xp and creating pouches has been patched
 
 Iron Man can now exchange energy fragments
 Iron Man can use the agility store
