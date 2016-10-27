@@ -2325,6 +2325,98 @@
         "z": 0
       }
     }
+  },
+    {
+	# two sets of double 1/2
+    "openState": {
+      "id": 1520,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2538,
+        "y": 3092,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2539,
+        "y": 3092,
+        "z": 0
+      }
+    }
+  },
+    {
+	# Double set of doors 2/2
+    "openState": {
+      "id": 1517,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2538,
+        "y": 3091,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2539,
+        "y": 3091,
+        "z": 0
+      }
+    }
+  },
+    {
+	# Double set of doors 1/2
+    "openState": {
+      "id": 1517,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2533,
+        "y": 3092,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1516,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2532,
+        "y": 3092,
+        "z": 0
+      }
+    }
+  },
+    {
+	# Double door set 2/2
+    "openState": {
+      "id": 1520,
+      "direction": 3,
+      "position": {
+        "hashed": true,
+        "x": 2533,
+        "y": 3091,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1519,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2532,
+        "y": 3091,
+        "z": 0
+      }
+    }
   }
   
   
