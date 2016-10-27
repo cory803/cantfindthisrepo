@@ -22,9 +22,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
- * @author relex lawl
+ * Handles Chaos Shooting Stars
+ * @author relex, Jonny
  */
+
 public final class ShootingStar extends GameObject implements HourlyDiversion, Diversion {
 
 	public ShootingStar(int id, int direction, int type, Position position) {
