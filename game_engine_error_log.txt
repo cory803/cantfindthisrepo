@@ -5962,3 +5962,81 @@ NullPointerException  at com.chaos.world.content.PlayerPanel.refreshPanel(Player
   at java.lang.Thread.run(Thread.java:745)
 
 ================================
+Date: Thu Oct 27 16:31:15 PDT 2016
+NullPointerException  at com.chaos.world.content.HalloweenEvent.spawnPumpkins(HalloweenEvent.java:97)
+  at com.chaos.world.World.sequence(World.java:363)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:47)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Thu Oct 27 16:31:30 PDT 2016
+NullPointerException  at com.chaos.world.content.HalloweenEvent.spawnPumpkins(HalloweenEvent.java:97)
+  at com.chaos.world.World.sequence(World.java:363)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:47)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Thu Oct 27 16:33:38 PDT 2016
+NullPointerException  at com.chaos.world.content.HalloweenEvent.spawnPumpkins(HalloweenEvent.java:97)
+  at com.chaos.world.World.sequence(World.java:363)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:47)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Thu Oct 27 16:34:03 PDT 2016
+NullPointerException  at com.chaos.world.content.HalloweenEvent.spawnPumpkins(HalloweenEvent.java:97)
+  at com.chaos.world.World.sequence(World.java:363)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:47)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Thu Oct 27 16:34:52 PDT 2016
+NullPointerException  at com.chaos.world.content.HalloweenEvent.spawnPumpkins(HalloweenEvent.java:97)
+  at com.chaos.world.World.sequence(World.java:363)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:47)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Thu Oct 27 16:34:53 PDT 2016
+NullPointerException  at com.chaos.world.content.HalloweenEvent.spawnPumpkins(HalloweenEvent.java:97)
+  at com.chaos.world.World.sequence(World.java:363)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:47)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================

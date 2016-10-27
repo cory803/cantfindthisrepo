@@ -138296,5 +138296,27 @@
 "defenceMelee": 100,
 "defenceRange": 100,
 "defenceMage": 100
+},
+{
+"id": 12378,
+"name": "Pumpkin Pete",
+"examine": "Hmm... I wonder how he got here?",
+"combat": 0,
+"size": 1,
+"attackable": false,
+"aggressive": false,
+"retreats": false,
+"poisonous": false,
+"respawn": 10,
+"maxHit": 0,
+"hitpoints": 0,
+"attackSpeed": 0,
+"attackAnim": 0,
+"defenceAnim": 0,
+"deathAnim": 0,
+"attackBonus": 0,
+"defenceMelee": 0,
+"defenceRange": 0,
+"defenceMage": 0
 }
 ]

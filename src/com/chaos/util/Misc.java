@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
+import com.chaos.world.entity.impl.CharacterList;
 import org.jboss.netty.buffer.ChannelBuffer;
 
 import com.chaos.model.Item;
@@ -140,7 +141,7 @@ public class Misc {
 		return c;
 	}
 
-	public static Player getCloseRandomPlayer(List<Player> plrs) {
+	public static Player getCloseRandomPlayer(CharacterList<Player> plrs) {
 		int index = Misc.getRandom(plrs.size() - 1);
 		if (index > 0)
 			return plrs.get(index);

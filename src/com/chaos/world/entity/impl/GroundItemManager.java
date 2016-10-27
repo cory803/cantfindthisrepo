@@ -97,7 +97,7 @@ public class GroundItemManager {
 
 	/**
 	 * This method spawns a grounditem for a player.
-	 * 
+	 *
 	 * @param p
 	 *            The owner of the grounditem
 	 * @param g
@@ -118,6 +118,36 @@ public class GroundItemManager {
 		}
 		if (ItemDefinition.forId(item.getId()).isStackable()) {
 			GroundItem it = getGroundItem(p, item, g.getPosition());
+			if (it != null) {
+				it.getItem().setAmount(it.getItem().getAmount() + g.getItem().getAmount() > Integer.MAX_VALUE
+						? Integer.MAX_VALUE : it.getItem().getAmount() + g.getItem().getAmount());
+				if (it.getItem().getAmount() <= 0)
+					remove(it, true);
+				else
+					it.setRefreshNeeded(true);
+				return;
+			}
+		}
+		g.setGlobalStatus(true);
+		g.setGoGlobal(true);
+		add(g, true);
+	}
+
+	/**
+	 * This method spawns a grounditem for the world.
+	 * 
+	 * @param p
+	 *            The owner of the grounditem
+	 * @param g
+	 *            The grounditem to spawn
+	 */
+	public static void spawnWorldItem(GroundItem g) {
+		final Item item = g.getItem();
+		if (item.getId() > ItemDefinition.getMaxAmountOfItems() || item.getId() <= 0) {
+			return;
+		}
+		if (ItemDefinition.forId(item.getId()).isStackable()) {
+			GroundItem it = getGroundItem(null, item, g.getPosition());
 			if (it != null) {
 				it.getItem().setAmount(it.getItem().getAmount() + g.getItem().getAmount() > Integer.MAX_VALUE
 						? Integer.MAX_VALUE : it.getItem().getAmount() + g.getItem().getAmount());

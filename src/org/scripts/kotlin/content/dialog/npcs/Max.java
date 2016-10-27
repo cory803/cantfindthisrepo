@@ -27,7 +27,7 @@ public class Max extends Dialog {
                 return Dialog.createOption(new FourOption(
                         "I'd like to buy a Max Cape",
                         "I'd like to buy a Completionist Cape",
-                        "I'd like to buy a Veteran Cape & Veteran Rank",
+                        "I'd like to buy a Veteran Cape",
                         "Cancel") {
                     @Override
                     public void execute(Player player, OptionType option) {

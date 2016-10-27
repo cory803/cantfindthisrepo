@@ -9,6 +9,7 @@ import java.util.concurrent.Phaser;
 import java.util.logging.Level;
 
 import com.chaos.model.*;
+import com.chaos.world.content.HalloweenEvent;
 import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.GameServer;
@@ -359,6 +360,7 @@ public class World {
 		FightPit.sequence();
 		PestControl.sequence();
 		HourlyDiversionManager.pulse();
+		HalloweenEvent.spawnPumpkins();
 		// EvilTrees.sequence();
 		long player_start = System.currentTimeMillis();
 		long minigameCycle = player_start - minigame_start;

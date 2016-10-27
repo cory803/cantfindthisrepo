@@ -89,6 +89,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Merchant(player));
                 break;
 
+            //pumpkin pete
+            case 12378:
+                player.getDialog().sendDialog(new PumpkinPete(player));
+                break;
+
             //Runecrafting npc
             case 249:
                 npc.performAnimation(CombatSpells.CONFUSE.getSpell().castAnimation().get());
@@ -100,6 +105,11 @@ public final class ActionHandler {
             //Donovan
             case 4252:
                 player.getDialog().sendDialog(new Donovan(player, 0));
+                break;
+
+            //Max npc
+            case 2579:
+                player.getDialog().sendDialog(new Max(player));
                 break;
 
             //Ellis donator zone
