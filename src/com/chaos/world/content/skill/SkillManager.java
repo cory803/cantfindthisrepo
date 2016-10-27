@@ -268,14 +268,7 @@ public class SkillManager {
 					.sendMessage("You must have reached the maximum level in a skill to prestige in it.");
 			return this;
 		}
-		if (prestige) {
-			int pts = getPrestigePoints(player, skill);
-			player.getPointsHandler().setPrestigePoints(pts, true);
-			player.getPacketSender().sendMessage("You've received " + pts + " Prestige points!");
-			player.getPointsHandler().refreshPanel();
-		} else {
-			player.getInventory().delete(13663, 1);
-		}
+		player.getInventory().delete(13663, 1);
 		setCurrentLevel(skill, skill == Skill.PRAYER ? 10 : skill == Skill.CONSTITUTION ? 100 : 1)
 				.setMaxLevel(skill, skill == Skill.PRAYER ? 10 : skill == Skill.CONSTITUTION ? 100 : 1)
 				.setExperience(skill, SkillManager.getExperienceForLevel(skill == Skill.CONSTITUTION ? 10 : 1));

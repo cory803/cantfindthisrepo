@@ -33,9 +33,6 @@ public class ExperienceLamps {
 					case "reset":
 						player.getSkillManager().resetSkill(skill, false);
 						break;
-					case "prestige":
-						player.getSkillManager().resetSkill(skill, true);
-						break;
 					case "xp":
 						LampData lamp = (LampData) player.getUsableObject()[2];
 						if (!player.getInventory().contains(lamp.getItemId()))
