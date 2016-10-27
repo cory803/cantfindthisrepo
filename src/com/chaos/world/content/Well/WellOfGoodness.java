@@ -23,7 +23,7 @@ public class WellOfGoodness {
 
     private static final int LEAST_DONATE_AMOUNT_ACCEPTED = 10000; // 1m
 
-    private static final int[] AMOUNT_NEEDED = { 1800000, 2500000, 1200000 };
+    private static final int[] AMOUNT_NEEDED = { 7500000, 7500000, 7500000 };
     private static int[] BONUSES_DURATION = { 120, 120, 120 }; // number in minutes
 
     private static CopyOnWriteArrayList<Player> DONATORS = new CopyOnWriteArrayList<Player>();
