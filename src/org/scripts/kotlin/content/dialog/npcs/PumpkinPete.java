@@ -69,10 +69,15 @@ public class PumpkinPete extends Dialog {
                         getPlayer().getInventory().add(randomItem, 1);
                         return Dialog.createNpc(DialogHandler.CALM, "Trick or treat, smell my feet!\\nEnjoy " + ItemDefinition.forId(randomItem).getName() + ".");
                     } else {
-                        int amount = Misc.inclusiveRandom(200_000, 300_000);
+                        int amount = Misc.inclusiveRandom(100_000, 200_000);
                         getPlayer().getInventory().delete(1959, 1);
-                        getPlayer().getInventory().add(995, amount);
+                        if (getPlayer().getGameModeAssistant().isIronMan()) {
+                            int id = getPlayer().casketRewards();
+                            return Dialog.createNpc(DialogHandler.CALM, "Trick or treat, smell my feet!\\nEnjoy " + ItemDefinition.forId(id).getName() + ".");
+                        } else {
+                            getPlayer().getInventory().add(995, amount);
                         return Dialog.createNpc(DialogHandler.CALM, "Trick or treat, smell my feet!\\nEnjoy " + Misc.format(amount) + " coins.");
+                        }
                     }
                 }
             }

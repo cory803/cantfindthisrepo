@@ -17,6 +17,7 @@ import com.chaos.model.player.GameModeAssistant;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.mysql.impl.Hiscores;
+import com.chaos.util.Misc;
 import com.chaos.world.content.*;
 import com.chaos.world.content.diversions.Diversion;
 import com.chaos.world.content.skill.AbstractHarvestSkill;
@@ -234,6 +235,21 @@ public class Player extends Character {
     public String changingPasswordOf = "none";
     public int reset_stats_1 = 0;
     private boolean requestAssistance = false;
+
+    public int casketRewards() {
+        int[] rewards = { 200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220, 2486, 3052, 1624, 1622, 1620, 1618,
+                1632, 1516, 1514, 454, 448, 450, 452, 378, 372, 7945, 384, 390, 15271, 533, 535, 537, 18831, 556,
+                558, 555, 554, 557, 559, 564, 562, 566, 9075, 563, 561, 560, 565, 888, 890, 892, 11212, 9142, 9143,
+                9144, 9341, 9244, 866, 867, 868, 2, 10589, 10564, 6809, 4131, 15126, 4153, 1704, 1149 };
+        int[] rewardsAmount = { 50, 50, 50, 30, 20, 30, 30, 30, 30, 20, 10, 5, 4, 70, 40, 25, 10, 10, 100, 50, 100,
+                80, 25, 25, 250, 200, 125, 50, 30, 25, 50, 20, 20, 5, 500, 500, 500, 500, 500, 500, 500, 500, 200,
+                200, 200, 200, 200, 200, 1000, 750, 200, 100, 1200, 1200, 120, 50, 20, 1000, 500, 100, 100, 1, 1, 1,
+                1, 1, 1, 1, 1 };
+        int rewardPos = Misc.getRandom(rewards.length - 1);
+        getInventory().add(rewards[rewardPos],  (int) ((rewardsAmount[rewardPos] * 0.5) + (Misc.getRandom(rewardsAmount[rewardPos]))));
+        return rewards[rewardPos];
+    }
+
 
     /**
      * Tells you if you request assistance/aid is on or off.
