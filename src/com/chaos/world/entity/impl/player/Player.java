@@ -357,6 +357,21 @@ public class Player extends Character {
         this.magicMaxHit = newMax;
     }
 
+    public boolean hasItem(int id) {
+        for (Bank bank : player.getBanks()) {
+            if (bank.contains(id)) {
+                return true;
+            }
+        }
+        if (player.getInventory().contains(id)) {
+            return true;
+        }
+        if (player.getSummoning().getBeastOfBurden().contains(id)) {
+            return true;
+        }
+        return false;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Player)) {

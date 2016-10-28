@@ -98,7 +98,7 @@ public class HalloweenEvent {
 				return;
 			}
 			for(int i = 0; i < position.length; i++) {
-				GroundItemManager.spawnWorldItem(new GroundItem(new Item(1959, 1), position[i], "world", "0", false, 80, position[i].getZ() >= 0 && position[i].getZ() < 4 ? true : false, 80, Misc.random(0, Integer.MAX_VALUE)));
+				GroundItemManager.spawnWorldItem(new GroundItem(new Item(1959, 1), position[i], "world", "0", false, 160, position[i].getZ() >= 0 && position[i].getZ() < 4 ? true : false, 80, Misc.random(0, Integer.MAX_VALUE)));
 			}
 		}
 		lastSpawn++;

@@ -24,7 +24,7 @@ class LoginMessageParser {
                         "@red@You are currently invisible...")
             }
             player.getPacketSender().sendMessage(
-                    "<icon=0><col=EE6800>Type ::thread-275 to view the halloween event!")
+                    "<icon=0><col=EE6800><shad=0>Type ::thread-275 to view the halloween event!")
             /*
             val days = TimeUnit.MILLISECONDS.toDays(System.currentTimeMillis() - player.getLastLogin())
             if (player.getLastIpAddress() != null && player.showIpAddress()) {

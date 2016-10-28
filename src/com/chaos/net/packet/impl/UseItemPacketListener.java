@@ -42,6 +42,7 @@ import org.scripts.kotlin.content.dialog.TentacleCombination;
 import org.scripts.kotlin.content.dialog.npcs.Bob2;
 import org.scripts.kotlin.content.dialog.npcs.Bob3;
 import org.scripts.kotlin.content.dialog.npcs.Merchant;
+import org.scripts.kotlin.content.dialog.npcs.PumpkinPete;
 
 /**
  * This packet listener is called when a player 'uses' an item on another
@@ -660,6 +661,12 @@ public class UseItemPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
+			case 12378:
+				if(item_id == 1959) {
+				player.setNpcClickId(12378);
+					player.getDialog().sendDialog(new PumpkinPete(player, 4));
+				}
+				break;
 			case 519:
 //				for (Degrading.barrowsArmour barrowID: Degrading.barrowsArmour.values()) {
 //					if (player.getInventory().contains(barrowID.getDegradeID())) {

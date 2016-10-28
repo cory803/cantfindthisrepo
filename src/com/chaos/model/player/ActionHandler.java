@@ -91,7 +91,7 @@ public final class ActionHandler {
 
             //pumpkin pete
             case 12378:
-                player.getDialog().sendDialog(new PumpkinPete(player));
+                player.getDialog().sendDialog(new PumpkinPete(player, 0));
                 break;
 
             //Runecrafting npc
