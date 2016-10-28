@@ -6,6 +6,7 @@ import com.chaos.model.Position;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.PosSearchShop;
+import com.chaos.net.packet.impl.UseItemPacketListener;
 import com.chaos.world.content.Artifacts;
 import com.chaos.world.content.BankPin;
 import com.chaos.world.content.EnergyHandler;
@@ -87,6 +88,11 @@ public final class ActionHandler {
             //mercant
             case 1282:
                 player.getDialog().sendDialog(new Merchant(player));
+                break;
+
+            //tool leprichaun
+            case 3021:
+                player.getDialog().sendDialog(new ToolLeprechaun(player, 0));
                 break;
 
             //pumpkin pete
@@ -416,6 +422,23 @@ public final class ActionHandler {
             case 6970:
                 player.getDialog().sendDialog(new Pikkupstix(player, 1));
                 break;
+
+            //tool leprichaun
+            case 3021:
+                for (Item item : player.getInventory().getItems()) {
+                    Item noted = UseItemPacketListener.getNotedHarvest(player, item);
+                    if(noted == null) {
+
+                    } else {
+                        int amount = player.getInventory().getAmount(item.getId());
+                        player.getInventory().delete(new Item(item.getId(), amount));
+                        player.getInventory().add(new Item(noted.getId(), amount));
+                    }
+                }
+                player.getPacketSender().sendMessage("You exchange your harvested crops for their noted form.");
+                player.getDialog().sendDialog(new ToolLeprechaun(player, 2));
+                break;
+
             //Aubury
             case 553:
                 Shop.ShopManager.getShops().get(29).open(player);
@@ -619,6 +642,12 @@ public final class ActionHandler {
             // THIRD_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+
+            //tool leprichaun
+            case 3021:
+                player.getDialog().sendDialog(new ToolLeprechaun(player, 3));
+                break;
+
             //Slayer masters
             case 401:
             case 402:

@@ -25,6 +25,10 @@ import com.chaos.world.content.skill.impl.cooking.CookingWildernessData;
 import com.chaos.world.content.skill.impl.crafting.Gems;
 import com.chaos.world.content.skill.impl.crafting.LeatherMaking;
 import com.chaos.world.content.skill.impl.farming.Farming;
+import com.chaos.world.content.skill.impl.farming.seed.AllotmentSeedType;
+import com.chaos.world.content.skill.impl.farming.seed.HerbSeedType;
+import com.chaos.world.content.skill.impl.farming.seed.MushroomSeedType;
+import com.chaos.world.content.skill.impl.farming.seed.SeedType;
 import com.chaos.world.content.skill.impl.firemaking.Firemaking;
 import com.chaos.world.content.skill.impl.fletching.Fletching;
 import com.chaos.world.content.skill.impl.herblore.Herblore;
@@ -40,10 +44,7 @@ import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
 import org.scripts.kotlin.content.dialog.GoldenMiningArmour;
 import org.scripts.kotlin.content.dialog.TentacleCombination;
-import org.scripts.kotlin.content.dialog.npcs.Bob2;
-import org.scripts.kotlin.content.dialog.npcs.Bob3;
-import org.scripts.kotlin.content.dialog.npcs.Merchant;
-import org.scripts.kotlin.content.dialog.npcs.PumpkinPete;
+import org.scripts.kotlin.content.dialog.npcs.*;
 
 /**
  * This packet listener is called when a player 'uses' an item on another
@@ -632,6 +633,48 @@ public class UseItemPacketListener implements PacketListener {
 				}));
 	}
 
+	public static boolean useSeed(Player player, Item item, int slot) {
+		Item noted = getNotedHarvest(player, item);
+		if (noted == null) {
+			player.getPacketSender().sendMessage("You cannot note " + item.getDefinition().getName() + ".");
+			return true;
+		} else {
+			int amount = player.getInventory().getAmount(item.getId());
+			player.getInventory().delete(new Item(item.getId(), amount));
+			player.getInventory().add(new Item(noted.getId(), amount));
+			player.getDialog().sendDialog(new ToolLeprechaun(player, 2));
+			player.getPacketSender().sendMessage("You exchange your harvested crops for their noted form.");
+		}
+		return false;
+	}
+
+	public static Item getNotedHarvest(Player player, Item harvest) {
+		ItemDefinition def = ItemDefinition.forId(harvest.getId() + 1);
+		final int notedId = harvest.getId() + 1;
+		if(!def.isNoted()) {
+			return null;
+		}
+		if(!def.getName().equalsIgnoreCase(harvest.getDefinition().getName())) {
+			return null;
+		}
+		if (notedId <= 0)
+			return null;
+		for (SeedType seedType : AllotmentSeedType.values()) {
+			if (harvest.getId() == seedType.getRewards()[0].getId()) {
+				return new Item(notedId);
+			}
+		}
+		for (SeedType seedType : HerbSeedType.values()) {
+			if (harvest.getId() == seedType.getRewards()[0].getId()) {
+				return new Item(notedId);
+			}
+		}
+		if (harvest.getId() == MushroomSeedType.BITTERCAP.getRewards()[0].getId()) {
+			return new Item(notedId);
+		}
+		return null;
+	}
+
 	private static void itemOnNpc(final Player player, Packet packet) {
 		int item_id = packet.readShortA();
 		int npc_id = packet.readLEShort();
@@ -666,6 +709,9 @@ public class UseItemPacketListener implements PacketListener {
 				player.setNpcClickId(12378);
 					player.getDialog().sendDialog(new PumpkinPete(player, 4));
 				}
+				break;
+			case 3021: //tool leprechaun
+				useSeed(player, new Item(item_id, itemAmount), inventory_slot);
 				break;
 			case 519:
 //				for (Degrading.barrowsArmour barrowID: Degrading.barrowsArmour.values()) {
