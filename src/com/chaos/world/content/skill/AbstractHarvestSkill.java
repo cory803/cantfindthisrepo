@@ -102,7 +102,7 @@ public abstract class AbstractHarvestSkill extends AbstractSkill {
 			getPlayer().performAnimation(animation);
 		}
 		
-		TaskManager.submit(new Task(1, getPlayer(), false) {
+		TaskManager.submit(new Task(2, getPlayer(), false) {
 			Item reward = getReward();
 			boolean start_task = true;
 			int animation_ticks = getAnimationTicks();
@@ -110,7 +110,6 @@ public abstract class AbstractHarvestSkill extends AbstractSkill {
 			int harvest = getHarvestAmount();
 			@Override
 			public void execute() {
-				System.out.println("Stop harvest!");
 				if (!canContinueHarvest() 
 						|| getPlayer().getCombatBuilder().isBeingAttacked()
 						|| !getPlayer().isBusy()[getSkill().ordinal()]

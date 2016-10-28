@@ -13,7 +13,7 @@
     "seedTypeName": "RANARR",
     "seedClass": "HERBS",
     "growthState": "GROWING",
-    "stage": 1,
+    "stage": 4,
     "weedStage": 3,
     "attributes": 0,
     "timePlanted": 1477683702267,
@@ -44,11 +44,11 @@
     "seedTypeName": "POTATO",
     "seedClass": "ALLOTMENT",
     "growthState": "GROWING",
-    "stage": 3,
+    "stage": 4,
     "weedStage": 3,
     "attributes": 0,
     "timePlanted": 1477683665067,
-    "diseaseImmunity": 94,
+    "diseaseImmunity": 90,
     "harvestedItem": {
       "id": 1942,
       "amount": 0,
@@ -63,6 +63,15 @@
   },
   "FALADOR_SOUTH_EAST_ALLOTMENT": {
     "patchType": "FALADOR_SOUTH_EAST_ALLOTMENT",
+    "stage": 0,
+    "weedStage": 3,
+    "attributes": 0,
+    "timePlanted": 0,
+    "diseaseImmunity": 10,
+    "wateredTimer": 0
+  },
+  "FALADOR_NORTH_WEST_ALLOTMENT": {
+    "patchType": "FALADOR_NORTH_WEST_ALLOTMENT",
     "stage": 0,
     "weedStage": 1,
     "attributes": 0,
