@@ -24,6 +24,7 @@ import com.chaos.world.content.skill.impl.cooking.CookingWilderness;
 import com.chaos.world.content.skill.impl.cooking.CookingWildernessData;
 import com.chaos.world.content.skill.impl.crafting.Gems;
 import com.chaos.world.content.skill.impl.crafting.LeatherMaking;
+import com.chaos.world.content.skill.impl.farming.Farming;
 import com.chaos.world.content.skill.impl.firemaking.Firemaking;
 import com.chaos.world.content.skill.impl.fletching.Fletching;
 import com.chaos.world.content.skill.impl.herblore.Herblore;
@@ -323,7 +324,11 @@ public class UseItemPacketListener implements PacketListener {
 		if (Herblore.finishPotion(player, usedWith.getId(), itemUsedWith.getId()))
 			return;
 		ItemForging.forgeItem(player, itemUsedWith.getId(), usedWith.getId());
+		if (Farming.hasItemOnItemInteraction(player, new Item[] { itemUsedWith, usedWith })
+				|| Farming.hasItemOnItemInteraction(player, new Item[] { usedWith, itemUsedWith })) {
 
+			return;
+		}
 		/*if (player.getRights() == PlayerRights.OWNER)
 			player.getPacketSender().sendMessage(
 					"ItemOnItem - [usedItem, usedWith] : [" + usedWith.getId() + ", " + itemUsedWith + "]");*/
@@ -353,6 +358,9 @@ public class UseItemPacketListener implements PacketListener {
 				new FinalizedMovementTask() {
 					@Override
 					public void execute() {
+						if (Farming.hasItemInteraction(player, item, gameObject)) {
+							return;
+						}
 						if (gameObject.getPosition().getX() == 3036 && gameObject.getPosition().getY() == 3708) {
 							if (CookingWildernessData.forFish(item.getId() - 1) != null
 									&& CookingWildernessData.isRange(objectId)) {

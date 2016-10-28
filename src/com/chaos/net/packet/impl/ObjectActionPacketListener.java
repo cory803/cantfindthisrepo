@@ -27,6 +27,7 @@ import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.agility.Agility;
 import com.chaos.world.content.skill.impl.crafting.Flax;
+import com.chaos.world.content.skill.impl.farming.Farming;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.fishing.Fishing.Spot;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
@@ -122,6 +123,8 @@ public class ObjectActionPacketListener implements PacketListener {
                             Mining.startMining(player, gameObject);
                             return;
                         }
+                        if (Farming.isGameObject(player, gameObject, 1))
+                            return;
                         if (DoorManager.isDoor(gameObject)) {
 //							if(gameObject.getName().toLowerCase().contains("gate")) {
 //								Region region = World.loadRegion(x, y);
@@ -2073,6 +2076,8 @@ public class ObjectActionPacketListener implements PacketListener {
                         }
                         if (player.getThieving().stealFromStall(ThievingStall.forId(id)))
                             return;
+                        if (Farming.isGameObject(player, gameObject, 2))
+                            return;
                         switch (gameObject.getId()) {
                             case 38660:
                             case 38661:
@@ -2221,6 +2226,8 @@ public class ObjectActionPacketListener implements PacketListener {
         player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
             @Override
             public void execute() {
+                if (Farming.isGameObject(player, gameObject, 3))
+                    return;
                 switch (id) {
                 }
             }
@@ -2257,6 +2264,8 @@ public class ObjectActionPacketListener implements PacketListener {
         player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
             @Override
             public void execute() {
+                if (Farming.isGameObject(player, gameObject, 4))
+                    return;
                 switch (id) {
                 }
             }
@@ -2292,6 +2301,8 @@ public class ObjectActionPacketListener implements PacketListener {
         player.setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
             @Override
             public void execute() {
+                if (Farming.isGameObject(player, gameObject, 5))
+                    return;
                 switch (id) {
                 }
             }

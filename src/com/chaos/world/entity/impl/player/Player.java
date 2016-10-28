@@ -19,6 +19,11 @@ import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.net.mysql.impl.Hiscores;
 import com.chaos.world.content.*;
 import com.chaos.world.content.diversions.Diversion;
+import com.chaos.world.content.skill.AbstractHarvestSkill;
+import com.chaos.world.content.skill.AbstractSkill;
+import com.chaos.world.content.skill.impl.farming.PatchSaving;
+import com.chaos.world.content.skill.impl.farming.patch.Patch;
+import com.chaos.world.content.skill.impl.farming.patch.PatchType;
 import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.content.skill.impl.thieving.Thieving;
 import org.jboss.netty.channel.Channel;
@@ -81,6 +86,126 @@ public class Player extends Character {
     public Player(PlayerSession playerIO) {
         super(GameSettings.DEFAULT_POSITION_VARROCK.copy());
         this.session = playerIO;
+    }
+
+    /**
+     * The timer each stage for the player's farmed
+     * crops take .
+     */
+    private long farmingTime;
+
+    public long getFarmingTime() {
+        return farmingTime;
+    }
+
+    public void setFarmingTime(long farmingTime) {
+        this.farmingTime = farmingTime;
+    }
+
+    /**
+     * Gets the associated {@link org.niobe.world.Player#getPosition()}
+     * value.
+     * @return	The {@link #startPosition} value.
+     */
+    public Position getStartPosition() {
+        return startPosition;
+    }
+
+    /**
+     * Sets the {@link #startPosition} value.
+     * @param startPosition	The new {@link #startPosition} value.
+     */
+    public void setStartPosition(Position startPosition) {
+        this.startPosition = startPosition;
+    }
+
+    /**
+     * Gets the {@link #busy} value.
+     * @return	The {@link #busy} array.
+     */
+    public boolean[] isBusy() {
+        return busy;
+    }
+
+    /**
+     * This boolean array contains flags that check if a
+     * skill is being performed, to avoid "spam-clicking" on
+     * entities.
+     */
+    private transient boolean[] busy = new boolean[SkillManager.MAX_SKILLS];
+
+    /**
+     * The player's current {@link AbstractHarvestSkill} being executed.
+     */
+    private transient AbstractHarvestSkill harvestSkill;
+
+    public AbstractHarvestSkill getHarvestSkill() {
+        return harvestSkill;
+    }
+
+    public void setHarvestSkill(AbstractHarvestSkill harvestSkill) {
+        this.harvestSkill = harvestSkill;
+    }
+
+    /**
+     * Sets the busy flag with said index - index being represented by
+     * the {@code skill}'s ordinal value.
+     * @param skill	The {@link org.niobe.model.SkillManager.Skill} to set busy flag for.
+     * @param busy	The flag that will be set for the {@link #busy[skill.ordinal()]}.
+     */
+    public void setBusy(Skill skill, boolean busy) {
+        this.busy[skill.ordinal()] = busy;
+    }
+
+    /**
+     * Resets all busy flags.
+     */
+    public void resetBusy() {
+        this.busy = new boolean[SkillManager.MAX_SKILLS];
+    }
+
+    /**
+     * The {@link org.niobe.model.Position} the player has executed
+     * the skill in.
+     */
+    private Position startPosition;
+    /**
+     * This map contains the skill delays.
+     */
+    private transient final Map<Skill, Long> delays = new HashMap<Skill, Long>();
+
+    /**
+     * Gets the skill delays.
+     * @return	delays.
+     */
+    public Map<Skill, Long> getDelays() {
+        return delays;
+    }
+
+    /**
+     * The current skill being executed.
+     */
+    private AbstractSkill skill;
+
+    public AbstractSkill getSkill() {
+        return skill;
+    }
+
+    public void setSkill(AbstractSkill skill) {
+        this.skill = skill;
+    }
+
+    /**
+     * The allotments registered to this player for farming.
+     */
+    private Map<PatchType, Patch> patches = new HashMap<>();
+
+    public Map<PatchType, Patch> getPatches() {
+        return patches;
+    }
+
+    public void setPatches(Map<PatchType, Patch> allotments) {
+        this.patches = allotments;
     }
 
 	public boolean isSpecialPlayer() {
@@ -495,6 +620,7 @@ public class Player extends Character {
         if (session.getState() != SessionState.LOGGED_IN && session.getState() != SessionState.LOGGING_OUT) {
             return;
         }
+        PatchSaving.save(this);
         if (GameSettings.MYSQL_PLAYER_SAVING)
             PlayerSaving.saveGame(this);
         if (GameSettings.JSON_PLAYER_SAVING)

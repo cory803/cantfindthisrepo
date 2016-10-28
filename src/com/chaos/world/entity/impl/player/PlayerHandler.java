@@ -46,6 +46,7 @@ import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.minigames.impl.Barrows;
 import com.chaos.world.content.pos.PlayerOwnedShops;
+import com.chaos.world.content.skill.impl.farming.FarmingManager;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
 import com.chaos.world.entity.impl.npc.NPC;
 import org.scripts.kotlin.content.dialog.Tutorial.StartTutorial;
@@ -286,6 +287,7 @@ public class PlayerHandler {
 		PlayerOwnedShops.collectCoinsOnLogin(player);
 		NoteHandler.login(player);
 		player.getPacketSender().sendRights();
+		FarmingManager.uponLogin(player);
 	}
 
 	public static boolean handleLogout(Player player) {

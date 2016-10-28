@@ -215,6 +215,11 @@ public class PacketSender {
 	 * @return The PacketSender instance.
 	 */
 	public PacketSender sendConfig(int id, int state) {
+		if (id == -1)
+			return this;
+		if (state >= Byte.MAX_VALUE) {
+			return sendToggle(id, state);
+		}
 		PacketBuilder out = new PacketBuilder(36);
 		out.putShort(id, ByteOrder.LITTLE);
 		out.put(state);

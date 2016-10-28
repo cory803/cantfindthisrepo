@@ -51,6 +51,20 @@ public class Misc {
 	}
 
 	/**
+	 * Formats the name by checking if it starts with a vowel.
+	 * @param name	The string to format.
+	 */
+	public static String getArticle(String name) {
+		char letter = Character.toLowerCase(name.charAt(0));
+		boolean vowel = letter == 'a' || letter == 'e' || letter == 'i' || letter == 'o' || letter == 'u';
+		String other = vowel ? "an" : "a";
+		if (name.endsWith("s")) {
+			other += " pair of";
+		}
+		return other + " " + name;
+	}
+
+	/**
 	 * Returns if the starting character is a vowel
 	 *
 	 * @param ch The character being checked

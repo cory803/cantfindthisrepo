@@ -86,7 +86,7 @@ public class MovementPacketListener implements PacketListener {
 	}
 
 
-	public boolean checkReqs(Player player, int opcode) {
+	public static boolean checkReqs(Player player, int opcode) {
 		if (player.isFrozen()) {
 			if (opcode != COMMAND_MOVEMENT_OPCODE)
 				player.getWalkingQueue().clear();

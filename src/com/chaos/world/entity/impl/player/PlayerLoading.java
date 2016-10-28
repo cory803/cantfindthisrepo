@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.chaos.model.*;
+import com.chaos.world.content.skill.impl.farming.PatchSaving;
 import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
 import com.google.gson.Gson;
@@ -955,6 +956,8 @@ public class PlayerLoading {
 				colours_list.add(c);
 			player.setNoteColours(colours_list);
 		}
+
+		PatchSaving.load(player);
 
 		return reader;
 	}
