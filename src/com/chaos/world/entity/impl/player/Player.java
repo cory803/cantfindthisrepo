@@ -358,9 +358,14 @@ public class Player extends Character {
     }
 
     public boolean hasItem(int id) {
-        for (Bank bank : player.getBanks()) {
-            if (bank.contains(id)) {
-                return true;
+        if(player.getBanks() != null) {
+            for (Bank bank : player.getBanks()) {
+                if(bank == null) {
+                    continue;
+                }
+                if (bank.contains(id)) {
+                    return true;
+                }
             }
         }
         if (player.getInventory().contains(id)) {
