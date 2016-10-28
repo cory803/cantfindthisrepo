@@ -30,6 +30,10 @@ public class HalloweenEvent {
 		new Position(3100, 3499, 0),
 		new Position(3087, 3491, 0),
 		new Position(3093, 3483, 0),
+		new Position(3074, 3504, 0),
+		new Position(3079, 3479, 0),
+		new Position(3104, 3484, 0),
+		new Position(3109, 3507, 0),
 	};
 
 	public static Position[] VARROCK_PUMPKIN_LOCATIONS = {
@@ -40,6 +44,10 @@ public class HalloweenEvent {
 		new Position(3198, 3429, 0),
 		new Position(3186, 3436, 0),
 		new Position(3218, 3433, 0),
+		new Position(3210, 3408, 0),
+		new Position(3199, 3400, 0),
+		new Position(3210, 3395, 0),
+		new Position(3196, 3447, 0),
 	};
 
 	public static Position[] LUMBRIDGE_PUMPKIN_LOCATIONS = {
@@ -50,6 +58,11 @@ public class HalloweenEvent {
 		new Position(3222, 3263, 0),
 		new Position(3203, 3253, 0),
 		new Position(3201, 3238, 0),
+		new Position(3236, 3208, 0),
+		new Position(3243, 3216, 0),
+		new Position(3213, 3205, 0),
+		new Position(3213, 3231, 0),
+		new Position(3203, 3219, 0),
 	};
 
 	public static Position[] SKILLING_ZONE_LOW_PUMPKIN_LOCATIONS = {
@@ -57,6 +70,11 @@ public class HalloweenEvent {
 		new Position(2797, 2791, 0),
 		new Position(2793, 2784, 0),
 		new Position(2796, 2779, 0),
+		new Position(2807, 2777, 0),
+		new Position(2790, 2777, 0),
+		new Position(2784, 2786, 0),
+		new Position(2789, 2793, 0),
+		new Position(2808, 2793, 0),
 	};
 
 	public static Position[] ROCK_CRABS_PUMPKIN_LOCATIONS = {
@@ -65,6 +83,9 @@ public class HalloweenEvent {
 		new Position(2672, 3728, 0),
 		new Position(2673, 3714, 0),
 		new Position(2663, 3715, 0),
+		new Position(2687, 3715, 0),
+		new Position(2673, 3705, 0),
+		new Position(2661, 3704, 0),
 	};
 
 	/**
@@ -74,7 +95,7 @@ public class HalloweenEvent {
 		if(World.getPlayers().size() == 0) {
 			return;
 		}
-		if(lastSpawn == 1800) {
+		if(lastSpawn == 1800) { //Every 30 minutes
 			lastSpawn = 0;
 			int random = Misc.inclusiveRandom(0, 4);
 			Position[] position = null;
