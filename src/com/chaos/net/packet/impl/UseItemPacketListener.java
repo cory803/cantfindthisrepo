@@ -380,10 +380,6 @@ public class UseItemPacketListener implements PacketListener {
 							BonesOnAltar.openInterface(player, itemId, false);
 							return;
 						}
-						if (player.getFarming().plant(itemId, objectId, objectX, objectY))
-							return;
-						if (player.getFarming().useItemOnPlant(itemId, objectX, objectY))
-							return;
 						if (objectId == 15621) { // Warriors guild
 							// animator
 							if (!WarriorsGuild.itemOnAnimator(player, item, gameObject))
@@ -527,10 +523,6 @@ public class UseItemPacketListener implements PacketListener {
 							BonesOnAltar.openInterface(player, itemId, false);
 							return;
 						}
-						if (player.getFarming().plant(itemId, objectId, objectX, objectY))
-							return;
-						if (player.getFarming().useItemOnPlant(itemId, objectX, objectY))
-							return;
 						if (objectId == 15621) { // Warriors guild
 							// animator
 							if (!WarriorsGuild.itemOnAnimator(player, item, gameObject))

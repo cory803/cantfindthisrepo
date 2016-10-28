@@ -122,8 +122,6 @@ public class ObjectActionPacketListener implements PacketListener {
                             Mining.startMining(player, gameObject);
                             return;
                         }
-                        if (player.getFarming().click(player, x, y, 1))
-                            return;
                         if (DoorManager.isDoor(gameObject)) {
 //							if(gameObject.getName().toLowerCase().contains("gate")) {
 //								Region region = World.loadRegion(x, y);
@@ -2073,8 +2071,6 @@ public class ObjectActionPacketListener implements PacketListener {
                             Prospecting.prospectOre(player, id);
                             return;
                         }
-                        if (player.getFarming().click(player, x, y, 1))
-                            return;
                         if (player.getThieving().stealFromStall(ThievingStall.forId(id)))
                             return;
                         switch (gameObject.getId()) {

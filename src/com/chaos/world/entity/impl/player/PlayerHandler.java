@@ -121,7 +121,6 @@ public class PlayerHandler {
 
 		// Skills
 		player.getSummoning().login();
-		player.getFarming().load();
 		for (Skill skill : Skill.values()) {
 			player.getSkillManager().updateSkill(skill);
 		}
@@ -332,7 +331,6 @@ public class PlayerHandler {
 				Hunter.handleLogout(player);
 				Locations.logout(player);
 				player.getSummoning().unsummon(false, false);
-				player.getFarming().save();
 				BountyHunter.handleLogout(player);
 				ClanChatManager.leave(player, false);
 				player.getRelations().updateLists(false, 0);

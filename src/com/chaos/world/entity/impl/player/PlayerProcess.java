@@ -43,10 +43,7 @@ public class PlayerProcess {
 		// player.getPacketSender().sendToggle(286, 1024 + 512 + 4096 + 2);
 		/** COMBAT **/
 		player.getCombatBuilder().process();
-		/** SKILLS **/
-		if (player.shouldProcessFarming()) {
-			player.getFarming().sequence();
-		}
+
 		if (player.getLocation() == Location.WILDERNESS) {
 			boolean continue_method = true;
 			boolean continue_lower_stats = false;
