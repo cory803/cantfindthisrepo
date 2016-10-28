@@ -211,7 +211,9 @@ public abstract class AbstractHarvestSkill extends AbstractSkill {
 					}
 
 					double experience = getExperience();
-
+					if (reward != null) {
+						getPlayer().getInventory().add(reward);
+					}
 					final String message = getRewardMessage();
 					if (message != null)
 						getPlayer().getPacketSender().sendMessage(message);

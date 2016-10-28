@@ -8,36 +8,27 @@
     "diseaseImmunity": 10,
     "wateredTimer": 0
   },
-  "CATHERBY_NORTH_ALLOTMENT": {
-    "patchType": "CATHERBY_NORTH_ALLOTMENT",
-    "seedTypeName": "POTATO",
-    "seedClass": "ALLOTMENT",
-    "growthState": "WATERED",
+  "CATHERBY_HERB_PATCH": {
+    "patchType": "CATHERBY_HERB_PATCH",
+    "seedTypeName": "RANARR",
+    "seedClass": "HERBS",
+    "growthState": "GROWING",
     "stage": 0,
     "weedStage": 3,
     "attributes": 0,
-    "timePlanted": 1477679836994,
-    "diseaseImmunity": 60,
+    "timePlanted": 1477683702267,
+    "diseaseImmunity": 10,
     "harvestedItem": {
-      "id": 1942,
+      "id": 207,
       "amount": 0,
       "slot": 0
     },
     "product": {
-      "id": 1942,
-      "amount": 42,
+      "id": 207,
+      "amount": 15,
       "slot": 0
     },
-    "wateredTimer": 1477679836994
-  },
-  "CATHERBY_HERB_PATCH": {
-    "patchType": "CATHERBY_HERB_PATCH",
-    "stage": 0,
-    "weedStage": 3,
-    "attributes": 0,
-    "timePlanted": 0,
-    "diseaseImmunity": 10,
-    "wateredTimer": 0
+    "wateredTimer": 1477683702267
   },
   "CATHERBY_FLOWER_PATCH": {
     "patchType": "CATHERBY_FLOWER_PATCH",
@@ -47,5 +38,27 @@
     "timePlanted": 0,
     "diseaseImmunity": 10,
     "wateredTimer": 0
+  },
+  "CATHERBY_NORTH_ALLOTMENT": {
+    "patchType": "CATHERBY_NORTH_ALLOTMENT",
+    "seedTypeName": "POTATO",
+    "seedClass": "ALLOTMENT",
+    "growthState": "WATERED",
+    "stage": 0,
+    "weedStage": 3,
+    "attributes": 0,
+    "timePlanted": 1477683665067,
+    "diseaseImmunity": 60,
+    "harvestedItem": {
+      "id": 1942,
+      "amount": 0,
+      "slot": 0
+    },
+    "product": {
+      "id": 1942,
+      "amount": 15,
+      "slot": 0
+    },
+    "wateredTimer": 1477683665067
   }
 }
