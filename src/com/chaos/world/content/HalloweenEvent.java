@@ -39,7 +39,7 @@ public class HalloweenEvent {
 		new Position(3244, 3429, 0),
 		new Position(3198, 3429, 0),
 		new Position(3186, 3436, 0),
-		new Position(3093, 3483, 0),
+		new Position(3218, 3433, 0),
 	};
 
 	public static Position[] LUMBRIDGE_PUMPKIN_LOCATIONS = {
@@ -98,7 +98,7 @@ public class HalloweenEvent {
 				return;
 			}
 			for(int i = 0; i < position.length; i++) {
-				GroundItemManager.spawnWorldItem(new GroundItem(new Item(1959, 1), position[i], "world", "0", false, 160, position[i].getZ() >= 0 && position[i].getZ() < 4 ? true : false, 80, Misc.random(0, Integer.MAX_VALUE)));
+				GroundItemManager.spawnWorldItem(new GroundItem(new Item(1959, 1), position[i], "world", "0", false, 300, position[i].getZ() >= 0 && position[i].getZ() < 4 ? true : false, 80, Misc.random(0, Integer.MAX_VALUE)));
 			}
 		}
 		lastSpawn++;

@@ -9,15 +9,24 @@ import com.chaos.world.entity.impl.player.Player;
 
 public class PumpkinPete extends Dialog {
 
+    /**
+     * Item ids for witch doctor items
+     */
     public int[] WITCH_DOCTOR_ITEMS = {
         20046,
         20045,
         20044
     };
 
-    public int getRewardItem() {
+    /**
+     * Grab a random reward depending on if you
+     * already have that item.
+     * @param player
+     * @return
+     */
+    public int getRewardItem(Player player) {
         for(int i = 0; i < WITCH_DOCTOR_ITEMS.length; i++) {
-            if (!getPlayer().hasItem(WITCH_DOCTOR_ITEMS[i])) {
+            if (!player.hasItem(WITCH_DOCTOR_ITEMS[i])) {
                 return WITCH_DOCTOR_ITEMS[i];
             }
         }
@@ -54,16 +63,16 @@ public class PumpkinPete extends Dialog {
                     int randomItem = WITCH_DOCTOR_ITEMS[Misc.inclusiveRandom(WITCH_DOCTOR_ITEMS.length - 1)];
                     if (random == 4) {
                         if (getPlayer().hasItem(randomItem)) {
-                            randomItem = getRewardItem();
+                            randomItem = getRewardItem(getPlayer());
                         }
                         getPlayer().getInventory().delete(1959, 1);
                         getPlayer().getInventory().add(randomItem, 1);
-                        return Dialog.createNpc(DialogHandler.CALM, "Oh boy that tastes good! Enjoy a " + ItemDefinition.forId(randomItem).getName() + " as a reward!");
+                        return Dialog.createNpc(DialogHandler.CALM, "Trick or treat, smell my feet!\\nEnjoy " + ItemDefinition.forId(randomItem).getName() + ".");
                     } else {
                         int amount = Misc.inclusiveRandom(200_000, 300_000);
                         getPlayer().getInventory().delete(1959, 1);
                         getPlayer().getInventory().add(995, amount);
-                        return Dialog.createNpc(DialogHandler.CALM, "Oh boy that tastes good! Enjoy " + Misc.format(amount) + " coins as a reward!");
+                        return Dialog.createNpc(DialogHandler.CALM, "Trick or treat, smell my feet!\\nEnjoy " + Misc.format(amount) + " coins.");
                     }
                 }
             }

@@ -357,9 +357,14 @@ public class Player extends Character {
         this.magicMaxHit = newMax;
     }
 
+    /**
+     * Checks if you a item depending on its ID
+     * @param id
+     * @return
+     */
     public boolean hasItem(int id) {
-        if(player.getBanks() != null) {
-            for (Bank bank : player.getBanks()) {
+        if(getBanks() != null) {
+            for (Bank bank : getBanks()) {
                 if(bank == null) {
                     continue;
                 }
@@ -368,11 +373,18 @@ public class Player extends Character {
                 }
             }
         }
-        if (player.getInventory().contains(id)) {
+        if (this.getInventory().contains(id)) {
             return true;
         }
-        if (player.getSummoning().getBeastOfBurden().contains(id)) {
+        if (this.getEquipment().contains(id)) {
             return true;
+        }
+        if(this.getSummoning() != null) {
+            if(this.getSummoning().getBeastOfBurden() != null) {
+                if (this.getSummoning().getBeastOfBurden().contains(id)) {
+                    return true;
+                }
+            }
         }
         return false;
     }
