@@ -167,7 +167,7 @@ public class Achievements {
 							+ achievement.interfaceLine + ".");
 				} else if (progress != requiredProgress) {
 					player.getPacketSender()
-							.sendMessage("<img=4> <col=FFFF00>Your progress for this achievement is currently at: "
+							.sendMessage("<img=4> <col=8A6D00>Your progress for this achievement is currently at: "
 									+ Misc.insertCommasToNumber("" + progress) + "/"
 									+ Misc.insertCommasToNumber("" + requiredProgress) + ".");
 				}
