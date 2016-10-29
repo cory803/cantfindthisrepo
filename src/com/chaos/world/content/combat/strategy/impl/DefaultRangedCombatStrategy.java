@@ -298,8 +298,11 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		player.getEquipment().get(slot).decrementAmount();
 
 		if (!avas && player.getFireAmmo() != 15243 && player.getLocation() != Locations.Location.KRAKEN) {
-			GroundItemManager.spawnGroundItem(player,
-					new GroundItem(new Item(player.getFireAmmo()), pos, player.getUsername(), false, 120, true, 120));
+			int random = Misc.random(10);
+			if (random > 2) {
+				GroundItemManager.spawnGroundItem(player,
+						new GroundItem(new Item(player.getFireAmmo()), pos, player.getUsername(), false, 120, true, 120));
+			}
 		}
 
 		// If we are at 0 ammo remove the item from the equipment completely.

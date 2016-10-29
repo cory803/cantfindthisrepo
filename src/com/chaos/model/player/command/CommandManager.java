@@ -253,6 +253,18 @@ public class CommandManager {
                 TeleportHandler.teleportPlayer(player, new Position(2846, 5147), TeleportType.NORMAL);
             }
         });
+        commands.put("host", new Command(StaffRights.SUPPORT) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                Player playr2 = World.getPlayerByName(args[0]);
+                if (playr2 != null) {
+                    player.getPacketSender().sendMessage("" + playr2.getUsername() + " host IP: " + playr2.getHostAddress()
+                            + ", serial number: " + playr2.getSerialNumber());
+                } else {
+                    player.getPacketSender().sendMessage("Could not find player: " + args[0]);
+                }
+            }
+        });
 
         /**
          * Moderator Commands
@@ -307,18 +319,6 @@ public class CommandManager {
             public void execute(Player player, String[] args, StaffRights privilege) {
                 World.savePlayers();
                 player.getPacketSender().sendMessage("Saved players!");
-            }
-        });
-        commands.put("host", new Command(StaffRights.ADMINISTRATOR) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                Player playr2 = World.getPlayerByName(args[0]);
-                if (playr2 != null) {
-                    player.getPacketSender().sendMessage("" + playr2.getUsername() + " host IP: " + playr2.getHostAddress()
-                            + ", serial number: " + playr2.getSerialNumber());
-                } else {
-                    player.getPacketSender().sendMessage("Could not find player: " + args[0]);
-                }
             }
         });
         commands.put("pos", new GetPosition(StaffRights.ADMINISTRATOR));

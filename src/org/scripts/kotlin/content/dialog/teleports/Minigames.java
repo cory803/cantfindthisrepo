@@ -41,7 +41,7 @@ public class Minigames extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2873, 3546, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_2_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2658, 2659, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(2661, 2649, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_5:
                                 setState(2);
