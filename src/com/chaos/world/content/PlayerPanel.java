@@ -74,8 +74,9 @@ public class PlayerPanel {
 		}
 		player.getPacketSender().sendString(55104, "  @whi@[Toggles]");
 		player.getPacketSender().sendString(55105, "   >- Open Npc Kill Log");
-		player.getPacketSender().sendString(55106, "   >- Open Drop Generator");
-		for (int i = 55107; i < 55117; i++) {
+		player.getPacketSender().sendString(55106, "   >- Open Drop Log");
+		player.getPacketSender().sendString(55107, "   >- Open Drop Generator");
+		for (int i = 55108; i < 55117; i++) {
 			player.getPacketSender().sendString(i, " ");
 		}
 

@@ -195,19 +195,29 @@ public class ButtonClickPacketListener implements PacketListener {
             case -26370:
                 player.getPacketSender().sendMessage("Coming soon...");
                 break;
-            case -10415:
-                DropLog.open(player);
+            case -10430:
+                DropLog.open(player, 0);
                 break;
-            case -30283:
             case -10431:
                 KillsTracker.open(player, 0);
                 break;
-            case -10430:
-                player.setInputHandling(new DropGeneratorNpcId());
-                player.getPacketSender().sendEnterAmountPrompt("Enter a npc id:");
+            case -30283:
+                if (player.isKillsTrackerOpen()) {
+                    KillsTracker.open(player, 0);
+                } else if (player.isDropLogOpen()) {
+                    DropLog.open(player, 0);
+                }
                 break;
             case -30282:
-                KillsTracker.open(player, 1);
+                if (player.isKillsTrackerOpen()) {
+                    KillsTracker.open(player, 1);
+                } else if (player.isDropLogOpen()) {
+                    DropLog.open(player, 1);
+                }
+                break;
+            case -10429:
+                player.setInputHandling(new DropGeneratorNpcId());
+                player.getPacketSender().sendEnterAmountPrompt("Enter a npc id:");
                 break;
             case -10465:
                 player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55200);

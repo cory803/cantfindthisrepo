@@ -1,14 +1,18 @@
 package com.chaos.world.entity.impl.player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
-
+import com.chaos.GameSettings;
+import com.chaos.engine.task.Task;
+import com.chaos.engine.task.TaskManager;
+import com.chaos.engine.task.impl.PlayerDeathTask;
+import com.chaos.engine.task.impl.WalkToTask;
 import com.chaos.model.*;
 import com.chaos.model.action.ActionQueue;
+import com.chaos.model.container.impl.*;
+import com.chaos.model.container.impl.Bank.BankSearchAttributes;
+import com.chaos.model.definitions.WeaponAnimations;
+import com.chaos.model.definitions.WeaponInterfaces;
+import com.chaos.model.definitions.WeaponInterfaces.WeaponInterface;
+import com.chaos.model.input.Input;
 import com.chaos.model.npc.drops.DropGenerator;
 import com.chaos.model.options.OptionContainer;
 import com.chaos.model.player.ActionHandler;
@@ -16,42 +20,16 @@ import com.chaos.model.player.GameMode;
 import com.chaos.model.player.GameModeAssistant;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.net.mysql.impl.Hiscores;
-import com.chaos.util.Misc;
-import com.chaos.world.content.*;
-import com.chaos.world.content.diversions.Diversion;
-import com.chaos.world.content.skill.AbstractHarvestSkill;
-import com.chaos.world.content.skill.AbstractSkill;
-import com.chaos.world.content.skill.impl.farming.PatchSaving;
-import com.chaos.world.content.skill.impl.farming.patch.Patch;
-import com.chaos.world.content.skill.impl.farming.patch.PatchType;
-import com.chaos.world.content.skill.impl.slayer.Slayer;
-import com.chaos.world.content.skill.impl.thieving.Thieving;
-import org.jboss.netty.channel.Channel;
-
-import com.chaos.GameSettings;
-import com.chaos.engine.task.Task;
-import com.chaos.engine.task.TaskManager;
-import com.chaos.engine.task.impl.PlayerDeathTask;
-import com.chaos.engine.task.impl.WalkToTask;
-import com.chaos.model.container.impl.Bank;
-import com.chaos.model.container.impl.Bank.BankSearchAttributes;
-import com.chaos.model.container.impl.Equipment;
-import com.chaos.model.container.impl.Inventory;
-import com.chaos.model.container.impl.PlayerOwnedShopContainer;
-import com.chaos.model.container.impl.PriceChecker;
-import com.chaos.model.container.impl.Shop;
-import com.chaos.model.definitions.WeaponAnimations;
-import com.chaos.model.definitions.WeaponInterfaces;
-import com.chaos.model.definitions.WeaponInterfaces.WeaponInterface;
-import com.chaos.model.input.Input;
 import com.chaos.net.PlayerSession;
 import com.chaos.net.SessionState;
 import com.chaos.net.login.LoginDetailsMessage;
+import com.chaos.net.mysql.impl.Hiscores;
 import com.chaos.net.packet.PacketSender;
+import com.chaos.util.Misc;
 import com.chaos.util.Stopwatch;
 import com.chaos.world.content.Achievements.AchievementAttributes;
 import com.chaos.world.content.BankPin.BankPinAttributes;
+import com.chaos.world.content.*;
 import com.chaos.world.content.DropLog.DropLogEntry;
 import com.chaos.world.content.KillsTracker.KillsEntry;
 import com.chaos.world.content.LoyaltyProgramme.LoyaltyTitles;
@@ -70,16 +48,28 @@ import com.chaos.world.content.combat.strategy.CombatStrategies;
 import com.chaos.world.content.combat.strategy.CombatStrategy;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightType;
+import com.chaos.world.content.diversions.Diversion;
 import com.chaos.world.content.minigames.MinigameAttributes;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.pos.PosDetails;
 import com.chaos.world.content.pos.PosOffer;
+import com.chaos.world.content.skill.AbstractHarvestSkill;
+import com.chaos.world.content.skill.AbstractSkill;
 import com.chaos.world.content.skill.SkillManager;
+import com.chaos.world.content.skill.impl.farming.PatchSaving;
+import com.chaos.world.content.skill.impl.farming.patch.Patch;
+import com.chaos.world.content.skill.impl.farming.patch.PatchType;
+import com.chaos.world.content.skill.impl.slayer.Slayer;
 import com.chaos.world.content.skill.impl.summoning.Pouch;
 import com.chaos.world.content.skill.impl.summoning.Summoning;
+import com.chaos.world.content.skill.impl.thieving.Thieving;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
+import org.jboss.netty.channel.Channel;
+
+import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Player extends Character {
 
@@ -936,6 +926,7 @@ public class Player extends Character {
     private boolean settingUpCannon;
     private boolean hasVengeance;
     private boolean killsTrackerOpen;
+    private boolean dropLogOpen;
     private boolean questTabOpen;
     private boolean autoRetaliate;
     private boolean autocast;
@@ -978,6 +969,13 @@ public class Player extends Character {
      * Getters & Setters
      */
 
+    public boolean isDropLogOpen() {
+        return dropLogOpen;
+    }
+
+    public void setDropLogOpen(boolean dropLogOpen) {
+        this.dropLogOpen = dropLogOpen;
+    }
 
     public String getTempNote() {
         return temp_note;

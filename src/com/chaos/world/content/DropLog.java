@@ -27,7 +27,7 @@ public class DropLog {
 		}
 	}
 
-	public static void open(Player player) {
+	public static void open(Player player, int page) {
 		try {
 			/* RESORT THE KILLS */
 			Collections.sort(player.getDropLog(), new Comparator<DropLogEntry>() {
@@ -52,27 +52,33 @@ public class DropLog {
 			});
 			/* SHOW THE INTERFACE */
 			resetInterface(player);
-			player.getPacketSender().sendString(8144, "Drop Log (Sorted by value)").sendInterface(8134);
-			player.getPacketSender().sendString(8147, "@dre@ - @whi@ Rare drops");
-			int index = 1;
-			for (DropLogEntry entry : player.getDropLog()) {
-				if (entry.rareDrop) {
-					int toSend = 8147 + index > 8196 ? 12174 + index : 8147 + index;
-					player.getPacketSender().sendString(toSend,
-							"@or1@ " + ItemDefinition.forId(entry.item).getName() + ": x" + entry.amount + "");
+			player.getPacketSender().sendString(35252, "Drop Log Tracker");
+			player.getPacketSender().sendString(35257, "Rare");
+			player.setDropLogOpen(true);
+			player.setKillsTrackerOpen(false);
+			resetInterface(player);
+			player.getPacketSender().sendInterface(35250);
+			int index = 0;
+			if (page == 0) {
+				for (DropLogEntry entry : player.getDropLog()) {
+					if (35261 + index >= 35311)
+						break;
+					if (!entry.rareDrop) {
+						player.getPacketSender().sendString(35261 + index,
+						"@or1@" + ItemDefinition.forId(entry.item).getName() + ": x" + entry.amount + "");
+
+						index++;
+					}
+				}
+			} else if (page == 1) {
+				for (DropLogEntry entry : player.getDropLog()) {
+					if (!entry.rareDrop)
+						continue;
+					if (35261 + index >= 35311)
+						break;
+					player.getPacketSender().sendString(35261 + index, "@or2@ " + ItemDefinition.forId(entry.item).getName() + ": " + entry.amount + "");
 					index++;
 				}
-			}
-			index += 1;
-			player.getPacketSender().sendString(8147 + index, "@dre@ - @whi@ Common drops");
-			index++;
-			for (DropLogEntry entry : player.getDropLog()) {
-				if (entry.rareDrop)
-					continue;
-				int toSend = 8147 + index > 8196 ? 12174 + index : 8147 + index;
-				player.getPacketSender().sendString(toSend,
-						"@or1@ " + ItemDefinition.forId(entry.item).getName() + ": x" + entry.amount + "");
-				index++;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -80,11 +86,9 @@ public class DropLog {
 	}
 
 	public static void resetInterface(Player player) {
-		for (int i = 8145; i < 8196; i++)
+		for (int i = 35261; i < 35311; i++) {
 			player.getPacketSender().sendString(i, "");
-		for (int i = 12174; i < 12224; i++)
-			player.getPacketSender().sendString(i, "");
-		player.getPacketSender().sendString(8136, "Close window");
+		}
 	}
 
 	public static boolean addItem(Player player, DropLogEntry drop) {

@@ -53,8 +53,11 @@ public class KillsTracker {
 				}
 			});
 			/* SHOW THE INTERFACE */
-			player.setKillsTrackerOpen(true);
 			resetInterface(player);
+			player.setDropLogOpen(false);
+			player.setKillsTrackerOpen(true);
+			player.getPacketSender().sendString(35252, "Monster Kill Tracker");
+			player.getPacketSender().sendString(35257, "Boss");
 			player.getPacketSender().sendInterface(35250);
 			int index = 0;
 			if (page == 0) {
