@@ -89,6 +89,10 @@ public class Max extends Dialog {
                                 break;
                             case OPTION_2_OF_4:
                                 player.getPacketSender().sendInterfaceRemoval();
+                                if (!player.getSkillManager().maxStats()) {
+                                    player.getPacketSender().sendMessage("You must have 99's in every skill in order to purchase the completionist cape!");
+                                    return;
+                                }
                                 for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
                                     if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
                                         player.getPacketSender().sendMessage("You must have completed all achievements in order to buy this cape.");

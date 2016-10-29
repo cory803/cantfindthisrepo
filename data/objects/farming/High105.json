@@ -20,7 +20,7 @@
     "diseaseImmunity": 10,
     "harvestedItem": {
       "id": 207,
-      "amount": 0,
+      "amount": 6,
       "slot": 0
     },
     "product": {
@@ -48,10 +48,10 @@
     "weedStage": 3,
     "attributes": 0,
     "timePlanted": 1477683665067,
-    "diseaseImmunity": 87,
+    "diseaseImmunity": 25,
     "harvestedItem": {
       "id": 1942,
-      "amount": 0,
+      "amount": 9,
       "slot": 0
     },
     "product": {
