@@ -12,6 +12,7 @@ import com.chaos.ect.dropwriting.DropManager;
 import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.*;
+import com.chaos.util.wiki.WikiDropListDumper;
 import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
 import com.chaos.world.content.Well.WellOfGoodness;
@@ -101,6 +102,12 @@ public final class GameLoader {
 		 * lists/drops.txt
 		 */
 		//DropListDumper.dump();
+
+		/**
+		 * Dumps a list of wiki drop tables
+		 * lists/drops.txt
+		 */
+		//WikiDropListDumper.dump();
 
 		/**
 		 * Dumps a list of item definitions into

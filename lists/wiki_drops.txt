@@ -1,0 +1,3148 @@
+Monster: Man(Level: 2) (id = 1)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Woman(Level: 2) (id = 4)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Farmer(Level: 7) (id = 7)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Guard(Level: 21) (id = 9)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Guard(Level: 20) (id = 32)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Chicken(Level: 1) (id = 41)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Raw chicken|Quantity=1|Rarity=always}}
+
+
+
+Monster: Rat(Level: 1) (id = 47)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Hellhound(Level: 122) (id = 49)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Smouldering Stone|Quantity=1|Rarity=epic}}
+
+
+
+Monster: King Black Dragon(Level: 276) (id = 50)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Black dragonhide|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Kbd heads|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon claws|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Dragon pickaxe|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Prince black dragon|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Draconic visage|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Frost dragon(Level: 166) (id = 51)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Frost dragon bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Draconic visage|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Baby Blue dragon(Level: 48) (id = 52)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Babydragon bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Red dragon(Level: 152) (id = 53)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Red dragonhide|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/400)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Black dragon(Level: 227) (id = 54)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Black dragonhide|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Dragon token|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/350)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Draconic visage|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Blue dragon(Level: 111) (id = 55)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Blue dragonhide|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Shadow spider(Level: 52) (id = 58)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Giant spider(Level: 2) (id = 59)
+---------------
+
+
+Monster: Deadly red spider(Level: 34) (id = 63)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Zombie(Level: 25) (id = 76)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Giant bat(Level: 27) (id = 78)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bat bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Cow(Level: 2) (id = 81)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Cowhide|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Raw beef|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Lesser demon(Level: 82) (id = 82)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Greater demon(Level: 92) (id = 83)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Mithril kiteshield|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Black Demon(Level: 172) (id = 84)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Giant rat(Level: 3) (id = 86)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Raw rat meat|Quantity=1|Rarity=always}}
+
+
+
+Monster: Skeleton(Level: 22) (id = 90)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Rune javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Skeleton(Level: 21) (id = 91)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Rune javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Skeleton(Level: 25) (id = 92)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Rune javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Skeleton(Level: 45) (id = 93)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 2) (id = 100)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 5) (id = 101)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 13) (id = 102)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Fire giant(Level: 86) (id = 110)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Rune scimitar|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Long bone|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Curved bone|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Ice giant(Level: 53) (id = 111)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Moss giant(Level: 42) (id = 112)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Long bone|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Steel kiteshield|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dwarf weed seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Curved bone|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Jogre(Level: 53) (id = 113)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Jogre bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Ogre(Level: 53) (id = 115)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Long bone|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Curved bone|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Hill Giant(Level: 28) (id = 117)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Long bone|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Iron 2h sword|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Steel platebody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Mithril arrow|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Adamant arrow|Quantity=1-5|Rarity=epic}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Limpwurt seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Watermelon seed|Quantity=1-4|Rarity=epic}}
+{{DropsLine|Name=Curved bone|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Chaos dwarf(Level: 48) (id = 119)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Earth warrior(Level: 51) (id = 124)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Ice warrior(Level: 57) (id = 125)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Magic axe(Level: 42) (id = 127)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Iron battleaxe|Quantity=1|Rarity=always}}
+
+
+
+Monster: Ganodermic beast(Level: 280) (id = 130)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/300)}}
+{{DropsLine|Name=Dragon claws|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Armadyl godsword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Ganodermic visor|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Ganodermic poncho|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Ganodermic leggings|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Poison spider(Level: 64) (id = 134)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dark wizard(Level: 20) (id = 172)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Dark wizard(Level: 7) (id = 174)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Black Knight(Level: 33) (id = 178)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Chaos druid(Level: 13) (id = 181)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Thug(Level: 10) (id = 186)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Monk of Zamorak(Level: 45) (id = 190)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Bat(Level: 6) (id = 412)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bat bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Kraken(Level: 291) (id = 502)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/50)}}
+{{DropsLine|Name=Magic seed|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragonstone ring|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Kraken tentacle|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Trident of the seas (full)|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/450)}}
+{{DropsLine|Name=Pet kraken|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Tree spirit(Level: 101) (id = 655)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+
+Monster: Imp(Level: 2) (id = 708)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Imp(Level: 3) (id = 709)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Angry Barbarian Spirit(Level: 162) (id = 749)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Enraged Barbarian Spirit(Level: 162) (id = 750)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Green dragon(Level: 79) (id = 941)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Green dragonhide|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/500)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Kalphite Soldier(Level: 85) (id = 1154)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Kalphite Guardian(Level: 141) (id = 1155)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Rune platebody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Kalphite Queen(Level: 333) (id = 1158)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon chainbody|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon 2h sword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Kq head|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Kalphite Queen(Level: 333) (id = 1160)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Kalphite princess|Quantity=1|Rarity=epic}}
+
+
+
+Monster: The Shaikahan(Level: 283) (id = 1172)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Proof of Kill|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Dire Wolf(Level: 88) (id = 1198)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Ghoul(Level: 42) (id = 1218)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Leech(Level: 52) (id = 1219)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Vampire(Level: 88) (id = 1220)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Vampire dust|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 1265)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Warrior(Level: 132) (id = 1318)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Black dragonhide|Quantity=1|Rarity=always}}
+
+
+
+Monster: Dagannoth(Level: 92) (id = 1341)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Glacor(Level: 276) (id = 1382)
+---------------
+
+
+Monster: Fire giant(Level: 86) (id = 1583)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Rune scimitar|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Long bone|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Curved bone|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Baby dragon(Level: 48) (id = 1589)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Babydragon bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Bronze dragon(Level: 131) (id = 1590)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Bronze bar|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/400)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Dragon plateskirt|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Iron dragon(Level: 189) (id = 1591)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Iron bar|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/350)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Draconic visage|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Steel dragon(Level: 246) (id = 1592)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Steel bar|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Wild dog(Level: 63) (id = 1593)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Aberrant spectre(Level: 96) (id = 1604)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Mystic robe bottom|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Gargoyle(Level: 111) (id = 1610)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Granite maul|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Mystic robe top|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Banshee(Level: 23) (id = 1612)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Mystic gloves|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Nechryael(Level: 115) (id = 1613)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Abyssal demon(Level: 124) (id = 1615)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/75)}}
+{{DropsLine|Name=Abyssal whip|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Whip vine|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Bloodveld(Level: 76) (id = 1618)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Dust devil(Level: 93) (id = 1624)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Turoth(Level: 89) (id = 1627)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Pyrefiend(Level: 43) (id = 1633)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Impious ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Jelly(Level: 78) (id = 1640)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Infernal Mage(Level: 66) (id = 1643)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Mystic hat|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Mystic boots|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Crawling Hand(Level: 8) (id = 1648)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Mystic gloves|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Crawling Hand(Level: 8) (id = 1652)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Crawling Hand(Level: 12) (id = 1657)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Mystic gloves|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Werewolf(Level: 0) (id = 1665)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Experiment(Level: 25) (id = 1677)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Cave bug(Level: 6) (id = 1832)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Arzinian Avatar of Strength(Level: 125) (id = 1851)
+---------------
+
+
+Monster: Arzinian Avatar of Ranging(Level: 75) (id = 1854)
+---------------
+
+
+Monster: Arzinian Avatar of Magic(Level: 125) (id = 1857)
+---------------
+
+
+Monster: Bandit(Level: 56) (id = 1880)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Shadow Hound(Level: 63) (id = 1976)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Venenatis(Level: 464) (id = 2000)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/300)}}
+{{DropsLine|Name=Serpentine helm|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Toxic blowpipe|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/750)}}
+{{DropsLine|Name=Venenatis spiderling|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Scorpia(Level: 434) (id = 2001)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/225)}}
+{{DropsLine|Name=Cape of darkness|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Eye of the warrior|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/750)}}
+{{DropsLine|Name=Scorpia's offspring|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Bloodworm(Level: 52) (id = 2031)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Giant crypt rat(Level: 76) (id = 2033)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Crypt spider(Level: 56) (id = 2034)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Skeleton(Level: 77) (id = 2036)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Rune javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Chaos Elemental(Level: 305) (id = 2054)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon 2h sword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon pickaxe|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet chaos elemental|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Slash Bash(Level: 1072) (id = 2060)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Eye of the mage|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Giant Rock Crab(Level: 137) (id = 2452)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dagannoth spawn(Level: 42) (id = 2454)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Wallasalki(Level: 98) (id = 2457)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: TzHaar-Mej(Level: 103) (id = 2591)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Tokkul|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: TzHaar-Hur(Level: 74) (id = 2600)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Tokkul|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: TzHaar-Xil(Level: 133) (id = 2605)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Tokkul|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: TzHaar-Ket(Level: 149) (id = 2611)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Tokkul|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Hobgoblin(Level: 28) (id = 2685)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Ranarr seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Lantadyme seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dwarf weed seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Whiteberry seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Poison ivy seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Hobgoblin(Level: 28) (id = 2688)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Ranarr seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Lantadyme seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dwarf weed seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Whiteberry seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Poison ivy seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 2783)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/50)}}
+{{DropsLine|Name=Dark bow|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dagannoth Supreme(Level: 303) (id = 2881)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dagannoth bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Dagannoth hide|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Seercull|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon hatchet|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Archer helm|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Archers' ring|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Feather|Quantity=1-453|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet dagannoth supreme|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Dagannoth Prime(Level: 303) (id = 2882)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dagannoth bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Dagannoth hide|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Mud battlestaff|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon hatchet|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Farseer helm|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Seers' ring|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Pet dagannoth supreme|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Dagannoth Rex(Level: 303) (id = 2883)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dagannoth bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Dagannoth hide|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon hatchet|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Berserker ring|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Warrior ring|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon pickaxe|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet dagannoth supreme|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Skeletal Wyvern(Level: 140) (id = 3068)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wyvern bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Wilderness Skeletal Wyvern(Level: 140) (id = 3069)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wyvern bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Wildy Wyrm(Level: 382) (id = 3334)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Vanguard Helm|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vanguard Body|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vanguard Legs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vanguard Gloves|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vanguard Boots|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Baby black dragon(Level: 83) (id = 3376)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Babydragon bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Hobgoblin(Level: 54) (id = 3583)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Ranarr seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Lantadyme seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dwarf weed seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Whiteberry seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Poison ivy seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Goblin(Level: 2) (id = 4261)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 2) (id = 4262)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 2) (id = 4263)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 2) (id = 4269)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 2) (id = 4270)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Cyclops(Level: 56) (id = 4291)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Guard(Level: 220) (id = 4336)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Black dragonhide|Quantity=1|Rarity=always}}
+
+
+
+Monster: Ankou(Level: 75) (id = 4381)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Lantadyme seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Snapdragon seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Grimy lantadyme|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Ankou(Level: 82) (id = 4382)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Lantadyme seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Snapdragon seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Grimy lantadyme|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Ankou(Level: 86) (id = 4383)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Lantadyme seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Snapdragon seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Torstol seed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Grimy lantadyme|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Skeleton(Level: 60) (id = 4385)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Rune javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Skeleton(Level: 85) (id = 4386)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Rune spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Rune javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Flesh Crawler(Level: 28) (id = 4389)
+---------------
+
+
+Monster: Flesh Crawler(Level: 35) (id = 4390)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Flesh Crawler(Level: 41) (id = 4391)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rat(Level: 1) (id = 4396)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Catablepon(Level: 68) (id = 4399)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Minotaur(Level: 12) (id = 4404)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Minotaur(Level: 19) (id = 4405)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Minotaur(Level: 27) (id = 4406)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Goblin(Level: 5) (id = 4407)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Goblin(Level: 25) (id = 4411)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Rat(Level: 1) (id = 4415)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Gorak(Level: 145) (id = 4418)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Long bone|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Curved bone|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Angry juvinate(Level: 130) (id = 4465)
+---------------
+
+
+Monster: Bandos Avatar(Level: 299) (id = 4540)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Gold charm|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Green charm|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/105)}}
+{{DropsLine|Name=Ring of wealth|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/300)}}
+{{DropsLine|Name=Korasi's sword|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Giant rat(Level: 26) (id = 4944)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Raw rat meat|Quantity=1|Rarity=always}}
+
+
+
+Monster: Waterfiend(Level: 115) (id = 5361)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Water rune|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Grimy dwarf weed|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Brutal Green Dragon(Level: 227) (id = 5362)
+---------------
+
+
+Monster: Mithril Dragon(Level: 304) (id = 5363)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Mithril bar|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Skeleton(Level: 77) (id = 5386)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Zombie(Level: 40) (id = 5393)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Animated spade(Level: 50) (id = 5414)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Terror dog(Level: 210) (id = 5417)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Terror dog(Level: 90) (id = 5418)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5507)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5508)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5509)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5510)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5511)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5512)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5513)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Rock Crab(Level: 13) (id = 5514)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet Rock crab|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 5515)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Unarmed|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 5516)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Unarmed|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 5517)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Unarmed|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 5519)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Unarmed|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 5520)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Unarmed|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 5521)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Unarmed|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Dark beast(Level: 182) (id = 5522)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Unarmed|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Yak(Level: 22) (id = 5529)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Yak-hide|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Hair|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Raw yak meat|Quantity=1|Rarity=always}}
+
+
+
+Monster: Cave bug(Level: 96) (id = 5750)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Cerberus(Level: 318) (id = 5866)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/350)}}
+{{DropsLine|Name=Primordial crystal|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Pegasian crystal|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Eternal crystal|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Smouldering Stone|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Hellpuppy|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Bork(Level: 841) (id = 5871)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/350)}}
+{{DropsLine|Name=Chaotic rapier|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Chaotic longsword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Chaotic maul|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Chaotic staff|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Chaotic crossbow|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Guard(Level: 21) (id = 5919)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6006)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 80) (id = 6007)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6008)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6009)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6010)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6011)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6012)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6013)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6014)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6015)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6016)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6017)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6018)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6019)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6020)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6021)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6022)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6023)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Werewolf(Level: 88) (id = 6024)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Big Wolf(Level: 73) (id = 6046)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Wolf bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Skeleton Brute(Level: 132) (id = 6104)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Skeleton Warlord(Level: 132) (id = 6105)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: K'ril Tsutsaroth(Level: 650) (id = 6203)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Steam battlestaff|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zamorakian spear|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Rune sword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 1|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 2|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 3|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zamorak hilt|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Staff of the dead|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Pet K'ril tsutsaroth|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Tstanon Karlak(Level: 145) (id = 6204)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Zamorakian spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Zakl'n Gritch(Level: 142) (id = 6206)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Zamorakian spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Balfrug Kreeyath(Level: 151) (id = 6208)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Zamorakian spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Pyrefiend(Level: 43) (id = 6216)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Impious ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Spiritual Warrior(Level: 115) (id = 6219)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Spiritual Ranger(Level: 118) (id = 6220)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Spiritual Mage(Level: 121) (id = 6221)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon boots|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Kree'arra(Level: 580) (id = 6222)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Feather|Quantity=1-15|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Armadyl helmet|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Armadyl chestplate|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Armadyl chainskirt|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Yew seed|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 1|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 2|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 3|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Armadyl hilt|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet kree'arra|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Wingman Skree(Level: 141) (id = 6223)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Armadyl helmet|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Armadyl chestplate|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Armadyl chainskirt|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Flockleader Geerin(Level: 149) (id = 6225)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Armadyl helmet|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Armadyl chestplate|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Armadyl chainskirt|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Flight Kilisa(Level: 159) (id = 6227)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Armadyl helmet|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Armadyl chestplate|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Armadyl chainskirt|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Spiritual Ranger(Level: 127) (id = 6230)
+---------------
+
+
+Monster: Spiritual Mage(Level: 122) (id = 6231)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon boots|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Aviansie(Level: 131) (id = 6246)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Feather|Quantity=1-7|Rarity=always}}
+
+
+
+Monster: Commander Zilyana(Level: 596) (id = 6247)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Saradomin sword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Armadyl crossbow|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Rune sword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Magic seed|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 1|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 2|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 3|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Saradomin hilt|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet zilyana|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Starlight(Level: 149) (id = 6248)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Saradomin sword|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Growler(Level: 139) (id = 6250)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Saradomin sword|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Bree(Level: 146) (id = 6252)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Saradomin sword|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Saradomin priest(Level: 113) (id = 6254)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Spiritual Warrior(Level: 125) (id = 6255)
+---------------
+
+
+Monster: Spiritual Ranger(Level: 122) (id = 6256)
+---------------
+
+
+Monster: Spiritual Mage(Level: 120) (id = 6257)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon boots|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Shield left half|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Dragon spear|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Knight of Saradomin(Level: 103) (id = 6258)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Knight of Saradomin(Level: 101) (id = 6259)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: General Graardor(Level: 624) (id = 6260)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Rune sword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Bandos chestplate|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Bandos tassets|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Bandos boots|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 1|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 2|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Godsword shard 3|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Bandos hilt|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet general graardor|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Sergeant Strongstack(Level: 141) (id = 6261)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Bandos chestplate|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Bandos tassets|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Bandos boots|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Sergeant Steelwill(Level: 141) (id = 6263)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Bandos chestplate|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Bandos tassets|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Bandos boots|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Sergeant Grimspike(Level: 142) (id = 6265)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Bandos chestplate|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Bandos tassets|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Bandos boots|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Ork(Level: 107) (id = 6273)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Spiritual Ranger(Level: 115) (id = 6276)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Zamorak warrior(Level: 57) (id = 6363)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Zamorak ranger(Level: 57) (id = 6365)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Zamorak mage(Level: 57) (id = 6367)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Giant Ant Worker(Level: 40) (id = 6379)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Giant Ant Soldier(Level: 40) (id = 6380)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Lava dragon(Level: 252) (id = 6593)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Lava dragon bones|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Black dragonhide|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Callisto(Level: 470) (id = 6609)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Serpentine helm|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Callisto cub|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Vet'ion(Level: 454) (id = 6611)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/125)}}
+{{DropsLine|Name=Dragon 2h sword|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Heavy ballista|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon pickaxe|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Amulet of torture|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/600)}}
+{{DropsLine|Name=Vet'ion jr.|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Crazy archaeologist(Level: 204) (id = 6618)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Staff of the dead|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Ganodermic visor|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Ganodermic poncho|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Ganodermic leggings|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Chaos Fanatic(Level: 202) (id = 6619)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Ancient staff|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Eye of the mage|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Toxic staff of the dead|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Pet chaos elemental|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Corporeal Beast(Level: 785) (id = 8133)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Holy elixir|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/500)}}
+{{DropsLine|Name=Spectral sigil|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Arcane sigil|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Elysian sigil|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Pet dark core|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Divine sigil|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Tormented Demon(Level: 450) (id = 8349)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Infernal ashes|Quantity=1|Rarity=always}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon claws|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Phoenix(Level: 123) (id = 8549)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Eye of the ranger|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Avatar of Creation(Level: 525) (id = 8597)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Crystal key|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Chaos Dwogre(Level: 142) (id = 8771)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Big bones|Quantity=1|Rarity=always}}
+
+
+
+Monster: Chaos Dwarf hand cannoneer(Level: 100) (id = 8776)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Dragon pickaxe|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Ice strykewyrm(Level: 210) (id = 9463)
+---------------
+
+
+Monster: Desert strykewyrm(Level: 130) (id = 9465)
+---------------
+
+
+Monster: Jungle strykewyrm(Level: 110) (id = 9467)
+---------------
+
+
+Monster: Plane-freezer Lakhrahnaz(Level: 223) (id = 9939)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Black dragonhide|Quantity=1|Rarity=always}}
+
+
+
+Monster: Icefiend(Level: 88) (id = 10216)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Impious ashes|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Frost dragon(Level: 166) (id = 10775)
+---------------
+
+{{DropsTableHeader|Name=100% Drops}}
+{{DropsLine|Name=Frost dragon bones|Quantity=1|Rarity=always}}
+
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Draconic visage|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Dragon warhammer|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Nex(Level: 565) (id = 13447)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/75)}}
+{{DropsLine|Name=Torva full helm|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Torva platebody|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Torva platelegs|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Pernix cowl|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zaryte bow|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Pernix body|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Pernix chaps|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Virtus mask|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Virtus robe top|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Virtus robe legs|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Ancient Warrior(Level: 148) (id = 13456)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Ancient Ranger(Level: 167) (id = 13457)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Blood Reaver(Level: 147) (id = 13458)
+---------------
+
+
+Monster: Ancient Mage(Level: 165) (id = 13459)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Starved ancient effigy|Quantity=1|Rarity=very rare}}
+
+
+
+Monster: Revenant Impling(Level: 91) (id = 13465)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Brawling gloves (prayer)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (agility)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (wc)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (fm)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (mining)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (hunter)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (thieving)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (smithing)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (fishing)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (cooking)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's full helm|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platebody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's warhammer|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's chainbody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's plateskirt|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's longsword|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's staff|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's coif|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's leather body|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's leather chaps|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's throwing axe|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Revenant Goblin(Level: 128) (id = 13469)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Statius's full helm|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platebody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's warhammer|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's chainbody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's plateskirt|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's longsword|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's staff|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's coif|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's leather body|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's leather chaps|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's throwing axe|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Revenant Werewolf(Level: 173) (id = 13474)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Statius's full helm|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Statius's warhammer|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's coif|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's leather body|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's leather chaps|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's javelin|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's throwing axe|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Statius's platebody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's plateskirt|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's longsword|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Revenant Ork(Level: 224) (id = 13478)
+---------------
+
+{{DropsTableHeader|Name=Very Rare Drops (1/200)}}
+{{DropsLine|Name=Statius's full helm|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Statius's warhammer|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's coif|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's leather body|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's leather chaps|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's javelin|Quantity=1|Rarity=very rare}}
+{{DropsLine|Name=Morrigan's throwing axe|Quantity=1|Rarity=very rare}}
+
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Statius's platebody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's plateskirt|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's longsword|Quantity=1|Rarity=epic}}
+
+
+
+Monster: Revenant Dark Beast(Level: 301) (id = 13479)
+---------------
+
+{{DropsTableHeader|Name=Epic Drops (1/1000)}}
+{{DropsLine|Name=Brawling gloves (prayer)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (agility)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (wc)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (fm)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (mining)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (hunter)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (thieving)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (smithing)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (fishing)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Brawling gloves (cooking)|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's full helm|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platebody|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's warhammer|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Statius's platelegs|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's plateskirt|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Vesta's longsword|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's hood|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe top|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Zuriel's robe bottom|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's coif|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's leather body|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's leather chaps|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's javelin|Quantity=1|Rarity=epic}}
+{{DropsLine|Name=Morrigan's throwing axe|Quantity=1|Rarity=epic}}
+
+
+

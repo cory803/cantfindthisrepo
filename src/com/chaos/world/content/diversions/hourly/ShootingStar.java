@@ -70,15 +70,15 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 				stage = Stage.values()[0];
 				setPosition(location.getPosition());
 				
-				edgeMeteora = new NPC(4515, new Position(3102, 3492), Direction.NORTH) {
+				//edgeMeteora = new NPC(4515, new Position(3102, 3492), Direction.NORTH) {
 
-				};
+				//};
 				
-				varrockMeteora = new NPC(4515, new Position(3220, 3436), Direction.SOUTH) {
+				//varrockMeteora = new NPC(4515, new Position(3220, 3436), Direction.SOUTH) {
 
-				};
+				//};
 				CustomObjects.spawnGlobalObject(this);
-				World.register(varrockMeteora);
+				//World.register(varrockMeteora);
 				World.sendMessage("<icon=0><shad=FF8C38>A shooting star has just crashed " + location.getClue() + "!");
 			}
 		}
@@ -91,8 +91,8 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 		ticks = 0;
 		minerals = 0;
 		setId(Stage.values()[0].getObjectId());
-		World.deregister(edgeMeteora);
-		World.deregister(varrockMeteora);
+		//World.deregister(edgeMeteora);
+		//World.deregister(varrockMeteora);
 		CustomObjects.deleteGlobalObject(this);
 		HourlyDiversionManager.chooseNextDiversion();
 	}

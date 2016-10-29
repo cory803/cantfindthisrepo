@@ -56,7 +56,24 @@ public class Mining {
 		}
 		player.setInteractingObject(oreObject);
 		player.setPositionToFace(oreObject.getPosition());
-		final Ores o = MiningData.forRock(oreObject.getId());
+		Ores initialOre = null;
+		if(oreObject.getId() == 24444 || oreObject.getId() == 24445) {
+			if(player.getSkillManager().getCurrentLevel(Skill.MINING) >= 30) {
+				int random = Misc.inclusiveRandom(1, 2);
+				if(random == 1) {
+					initialOre = Ores.RUNE_ESSENCE;
+				} else {
+					initialOre = Ores.PURE_ESSENCE;
+				}
+			} else {
+				initialOre = MiningData.forRock(oreObject.getId());
+			}
+		} else {
+			initialOre = MiningData.forRock(oreObject.getId());
+		}
+
+		final Ores o = initialOre;
+
 		final boolean giveGem = o != Ores.RUNE_ESSENCE && o != Ores.PURE_ESSENCE;
 		final int reqCycle = o == Ores.RUNITE ? 6 + Misc.getRandom(2) : Misc.getRandom(o.getTicks() - 1);
 		if (o != null) {

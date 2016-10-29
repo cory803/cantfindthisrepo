@@ -21,7 +21,7 @@ class TeleportEasts(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("You cannot do this at the moment.")
             return
         }
-        val position = Position(2980, 3597, 0)
+        val position = Position(3369, 3695, 0)
         TeleportHandler.teleportPlayer(player, position, player.spellbook.teleportType)
         player.packetSender.sendMessage("Teleporting you to east pking!")
     }

@@ -48,7 +48,7 @@
     "weedStage": 3,
     "attributes": 0,
     "timePlanted": 1477683665067,
-    "diseaseImmunity": 25,
+    "diseaseImmunity": 10,
     "harvestedItem": {
       "id": 1942,
       "amount": 9,

@@ -127,7 +127,8 @@ public class WarriorsGuild {
 			if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM) {
 				random = 12;
 			}
-			if (Misc.getRandom(random) <= 12 ) {
+			int chance = Misc.inclusiveRandom(0, random);
+			if(chance == 5) {
 				GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(getDefender(player)),
 						npc.getPosition().copy(), player.getUsername(), false, 100, false, -1));
 			}

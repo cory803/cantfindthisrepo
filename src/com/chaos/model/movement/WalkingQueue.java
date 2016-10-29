@@ -2,10 +2,7 @@ package com.chaos.model.movement;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.Direction;
-import com.chaos.model.Locations;
-import com.chaos.model.Position;
-import com.chaos.model.Skill;
+import com.chaos.model.*;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.world.World;
 import com.chaos.world.clip.region.Region;
@@ -295,7 +292,9 @@ public final class WalkingQueue {
                             player.getPacketSender().sendMessage("You ran out of run energy!");
 							player.getPacketSender().sendRunStatus();
                         } else {
-							player.setRunEnergy(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F)));
+							if (player.getDonatorRights().ordinal() < DonatorRights.UBER.ordinal()) {
+								player.setRunEnergy(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F)));
+							}
 						}
                     }
                 }

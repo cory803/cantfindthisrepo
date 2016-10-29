@@ -172,6 +172,9 @@ public class ObjectActionPacketListener implements PacketListener {
                                     }
                                 }
                                 break;
+                            case 2492:
+                                player.moveTo(new Position(3253, 3400, 0));
+                                break;
                             case 38660:
                             case 38661:
                             case 38662:
