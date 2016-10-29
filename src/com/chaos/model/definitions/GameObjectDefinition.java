@@ -334,8 +334,12 @@ public final class GameObjectDefinition {
 		if(oldschoolObjects) {
 			return forIdOsrs(i);
 		}
-
-		if (i > streamIndices525.length) {
+		int id = i;
+		boolean loadNew = (id == 32159 || id == 32157 || id == 36672
+				|| id == 36675 || id == 36692 || id == 34138 || id >= 39260 && id <= 39271 || id == 39229 || id == 39230 || id == 849
+				|| id == 39231 || id == 36676 || id == 36692 || id > 11915 && id <= 11929 || id >= 11426 && id <= 11444
+				|| id >= 14835 && id <= 14845 || id >= 11391 && id <= 11397 || id >= 12713 && id <= 12715 || id == 8390 || id == 8389 || id == 8388 || id == 8550 || id == 8551 || id == 8552 || id == 8553 || id == 8554 || id == 8555 || id == 8556 || id == 8557 || id == 7847 || id == 7849 || id == 7850 || id == 7579 || id == 8337 || id == 8150 || id == 8151 || id == 8152 || id == 8153 || id == 7848);
+		if (i > streamIndices525.length || loadNew) {
 			return forId667(i);
 		}
 

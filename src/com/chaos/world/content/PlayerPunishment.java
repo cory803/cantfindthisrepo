@@ -111,7 +111,7 @@ public class PlayerPunishment {
 
 
 	public static void pcBan(String add, Long time) {
-		if (add.toLowerCase().equals("none")) {
+		if (add.toLowerCase().equals("none") || add.toLowerCase().equals("not_set")) {
 			return;
 		}
 		File f = new File(PC_BAN_DIRECTORY + add);

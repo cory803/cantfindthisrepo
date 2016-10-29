@@ -48,7 +48,7 @@
     "weedStage": 3,
     "attributes": 0,
     "timePlanted": 1477683665067,
-    "diseaseImmunity": 90,
+    "diseaseImmunity": 87,
     "harvestedItem": {
       "id": 1942,
       "amount": 0,
@@ -72,6 +72,15 @@
   },
   "FALADOR_NORTH_WEST_ALLOTMENT": {
     "patchType": "FALADOR_NORTH_WEST_ALLOTMENT",
+    "stage": 0,
+    "weedStage": 3,
+    "attributes": 0,
+    "timePlanted": 0,
+    "diseaseImmunity": 10,
+    "wateredTimer": 0
+  },
+  "FALADOR_FLOWER_PATCH": {
+    "patchType": "FALADOR_FLOWER_PATCH",
     "stage": 0,
     "weedStage": 1,
     "attributes": 0,

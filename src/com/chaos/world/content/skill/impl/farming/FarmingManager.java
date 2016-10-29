@@ -25,7 +25,6 @@ public final class FarmingManager {
 	}
 
 	public static void updatePatch(Player player, PatchType patchType, Patch patch) {
-		System.out.println("Update patch!");
 		int value;
 		switch (patchType) {
 		case VARROCK_CASTLE_TREE_PATCH:
