@@ -180,8 +180,10 @@ public class PlayerDeathTask extends Task {
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 				loc.onDeath(player);
 				player.moveTo(new Position(3094 + Misc.random(1), 3478 + Misc.random(5), 0));
-				if (player.getPosition().equals(oldPosition)) {
-					player.moveTo(new Position(3094 + Misc.random(1), 3478 + Misc.random(5), 0));
+				if (player.getLocation().equals(Location.DUEL_ARENA)) {
+					player.moveTo(new Position(3368 + Misc.getRandom(5), 3267 + Misc.getRandom(3)));
+				} else if (player.getPosition().equals(oldPosition)) {
+					player.moveTo(new Position(3094 + Misc.random(1), 3478 + Misc.random(3), 0));
 				}
 				player = null;
 				oldPosition = null;
