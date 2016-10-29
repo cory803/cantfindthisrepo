@@ -704,6 +704,12 @@ public class UseItemPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
+			case 747:
+				if(item_id == 11286) {
+					player.setNpcClickId(747);
+					player.getDialog().sendDialog(new OziachDFS(player));
+				}
+				break;
 			case 12378:
 				if(item_id == 1959) {
 				player.setNpcClickId(12378);

@@ -36,6 +36,6 @@ class TeleportExtremeZone(staffRights: StaffRights) : Command(staffRights) {
             3 -> position = Position(3362, 9640, 0)
         }
         TeleportHandler.teleportPlayer(player, position, player.spellbook.teleportType)
-        player.packetSender.sendMessage("<img=9><col=00ff00><shad=0> Welcome to the Extreme Donator Zone!")
+        player.packetSender.sendMessage("<img=10><col=570057><shad=0> Welcome to the Legendary Donator Zone!")
     }
 }
