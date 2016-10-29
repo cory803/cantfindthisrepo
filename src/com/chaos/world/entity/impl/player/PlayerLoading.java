@@ -634,9 +634,6 @@ public class PlayerLoading {
 		if (reader.has("skull-timer")) {
 			player.setSkullTimer(reader.get("skull-timer").getAsInt());
 		}
-		if (reader.has("zulrah-rotation")) {
-			player.getZulrah().setZulrahRotation(reader.get("zulrah-rotation").getAsInt());
-		}
 		if (reader.has("accept-aid")) {
 			player.setRequestingAssistance(reader.get("accept-aid").getAsBoolean());
 		}

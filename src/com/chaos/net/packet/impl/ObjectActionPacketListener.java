@@ -407,9 +407,6 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 21772:
                                 player.moveTo(new Position(3236, 3458, 0));
                                 break;
-                            case 2995:
-                                player.openBank();
-                                break;
                             case 10309:
                                 player.performAnimation(new Animation(828));
                                 TaskManager.submit(new Task(1, player, true) {
@@ -1692,7 +1689,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                     player.getLocation().leave(player);
                                 }
                                 break;
-                            case 1738:
+                            case 36773:
                                 if (player.getPosition().getX() > 3204 || player.getLocation() == Location.LUMBRIDGE) {
                                     if (player.getPosition().getX() < 3207)
                                     player.moveTo(new Position(player.getPosition().getX(),
@@ -1704,10 +1701,10 @@ public class ObjectActionPacketListener implements PacketListener {
                                     player.moveTo(new Position(2840, 3539, 2));
                                 }
                                 break;
-                            case 1739:
+                            case 36774:
                                 player.getDialog().sendDialog(new LumbyStairs(player));
                                 break;
-                            case 1740:
+                            case 36775:
                                 player.moveTo(new Position(player.getPosition().getX(),
                                         player.getPosition().getY(), player.getPosition().getZ() - 1));
                                 break;
@@ -1980,6 +1977,8 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 2497:
                             case 16700:
                             case 21301:
+                            case 36786:
+                            case 2995:
                                 player.getBank(player.getCurrentBankTab()).open();
                                 break;
                             case 21304:
@@ -2125,6 +2124,7 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 11402:
                             case 26969:
                             case 75:
+                            case 36786:
                                 player.getBank(player.getCurrentBankTab()).open();
                                 break;
                             case 884:

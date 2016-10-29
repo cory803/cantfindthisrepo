@@ -6,7 +6,6 @@ import java.util.Map;
 import com.chaos.world.content.combat.strategy.impl.*;
 import com.chaos.world.content.combat.strategy.impl.kraken.Kraken;
 import com.chaos.world.content.combat.strategy.impl.kraken.Tentacles;
-import com.chaos.world.content.minigames.impl.zulrah.Zulrah;
 
 public class CombatStrategies {
 
@@ -87,12 +86,6 @@ public class CombatStrategies {
 		STRATEGIES.put(1854, new AvatarOfRange());
 		STRATEGIES.put(135, new Fear());
 		STRATEGIES.put(135, new Fear());
-
-		//Zulrah
-		STRATEGIES.put(Zulrah.GREEN_ZULRAH, new ZulrahGreen());
-		STRATEGIES.put(Zulrah.RED_ZULRAH, new ZulrahRed());
-		STRATEGIES.put(Zulrah.BLUE_ZULRAH, new ZulrahBlue());
-		STRATEGIES.put(Zulrah.JAD_ZULRAH, new ZulrahJad());
 		
 		Dragon dragonStrategy = new Dragon();
 		STRATEGIES.put(50, dragonStrategy);

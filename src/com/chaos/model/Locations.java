@@ -480,7 +480,7 @@ public class Locations {
 
 			@Override
 			public void onDeath(Player player) {
-				player.getZulrah().leaveIsland(true);
+
 			}
 
 			@Override

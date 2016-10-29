@@ -285,7 +285,6 @@ public class PlayerSaving {
 		object.addProperty("arena-losses", new Integer(player.getDueling().arenaStats[1]));
 		object.addProperty("sol-effect", new Integer(player.getStaffOfLightEffect()));
 		object.addProperty("skull-timer", new Integer(player.getSkullTimer()));
-		object.addProperty("zulrah-rotation", new Integer(player.getZulrah().getZulrahRotation()));
 		object.addProperty("accept-aid", new Boolean(player.isRequestAssistance()));
 		object.addProperty("poison-damage", new Integer(player.getPoisonDamage()));
 		object.addProperty("poison-immunity", new Integer(player.getPoisonImmunity()));

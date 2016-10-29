@@ -424,12 +424,6 @@ public class CommandManager {
 
         commands.put("writenpc", new WriteNPC(StaffRights.OWNER));
         commands.put("l", new CopyWriteNpc(StaffRights.OWNER));
-        commands.put("zulrah", new Command(StaffRights.OWNER) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getZulrah().enterIsland();
-            }
-        });
         commands.put("resetspecialplayers", new Command(StaffRights.OWNER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

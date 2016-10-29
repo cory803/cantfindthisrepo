@@ -73,7 +73,6 @@ import com.chaos.world.content.combat.weapon.FightType;
 import com.chaos.world.content.minigames.MinigameAttributes;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
-import com.chaos.world.content.minigames.impl.zulrah.Zulrah;
 import com.chaos.world.content.pos.PosDetails;
 import com.chaos.world.content.pos.PosOffer;
 import com.chaos.world.content.skill.SkillManager;
@@ -971,12 +970,6 @@ public class Player extends Character {
     private List<String> notes = new ArrayList<>();
     private List<Integer> noteColours = new ArrayList<>();
     private String temp_note = "";
-
-    private Zulrah zulrah = new Zulrah(this);
-
-    public Zulrah getZulrah() {
-        return this.zulrah;
-    }
 
     // Toxic weapons
     public int toxic_staff_charges = 0;
