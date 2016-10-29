@@ -18,6 +18,42 @@ public class Max extends Dialog {
         setEndState(10);
     }
 
+    /**
+     * Obtain the price of a max cape depending
+     * on your game mode.
+     * @param player
+     * @return
+     */
+    public int getMaxCapePrice(Player player) {
+        switch(player.getGameModeAssistant().getGameMode()) {
+            case KNIGHT:
+                return 5_000_000;
+            case REALISM:
+                return 1_000_000;
+            case IRONMAN:
+                return 500_000;
+        }
+        return 5_000_000;
+    }
+
+    /**
+     * Obtain the price of a completionist cape depending
+     * on your game mode.
+     * @param player
+     * @return
+     */
+    public int getCompletionistCapePrice(Player player) {
+        switch(player.getGameModeAssistant().getGameMode()) {
+            case KNIGHT:
+                return 10_000_000;
+            case REALISM:
+                return 2_000_000;
+            case IRONMAN:
+                return 1_000;
+        }
+        return 10_000_000;
+    }
+
     @Override
     public DialogMessage getMessage() {
         switch (getState()) {
@@ -25,9 +61,9 @@ public class Max extends Dialog {
                 return Dialog.createNpc(DialogHandler.CALM, "Hello! I distribute all well known capes that prove achievements, accomplishments, and status among Chaos. I only give them to those that are worthy.");
             case 1:
                 return Dialog.createOption(new FourOption(
-                        "I'd like to buy a Max Cape",
-                        "I'd like to buy a Completionist Cape",
-                        "I'd like to buy a Veteran Cape",
+                        "I'd like to buy a Max Cape ("+Misc.formatAmount(getMaxCapePrice(getPlayer()))+")",
+                        "I'd like to buy a Completionist Cape ("+Misc.formatAmount(getCompletionistCapePrice(getPlayer()))+")",
+                        "I'd like to buy a Veteran Cape (2M)",
                         "Cancel") {
                     @Override
                     public void execute(Player player, OptionType option) {
@@ -38,16 +74,16 @@ public class Max extends Dialog {
                                     player.getPacketSender().sendMessage("You must have 99's in every skill in order to purchase the max cape!");
                                     return;
                                 }
-                                boolean usePouch = player.getMoneyInPouch() >= 50000000;
-                                if (!usePouch && player.getInventory().getAmount(995) < 50000000) {
+                                boolean usePouch = player.getMoneyInPouch() >= getMaxCapePrice(getPlayer());
+                                if (!usePouch && player.getInventory().getAmount(995) < getMaxCapePrice(getPlayer())) {
                                     player.getPacketSender().sendMessage("You do not have enough coins.");
                                     return;
                                 }
                                 if (usePouch) {
-                                    player.setMoneyInPouch(player.getMoneyInPouch() - 50000000);
+                                    player.setMoneyInPouch(player.getMoneyInPouch() - getMaxCapePrice(getPlayer()));
                                     player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
                                 } else
-                                    player.getInventory().delete(995, 50000000);
+                                    player.getInventory().delete(995, getMaxCapePrice(getPlayer()));
                                 player.getInventory().add(14019, 1);
                                 player.getPacketSender().sendMessage("You've purchased a Max cape.");
                                 break;
@@ -59,32 +95,32 @@ public class Max extends Dialog {
                                         return;
                                     }
                                 }
-                                boolean usePouch3 = player.getMoneyInPouch() >= 100000000;
-                                if (!usePouch3 && player.getInventory().getAmount(995) < 100000000) {
+                                boolean usePouch3 = player.getMoneyInPouch() >= getCompletionistCapePrice(getPlayer());
+                                if (!usePouch3 && player.getInventory().getAmount(995) < getCompletionistCapePrice(getPlayer())) {
                                     player.getPacketSender().sendMessage("You do not have enough coins.");
                                     return;
                                 }
                                 if (usePouch3) {
-                                    player.setMoneyInPouch(player.getMoneyInPouch() - 100000000);
+                                    player.setMoneyInPouch(player.getMoneyInPouch() - getCompletionistCapePrice(getPlayer()));
                                     player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
                                 } else
-                                    player.getInventory().delete(995, 100000000);
+                                    player.getInventory().delete(995, getCompletionistCapePrice(getPlayer()));
                                 player.getInventory().add(14022, 1);
                                 player.getPacketSender().sendMessage("You've purchased a Completionist cape.");
                                 break;
                             case OPTION_3_OF_4:
                                 if (Misc.getHoursPlayedNumeric(player.getTotalPlayTime()) >= 2000) {
                                     player.getPacketSender().sendInterfaceRemoval();
-                                    boolean usePouch2 = player.getMoneyInPouch() >= 75000000;
-                                    if (!usePouch2 && player.getInventory().getAmount(995) < 75000000) {
+                                    boolean usePouch2 = player.getMoneyInPouch() >= 2000000;
+                                    if (!usePouch2 && player.getInventory().getAmount(995) < 2000000) {
                                         player.getPacketSender().sendMessage("You do not have enough coins.");
                                         return;
                                     }
                                     if (usePouch2) {
-                                        player.setMoneyInPouch(player.getMoneyInPouch() - 75000000);
+                                        player.setMoneyInPouch(player.getMoneyInPouch() - 2000000);
                                         player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
                                     } else
-                                        player.getInventory().delete(995, 75000000);
+                                        player.getInventory().delete(995, 2000000);
                                     player.getInventory().add(14021, 1);
                                     player.getPacketSender().sendMessage("You've purchased a Veteran cape.");
                                     setState(2);
