@@ -196,7 +196,7 @@ public class Fishing {
 					p.performAnimation(new Animation(s.getAnim()));
 				if (cycle >= Misc.getRandom(1) + reqCycle) {
 					String def = ItemDefinition.forId(s.getRawFish()[fishIndex]).getName();
-					if (def.endsWith("s"))
+					if (def.endsWith("s") && s.getRawFish()[fishIndex] != 363)
 						def = def.substring(0, def.length() - 1);
 					p.getPacketSender().sendMessage(
 							"You catch " + Misc.anOrA(def) + " " + def.toLowerCase().replace("_", " ") + ".");
