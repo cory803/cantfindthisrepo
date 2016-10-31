@@ -2028,6 +2028,53 @@ public class Player extends Character {
     public void setLoyaltyRank(int ii) {
         loyaltyRank = ii;
     }
+    public String getLoyaltyRankString(int i) {
+        switch (i) {
+            case 1:
+                return "Knight";
+            case 2:
+                return "Realism";
+            case 3:
+                return "Ironman";
+            case 4:
+                return "@or3@Donator";
+            case 5:
+                return "@369@Super";
+            case 6:
+                return "@gre@Extreme";
+            case 7:
+                return "@mag@Legendary";
+            case 8:
+                return "@mds@Moderator";
+            case 9:
+                return "@yel@Administrator";
+            case 10:
+                return "@red@Owner";
+            case 11:
+                return "@spt@Support";
+            case 12:
+                return "@dbl@Developer";
+            case 13:
+                return "@yel@Uber";
+            case 14:
+                return "@glb@Global Mod";
+            case 15:
+                return "@wke@Wiki Editor";
+            case 16:
+                return "@325@Wiki Manager";
+            case 17:
+                return "@red@Manager";
+            case 18:
+                return "@hbd@Hybrid";
+            case 19:
+                return "@smm@Staff Manager";
+            case 20:
+                return "@red@YouTuber";
+            case 21:
+                return "@fmd@Forum Mod";
+        }
+        return "";
+    }
 
     public boolean experienceLocked() {
         return experienceLocked;

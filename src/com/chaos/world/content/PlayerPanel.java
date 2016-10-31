@@ -20,7 +20,7 @@ public class PlayerPanel {
 //		player.getPacketSender().sendString(55074, "   >- Staff online: @cha@" + World.staffOnline());
 //		player.getPacketSender().sendString(55075, "   >- Wilderness: @cha@" + Locations.PLAYERS_IN_WILD);
 		player.getPacketSender().sendString(55076, "  @whi@[Personal]");
-		player.getPacketSender().sendString(55077, "   >- Title: @cha@None");
+		player.getPacketSender().sendString(55077, "   >- Title: @cha@" + player.getLoyaltyRankString(player.getLoyaltyRank()));
 //		player.getPacketSender().sendString(55078, "   >- Play Time: @cha@" + player.getTotalPlayTime());
 		player.getPacketSender().sendString(55079, "   >- Game mode: @cha@ " + player.getGameModeAssistant().getModeName());
 		player.getPacketSender().sendString(55080, "   >- Donator: @cha@ " + player.getDonatorRights().getTitle());
