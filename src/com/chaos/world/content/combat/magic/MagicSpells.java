@@ -355,10 +355,10 @@ public enum MagicSpells {
 			p.getSkillManager().addSkillExperience(Skill.MAGIC, spell.getSpell().baseExperience() * i);
 			break;
 		case VENGEANCE:
-			if (!p.getLocation().isAidingAllowed() || p.getLocation() == Location.DUEL_ARENA) {
-				p.getPacketSender().sendMessage("This spell cannot be cast here.");
-				return true;
-			}
+//			if (!p.getLocation().isAidingAllowed() || p.getLocation() == Location.DUEL_ARENA) {
+//				p.getPacketSender().sendMessage("This spell cannot be cast here.");
+//				return true;
+//			}
 			if (p.hasVengeance()) {
 				p.getPacketSender().sendMessage("You already have Vengeance's effect.");
 				return true;

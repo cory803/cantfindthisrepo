@@ -511,6 +511,23 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+		case 13281:
+		case 13282:
+		case 13283:
+		case 13284:
+		case 13285:
+		case 13286:
+		case 13287:
+		case 13288:
+			player.getPacketSender().sendInterfaceRemoval();
+			player.getPacketSender()
+					.sendMessage(player.getSlayer().getSlayerTask() == null
+							? ("You do not have a Slayer task.")
+							: ("Your current task is to kill another "
+							+ (player.getSlayer().getAmountLeft()) + " " + Misc.formatText(player
+							.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " "))
+							+ "s."));
+			break;
 		case 14022:
 			//TODO: Add completionist ape customization
 			break;
@@ -523,23 +540,22 @@ public class ItemActionPacketListener implements PacketListener {
 		case 1706:
 			GloryTeleporting.rub(player, itemId);
 			break;
-
-			case 11105:
-			case 11107:
-			case 11109:
-			case 11111:
-				SkillsTeleporting.rub(player, itemId);
+		case 11105:
+		case 11107:
+		case 11109:
+		case 11111:
+			SkillsTeleporting.rub(player, itemId);
+		break;
+		case 11113:
+			player.getPacketSender().sendMessage("Your necklace has run out of charges.");
 			break;
-			case 11113:
-				player.getPacketSender().sendMessage("Your necklace has run out of charges.");
-				break;
 
-			case 11118:
-			case 11120:
-			case 11122:
-			case 11124:
-				CombatTeleporting.rub(player, itemId);
-				break;
+		case 11118:
+		case 11120:
+		case 11122:
+		case 11124:
+			CombatTeleporting.rub(player, itemId);
+			break;
 		case 1704:
 			player.getPacketSender().sendMessage("Your amulet has run out of charges.");
 			break;

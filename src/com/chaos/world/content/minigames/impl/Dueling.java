@@ -651,11 +651,11 @@ public class Dueling {
 	}
 
 	public void duelVictory() {
+		boolean doubleDeath = player.getConstitution() == 0;
 		duelingStatus = 6;
 		player.restart();
 		player.getWalkingQueue().clear();
 		player.getWalkingQueue().setLockMovement(false);
-		boolean doubleDeath = player.getConstitution() == 0;
 		if (duelingWith > 0) {
 			Player playerDuel = World.getPlayers().get(duelingWith);
 			if (playerDuel != null && playerDuel.getDueling().stakedItems.size() > 0) {
