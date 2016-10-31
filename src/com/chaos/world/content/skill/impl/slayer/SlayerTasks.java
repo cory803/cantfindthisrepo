@@ -14,26 +14,26 @@ public enum SlayerTasks {
      * Turael's slayer tasks
      * @SlayerMaster.TURAEL
      */
-    BANSHEE(new int[] {1612}, new int[] {22}, SlayerMasters.TURAEL, 15, 50, 4166),
-    BAT(new int[] {412, 78}, new int[] {8, 32}, SlayerMasters.TURAEL, 15, 50, -1),
-    CHICKEN(new int[] {41}, new int[] {3}, SlayerMasters.TURAEL, 15, 50, -1),
-    ROCK_CRAB(new int[] {1265}, new int[] {20}, SlayerMasters.TURAEL, 15, 50, -1),
-    EXPERIMENT(new int[] {1677}, new int[] {27}, SlayerMasters.TURAEL, 15, 50, -1),
-    YAK(new int[] {5529}, new int[] {24}, SlayerMasters.TURAEL, 15, 50, -1),
-    CRAWLING_HAND(new int[] {1648, 1657}, new int[] {10, 16}, SlayerMasters.TURAEL, 15, 50, -1),
-    SPIDER(new int[] {59, 134, 4400}, new int[] {13, 72, 60}, SlayerMasters.TURAEL, 15, 50, -1),
-    COW(new int[] {81}, new int[] {8}, SlayerMasters.TURAEL, 15, 50, -1),
-    GOBLIN(new int[] {4261, 4262, 4263, 4269, 4270, 4407, 4411, 13469, 2685, 2688, 3583}, new int[] {8, 8, 8, 8, 8, 8, 14, 28, 21, 58}, SlayerMasters.TURAEL, 15, 50, -1),
+    BANSHEE(new int[] {1612}, new int[] {22}, SlayerMasters.TURAEL, 15, 50, 4166, new Position(3437, 3535, 0)),
+    BAT(new int[] {412, 78}, new int[] {8, 32}, SlayerMasters.TURAEL, 15, 50, -1, new Position(3427, 3538, 0)),
+    CHICKEN(new int[] {41}, new int[] {3}, SlayerMasters.TURAEL, 15, 50, -1, new Position(3236, 3295, 0)),
+    ROCK_CRAB(new int[] {1265}, new int[] {20}, SlayerMasters.TURAEL, 15, 50, -1, new Position(2538, 3756, 0)),
+    EXPERIMENT(new int[] {1677}, new int[] {27}, SlayerMasters.TURAEL, 15, 50, -1, new Position(3564, 9940, 0)),
+    YAK(new int[] {5529}, new int[] {24}, SlayerMasters.TURAEL, 15, 50, -1, new Position(2324, 3803, 0)),
+    CRAWLING_HAND(new int[] {1648, 1657}, new int[] {10, 16}, SlayerMasters.TURAEL, 15, 50, -1, new Position(3412, 3545, 0)),
+    SPIDER(new int[] {59, 134, 4400}, new int[] {13, 72, 60}, SlayerMasters.TURAEL, 15, 50, -1, new Position(3100, 9882, 0)),
+    COW(new int[] {81}, new int[] {8}, SlayerMasters.TURAEL, 15, 50, -1, new Position(3252, 3267, 0)),
+    GOBLIN(new int[] {4261, 4262, 4263, 4269, 4270, 4407, 4411, 13469, 2685, 2688, 3583}, new int[] {8, 8, 8, 8, 8, 8, 14, 28, 21, 58}, SlayerMasters.TURAEL, 15, 50, -1, new Position(3246, 3246, 0)),
 
     /**
      * Mazchna's slayer tasks
      * @SlayerMaster.MAZCHNA
      */
-    SKELETON(new int[] {90, 92, 2036, 4385, 4386, 6104, 6105}, new int[] {28, 28, 110, 72, 90, 160, 160}, SlayerMasters.MAZCHNA, 15, 65, -1),
-    CHAOS_DRUID(new int[] {181}, new int[] {32}, SlayerMasters.MAZCHNA, 15, 65, -1),
-    ZOMBIE(new int[] {73, 75, 76, 5377, 5379}, new int[] {18, 34, 36, 45, 60}, SlayerMasters.MAZCHNA, 15, 65, -1),
-    GHOST(new int[] {103, 4387}, new int[] {25, 90}, SlayerMasters.MAZCHNA, 15, 65, -1),
-    HILL_GIANT(new int[] {117}, new int[] {36}, SlayerMasters.MAZCHNA, 15, 65, -1),
+    SKELETON(new int[] {90, 92, 2036, 4385, 4386, 6104, 6105}, new int[] {28, 28, 110, 72, 90, 160, 160}, SlayerMasters.MAZCHNA, 15, 65, -1, new Position(2884, 9806, 0)),
+    CHAOS_DRUID(new int[] {181}, new int[] {32}, SlayerMasters.MAZCHNA, 15, 65, -1, new Position(2934, 9853, 0)),
+    ZOMBIE(new int[] {73, 75, 76, 5377, 5379}, new int[] {18, 34, 36, 45, 60}, SlayerMasters.MAZCHNA, 15, 65, -1, new Position(3145, 9910, 0)),
+    GHOST(new int[] {103, 4387}, new int[] {25, 90}, SlayerMasters.MAZCHNA, 15, 65, -1, new Position(2921, 9848, 0)),
+    HILL_GIANT(new int[] {117}, new int[] {36}, SlayerMasters.MAZCHNA, 15, 65, -1, new Position(3116, 9855, 0)),
 
     /**
      * Vannaka's slayer tasks
@@ -107,6 +107,15 @@ public enum SlayerTasks {
         this.minimumAmount = minimumAmount;
         this.maximumAmount = maximumAmount;
         this.equipmentId = equipmentId;
+    }
+    SlayerTasks(int[] npcId, int[] experience, SlayerMasters slayerMaster, int minimumAmount, int maximumAmount, int equipmentId, Position pos) {
+        this.npcId = npcId;
+        this.experience = experience;
+        this.slayerMaster = slayerMaster;
+        this.minimumAmount = minimumAmount;
+        this.maximumAmount = maximumAmount;
+        this.equipmentId = equipmentId;
+        this.taskPos = pos;
     }
 
     private SlayerMasters slayerMaster;
