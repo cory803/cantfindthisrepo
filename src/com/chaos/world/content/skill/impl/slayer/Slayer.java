@@ -1,5 +1,7 @@
 package com.chaos.world.content.skill.impl.slayer;
 
+import com.chaos.model.Item;
+import com.chaos.model.Position;
 import com.chaos.model.Skill;
 import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.util.Misc;
@@ -7,6 +9,7 @@ import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.Slayer.ResetTask;
 
@@ -311,6 +314,27 @@ public class Slayer {
             player.getPacketSender().sendMessage("You have "+this.amountLeft+" "+player.getSlayer().getTaskName()+"s left on your current Slayer Task.");
         }
         PlayerPanel.refreshPanel(player);
+    }
+
+    public void handleSlayerRingTP(int itemId) {
+        if (!player.getClickDelay().elapsed(4500))
+            return;
+        if (player.getWalkingQueue().isLockMovement())
+            return;
+        SlayerTasks task = getSlayerTask();
+        if (task == null)
+            return;
+        Position slayerTaskPos = new Position(task.getTaskPos().getX(),
+                task.getTaskPos().getY(), task.getTaskPos().getZ());
+        if (!TeleportHandler.checkReqs(player, slayerTaskPos))
+            return;
+        TeleportHandler.teleportPlayer(player, slayerTaskPos, player.getSpellbook().getTeleportType());
+        Item slayerRing = new Item(itemId);
+        player.getInventory().delete(slayerRing);
+        if (slayerRing.getId() < 13288)
+            player.getInventory().add(slayerRing.getId() + 1, 1);
+        else
+            player.getPacketSender().sendMessage("Your Ring of Slaying crumbles to dust.");
     }
 
     public void resetTask() {

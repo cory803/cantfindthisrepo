@@ -1,5 +1,6 @@
 package com.chaos.world.content.skill.impl.slayer;
 
+import com.chaos.model.Position;
 import com.chaos.util.Misc;
 
 /**
@@ -114,6 +115,7 @@ public enum SlayerTasks {
     private int minimumAmount;
     private int maximumAmount;
     private int equipmentId;
+    private Position taskPos;
 
     /**
      * Get the required slayer master(s) for the task.
@@ -192,5 +194,9 @@ public enum SlayerTasks {
      */
     public String getName() {
         return Misc.formatText(this.toString().toLowerCase().replace("_", " "));
+    }
+
+    public Position getTaskPos() {
+        return taskPos;
     }
 }

@@ -97,7 +97,17 @@ public class ItemActionPacketListener implements PacketListener {
 			case 7629:
 				player.getDialog().sendDialog(new OpenScroll(player, 0, itemId));
 				break;
-
+			//slayer rings
+			case 13281:
+			case 13282:
+			case 13283:
+			case 13284:
+			case 13285:
+			case 13286:
+			case 13287:
+			case 13288:
+				player.getSlayer().handleSlayerRingTP(itemId);
+				break;
 			//slayer
 			case 4155:
 				if(player.getSlayer().getSlayerTask() != null) {
