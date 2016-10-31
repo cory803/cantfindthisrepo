@@ -655,14 +655,23 @@ public class Dueling {
 		player.restart();
 		player.getWalkingQueue().clear();
 		player.getWalkingQueue().setLockMovement(false);
+		boolean doubleDeath = player.getConstitution() == 0;
 		if (duelingWith > 0) {
 			Player playerDuel = World.getPlayers().get(duelingWith);
 			if (playerDuel != null && playerDuel.getDueling().stakedItems.size() > 0) {
 				for (Item item : playerDuel.getDueling().stakedItems) {
 					if (item.getId() > 0 && item.getAmount() > 0) {
-						stakedItems.add(item);
-						PlayerLogs.stake(player, playerDuel, item, playerDuel.getUsername());
+						if(doubleDeath) {
+							playerDuel.getInventory().add(item);
+						} else {
+							stakedItems.add(item);
+							PlayerLogs.stake(player, playerDuel, item, playerDuel.getUsername());
+						}
 					}
+				}
+				if(doubleDeath) {
+					playerDuel.getPacketSender().sendMessage("Your staked items have been returned because of a tie.");
+					player.getPacketSender().sendMessage("Your staked items have been returned because of a tie.");
 				}
 			}
 		}
