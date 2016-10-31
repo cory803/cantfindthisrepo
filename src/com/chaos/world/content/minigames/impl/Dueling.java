@@ -672,6 +672,9 @@ public class Dueling {
 				if(doubleDeath) {
 					playerDuel.getPacketSender().sendMessage("Your staked items have been returned because of a tie.");
 					player.getPacketSender().sendMessage("Your staked items have been returned because of a tie.");
+				} else {
+					player.getPacketSender().sendMessage("You won the duel! Congratulations!");
+					playerDuel.getPacketSender().sendMessage("You've lost the duel.");
 				}
 			}
 		}

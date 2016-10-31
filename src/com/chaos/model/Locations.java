@@ -697,10 +697,8 @@ public class Locations {
 						Player duelEnemy = World.getPlayers().get(player.getDueling().duelingWith);
 						if (duelEnemy != null) {
 							duelEnemy.getDueling().duelVictory();
-							duelEnemy.getPacketSender().sendMessage("You won the duel! Congratulations!");
 						}
 					}
-					player.getPacketSender().sendMessage("You've lost the duel.");
 					player.getDueling().arenaStats[1]++;
 					player.getDueling().reset();
 				}
