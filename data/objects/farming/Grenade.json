@@ -4,11 +4,11 @@
     "seedTypeName": "TORSTOL",
     "seedClass": "HERBS",
     "growthState": "GROWING",
-    "stage": 1,
+    "stage": 4,
     "weedStage": 3,
     "attributes": 0,
     "timePlanted": 1478022708512,
-    "diseaseImmunity": 48,
+    "diseaseImmunity": 10,
     "harvestedItem": {
       "id": 219,
       "amount": 0,
@@ -19,7 +19,7 @@
       "amount": 7,
       "slot": 0
     },
-    "wateredTimer": 1478023317903
+    "wateredTimer": 1478025353102
   },
   "CATHERBY_NORTH_ALLOTMENT": {
     "patchType": "CATHERBY_NORTH_ALLOTMENT",
