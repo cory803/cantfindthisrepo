@@ -44,7 +44,7 @@ public enum SlayerTasks {
     CHAOS_DWARF(new int[] {119}, new int[] {55}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2914, 9757, 0)),
     MAGIC_AXE(new int[] {127}, new int[] {60}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2960, 9783, 0)),
     BABY_BLUE_DRAGON(new int[] {52}, new int[] {60}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2919, 9799, 0)),
-    GREEN_DRAGON(new int[] {941, 5362}, new int[] {95, 250}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3360, 3664, 0)),
+    GREEN_DRAGON(new int[] {941, 5362}, new int[] {95, 250}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3360, 3664, 0), true),
     OGRE(new int[] {115}, new int[] {95}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2493, 3092, 0)),
     INFERNAL_MAGE(new int[] {1643}, new int[] {80}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3444, 3556)),
     BLOODVELD(new int[] {1618}, new int[] {90}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3410, 3574, 1)),
@@ -66,7 +66,7 @@ public enum SlayerTasks {
      * @SlayerMasters.NIEVE
      */
     BLACK_DEMON(new int[] {84}, new int[] {200}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2871, 9797, 0)),
-    FROST_DRAGON(new int[] {51}, new int[] {200}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2973, 3947, 0)),
+    FROST_DRAGON(new int[] {51}, new int[] {200}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2973, 3947, 0), true),
     ABYSSAL_DEMON(new int[] {1615}, new int[] {140}, SlayerMasters.NIEVE, 15, 125, -1, new Position(3419, 3564, 2)),
     RED_DRAGON(new int[] {53, 3588}, new int[] {175, 65}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2689, 9506, 0)),
     IRON_DRAGON(new int[] {1591}, new int[] {225}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2721, 9464, 0)),
@@ -78,35 +78,37 @@ public enum SlayerTasks {
      * Duradel's slayer tasks
      * @SlayerMasters.DURADEL
      */
-    GENERAL_GRAARDOR(new int[] {6260, 6261, 6263, 6265}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1),
-    COMMANDER_ZILYANA(new int[] {6247, 6252, 6248, 6250}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1),
-    KRIL_TSUTSAROTH(new int[] {6203, 6208, 6206, 6204}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1),
-    KREE_ARRA(new int[] {6222, 6227, 6225, 6223}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1),
-    GANODERMIC_BEAST(new int[] {130}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1),
-    DAGANNOTH_KING(new int[] {2882, 2881, 2883}, new int[] {400, 400, 400}, SlayerMasters.DURADEL, 15, 50, -1),
-    CORPOREAL_BEAST(new int[] {8133}, new int[] {900}, SlayerMasters.DURADEL, 15, 50, -1),
-    KRAKEN(new int[] {502}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1),
-    CERBERUS(new int[] {5866}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1),
-    KALPHITE_QUEEN(new int[] {1158}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1),
-    PHOENIX(new int[] {8549}, new int[] {400}, SlayerMasters.DURADEL, 15, 50, -1),
-    BANDOS_AVATAR(new int[] {4540}, new int[] {400}, SlayerMasters.DURADEL, 15, 50, -1),
-    BORK(new int[] {5871}, new int[] {800}, SlayerMasters.DURADEL, 15, 50, -1),
-    SLASH_BASH(new int[] {2060}, new int[] {300}, SlayerMasters.DURADEL, 15, 50, -1),
-    SCORPIA(new int[] {2001}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1),
-    CALLISTO(new int[] {6609}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1),
-    VENENATIS(new int[] {2000}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1),
-    VETION(new int[] {6611}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1),
-    CHAOS_FANATIC(new int[] {6619}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1),
-    CRAZY_ARCHAEOLOGIST(new int[] {6618}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1);
+    GENERAL_GRAARDOR(new int[] {6260, 6261, 6263, 6265}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2845, 5335, 2)),
+    COMMANDER_ZILYANA(new int[] {6247, 6252, 6248, 6250}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2916, 5272, 0)),
+    KRIL_TSUTSAROTH(new int[] {6203, 6208, 6206, 6204}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2891, 5356, 2)),
+    KREE_ARRA(new int[] {6222, 6227, 6225, 6223}, new int[] {700, 200, 200, 200}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2872, 5268, 2)),
+    GANODERMIC_BEAST(new int[] {130}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2245, 3182, 0)),
+    DAGANNOTH_KING(new int[] {2882, 2881, 2883}, new int[] {400, 400, 400}, SlayerMasters.DURADEL, 15, 50, -1, new Position(1909, 4367, 0)),
+    CORPOREAL_BEAST(new int[] {8133}, new int[] {900}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2916, 4384, 0)),
+    KRAKEN(new int[] {502}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3696, 5807, 0)),
+    CERBERUS(new int[] {5866}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1, new Position(1240, 1226, 0)),
+    KALPHITE_QUEEN(new int[] {1158}, new int[] {450}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3508, 9492, 0)),
+    PHOENIX(new int[] {8549}, new int[] {400}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2839, 9557, 0)),
+    BANDOS_AVATAR(new int[] {4540}, new int[] {400}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2891, 4767, 0)),
+    BORK(new int[] {5871}, new int[] {800}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3102, 2965, 0)),
+    SLASH_BASH(new int[] {2060}, new int[] {300}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2547, 9448, 0)),
+    SCORPIA(new int[] {2001}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3182, 3685, 0), true),
+    CALLISTO(new int[] {6609}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3324, 3583, 0), true),
+    VENENATIS(new int[] {2000}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3126, 3815, 0), true),
+    VETION(new int[] {6611}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3246, 3796, 0), true),
+    CHAOS_FANATIC(new int[] {6619}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2967, 3848, 0), true),
+    CRAZY_ARCHAEOLOGIST(new int[] {6618}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2980, 3690, 0), true);
 
 
-    SlayerTasks(int[] npcId, int[] experience, SlayerMasters slayerMaster, int minimumAmount, int maximumAmount, int equipmentId) {
+    SlayerTasks(int[] npcId, int[] experience, SlayerMasters slayerMaster, int minimumAmount, int maximumAmount, int equipmentId, Position pos, boolean wild) {
         this.npcId = npcId;
         this.experience = experience;
         this.slayerMaster = slayerMaster;
         this.minimumAmount = minimumAmount;
         this.maximumAmount = maximumAmount;
         this.equipmentId = equipmentId;
+        this.taskPos = pos;
+        this.wild = wild;
     }
     SlayerTasks(int[] npcId, int[] experience, SlayerMasters slayerMaster, int minimumAmount, int maximumAmount, int equipmentId, Position pos) {
         this.npcId = npcId;
@@ -125,6 +127,7 @@ public enum SlayerTasks {
     private int maximumAmount;
     private int equipmentId;
     private Position taskPos;
+    private boolean wild;
 
     /**
      * Get the required slayer master(s) for the task.
@@ -207,5 +210,9 @@ public enum SlayerTasks {
 
     public Position getTaskPos() {
         return taskPos;
+    }
+
+    public boolean isWild() {
+        return wild;
     }
 }

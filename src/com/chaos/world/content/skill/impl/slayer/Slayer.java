@@ -12,6 +12,7 @@ import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.Slayer.ResetTask;
+import org.scripts.kotlin.content.dialog.teleports.jewlery.SlayerRing;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -328,7 +329,11 @@ public class Slayer {
                 task.getTaskPos().getY(), task.getTaskPos().getZ());
         if (!TeleportHandler.checkReqs(player, slayerTaskPos))
             return;
-        TeleportHandler.teleportPlayer(player, slayerTaskPos, player.getSpellbook().getTeleportType());
+        if (task.isWild()) {
+            player.getDialog().sendDialog(new SlayerRing(player, slayerTaskPos));
+        } else {
+            TeleportHandler.teleportPlayer(player, slayerTaskPos, player.getSpellbook().getTeleportType());
+        }
         Item slayerRing = new Item(itemId);
         player.getInventory().delete(slayerRing);
         if (slayerRing.getId() < 13288)

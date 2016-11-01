@@ -97,17 +97,6 @@ public class ItemActionPacketListener implements PacketListener {
 			case 7629:
 				player.getDialog().sendDialog(new OpenScroll(player, 0, itemId));
 				break;
-			//slayer rings
-			case 13281:
-			case 13282:
-			case 13283:
-			case 13284:
-			case 13285:
-			case 13286:
-			case 13287:
-			case 13288:
-				player.getSlayer().handleSlayerRingTP(itemId);
-				break;
 			//slayer
 			case 4155:
 				if(player.getSlayer().getSlayerTask() != null) {
@@ -511,6 +500,7 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+		//slayer rings
 		case 13281:
 		case 13282:
 		case 13283:
@@ -519,14 +509,7 @@ public class ItemActionPacketListener implements PacketListener {
 		case 13286:
 		case 13287:
 		case 13288:
-			player.getPacketSender().sendInterfaceRemoval();
-			player.getPacketSender()
-					.sendMessage(player.getSlayer().getSlayerTask() == null
-							? ("You do not have a Slayer task.")
-							: ("Your current task is to kill another "
-							+ (player.getSlayer().getAmountLeft()) + " " + Misc.formatText(player
-							.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " "))
-							+ "s."));
+			player.getSlayer().handleSlayerRingTP(itemId);
 			break;
 		case 14022:
 			//TODO: Add completionist ape customization
@@ -607,6 +590,23 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+		case 13281:
+		case 13282:
+		case 13283:
+		case 13284:
+		case 13285:
+		case 13286:
+		case 13287:
+		case 13288:
+			player.getPacketSender().sendInterfaceRemoval();
+			player.getPacketSender()
+					.sendMessage(player.getSlayer().getSlayerTask() == null
+							? ("You do not have a Slayer task.")
+							: ("Your current task is to kill another "
+							+ (player.getSlayer().getAmountLeft()) + " " + Misc.formatText(player
+							.getSlayer().getSlayerTask().toString().toLowerCase().replaceAll("_", " "))
+							+ "s."));
+			break;
 		case 11716:
 			handleHasta(player);
 			break;
