@@ -39,40 +39,40 @@ public enum SlayerTasks {
      * Vannaka's slayer tasks
      * @SlayerMasters.VANNAKA
      */
-    LESSER_DEMON(new int[] {82}, new int[] {90}, SlayerMasters.VANNAKA, 15, 75, -1),
-    FIRE_GIANT(new int[] {110, 1583}, new int[] {110, 110}, SlayerMasters.VANNAKA, 15, 75, -1),
-    CHAOS_DWARF(new int[] {119}, new int[] {55}, SlayerMasters.VANNAKA, 15, 75, -1),
-    MAGIC_AXE(new int[] {127}, new int[] {60}, SlayerMasters.VANNAKA, 15, 75, -1),
-    BABY_BLUE_DRAGON(new int[] {52}, new int[] {60}, SlayerMasters.VANNAKA, 15, 75, -1),
-    GREEN_DRAGON(new int[] {941, 5362}, new int[] {95, 250}, SlayerMasters.VANNAKA, 15, 75, -1),
-    OGRE(new int[] {115}, new int[] {95}, SlayerMasters.VANNAKA, 15, 75, -1),
-    INFERNAL_MAGE(new int[] {1643}, new int[] {80}, SlayerMasters.VANNAKA, 15, 75, -1),
-    BLOODVELD(new int[] {1618}, new int[] {90}, SlayerMasters.VANNAKA, 15, 75, -1),
+    LESSER_DEMON(new int[] {82}, new int[] {90}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2924, 9801, 0)),
+    FIRE_GIANT(new int[] {110, 1583}, new int[] {110, 110}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2630, 9587, 2)),
+    CHAOS_DWARF(new int[] {119}, new int[] {55}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2914, 9757, 0)),
+    MAGIC_AXE(new int[] {127}, new int[] {60}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2960, 9783, 0)),
+    BABY_BLUE_DRAGON(new int[] {52}, new int[] {60}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2919, 9799, 0)),
+    GREEN_DRAGON(new int[] {941, 5362}, new int[] {95, 250}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3360, 3664, 0)),
+    OGRE(new int[] {115}, new int[] {95}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2493, 3092, 0)),
+    INFERNAL_MAGE(new int[] {1643}, new int[] {80}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3444, 3556)),
+    BLOODVELD(new int[] {1618}, new int[] {90}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3410, 3574, 1)),
 
     /**
      * Chaeldar's slayer tasks
      * @SlayerMasters.CHAELDAR
      */
-    ABERRANT_SPECTRE(new int[] {1604}, new int[] {115}, SlayerMasters.CHAELDAR, 15, 90, -1),
-    GARGOYLE(new int[] {1610}, new int[] {125}, SlayerMasters.CHAELDAR, 15, 90, -1),
-    NECHRYAEL(new int[] {1613}, new int[] {125}, SlayerMasters.CHAELDAR, 15, 90, -1),
-    HELLHOUND(new int[] {49}, new int[] {140}, SlayerMasters.CHAELDAR, 15, 90, -1),
-    BLUE_DRAGON(new int[] {52, 55}, new int[] {60, 125}, SlayerMasters.CHAELDAR, 15, 90, -1),
-    GREATER_DEMON(new int[] {83}, new int[] {115}, SlayerMasters.CHAELDAR, 15, 90, -1),
-    TZHAAR(new int[] {2591, 2600, 2605, 2611}, new int[] {110, 85, 140, 170}, SlayerMasters.CHAELDAR, 15, 90, -1),
+    ABERRANT_SPECTRE(new int[] {1604}, new int[] {115}, SlayerMasters.CHAELDAR, 15, 90, -1, new Position(3441, 3544, 1)),
+    GARGOYLE(new int[] {1610}, new int[] {125}, SlayerMasters.CHAELDAR, 15, 90, -1, new Position(3440, 3537, 2)),
+    NECHRYAEL(new int[] {1613}, new int[] {125}, SlayerMasters.CHAELDAR, 15, 90, -1, new Position(3444, 3567, 2)),
+    HELLHOUND(new int[] {49}, new int[] {140}, SlayerMasters.CHAELDAR, 15, 90, -1, new Position(2870, 9824, 0)),
+    BLUE_DRAGON(new int[] {52, 55}, new int[] {60, 125}, SlayerMasters.CHAELDAR, 15, 90, -1, new Position(2886, 9799, 0)),
+    GREATER_DEMON(new int[] {83}, new int[] {115}, SlayerMasters.CHAELDAR, 15, 90, -1, new Position(2860, 9742, 0)),
+    TZHAAR(new int[] {2591, 2600, 2605, 2611}, new int[] {110, 85, 140, 170}, SlayerMasters.CHAELDAR, 15, 90, -1, new Position(2445, 5170, 0)),
 
     /**
      * Nieve's slayer tasks
      * @SlayerMasters.NIEVE
      */
-    BLACK_DEMON(new int[] {84}, new int[] {200}, SlayerMasters.NIEVE, 15, 125, -1),
-    FROST_DRAGON(new int[] {51}, new int[] {200}, SlayerMasters.NIEVE, 15, 125, -1),
-    ABYSSAL_DEMON(new int[] {1615}, new int[] {140}, SlayerMasters.NIEVE, 15, 125, -1),
-    RED_DRAGON(new int[] {53, 3588}, new int[] {175, 65}, SlayerMasters.NIEVE, 15, 125, -1),
-    IRON_DRAGON(new int[] {1591}, new int[] {225}, SlayerMasters.NIEVE, 15, 125, -1),
-    STEEL_DRAGON(new int[] {1592}, new int[] {275}, SlayerMasters.NIEVE, 15, 125, -1),
-    JUNGLE_STRYKEWYRM(new int[] {9467}, new int[] {135}, SlayerMasters.NIEVE, 15, 125, -1),
-    GLACOR(new int[] {1382}, new int[] {250}, SlayerMasters.NIEVE, 15, 125, -1),
+    BLACK_DEMON(new int[] {84}, new int[] {200}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2871, 9797, 0)),
+    FROST_DRAGON(new int[] {51}, new int[] {200}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2973, 3947, 0)),
+    ABYSSAL_DEMON(new int[] {1615}, new int[] {140}, SlayerMasters.NIEVE, 15, 125, -1, new Position(3419, 3564, 2)),
+    RED_DRAGON(new int[] {53, 3588}, new int[] {175, 65}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2689, 9506, 0)),
+    IRON_DRAGON(new int[] {1591}, new int[] {225}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2721, 9464, 0)),
+    STEEL_DRAGON(new int[] {1592}, new int[] {275}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2721, 9464, 0)),
+    JUNGLE_STRYKEWYRM(new int[] {9467}, new int[] {135}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2728, 5098, 0)),
+    GLACOR(new int[] {1382}, new int[] {250}, SlayerMasters.NIEVE, 15, 125, -1, new Position(3037, 9579, 0)),
 
     /**
      * Duradel's slayer tasks
