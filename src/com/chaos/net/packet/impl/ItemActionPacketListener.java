@@ -807,7 +807,7 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You have upgraded your Fire cape into a TokHaar-Kal cape!");
 			} else {
 				player.getPacketSender().sendMessage(
-						"You need at least 50,000 Tokkul to upgrade your Fire Cape into a TokHaar-Kal cape.");
+						"You need at least 10,000 Tokkul to upgrade your Fire Cape into a TokHaar-Kal cape.");
 			}
 			break;
 		case 21077:

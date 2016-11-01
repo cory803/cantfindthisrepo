@@ -1056,7 +1056,7 @@ public final class CombatFactory {
         if (a.isPlayer()) {
             if (combatType.equals(CombatType.MELEE)) {
                 if (!combatType.equals(CombatType.MELEE)) {
-                    if (a.isFrozen() && (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED))) {
+                    if (a.isFrozen() && (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED) || combatType.equals(CombatType.MIXED))) {
                         required += 3;
                     }
                 }
@@ -1065,7 +1065,7 @@ public final class CombatFactory {
         if (distanceTo > required) {
             return false;
         }
-        if (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED) || isAutocast(a)) {
+        if (combatType.equals(CombatType.MAGIC) || combatType.equals(CombatType.RANGED) || combatType.equals(CombatType.MIXED) || isAutocast(a)) {
             if (!Region.canMagicAttack(a, b) || !Region.canMagicAttack(a, b)) {
                 return false;
             }
@@ -1278,7 +1278,7 @@ public final class CombatFactory {
                     }
                 });
             } else if (npc.getId() == 1158
-                    && (container.getCombatType() == CombatType.MAGIC || container.getCombatType() == CombatType.RANGED)
+                    && (container.getCombatType() == CombatType.MAGIC || container.getCombatType() == CombatType.RANGED|| container.getCombatType() == CombatType.MIXED)
                     || npc.getId() == 1160 && container.getCombatType() == CombatType.MELEE) {
                 container.allHits(context -> {
                     int hit = context.getHit().getDamage();

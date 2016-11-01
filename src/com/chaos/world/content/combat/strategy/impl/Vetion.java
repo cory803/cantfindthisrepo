@@ -82,7 +82,7 @@ public class Vetion implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		return 4;
+		return 12;
 	}
 
 	@Override

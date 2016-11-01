@@ -359,6 +359,7 @@ public class UseItemPacketListener implements PacketListener {
 				new FinalizedMovementTask() {
 					@Override
 					public void execute() {
+						player.setPositionToFace(new Position(objectX, objectY));
 						if (Farming.hasItemInteraction(player, item, gameObject)) {
 							return;
 						}

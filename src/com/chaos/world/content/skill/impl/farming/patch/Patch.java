@@ -224,7 +224,7 @@ public final class Patch {
 	}
 	
 	public boolean isFullyGrown() {
-		return getSeedType() != null && getStage() >= getSeedType().getValues().length - 1;
+		return getSeedType() != null && getStage() >= getSeedType().getValues().length;
 	}
 	
 	public boolean isProtected(Player player) {

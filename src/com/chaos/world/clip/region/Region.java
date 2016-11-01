@@ -342,8 +342,11 @@ public final class Region {
         }
     }*/
 
+    /**
+     * Npc ids for which can still magic attack for wall blocks etc
+     */
     static final int[] ignores = {
-            3782, 5250, 5249, 5248
+            3782, 5250, 5249, 5248, 6611
     };
 
     public static boolean canAttack(Character a, Character b) {

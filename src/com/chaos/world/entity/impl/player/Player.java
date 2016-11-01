@@ -400,7 +400,7 @@ public class Player extends Character {
             speed -= 2;
         }
         if(weapon.contains("rapier") || weapon.contains("hatchet")) {
-            return 5;
+            return 4;
         } else if(weaponId == 21089) {
             return 5;
         } else if(weaponId == 21100) {

@@ -484,14 +484,11 @@ public class World {
 		if (definition == null) {
 			return;
 		}
-		//if (!definition.unwalkable) {
-		//	return;
-		//}
-		//if(definition.getName() != null) {
-			//if(definition.getName().equalsIgnoreCase("gate")) {
-			//	return;
-			//}
-		//}
+		if(definition.getName() != null) {
+			if(definition.getName().equalsIgnoreCase("gate")) {
+				return;
+			}
+		}
 		Position position = object.getPosition();
 		int type = object.getType();
 		int z = position.getZ();

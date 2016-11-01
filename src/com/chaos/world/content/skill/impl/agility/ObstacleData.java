@@ -716,11 +716,11 @@ public enum ObstacleData {
 						if (fail) {
 							player.moveTo(new Position(3004, 10356));
 							player.dealDamage(null, new Hit(Misc.getRandom(60), Hitmask.RED, CombatIcon.NONE));
-							Agility.addExperience(player, 20);
 							player.getPacketSender().sendMessage("You failed to swing your way across.");
 							stop();
 							return;
 						} else {
+							Agility.addExperience(player, 20);
 							player.setPositionToFace(new Position(3005, 3960, 0));
 							player.moveTo(new Position(player.getPosition().getX(), 3954, 0));
 						}

@@ -214,7 +214,7 @@ public class GameObject extends Entity {
 			case 2320:
 				return 2;
 			case 2282:
-				return 5;
+				return 1;
 			case 1767:
 				return 9;
 			case 5013:

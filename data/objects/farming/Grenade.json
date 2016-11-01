@@ -1,0 +1,33 @@
+{
+  "CATHERBY_HERB_PATCH": {
+    "patchType": "CATHERBY_HERB_PATCH",
+    "seedTypeName": "TORSTOL",
+    "seedClass": "HERBS",
+    "growthState": "GROWING",
+    "stage": 1,
+    "weedStage": 3,
+    "attributes": 0,
+    "timePlanted": 1478022708512,
+    "diseaseImmunity": 48,
+    "harvestedItem": {
+      "id": 219,
+      "amount": 0,
+      "slot": 0
+    },
+    "product": {
+      "id": 219,
+      "amount": 7,
+      "slot": 0
+    },
+    "wateredTimer": 1478023317903
+  },
+  "CATHERBY_NORTH_ALLOTMENT": {
+    "patchType": "CATHERBY_NORTH_ALLOTMENT",
+    "stage": 0,
+    "weedStage": 3,
+    "attributes": 0,
+    "timePlanted": 0,
+    "diseaseImmunity": 10,
+    "wateredTimer": 0
+  }
+}

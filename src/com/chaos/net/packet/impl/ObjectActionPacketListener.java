@@ -108,6 +108,10 @@ public class ObjectActionPacketListener implements PacketListener {
             player.getPacketSender().sendMessage("You are stunned!");
             return;
         }
+        //Fixes barb agility course exploit
+        if(gameObject.getId() == 2282) {
+            position.set(2551, 3554, 0);
+        }
         player.setInteractingObject(gameObject)
                 .setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {
                     @Override

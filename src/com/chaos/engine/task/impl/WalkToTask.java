@@ -65,6 +65,7 @@ public class WalkToTask {
 				player.setWalkToTask(null);
 				return;
 			}
+			//System.out.println(""+destination.toString() +", "+distance);
 			//This tells you if you don't want to use that object on that position
 			if((player.getPosition().getX() == 2688 && player.getPosition().getY() == 3707)
 				|| (player.getPosition().getX() == 2800 && player.getPosition().getY() == 10134)
@@ -78,9 +79,7 @@ public class WalkToTask {
 					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3685)
 					|| (player.getPosition().getX() == 3165 && player.getPosition().getY() == 3696)
 					|| (player.getPosition().getX() == 3164 && player.getPosition().getY() == 3696)
-					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3696)
-
-					) {
+					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3696)) {
 				finalizedTask.execute();
 				player.setEntityInteraction(null);
 				player.setWalkToTask(null);
@@ -88,9 +87,6 @@ public class WalkToTask {
 				if (Locations.goodDistance(player.getPosition().getX(), player.getPosition().getY(), destination.getX(),
 						destination.getY(), distance) || destination.equals(player.getPosition())) {
 					if(
-						(player.getPosition().getX() == 2552 && player.getPosition().getY() == 3549) ||
-						(player.getPosition().getX() == 2551 && player.getPosition().getY() == 3549) ||
-						(player.getPosition().getX() == 2550 && player.getPosition().getY() == 3549) ||
 						(player.getPosition().getX() == 3156 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3162 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3161 && player.getPosition().getY() == 3696) ||
@@ -99,8 +95,7 @@ public class WalkToTask {
 						(player.getPosition().getX() == 3158 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3157 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3156 && player.getPosition().getY() == 3696) ||
-						(player.getPosition().getX() == 3155 && player.getPosition().getY() == 3696)
-							) {
+						(player.getPosition().getX() == 3155 && player.getPosition().getY() == 3696)) {
 
 					} else {
 						finalizedTask.execute();

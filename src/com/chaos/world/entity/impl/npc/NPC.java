@@ -288,6 +288,8 @@ public class NPC extends Character {
             case 1265:
             case 6593:
                 return 4;
+            case 6611:
+                return 15;
         }
         return 10;
     }
