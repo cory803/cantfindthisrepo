@@ -5,7 +5,7 @@ import com.chaos.world.entity.impl.player.Player;
 public class Dungeoneering {
 
     /**
-     * Tells you what stage you are on in Kraken
+     * Tells you what stage you are on in your Dungeon
      */
     public enum DungeonStage {
         DEFAULT(),
