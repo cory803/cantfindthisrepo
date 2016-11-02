@@ -97,6 +97,14 @@ public class ItemActionPacketListener implements PacketListener {
 			case 7629:
 				player.getDialog().sendDialog(new OpenScroll(player, 0, itemId));
 				break;
+			case 15707:
+				if(player.getLocation() == Locations.Location.DAEMONHEIM) {
+					player.getPacketSender().sendDungeoneeringTabIcon(true);
+					player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 26224);
+				} else {
+					player.getPacketSender().sendMessage("This ring only works in Daehmonheim!");
+				}
+				break;
 			//slayer
 			case 4155:
 				if(player.getSlayer().getSlayerTask() != null) {
@@ -590,6 +598,9 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 15707:
+				TeleportHandler.teleportPlayer(player, new Position(3450, 3716, 0), TeleportType.DUNGEONEERING);
+				break;
 		case 13281:
 		case 13282:
 		case 13283:

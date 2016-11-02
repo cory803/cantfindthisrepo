@@ -895,6 +895,18 @@ public class Locations {
 		},
 		PURO_PURO(new int[] { 2556, 2630 }, new int[] { 4281, 4354 }, false, true, true, false, false, true) {
 		},
+
+		/**
+		 * The city of Dungeoneering
+		 * @Dungeoneering
+		 */
+		DAEMONHEIM(new int[] { 3393, 3515 }, new int[] { 3612, 3773 }, true, false, true, false, true, true) {
+			@Override
+			public void leave(Player player) {
+				player.getPacketSender().sendDungeoneeringTabIcon(false);
+				player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
+			}
+		},
 		FLESH_CRAWLERS(new int[] { 2033, 2049 }, new int[] { 5178, 5197 }, false, true, true, false, true, true) {
 		},
 		AGILITY_WILDERNESS_COURSE(new int[] { 2989, 3009 }, new int[] { 3916, 3966 }, false, true, true, false, false,

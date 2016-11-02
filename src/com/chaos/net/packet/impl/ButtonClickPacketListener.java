@@ -127,6 +127,15 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getDialog().sendDialog(new Report(player));
                 break;
 
+            /**
+             * Dungeoneering buttons
+             */
+            //Close tab
+            case 26226:
+                player.getPacketSender().sendDungeoneeringTabIcon(false);
+                player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
+                break;
+
             //City teleports
             case 1174: //Moderns
             case 13079: //Ancients

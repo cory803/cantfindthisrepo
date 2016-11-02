@@ -95,6 +95,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new ToolLeprechaun(player, 0));
                 break;
 
+            //Dungeoneering master (thok)
+            case 9713:
+                player.getDialog().sendDialog(new Thok(player, 0));
+                break;
+
             //pumpkin pete
             case 12378:
                 player.getDialog().sendDialog(new PumpkinPete(player, 0));
@@ -202,6 +207,7 @@ public final class ActionHandler {
             case 6362:
             case 494:
             case 4519:
+            case 9710:
                 player.getBank(0).open();
                 break;
 
@@ -486,10 +492,12 @@ public final class ActionHandler {
             case 2622:
                 Shop.ShopManager.getShops().get(17).open(player);
                 break;
+
             //Bankers
             case 494:
             case 4519:
             case 6362:
+            case 9710:
                 player.getBank(0).open();
                 break;
 
