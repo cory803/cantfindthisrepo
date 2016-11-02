@@ -416,6 +416,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Sailor(player, 1));
                 break;
 
+            //Thok dungeoneering master
+            case 9713:
+                Shop.ShopManager.getShops().get(46).open(player);
+                break;
+
             //Ellis donator shop
             case 595:
                 Shop.ShopManager.getShops().get(45).open(player);

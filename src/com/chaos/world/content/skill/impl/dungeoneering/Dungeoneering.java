@@ -1,5 +1,9 @@
 package com.chaos.world.content.skill.impl.dungeoneering;
 
+import com.chaos.world.content.diversions.hourly.HourlyDiversion;
+import com.chaos.world.content.diversions.hourly.ShootingStar;
+import com.chaos.world.content.minigames.impl.Dueling;
+import com.chaos.world.content.skill.impl.dungeoneering.floors.Floor1;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Dungeoneering {
@@ -18,6 +22,7 @@ public class Dungeoneering {
     }
 
     private Player player;
+    private Floor floor;
     private Dungeoneering.DungeonStage dungeonStage = Dungeoneering.DungeonStage.DEFAULT;
 
     /**
@@ -38,6 +43,22 @@ public class Dungeoneering {
     }
 
     /**
+     * Get your current dungeoneering floor
+     * @return
+     */
+    public Floor getFloor() {
+        return this.floor;
+    }
+
+    /**
+     * Set a new dungeoneering floor
+     * @param floor
+     */
+    public void setFloor(Floor floor) {
+        this.floor = floor;
+    }
+
+    /**
      * Sets your new dungeon stage.
      *
      * @param stage
@@ -47,7 +68,17 @@ public class Dungeoneering {
     }
 
     public Dungeoneering(Player player) {
-        this.dungeonStage = Dungeoneering.DungeonStage.DEFAULT;
         this.player = player;
+    }
+
+    /**
+     * Change your dungeoneering floor
+     */
+    public void changeFloor() {
+        if(getFloor().getFloorId() == 1) {
+            setFloor(new Floor1(player));
+        }
+        player.getPacketSender().sendString(26240, ""+getFloor().getFloorId());
+
     }
 }

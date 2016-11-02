@@ -33,7 +33,7 @@ public class Thok extends Dialog {
                                 player.getDialog().sendDialog(new Thok(player, 3));
                                 break;
                             case OPTION_2_OF_2:
-                                //player.getPacketSender().sendInterfaceRemoval();
+                                Shop.ShopManager.getShops().get(46).open(player);
                                 break;
                         }
                     }
