@@ -57,6 +57,7 @@ import com.chaos.world.content.pos.PosOffer;
 import com.chaos.world.content.skill.AbstractHarvestSkill;
 import com.chaos.world.content.skill.AbstractSkill;
 import com.chaos.world.content.skill.SkillManager;
+import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.farming.PatchSaving;
 import com.chaos.world.content.skill.impl.farming.patch.Patch;
 import com.chaos.world.content.skill.impl.farming.patch.PatchType;
@@ -814,6 +815,7 @@ public class Player extends Character {
     private Task currentTask;
     private Position resetPosition;
     private Kraken kraken = new Kraken();
+    private Dungeoneering dungeoneering = new Dungeoneering(this);
     private DropGenerator dropGenerator = new DropGenerator();
     private Degrading degrading = new Degrading();
     private Slayer slayer = new Slayer(this);
@@ -1409,6 +1411,14 @@ public class Player extends Character {
     }
 
     /**
+     * Grabs the Dungeoneering instance
+     * @return
+     */
+    public Dungeoneering getDungeoneering() {
+        return this.dungeoneering;
+    }
+
+    /**
      * Grabs the Drop Generator instance.
      * @return
      */
@@ -1438,6 +1448,13 @@ public class Player extends Character {
     public void resetKraken() {
         this.getKraken().reset();
         this.kraken = new Kraken();
+    }
+
+    /**
+     * Resets the Dungeoneering instance
+     */
+    public void resetDungeoneering() {
+        this.dungeoneering = new Dungeoneering(this);
     }
 
     /**
