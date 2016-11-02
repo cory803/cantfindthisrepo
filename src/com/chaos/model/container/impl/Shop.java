@@ -101,7 +101,7 @@ public class Shop extends ItemContainer {
 	 */
 	public Shop open(Player player) {
 		if (player.getGameModeAssistant().isIronMan()) {
-			if (id != IRON_SLAYER_STORE && id != IRON_VOTING_REWARDS_STORE
+			if (id != IRON_SLAYER_STORE && id != IRON_VOTING_REWARDS_STORE && id !=DUNGEONEERING_STORE
 					&& id != SKILLCAPE_STORE_1 && id != SKILLCAPE_STORE_2 && id != SKILLCAPE_STORE_3
 					&& id != 11 && id != 18 && id != 27 && id != 28 && id != 30 && id != 38 && id != 39 && id != 35 && id != 34 && id != 40 && id != GENERAL_STORE) {
 				player.getPacketSender().sendInterfaceRemoval();
@@ -402,8 +402,8 @@ public class Shop extends ItemContainer {
 				playerCurrencyAmount = player.getPoints();
 			} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getVotingPoints();
-//			} else if (id == DUNGEONEERING_STORE) {
-//				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
+			} else if (id == DUNGEONEERING_STORE) {
+				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
 			} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getSlayerPoints();
 			}
@@ -461,6 +461,8 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setVotingPoints(-value, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value, true);
+						} else if (id == DUNGEONEERING_STORE) {
+							player.getPointsHandler().setDungeoneeringTokens(-value, true);
 						}
 					}
 
@@ -493,8 +495,8 @@ public class Shop extends ItemContainer {
 							player.setPoints(-value * canBeBought, true);
 						} else if (id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2 || id == IRON_VOTING_REWARDS_STORE) {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
-//						} else if (id == DUNGEONEERING_STORE) {
-//							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
+						} else if (id == DUNGEONEERING_STORE) {
+							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
 						}
@@ -640,7 +642,8 @@ public class Shop extends ItemContainer {
 		if (shopId == STARDUST_EXCHANGE_STORE|| shopId == RECIPE_FOR_DISASTER_STORE
 				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE2
 				|| shopId == AGILITY_TICKET_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == ENERGY_FRAGMENT_STORE
-				|| shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE)
+				|| shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE
+				|| shopId == DUNGEONEERING_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
 		if (shop != null && shop.getOriginalStock() != null) {
@@ -1080,6 +1083,32 @@ public class Shop extends ItemContainer {
 					case 13623:
 						return new Object[] {450, "energy fragments"};
 				}
+			} else if (shop == DUNGEONEERING_STORE) {
+				switch (item) {
+					case 18351:
+					case 18349:
+					case 18353:
+					case 18357:
+					case 18355:
+					case 18359:
+					case 18361:
+					case 18363:
+						return new Object[]{200000, "Dungeoneering tokens"};
+					case 18344:
+						return new Object[]{153000, "Dungeoneering tokens"};
+					case 18839:
+						return new Object[]{140000, "Dungeoneering tokens"};
+					case 18346:
+						return new Object[]{100000, "Dungeoneering tokens"};
+					case 18335:
+						return new Object[]{75000, "Dungeoneering tokens"};
+					case 19669:
+						return new Object[]{50000, "Dungeoneering tokens"};
+					case 6500:
+						return new Object[]{75000, "Dungeoneering tokens"};
+					case 18337:
+						return new Object[]{75000, "Dungeoneering tokens"};
+				}
 			}
 			return null;
 		}
@@ -1137,5 +1166,6 @@ public class Shop extends ItemContainer {
 	private static final int DONATOR_STORE_ARMOUR_WEAPONS = 42;
 	private static final int DONATOR_STORE_RARES = 43;
 
+	private static final int DUNGEONEERING_STORE = 46;
 
 }
