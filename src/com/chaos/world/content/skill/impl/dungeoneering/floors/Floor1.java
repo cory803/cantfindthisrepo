@@ -54,8 +54,6 @@ public class Floor1 extends Floor {
 
     };
 
-    private Position START = new Position(3277, 9171, player.getIndex() * 4);
-
     @Override
     public void enterFloor() {
         player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.ENTERED);
@@ -100,7 +98,7 @@ public class Floor1 extends Floor {
 
     @Override
     public Position getStartPosition() {
-        return this.START;
+        return new Position(3277, 9171, player.getIndex() * 4);
     }
 
     @Override
