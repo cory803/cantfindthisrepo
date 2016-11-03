@@ -27,6 +27,7 @@ import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.agility.Agility;
 import com.chaos.world.content.skill.impl.crafting.Flax;
+import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.farming.Farming;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.fishing.Fishing.Spot;
@@ -49,11 +50,10 @@ import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.BountyPortal;
-import org.scripts.kotlin.content.dialog.LumbyStairs;
-import org.scripts.kotlin.content.dialog.Spin;
+import org.scripts.kotlin.content.dialog.*;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.Well.Well;
+import org.scripts.kotlin.content.dialog.npcs.Aubury;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
 
 /**
@@ -189,6 +189,35 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 38667:
                             case 38668:
                                 ShootingStar.getInstance().hasMenuAction(player, 1);
+                                break;
+                            //Dungeoneering
+                            case 48496:
+                                player.getDialog().sendDialog(new EnterDungeon(player));
+                                break;
+                            case 6645:
+                                if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.DEFAULT) {
+                                    player.getPacketSender().sendMessage("You are currently not dungeoneering.");
+                                    return;
+                                }
+                                player.getDialog().sendDialog(new LeaveDungeon(player));
+                                break;
+                            case 52847:
+                                if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.DEFAULT) {
+                                    player.getPacketSender().sendMessage("You are currently not dungeoneering.");
+                                    return;
+                                }
+                                player.getDungeoneering().leaveExitRoom();
+                                break;
+                            case 6643:
+                                if(!player.getDungeoneering().hasRequiredKills()) {
+                                    player.getPacketSender().sendMessage("You need atleast "+player.getDungeoneering().getFloor().getRequiredKills()+" in order to fight the boss.");
+                                    return;
+                                }
+                                if(gameObject.getPosition().equals(3280, 9199)) { //west
+
+                                } else if(gameObject.getPosition().equals(3306, 9199)) { //east
+
+                                }
                                 break;
                             //corp lair
                             case 37929:

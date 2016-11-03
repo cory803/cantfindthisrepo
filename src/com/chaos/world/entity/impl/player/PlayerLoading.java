@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.chaos.model.*;
+import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.farming.PatchSaving;
 import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.content.skill.impl.slayer.SlayerTasks;
@@ -756,6 +757,14 @@ public class PlayerLoading {
 		if (reader.has("killed-gods")) {
 			player.getAchievementAttributes()
 					.setGodsKilled(builder.fromJson(reader.get("killed-gods").getAsJsonArray(), boolean[].class));
+		}
+
+		if (reader.has("dungeon-stage")) {
+			try {
+				player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.valueOf(reader.get("dungeon-stage").getAsString()));
+			} catch (Exception e) {
+				player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.DEFAULT);
+			}
 		}
 
 		if (reader.has("barrows-brother")) {

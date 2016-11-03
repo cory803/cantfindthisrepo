@@ -99,8 +99,7 @@ public class ItemActionPacketListener implements PacketListener {
 				break;
 			case 15707:
 				if(player.getLocation() == Locations.Location.DAEMONHEIM) {
-					player.getPacketSender().sendDungeoneeringTabIcon(true);
-					player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 26224);
+					player.getDungeoneering().showTab();
 				} else {
 					player.getPacketSender().sendMessage("This ring only works in Daehmonheim!");
 				}

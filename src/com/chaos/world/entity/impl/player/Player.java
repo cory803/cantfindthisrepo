@@ -824,14 +824,6 @@ public class Player extends Character {
     private OptionContainer optionContainer = new OptionContainer(this);
 
     /*** INTS ***/
-    private int[] vestaCharges = new int[8];
-    private int[] statiusCharges = new int[8];
-    private int[] zurielsCharges = new int[8];
-    private int[] morrigansCharges = new int[8];
-    private int[] corruptVestaCharges = new int[8];
-    private int[] corruptStatiusCharges = new int[8];
-    private int[] corruptZurielsCharges = new int[8];
-    private int[] corruptMorrigansCharges = new int[8];
     public int[] allKeys = { 1543, 1545, 1546, 1547, 1548 };
     public int voteCount = 0;
     private int npcClickId;
@@ -3043,10 +3035,6 @@ public class Player extends Character {
 
     public boolean bossingSystem = false;
 
-    public boolean inBossingSystem() {
-        return bossingSystem;
-    }
-
     public void setBossingSystem(boolean bossSystem) {
         bossingSystem = bossSystem;
     }
@@ -3081,86 +3069,6 @@ public class Player extends Character {
         this.hasNext = b;
     }
 
-    public int[] getVestaCharges() {
-        return vestaCharges;
-    }
-
-    public void setVestaCharges(int[] vestaCharges) {
-        this.vestaCharges = vestaCharges;
-    }
-
-    public int[] getStatiusCharges() {
-        return statiusCharges;
-    }
-
-    public void setStatiusCharges(int[] statiusCharges) {
-        this.statiusCharges = statiusCharges;
-    }
-
-    public int[] getZurielsCharges() {
-        return zurielsCharges;
-    }
-
-    public void setZurielsCharges(int[] zurielsCharges) {
-        this.zurielsCharges = zurielsCharges;
-    }
-
-    public int[] getMorrigansCharges() {
-        return morrigansCharges;
-    }
-
-    public void setMorrigansCharges(int[] morrigansCharges) {
-        this.morrigansCharges = morrigansCharges;
-    }
-
-    public int setVestaCharges(int index, int charges) {
-        return this.vestaCharges[index] = charges;
-    }
-
-    public int setStatiusCharges(int index, int charges) {
-        return this.statiusCharges[index] = charges;
-    }
-
-    public int setZurielsCharges(int index, int charges) {
-        return this.zurielsCharges[index] = charges;
-    }
-
-    public int setMorrigansCharges(int index, int charges) {
-        return this.morrigansCharges[index] = charges;
-    }
-
-    public int[] getCorruptVestaCharges() {
-        return corruptVestaCharges;
-    }
-
-    public void setCorruptVestaCharges(int[] corruptVestaCharges) {
-        this.corruptVestaCharges = corruptVestaCharges;
-    }
-
-    public int[] getCorruptStatiusCharges() {
-        return corruptStatiusCharges;
-    }
-
-    public void setCorruptStatiusCharges(int[] corruptStatiusCharges) {
-        this.corruptStatiusCharges = corruptStatiusCharges;
-    }
-
-    public int[] getCorruptZurielsCharges() {
-        return corruptZurielsCharges;
-    }
-
-    public void setCorruptZurielsCharges(int[] corruptZurielsCharges) {
-        this.corruptZurielsCharges = corruptZurielsCharges;
-    }
-
-    public int[] getCorruptMorrigansCharges() {
-        return corruptMorrigansCharges;
-    }
-
-    public void setCorruptMorrigansCharges(int[] corruptMorrigansCharges) {
-        this.corruptMorrigansCharges = corruptMorrigansCharges;
-    }
-
     public int getBarrowsChestsLooted() {
         return barrowsChestsLooted;
     }
@@ -3169,19 +3077,4 @@ public class Player extends Character {
         return barrowsChestRewards;
     }
 
-    public int setCorruptVestaCharges(int index, int charges) {
-        return this.corruptVestaCharges[index] = charges;
-    }
-
-    public int setCorruptStatiusCharges(int index, int charges) {
-        return this.corruptStatiusCharges[index] = charges;
-    }
-
-    public int setCorruptZurielsCharges(int index, int charges) {
-        return this.corruptZurielsCharges[index] = charges;
-    }
-
-    public int setCorruptMorrigansCharges(int index, int charges) {
-        return this.corruptMorrigansCharges[index] = charges;
-    }
 }

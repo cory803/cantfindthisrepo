@@ -360,7 +360,7 @@ public class World {
 		FightPit.sequence();
 		PestControl.sequence();
 		HourlyDiversionManager.pulse();
-		HalloweenEvent.spawnPumpkins();
+		//HalloweenEvent.spawnPumpkins();
 		// EvilTrees.sequence();
 		long player_start = System.currentTimeMillis();
 		long minigameCycle = player_start - minigame_start;

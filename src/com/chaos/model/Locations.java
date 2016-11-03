@@ -13,10 +13,12 @@ import com.chaos.world.content.minigames.impl.Graveyard;
 import com.chaos.world.content.minigames.impl.Nomad;
 import com.chaos.world.content.minigames.impl.PestControl;
 import com.chaos.world.content.minigames.impl.RecipeForDisaster;
+import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.Entity;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.LeaveDungeon;
 
 public class Locations {
 
@@ -905,6 +907,50 @@ public class Locations {
 			public void leave(Player player) {
 				player.getPacketSender().sendDungeoneeringTabIcon(false);
 				player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
+			}
+		},
+		DUNGEONEERING_FLOOR_1(new int[] { 3268, 3316 }, new int[] { 9161, 9210 }, true, false, true, false, true, true) {
+			@Override
+			public void leave(Player player) {
+				player.getPacketSender().sendDungeoneeringTabIcon(false);
+				player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
+				player.getDungeoneering().getFloor().leaveFloor();
+			}
+
+			@Override
+			public boolean canTeleport(Player player) {
+				player.getDialog().sendDialog(new LeaveDungeon(player));
+				return false;
+			}
+
+			@Override
+			public void logout(Player player) {
+				player.getDungeoneering().getFloor().leaveFloor();
+			}
+
+			@Override
+			public void onDeath(Player player) {
+				player.getDungeoneering().addDeaths(1);
+			}
+
+			@Override
+			public void process(Player player) {
+				if(player.getDungeoneering().getDungeonStage() != Dungeoneering.DungeonStage.DEFAULT) {
+					if(player.getWalkableInterfaceId() != 37500) {
+						player.getPacketSender().sendWalkableInterface(37500);
+					}
+				} else if(player.getWalkableInterfaceId() == 37500) {
+					player.getPacketSender().sendWalkableInterface(-1);
+				}
+			}
+
+			@Override
+			public boolean handleKilledNPC(Player player, NPC killedNpc) {
+				if(player.getDungeoneering().getDungeonStage() != Dungeoneering.DungeonStage.DEFAULT) {
+					player.getDungeoneering().addKills(1);
+					return true;
+				}
+				return false;
 			}
 		},
 		FLESH_CRAWLERS(new int[] { 2033, 2049 }, new int[] { 5178, 5197 }, false, true, true, false, true, true) {
