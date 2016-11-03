@@ -1,6 +1,7 @@
 package com.chaos.world.content.skill.impl.dungeoneering;
 
 import com.chaos.GameSettings;
+import com.chaos.model.Item;
 import com.chaos.model.Position;
 import com.chaos.world.content.skill.impl.dungeoneering.floors.Floor1;
 import com.chaos.world.entity.impl.player.Player;
@@ -153,6 +154,7 @@ public class Dungeoneering {
      */
     public void leaveExitRoom() {
         player.moveTo(new Position(3457, 3725, 0));
+        player.getDungeoneering().setDungeonStage(DungeonStage.DEFAULT);
     }
 
     /**
@@ -170,6 +172,33 @@ public class Dungeoneering {
      */
     public boolean hasRequiredKills() {
         return getKills() >= getFloor().getRequiredKills();
+    }
+
+    /**
+     * Check if you can enter the dungeon
+     * @return
+     */
+    public boolean canEnterDungeon() {
+        String plrCannotEnter = null;
+        if(player.getSummoning().getFamiliar() != null) {
+            player.getPacketSender().sendMessage("You must dismiss your familiar before being allowed to enter a dungeon.");
+            return false;
+        }
+        for(Item t : player.getEquipment().getItems()) {
+            if(t != null && t.getId() > 0 && t.getId() != 15707) {
+                plrCannotEnter = player.getUsername();
+            }
+        }
+        for(Item t : player.getInventory().getItems()) {
+            if(t != null && t.getId() > 0 && t.getId() != 15707) {
+                plrCannotEnter = player.getUsername();
+            }
+        }
+        if(plrCannotEnter != null) {
+            player.getPacketSender().sendMessage("Your team cannot enter the dungeon because "+plrCannotEnter+" hasn't banked").sendMessage("all of their items.");
+            return false;
+        }
+        return true;
     }
 
 }

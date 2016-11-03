@@ -56,12 +56,16 @@ public class Floor1 extends Floor {
 
     @Override
     public void enterFloor() {
+        if(!player.getDungeoneering().canEnterDungeon()) {
+            return;
+        }
         player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.ENTERED);
         for(NPC npc: NPCS) {
             npc.getDefinition().setAggressive(true);
             npc.setWalking(true);
             npc.walkingDistance = 2;
             npc.getDefinition().setRespawnTime(-1);
+            npc.getPosition().setZ(player.getIndex() * 4);
             World.register(npc);
         }
         player.moveTo(getStartPosition());
