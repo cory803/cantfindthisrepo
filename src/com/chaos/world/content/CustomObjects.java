@@ -228,6 +228,9 @@ public class CustomObjects {
 	private static final int[][] CLIENT_OBJECTS = {
 			//crystal ball
 			{ 589, 3095, 3498, 0, 1 },
+			//dungeoneering
+			{ -1, 3281, 9195, 0, 1 },
+			{ -1, 3305, 9195, 0, 1 },
 			//skilling zone (high)
 			{ 2781, 2856, 2966, 0, 0 },
 			{ 14859, 2819, 2998, 0, 0 },
