@@ -223,6 +223,60 @@ public enum ObstacleData {
 			});
 		}
 	},
+	PIT(6632, true) {
+		@Override
+		public void cross(final Player player) {
+			final boolean north = player.getPosition().getY() >= 9197;
+			if(north) {
+				player.moveTo(new Position(player.getPosition().getX(), 9197, player.getDungeoneering().getZ()));
+			} else {
+				player.moveTo(new Position(player.getPosition().getX(), 9193, player.getDungeoneering().getZ()));
+			}
+			player.getPacketSender().sendMessage("You jump across the pit...");
+			TaskManager.submit(new Task(1, player, false) {
+				int tick = 0;
+
+				@Override
+				public void execute() {
+					if (tick < 3 || tick >= 4) {
+						if (player.getSkillAnimation() != 6132) {
+							player.setSkillAnimation(6132);
+							player.getUpdateFlag().flag(Flag.APPEARANCE);
+						}
+					} else {
+						if (player.getSkillAnimation() != -1) {
+							player.setSkillAnimation(-1);
+							player.getUpdateFlag().flag(Flag.APPEARANCE);
+						}
+					}
+
+					tick++;
+					if(north) {
+						player.getWalkingQueue().walkStep(0, -1);
+					} else {
+						player.getWalkingQueue().walkStep(0, 1);
+					}
+					if (tick >= 4)
+						stop();
+				}
+
+				@Override
+				public void stop() {
+					setEventRunning(false);
+					if(!north) {
+						player.moveTo(new Position(player.getPosition().getX(), 9197, player.getDungeoneering().getZ()));
+					} else {
+						player.moveTo(new Position(player.getPosition().getX(), 9193, player.getDungeoneering().getZ()));
+					}
+					player.setCrossedObstacle(6, true).setCrossingObstacle(false).setSkillAnimation(-1);
+					player.getClickDelay().reset();
+					player.getUpdateFlag().flag(Flag.APPEARANCE);
+					Agility.addExperience(player, 7.5);
+					Agility.resetProgress(player);
+				}
+			});
+		}
+	},
 	PIPE_1(4058, true) {
 		@Override
 		public void cross(final Player player) {

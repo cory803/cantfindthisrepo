@@ -16,6 +16,7 @@ import com.chaos.world.content.minigames.impl.RecipeForDisaster;
 import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.entity.Entity;
 import com.chaos.world.entity.impl.Character;
+import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.LeaveDungeon;
@@ -946,8 +947,14 @@ public class Locations {
 
 			@Override
 			public boolean handleKilledNPC(Player player, NPC killedNpc) {
+				if(killedNpc.getId() == player.getDungeoneering().getFloor().getBoss().getId()) {
+					player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.KILLED_BOSS);
+					player.getDungeoneering().getFloor().killedBoss();
+					return true;
+				}
 				if(player.getDungeoneering().getDungeonStage() != Dungeoneering.DungeonStage.DEFAULT) {
 					player.getDungeoneering().addKills(1);
+					player.getDungeoneering().handleMinionReward(killedNpc);
 					return true;
 				}
 				return false;

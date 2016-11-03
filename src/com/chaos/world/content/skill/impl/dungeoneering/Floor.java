@@ -1,5 +1,6 @@
 package com.chaos.world.content.skill.impl.dungeoneering;
 
+import com.chaos.model.GameObject;
 import com.chaos.model.Position;
 import com.chaos.world.entity.impl.npc.NPC;
 
@@ -20,15 +21,26 @@ public abstract class Floor {
     public abstract void leaveFloor();
 
     /**
+     * You have completed the floor!
+     */
+    public abstract void completeFloor();
+
+    /**
      * Fight the boss
      */
-    public abstract void fightBoss(int side);
+    public abstract void fightBoss(GameObject gameObject);
 
     /**
      * Gets all the npc spawns for the floor
      * @return
      */
-    public abstract NPC[] getNpcs();
+    public abstract NPC[] getMinions();
+
+    /**
+     * Gets all the boss npcs for the floor
+     * @return
+     */
+    public abstract NPC[] getBosses();
 
     /**
      * Gets the floor ID for your current floor
@@ -47,5 +59,16 @@ public abstract class Floor {
      * @return
      */
     public abstract int getRequiredKills();
+
+    /**
+     * Get the boss npc
+     * @return
+     */
+    public abstract NPC getBoss();
+
+    /**
+     * Handles killing the boss
+     */
+    public abstract void killedBoss();
 
 }

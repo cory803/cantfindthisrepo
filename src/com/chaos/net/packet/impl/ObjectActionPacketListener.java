@@ -179,6 +179,13 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 2492:
                                 player.moveTo(new Position(3253, 3400, 0));
                                 break;
+                            case 2477:
+                                if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.KILLED_BOSS) {
+                                    player.getDungeoneering().getFloor().completeFloor();
+                                } else {
+                                    player.getPacketSender().sendMessage("You are not quite done with your dungeon yet!");
+                                }
+                                break;
                             case 38660:
                             case 38661:
                             case 38662:
@@ -210,14 +217,10 @@ public class ObjectActionPacketListener implements PacketListener {
                                 break;
                             case 6643:
                                 if(!player.getDungeoneering().hasRequiredKills()) {
-                                    player.getPacketSender().sendMessage("You need atleast "+player.getDungeoneering().getFloor().getRequiredKills()+" in order to fight the boss.");
+                                    player.getPacketSender().sendMessage("You need atleast "+player.getDungeoneering().getFloor().getRequiredKills()+" kills to fight the boss.");
                                     return;
                                 }
-                                if(gameObject.getPosition().equals(3280, 9199)) { //west
-
-                                } else if(gameObject.getPosition().equals(3306, 9199)) { //east
-
-                                }
+                                player.getDungeoneering().getFloor().fightBoss(gameObject);
                                 break;
                             //corp lair
                             case 37929:
@@ -1994,6 +1997,9 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 172:
                                 CrystalChest.handleChest(player, gameObject);
                                 break;
+                            case 2403:
+                                WarChest.handleChest(player, gameObject);
+                                break;
                             case 6910:
                             case 4483:
                             case 3193:
@@ -2113,6 +2119,9 @@ public class ObjectActionPacketListener implements PacketListener {
                             return;
                         if (Farming.isGameObject(player, gameObject, 2))
                             return;
+                        if (Agility.handleObject(player, gameObject)) {
+                            return;
+                        }
                         switch (gameObject.getId()) {
                             case 38660:
                             case 38661:

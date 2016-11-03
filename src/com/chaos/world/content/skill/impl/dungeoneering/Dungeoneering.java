@@ -1,9 +1,14 @@
 package com.chaos.world.content.skill.impl.dungeoneering;
 
+import com.chaos.GameServer;
 import com.chaos.GameSettings;
+import com.chaos.model.GroundItem;
 import com.chaos.model.Item;
 import com.chaos.model.Position;
+import com.chaos.util.Misc;
 import com.chaos.world.content.skill.impl.dungeoneering.floors.Floor1;
+import com.chaos.world.entity.impl.GroundItemManager;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Dungeoneering {
@@ -14,7 +19,8 @@ public class Dungeoneering {
     public enum DungeonStage {
         DEFAULT(),
         ENTERED(),
-        BOSS(),
+        SPAWNED_BOSS(),
+        KILLED_BOSS(),
 
         DungeonStage() {
 
@@ -124,8 +130,8 @@ public class Dungeoneering {
     public Dungeoneering(Player player) {
         this.player = player;
         this.floor = new Floor1(player);
-        this.kills = 0;
-        this.deaths = 0;
+        this.kills = 10;
+        this.deaths = 2;
     }
 
     /**
@@ -179,6 +185,10 @@ public class Dungeoneering {
      * @return
      */
     public boolean canEnterDungeon() {
+        if(GameServer.isUpdating()) {
+            player.getPacketSender().sendMessage("You can't enter a dungeon while an update is happening!");
+            return false;
+        }
         String plrCannotEnter = null;
         if(player.getSummoning().getFamiliar() != null) {
             player.getPacketSender().sendMessage("You must dismiss your familiar before being allowed to enter a dungeon.");
@@ -199,6 +209,45 @@ public class Dungeoneering {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Gets the floor you are currently on for dungeoneering
+     * @return
+     */
+    public int getZ() {
+        return this.getPlayer().getIndex() * 4;
+    }
+
+    public Item[] MINION_REWARDS = {
+        new Item(18173, 1),
+        new Item(18173, 1),
+        new Item(18159, 2),
+        new Item(2436, 1),
+        new Item(2440, 1),
+        new Item(2442, 1),
+        new Item(2444, 1),
+        new Item(3040, 1),
+        new Item(18165, 1),
+        new Item(18165, 1),
+        new Item(2434, 1)
+    };
+
+    /**
+     * Gives the reward for the dungeoneering minions
+     */
+    public void handleMinionReward(NPC npc) {
+        //Bones
+        GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(526, 1), npc.getPosition(), player.getUsername(), false, 150, false, 200));
+
+        //Random reward
+        GroundItemManager.spawnGroundItem(player, new GroundItem(MINION_REWARDS[Misc.inclusiveRandom(MINION_REWARDS.length - 1)], npc.getPosition(), player.getUsername(), false, 150, false, 200));
+
+        //War key
+        int chance = Misc.random(player.getDungeoneering().getFloor().getRequiredKills());
+        if(chance == 1) {
+            GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(18236, 1), npc.getPosition(), player.getUsername(), false, 150, false, 200));
+        }
     }
 
 }

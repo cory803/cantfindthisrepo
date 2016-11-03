@@ -39,6 +39,7 @@ public class CombatStrategies {
 		STRATEGIES.put(6257, defaultMagicStrategy);
 		STRATEGIES.put(6278, defaultMagicStrategy);
 		STRATEGIES.put(6221, defaultMagicStrategy);
+		STRATEGIES.put(9992, defaultMagicStrategy);
 
 		DefaultRangedCombatStrategy defaultRangedStrategy = new DefaultRangedCombatStrategy();
 		STRATEGIES.put(688, defaultRangedStrategy);

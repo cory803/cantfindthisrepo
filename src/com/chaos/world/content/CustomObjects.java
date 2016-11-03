@@ -228,9 +228,19 @@ public class CustomObjects {
 	private static final int[][] CLIENT_OBJECTS = {
 			//crystal ball
 			{ 589, 3095, 3498, 0, 1 },
-			//dungeoneering
-			{ -1, 3281, 9195, 0, 1 },
-			{ -1, 3305, 9195, 0, 1 },
+
+			//Dungeoneering exit portals
+			{ 2477, 3284, 9195, 0, 0 },
+			{ 2477, 3279, 9195, 0, 0 },
+			{ 2477, 3303, 9195, 0, 0 },
+			{ 2477, 3308, 9195, 0, 0 },
+
+			//Dungeoneering war chest
+			{ 2403, 3281, 9192, 0, 0 },
+			{ 2403, 3282, 9192, 0, 0 },
+			{ 2403, 3305, 9192, 0, 0 },
+			{ 2403, 3306, 9192, 0, 0 },
+
 			//skilling zone (high)
 			{ 2781, 2856, 2966, 0, 0 },
 			{ 14859, 2819, 2998, 0, 0 },
