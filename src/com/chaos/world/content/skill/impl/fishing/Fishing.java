@@ -57,7 +57,9 @@ public class Fishing {
 
 		KARAM(2859, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 105 }, 621),
 
-		RESOURCE_ROCKTAIL(321, new int[] { 15271, 15270 }, 309, 15263, new int[] { 89, 89 }, false, new int[] { 480, 480 }, 623),
+		HIGH_LVL_FISH(3368, new int[] { 15270, 3142, 389 }, 307, 313, new int[] { 91, 89, 87 }, true, new int[] { 608, 699, 622 }, 623),
+
+		RESOURCE_ROCKTAIL(321, new int[] { 15271, 15270 }, 309, 15263, new int[] { 97, 97 }, false, new int[] { 480, 480 }, 623),
 
 		RESOURCE_KARAM(322, new int[] { 3143, 3142 }, 305, -1, new int[] { 65, 65 }, false, new int[] { 225, 225 }, 621);
 
