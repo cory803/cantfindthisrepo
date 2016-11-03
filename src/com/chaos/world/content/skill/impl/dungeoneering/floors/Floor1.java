@@ -180,7 +180,8 @@ public class Floor1 extends Floor {
         if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.KILLED_BOSS) {
             tokens += 500;
         }
-        int experience = tokens / 10;
+        tokens += Misc.inclusiveRandom(100, 300);
+        int experience = tokens;
         player.getPointsHandler().setDungeoneeringTokens(tokens, true);
         player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience);
 
