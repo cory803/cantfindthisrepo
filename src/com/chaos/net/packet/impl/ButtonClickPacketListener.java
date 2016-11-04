@@ -107,6 +107,11 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getPacketSender().sendMessage("This well is not active");
             }
                 break;
+            //Dungeoneering
+            case 26250:
+                player.setInputHandling(new JoinDungeoneeringParty());
+                player.getPacketSender().sendEnterInputPrompt("What dungeoneering party do you want to join?");
+                break;
             case -10434:
                 if(WellOfGoodness.isActive("drops")) {
                     player.getPacketSender().sendMessage("This well is active for " + WellOfGoodness.getMinutesRemaining("drops") + " more minutes.");

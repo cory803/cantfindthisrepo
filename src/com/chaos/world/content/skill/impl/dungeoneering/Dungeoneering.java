@@ -32,6 +32,12 @@ public class Dungeoneering {
     private int kills;
     private int deaths;
     private Dungeoneering.DungeonStage dungeonStage = Dungeoneering.DungeonStage.DEFAULT;
+    private Player[] party = {
+            null,
+            null,
+            null,
+            null,
+    };
 
     /**
      * Obtain what dungeon stage you are on
@@ -48,6 +54,84 @@ public class Dungeoneering {
      */
     public Player getPlayer() {
         return this.player;
+    }
+
+    /**
+     * Get the whole dungeoneering party
+     * @return
+     */
+    public Player[] getParty() {
+        return this.party;
+    }
+
+    /**
+     * Set someone to a certain party slot
+     * @param index
+     * @param other
+     */
+    public void setParty(int index, Player other) {
+        this.party[index] = other;
+    }
+
+    /**
+     * Add a player to the dungeoneering party
+     * @param other
+     */
+    public void addToParty(Player other) {
+        for(int i = 0; i < getParty().length; i++) {
+            if(getParty()[i] == null) {
+                setParty(i, other);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Check if the dungeoneering party is full
+     * @return
+     */
+    public boolean isPartyFull() {
+        for(int i = 0; i < getParty().length; i++) {
+            if(getParty()[i] == null) {
+               return false;
+            }
+        }
+        return true;
+    }
+
+    /**
+     * Get a person in your party
+     * @param index
+     * @return
+     */
+    public Player getParty(int index) {
+        return this.party[index];
+    }
+
+    /**
+     * Get the amount of people in the party.
+     * @return
+     */
+    public int getAmountInParty() {
+        int amountInParty = 0;
+        for(int i = 0; i < getParty().length; i++) {
+            if(getParty()[i] !=  null) {
+                amountInParty++;
+            }
+        }
+        return amountInParty;
+    }
+
+    /**
+     * Updates the party interface
+     */
+    public void updatePartyInterface() {
+        int startString = 26236;
+        for(int i = 0; i < getParty().length; i++) {
+            if(getParty()[start)
+            player.getPacketSender().sendString(26236, getParty);
+            26236++;
+        }
     }
 
     /**
@@ -132,6 +216,12 @@ public class Dungeoneering {
         this.floor = new Floor1(player);
         this.kills = 10;
         this.deaths = 2;
+        this.party = new Player[] {
+                null,
+                null,
+                null,
+                null,
+        };
     }
 
     /**
