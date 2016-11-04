@@ -105,6 +105,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new PumpkinPete(player, 0));
                 break;
 
+            //Gambler
+            case 2998:
+                player.getDialog().sendDialog(new Gambler(player));
+                break;
+
             //Runecrafting npc
             case 249:
                 npc.performAnimation(CombatSpells.CONFUSE.getSpell().castAnimation().get());
@@ -425,6 +430,12 @@ public final class ActionHandler {
             case 595:
                 Shop.ShopManager.getShops().get(45).open(player);
                 break;
+
+            //Gambler
+            case 2998:
+                Shop.ShopManager.getShops().get(7).open(player);
+                break;
+
             //mercant
             case 1282:
                 Shop.ShopManager.getShops().get(0).open(player);
