@@ -128,9 +128,8 @@ public class Dungeoneering {
     public void updatePartyInterface() {
         int startString = 26236;
         for(int i = 0; i < getParty().length; i++) {
-            if(getParty()[start)
-            player.getPacketSender().sendString(26236, getParty);
-            26236++;
+            //player.getPacketSender().sendString(26236, getParty);
+            //26236++;
         }
     }
 
