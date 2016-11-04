@@ -34,14 +34,14 @@ public enum CombatIcon {
 	DEFLECT,
 
 	/*
-	 * A cannon ball will be drawn next to the hit.
-	 */
-	CANNON,
-
-	/*
 	 * Blue shield combat icon
 	 */
 	BLUE_SHIELD,
+
+	/*
+	 * A cannon ball will be drawn next to the hit.
+	 */
+	CANNON,
 
 	/*
 	 * Small java combat icon
