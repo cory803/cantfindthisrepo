@@ -103,7 +103,7 @@ public class Shop extends ItemContainer {
 		if (player.getGameModeAssistant().isIronMan()) {
 			if (id != IRON_SLAYER_STORE && id != IRON_VOTING_REWARDS_STORE && id !=DUNGEONEERING_STORE
 					&& id != SKILLCAPE_STORE_1 && id != SKILLCAPE_STORE_2 && id != SKILLCAPE_STORE_3
-					&& id != 11 && id != 18 && id != 27 && id != 28 && id != 30 && id != 38 && id != 39 && id != 35 && id != 34 && id != 40 && id != GENERAL_STORE) {
+					&& id != 11 && id != 15 && id != 18 && id != 27 && id != 28 && id != 30 && id != 33 && id != 38 && id != 39 && id != 35 && id != 34 && id != 40 && id != GENERAL_STORE) {
 				player.getPacketSender().sendInterfaceRemoval();
 				player.getPacketSender().sendMessage("You're unable to access this shop because you're an iron man.");
 				return this;
@@ -888,7 +888,7 @@ public class Shop extends ItemContainer {
 					case 20786:
 						return new Object[] { 100, "marks of grace" };
 				}
-			} else if (shop == SLAYER_STORE) {
+			} else if (shop == SLAYER_STORE || shop == IRON_SLAYER_STORE) {
 				switch (item) {
 					case 13263:
 						return new Object[] { 250, "slayer points" };
@@ -915,9 +915,7 @@ public class Shop extends ItemContainer {
 						return new Object[] { 500, "slayer points" };
 					case 21110:
 						return new Object[] { 1250, "slayer points" };
-				}
-			} else if (shop == IRON_SLAYER_STORE) {
-				switch (item) {
+					//iron man
 					case 5574:
 					case 5575:
 					case 5576:

@@ -13,7 +13,6 @@ import com.chaos.world.content.EnergyHandler;
 import com.chaos.world.content.Sheep;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.pos.PlayerOwnedShops;
-import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
@@ -27,7 +26,6 @@ import com.chaos.world.content.skill.impl.thieving.ThievingManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.Report;
 import org.scripts.kotlin.content.dialog.Rfd;
 import org.scripts.kotlin.content.dialog.healers.Healers;
 import org.scripts.kotlin.content.dialog.healers.HealersQuickOption;
@@ -449,7 +447,7 @@ public final class ActionHandler {
             case 3021:
                 for (Item item : player.getInventory().getItems()) {
                     Item noted = UseItemPacketListener.getNotedHarvest(player, item);
-                    if(noted == null) {
+                    if (noted == null) {
 
                     } else {
                         int amount = player.getInventory().getAmount(item.getId());
@@ -640,7 +638,7 @@ public final class ActionHandler {
                 Fishing.setupFishing(player, Fishing.forSpot(npc.getId(), true));
                 break;
         }
-        if(npc.getId() != 1396) {
+        if (npc.getId() != 1396) {
             npc.setPositionToFace(player.getPosition());
         }
         player.setPositionToFace(npc.getPosition());
@@ -653,7 +651,7 @@ public final class ActionHandler {
             return;
         }
         player.setEntityInteraction(npc).setPositionToFace(npc.getPosition().copy());
-        if(npc.getId() != 1396) {
+        if (npc.getId() != 1396) {
             npc.setPositionToFace(player.getPosition());
         }
         player.setNpcClickId(npc.getId());
@@ -716,7 +714,7 @@ public final class ActionHandler {
                 //Stat restore npc here
                 break;
         }
-        if(npc.getId() != 1396) {
+        if (npc.getId() != 1396) {
             npc.setPositionToFace(player.getPosition());
         }
         player.setPositionToFace(npc.getPosition());
@@ -746,11 +744,11 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
-                if (player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
-                    Shop.ShopManager.getShops().get(7).open(player);
-                } else {
+//                if (player.getGameModeAssistant().isIronMan()) {
+//                    Shop.ShopManager.getShops().get(33).open(player);
+//                } else {
                     Shop.ShopManager.getShops().get(15).open(player);
-                }
+//                }
                 break;
             case 2217:
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
@@ -781,7 +779,7 @@ public final class ActionHandler {
                 break;
         }
 
-        if(npc.getId() != 1396) {
+        if (npc.getId() != 1396) {
             npc.setPositionToFace(player.getPosition());
         }
         player.setPositionToFace(npc.getPosition());
