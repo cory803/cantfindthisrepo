@@ -1,6 +1,7 @@
 package com.chaos.world.content.skill.impl.dungeoneering.floors;
 
 import com.chaos.model.*;
+import com.chaos.net.packet.impl.EquipPacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.CustomObjects;
@@ -85,6 +86,8 @@ public class Floor1 extends Floor {
         player.getPacketSender().sendMessage("Welcome to Dungeoneering floor "+getFloorId()+".");
         player.moveTo(getStartPosition());
         player.getDungeoneering().updateInterface();
+        player.getDungeoneering().giveStarterItems();
+        player.getDungeoneering().giveBindedItems();
     }
 
     @Override
@@ -104,6 +107,9 @@ public class Floor1 extends Floor {
         player.getInventory().resetItems().refreshItems();
         PrayerHandler.deactivateAll(player);
         CurseHandler.deactivateAll(player);
+        player.getEquipment().refreshItems();
+        player.getUpdateFlag().flag(Flag.APPEARANCE);
+        EquipPacketListener.resetWeapon(player);
         for(Skill skill : Skill.values())
             player.getSkillManager().setCurrentLevel(skill, player.getSkillManager().getMaxLevel(skill));
         player.getSkillManager().stopSkilling();
@@ -173,6 +179,7 @@ public class Floor1 extends Floor {
     public void killedBoss() {
         //Bones
         GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(526, 1), getBoss().getPosition(), player.getUsername(), false, 150, false, 200));
+
         //War key
         GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(18236, 1), getBoss().getPosition(), player.getUsername(), false, 150, false, 200));
 

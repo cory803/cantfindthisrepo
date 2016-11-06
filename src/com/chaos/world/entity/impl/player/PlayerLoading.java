@@ -858,6 +858,9 @@ public class PlayerLoading {
 		if (reader.has("equipment")) {
 			player.getEquipment().setItems(builder.fromJson(reader.get("equipment").getAsJsonArray(), Item[].class));
 		}
+		if (reader.has("dung-bind")) {
+			player.getDungeoneering().setBind(builder.fromJson(reader.get("dung-bind").getAsJsonArray(), Item[].class));
+		}
 
 		for (int i = 0; i < 9; i++) {
 			if (reader.has("bank-" + i + ""))
