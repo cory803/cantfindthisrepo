@@ -1,9 +1,13 @@
 package com.chaos.world.content.skill.impl.dungeoneering.floors;
 
 import com.chaos.model.*;
+import com.chaos.model.container.impl.Equipment;
+import com.chaos.model.definitions.WeaponAnimations;
+import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.net.packet.impl.EquipPacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
@@ -67,6 +71,8 @@ public class Floor1 extends Floor {
     private NPC[] bosses = new NPC[] {
             //Astea Frostweb
             new NPC(9992, new Position(3282, 9195)),
+            //Icy bones
+            new NPC(10051, new Position(3282, 9195)),
     };
 
     @Override
@@ -110,6 +116,9 @@ public class Floor1 extends Floor {
         player.getEquipment().refreshItems();
         player.getUpdateFlag().flag(Flag.APPEARANCE);
         EquipPacketListener.resetWeapon(player);
+        WeaponInterfaces.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+        WeaponAnimations.assign(player, player.getEquipment().get(Equipment.WEAPON_SLOT));
+        BonusManager.update(player);
         for(Skill skill : Skill.values())
             player.getSkillManager().setCurrentLevel(skill, player.getSkillManager().getMaxLevel(skill));
         player.getSkillManager().stopSkilling();
