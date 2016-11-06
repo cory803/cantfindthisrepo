@@ -52,9 +52,8 @@ public class ItemActionPacketListener implements PacketListener {
 		int interfaceId = packet.readUnsignedShort();
 		int slot = packet.readShort();
 		int itemId = packet.readShort();
-		if (GameSettings.DEBUG_MODE) {
-			// PlayerLogs.log(player, "" + player.getUsername() + " in
-			// ItemActionPacketListener: " + itemId + "");
+		if(GameSettings.DEVELOPER_MODE) {
+			player.getPacketSender().sendMessage("First click ItemActionPacket - Slot: " + slot + ", itemId: " + itemId);
 		}
 		if (slot < 0 || slot > player.getInventory().capacity())
 			return;
@@ -506,6 +505,9 @@ public class ItemActionPacketListener implements PacketListener {
 		if(player.getDegrading().isCheckCharges(player, itemId, slot)) {
 			return;
 		}
+		if(GameSettings.DEVELOPER_MODE) {
+			player.getPacketSender().sendMessage("Second click ItemActionPacket - Slot: " + slot + ", itemId: " + itemId);
+		}
 		switch (itemId) {
 		//slayer rings
 		case 13281:
@@ -584,6 +586,9 @@ public class ItemActionPacketListener implements PacketListener {
 		int interfaceId = packet.readLEShortA();
 		if (slot < 0 || slot > player.getInventory().capacity())
 			return;
+		if(GameSettings.DEVELOPER_MODE) {
+			player.getPacketSender().sendMessage("Third click ItemActionPacket - Slot: " + slot + ", itemId: " + itemId);
+		}
 		if (player.getInventory().getItems()[slot].getId() != itemId)
 			return;
 		if (JarData.forJar(itemId) != null) {
@@ -594,6 +599,10 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		if (SummoningData.isPouch(player, itemId, 3)) {
+			return;
+		}
+		if(player.getDungeoneering().isDungItem(new Item(itemId, 1))) {
+			player.getDungeoneering().bindItem(new Item(itemId, 1));
 			return;
 		}
 		switch (itemId) {

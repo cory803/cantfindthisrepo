@@ -348,6 +348,7 @@ public class PlayerSaving {
 		object.add("skills", builder.toJsonTree(player.getSkillManager().getSkills()));
 		object.add("inventory", builder.toJsonTree(player.getInventory().getItems()));
 		object.add("equipment", builder.toJsonTree(player.getEquipment().getItems()));
+		object.add("dung-bind", builder.toJsonTree(player.getDungeoneering().getBindedItems()));
 		object.add("bank-0", builder.toJsonTree(player.getBank(0).getValidItems()));
 		object.add("bank-1", builder.toJsonTree(player.getBank(1).getValidItems()));
 		object.add("bank-2", builder.toJsonTree(player.getBank(2).getValidItems()));

@@ -230,6 +230,9 @@ public class Item {
 				return false;
 			}
 		}
+		if(player.getDungeoneering().isDungItem(this)) {
+			return false;
+		}
 		if (Effigies.isEffigy(id))
 			return false;
 		return true;

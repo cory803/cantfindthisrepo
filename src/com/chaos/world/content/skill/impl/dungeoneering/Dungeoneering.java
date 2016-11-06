@@ -5,6 +5,7 @@ import com.chaos.GameSettings;
 import com.chaos.model.GroundItem;
 import com.chaos.model.Item;
 import com.chaos.model.Position;
+import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.content.skill.impl.dungeoneering.floors.Floor1;
 import com.chaos.world.entity.impl.GroundItemManager;
@@ -38,6 +39,13 @@ public class Dungeoneering {
             null,
             null,
     };
+    private Item[] bind = {
+            null,
+            null,
+            null,
+            null,
+            null,
+    };
 
     /**
      * Obtain what dungeon stage you are on
@@ -62,6 +70,136 @@ public class Dungeoneering {
      */
     public Player[] getParty() {
         return this.party;
+    }
+
+    /**
+     * Get your players binded items
+     * @return
+     */
+    public Item[] getBindedItems() {
+        return this.bind;
+    }
+
+    public void setBind(Item[] items) {
+        this.bind = items;
+    }
+
+    /**
+     * Bind a dungeoneering item
+     * @param toBind
+     */
+    public void bindItem(Item toBind) {
+        int i = 0;
+        boolean successfulBind = false;
+        for(Item item: getBindedItems()) {
+            if(item == null) {
+                int bindedID = getBindedID(toBind);
+                this.bind[i] = new Item(bindedID, 1);
+                successfulBind = true;
+                player.getInventory().delete(toBind);
+                player.getInventory().add(bindedID, 1);
+                break;
+            }
+            i++;
+        }
+        if(successfulBind) {
+            player.getPacketSender().sendMessage("You have successfully binded the item "+toBind.getDefinition().getName()+" and can bind "+getBindSlotsOpen()+" more items.");
+        } else {
+            player.getPacketSender().sendMessage("You can't bind any more items! Destroy a item to bind another one.");
+        }
+    }
+
+    /**
+     * Removes a binded item.
+     * @param toUnBind
+     */
+    public void unBindItem(Item toUnBind) {
+        int index = 0;
+        for(Item item: getBindedItems()) {
+            if(item != null) {
+                if(item.getId() == toUnBind.getId()) {
+                    this.bind[index] = null;
+                    break;
+                }
+            }
+            index++;
+        }
+    }
+
+    /**
+     * Finds how many items you can currently bind.
+     * @return
+     */
+    public int getBindSlotsOpen() {
+        int amountOpen = 0;
+        for(Item item: getBindedItems()) {
+            if(item == null) {
+                amountOpen++;
+            }
+        }
+        return amountOpen;
+    }
+
+    /**
+     * Checks if the item is a dungeoneering equipment/weapon.
+     * @param item
+     * @return
+     */
+    public boolean isDungItem(Item item) {
+        String name = item.getDefinition().getName();
+        if(name.contains("Novite")) {
+            return true;
+        } else if(name.contains("Bathus")) {
+            return true;
+        } else if(name.contains("Marmaros")) {
+            return true;
+        } else if(name.contains("Kratonite")) {
+            return true;
+        } else if(name.contains("Fractite")) {
+            return true;
+        } else if(name.contains("Zephyrium")) {
+            return true;
+        } else if(name.contains("Argonite")) {
+            return true;
+        } else if(name.contains("Katagon")) {
+            return true;
+        } else if(name.contains("Gorgonite")) {
+            return true;
+        } else if(name.contains("Promethium")) {
+            return true;
+        } else if(name.contains("Primal")) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Gets the item id of a binded dungeoneering item.
+     * @param item
+     * @return
+     */
+    public int getBindedID(Item item) {
+        for (int i = 0; i < ItemDefinition.getMaxAmountOfItems() - 1; i++) {
+            if (ItemDefinition.forId(i).getName().toLowerCase().equalsIgnoreCase(item.getDefinition().getName().toLowerCase() + " (b)")) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Adds all binded items to a players inventory.
+     */
+    public void giveBindedItems() {
+        for(Item item: getBindedItems()) {
+            if(item != null) {
+                if(item.getId() > 0) {
+                    if(isDungItem(item)) {
+                        player.getInventory().add(item, true);
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -233,6 +371,13 @@ public class Dungeoneering {
                 null,
                 null,
         };
+        this.bind = new Item[] {
+                null,
+                null,
+                null,
+                null,
+                null,
+        };
     }
 
     /**
@@ -299,12 +444,12 @@ public class Dungeoneering {
             return false;
         }
         for(Item t : player.getEquipment().getItems()) {
-            if(t != null && t.getId() > 0 && t.getId() != 15707) {
+            if(t != null && t.getId() > 0) {
                 plrCannotEnter = player.getUsername();
             }
         }
         for(Item t : player.getInventory().getItems()) {
-            if(t != null && t.getId() > 0 && t.getId() != 15707) {
+            if(t != null && t.getId() > 0) {
                 plrCannotEnter = player.getUsername();
             }
         }
@@ -469,6 +614,22 @@ public class Dungeoneering {
         int chance = Misc.random(player.getDungeoneering().getFloor().getRequiredKills() * 2);
         if(chance == 1) {
             GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(18236, 1), npc.getPosition(), player.getUsername(), false, 150, false, 200));
+        }
+    }
+
+    public Item[] STARTER_ITEMS = {
+         new Item(18173, 5),
+         new Item(18165, 2),
+         new Item(16939, 1),
+         new Item(1215, 1),
+    };
+
+    /**
+     * Add all starter items when going into a dungeon.
+     */
+    public void giveStarterItems() {
+        for(Item item: STARTER_ITEMS) {
+            player.getInventory().add(item, true);
         }
     }
 
