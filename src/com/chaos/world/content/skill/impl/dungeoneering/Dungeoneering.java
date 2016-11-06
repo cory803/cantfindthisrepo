@@ -225,8 +225,8 @@ public class Dungeoneering {
     public Dungeoneering(Player player) {
         this.player = player;
         this.floor = new Floor1(player);
-        this.kills = 10;
-        this.deaths = 2;
+        this.kills = 0;
+        this.deaths = 0;
         this.party = new Player[] {
                 null,
                 null,
@@ -278,6 +278,9 @@ public class Dungeoneering {
      * @return
      */
     public boolean hasRequiredKills() {
+        if(GameSettings.DEVELOPER_MODE) {
+            return true;
+        }
         return getKills() >= getFloor().getRequiredKills();
     }
 

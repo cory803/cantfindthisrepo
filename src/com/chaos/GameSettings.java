@@ -46,6 +46,8 @@ public class GameSettings {
 	public static boolean MYSQL_PLAYER_SAVING = false;
 	public static boolean PLAYER_LOGGING = false;
 
+	public static boolean DEVELOPER_MODE = false;
+
 	public static String mysql_characters_password = "null";
 	public static String mysql_forum_password = "null";
 	public static String connection_address = "localhost";

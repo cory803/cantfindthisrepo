@@ -263,6 +263,13 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.TOURNAMENT_MODE = false;
 								}
+							} else if (line.contains("developer_mode")) {
+								args = line.split(": ");
+								if (args[1].toLowerCase().equals("on")) {
+									GameSettings.DEVELOPER_MODE = true;
+								} else {
+									GameSettings.DEVELOPER_MODE = false;
+								}
 							} else if (line.contains("database_logging_time")) {
 								args = line.split(": ");
 								int time = Integer.valueOf(args[1]);
