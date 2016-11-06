@@ -230,7 +230,7 @@ public class Item {
 				return false;
 			}
 		}
-		if(player.getDungeoneering().isDungItem(this)) {
+		if(player.getDungeoneering().isDungItem(name)) {
 			return false;
 		}
 		if (Effigies.isEffigy(id))

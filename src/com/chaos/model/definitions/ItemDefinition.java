@@ -1,5 +1,7 @@
 package com.chaos.model.definitions;
 
+import com.chaos.world.content.skill.impl.dungeoneering.DungItems;
+import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.google.common.base.Strings;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
@@ -62,6 +64,24 @@ public class ItemDefinition {
 						JsonArray req = reader.get("requirement").getAsJsonArray();
 						for (int index = 0; index < definition.requirement.length; index++) {
 							definition.requirement[index] = req.get(index).getAsInt();
+						}
+						//Too many dung items to add manually...
+						if(Dungeoneering.isDungItem(definition.name)) {
+							DungItems type = DungItems.NOVITE;
+							for(DungItems dungItems: DungItems.values()) {
+								if(definition.name.contains(dungItems.getName())) {
+									type = dungItems;
+								}
+							}
+							if(definition.isWeapon()) {
+								if(definition.getName().toLowerCase().contains("maul")) {
+									definition.requirement[2] = type.getRequirement();
+								} else {
+									definition.requirement[0] = type.getRequirement();
+								}
+							} else {
+								definition.requirement[1] = type.getRequirement();
+							}
 						}
 					}
 

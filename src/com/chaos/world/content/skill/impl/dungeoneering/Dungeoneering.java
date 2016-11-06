@@ -145,8 +145,7 @@ public class Dungeoneering {
      * @param item
      * @return
      */
-    public boolean isDungItem(Item item) {
-        String name = item.getDefinition().getName();
+    public static boolean isDungItem(String name) {
         if(name.contains("Novite")) {
             return true;
         } else if(name.contains("Bathus")) {
@@ -194,7 +193,7 @@ public class Dungeoneering {
         for(Item item: getBindedItems()) {
             if(item != null) {
                 if(item.getId() > 0) {
-                    if(isDungItem(item)) {
+                    if(isDungItem(item.getDefinition().getName())) {
                         player.getInventory().add(item, true);
                     }
                 }

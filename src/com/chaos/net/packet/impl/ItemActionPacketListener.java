@@ -601,7 +601,7 @@ public class ItemActionPacketListener implements PacketListener {
 		if (SummoningData.isPouch(player, itemId, 3)) {
 			return;
 		}
-		if(player.getDungeoneering().isDungItem(new Item(itemId, 1))) {
+		if(player.getDungeoneering().isDungItem(new Item(itemId, 1).getDefinition().getName())) {
 			player.getDungeoneering().bindItem(new Item(itemId, 1));
 			return;
 		}
