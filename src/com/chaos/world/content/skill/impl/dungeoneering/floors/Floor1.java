@@ -93,6 +93,7 @@ public class Floor1 extends Floor {
         for(NPC npc: getMinions()) {
             World.deregister(npc);
         }
+        World.deregister(this.getBoss());
         player.setRegionInstance(null);
         player.getClickDelay().reset();
         player.getEquipment().resetItems().refreshItems();

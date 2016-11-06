@@ -87,6 +87,18 @@ public class Dungeoneering {
     }
 
     /**
+     * Check if the player is currently doing dungeoneering.
+     * @return
+     */
+    public boolean isDoingDung() {
+        if(getDungeonStage() == DungeonStage.DEFAULT) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /**
      * Check if the dungeoneering party is full
      * @return
      */
@@ -298,6 +310,32 @@ public class Dungeoneering {
             return false;
         }
         return true;
+    }
+
+    /**
+     * Adds a ring of kinship to a players bank
+     * upon login as long as they do not already
+     * have one.
+     */
+    public void addRingOfKinship() {
+        boolean needsRing = true;
+        for(Item t : player.getEquipment().getItems()) {
+            if(t != null && t.getId() > 0) {
+                if(t.getId() == 15707) {
+                    needsRing = false;
+                }
+            }
+        }
+        for(Item t : player.getInventory().getItems()) {
+            if(t != null && t.getId() > 0) {
+                if(t.getId() == 15707) {
+                    needsRing = false;
+                }
+            }
+        }
+        if(needsRing) {
+            player.getBank(0).add(15707, 1);
+        }
     }
 
     /**

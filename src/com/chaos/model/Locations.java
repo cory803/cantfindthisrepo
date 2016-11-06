@@ -679,7 +679,7 @@ public class Locations {
 						}
 					}
 				}
-				player.moveTo(new Position(3368, 3268));
+				//player.moveTo(new Position(3368, 3268));
 				if (dc) {
 					World.getPlayers().remove(player);
 				}

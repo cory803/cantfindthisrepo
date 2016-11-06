@@ -42,12 +42,16 @@ class TeleportPlayerToMe(staffRights: StaffRights) : Command(staffRights) {
                 return
             }
 
-            val canTele = TeleportHandler.checkReqs(player, t.position.copy()) && player.regionInstance == null && t.regionInstance == null
+            val canTele = TeleportHandler.checkReqs(player, t.position.copy()) && player.regionInstance == null && !t.dungeoneering.isDoingDung && !player.dungeoneering.isDoingDung && t.regionInstance == null
 
             if (canTele) {
                 TeleportHandler.teleportPlayer(t, player.position.copy(), TeleportType.NORMAL)
                 player.packetSender.sendMessage("Teleporting player to you: " + t.username + "")
                 t.packetSender.sendMessage("You're being teleported to " + player.username + "...")
+            } else if(t.dungeoneering.isDoingDung) {
+                player.packetSender.sendMessage("The other player is currently doing dungeoneering.")
+            } else if(player.dungeoneering.isDoingDung) {
+                player.packetSender.sendMessage("You are currently doing dungeoneering.")
             } else {
                 player.packetSender.sendMessage("You cannot teleport the player at the moment.")
             }

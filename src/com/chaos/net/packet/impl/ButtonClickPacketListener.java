@@ -260,9 +260,6 @@ public class ButtonClickPacketListener implements PacketListener {
                     PlayersOnlineInterface.showInterface(player);
                 }
                 break;
-            case 28180:
-                TeleportHandler.teleportPlayer(player, new Position(3450, 3715), player.getSpellbook().getTeleportType());
-                break;
             case 14012:
                 player.getPacketSender().sendInterfaceRemoval();
                 break;

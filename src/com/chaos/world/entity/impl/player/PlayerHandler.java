@@ -288,6 +288,7 @@ public class PlayerHandler {
 		NoteHandler.login(player);
 		player.getPacketSender().sendRights();
 		FarmingManager.uponLogin(player);
+		player.getDungeoneering().addRingOfKinship();
 	}
 
 	public static boolean handleLogout(Player player) {

@@ -30,12 +30,16 @@ class TeleportToPlayer(staffRights: StaffRights) : Command(staffRights) {
                 player.packetSender.sendMessage("You are unable to teleport to yourself. NOOB")
                 return
             }
-            val canTele = TeleportHandler.checkReqs(player, teleTo.position.copy()) && player.regionInstance == null && teleTo.regionInstance == null
+            val canTele = TeleportHandler.checkReqs(player, teleTo.position.copy()) && !player.dungeoneering.isDoingDung && !teleTo.dungeoneering.isDoingDung && player.regionInstance == null && teleTo.regionInstance == null
             if (canTele) {
                 TeleportHandler.teleportPlayer(player, teleTo.position.copy(), TeleportType.NORMAL)
                 player.packetSender.sendMessage("Teleporting to player: " + teleTo.username + "")
+            } else if(teleTo.dungeoneering.isDoingDung) {
+                player.packetSender.sendMessage("The other player is currently doing dungeoneering.")
+            } else if(player.dungeoneering.isDoingDung) {
+                player.packetSender.sendMessage("You are currently doing dungeoneering.")
             } else {
-                player.packetSender.sendMessage("You can not teleport to this player at the moment. Minigame maybe?")
+                player.packetSender.sendMessage("You can not teleport to this player at the moment.")
             }
         }
     }
