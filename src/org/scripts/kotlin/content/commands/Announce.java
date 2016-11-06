@@ -3,6 +3,7 @@ package org.scripts.kotlin.content.commands;
 import com.chaos.model.StaffRights;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.player.command.Command;
+import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Announce extends Command {
@@ -22,7 +23,11 @@ public class Announce extends Command {
                 player.getPacketSender().sendMessage("There is a max of 10,000 seconds.");
                 return;
             }
-            player.getPacketSender().sendString(1, "[ANNOUNCE]-"+time+"-"+text);
+            for (Player players : World.getPlayers()) {
+                if (players == null)
+                    continue;
+                players.getPacketSender().sendString(1, "[ANNOUNCE]-"+time+"-"+text);
+            }
             player.getPacketSender().sendMessage("You have sent an announcement for "+time+" seconds.");
         }
     }
