@@ -78,12 +78,9 @@ public class ThievingManager {
 
     public static void initMobData(Player player, MobData data) {
         if (player.getInventory().getFreeSlots() == 0) {
-
             return;
         }
-
         if (player.getSkillManager().getCurrentLevel(Skill.THIEVING) < data.getRequirements()) {
-
             return;
         }
 
@@ -120,6 +117,7 @@ public class ThievingManager {
                             player.performAnimation(new Animation(881));
                             player.getInventory().add(new Item(data.getItems()[Misc.getRandom(data.getItems().length - 1)], Misc.getRandom(data.getAmount())));
                             player.getPacketSender().sendMessage("You manage to steal some loot.");
+                            Achievements.doProgress(player, Achievements.AchievementData.STEAL_140_SCIMITARS);
                         }
                     } else if (cycle == (failed ? 5 : 3)) {
                         stop();

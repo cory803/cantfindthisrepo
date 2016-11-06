@@ -99,6 +99,10 @@ public class EquipmentMaking {
 				if (itemToSmith.getDefinition().getName().equalsIgnoreCase("iron dagger")) {
 					Achievements.finishAchievement(player, Achievements.AchievementData.SMITH_IRON_DAGGER);
 				}
+				if (itemToSmith.getId() == 9144) {
+					Achievements.doProgress(player, Achievements.AchievementData.FLETCH_450_RUNE_BOLTS, 10);
+				}
+
 			}
 		});
 		TaskManager.submit(player.getCurrentTask());
