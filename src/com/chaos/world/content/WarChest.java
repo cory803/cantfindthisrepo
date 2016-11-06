@@ -25,6 +25,7 @@ public class WarChest {
 		p.performAnimation(new Animation(827));
 		p.getInventory().delete(18236, 1);
 		p.getPacketSender().sendMessage("You open the chest..");
+		p.setUsingChest(true);
 		TaskManager.submit(new Task(1, p, false) {
 			int tick = 0;
 
@@ -37,6 +38,7 @@ public class WarChest {
 						p.getInventory().add(item);
 					}
 					p.getPacketSender().sendMessage("..and find some items!");
+					p.setUsingChest(false);
 					stop();
 					break;
 				}

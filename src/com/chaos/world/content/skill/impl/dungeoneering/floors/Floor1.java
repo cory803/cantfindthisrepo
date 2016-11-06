@@ -89,6 +89,10 @@ public class Floor1 extends Floor {
 
     @Override
     public void leaveFloor() {
+        if(player.isUsingChest()) {
+            player.getPacketSender().sendMessage("You must wait until you finish using the chest to leave.");
+            return;
+        }
         player.moveTo(new Position(3464 - Misc.inclusiveRandom(0, 7), 3722 - Misc.inclusiveRandom(0, 4), 0));
         for(NPC npc: getMinions()) {
             World.deregister(npc);

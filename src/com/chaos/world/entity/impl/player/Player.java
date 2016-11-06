@@ -79,6 +79,24 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
+    private boolean usingChest;
+
+    /**
+     * Check if you are currently using a chest.
+     * @return
+     */
+    public boolean isUsingChest() {
+        return this.usingChest;
+    }
+
+    /**
+     * Set if you are currently using a chest.
+     * @param process
+     */
+    public void setUsingChest(boolean process) {
+        this.usingChest = process;
+    }
+
     /**
      * The timer each stage for the player's farmed
      * crops take .
