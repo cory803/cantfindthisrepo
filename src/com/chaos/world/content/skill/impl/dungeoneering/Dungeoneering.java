@@ -363,6 +363,92 @@ public class Dungeoneering {
         new Item(2434, 1)
     };
 
+    public Item[] RARE_MINION_REWARDS = {
+        //Zephyrium
+        new Item(15763, 1),
+        new Item(16283, 1),
+        new Item(16305, 1),
+        new Item(16349, 1),
+        new Item(16371, 1),
+        new Item(16393, 1),
+        new Item(16415, 1),
+        new Item(16657, 1),
+        new Item(16679, 1),
+        new Item(16701, 1),
+        new Item(16723, 1),
+        new Item(16797, 1),
+        new Item(16899, 1),
+        new Item(16945, 1),
+        new Item(17029, 1),
+        new Item(17103, 1),
+        new Item(17249, 1),
+        new Item(17351, 1),
+
+        //Fractite
+        new Item(15761, 1),
+        new Item(16281, 1),
+        new Item(16303, 1),
+        new Item(16347, 1),
+        new Item(16369, 1),
+        new Item(16391, 1),
+        new Item(16413, 1),
+        new Item(16655, 1),
+        new Item(16677, 1),
+        new Item(16699, 1),
+        new Item(16721, 1),
+        new Item(16789, 1),
+        new Item(16897, 1),
+        new Item(16943, 1),
+        new Item(16961, 1),
+        new Item(16973, 1),
+        new Item(17027, 1),
+        new Item(17095, 1),
+        new Item(17247, 1),
+        new Item(17349, 1),
+
+        //Kratonite
+        new Item(15759, 1),
+        new Item(16279, 1),
+        new Item(16301, 1),
+        new Item(16345, 1),
+        new Item(16367, 1),
+        new Item(16389, 1),
+        new Item(16411, 1),
+        new Item(16411, 1),
+        new Item(16653, 1),
+        new Item(16675, 1),
+        new Item(16697, 1),
+        new Item(16719, 1),
+        new Item(16781, 1),
+        new Item(16895, 1),
+        new Item(16941, 1),
+        new Item(17025, 1),
+        new Item(17087, 1),
+        new Item(17245, 1),
+        new Item(17347, 1),
+
+        //Marmaros
+        new Item(15757, 1),
+        new Item(16277, 1),
+        new Item(16299, 1),
+        new Item(16343, 1),
+        new Item(16365, 1),
+        new Item(16387, 1),
+        new Item(16409, 1),
+        new Item(16651, 1),
+        new Item(16673, 1),
+        new Item(16695, 1),
+        new Item(16717, 1),
+        new Item(16773, 1),
+        new Item(16893, 1),
+        new Item(16939, 1),
+        new Item(17023, 1),
+        new Item(17079, 1),
+        new Item(17243, 1),
+        new Item(17345, 1),
+
+    };
+
     /**
      * Gives the reward for the dungeoneering minions
      */
@@ -373,8 +459,14 @@ public class Dungeoneering {
         //Random reward
         GroundItemManager.spawnGroundItem(player, new GroundItem(MINION_REWARDS[Misc.inclusiveRandom(MINION_REWARDS.length - 1)], npc.getPosition(), player.getUsername(), false, 150, false, 200));
 
+        //Rare reward
+        int rareChance = Misc.random(10);
+        if(rareChance == 1) {
+            GroundItemManager.spawnGroundItem(player, new GroundItem(RARE_MINION_REWARDS[Misc.inclusiveRandom(RARE_MINION_REWARDS.length - 1)], npc.getPosition(), player.getUsername(), false, 150, false, 200));
+        }
+
         //War key
-        int chance = Misc.random(player.getDungeoneering().getFloor().getRequiredKills());
+        int chance = Misc.random(player.getDungeoneering().getFloor().getRequiredKills() * 2);
         if(chance == 1) {
             GroundItemManager.spawnGroundItem(player, new GroundItem(new Item(18236, 1), npc.getPosition(), player.getUsername(), false, 150, false, 200));
         }

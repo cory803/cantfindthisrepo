@@ -489,6 +489,12 @@ public class World {
 				return;
 			}
 		}
+		for (int ids = 0; ids < GameObjectDefinition.removeObjects.length; ids++) {
+			if (object.getId() == GameObjectDefinition.removeObjects[ids]) {
+				object.getDefinition().unwalkable = false;
+				return;
+			}
+		}
 		Position position = object.getPosition();
 		int type = object.getType();
 		int z = position.getZ();

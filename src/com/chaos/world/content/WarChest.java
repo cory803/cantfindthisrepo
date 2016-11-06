@@ -49,6 +49,7 @@ public class WarChest {
 	}
 
 	private static final Item[][] itemRewards = {
+
 			//Promethium
 			{new Item(15771, 1)},
 			{new Item(16291, 1)},
@@ -68,6 +69,71 @@ public class WarChest {
 			{new Item(17135, 1)},
 			{new Item(17257, 1)},
 			{new Item(17359, 1)},
+
+			//Gorgonite
+			{new Item(15769, 1)},
+			{new Item(16289, 1)},
+			{new Item(16311, 1)},
+			{new Item(16355, 1)},
+			{new Item(16377, 1)},
+			{new Item(16399, 1)},
+			{new Item(16421, 1)},
+			{new Item(16663, 1)},
+			{new Item(16685, 1)},
+			{new Item(16707, 1)},
+			{new Item(16729, 1)},
+			{new Item(16821, 1)},
+			{new Item(16905, 1)},
+			{new Item(16951, 1)},
+			{new Item(16963, 1)},
+			{new Item(16965, 1)},
+			{new Item(16971, 1)},
+			{new Item(17035, 1)},
+			{new Item(17127, 1)},
+			{new Item(17255, 1)},
+			{new Item(17357, 1)},
+
+			//Katagon
+			{new Item(15767, 1)},
+			{new Item(16287, 1)},
+			{new Item(16309, 1)},
+			{new Item(16353, 1)},
+			{new Item(16375, 1)},
+			{new Item(16397, 1)},
+			{new Item(16419, 1)},
+			{new Item(16661, 1)},
+			{new Item(16683, 1)},
+			{new Item(16705, 1)},
+			{new Item(16727, 1)},
+			{new Item(16813, 1)},
+			{new Item(16903, 1)},
+			{new Item(16949, 1)},
+			{new Item(17033, 1)},
+			{new Item(17119, 1)},
+			{new Item(17253, 1)},
+			{new Item(17355, 1)},
+
+			//Argonite
+			{new Item(15765, 1)},
+			{new Item(16285, 1)},
+			{new Item(16307, 1)},
+			{new Item(16351, 1)},
+			{new Item(16373, 1)},
+			{new Item(16395, 1)},
+			{new Item(16417, 1)},
+			{new Item(16659, 1)},
+			{new Item(16681, 1)},
+			{new Item(16703, 1)},
+			{new Item(16725, 1)},
+			{new Item(16805, 1)},
+			{new Item(16901, 1)},
+			{new Item(16947, 1)},
+			{new Item(17031, 1)},
+			{new Item(17111, 1)},
+			{new Item(17251, 1)},
+			{new Item(17353, 1)},
+			{new Item(17353, 1)},
+
 	};
 
 }
