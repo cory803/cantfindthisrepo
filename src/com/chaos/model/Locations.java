@@ -920,8 +920,14 @@ public class Locations {
 
 			@Override
 			public boolean canTeleport(Player player) {
-				player.getDialog().sendDialog(new LeaveDungeon(player));
 				return false;
+			}
+
+			@Override
+			public void login(Player player) {
+				player.getPacketSender().sendDungeoneeringTabIcon(false);
+				player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55065);
+				player.getDungeoneering().getFloor().leaveFloor();
 			}
 
 			@Override
