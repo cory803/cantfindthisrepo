@@ -27,7 +27,7 @@ public class GambleFightCave extends Dialog {
             case 0:
                 return Dialog.createNpc(DialogHandler.CALM, "Hello! Would you like a chance at capturing me?");
             case 1:
-                return Dialog.createNpc(DialogHandler.CALM, "If you sacrifice your Fire cape you have a 1/30 chance, or a TokHaar-Kal (1/15 chance).");
+                return Dialog.createNpc(DialogHandler.CALM, "If you sacrifice your Fire cape you have a 1/50 chance, or a TokHaar-Kal (1/20 chance).");
             case 2:
                 return Dialog.createOption(new TwoOption(
                         "Yes, sacrifice my "+ ItemDefinition.forId(itemId).getName(),
@@ -39,9 +39,9 @@ public class GambleFightCave extends Dialog {
                                 player.getInventory().delete(itemId, 1);
                                 boolean gotIt = false;
                                 if(itemId == 6570) {
-                                    gotIt = Misc.inclusiveRandom(0, 30) == 5;
+                                    gotIt = Misc.inclusiveRandom(0, 50) == 5;
                                 } else if(itemId == 19111) {
-                                    gotIt = Misc.inclusiveRandom(0, 15) == 5;
+                                    gotIt = Misc.inclusiveRandom(0, 20) == 5;
                                 }
 
                                 if(gotIt) {
