@@ -36056,7 +36056,7 @@
 "name": "Abyssal demon",
 "examine": "A denizen of the Abyss!",
 "combat": 124,
-"veryRareChance": 75,
+"veryRareChance": 125,
 "size": 1,
 "attackable": true,
 "aggressive": false,
