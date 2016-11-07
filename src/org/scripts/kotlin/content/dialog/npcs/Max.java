@@ -1,5 +1,6 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
+import com.chaos.model.Skill;
 import com.chaos.model.options.fouroption.FourOption;
 import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.dialog.Dialog;
@@ -91,6 +92,10 @@ public class Max extends Dialog {
                                 player.getPacketSender().sendInterfaceRemoval();
                                 if (!player.getSkillManager().maxStats()) {
                                     player.getPacketSender().sendMessage("You must have 99's in every skill in order to purchase the completionist cape!");
+                                    return;
+                                }
+                                if(player.getSkillManager().getCurrentLevel(Skill.DUNGEONEERING) < 120) {
+                                    player.getPacketSender().sendMessage("You need 120 dungeoneering to purchase a completionist cape.");
                                     return;
                                 }
                                 for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
