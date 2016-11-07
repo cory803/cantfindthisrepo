@@ -271,7 +271,7 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getPacketSender().sendInterfaceRemoval();
                 if (player.getUntradeableDropItem() != null
                         && player.getInventory().contains(player.getUntradeableDropItem().getId())) {
-                    if(player.getDungeoneering().isDungItem(player.getUntradeableDropItem())) {
+                    if(player.getDungeoneering().isDungItem(player.getUntradeableDropItem().getDefinition().getName())) {
                         player.getDungeoneering().unBindItem(player.getUntradeableDropItem());
                         player.getPacketSender().sendMessage("You have unbinded the item "+player.getUntradeableDropItem().getDefinition().getName()+". You now have "+player.getDungeoneering().getBindSlotsOpen()+" bind slots open.");
                     } else {
