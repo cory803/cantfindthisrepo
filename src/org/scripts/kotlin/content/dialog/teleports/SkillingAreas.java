@@ -25,24 +25,28 @@ public class SkillingAreas extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createOption(new FourOption(
+                return Dialog.createOption(new FiveOption(
                         "Catherby",
                         "Skilling Zone (Low)",
                         "Skilling Zone (High)",
+                        "Living Rock Cavern",
                         "Resource Area @bla@(@red@Wild@bla@)") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
-                            case OPTION_1_OF_4:
+                            case OPTION_1_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(2809, 3435, 0), player.getSpellbook().getTeleportType());
                                 break;
-                            case OPTION_2_OF_4:
+                            case OPTION_2_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(2802, 2785, 0), player.getSpellbook().getTeleportType());
                                 break;
-                            case OPTION_3_OF_4:
+                            case OPTION_3_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(2852, 2960, 0), player.getSpellbook().getTeleportType());
                                 break;
-                            case OPTION_4_OF_4:
+                            case OPTION_4_OF_5:
+                                TeleportHandler.teleportPlayer(player, new Position(3654, 5114, 0), player.getSpellbook().getTeleportType());
+                                break;
+                            case OPTION_5_OF_5:
                                 player.setNpcClickId(747);
                                 player.getDialog().sendDialog(new ResourceArea(player));
                                 break;
