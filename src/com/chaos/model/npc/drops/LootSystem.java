@@ -139,7 +139,8 @@ public class LootSystem {
          * Drop charms
          */
         if (table.getCharms() != null) {
-            dropCharm(p, n.getPosition().copy(), table.getCharms());
+            boolean boss = n.getDefaultConstitution() > 2000;
+            dropCharm(p, n.getPosition().copy(), table.getCharms(), boss);
         }
 
         /**
@@ -363,7 +364,7 @@ public class LootSystem {
         return item;
     }
 
-    private static void dropCharm(Player player, Position p, LootCharm[] charms) {
+    private static void dropCharm(Player player, Position p, LootCharm[] charms, boolean isBoss) {
         int rolledCharm = dice.nextInt(101);
         for (int i = 0; i < charms.length; i++) {
             LootCharm charm = charms[i];
@@ -380,6 +381,9 @@ public class LootSystem {
                  */
                 if (GameSettings.DOUBLE_DROPS) {
                     amt *= 2;
+                }
+                if (isBoss) {
+                    amt *= 3;
                 }
 
                 /**
