@@ -66,8 +66,6 @@ public class SkillManager {
 		for (int i = 0; i < Skill.values().length; i++) {
 			if (i == 21) //Construction
 				continue;
-			if (i == 24) //Dungeoneering
-				continue;
 			if (player.getSkillManager().getMaxLevel(i) < (i == 3 || i == 5 ? 990 : 99)) {
 				return false;
 			}

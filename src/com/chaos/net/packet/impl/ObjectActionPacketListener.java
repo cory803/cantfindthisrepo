@@ -1598,6 +1598,19 @@ public class ObjectActionPacketListener implements PacketListener {
                                     }
                                 });
                                 break;
+                            case 1738:
+                                player.performAnimation(new Animation(828));
+                                player.getPacketSender().sendMessage("You climb the stairs..");
+                                TaskManager.submit(new Task(1, player, false) {
+                                    @Override
+                                    protected void execute() {
+                                        if (gameObject.getPosition().equals(2839, 3537)) {
+                                            player.moveTo(new Position(2840, 3539, 2));
+                                        }
+                                        stop();
+                                    }
+                                });
+                                break;
                             case 5110:
                                 player.moveTo(new Position(2647, 9557));
                                 player.getPacketSender().sendMessage("You pass the stones..");
