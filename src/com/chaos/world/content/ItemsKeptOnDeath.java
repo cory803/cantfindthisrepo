@@ -150,7 +150,7 @@ public class ItemsKeptOnDeath {
 		ArrayList<Item> toKeep = new ArrayList<Item>();
 		int amountToKeep = getAmountToKeep(player);
 		for (int i = 0; i < amountToKeep && i < items.size(); i++) {
-			toKeep.add(items.get(i));
+			toKeep.add(new Item(items.get(i).getId(), 1));
 		}
 		return toKeep;
 	}
