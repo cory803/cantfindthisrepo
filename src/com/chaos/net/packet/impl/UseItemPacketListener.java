@@ -42,6 +42,7 @@ import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BountyPortal;
+import org.scripts.kotlin.content.dialog.GambleFightCave;
 import org.scripts.kotlin.content.dialog.GoldenMiningArmour;
 import org.scripts.kotlin.content.dialog.TentacleCombination;
 import org.scripts.kotlin.content.dialog.npcs.*;
@@ -426,6 +427,12 @@ public class UseItemPacketListener implements PacketListener {
 							}
 						}*/
 						switch (objectId) {
+							case 9356:
+								if(itemId == 6570 || itemId == 19111) {
+									player.setNpcClickId(5892);
+									player.getDialog().sendDialog(new GambleFightCave(player, 0, itemId));
+								}
+								break;
 						case 11666:
 						case 26814:
 						case 6189:
