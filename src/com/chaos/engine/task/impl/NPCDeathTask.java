@@ -108,7 +108,7 @@ public class NPCDeathTask extends Task {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_A_TORMENTED_DEMON);
 					} else if (npc.getId() == 3491) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CULINAROMANCER);
-					} else if (npc.getId() == 8528) {
+					} else if (npc.getId() == 2001) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_NOMAD);
 					} else if (npc.getId() == 2745) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_JAD);

@@ -67,7 +67,7 @@ public class Achievements {
 		DEFEAT_THE_CHAOS_ELEMENTAL(Difficulty.MEDIUM, "Defeat the Chaos Elemental", 37063, null),
 		DEFEAT_A_TORMENTED_DEMON(Difficulty.MEDIUM, "Defeat a Tormented Demon", 37064, null),
 		DEFEAT_THE_CULINAROMANCER(Difficulty.MEDIUM, "Defeat the Culinaromancer", 37065, null),
-		DEFEAT_NOMAD(Difficulty.MEDIUM, "Defeat Nomad", 37066, null),
+		DEFEAT_NOMAD(Difficulty.MEDIUM, "Defeat Scorpio", 37066, null),
 		DEFEAT_10_PLAYERS(Difficulty.MEDIUM, "Defeat 10 Players", 37067, new int[] {23, 10 }),
 		LOW_ALCH_ITEMS(Difficulty.MEDIUM, "Low Alch 300 Items", 37068, new int[] { 24, 300 }),
 
