@@ -118,7 +118,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		}
 		if (!player.isSpecialActivated()) {
 
-			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player)) {
+			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player) && !CombatFactory.zaryteBow(player)) {
 				decrementAmmo(player, victim.getPosition());
 				if (dBow || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW
 						&& player.isSpecialActivated() && player.getCombatSpecial() != null

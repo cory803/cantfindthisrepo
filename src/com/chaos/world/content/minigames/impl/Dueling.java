@@ -407,7 +407,7 @@ public class Dueling {
 			}
 		} else {
 			if (selectedDuelRules[DuelRule.NO_MOVEMENT.ordinal()]) {
-				Position duelTele = new Position(3335 + Misc.getRandom(12), 3246 + Misc.getRandom(6), 0);
+				Position duelTele = new Position(3336 + Misc.getRandom(17), 3247 + Misc.getRandom(7), 0);
 				player.getDueling().duelTelePos = duelTele;
 				playerToDuel.getDueling().duelTelePos = player.getDueling().duelTelePos.copy();
 				playerToDuel.getDueling().duelTelePos.setX(player.getDueling().duelTelePos.getX() - 1);
