@@ -170,7 +170,13 @@ public class SkillManager {
 			 * If the skill is not constitution, prayer or summoning, then set
 			 * the current level to the max level.
 			 */
-			if (!isNewSkill(skill)) {
+//			if (!isNewSkill(skill)) {
+//				setCurrentLevel(skill, skills.maxLevel[skill.ordinal()]);
+//			}
+			/*
+			 * If the skill's current level is HIGHER than the max level leave the stat boosted
+			 */
+			if (getCurrentLevel(skill) <= getMaxLevel(skill)) {
 				setCurrentLevel(skill, skills.maxLevel[skill.ordinal()]);
 			}
 			// player.getPacketSender().sendFlashingSidebar(Constants.SKILLS_TAB);
