@@ -27,7 +27,7 @@ public class BuyAgilityExperience extends EnterAmount {
 			return;
 		}
 
-		int exp = ticketAmount * 8;
+		int exp = ticketAmount * 40;
 		player.getInventory().delete(11849, ticketAmount);
 		player.getSkillManager().addSkillExperience(Skill.AGILITY, exp);
 		int expM = exp * player.getGameModeAssistant().getModeExpRate();
