@@ -54,6 +54,8 @@ import org.scripts.kotlin.content.dialog.*;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.Well.Well;
 import org.scripts.kotlin.content.dialog.npcs.Aubury;
+import org.scripts.kotlin.content.dialog.npcs.MasterCrafter;
+import org.scripts.kotlin.content.dialog.npcs.SmallSacks;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
 
 /**
@@ -124,7 +126,7 @@ public class ObjectActionPacketListener implements PacketListener {
                             return;
                         }
                         if (MiningData.forRock(gameObject.getId()) != null) {
-                            Mining.startMining(player, gameObject);
+                            Mining.startMining(player, gameObject, null);
                             return;
                         }
                         if (Farming.isGameObject(player, gameObject, 1))
@@ -170,9 +172,9 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 2491:
                                 if(player.getInteractingObject() != null) {
                                     if (player.getSkillManager().getMaxLevel(Skill.MINING) <= 21) {
-                                        Mining.startMining(player, new GameObject(24444, player.getInteractingObject().getPosition()));
+                                        Mining.startMining(player, new GameObject(24444, player.getInteractingObject().getPosition()), null);
                                     } else {
-                                        Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()));
+                                        Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()), null);
                                     }
                                 }
                                 break;
@@ -2031,7 +2033,15 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 21301:
                             case 36786:
                             case 2995:
+                            case 45079:
                                 player.getBank(player.getCurrentBankTab()).open();
+                                break;
+                            case 45091:
+                                if(player.getInventory().getAmount(444) + player.getInventory().getAmount(445) == 0 && player.getInventory().getAmount(453) + player.getInventory().getAmount(454) == 0) {
+                                    player.getPacketSender().sendMessage("<col=ff0000>Small sacks needs gold or coal ore in order to turn them into minerals.");
+                                    return;
+                                }
+                                player.getDialog().sendDialog(new SmallSacks(player));
                                 break;
                             case 21304:
                                 player.getDialog().sendDialog(new Spin(player));

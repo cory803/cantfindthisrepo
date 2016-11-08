@@ -1,21 +1,24 @@
 package com.chaos.model.player;
 
 import com.chaos.GameSettings;
-import com.chaos.model.Item;
-import com.chaos.model.Position;
+import com.chaos.engine.task.Task;
+import com.chaos.engine.task.TaskManager;
+import com.chaos.model.*;
+import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.PosSearchShop;
 import com.chaos.net.packet.impl.UseItemPacketListener;
-import com.chaos.world.content.Artifacts;
-import com.chaos.world.content.BankPin;
-import com.chaos.world.content.EnergyHandler;
-import com.chaos.world.content.Sheep;
+import com.chaos.util.MathUtil;
+import com.chaos.world.content.*;
 import com.chaos.world.content.combat.magic.CombatSpells;
+import com.chaos.world.content.diversions.hourly.ShootingStar;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
+import com.chaos.world.content.skill.impl.mining.Mining;
+import com.chaos.world.content.skill.impl.mining.MiningData;
 import com.chaos.world.content.skill.impl.runecrafting.DesoSpan;
 import com.chaos.world.content.skill.impl.slayer.SlayerDialog;
 import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
@@ -295,6 +298,11 @@ public final class ActionHandler {
             //Master crafter
             case 805:
                 player.getDialog().sendDialog(new MasterCrafter(player, 0));
+                break;
+
+            //Living rock minerals
+            case 8839:
+                Mining.startMining(player, new GameObject(30000, npc.getPosition()), npc);
                 break;
 
             case 501:

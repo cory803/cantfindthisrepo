@@ -2,6 +2,7 @@ package com.chaos.world.content.skill.impl.mining;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
+import com.chaos.engine.task.impl.NPCRespawnTask;
 import com.chaos.model.Animation;
 import com.chaos.model.GameObject;
 import com.chaos.model.Locations;
@@ -18,6 +19,7 @@ import com.chaos.world.content.Emotes.Skillcape_Data;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
 import com.chaos.world.content.skill.impl.mining.MiningData.Ores;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Mining {
@@ -40,11 +42,11 @@ public class Mining {
 		}
 	}
 
-	public static void startMining(final Player player, final GameObject oreObject) {
+	public static void startMining(final Player player, final GameObject oreObject, NPC npc) {
 		player.getSkillManager().stopSkilling();
 		player.getPacketSender().sendInterfaceRemoval();
 		if (!Locations.goodDistance(player.getPosition().copy(), oreObject.getPosition(), 1)
-				&& oreObject.getId() != 24444 && oreObject.getId() != 24445 && oreObject.getId() != 38660)
+				&& oreObject.getId() != 24444 && oreObject.getId() != 30000 && oreObject.getId() != 24445 && oreObject.getId() != 38660)
 			return;
 		if (player.busy() || player.getCombatBuilder().isBeingAttacked() || player.getCombatBuilder().isAttacking()) {
 			player.getPacketSender().sendMessage("You cannot do that right now.");
@@ -74,7 +76,7 @@ public class Mining {
 
 		final Ores o = initialOre;
 
-		final boolean giveGem = o != Ores.RUNE_ESSENCE && o != Ores.PURE_ESSENCE;
+		final boolean giveGem = o != Ores.RUNE_ESSENCE && o != Ores.PURE_ESSENCE && o != Ores.LIVING_ROCK_RESOURCE;
 		final int reqCycle = o == Ores.RUNITE ? 6 + Misc.getRandom(2) : Misc.getRandom(o.getTicks() - 1);
 		if (o != null) {
 			final int pickaxe = MiningData.getPickaxe(player);
@@ -102,6 +104,20 @@ public class Mining {
 									player.getPacketSender()
 											.sendMessage("You do not have any free inventory space left.");
 									return;
+								}
+//								int removeChance = Misc.inclusiveRandom(1, 2);
+//								if(removeChance == 1) {
+//									TaskManager.submit(new NPCRespawnTask(npc, 75));
+//									World.deregister(npc);
+//									stop();
+//								}
+								int itemId = o.getItemId();
+								if(oreObject.getId() == 30000) {
+									if(Misc.inclusiveRandom(1, 3) == 1) {
+										itemId = 444;
+									} else {
+										itemId = 453;
+									}
 								}
 								if (cycle != reqCycle) {
 									cycle++;
@@ -139,9 +155,17 @@ public class Mining {
 									int multiplier = (Skillcape_Data.MINING.isWearingCape(player)
 											&& Misc.inclusiveRandom(0, 9) == 0) ? 2 : 1;
 									if (o.getItemId() != -1) {
-										player.getInventory().add(o.getItemId(), 1 * multiplier);
+										player.getInventory().add(itemId, 1 * multiplier);
 									}
-									player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
+									if(oreObject.getId() == 30000) {
+										int experience = 50;
+										if(itemId == 444) {
+											experience = 60;
+										}
+										player.getSkillManager().addSkillExperience(Skill.MINING, experience);
+									} else {
+										player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
+									}
 									if(player.getInventory().contains(20786) || player.getEquipment().contains(20786)) {
 										if(MathUtil.random(3) == 0) {
 											if (o == Ores.RUNITE) {
@@ -174,7 +198,7 @@ public class Mining {
 										oreRespawn(player, oreObject, o);
 									} else {
 										player.performAnimation(new Animation(65535));
-										startMining(player, oreObject);
+										startMining(player, oreObject, null);
 									}
 								}
 							}

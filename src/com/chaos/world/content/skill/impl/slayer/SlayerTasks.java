@@ -48,6 +48,7 @@ public enum SlayerTasks {
     OGRE(new int[] {115}, new int[] {95}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2493, 3092, 0)),
     INFERNAL_MAGE(new int[] {1643}, new int[] {80}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3444, 3556)),
     BLOODVELD(new int[] {1618}, new int[] {90}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3410, 3574, 1)),
+    LIVING_ROCK_CREATURES(new int[] {8834, 8833, 8832}, new int[] {160, 130, 100}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3638, 5104, 0)),
 
     /**
      * Chaeldar's slayer tasks
