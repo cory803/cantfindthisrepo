@@ -12,7 +12,6 @@ import com.chaos.GameServer;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.world.World;
 import com.chaos.world.content.clan.ClanChatManager;
-import com.chaos.world.content.pos.PlayerOwnedShops;
 
 /**
  * @author lare96
@@ -53,7 +52,6 @@ public final class GameEngine implements Runnable {
 			e.printStackTrace();
 			World.logError("game_engine_error_log.txt", (Exception) e);
 			World.savePlayers();
-			PlayerOwnedShops.saveShops();
 			ClanChatManager.save();
 		}
 	}

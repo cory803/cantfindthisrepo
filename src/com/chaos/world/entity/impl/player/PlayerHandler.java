@@ -45,7 +45,6 @@ import com.chaos.world.content.combat.pvp.BountyHunter;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.minigames.impl.Barrows;
-import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.farming.FarmingManager;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
 import com.chaos.world.entity.impl.npc.NPC;
@@ -284,7 +283,6 @@ public class PlayerHandler {
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
-		PlayerOwnedShops.collectCoinsOnLogin(player);
 		NoteHandler.login(player);
 		player.getPacketSender().sendRights();
 		FarmingManager.uponLogin(player);

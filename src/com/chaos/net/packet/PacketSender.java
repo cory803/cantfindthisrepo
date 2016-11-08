@@ -8,7 +8,6 @@ import com.chaos.GameSettings;
 import com.chaos.model.*;
 import com.chaos.model.container.ItemContainer;
 import com.chaos.model.container.impl.Equipment;
-import com.chaos.model.container.impl.PlayerOwnedShopContainer;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.net.packet.Packet.PacketType;
@@ -603,11 +602,6 @@ public class PacketSender {
 		if (player.isShopping()) {
 			sendClientRightClickRemoval().sendItemsOnInterface(Shop.INTERFACE_ID, new Item[] { new Item(-1) });
 			player.setShopping(false);
-		}
-		if (player.isPlayerOwnedShopping()) {
-			sendClientRightClickRemoval().sendItemsOnInterface(PlayerOwnedShopContainer.INTERFACE_ID,
-					new Item[] { new Item(-1) });
-			player.setPlayerOwnedShopping(false);
 		}
 		if (player.getPriceChecker().isOpen()) {
 			player.getPriceChecker().exit();

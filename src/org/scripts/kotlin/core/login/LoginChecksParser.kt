@@ -2,7 +2,6 @@ package org.scripts.kotlin.core.login
 
 import com.chaos.world.content.BankPin
 import com.chaos.world.content.PlayerLogs
-import com.chaos.world.content.pos.PlayerOwnedShops
 import com.chaos.world.entity.impl.player.Player
 
 /**
@@ -24,6 +23,5 @@ object LoginChecksParser {
                 && player.bankPinAttributes.onDifferent(player)) {
             BankPin.init(player, false)
         }
-        PlayerOwnedShops.collectCoinsOnLogin(player)
     }
 }

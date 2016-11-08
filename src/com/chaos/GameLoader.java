@@ -26,7 +26,6 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.engine.GameEngine;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.engine.task.impl.ServerTimeUpdateTask;
-import com.chaos.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
 import com.chaos.model.container.impl.Shop.ShopManager;
 import com.chaos.net.PipelineFactory;
 import com.chaos.net.security.ConnectionHandler;
@@ -36,7 +35,6 @@ import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
 import com.chaos.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
 import com.chaos.world.content.combat.strategy.CombatStrategies;
-import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.entity.impl.npc.NPC;
 
 /**
@@ -73,7 +71,6 @@ public final class GameLoader {
 		ItemDefinition.init().load();
 		Lottery.init();
 		DoorManager.init();
-		PlayerOwnedShops.init();
 		ClanChatManager.init();
 		CombatPoisonData.init();
 		CombatVenomData.init();
@@ -82,7 +79,6 @@ public final class GameLoader {
 		LootSystem.loadDropTables();
 		WeaponInterfaces.parseInterfaces().load();
 		ShopManager.parseShops().load();
-		PlayerOwnedShopManager.load();
 		NPC.init();
 		WellOfGoodness.init();
 		HourlyDiversionManager.init();

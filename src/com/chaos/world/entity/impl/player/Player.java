@@ -52,8 +52,6 @@ import com.chaos.world.content.diversions.Diversion;
 import com.chaos.world.content.minigames.MinigameAttributes;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
-import com.chaos.world.content.pos.PosDetails;
-import com.chaos.world.content.pos.PosOffer;
 import com.chaos.world.content.skill.AbstractHarvestSkill;
 import com.chaos.world.content.skill.AbstractSkill;
 import com.chaos.world.content.skill.SkillManager;
@@ -298,8 +296,6 @@ public class Player extends Character {
     public void setRequestingAssistance(boolean assistance) {
         this.requestAssistance = assistance;
     }
-
-    public static Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
 
     public int getPasswordChange() {
         return passwordChange;
@@ -698,7 +694,7 @@ public class Player extends Character {
     }
 
     public boolean busy() {
-        return interfaceId > 0 || isBanking || shopping || posShopping || trading.inTrade() || dueling.inDuelScreen
+        return interfaceId > 0 || isBanking || shopping || trading.inTrade() || dueling.inDuelScreen
                 || isResting;
     }
 
@@ -819,7 +815,6 @@ public class Player extends Character {
     private Input inputHandling;
     private WalkToTask walkToTask;
     private Shop shop;
-    private PlayerOwnedShopContainer player_owned_shop;
     private GameObject interactingObject;
     private Item interactingItem;
     public Dialog currentDialog;
@@ -934,7 +929,6 @@ public class Player extends Character {
     private boolean clientExitTaskActive;
     private boolean drainingPrayer;
     private boolean shopping;
-    private boolean posShopping;
     private boolean settingUpCannon;
     private boolean hasVengeance;
     private boolean killsTrackerOpen;
@@ -2255,33 +2249,16 @@ public class Player extends Character {
         return shopping;
     }
 
-    public boolean isPlayerOwnedShopping() {
-        return posShopping;
-    }
-
     public void setShopping(boolean shopping) {
         this.shopping = shopping;
-    }
-
-    public void setPlayerOwnedShopping(boolean shopping) {
-        this.posShopping = shopping;
     }
 
     public Shop getShop() {
         return shop;
     }
 
-    public PlayerOwnedShopContainer getPlayerOwnedShop() {
-        return player_owned_shop;
-    }
-
     public Player setShop(Shop shop) {
         this.shop = shop;
-        return this;
-    }
-
-    public Player setPlayerOwnedShop(PlayerOwnedShopContainer shop) {
-        this.player_owned_shop = shop;
         return this;
     }
 

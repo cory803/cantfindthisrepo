@@ -12,7 +12,6 @@ import com.chaos.model.Item;
 import com.chaos.model.StaffRights;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.model.container.impl.Inventory;
-import com.chaos.model.container.impl.PlayerOwnedShopContainer;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
@@ -381,7 +380,7 @@ public abstract class ItemContainer {
 			to.full();
 			return this;
 		}
-		if (this instanceof Shop || this instanceof PlayerOwnedShopContainer) {
+		if (this instanceof Shop) {
 			delete(item, slot, refresh, to);
 		}
 		to.add(item, refresh);

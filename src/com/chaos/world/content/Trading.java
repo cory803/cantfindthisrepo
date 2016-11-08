@@ -57,7 +57,7 @@ public class Trading {
 			player.getPacketSender().sendMessage("You cannot reach that.");
 			return;
 		}
-		if (player.isShopping() || player.isPlayerOwnedShopping() || player.isBanking()) {
+		if (player.isShopping() || player.isBanking()) {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}

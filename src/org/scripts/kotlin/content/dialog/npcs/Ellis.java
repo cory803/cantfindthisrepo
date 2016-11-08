@@ -2,7 +2,6 @@ package org.scripts.kotlin.content.dialog.npcs;
 
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.input.impl.EnterYellTag;
-import com.chaos.model.input.impl.PosSearchShop;
 import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.dialog.Dialog;

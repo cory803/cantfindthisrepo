@@ -26,8 +26,6 @@ import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightType;
 import com.chaos.world.content.minigames.impl.*;
-import com.chaos.world.content.pos.PlayerOwnedShops;
-import com.chaos.world.content.pos.PosDetails;
 import com.chaos.world.content.skill.ChatboxInterfaceSkillAction;
 import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.crafting.LeatherMaking;
@@ -71,20 +69,6 @@ public class ButtonClickPacketListener implements PacketListener {
 
         if (Enchanting.enchantButtons(player, id)) {
             return;
-        }
-
-        if (id >= -24102 && id <= -23706) {
-            PosDetails pd = PosItemSearch.forId(id, player);
-            if (pd != null) {
-                if (PlayerPunishment.isPlayerBanned(pd.getOwner())) {
-                    player.getPacketSender().sendMessage("This player is banned!");
-                } else {
-                    player.getPacketSender().sendString(41900, "Back to Search Selection");
-                    PlayerOwnedShops.openShop(pd.getOwner(), player);
-                }
-            } else {
-                player.getPacketSender().sendMessage("This result didn't return a offer!");
-            }
         }
 
         switch (id) {
@@ -339,19 +323,6 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
             case -10328:
                 Nomad.openQuestLog(player);
-                break;
-            case -23636:
-//                if (player.getShop() != null && player.getShop().id == 44 && player.isShopping()) {
-//                    player.setInputHandling(new BuyDungExperience());
-//                    player.getPacketSender()
-//                            .sendEnterAmountPrompt("How much experience would you like to buy? 1 token = 3 exp");
-//                } else {
-//                    if (player.getGameModeAssistant().isIronMan()) {
-//                        player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
-//                        return;
-//                    }
-//                    PlayerOwnedShops.openItemSearch(player, false);
-                //}
                 break;
             case 350:
                 player.getPacketSender()
@@ -1280,9 +1251,6 @@ public class ButtonClickPacketListener implements PacketListener {
             return true;
         }
         if (PlayersOnlineInterface.handleButton(player, id)) {
-            return true;
-        }
-        if (PlayerOwnedShops.posButtons(player, id)) {
             return true;
         }
         if (ClanChatManager.handleClanChatSetupButton(player, id)) {

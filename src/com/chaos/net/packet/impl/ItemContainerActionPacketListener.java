@@ -14,7 +14,6 @@ import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.model.input.impl.EnterAmountToBank;
-import com.chaos.model.input.impl.EnterAmountToBuyFromPos;
 import com.chaos.model.input.impl.EnterAmountToBuyFromShop;
 import com.chaos.model.input.impl.EnterAmountToPriceCheck;
 import com.chaos.model.input.impl.EnterAmountToRemoveFromBank;
@@ -22,7 +21,6 @@ import com.chaos.model.input.impl.EnterAmountToRemoveFromBob;
 import com.chaos.model.input.impl.EnterAmountToRemoveFromPriceCheck;
 import com.chaos.model.input.impl.EnterAmountToRemoveFromStake;
 import com.chaos.model.input.impl.EnterAmountToRemoveFromTrade;
-import com.chaos.model.input.impl.EnterAmountToSellToPos;
 import com.chaos.model.input.impl.EnterAmountToSellToShop;
 import com.chaos.model.input.impl.EnterAmountToStake;
 import com.chaos.model.input.impl.EnterAmountToStore;
@@ -169,9 +167,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
 		case Shop.ITEM_CHILD_ID:
 			if (player.getShop() != null) {
 				player.getShop().checkValue(player, slot, false);
-			} else if (player.getPlayerOwnedShop() != null) {
-				player.getPlayerOwnedShop().checkValue(player, slot, false);
-				return;
 			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
@@ -282,18 +277,11 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			if (player.getShop() != null) {
 				item = player.getShop().forSlot(slot).copy().setAmount(1).copy();
 				player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
-			} else if (player.getPlayerOwnedShop() != null) {
-				item = player.getPlayerOwnedShop().forSlot(slot).copy().setAmount(1).copy();
-				player.getPlayerOwnedShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false,
-						true);
 			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if (player.isShopping()) {
 				player.getShop().sellItem(player, slot, 1);
-				return;
-			} else if (player.isPlayerOwnedShopping()) {
-				player.getPlayerOwnedShop().sellItem(player, slot, 1, 0);
 				return;
 			}
 			break;
@@ -446,18 +434,11 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			if (player.getShop() != null) {
 				item = player.getShop().forSlot(slot).copy().setAmount(5).copy();
 				player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
-			} else if (player.getPlayerOwnedShop() != null) {
-				item = player.getPlayerOwnedShop().forSlot(slot).copy().setAmount(5).copy();
-				player.getPlayerOwnedShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false,
-						true);
 			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if (player.isShopping()) {
 				player.getShop().sellItem(player, slot, 5);
-				return;
-			} else if (player.isPlayerOwnedShopping()) {
-				player.getPlayerOwnedShop().sellItem(player, slot, 5, 0);
 				return;
 			}
 			break;
@@ -580,18 +561,11 @@ public class ItemContainerActionPacketListener implements PacketListener {
 			if (player.getShop() != null) {
 				item = player.getShop().forSlot(slot).copy().setAmount(10).copy();
 				player.getShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false, true);
-			} else if (player.getPlayerOwnedShop() != null) {
-				item = player.getPlayerOwnedShop().forSlot(slot).copy().setAmount(10).copy();
-				player.getPlayerOwnedShop().setPlayer(player).switchItem(player.getInventory(), item, slot, false,
-						true);
 			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
 			if (player.isShopping()) {
 				player.getShop().sellItem(player, slot, 10);
-				return;
-			} else if (player.isPlayerOwnedShopping()) {
-				player.getPlayerOwnedShop().sellItem(player, slot, 10, 0);
 				return;
 			}
 			break;
@@ -703,10 +677,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				player.setInputHandling(new EnterAmountToBuyFromShop(id, slot));
 				player.getPacketSender().sendEnterAmountPrompt("How many would you like to buy?");
 				player.getShop().setPlayer(player);
-			} else if (player.isPlayerOwnedShopping()) {
-				player.setInputHandling(new EnterAmountToBuyFromPos(id, slot));
-				player.getPacketSender().sendEnterAmountPrompt("How many would you like to buy?");
-				player.getPlayerOwnedShop().setPlayer(player);
 			}
 			break;
 		case Shop.INVENTORY_INTERFACE_ID:
@@ -716,10 +686,6 @@ public class ItemContainerActionPacketListener implements PacketListener {
 				player.setInputHandling(new EnterAmountToSellToShop(id, slot));
 				player.getPacketSender().sendEnterAmountPrompt("How many would you like to sell?");
 				player.getShop().setPlayer(player);
-			} else if (player.isPlayerOwnedShopping()) {
-				player.setInputHandling(new EnterAmountToSellToPos(id, slot));
-				player.getPacketSender().sendEnterAmountPrompt("How many would you like to sell?");
-				return;
 			}
 			break;
 		case PriceChecker.INTERFACE_PC_ID:
