@@ -70,21 +70,21 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 			NPC npc = (NPC) entity;
 
 			switch (npc.getId()) {
-			case 912: // zammy battle mage
-				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.FIRE_BLAST,
-						CombatSpells.FLAMES_OF_ZAMORAK, CombatSpells.ENTANGLE }).getSpell(), victim);
-				break;
 			case 133: // cobra
 				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.ICE_BARRAGE,
 						CombatSpells.ICE_BLITZ, CombatSpells.BLOOD_BARRAGE }).getSpell(), victim);
 				break;
+			case 912: // zammy battle mage
+				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.FIRE_WAVE,
+						CombatSpells.FLAMES_OF_ZAMORAK, CombatSpells.BLOOD_BARRAGE, CombatSpells.ICE_BARRAGE }).getSpell(), victim);
+				break;
 			case 913: // sara battle mage
-				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.FIRE_BLAST,
-						CombatSpells.SARADOMIN_STRIKE, CombatSpells.ENTANGLE }).getSpell(), victim);
+				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.WATER_WAVE,
+						CombatSpells.SARADOMIN_STRIKE, CombatSpells.ICE_BARRAGE }).getSpell(), victim);
 				break;
 			case 914: // guthix battle mage
-				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.FIRE_BLAST,
-						CombatSpells.CLAWS_OF_GUTHIX, CombatSpells.ENTANGLE }).getSpell(), victim);
+				npc.prepareSpell(Misc.randomElement(new CombatSpells[] { CombatSpells.EARTH_WAVE,
+						CombatSpells.CLAWS_OF_GUTHIX, CombatSpells.ICE_BARRAGE }).getSpell(), victim);
 				break;
 			case 13:
 			case 172:
