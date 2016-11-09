@@ -968,6 +968,13 @@ public class Player extends Character {
     private List<Integer> noteColours = new ArrayList<>();
     private String temp_note = "";
 
+    public int[][] compPreset = {
+            {-2805961, -5626324, -8643808, -12249823, -66051, -449772, -5342402},
+            {-2805961, -5626324, -8643808, -12249823, -66051, -449772, -5342402},
+            {-2805961, -5626324, -8643808, -12249823, -66051, -449772, -5342402}};
+    public int[] compColorsRGB = {-2805961, -5626324, -8643808, -12249823, -66051, -449772, -5342402};
+    public int[] compColor = {65214, 65200, 65186, 62995, 64639, 961, 5683};
+
     // Toxic weapons
     public int toxic_staff_charges = 0;
 

@@ -15,6 +15,7 @@ import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.doors.DoorManager;
 import com.chaos.world.entity.impl.player.Player;
+import com.chaos.world.entity.impl.player.PlayerSaving;
 import org.scripts.kotlin.content.commands.*;
 import org.scripts.kotlin.content.commands.Spawn;
 import org.scripts.kotlin.content.commands.writenpc.CopyWriteNpc;
@@ -53,6 +54,31 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.forceChat("[Chaos] My game mode is "+player.getGameModeAssistant().getModeName()+".");
+            }
+        });
+        commands.put("sendcaperecolor", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                String[] colors = args;
+                for (int i = 0; i < 7; i++) {
+                    System.out.println("Command: "+player.compColor[i]);
+                    player.compColor[i] = Integer.parseInt(colors[i]);
+                }
+                PlayerSaving.save(player);
+
+                player.getUpdateFlag().flag(Flag.APPEARANCE);
+                player.getPacketSender().sendMessage(":compu:");
+            }
+        });
+        commands.put("capergbcolors", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                String[] colors = args;
+                for (int i = 1; i < colors.length; i++) {
+                    player.compColorsRGB[i - 1] = Integer.parseInt(colors[i]);
+                }
+                player.getUpdateFlag().flag(Flag.APPEARANCE);
+                player.getPacketSender().sendMessage(":compu:");
             }
         });
         commands.put("bosses", new Command(StaffRights.PLAYER) {
