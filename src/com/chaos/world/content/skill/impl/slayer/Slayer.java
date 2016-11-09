@@ -30,9 +30,34 @@ public class Slayer {
     private int amountLeft;
     private int slayerStreak;
     private String duoPlayer;
+    private int givenDuo = 0;
 
     public Slayer(Player player) {
         this.player = player;
+    }
+
+    /**
+     * Check how many times you have given a duo assignment
+     * @return
+     */
+    public int getDuoTimes() {
+        return this.givenDuo;
+    }
+
+    /**
+     * Set an amount of times you have done duo.
+     * @param amount
+     */
+    public void setDuoTimes(int amount) {
+        this.givenDuo = amount;
+    }
+
+    /**
+     * Add duo times onto your current duo times.
+     * @param amount
+     */
+    public void addDuoTimes(int amount) {
+        this.givenDuo += amount;
     }
 
     /**
@@ -202,6 +227,14 @@ public class Slayer {
             player.getPacketSender().sendMessage("You are already on a duo slayer assignment with somebody.");
             return;
         }
+        if(player.getSlayer().getDuoTimes() >= 1) {
+            player.getPacketSender().sendMessage("You can only send a duo slayer assignment once per task.");
+            return;
+        }
+        if(other.getSlayer().getDuoTimes() >= 1) {
+            player.getPacketSender().sendMessage("The other player has already initiated a duo assignment for his task.");
+            return;
+        }
         other.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());
         other.getDialog().sendDialog(new SlayerDialog(other, 11, player));
     }
@@ -215,7 +248,9 @@ public class Slayer {
         this.setSlayerMaster(other.getSlayer().getSlayerMaster());
         this.setAmountLeft(other.getSlayer().getAmountLeft());
         this.setDuoSlayer(other.getUsername());
+        this.addDuoTimes(1);
         other.getSlayer().setDuoSlayer(player.getUsername());
+        other.getSlayer().addDuoTimes(1);
         player.getDialog().sendDialog(new SlayerDialog(player, 13, null));
         PlayerPanel.refreshPanel(player);
     }
@@ -311,6 +346,7 @@ public class Slayer {
             player.getDialog().sendDialog(new SlayerDialog(player, 8, null));
             player.getSlayer().setSlayerMaster(null);
             player.getSlayer().setSlayerTask(null);
+            player.getSlayer().setDuoTimes(0);
             player.getSlayer().setDuoSlayer(null);
             player.getSlayer().setAmountLeft(0);
         } else if(this.amountLeft == 10 || this.amountLeft == 25 || this.amountLeft == 50 || this.amountLeft == 100 || this.amountLeft == 200) {
