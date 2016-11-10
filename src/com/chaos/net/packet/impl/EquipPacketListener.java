@@ -13,6 +13,7 @@ import com.chaos.model.player.GameMode;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.Sounds.Sound;
@@ -259,6 +260,21 @@ public class EquipPacketListener implements PacketListener {
 					player.getPacketSender()
 							.sendMessage("You need atleast 500 million experience in Dungeoneering to wear this cape!");
 					return;
+				}
+			}
+			if(item.getId() == 14022) {
+				if(player.getSkillManager().getCurrentLevel(Skill.DUNGEONEERING) < 120) {
+					player.getPacketSender().sendMessage("You need 120 dungeoneering to wear a completionist cape.");
+					return;
+				}
+				for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
+					if(d.getDifficulty() == Achievements.Difficulty.ELITE) {
+						continue;
+					}
+					if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
+						player.getPacketSender().sendMessage("You must complete all tier 1, tier 2, and tier 3 achievements to wear this.");
+						return;
+					}
 				}
 			}
 			int equipmentSlot = item.getDefinition().getEquipmentSlot();

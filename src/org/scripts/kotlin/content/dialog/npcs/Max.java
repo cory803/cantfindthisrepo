@@ -99,8 +99,11 @@ public class Max extends Dialog {
                                     return;
                                 }
                                 for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
+                                    if(d.getDifficulty() == Achievements.Difficulty.ELITE) {
+                                        continue;
+                                    }
                                     if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
-                                        player.getPacketSender().sendMessage("You must have completed all achievements in order to buy this cape.");
+                                        player.getPacketSender().sendMessage("You must complete all tier 1, tier 2, and tier 3 achievements to buy this.");
                                         return;
                                     }
                                 }

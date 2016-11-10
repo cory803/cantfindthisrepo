@@ -5,6 +5,7 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.*;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.PlayersOnlineInterface;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
@@ -59,6 +60,11 @@ public class CommandManager {
         commands.put("sendcaperecolor", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
+                for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
+                    if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
+                        return;
+                    }
+                }
                 String[] colors = args;
                 for (int i = 0; i < colors.length; i++) {
                     player.compColor[i] = Integer.parseInt(colors[i]);
@@ -72,6 +78,11 @@ public class CommandManager {
         commands.put("capergbcolors", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
+                for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
+                    if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
+                        return;
+                    }
+                }
                 String[] colors = args;
                 for (int i = 0; i < colors.length; i++) {
                     if(colors[i].equals("")) {
@@ -96,6 +107,17 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.forceChat("[Chaos] " + player.getUsername() + " has slain " + player.getBossPoints() + " bosses.");
+            }
+        });
+        commands.put("achieve", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
+                    if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
+                        player.getAchievementAttributes().setCompletion(d.ordinal(), true);
+                    }
+                }
+                player.getPacketSender().sendMessage("You have completed all achievements!");
             }
         });
         commands.put("kdr", new Command(StaffRights.PLAYER) {

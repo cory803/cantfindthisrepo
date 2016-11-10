@@ -273,7 +273,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 		// Set the ammo we are currently using.
 		player.setFireAmmo(player.getEquipment().get(slot).getId());
-		int[] compIds = { 14022, 21085, 21086, 21087, 21094, 21093, 21095, 21096, 21097, 21098, 21099 };
+		int[] compIds = { 14022 };
 		final boolean compCapes = player.getEquipment().containsAny(compIds);
 		final boolean ardy = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 19748;
 		final boolean avas = player.getEquipment().get(Equipment.CAPE_SLOT).getId() == 10499 || compCapes;

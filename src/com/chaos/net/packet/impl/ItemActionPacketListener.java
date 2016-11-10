@@ -520,9 +520,6 @@ public class ItemActionPacketListener implements PacketListener {
 		case 13288:
 			player.getSlayer().handleSlayerRingTP(itemId);
 			break;
-		case 14022:
-			//TODO: Add completionist ape customization
-			break;
 		case 6500:
 			player.getPacketSender().sendMessage("You're already gaining EXP and picking up charms! don't be greedy");
 			break;
@@ -610,6 +607,12 @@ public class ItemActionPacketListener implements PacketListener {
 				TeleportHandler.teleportPlayer(player, new Position(3450, 3716, 0), TeleportType.DUNGEONEERING);
 				break;
 			case 14022:
+				for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
+					if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
+						player.getPacketSender().sendMessage("You must have completed the tier 4 achievements in order to customize this cape.");
+						return;
+					}
+				}
 				player.getPacketSender().sendInterface(18700);
 				break;
 		case 13281:
