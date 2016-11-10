@@ -288,23 +288,23 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	private static final int GOLD_ORES = 445;
 	
 	private enum Stage {	
-		NINTH(38660, 10, 50 / 2, 10, 10),
+		NINTH(38660, 10, 90, 210, 10),
 		
-		EIGTH(38661, 20, 75 / 2, 15, 9),
+		EIGTH(38661, 20, 80, 145, 9),
 		
-		SEVENTH(38662, 30, 100 / 2, 20, 8),
+		SEVENTH(38662, 70, 40, 114, 8),
 		
-		SIXTH(38663, 40, 150 / 2, 30, 7),
+		SIXTH(38663, 60, 80, 71, 7),
 		
-		FIFTH(38664, 50, 200 / 2, 50, 6),
+		FIFTH(38664, 50, 175, 47, 6),
 		
-		FOURTH(38665, 60, 250 / 2, 70, 5),
+		FOURTH(38665, 40, 250, 32, 5),
 
-		THIRD(38666, 70, 300 / 2, 110, 4),
+		THIRD(38666, 30, 439, 29, 4),
 		
-		SECOND(38667, 80, 400 / 2, 150, 3),
+		SECOND(38667, 20, 700, 25, 3),
 		
-		FIRST(38668, 90, 500 / 2, 250, 2);
+		FIRST(38668, 10, 1200, 14, 2);
 		
 		private Stage(int objectId, int levelRequirement, int minerals,
 				int experience, int miningTimerModifier) {
