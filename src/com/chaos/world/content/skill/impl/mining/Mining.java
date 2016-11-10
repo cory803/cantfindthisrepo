@@ -146,6 +146,9 @@ public class Mining {
 									if (o == Ores.COAL || o == Ores.RESOURCE_COAL) {
 										Achievements.doProgress(player, AchievementData.MINE_400_COAL);
 									}
+									if (o == Ores.GOLD || o == Ores.RESOURCE_GOLD) {
+										Achievements.doProgress(player, AchievementData.MINE_200_GOLD);
+									}
 									if (o == Ores.ADAMANTITE || o == Ores.RESOURCE_ADAMANTITE) {
 										Achievements.doProgress(player, AchievementData.MINE_400_ADDY);
 									}

@@ -340,6 +340,9 @@ public class Slayer {
             if (slayerMaster == SlayerMasters.DURADEL) {
                 Achievements.finishAchievement(player, Achievements.AchievementData.COMPLETE_AN_ELITE_SLAYER_TASK);
             }
+            if (slayerMaster == SlayerMasters.NIEVE) {
+                Achievements.finishAchievement(player, Achievements.AchievementData.COMPLETE_A_HARD_SLAYER_TASK);
+            }
             player.getSlayer().addSlayerStreak(1);
             player.getPointsHandler().setSlayerPoints(this.getPointsToGive(), true);
             player.setNpcClickId(player.getSlayer().getSlayerMaster().getNpcId());

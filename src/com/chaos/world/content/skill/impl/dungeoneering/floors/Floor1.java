@@ -7,6 +7,7 @@ import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.net.packet.impl.EquipPacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.Achievements;
 import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.combat.prayer.CurseHandler;
@@ -80,6 +81,9 @@ public class Floor1 extends Floor {
         if(!player.getDungeoneering().canEnterDungeon()) {
             return;
         }
+        Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_5_DUNG_FLOORS);
+        Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_50_DUNG_FLOORS);
+        Achievements.finishAchievement(player, Achievements.AchievementData.COMPLETE_DUNG_FLOOR);
         player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.ENTERED);
         for(NPC npc: getMinions()) {
             npc.getDefinition().setAggressive(true);
