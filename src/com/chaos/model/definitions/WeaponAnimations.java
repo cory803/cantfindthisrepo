@@ -250,7 +250,7 @@ public final class WeaponAnimations {
 			// bash = 400
 			return 401;
 		}
-		if (weaponName.endsWith("warhammer") || weaponName.endsWith("battleaxe"))
+		if (weaponName.endsWith("warhammer") || weaponName.endsWith("battleaxe") || weaponId == 13904)
 			return 401;
 		if (weaponName.contains("2h sword") || weaponName.contains("godsword")
 				|| weaponName.contains("saradomin sword")) {
