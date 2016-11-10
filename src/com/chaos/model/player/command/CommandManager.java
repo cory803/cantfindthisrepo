@@ -60,8 +60,7 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 String[] colors = args;
-                for (int i = 0; i < 7; i++) {
-                    System.out.println("Command: "+player.compColor[i]);
+                for (int i = 0; i < colors.length; i++) {
                     player.compColor[i] = Integer.parseInt(colors[i]);
                 }
                 PlayerSaving.save(player);
@@ -74,8 +73,8 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 String[] colors = args;
-                for (int i = 1; i < colors.length; i++) {
-                    player.compColorsRGB[i - 1] = Integer.parseInt(colors[i]);
+                for (int i = 0; i < colors.length; i++) {
+                    player.compColorsRGB[i] = Integer.parseInt(colors[i]);
                 }
                 player.getUpdateFlag().flag(Flag.APPEARANCE);
                 player.getPacketSender().sendMessage(":compu:");

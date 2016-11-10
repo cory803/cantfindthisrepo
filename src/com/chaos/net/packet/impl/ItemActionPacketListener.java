@@ -609,6 +609,9 @@ public class ItemActionPacketListener implements PacketListener {
 			case 15707:
 				TeleportHandler.teleportPlayer(player, new Position(3450, 3716, 0), TeleportType.DUNGEONEERING);
 				break;
+			case 14022:
+				player.getPacketSender().sendInterface(18700);
+				break;
 		case 13281:
 		case 13282:
 		case 13283:

@@ -505,9 +505,9 @@ public class PlayerUpdating {
 		Equipment equipment = target.getEquipment();
 		PacketBuilder properties = new PacketBuilder();
 		properties.put(appearance.getGender().ordinal());
-		//for (int i = 0; i < player.compColor.length; i++) {
-			//properties.putShort(player.compColor[i]);
-		//}
+		for (int i = 0; i < target.compColor.length; i++) {
+			properties.putShort(target.compColor[i]);
+		}
 		properties.put(appearance.getHeadHint());
 		properties.put(target.getLocation() == Location.WILDERNESS ? appearance.getBountyHunterSkull() : -1);
 		properties.putShort(target.getSkullIcon());

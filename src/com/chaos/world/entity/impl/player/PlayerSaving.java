@@ -321,6 +321,10 @@ public class PlayerSaving {
 		object.add("attacked-players", builder.toJsonTree(player.playersAttacked));
 		object.add("killed-gods", builder.toJsonTree(player.getAchievementAttributes().getGodsKilled()));
 		object.addProperty("dungeon-stage", player.getDungeoneering().getDungeonStage().name());
+		object.add("comp-color",
+				builder.toJsonTree(player.compColor));
+		object.add("comp-color-rgb",
+				builder.toJsonTree(player.compColorsRGB));
 		object.add("barrows-brother",
 				builder.toJsonTree(player.getMinigameAttributes().getBarrowsMinigameAttributes().getBarrowsData()));
 		object.addProperty("random-coffin",
