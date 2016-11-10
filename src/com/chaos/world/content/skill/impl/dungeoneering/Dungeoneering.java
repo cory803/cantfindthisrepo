@@ -5,6 +5,7 @@ import com.chaos.GameSettings;
 import com.chaos.model.GroundItem;
 import com.chaos.model.Item;
 import com.chaos.model.Position;
+import com.chaos.model.container.impl.Bank;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.content.skill.impl.dungeoneering.floors.Floor1;
@@ -477,6 +478,17 @@ public class Dungeoneering {
             if(t != null && t.getId() > 0) {
                 if(t.getId() == 15707) {
                     needsRing = false;
+                }
+            }
+        }
+        for (int i = 0; i < player.getBanks().length; i++) {
+            if (player.getBank(i) != null) {
+                for(Item t : player.getBank(i).getItems()) {
+                    if(t != null && t.getId() > 0) {
+                        if(t.getId() == 15707) {
+                            needsRing = false;
+                        }
+                    }
                 }
             }
         }
