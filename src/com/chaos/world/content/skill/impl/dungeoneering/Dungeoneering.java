@@ -147,27 +147,28 @@ public class Dungeoneering {
      * @return
      */
     public static boolean isDungItem(String name) {
-        if(name.contains("Novite")) {
+        name = name.toLowerCase();
+        if(name.contains("novite")) {
             return true;
-        } else if(name.contains("Bathus")) {
+        } else if(name.contains("bathus")) {
             return true;
-        } else if(name.contains("Marmaros")) {
+        } else if(name.contains("marmaros")) {
             return true;
-        } else if(name.contains("Kratonite")) {
+        } else if(name.contains("kratonite")) {
             return true;
-        } else if(name.contains("Fractite")) {
+        } else if(name.contains("fractite")) {
             return true;
-        } else if(name.contains("Zephyrium")) {
+        } else if(name.contains("zephyrium")) {
             return true;
-        } else if(name.contains("Argonite")) {
+        } else if(name.contains("argonite")) {
             return true;
-        } else if(name.contains("Katagon")) {
+        } else if(name.contains("katagon")) {
             return true;
-        } else if(name.contains("Gorgonite")) {
+        } else if(name.contains("gorgonite")) {
             return true;
-        } else if(name.contains("Promethium")) {
+        } else if(name.contains("promethium")) {
             return true;
-        } else if(name.contains("Primal")) {
+        } else if(name.contains("primal")) {
             return true;
         }
         return false;
