@@ -74,10 +74,22 @@ public class CommandManager {
             public void execute(Player player, String[] args, StaffRights privilege) {
                 String[] colors = args;
                 for (int i = 0; i < colors.length; i++) {
+                    if(colors[i].equals("")) {
+                        continue;
+                    }
                     player.compColorsRGB[i] = Integer.parseInt(colors[i]);
                 }
                 player.getUpdateFlag().flag(Flag.APPEARANCE);
                 player.getPacketSender().sendMessage(":compu:");
+            }
+        });
+        commands.put("setcomppreset", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                int preset = Integer.parseInt(args[0]);
+                for (int i = 0; i < 7; i++) {
+                    player.compPreset[preset][i] = Integer.parseInt(args[i + 1]);
+                }
             }
         });
         commands.put("bosses", new Command(StaffRights.PLAYER) {

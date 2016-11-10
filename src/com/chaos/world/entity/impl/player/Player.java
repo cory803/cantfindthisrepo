@@ -978,6 +978,16 @@ public class Player extends Character {
     // Toxic weapons
     public int toxic_staff_charges = 0;
 
+    public void sendCompCapePresets() {
+        for (int i = 0; i < 3; i++) {
+            String b = "";
+            for (int f = 0; f < 7; f++) {
+                b += compPreset[i][f] + " ";
+            }
+            getPacketSender().sendString(b, 18939 + i);
+        }
+    }
+
     /*
      * Getters & Setters
      */

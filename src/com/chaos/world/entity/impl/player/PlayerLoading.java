@@ -779,6 +779,10 @@ public class PlayerLoading {
 			player.compColorsRGB = builder.fromJson(reader.get("comp-color-rgb").getAsJsonArray(), int[].class);
 		}
 
+		if (reader.has("comp-presets")) {
+			player.compPreset = builder.fromJson(reader.get("comp-presets").getAsJsonArray(), int[][].class);
+		}
+
 		if (reader.has("barrows-brother")) {
 			player.getMinigameAttributes().getBarrowsMinigameAttributes()
 					.setBarrowsData(builder.fromJson(reader.get("barrows-brother").getAsJsonArray(), int[][].class));

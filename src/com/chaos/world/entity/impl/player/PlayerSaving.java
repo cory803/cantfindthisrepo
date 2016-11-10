@@ -325,6 +325,8 @@ public class PlayerSaving {
 				builder.toJsonTree(player.compColor));
 		object.add("comp-color-rgb",
 				builder.toJsonTree(player.compColorsRGB));
+		object.add("comp-presets",
+				builder.toJsonTree(player.compPreset));
 		object.add("barrows-brother",
 				builder.toJsonTree(player.getMinigameAttributes().getBarrowsMinigameAttributes().getBarrowsData()));
 		object.addProperty("random-coffin",
