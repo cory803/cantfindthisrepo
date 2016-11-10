@@ -267,7 +267,7 @@ public class DwarfMultiCannon {
 				n.getCombatBuilder().attack(player);
 		}
 		cannon.setCannonballs(cannon.getCannonballs() - 1);
-		Achievements.doProgress(player, AchievementData.FIRE_500_CANNON_BALLS);
+		//Achievements.doProgress(player, AchievementData.FIRE_500_CANNON_BALLS);
 		Achievements.doProgress(player, AchievementData.FIRE_5000_CANNON_BALLS);
 		Sounds.sendGlobalSound(player, Sound.FIRING_CANNON);
 	}
