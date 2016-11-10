@@ -143,8 +143,8 @@ public class GameModeAssistant {
                     newXp = 1_000_000_000;
                 }
                 player.getSkillManager().setExperience(skill, newXp);
-                player.getSkillManager().setMaxLevel(skill, (SkillManager.isNewSkill(skill) ? SkillManager.getLevelForExperience(newXp) * 10 : SkillManager.getLevelForExperience(newXp)));
-                player.getSkillManager().setCurrentLevel(skill, (SkillManager.isNewSkill(skill) ? SkillManager.getLevelForExperience(newXp) * 10 : SkillManager.getLevelForExperience(newXp)));
+                player.getSkillManager().setMaxLevel(skill, (SkillManager.isNewSkill(skill) ? SkillManager.getLevelForExperience(skill, newXp) * 10 : SkillManager.getLevelForExperience(skill, newXp)));
+                player.getSkillManager().setCurrentLevel(skill, (SkillManager.isNewSkill(skill) ? SkillManager.getLevelForExperience(skill, newXp) * 10 : SkillManager.getLevelForExperience(skill, newXp)));
             }
         } else {
             /**

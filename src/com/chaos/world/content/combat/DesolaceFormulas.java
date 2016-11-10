@@ -264,7 +264,7 @@ public class DesolaceFormulas {
 		double accuracy = plr.isSpecialActivated() ? plr.getCombatSpecial().getAccuracyBonus() + plr.getDonatorRights().getSpecialAccuracyBoost(plr) : 1;
 		rangeLevel *= accuracy;
 		if (hasVoid) {
-			rangeLevel += SkillManager.getLevelForExperience(plr.getSkillManager().getExperience(Skill.RANGED)) * 0.15;
+			rangeLevel += SkillManager.getLevelForExperience(Skill.RANGED, plr.getSkillManager().getExperience(Skill.RANGED)) * 0.15;
 		}
 		if (plr.getCurseActive()[PrayerHandler.SHARP_EYE] || plr.getCurseActive()[CurseHandler.SAP_RANGER]) {
 			rangeLevel *= 1.05;

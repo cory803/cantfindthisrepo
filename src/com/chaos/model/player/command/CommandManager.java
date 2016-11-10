@@ -75,6 +75,12 @@ public class CommandManager {
                 player.getPacketSender().sendMessage(":compu:");
             }
         });
+        commands.put("addexperience", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getSkillManager().addExactExperience(Skill.DUNGEONEERING, 1);
+            }
+        });
         commands.put("capergbcolors", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

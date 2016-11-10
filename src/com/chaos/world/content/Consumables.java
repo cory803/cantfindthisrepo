@@ -2197,18 +2197,18 @@ public class Consumables {
 
 	public static void overloadIncrease(final Player player, Skill skill, double l) {
 		player.getSkillManager().setCurrentLevel(skill,
-				(int) (SkillManager.getLevelForExperience(player.getSkillManager().getExperience(skill))
-						+ (SkillManager.getLevelForExperience(player.getSkillManager().getExperience(skill)) * l)),
+				(int) (SkillManager.getLevelForExperience(skill, player.getSkillManager().getExperience(skill))
+						+ (SkillManager.getLevelForExperience(skill, player.getSkillManager().getExperience(skill)) * l)),
 				true);
 	}
 
 	public static int getExtremePotionBoost(Player player, int skill) {
 		int increaseBy = 0;
 		increaseBy = (int) (SkillManager
-				.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill))) * .25) + 1;
+				.getLevelForExperience(Skill.forId(skill), player.getSkillManager().getExperience(Skill.forId(skill))) * .25) + 1;
 		if (player.getSkillManager().getCurrentLevel(Skill.forId(skill)) + increaseBy > SkillManager
-				.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill))) + increaseBy + 1) {
-			return SkillManager.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill)))
+				.getLevelForExperience(Skill.forId(skill), player.getSkillManager().getExperience(Skill.forId(skill))) + increaseBy + 1) {
+			return SkillManager.getLevelForExperience(Skill.forId(skill), player.getSkillManager().getExperience(Skill.forId(skill)))
 					+ increaseBy - player.getSkillManager().getCurrentLevel(Skill.forId(skill));
 		}
 		return increaseBy;
@@ -2217,10 +2217,10 @@ public class Consumables {
 	public static int getPotionBoost(Player player, int skill) {
 		int increaseBy = 0;
 		increaseBy = (int) (SkillManager
-				.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill))) * .18) + 1;
+				.getLevelForExperience(Skill.forId(skill), player.getSkillManager().getExperience(Skill.forId(skill))) * .18) + 1;
 		if (player.getSkillManager().getCurrentLevel(Skill.forId(skill)) + increaseBy > SkillManager
-				.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill))) + increaseBy + 1) {
-			return SkillManager.getLevelForExperience(player.getSkillManager().getExperience(Skill.forId(skill)))
+				.getLevelForExperience(Skill.forId(skill), player.getSkillManager().getExperience(Skill.forId(skill))) + increaseBy + 1) {
+			return SkillManager.getLevelForExperience(Skill.forId(skill), player.getSkillManager().getExperience(Skill.forId(skill)))
 					+ increaseBy - player.getSkillManager().getCurrentLevel(Skill.forId(skill));
 		}
 		return increaseBy;

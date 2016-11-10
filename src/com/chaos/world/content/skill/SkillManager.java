@@ -159,7 +159,7 @@ public class SkillManager {
 		/*
 		 * The skill's level after adding the experience.
 		 */
-		int newLevel = getLevelForExperience(this.skills.experience[skill.ordinal()]);
+		int newLevel = getLevelForExperience(skill, this.skills.experience[skill.ordinal()]);
 		/*
 		 * If the starting level less than the new level, level up.
 		 */
@@ -332,7 +332,7 @@ public class SkillManager {
 	 *            The experience to get level for.
 	 * @return The level you obtain when you have specified experience.
 	 */
-	public static int getLevelForExperience(int experience) {
+	public static int getLevelForExperience(Skill skill, int experience) {
 		if (experience <= EXPERIENCE_FOR_99) {
 			for (int j = 98; j >= 0; j--) {
 				if (EXP_ARRAY[j] <= experience) {
@@ -340,8 +340,12 @@ public class SkillManager {
 				}
 			}
 		} else {
+			int maxLevel = 99;
+			if(skill == Skill.DUNGEONEERING) {
+				maxLevel = 120;
+			}
 			int points = 0, output = 0;
-			for (int lvl = 1; lvl <= 99; lvl++) {
+			for (int lvl = 1; lvl <= maxLevel; lvl++) {
 				points += Math.floor(lvl + 300.0 * Math.pow(2.0, lvl / 7.0));
 				output = (int) Math.floor(points / 4);
 				if (output >= experience) {
@@ -476,9 +480,9 @@ public class SkillManager {
 		if (isNewSkill(skill)) {
 			level = 990;
 		}
-		/*
-		 * if (skill == Skill.DUNGEONEERING) { level = 120; }
-		 */
+
+		if (skill == Skill.DUNGEONEERING) { level = 120; }
+
 		return level;
 	}
 
