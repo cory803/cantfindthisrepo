@@ -738,6 +738,10 @@ public class PlayerLoading {
 			player.getAchievementAttributes().setCoinsGambled(reader.get("coins-gambled").getAsInt());
 		}
 
+		if (reader.has("duo-times")) {
+			player.getSlayer().setDuoTimes(reader.get("duo-times").getAsInt());
+		}
+
 		if (reader.has("killed-players")) {
 			List<String> list = new ArrayList<String>();
 			String[] killed_players = builder.fromJson(reader.get("killed-players").getAsJsonArray(), String[].class);

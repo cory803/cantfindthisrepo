@@ -315,6 +315,7 @@ public class PlayerSaving {
 				player.getAutocastSpell() != null ? player.getAutocastSpell().spellId() : -1);
 		object.addProperty("dfs-charges", player.getDfsCharges());
 		object.addProperty("coins-gambled", new Integer(player.getAchievementAttributes().getCoinsGambled()));
+		object.addProperty("duo-times", new Integer(player.getSlayer().getDuoTimes()));
 		object.add("charges", builder.toJsonTree(player.getDegrading().getCharges()));
 		object.add("killed-players", builder.toJsonTree(player.getPlayerKillingAttributes().getKilledPlayers()));
 		object.add("attacked-players", builder.toJsonTree(player.playersAttacked));
