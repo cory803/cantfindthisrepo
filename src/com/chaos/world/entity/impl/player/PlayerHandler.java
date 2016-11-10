@@ -180,11 +180,11 @@ public class PlayerHandler {
 		player.getPacketSender().sendString(7458, "Teleport to Bosses on Chaos.");
 		player.getPacketSender().sendString(18472, "Ape Atoll");
 
-		//String g = "";
-		//for (int i = 0; i < player.compColorsRGB.length; i++) {
-		//	g += ""+player.compColorsRGB[i]+" ";
-		//}
-		//player.getPacketSender().sendString(g, 18712);
+		String g = "";
+		for (int i = 0; i < player.compColorsRGB.length; i++) {
+			g += ""+player.compColorsRGB[i]+" ";
+		}
+		player.getPacketSender().sendString(g, 18712);
 
 		// Tasks
 		TaskManager.submit(new PlayerSkillsTask(player));

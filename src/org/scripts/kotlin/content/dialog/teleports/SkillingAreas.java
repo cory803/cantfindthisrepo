@@ -44,9 +44,7 @@ public class SkillingAreas extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2852, 2960, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_4_OF_5:
-                                player.getPacketSender().sendMessage("This will be released in next update!");
-                                player.getPacketSender().sendInterfaceRemoval();
-                                //TeleportHandler.teleportPlayer(player, new Position(3654, 5114, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.teleportPlayer(player, new Position(3654, 5114, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_5_OF_5:
                                 player.setNpcClickId(747);
