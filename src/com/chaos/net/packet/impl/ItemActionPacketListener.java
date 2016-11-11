@@ -586,8 +586,10 @@ public class ItemActionPacketListener implements PacketListener {
 		if(GameSettings.DEVELOPER_MODE) {
 			player.getPacketSender().sendMessage("Third click ItemActionPacket - Slot: " + slot + ", itemId: " + itemId);
 		}
-		if (player.getInventory().getItems()[slot].getId() != itemId)
-			return;
+		if(itemId != 14022) {
+			if (player.getInventory().getItems()[slot].getId() != itemId)
+				return;
+		}
 		if (JarData.forJar(itemId) != null) {
 			PuroPuro.lootJar(player, new Item(itemId, 1), JarData.forJar(itemId));
 			return;

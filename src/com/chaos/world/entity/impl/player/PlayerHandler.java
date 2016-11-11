@@ -150,11 +150,11 @@ public class PlayerHandler {
 		player.getPacketSender().sendString(13037, "Training Teleports");
 		player.getPacketSender().sendString(13038, "Teleport to easy monsters.");
 		player.getPacketSender().sendString(13047, "Skilling Areas");
-		player.getPacketSender().sendString(13048, "Teleport to skillable locations.");
+		player.getPacketSender().sendString(13048, "Teleport to skilling locations.");
 		player.getPacketSender().sendString(13055, "Boss Teleports");
 		player.getPacketSender().sendString(13056, "Teleport to Bosses on Chaos.");
-		player.getPacketSender().sendString(13063, "Skilling Areas");
-		player.getPacketSender().sendString(13064, "Teleport to skilling areas.");
+		player.getPacketSender().sendString(13063, "Market (G.E.)");
+		player.getPacketSender().sendString(13064, "Teleport to Grand Exchange");
 		player.getPacketSender().sendString(13071, "Dungeons");
 		player.getPacketSender().sendString(13072, "Teleport to dungeons.");
 		player.getPacketSender().sendString(13081, "City Teleports");

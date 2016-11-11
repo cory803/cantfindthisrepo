@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
+import com.chaos.model.DonatorRights;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.Prayerbook;
 import com.chaos.model.Skill;
@@ -425,6 +426,13 @@ public class PrayerHandler {
 				if (drainAmount <= 0) {
 					this.stop();
 					return;
+				}
+				if(player.getDonatorRights() == DonatorRights.PLATINUM || player.getDonatorRights() == DonatorRights.UBER) {
+					drainAmount = 0;
+				} else if(player.getDonatorRights() == DonatorRights.LEGENDARY) {
+					if(player.getLocation() != Location.WILDERNESS) {
+						drainAmount = 0;
+					}
 				}
 				int total = (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) - drainAmount);
 				player.getSkillManager().setCurrentLevel(Skill.PRAYER, total, true);

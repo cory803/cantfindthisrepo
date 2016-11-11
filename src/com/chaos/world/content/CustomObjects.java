@@ -230,11 +230,17 @@ public class CustomObjects {
             //crystal ball
             {589, 3095, 3498, 0, 1},
 
+            //Edgeville trapdoor
+            { 1756, 3097, 3468, 0, 3 },
+
             //Dungeoneering exit portals
             {2477, 3284, 9195, 0, 0},
             {2477, 3279, 9195, 0, 0},
             {2477, 3303, 9195, 0, 0},
             {2477, 3308, 9195, 0, 0},
+
+            //Random stairs next to edgeville
+            { -1, 3123, 3509, 0, 0 },
 
             //Catherby rocktail spots (Remove)
             { -1, 2831, 3442, 0, 0 },

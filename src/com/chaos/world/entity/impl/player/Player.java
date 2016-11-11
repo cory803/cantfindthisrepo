@@ -77,6 +77,24 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
+    private int announcementTime;
+
+    /**
+     * Get the amount of time your announcement is on
+     * @return
+     */
+    public int getAnnouncementTime() {
+        return this.announcementTime;
+    }
+
+    /**
+     * Set how much time your announcement is on
+     * @param announcementTime
+     */
+    public void setAnnouncementTime(int announcementTime) {
+        this.announcementTime = announcementTime;
+    }
+
     private boolean usingChest;
 
     /**

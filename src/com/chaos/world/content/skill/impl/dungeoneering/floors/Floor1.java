@@ -201,9 +201,9 @@ public class Floor1 extends Floor {
 
     @Override
     public void completeFloor() {
-        int tokens = player.getDungeoneering().getKills() * 300;
+        int tokens = player.getDungeoneering().getKills() * 500;
         if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.KILLED_BOSS) {
-            tokens += 500;
+            tokens += 700;
         }
         tokens += Misc.inclusiveRandom(100, 300);
         int experience = tokens;

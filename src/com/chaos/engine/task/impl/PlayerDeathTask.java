@@ -45,7 +45,7 @@ public class PlayerDeathTask extends Task {
 	Location loc;
 	ArrayList<Item> itemsToKeep = null;
 	Degrading degrading;
-	NPC death;
+	//NPC death;
 
 	@Override
 	public void execute() {
@@ -64,7 +64,7 @@ public class PlayerDeathTask extends Task {
 				player.performAnimation(new Animation(0x900));
 				player.getPacketSender().sendMessage("Oh dear, you are dead!");
 				player.save();
-				this.death = getDeathNpc(player);
+				//this.death = getDeathNpc(player);
 				break;
 			case 1:
 				this.oldPosition = player.getPosition().copy();
@@ -178,9 +178,9 @@ public class PlayerDeathTask extends Task {
 						}
 					}
 				}
-				if (death != null) {
-					World.deregister(death);
-				}
+				//if (death != null) {
+					//World.deregister(death);
+				//}
 				player.restart();
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 				loc.onDeath(player);

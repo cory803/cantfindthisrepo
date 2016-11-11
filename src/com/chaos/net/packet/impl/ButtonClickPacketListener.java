@@ -170,9 +170,12 @@ public class ButtonClickPacketListener implements PacketListener {
             //Skilling Areas
             case 13045: // ancient2
             case 1540: //Moderns
-            case 13061: //Ancients
             case 30083: //Lunars
                 player.getDialog().sendDialog(new SkillingAreas(player));
+                break;
+
+            case 13061: //Ancients
+                TeleportHandler.teleportPlayer(player, new Position(3164, 3482, 0), player.getSpellbook().getTeleportType());
                 break;
 
 //            case -10425:

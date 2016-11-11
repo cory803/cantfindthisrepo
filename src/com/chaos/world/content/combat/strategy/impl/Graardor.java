@@ -65,7 +65,7 @@ public class Graardor implements CombatStrategy {
 			for (Player t : Misc.getCombinedPlayerList(target)) {
 				if (t == null || t.getLocation() != Location.GODWARS_DUNGEON || t.isTeleporting())
 					continue;
-				if (t.getPosition().distanceToPoint(graardor.getPosition().getX(), graardor.getPosition().getY()) > 20)
+				if (t.getPosition().distanceToPoint(graardor.getPosition().getX(), graardor.getPosition().getY()) > 10)
 					continue;
 				new Projectile(graardor, target, graphic1.getId(), 44, 3, 43, 43, 0).sendProjectile();
 			}

@@ -21,7 +21,7 @@ public class PlayerKillingAttributes {
 	private long lastPercentageIncrease;
 	private int safeTimer;
 
-	private final int WAIT_LIMIT = 3;
+	private final int WAIT_LIMIT = 5;
 	private List<String> killedPlayers = new ArrayList<String>();
 
 	public PlayerKillingAttributes(Player player) {
@@ -37,8 +37,9 @@ public class PlayerKillingAttributes {
 				&& player.getPlayerKillingAttributes().getTarget().getIndex() == other.getIndex()
 				|| other.getPlayerKillingAttributes().getTarget() != null
 						&& other.getPlayerKillingAttributes().getTarget().getIndex() == player.getIndex();
-		if (target)
+		if (target) {
 			killedPlayers.clear();
+		}
 
 		if (killedPlayers.size() >= WAIT_LIMIT) {
 			killedPlayers.clear();

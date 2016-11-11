@@ -16,7 +16,7 @@ public class ThievingManager {
         HAM_FEMALE(new int[] {1715}, 15, new int[] {4298, 4300, 4302, 4304, 4308, 4310}, 1, 18.5),
         HAM_MALE(new int[] {1714}, 20, new int[] {4298, 4300, 4302, 4304, 4308, 4310}, 1, 22.5),
         ALKHARID_WARRIOR(new int[] {18}, 25, new int[] {995}, 100, 26),
-        MASTER_FARMER(new int[] {2234}, 38, new int[] {5291, 5291, 5291, 5293, 5293, 5294, 5294, 5294, 5294, 5295, 5296, 5297, 5298, 5300, 5303, 5304, 5291, 5291, 5291, 5291, 5293, 5294, 5294, 5291, 5291, 5292, 5292, 5292, 5315, 5314, 5316}, Misc.random(1, 4), 43),
+        MASTER_FARMER(new int[] {2234}, 38, new int[] {5291, 5291, 5291, 5293, 5293, 5294, 5294, 5294, 5294, 5295, 5296, 5297, 5298, 5300, 5303, 5304, 5291, 5291, 5291, 5291, 5293, 5294, 5294, 5291, 5291, 5292, 5292, 5292}, Misc.random(1, 4), 43),
         ARDOUGNE_KNIGHT(new int[] {26, 23}, 55, new int[] {995}, Misc.getRandom(100), 84.3),
         BANDIT(new int[] {1880}, 53, new int[] {995}, Misc.getRandom(5000), 79.5),
         FREMENNIK_CITZEN(new int[] {1307, 1305, 1306, 1311, 1310, 1308, 1314}, 45, new int[] {995}, Misc.getRandom(200), 65),
@@ -117,7 +117,7 @@ public class ThievingManager {
                             player.performAnimation(new Animation(881));
                             player.getInventory().add(new Item(data.getItems()[Misc.getRandom(data.getItems().length - 1)], Misc.getRandom(data.getAmount())));
                             player.getPacketSender().sendMessage("You manage to steal some loot.");
-                            Achievements.doProgress(player, Achievements.AchievementData.STEAL_140_SCIMITARS);
+                            Achievements.doProgress(player, Achievements.AchievementData.PICK_POCKET_150_TIMES);
                         }
                     } else if (cycle == (failed ? 5 : 3)) {
                         stop();

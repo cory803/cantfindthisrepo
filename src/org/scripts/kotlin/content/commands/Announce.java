@@ -2,6 +2,7 @@ package org.scripts.kotlin.content.commands;
 
 import com.chaos.model.StaffRights;
 import com.chaos.model.container.impl.Shop;
+import com.chaos.model.input.impl.*;
 import com.chaos.model.player.command.Command;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
@@ -15,20 +16,11 @@ public class Announce extends Command {
     @Override
     public void execute(Player player, String[] args, StaffRights privilege) {
         if (args == null) {
-            player.getPacketSender().sendMessage("Example usage: ::announce-time-text");
+            player.getPacketSender().sendMessage("Example usage: ::announce-time");
         } else {
-            int time = Integer.parseInt(args[0]);
-            String text = args[1];
-            if(time >= 10000) {
-                player.getPacketSender().sendMessage("There is a max of 10,000 seconds.");
-                return;
-            }
-            for (Player players : World.getPlayers()) {
-                if (players == null)
-                    continue;
-                players.getPacketSender().sendString(1, "[ANNOUNCE]-"+time+"-"+text);
-            }
-            player.getPacketSender().sendMessage("You have sent an announcement for "+time+" seconds.");
+            player.setAnnouncementTime(Integer.parseInt(args[0]));
+            player.setInputHandling(new com.chaos.model.input.impl.GlobalAnnouncement());
+            player.getPacketSender().sendEnterInputPrompt("Enter a announcement:");
         }
     }
 }

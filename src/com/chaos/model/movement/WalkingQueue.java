@@ -420,7 +420,7 @@ public final class WalkingQueue {
 	}
 
 	public void freeze(int delay) {
-		if (mobile.isFrozen() || (System.currentTimeMillis() - mobile.getLastFreeze()) < 4000)
+		if (mobile.isFrozen() || (System.currentTimeMillis() - mobile.getLastFreeze()) < 1000)
 			return;
 		mobile.setFreezeDelay(delay);
 		if (mobile.isPlayer()) {

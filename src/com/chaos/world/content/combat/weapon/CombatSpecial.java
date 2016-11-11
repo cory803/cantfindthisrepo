@@ -230,7 +230,7 @@ public enum CombatSpecial {
 			};
 		}
 	},
-	DRAGON_WARHAMMER(new int[] { 13576 }, 30, 1.25, 1.23, CombatType.MELEE, WeaponInterface.WARHAMMER) {
+	DRAGON_WARHAMMER(new int[] { 13576 }, 50, 1.50, 1.00, CombatType.MELEE, WeaponInterface.WARHAMMER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(10505));
@@ -241,16 +241,14 @@ public enum CombatSpecial {
 					if (target.isPlayer() && accurate) {
 						Player t = (Player) target;
 						int currentDef = t.getSkillManager().getCurrentLevel(Skill.DEFENCE);
-						int defDecrease = (int) (currentDef * 0.11);
+						int defDecrease = (int) (currentDef * 0.30);
 						if ((currentDef - defDecrease) <= 0 || currentDef <= 0)
 							return;
-						// t.getSkillManager().setCurrentLevel(Skill.DEFENCE,
-						// defDecrease);
-						// t.getPacketSender().sendMessage("Your opponent has
-						// reduced your Defence level.");
-						// player.getPacketSender().sendMessage("Your hammer
-						// forces some of your opponent's
-						// defences to break.");
+						if(t != null) {
+							t.getSkillManager().setCurrentLevel(Skill.DEFENCE, currentDef - defDecrease);
+							t.getPacketSender().sendMessage("Your opponent has reduced your Defence level.");
+							player.getPacketSender().sendMessage("Your hammer forces some of your opponent's defences to break.");
+						}
 					}
 				}
 			};

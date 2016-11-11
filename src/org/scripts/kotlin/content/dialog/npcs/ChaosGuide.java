@@ -30,7 +30,7 @@ public class ChaosGuide extends Dialog {
                             "I need to change my password.",
                             "How do I make money?",
                             "What do I do for additional help?",
-                            "Can I purchase a Sir owen's longsword for 40M?") {
+                            "Can I purchase a Sir owen's longsword for 10M?") {
                         @Override
                         public void execute(Player player, OptionType option) {
                             switch (option) {
@@ -49,8 +49,8 @@ public class ChaosGuide extends Dialog {
                                     player.getDialog().sendDialog(dialog);
                                     break;
                                 case OPTION_4_OF_4:
-                                    if(player.getInventory().getAmount(995) >= 40000000) {
-                                        player.getInventory().delete(995, 40000000);
+                                    if(player.getInventory().getAmount(995) >= 10000000) {
+                                        player.getInventory().delete(995, 10000000);
                                         player.getInventory().add(16389, 1);
                                         player.getPacketSender().sendInterfaceRemoval();
                                     } else {
@@ -67,7 +67,7 @@ public class ChaosGuide extends Dialog {
                             "I need to change my password.",
                             "How do I make money?",
                             "What do I do for additional help?",
-                            "Can I purchase a Cape of knights for 5M?") {
+                            "Can I purchase a Cape of knights for 1M?") {
                         @Override
                         public void execute(Player player, OptionType option) {
                             switch (option) {
@@ -86,8 +86,8 @@ public class ChaosGuide extends Dialog {
                                     player.getDialog().sendDialog(dialog);
                                     break;
                                 case OPTION_4_OF_4:
-                                    if(player.getInventory().getAmount(995) >= 5000000) {
-                                        player.getInventory().delete(995, 5000000);
+                                    if(player.getInventory().getAmount(995) >= 1000000) {
+                                        player.getInventory().delete(995, 1000000);
                                         player.getInventory().add(1052, 1);
                                         player.getPacketSender().sendInterfaceRemoval();
                                     } else {

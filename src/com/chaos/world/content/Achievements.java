@@ -54,7 +54,7 @@ public class Achievements {
 		COMPLETE_A_HARD_SLAYER_TASK(Difficulty.MEDIUM, "Complete a Hard Slayer Task", 37050, null),
 		CRAFT_20_BLACK_DHIDE_BODIES(Difficulty.MEDIUM, "Craft 20 Black D'hide Bodies", 37051, new int[] {13, 20 }),
 		FLETCH_450_RUNE_BOLTS(Difficulty.MEDIUM, "Smith 450 Rune Bolts", 37052, new int[] {14, 450 }),
-		STEAL_140_SCIMITARS(Difficulty.MEDIUM, "Pick-Pocket 150 times", 37053, new int[] {15, 150 }),
+		PICK_POCKET_150_TIMES(Difficulty.MEDIUM, "Pick-Pocket 150 times", 37053, new int[] {15, 150 }),
 		BARB_AGILITY(Difficulty.MEDIUM, "Complete Barb Agility Course", 37054, null),
 		CLIMB_50_AGILITY_OBSTACLES(Difficulty.MEDIUM, "Climb 50 Agility Obstacles", 37055, new int[] {16, 50 }),
 		RUNECRAFT_500_NATS(Difficulty.MEDIUM, "Runecraft 500 Nature Runes", 37056, new int[] {17, 500 }),
@@ -67,7 +67,7 @@ public class Achievements {
 		DEFEAT_THE_CHAOS_ELEMENTAL(Difficulty.MEDIUM, "Defeat the Chaos Elemental", 37063, null),
 		DEFEAT_A_TORMENTED_DEMON(Difficulty.MEDIUM, "Defeat a Tormented Demon", 37064, null),
 		DEFEAT_THE_CULINAROMANCER(Difficulty.MEDIUM, "Defeat the Culinaromancer", 37065, null),
-		DEFEAT_NOMAD(Difficulty.MEDIUM, "Defeat Scorpio", 37066, null),
+		DEFEAT_SCORPIA(Difficulty.MEDIUM, "Defeat Scorpia", 37066, null),
 		DEFEAT_10_PLAYERS(Difficulty.MEDIUM, "Defeat 10 Players", 37067, new int[] {23, 10 }),
 		LOW_ALCH_ITEMS(Difficulty.MEDIUM, "Low Alch 300 Items", 37068, new int[] { 24, 300 }),
 
@@ -81,7 +81,7 @@ public class Achievements {
 		ENCHANT_1000_BOLTS(Difficulty.HARD, "Enchant 1000 Bolts", 37079, new int[] { 32, 1000 }),
 		HIGH_ALCH_ITEMS(Difficulty.HARD, "High Alch 1000 Items", 37080, new int[] { 33, 1000 }),
 		STEAL_5000_SCIMITARS(Difficulty.HARD, "Steal 2,000 Times", 37081, new int[] { 34, 2000 }),
-		FIRE_5000_CANNON_BALLS(Difficulty.HARD, "Fire 3000 Cannon Balls", 37082, new int[] { 35, 3000 }),
+		SMELT_300_ADAMANT_BARS(Difficulty.HARD, "Smelt 300 Adamant Bars", 37082, new int[] { 35, 300 }),
 		MIX_100_OVERLOAD_POTIONS(Difficulty.HARD, "Mix 100 Overload Potions", 37083, new int[] { 36, 100 }),
 		COMPLETE_AN_ELITE_SLAYER_TASK(Difficulty.HARD, "Complete a task from Duradel", 37084, null),
 		DEAL_HARD_DAMAGE_USING_MELEE(Difficulty.HARD, "Deal 5M Melee Damage", 37085, new int[] { 37, 5000000 }),
@@ -98,7 +98,7 @@ public class Achievements {
 		DEFEAT_30_PLAYERS(Difficulty.HARD, "Defeat 30 Players", 37096, new int[] { 40, 30 }),
 
 		RUNECRAFT_8000_BLOOD_RUNES(Difficulty.ELITE, "Runecraft 6000 Blood Runes", 37099, new int[] { 41, 6000 }),
-		CUT_5000_MAGIC_LOGS(Difficulty.ELITE, "Cut 2500 Magic Logs", 37100, new int[] { 42, 2500 }),
+		CUT_2500_MAGIC_LOGS(Difficulty.ELITE, "Cut 2500 Magic Logs", 37100, new int[] { 42, 2500 }),
 		BURN_2500_MAGIC_LOGS(Difficulty.ELITE, "Burn 2500 Magic Logs", 37101, new int[] { 43, 2500 }),
 		FISH_2000_ROCKTAILS(Difficulty.ELITE, "Fish 1500 Rocktails", 37102, new int[] { 44, 1500 }),
 		COOK_1000_ROCKTAILS(Difficulty.ELITE, "Cook 1000 Rocktails", 37103, new int[] { 45, 1000 }),
@@ -155,19 +155,19 @@ public class Achievements {
 			AchievementData achievement = AchievementData.values()[index];
 			if (player.getAchievementAttributes().getCompletion()[achievement.ordinal()]) {
 				player.getPacketSender().sendMessage(
-						"<img=4> <col=339900>You have completed the achievement: " + achievement.interfaceLine + ".");
+						"<icon=2> <col=339900>You have completed the achievement: " + achievement.interfaceLine + ".");
 			} else if (achievement.progressData == null) {
 				player.getPacketSender().sendMessage(
-						"<img=4> <col=660000>You have not started the achievement: " + achievement.interfaceLine + ".");
+						"<icon=2> <col=660000>You have not started the achievement: " + achievement.interfaceLine + ".");
 			} else {
 				int progress = player.getAchievementAttributes().getProgress()[achievement.progressData[0]];
 				int requiredProgress = achievement.progressData[1];
 				if (progress == 0) {
-					player.getPacketSender().sendMessage("<img=4> <col=660000>You have not started the achievement: "
+					player.getPacketSender().sendMessage("<icon=2> <col=660000>You have not started the achievement: "
 							+ achievement.interfaceLine + ".");
 				} else if (progress != requiredProgress) {
 					player.getPacketSender()
-							.sendMessage("<img=4> <col=8A6D00>Your progress for this achievement is currently at: "
+							.sendMessage("<icon=2> <col=8A6D00>Your progress for this achievement is currently at: "
 									+ Misc.insertCommasToNumber("" + progress) + "/"
 									+ Misc.insertCommasToNumber("" + requiredProgress) + ".");
 				}
@@ -226,7 +226,7 @@ public class Achievements {
 		player.getPointsHandler().setAchievementPoints(1, true);
 		player.getAchievementAttributes().getCompletion()[achievement.ordinal()] = true;
 		player.getPacketSender().sendString(achievement.interfaceFrame, ("@gre@") + achievement.interfaceLine)
-				.sendMessage("<img=4> <col=339900>You have completed the achievement "
+				.sendMessage("<icon=3> <col=339900>You have completed the achievement "
 						+ Misc.formatText(achievement.toString().toLowerCase() + "."))
 				.sendString(37001, "Achievements: " + player.getPointsHandler().getAchievementPoints() + "/"
 						+ AchievementData.values().length);

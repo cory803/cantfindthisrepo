@@ -70,7 +70,7 @@ public enum FamiliarData {
 	HYDRA(12025, 80, 140.8, 9488, 1.6, 9, 1, new Item(12159), new Item(571), new Item(12115), new Item(12183, 128)),
 	SPIRIT_DAGANNOTH(12017, 83, 364.8, 6804, 4.1, 9, 1, new Item(12160), new Item(6155), new Item(12115), new Item(12183)),
 	UNICORN_STALLION(12039, 89, 154.4, 6822, 1.8, 9, 1, new Item(12159), new Item(237), new Item(12115), new Item(12183, 203)),
-	WOLPERTINGER(12089, 92, 404.8, 6869, 4.5, 10, 1, new Item(12160), new Item(2859), new Item(3226), new Item(12115), new Item(12183, 203)),
+	WOLPERTINGER(12089, 92, 404.8, 6869, 4.5, 10, 1, new Item(12160), new Item(3226), new Item(12183, 203)),
 	PACK_YAK(12093, 96, 422.4, 6873, 4.8, 10, 1, new Item(12160), new Item(10818), new Item(12183, 211)),
 	FIRE_TITAN(12802, 79, 695.2, 7355, 7.9, 9, 1, new Item(12163), new Item(1442), new Item(12155), new Item(12183, 198)),
 	MOSS_TITAN(12804, 79, 695.2, 7357, 7.9, 9, 1, new Item(12163), new Item(1440), new Item(12155), new Item(12183, 198)),

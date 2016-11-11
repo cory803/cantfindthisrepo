@@ -63,7 +63,7 @@ public class WoodcuttingData {
 		WILLOW(30, 67.5, 1519, new int[] { 1308, 5551, 5552, 5553 }, 6, true),
 		TEAK(35, 85, 6333, new int[] { 9036 }, 7, true),
 		DRAMEN(36, 6581, 771, new int[] { 1292 }, 7, true),
-		MAPLE(45, 100, 1517, new int[] { 1307, 4677 }, 7, true),
+		MAPLE(45, 100, 1517, new int[] { 1307 }, 7, true),
 		MAHOGANY(50, 125, 6332, new int[] { 9034 }, 7, true),
 		YEW(60, 175, 1515, new int[] { 1309 }, 8, true),
 		MAGIC(75, 250, 1513, new int[] { 1306 }, 9, true),

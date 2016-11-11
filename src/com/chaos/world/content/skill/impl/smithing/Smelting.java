@@ -61,6 +61,8 @@ public class Smelting {
 					Achievements.doProgress(player, AchievementData.SMELT_1000_RUNE_BARS);
 				} else if (barId == 2359) {
 					Achievements.doProgress(player, AchievementData.SMELT_50_MITH_BARS);
+				} else if (barId == 2361) {
+					Achievements.doProgress(player, AchievementData.SMELT_300_ADAMANT_BARS);
 				}
 			} else if (SmithingData.ironOreSuccess(player)) {
 				Achievements.finishAchievement(player, AchievementData.SMELT_IRON);

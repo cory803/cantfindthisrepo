@@ -104,6 +104,8 @@ public class SkillManager {
 		}
 		if (player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
 			boost += .1;
+		} else if (player.getLocation() == Locations.Location.SHILO) {
+			boost += .2;
 		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE) {
 			boost += .3;
 		}

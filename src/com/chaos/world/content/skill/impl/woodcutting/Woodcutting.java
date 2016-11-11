@@ -139,7 +139,7 @@ public class Woodcutting {
 										Achievements.doProgress(player, AchievementData.CHOP_750_YEW_LOGS);
 									}
 									if (t == Trees.MAGIC || t == Trees.RESOURCE_MAGIC) {
-										Achievements.doProgress(player, AchievementData.CUT_5000_MAGIC_LOGS);
+										Achievements.doProgress(player, AchievementData.CUT_2500_MAGIC_LOGS);
 									}
 									if (t == Trees.WILLOW) {
 										Achievements.finishAchievement(player, AchievementData.CHOP_WILLOW);

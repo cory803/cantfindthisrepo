@@ -1803,7 +1803,12 @@ public class ObjectActionPacketListener implements PacketListener {
                                 break;
                             case 1756:
                                 player.performAnimation(new Animation(827));
-                                player.delayedMoveTo(new Position(2209, 5348), 2);
+                                if(gameObject.getPosition().equals(3097, 3468)) {
+                                    player.delayedMoveTo(new Position(3096, 9867), 2);
+                                } else {
+                                    player.delayedMoveTo(new Position(2209, 5348), 2);
+                                }
+                                player.performAnimation(new Animation(827));
                                 break;
                             case 2268:
                                 player.performAnimation(new Animation(828));
@@ -1853,7 +1858,6 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 12692:
                             case 2783:
                             case 4306:
-                            case 2097:
                                 player.setInteractingObject(gameObject);
                                 EquipmentMaking.handleAnvil(player);
                                 break;
@@ -2007,7 +2011,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.moveTo(new Position(2509, 4689));
                                 break;
                             case 2879:
-                                player.moveTo(new Position(2498, 4718));
+                                player.moveTo(new Position(2542, 4718));
                                 break;
                             case 172:
                                 CrystalChest.handleChest(player, gameObject);

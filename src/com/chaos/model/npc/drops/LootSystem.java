@@ -192,19 +192,19 @@ public class LootSystem {
             Item roll = rollDrop(p, n, table.getSortedLoot(), n.getId(), false);
 
             if (roll != null) {
-                Player pl = ClanChatManager.lootshare(p, n.getPosition().copy(), roll.getId(), roll.getAmount());
+                //Player pl = ClanChatManager.lootshare(p, n.getPosition().copy(), roll.getId(), roll.getAmount());
                 if(p.getLocation() == Locations.Location.KRAKEN) {
-                    GroundItemManager.spawnGroundItem(pl, new GroundItem(roll, p.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                    GroundItemManager.spawnGroundItem(p, new GroundItem(roll, p.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
                     p.getKraken().setKrakenStage(Kraken.KrakenStage.DEFEATED);
                     p.getKraken().stopTentacleAttack();
                     p.setNpcClickId(6656);
                     p.getDialog().sendDialog(new KrakenLoot(p));
                     p.getPacketSender().sendMessage("Your loot from defeating Kraken has been placed under you.");
                 } else {
-                    GroundItemManager.spawnGroundItem(pl, new GroundItem(roll, n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                    GroundItemManager.spawnGroundItem(p, new GroundItem(roll, n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
                 }
-                DropLog.submit(pl, new DropLog.DropLogEntry(roll.getId(), roll.getAmount()));
-                announcement.sendAnnouncment(pl.getUsername(), roll, n.getDefinition().getName());
+                DropLog.submit(p, new DropLog.DropLogEntry(roll.getId(), roll.getAmount()));
+                announcement.sendAnnouncment(p.getUsername(), roll, n.getDefinition().getName());
             }
         }
     }

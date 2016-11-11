@@ -109,7 +109,7 @@ public class NPCDeathTask extends Task {
 					} else if (npc.getId() == 3491) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_THE_CULINAROMANCER);
 					} else if (npc.getId() == 2001) {
-						Achievements.finishAchievement(killer, AchievementData.DEFEAT_NOMAD);
+						Achievements.finishAchievement(killer, AchievementData.DEFEAT_SCORPIA);
 					} else if (npc.getId() == 2745) {
 						Achievements.finishAchievement(killer, AchievementData.DEFEAT_JAD);
 					} else if (npc.getId() == 4540) {
