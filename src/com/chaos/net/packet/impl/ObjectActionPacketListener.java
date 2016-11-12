@@ -1015,6 +1015,7 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 7836:
                             case 7837:
                             case 7808:
+                            case 7818:
                                 int amt = player.getInventory().getAmount(6055);
                                 if (amt > 0) {
                                     player.getInventory().delete(6055, amt);

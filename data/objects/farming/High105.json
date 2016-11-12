@@ -87,5 +87,14 @@
     "timePlanted": 0,
     "diseaseImmunity": 10,
     "wateredTimer": 0
+  },
+  "CANIFIS_SOUTH_EAST_ALLOTMENT": {
+    "patchType": "CANIFIS_SOUTH_EAST_ALLOTMENT",
+    "stage": 0,
+    "weedStage": 0,
+    "attributes": 0,
+    "timePlanted": 0,
+    "diseaseImmunity": 10,
+    "wateredTimer": 0
   }
 }

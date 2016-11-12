@@ -227,6 +227,10 @@ public class CustomObjects {
     // spawn, this is just
     // clipping!
     private static final int[][] CLIENT_OBJECTS = {
+            //compost bins
+            { 7808, 2661, 3375, 0, 3},
+            { 7818, 3610, 3522, 0, 1},
+
             //crystal ball
             {589, 3095, 3498, 0, 1},
 
