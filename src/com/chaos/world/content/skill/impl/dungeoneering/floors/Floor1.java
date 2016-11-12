@@ -209,10 +209,13 @@ public class Floor1 extends Floor {
         }
         tokens += Misc.inclusiveRandom(100, 300);
         int experience = tokens;
-        player.getPointsHandler().setDungeoneeringTokens(tokens, true);
+
+        double tokenBoost = tokens * player.getDonatorRights().getDungTokenBoost();
+
+        player.getPointsHandler().setDungeoneeringTokens(tokens + (int) tokenBoost, true);
         player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience);
 
-        player.getPacketSender().sendMessage("You have received "+Misc.format(tokens)+" dungeoneering tokens for completing floor 1.");
+        player.getPacketSender().sendMessage("You have received "+Misc.format(tokens + (int) tokenBoost)+" dungeoneering tokens for completing floor 1.");
 
         Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_5_DUNG_FLOORS);
         Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_50_DUNG_FLOORS);
