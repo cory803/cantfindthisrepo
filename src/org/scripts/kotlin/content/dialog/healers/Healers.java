@@ -34,6 +34,10 @@ public class Healers extends Dialog {
             case 3:
                 getPlayer().getSkillManager().setCurrentLevel(Skill.CONSTITUTION, (getPlayer().getSkillManager().getMaxLevel(Skill.CONSTITUTION)));
                 if(getPlayer().getDonatorRights().isDonator()) {
+                    if (getPlayer().getDonatorRights().ordinal() >= 1) {
+                        getPlayer().setPoisonDamage(0);
+                        getPlayer().getPacketSender().sendConstitutionOrbPoison(false);
+                    }
                     if (getPlayer().getDonatorRights().ordinal() >= 2) {
                         getPlayer().getSkillManager().setCurrentLevel(Skill.PRAYER, (getPlayer().getSkillManager().getMaxLevel(Skill.PRAYER)));
                     }
