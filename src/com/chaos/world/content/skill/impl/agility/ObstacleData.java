@@ -313,7 +313,12 @@ public enum ObstacleData {
 					player.getClickDelay().reset();
 					player.getUpdateFlag().flag(Flag.APPEARANCE);
 					if (Agility.passedAllObstacles(player)) {
-						player.getInventory().add(11849, 1);
+						int marksOfGrace = 1;
+						if(player.getDonatorRights().isDonator()) {
+							marksOfGrace *= 2;
+						}
+						player.getInventory().add(11849, marksOfGrace);
+=
 						Agility.addExperience(player, 39);
 						Achievements.finishAchievement(player, Achievements.AchievementData.GNOME_COURSE);
 					} else {
@@ -361,7 +366,11 @@ public enum ObstacleData {
 					player.getClickDelay().reset();
 					player.getUpdateFlag().flag(Flag.APPEARANCE);
 					if (Agility.passedAllObstacles(player)) {
-						player.getInventory().add(11849, 1);
+						int marksOfGrace = 1;
+						if(player.getDonatorRights().isDonator()) {
+							marksOfGrace *= 2;
+						}
+						player.getInventory().add(11849, marksOfGrace);
 						Agility.addExperience(player, 39);
 						Achievements.finishAchievement(player, Achievements.AchievementData.GNOME_COURSE);
 					} else {
@@ -586,7 +595,11 @@ public enum ObstacleData {
 					player.setCrossingObstacle(false).setCrossedObstacle(first ? 5 : 6, true);
 					if (player.getPosition().getX() == 2543 && player.getPosition().getY() == 3553) {
 						if (Agility.passedAllObstacles(player)) {
-							player.getInventory().add(11849, 2);
+							int marksOfGrace = 2;
+							if(player.getDonatorRights().isDonator()) {
+								marksOfGrace *= 2;
+							}
+							player.getInventory().add(11849, marksOfGrace);
 							Achievements.finishAchievement(player, Achievements.AchievementData.BARB_AGILITY);
 							Agility.addExperience(player, 46.2);
 							Agility.resetProgress(player);
@@ -879,7 +892,11 @@ public enum ObstacleData {
 					setEventRunning(false);
 					player.setCrossedObstacle(6, true).setCrossingObstacle(false);
 					if (Agility.passedAllObstacles(player)) {
-						player.getInventory().add(11849, 3);
+						int marksOfGrace = 3;
+						if(player.getDonatorRights().isDonator()) {
+							marksOfGrace *= 2;
+						}
+						player.getInventory().add(11849, marksOfGrace);
 						Agility.addExperience(player, 490);
 					} else {
 						Agility.addExperience(player, 13.7);
