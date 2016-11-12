@@ -261,6 +261,9 @@ public class Trading {
 						}
 						break;
 					}
+
+					player.getPacketSender().sendMessage("@red@You have a " + item.getDefinition().getName() + " from the trade");
+					player2.getPacketSender().sendMessage("@red@ " + player.getUsername() + " has removed a " + item.getDefinition().getName() + " from the trade");
 				}
 			}
 		} else
@@ -276,6 +279,8 @@ public class Trading {
 							player.getInventory().add(itemId, amount);
 						}
 					}
+					player.getPacketSender().sendMessage("@red@You have removed " + amount + "x " + item.getDefinition().getName() + " from the trade");
+					player2.getPacketSender().sendMessage("@red@ " + player.getUsername() + " have removed " + amount + "x " + item.getDefinition().getName() + " from the trade");
 					break;
 				}
 			}
