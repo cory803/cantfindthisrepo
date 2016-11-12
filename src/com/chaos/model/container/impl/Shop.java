@@ -101,7 +101,7 @@ public class Shop extends ItemContainer {
 	 */
 	public Shop open(Player player) {
 		if (player.getGameModeAssistant().isIronMan()) {
-			if (id != IRON_SLAYER_STORE && id != IRON_VOTING_REWARDS_STORE && id !=DUNGEONEERING_STORE
+			if (id != IRON_SLAYER_STORE && id != IRON_VOTING_REWARDS_STORE && id !=DUNGEONEERING_STORE && id != PEST_CONTROL_STORE
 					&& id != SKILLCAPE_STORE_1 && id != SKILLCAPE_STORE_2 && id != SKILLCAPE_STORE_3
 					&& id != 11 && id != 15 && id != 18 && id != 21 && id != 22 && id != 27 && id != 28 && id != 30 && id != 32 && id != 33 && id != 38 && id != 39 && id != 35 && id != 34 && id != 40 && id != GENERAL_STORE) {
 				player.getPacketSender().sendInterfaceRemoval();
@@ -404,6 +404,8 @@ public class Shop extends ItemContainer {
 				playerCurrencyAmount = player.getPointsHandler().getVotingPoints();
 			} else if (id == DUNGEONEERING_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getDungeoneeringTokens();
+			} else if (id == PEST_CONTROL_STORE) {
+				playerCurrencyAmount = player.getPointsHandler().getCommendations();
 			} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 				playerCurrencyAmount = player.getPointsHandler().getSlayerPoints();
 			}
@@ -463,6 +465,8 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setSlayerPoints(-value, true);
 						} else if (id == DUNGEONEERING_STORE) {
 							player.getPointsHandler().setDungeoneeringTokens(-value, true);
+						} else if (id == PEST_CONTROL_STORE) {
+							player.getPointsHandler().setCommendations(-value, true);
 						}
 					}
 
@@ -497,6 +501,8 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setVotingPoints(-value * canBeBought, true);
 						} else if (id == DUNGEONEERING_STORE) {
 							player.getPointsHandler().setDungeoneeringTokens(-value * canBeBought, true);
+						} else if (id == PEST_CONTROL_STORE) {
+							player.getPointsHandler().setCommendations(-value * canBeBought, true);
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
 						}
@@ -643,7 +649,7 @@ public class Shop extends ItemContainer {
 				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE2
 				|| shopId == AGILITY_TICKET_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == ENERGY_FRAGMENT_STORE
 				|| shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE
-				|| shopId == DUNGEONEERING_STORE)
+				|| shopId == DUNGEONEERING_STORE || shopId == PEST_CONTROL_STORE)
 			return false;
 		Shop shop = ShopManager.getShops().get(shopId);
 		if (shop != null && shop.getOriginalStock() != null) {
@@ -1103,6 +1109,29 @@ public class Shop extends ItemContainer {
 					case 18337:
 						return new Object[]{75000, "Dungeoneering tokens"};
 				}
+			} else if (shop == PEST_CONTROL_STORE) {
+				switch (item) {
+					case 8839:
+					case 8840:
+						return new Object[]{100, "Commendations"};
+					case 8842:
+					case 19711:
+					case 11663:
+					case 11664:
+					case 11665:
+						return new Object[]{75, "Commendations"};
+					case 10551:
+						return new Object[]{200, "Commendations"};
+					case 19780:
+						return new Object[]{1000, "Commendations"};
+					case 19785:
+					case 19786:
+					case 19787:
+					case 19788:
+					case 19789:
+					case 19790:
+						return new Object[]{150, "Commendations"};
+				}
 			}
 			return null;
 		}
@@ -1161,5 +1190,7 @@ public class Shop extends ItemContainer {
 	private static final int DONATOR_STORE_RARES = 43;
 
 	private static final int DUNGEONEERING_STORE = 46;
+
+	private static final int PEST_CONTROL_STORE = 47;
 
 }

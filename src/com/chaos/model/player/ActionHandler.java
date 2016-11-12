@@ -417,7 +417,7 @@ public final class ActionHandler {
 
             //void knight shop
             case 3789:
-                player.getVoidShop();
+                Shop.ShopManager.getShops().get(47).open(player);
                 break;
 
             //Travel with Sailor

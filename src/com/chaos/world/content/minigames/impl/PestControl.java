@@ -665,7 +665,7 @@ public class PestControl {
 	}
 
 	public static boolean handleInterface(Player player, int id) {
-		if (player.getInterfaceId() == 18730 || player.getInterfaceId() == 18746) {
+		if (player.getInterfaceId() == 23530 || player.getInterfaceId() == 23646) {
 			switch (id) {
 			/**
 			 * Pest control reward interface
@@ -703,12 +703,6 @@ public class PestControl {
 				PestControl.buyFromShop(player, true, 19786, 1, 125);
 				return true;// elite legs
 			// INTERFACE
-			case 18743:
-				player.getPacketSender().sendInterface(18746);
-				return true;
-			case 18748:
-				player.getPacketSender().sendInterface(18730);
-				return true;
 			case 18728:
 				player.getPacketSender().sendInterfaceRemoval();
 				return true;

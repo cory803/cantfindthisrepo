@@ -29,7 +29,7 @@ public class VoidKnight extends Dialog {
                 public void execute(Player player, OptionType option) {
                     switch(option) {
                         case OPTION_1_OF_2:
-                            player.getVoidShop();
+                            Shop.ShopManager.getShops().get(47).open(player);
                             break;
                         case OPTION_2_OF_2:
                             player.getPacketSender().sendInterfaceRemoval();

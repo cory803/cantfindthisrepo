@@ -725,7 +725,7 @@ public class Player extends Character {
     }
 
     public void getVoidShop() {
-        getPacketSender().sendInterface(18730);
+        getPacketSender().sendInterface(23530);
         getPacketSender().sendString(18729,
                 "Commendations: " + Integer.toString(getPointsHandler().getCommendations()));
     }
