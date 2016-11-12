@@ -51,6 +51,8 @@ public class CommandManager {
          * Regular Player Commands
          */
 
+        commands.put("convert", new TicsToSeconds(StaffRights.PLAYER));
+        commands.put("otherconvert", new SecondsToTicks(StaffRights.PLAYER));
         commands.put("mode", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
