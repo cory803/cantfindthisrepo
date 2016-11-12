@@ -318,7 +318,7 @@ public enum ObstacleData {
 							marksOfGrace *= 2;
 						}
 						player.getInventory().add(11849, marksOfGrace);
-=
+
 						Agility.addExperience(player, 39);
 						Achievements.finishAchievement(player, Achievements.AchievementData.GNOME_COURSE);
 					} else {
