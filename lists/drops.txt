@@ -660,6 +660,66 @@ Very Rare (1/200)
 1x Starved ancient effigy (1/400)
 
 
+Monster: Zombie(Level: 13) (id = 73)
+---------------
+
+Always
+1x Bones
+
+Common
+1x Grimy guam
+1x Coins
+1x Iron hatchet
+1x Nature rune
+1x Copper ore
+1x Fishing bait
+1x Bronze med helm
+1x Bronze hatchet
+1x Air rune
+
+Uncommon (1/10)
+1x Grimy marrentill
+1x Grimy tarromin
+1x Grimy harralander
+1x Grimy cadantine
+1x Living minerals
+
+Rare (1/50)
+1x Living minerals (1/150)
+1x Living minerals (1/150)
+1x Grimy lantadyme (1/150)
+
+
+Monster: Zombie(Level: 24) (id = 75)
+---------------
+
+Always
+1x Bones
+
+Common
+1x Grimy guam
+1x Coins
+1x Iron hatchet
+1x Nature rune
+1x Copper ore
+1x Fishing bait
+1x Bronze med helm
+1x Bronze hatchet
+1x Air rune
+
+Uncommon (1/10)
+1x Grimy marrentill
+1x Grimy tarromin
+1x Grimy harralander
+1x Grimy cadantine
+1x Living minerals
+
+Rare (1/50)
+1x Living minerals (1/150)
+1x Living minerals (1/150)
+1x Grimy lantadyme (1/150)
+
+
 Monster: Zombie(Level: 25) (id = 76)
 ---------------
 
@@ -2559,6 +2619,138 @@ Rare (1/50)
 1x Grimy dwarf weed (1/150)
 1x Grimy torstol (1/150)
 1x Starved ancient effigy (1/150)
+
+
+Monster: Battle mage(Level: 54) (id = 912)
+---------------
+
+Common
+30-460x Coins
+1x Pure essence
+5000-10000x Coins
+1-5x Shark
+
+Uncommon (1/10)
+1x Rune chainbody
+1x Rune med helm
+1x Rune bar
+1x Super restore (2)
+
+Rare (1/50)
+1x Loop half of a key (1/500)
+1x Tooth half of a key (1/500)
+1x Rune spear (1/500)
+1x Rune battleaxe (1/500)
+1x Rune 2h sword (1/500)
+1x Rune sq shield (1/500)
+1-42x Rune arrow (1/500)
+1x Dragonstone (1/500)
+1x Rune kiteshield (1/500)
+1x Dragon med helm (1/500)
+
+Very Rare (1/200)
+1x Infinity top (1/1400)
+1x Infinity hat (1/1400)
+1x Infinity boots (1/1400)
+1x Infinity gloves (1/1400)
+1x Infinity bottoms (1/1400)
+1x Dragon scimitar (1/1400)
+1x Granite maul (1/1400)
+
+Epic (1/1000)
+1x Shield left half (1/5000)
+1x Dragon spear (1/5000)
+1x Master wand (1/5000)
+1x Mages' book (1/5000)
+1x Dragon boots (1/5000)
+
+
+Monster: Battle mage(Level: 54) (id = 913)
+---------------
+
+Common
+30-460x Coins
+1x Pure essence
+5000-10000x Coins
+1-5x Shark
+
+Uncommon (1/10)
+1x Rune chainbody
+1x Rune med helm
+1x Rune bar
+1x Super restore (2)
+
+Rare (1/50)
+1x Loop half of a key (1/500)
+1x Tooth half of a key (1/500)
+1x Rune spear (1/500)
+1x Rune battleaxe (1/500)
+1x Rune 2h sword (1/500)
+1x Rune sq shield (1/500)
+1-42x Rune arrow (1/500)
+1x Dragonstone (1/500)
+1x Rune kiteshield (1/500)
+1x Dragon med helm (1/500)
+
+Very Rare (1/200)
+1x Infinity top (1/1400)
+1x Infinity hat (1/1400)
+1x Infinity boots (1/1400)
+1x Infinity gloves (1/1400)
+1x Infinity bottoms (1/1400)
+1x Dragon scimitar (1/1400)
+1x Granite maul (1/1400)
+
+Epic (1/1000)
+1x Shield left half (1/5000)
+1x Dragon spear (1/5000)
+1x Master wand (1/5000)
+1x Mages' book (1/5000)
+1x Dragon boots (1/5000)
+
+
+Monster: Battle mage(Level: 54) (id = 914)
+---------------
+
+Common
+30-460x Coins
+1x Pure essence
+5000-10000x Coins
+1-5x Shark
+
+Uncommon (1/10)
+1x Rune chainbody
+1x Rune med helm
+1x Rune bar
+1x Super restore (2)
+
+Rare (1/50)
+1x Loop half of a key (1/500)
+1x Tooth half of a key (1/500)
+1x Rune spear (1/500)
+1x Rune battleaxe (1/500)
+1x Rune 2h sword (1/500)
+1x Rune sq shield (1/500)
+1-42x Rune arrow (1/500)
+1x Dragonstone (1/500)
+1x Rune kiteshield (1/500)
+1x Dragon med helm (1/500)
+
+Very Rare (1/200)
+1x Infinity top (1/1400)
+1x Infinity hat (1/1400)
+1x Infinity boots (1/1400)
+1x Infinity gloves (1/1400)
+1x Infinity bottoms (1/1400)
+1x Dragon scimitar (1/1400)
+1x Granite maul (1/1400)
+
+Epic (1/1000)
+1x Shield left half (1/5000)
+1x Dragon spear (1/5000)
+1x Master wand (1/5000)
+1x Mages' book (1/5000)
+1x Dragon boots (1/5000)
 
 
 Monster: Green dragon(Level: 79) (id = 941)
@@ -5238,14 +5430,20 @@ Common
 1x Blood rune
 
 Uncommon (1/10)
-1x Obsidian cape
-1x Toktz-mej-tal
+5-15x Toktz-xil-ul
 
 Rare (1/50)
-1x Berserker necklace (1/50)
+1x Obsidian cape (1/350)
+1x Toktz-mej-tal (1/350)
+1x Berserker necklace (1/350)
+1x Toktz-xil-ak (1/350)
+1x Toktz-ket-xil (1/350)
+1x Tzhaar-ket-om (1/350)
+1x Toktz-xil-ek (1/350)
 
 Very Rare (1/200)
-1x Starved ancient effigy (1/200)
+1x Starved ancient effigy (1/400)
+1x Uncut onyx (1/400)
 
 
 Monster: TzHaar-Hur(Level: 74) (id = 2600)
@@ -5267,16 +5465,25 @@ Common
 1x Hard leather
 1x Hard leather
 1x Leather
-1x Leather
 1x Wool
 1x Pure essence
 1x Lobster
 
+Uncommon (1/10)
+5-15x Toktz-xil-ul
+
 Rare (1/50)
-1x Berserker necklace (1/50)
+1x Berserker necklace (1/350)
+1x Toktz-mej-tal (1/350)
+1x Obsidian cape (1/350)
+1x Toktz-xil-ak (1/350)
+1x Toktz-ket-xil (1/350)
+1x Toktz-xil-ek (1/350)
+1x Tzhaar-ket-om (1/350)
 
 Very Rare (1/200)
-1x Starved ancient effigy (1/200)
+1x Starved ancient effigy (1/400)
+1x Uncut onyx (1/400)
 
 
 Monster: TzHaar-Xil(Level: 133) (id = 2605)
@@ -5294,22 +5501,21 @@ Uncommon (1/10)
 1x Uncut emerald
 1x Uncut sapphire
 1x Uncut opal
-1x Toktz-xil-ul
-1x Obsidian cape
+5-15x Toktz-xil-ul
 1x Onyx bolt tips
 
 Rare (1/50)
-1x Berserker necklace (1/400)
-1x Toktz-xil-ak (1/400)
-1x Toktz-ket-xil (1/400)
-1x Toktz-xil-ek (1/400)
-1x Shield left half (1/400)
-1x Shield right half (1/400)
-1x Tooth half of a key (1/400)
-1x Loop half of a key (1/400)
+1x Obsidian cape (1/350)
+1x Berserker necklace (1/350)
+1x Toktz-xil-ak (1/350)
+1x Toktz-ket-xil (1/350)
+1x Toktz-xil-ek (1/350)
+1x Tzhaar-ket-om (1/350)
+1x Toktz-mej-tal (1/350)
 
 Very Rare (1/200)
-1x Starved ancient effigy (1/200)
+1x Starved ancient effigy (1/400)
+1x Uncut onyx (1/400)
 
 
 Monster: TzHaar-Ket(Level: 149) (id = 2611)
@@ -5326,13 +5532,20 @@ Uncommon (1/10)
 1x Uncut opal
 1x Broodoo shield
 1x Broodoo shield (8)
-1x Obsidian cape
+5-15x Toktz-xil-ul
 
 Rare (1/50)
-1x Berserker necklace (1/50)
+1x Obsidian cape (1/350)
+1x Berserker necklace (1/350)
+1x Toktz-xil-ak (1/350)
+1x Toktz-ket-xil (1/350)
+1x Toktz-xil-ek (1/350)
+1x Tzhaar-ket-om (1/350)
+1x Toktz-mej-tal (1/350)
 
 Very Rare (1/200)
-1x Starved ancient effigy (1/200)
+1x Starved ancient effigy (1/400)
+1x Uncut onyx (1/400)
 
 
 Monster: Hobgoblin(Level: 28) (id = 2685)
@@ -7653,6 +7866,66 @@ Very Rare (1/200)
 1x Dragon warhammer (1/200)
 
 
+Monster: Zombie(Level: 44) (id = 5377)
+---------------
+
+Always
+1x Bones
+
+Common
+1x Grimy guam
+1x Coins
+1x Iron hatchet
+1x Nature rune
+1x Copper ore
+1x Fishing bait
+1x Bronze med helm
+1x Bronze hatchet
+1x Air rune
+
+Uncommon (1/10)
+1x Grimy marrentill
+1x Grimy tarromin
+1x Grimy harralander
+1x Grimy cadantine
+1x Living minerals
+
+Rare (1/50)
+1x Living minerals (1/150)
+1x Living minerals (1/150)
+1x Grimy lantadyme (1/150)
+
+
+Monster: Zombie(Level: 53) (id = 5379)
+---------------
+
+Always
+1x Bones
+
+Common
+1x Grimy guam
+1x Coins
+1x Iron hatchet
+1x Nature rune
+1x Copper ore
+1x Fishing bait
+1x Bronze med helm
+1x Bronze hatchet
+1x Air rune
+
+Uncommon (1/10)
+1x Grimy marrentill
+1x Grimy tarromin
+1x Grimy harralander
+1x Grimy cadantine
+1x Living minerals
+
+Rare (1/50)
+1x Living minerals (1/150)
+1x Living minerals (1/150)
+1x Grimy lantadyme (1/150)
+
+
 Monster: Skeleton(Level: 77) (id = 5386)
 ---------------
 
@@ -9608,13 +9881,11 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Steam battlestaff (1/1400)
-1x Zamorakian spear (1/1400)
-1x Rune sword (1/1400)
-1x Godsword shard 1 (1/1400)
-1x Godsword shard 2 (1/1400)
-1x Godsword shard 3 (1/1400)
-1x Zamorak hilt (1/1400)
+1x Zamorakian spear (1/1000)
+1x Godsword shard 1 (1/1000)
+1x Godsword shard 2 (1/1000)
+1x Godsword shard 3 (1/1000)
+1x Zamorak hilt (1/1000)
 
 Epic (1/1000)
 1x Staff of the dead (1/4000)
@@ -9952,14 +10223,13 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Armadyl helmet (1/1600)
-1x Armadyl chestplate (1/1600)
-1x Armadyl chainskirt (1/1600)
-1x Yew seed (1/1600)
-1x Godsword shard 1 (1/1600)
-1x Godsword shard 2 (1/1600)
-1x Godsword shard 3 (1/1600)
-1x Armadyl hilt (1/1600)
+1x Armadyl helmet (1/1400)
+1x Armadyl chestplate (1/1400)
+1x Armadyl chainskirt (1/1400)
+1x Godsword shard 1 (1/1400)
+1x Godsword shard 2 (1/1400)
+1x Godsword shard 3 (1/1400)
+1x Armadyl hilt (1/1400)
 
 Epic (1/1000)
 1x Pet kree'arra (1/1000)
@@ -10239,14 +10509,12 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Saradomin sword (1/1600)
-1x Armadyl crossbow (1/1600)
-1x Rune sword (1/1600)
-1x Magic seed (1/1600)
-1x Godsword shard 1 (1/1600)
-1x Godsword shard 2 (1/1600)
-1x Godsword shard 3 (1/1600)
-1x Saradomin hilt (1/1600)
+1x Saradomin sword (1/1200)
+1x Armadyl crossbow (1/1200)
+1x Godsword shard 1 (1/1200)
+1x Godsword shard 2 (1/1200)
+1x Godsword shard 3 (1/1200)
+1x Saradomin hilt (1/1200)
 
 Epic (1/1000)
 1x Pet zilyana (1/1000)
@@ -10547,14 +10815,13 @@ Rare (1/50)
 1x Dragon med helm (1/850)
 
 Very Rare (1/200)
-1x Rune sword (1/1600)
-1x Bandos chestplate (1/1600)
-1x Bandos tassets (1/1600)
-1x Bandos boots (1/1600)
-1x Godsword shard 1 (1/1600)
-1x Godsword shard 2 (1/1600)
-1x Godsword shard 3 (1/1600)
-1x Bandos hilt (1/1600)
+1x Bandos chestplate (1/1400)
+1x Bandos tassets (1/1400)
+1x Bandos boots (1/1400)
+1x Godsword shard 1 (1/1400)
+1x Godsword shard 2 (1/1400)
+1x Godsword shard 3 (1/1400)
+1x Bandos hilt (1/1400)
 
 Epic (1/1000)
 1x Pet general graardor (1/1000)
@@ -11269,15 +11536,17 @@ Uncommon (1/10)
 1x Spirit shield
 1x Ranarr seed
 
-Very Rare (1/200)
-1x Holy elixir (1/200)
+Rare (1/150)
+1x Holy elixir (1/150)
 
-Epic (1/500)
-1x Spectral sigil (1/2500)
-1x Arcane sigil (1/2500)
-1x Elysian sigil (1/2500)
-1x Pet dark core (1/2500)
-1x Divine sigil (1/2500)
+Very Rare (1/500)
+1x Spectral sigil (1/2000)
+1x Arcane sigil (1/2000)
+1x Elysian sigil (1/2000)
+1x Divine sigil (1/2000)
+
+Epic (1/1000)
+1x Pet dark core (1/1000)
 
 
 Monster: Tormented Demon(Level: 450) (id = 8349)
@@ -11538,6 +11807,96 @@ Rare (1/50)
 
 Very Rare (1/200)
 1x Dragon pickaxe (1/200)
+
+
+Monster: Living rock protector(Level: 136) (id = 8832)
+---------------
+
+Always
+1x Living minerals
+
+Common
+3-8x Mud rune
+1x Coal
+1x Gold ore
+1x Mithril ore
+1x Uncut emerald
+1x Uncut sapphire
+
+Uncommon (1/10)
+3-10x Death rune
+1x Adamantite ore
+1x Silver ore
+1x Adamant pickaxe
+1x Mithril pickaxe
+
+Rare (1/50)
+3-8x Soft clay (1/100)
+1x Uncut diamond (1/100)
+
+Very Rare (1/200)
+1x Starved ancient effigy (1/200)
+
+
+Monster: Living rock striker(Level: 136) (id = 8833)
+---------------
+
+Always
+1-2x Living minerals
+
+Common
+3-8x Mud rune
+1x Coal
+1x Gold ore
+1x Mithril ore
+1x Uncut emerald
+1x Uncut sapphire
+
+Uncommon (1/10)
+3-10x Death rune
+1x Adamantite ore
+1x Silver ore
+1x Adamant pickaxe
+1x Mithril pickaxe
+
+Rare (1/50)
+3-8x Soft clay (1/150)
+1x Uncut diamond (1/150)
+1x Rune pickaxe (1/150)
+
+Very Rare (1/200)
+1x Starved ancient effigy (1/200)
+
+
+Monster: Living rock patriarch(Level: 136) (id = 8834)
+---------------
+
+Always
+1-3x Living minerals
+
+Common
+3-8x Mud rune
+1x Coal
+1x Gold ore
+1x Mithril ore
+1x Uncut emerald
+1x Uncut sapphire
+
+Uncommon (1/10)
+3-10x Death rune
+1x Adamantite ore
+1x Silver ore
+1x Adamant pickaxe
+1x Mithril pickaxe
+
+Rare (1/50)
+3-8x Soft clay (1/200)
+1x Uncut diamond (1/200)
+1x Rune pickaxe (1/200)
+1x Runite ore (1/200)
+
+Very Rare (1/200)
+1x Starved ancient effigy (1/200)
 
 
 Monster: Ice strykewyrm(Level: 210) (id = 9463)

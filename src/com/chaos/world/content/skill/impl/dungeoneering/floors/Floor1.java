@@ -81,9 +81,6 @@ public class Floor1 extends Floor {
         if(!player.getDungeoneering().canEnterDungeon()) {
             return;
         }
-        Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_5_DUNG_FLOORS);
-        Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_50_DUNG_FLOORS);
-        Achievements.finishAchievement(player, Achievements.AchievementData.COMPLETE_DUNG_FLOOR);
         player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.ENTERED);
         for(NPC npc: getMinions()) {
             npc.getDefinition().setAggressive(true);
@@ -211,6 +208,10 @@ public class Floor1 extends Floor {
         player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience);
 
         player.getPacketSender().sendMessage("You have received "+Misc.format(tokens)+" dungeoneering tokens for completing floor 1.");
+
+        Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_5_DUNG_FLOORS);
+        Achievements.doProgress(player, Achievements.AchievementData.COMPLETE_50_DUNG_FLOORS);
+        Achievements.finishAchievement(player, Achievements.AchievementData.COMPLETE_DUNG_FLOOR);
 
         leaveFloor();
     }

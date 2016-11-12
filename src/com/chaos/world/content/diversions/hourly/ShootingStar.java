@@ -288,9 +288,9 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	private static final int GOLD_ORES = 445;
 	
 	private enum Stage {	
-		NINTH(38660, 10, 90, 210, 10),
+		NINTH(38660, 90, 15, 210, 10),
 		
-		EIGTH(38661, 20, 80, 145, 9),
+		EIGTH(38661, 80, 25, 145, 9),
 		
 		SEVENTH(38662, 70, 40, 114, 8),
 		

@@ -106,6 +106,18 @@ public class Woodcutting {
 										player.getPacketSender().sendMessage("You get some logs..");
 										//rollPet(player);
 									}
+									if (t == Trees.MAPLE) {
+										Achievements.doProgress(player, AchievementData.CHOP_250_MAPLE_LOGS);
+									}
+									if (t == Trees.YEW || t == Trees.RESOURCE_YEW) {
+										Achievements.doProgress(player, AchievementData.CHOP_750_YEW_LOGS);
+									}
+									if (t == Trees.MAGIC || t == Trees.RESOURCE_MAGIC) {
+										Achievements.doProgress(player, AchievementData.CUT_2500_MAGIC_LOGS);
+									}
+									if (t == Trees.WILLOW) {
+										Achievements.finishAchievement(player, AchievementData.CHOP_WILLOW);
+									}
 									Sounds.sendSound(player, Sound.WOODCUT);
 									if(infernalAxe(player)) {
 										player.getInventory().add(t.getReward(), 2);
@@ -131,18 +143,6 @@ public class Woodcutting {
 												Achievements.finishAchievement(player, AchievementData.BURN_WILLOW);
 											}
 										}
-									}
-									if (t == Trees.MAPLE) {
-										Achievements.doProgress(player, AchievementData.CHOP_250_MAPLE_LOGS);
-									}
-									if (t == Trees.YEW || t == Trees.RESOURCE_YEW) {
-										Achievements.doProgress(player, AchievementData.CHOP_750_YEW_LOGS);
-									}
-									if (t == Trees.MAGIC || t == Trees.RESOURCE_MAGIC) {
-										Achievements.doProgress(player, AchievementData.CUT_2500_MAGIC_LOGS);
-									}
-									if (t == Trees.WILLOW) {
-										Achievements.finishAchievement(player, AchievementData.CHOP_WILLOW);
 									}
 								}
 							}
