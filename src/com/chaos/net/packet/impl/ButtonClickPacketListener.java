@@ -43,6 +43,8 @@ import org.scripts.kotlin.content.dialog.ClanChatDialogue;
 import org.scripts.kotlin.content.dialog.Report;
 import org.scripts.kotlin.content.dialog.teleports.*;
 
+import java.util.ArrayList;
+
 /**
  * This packet listener manages a button that the player has clicked upon.
  *
@@ -219,6 +221,12 @@ public class ButtonClickPacketListener implements PacketListener {
             case -10429:
                 player.setInputHandling(new DropGeneratorNpcId());
                 player.getPacketSender().sendEnterAmountPrompt("Enter a npc id:");
+                break;
+            case -10462:
+                ArrayList<Player> staffOnline = World.getStaffOnline();
+                for (Player staff: staffOnline) {
+                    player.getPacketSender().sendMessage("<img=" + staff.getStaffRights().getCrown() + "> " + staff.getUsername());
+                }
                 break;
             case -10465:
                 player.getPacketSender().sendTabInterface(GameSettings.QUESTS_TAB, 55200);

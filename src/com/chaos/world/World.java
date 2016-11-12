@@ -190,6 +190,22 @@ public class World {
 		}
 		return total;
 	}
+	/*
+	 * Tells you what staff are online
+	 */
+	public static ArrayList<Player> getStaffOnline() {
+		ArrayList<Player> names = new ArrayList<>();
+		for (Player player : players) {
+			if(player == null) {
+				continue;
+			}
+			if (!player.getStaffRights().isStaff()) {
+				continue;
+			}
+			names.add(player);
+		}
+		return names;
+	}
 
 	public static CharacterList<NPC> getNpcs() {
 		return npcs;
