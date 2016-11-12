@@ -198,6 +198,11 @@ public class Floor1 extends Floor {
 
     @Override
     public void completeFloor() {
+        if(player.isUsingChest()) {
+            player.getPacketSender().sendMessage("You must wait until you finish using the chest to leave.");
+            return;
+        }
+
         int tokens = player.getDungeoneering().getKills() * 500;
         if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.KILLED_BOSS) {
             tokens += 700;
