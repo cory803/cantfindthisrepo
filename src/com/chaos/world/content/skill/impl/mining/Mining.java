@@ -143,10 +143,10 @@ public class Mining {
 									if (o == Ores.RUNITE) {
 										Achievements.doProgress(player, AchievementData.MINE_2000_RUNITE_ORES);
 									}
-									if (o == Ores.COAL || o == Ores.RESOURCE_COAL) {
+									if (o == Ores.COAL || o == Ores.RESOURCE_COAL || (itemId == 453 && o == Ores.LIVING_ROCK_RESOURCE)) {
 										Achievements.doProgress(player, AchievementData.MINE_400_COAL);
 									}
-									if (o == Ores.GOLD || o == Ores.RESOURCE_GOLD) {
+									if (o == Ores.GOLD || o == Ores.RESOURCE_GOLD || (itemId == 444 && o == Ores.LIVING_ROCK_RESOURCE)) {
 										Achievements.doProgress(player, AchievementData.MINE_200_GOLD);
 									}
 									if (o == Ores.ADAMANTITE || o == Ores.RESOURCE_ADAMANTITE) {

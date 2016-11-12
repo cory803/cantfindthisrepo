@@ -1,11 +1,10 @@
 package com.chaos.world.content.skill.impl.runecrafting;
 
-import com.chaos.model.Animation;
-import com.chaos.model.Graphic;
-import com.chaos.model.Position;
-import com.chaos.model.Skill;
+import com.chaos.model.*;
+import com.chaos.model.container.impl.Equipment;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
+import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingData.RuneData;
 import com.chaos.world.content.skill.impl.runecrafting.RunecraftingData.TalismanData;
 import com.chaos.world.content.transportation.TeleportHandler;
@@ -38,16 +37,16 @@ public class Runecrafting {
 			player.getInventory().delete(essence, 1);
 			player.getInventory().add(rune.getRuneID(), amountToMake);
 			amountMade += amountToMake;
-			player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP());
+			player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP() * Runecrafting.getRunecraftingBoost(player));
 		}
 		if (rune == RuneData.NATURE_RUNE) {
 			Achievements.doProgress(player, AchievementData.RUNECRAFT_500_NATS, amountMade);
 		}
 		if (rune == RuneData.BLOOD_RUNE) {
-			Achievements.doProgress(player, AchievementData.RUNECRAFT_8000_BLOOD_RUNES, amountMade);
+			Achievements.doProgress(player, AchievementData.RUNECRAFT_3000_BLOOD_RUNES, amountMade);
 		}
 		player.performGraphic(new Graphic(129));
-		player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP());
+		player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP() * Runecrafting.getRunecraftingBoost(player));
 		player.getPacketSender().sendMessage("You bind the altar's power into " + rune.getName() + "s..");
 		Achievements.finishAchievement(player, AchievementData.RUNECRAFT_RUNES);
 		player.getClickDelay().reset();
@@ -93,6 +92,27 @@ public class Runecrafting {
 
 	public static boolean runecraftingAltar(Player player, int ID) {
 		return ID >= 2478 && ID < 2489 || ID == 17010 || ID == 30624 || ID == 47120;
+	}
+
+	/**
+	 * Get your runecrafting xp boost
+	 * @return
+	 */
+	public static double getRunecraftingBoost(Player player) {
+		double boost = 1;
+		if(player.getEquipment().getItems()[Equipment.HEAD_SLOT].getId() == 13613) {
+			boost += .25;
+		}
+		if(player.getEquipment().getItems()[Equipment.BODY_SLOT].getId() == 13619) {
+			boost += .25;
+		}
+		if(player.getEquipment().getItems()[Equipment.LEG_SLOT].getId() == 13622) {
+			boost += .25;
+		}
+		if(player.getEquipment().getItems()[Equipment.HANDS_SLOT].getId() == 13623) {
+			boost += .25;
+		}
+		return boost;
 	}
 
 }

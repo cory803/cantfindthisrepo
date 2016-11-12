@@ -87,7 +87,7 @@ public class DesoSpan {
 						return;
 					}
 					player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING,
-							energyType.experience + Misc.getRandom(30));
+							energyType.experience + Misc.getRandom(30) * Runecrafting.getRunecraftingBoost(player));
 					player.performGraphic(new Graphic(energyType.playerGraphic, GraphicHeight.HIGH));
 					n.performGraphic(new Graphic(energyType.npcGraphic, GraphicHeight.HIGH));
 					n.dealDamage(null, new Hit(Misc.getRandom(12), Hitmask.RED, CombatIcon.MAGIC));
