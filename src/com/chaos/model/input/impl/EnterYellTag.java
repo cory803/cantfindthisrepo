@@ -9,6 +9,10 @@ public class EnterYellTag extends Input {
 
 	@Override
 	public void handleSyntax(Player player, String syntax) {
+		if(syntax.length() >= 15) {
+			player.getPacketSender().sendMessage("Your yell title can only have 15 characters!");
+			return;
+		}
 		String yell_tag = syntax;
 		boolean invalidSymbols = false;
 		int value = player.getDonatorRights().getYellTagPrice();
