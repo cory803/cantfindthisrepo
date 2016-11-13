@@ -5,11 +5,8 @@ import java.util.Map;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.Animation;
-import com.chaos.model.Graphic;
+import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.Prayerbook;
-import com.chaos.model.Skill;
 import com.chaos.util.Misc;
 import com.chaos.util.NameUtils;
 import com.chaos.world.content.BonusManager;
@@ -298,6 +295,13 @@ public class CurseHandler {
 				if (drain <= 0) {
 					stop();
 					return;
+				}
+				if(player.getDonatorRights() == DonatorRights.PLATINUM || player.getDonatorRights() == DonatorRights.UBER) {
+					drain = 0;
+				} else if(player.getDonatorRights() == DonatorRights.LEGENDARY) {
+					if(player.getLocation() != Location.WILDERNESS) {
+						drain = 0;
+					}
 				}
 				int total = (int) (player.getSkillManager().getCurrentLevel(Skill.PRAYER) - drain);
 				player.getSkillManager().setCurrentLevel(Skill.PRAYER, total, true);
