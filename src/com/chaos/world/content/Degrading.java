@@ -70,7 +70,6 @@ public class Degrading {
     }
 
     public enum DegradingItems {
-        ABYSSAL_TENTACLE(12006, 12004, -1, DegradingType.DEFAULT),
 
         STATIUS_FULL_HELM(13896, 13898, -1, DegradingType.PVP),
         STATIUS_PLATEBODY(13884, 13886, -1, DegradingType.PVP),
@@ -211,11 +210,11 @@ public class Degrading {
                             //TODO: Add barrows degrading
                             break;
                         case DEFAULT:
-                            if(getCharges(degradingItems) == 0) {
-                                player.getEquipment().setItem(equipmentDefinition.getEquipmentSlot(), new Item(-1)).refreshItems();
-                                player.getUpdateFlag().flag(Flag.APPEARANCE);
-                                player.getPacketSender().sendMessage("<col=ff0000>Your "+equipmentDefinition.getName()+" has degraded fully and disappeared!");
-                            }
+//                            if(getCharges(degradingItems) == 0) {
+//                                player.getEquipment().setItem(equipmentDefinition.getEquipmentSlot(), new Item(-1)).refreshItems();
+//                                player.getUpdateFlag().flag(Flag.APPEARANCE);
+//                                player.getPacketSender().sendMessage("<col=ff0000>Your "+equipmentDefinition.getName()+" has degraded fully and disappeared!");
+//                            }
                             break;
                     }
                 } else if(equipmentItem.getId() == degradingItems.getDegradeID()) {
