@@ -28,7 +28,7 @@ public class PlayerPanel {
 		player.getPacketSender().sendString(55082, "   >- Pk points: @cha@ " + player.getPointsHandler().getPkPoints());
 		player.getPacketSender().sendString(55083, "   >- Vote points: @cha@ " + player.getPointsHandler().getVotingPoints());
 		player.getPacketSender().sendString(55084, "   >- Slayer points: @cha@ " + player.getPointsHandler().getSlayerPoints());
-		player.getPacketSender().sendString(55085, "   >- Commedations: @cha@ " + player.getPointsHandler().getCommendations());
+		player.getPacketSender().sendString(55085, "   >- Commendations: @cha@ " + player.getPointsHandler().getCommendations());
 		player.getPacketSender().sendString(55086, "   >- Dung tokens: @cha@ " + player.getPointsHandler().getDungeoneeringTokens());
 		player.getPacketSender().sendString(55087, "  @whi@[PvP]");
 		player.getPacketSender().sendString(55088, "   >- Kdr: @cha@ " + kdr);
