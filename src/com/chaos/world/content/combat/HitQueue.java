@@ -277,13 +277,39 @@ public class HitQueue {
 							@Override
 							protected void execute() {
 								if (shouldRetaliate()) {
-									retaliate();
+									boolean retal = true;
+									if(victim.isNpc()) {
+										if(((NPC) victim).getDefinition().getName().toLowerCase().contains("impling")) {
+											retal = false;
+										}
+									} else if(attacker.isNpc()) {
+										if(((NPC) attacker).getDefinition().getName().toLowerCase().contains("impling")) {
+											retal = false;
+										}
+									}
+									if(retal) {
+										retaliate();
+									}
 								}
 								stop();
 							}
 						});
 					} else {
-						retaliate();
+						if (shouldRetaliate()) {
+							boolean retal = true;
+							if(victim.isNpc()) {
+								if(((NPC) victim).getDefinition().getName().toLowerCase().contains("impling")) {
+									retal = false;
+								}
+							} else if(attacker.isNpc()) {
+								if(((NPC) attacker).getDefinition().getName().toLowerCase().contains("impling")) {
+									retal = false;
+								}
+							}
+							if(retal) {
+								retaliate();
+							}
+						}
 					}
 				}
 			}

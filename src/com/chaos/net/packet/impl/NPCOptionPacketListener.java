@@ -131,6 +131,12 @@ public class NPCOptionPacketListener implements PacketListener {
 					return;
 				}
 
+				if(n.getDefinition().getName().toLowerCase().contains("impling")) {
+					if(spellId == CombatSpells.BIND.getSpell().spellId() && spellId != CombatSpells.SNARE.getSpell().spellId() && spellId != CombatSpells.ENTANGLE.getSpell().spellId()) {
+						return;
+					}
+				}
+
 				if (!NpcDefinition.getDefinitions()[n.getId()].isAttackable()) {
 					player.getWalkingQueue().clear();
 					return;
