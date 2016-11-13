@@ -289,6 +289,7 @@ public class PlayerHandler {
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
 		}
+		player.getSkillManager().updateSkill(Skill.PRAYER);
 		player.sendCompCapePresets();
 		NoteHandler.login(player);
 		player.getPacketSender().sendRights();
