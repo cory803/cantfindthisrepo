@@ -409,6 +409,9 @@ public class SkillManager {
 	public boolean hasAll99s() {
 		boolean has99s = true;
 		for (Skill skill : Skill.values()) {
+			if(skill == Skill.CONSTRUCTION) {
+				continue;
+			}
 			if (!isNewSkill(skill)) {
 				if(skills.maxLevel[skill.ordinal()] < 99) {
 					has99s = false;
