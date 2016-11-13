@@ -215,7 +215,7 @@ public class HitQueue {
 						if(npcAttacker.getId() != 6619) {
 							int blockAnim = WeaponAnimations.getBlockAnimation(((Player) victim));
 							if(blockAnim != -1) {
-								victim.performAnimation(new Animation(blockAnim));
+								//victim.performAnimation(new Animation(blockAnim));
 							}
 						}
 					} else {

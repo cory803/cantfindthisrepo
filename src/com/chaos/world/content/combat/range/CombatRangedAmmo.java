@@ -312,6 +312,9 @@ public class CombatRangedAmmo {
 			if (data != null) {
 				int ammunition = p.getEquipment().getItems()[data.getType() == RangedWeaponType.THROW
 						? Equipment.WEAPON_SLOT : Equipment.AMMUNITION_SLOT].getId();
+				if(data.getType() == RangedWeaponType.DART) {
+					ammunition = p.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId();
+				}
 				for (AmmunitionData ammoData : AmmunitionData.values()) {
 					for (int i : ammoData.getItemIds()) {
 						if (i == ammunition)

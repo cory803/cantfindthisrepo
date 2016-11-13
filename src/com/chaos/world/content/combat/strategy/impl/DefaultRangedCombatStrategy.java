@@ -216,10 +216,13 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	 */
 	private boolean checkAmmo(Player player) {
 		RangedWeaponData data = player.getRangedWeaponData();
-		if (data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.BLOWPIPE)
+		if (data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.DART || data.getType() == RangedWeaponType.BLOWPIPE)
 			return true;
 		Item ammunition = player.getEquipment().getItems()[data.getType() == RangedWeaponType.THROW
 				? Equipment.WEAPON_SLOT : Equipment.AMMUNITION_SLOT];
+		if(data.getType() == RangedWeaponType.THROW) {
+			ammunition = player.getEquipment().getItems()[Equipment.WEAPON_SLOT];
+		}
 		boolean darkBow = data.getType() == RangedWeaponType.DARK_BOW && ammunition.getAmount() < 2
 				|| data == RangedWeaponData.MAGIC_SHORTBOW && player.isSpecialActivated()
 						&& player.getCombatSpecial() != null
