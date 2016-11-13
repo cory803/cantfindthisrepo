@@ -30596,8 +30596,8 @@
 "defenceAnim": 9945,
 "deathAnim": 9947,
 "attackBonus": 235,
-"defenceMelee": 480,
-"defenceRange": 480,
+"defenceMelee": 250,
+"defenceRange": 250,
 "defenceMage": 40
 },
 {

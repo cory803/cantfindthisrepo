@@ -287,6 +287,21 @@ public class CombatBuilder {
 		}
 	}
 
+	public boolean checkPjTimer() {
+		if(getLastAttacker() == null) {
+			if(isAttacking()) {
+				if(getVictim() != null) {
+					if(getVictim().isNpc()) {
+						return false;
+					}
+				}
+			}
+			return !getLastAttack().elapsed(5000);
+		} else {
+			return !character.getLastCombat().elapsed(5000) && getLastAttacker().getConstitution() > 0;
+		}
+	}
+
 	public Character getCharacter() {
 		return character;
 	}

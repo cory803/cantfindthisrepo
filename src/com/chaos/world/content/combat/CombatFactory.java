@@ -942,7 +942,7 @@ public final class CombatFactory {
 
         // Here we check if we are already in combat with another entity.
         if (entity.getCombatBuilder().getLastAttacker() != null && !Location.inMulti(entity)
-                && entity.getCombatBuilder().isBeingAttacked()
+                && entity.getCombatBuilder().checkPjTimer()
                 && !victim.equals(entity.getCombatBuilder().getLastAttacker())) {
             if (entity.isPlayer())
                 ((Player) entity).getPacketSender().sendMessage("You are already under attack!");
@@ -955,7 +955,7 @@ public final class CombatFactory {
         if (!(entity.isNpc() && ((NPC) entity).isSummoningNpc())) {
             boolean allowAttack = false;
             if (victim.getCombatBuilder().getLastAttacker() != null && !Location.inMulti(victim)
-                    && victim.getCombatBuilder().isBeingAttacked()
+                    && victim.getCombatBuilder().checkPjTimer()
                     && !victim.getCombatBuilder().getLastAttacker().equals(entity)) {
 
                 if (victim.getCombatBuilder().getLastAttacker().isNpc()) {
