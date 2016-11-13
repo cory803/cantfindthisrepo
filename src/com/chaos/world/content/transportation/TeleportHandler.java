@@ -17,6 +17,10 @@ public class TeleportHandler {
 
 	public static void teleportPlayer(final Player player, final Position targetLocation,
 			final TeleportType teleportType, final boolean isFromHouse) {
+		if (!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You can't do that, you're stunned!");
+			return;
+		}
 		if (player.isJailed()) {
 			player.getPacketSender().sendMessage("You can't teleport out of jail.");
 			return;
