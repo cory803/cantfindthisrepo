@@ -941,7 +941,7 @@ public enum ObstacleData {
 					else if (tick == 4) {
 						player.setSkillAnimation(-1).setCrossingObstacle(false);
 						player.getUpdateFlag().flag(Flag.APPEARANCE);
-						Agility.addExperience(player, 32);
+						Agility.addExperience(player, 4);
 						stop();
 					}
 					tick++;
