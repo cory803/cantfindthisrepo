@@ -440,9 +440,10 @@ public final class CombatFactory {
                     return new Hit(meleeHit, Hitmask.RED, CombatIcon.MELEE);
                 }
             case RANGED:
-                int maxRanged = CombatFactory.calculateMaxRangedHit(entity, victim);
+                int maxRanged = CombatFactory.calculateMaxRangedHit(entity, victim) + 40;
                 double rangedValue = maxRanged * .95;
                 int rangeHit = Misc.inclusiveRandom(1, maxRanged);
+                //System.out.println("max possible hit: "+maxRanged);
                 if(rangeHit > (int)rangedValue) {
                     return new Hit(rangeHit, Hitmask.CRITICAL, CombatIcon.RANGED);
                 } else {
@@ -714,12 +715,6 @@ public final class CombatFactory {
                 break;
         }
 
-        if (EquipmentBonus.wearingVoid(player, CombatType.RANGED)) {
-            otherBonusMultiplier = 1.2;
-        } else if(EquipmentBonus.wearingEliteVoid(player, CombatType.RANGED)) {
-            otherBonusMultiplier = 1.3;
-        }
-
         int effectiveRangeDamage = (int) ((rangeLevel * prayerMultiplier * otherBonusMultiplier) + combatStyleBonus);
         double baseDamage = 1.3 + (effectiveRangeDamage / 10) + (rangedStrength / 80)
                 + ((effectiveRangeDamage * rangedStrength) / 640);
@@ -752,6 +747,11 @@ public final class CombatFactory {
             }
         }
         maxHit *= 10;
+        if (EquipmentBonus.wearingVoid(player, CombatType.RANGED)) {
+            maxHit *= 1.2;
+        } else if(EquipmentBonus.wearingEliteVoid(player, CombatType.RANGED)) {
+            maxHit *= 1.3;
+        }
         return maxHit;
     }
 

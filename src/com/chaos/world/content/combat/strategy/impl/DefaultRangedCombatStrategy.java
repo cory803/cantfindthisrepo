@@ -411,10 +411,10 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 					|| pTarget.getFireImmunity() > 0)) {
 				return damage;
 			}
-			if (damage < 300 && Misc.getRandom(3) <= 1) {
-				damage = 300 + Misc.getRandom(150);
-			}
-			multiplier = 1.25;
+			//if (Misc.getRandom(10) == 0) {
+				//damage *= 1.45;
+			//}
+			multiplier = 1.45;
 			break;
 		case 11625:
 			target.performGraphic(new Graphic(756));

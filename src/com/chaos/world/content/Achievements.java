@@ -95,7 +95,7 @@ public class Achievements {
 		DEFEAT_KRIL_TSUTSAROTH(Difficulty.HARD, "Defeat K'ril Tsutsaroth", 37093, null),
 		DEFEAT_THE_CORPOREAL_BEAST(Difficulty.HARD, "Defeat The Corporeal Beast", 37094, null),
 		DEFEAT_NEX(Difficulty.HARD, "Defeat Nex", 37095, null),
-		DEFEAT_30_PLAYERS(Difficulty.HARD, "Defeat 30 Players", 37096, new int[] { 40, 30 }),
+		DEFEAT_30_PLAYERS(Difficulty.HARD, "Defeat 15 Players", 37096, new int[] { 40, 15 }),
 
 		RUNECRAFT_3000_BLOOD_RUNES(Difficulty.ELITE, "Runecraft 3000 Blood Runes", 37099, new int[] { 41, 3000 }),
 		CUT_2500_MAGIC_LOGS(Difficulty.ELITE, "Cut 2500 Magic Logs", 37100, new int[] { 42, 2500 }),
