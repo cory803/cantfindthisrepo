@@ -37,9 +37,9 @@ public class Thieving {
         player.performAnimation(new Animation(832));
 
         // Achievement call
-        if(stall == ThievingStall.SCIMITAR_STALL) {
-            Achievements.doProgress(player, Achievements.AchievementData.STEAL_5000_SCIMITARS);
-        }
+        //if(stall == ThievingStall.SCIMITAR_STALL) {
+            Achievements.doProgress(player, Achievements.AchievementData.STEAL_2000_TIMES);
+       // }
 
         // Loot generation code
         List<WeightedItem> weightedItems = Arrays.asList(stall.getStallRewards().getRewards());

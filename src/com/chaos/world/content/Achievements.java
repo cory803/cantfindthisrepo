@@ -80,7 +80,7 @@ public class Achievements {
 		CRAFT_1000_DIAMOND_GEMS(Difficulty.HARD, "Craft 750 Diamond Gems", 37078, new int[] { 31, 750 }),
 		ENCHANT_1000_BOLTS(Difficulty.HARD, "Enchant 1000 Bolts", 37079, new int[] { 32, 1000 }),
 		HIGH_ALCH_ITEMS(Difficulty.HARD, "High Alch 1000 Items", 37080, new int[] { 33, 1000 }),
-		STEAL_2000_SCIMITARS(Difficulty.HARD, "Steal 2,000 Times", 37081, new int[] { 34, 2000 }),
+		STEAL_2000_TIMES(Difficulty.HARD, "Steal 2,000 Times", 37081, new int[] { 34, 2000 }),
 		SMELT_300_ADAMANT_BARS(Difficulty.HARD, "Smelt 300 Adamant Bars", 37082, new int[] { 35, 300 }),
 		MIX_100_OVERLOAD_POTIONS(Difficulty.HARD, "Mix 100 Overload Potions", 37083, new int[] { 36, 100 }),
 		COMPLETE_AN_ELITE_SLAYER_TASK(Difficulty.HARD, "Complete a task from Duradel", 37084, null),
