@@ -43,7 +43,7 @@ public class Runecrafting {
 			Achievements.doProgress(player, AchievementData.RUNECRAFT_500_NATS, amountMade);
 		}
 		if (rune == RuneData.BLOOD_RUNE) {
-			Achievements.doProgress(player, AchievementData.RUNECRAFT_3000_BLOOD_RUNES, amountMade);
+			Achievements.doProgress(player, AchievementData.RUNECRAFT_6000_BLOOD_RUNES, amountMade);
 		}
 		player.performGraphic(new Graphic(129));
 		player.getSkillManager().addSkillExperience(Skill.RUNECRAFTING, rune.getXP() * Runecrafting.getRunecraftingBoost(player));

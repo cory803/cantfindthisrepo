@@ -97,7 +97,7 @@ public class Achievements {
 		DEFEAT_NEX(Difficulty.HARD, "Defeat Nex", 37095, null),
 		DEFEAT_30_PLAYERS(Difficulty.HARD, "Defeat 15 Players", 37096, new int[] { 40, 15 }),
 
-		RUNECRAFT_3000_BLOOD_RUNES(Difficulty.ELITE, "Runecraft 3000 Blood Runes", 37099, new int[] { 41, 3000 }),
+		RUNECRAFT_6000_BLOOD_RUNES(Difficulty.ELITE, "Runecraft 6000 Blood Runes", 37099, new int[] { 41, 6000 }),
 		CUT_2500_MAGIC_LOGS(Difficulty.ELITE, "Cut 2500 Magic Logs", 37100, new int[] { 42, 2500 }),
 		BURN_2500_MAGIC_LOGS(Difficulty.ELITE, "Burn 2500 Magic Logs", 37101, new int[] { 43, 2500 }),
 		FISH_2000_ROCKTAILS(Difficulty.ELITE, "Fish 1500 Rocktails", 37102, new int[] { 44, 1500 }),
