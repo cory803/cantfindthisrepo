@@ -84,6 +84,13 @@ public class CombatSession {
 				return;
 			}
 
+			if(builder.getCharacter().isPlayer()) {
+				Player player = ((Player) builder.getCharacter());
+				if (!player.getDragonSpear().elapsed(3000)) {
+					return;
+				}
+			}
+
 			if (builder.getCharacter().isNpc() && builder.getStrategy() == null) {
 				builder.determineStrategy();
 			}

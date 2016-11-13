@@ -35,6 +35,10 @@ public class NPCOptionPacketListener implements PacketListener {
 		if (!NpcDefinition.getDefinitions()[interact.getId()].isAttackable()) {
 			return;
 		}
+		if (!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You can't do that, you're stunned!");
+			return;
+		}
 		if (interact.getConstitution() <= 0) {
 			player.getWalkingQueue().clear();
 			return;

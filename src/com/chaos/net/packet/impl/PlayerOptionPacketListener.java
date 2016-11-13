@@ -56,6 +56,10 @@ public class PlayerOptionPacketListener implements PacketListener {
 			player.getDueling().challengePlayer(attacked);
 			return;
 		}
+		if (!player.getDragonSpear().elapsed(3000)) {
+			player.getPacketSender().sendMessage("You can't do that, you're stunned!");
+			return;
+		}
 		if (attacked.getBankPinAttributes().hasBankPin() && !attacked.getBankPinAttributes().hasEnteredBankPin()
 				&& attacked.getBankPinAttributes().onDifferent(attacked)) {
 			player.getPacketSender().sendMessage(

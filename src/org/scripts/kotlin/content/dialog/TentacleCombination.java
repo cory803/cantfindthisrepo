@@ -39,7 +39,7 @@ public class TentacleCombination extends Dialog {
                                     player.getInventory().delete(12004, 1);
                                     player.getInventory().delete(4151, 1);
                                     player.getInventory().add(12006, 1);
-                                    player.getDegrading().maxCharges(Degrading.DegradingItems.ABYSSAL_TENTACLE);
+                                    //player.getDegrading().maxCharges(Degrading.DegradingItems.ABYSSAL_TENTACLE);
                                     setState(2);
                                     player.getDialog().sendDialog(dialog);
                                 }

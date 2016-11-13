@@ -80,7 +80,7 @@ public class PlayerPunishment {
 	}
 
 	public static boolean isPcBanned(String add) {
-		File f = new File(PC_BAN_DIRECTORY + add.toLowerCase());
+		File f = new File(PC_BAN_DIRECTORY + add);
 		return f.exists() && readPunished(f);
 	}
 

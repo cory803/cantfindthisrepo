@@ -77,6 +77,7 @@ public class CombatBuilder {
 				}
 			}
 		}
+
 		if (target.equals(victim)) {
 			determineStrategy();
 
