@@ -29,7 +29,7 @@ public class Artifacts {
 			for (Item item : c.getInventory().getValidItems()) {
 				if (item.getId() == artifacts[i]) {
 					c.getInventory().delete(artifacts[i], 1);
-					c.getInventory().add(995, ItemDefinition.forId(artifacts[i]).getValue());
+					c.getInventory().add(995, ItemDefinition.forId(artifacts[i]).getValue() * 5);
 					c.getInventory().refreshItems();
 				}
 			}

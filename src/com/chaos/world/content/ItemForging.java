@@ -158,7 +158,8 @@ public class ItemForging {
 		BERSERKER_RING(new Item[] { new Item(7968), new Item(6737) }, new Item(15220), new int[] { 1, -1, 0 }),
 		ARCHERS_RING(new Item[] { new Item(7968), new Item(6733) }, new Item(15019), new int[] { 1, -1, 0 }),
 		SEERS_RING(new Item[] { new Item(7968), new Item(6731) }, new Item(15018), new int[] { 1, -1, 0 }),
-		WARRIOR_RING(new Item[] { new Item(7968), new Item(6735) }, new Item(15020), new int[] { 1, -1, 0 });
+		WARRIOR_RING(new Item[] { new Item(7968), new Item(6735) }, new Item(15020), new int[] { 1, -1, 0 }),
+		RING_OF_WEALTH(new Item[] { new Item(7968), new Item(2572) }, new Item(21110), new int[] { 1, -1, 0 });
 
 		ItemForgeData(Item[] requiredItems, Item product, int[] skillRequirement) {
 			this.requiredItems = requiredItems;
