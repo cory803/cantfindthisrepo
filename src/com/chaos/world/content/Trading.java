@@ -190,9 +190,9 @@ public class Trading {
 		Item itemToTrade = player.getInventory().getItems()[slot];
 		if (itemToTrade.getId() != itemId)
 			return;
-		if (player.getInventory().forSlot(slot).getAmount() < amount) {
-			amount = player.getInventory().forSlot(slot).getAmount();
-			if (amount == 0 || player.getInventory().forSlot(slot).getAmount() < amount) {
+		if (player.getInventory().getAmount(itemId) < amount) {
+			amount = player.getInventory().getAmount(itemId);
+			if (amount == 0 || player.getInventory().getAmount(itemId) < amount) {
 				return;
 			}
 		}
