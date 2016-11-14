@@ -318,7 +318,7 @@ public class HitQueue {
 				NPC npc = (NPC) attacker;
 				Player p = (Player) victim;
 				if (npc.switchesVictim() && Misc.getRandom(6) <= 1) {
-					if (npc.getDefinition().isAggressive()) {
+					if (npc.getDefinition().isAggressive() || npc.isDungeoneeringNpc()) {
 						npc.setFindNewTarget(true);
 					} else {
 						if (p.getLocalPlayers().size() >= 1) {
