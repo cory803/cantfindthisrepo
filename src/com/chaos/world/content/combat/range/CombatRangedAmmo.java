@@ -331,87 +331,95 @@ public class CombatRangedAmmo {
 
 	public enum AmmunitionData {
 
-		BRONZE_ARROW(new int[] { 882 }, 19, 10, 3, 44, 7, 43, 31), IRON_ARROW(new int[] { 884 }, 18, 9, 3, 44, 10, 43,
-				31), STEEL_ARROW(new int[] { 886 }, 20, 11, 3, 44, 16, 43, 31), MITHRIL_ARROW(new int[] { 888 }, 21, 12,
-						3, 44, 22, 43, 31), ADAMANT_ARROW(new int[] { 890 }, 22, 13, 3, 44, 31, 43, 31), RUNE_ARROW(
-								new int[] { 892 }, 24, 15, 3, 44, 50, 43, 31), ICE_ARROW(new int[] { 78 }, 25, 16, 3,
-										44, 58, 34, 31), BROAD_ARROW(new int[] { 4160 }, 20, 11, 3, 44, 58, 43,
-												31), DRAGON_ARROW(new int[] { 11212 }, 1111, 1120, 3, 44, 65, 43, 31),
+		/**
+		 * Arrows
+		 */
+		BRONZE_ARROW(new int[] { 882 }, 19, 10, 3, 44, 7, 43, 31),
+		IRON_ARROW(new int[] { 884 }, 18, 9, 3, 44, 10, 43, 31),
+		STEEL_ARROW(new int[] { 886 }, 20, 11, 3, 44, 16, 43, 31),
+		MITHRIL_ARROW(new int[] { 888 }, 21, 12, 3, 44, 22, 43, 31),
+		ADAMANT_ARROW(new int[] { 890 }, 22, 13, 3, 44, 31, 43, 31),
+		RUNE_ARROW(new int[] { 892 }, 24, 15, 3, 44, 50, 43, 31),
+		ICE_ARROW(new int[] { 78 }, 25, 16, 3, 44, 58, 34, 31),
+		BROAD_ARROW(new int[] { 4160 }, 20, 11, 3, 44, 58, 43, 31),
+		DRAGON_ARROW(new int[] { 11212 }, 1111, 1120, 3, 44, 65, 43, 31),
 
-		BRONZE_BOLT(new int[] { 877 }, -1, 27, 3, 44, 13, 43, 31), OPAL_BOLT(new int[] { 879, 9236 }, -1, 27, 3, 44, 20,
-				43, 31), IRON_BOLT(new int[] { 9140 }, -1, 27, 3, 44, 28, 43, 31), JADE_BOLT(new int[] { 9335, 9237 },
-						-1, 27, 3, 44, 31, 43,
-						31), STEEL_BOLT(new int[] { 9141 }, -1, 27, 3, 44, 35, 43, 31), PEARL_BOLT(
-								new int[] { 880, 9238 }, -1, 27, 3, 44, 38, 43,
-								31), MITHRIL_BOLT(new int[] { 9142 }, -1, 27, 3, 44, 40, 43, 31), TOPAZ_BOLT(
-										new int[] { 9336, 9239 }, -1, 27, 3, 44, 50, 43,
-										31), ADAMANT_BOLT(new int[] { 9143 }, -1, 27, 3, 44, 60, 43, 31), SAPPHIRE_BOLT(
-												new int[] { 9337, 9240 }, -1, 27, 3, 44, 65, 43,
-												31), EMERALD_BOLT(new int[] { 9338, 9241 }, -1, 27, 3, 44, 70, 43,
-														31), RUBY_BOLT(new int[] { 9339, 9242 }, -1, 27, 3, 44, 75, 43,
-																31), RUNITE_BOLT(new int[] { 9144 }, -1, 27, 3, 44, 84,
-																		43, 31), BROAD_BOLT(new int[] { 13280 }, -1, 27,
-																				3, 44, 88, 43, 31), DIAMOND_BOLT(
-																						new int[] { 9340, 9243 }, -1,
-																						27, 3, 44, 88, 43,
-																						31), ONYX_BOLT(
-																								new int[] { 9342,
-																										9245 },
-																								-1, 27, 3, 44, 90, 43,
-																								31), DRAGON_BOLT(
-																										new int[] {
-																												9341,
-																												9244 },
-																										-1, 27, 3, 44,
-																										90, 43,
-																										31), ROYAL_BOLT(
-																												new int[] {
-																														11625 },
-																												-1, 27,
-																												3, 44,
-																												100, 43,
-																												31),
+		/**
+		 * Bolts
+		 */
+		BRONZE_BOLT(new int[] { 877 }, -1, 27, 34, 35, 13, 43, 31),
+		OPAL_BOLT(new int[] { 879, 9236 }, -1, 27, 34, 35, 20, 43, 31),
+		IRON_BOLT(new int[] { 9140 }, -1, 27, 34, 35, 28, 43, 31),
+		JADE_BOLT(new int[] { 9335, 9237 }, -1, 27, 34, 35, 31, 43, 31),
+		STEEL_BOLT(new int[] { 9141 }, -1, 27, 34, 35, 38, 43, 31),
+		PEARL_BOLT(new int[] { 880, 9238 }, -1, 27, 34, 35, 38, 43, 31),
+		MITHRIL_BOLT(new int[] { 9142 }, -1, 27, 34, 35, 40, 43, 31),
+		TOPAZ_BOLT(new int[] { 9336, 9239 }, -1, 27, 34, 35, 50, 43, 31),
+		ADAMANT_BOLT(new int[] { 9143 }, -1, 27, 34, 35, 60, 43, 31),
+		SAPPHIRE_BOLT(new int[] { 9337, 9240 }, -1, 27, 34, 35, 65, 43, 31),
+		EMERALD_BOLT(new int[] { 9338, 9241 }, -1, 27, 34, 35, 70, 43, 31),
+		RUBY_BOLT(new int[] { 9339, 9242 }, -1, 27, 34, 35, 75, 43, 31),
+		RUNITE_BOLT(new int[] { 9144 }, -1, 27, 34, 35, 84,43, 31),
+		BROAD_BOLT(new int[] { 13280 }, -1, 27, 34, 35, 88, 43, 31),
+		DIAMOND_BOLT(new int[] { 9340, 9243 }, -1, 27, 34, 35, 88, 43,31),
+		ONYX_BOLT(new int[] { 9342, 9245 }, -1, 27, 34, 35, 90, 43, 31),
+		DRAGON_BOLT(new int[] {9341, 9244 },-1, 27, 34, 35, 90, 43, 31),
+		ROYAL_BOLT(new int[] {11625 }, -1, 27, 34, 35, 100, 43, 31),
 
-		BRONZE_DART(new int[] { 806 }, 1234, 226, 3, 33, 2, 45, 37), IRON_DART(new int[] { 807 }, 1235, 227, 3, 33, 5,
-				45, 37), STEEL_DART(new int[] { 808 }, 1236, 228, 3, 33, 8, 45, 37), MITHRIL_DART(new int[] { 809 },
-						1238, 229, 3, 33, 10, 45,
-						37), ADAMANT_DART(new int[] { 810 }, 1239, 230, 3, 33, 15, 45, 37), RUNE_DART(new int[] { 811 },
-								1240, 231, 3, 33, 20, 45, 37), DRAGON_DART(new int[] { 11230 }, 1123, 226, 3, 33, 25,
-										45, 37), BLOWPIPE_DART(new int[] { 11230 }, -1, 226, 6, 33, 25, 45,
-												37),
+		/**
+		 * Darts
+		 */
+		BRONZE_DART(new int[] { 806 }, 1234, 226, 3, 33, 2, 45, 37),
+		IRON_DART(new int[] { 807 }, 1235, 227, 3, 33, 5, 45, 37),
+		STEEL_DART(new int[] { 808 }, 1236, 228, 3, 33, 8, 45, 37),
+		MITHRIL_DART(new int[] { 809 }, 1238, 229, 3, 33, 10, 45, 37),
+		ADAMANT_DART(new int[] { 810 }, 1239, 230, 3, 33, 15, 45, 37),
+		RUNE_DART(new int[] { 811 }, 1240, 231, 3, 33, 20, 45, 37),
+		DRAGON_DART(new int[] { 11230 }, 1123, 226, 3, 33, 25, 45, 37),
+		BLOWPIPE_DART(new int[] { 11230 }, -1, 226, 6, 33, 25, 45, 37),
 
-		BRONZE_KNIFE(new int[] { 864, 870, 5654 }, 219, 212, 3, 33, 8, 45, 37), IRON_KNIFE(new int[] { 863, 871, 5655 },
-				220, 213, 3, 33, 12, 45,
-				37), STEEL_KNIFE(new int[] { 865, 872, 5656 }, 221, 214, 3, 33, 15, 45, 37), BLACK_KNIFE(
-						new int[] { 869, 874, 5658 }, 222, 215, 3, 33, 17, 45,
-						37), MITHRIL_KNIFE(new int[] { 866, 873, 5657 }, 223, 215, 3, 33, 19, 45, 37), ADAMANT_KNIFE(
-								new int[] { 867, 875, 5659 }, 224, 217, 3, 33, 24, 45,
-								37), RUNE_KNIFE(new int[] { 868, 876, 5660, 5667 }, 225, 218, 3, 33, 30, 45, 37),
+		/**
+		 * Knifes
+		 */
+		BRONZE_KNIFE(new int[] { 864, 870, 5654 }, 219, 212, 3, 33, 8, 45, 37),
+		IRON_KNIFE(new int[] { 863, 871, 5655 }, 220, 213, 3, 33, 12, 45, 37),
+		STEEL_KNIFE(new int[] { 865, 872, 5656 }, 221, 214, 3, 33, 15, 45, 37),
+		BLACK_KNIFE(new int[] { 869, 874, 5658 }, 222, 215, 3, 33, 17, 45, 37),
+		MITHRIL_KNIFE(new int[] { 866, 873, 5657 }, 223, 215, 3, 33, 19, 45, 37),
+		ADAMANT_KNIFE(new int[] { 867, 875, 5659 }, 224, 217, 3, 33, 24, 45, 37),
+		RUNE_KNIFE(new int[] { 868, 876, 5660, 5667 }, 225, 218, 3, 33, 30, 45, 37),
 
-		BRONZE_THROWNAXE(new int[] { 800 }, 43, 36, 3, 44, 7, 43, 31), IRON_THROWNAXE(new int[] { 801 }, 42, 35, 3, 44,
-				9, 43, 31), STEEL_THROWNAXE(new int[] { 802 }, 44, 37, 3, 44, 11, 43, 31), MITHRIL_THROWNAXE(
-						new int[] { 803 }, 45, 38, 3, 44, 13, 43,
-						31), ADAMANT_THROWNAXE(new int[] { 804 }, 46, 39, 3, 44, 15, 43, 31), RUNE_THROWNAXE(
-								new int[] { 805 }, 48, 41, 3, 44, 17, 43,
-								31), MORRIGANS_THROWNAXE(new int[] { 13883, 13957 }, 1856, -1, 3, 44, 100, 43, 31),
+		/**
+		 * Thrown axes
+		 */
+		BRONZE_THROWNAXE(new int[] { 800 }, 43, 36, 3, 44, 7, 43, 31),
+		IRON_THROWNAXE(new int[] { 801 }, 42, 35, 3, 44, 9, 43, 31),
+		STEEL_THROWNAXE(new int[] { 802 }, 44, 37, 3, 44, 11, 43, 31),
+		MITHRIL_THROWNAXE(new int[] { 803 }, 45, 38, 3, 44, 13, 43, 31),
+		ADAMANT_THROWNAXE(new int[] { 804 }, 46, 39, 3, 44, 15, 43, 31),
+		RUNE_THROWNAXE(new int[] { 805 }, 48, 41, 3, 44, 17, 43, 31),
+		MORRIGANS_THROWNAXE(new int[] { 13883, 13957 }, 1856, -1, 3, 44, 100, 43, 31),
 
-		BRONZE_JAVELIN(new int[] { 825 }, 206, 200, 2, 40, 7, 45, 37), IRON_JAVELIN(new int[] { 826 }, 207, 201, 2, 40,
-				9, 45, 37), STEEL_JAVELIN(new int[] { 827 }, 208, 202, 2, 40, 11, 45, 37), MITHRIL_JAVELIN(
-						new int[] { 828 }, 209, 203, 2, 40, 13, 45,
-						37), ADAMANT_JAVELIN(new int[] { 829 }, 210, 204, 2, 40, 15, 45, 37), RUNE_JAVELIN(
-								new int[] { 830 }, 211, 205, 2, 40, 17, 45,
-								37),
+		/**
+		 * Javelins
+		 */
+		BRONZE_JAVELIN(new int[] { 825 }, 206, 200, 2, 40, 7, 45, 37),
+		IRON_JAVELIN(new int[] { 826 }, 207, 201, 2, 40, 9, 45, 37),
+		STEEL_JAVELIN(new int[] { 827 }, 208, 202, 2, 40, 11, 45, 37),
+		MITHRIL_JAVELIN(new int[] { 828 }, 209, 203, 2, 40, 13, 45, 37),
+		ADAMANT_JAVELIN(new int[] { 829 }, 210, 204, 2, 40, 15, 45, 37),
+		RUNE_JAVELIN(new int[] { 830 }, 211, 205, 2, 40, 17, 45, 37),
 		DRAGON_JAVELIN(new int[] { 21146 }, -1, 1301, 34, 35, 275, 43, 31),
-		//24, 15, 3, 44, 50, 43, 31
 		MORRIGANS_JAVELIN(new int[] { 13879, 13953 }, 1855, -1, 2, 40, 100, 45, 37),
 
+		/**
+		 * Misc.
+		 */
 		TOKTZ_XIL_UL(new int[] { 6522 }, -1, 442, 2, 40, 58, 45, 37),
-
-		CHINCHOMPA(new int[] { 10033 }, -1, -1, 17, 8, 50, 45, 37), RED_CHINCHOMPA(new int[] { 10034 }, -1, -1, 17, 8,
-				80, 45, 37),
-
-		HAND_CANNON_SHOT(new int[] { 15243 }, 2138, 2143, 3, 8, 115, 43, 31), BOLT_RACK(new int[] { 4740 }, -1, 27, 3,
-				33, 70, 43, 31);
+		CHINCHOMPA(new int[] { 10033 }, -1, -1, 17, 8, 50, 45, 37),
+		RED_CHINCHOMPA(new int[] { 10034 }, -1, -1, 17, 8,80, 45, 37),
+		HAND_CANNON_SHOT(new int[] { 15243 }, 2138, 2143, 3, 8, 115, 43, 31),
+		BOLT_RACK(new int[] { 4740 }, -1, 27, 3,33, 70, 43, 31);
 
 		AmmunitionData(int[] itemIds, int startGfxId, int projectileId, int projectileSpeed, int projectileDelay,
 				int strength, int startHeight, int endHeight) {

@@ -72,7 +72,7 @@ public class CombatContainer {
 		this.hits = prepareHits(hitAmount);
 		this.experience = getSkills(hitType);
 		this.hitDelay = hitType == CombatType.MELEE ? 0
-				: hitType == CombatType.RANGED ? 2
+				: hitType == CombatType.RANGED ? 1
 						: hitType == CombatType.MAGIC || hitType == CombatType.DRAGON_FIRE ? 3 : 1;
 		attacker.setLastCombatType(hitType);
 	}
