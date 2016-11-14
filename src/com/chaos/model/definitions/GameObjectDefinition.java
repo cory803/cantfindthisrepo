@@ -273,13 +273,7 @@ public final class GameObjectDefinition {
 		}
 		cacheIndex = (cacheIndex + 1) % 20;
 		GameObjectDefinition object = cache[cacheIndex];
-		/* Removing objects etc */
-		for (int ids = 0; ids < removeObjects.length; ids++) {
-			if (id == removeObjects[ids]) {
-				object.unwalkable = false;
-				return object;
-			}
-		}
+
 		dataBuffer667.position(streamIndices667[id]);
 		object.id = id;
 		object.nullLoader();
@@ -287,6 +281,16 @@ public final class GameObjectDefinition {
 			object.readValues667(dataBuffer667);
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+		/* Removing objects etc */
+		for (int ids = 0; ids < removeObjects.length; ids++) {
+			if (id == removeObjects[ids]) {
+				object.unwalkable = false;
+				return object;
+			}
+		}
+		if(id == 41687) {
+			object.unwalkable = false;
 		}
 		return object;
 	}
