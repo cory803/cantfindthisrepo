@@ -203,7 +203,7 @@ public class CombatContainer {
 		if(attacker.isPlayer()) {
 			Player player = (Player) attacker;
 			if (player.getCombatSpecial() == CombatSpecial.KORASIS_SWORD) {
-				if(damage == 0) {
+				if(damage <= 150) {
 					damage = Misc.inclusiveRandom(150, 250);
 				}
 			}
