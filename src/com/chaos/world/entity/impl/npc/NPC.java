@@ -744,7 +744,7 @@ public class NPC extends Character {
         }
         int distance = this.distance(a);
         if (!isSummoningNpc()) {
-            if (determineStrategy().getCombatType() != CombatType.MELEE && determineStrategy().getCombatType() != CombatType.MIXED) {
+            if (determineStrategy().getCombatType() != CombatType.MELEE) {
                 if (distance <= (determineStrategy().getCombatType() == CombatType.RANGED ? 8 : 10) && (Region.canMagicAttack(this, a))) {
                     return;
                 }
