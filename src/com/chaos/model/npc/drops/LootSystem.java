@@ -117,6 +117,13 @@ public class LootSystem {
         }
     }
 
+    public static void casketDrop(Player player, int combat, Position pos) {
+        int chance = (int) (1 + combat);
+        if (Misc.getRandom(combat <= 50 ? 1300 : 1000) < chance) {
+            GroundItemManager.spawnGroundItem(player,
+                    new GroundItem(new Item(7956), pos, player.getUsername(), false, 150, true, 200));
+        }
+    }
     /**
      * Processes our drop method for the player given the killed npc.
      * @param p {@link Player} The player that killed the {@link NPC}
@@ -150,6 +157,7 @@ public class LootSystem {
             if (p.getLocation() == Locations.Location.WILDERNESS) {
                 wildKeys(p, n.getDefinition().getCombatLevel(), n.getPosition().copy());
             }
+            casketDrop(p, n.getDefinition().getCombatLevel(), n.getPosition());
         }
 
         /**
