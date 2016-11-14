@@ -282,8 +282,32 @@ public class HitQueue {
 										if(((NPC) victim).getDefinition().getName().toLowerCase().contains("impling")) {
 											retal = false;
 										}
+										if(((NPC) victim).getId() == 6142) {
+											retal = false;
+										}
+										if(((NPC) victim).getId() == 6143) {
+											retal = false;
+										}
+										if(((NPC) victim).getId() == 6144) {
+											retal = false;
+										}
+										if(((NPC) victim).getId() == 6145) {
+											retal = false;
+										}
 									} else if(attacker.isNpc()) {
 										if(((NPC) attacker).getDefinition().getName().toLowerCase().contains("impling")) {
+											retal = false;
+										}
+										if(((NPC) attacker).getId() == 6142) {
+											retal = false;
+										}
+										if(((NPC) attacker).getId() == 6143) {
+											retal = false;
+										}
+										if(((NPC) attacker).getId() == 6144) {
+											retal = false;
+										}
+										if(((NPC) attacker).getId() == 6145) {
 											retal = false;
 										}
 									}
@@ -301,8 +325,14 @@ public class HitQueue {
 								if(((NPC) victim).getDefinition().getName().toLowerCase().contains("impling")) {
 									retal = false;
 								}
+								if(((NPC) victim).getDefinition().getName().toLowerCase().contains("portal")) {
+									retal = false;
+								}
 							} else if(attacker.isNpc()) {
 								if(((NPC) attacker).getDefinition().getName().toLowerCase().contains("impling")) {
+									retal = false;
+								}
+								if(((NPC) attacker).getDefinition().getName().toLowerCase().contains("portal")) {
 									retal = false;
 								}
 							}

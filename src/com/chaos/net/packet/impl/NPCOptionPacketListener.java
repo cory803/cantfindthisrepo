@@ -136,7 +136,7 @@ public class NPCOptionPacketListener implements PacketListener {
 				}
 
 				if(n.getDefinition().getName().toLowerCase().contains("impling")) {
-					if(spellId == CombatSpells.BIND.getSpell().spellId() && spellId != CombatSpells.SNARE.getSpell().spellId() && spellId != CombatSpells.ENTANGLE.getSpell().spellId()) {
+					if(spellId != CombatSpells.BIND.getSpell().spellId() && spellId != CombatSpells.SNARE.getSpell().spellId() && spellId != CombatSpells.ENTANGLE.getSpell().spellId()) {
 						return;
 					}
 				}

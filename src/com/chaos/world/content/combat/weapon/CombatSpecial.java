@@ -37,7 +37,7 @@ import com.chaos.world.entity.impl.player.Player;
  */
 public enum CombatSpecial {
 
-	DRAGON_DAGGER(new int[] { 1215, 1231, 5680, 5698 }, 25, 1.15, 1.25, CombatType.MELEE, WeaponInterface.DAGGER) {
+	DRAGON_DAGGER(new int[] { 1215, 1231, 5680, 5698 }, 25, 1.10, 1.25, CombatType.MELEE, WeaponInterface.DAGGER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1062));

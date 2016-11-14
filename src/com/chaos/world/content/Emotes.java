@@ -126,7 +126,6 @@ public class Emotes {
 				player.getWalkingQueue().setLockMovement(true);
 				player.getEmoteDelay().reset();
 				if (data != Skillcape_Data.DUNGEONEERING && data != Skillcape_Data.DUNGEONEERING_MASTER) {
-					System.out.println(""+data.animation.getId());
 					player.performAnimation(data.animation);
 					player.performGraphic(data.graphic);
 					TaskManager.submit(new Task(data.delay, player, false) {
