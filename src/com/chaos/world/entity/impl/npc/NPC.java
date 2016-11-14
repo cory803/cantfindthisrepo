@@ -129,9 +129,14 @@ public class NPC extends Character {
             if (!isDying) {
                 if (getLastCombat().elapsed((id == 13447 || id == 3200 ? 50000 : 5000))
                         && !getCombatBuilder().isAttacking() && getLocation() != Location.PEST_CONTROL_GAME) {
-                    setConstitution(constitution + (int) (defaultConstitution * 0.1));
-                    if (constitution > defaultConstitution)
-                        setConstitution(defaultConstitution);
+                   // if(constitution + (int) (defaultConstitution * 0.1) <= defaultConstitution) {
+                       // setConstitution(constitution + (int) (defaultConstitution * 0.1));
+                       // if (constitution > defaultConstitution) {
+                       //     System.out.println("Constitution - " + constitution);
+                       //     System.out.println("Constitution - " + defaultConstitution);
+                       //     setConstitution(defaultConstitution);
+                       // }
+                    //}
                 }
             }
         }
