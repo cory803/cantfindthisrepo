@@ -306,6 +306,7 @@ public class NPC extends Character {
     private Position lastWalkPosition = null;
     public Area makeArea;
     public Position walkingTo;
+    public boolean dungeoneeringNpc;
 
     /**
      * INTS
@@ -394,8 +395,16 @@ public class NPC extends Character {
         this.summoningNpc = summoningNpc;
     }
 
+    public void setDungeoneeringNpc(boolean dungeoneeringNpc) {
+        this.dungeoneeringNpc = dungeoneeringNpc;
+    }
+
     public boolean isSummoningNpc() {
         return summoningNpc;
+    }
+
+    public boolean isDungeoneeringNpc() {
+        return dungeoneeringNpc;
     }
 
     public boolean isDying() {

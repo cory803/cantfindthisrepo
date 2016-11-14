@@ -73,7 +73,7 @@ public final class NpcAggression {
 				if (player.getSkillManager().getCombatLevel() > (npc.getDefinition().getCombatLevel() * 2) && player.getLocation() != Location.WILDERNESS && !npc.getDefinition().isAggressive()) {
 					continue;
 				}
-				if(!npc.getDefinition().isAggressive()) {
+				if(!npc.getDefinition().isAggressive() && !npc.isDungeoneeringNpc()) {
 					continue;
 				}
 				if (Location.ignoreFollowDistance(npc) || gwdMob || CombatFactory.checkAttackDistance(player, npc)) {

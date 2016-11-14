@@ -30,10 +30,9 @@ public class Floor1 extends Floor {
     public Floor1(Player player) {
         this.player = player;
         this.boss = getBosses()[Misc.inclusiveRandom(getBosses().length - 1)];
-        this.boss.getDefinition().setAggressive(true);
+        this.boss.setDungeoneeringNpc(true);
         this.boss.setWalking(true);
         this.boss.walkingDistance = 2;
-        this.boss.getDefinition().setRespawnTime(-1);
     }
 
     private NPC[] minions = new NPC[] {
@@ -83,10 +82,9 @@ public class Floor1 extends Floor {
         }
         player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.ENTERED);
         for(NPC npc: getMinions()) {
-            npc.getDefinition().setAggressive(true);
             npc.setWalking(true);
             npc.walkingDistance = 2;
-            npc.getDefinition().setRespawnTime(-1);
+            npc.setDungeoneeringNpc(true);
             npc.getPosition().setZ(player.getIndex() * 4);
             World.register(npc);
         }

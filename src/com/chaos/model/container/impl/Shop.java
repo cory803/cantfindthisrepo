@@ -1133,24 +1133,24 @@ public class Shop extends ItemContainer {
 				switch (item) {
 					case 8839:
 					case 8840:
-						return new Object[]{100, "Commendations"};
+						return new Object[]{200, "Commendations"};
 					case 8842:
 					case 19711:
 					case 11663:
 					case 11664:
 					case 11665:
-						return new Object[]{75, "Commendations"};
+						return new Object[]{150, "Commendations"};
 					case 10551:
-						return new Object[]{200, "Commendations"};
+						return new Object[]{400, "Commendations"};
 					case 19780:
-						return new Object[]{1000, "Commendations"};
+						return new Object[]{2000, "Commendations"};
 					case 19785:
 					case 19786:
 					case 19787:
 					case 19788:
 					case 19789:
 					case 19790:
-						return new Object[]{150, "Commendations"};
+						return new Object[]{300, "Commendations"};
 				}
 			}
 			return null;
