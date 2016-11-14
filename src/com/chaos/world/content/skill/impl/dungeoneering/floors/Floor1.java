@@ -211,7 +211,8 @@ public class Floor1 extends Floor {
         double tokenBoost = tokens * player.getDonatorRights().getDungTokenBoost();
 
         player.getPointsHandler().setDungeoneeringTokens(tokens + (int) tokenBoost, true);
-        player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience);
+
+        player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience / 3);
 
         player.getPacketSender().sendMessage("You have received "+Misc.format(tokens + (int) tokenBoost)+" dungeoneering tokens for completing floor 1.");
 
