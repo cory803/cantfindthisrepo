@@ -32,14 +32,13 @@ public class Donovan extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             /**
-                             * Weapons & armour
+                             * Rares
                              */
                             case OPTION_1_OF_4:
                                 Shop.ShopManager.getShops().get(43).open(player);
                                 break;
-
                             /**
-                             * Rares
+                             * Weapons & armour
                              */
                             case OPTION_2_OF_4:
                                 Shop.ShopManager.getShops().get(42).open(player);
