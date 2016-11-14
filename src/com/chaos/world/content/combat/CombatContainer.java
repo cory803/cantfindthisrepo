@@ -9,6 +9,7 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.CombatIcon;
 import com.chaos.model.Hit;
 import com.chaos.model.Hitmask;
+import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.entity.impl.Character;
@@ -198,6 +199,14 @@ public class CombatContainer {
 				hit.hit.setAbsorb(absorb);
 			}
 			damage += hit.hit.getDamage();
+		}
+		if(attacker.isPlayer()) {
+			Player player = (Player) attacker;
+			if (player.getCombatSpecial() == CombatSpecial.KORASIS_SWORD) {
+				if(damage == 0) {
+					damage = Misc.inclusiveRandom(150, 250);
+				}
+			}
 		}
 		return damage;
 	}
