@@ -386,22 +386,24 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 			CombatFactory.poisonEntity(target, PoisonType.MILD);
 			break;
 		case 9242:
-			if (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION)
-					- player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) / 200 < 10) {
+			int removePlayerHitpoints = player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) / 10; //10% of the players hitpoints
+			int removeNpcHitpoints = (target.getConstitution() - damage) / 5; //20% of the npcs hitpoints
+
+			if(removeNpcHitpoints < damage) {
 				break;
 			}
-			int priceDamage = (int) (player.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) * 0.08);
-			if (priceDamage < 0) {
-				return damage;
+
+			if(Misc.inclusiveRandom(1, 3) != 2) {
+				break;
 			}
-			int dmg2 = (int) ((int) (target.getConstitution() * 0.065) > 1000 ? 650 + Misc.getRandom(50)
-					: (target.getConstitution() * 0.065));
-			if (dmg2 <= 0) {
-				return damage;
+
+			if(removeNpcHitpoints <= 0) {
+				break;
 			}
+
 			target.performGraphic(new Graphic(754));
-			player.dealDamage(target, new Hit(priceDamage, Hitmask.RED, CombatIcon.RANGED));
-			return dmg2;
+			player.dealDamage(target, new Hit(removePlayerHitpoints, Hitmask.RED, CombatIcon.RANGED));
+			return removeNpcHitpoints;
 		case 9243:
 			target.performGraphic(new Graphic(758, GraphicHeight.MIDDLE));
 			multiplier = 1.15;
