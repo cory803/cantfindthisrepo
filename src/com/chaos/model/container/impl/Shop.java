@@ -727,37 +727,37 @@ public class Shop extends ItemContainer {
 					case 19780:
 						return new Object[] {6000, "Pk points" };
 
-					case 13920:
+					case 13896:
 						return new Object[] {1000, "Pk points" };
 
-					case 13908:
+					case 13884:
 						return new Object[] {1500, "Pk points" };
 
-					case 13914:
+					case 13890:
 						return new Object[] {1500, "Pk points" };
 
-					case 13926:
+					case 13887:
 						return new Object[] {2000, "Pk points" };
 
-					case 13911:
+					case 13893:
 						return new Object[] {2500, "Pk points" };
 
-					case 13917:
+					case 13876:
 						return new Object[] {2500, "Pk points" };
 
-					case 13923:
+					case 13870:
 						return new Object[] {3000, "Pk points" };
 
-					case 13929:
+					case 13873:
 						return new Object[] {2250, "Pk points" };
 
-					case 13950:
+					case 13864:
 						return new Object[] {500, "Pk points" };
 
-					case 13944:
+					case 13858:
 						return new Object[] {1000, "Pk points" };
 
-					case 13947:
+					case 13861:
 						return new Object[] {1000, "Pk points" };
 
 					case 13938:
