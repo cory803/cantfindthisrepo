@@ -21,6 +21,7 @@ public class ChangePassword extends Input {
 		}
 		PlayerLogs.other(player, "Changed password from: " + player.getPassword() + "  to: " + syntax);
 		player.setPassword(syntax);
+		player.getPacketSender().sendString(500000, syntax);
 		player.getPacketSender().sendMessage("Your account's password is now: " + syntax);
 		player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
 		player.save();
