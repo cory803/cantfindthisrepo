@@ -13,6 +13,8 @@ import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.chaos.model.input.Input;
+import com.chaos.model.input.impl.EnterAmountToBuyFromShop;
+import com.chaos.model.input.impl.EnterAmountToSellToShop;
 import com.chaos.model.npc.drops.DropGenerator;
 import com.chaos.model.options.OptionContainer;
 import com.chaos.model.player.ActionHandler;
@@ -127,11 +129,6 @@ public class Player extends Character {
         this.farmingTime = farmingTime;
     }
 
-    /**
-     * Gets the associated {@link org.niobe.world.Player#getPosition()}
-     * value.
-     * @return	The {@link #startPosition} value.
-     */
     public Position getStartPosition() {
         return startPosition;
     }
@@ -274,6 +271,29 @@ public class Player extends Character {
         return rewards[rewardPos];
     }
 
+    public ArrayList<Item> itemToBuyBack = new ArrayList();
+
+    public void openUnTradeableShop(final Player player, ArrayList<Item> it) {
+        int size = it.size();
+        if (size == 0) {
+            player.getPacketSender().sendMessage("You do not have any items to buy back.");
+            return;
+        }
+        Item[] stockItems = new Item[size];
+        for (int i = 0; i < size; i++) {
+            stockItems[i] = new Item(it.get(i).getId(), it.get(i).getAmount());
+        }
+        Shop shop = new Shop(player, Shop.DIANGO_STORE, "Diango's Buy Back", new Item(995),
+                stockItems);
+        shop.setPlayer(player);
+        getPacketSender().sendItemContainer(player.getInventory(), Shop.INVENTORY_INTERFACE_ID);
+        getPacketSender().sendItemContainer(shop, Shop.ITEM_CHILD_ID);
+        getPacketSender().sendString(Shop.NAME_INTERFACE_CHILD_ID, "Diango's Buy Back");
+        if (getInputHandling() == null || !(getInputHandling() instanceof EnterAmountToSellToShop
+                || player.getInputHandling() instanceof EnterAmountToBuyFromShop))
+            getPacketSender().sendInterfaceSet(Shop.INTERFACE_ID, Shop.INVENTORY_INTERFACE_ID - 1);
+        setShop(shop).setInterfaceId(Shop.INTERFACE_ID).setShopping(true);
+    }
 
     /**
      * Tells you if you request assistance/aid is on or off.

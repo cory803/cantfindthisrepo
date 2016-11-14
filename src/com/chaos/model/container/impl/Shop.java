@@ -355,6 +355,13 @@ public class Shop extends ItemContainer {
 		int amountBuying = item.getAmount();
 		if (amountBuying == 0)
 			return this;
+		if (this.id == DIANGO_STORE) {
+			if (amountBuying > item.getAmount()) {
+				amountBuying = item.getAmount();
+			}
+			item.setAmount(getItems()[slot].getAmount() - amountBuying);
+			player.itemToBuyBack.remove(item.setAmount(item.getAmount() - amountBuying));
+		}
 		if (amountBuying > 5000) {
 			if (ItemDefinition.forId(item.getId()).getName().endsWith("s")) {
 				player.getPacketSender().sendMessage(
@@ -364,6 +371,11 @@ public class Shop extends ItemContainer {
 						"You can only buy 5000 " + ItemDefinition.forId(item.getId()).getName() + "s at a time.");
 			}
 			return this;
+		}
+		if (this.id == DIANGO_STORE) {
+			for (int i = 0; i < player.itemToBuyBack.size() - 1; i++) {
+				item.setAmount(item.getAmount() - amountBuying);
+			}
 		}
 		boolean customShop = getCurrency().getId() == -1;
 		boolean usePouch = false;
@@ -566,7 +578,7 @@ public class Shop extends ItemContainer {
 	@Override
 	public Shop add(Item item, boolean refresh) {
 		super.add(item, false);
-		if (id != RECIPE_FOR_DISASTER_STORE)
+		if (id != RECIPE_FOR_DISASTER_STORE || id != DIANGO_STORE)
 			publicRefresh();
 		return this;
 	}
@@ -585,6 +597,10 @@ public class Shop extends ItemContainer {
 	public Shop refreshItems() {
 		if (id == RECIPE_FOR_DISASTER_STORE) {
 			RecipeForDisaster.openRFDShop(getPlayer());
+			return this;
+		}
+		if (id == DIANGO_STORE) {
+			getPlayer().openUnTradeableShop(getPlayer(), getPlayer().itemToBuyBack);
 			return this;
 		}
 		for (Player player : World.getPlayers()) {
@@ -632,6 +648,8 @@ public class Shop extends ItemContainer {
 			return getValidItems().size() == 0;
 		} else if (id == RECIPE_FOR_DISASTER_STORE) {
 			return true;
+//		} else if (id == DIANGO_STORE) {
+//			return false;
 		}
 		if (getOriginalStock() != null) {
 			for (int shopItemIndex = 0; shopItemIndex < getOriginalStock().length; shopItemIndex++) {
@@ -645,7 +663,7 @@ public class Shop extends ItemContainer {
 	public static boolean shopBuysItem(int shopId, Item item) {
 		if (shopId == GENERAL_STORE)
 			return true;
-		if (shopId == STARDUST_EXCHANGE_STORE|| shopId == RECIPE_FOR_DISASTER_STORE
+		if (shopId == STARDUST_EXCHANGE_STORE || shopId == RECIPE_FOR_DISASTER_STORE || shopId == DIANGO_STORE
 				|| shopId == IRON_VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE2
 				|| shopId == AGILITY_TICKET_STORE || shopId == TOKKUL_EXCHANGE_STORE || shopId == ENERGY_FRAGMENT_STORE
 				|| shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE
@@ -1165,6 +1183,7 @@ public class Shop extends ItemContainer {
 	 */
 	public static final int GENERAL_STORE = 0;
 	public static final int RECIPE_FOR_DISASTER_STORE = 36;
+	public static final int DIANGO_STORE = 100;
 
 	private static final int SKILLCAPE_STORE_1 = 8;
 	private static final int SKILLCAPE_STORE_2 = 9;

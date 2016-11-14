@@ -734,6 +734,13 @@ public class PlayerLoading {
 			DropLog.submit(player, builder.fromJson(reader.get("drops").getAsJsonArray(), DropLogEntry[].class));
 		}
 
+		if (reader.has("buyBacks")) {
+			Item[] items = builder.fromJson(reader.get("buyBacks").getAsJsonArray(), Item[].class);
+			for(Item n : items) {
+				player.itemToBuyBack.add(n);
+			}
+		}
+
 		if (reader.has("coins-gambled")) {
 			player.getAchievementAttributes().setCoinsGambled(reader.get("coins-gambled").getAsInt());
 		}

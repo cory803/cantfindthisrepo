@@ -540,11 +540,14 @@ public class CommandManager {
         commands.put("object", new SpawnObject(StaffRights.OWNER));
         commands.put("door", new SpawnDoor(StaffRights.OWNER));
         commands.put("tracker", new KillsTracker(StaffRights.OWNER));
-        commands.put("test", new Command(StaffRights.MANAGER) {
+        commands.put("buyback", new Command(StaffRights.OWNER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                for(int i = 0; i < 20; i++)
-                player.getPacketSender().sendItemOnInterface(42603 + i, 14484, 0, 1);
+                player.getPacketSender().sendMessage("Items that still need to be bought back.....");
+                for (int i = 0; i < player.itemToBuyBack.size(); i++) {
+                    player.getPacketSender().sendMessage("Item[" + i + "] " + player.itemToBuyBack.get(i).getDefinition().getName() +
+                        "| Amount:" + player.itemToBuyBack.get(i).getAmount());
+                }
             }
         });
         commands.put("location", new Command(StaffRights.MANAGER) {

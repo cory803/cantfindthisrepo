@@ -377,6 +377,7 @@ public class PlayerSaving {
 		object.add("loyalty-titles", builder.toJsonTree(player.getUnlockedLoyaltyTitles()));
 		object.add("kills", builder.toJsonTree(player.getKillsTracker().toArray()));
 		object.add("drops", builder.toJsonTree(player.getDropLog().toArray()));
+        object.add("buyBacks", builder.toJsonTree(player.itemToBuyBack.toArray()));
 		object.add("achievements-completion", builder.toJsonTree(player.getAchievementAttributes().getCompletion()));
 		object.add("achievements-progress", builder.toJsonTree(player.getAchievementAttributes().getProgress()));
 		object.add("last-duel-rules", builder.toJsonTree(player.lastDuelRules));

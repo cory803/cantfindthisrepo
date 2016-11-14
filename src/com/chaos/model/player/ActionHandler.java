@@ -410,6 +410,9 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            case 970:
+                player.openUnTradeableShop(player, player.itemToBuyBack);
+                break;
             //Agility penguin
             case 5428:
                 player.getDialog().sendDialog(new AgilityPenguin(player, 5));
