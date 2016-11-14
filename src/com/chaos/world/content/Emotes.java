@@ -126,6 +126,7 @@ public class Emotes {
 				player.getWalkingQueue().setLockMovement(true);
 				player.getEmoteDelay().reset();
 				if (data != Skillcape_Data.DUNGEONEERING && data != Skillcape_Data.DUNGEONEERING_MASTER) {
+					System.out.println(""+data.animation.getId());
 					player.performAnimation(data.animation);
 					player.performGraphic(data.graphic);
 					TaskManager.submit(new Task(data.delay, player, false) {
@@ -226,7 +227,7 @@ public class Emotes {
 		FISHING(new int[] { 9798, 9799, 10657 }, 4951, 819, 19),
 		FIREMAKING(new int[] { 9804, 9805, 10659 }, 4975, 831, 14),
 		CRAFTING(new int[] { 9780, 9781, 10651 }, 4949, 818, 15),
-		SMITHING(new int[] { 9795, 9796, 10656 }, 4943, 815, 23),
+		SMITHING(new int[] { 9795, 9796, 10656 }, 4943, -1, 23),
 		MINING(new int[] { 9792, 9793, 10655 }, 4941, 814, 8),
 		HERBLORE(new int[] { 9774, 9775, 10649 }, 4969, 835, 16),
 		AGILITY(new int[] {9771, 9772, 10648 }, 4977, 830, 8),
