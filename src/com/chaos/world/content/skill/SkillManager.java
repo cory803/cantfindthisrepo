@@ -108,6 +108,8 @@ public class SkillManager {
 			boost += .2;
 		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE) {
 			boost += .3;
+		} else if (player.getLocation() == Location.EZONE_DONOR) {
+			boost += .4;
 		}
 		if (player.getEquipment().contains(4657)) {
 			boost += 1;
