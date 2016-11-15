@@ -91,6 +91,17 @@ public class UseItemPacketListener implements PacketListener {
 				return;
 			}
 		}
+		if((usedWith.getId() == 991 && itemUsedWith.getId() == 2347) || (usedWith.getId() == 2347 && itemUsedWith.getId() == 991)) {
+			if (player.getInventory().contains(991)) {
+				if (player.getInventory().getFreeSlots() > 1) {
+					player.getInventory().delete(991, 1);
+
+				} else {
+					player.getPacketSender().sendMessage("You do not have enough free slots");
+				}
+			}
+			return;
+		}
 		if((usedWith.getId() == 12004 && itemUsedWith.getId() == 4151) || (usedWith.getId() == 4151 && itemUsedWith.getId() == 12004)) {
 			player.setNpcClickId(6656);
 			player.getDialog().sendDialog(new TentacleCombination(player));

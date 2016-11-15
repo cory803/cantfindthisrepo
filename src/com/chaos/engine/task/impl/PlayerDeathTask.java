@@ -172,7 +172,28 @@ public class PlayerDeathTask extends Task {
 					if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 						if (itemsToKeep != null) {
 							for (Item it : itemsToKeep) {
-								player.getInventory().add(it.getId(), 1);
+								System.out.println("ID: " + it.getId() + " || Amount: " + it.getAmount());
+								if (it != null) {
+									if (it.getAmount() == 0) {
+										it.setAmount(1);
+									}
+								}
+								System.out.println("2=====   ID: " + it.getId() + " || Amount: " + it.getAmount());
+ 								if (player.itemToBuyBack.contains(it)) {
+									for (int i = 0; i < player.itemToBuyBack.size(); i++) {
+										if (player.itemToBuyBack.get(i).getId() == it.getId()) {
+											System.out.println("ItemsToKeep: " + itemsToKeep.get(i).toString() + " amount: " + it.getAmount());
+											System.out.println("itemToBuyBack: " + player.itemToBuyBack.get(i).toString() + " amount: " + it.getAmount());
+											player.itemToBuyBack.get(i).setAmount(player.itemToBuyBack.get(i).getAmount() + it.getAmount());
+										}
+									}
+								} else {
+									for (int i = 0; i < player.itemToBuyBack.size(); i++) {
+										System.out.println("NEW: itemToBuyBack: " + player.itemToBuyBack.get(i).toString() + " amount: " + it.getAmount());
+									}
+									player.itemToBuyBack.add(it);
+								}
+//								player.getInventory().add(it.getId(), 1);
 							}
 							itemsToKeep.clear();
 						}
