@@ -217,7 +217,7 @@ public class Item {
 			return false;
 		if (name.toLowerCase().contains("brawling") || name.toLowerCase().contains("(deg)"))
 			return false;
-		if (name.toLowerCase().contains("chaotic") || name.toLowerCase().contains("eagle-eye")
+		if (name.toLowerCase().contains("eagle-eye")
 				|| name.toLowerCase().contains("farseer ki"))
 			return false;
 		for (int i : GameSettings.UNTRADEABLE_ITEMS) {
@@ -246,7 +246,7 @@ public class Item {
 			return false;
 		if (name.toLowerCase().contains("brawling") || name.toLowerCase().contains("(deg)"))
 			return false;
-		if (name.toLowerCase().contains("chaotic") || name.toLowerCase().contains("eagle-eye")
+		if (name.toLowerCase().contains("eagle-eye")
 				|| name.toLowerCase().contains("farseer ki"))
 			return false;
 		for (int i : GameSettings.UNTRADEABLE_ITEMS) {
