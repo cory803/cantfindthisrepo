@@ -159,7 +159,7 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 
 	@Override
 	public int attackDistance(Character entity) {
-		int distance = 6;
+		int distance = 8;
 		if (entity.isNpc()) {
 			switch (((NPC) entity).getId()) {
 			case 2896:

@@ -88,7 +88,7 @@ public class CombatBuilder {
 		}
 
 		if (character.isPlayer()) {
-			((Player) character).getActionQueue().addAction(new CombatFollowMobileAction(((Player) character), target));
+			//((Player) character).getActionQueue().addAction(new CombatFollowMobileAction(((Player) character), target));
 		}
 		if (character.getInteractingEntity() != target)
 			character.setEntityInteraction(target);
