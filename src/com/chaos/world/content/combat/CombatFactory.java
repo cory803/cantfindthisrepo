@@ -19,6 +19,7 @@ import com.chaos.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.chaos.world.content.combat.effect.EquipmentBonus;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
+import com.chaos.world.content.combat.range.CombatRangedAmmo;
 import com.chaos.world.content.combat.range.CombatRangedAmmo.RangedWeaponData;
 import com.chaos.world.content.combat.strategy.impl.Nex;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
@@ -1100,7 +1101,7 @@ public final class CombatFactory {
     public static int getDistanceRequired(Character player, Character attacking) {
         int dist = getNewDistance(player);
         int movingAtt = 0;
-        if(attacking.moving && player.isFrozen()) {//Not sure why freeze timer would need to be in this method...
+        if(attacking.moving) {//Not sure why freeze timer would need to be in this method...
             if(player.moving && player.getWalkingQueue().isRunning()) {
                 movingAtt += player.getWalkingQueue().isRunning() ? 2 : 1;
             }
@@ -1116,16 +1117,25 @@ public final class CombatFactory {
             }
             if (character.determineStrategy().getCombatType().equals(CombatType.MAGIC)
                     || character.determineStrategy().getCombatType().equals(CombatType.RANGED) || character.determineStrategy().getCombatType().equals(CombatType.MIXED)) {
-                return 10;
+                return 8;
             }
             return 2;
         } else if (character.isPlayer()) {
             Player player = ((Player) character);
             if (player.determineStrategy().getCombatType().equals(CombatType.MAGIC) || player.isAutocast()) {
-                return 10;
+                return 8;
             }
             if (player.determineStrategy().getCombatType().equals(CombatType.RANGED)) {
-                return player.getFightType().name().toLowerCase().contains("longrange") ? 10 : 8;
+                int distance = 0;
+                if(player.getFightType().name().toLowerCase().contains("longrange")) {
+                    if(player.getRangedWeaponData().getType() == CombatRangedAmmo.RangedWeaponType.LONGBOW || player.getRangedWeaponData().getType() == CombatRangedAmmo.RangedWeaponType.DARK_BOW) {
+                        distance += 1;
+                    } else {
+                        distance += 2;
+                    }
+                }
+                distance += player.getRangedWeaponData().getType().getDistanceRequired();
+                return distance;
             }
             Item item = new Item(player.getEquipment().getSlot(Equipment.WEAPON_SLOT));
             return item.getDefinition().getName().contains("halberd") ? 2 : 1;

@@ -69,6 +69,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 
 	@Override
 	public CombatContainer attack(Character entity, Character victim) {
+
 		if (entity.isNpc()) {
 			NPC npc = (NPC) entity;
 			AmmunitionData ammo = AmmunitionData.ADAMANT_ARROW;
@@ -106,6 +107,11 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		}
 
 		Player player = (Player) entity;
+		if(player.getActionQueue().getCurrentAction() != null) {
+			player.getActionQueue().getCurrentAction().stop();
+		}
+		player.getWalkingQueue().clear();
+
 		final boolean dBow = CombatFactory.darkBow(player);
 
 		player.setFireAmmo(0);

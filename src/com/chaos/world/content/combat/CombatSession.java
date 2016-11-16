@@ -61,8 +61,19 @@ public class CombatSession {
 		// Decrement the attack timer.
 		builder.attackTimer--;
 
+		boolean skipTimer = false;
+
 		// The attack timer is below 1, we can attack.
-		if (builder.attackTimer < 1) {
+		if(builder.getCombatType() != null) {
+			if(builder.getCombatType() == CombatType.MELEE) {
+				if(builder.getCharacter().getLastCombatType() != null) {
+					if(builder.getCharacter().getLastCombatType() == CombatType.MAGIC) {
+						skipTimer = true;
+					}
+				}
+			}
+		}
+		if (builder.attackTimer < 1 || skipTimer) {
 			// Check if the attacker is close enough to attack.
 
 			if (!CombatFactory.checkAttackDistance(builder)) {
@@ -73,7 +84,7 @@ public class CombatSession {
 					}
 				}
 				if (builder.getCharacter().isPlayer()) {
-					((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
+					//((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
 				}
 				return;
 			}
@@ -201,7 +212,6 @@ public class CombatSession {
 											// next attack
 			}
 
-			// Reset the attacking entity.
 			builder.attackTimer = builder.getStrategy() != null
 					? builder.getStrategy().attackDelay(builder.getCharacter())
 					: builder.getCharacter().getAttackSpeed();
