@@ -346,8 +346,8 @@ public class Shop extends ItemContainer {
 		}
 		if (!shopSellsItem(item))
 			return this;
-		if (getItems()[slot].getAmount() <= 1 && id != GENERAL_STORE) {
-			player.getPacketSender().sendMessage("The shop has run out of stock for this item.");
+		if (getItems()[slot].getAmount() <= 1 && id != GENERAL_STORE && id != DIANGO_STORE) {
+			player.getPacketSender().sendMessage("The shop has  of stock for this item.");
 			return this;
 		}
 		if (item.getAmount() > getItems()[slot].getAmount())
@@ -355,13 +355,6 @@ public class Shop extends ItemContainer {
 		int amountBuying = item.getAmount();
 		if (amountBuying == 0)
 			return this;
-		if (this.id == DIANGO_STORE) {
-			if (amountBuying > item.getAmount()) {
-				amountBuying = item.getAmount();
-			}
-			item.setAmount(getItems()[slot].getAmount() - amountBuying);
-			player.itemToBuyBack.remove(item.setAmount(item.getAmount() - amountBuying));
-		}
 		if (amountBuying > 5000) {
 			if (ItemDefinition.forId(item.getId()).getName().endsWith("s")) {
 				player.getPacketSender().sendMessage(
@@ -371,11 +364,6 @@ public class Shop extends ItemContainer {
 						"You can only buy 5000 " + ItemDefinition.forId(item.getId()).getName() + "s at a time.");
 			}
 			return this;
-		}
-		if (this.id == DIANGO_STORE) {
-			for (int i = 0; i < player.itemToBuyBack.size() - 1; i++) {
-				item.setAmount(item.getAmount() - amountBuying);
-			}
 		}
 		boolean customShop = getCurrency().getId() == -1;
 		boolean usePouch = false;
@@ -453,13 +441,12 @@ public class Shop extends ItemContainer {
 			if (!shopSellsItem(item)) {
 				break;
 			}
-			if (getItems()[slot].getAmount() <= 1 && id != GENERAL_STORE) {
+			if (getItems()[slot].getAmount() <= 1 && id != GENERAL_STORE & id != DIANGO_STORE) {
 				player.getPacketSender().sendMessage("The shop has run out of stock for this item.");
 				break;
 			}
 			if (!item.getDefinition().isStackable()) {
 				if (playerCurrencyAmount >= value && hasInventorySpace(player, item, getCurrency().getId(), value)) {
-
 					if (!customShop) {
 						if (usePouch) {
 							player.setMoneyInPouch((player.getMoneyInPouch() - value));
@@ -479,6 +466,21 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setDungeoneeringTokens(-value, true);
 						} else if (id == PEST_CONTROL_STORE) {
 							player.getPointsHandler().setCommendations(-value, true);
+						}
+					}
+					if(id == DIANGO_STORE) {
+						//REMOVE FROM SHOP
+						for (int j = 0; j < player.itemToBuyBack.size() - 1; j++) {
+							//Is the item in the arraylist = to the item being bought?
+							if (player.itemToBuyBack.get(i).getId() == item.getId()) {
+								System.out.println(player.itemToBuyBack.get(i).getId() + " x" + player.itemToBuyBack.get(i).getAmount());
+								System.out.println(item.toString() + " x" + item.getAmount());
+								player.itemToBuyBack.get(i).setAmount(player.itemToBuyBack.get(i).getAmount() - item.getAmount());
+								if (player.itemToBuyBack.get(i).getAmount() < 1) {
+									player.itemToBuyBack.remove(i);
+								}
+								player.openUnTradeableShop(player, player.itemToBuyBack);
+							}
 						}
 					}
 
@@ -519,7 +521,7 @@ public class Shop extends ItemContainer {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
 						}
 					}
-					if (getItems()[slot].getAmount() - canBeBought <= 0 && id != GENERAL_STORE) {
+					if (getItems()[slot].getAmount() - canBeBought <= 0 && id != GENERAL_STORE & id != DIANGO_STORE) {
 						canBeBought -= 1;
 						player.getInventory().add(item.getId(), 1);
 						player.getPacketSender().sendMessage("The shop has run out of stock for this item.");
@@ -578,7 +580,7 @@ public class Shop extends ItemContainer {
 	@Override
 	public Shop add(Item item, boolean refresh) {
 		super.add(item, false);
-		if (id != RECIPE_FOR_DISASTER_STORE || id != DIANGO_STORE)
+		if (id != RECIPE_FOR_DISASTER_STORE)
 			publicRefresh();
 		return this;
 	}
@@ -649,7 +651,7 @@ public class Shop extends ItemContainer {
 		} else if (id == RECIPE_FOR_DISASTER_STORE) {
 			return true;
 //		} else if (id == DIANGO_STORE) {
-//			return false;
+//			return true;
 		}
 		if (getOriginalStock() != null) {
 			for (int shopItemIndex = 0; shopItemIndex < getOriginalStock().length; shopItemIndex++) {

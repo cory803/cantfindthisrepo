@@ -169,30 +169,30 @@ public class PlayerDeathTask extends Task {
 				break;
 			case 0:
 				if (dropItems) {
+					boolean found = false;
 					if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
 						if (itemsToKeep != null) {
 							for (Item it : itemsToKeep) {
-								System.out.println("ID: " + it.getId() + " || Amount: " + it.getAmount());
 								if (it != null) {
+									found = false;
 									if (it.getAmount() == 0) {
 										it.setAmount(1);
 									}
 								}
-								System.out.println("2=====   ID: " + it.getId() + " || Amount: " + it.getAmount());
- 								if (player.itemToBuyBack.contains(it)) {
 									for (int i = 0; i < player.itemToBuyBack.size(); i++) {
 										if (player.itemToBuyBack.get(i).getId() == it.getId()) {
+											found = true;
+											System.out.println("FOUND");
 											System.out.println("ItemsToKeep: " + itemsToKeep.get(i).toString() + " amount: " + it.getAmount());
 											System.out.println("itemToBuyBack: " + player.itemToBuyBack.get(i).toString() + " amount: " + it.getAmount());
 											player.itemToBuyBack.get(i).setAmount(player.itemToBuyBack.get(i).getAmount() + it.getAmount());
+											System.out.println("NEW! itemToBuyBack: " + player.itemToBuyBack.get(i).toString() + " amount: " + it.getAmount());
 										}
 									}
-								} else {
-									for (int i = 0; i < player.itemToBuyBack.size(); i++) {
-										System.out.println("NEW: itemToBuyBack: " + player.itemToBuyBack.get(i).toString() + " amount: " + it.getAmount());
+									if (!found) {
+										System.out.println("NOT FOUND");
+										player.itemToBuyBack.add(it);
 									}
-									player.itemToBuyBack.add(it);
-								}
 //								player.getInventory().add(it.getId(), 1);
 							}
 							itemsToKeep.clear();

@@ -19,7 +19,7 @@ public class ShopRestockTask extends Task {
 			stop();
 			return;
 		}
-		if (shop.getId() != Shop.GENERAL_STORE) {
+		if (shop.getId() != Shop.GENERAL_STORE && shop.getId() != Shop.DIANGO_STORE) {
 			for (int shopItemIndex = 0; shopItemIndex < shop.getOriginalStock().length; shopItemIndex++) {
 
 				int originalStockAmount = shop.getOriginalStock()[shopItemIndex].getAmount();
@@ -40,7 +40,9 @@ public class ShopRestockTask extends Task {
 						continue;
 					}
 				}
-				shop.delete(it.getId(), 1);
+				if(shop.getId() != Shop.DIANGO_STORE) {
+					shop.delete(it.getId(), 1);
+				}
 			}
 		}
 		if(shop.getId() == Shop.GENERAL_STORE) {

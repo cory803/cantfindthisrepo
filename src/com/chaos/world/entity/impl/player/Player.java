@@ -281,7 +281,7 @@ public class Player extends Character {
         }
         Item[] stockItems = new Item[size];
         for (int i = 0; i < size; i++) {
-            stockItems[i] = new Item(it.get(i).getId(), it.get(i).getAmount());
+            stockItems[i] = it.get(i);
         }
         Shop shop = new Shop(player, Shop.DIANGO_STORE, "Diango's Buy Back", new Item(995),
                 stockItems);

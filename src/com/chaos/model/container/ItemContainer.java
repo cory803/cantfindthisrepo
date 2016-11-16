@@ -748,6 +748,7 @@ public abstract class ItemContainer {
 					&& item.getAmount() > toContainer.getFreeSlots() && !(this instanceof Bank)) {
 				item.setAmount(toContainer.getFreeSlots());
 			}
+//			System.out.println("item slot amount: " + items[slot].setAmount(items[slot].getAmount()) + " || item amount: " + item.getAmount());
 			items[slot].setAmount(items[slot].getAmount() - item.getAmount());
 			if (items[slot].getAmount() < 1) {
 				items[slot].setId(-1);
