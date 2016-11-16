@@ -479,7 +479,7 @@ public class Shop extends ItemContainer {
 								if (player.itemToBuyBack.get(i).getAmount() < 1) {
 									player.itemToBuyBack.remove(i);
 								}
-								player.openUnTradeableShop(player, player.itemToBuyBack);
+//								player.openUnTradeableShop(player, player.itemToBuyBack);
 							}
 						}
 					}
@@ -602,7 +602,7 @@ public class Shop extends ItemContainer {
 			return this;
 		}
 		if (id == DIANGO_STORE) {
-			getPlayer().openUnTradeableShop(getPlayer(), getPlayer().itemToBuyBack);
+//			getPlayer().openUnTradeableShop(getPlayer(), getPlayer().itemToBuyBack);
 			return this;
 		}
 		for (Player player : World.getPlayers()) {

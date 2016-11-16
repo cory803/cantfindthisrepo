@@ -168,6 +168,7 @@ public class PlayerDeathTask extends Task {
 				player.getSkillManager().stopSkilling();
 				break;
 			case 0:
+				/*
 				if (dropItems) {
 					boolean found = false;
 					if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
@@ -194,6 +195,16 @@ public class PlayerDeathTask extends Task {
 										player.itemToBuyBack.add(it);
 									}
 //								player.getInventory().add(it.getId(), 1);
+							}
+							itemsToKeep.clear();
+						}
+					}
+				}*/
+				if (dropItems) {
+					if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
+						if (itemsToKeep != null) {
+							for (Item it : itemsToKeep) {
+								player.getInventory().add(it.getId(), 1);
 							}
 							itemsToKeep.clear();
 						}

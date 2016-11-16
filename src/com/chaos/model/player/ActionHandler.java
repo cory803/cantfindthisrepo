@@ -411,7 +411,7 @@ public final class ActionHandler {
         }
         switch (npc.getId()) {
             case 970:
-                player.openUnTradeableShop(player, player.itemToBuyBack);
+                //player.openUnTradeableShop(player, player.itemToBuyBack);
                 break;
             //Agility penguin
             case 5428:
