@@ -137,6 +137,8 @@ public class DesolaceFormulas {
 
 		if (hasObsidianEffect(plr)) {
 			i *= 1.20;
+		} else if(EquipmentBonus.getVanguardBonus(plr, CombatType.MELEE) != 0) {
+			i *= EquipmentBonus.getVanguardBonus(plr, CombatType.MELEE);
 		} else if(EquipmentBonus.wearingVoid(plr, CombatType.MELEE)) {
 			i *= 1.1;
 		} else if(EquipmentBonus.wearingEliteVoid(plr, CombatType.MELEE)) {

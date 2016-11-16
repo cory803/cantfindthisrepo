@@ -83,6 +83,38 @@ public class EquipmentBonus {
 		return amount >= 3 && hasHelmet;
 	}
 
+	/**
+	 * Grabs waht your vanguard set bonus should be
+	 * Vanguard set gives accuracy bonus 10% per piece.
+	 * @param player
+	 * @param attackType
+	 * @return
+	 */
+	public static double getVanguardBonus(Player player, CombatType attackType) {
+		if(attackType != CombatType.MELEE) {
+			return 0;
+		}
+		Item head = player.getEquipment().getItems()[Equipment.HEAD_SLOT];
+		Item body = player.getEquipment().getItems()[Equipment.BODY_SLOT];
+		Item legs = player.getEquipment().getItems()[Equipment.LEG_SLOT];
+		//Item gloves = player.getEquipment().getItems()[Equipment.HANDS_SLOT];
+		Item boots = player.getEquipment().getItems()[Equipment.FEET_SLOT];
+		double bonus = 0;
+		for(int i = 0; i < VANGUARD_ARMOUR.length; i++) {
+			if(head.getId() == VANGUARD_ARMOUR[i]) {
+				bonus += .10;
+			} else if(body.getId() == VANGUARD_ARMOUR[i]) {
+				bonus += .10;
+			} else if(legs.getId() == VANGUARD_ARMOUR[i]) {
+				bonus += .10;
+			} else if(boots.getId() == VANGUARD_ARMOUR[i]) {
+				bonus += .10;
+			}
+		}
+		System.out.println("Vanguard bonus: "+bonus);
+		return bonus;
+	}
+
 	private static final int MAGE_VOID_HELM = 11663;
 
 	private static final int RANGED_VOID_HELM = 11664;
@@ -92,4 +124,6 @@ public class EquipmentBonus {
 	public static int[] VOID_ARMOUR = new int[]{8839, 8840, 8842, 19711};
 
 	public static final int[] ELITE_VOID_ARMOUR = { 19785, 19786, 19787, 19788, 19789, 19790, 8842, 19711};
+
+	public static final int[] VANGUARD_ARMOUR = { 21472, 21473, 21474, 21476};
 }
