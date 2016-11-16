@@ -79,6 +79,7 @@ public class MovementPacketListener implements PacketListener {
 		if (player.getRunEnergy() > 0) {
 			player.getWalkingQueue().setRunningQueue(running);
 		}
+		System.out.println(""+firstX);
 		player.getWalkingQueue().addStep(firstX, firstY);
 		for (int i = 0; i < steps; i++) {
 			player.getWalkingQueue().addStep(firstX + offsetsX[i], firstY + offsetsY[i]);

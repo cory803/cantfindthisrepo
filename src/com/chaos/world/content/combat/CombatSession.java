@@ -61,19 +61,19 @@ public class CombatSession {
 		// Decrement the attack timer.
 		builder.attackTimer--;
 
-		boolean skipTimer = false;
+		int newTimer = 1;
 
 		// The attack timer is below 1, we can attack.
 		if(builder.getCombatType() != null) {
 			if(builder.getCombatType() == CombatType.MELEE) {
 				if(builder.getCharacter().getLastCombatType() != null) {
 					if(builder.getCharacter().getLastCombatType() == CombatType.MAGIC) {
-						skipTimer = true;
+						newTimer = 5; //Increase for faster
 					}
 				}
 			}
 		}
-		if (builder.attackTimer < 1 || skipTimer) {
+		if (builder.attackTimer < 1 || builder.attackTimer < newTimer) {
 			// Check if the attacker is close enough to attack.
 
 			if (!CombatFactory.checkAttackDistance(builder)) {

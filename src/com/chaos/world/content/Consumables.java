@@ -2070,7 +2070,7 @@ public class Consumables {
 			player.getCombatBuilder().incrementAttackTimer(1).cooldown(false);
 			player.getCombatBuilder().setDistanceSession(null);
 			player.setCastSpell(null);
-			player.getFoodTimer().reset();
+			//player.getFoodTimer().reset();
 			player.getPotionTimer().reset();
 			String potion = ItemDefinition.forId(itemId).getName();
 			player.getPacketSender().sendMessage("You drink some of your " + potion + "..");
