@@ -55,7 +55,7 @@ public final class CombatFollowMobileAction extends PlayerAction {
 		walkingQueue.addStepInternal(position.getX(), position.getY());
 		if (walkingQueue.isRunning()) {
 			Direction run = this.getNextFollowPoint(position, destination, CombatFactory.getNewDistance(player));
-			System.out.println("Direction: "+run);
+			//System.out.println("Direction: "+run);
 			if (run == null) {
 				return STOP;
 			}
@@ -88,7 +88,6 @@ public final class CombatFollowMobileAction extends PlayerAction {
 			if (direction == Direction.NONE || destination.getSize() == 1 || destination.getX() + direction.getX() == player.getLastPosition().getX() && destination.getY() + direction.getY() == player.getLastPosition().getY()) {
 				containsCount += new Random().nextInt(3) + 1;
 			}
-			//System.out.println("New direction: "+direction);
 			return direction;
 		}
 		containsCount = 0;
@@ -134,6 +133,17 @@ public final class CombatFollowMobileAction extends PlayerAction {
 				return dirY;
 			}
 		}
-		return direction;
+		System.out.println("Direction: "+direction);
+		if(direction == Direction.SOUTH_EAST) {
+			return Direction.EAST;
+		} else if(direction == Direction.NORTH_EAST) {
+			return Direction.NORTH;
+		} else if(direction == Direction.NORTH_WEST) {
+			return Direction.NORTH;
+		} else if(direction == Direction.SOUTH_WEST) {
+			return Direction.SOUTH;
+		} else {
+			return direction;
+		}
 	}
 }

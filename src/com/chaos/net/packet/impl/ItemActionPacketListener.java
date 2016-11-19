@@ -32,6 +32,7 @@ import com.chaos.world.content.transportation.jewelry.CombatTeleporting;
 import com.chaos.world.content.transportation.jewelry.GloryTeleporting;
 import com.chaos.world.content.transportation.jewelry.SkillsTeleporting;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.ChooseFlower;
 import org.scripts.kotlin.content.dialog.KnightLamp;
 import org.scripts.kotlin.content.dialog.npcs.OpenScroll;
 
@@ -296,8 +297,14 @@ public class ItemActionPacketListener implements PacketListener {
 			Gambling.rollDice(player);
 			break;
 		case 299:
-			Gambling.plantSeed(player);
+			Gambling.plantSeed(player, Gambling.FlowersData.generate());
 			break;
+			case 4490:
+				if(!player.isSpecialPlayer()) {
+					return;
+				}
+				player.getDialog().sendDialog(new ChooseFlower(player, 0));
+				break;
 		case 15104:
 			player.getPacketSender().sendMessage("Combine this with the three other missing parts...");
 			return;

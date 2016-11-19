@@ -48,7 +48,7 @@ public class Gambling {
 		PlayerLogs.dicing(player, amount);
 	}
 
-	public static void plantSeed(Player player) {
+	public static void plantSeed(Player player, FlowersData theFlower) {
 		if (player.getLocation() == Location.VARROCK || player.getLocation() == Location.EDGEVILLE || player.getLocation() == Location.BARROWS) {
 			player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 			return;
@@ -69,7 +69,7 @@ public class Gambling {
 			player.getPacketSender().sendMessage("You cannot plant a seed right here.");
 			return;
 		}
-		FlowersData flowers = FlowersData.generate();
+		FlowersData flowers = theFlower;
 		final GameObject flower = new GameObject(flowers.objectId, player.getPosition().copy());
 		player.getWalkingQueue().clear();
 		player.getInventory().delete(299, 1);

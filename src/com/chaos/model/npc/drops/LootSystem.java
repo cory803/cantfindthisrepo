@@ -157,7 +157,9 @@ public class LootSystem {
             if (p.getLocation() == Locations.Location.WILDERNESS) {
                 wildKeys(p, n.getDefinition().getCombatLevel(), n.getPosition().copy());
             }
-            casketDrop(p, n.getDefinition().getCombatLevel(), n.getPosition());
+            if(n.getId() != 5871) {
+                casketDrop(p, n.getDefinition().getCombatLevel(), n.getPosition());
+            }
         }
 
         /**

@@ -63,16 +63,24 @@ public class CombatSession {
 
 		int newTimer = 1;
 
-		// The attack timer is below 1, we can attack.
-		if(builder.getCombatType() != null) {
-			if(builder.getCombatType() == CombatType.MELEE) {
-				if(builder.getCharacter().getLastCombatType() != null) {
-					if(builder.getCharacter().getLastCombatType() == CombatType.MAGIC) {
-						newTimer = 5; //Increase for faster
+		if(builder.getCharacter().isPlayer()) {
+
+			// The attack timer is below 1, we can attack.
+			if (builder.getCombatType() == null) {
+
+			} else {
+				if (builder.getCombatType() != null) {
+					if (builder.getCombatType() == CombatType.MELEE) {
+						if (builder.getCharacter().getLastCombatType() != null) {
+							if (builder.getCharacter().getLastCombatType() == CombatType.MAGIC) {
+								newTimer = 5; //Increase for faster
+							}
+						}
 					}
 				}
 			}
 		}
+
 		if (builder.attackTimer < 1 || builder.attackTimer < newTimer) {
 			// Check if the attacker is close enough to attack.
 
@@ -84,7 +92,7 @@ public class CombatSession {
 					}
 				}
 				if (builder.getCharacter().isPlayer()) {
-					//((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
+					((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
 				}
 				return;
 			}

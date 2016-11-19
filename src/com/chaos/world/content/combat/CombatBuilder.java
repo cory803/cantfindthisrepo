@@ -375,6 +375,9 @@ public class CombatBuilder {
 	}
 
 	public CombatType getCombatType() {
+		if (strategy.getCombatType() == null) {
+			return null;
+		}
 		return strategy.getCombatType();
 	}
 

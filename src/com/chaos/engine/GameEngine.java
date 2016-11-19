@@ -6,6 +6,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
 import java.util.concurrent.TimeUnit;
 
+import com.chaos.world.entity.impl.player.Player;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.GamePanel;
 import com.chaos.GameServer;
@@ -32,6 +33,8 @@ public final class GameEngine implements Runnable {
 	@Override
 	public void run() {
 		try {
+			long s = System.nanoTime();
+
 			/*
 			 * switch(engineState) { case PACKET_PROCESSING:
 			 * World.getPlayers().forEach($it ->
@@ -48,11 +51,40 @@ public final class GameEngine implements Runnable {
 			//panel.addCycleTime(end);
 			//panel.addTaskCycle(taskCycle);
 			//panel.addGeneral();
+
+			/**
+			 * Sleep
+			 */
+			long e = (System.nanoTime() - s) / 1000000;
+
+			/**
+			 * Process incoming packets consecutively throughout the
+			 * sleeping cycle *The key to instant switching of equipment
+			 */
+			if (e < 600) {
+				if (e < 400) {
+					for (int i = 0; i < 30; i++) {
+						long sleep = (600 - e) / 30;
+						Thread.sleep(sleep);
+						subcycle();
+					}
+				} else {
+					Thread.sleep(600 - e);
+				}
+			}
 		} catch (Throwable e) {
 			e.printStackTrace();
 			World.logError("game_engine_error_log.txt", (Exception) e);
 			World.savePlayers();
 			ClanChatManager.save();
+		}
+	}
+
+	private static void subcycle() {
+		for (Player p : World.getPlayers()) {
+			if (p != null) {
+				p.getSession().handleQueuedMessages();
+			}
 		}
 	}
 

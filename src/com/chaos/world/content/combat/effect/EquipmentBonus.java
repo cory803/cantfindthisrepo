@@ -111,7 +111,7 @@ public class EquipmentBonus {
 				bonus += .10;
 			}
 		}
-		System.out.println("Vanguard bonus: "+bonus);
+		//System.out.println("Vanguard bonus: "+bonus);
 		return bonus;
 	}
 
