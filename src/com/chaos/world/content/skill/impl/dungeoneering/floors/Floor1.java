@@ -81,12 +81,14 @@ public class Floor1 extends Floor {
             return;
         }
         player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.ENTERED);
-        for(NPC npc: getMinions()) {
-            npc.setWalking(true);
-            npc.walkingDistance = 2;
-            npc.setDungeoneeringNpc(true);
-            npc.getPosition().setZ(player.getIndex() * 4);
-            World.register(npc);
+        for(int i = 0; i < getMinions().length; i++) {
+            getMinions()[i].setWalking(true);
+            getMinions()[i].walkingDistance = 2;
+            getMinions()[i].setDungeoneeringNpc(true);
+            getMinions()[i].getPosition().setZ(player.getIndex() * 4);
+            getMinions()[i].setConstitution(getMinions()[i].getDefaultConstitution());
+
+            World.register(getMinions()[i]);
         }
         player.getPacketSender().sendMessage("Welcome to Dungeoneering floor "+getFloorId()+".");
         player.moveTo(getStartPosition());
@@ -102,11 +104,11 @@ public class Floor1 extends Floor {
             return;
         }
         player.moveTo(new Position(3464 - Misc.inclusiveRandom(0, 7), 3722 - Misc.inclusiveRandom(0, 4), 0));
-        for(NPC npc: getMinions()) {
-            World.deregister(npc);
+        for(int i = 0; i < getMinions().length; i++) {
+            World.deregister(getMinions()[i]);
         }
         World.deregister(this.getBoss());
-        player.setRegionInstance(null);
+        //player.setRegionInstance(null);
         player.getClickDelay().reset();
         player.getEquipment().resetItems().refreshItems();
         player.getInventory().resetItems().refreshItems();
@@ -147,6 +149,7 @@ public class Floor1 extends Floor {
         if(spawnPosition != null) {
             if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.ENTERED) {
                 this.boss.setPosition(spawnPosition);
+                this.boss.setConstitution(this.boss.getDefaultConstitution());
                 World.register(this.boss);
                 player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.SPAWNED_BOSS);
             }
