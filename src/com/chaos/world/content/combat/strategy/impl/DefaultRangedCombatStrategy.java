@@ -107,9 +107,6 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		}
 
 		Player player = (Player) entity;
-		if(player.getActionQueue().getCurrentAction() != null) {
-			player.getActionQueue().getCurrentAction().stop();
-		}
 		player.getWalkingQueue().clear();
 
 		final boolean dBow = CombatFactory.darkBow(player);

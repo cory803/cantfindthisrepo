@@ -66,9 +66,6 @@ public class DefaultMagicCombatStrategy implements CombatStrategy {
 			if (player.isAutocast() && player.getAutocastSpell() != null)
 				player.setCastSpell(player.getAutocastSpell());
 			player.setPreviousCastSpell(player.getCastSpell());
-			if(player.getActionQueue().getCurrentAction() != null) {
-				player.getActionQueue().getCurrentAction().stop();
-			}
 			player.getWalkingQueue().clear();
 		} else if (entity.isNpc()) {
 			NPC npc = (NPC) entity;

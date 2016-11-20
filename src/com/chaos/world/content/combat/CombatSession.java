@@ -2,6 +2,8 @@ package com.chaos.world.content.combat;
 
 import com.chaos.engine.task.Task;
 import com.chaos.model.action.distance.CombatFollowMobileAction;
+import com.chaos.model.action.distance.CombatFollowMobileActionMelee;
+import com.chaos.model.action.distance.FollowMobileAction;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.content.combat.HitQueue.CombatHit;
@@ -91,8 +93,16 @@ public class CombatSession {
 						((NPC) builder.getCharacter()).setFindNewTarget(true);
 					}
 				}
-				if (builder.getCharacter().isPlayer()) {
-					((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
+				if(builder.getCombatType() == CombatType.MELEE) {
+					if((builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getX()) >= -1 && (builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getX()) <= 1 || (builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getY()) >= -1 && (builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getY()) <= 1) {
+						((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
+					} else {
+						((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileActionMelee(((Player) builder.getCharacter()), builder.getVictim()));
+					}
+				} else {
+					if (builder.getCharacter().isPlayer()) {
+						((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
+					}
 				}
 				return;
 			}

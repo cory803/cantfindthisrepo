@@ -13,11 +13,11 @@ import com.chaos.world.entity.impl.player.Player;
 
 import java.util.Random;
 
-public final class CombatFollowMobileAction extends PlayerAction {
+public final class CombatFollowMobileActionMelee extends PlayerAction {
 	private Character following;
 	private int containsCount;
 
-	public CombatFollowMobileAction(Player player, Character following) {
+	public CombatFollowMobileActionMelee(Player player, Character following) {
 		super(player);
 		this.following = following;
 	}
@@ -134,16 +134,6 @@ public final class CombatFollowMobileAction extends PlayerAction {
 			}
 		}
 		//System.out.println("Direction: "+direction);
-		if(direction == Direction.SOUTH_EAST) {
-			return Direction.EAST;
-		} else if(direction == Direction.NORTH_EAST) {
-			return Direction.NORTH;
-		} else if(direction == Direction.NORTH_WEST) {
-			return Direction.NORTH;
-		} else if(direction == Direction.SOUTH_WEST) {
-			return Direction.SOUTH;
-		} else {
-			return direction;
-		}
+		return direction;
 	}
 }
