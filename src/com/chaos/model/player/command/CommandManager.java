@@ -82,6 +82,14 @@ public class CommandManager {
                 player.getPacketSender().sendString(41473, ":storeowner:-11694-500000000-test");
             }
         });
+        commands.put("string", new Command(StaffRights.MANAGER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                int frame = Integer.parseInt(args[0]);
+                player.getPacketSender().sendMessage("Sending string "+args[0]);
+                player.getPacketSender().sendString(frame, "testing");
+            }
+        });
         commands.put("capergbcolors", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

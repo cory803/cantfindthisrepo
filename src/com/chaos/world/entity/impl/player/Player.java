@@ -854,6 +854,7 @@ public class Player extends Character {
     private Input inputHandling;
     private WalkToTask walkToTask;
     private Shop shop;
+    private POSContainer posContainer;
     private GameObject interactingObject;
     private Item interactingItem;
     public Dialog currentDialog;
@@ -969,6 +970,7 @@ public class Player extends Character {
     private boolean clientExitTaskActive;
     private boolean drainingPrayer;
     private boolean shopping;
+    private boolean shoppingPOS;
     private boolean settingUpCannon;
     private boolean hasVengeance;
     private boolean killsTrackerOpen;
@@ -2314,16 +2316,33 @@ public class Player extends Character {
         return shopping;
     }
 
+    public boolean isShoppingPOS() {
+        return shoppingPOS;
+    }
+
     public void setShopping(boolean shopping) {
         this.shopping = shopping;
+    }
+
+    public void setShoppingPOS(boolean shoppingPOS) {
+        this.shoppingPOS = shoppingPOS;
     }
 
     public Shop getShop() {
         return shop;
     }
 
+    public POSContainer getPOSContainer() {
+        return posContainer;
+    }
+
     public Player setShop(Shop shop) {
         this.shop = shop;
+        return this;
+    }
+
+    public Player setPosContainer(POSContainer shop) {
+        this.posContainer = shop;
         return this;
     }
 
