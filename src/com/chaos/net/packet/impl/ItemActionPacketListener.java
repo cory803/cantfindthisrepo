@@ -80,6 +80,9 @@ public class ItemActionPacketListener implements PacketListener {
 			BirdNests.searchNest(player, itemId);
 			return;
 		}
+		if (Effigies.isEffigy(itemId)) {
+			Effigies.handleEffigy(player, itemId);
+		}
 		if (Herblore.cleanHerb(player, itemId))
 			return;
 		if (Effigies.isEffigy(itemId)) {
