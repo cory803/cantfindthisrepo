@@ -16,7 +16,8 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.*;
 import com.chaos.world.content.Sounds.Sound;
-import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.pos.PlayerOwnedShops;
+import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChat;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.combat.magic.Autocasting;
@@ -70,6 +71,10 @@ public class ButtonClickPacketListener implements PacketListener {
             return;
 
         if (Enchanting.enchantButtons(player, id)) {
+            return;
+        }
+
+        if (player.getPlayerOwnedShops().handleButtons(id)) {
             return;
         }
 

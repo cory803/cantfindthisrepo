@@ -5,7 +5,7 @@ import java.util.logging.Logger;
 
 import com.chaos.GameServer;
 import com.chaos.world.World;
-import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.world.entity.impl.player.PlayerHandler;

@@ -2,7 +2,7 @@ package org.scripts.kotlin.core.login
 
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.GameSettings
-import com.chaos.world.content.Well.WellOfGoodness
+import com.chaos.world.content.wells.WellOfGoodness
 import java.util.concurrent.TimeUnit
 
 /**

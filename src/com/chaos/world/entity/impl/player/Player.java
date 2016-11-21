@@ -54,6 +54,7 @@ import com.chaos.world.content.diversions.Diversion;
 import com.chaos.world.content.minigames.MinigameAttributes;
 import com.chaos.world.content.minigames.impl.Dueling;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.AbstractHarvestSkill;
 import com.chaos.world.content.skill.AbstractSkill;
 import com.chaos.world.content.skill.SkillManager;
@@ -866,6 +867,7 @@ public class Player extends Character {
     private Task currentTask;
     private Position resetPosition;
     private Kraken kraken = new Kraken();
+    private PlayerOwnedShops playerOwnedShops = new PlayerOwnedShops(this);
     private Dungeoneering dungeoneering = new Dungeoneering(this);
     private DropGenerator dropGenerator = new DropGenerator();
     private Degrading degrading = new Degrading();
@@ -1475,6 +1477,14 @@ public class Player extends Character {
      */
     public Dungeoneering getDungeoneering() {
         return this.dungeoneering;
+    }
+
+    /**
+     * Grabs the Player Owned Shops instance.
+     * @return
+     */
+    public PlayerOwnedShops getPlayerOwnedShops() {
+        return this.playerOwnedShops;
     }
 
     /**

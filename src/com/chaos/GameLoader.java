@@ -15,7 +15,7 @@ import com.chaos.util.*;
 import com.chaos.util.wiki.WikiDropListDumper;
 import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
-import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.chaos.world.doors.DoorManager;
 import org.jboss.netty.bootstrap.ServerBootstrap;
