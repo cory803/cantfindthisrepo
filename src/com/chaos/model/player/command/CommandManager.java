@@ -72,15 +72,14 @@ public class CommandManager {
                     player.compColor[i] = Integer.parseInt(colors[i]);
                 }
                 PlayerSaving.save(player);
-
                 player.getUpdateFlag().flag(Flag.APPEARANCE);
-                player.getPacketSender().sendMessage(":compu:");
             }
         });
-        commands.put("addexperience", new Command(StaffRights.MANAGER) {
+        commands.put("test", new Command(StaffRights.MANAGER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getSkillManager().addExactExperience(Skill.DUNGEONEERING, 1);
+                //41770 - 41870 = Search results
+                player.getPacketSender().sendString(41473, ":storeowner:-11694-500000000-test");
             }
         });
         commands.put("capergbcolors", new Command(StaffRights.PLAYER) {
@@ -99,7 +98,6 @@ public class CommandManager {
                     player.compColorsRGB[i] = Integer.parseInt(colors[i]);
                 }
                 player.getUpdateFlag().flag(Flag.APPEARANCE);
-                player.getPacketSender().sendMessage(":compu:");
             }
         });
         commands.put("setcomppreset", new Command(StaffRights.PLAYER) {

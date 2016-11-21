@@ -414,8 +414,8 @@ public class Dungeoneering {
      * Update the kills/deaths interface
      */
     public void updateInterface() {
-        player.getPacketSender().sendString(37508, "Party kills: "+getKills());
-        player.getPacketSender().sendString(37509, "Party deaths: "+getDeaths());
+        player.getPacketSender().sendString(37508, "Solo kills: "+getKills());
+        player.getPacketSender().sendString(37509, "Solo deaths: "+getDeaths());
     }
 
     /**

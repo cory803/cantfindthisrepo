@@ -126,6 +126,7 @@ public class Floor1 extends Floor {
         player.getPacketSender().sendClientRightClickRemoval();
         player.getDungeoneering().setKills(0);
         player.getDungeoneering().setDeaths(0);
+        player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.DEFAULT);
     }
 
     @Override
