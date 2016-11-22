@@ -17,7 +17,7 @@ import com.chaos.world.World;
 import com.chaos.world.content.*;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.content.Sounds.Sound;
-import com.chaos.world.content.wells.WellOfGoodness;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.entity.impl.player.Player;

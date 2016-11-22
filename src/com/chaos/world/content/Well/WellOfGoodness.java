@@ -1,4 +1,4 @@
-package com.chaos.world.content.wells;
+package com.chaos.world.content.Well;
 
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
@@ -195,15 +195,15 @@ public class WellOfGoodness {
             switch (getWell(well)) {
                 case 0:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
-                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the wells of Exp!");
+                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Exp!");
                     break;
                 case 1:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
-                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the wells of Wealth!");
+                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Wealth!");
                     break;
                 case 2:
                     World.sendMessage("<img=4> <col=6666FF>" + player.getUsername() + " has donated "
-                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the wells of Execution!");
+                            + Misc.insertCommasToNumber("" + amount + "") + " coins to the Well of Execution!");
                     break;
             }
         }
@@ -214,26 +214,26 @@ public class WellOfGoodness {
                     wellName = "Exp";
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
-                    World.sendMessage("<img=4> <col=6666FF>The wells of Exp has been filled!");
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Exp has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% bonus experience.");
                     break;
                 case 1:
                     wellName = "Wealth";
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
-                    World.sendMessage("<img=4> <col=6666FF>The wells of Wealth has been filled!");
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Wealth has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 10% extra drop rate.");
                     break;
                 case 2:
                     wellName = "Execution";
                     isFull[getWell(well)] = true;
                     START_TIMER[getWell(well)] = System.currentTimeMillis();
-                    World.sendMessage("<img=4> <col=6666FF>The wells of Execution has been filled!");
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Execution has been filled!");
                     World.sendMessage("<img=4> <col=6666FF>It is now granting everyone 2 hours of 30% extra pk points.");
                     break;
             }
         }
-        player.getPacketSender().sendMessage("You donated " + Misc.insertCommasToNumber("" + amount) + " to the wells of " + wellName + ". Thanks for donating.");
+        player.getPacketSender().sendMessage("You donated " + Misc.insertCommasToNumber("" + amount) + " to the Well of " + wellName + ". Thanks for donating.");
     }
 
     public static int getMinutesRemaining(String well) {
@@ -260,13 +260,13 @@ public class WellOfGoodness {
         if (isFull[getWell(well)]) {
             if (getMinutesRemaining(well) <= 0) {
                 if (well == "exp") {
-                    World.sendMessage("<img=4> <col=6666FF>The wells of Exp is no longer granting bonus experience.");
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Exp is no longer granting bonus experience.");
                     setDefaults(well);
                 } else if (well == "drops") {
-                    World.sendMessage("<img=4> <col=6666FF>The wells of Wealth is no longer granting bonus drop rates.");
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Wealth is no longer granting bonus drop rates.");
                     setDefaults(well);
                 } else if (well == "pkp") {
-                    World.sendMessage("<img=4> <col=6666FF>The wells of Execution is no longer granting bonus pkp.");
+                    World.sendMessage("<img=4> <col=6666FF>The Well of Execution is no longer granting bonus pkp.");
                     setDefaults(well);
                 }
             }

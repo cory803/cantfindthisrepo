@@ -8,7 +8,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.PlayerPanel;
-import com.chaos.world.content.wells.WellOfGoodness;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.Slayer.ResetTask;

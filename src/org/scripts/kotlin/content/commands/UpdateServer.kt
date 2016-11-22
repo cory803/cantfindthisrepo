@@ -7,7 +7,7 @@ import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.util.FilterExecutable
 import com.chaos.world.World
-import com.chaos.world.content.wells.WellOfGoodness
+import com.chaos.world.content.Well.WellOfGoodness
 import com.chaos.world.content.clan.ClanChatManager
 import com.chaos.world.entity.impl.player.Player
 

@@ -7,7 +7,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.util.Misc;
-import com.chaos.world.content.wells.WellOfGoodness;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.entity.impl.player.Player;
 
 public class DonateToWellDial extends Dialog {

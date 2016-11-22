@@ -12,7 +12,6 @@ import com.chaos.util.MathUtil;
 import com.chaos.world.content.*;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.diversions.hourly.ShootingStar;
-import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
@@ -411,12 +410,6 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
-            //Search POS
-            case 2593:
-                player.getPlayerOwnedShops().openSearch();
-                break;
-
-            //Diango untradeable shop
             case 970:
                 //player.openUnTradeableShop(player, player.itemToBuyBack);
                 break;

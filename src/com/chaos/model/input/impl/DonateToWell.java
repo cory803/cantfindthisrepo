@@ -1,7 +1,7 @@
 package com.chaos.model.input.impl;
 
 import com.chaos.model.input.EnterAmount;
-import com.chaos.world.content.wells.WellOfGoodness;
+import com.chaos.world.content.Well.WellOfGoodness;
 import com.chaos.world.entity.impl.player.Player;
 
 public class DonateToWell extends EnterAmount {
