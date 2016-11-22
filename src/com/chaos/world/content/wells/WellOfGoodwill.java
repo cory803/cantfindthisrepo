@@ -1,4 +1,4 @@
-package com.chaos.world.content.Well;
+package com.chaos.world.content.wells;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

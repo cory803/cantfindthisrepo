@@ -12,6 +12,7 @@ import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.DesolaceFormulas;
 import com.chaos.world.content.combat.effect.EquipmentBonus;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
 import com.chaos.world.doors.DoorManager;
@@ -383,6 +384,7 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 World.savePlayers();
+                PlayerOwnedShops.save();
                 player.getPacketSender().sendMessage("Saved players!");
             }
         });

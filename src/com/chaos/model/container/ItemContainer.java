@@ -17,6 +17,7 @@ import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.entity.impl.GroundItemManager;
 import com.chaos.world.entity.impl.player.Player;
+import com.chaos.model.container.impl.PlayerOwnedShopContainer;
 
 /**
  * Represents a container which contains items.
@@ -380,7 +381,7 @@ public abstract class ItemContainer {
 			to.full();
 			return this;
 		}
-		if (this instanceof Shop) {
+		if (this instanceof Shop || this instanceof PlayerOwnedShopContainer) {
 			delete(item, slot, refresh, to);
 		}
 		to.add(item, refresh);

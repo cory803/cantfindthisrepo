@@ -6,7 +6,6 @@ import com.chaos.model.Locations.Location;
 import com.chaos.model.Position;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.model.container.impl.Bank.BankSearchAttributes;
-import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.chaos.model.input.impl.*;
 import com.chaos.model.options.Option;
@@ -16,7 +15,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.*;
 import com.chaos.world.content.Sounds.Sound;
-import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChat;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.combat.magic.Autocasting;
@@ -37,11 +36,11 @@ import com.chaos.world.content.skill.impl.summoning.PouchMaking;
 import com.chaos.world.content.skill.impl.summoning.SummoningTab;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.BankPin.BankPinDial;
-import org.scripts.kotlin.content.dialog.BankPin.DeletePin;
 import org.scripts.kotlin.content.dialog.ClanChatDialogue;
 import org.scripts.kotlin.content.dialog.Report;
 import org.scripts.kotlin.content.dialog.teleports.*;
+import com.chaos.world.content.pos.PlayerOwnedShops;
+import com.chaos.world.content.pos.PosDetails;
 
 import java.util.ArrayList;
 
@@ -60,6 +59,20 @@ public class ButtonClickPacketListener implements PacketListener {
 
         if (player.getStaffRights().isDeveloper(player)) {
             player.getPacketSender().sendMessage("Clicked button: " + id);
+        }
+
+        if (id >= -24062 && id <= -23666) {
+            PosDetails pd = PosItemSearch.forId(id, player);
+            if (pd != null) {
+                if (PlayerPunishment.isPlayerBanned(pd.getOwner())) {
+                    player.getPacketSender().sendMessage("This player is banned!");
+                } else {
+                    player.getPacketSender().sendString(41900, "Back to Search Selection");
+                    PlayerOwnedShops.openShop(pd.getOwner(), player);
+                }
+            } else {
+                player.getPacketSender().sendMessage("This result didn't return a offer!");
+            }
         }
 
         if (checkOptionContainer(player, id)) {
@@ -85,6 +98,18 @@ public class ButtonClickPacketListener implements PacketListener {
                     player.getPacketSender().sendConfig(427, 1);
                 }
                 break;
+            case -23636:
+//                if (player.getShop() != null && player.getShop().id == 44 && player.isShopping()) {
+//                    player.setInputHandling(new BuyDungExperience());
+//                    player.getPacketSender().sendEnterAmountPrompt("How much experience would you like to buy? 1 token = 3 exp");
+//                } else {
+                    if (player.getGameModeAssistant().isIronMan()) {
+                        player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+                        return;
+                    }
+                    PlayerOwnedShops.openItemSearch(player, false);
+               // }
+            break;
             //Wells
             case -10435:
                 if(WellOfGoodness.isActive("exp")) {
@@ -1263,6 +1288,9 @@ public class ButtonClickPacketListener implements PacketListener {
             return true;
         }
         if (PlayersOnlineInterface.handleButton(player, id)) {
+            return true;
+        }
+        if (PlayerOwnedShops.posButtons(player, id)) {
             return true;
         }
         if (ClanChatManager.handleClanChatSetupButton(player, id)) {

@@ -7,11 +7,13 @@ import com.chaos.model.*;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.container.impl.Shop;
 import com.chaos.model.definitions.ItemDefinition;
+import com.chaos.model.input.impl.PosSearchShop;
 import com.chaos.net.packet.impl.UseItemPacketListener;
 import com.chaos.util.MathUtil;
 import com.chaos.world.content.*;
 import com.chaos.world.content.combat.magic.CombatSpells;
 import com.chaos.world.content.diversions.hourly.ShootingStar;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.impl.crafting.Tanning;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
 import com.chaos.world.content.skill.impl.hunter.PuroPuro;
@@ -410,6 +412,21 @@ public final class ActionHandler {
             // SECOND_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Open player owned stores item search
+            case 2593:
+                if (!GameSettings.POS_ENABLED) {
+                    player.getPacketSender().sendMessage("Player owned shops have been disabled.");
+                    return;
+                }
+                if (player.getGameModeAssistant().isIronMan()) {
+                    player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+                    return;
+                }
+                PlayerOwnedShops.openItemSearch(player, true);
+                player.setPlayerOwnedShopping(true);
+                break;
+
+            //Untradeable buy back store
             case 970:
                 //player.openUnTradeableShop(player, player.itemToBuyBack);
                 break;
@@ -662,6 +679,21 @@ public final class ActionHandler {
         }
         switch (npc.getId()) {
 
+            //Open your pos store
+            case 2593:
+                if (!GameSettings.POS_ENABLED) {
+                    player.getPacketSender().sendMessage("Player owned shops have been disabled.");
+                    return;
+                }
+                if (player.getGameModeAssistant().isIronMan()) {
+                    player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+                    return;
+                }
+                player.getPacketSender().sendString(41900, "");
+                PlayerOwnedShops.openShop(player.getUsername(), player);
+                player.setPlayerOwnedShopping(true);
+                break;
+
             //tool leprichaun
             case 3021:
                 player.getDialog().sendDialog(new ToolLeprechaun(player, 3));
@@ -721,6 +753,17 @@ public final class ActionHandler {
             // FOURTH_CLICK_OPCODE");
         }
         switch (npc.getId()) {
+            //Open someones POS
+            case 2593:
+                if (!GameSettings.POS_ENABLED) {
+                    player.getPacketSender().sendMessage("Player owned shops have been disabled.");
+                    return;
+                }
+                player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
+                player.setInputHandling(new PosSearchShop());
+                player.setPlayerOwnedShopping(true);
+                break;
+
             //Slayer masters
             case 401:
             case 402:

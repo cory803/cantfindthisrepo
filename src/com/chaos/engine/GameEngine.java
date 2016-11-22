@@ -8,8 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 import com.chaos.world.entity.impl.player.Player;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.chaos.GamePanel;
-import com.chaos.GameServer;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.world.World;
 import com.chaos.world.content.clan.ClanChatManager;
@@ -76,6 +75,7 @@ public final class GameEngine implements Runnable {
 			e.printStackTrace();
 			World.logError("game_engine_error_log.txt", (Exception) e);
 			World.savePlayers();
+			PlayerOwnedShops.saveShops();
 			ClanChatManager.save();
 		}
 	}

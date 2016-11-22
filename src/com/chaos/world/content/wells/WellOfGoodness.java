@@ -1,4 +1,4 @@
-package com.chaos.world.content.Well;
+package com.chaos.world.content.wells;
 
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;

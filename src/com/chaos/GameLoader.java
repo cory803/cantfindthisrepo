@@ -8,14 +8,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import com.chaos.cache.Archive;
-import com.chaos.ect.dropwriting.DropManager;
 import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.*;
-import com.chaos.util.wiki.WikiDropListDumper;
-import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
-import com.chaos.world.content.Well.WellOfGoodness;
+import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.chaos.world.doors.DoorManager;
 import org.jboss.netty.bootstrap.ServerBootstrap;
@@ -36,6 +33,8 @@ import com.chaos.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData
 import com.chaos.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
 import com.chaos.world.content.combat.strategy.CombatStrategies;
 import com.chaos.world.entity.impl.npc.NPC;
+import com.chaos.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 
 /**
  * testCredit: lare96, Gabbe, Jonny, High105
@@ -71,6 +70,8 @@ public final class GameLoader {
 		ItemDefinition.init().load();
 		Lottery.init();
 		DoorManager.init();
+		PlayerOwnedShops.init();
+		PlayerOwnedShopManager.load();
 		ClanChatManager.init();
 		CombatPoisonData.init();
 		CombatVenomData.init();

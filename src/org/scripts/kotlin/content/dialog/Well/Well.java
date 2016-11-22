@@ -1,11 +1,8 @@
 package org.scripts.kotlin.content.dialog.Well;
 
 import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.content.Well.WellOfGoodwill;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Well extends Dialog {

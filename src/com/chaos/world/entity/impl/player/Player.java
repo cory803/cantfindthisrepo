@@ -68,6 +68,8 @@ import com.chaos.world.content.skill.impl.thieving.Thieving;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
 import org.jboss.netty.channel.Channel;
+import com.chaos.world.content.pos.PosDetails;
+import com.chaos.world.content.pos.PosOffer;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -78,6 +80,8 @@ public class Player extends Character {
         super(GameSettings.DEFAULT_POSITION_VARROCK.copy());
         this.session = playerIO;
     }
+
+    public Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
 
     private int announcementTime;
 
@@ -731,8 +735,28 @@ public class Player extends Character {
         getUpdateFlag().flag(Flag.APPEARANCE);
     }
 
+    private PlayerOwnedShopContainer player_owned_shop;
+    private boolean posShopping;
+
+    public boolean isPlayerOwnedShopping() {
+        return posShopping;
+    }
+
+    public void setPlayerOwnedShopping(boolean shopping) {
+        this.posShopping = shopping;
+    }
+
+    public PlayerOwnedShopContainer getPlayerOwnedShop() {
+        return player_owned_shop;
+    }
+
+    public Player setPlayerOwnedShop(PlayerOwnedShopContainer shop) {
+        this.player_owned_shop = shop;
+        return this;
+    }
+
     public boolean busy() {
-        return interfaceId > 0 || isBanking || shopping || trading.inTrade() || dueling.inDuelScreen
+        return interfaceId > 0 || isBanking || posShopping || shopping || trading.inTrade() || dueling.inDuelScreen
                 || isResting;
     }
 

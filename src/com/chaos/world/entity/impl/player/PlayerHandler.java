@@ -50,6 +50,7 @@ import com.chaos.world.content.skill.impl.hunter.Hunter;
 import com.chaos.world.entity.impl.npc.NPC;
 import org.scripts.kotlin.content.dialog.Tutorial.StartTutorial;
 import org.scripts.kotlin.core.login.LoginMessageParser;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 
 public class PlayerHandler {
 
@@ -291,6 +292,7 @@ public class PlayerHandler {
 		}
 		player.getSkillManager().updateSkill(Skill.PRAYER);
 		player.sendCompCapePresets();
+		PlayerOwnedShops.collectCoinsOnLogin(player);
 		NoteHandler.login(player);
 		player.getPacketSender().sendRights();
 		FarmingManager.uponLogin(player);
