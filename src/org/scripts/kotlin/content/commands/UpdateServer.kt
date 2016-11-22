@@ -49,7 +49,7 @@ class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
                                 World.deregister(player)
                             }
                         })
-                        PlayerOwnedShops.saveShops()
+                        PlayerOwnedShops.save()
                         ClanChatManager.save()
                         WellOfGoodness.save()
                         GameServer.getLogger().info("Update task finished!")

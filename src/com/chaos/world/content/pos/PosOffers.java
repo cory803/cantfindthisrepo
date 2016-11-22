@@ -36,6 +36,10 @@ public class PosOffers {
 		return caption;
 	}
 
+	public void setCaption(String caption) {
+		this.caption = caption;
+	}
+
 	public int getAmountInShop() {
 		return shopItems;
 	}

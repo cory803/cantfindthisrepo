@@ -75,7 +75,7 @@ public final class GameEngine implements Runnable {
 			e.printStackTrace();
 			World.logError("game_engine_error_log.txt", (Exception) e);
 			World.savePlayers();
-			PlayerOwnedShops.saveShops();
+			PlayerOwnedShops.save();
 			ClanChatManager.save();
 		}
 	}

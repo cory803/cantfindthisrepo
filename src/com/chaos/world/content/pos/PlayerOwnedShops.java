@@ -131,15 +131,6 @@ public class PlayerOwnedShops {
 
 	public static void save() {
 		saveWorker.execute(saveRunnable);
-		/*
-		 * try { File pos = new File("./data/saves/pos"); if (!pos.exists())
-		 * pos.mkdirs(); DataOutputStream out = new DataOutputStream(new
-		 * FileOutputStream(pos + "/shops.dat", false));
-		 * out.writeInt(getCount()); for (PosOffers l : SHOPS) { if (l == null)
-		 * { continue; } l.save(out); } out.close(); System.out.println(
-		 * "Player owned shops have been saved..."); } catch (Exception ex) {
-		 * ex.printStackTrace(); }
-		 */
 	}
 
 	private static int getCount() {
@@ -224,7 +215,7 @@ public class PlayerOwnedShops {
 			String name = SHOPS_TO_SEARCH.get(i);
 			if (name.equals(username.toLowerCase())) {
 				player.setPlayerOwnedShopping(true);
-				// player.getPacketSender().sendString(3903, "Shop caption");
+				player.getPacketSender().sendString(3903, PlayerOwnedShops.SHOPS_ARRAYLIST.get(i).getCaption());
 				PlayerOwnedShopManager.getShops().get(i).open(player, username.toLowerCase(), i);
 				PlayerLogs.other(player, "Opened the player owned shop: " + username + "");
 				if (i == SHOPS_ARRAYLIST.size())

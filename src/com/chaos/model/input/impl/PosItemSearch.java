@@ -89,7 +89,7 @@ public class PosItemSearch extends Input {
 				start_owner_name += 4;
 				pd.setButtonId(-24062 + (4 * index));
 				player.getPacketSender().sendString(start_owner_name, pd.getOwner());
-				player.getPacketSender().sendString(start_caption, ":storeowner:-"+p.getItemId()+"-"+p.getPrice()+"-no caption");
+				player.getPacketSender().sendString(start_caption, ":storeowner:-"+p.getItemId()+"-"+p.getPrice()+"-"+pd.getCaption());
 				index++;
 			}
 		}

@@ -91,6 +91,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Merchant(player));
                 break;
 
+            //merchant POS
+            case 2593:
+                player.getDialog().sendDialog(new POSMerchant(player));
+                break;
+
             //tool leprichaun
             case 3021:
                 player.getDialog().sendDialog(new ToolLeprechaun(player, 0));

@@ -29,7 +29,7 @@ public class ShutdownHook extends Thread {
 		}
 		WellOfGoodness.save();
 		ClanChatManager.save();
-		PlayerOwnedShops.saveShops();
+		PlayerOwnedShops.save();
 		logger.info("The shudown hook actions have been completed, shutting the server down...");
 	}
 }
