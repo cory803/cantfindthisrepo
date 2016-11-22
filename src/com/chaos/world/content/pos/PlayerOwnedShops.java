@@ -321,7 +321,8 @@ public class PlayerOwnedShops {
 		}
 
 		player.getPacketSender().sendInterface(41409);
-		displayFeaturedShops(player);
+		PosFeaturedShops.resetInterface(player);
+//		displayFeaturedShops(player);
 	}
 
 }
