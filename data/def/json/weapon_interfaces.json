@@ -2333,10 +2333,20 @@
     "hash": 13899,
     "item-id": 13899,
     "interface": "LONGSWORD"
+  }, 
+  {
+    "hash": 13901,
+    "item-id": 13901,
+    "interface": "LONGSWORD"
   },
   {
     "hash": 13902,
     "item-id": 13902,
+    "interface": "WARHAMMER"
+  },
+  {
+    "hash": 13904,
+    "item-id": 13904,
     "interface": "WARHAMMER"
   },
   {

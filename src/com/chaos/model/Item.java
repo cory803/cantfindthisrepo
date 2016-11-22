@@ -286,7 +286,7 @@ public class Item {
 
 	public static int getNoted(int id) {
 		int noted = id + 1;
-		if (id == 11283 || id == 11284) {
+		if (id == 11283) {
 			noted = 11285;
 		}
 		if (ItemDefinition.forId(noted).getName().equals(ItemDefinition.forId(id).getName())) {
@@ -297,7 +297,7 @@ public class Item {
 
 	public static int getUnNoted(int id) {
 		int unNoted = id - 1;
-		if (id == 11284 || id == 11285) {
+		if (id == 11285) {
 			unNoted = 11283;
 		}
 		if (ItemDefinition.forId(unNoted).getName().equals(ItemDefinition.forId(id).getName())) {

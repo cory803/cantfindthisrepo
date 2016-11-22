@@ -83,7 +83,7 @@ public class EquipPacketListener implements PacketListener {
 			}
 			if(item.getId() == 16389) {
 				if(player.getGameModeAssistant().getGameMode() != GameMode.REALISM) {
-					player.getPacketSender().sendMessage("You can't seem to figure out how to weild this item.");
+					player.getPacketSender().sendMessage("You can't seem to figure out how to wield this item.");
 					return;
 				}
 			}

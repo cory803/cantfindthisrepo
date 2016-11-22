@@ -76,8 +76,6 @@ public class CorporealBeast implements CombatStrategy {
 			new Projectile(cB, target, 1825, 44, 3, 43, 43, 0).sendProjectile();
 		} else if (attackStyle == 2) { // translucent ball of energy
 			cB.performAnimation(attack_anim2);
-			if (target.getLocation() == Location.BOSS_SYSTEM)
-				cB.getCombatBuilder().setContainer(new CombatContainer(cB, target, 1, 2, CombatType.MAGIC, true));
 			new Projectile(cB, target, 1823, 44, 3, 43, 43, 0).sendProjectile();
 			TaskManager.submit(new Task(1, target, false) {
 				@Override

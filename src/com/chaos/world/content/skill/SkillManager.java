@@ -676,7 +676,7 @@ public class SkillManager {
 	/**
 	 * The maximum amount of experience you can achieve in a skill.
 	 */
-	private static final int MAX_EXPERIENCE = 1_000_000_000;
+	public static final int MAX_EXPERIENCE = 1_000_000_000;
 
 	private static final int EXPERIENCE_FOR_99 = 13_034_431;
 

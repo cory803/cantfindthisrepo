@@ -445,7 +445,7 @@ public class CommandManager {
         commands.put("update", new UpdateServer(StaffRights.MANAGER));
         commands.put("checkbank", new CheckBank(StaffRights.MANAGER));
         commands.put("checkinv", new CheckInventory(StaffRights.MANAGER));
-        commands.put("announce", new Announce(StaffRights.ADMINISTRATOR));
+        commands.put("announce", new Announce(StaffRights.GLOBAL_MOD));
         commands.put("checkequip", new CheckEquipment(StaffRights.MANAGER));
         commands.put("bank", new Command(StaffRights.MANAGER) {
             @Override

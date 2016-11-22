@@ -75,7 +75,10 @@ public class CombatSession {
 					if (builder.getCombatType() == CombatType.MELEE) {
 						if (builder.getCharacter().getLastCombatType() != null) {
 							if (builder.getCharacter().getLastCombatType() == CombatType.MAGIC) {
-								newTimer = 5; //Increase for faster
+								Player player = (Player)builder.getCharacter();
+								if(player.getCombatSpecial() != CombatSpecial.KORASIS_SWORD) {
+									newTimer = 2; //Increase for faster
+								}
 							}
 						}
 					}

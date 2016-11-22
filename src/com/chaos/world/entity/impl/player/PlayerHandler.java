@@ -45,6 +45,7 @@ import com.chaos.world.content.combat.pvp.BountyHunter;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.minigames.impl.Barrows;
+import com.chaos.world.content.skill.SkillManager;
 import com.chaos.world.content.skill.impl.farming.FarmingManager;
 import com.chaos.world.content.skill.impl.hunter.Hunter;
 import com.chaos.world.entity.impl.npc.NPC;
@@ -180,6 +181,13 @@ public class PlayerHandler {
 		player.getPacketSender().sendString(7457, "Boss Teleports");
 		player.getPacketSender().sendString(7458, "Teleport to Bosses on Chaos.");
 		player.getPacketSender().sendString(18472, "Ape Atoll");
+
+		if(player.getSkillManager().getMaxLevel(Skill.DUNGEONEERING) < 120) {
+			if(player.getSkillManager().getExperience(Skill.DUNGEONEERING) == SkillManager.MAX_EXPERIENCE) {
+				player.getSkillManager().setCurrentLevel(Skill.DUNGEONEERING, 120);
+				player.getSkillManager().setMaxLevel(Skill.DUNGEONEERING, 120);
+			}
+		}
 
 		String g = "";
 		for (int i = 0; i < player.compColorsRGB.length; i++) {

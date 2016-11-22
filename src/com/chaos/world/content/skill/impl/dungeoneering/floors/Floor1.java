@@ -4,6 +4,7 @@ import com.chaos.model.*;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
+import com.chaos.model.player.GameMode;
 import com.chaos.net.packet.impl.EquipPacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
@@ -216,7 +217,11 @@ public class Floor1 extends Floor {
 
         player.getPointsHandler().setDungeoneeringTokens(tokens + (int) tokenBoost, true);
 
-        player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience / 3);
+        if(player.getGameModeAssistant().getGameMode() == GameMode.KNIGHT) {
+            player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience / 3);
+        } else {
+            player.getSkillManager().addSkillExperience(Skill.DUNGEONEERING, experience);
+        }
 
         player.getPacketSender().sendMessage("You have received "+Misc.format(tokens + (int) tokenBoost)+" dungeoneering tokens for completing floor 1.");
 

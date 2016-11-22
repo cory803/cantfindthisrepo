@@ -428,7 +428,7 @@ public class Slayer {
     }
 
     public int getPointsToGive() {
-        for(int i = 1; i <= 20; i++) {
+        for(int i = 1; i <= 100; i++) {
             if (this.slayerStreak == 10 * i && 10 * i != 50) {
                 return player.getSlayer().getSlayerMaster().getTenTaskBonus();
             } else if (this.slayerStreak == 50 * i)

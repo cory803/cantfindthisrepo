@@ -569,7 +569,6 @@ public class Dungeoneering {
         new Item(16301, 1),
         new Item(16345, 1),
         new Item(16367, 1),
-        new Item(16389, 1),
         new Item(16411, 1),
         new Item(16411, 1),
         new Item(16653, 1),

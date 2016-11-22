@@ -51,7 +51,7 @@ public class Cerberus implements CombatStrategy {
 						Player p = (Player)victim;
 						int lvl = p.getSkillManager().getCurrentLevel(Skill.PRAYER);
 						lvl *= 0.9;
-						p.getSkillManager().setCurrentLevel(Skill.PRAYER, p.getSkillManager().getCurrentLevel(Skill.PRAYER) - lvl <= 0 ?  1 : lvl);
+						p.getSkillManager().setCurrentLevel(Skill.PRAYER, p.getSkillManager().getCurrentLevel(Skill.PRAYER) - lvl <= 0 ? 1 : lvl);
 						p.getPacketSender().sendMessage("Cerberus has reduced your Prayer level.");
 					}
 					cerberus.setChargingAttack(false);

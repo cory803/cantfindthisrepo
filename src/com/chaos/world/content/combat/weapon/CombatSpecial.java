@@ -197,7 +197,7 @@ public enum CombatSpecial {
 			};
 		}
 	},
-	VESTAS_LONGSWORD(new int[] { 13899 }, 25, 1.28, 1.25, CombatType.MELEE, WeaponInterface.LONGSWORD) {
+	VESTAS_LONGSWORD(new int[] { 13899, 13901}, 25, 1.28, 1.25, CombatType.MELEE, WeaponInterface.LONGSWORD) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(10502));
@@ -205,7 +205,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.MELEE, true);
 		}
 	},
-	STATIUS_WARHAMMER(new int[] { 13902 }, 30, 1.35, 1.25, CombatType.MELEE, WeaponInterface.WARHAMMER) {
+	STATIUS_WARHAMMER(new int[] { 13902, 13904 }, 30, 1.35, 1.25, CombatType.MELEE, WeaponInterface.WARHAMMER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(10505));
