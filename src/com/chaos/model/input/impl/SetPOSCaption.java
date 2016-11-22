@@ -19,7 +19,9 @@ public class SetPOSCaption extends Input {
 			player.getPacketSender().sendMessage("Your store caption must have atleast 3 characters!");
 			return;
 		}
-		PlayerOwnedShops.SHOPS_ARRAYLIST.get(PlayerOwnedShops.getIndex(player.getUsername())).setCaption(syntax);
+		int index = PlayerOwnedShops.getIndex(player.getUsername());
+		PlayerOwnedShops.SHOPS_ARRAYLIST.get(index).setCaption(syntax);
 		player.getPacketSender().sendMessage("<col=CA024B>You have set your player owned stores caption to '"+syntax+"'.");
+		PlayerOwnedShops.saveShop(PlayerOwnedShops.SHOPS_ARRAYLIST.get(index));
 	}
 }

@@ -24,6 +24,7 @@ import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.diversions.hourly.ShootingStar;
 import com.chaos.world.content.minigames.impl.*;
 import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.agility.Agility;
 import com.chaos.world.content.skill.impl.crafting.Flax;
@@ -168,6 +169,18 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 589:
                                 Enchanting.update_interface(player);
                             break;
+                            case 28089:
+                                if (!GameSettings.POS_ENABLED) {
+                                    player.getPacketSender().sendMessage("Player owned shops have been disabled.");
+                                    return;
+                                }
+                                if (player.getGameModeAssistant().isIronMan()) {
+                                    player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
+                                    return;
+                                }
+                                PlayerOwnedShops.openItemSearch(player, true);
+                                player.setPlayerOwnedShopping(true);
+                                break;
                             //rune ess
                             case 2491:
                                 if(player.getInteractingObject() != null) {
@@ -788,11 +801,6 @@ public class ObjectActionPacketListener implements PacketListener {
                                     player.getPacketSender().sendInterfaceRemoval();
                                     player.moveTo(new Position(3653, player.getPosition().getY()));
                                 }
-                                break;
-                            case 10805:
-                            case 10806:
-                            case 28089:
-                                // GrandExchange.open(player);
                                 break;
                             case 38700:
                                 player.moveTo(new Position(3085, 3512));

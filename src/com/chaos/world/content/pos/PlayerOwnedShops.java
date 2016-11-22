@@ -129,6 +129,34 @@ public class PlayerOwnedShops {
 		}
 	}
 
+	public static void saveFeaturedShops(String owner, int time) {
+		File pos = new File("./data/saves/featured");
+		if (!pos.exists()) {
+			pos.mkdirs();
+		}
+		RandomAccessFile file = null;
+		try {
+			file = new RandomAccessFile(pos + "/shops.dat", "rw");
+			//TODO: Featured shop saving
+//			for(int i = 0; i < 9; i++) {
+//				file.writeUTF(owner);
+//				file.writeInt(time);
+//			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (file != null) {
+				try {
+					file.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+	}
+
 	public static void save() {
 		saveWorker.execute(saveRunnable);
 	}
