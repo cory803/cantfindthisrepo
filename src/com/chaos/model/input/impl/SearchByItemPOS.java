@@ -12,7 +12,6 @@ public class SearchByItemPOS extends Input {
 			player.getPacketSender().sendMessage("You must type a minimum of 2 characters and a maximum of 20 characters.");
 			return;
 		}
-		player.getPlayerOwnedShops().clearSearch();
 		SearchItemSql.search(player, syntax);
 	}
 }

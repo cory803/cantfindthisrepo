@@ -26,12 +26,11 @@ public class SearchItemSql {
             @Override
             public void queryComplete(ResultSet rs) throws SQLException {
                 int index = 0;
-                while (rs.next()) {
+                if (rs.next()) {
                     String owner = rs.getString("owner");
-                    String caption = rs.getString("caption");
                     int itemId = rs.getInt("itemid");
                     long price = rs.getLong("price");
-                    outSearch(player, index, owner, caption, itemId, price);
+                    outSearch(player, index, owner, itemId, price);
                     index++;
                 }
             }
@@ -48,10 +47,13 @@ public class SearchItemSql {
      * @param player
      * @param index
      */
-    public static void outSearch(Player player, int index, String owner, String caption, int itemId, long price) {
-        player.getPacketSender().sendString(getFrame(41472, index), owner);
-        player.getPacketSender().sendString(getFrame(41473, index), ":storeowner:-"+itemId+"-"+price+"-"+caption);
-        player.getPlayerOwnedShops().addShop(owner, caption, itemId, price);
+    public static void outSearch(Player player, int index, String owner, int itemId, long price) {
+        player.getPlayerOwnedShops().clearSearch();
+        System.out.println("index: "+index+"");
+        System.out.println("owner: "+owner+"");
+        System.out.println("itemId: "+itemId+"");
+        System.out.println("price: "+price+"");
+        player.getPacketSender().sendString(getFrame(index), ":storeowner:-"+itemId+"-"+price+"-the caption");
     }
 
     /**
@@ -59,7 +61,7 @@ public class SearchItemSql {
      * @param index
      * @return
      */
-    public static int getFrame(int id, int index) {
-        return id + (index * 4);
+    public static int getFrame(int index) {
+        return 41473 + (index * 4);
     }
 }
