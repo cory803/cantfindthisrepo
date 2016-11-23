@@ -10,7 +10,7 @@ import org.scripts.kotlin.content.dialog.npcs.POSMerchant2;
 public class PosFeaturedShops {
 
     private final static int SIZE = 10;
-    private final static int TIMER = 120;
+    private final static int TIMER = 1;
 
     public static boolean[] isEmpty = new boolean[SIZE];
     public static long timeRemaining[] = new long[SIZE];
@@ -78,7 +78,7 @@ public class PosFeaturedShops {
                 player.getPacketSender().sendString(featuredShopLastsIds[j], "\t\t10m");
             } else {
                 player.getPacketSender().sendString(featuredShopNameIds[j], "@whi@" + shopOwner[j]);
-                player.getPacketSender().sendString(featuredShopLastsIds[j], "@whi@" + getMinutesRemaining(player, j) + " Min Left");
+                player.getPacketSender().sendString(featuredShopLastsIds[j], "@whi@" + getMinutesRemaining(j) + " Min Left");
             }
         }
     }
@@ -86,17 +86,17 @@ public class PosFeaturedShops {
      * When the timer runs out call here
      * @param x which slot 0-9 to reset
      **/
-    public static void resetSlot(Player player, int x) {
+    public static void resetSlot(int x) {
         PosFeaturedShops.isEmpty[x] = false;
         PosFeaturedShops.timeRemaining[x] = 0;
         PosFeaturedShops.shopOwner[x] = null;
-        resetInterface(player);
+        System.out.println("ddd");
     }
 
-    public static int getMinutesRemaining(Player player, int x) {
+    public static int getMinutesRemaining(int x) {
         int remain = (TIMER - Misc.getMinutesPassed(System.currentTimeMillis() - timeRemaining[x]));
         if (remain == 0) {
-            resetSlot(player, x);
+            resetSlot(x);
         }
         return remain;
     }
