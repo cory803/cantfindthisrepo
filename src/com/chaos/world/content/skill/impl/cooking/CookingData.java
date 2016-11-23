@@ -98,7 +98,7 @@ public enum CookingData {
 		return null;
 	}
 
-	public static final int[] cookingRanges = { 2732, 114, 2728, 21302, 41687};
+	public static final int[] cookingRanges = { 4172, 2732, 114, 2728, 21302, 41687};
 
 	public static boolean isRange(int object) {
 		for (int i : cookingRanges)
