@@ -43,7 +43,10 @@ public class ItemForging {
 					continue;
 				p.getInventory().delete(reqItem);
 			}
-			p.getInventory().add(data.product, true);
+			if(data == ItemForgeData.DRAGONSTONE_BOLTS) {
+				data.product.setAmount(15);
+			}
+			p.getInventory().add(data.product.getId(), data.product.getAmount());
 			p.getPacketSender().sendMessage("You make " + Misc.anOrA(itemName) + " " + itemName + ".");
 			p.getClickDelay().reset();
 			p.getSkillManager().addExactExperience(skill, data.skillRequirement[2]);

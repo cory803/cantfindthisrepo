@@ -41,10 +41,7 @@ import com.chaos.world.content.skill.impl.smithing.EquipmentMaking;
 import com.chaos.world.content.skill.impl.smithing.RoyalCrossBow;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.BountyPortal;
-import org.scripts.kotlin.content.dialog.GambleFightCave;
-import org.scripts.kotlin.content.dialog.GoldenMiningArmour;
-import org.scripts.kotlin.content.dialog.TentacleCombination;
+import org.scripts.kotlin.content.dialog.*;
 import org.scripts.kotlin.content.dialog.npcs.*;
 
 /**
@@ -366,6 +363,9 @@ public class UseItemPacketListener implements PacketListener {
 			 player.getPacketSender().sendMessage("An error occured. Error code:"+objectId).sendMessage("Please report the error to a staff member.");
 			return;
 		}
+		if(player.getStaffRights().isDeveloper(player)) {
+			player.getPacketSender().sendMessage("Item on object - Object id: "+ objectId+" Item id: "+itemId);
+		}
 		player.setInteractingObject(gameObject);
 		player.setWalkToTask(new WalkToTask(player, gameObject.getPosition().copy(), gameObject.getSize(),
 				new FinalizedMovementTask() {
@@ -438,6 +438,33 @@ public class UseItemPacketListener implements PacketListener {
 							}
 						}*/
 						switch (objectId) {
+							case 6910:
+							case 4483:
+							case 3193:
+							case 2213:
+							case 11758:
+							case 6084:
+							case 10517:
+							case 14367:
+							case 42192:
+							case 26972:
+							case 11402:
+							case 26969:
+							case 75:
+							case 2497:
+							case 16700:
+							case 21301:
+							case 36786:
+							case 2995:
+							case 45079:
+							case 27663:
+								if(itemId == 13204) {
+									player.getDialog().sendDialog(new PlatinumTokenToCoins(player));
+								} else if(itemId == 995) {
+									player.getDialog().sendDialog(new CoinsToPlatinumTokens(player));
+								}
+								break;
+
 							case 9356:
 								if(itemId == 6570 || itemId == 19111) {
 									player.setNpcClickId(5892);
@@ -723,6 +750,17 @@ public class UseItemPacketListener implements PacketListener {
 		}
 
 		switch (npc.getId()) {
+			case 6362:
+			case 494:
+			case 4519:
+			case 9710:
+				if(item_id == 13204) {
+					player.getDialog().sendDialog(new PlatinumTokenToCoins(player));
+				} else if(item_id == 995) {
+					player.getDialog().sendDialog(new CoinsToPlatinumTokens(player));
+				}
+				break;
+
 			case 747:
 				if(item_id == 11286) {
 					player.setNpcClickId(747);
