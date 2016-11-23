@@ -40,6 +40,7 @@ public class PlayerOwnedShops {
 				//System.out.println("File " + listOfFiles[i].getName());
 			}
 		}
+		loadFeaturedShops();
 		System.out.println("Finished loading player owned shops.");
 	}
 
@@ -71,32 +72,42 @@ public class PlayerOwnedShops {
 		}
 	}
 
+	public static void loadFeaturedShops() {
+		try {
+			File file = new File("./data/saves/pos/featured/shops.dat");
+			if (!file.exists()) {
+				return;
+			}
+			DataInputStream in = new DataInputStream(new FileInputStream(file));
+
+			for(int i = 0; i < PosFeaturedShops.isEmpty.length; i++) {
+				PosFeaturedShops.isEmpty[i] = in.readBoolean();
+				PosFeaturedShops.timeRemaining[i] = in.readLong();
+				String owner = in.readUTF();
+				if(owner.equalsIgnoreCase("invalid_person")) {
+					PosFeaturedShops.shopOwner[i] = null;
+				} else {
+					PosFeaturedShops.shopOwner[i] = owner;
+				}
+			}
+
+			in.close();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		}
+	}
+
 	private static SortedMap<String, Object> getByPreffix(
 			NavigableMap<String, Object> myMap,
 			String preffix ) {
 		return myMap.subMap( preffix, preffix + Character.MAX_VALUE );
 	}
 
-	public static void displayFeaturedShops(Player player) {
-
-		/*
-		 * int[] featuredShopNameIds = {41422, 41426, 41430, 41434, 41438,
-		 * 41442, 41446, 41450, 41454, 41458}; int[] featuredShopLastsIds =
-		 * {41423, 41427, 41431, 41435, 41439, 41443, 41447, 41451, 41455,
-		 * 41459}; int totalShops = 0; ArrayList<Integer> shop_ids = new
-		 * ArrayList<Integer>(); for (int i = 0; i < SHOPS.length; i++) {
-		 * PosOffers p = SHOPS[i]; if (p != null) { shop_ids.add(i); } } for(int
-		 * i2 = 0; i2 < 9; i2++) { int shops = Misc.getRandom(shop_ids.size());
-		 * player.getPacketSender().sendString(featuredShopNameIds[i2],
-		 * SHOPS[shop_ids.get(shops)].getOwner());
-		 * player.getPacketSender().sendString(featuredShopLastsIds[i2],
-		 * "Unlimited"); }
-		 */
-	}
-
 	private static final Executor saveWorker = Executors.newSingleThreadExecutor();
 
 	private static final Runnable saveRunnable = () -> saveShops();
+
+	private static final Runnable featuredShopsSaveRunnable = () -> saveFeaturedShops();
 
 	public static void saveShops() {
 		for(int i = 0; i < PlayerOwnedShops.getCount() - 1; i++) {
@@ -129,19 +140,25 @@ public class PlayerOwnedShops {
 		}
 	}
 
-	public static void saveFeaturedShops(String owner, int time) {
-		File pos = new File("./data/saves/featured");
+	public static void saveFeaturedShops() {
+		File pos = new File("./data/saves/pos/featured");
 		if (!pos.exists()) {
 			pos.mkdirs();
 		}
 		RandomAccessFile file = null;
 		try {
 			file = new RandomAccessFile(pos + "/shops.dat", "rw");
-			//TODO: Featured shop saving
-//			for(int i = 0; i < 9; i++) {
-//				file.writeUTF(owner);
-//				file.writeInt(time);
-//			}
+
+			for(int i = 0; i < PosFeaturedShops.isEmpty.length; i++) {
+				file.writeBoolean(PosFeaturedShops.isEmpty[i]);
+				file.writeLong(PosFeaturedShops.timeRemaining[i]);
+				if(PosFeaturedShops.shopOwner[i] == null) {
+					file.writeUTF("invalid_person");
+				} else {
+					file.writeUTF(PosFeaturedShops.shopOwner[i]);
+				}
+			}
+
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -159,6 +176,7 @@ public class PlayerOwnedShops {
 
 	public static void save() {
 		saveWorker.execute(saveRunnable);
+		saveWorker.execute(featuredShopsSaveRunnable);
 	}
 
 	private static int getCount() {
@@ -320,9 +338,9 @@ public class PlayerOwnedShops {
 			PosItemSearch.reset(player);
 		}
 
-		player.getPacketSender().sendInterface(41409);
 		PosFeaturedShops.resetInterface(player);
-//		displayFeaturedShops(player);
+
+		player.getPacketSender().sendInterface(41409);
 	}
 
 }

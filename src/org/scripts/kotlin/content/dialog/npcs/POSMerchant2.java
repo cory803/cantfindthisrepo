@@ -5,6 +5,7 @@ import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
+import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.pos.PosFeaturedShops;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -45,10 +46,11 @@ public class POSMerchant2 extends Dialog {
                                 PosFeaturedShops.isEmpty[x] = true;
                                 PosFeaturedShops.timeRemaining[x] = System.currentTimeMillis(); //120k ticks = 2hours
                                 PosFeaturedShops.shopOwner[x] = player.getUsername();
-                                player.getPacketSender().sendMessage("You have just bought the " + x + " slot for your featured shop.");
+                                player.getPacketSender().sendMessage("You have just rented featured shop #" + (x + 1) + " for 2 hours.");
                             } else {
                                 player.getPacketSender().sendMessage("You do not have 10m coins in your money pouch.");
                             }
+                            PlayerOwnedShops.openItemSearch(player, false);
                             break;
                         case OPTION_2_OF_2:
                             player.getPacketSender().sendInterfaceRemoval();

@@ -21,7 +21,7 @@ public class SetPOSCaption extends Input {
 		}
 		int index = PlayerOwnedShops.getIndex(player.getUsername());
 		PlayerOwnedShops.SHOPS_ARRAYLIST.get(index).setCaption(syntax);
-		player.getPacketSender().sendMessage("<col=CA024B>You have set your player owned stores caption to '"+syntax+"'.");
+		player.getPacketSender().sendMessage("<col=CA024B>You set your caption to '"+syntax+"'.");
 		PlayerOwnedShops.saveShop(PlayerOwnedShops.SHOPS_ARRAYLIST.get(index));
 	}
 }
