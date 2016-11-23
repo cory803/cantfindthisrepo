@@ -20,7 +20,7 @@ public class POSMerchant2 extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "Hello "+getPlayer().getUsername()+", would you like to purchase a shop for 10m?");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello "+getPlayer().getUsername()+", would you like to purchase a featured shop for 10m? It will display for 2 hours with a quick link to your shop.");
             case 1:
             return Dialog.createOption(new TwoOption(
                     "Yes, purchase this slot for 10m",
@@ -43,7 +43,7 @@ public class POSMerchant2 extends Dialog {
                                 player.setMoneyInPouch(player.getMoneyInPouch() - 10000000);
                                 player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch());
                                 PosFeaturedShops.isEmpty[x] = true;
-                                PosFeaturedShops.timeRemaining[x] = 120000; //120k ticks = 2hours
+                                PosFeaturedShops.timeRemaining[x] = System.currentTimeMillis(); //120k ticks = 2hours
                                 PosFeaturedShops.shopOwner[x] = player.getUsername();
                                 player.getPacketSender().sendMessage("You have just bought the " + x + " slot for your featured shop.");
                             } else {
