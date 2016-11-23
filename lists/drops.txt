@@ -2692,21 +2692,21 @@ Rare (1/50)
 1x Rune kiteshield (1/500)
 1x Dragon med helm (1/500)
 
-Very Rare (1/200)
-1x Infinity top (1/1400)
-1x Infinity hat (1/1400)
-1x Infinity boots (1/1400)
-1x Infinity gloves (1/1400)
-1x Infinity bottoms (1/1400)
-1x Dragon scimitar (1/1400)
-1x Granite maul (1/1400)
+Very Rare (1/50)
+1x Infinity top (1/350)
+1x Infinity hat (1/350)
+1x Infinity boots (1/350)
+1x Infinity gloves (1/350)
+1x Infinity bottoms (1/350)
+1x Dragon scimitar (1/350)
+1x Granite maul (1/350)
 
-Epic (1/1000)
-1x Shield left half (1/5000)
-1x Dragon spear (1/5000)
-1x Master wand (1/5000)
-1x Mages' book (1/5000)
-1x Dragon boots (1/5000)
+Epic (1/100)
+1x Shield left half (1/500)
+1x Dragon spear (1/500)
+1x Master wand (1/500)
+1x Mages' book (1/500)
+1x Dragon boots (1/500)
 
 
 Monster: Battle mage(Level: 54) (id = 914)
@@ -6151,7 +6151,7 @@ Monster: Wildy Wyrm(Level: 382) (id = 3334)
 ---------------
 
 Always
-1x Dragon bones
+1x Lava dragon bones
 
 Common
 1x Gold charm
@@ -6180,11 +6180,10 @@ Rare (1/50)
 1x Ancient statuette (1/400)
 
 Epic (1/1000)
-1x Vanguard Helm (1/5000)
-1x Vanguard Body (1/5000)
-1x Vanguard Legs (1/5000)
-1x Vanguard Gloves (1/5000)
-1x Vanguard Boots (1/5000)
+1x Vanguard helm (1/4000)
+1x Vanguard body (1/4000)
+1x Vanguard legs (1/4000)
+1x Vanguard boots (1/4000)
 
 
 Monster: Baby black dragon(Level: 83) (id = 3376)

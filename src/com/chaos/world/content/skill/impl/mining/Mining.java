@@ -161,13 +161,16 @@ public class Mining {
 										player.getInventory().add(itemId, 1 * multiplier);
 									}
 									if(oreObject.getId() == 30000) {
-										int experience = 50;
+										double experience = 50;
 										if(itemId == 444) {
 											experience = 60;
 										}
+										experience *= getGoldenMiningBoost(player);
 										player.getSkillManager().addSkillExperience(Skill.MINING, experience);
 									} else {
-										player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
+										double experience = o.getXpAmount();
+										experience *= getGoldenMiningBoost(player);
+										player.getSkillManager().addSkillExperience(Skill.MINING, experience);
 									}
 									if(player.getInventory().contains(20786) || player.getEquipment().contains(20786)) {
 										if(MathUtil.random(3) == 0) {
@@ -188,7 +191,6 @@ public class Mining {
 											if (o.getItemId() != -1) {
 												player.getInventory().add(o.getItemId(), 1 * multiplier2);
 											}
-											player.getSkillManager().addSkillExperience(Skill.MINING, (int) (o.getXpAmount()));
 										}
 									}
 									player.getPacketSender().sendMessage("You mine some ore.");
@@ -221,12 +223,25 @@ public class Mining {
 		}
 	}
 
-	public static boolean goldenMiningArmour(Player player) {
-		return player.getEquipment().get(Equipment.HEAD_SLOT).getId() == 20789
-				&& player.getEquipment().get(Equipment.BODY_SLOT).getId() == 20791
-				&& player.getEquipment().get(Equipment.LEG_SLOT).getId() == 20790
-				&& player.getEquipment().get(Equipment.FEET_SLOT).getId() == 20788
-				&& player.getEquipment().get(Equipment.HANDS_SLOT).getId() == 20787;
+	/**
+	 * Get the boost for the golden mining armour set.
+	 * @param player
+	 * @return
+	 */
+	public static double getGoldenMiningBoost(Player player) {
+		double boost = 1.0;
+		if(player.getEquipment().get(Equipment.HEAD_SLOT).getId() == 20789) {
+			boost += .2;
+		} else if(player.getEquipment().get(Equipment.BODY_SLOT).getId() == 20791) {
+			boost += .2;
+		} else if(player.getEquipment().get(Equipment.LEG_SLOT).getId() == 20790) {
+			boost += .2;
+		} else if(player.getEquipment().get(Equipment.FEET_SLOT).getId() == 20788) {
+			boost += .2;
+		} else if(player.getEquipment().get(Equipment.HANDS_SLOT).getId() == 20787) {
+			boost += .2;
+		}
+		return boost;
 	}
 
 	public static void oreRespawn(final Player player, final GameObject oldOre, Ores o) {
