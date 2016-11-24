@@ -13,8 +13,6 @@ import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.net.packet.Packet.PacketType;
 import com.chaos.model.container.impl.PlayerOwnedShopContainer;
 import com.chaos.world.content.CustomObjects;
-import com.chaos.world.content.skill.impl.construction.ConstructionData;
-import com.chaos.world.content.skill.impl.construction.Palette;
 import com.chaos.world.entity.Entity;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -39,62 +37,6 @@ public class PacketSender {
 		out.put(1, ValueType.A);
 		out.putShort(player.getIndex());
 		player.getSession().queueMessage(out);
-		return this;
-	}
-
-	public void sendObject_cons(int objectX, int objectY, int objectId, int face, int objectType, int height) {
-		sendPosition(new Position(objectX, objectY));
-		PacketBuilder bldr = new PacketBuilder(152);
-		if (objectId != -1) // removing
-			player.getSession().queueMessage(bldr.put(0, ValueType.S).putShort(objectId, ByteOrder.LITTLE).put((objectType << 2) + (face & 3), ValueType.S).put(height));
-		if (objectId == -1 || objectId == 0 || objectId == 6951) {
-			CustomObjects.spawnObject(player, new GameObject(objectId, new Position(objectX, objectY, height)));
-		}
-	}
-
-	public PacketSender sendConstructionInterfaceItems(ArrayList<ConstructionData.Furniture> items) {
-		PacketBuilder builder = new PacketBuilder(53, PacketType.SHORT);
-		builder.putShort(38274);
-		builder.putShort(items.size());
-		for (int i = 0; i < items.size(); i++) {
-			builder.put(1);
-			builder.putShort(items.get(i).getItemId() + 1, ValueType.A, ByteOrder.LITTLE);
-		}
-		player.getSession().queueMessage(builder);
-		return this;
-	}
-
-	public PacketSender sendObjectsRemoval(int chunkX, int chunkY, int height) {
-		player.getSession().queueMessage(new PacketBuilder(153).put(chunkX).put(chunkY).put(height));
-		return this;
-	}
-
-	public PacketSender constructMapRegion(Palette palette) {
-		PacketBuilder bldr = new PacketBuilder(241, PacketType.SHORT);
-		if(palette != null) {
-			bldr.putString("palette"); //Inits map construction sequence
-			bldr.putString(""+(player.getPosition().getRegionY() + 6)+"");
-			bldr.putString(""+(player.getPosition().getRegionX() + 6)+"");
-			for (int z = 0; z < 4; z++) {
-				for (int x = 0; x < 13; x++) {
-					for (int y = 0; y < 13; y++) {
-						Palette.PaletteTile tile = palette.getTile(x, y, z);
-						boolean b = false;
-						if (x < 2 || x > 10 || y < 2 || y > 10)
-							b = true;
-						int toWrite = !b && tile != null ? 5 : 0;
-						bldr.putString(""+toWrite+"");
-						if(toWrite == 5) {
-							int val = tile.getX() << 14 | tile.getY() << 3 | (tile.getZ() + (player.getIndex() * 4)) << 24 | tile.getRotation() << 1;
-							bldr.putString(""+val+"");
-						}
-					}
-				}
-			}
-		} else {
-			bldr.putString("null"); //Resets map construction sequence
-		}
-		player.getSession().queueMessage(bldr);
 		return this;
 	}
 

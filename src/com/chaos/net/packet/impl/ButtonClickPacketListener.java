@@ -16,7 +16,6 @@ import com.chaos.world.World;
 import com.chaos.world.content.*;
 import com.chaos.world.content.Sounds.Sound;
 import com.chaos.world.content.pos.PosFeaturedShops;
-import com.chaos.world.content.skill.impl.construction.Construction;
 import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChat;
 import com.chaos.world.content.clan.ClanChatManager;
@@ -147,20 +146,6 @@ public class ButtonClickPacketListener implements PacketListener {
             //Report button
             case 1314:
                 player.getDialog().sendDialog(new Report(player));
-                break;
-
-            case 28177:
-                if(!TeleportHandler.checkReqs(player, null)) {
-                    return;
-                }
-                if(!player.getClickDelay().elapsed(4500) || player.getWalkingQueue().isLockMovement()) {
-                    return;
-                }
-                if(player.getLocation() == Location.CONSTRUCTION) {
-                    return;
-                }
-                Construction.newHouse(player);
-                Construction.enterHouse(player, player, true, true);
                 break;
 
             /**
@@ -1268,9 +1253,6 @@ public class ButtonClickPacketListener implements PacketListener {
             return true;
         }
         if (Achievements.handleButton(player, id)) {
-            return true;
-        }
-        if(Construction.handleButtonClick(id, player)) {
             return true;
         }
         if (Sounds.handleButton(player, id)) {
