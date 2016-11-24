@@ -10,6 +10,7 @@ import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.content.*;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
+import com.chaos.world.content.skill.impl.construction.Construction;
 import com.chaos.world.content.skill.impl.herblore.Herblore;
 import com.chaos.world.content.skill.impl.herblore.IngridientsBook;
 import com.chaos.world.content.skill.impl.hunter.BoxTrap;
@@ -55,6 +56,10 @@ public class ItemActionPacketListener implements PacketListener {
 		int itemId = packet.readShort();
 		if(GameSettings.DEVELOPER_MODE) {
 			player.getPacketSender().sendMessage("First click ItemActionPacket - Slot: " + slot + ", itemId: " + itemId);
+		}
+		if(interfaceId == 38274) {
+			Construction.handleItemClick(itemId, player);
+			return;
 		}
 		if (slot < 0 || slot > player.getInventory().capacity())
 			return;

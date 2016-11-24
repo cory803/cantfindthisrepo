@@ -46,6 +46,23 @@ public class Locations {
 		//boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed
 		SHILO(new int[] { 2757, 2909 }, new int[] { 2939, 3010 }, false, true, true, false, false, true) {
 		},
+		CONSTRUCTION(new int[] {1880, 1951}, new int[] {5080, 5151}, false, true, true, false, true, true) {
+
+			@Override
+			public boolean canTeleport(Player player) {
+				return true;
+			}
+
+			@Override
+			public void login(Player player) {
+				player.moveTo(new Position(3086, 3502));
+			}
+
+			@Override
+			public void logout(Player player) {
+				player.moveTo(new Position(3086, 3502));
+			}
+		},
 		BANDITS(new int[] { 3154, 3192 }, new int[] { 2961, 2999 }, true, true, true, false, true, true) {
 		},
 		MEMBER_ZONE(new int[] { 3415, 3435 }, new int[] { 2900, 2926 }, false, true, true, false, false, true) {

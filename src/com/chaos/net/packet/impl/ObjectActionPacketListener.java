@@ -27,6 +27,8 @@ import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.agility.Agility;
+import com.chaos.world.content.skill.impl.construction.Construction;
+import com.chaos.world.content.skill.impl.construction.dialogs.MainPortal;
 import com.chaos.world.content.skill.impl.crafting.Flax;
 import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.farming.Farming;
@@ -180,6 +182,10 @@ public class ObjectActionPacketListener implements PacketListener {
                                 }
                                 PlayerOwnedShops.openItemSearch(player, true);
                                 player.setPlayerOwnedShopping(true);
+                                break;
+                            //Construction portal
+                            case 15477:
+                                player.getDialog().sendDialog(new MainPortal(player));
                                 break;
                             //rune ess
                             case 2491:
@@ -2291,11 +2297,13 @@ public class ObjectActionPacketListener implements PacketListener {
         final int x = packet.readShort();
         final Position position = new Position(x, y, player.getPosition().getZ());
         final GameObject gameObject = new GameObject(id, position);
-        if (id > 0 && id != 6 && !World.objectExists(gameObject)) {
-            // player.getPacketSender().sendMessage("An error occured.
-            // Errorcode: "+id).sendMessage("Please report the error to a
-            // staffmember.");
-            return;
+        if(!Construction.buildingHouse(player)) {
+            if (id > 0 && id != 6 && !World.objectExists(gameObject)) {
+                // player.getPacketSender().sendMessage("An error occured.
+                // Errorcode: "+id).sendMessage("Please report the error to a
+                // staffmember.");
+                return;
+            }
         }
         if(gameObject.getId() != 4767) {
             player.setPositionToFace(gameObject.getPosition());
@@ -2355,6 +2363,7 @@ public class ObjectActionPacketListener implements PacketListener {
             public void execute() {
                 if (Farming.isGameObject(player, gameObject, 4))
                     return;
+
                 switch (id) {
                 }
             }
@@ -2392,6 +2401,7 @@ public class ObjectActionPacketListener implements PacketListener {
             public void execute() {
                 if (Farming.isGameObject(player, gameObject, 5))
                     return;
+                Construction.handleFifthObjectClick(x, y, id, player);
                 switch (id) {
                 }
             }

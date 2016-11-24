@@ -57,6 +57,9 @@ import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.skill.AbstractHarvestSkill;
 import com.chaos.world.content.skill.AbstractSkill;
 import com.chaos.world.content.skill.SkillManager;
+import com.chaos.world.content.skill.impl.construction.HouseFurniture;
+import com.chaos.world.content.skill.impl.construction.Portal;
+import com.chaos.world.content.skill.impl.construction.Room;
 import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.farming.PatchSaving;
 import com.chaos.world.content.skill.impl.farming.patch.Patch;
@@ -75,6 +78,9 @@ import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Player extends Character {
+
+    private ArrayList<HouseFurniture> houseFurniture = new ArrayList<HouseFurniture>();
+    private ArrayList<Portal> housePortals = new ArrayList<>();
 
     public Player(PlayerSession playerIO) {
         super(GameSettings.DEFAULT_POSITION_VARROCK.copy());
@@ -668,6 +674,33 @@ public class Player extends Character {
     // public boolean getLoginQue() {
     // return loginQue;
     // }
+
+    private Room[][][] houseRooms = new Room[5][13][13];
+
+    public Room[][][] getHouseRooms() {
+        return houseRooms;
+    }
+
+    public void setHouseRooms(Room[][][] houseRooms) {
+        this.houseRooms = houseRooms;
+    }
+
+    public ArrayList<Portal> getHousePortals() {
+        return housePortals;
+    }
+
+    public void setHousePortals(ArrayList<Portal> housePortals) {
+        this.housePortals = housePortals;
+    }
+
+    public ArrayList<HouseFurniture> getHouseFurniture() {
+        return houseFurniture;
+    }
+
+    public void setHouseFurtinture(ArrayList<HouseFurniture> houseFurniture) {
+        this.houseFurniture = houseFurniture;
+    }
+
 
     public void setXpRate(boolean bbb) {
         xpRate = bbb;
