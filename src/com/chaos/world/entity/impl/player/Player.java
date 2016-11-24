@@ -81,6 +81,28 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
+    private int equipmentHits = 0;
+
+    public int getEquipmentHits() {
+        return this.equipmentHits;
+    }
+
+    public void incrementEquipmentHits() {
+        this.equipmentHits++;
+    }
+
+    public void decrementEquipmentHits() {
+        this.equipmentHits--;
+    }
+
+    public void resetEquipmentHits() {
+        this.equipmentHits = 0;
+    }
+
+    public void setEquipmentHits(int hits) {
+        this.equipmentHits = hits;
+    }
+
     public Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
 
     private int announcementTime;

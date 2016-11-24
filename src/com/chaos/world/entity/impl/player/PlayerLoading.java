@@ -695,6 +695,10 @@ public class PlayerLoading {
 			player.setEffigy(reader.get("effigy").getAsInt());
 		}
 
+		if (reader.has("equipment-hits")) {
+			player.setEquipmentHits(reader.get("equipment-hits").getAsInt());
+		}
+
 		if (reader.has("summon-npc")) {
 			int npc = reader.get("summon-npc").getAsInt();
 			if (npc > 0)

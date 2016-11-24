@@ -39,35 +39,8 @@ public class Venenatis implements CombatStrategy {
 		if (venantis.isChargingAttack() || venantis.getConstitution() <= 0) {
 			return true;
 		}
-		CombatType style = Misc.getRandom(2) <= 1 ? CombatType.MELEE : CombatType.MAGIC;
-		if (style == CombatType.MELEE) {
-			venantis.performAnimation(new Animation(venantis.getDefinition().getAttackAnimation()));
-			venantis.getCombatBuilder()
-					.setContainer(new CombatContainer(venantis, victim, 1, 1, CombatType.MELEE, true));
-			venantis.getCombatBuilder()
-					.setContainer(new CombatContainer(venantis, victim, 1, 1, CombatType.MAGIC, true));
-		} else {
-			venantis.performAnimation(attack_anim);
-			venantis.setChargingAttack(true);
-			Player target = (Player) victim;
-			for (Player t : Misc.getCombinedPlayerList(target)) {
-			}
-			TaskManager.submit(new Task(2, target, false) {
-				@Override
-				public void execute() {
-					for (Player t : Misc.getCombinedPlayerList(target)) {
-						venantis.getCombatBuilder().setVictim(t);
-						new CombatHit(venantis.getCombatBuilder(),
-								new CombatContainer(venantis, t, 1, CombatType.MAGIC, true)).handleAttack();
-						venantis.performAnimation(new Animation(venantis.getDefinition().getAttackAnimation()));
-						venantis.getCombatBuilder()
-								.setContainer(new CombatContainer(venantis, victim, 1, 1, CombatType.MELEE, true));
-					}
-					venantis.setChargingAttack(false);
-					stop();
-				}
-			});
-		}
+		venantis.performAnimation(new Animation(venantis.getDefinition().getAttackAnimation()));
+		venantis.getCombatBuilder().setContainer(new CombatContainer(venantis, victim, 1, 0, CombatType.MELEE, true));
 		return true;
 	}
 

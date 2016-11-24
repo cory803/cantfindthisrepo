@@ -155,6 +155,19 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.MELEE, false);
 		}
 	},
+	ABYSSAL_VINE_WHIP(new int[] {21371, 21372, 21373, 21374, 21375}, 100, 1.0, 2, CombatType.MELEE, WeaponInterface.WHIP) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			player.performAnimation(new Animation(1658));
+			target.performGraphic(new Graphic(1171, GraphicHeight.LOW));
+			if (target.isPlayer()) {
+				Player targetPlayer = (Player) target;
+				targetPlayer.setEquipmentHits(50);
+				targetPlayer.getPacketSender().sendMessage("You feel a weakness in your equipment abilities for 50 hits...");
+			}
+			return new CombatContainer(player, target, 1, CombatType.MELEE, false);
+		}
+	},
 	DRAGON_LONGSWORD(new int[] { 1305 }, 25, 1.15, 1.20, CombatType.MELEE, WeaponInterface.LONGSWORD) {
 		@Override
 		public CombatContainer container(Player player, Character target) {

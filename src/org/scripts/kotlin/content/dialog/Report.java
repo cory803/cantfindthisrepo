@@ -29,15 +29,15 @@ public class Report extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_3:
-                                player.getPacketSender().sendMessage("This will be added soon... Interface in development.");
+                                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/support/");
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_2_OF_3:
-                                player.getPacketSender().sendMessage("This will be added soon... Interface in development.");
+                                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/support/");
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_3_OF_3:
-                                player.getPacketSender().sendMessage("This will be added soon... Interface in development.");
+                                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/support/");
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                         }

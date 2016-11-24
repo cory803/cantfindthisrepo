@@ -44731,7 +44731,7 @@
 "respawn": 25,
 "maxHit": 450,
 "hitpoints": 5000,
-"attackSpeed": 4,
+"attackSpeed": 6,
 "attackAnim": 5327,
 "defenceAnim": 5328,
 "deathAnim": 5329,

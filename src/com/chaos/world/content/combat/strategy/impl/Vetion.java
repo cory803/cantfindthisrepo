@@ -62,7 +62,7 @@ public class Vetion implements CombatStrategy {
 							if(t == null)
 								continue;
 							if(t.getPosition().equals(start) || t.getPosition().equals(second) || t.getPosition().equals(last)) {
-								new HitQueue.CombatHit(vetion.getCombatBuilder(), new CombatContainer(vetion, t, 3, CombatType.MAGIC, true)).handleAttack();
+								new HitQueue.CombatHit(vetion.getCombatBuilder(), new CombatContainer(vetion, t, 2, CombatType.MAGIC, true)).handleAttack();
 							}
 						}
 						vetion.setChargingAttack(false);

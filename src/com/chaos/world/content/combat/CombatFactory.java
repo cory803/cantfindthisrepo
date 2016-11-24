@@ -1163,77 +1163,86 @@ public final class CombatFactory {
 
         if (builder.getVictim().isPlayer()) {
             Player victim = (Player) builder.getVictim();
-            if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13740) {
-                container.allHits(context -> {
-                    if (context.getHit().getDamage() > 0) {
-                        if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) > 0) {
-                            int prayerLost = (int) (context.getHit().getDamage() * 0.09);
-                            if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
-                                context.getHit().incrementAbsorbedDamage(
-                                        (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.70)));
-                                victim.getSkillManager().setCurrentLevel(Skill.PRAYER,
-                                        victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
-                            }
-                        }
-                    }
-                });
-            }
-            if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 21104) {
-                container.allHits(context -> {
-                    if (context.getHit().getDamage() > 0) {
-                        if (victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > 0) {
-                            int prayerLost = (int) (context.getHit().getDamage() * 0.20);
-                            if (victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) >= prayerLost) {
-                                context.getHit().incrementAbsorbedDamage(
-                                        (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.90)));
-                                victim.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
-                                        victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) - prayerLost);
-                            }
-                        }
-                    }
-                });
-            }
-            if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13742) {
-                container.allHits(context -> {
-                    if (context.getHit().getDamage() > 0) {
-                        if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) > 0) {
-                            int prayerLost = (int) (context.getHit().getDamage() * 0.07);
-                            if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
-                                context.getHit().incrementAbsorbedDamage(
-                                        (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.70)));
-                                victim.getSkillManager().setCurrentLevel(Skill.PRAYER,
-                                        victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
-                            }
-                        }
-                    }
-                });
-            }
-            if (builder.getCharacter().isNpc()) {
-                NPC attacker = (NPC) builder.getCharacter();
-                // Except for verac of course :)
-                if (attacker.getId() == 2030) {
-                    return;
-                }
-                // It's not verac so we cancel all of the hits.
-                if (PrayerHandler.isActivated(victim, PrayerHandler.getProtectingPrayer(container.getCombatType()))
-                        || CurseHandler.isActivated(victim,
-                        CurseHandler.getProtectingPrayer(container.getCombatType()))) {
+            if(victim.getEquipmentHits() <= 0) {
+                if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13740) {
                     container.allHits(context -> {
-                        int hit = context.getHit().getDamage();
-                        if (attacker.getId() == 2745) { // Jad
-                            context.setAccurate(false);
-                            context.getHit().incrementAbsorbedDamage(hit);
-                        } else {
-                            double reduceRatio = attacker.getId() == 1158 || attacker.getId() == 1160 ? 0.4 : 0.8;
-                            double mod = Math.abs(1 - reduceRatio);
-                            context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
-                            mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
-                            if (mod <= CombatFactory.PRAYER_ACCURACY_REDUCTION) {
-                                context.setAccurate(false);
+                        if (context.getHit().getDamage() > 0) {
+                            if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) > 0) {
+                                int prayerLost = (int) (context.getHit().getDamage() * 0.09);
+                                if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
+                                    context.getHit().incrementAbsorbedDamage(
+                                            (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.70)));
+                                    victim.getSkillManager().setCurrentLevel(Skill.PRAYER,
+                                            victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
+                                }
                             }
                         }
                     });
                 }
+                if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 21104) {
+                    container.allHits(context -> {
+                        if (context.getHit().getDamage() > 0) {
+                            if (victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) > 0) {
+                                int prayerLost = (int) (context.getHit().getDamage() * 0.20);
+                                if (victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) >= prayerLost) {
+                                    context.getHit().incrementAbsorbedDamage(
+                                            (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.90)));
+                                    victim.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
+                                            victim.getSkillManager().getCurrentLevel(Skill.CONSTITUTION) - prayerLost);
+                                }
+                            }
+                        }
+                    });
+                }
+                if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13742) {
+                    container.allHits(context -> {
+                        if (context.getHit().getDamage() > 0) {
+                            if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) > 0) {
+                                int prayerLost = (int) (context.getHit().getDamage() * 0.07);
+                                if (victim.getSkillManager().getCurrentLevel(Skill.PRAYER) >= prayerLost) {
+                                    context.getHit().incrementAbsorbedDamage(
+                                            (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.70)));
+                                    victim.getSkillManager().setCurrentLevel(Skill.PRAYER,
+                                            victim.getSkillManager().getCurrentLevel(Skill.PRAYER) - prayerLost);
+                                }
+                            }
+                        }
+                    });
+                }
+            } else {
+                victim.decrementEquipmentHits();
+                if(victim.getEquipmentHits() == 0) {
+                    victim.getPacketSender().sendMessage("<col=ff0000>The curse against your spirit shield has been lifted.");
+                } else if(victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13740 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 13742 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 21104) {
+                    victim.getPacketSender().sendMessage("The effects of your spirit shield will not work for "+victim.getEquipmentHits()+" more hits.");
+                }
+            }
+                if (builder.getCharacter().isNpc()) {
+                    NPC attacker = (NPC) builder.getCharacter();
+                    // Except for verac of course :)
+                    if (attacker.getId() == 2030) {
+                        return;
+                    }
+                    // It's not verac so we cancel all of the hits.
+                    if (PrayerHandler.isActivated(victim, PrayerHandler.getProtectingPrayer(container.getCombatType()))
+                            || CurseHandler.isActivated(victim,
+                            CurseHandler.getProtectingPrayer(container.getCombatType()))) {
+                        container.allHits(context -> {
+                            int hit = context.getHit().getDamage();
+                            if (attacker.getId() == 2745) { // Jad
+                                context.setAccurate(false);
+                                context.getHit().incrementAbsorbedDamage(hit);
+                            } else {
+                                double reduceRatio = attacker.getId() == 1158 || attacker.getId() == 1160 ? 0.4 : 0.8;
+                                double mod = Math.abs(1 - reduceRatio);
+                                context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
+                                mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
+                                if (mod <= CombatFactory.PRAYER_ACCURACY_REDUCTION) {
+                                    context.setAccurate(false);
+                                }
+                            }
+                        });
+                    }
                 if(builder.getCharacter().isNpc()) {
                     NPC killer = (NPC) builder.getCharacter();
                     Player playerVictim = (Player) builder.getVictim();

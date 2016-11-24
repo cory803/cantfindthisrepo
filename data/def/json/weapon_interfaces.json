@@ -2340,6 +2340,16 @@
     "interface": "LONGSWORD"
   },
   {
+    "hash": 13925,
+    "item-id": 13925,
+    "interface": "LONGSWORD"
+  },
+  {
+    "hash": 13923,
+    "item-id": 13923,
+    "interface": "LONGSWORD"
+  },
+  {
     "hash": 13902,
     "item-id": 13902,
     "interface": "WARHAMMER"
@@ -2347,6 +2357,16 @@
   {
     "hash": 13904,
     "item-id": 13904,
+    "interface": "WARHAMMER"
+  },
+  {
+    "hash": 13926,
+    "item-id": 13926,
+    "interface": "WARHAMMER"
+  },
+  {
+    "hash": 13928,
+    "item-id": 13928,
     "interface": "WARHAMMER"
   },
   {
@@ -3118,10 +3138,20 @@
     "hash": 13905,
     "item-id": 13905,
     "interface": "SPEAR"
+  }, 
+  {
+    "hash": 13931,
+    "item-id": 13931,
+    "interface": "SPEAR"
+  },
+  {
+    "hash": 13929,
+    "item-id": 13929,
+    "interface": "SPEAR"
   },
   {
     "hash": 13907,
-    "item-id": 1113907716,
+    "item-id": 13907,
     "interface": "SPEAR"
   }
 ]

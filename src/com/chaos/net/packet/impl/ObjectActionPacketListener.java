@@ -78,7 +78,7 @@ public class ObjectActionPacketListener implements PacketListener {
         final int y = packet.readUnsignedShortA();
         final Position position = new Position(x, y, player.getPosition().getZ());
         final GameObject gameObject = new GameObject(id, position);
-        if (id > 0 && id != 2465 && !World.objectExists(gameObject)) {
+        if (id > 0 && id != 2465 && id != 5959 && !World.objectExists(gameObject)) {
             player.getPacketSender().sendMessage("Something has gone wrong, please report this! " + x + ", " + y + ", id: " + id + ".");
             return;
         }
@@ -1126,6 +1126,9 @@ public class ObjectActionPacketListener implements PacketListener {
                                 if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3956) {
                                     player.setDirection(Direction.WEST);
                                     TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
+                                } else if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3474) {
+                                    player.setDirection(Direction.WEST);
+                                    TeleportHandler.teleportPlayer(player, new Position(3154, 3923), TeleportType.LEVER);
                                 } else if (player.getPosition().getX() == 3090 && player.getPosition().getY() >= 3957) {
                                     player.setDirection(Direction.SOUTH);
                                     TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);
@@ -1135,6 +1138,9 @@ public class ObjectActionPacketListener implements PacketListener {
                                 } else if (player.getPosition().getX() == 3153 && player.getPosition().getY() <= 3923) {
                                     player.setDirection(Direction.WEST);
                                     TeleportHandler.teleportPlayer(player, new Position(2561, 3311), TeleportType.LEVER);
+                                } else if (player.getPosition().getX() == 2561 && player.getPosition().getY() <= 3311) {
+                                    player.setDirection(Direction.WEST);
+                                    TeleportHandler.teleportPlayer(player, new Position(3153, 3923), TeleportType.LEVER);
                                 } else if (player.getPosition().getX() == 2561 && player.getPosition().getY() <= 3311) {
                                     player.setDirection(Direction.WEST);
                                     TeleportHandler.teleportPlayer(player, new Position(3153, 3923), TeleportType.LEVER);
