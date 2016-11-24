@@ -2417,7 +2417,30 @@
         "z": 0
       }
     }
-  }
+  },
+   {
+	# Ardougne Lever
+    "openState": {
+      "id": 1531,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2563,
+        "y": 3310,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 2,
+      "position": {
+        "hashed": true,
+        "x": 2564,
+        "y": 3310,
+        "z": 0
+      }
+    }
+  } 
   
   
   
