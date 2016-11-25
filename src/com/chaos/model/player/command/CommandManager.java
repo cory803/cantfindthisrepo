@@ -346,6 +346,12 @@ public class CommandManager {
         commands.put("banvote", new BanVoting(StaffRights.MODERATOR));
         commands.put("unbanvote", new UnVoteBan(StaffRights.MODERATOR));
         commands.put("invisible", new Invisibility(StaffRights.MODERATOR));
+        commands.put("bank", new Command(StaffRights.MODERATOR) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getBank(player.getCurrentBankTab()).open();
+            }
+        });
 
         /**
          * Administrator Commands
@@ -447,12 +453,6 @@ public class CommandManager {
         commands.put("checkinv", new CheckInventory(StaffRights.MANAGER));
         commands.put("announce", new Announce(StaffRights.GLOBAL_MOD));
         commands.put("checkequip", new CheckEquipment(StaffRights.MANAGER));
-        commands.put("bank", new Command(StaffRights.MANAGER) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getBank(player.getCurrentBankTab()).open();
-            }
-        });
         commands.put("reload", new Command(StaffRights.MANAGER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

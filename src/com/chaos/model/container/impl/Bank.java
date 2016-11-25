@@ -2,6 +2,8 @@ package com.chaos.model.container.impl;
 
 import com.chaos.model.Flag;
 import com.chaos.model.Item;
+import com.chaos.model.Locations;
+import com.chaos.model.StaffRights;
 import com.chaos.model.container.ItemContainer;
 import com.chaos.model.container.StackType;
 import com.chaos.model.definitions.ItemDefinition;
@@ -30,6 +32,15 @@ public class Bank extends ItemContainer {
 				&& getPlayer().getBankPinAttributes().onDifferent(getPlayer())) {
 			BankPin.init(getPlayer(), true);
 			return this;
+		}
+		if (getPlayer().getStaffRights().isHigherRank(StaffRights.ADMINISTRATOR)) {
+			if (getPlayer().getLocation() == Locations.Location.WILDERNESS) {
+				getPlayer().getPacketSender().sendMessage("You cannot open your bank in the wilderness.");
+				return this;
+			} else if (getPlayer().getDungeoneering().isDoingDung()) {
+				getPlayer().getPacketSender().sendMessage("You cannot open your bank in dungeoneering.");
+				return this;
+			}
 		}
 		sortItems().refreshItems();
 		getPlayer().setBanking(true).setInputHandling(null);
