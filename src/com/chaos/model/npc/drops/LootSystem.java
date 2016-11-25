@@ -148,6 +148,8 @@ public class LootSystem {
         if (table.getCharms() != null) {
             boolean boss = n.getDefaultConstitution() > 2000;
             dropCharm(p, n.getPosition().copy(), table.getCharms(), boss);
+        } else {
+            GroundItemManager.spawnGroundItem(p, new GroundItem(new Item(12158, 1), n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
         }
 
         /**
