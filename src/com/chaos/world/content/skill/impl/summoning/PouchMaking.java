@@ -81,9 +81,6 @@ public class PouchMaking {
 			public void execute() {
 				int x = amount;
 				while (x > 0) {
-					if (player.getInventory().isFull()) {
-						break;
-					}
 					if (!hasRequirements(player, pouch))
 						break;
 					else {
@@ -92,6 +89,9 @@ public class PouchMaking {
 						player.getInventory().delete(pouch.getCharmId(), 1);
 						player.getInventory().delete(pouch.getsecondIngredientId(), 1);
 						player.getSkillManager().addSkillExperience(Skill.SUMMONING, pouch.getExp());
+						if (!player.getInventory().hasRoomFor(pouch.getPouchId(), 1)) {
+							break;
+						}
 						player.getInventory().add(pouch.getPouchId(), 1);
 						if (pouch == Pouch.STEEL_TITAN) {
 							Achievements.doProgress(player, AchievementData.INFUSE_25_TITAN_POUCHES);
