@@ -1056,6 +1056,9 @@ public class ObjectActionPacketListener implements PacketListener {
                                 if (gameObject.getPosition().getX() == 3104 && gameObject.getPosition().getY() == 3956) {
                                     player.setDirection(Direction.WEST);
                                     TeleportHandler.teleportPlayer(player, new Position(3105, 3951), TeleportType.LEVER);
+                                } else {
+                                    player.setDirection(Direction.WEST);
+                                    TeleportHandler.teleportPlayer(player, new Position(3105, 3951), TeleportType.LEVER);
                                 }
                                 break;
                             case 9707:
@@ -1142,12 +1145,15 @@ public class ObjectActionPacketListener implements PacketListener {
                                 } else if (player.getPosition().getX() == 3153 && player.getPosition().getY() <= 3923) {
                                     player.setDirection(Direction.WEST);
                                     TeleportHandler.teleportPlayer(player, new Position(2561, 3311), TeleportType.LEVER);
+                                } else if (gameObject.getPosition().equals(2561, 3311)) {
+                                    player.setDirection(Direction.WEST);
+                                    TeleportHandler.teleportPlayer(player, new Position(3154, 3923), TeleportType.LEVER);
                                 } else if (player.getPosition().getX() == 2561 && player.getPosition().getY() <= 3311) {
                                     player.setDirection(Direction.WEST);
                                     TeleportHandler.teleportPlayer(player, new Position(3153, 3923), TeleportType.LEVER);
-                                } else if (player.getPosition().getX() == 2561 && player.getPosition().getY() <= 3311) {
+                                } else if (gameObject.getPosition().equals(3153, 3923)) {
                                     player.setDirection(Direction.WEST);
-                                    TeleportHandler.teleportPlayer(player, new Position(3153, 3923), TeleportType.LEVER);
+                                    TeleportHandler.teleportPlayer(player, new Position(2562, 3311), TeleportType.LEVER);
                                 }
                                 break;
                             case 5096:

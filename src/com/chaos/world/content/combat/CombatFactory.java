@@ -1836,6 +1836,13 @@ public final class CombatFactory {
                         break;
                     case 4:
                         Hit h = new Hit(50 + Misc.getRandom(150), Hitmask.RED, CombatIcon.MAGIC);
+                        if(target.isPlayer()) {
+                            Player targetPlayer = (Player) target;
+                            if (!targetPlayer.playersAttacked.contains(player.getUsername()))
+                                CombatFactory.skullPlayer(player);
+                            if (!player.playersAttacked.contains(targetPlayer.getUsername()))
+                                player.playersAttacked.add(targetPlayer.getUsername());
+                        }
                         target.dealDamage(player, h);
                         target.performGraphic(new Graphic(1167, GraphicHeight.HIGH));
                         target.getLastCombat().reset();

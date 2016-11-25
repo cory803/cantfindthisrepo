@@ -400,9 +400,24 @@ public class ItemContainerActionPacketListener implements PacketListener {
 					return;
 				}
 				if (charges >= 1) {
-					if (player.getCombatBuilder().isAttacking())
+					if (player.getCombatBuilder().isAttacking()) {
+						if(player.getCombatBuilder().getVictim().isPlayer()) {
+							Player targetPlayer = (Player) player.getCombatBuilder().getVictim();
+							if(targetPlayer.getLocation() != Location.WILDERNESS) {
+								player.getPacketSender().sendMessage("Your opponent is not in the wilderness.");
+								return;
+							}
+							int combatDifference = CombatFactory.combatLevelDifference(player.getSkillManager().getCombatLevel(),
+									targetPlayer.getSkillManager().getCombatLevel());
+							if (combatDifference > player.getWildernessLevel() || combatDifference > targetPlayer.getWildernessLevel()) {
+								player.getPacketSender()
+										.sendMessage("Your combat level difference is too great to attack that player here.");
+								player.getWalkingQueue().clear();
+								return;
+							}
+						}
 						CombatFactory.handleDragonFireShield(player, player.getCombatBuilder().getVictim());
-					else
+					} else
 						player.getPacketSender().sendMessage("You can only use this in combat.");
 				} else
 					player.getPacketSender().sendMessage("Your shield doesn't have enough power yet. It has "

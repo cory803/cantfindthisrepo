@@ -234,6 +234,9 @@ public class CustomObjects {
             //Ezone cooking range
             { 4172, 3343, 9623, 0, 0},
 
+            //Wilderness lever
+            { 9706, 3153, 3923, 0, 3},
+
             //Nex bank chests
             { 27663, 2902, 5207, 0, 2},
             { 27663, 2901, 5207, 0, 2},

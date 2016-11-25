@@ -10,6 +10,7 @@ import com.chaos.model.Hit;
 import com.chaos.model.Hitmask;
 import com.chaos.model.Item;
 import com.chaos.world.entity.impl.Character;
+import com.chaos.world.entity.impl.player.Player;
 
 /**
  * A {@link Task} implementation that handles the venom process.
@@ -69,6 +70,12 @@ public class CombatVenomEffect extends Task {
 		if (!entity.isRegistered() || !entity.isVenomed()) {
 			this.stop();
 			return;
+		}
+		if(entity.isPlayer()) {
+			Player player = (Player) entity;
+			if(player.isJailed()) {
+				return;
+			}
 		}
 		// Deal the damage, then try and decrement the damage count.
 		entity.dealDamage(null, new Hit(entity.getAndDecrementVenomDamage(), Hitmask.DARK_GREEN, CombatIcon.NONE));
