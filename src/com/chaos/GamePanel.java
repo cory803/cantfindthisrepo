@@ -137,7 +137,7 @@ public class GamePanel extends JFrame {
 	}
 
 	public void addGeneral() {
-		playersOnlineLabel.setText("Players Online: " + World.getPlayers().size());
+		playersOnlineLabel.setText("Players Online: " + (World.getPlayers().size() + GameSettings.fakePlayerCount));
 		long memory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 		memoryLabel.setText("Memory: " + memory / (1024 * 1024) + " Mb");
 		if (System.currentTimeMillis() - GameServer.getStartTime() > 25000) {

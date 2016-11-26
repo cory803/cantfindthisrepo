@@ -273,6 +273,14 @@ public class PlayerSaving {
 		object.addProperty("running", new Boolean(player.getWalkingQueue().isRunning()));
 		object.addProperty("run-energy", new Float(player.getRunEnergy()));
 		object.addProperty("music", new Boolean(player.musicActive()));
+		object.addProperty("potato-timer", new Long(player.getRottenPotato().getTime()));
+		object.addProperty("potato-drop-timer", new Long(player.getRottenPotatoDropTimer().getTime()));
+		object.addProperty("potato-heal", new Integer(player.rottenPotatoHeal));
+		object.addProperty("potato-prayer", new Integer(player.rottenPotatoPrayer));
+		object.addProperty("potato-drop", new Integer(player.rottenPotatoDrop));
+		object.addProperty("drop-rate-boost", new Double(player.dropRateBoost));
+		object.addProperty("after-beta", new Boolean(player.afterBeta));
+		object.addProperty("got-beta-items", new Boolean(player.gotBetaItems));
 		object.addProperty("sounds", new Boolean(player.soundsActive()));
 		object.addProperty("auto-retaliate", new Boolean(player.isAutoRetaliate()));
 		object.addProperty("xp-locked", new Boolean(player.experienceLocked()));

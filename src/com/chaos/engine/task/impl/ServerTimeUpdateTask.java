@@ -71,7 +71,7 @@ public class ServerTimeUpdateTask extends Task {
 					GameSettings.gambler_timer_2--;
 				}
 				if (GameSettings.PLAYERS_ONLINE) {
-					WebsiteOnline.updateOnline(World.getPlayers().size());
+					//WebsiteOnline.updateOnline(World.getPlayers().size());
 				}
 				/*
 				if (!GameSettings.spawned_1) {

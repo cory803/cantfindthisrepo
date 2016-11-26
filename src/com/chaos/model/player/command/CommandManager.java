@@ -83,6 +83,35 @@ public class CommandManager {
                 player.getPacketSender().sendString(41473, ":storeowner:-11694-500000000-test");
             }
         });
+        commands.put("upcount", new Command(StaffRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                GameSettings.fakePlayerCount++;
+                player.getPacketSender().sendMessage("You have increased the player count by 1.");
+                player.getPacketSender().sendMessage("There are really "+World.getPlayers().size()+" players online.");
+                player.getPacketSender().sendMessage("There are "+GameSettings.fakePlayerCount+" fake players online.");
+            }
+        });
+        commands.put("downcount", new Command(StaffRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                GameSettings.fakePlayerCount--;
+                if(GameSettings.fakePlayerCount == 0) {
+                    player.getPacketSender().sendMessage("You went too low.");
+                    return;
+                }
+                player.getPacketSender().sendMessage("You have decreased the player count by 1.");
+                player.getPacketSender().sendMessage("There are really "+World.getPlayers().size()+" players online.");
+                player.getPacketSender().sendMessage("There are "+GameSettings.fakePlayerCount+" fake players online.");
+            }
+        });
+        commands.put("checkcount", new Command(StaffRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getPacketSender().sendMessage("There are really "+World.getPlayers().size()+" players online.");
+                player.getPacketSender().sendMessage("There are "+GameSettings.fakePlayerCount+" fake players online.");
+            }
+        });
         commands.put("capergbcolors", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
@@ -349,6 +378,12 @@ public class CommandManager {
         commands.put("bank", new Command(StaffRights.MODERATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
+                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
+                    if(player.getLocation() == Locations.Location.WILDERNESS) {
+                        player.getPacketSender().sendMessage("You must step out of the wilderness to use this commannd");
+                    }
+                    return;
+                }
                 player.getBank(player.getCurrentBankTab()).open();
             }
         });

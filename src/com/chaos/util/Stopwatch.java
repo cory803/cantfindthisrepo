@@ -9,6 +9,10 @@ public class Stopwatch {
 		return this;
 	}
 
+	public void setTime(long time) {
+		this.time = time;
+	}
+
 	public Stopwatch reset(long i) {
 		time = i;
 		return this;

@@ -282,6 +282,8 @@ public class Player extends Character {
     public String changingPasswordOf = "none";
     public int reset_stats_1 = 0;
     private boolean requestAssistance = false;
+    public boolean afterBeta = false;
+    public boolean gotBetaItems = false;
 
     public int casketRewards() {
         int[] rewards = { 200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220, 2486, 3052, 1624, 1622, 1620, 1618,
@@ -847,6 +849,8 @@ public class Player extends Character {
     private final Stopwatch tolerance = new Stopwatch();
     private final Stopwatch lougoutTimer = new Stopwatch();
     private final Stopwatch dragonfireShield = new Stopwatch();
+    private final Stopwatch rottenPotato = new Stopwatch();
+    private final Stopwatch rottenPotatoDropTimer = new Stopwatch();
     private final Stopwatch dragonSpear = new Stopwatch();
     private final Stopwatch duelTimer = new Stopwatch();
     private final Stopwatch summoningTimer = new Stopwatch();
@@ -2695,6 +2699,20 @@ public class Player extends Character {
     public Stopwatch getDragonfireShield() {
         return dragonfireShield;
     }
+
+    public Stopwatch getRottenPotato() {
+        return rottenPotato;
+    }
+
+    public Stopwatch getRottenPotatoDropTimer() {
+        return rottenPotatoDropTimer;
+    }
+
+    public double dropRateBoost = 0;
+
+    public int rottenPotatoDrop = 0;
+    public int rottenPotatoHeal = 0;
+    public int rottenPotatoPrayer = 0;
 
     public Stopwatch getDragonSpear() {
         return dragonSpear;

@@ -2026,7 +2026,7 @@ public enum CombatSpells {
 	 */
 	SMOKE_RUSH(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			CombatFactory.poisonEntity(castOn, PoisonType.MILD);
 		}
 
@@ -2081,7 +2081,7 @@ public enum CombatSpells {
 		}
 	}), SHADOW_RUSH(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (castOn.isPlayer()) {
 				Player player = (Player) castOn;
 
@@ -2148,7 +2148,7 @@ public enum CombatSpells {
 		}
 	}), BLOOD_RUSH(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage < 1) {
 				return;
 			}
@@ -2206,8 +2206,8 @@ public enum CombatSpells {
 		}
 	}), ICE_RUSH(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
-			if (damage >= 1) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
+			if (damage >= 1 || accurate) {
 				castOn.getWalkingQueue().freeze(7);
 			}
 		}
@@ -2263,7 +2263,7 @@ public enum CombatSpells {
 		}
 	}), SMOKE_BURST(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			CombatFactory.poisonEntity(castOn, PoisonType.MILD);
 		}
 
@@ -2318,7 +2318,7 @@ public enum CombatSpells {
 		}
 	}), SHADOW_BURST(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (castOn.isPlayer()) {
 				Player player = (Player) castOn;
 
@@ -2385,7 +2385,7 @@ public enum CombatSpells {
 		}
 	}), BLOOD_BURST(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage < 1) {
 				return;
 			}
@@ -2443,8 +2443,8 @@ public enum CombatSpells {
 		}
 	}), ICE_BURST(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
-			if (damage >= 1) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
+			if (damage >= 1 || accurate) {
 				castOn.getWalkingQueue().freeze(9);
 			}
 		}
@@ -2500,7 +2500,7 @@ public enum CombatSpells {
 		}
 	}), SMOKE_BLITZ(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			CombatFactory.poisonEntity(castOn, PoisonType.EXTRA);
 		}
 
@@ -2555,7 +2555,7 @@ public enum CombatSpells {
 		}
 	}), SHADOW_BLITZ(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (castOn.isPlayer()) {
 				Player player = (Player) castOn;
 
@@ -2622,7 +2622,7 @@ public enum CombatSpells {
 		}
 	}), BLOOD_BLITZ(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage < 1) {
 				return;
 			}
@@ -2680,8 +2680,8 @@ public enum CombatSpells {
 		}
 	}), ICE_BLITZ(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
-			if (damage >= 1) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
+			if (damage >= 1 || accurate) {
 				castOn.getWalkingQueue().freeze(10);
 			}
 		}
@@ -2737,7 +2737,7 @@ public enum CombatSpells {
 		}
 	}), SMOKE_BARRAGE(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			CombatFactory.poisonEntity(castOn, PoisonType.SUPER);
 		}
 
@@ -2792,7 +2792,7 @@ public enum CombatSpells {
 		}
 	}), SHADOW_BARRAGE(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (castOn.isPlayer()) {
 				Player player = (Player) castOn;
 
@@ -2859,7 +2859,7 @@ public enum CombatSpells {
 		}
 	}), BLOOD_BARRAGE(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage < 1) {
 				return;
 			}
@@ -2917,8 +2917,8 @@ public enum CombatSpells {
 		}
 	}), ICE_BARRAGE(new CombatAncientSpell() {
 		@Override
-		public void spellEffect(Character cast, Character castOn, int damage) {
-			if (damage >= 1) {
+		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
+			if (damage >= 1 || accurate) {
 				castOn.getWalkingQueue().freeze(15);
 			}
 		}

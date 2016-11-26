@@ -143,7 +143,7 @@ public class World {
 
 	public static void updatePlayersOnline() {
 		players.forEach(
-				p -> p.getPacketSender().sendString(57003, "Players:  @gre@" + (World.getPlayers().size()) + ""));
+				p -> p.getPacketSender().sendString(57003, "Players:  @gre@" + (World.getPlayers().size() + GameSettings.fakePlayerCount) + ""));
 	}
 
 	public static void savePlayers() {

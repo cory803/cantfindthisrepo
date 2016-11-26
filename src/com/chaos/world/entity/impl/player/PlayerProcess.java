@@ -1,5 +1,6 @@
 package com.chaos.world.entity.impl.player;
 
+import com.chaos.GameSettings;
 import com.chaos.model.Locations;
 import com.chaos.model.Locations.Location;
 import com.chaos.model.StaffRights;
@@ -92,10 +93,10 @@ public class PlayerProcess {
 		}
 
 		if (timerTick >= 1) {
-			player.getPacketSender().sendString(55073, "   >- Players online: @cha@"+ World.getPlayers().size());
+			player.getPacketSender().sendString(55073, "   >- Players online: @cha@"+ (World.getPlayers().size() + GameSettings.fakePlayerCount));
 			player.getPacketSender().sendString(55074, "   >- Staff online: @cha@"+ World.staffOnline());
 			player.getPacketSender().sendString(55075, "   >- Wilderness: @cha@"+ Locations.PLAYERS_IN_WILD);
-			player.getPacketSender().sendString(55078, "   >- Play Time: @cha@" + Misc.getMinutesPlayed(player) + " Minutes");
+			player.getPacketSender().sendString(55078, "   >- Play Time: @cha@" + Misc.getTimePlayed(player.getTotalPlayTime() + (player.getRecordedLogin().elapsed())) + "");
 			timerTick = 0;
 		}
 		timerTick++;

@@ -363,7 +363,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.RANGED, true);
 		}
 	},
-	DARK_BOW(new int[] { 11235, 21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023 }, 55, 1.75, 1.5,
+	DARK_BOW(new int[] { 11235, 21016, 21017, 21018, 21019, 21020, 21021, 21022, 21023 }, 55, 1.50, 1.5,
 			CombatType.RANGED, WeaponInterface.LONGBOW) {
 		@Override
 		public CombatContainer container(Player player, Character target) {

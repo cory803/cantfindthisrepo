@@ -184,8 +184,8 @@ public class HitQueue {
 
 			if (!container.isAccurate()) {
 				if (container.getCombatType() == CombatType.MAGIC && attacker.getCurrentlyCasting() != null) {
-					victim.performGraphic(new Graphic(85, GraphicHeight.MIDDLE));
 					attacker.getCurrentlyCasting().finishCast(attacker, victim, false, 0);
+					victim.performGraphic(new Graphic(85, GraphicHeight.MIDDLE));
 					attacker.setCurrentlyCasting(null);
 				}
 			} else if (container.isAccurate()) {

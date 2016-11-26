@@ -275,6 +275,10 @@ public class LootSystem {
                 extraChance += .10;
             }
             extraChance += (double) player.getDonatorRights().ordinal() / 100;
+            if(player.getRottenPotatoDropTimer().elapsed(3600000)) {
+                player.dropRateBoost = 0;
+            }
+            extraChance += player.dropRateBoost;
             if (WellOfGoodness.isActive("drops")) {
                 extraChance += .03;
             }

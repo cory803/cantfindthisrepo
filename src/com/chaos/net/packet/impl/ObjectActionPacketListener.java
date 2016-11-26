@@ -1130,6 +1130,9 @@ public class ObjectActionPacketListener implements PacketListener {
                                     player.getPacketSender().sendMessage("A magical spell is blocking you from teleporting.");
                                     return;
                                 }
+                                if(player.getPosition().equals(3089,3956) || player.getPosition().equals(3089,3957) || player.getPosition().equals(3089,3955)) {
+                                    return;
+                                }
                                 if (gameObject.getPosition().getX() == 3090 && gameObject.getPosition().getY() == 3956) {
                                     player.setDirection(Direction.WEST);
                                     TeleportHandler.teleportPlayer(player, new Position(2539, 4712), TeleportType.LEVER);

@@ -13,15 +13,13 @@ import com.chaos.engine.task.impl.PlayerSkillsTask;
 import com.chaos.engine.task.impl.PlayerSpecialAmountTask;
 import com.chaos.engine.task.impl.PrayerRenewalPotionTask;
 import com.chaos.engine.task.impl.StaffOfLightSpecialAttackTask;
-import com.chaos.model.Flag;
-import com.chaos.model.Locations;
-import com.chaos.model.Position;
-import com.chaos.model.Skill;
+import com.chaos.model.*;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.model.input.impl.ChangePassword;
+import com.chaos.model.player.GameMode;
 import com.chaos.model.player.Titles;
 import com.chaos.net.PlayerSession;
 import com.chaos.net.SessionState;
@@ -268,6 +266,7 @@ public class PlayerHandler {
 		// New player
 		if (player.newPlayer()) {
 			player.setPasswordChange(GameSettings.PASSWORD_CHANGE);
+			player.afterBeta = true;
 			player.save();
 			player.setPlayerLocked(true);
 			player.moveTo(new Position(3230, 3232, 0));
@@ -305,6 +304,81 @@ public class PlayerHandler {
 		player.getPacketSender().sendRights();
 		FarmingManager.uponLogin(player);
 		player.getDungeoneering().addRingOfKinship();
+		/**
+		 * Give the beta testers their items
+		 */
+		if(!player.afterBeta) {
+			boolean needsHat = true;
+			//Give the hat
+			for(Item t : player.getEquipment().getItems()) {
+				if(t != null && t.getId() > 0) {
+					if(t.getId() == 10547) {
+						needsHat = false;
+					}
+				}
+			}
+			for(Item t : player.getInventory().getItems()) {
+				if(t != null && t.getId() > 0) {
+					if(t.getId() == 10547) {
+						needsHat = false;
+					}
+				}
+			}
+			for (int i = 0; i < player.getBanks().length; i++) {
+				if (player.getBank(i) != null) {
+					for(Item t : player.getBank(i).getItems()) {
+						if(t != null && t.getId() > 0) {
+							if(t.getId() == 10547) {
+								needsHat = false;
+							}
+						}
+					}
+				}
+			}
+			if(needsHat) {
+				player.getBank(0).add(10547, 1);
+			}
+			//Give the potato
+			boolean needsPotato = true;
+			for(Item t : player.getEquipment().getItems()) {
+				if(t != null && t.getId() > 0) {
+					if(t.getId() == 5733) {
+						needsPotato = false;
+					}
+				}
+			}
+			for(Item t : player.getInventory().getItems()) {
+				if(t != null && t.getId() > 0) {
+					if(t.getId() == 5733) {
+						needsPotato = false;
+					}
+				}
+			}
+			for (int i = 0; i < player.getBanks().length; i++) {
+				if (player.getBank(i) != null) {
+					for(Item t : player.getBank(i).getItems()) {
+						if(t != null && t.getId() > 0) {
+							if(t.getId() == 5733) {
+								needsPotato = false;
+							}
+						}
+					}
+				}
+			}
+			if(needsPotato) {
+				player.getBank(0).add(5733, 1);
+			}
+			if(!player.gotBetaItems) {
+				player.gotBetaItems = true;
+				if(player.getGameModeAssistant().getGameMode() == GameMode.KNIGHT) {
+					player.getBank(0).add(11188, 3);
+				} else if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM || player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+					player.getBank(0).add(11188, 1);
+				}
+				player.getPacketSender().sendMessage("<col=009E44><shad=0><icon=3>Thank you for being an awesome beta player!");
+				player.getPacketSender().sendMessage("<col=009E44><shad=0><icon=3>Check your bank for beta rewards.");
+			}
+		}
 	}
 
 	public static boolean handleLogout(Player player) {

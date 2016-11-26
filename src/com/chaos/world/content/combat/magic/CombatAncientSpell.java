@@ -38,7 +38,7 @@ public abstract class CombatAncientSpell extends CombatSpell {
 		}
 
 		// Do the spell effect here.
-		spellEffect(cast, castOn, damage);
+		spellEffect(cast, castOn, damage, accurate);
 
 		// The spell doesn't support multiple targets or we aren't in a
 		// multicombat zone, so do nothing.
@@ -90,19 +90,19 @@ public abstract class CombatAncientSpell extends CombatSpell {
 							cast.getCurrentlyCasting().endGraphic(next).ifPresent(next::performGraphic);
 							int calc = Misc.inclusiveRandom(0, maximumHit());
 							next.dealDamage(cast, new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-							spellEffect(cast, next, calc);
+							spellEffect(cast, next, calc, accurate);
 						}
 					} else {
 						cast.getCurrentlyCasting().endGraphic(next).ifPresent(next::performGraphic);
 						int calc = Misc.inclusiveRandom(0, maximumHit());
 						next.dealDamage(cast, new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-						spellEffect(cast, next, calc);
+						spellEffect(cast, next, calc, accurate);
 					}
 				} else {
 					cast.getCurrentlyCasting().endGraphic(next).ifPresent(next::performGraphic);
 					int calc = Misc.inclusiveRandom(0, maximumHit());
 					next.dealDamage(cast, new Hit(calc, Hitmask.RED, CombatIcon.MAGIC));
-					spellEffect(cast, next, calc);
+					spellEffect(cast, next, calc, accurate);
 				}
 			}
 		}
@@ -126,7 +126,7 @@ public abstract class CombatAncientSpell extends CombatSpell {
 	 * @param damage
 	 *            the damage inflicted.
 	 */
-	public abstract void spellEffect(Character cast, Character castOn, int damage);
+	public abstract void spellEffect(Character cast, Character castOn, int damage, boolean accurate);
 
 	/**
 	 * The radius of this spell, only comes in effect when the victim is hit in

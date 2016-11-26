@@ -39,13 +39,13 @@ import org.scripts.kotlin.content.dialog.npcs.OpenScroll;
 public class ItemActionPacketListener implements PacketListener {
 
 	public static void handleHasta(Player player) {
-		if (player.getInventory().contains(11716) && player.getMoneyInPouch() >= 150_000_000) {
-			player.setMoneyInPouch(player.getMoneyInPouch() - 150_000_000);
-			player.getPacketSender().sendMessage("150,000,000 Coins have been removed from your Money Pouch");
+		if (player.getInventory().contains(11716) && player.getMoneyInPouch() >= 10_000_000) {
+			player.setMoneyInPouch(player.getMoneyInPouch() - 10_000_000);
+			player.getPacketSender().sendMessage("10,000,000 Coins have been removed from your Money Pouch");
 			player.getInventory().delete(11716, 1);
 			player.getInventory().add(21120, 1);
 		} else {
-			player.getPacketSender().sendMessage("You either do not have 150M in your pouch or a Zamorakian Spear.");
+			player.getPacketSender().sendMessage("You either do not have 10M in your pouch or a Zamorakian Spear.");
 		}
 	}
 
@@ -117,6 +117,30 @@ public class ItemActionPacketListener implements PacketListener {
 					player.getPacketSender().sendInterfaceRemoval();
 					player.getPacketSender().sendMessage("Your Enchanted gem will only work if you have a Slayer task.");
 				}
+				break;
+			case 5733:
+				if(player.getRottenPotato().elapsed(43200000)) {
+					player.rottenPotatoDrop = 0;
+					player.rottenPotatoPrayer = 0;
+					player.rottenPotatoDrop = 0;
+					player.getRottenPotatoDropTimer().reset();
+				}
+				if (!player.getRottenPotato().elapsed(43200000) && player.rottenPotatoHeal >= 5) {
+					player.getPacketSender().sendMessage("You can use your rotten potato again in "+(Misc.getRottenPotatoTime((43200000 - player.getRottenPotato().elapsed()))+"."));
+					return;
+				}
+				if(player.getLocation() == Locations.Location.WILDERNESS) {
+					player.getPacketSender().sendMessage("You can't use the rotten potato (heal) in the wilderness.");
+					return;
+				}
+				if(player.rottenPotatoHeal == 0) {
+					player.getRottenPotato().reset();
+				}
+				player.rottenPotatoHeal++;
+				player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION, player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
+				player.performAnimation(new Animation(2770));
+				player.getPacketSender().sendMessage("<col=009E44>You have used the rotten potato heal function "+player.rottenPotatoHeal+"/5 times for the next 12 hours.");
+				player.forceChat("This potato tastes nasty...");
 				break;
 			case 10586:
 				player.getDialog().sendDialog(new KnightLamp(player));
@@ -410,8 +434,8 @@ public class ItemActionPacketListener implements PacketListener {
 							1201, 4131, 4587, 5698, 1305, 2491, 2503, 2497, 861, 4675, 3849, 6524, 13734, 11118, 1712,
 							2550 }, // Common, 0
 					{ 592, 6889, 8849, 6570, 6570, 6570, 6570, 6570, 6570, 4151, 15486, 11235, 11732, 10548, 10551,
-							10547, 10549, 2581, 2577, 6585, 15126, 592, 6889, 8849, 6570, 6570, 6570, 6570, 6570, 6570,
-							4151, 15486, 11235, 11732, 10548, 10551, 10547, 10549, 2581, 2577, 6585, 15126, 11846,
+							10549, 2581, 2577, 6585, 15126, 592, 6889, 8849, 6570, 6570, 6570, 6570, 6570, 6570,
+							4151, 15486, 11235, 11732, 10548, 10551, 10549, 2581, 2577, 6585, 15126, 11846,
 							11850, 11852, 11854, 11856 }, // Uncommon, 1
 					{ 592, 592, 592, 6, 8, 10, 12, 6570, 6570, 6570, 6570, 6570, 6570, 6739, 6731, 6733, 6735, 6737,
 							6922, 6916, 6918, 6920, 19111, 7968 } // Rare, 2
@@ -530,6 +554,31 @@ public class ItemActionPacketListener implements PacketListener {
 		case 13288:
 			player.getSlayer().handleSlayerRingTP(itemId);
 			break;
+			case 5733:
+				if(player.getRottenPotato().elapsed(43200000)) {
+					player.rottenPotatoDrop = 0;
+					player.rottenPotatoPrayer = 0;
+					player.rottenPotatoDrop = 0;
+					player.getRottenPotatoDropTimer().reset();
+				}
+				if (!player.getRottenPotato().elapsed(43200000) && player.rottenPotatoPrayer >= 2) {
+					player.getPacketSender().sendMessage("You can use your rotten potato again in "+(Misc.getRottenPotatoTime((43200000 - player.getRottenPotato().elapsed()))+"."));
+					return;
+				}
+				if(player.getLocation() == Locations.Location.WILDERNESS) {
+					player.getPacketSender().sendMessage("You can't use the rotten potato (prayer) in the wilderness.");
+					return;
+				}
+				if(player.rottenPotatoPrayer == 0) {
+					player.getRottenPotato().reset();
+				}
+				player.rottenPotatoPrayer++;
+				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int)((double) player.getSkillManager().getMaxLevel(Skill.PRAYER) * 1.5));
+				player.performAnimation(new Animation(9098));
+				player.getPacketSender().sendMessage("<col=009E44>You have used the rotten potato heal function "+player.rottenPotatoPrayer+"/2 times for the next 12 hours.");
+				player.getPacketSender().sendMessage("<col=009E44>Your prayer has been re-generated 1.5x the regular amount!");
+				player.forceChat("ALL HAIL THE MIGHTY POTATOS!");
+				break;
 		case 6500:
 			player.getPacketSender().sendMessage("You're already gaining EXP and picking up charms! don't be greedy");
 			break;
@@ -627,6 +676,29 @@ public class ItemActionPacketListener implements PacketListener {
 				}
 				player.getPacketSender().sendInterface(18700);
 				break;
+			case 5733:
+				if(player.getRottenPotato().elapsed(43200000)) {
+					player.rottenPotatoDrop = 0;
+					player.rottenPotatoPrayer = 0;
+					player.rottenPotatoDrop = 0;
+					player.getRottenPotatoDropTimer().reset();
+				}
+				if (!player.getRottenPotato().elapsed(43200000) && player.rottenPotatoDrop >= 1) {
+					player.getPacketSender().sendMessage("You can use your rotten potato again in "+(Misc.getRottenPotatoTime((43200000 - player.getRottenPotato().elapsed()))+"."));
+					return;
+				}
+				if(player.getLocation() == Locations.Location.WILDERNESS) {
+					player.getPacketSender().sendMessage("You can't use the rotten potato (drop rate) in the wilderness.");
+					return;
+				}
+				player.getRottenPotatoDropTimer().reset();
+				player.rottenPotatoDrop = 1;
+				player.dropRateBoost = .05;
+				player.performAnimation(new Animation(6404));
+				player.getPacketSender().sendMessage("<col=009E44>You have used the rotten potato drop rate function "+player.rottenPotatoDrop+"/1 times for the next 12 hours.");
+				player.getPacketSender().sendMessage("<col=009E44>Your drop rate is boosted 5% for the next 1 hour.");
+				player.forceChat("The legend of Chaos has been born.");
+				break;
 		case 13281:
 		case 13282:
 		case 13283:
@@ -645,7 +717,7 @@ public class ItemActionPacketListener implements PacketListener {
 							+ "s."));
 			break;
 		case 11716:
-			handleHasta(player);
+			//handleHasta(player);
 			break;
 		case 19670:
 			if (player.busy()) {

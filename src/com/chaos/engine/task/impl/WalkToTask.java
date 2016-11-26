@@ -79,7 +79,18 @@ public class WalkToTask {
 					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3685)
 					|| (player.getPosition().getX() == 3165 && player.getPosition().getY() == 3696)
 					|| (player.getPosition().getX() == 3164 && player.getPosition().getY() == 3696)
-					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3696)) {
+					|| (player.getPosition().getX() == 3163 && player.getPosition().getY() == 3696)
+
+					//Steps you don't want to click the object on
+					&& (!player.getPosition().equals(3046, 3927))
+					&& (!player.getPosition().equals(3047, 3927))
+					&& (!player.getPosition().equals(3048, 3927))
+					&& (!player.getPosition().equals(3046, 3926))
+					&& (!player.getPosition().equals(3046, 3925))
+					&& (!player.getPosition().equals(3046, 3924))
+					&& (!player.getPosition().equals(3046, 3923))
+
+					) {
 				finalizedTask.execute();
 				player.setEntityInteraction(null);
 				player.setWalkToTask(null);
@@ -95,7 +106,17 @@ public class WalkToTask {
 						(player.getPosition().getX() == 3158 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3157 && player.getPosition().getY() == 3696) ||
 						(player.getPosition().getX() == 3156 && player.getPosition().getY() == 3696) ||
-						(player.getPosition().getX() == 3155 && player.getPosition().getY() == 3696)) {
+						(player.getPosition().getX() == 3155 && player.getPosition().getY() == 3696)
+								//Steps you don't want to click the object on
+								|| (player.getPosition().equals(3046, 3927))
+								|| (player.getPosition().equals(3047, 3927))
+								|| (player.getPosition().equals(3048, 3927))
+								|| (player.getPosition().equals(3046, 3926))
+								|| (player.getPosition().equals(3046, 3925))
+								|| (player.getPosition().equals(3046, 3924))
+								|| (player.getPosition().equals(3046, 3923))
+
+							) {
 
 					} else {
 						finalizedTask.execute();

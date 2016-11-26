@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+import com.chaos.GameSettings;
 import com.chaos.util.Misc;
 import com.chaos.util.Stopwatch;
 import com.chaos.world.World;
@@ -93,7 +94,7 @@ public class PlayersOnlineInterface {
 		resort();
 		clearInterface(player);
 		sendInterfaceData(player);
-		player.getPacketSender().sendString(57003, "Players:  @gre@" + (World.getPlayers().size()) + "")
+		player.getPacketSender().sendString(57003, "Players:  @gre@" + (World.getPlayers().size() + GameSettings.fakePlayerCount) + "")
 				.sendInterface(57000);
 	}
 
@@ -109,7 +110,7 @@ public class PlayersOnlineInterface {
 				.sendString(57009, "Rank: @whi@" + Misc.formatText(player2.getStaffRights().getTitle()))
 				.sendString(57010,
 						"Time Played: @whi@" + Misc
-								.getHoursPlayed((player2.getTotalPlayTime() + player2.getRecordedLogin().elapsed())))
+								.getTimePlayed((player2.getTotalPlayTime() + player2.getRecordedLogin().elapsed())))
 				.sendString(57011, "Claimed: @whi@$" + player2.getAmountDonated())
 				.sendString(57012, "Game Mode: @whi@" + Misc.formatText(player2.getGameModeAssistant().getModeName()))
 				.sendString(57013, "Combat Level: @whi@" + player2.getSkillManager().getCombatLevel())

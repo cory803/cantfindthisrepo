@@ -342,6 +342,38 @@ public class PlayerLoading {
 			player.getSlayer().setSlayerStreak(reader.get("slayer-streak").getAsInt());
 		}
 
+		if (reader.has("potato-timer")) {
+			player.getRottenPotato().setTime(reader.get("potato-timer").getAsLong());
+		}
+
+		if (reader.has("potato-drop-timer")) {
+			player.getRottenPotatoDropTimer().setTime(reader.get("potato-drop-timer").getAsLong());
+		}
+
+		if (reader.has("potato-heal")) {
+			player.rottenPotatoHeal = reader.get("potato-heal").getAsInt();
+		}
+
+		if (reader.has("potato-prayer")) {
+			player.rottenPotatoPrayer = reader.get("potato-prayer").getAsInt();
+		}
+
+		if (reader.has("potato-drop")) {
+			player.rottenPotatoDrop = reader.get("potato-drop").getAsInt();
+		}
+
+		if (reader.has("drop-rate-boost")) {
+			player.dropRateBoost = reader.get("drop-rate-boost").getAsDouble();
+		}
+
+		if (reader.has("after-beta")) {
+			player.afterBeta = reader.get("after-beta").getAsBoolean();
+		}
+
+		if (reader.has("got-beta-items")) {
+			player.gotBetaItems = reader.get("got-beta-items").getAsBoolean();
+		}
+
 		if (reader.has("slayer-partner")) {
 			player.getSlayer().setDuoSlayer(reader.get("slayer-partner").getAsString());
 		}
