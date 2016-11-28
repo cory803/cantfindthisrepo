@@ -93,6 +93,7 @@ public class PlayerProcess {
 		}
 
 		if (timerTick >= 1) {
+			player.getPacketSender().sendString(55067, " Server Time: " + Misc.getCurrentServerTime());
 			player.getPacketSender().sendString(55073, "   >- Players online: @cha@"+ (World.getPlayers().size() + GameSettings.fakePlayerCount));
 			player.getPacketSender().sendString(55074, "   >- Staff online: @cha@"+ World.staffOnline());
 			player.getPacketSender().sendString(55075, "   >- Wilderness: @cha@"+ Locations.PLAYERS_IN_WILD);

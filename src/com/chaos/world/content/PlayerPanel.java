@@ -14,7 +14,7 @@ public class PlayerPanel {
 		} else {
 		    kdr = player.getPlayerKillingAttributes().getPlayerKills();
         }
-		player.getPacketSender().sendString(55067, "  Server Time: " + Misc.getCurrentServerTime());
+//		player.getPacketSender().sendString(55067, " Server Time: " + Misc.getCurrentServerTime());
 		player.getPacketSender().sendString(55072, "  @whi@[Population]");
 //		player.getPacketSender().sendString(55073, "   >- Players online: @cha@" + World.getPlayers().size());
 //		player.getPacketSender().sendString(55074, "   >- Staff online: @cha@" + World.staffOnline());

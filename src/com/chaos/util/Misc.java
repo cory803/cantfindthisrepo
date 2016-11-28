@@ -7,14 +7,9 @@ import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Enumeration;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import com.chaos.world.entity.impl.CharacterList;
@@ -109,12 +104,9 @@ public class Misc {
 	}
 
 	public static String getCurrentServerTime() {
-		zonedDateTime = ZonedDateTime.now();
-		int hour = zonedDateTime.getHour();
-		String hourPrefix = hour < 10 ? "0" + hour + "" : "" + hour + "";
-		int minute = zonedDateTime.getMinute();
-		String minutePrefix = minute < 10 ? "0" + minute + "" : "" + minute + "";
-		return "" + hourPrefix + ":" + minutePrefix + "";
+		SimpleDateFormat dateFormat = new SimpleDateFormat("h:mm a");
+		String formattedDate = dateFormat.format(new Date()).toString();
+		return formattedDate;
 	}
 
 	public static String getTimePlayed(long totalPlayTime) {
