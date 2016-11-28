@@ -329,7 +329,7 @@ public class PlayerSaving {
 		object.add("killed-players", builder.toJsonTree(player.getPlayerKillingAttributes().getKilledPlayers()));
 		object.add("attacked-players", builder.toJsonTree(player.playersAttacked));
 		object.add("killed-gods", builder.toJsonTree(player.getAchievementAttributes().getGodsKilled()));
-		object.addProperty("dungeon-stage", player.getDungeoneering().getDungeonStage().name());
+		//object.addProperty("dungeon-stage", player.getDungeoneering().getDungeonStage().name());
 		object.add("comp-color",
 				builder.toJsonTree(player.compColor));
 		object.add("comp-color-rgb",

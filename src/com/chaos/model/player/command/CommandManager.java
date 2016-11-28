@@ -381,8 +381,8 @@ public class CommandManager {
                 if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
                     if(player.getLocation() == Locations.Location.WILDERNESS) {
                         player.getPacketSender().sendMessage("You must step out of the wilderness to use this commannd");
-                    }
-                    return;
+						return;
+					}
                 }
                 player.getBank(player.getCurrentBankTab()).open();
             }

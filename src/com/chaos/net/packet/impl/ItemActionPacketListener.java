@@ -122,7 +122,7 @@ public class ItemActionPacketListener implements PacketListener {
 				if(player.getRottenPotato().elapsed(43200000)) {
 					player.rottenPotatoDrop = 0;
 					player.rottenPotatoPrayer = 0;
-					player.rottenPotatoDrop = 0;
+					player.rottenPotatoHeal = 0;
 					player.getRottenPotatoDropTimer().reset();
 				}
 				if (!player.getRottenPotato().elapsed(43200000) && player.rottenPotatoHeal >= 5) {

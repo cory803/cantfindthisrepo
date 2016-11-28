@@ -806,13 +806,13 @@ public class PlayerLoading {
 					.setGodsKilled(builder.fromJson(reader.get("killed-gods").getAsJsonArray(), boolean[].class));
 		}
 
-		if (reader.has("dungeon-stage")) {
-			try {
-				player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.valueOf(reader.get("dungeon-stage").getAsString()));
-			} catch (Exception e) {
-				player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.DEFAULT);
-			}
-		}
+//		if (reader.has("dungeon-stage")) {
+//			try {
+//				player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.valueOf(reader.get("dungeon-stage").getAsString()));
+//			} catch (Exception e) {
+//				player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.DEFAULT);
+//			}
+//		}
 
 		if (reader.has("comp-color")) {
 			player.compColor = builder.fromJson(reader.get("comp-color").getAsJsonArray(), int[].class);
