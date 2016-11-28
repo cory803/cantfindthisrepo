@@ -133,6 +133,11 @@ public class ItemActionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("You can't use the rotten potato (heal) in the wilderness.");
 					return;
 				}
+
+				if (player.getLocation() == Locations.Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
+					player.getPacketSender().sendMessage("You can't use the rotten potato (heal) in the duel arena.");
+					return;
+				}
 				if(player.rottenPotatoHeal == 0) {
 					player.getRottenPotato().reset();
 				}
@@ -569,13 +574,17 @@ public class ItemActionPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("You can't use the rotten potato (prayer) in the wilderness.");
 					return;
 				}
+				if (player.getLocation() == Locations.Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
+					player.getPacketSender().sendMessage("You can't use the rotten potato (prayer) in the duel arena.");
+					return;
+				}
 				if(player.rottenPotatoPrayer == 0) {
 					player.getRottenPotato().reset();
 				}
 				player.rottenPotatoPrayer++;
 				player.getSkillManager().setCurrentLevel(Skill.PRAYER, (int)((double) player.getSkillManager().getMaxLevel(Skill.PRAYER) * 1.5));
 				player.performAnimation(new Animation(9098));
-				player.getPacketSender().sendMessage("<col=009E44>You have used the rotten potato heal function "+player.rottenPotatoPrayer+"/2 times for the next 12 hours.");
+				player.getPacketSender().sendMessage("<col=009E44>You have used the rotten potato pray function "+player.rottenPotatoPrayer+"/2 times for the next 12 hours.");
 				player.getPacketSender().sendMessage("<col=009E44>Your prayer has been re-generated 1.5x the regular amount!");
 				player.forceChat("ALL HAIL THE MIGHTY POTATOS!");
 				break;
@@ -689,6 +698,10 @@ public class ItemActionPacketListener implements PacketListener {
 				}
 				if(player.getLocation() == Locations.Location.WILDERNESS) {
 					player.getPacketSender().sendMessage("You can't use the rotten potato (drop rate) in the wilderness.");
+					return;
+				}
+				if (player.getLocation() == Locations.Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
+					player.getPacketSender().sendMessage("You can't use the rotten potato (drop rate) in the duel arena.");
 					return;
 				}
 				player.getRottenPotatoDropTimer().reset();
