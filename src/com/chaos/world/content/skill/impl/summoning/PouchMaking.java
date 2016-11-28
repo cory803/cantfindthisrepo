@@ -73,6 +73,10 @@ public class PouchMaking {
 			return;
 		if (!hasRequirements(player, pouch))
 			return;
+		if (pouch == Pouch.PYRELORD) {
+			player.getPacketSender().sendMessage("You cannot infuse the pouch.");
+			return;
+		}
 		TeleportHandler.cancelCurrentActions(player);
 		player.performAnimation(new Animation(725));
 		player.performGraphic(new Graphic(1207));

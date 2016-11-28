@@ -14,7 +14,7 @@ public class QuickChat {
     public static void handleButtons(Player player, int id) {
         if (!player.getQuickChat().elapsed(2500)) {
                 if (!player.hasQC) {
-                    player.getPacketSender().sendMessage("Please wait 2 seconds before using the quick chat again.");
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     player.hasQC = true;
                 }
             return;

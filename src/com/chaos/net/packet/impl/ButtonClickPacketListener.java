@@ -803,80 +803,80 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.setFightType(FightType.MACE_BLOCK);
                 break;
             case -10459:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] My title is: None.");
                 player.getQuickChat().reset();
                 break;
             case -10458:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have played for: " + Misc.getMinutesPlayed(player) + " minutes.");
                 player.getQuickChat().reset();
                 break;
             case -10457:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] My game mode is: "+player.getGameModeAssistant().getModeName()+".");
                 player.getQuickChat().reset();
                 break;
             case -10456:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] My donator rank is: "+player.getDonatorRights().getTitle()+".");
                 player.getQuickChat().reset();
                 break;
             case -10454:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have "+player.getPointsHandler().getPkPoints()+" pk points.");
                 player.getQuickChat().reset();
                 break;
             case -10453:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have "+player.getPointsHandler().getVotingPoints()+" vote points.");
                 player.getQuickChat().reset();
                 break;
             case -10452:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have "+player.getPointsHandler().getSlayerPoints()+" slayer points.");
                 player.getQuickChat().reset();
                 break;
             case -10451:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have "+player.getPointsHandler().getCommendations()+" commendations.");
                 player.getQuickChat().reset();
                 break;
             case -10450:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have "+player.getPointsHandler().getDungeoneeringTokens()+" dungeoneering tokens.");
                 player.getQuickChat().reset();
                 break;
             case -10448:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 int kdr = 0;
@@ -889,48 +889,48 @@ public class ButtonClickPacketListener implements PacketListener {
                 player.getQuickChat().reset();
                 break;
             case -10447:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have a total of "+player.getPlayerKillingAttributes().getPlayerKills()+" kills.");
                 player.getQuickChat().reset();
                 break;
             case -10446:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have a total of "+player.getPlayerKillingAttributes().getPlayerDeaths()+" deaths.");
                 player.getQuickChat().reset();
                 break;
             case -10445:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] My killstreak is: "+player.getPlayerKillingAttributes().getPlayerKillStreak()+".");
                 player.getQuickChat().reset();
                 break;
             case -10444:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have won "+player.getDueling().arenaStats[0]+" duels.");
                 player.getQuickChat().reset();
                 break;
             case -10443:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
                 player.forceChat("[CHAOS] I have lost "+player.getDueling().arenaStats[1]+" duels.");
                 player.getQuickChat().reset();
                 break;
             case -10440:
-                if (!player.getQuickChat().elapsed(5000)) {
-                    player.getPacketSender().sendMessage("Please wait 5 seconds before using the quick chat again.");
+                if (!player.getQuickChat().elapsed(2500)) {
+                    player.getPacketSender().sendMessage("Please wait 3 seconds before using the quick chat again.");
                     return;
                 }
 //                if (player.getSlayer().getSlayerTask() == SlayerTasks.NO_TASK) {

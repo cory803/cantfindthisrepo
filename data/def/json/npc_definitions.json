@@ -79684,7 +79684,7 @@
 "combat": 122,
 "size": 2,
 "attackable": true,
-"aggressive": true,
+"aggressive": false,
 "retreats": false,
 "poisonous": false,
 "respawn": 10,
@@ -137833,7 +137833,7 @@
 "attackAnim": 7407,
 "defenceAnim": 7404,
 "deathAnim": 7408,
-"attackBonus": 190,
+"attackBonus": 102,
 "defenceMelee": 112,
 "defenceRange": 120,
 "defenceMage": 100
