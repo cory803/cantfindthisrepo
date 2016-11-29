@@ -354,20 +354,27 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 	}
 	
 	public enum Location {
-		FARMING(new Position(3053, 3301), "south of the Falador Farming patches", "Farming"),
-		EDGEVILLE(new Position(3094, 3484), "south of the Edgeville bank", "Edgeville"),
-		GNOME_COURSE(new Position(2480, 3433), "at the Gnome Agility Course", "Gnome Course"),
-		FLAX_FIELD(new Position(2745, 3445), "in the middle of the Flax field", "Flax Field"),
-		DUEL_ARENA(new Position(3363, 3270), "in the Duel Arena", "Duel Arena"),
-		PURO_PURO(new Position(2594, 4326), "in Puro Puro", "Puro Puro"),
-		STRYKEWYRMS(new Position(2731, 5092), "in the Strykewyrm cavern", "Strykewyrms"),
-		BOUNTY_HUNTER(new Position(3148, 3718), "in the bounty hunter crater", "Bounty Hunter"),
-		TAVERLY_DUNG(new Position(2882, 9800), "in the Taverly dungeon", "Taverly Dung."),
-		PEST_CONTROL(new Position(2666, 2648), "at the Void knight island", "Pest Control"),
-		BARROWS(new Position(3566, 3297), "on the Barrows hills", "Barrows"),
-		WEST_DRAGONS(new Position(2986, 3599), "in the Wilderness (near the western dragons)", "West Dragons"),
-		RESOURCE_AREA(new Position(3202, 3944), "near the Resource Area", "Resource Area"),
-		WILD_COURSE(new Position(2995, 3911), "outside the Wilderness Agility Course", "Wild. Course");
+		FALADOR_EAST_BANK(new Position(3030, 3348), "near Falador east bank", "Falador"),
+		RIMMINGTON_MINE(new Position(2980, 3236), "in the Rimmington mine", "Rimmington"),
+		SHILO_VILLAGE_MINE(new Position(2827, 2995), "near the Shilo Village mine", "Shilo Village"),
+		KELDAGRIM_ENTRANCE(new Position(2723, 3702), "near the Keldagrim entrance", "Keldragrim"),
+		LUNAR_ISLE_MINE(new Position(2139, 3937), "near the Lunar Isle mine", "Lunar Isle"),
+		DONATOR_ZONE_MINE(new Position(2534, 3885), "near the Donator Zone mine", "Donator Zone"),
+		NORTH_OF_NEITIZNOT(new Position(2374, 3832), "north of Neitiznot", "Neitiznot"),
+		ARDOUGNE_EAST_MINE(new Position(2701, 3330), "in the Ardougne east mine", "Ardougne"),
+		YANILLE_BANK(new Position(2603, 3085), "near Yanille bank", "Yanille"),
+		AL_KHARID_BANK(new Position(3278, 3174), "near Al Kharid bank", "Al Kharid"),
+		AL_KHARID_MINE(new Position(3299, 3288), "in the Al Kharid mining site", "Al Kharid"),
+		DUEL_ARENA(new Position(3350, 3272), "at the Duel Arena", "Duel Arena"),
+		VARROCK_EAST_BANK(new Position(3258, 3408), "near Varrock-east bank", "Varrock"),
+		SOUTH_WEST_VARROCK(new Position(3175, 3376), "near the Varrock-west mine", "Varrock"),
+		CANIFIS(new Position(3500, 3483), "north of Canifis pub", "Canifis"),
+		GNOME_AGILITY_COURSE(new Position(2480, 3434), "in the Gnome Agility Course", "Gnome Agility Course"),
+		EDGEVILLE_BANK(new Position(3094, 3485), "south of Edgville bank", "Edgeville"),
+		NORTH_EDGEVILLE_MINE(new Position(3109, 3570), "at Edgeville north mining site", "Edgeville"),
+		KBD_ENTRANCE(new Position(3011, 3846), "near the King Black Dragon entrance", "King Black Dragon"),
+		PIRATES_HIDEOUT(new Position(3045, 3940), "near the Pirates' hideout", "Pirates' hideout"),
+		MAGE_BANK(new Position(3091, 3962), "north of the Mage Bank lever", "Mage Bank");
 		
 		private Location(Position position, String clue, String name) {
 			this.position = position;
