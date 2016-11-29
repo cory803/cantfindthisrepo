@@ -47,6 +47,7 @@ public class GiveDonatorDialog extends Dialog {
                                     AccountTools.setDonator(player, username, rights, new Player(null));
                                 } else {
                                     other.setDonatorRights(rights);
+                                    player.setAmountDonated(player.getAmountDonated() + 10);
                                     PlayerPanel.refreshPanel(other);
                                     other.save();
                                     player.getPacketSender().sendMessage("You have given the rank "+rights.getTitle()+" to "+username+".");
@@ -64,6 +65,7 @@ public class GiveDonatorDialog extends Dialog {
                                     AccountTools.setDonator(player, username, rights, new Player(null));
                                 } else {
                                     other.setDonatorRights(rights);
+                                    player.setAmountDonated(player.getAmountDonated() + 50);
                                     PlayerPanel.refreshPanel(other);
                                     other.save();
                                     player.getPacketSender().sendMessage("You have given the rank "+rights.getTitle()+" to "+username+".");
@@ -81,6 +83,7 @@ public class GiveDonatorDialog extends Dialog {
                                     AccountTools.setDonator(player, username, rights, new Player(null));
                                 } else {
                                     other.setDonatorRights(rights);
+                                    player.setAmountDonated(player.getAmountDonated() + 150);
                                     PlayerPanel.refreshPanel(other);
                                     other.save();
                                     player.getPacketSender().sendMessage("You have given the rank "+rights.getTitle()+" to "+username+".");
@@ -98,6 +101,7 @@ public class GiveDonatorDialog extends Dialog {
                                     AccountTools.setDonator(player, username, rights, new Player(null));
                                 } else {
                                     other.setDonatorRights(rights);
+                                    player.setAmountDonated(player.getAmountDonated() + 500);
                                     PlayerPanel.refreshPanel(other);
                                     other.save();
                                     player.getPacketSender().sendMessage("You have given the rank "+rights.getTitle()+" to "+username+".");
@@ -115,6 +119,7 @@ public class GiveDonatorDialog extends Dialog {
                                     AccountTools.setDonator(player, username, rights, new Player(null));
                                 } else {
                                     other.setDonatorRights(rights);
+                                    player.setAmountDonated(player.getAmountDonated() + 1000);
                                     PlayerPanel.refreshPanel(other);
                                     other.save();
                                     player.getPacketSender().sendMessage("You have given the rank "+rights.getTitle()+" to "+username+".");
