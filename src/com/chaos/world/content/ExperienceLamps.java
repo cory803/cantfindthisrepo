@@ -1,6 +1,7 @@
 package com.chaos.world.content;
 
 import com.chaos.model.Skill;
+import com.chaos.model.player.GameMode;
 import com.chaos.util.Misc;
 import com.chaos.world.content.skill.SkillManager;
 import com.chaos.world.entity.impl.player.Player;
@@ -38,7 +39,7 @@ public class ExperienceLamps {
 						if (!player.getInventory().contains(lamp.getItemId()))
 							return true;
 						int maxLvl = player.getSkillManager().getMaxLevel(skill);
-						if(maxLvl < 90) {
+						if(maxLvl < 90 && lamp == LampData.DRAGONKIN_LAMP) {
 							player.getPacketSender().sendMessage("You must have atleast level 90 in this skill.");
 							return true;
 						}
@@ -139,6 +140,9 @@ public class ExperienceLamps {
 		}
 		if(lamp == LampData.DRAGONKIN_LAMP) {
 			base = experience / 7;
+			if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM || player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+				base /= 10;
+			}
 		}
 		return base;
 	}
