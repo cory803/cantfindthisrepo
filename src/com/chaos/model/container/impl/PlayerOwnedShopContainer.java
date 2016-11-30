@@ -167,7 +167,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 
 	public void sellItem(Player player, int slot, int amountToSell, long price) {
 		this.setPlayer(player);
-		if (player.isBanking()) {
+		if (player.isBanking() && !player.isPlayerOwnedShopping() && player.isBanking()) {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
@@ -280,7 +280,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 		final Player player = getPlayer();
 		if (player == null)
 			return this;
-		if (!player.isPlayerOwnedShopping() || player.isBanking()) {
+		if (!player.isPlayerOwnedShopping() && player.isBanking()) {
 			player.getPacketSender().sendInterfaceRemoval();
 			return this;
 		}

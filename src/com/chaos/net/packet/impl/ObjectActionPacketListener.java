@@ -179,7 +179,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                     return;
                                 }
                                 PlayerOwnedShops.openItemSearch(player, true);
-                                player.setPlayerOwnedShopping(true);
+                                //player.setPlayerOwnedShopping(true);
                                 break;
                             //Construction portal
                             case 15477:

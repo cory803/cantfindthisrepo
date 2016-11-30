@@ -19,5 +19,6 @@ public class PosSearchShop extends Input {
 		}
 		player.getPacketSender().sendString(41900, "");
 		PlayerOwnedShops.openShop(syntax, player);
+		player.setPlayerOwnedShopping(true);
 	}
 }

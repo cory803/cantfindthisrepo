@@ -50,7 +50,7 @@ public class POSMerchant extends Dialog {
                                 return;
                             }
                             PlayerOwnedShops.openItemSearch(player, true);
-                            player.setPlayerOwnedShopping(true);
+                            //player.setPlayerOwnedShopping(true);
                             break;
                         case OPTION_3_OF_4:
                             player.getPacketSender().sendInterfaceRemoval();
@@ -74,7 +74,7 @@ public class POSMerchant extends Dialog {
                             }
                             player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                             player.setInputHandling(new PosSearchShop());
-                            player.setPlayerOwnedShopping(true);
+                            //player.setPlayerOwnedShopping(true);
                             break;
                     }
                 }

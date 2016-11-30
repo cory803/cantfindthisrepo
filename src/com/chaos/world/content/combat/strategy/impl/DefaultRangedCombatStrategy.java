@@ -121,7 +121,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		}
 		if (!player.isSpecialActivated()) {
 
-			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player)) {
+			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player) && !CombatFactory.zaryteBow(player)) {
 				decrementAmmo(player, victim.getPosition());
 				if (dBow || player.getRangedWeaponData() == RangedWeaponData.MAGIC_SHORTBOW
 						&& player.isSpecialActivated() && player.getCombatSpecial() != null
@@ -219,7 +219,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 	 */
 	private boolean checkAmmo(Player player) {
 		RangedWeaponData data = player.getRangedWeaponData();
-		if (data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.DART || data.getType() == RangedWeaponType.BLOWPIPE)
+		if (data.getType() == RangedWeaponType.THROW || data.getType() == RangedWeaponType.DART || data.getType() == RangedWeaponType.BLOWPIPE || player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 20171)
 			return true;
 		Item ammunition = player.getEquipment().getItems()[data.getType() == RangedWeaponType.THROW
 				? Equipment.WEAPON_SLOT : Equipment.AMMUNITION_SLOT];
@@ -273,7 +273,7 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		// Determine which slot we are decrementing ammo from.
 		int slot = player.getWeapon() == WeaponInterface.SHORTBOW || player.getWeapon() == WeaponInterface.BALLISTA || player.getWeapon() == WeaponInterface.LONGBOW
 				|| player.getWeapon() == WeaponInterface.CROSSBOW ? Equipment.AMMUNITION_SLOT : Equipment.WEAPON_SLOT;
-		if (player.getWeapon() == WeaponInterface.BLOWPIPE) {
+		if (player.getWeapon() == WeaponInterface.BLOWPIPE || player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 20171) {
 			return;
 		}
 

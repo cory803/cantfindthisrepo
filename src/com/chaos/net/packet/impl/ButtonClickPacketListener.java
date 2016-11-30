@@ -112,6 +112,7 @@ public class ButtonClickPacketListener implements PacketListener {
                         player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
                         return;
                     }
+                    player.setPlayerOwnedShopping(false);
                     PlayerOwnedShops.openItemSearch(player, false);
                // }
             break;

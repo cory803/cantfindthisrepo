@@ -428,7 +428,7 @@ public final class ActionHandler {
                     return;
                 }
                 PlayerOwnedShops.openItemSearch(player, true);
-                player.setPlayerOwnedShopping(true);
+                //player.setPlayerOwnedShopping(true);
                 break;
 
             //Untradeable buy back store
@@ -766,7 +766,6 @@ public final class ActionHandler {
                 }
                 player.getPacketSender().sendEnterInputPrompt("Enter the name of a player's shop:");
                 player.setInputHandling(new PosSearchShop());
-                player.setPlayerOwnedShopping(true);
                 break;
 
             //Slayer masters

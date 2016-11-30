@@ -37,6 +37,11 @@ public class ExperienceLamps {
 						LampData lamp = (LampData) player.getUsableObject()[2];
 						if (!player.getInventory().contains(lamp.getItemId()))
 							return true;
+						int maxLvl = player.getSkillManager().getMaxLevel(skill);
+						if(maxLvl < 90) {
+							player.getPacketSender().sendMessage("You must have atleast level 90 in this skill.");
+							return true;
+						}
 						int exp = getExperienceReward(player, lamp, skill);
 						player.getInventory().delete(lamp.getItemId(), 1);
 						player.getSkillManager().addExactExperience(skill, exp);
@@ -72,7 +77,8 @@ public class ExperienceLamps {
 		LAMP_100K(11185, 100000),
 		LAMP_500K(11186, 500000),
 		LAMP_1M(11187, 1000000),
-		LAMP_2M(11188, 2000000);
+		LAMP_2M(11188, 2000000),
+		DRAGONKIN_LAMP(18782, 2000000);
 
 		LampData(int itemId, int experience) {
 			this.itemId = itemId;
@@ -127,10 +133,14 @@ public class ExperienceLamps {
 
 	public static int getExperienceReward(Player player, LampData lamp, Skill skill) {
 		int base = lamp.getExperience();
-		int maxLvl = player.getSkillManager().getMaxLevel(skill);
-		if (SkillManager.isNewSkill(skill))
-			maxLvl = maxLvl / 10;
-		return (int) (base);
+		int experience = player.getSkillManager().getExperience(skill);
+		if(experience >= 13000000) {
+			experience = 13000000;
+		}
+		if(lamp == LampData.DRAGONKIN_LAMP) {
+			base = experience / 7;
+		}
+		return base;
 	}
 
 	public static boolean selectingExperienceReward(Player player) {

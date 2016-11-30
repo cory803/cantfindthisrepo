@@ -325,6 +325,9 @@ public class CombatRangedAmmo {
 			if (p.getWeapon() == WeaponInterface.BLOWPIPE) {
 				return AmmunitionData.BLOWPIPE_DART;
 			}
+			if (p.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171) {
+				return AmmunitionData.RUNE_ARROW;
+			}
 			return AmmunitionData.BRONZE_ARROW;
 		}
 	}
