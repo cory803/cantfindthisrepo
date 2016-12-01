@@ -229,6 +229,20 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/vote/");
             }
         });
+        commands.put("priceguide", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getPacketSender().sendString(1, "www.chaosps.com/priceguide");
+                player.getPacketSender().sendMessage("Attempting to open: chaosps.com/priceguide");
+            }
+        });
+        commands.put("droplist", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.getPacketSender().sendString(1, "www.chaosps.wikia.com/Drop_List");
+                player.getPacketSender().sendMessage("Attempting to open: chaosps.wikia.com/Drop_List");
+            }
+        });
         commands.put("droplist", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
