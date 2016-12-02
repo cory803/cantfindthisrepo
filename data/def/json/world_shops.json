@@ -1804,7 +1804,7 @@
   },
   {
     "id": 21,
-    "name": "Pk Point Exchange",
+    "name": "Pk Point Exchange - Weapons/Misc Supplies",
     "items": [
       {
         "id": 11517,
@@ -1947,7 +1947,7 @@
   },
   {
     "id": 22,
-    "name": "Pk Point Exchange",
+    "name": "Pk Point Exchange - PvP Armours",
     "items": [
       {
         "id": 21107,
@@ -3928,6 +3928,93 @@
 		{
           "id": 10551,
           "amount": 10
+        }
+	   ],
+	   "currency": -1
+	},
+	{
+       "id": 48,
+       "name": "Pk Point Exchange - Barrows",
+       "items": [
+		{
+          "id": 4716,
+          "amount": 2000000000
+        },
+		{
+          "id": 4720,
+          "amount": 2000000000
+        },
+		{
+          "id": 4722,
+          "amount": 2000000000
+        },
+		{
+          "id": 4718,
+          "amount": 2000000000
+        },
+		{
+          "id": 4708,
+          "amount": 2000000000
+        },
+		{
+          "id": 4712,
+          "amount": 2000000000
+        },
+		{
+          "id": 4714,
+          "amount": 2000000000
+        },
+		{
+          "id": 4710,
+          "amount": 2000000000
+        },
+		{
+          "id": 4745,
+          "amount": 2000000000
+        },
+		{
+          "id": 4749,
+          "amount": 2000000000
+        },
+		{
+          "id": 4751,
+          "amount": 2000000000
+        },
+		{
+          "id": 4747,
+          "amount": 2000000000
+        },
+		{
+          "id": 4724,
+          "amount": 2000000000
+        },
+		{
+          "id": 4728,
+          "amount": 2000000000
+        },
+		{
+          "id": 4730,
+          "amount": 2000000000
+        },
+		{
+          "id": 4726,
+          "amount": 2000000000
+        },
+		{
+          "id": 4753,
+          "amount": 2000000000
+        },
+		{
+          "id": 4757,
+          "amount": 2000000000
+        },
+		{
+          "id": 4759,
+          "amount": 2000000000
+        },
+		{
+          "id": 4755,
+          "amount": 2000000000
         }
 	   ],
 	   "currency": -1

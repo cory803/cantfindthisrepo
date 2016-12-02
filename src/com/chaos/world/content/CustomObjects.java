@@ -268,6 +268,9 @@ public class CustomObjects {
             { 10091, 3637, 5138, 0, 0 },
             { 10091, 3654, 5141, 0, 0 },
 
+            //Edgeville altar
+            { 409, 3086, 3483, 0, 2 },
+
             //Catherby rocktail spots (Remove)
             { -1, 2831, 3442, 0, 0 },
             { -1, 2831, 3443, 0, 0 },

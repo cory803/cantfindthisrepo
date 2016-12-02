@@ -426,7 +426,7 @@ public enum CombatSpecial {
 			throw new UnsupportedOperationException("Dragon battleaxe does not have a special attack!");
 		}
 	},
-	STAFF_OF_LIGHT(new int[] { 14004, 14005, 14006, 14007, 15486 }, 100, 1, 1, CombatType.MELEE,
+	STAFF_OF_LIGHT(new int[] { 22207, 22209, 22211, 22213, 15486 }, 100, 1, 1, CombatType.MELEE,
 			WeaponInterface.LONGSWORD) {
 		@Override
 		public void onActivation(Player player, Character target) {

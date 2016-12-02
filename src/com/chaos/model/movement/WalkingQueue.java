@@ -292,8 +292,10 @@ public final class WalkingQueue {
                             player.getPacketSender().sendMessage("You ran out of run energy!");
 							player.getPacketSender().sendRunStatus();
                         } else {
-							if (player.getDonatorRights().ordinal() < DonatorRights.UBER.ordinal()) {
-								player.setRunEnergy(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F)));
+							if(player.getEquipment().get(Equipment.HEAD_SLOT).getId() != 18744 && player.getEquipment().get(Equipment.HEAD_SLOT).getId() != 18745 && player.getEquipment().get(Equipment.HEAD_SLOT).getId() != 18746) {
+								if (player.getDonatorRights().ordinal() < DonatorRights.UBER.ordinal()) {
+									player.setRunEnergy(player.getRunEnergy() - (1.5F - ((player.getSkillManager().getMaxLevel(Skill.AGILITY) + armorBenefit) / 100F)));
+								}
 							}
 						}
                     }

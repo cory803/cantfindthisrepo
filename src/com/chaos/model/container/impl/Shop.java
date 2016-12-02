@@ -3,6 +3,7 @@ package com.chaos.model.container.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.chaos.engine.task.TaskManager;
@@ -115,6 +116,7 @@ public class Shop extends ItemContainer {
 		//} else {
 			player.getPacketSender().sendString(41900, "");
 		//}
+		writeInterface(getPlayer(), id);
 		getPlayer().getPacketSender().sendInterfaceRemoval().sendClientRightClickRemoval();
 		getPlayer().setShop(ShopManager.getShops().get(id)).setInterfaceId(INTERFACE_ID).setShopping(true);
 		refreshItems();
@@ -216,8 +218,8 @@ public class Shop extends ItemContainer {
 			player.getPacketSender().sendInterfaceRemoval();
 			return;
 		}
-		if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES || id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2
-				|| id == ENERGY_FRAGMENT_STORE ) {
+		if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES || id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2 || id == PKING_REWARDS_STORE3
+				|| id == ENERGY_FRAGMENT_STORE || id == VOTING_REWARDS_STORE || id == VOTING_REWARDS_STORE2) {
 			player.getPacketSender().sendMessage("You cannot sell items to this store.");
 			return;
 		}
@@ -396,7 +398,7 @@ public class Shop extends ItemContainer {
 				return this;
 			value = (int) obj[0];
 			currencyName = (String) obj[1];
-			if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
+			if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2 || id == PKING_REWARDS_STORE3) {
 				playerCurrencyAmount = player.getPointsHandler().getPkPoints();
 			} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
 				playerCurrencyAmount = player.getPoints();
@@ -454,7 +456,7 @@ public class Shop extends ItemContainer {
 							player.getInventory().delete(currency.getId(), value, false);
 						}
 					} else {
-						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
+						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2 || id == PKING_REWARDS_STORE3) {
 							player.getPointsHandler().setPkPoints(-value, true);
 						} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
 							player.setPoints(-value, true);
@@ -467,6 +469,7 @@ public class Shop extends ItemContainer {
 						} else if (id == PEST_CONTROL_STORE) {
 							player.getPointsHandler().setCommendations(-value, true);
 						}
+						writeInterface(player, id);
 					}
 					if(id == DIANGO_STORE) {
 						//REMOVE FROM SHOP
@@ -507,7 +510,7 @@ public class Shop extends ItemContainer {
 							player.getInventory().delete(currency.getId(), value * canBeBought, false);
 						}
 					} else {
-						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2) {
+						if (id == PKING_REWARDS_STORE || id == PKING_REWARDS_STORE2 || id == PKING_REWARDS_STORE3) {
 							player.getPointsHandler().setPkPoints(-value * canBeBought, true);
 						} else if (id == DONATOR_STORE_ARMOUR_WEAPONS || id == DONATOR_STORE_RARES) {
 							player.setPoints(-value * canBeBought, true);
@@ -520,6 +523,7 @@ public class Shop extends ItemContainer {
 						} else if (id == SLAYER_STORE || id == IRON_SLAYER_STORE) {
 							player.getPointsHandler().setSlayerPoints(-value * canBeBought, true);
 						}
+						writeInterface(player, id);
 					}
 					if (getItems()[slot].getAmount() - canBeBought <= 0 && id != GENERAL_STORE & id != DIANGO_STORE) {
 						canBeBought -= 1;
@@ -575,6 +579,28 @@ public class Shop extends ItemContainer {
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * On the 'custom' shops it will tell you how much
+	 * 'points' you have.
+	 * @param player
+	 * @param shopId
+	 */
+	public static void writeInterface(Player player, int shopId) {
+		if(shopId == PKING_REWARDS_STORE || shopId == PKING_REWARDS_STORE2 || shopId == PKING_REWARDS_STORE3) {
+			player.getPacketSender().sendString(3903, "You currently have "+player.getPointsHandler().getPkPoints()+" pk points");
+		} else if(shopId == VOTING_REWARDS_STORE || shopId == VOTING_REWARDS_STORE2 || shopId == IRON_VOTING_REWARDS_STORE) {
+			player.getPacketSender().sendString(3903, "You currently have " + player.getPointsHandler().getVotingPoints() + " vote points");
+		} else if(shopId == DUNGEONEERING_STORE) {
+			player.getPacketSender().sendString(3903, "You currently have " + player.getPointsHandler().getDungeoneeringTokens() + " dungeoneering tokens");
+		} else if(shopId == PEST_CONTROL_STORE) {
+			player.getPacketSender().sendString(3903, "You currently have " + player.getPointsHandler().getCommendations() + " commendations (pest control points)");
+		} else if(shopId == SLAYER_STORE || shopId == IRON_SLAYER_STORE) {
+			player.getPacketSender().sendString(3903, "You currently have "+player.getPointsHandler().getSlayerPoints()+" slayer points");
+		} else {
+			player.getPacketSender().sendString(3903, "Right-click on shop to buy item - Right-click on inventory to sell item");
+		}
 	}
 
 	@Override
@@ -719,7 +745,7 @@ public class Shop extends ItemContainer {
 					case 18744:
 					case 18745:
 					case 18746:
-						return new Object[] { 50, "Vote points" };
+						return new Object[] { 100, "Vote points" };
 					case 6666:
 					case 13101:
 						return new Object[] { 5, "Vote points" };
@@ -758,7 +784,7 @@ public class Shop extends ItemContainer {
 					case 20072:
 						return new Object[] { 20, "Vote points" };
 				}
-			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2) {
+			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2 || shop == PKING_REWARDS_STORE3) {
 				switch (item) {
 					case 14484:
 						return new Object[] { 5750, "Pk points" };
@@ -904,6 +930,29 @@ public class Shop extends ItemContainer {
 						return new Object[] {500, "Pk points" };
 					case 5023:
 						return new Object[] {800, "Pk points" };
+					case 4716:
+					case 4720:
+					case 4722:
+					case 4718:
+					case 4749:
+					case 4751:
+					case 4724:
+					case 4728:
+					case 4730:
+					case 4726:
+					case 4753:
+					case 4757:
+					case 4759:
+					case 4755:
+						return new Object[] {500, "Pk points" };
+					case 4708:
+					case 4710:
+					case 4745:
+					case 4747:
+						return new Object[] {250, "Pk points" };
+					case 4712:
+					case 4714:
+						return new Object[] {750, "Pk points" };
 
 				}
 			} else if (shop == TOKKUL_EXCHANGE_STORE) {
@@ -1252,6 +1301,7 @@ public class Shop extends ItemContainer {
 
 	private static final int PKING_REWARDS_STORE = 21;
 	private static final int PKING_REWARDS_STORE2 = 22;
+	private static final int PKING_REWARDS_STORE3 = 48;
 
 	private static final int VOTING_REWARDS_STORE = 23;
 	private static final int VOTING_REWARDS_STORE2 = 24;

@@ -6,8 +6,10 @@ import com.chaos.model.Animation;
 import com.chaos.model.Graphic;
 import com.chaos.model.Locations;
 import com.chaos.model.Skill;
+import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.input.impl.EnterAmountOfBonesToSacrifice;
+import com.chaos.util.Misc;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.Achievements.AchievementData;
 import com.chaos.world.entity.impl.player.Player;
@@ -63,7 +65,15 @@ public class BonesOnAltar {
 					Achievements.doProgress(player, AchievementData.BURY_500_FROST_DRAGON_BONES);
 				}
 				amountSacrificed++;
-				player.getInventory().delete(boneId, 1);
+				boolean skipDelete = false;
+				if(player.getEquipment().get(Equipment.HEAD_SLOT).getId() == 18744 || player.getEquipment().get(Equipment.HEAD_SLOT).getId() == 18745 || player.getEquipment().get(Equipment.HEAD_SLOT).getId() == 18746) {
+					if (Misc.inclusiveRandom(1, 3) == 2) {
+						skipDelete = true;
+					}
+				}
+				if(!skipDelete) {
+					player.getInventory().delete(boneId, 1);
+				}
 				player.performAnimation(new Animation(713));
 				double experience = currentBone.getBuryingXP() * 2;
 				player.getSkillManager().addSkillExperience(Skill.PRAYER, experience);
