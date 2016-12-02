@@ -77,7 +77,7 @@ public class CrystalChest {
 							break;
 					}
 					p.getPacketSender().sendMessage("..and find some items!");
-					CustomObjects.objectRespawnTask(p, new GameObject(173, chest.getPosition().copy(), 10, 1), chest,
+					CustomObjects.objectRespawnTask(p, new GameObject(173, chest.getPosition().copy(), 10, 0), chest,
 							3);
 					stop();
 					break;

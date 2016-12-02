@@ -87,7 +87,6 @@ public class PlayerDeathTask extends Task {
 					// }
 					boolean spawnItems = false;
 					if (dropItems) {
-						deletePvpArmour(player);
 //						degrading.deleteBarrowsAmour(player);
 						itemsToKeep = ItemsKeptOnDeath.getItemsToKeep(player);
 						final CopyOnWriteArrayList<Item> playerItems = new CopyOnWriteArrayList<Item>();
@@ -96,6 +95,7 @@ public class PlayerDeathTask extends Task {
 						//playerItems.addAll(degrading.getBarrowsItems()); //adds degraded barrows items
 						final Position position = player.getPosition();
 						if (loc == Location.WILDERNESS || loc == Location.WILDKEY_ZONE) {
+							deletePvpArmour(player);
 							spawnItems = true;
 							for (Item item : playerItems) {
 								for(Item itemsKeep: itemsToKeep) {

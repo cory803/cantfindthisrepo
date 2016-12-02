@@ -4,6 +4,7 @@ import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Animation;
 import com.chaos.model.GameObject;
+import com.chaos.model.Item;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.ItemDefinition;
@@ -38,6 +39,21 @@ public class Woodcutting {
 					.sendMessage("You hit the tree with a strong force, that a baby raccoon ran to the bank!");
 			World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "
 					+ ItemDefinition.forId(PET_ID).getName() + " from the Woodcutting skill!");
+		}
+	}
+
+	public static void lumberJackOutfit(Player player) {
+		int[] outfitIds = { 10933, 10939, 10940, 10941 };
+		int CHANCE = Misc.inclusiveRandom(1, 250);
+		if (CHANCE == 1) {
+			int random = Misc.inclusiveRandom(3);
+			if (player.getInventory().getFreeSlots() > 1) {
+				player.getInventory().add(outfitIds[random], 1);
+				player.getPacketSender().sendMessage("You have just had a " + new Item(outfitIds[random]).getDefinition().getName() + " added to your inventory.");
+			} else {
+				player.getBank(0).add(outfitIds[random], 1);
+				player.getPacketSender().sendMessage("You have just had a " + new Item(outfitIds[random]).getDefinition().getName() + " added to your bank.");
+			}
 		}
 	}
 
@@ -83,6 +99,7 @@ public class Woodcutting {
 									cycle = 0;
 									BirdNests.dropNest(player);
 									//rollPet(player);
+									lumberJackOutfit(player);
 									this.stop();
 									if (object.getId() == 11434) {
 										if (EvilTrees.SPAWNED_TREE == null || EvilTrees.SPAWNED_TREE.getTreeObject()
