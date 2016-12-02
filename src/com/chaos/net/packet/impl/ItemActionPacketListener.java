@@ -93,6 +93,14 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 5023:
+				if (player.getInventory().contains(5023)) {
+					player.getInventory().delete(5023, 1);
+					player.setMoneyInPouch(player.getMoneyInPouch() + 15_000_000);
+					player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch() + "");
+				}
+				player.getPacketSender().sendMessage("You have claimed this ticket for 15m and it has been added to your money pouch.");
+				break;
 			//Scrolls
 			case 10934:
 			case 10935:

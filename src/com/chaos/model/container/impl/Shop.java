@@ -857,6 +857,8 @@ public class Shop extends ItemContainer {
 					case 6735:
 					case 6737:
 						return new Object[] {500, "Pk points" };
+					case 5023:
+						return new Object[] {800, "Pk points" };
 
 				}
 			} else if (shop == TOKKUL_EXCHANGE_STORE) {
