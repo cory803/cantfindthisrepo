@@ -94,6 +94,11 @@ public class PlayerPunishment {
 		return f.exists() && readPunished(f);
 	}
 
+	public static boolean isYellMuted(String name) {
+		File f = new File(YELL_MUTE_DIRECTORY + name.toLowerCase());
+		return f.exists() && readPunished(f);
+	}
+
 	public static boolean isVoteBanned(String name) {
 		File f = new File(VOTE_BAN_DIRECTORY + name.toLowerCase());
 		return f.exists() && readPunished(f);
@@ -198,6 +203,14 @@ public class PlayerPunishment {
 		}
 	}
 
+	public static void yellMute(String name, Long time) {
+		try {
+			new File(YELL_MUTE_DIRECTORY + name).createNewFile();
+		} catch (IOException exception) {
+			exception.printStackTrace();
+		}
+	}
+
 	public static void unBan(String name) {
 		new File(PLAYER_BAN_DIRECTORY + name).delete();
 	}
@@ -212,6 +225,10 @@ public class PlayerPunishment {
 
 	public static void unMute(String name) {
 		new File(PLAYER_MUTE_DIRECTORY + name).delete();
+	}
+
+	public static void unYellMute(String name) {
+		new File(YELL_MUTE_DIRECTORY + name).delete();
 	}
 
 	public static void unMacBan(String mac) {
@@ -240,6 +257,11 @@ public class PlayerPunishment {
 	 * Leads to directory where muted account files are stored.
 	 */
 	public static final String PLAYER_MUTE_DIRECTORY = PUNISHMENT_DIRECTORY + "/player_mutes/";
+
+	/**
+	 * Leads to directory where yell muted account files are stored.
+	 */
+	public static final String YELL_MUTE_DIRECTORY = PUNISHMENT_DIRECTORY + "/yell_mutes/";
 
 	/**
 	 * Leads to directory where muted account files are stored.

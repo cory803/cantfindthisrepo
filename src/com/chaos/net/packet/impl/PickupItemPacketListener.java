@@ -26,7 +26,7 @@ public class PickupItemPacketListener implements PacketListener {
 		if (player.isTeleporting())
 			return;
 		final Position position = new Position(x, y, player.getPosition().getZ());
-		if (!player.getLastItemPickup().elapsed(500))
+		if (!player.getLastItemPickup().elapsed(100))
 			return;
 		if (player.getConstitution() <= 0 || player.isTeleporting())
 			return;

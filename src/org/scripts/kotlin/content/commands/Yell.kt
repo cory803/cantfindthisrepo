@@ -42,10 +42,17 @@ class Yell(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("An admin has temporarily disabled the global yell channel.")
             return
         }
+
         if (PlayerPunishment.isMuted(player.username) || PlayerPunishment.isIpMuted(player.hostAddress)) {
             player.packetSender.sendMessage("You are muted and cannot yell.")
             return
         }
+
+        if (PlayerPunishment.isYellMuted(player.username)) {
+            player.packetSender.sendMessage("You are yell muted and cannot yell.")
+            return
+        }
+
         if (player.isYellMute) {
             player.packetSender.sendMessage("You are muted from yelling and cannot yell.")
             return
