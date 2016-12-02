@@ -128989,7 +128989,7 @@
 "attackAnim": 4491,
 "defenceAnim": 4485,
 "deathAnim": 4495,
-"attackBonus": 1000,
+"attackBonus": 425,
 "defenceMelee": 380,
 "defenceRange": 420,
 "defenceMage": 200,
