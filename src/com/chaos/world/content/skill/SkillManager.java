@@ -84,7 +84,7 @@ public class SkillManager {
 	 */
 	public SkillManager addSkillExperience(Skill skill, double experience) {
 		experience *= player.getGameModeAssistant().getModeExpRate();
-		return addExactExperience(skill, experience);
+		return addExactExperience(skill, experience, true);
 	}
 
 	/**
@@ -99,28 +99,45 @@ public class SkillManager {
 			experience *= player.getGameModeAssistant().getModeExpRate();
 		}
 
-		if (WellOfGoodness.isActive("exp")) {
-			boost += .3;
+		if (GameSettings.DOUBLE_EXP) {
+			boost = 2;
+		} else if(player.getEquipment().contains(4657)) {
+			boost = 2;
+		} else if(player.getDoubleXP() > 0) {
+			boost = 2;
 		}
+
 		if (player.getLocation() == Locations.Location.APE_ATOLL_SKILLING) {
 			boost += .1;
 		} else if (player.getLocation() == Locations.Location.SHILO) {
 			boost += .2;
 		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE) {
-			boost += .3;
+			boost += .1;
 		} else if (player.getLocation() == Location.EZONE_DONOR) {
-			boost += .4;
+			boost += .2;
 		}
-		if (player.getEquipment().contains(4657)) {
-			boost += 1;
-		}
-		if (GameSettings.DOUBLE_EXP) {
-			boost += 1;
+
+		if (WellOfGoodness.isActive("exp")) {
+			boost += .3;
 		}
 		return experience * boost;
 	}
 
-	public SkillManager addExactExperience(Skill skill, double experience) {
+	/**
+	 * Adds experience to {@code skill} by the {@code experience} amount.
+	 *
+	 * @param skill
+	 *            The skill to add experience to.
+	 * @param experience
+	 *            The amount of experience to add to the skill.
+	 * @return The Skills instance.
+	 */
+	public SkillManager addExperienceNoBoost(Skill skill, double experience) {
+		experience *= player.getGameModeAssistant().getModeExpRate();
+		return addExactExperience(skill, experience, false);
+	}
+
+	public SkillManager addExactExperience(Skill skill, double experience, boolean boost) {
 		if (player.experienceLocked())
 			return this;
 		if (this.skills.experience[skill.ordinal()] >= MAX_EXPERIENCE)
@@ -128,7 +145,9 @@ public class SkillManager {
 		if(experience == 0) {
 			return this;
 		}
-		experience = getBoostedExperience(experience, true, false);
+		if(boost) {
+			experience = getBoostedExperience(experience, true, false);
+		}
 		int startingLevel = isNewSkill(skill) ? (int) (skills.maxLevel[skill.ordinal()] / 10)
 				: skills.maxLevel[skill.ordinal()];
 		String skillName = Misc.formatText(skill.toString().toLowerCase());

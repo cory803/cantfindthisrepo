@@ -234,6 +234,12 @@ public class CustomObjects {
             //Ezone cooking range
             { 4172, 3343, 9623, 0, 0},
 
+            //Treasure island chests
+            { 10621, 3036, 2912, 0, 1 },
+            { 18804, 3039, 2908, 0, 2 },
+            { 24204, 3043, 2912, 0, 3 },
+            { 29577, 3039, 2915, 0, 2 }, //29578 = open
+
             //Wilderness lever
             { 9706, 3153, 3923, 0, 3},
 

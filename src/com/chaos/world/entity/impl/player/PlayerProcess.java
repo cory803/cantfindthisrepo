@@ -25,6 +25,12 @@ public class PlayerProcess {
 	private int loyaltyTick;
 
 	/*
+	 * The double xp tick, once this reaches 2 the player will have 1 second removed
+	 * off their double xp. 2 equals 1 second.
+	 */
+	private int doubleXPTick;
+
+	/*
 	 * The timer tick, once this reaches 2, the player's total play time will be
 	 * updated. 2 equals 1.2 seconds.
 	 */
@@ -90,6 +96,14 @@ public class PlayerProcess {
 				loyaltyTick = 0;
 			}
 			loyaltyTick++;
+		}
+
+		if (!player.isInActive() && !GameSettings.DOUBLE_EXP) {
+			if (doubleXPTick >= 2) {
+				player.decrementDoubleXP(1);
+				doubleXPTick = 0;
+			}
+			doubleXPTick++;
 		}
 
 		if (timerTick >= 1) {

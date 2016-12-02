@@ -582,6 +582,10 @@ public class PlayerLoading {
 			player.getPointsHandler().setVotingPoints(reader.get("voting-points").getAsInt(), false);
 		}
 
+		if (reader.has("double-xp")) {
+			player.setDoubleXP(reader.get("double-xp").getAsInt());
+		}
+
 		if (reader.has("slayer-points")) {
 			player.getPointsHandler().setSlayerPoints(reader.get("slayer-points").getAsInt(), false);
 		}

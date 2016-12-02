@@ -317,7 +317,7 @@ public class Slayer {
             }
             experience *= player.getGameModeAssistant().getModeExpRate();
             experience /= 2;
-            player.getSkillManager().addExactExperience(Skill.SLAYER, experience);
+            player.getSkillManager().addExactExperience(Skill.SLAYER, experience, true);
         } else {
             player.getSkillManager().addSkillExperience(Skill.SLAYER, player.getSlayer().getSlayerTask().getExperience(taskIndex));
         }

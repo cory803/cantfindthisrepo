@@ -1,90 +1,88 @@
 package com.chaos.model;
 
-import com.chaos.GameSettings;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
 
+/**
+ * Chaos Vote Books
+ * @Author Jonny
+ */
 public class VoteTokens {
 
 	/**
-	 * Chaos Vote Books
-	 * 
-	 * @Author Jonathan Sirens
-	 **/
+	 * Open your vote token and receive rewards
+	 * @param player
+	 */
+	public static void openToken(Player player) {
 
-	public static int super_rare_chance = 3000;
+		Item reward = null;
 
-	public static String global_color = "2EA73D";
-
-	public static String global_shad = "0";
-
-	public static String website = "::vote";
-
-	public static int[] SUPER_RARE_ITEMS = { 10330, 10332, 10334, 10336, 10338, 10340, 10342, 10344, 10346, 10348,
-			10350, 10352, 14014, 14015, 14016, 14008, 14009, 14010, 14011, 14012, 14013, 21000, 21001, 21002, 21003,
-			21004, 21005, 21006, 21007, 1037, 1038, 1040, 1042, 1044, 1046, 1048, 1050, 1053, 1055, 1057, 21024, 21025,
-			21026, 21035, 21036, 21037, 21038, 21039, 21040, 21041, 21027, 21028, 21029, 21030, 21031, 21032, 21033,
-			21034, 4084 };
-
-	public static int[] RARE_ITEMS = { 21016, 21017, 21018, 21019, 21372, 21020, 21021, 21022, 21023, 5607, 20000,
-			20001, 20002, 9177, 1191, 5680, 15069, 15071, 19780, 6570, 19669, 11694, 14484, 11724, 11726, 13887, 13893,
-			13899, 13905, 15220, 15017, 11696, 6199, 11698, 11700, 18349, 18351, 18353, 18355, 18357, 13738, 13740,
-			13742, 13744, 15825, 17273 };
-
-	public static int[] COMMON_ITEMS = { 1704, 1201, 10828, 3105, 21045, 21044, 21046, 9185, 4587, 4153, 19111, 4151,
-			6585, 11732, 15018, 15019, 15020, 6920, 15486, 6889, 11235, 6733, 6735, 6737, 6731, 6914, 1052, 18335, 4716,
-			4718, 4720, 4722, 4708, 4710, 4712, 4714, 4724, 4726, 4728, 4730, 4745, 4747, 4749, 4751, 4732, 4734, 4736,
-			4738, 4753, 4755, 4757, 4759 };
-
-	public static int random_item(int collection) {
-		if (collection == 0) {
-			return COMMON_ITEMS[(int) (Math.random() * COMMON_ITEMS.length)];
-		} else if (collection == 1) {
-			return RARE_ITEMS[(int) (Math.random() * RARE_ITEMS.length)];
-		} else if (collection == 2) {
-			return SUPER_RARE_ITEMS[(int) (Math.random() * SUPER_RARE_ITEMS.length)];
+		if(Misc.inclusiveRandom(1, 10000) == 1000) {
+			reward = ultraRareRewards[Misc.getRandom(ultraRareRewards.length - 1)];
 		}
-		return 0;
+
+		player.getInventory().delete(10944, 1);
+
+		int votePoints = 1;
+		int dungTokens = 10000;
+		int doubleXP = 60 * 60; //60 minutes
+		player.getPointsHandler().incrementVotingPoints(votePoints);
+		player.getPointsHandler().setDungeoneeringTokens(dungTokens, true);
+		player.addDoubleXP(doubleXP);
+		PlayerPanel.refreshPanel(player);
+
+		if(reward != null) {
+			player.getInventory().add(reward);
+		}
+
+		player.getPacketSender().sendMessage("<col=C70000>You now have "+Misc.format(player.getDoubleXP() / 60) +" minutes of double XP, "+Misc.format(player.getPointsHandler().getDungeoneeringTokens())+" Dungeoneering Tokens,");
+
+		if(reward != null) {
+			player.getPacketSender().sendMessage("<col=C70000>" + player.getPointsHandler().getVotingPoints() + " Vote Points, and you have received " + reward.getDefinition().getName() + " as a reward.");
+			sendAnnouncment(player.getUsername(), reward);
+		} else {
+			player.getPacketSender().sendMessage("<col=C70000>and " + player.getPointsHandler().getVotingPoints() + " Vote Points.");
+		}
+		player.getPacketSender().sendMessage("<col=C70000><shad=0>Thank you for voting for Chaos!");
 	}
 
-	public static void open_token(Player p, int itemId) {
-		if (p.getGameModeAssistant().isIronMan()) {
-			int points = 1;
-			p.getPointsHandler().incrementVotingPoints(points);
-			p.getPacketSender().sendMessage("<img=4><col=2F5AB7>You have received and " + points + " vote points.");
-			PlayerPanel.refreshPanel(p);
-			p.getInventory().delete(10944, 1);
-			return;
-		}
-		int collection = 0;
-		int random_chance = Misc.getRandom(super_rare_chance);
-		if (random_chance == super_rare_chance - 1) {
-			collection = 2;
-		} else if (random_chance >= 0 && random_chance <= 12) {
-			collection = 1;
-		} else {
-			collection = 0;
-		}
-		int item_id = random_item(collection);
-		String name = p.getUsername();
-		p.getInventory().delete(10944, 1);
-		p.getInventory().add(item_id, 1);
-		// int yell_chance = Misc.getRandom(5);
-		String item_name = ItemDefinition.forId(item_id).name;
-		int points = 1;
-		if (collection == 2) {
-			World.sendMessage("<img=2><col=2F5AB7>The player <shad=0>" + name + "</shad> has received <col=ff0000>"
-					+ item_name + " <col=2F5AB7>from ::vote!");
-		} else if (collection == 1) {
-			World.sendMessage("<img=1><col=2F5AB7>The player <shad=0>" + name + "</shad> has received <col=ff0000>"
-					+ item_name + " <col=2F5AB7>from ::vote!");
-		}
-		p.getPacketSender().sendMessage(
-				"<img=4><col=2F5AB7>You have recieved (" + item_name + "), and " + points + " vote points.");
-		p.getPointsHandler().incrementVotingPoints(points);
-		PlayerPanel.refreshPanel(p);
+	/**
+	 * Ultra rare rewards (1/10000)
+	 */
+	public static Item[] ultraRareRewards = {
+		new Item(1038, 1),
+		new Item(1040, 1),
+		new Item(1042, 1),
+		new Item(1044, 1),
+		new Item(1046, 1),
+		new Item(1048, 1),
+		new Item(21024, 1),
+		new Item(21025, 1),
+		new Item(21026, 1),
+		new Item(21049, 1),
+		new Item(21109, 1),
+		new Item(21118, 1),
+		new Item(21119, 1),
+		new Item(1050, 1),
+		new Item(21035, 1),
+		new Item(21036, 1),
+		new Item(21037, 1),
+		new Item(21038, 1),
+		new Item(21039, 1),
+		new Item(21040, 1),
+		new Item(21041, 1),
+		new Item(21048, 1),
+	};
+
+	/**
+	 * Checks to see if the item should get an announcement then processes if it can.
+	 * @param playerName
+	 * @param item
+	 */
+	public static void sendAnnouncment(String playerName, Item item) {
+		World.sendMessage("<icon=1><shad=FF8C38>[News] " + playerName + " has received a " + item.getDefinition().getName() + " from ::vote.");
 	}
 }

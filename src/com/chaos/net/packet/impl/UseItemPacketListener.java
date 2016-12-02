@@ -182,7 +182,7 @@ public class UseItemPacketListener implements PacketListener {
 				player.getInventory().delete(21775, 1);
 				player.getInventory().delete(1391, 1);
 				player.getInventory().add(21777, 1);
-				player.getSkillManager().addExactExperience(Skill.CRAFTING, 2500);
+				player.getSkillManager().addExactExperience(Skill.CRAFTING, 2500, true);
 				player.getPacketSender().sendMessage("You fuse the Orb of Armadyl & the Battlestaff together to make an Armadyl Battlestaff.");
 				return;
 			} else {
@@ -198,7 +198,7 @@ public class UseItemPacketListener implements PacketListener {
 				}
 				player.performAnimation(new Animation(1249));
 				player.getInventory().delete(new Item(1775)).add(new Item(14207));
-				player.getSkillManager().addExactExperience(Skill.CRAFTING, 2550);
+				player.getSkillManager().addExactExperience(Skill.CRAFTING, 2550, true);
 				player.getPacketSender().sendMessage("You have created a potion flask!");
 			}
 		}
@@ -504,7 +504,7 @@ public class UseItemPacketListener implements PacketListener {
 								}
 								if (player.getInventory().hasRoomFor(1775, 3)) {
 									player.performAnimation(new Animation(896));
-									player.getSkillManager().addExactExperience(Skill.CRAFTING, 980);
+									player.getSkillManager().addExactExperience(Skill.CRAFTING, 980, true);
 									player.getInventory().delete(new Item(229)).add(new Item(1775, 4));
 									player.getPacketSender().sendMessage("You create some molten glass...");
 								} else {
@@ -520,7 +520,7 @@ public class UseItemPacketListener implements PacketListener {
 								if (amt > 0) {
 									player.getInventory().delete(6055, amt);
 									player.getPacketSender().sendMessage("You put the weed in the compost bin.");
-									player.getSkillManager().addExactExperience(Skill.FARMING, 20 * amt);
+									player.getSkillManager().addExactExperience(Skill.FARMING, 20 * amt, true);
 								}
 							}
 							break;
@@ -647,7 +647,7 @@ public class UseItemPacketListener implements PacketListener {
 								}
 								if (player.getInventory().hasRoomFor(1775, 3)) {
 									player.performAnimation(new Animation(896));
-									player.getSkillManager().addExactExperience(Skill.CRAFTING, 980);
+									player.getSkillManager().addExactExperience(Skill.CRAFTING, 980, true);
 									player.getInventory().delete(new Item(229)).add(new Item(1775, 4));
 									player.getPacketSender().sendMessage("You create some molten glass...");
 								} else {
@@ -663,7 +663,7 @@ public class UseItemPacketListener implements PacketListener {
 								if (amt > 0) {
 									player.getInventory().delete(6055, amt);
 									player.getPacketSender().sendMessage("You put the weed in the compost bin.");
-									player.getSkillManager().addExactExperience(Skill.FARMING, 20 * amt);
+									player.getSkillManager().addExactExperience(Skill.FARMING, 20 * amt, true);
 								}
 							}
 							break;

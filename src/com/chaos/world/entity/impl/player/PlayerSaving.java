@@ -257,6 +257,7 @@ public class PlayerSaving {
 		object.addProperty("equipment-hits", new Integer(player.getEquipmentHits()));
 		object.addProperty("votes-claimed", new Integer(player.getVotesClaimed()));
 		object.addProperty("voting-points", new Integer(player.getPointsHandler().getVotingPoints()));
+		object.addProperty("double-xp", new Integer(player.getDoubleXP()));
 		object.addProperty("slayer-points", new Integer(player.getPointsHandler().getSlayerPoints()));
 		object.addProperty("pk-points", new Integer(player.getPointsHandler().getPkPoints()));
 		object.addProperty("toxic-staff-charges", new Integer(player.getToxicStaffCharges()));

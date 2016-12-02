@@ -16,6 +16,9 @@ import com.chaos.util.Misc;
 import com.chaos.world.ChaosTunnelHandler;
 import com.chaos.world.World;
 import com.chaos.world.content.*;
+import com.chaos.world.content.chests.CrystalChest;
+import com.chaos.world.content.chests.TreasureChest;
+import com.chaos.world.content.chests.WarChest;
 import com.chaos.world.content.combat.magic.Autocasting;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
@@ -27,7 +30,6 @@ import com.chaos.world.content.minigames.impl.Dueling.DuelRule;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.skill.Enchanting;
 import com.chaos.world.content.skill.impl.agility.Agility;
-import com.chaos.world.content.skill.impl.crafting.Flax;
 import com.chaos.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.chaos.world.content.skill.impl.farming.Farming;
 import com.chaos.world.content.skill.impl.fishing.Fishing;
@@ -54,8 +56,6 @@ import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.*;
 import org.scripts.kotlin.content.dialog.Well.DonateToWellDial;
 import org.scripts.kotlin.content.dialog.Well.Well;
-import org.scripts.kotlin.content.dialog.npcs.Aubury;
-import org.scripts.kotlin.content.dialog.npcs.MasterCrafter;
 import org.scripts.kotlin.content.dialog.npcs.SmallSacks;
 import org.scripts.kotlin.content.dialog.teleports.EdgevilleCoffins;
 
@@ -2046,6 +2046,12 @@ public class ObjectActionPacketListener implements PacketListener {
                                 break;
                             case 2403:
                                 WarChest.handleChest(player, gameObject);
+                                break;
+                            case 10621:
+                            case 18804:
+                            case 24204:
+                            case 29577:
+                                TreasureChest.handleChest(player, gameObject);
                                 break;
                             case 6910:
                             case 4483:

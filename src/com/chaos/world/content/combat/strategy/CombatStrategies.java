@@ -67,6 +67,8 @@ public class CombatStrategies {
 		STRATEGIES.put(2882, new DagannothPrime());
 		STRATEGIES.put(6260, new Graardor());
 		STRATEGIES.put(8597, new AvatarOfCreation());
+		STRATEGIES.put(9911, new HarLakkRiftsplitter());
+		STRATEGIES.put(11751, new Necrolord());
 		STRATEGIES.put(6263, new Steelwill());
 		STRATEGIES.put(6265, new Grimspike());
 		STRATEGIES.put(6222, new KreeArra());
@@ -85,8 +87,7 @@ public class CombatStrategies {
 		STRATEGIES.put(133, defaultMagicStrategy);
 		STRATEGIES.put(1857, new AvatarOfMagic());
 		STRATEGIES.put(1854, new AvatarOfRange());
-		STRATEGIES.put(135, new Fear());
-		STRATEGIES.put(135, new Fear());
+		STRATEGIES.put(9766, new Sagittare());
 		
 		Dragon dragonStrategy = new Dragon();
 		STRATEGIES.put(50, dragonStrategy);

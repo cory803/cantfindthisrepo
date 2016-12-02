@@ -251,6 +251,10 @@ public class PlayerHandler {
 		// Loads login messages from Kotlin
 		 new org.scripts.kotlin.core.login.LoginMessageParser();
 		 LoginMessageParser.LoginMessageParser.sendLogin(player);
+
+		if(player.getDoubleXP() > 0) {
+			player.getPacketSender().sendMessage("<col=C70000>You currently have "+player.getDoubleXP() / 60+" minutes of double XP left.");
+		}
 		// Loads Assetts
 		// new org.scripts.kotlin.core.login.LoginLoaderAssetts();
 		// LoginLoaderAssetts.LoginLoaderAssetts.loadAssetts(player);

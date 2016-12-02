@@ -49,7 +49,7 @@ public class ItemForging {
 			p.getInventory().add(data.product.getId(), data.product.getAmount());
 			p.getPacketSender().sendMessage("You make " + Misc.anOrA(itemName) + " " + itemName + ".");
 			p.getClickDelay().reset();
-			p.getSkillManager().addExactExperience(skill, data.skillRequirement[2]);
+			p.getSkillManager().addExactExperience(skill, data.skillRequirement[2], true);
 			return;
 		} else {
 			p.getPacketSender().sendMessage("You need " + Misc.anOrA(skill.getFormatName()) + " "

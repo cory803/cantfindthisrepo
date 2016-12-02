@@ -255,6 +255,11 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new Lowe(player));
                 break;
 
+            //Talk to Head snow imp
+            case 8542:
+                player.getDialog().sendDialog(new HeadSnowImp(player));
+                break;
+
             //Barrows brother
             case 572:
                 player.getDialog().sendDialog(new BarrowsBrother(player, 0));
@@ -576,6 +581,11 @@ public final class ActionHandler {
             //Lowe's range shop
             case 550:
                 Shop.ShopManager.getShops().get(4).open(player);
+                break;
+
+            //Head snow imp's shop
+            case 8542:
+                Shop.ShopManager.getShops().get(24).open(player);
                 break;
 
             //Giles's supply shop

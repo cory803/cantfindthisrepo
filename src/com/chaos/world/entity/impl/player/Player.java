@@ -105,6 +105,24 @@ public class Player extends Character {
 
     public Map<PosDetails, PosOffer> foundOffers = new HashMap<PosDetails, PosOffer>();
 
+    private int doubleXP = 0;
+
+    public int getDoubleXP() {
+        return this.doubleXP;
+    }
+
+    public void setDoubleXP(int time) {
+        this.doubleXP = time;
+    }
+
+    public void decrementDoubleXP(int amount) {
+        this.doubleXP -= amount;
+    }
+
+    public void addDoubleXP(int amount) {
+        this.doubleXP += amount;
+    }
+
     private int announcementTime;
 
     /**

@@ -105,6 +105,18 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("There are "+GameSettings.fakePlayerCount+" fake players online.");
             }
         });
+        commands.put("treasurekeys", new Command(StaffRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                for (int i = 0; i < 4; i++) {
+                    player.getInventory().add(14678, 1);
+                    player.getInventory().add(18689, 1);
+                    player.getInventory().add(13758, 1);
+                    player.getInventory().add(13158, 1);
+                }
+                player.getPacketSender().sendMessage("Enjoy treasure keys!");
+            }
+        });
         commands.put("checkcount", new Command(StaffRights.OWNER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

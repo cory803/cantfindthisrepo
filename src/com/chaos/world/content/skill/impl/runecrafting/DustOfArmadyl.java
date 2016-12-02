@@ -44,7 +44,7 @@ public class DustOfArmadyl {
                 player.getInventory().delete(armadylShard, 1);
                 player.getInventory().add(dustOfArmadyl, 7);
                 player.performAnimation(new Animation(713));
-                player.getSkillManager().addExactExperience(Skill.RUNECRAFTING, 22);
+                player.getSkillManager().addExactExperience(Skill.RUNECRAFTING, 22, true);
                 player.getPacketSender().sendMessage("You finely grind the Shards of Armadyl into a fine Dust of Armadyl.");
             }
 

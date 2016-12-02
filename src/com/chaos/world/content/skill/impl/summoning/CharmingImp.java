@@ -62,25 +62,25 @@ public class CharmingImp {
 	private static void turnIntoXp(Player player, int itemId, int amount) {
 		switch (itemId) {
 		case GOLD_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 4 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 4 * amount, true);
 			break;
 		case GREEN_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 8 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 8 * amount, true);
 			break;
 		case CRIM_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 12 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 12 * amount, true);
 			break;
 		case BLUE_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 16 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 16 * amount, true);
 		break;
 		case TALON_BEAST_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 6 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 6 * amount, true);
 		break;
 		case ABYSSAL_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 7 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 7 * amount, true);
 		break;
 		case OBSIDIAN_CHARM:
-			player.getSkillManager().addExactExperience(Skill.SUMMONING, 6 * amount);
+			player.getSkillManager().addExactExperience(Skill.SUMMONING, 6 * amount, true);
 			break;
 		}
 		sendMessage(player, 1, itemId, amount);

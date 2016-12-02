@@ -7,6 +7,7 @@ import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogMessage;
+import com.chaos.util.Misc;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -58,17 +59,21 @@ public class Minigames extends Dialog {
                     }
                 });
             case 1:
-                return Dialog.createOption(new TwoOption(
+                return Dialog.createOption(new ThreeOption(
                         "TzHaar Fight Cave",
-                        "TzHaar Fight Pit") {
+                        "TzHaar Fight Pit",
+                        "Treasure Island") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
-                            case OPTION_1_OF_2:
+                            case OPTION_1_OF_3:
                                 TeleportHandler.teleportPlayer(player, new Position(2445, 5170, 0), player.getSpellbook().getTeleportType());
                                 break;
-                            case OPTION_2_OF_2:
+                            case OPTION_2_OF_3:
                                 TeleportHandler.teleportPlayer(player, new Position(2399, 5177, 0), player.getSpellbook().getTeleportType());
+                                break;
+                            case OPTION_3_OF_3:
+                                TeleportHandler.teleportPlayer(player, new Position(3039 + Misc.inclusiveRandom(0, 1), 2912, 0), player.getSpellbook().getTeleportType());
                                 break;
                         }
                     }

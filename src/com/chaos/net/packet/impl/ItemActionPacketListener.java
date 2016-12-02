@@ -163,7 +163,7 @@ public class ItemActionPacketListener implements PacketListener {
 					if (player.getSkillManager().getCurrentLevel(Skill.CRAFTING) >= 80) {
 						player.getInventory().delete(21776, 100);
 						player.getInventory().add(21775, 1);
-						player.getSkillManager().addExactExperience(Skill.CRAFTING, 1000);
+						player.getSkillManager().addExactExperience(Skill.CRAFTING, 1000, true);
 						return;
 					} else {
 						player.getPacketSender().sendMessage("You need a Crafting level of 80 to make an Orb of Armadyl");
@@ -280,7 +280,7 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendMessage("You need to have atleast 1 free inventory space.");
 				return;
 			}
-			VoteTokens.open_token(player, 10944);
+			VoteTokens.openToken(player);
 			break;
 		case 13663:
 			if (player.getInterfaceId() > 0) {

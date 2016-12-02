@@ -710,8 +710,53 @@ public class Shop extends ItemContainer {
 		public static Object[] getCustomShopData(int shop, int item) {
 			if (shop == VOTING_REWARDS_STORE || shop == VOTING_REWARDS_STORE2) {
 				switch (item) {
-					case 14484: // id
-						return new Object[] { 5, "Vote points" }; //5 = how many vote points
+					case 9470:
+					case 22215:
+					case 22216:
+					case 22217:
+					case 22218:
+						return new Object[] { 10, "Vote points" };
+					case 18744:
+					case 18745:
+					case 18746:
+						return new Object[] { 50, "Vote points" };
+					case 6666:
+					case 13101:
+						return new Object[] { 5, "Vote points" };
+					case 21129:
+					case 21130:
+					case 21131:
+					case 21132:
+					case 21133:
+						return new Object[] { 10, "Vote points" };
+					case 22207:
+					case 22209:
+					case 22211:
+					case 22213:
+						return new Object[] { 25, "Vote points" };
+					case 20950:
+					case 20951:
+					case 20952:
+						return new Object[] { 20, "Vote points" };
+					case 15426:
+						return new Object[] { 250, "Vote points" };
+					case 6:
+					case 8:
+					case 10:
+					case 12:
+						return new Object[] { 5, "Vote points" };
+					case 14749:
+					case 14759:
+					case 14763:
+					case 14773:
+						return new Object[] { 2, "Vote points" };
+					case 6570:
+						return new Object[] { 8, "Vote points" };
+					case 19711:
+					case 10551:
+					case 12954:
+					case 20072:
+						return new Object[] { 20, "Vote points" };
 				}
 			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2) {
 				switch (item) {
