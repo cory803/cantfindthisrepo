@@ -39,7 +39,7 @@ public class ForumDatabase {
 	public static int wiki_editor = 34;
 
 	public static void forumRankUpdate(Player player) {
-		GameServer.getWebsitePool().executeQuery(
+		GameServer.getStorePool().executeQuery(
 				"Select * from `members` WHERE `name` = '" + player.getUsername() + "' LIMIT 1", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -58,7 +58,7 @@ public class ForumDatabase {
 							} else if (donator_rank == 0) {
 								donator_rank = members;
 							}
-							GameServer.getWebsitePool()
+							GameServer.getStorePool()
 									.executeQuery(
 											"UPDATE `members` SET `member_group_id` = '" + donator_rank
 													+ "' WHERE `name` = '" + player.getUsername() + "' LIMIT 1",

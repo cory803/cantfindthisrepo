@@ -3,6 +3,7 @@ package com.chaos;
 import com.chaos.cache.RSCache;
 import com.chaos.engine.task.impl.ServerTimeUpdateTask;
 import com.chaos.net.mysql.*;
+import com.chaos.net.mysql.impl.DatabaseInformationVoting;
 import com.chaos.threading.GameEngine;
 import com.chaos.threading.event.Event;
 import com.chaos.threading.task.Task;
@@ -31,6 +32,7 @@ public class GameServer {
 	private static long startTime;
 	private static ThreadedSQL server_sql = null;
 	private static ThreadedSQL website_sql = null;
+	private static ThreadedSQL voting_sql = null;
 	private static final GameEngine engine = new GameEngine();
 	public static RSCache cache;
 	private static File cacheRepository = new File("." + File.separator + "cache" + File.separator);
@@ -39,8 +41,12 @@ public class GameServer {
 		return server_sql;
 	}
 
-	public static ThreadedSQL getWebsitePool() {
+	public static ThreadedSQL getStorePool() {
 		return website_sql;
+	}
+
+	public static ThreadedSQL getVotingPool() {
+		return voting_sql;
 	}
 
 	public static void main(String[] params) {
@@ -50,14 +56,14 @@ public class GameServer {
 			e.printStackTrace();
 		}
 
-		debugAnimation(121110564);
+		//debugAnimation(121110564);
 
 		logger.info("Grabbing MYSQL passwords...");
 		ServerTimeUpdateTask.grabPasswords();
 		logger.info("Grabbed MYSQL character connection: " + DatabaseInformationServer.host + "");
 		logger.info("Grabbed MYSQL character server: " + DatabaseInformationServer.password + "");
-		logger.info("Grabbed MYSQL forum connection: " + DatabaseInformationWebsite.host + "");
-		logger.info("Grabbed MYSQL forum password: " + DatabaseInformationWebsite.password + "");
+		logger.info("Grabbed MYSQL store connection: " + DatabaseInformationStore.host + "");
+		logger.info("Grabbed MYSQL store password: " + DatabaseInformationStore.password + "");
 		startTime = System.currentTimeMillis();
 		Runtime.getRuntime().addShutdownHook(new ShutdownHook());
 		try {
@@ -75,14 +81,24 @@ public class GameServer {
 			server_sql = new ThreadedSQL(server, 4);
 			System.out.println("Connecting to MYSQL server database...");
 
-			// Website SQL
-			MySQLDatabaseConfiguration website = new MySQLDatabaseConfiguration();
-			website.setHost(DatabaseInformationWebsite.host);
-			website.setPort(DatabaseInformationWebsite.port);
-			website.setUsername(DatabaseInformationWebsite.username);
-			website.setPassword(DatabaseInformationWebsite.password);
-			website.setDatabase(DatabaseInformationWebsite.database);
-			website_sql = new ThreadedSQL(website, 4);
+			// Store SQL
+			MySQLDatabaseConfiguration store = new MySQLDatabaseConfiguration();
+			store.setHost(DatabaseInformationStore.host);
+			store.setPort(DatabaseInformationStore.port);
+			store.setUsername(DatabaseInformationStore.username);
+			store.setPassword(DatabaseInformationStore.password);
+			store.setDatabase(DatabaseInformationStore.database);
+			website_sql = new ThreadedSQL(store, 4);
+
+			// Voting SQL
+			MySQLDatabaseConfiguration voting = new MySQLDatabaseConfiguration();
+			voting.setHost(DatabaseInformationVoting.host);
+			voting.setPort(DatabaseInformationVoting.port);
+			voting.setUsername(DatabaseInformationVoting.username);
+			voting.setPassword(DatabaseInformationVoting.password);
+			voting.setDatabase(DatabaseInformationVoting.database);
+			voting_sql = new ThreadedSQL(voting, 4);
+
 			System.out.println("Connecting to MYSQL website database...");
 
 			cache = RSCache.create(cacheRepository);

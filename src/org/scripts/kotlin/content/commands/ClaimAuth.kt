@@ -17,15 +17,15 @@ class ClaimAuth(staffRights: StaffRights) : Command(staffRights) {
 
     override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
         if (args == null) {
-            player.packetSender.sendMessage("Please use the command as ::auth-authcode")
+            player.packetSender.sendMessage("Please use the command as ::auth authcode")
             return
         }
         if (!GameSettings.VOTING_CONNECTIONS) {
             player.packetSender.sendMessage("Voting connections are currently turned off, try again in 30 minutes!")
             return
         }
-        if (!player.voteTimer.elapsed(30000)) {
-            player.packetSender.sendMessage("You have to wait 30 seconds in order to use ::auth!")
+        if (!player.voteTimer.elapsed(10000)) {
+            player.packetSender.sendMessage("You have to wait 10 seconds in order to use ::auth!")
             return
         }
         player.voteTimer.reset()

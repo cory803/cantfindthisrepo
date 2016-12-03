@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import com.chaos.GameServer;
 import com.chaos.GameSettings;
 import com.chaos.net.mysql.SQLCallback;
-import com.chaos.world.content.Achievements;
 import com.chaos.world.entity.impl.player.Player;
 
 public class Voting {
@@ -17,7 +16,7 @@ public class Voting {
 			player.getPacketSender().sendMessage("Your auth code can only be under 10 characters.");
 			return;
 		}
-		GameServer.getWebsitePool().executeQuery("Select * from `auth` WHERE `auth` = '" + auth + "'",
+		GameServer.getVotingPool().executeQuery("Select * from `auth` WHERE `auth` = '" + auth + "'",
 				new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -42,7 +41,7 @@ public class Voting {
 							player.getPacketSender().sendMessage("You have entered an invalid auth code.");
 							return;
 						}
-						GameServer.getWebsitePool().executeQuery("DELETE FROM `auth` WHERE `auth` = '" + auth + "'",
+						GameServer.getVotingPool().executeQuery("DELETE FROM `auth` WHERE `auth` = '" + auth + "'",
 								new SQLCallback() {
 									@Override
 									public void queryComplete(ResultSet rs) throws SQLException {

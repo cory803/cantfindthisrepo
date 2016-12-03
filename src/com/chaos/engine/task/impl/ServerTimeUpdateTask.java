@@ -8,9 +8,7 @@ import java.io.IOException;
 import com.chaos.GameSettings;
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.WebsiteOnline;
 import com.chaos.net.mysql.DatabaseInformationServer;
-import com.chaos.net.mysql.DatabaseInformationWebsite;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
@@ -42,7 +40,7 @@ public class ServerTimeUpdateTask extends Task {
 				//} else if (line.contains("mysql_forum_password")) {
 					//args = line.split(": ");
 					//GameSettings.mysql_forum_password = args[1];
-					//DatabaseInformationWebsite.password = GameSettings.mysql_forum_password;
+					//DatabaseInformationStore.password = GameSettings.mysql_forum_password;
 				} else if (line.contains("connection_address")) {
 					args = line.split(": ");
 					GameSettings.connection_address = args[1];

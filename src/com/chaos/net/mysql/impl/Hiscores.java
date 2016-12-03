@@ -45,12 +45,12 @@ public class Hiscores implements SQLCallback {
                 return this;
         }
         try {
-            PreparedStatement preparedStatement = GameServer.getWebsitePool().prepareStatement("DELETE FROM `skills` WHERE `skills`.`playerName` = ?");
+            PreparedStatement preparedStatement = GameServer.getStorePool().prepareStatement("DELETE FROM `skills` WHERE `skills`.`playerName` = ?");
             preparedStatement.setString(1, player.getUsername());
 
-            GameServer.getWebsitePool().executeQuery(preparedStatement, this);
+            GameServer.getStorePool().executeQuery(preparedStatement, this);
 
-            preparedStatement = GameServer.getWebsitePool().prepareStatement("INSERT INTO `skills` (`playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Construction`, `Hunter`, `Summoning`, `Dungeoneering`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            preparedStatement = GameServer.getStorePool().prepareStatement("INSERT INTO `skills` (`playerName`, `playerRank`, `rights`, `TotalLevel`, `TotalXP`, `Attack`, `Defence`, `Strength`, `Hitpoints`, `Ranged`, `Prayer`, `Magic`, `Cooking`, `Woodcutting`, `Fletching`, `Fishing`, `Firemaking`, `Crafting`, `Smithing`, `Mining`, `Herblore`, `Agility`, `Thieving`, `Slayer`, `Farming`, `Runecrafting`, `Construction`, `Hunter`, `Summoning`, `Dungeoneering`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
             preparedStatement.setString(1, player.getUsername());
             preparedStatement.setByte(2, (byte) player.getGameModeAssistant().ordinal());
             preparedStatement.setByte(3, (byte) getRank());
@@ -60,7 +60,7 @@ public class Hiscores implements SQLCallback {
                 preparedStatement.setInt((i + 6), player.getSkillManager().getExperience(Skill.values()[i]));
             }
 
-            GameServer.getWebsitePool().executeQuery(preparedStatement, this);
+            GameServer.getStorePool().executeQuery(preparedStatement, this);
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -15,7 +15,7 @@ public class Store {
 
 	public static void claimItem(Player player) {
 		player.claimingStoreItems = true;
-		GameServer.getWebsitePool().executeQuery(
+		GameServer.getStorePool().executeQuery(
 				"Select * from `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'", new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -79,7 +79,7 @@ public class Store {
 									.sendMessage("You currently don't have anything in your collection box!");
 							return;
 						}
-						GameServer.getWebsitePool().executeQuery(
+						GameServer.getStorePool().executeQuery(
 								"DELETE FROM `store_collection_box` WHERE `ign` = '" + player.getUsername() + "'",
 								new SQLCallback() {
 									@Override
@@ -102,7 +102,7 @@ public class Store {
 	}
 
 	public static void addTokens(String name, int amount) {
-		GameServer.getWebsitePool().executeQuery(
+		GameServer.getStorePool().executeQuery(
 				"UPDATE `members` SET credits = credits + " + amount + " WHERE `name` = '" + name + "' LIMIT 1",
 				new SQLCallback() {
 					@Override
@@ -120,7 +120,7 @@ public class Store {
 	}
 
 	public static void addTokensFromScroll(Player player, String name, int amount, int item) {
-		GameServer.getWebsitePool().executeQuery("SELECT `name` FROM `members` WHERE `name` = '" + name + "' LIMIT 1",
+		GameServer.getStorePool().executeQuery("SELECT `name` FROM `members` WHERE `name` = '" + name + "' LIMIT 1",
 				new SQLCallback() {
 					@Override
 					public void queryComplete(ResultSet rs) throws SQLException {
@@ -131,7 +131,7 @@ public class Store {
 								player.getPacketSender().sendMessage("What happened to your scroll?");
 							} else {
 								player.getInventory().delete(item, 1);
-								GameServer.getWebsitePool().executeQuery("UPDATE `members` SET credits = credits + "
+								GameServer.getStorePool().executeQuery("UPDATE `members` SET credits = credits + "
 										+ amount + " WHERE `name` = '" + name + "' LIMIT 1", new SQLCallback() {
 											@Override
 											public void queryComplete(ResultSet rs) throws SQLException {
