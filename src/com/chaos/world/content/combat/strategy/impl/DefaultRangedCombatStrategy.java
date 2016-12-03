@@ -119,6 +119,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 12926) {
 			ammo = AmmunitionData.DRAGON_DART;
 		}
+		if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 20171) {
+			ammo = AmmunitionData.RUNE_ARROW;
+		}
 		if (!player.isSpecialActivated()) {
 
 			if (!CombatFactory.crystalBow(player) && !CombatFactory.blowPipe(player) && !CombatFactory.zaryteBow(player)) {

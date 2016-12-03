@@ -485,7 +485,7 @@ public class CombatRangedAmmo {
 	public enum RangedWeaponType {
 
 		LONGBOW(9, 6), SHORTBOW(7, 4), BALLISTA(7, 4), CROSSBOW(7, 6), ARMADYL_CROSSBOW(8, 6), ROYAL_CROSSBOW(7, 5), THROW(4,
-				3), DART(3, 3), BLOWPIPE(4, 3), DARK_BOW(9, 8), HAND_CANNON(7, 4);
+				3), DART(3, 3), BLOWPIPE(4, 3), DARK_BOW(9, 8), HAND_CANNON(7, 6);
 
 		RangedWeaponType(int distanceRequired, int attackDelay) {
 			this.distanceRequired = distanceRequired;

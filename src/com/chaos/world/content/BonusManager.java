@@ -17,7 +17,11 @@ public class BonusManager {
 				bonuses[i] += definition.getBonus()[i];
 				if (player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 12926) {
 					bonuses[15] = 78;
-					player.getBonusManager().otherBonus[1] = 78;
+					player.getBonusManager().otherBonus[1] = 115;
+				}
+				if (player.getEquipment().get(Equipment.WEAPON_SLOT).getId() == 20171) {
+					bonuses[15] = 78;
+					player.getBonusManager().otherBonus[1] = 115;
 				}
 			}
 		}

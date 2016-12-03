@@ -60,9 +60,11 @@ public class Artifacts {
 			return;
 		}
 		for (ArtifactE lel : ArtifactE.values()) {
-			c.getInventory().delete(lel.getId(), 1);
-			c.getInventory().add(995, lel.getPrice());
-			c.getInventory().refreshItems();
+			if(c.getInventory().contains(lel.getId())) {
+				c.getInventory().delete(lel.getId(), 1);
+				c.getInventory().add(995, lel.getPrice());
+				c.getInventory().refreshItems();
+			}
 		}
 		c.getPacketSender().sendMessage("You've sold your artifacts.");
 	}

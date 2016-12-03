@@ -484,6 +484,12 @@ public class Player extends Character {
         if(weaponId == 4734) {
             speed = 4;
         }
+        if(weaponId == 15241) {
+            if (fightType == FightType.SHORTBOW_RAPID) {
+                return 5;
+            }
+            return 6;
+        }
         if (weaponId == 1419) {
             speed -= 2;
         }

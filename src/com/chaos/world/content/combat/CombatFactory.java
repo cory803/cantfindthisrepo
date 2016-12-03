@@ -703,7 +703,7 @@ public final class CombatFactory {
         double otherBonusMultiplier = 1;
 
         int rangedStrength = ((int) player.getBonusManager().getAttackBonus()[4] / 10);
-        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() != 12926) {
+        if (player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() != 12926 && player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() != 20171) {
             if (player.getRangedWeaponData() != null)
                 rangedStrength += (RangedWeaponData.getAmmunitionData(player).getStrength());
         }
