@@ -573,25 +573,47 @@ public class ObjectActionPacketListener implements PacketListener {
                                 });
                                 break;
                             case 21764:
-                                if (!player.getSpecTimer().elapsed(120000)) {
-                                    player.getPacketSender()
-                                            .sendMessage("You can only restore your special attack every 2 minutes.");
-                                    return;
+                                if (player.getDonatorRights().ordinal() > 2) {
+                                    if (!player.getSpecTimer().elapsed(120000)) {
+                                        player.getPacketSender()
+                                                .sendMessage("You can only restore your special attack every 2 minutes.");
+                                        return;
+                                    }
+                                    player.performAnimation(new Animation(1327));
+                                    player.setSpecialPercentage(100);
+                                    CombatSpecial.updateBar(player);
+                                    int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
+                                    player.setConstitution(max);
+                                    player.getSkillManager().setCurrentLevel(Skill.PRAYER,
+                                            player.getSkillManager().getMaxLevel(Skill.PRAYER));
+                                    player.setPoisonDamage(0);
+                                    player.setVenomDamage(0);
+                                    player.getPacketSender().sendConstitutionOrbPoison(false);
+                                    player.getPacketSender().sendConstitutionOrbVenom(false);
+                                    player.getPacketSender().sendMessage(
+                                            "<img=10><col=570057><shad=0> You take a drink from the fountain... and feel revived!");
+                                    player.getSpecTimer().reset();
+                                } else {
+                                    if (!player.getSpecTimer().elapsed(9000000)) {
+                                        player.getPacketSender()
+                                                .sendMessage("You can only restore your special attack every 15 minutes.");
+                                        return;
+                                    }
+                                    player.performAnimation(new Animation(1327));
+                                    player.setSpecialPercentage(100);
+                                    CombatSpecial.updateBar(player);
+                                    int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
+                                    player.setConstitution(max);
+                                    player.getSkillManager().setCurrentLevel(Skill.PRAYER,
+                                            player.getSkillManager().getMaxLevel(Skill.PRAYER));
+                                    player.setPoisonDamage(0);
+                                    player.setVenomDamage(0);
+                                    player.getPacketSender().sendConstitutionOrbPoison(false);
+                                    player.getPacketSender().sendConstitutionOrbVenom(false);
+                                    player.getPacketSender().sendMessage(
+                                            "<icon=2><shad=ff0000> You take a drink from the fountain... and feel revived!");
+                                    player.getSpecTimer().reset();
                                 }
-                                player.performAnimation(new Animation(1327));
-                                player.setSpecialPercentage(100);
-                                CombatSpecial.updateBar(player);
-                                int max = player.getSkillManager().getMaxLevel(Skill.CONSTITUTION);
-                                player.setConstitution(max);
-                                player.getSkillManager().setCurrentLevel(Skill.PRAYER,
-                                        player.getSkillManager().getMaxLevel(Skill.PRAYER));
-                                player.setPoisonDamage(0);
-                                player.setVenomDamage(0);
-                                player.getPacketSender().sendConstitutionOrbPoison(false);
-                                player.getPacketSender().sendConstitutionOrbVenom(false);
-                                player.getPacketSender().sendMessage(
-                                        "<col=00ff00><shad=0><img=9> You take a drink from the fountain... and feel revived!");
-                                player.getSpecTimer().reset();
                                 break;
                             case 81:
                                 if (player.getPosition().getX() == 2584) {

@@ -526,6 +526,10 @@ public class CustomObjects {
             { 2783, 2342, 3807, 0, 0 },
 
             // ezone frost dragon tele
+            //donor altars
+            { 21764, 3381, 9633, 0, 1 },
+            { 21764, 3368, 9621, 0, 1 },
+            { 21764, 3086, 3488, 0, 1 },
             {47180, 3363, 9640, 0, 0},
             /**
              * Ezone Skilling Beings
