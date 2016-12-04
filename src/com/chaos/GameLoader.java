@@ -101,6 +101,12 @@ public final class GameLoader {
 		//DropListDumper.dump();
 
 		/**
+		 * Dumps a list of treasure island loot into
+		 * lists/treasure_island_loot.txt
+		 */
+		TreasureIslandLootDumper.dump();
+
+		/**
 		 * Dumps a list of wiki drop tables
 		 * lists/drops.txt
 		 */

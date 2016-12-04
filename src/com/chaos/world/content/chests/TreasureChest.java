@@ -73,13 +73,14 @@ public class TreasureChest {
 		 */
 		for (int i = 0; i < 1; i++) {
 			Item item = commonRewards[Misc.getRandom(commonRewards.length - 1)];
+			int amount = item.getAmount();
 
 			//Randomize amount
 			if(item.getAmount() >= 2) {
-				item.setAmount(Misc.inclusiveRandom(item.getAmount() / 2, item.getAmount()));
+				amount = Misc.inclusiveRandom(amount / 2, amount);
 			}
 
-			p.getInventory().add(item);
+			p.getInventory().add(item.getId(), amount);
 		}
 
 		if(Misc.inclusiveRandom(1, 5) == 2) { // 1/5 chance
@@ -107,7 +108,7 @@ public class TreasureChest {
 	/**
 	 * All common rewards
 	 */
-	private static final Item[] commonRewards = {
+	public static final Item[] commonRewards = {
 		new Item(527, 100), //Regular bones
 		new Item(533, 50), //Big bones
 		new Item(537, 25), //Dragon bones
@@ -142,7 +143,7 @@ public class TreasureChest {
 	/**
 	 * All uncommon rewards
 	 */
-	private static final Item[] uncommonRewards = {
+	public static final Item[] uncommonRewards = {
 		new Item(2615, 1), //Rune platebody (g)
 		new Item(2623, 1), //Rune platebody (t)
 		new Item(2617, 1), //Rune platelegs (g)
@@ -210,10 +211,10 @@ public class TreasureChest {
 	/**
 	 * All rare rewards
 	 */
-	private static final Item[] rareRewards = {
+	public static final Item[] rareRewards = {
 		new Item(21089, 1), //Drygore longsword
 		new Item(21091, 1), //Drygore rapier
-		new Item(21110, 1), //Drygore mace
+		new Item(21100, 1), //Drygore mace
 		new Item(10330, 1), //3rd age range top
 		new Item(10332, 1), //3rd age range legs
 		new Item(10334, 1), //3rd age range coif

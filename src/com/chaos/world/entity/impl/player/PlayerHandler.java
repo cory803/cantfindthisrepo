@@ -308,6 +308,15 @@ public class PlayerHandler {
 		player.getPacketSender().sendRights();
 		FarmingManager.uponLogin(player);
 		player.getDungeoneering().addRingOfKinship();
+
+		/**
+		 * Fix double xp negative
+		 */
+
+		if(player.getDoubleXP() < 0) {
+			player.setDoubleXP(60 * 60);
+		}
+
 		/**
 		 * Give the beta testers their items
 		 */

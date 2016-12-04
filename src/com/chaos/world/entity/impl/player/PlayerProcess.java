@@ -98,12 +98,14 @@ public class PlayerProcess {
 			loyaltyTick++;
 		}
 
-		if (!player.isInActive() && !GameSettings.DOUBLE_EXP) {
-			if (doubleXPTick >= 2) {
-				player.decrementDoubleXP(1);
-				doubleXPTick = 0;
+		if(player.getDoubleXP() > 0) {
+			if (!player.isInActive() && !GameSettings.DOUBLE_EXP) {
+				if (doubleXPTick >= 2) {
+					player.decrementDoubleXP(1);
+					doubleXPTick = 0;
+				}
+				doubleXPTick++;
 			}
-			doubleXPTick++;
 		}
 
 		if (timerTick >= 1) {

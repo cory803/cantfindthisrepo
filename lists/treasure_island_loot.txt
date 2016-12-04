@@ -1,0 +1,113 @@
+
+-Common-
+50-100x Bones
+25-50x Big bones
+12-25x Dragon bones
+5-10x Frost dragon bones
+37-75x Dragon bolts (e)
+37-75x Ruby bolts (e)
+37-75x Diamond bolts (e)
+1x Uncut dragonstone
+1x Uncut diamond
+1x Uncut ruby
+1x Rune 2h sword
+1x Dragon 2h sword
+1x Granite maul
+250-500x Cannonball
+250-500x Blood rune
+250-500x Death rune
+250-500x Astral rune
+12-25x Saradomin brew flask (6)
+12-25x Super restore flask (6)
+25-50x Raw shark
+12-25x Raw rocktail
+1x Rune hatchet
+1x Rune pickaxe
+1x Rune scimitar
+1x Dragon scimitar
+7-15x Rune bar
+12-25x Adamant bar
+25-50x Mithril bar
+2500000-5000000x Coins
+
+-Uncommon (1/5)-
+1x Rune platebody (g)
+1x Rune platebody (t)
+1x Rune platelegs (g)
+1x Rune platelegs (t)
+1x Rune full helm (g)
+1x Rune full helm (t)
+1x Rune kiteshield (g)
+1x Rune kiteshield (t)
+1x Zamorak platebody
+1x Zamorak platelegs
+1x Zamorak full helm
+1x Zamorak kiteshield
+1x Guthix platebody
+1x Guthix platelegs
+1x Guthix full helm
+1x Guthix kiteshield
+1x Saradomin platebody
+1x Saradomin platelegs
+1x Saradomin full helm
+1x Saradomin kiteshield
+1x Tan cavalier
+1x Dark cavalier
+1x Black cavalier
+1x Highwayman mask
+1x Red boater
+1x Orange boater
+1x Green boater
+1x Blue boater
+1x Black boater
+1x Black elegant shirt
+1x Black elegant legs
+1x Red elegant shirt
+1x Red elegant legs
+1x Blue elegant shirt
+1x Blue elegant legs
+1x Green elegant shirt
+1x Green elegant legs
+1x Purple elegant shirt
+1x Purple elegant legs
+1x White elegant blouse
+1x White elegant skirt
+1x Armadyl cloak
+1x Bandos cloak
+1x Ancient cloak
+1x Saradomin cloak
+1x Guthix cloak
+1x Zamorak cloak
+1x Wizard boots
+1x Red headband
+1x Black headband
+1x Brown headband
+1x Green dragon mask
+1x Blue dragon mask
+1x Red dragon mask
+1x Black dragon mask
+1x Frost dragon mask
+1x Bronze dragon mask
+1x Iron dragon mask
+1x Steel dragon mask
+1x Mithril dragon mask
+1x Rune cane
+1x Amulet of glory (t)
+
+-Rare (1/250)-
+1x Drygore longsword
+1x Drygore rapier
+1x Ring of wealth (i)
+1x Third-age range top
+1x Third-age range legs
+1x Third-age range coif
+1x Third-age vambraces
+1x Third-age robe top
+1x Third-age robe
+1x Third-age mage hat
+1x Third-age amulet
+1x Third-age platelegs
+1x Third-age platebody
+1x Third-age full helmet
+1x Third-age kiteshield
+
