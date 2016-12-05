@@ -83,6 +83,10 @@ public class Player extends Character {
 
     private int equipmentHits = 0;
 
+    public void debug(int debug) {
+        this.getPacketSender().sendMessage("Debug"+ debug);
+    }
+
     public int getEquipmentHits() {
         return this.equipmentHits;
     }

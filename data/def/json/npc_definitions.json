@@ -20095,6 +20095,9 @@
 "id": 912,
 "name": "Battle mage",
 "examine": "He kills in the name of Zamorak.",
+"rareChance": 50,
+"veryRareChance": 50,
+"epicRareChance": 100,
 "combat": 54,
 "size": 1,
 "attackable": true,
@@ -20142,6 +20145,9 @@
 "id": 914,
 "name": "Battle mage",
 "examine": "He kills in the name of Guthix.",
+"rareChance": 50,
+"veryRareChance": 50,
+"epicRareChance": 100,
 "combat": 54,
 "size": 1,
 "attackable": true,
@@ -20755,7 +20761,7 @@
 "attackBonus": 97,
 "defenceMelee": 97,
 "defenceRange": 97,
-"defenceMage": 0
+"defenceMage": 97
 },
 {
 "id": 942,

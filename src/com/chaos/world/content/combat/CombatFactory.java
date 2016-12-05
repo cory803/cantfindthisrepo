@@ -490,8 +490,7 @@ public final class CombatFactory {
             switch (type) {
                 case MAGIC:
                     int mageAttk = DesolaceFormulas.getMagicAttack(p1);
-                    return Misc.getRandom(DesolaceFormulas.getMagicDefence(p2)) < Misc.getRandom((mageAttk / 2))
-                            + Misc.getRandom((int) (mageAttk / 1.9));
+                    return Misc.getRandom(DesolaceFormulas.getMagicDefence(p2)) < Misc.getRandom((mageAttk / 2)) + Misc.getRandom((int) (mageAttk / 1.9));
                 case MELEE:
                     int def = 1 + DesolaceFormulas.getMeleeDefence(p2);
                     return Misc.getRandom(def) < Misc.getRandom(1 + DesolaceFormulas.getMeleeAttack(p1)) + (def / 4.5);
@@ -751,9 +750,9 @@ public final class CombatFactory {
         }
         maxHit *= 10;
         if (EquipmentBonus.wearingVoid(player, CombatType.RANGED)) {
-            maxHit *= 1.2;
+            maxHit *= 1.1;
         } else if(EquipmentBonus.wearingEliteVoid(player, CombatType.RANGED)) {
-            maxHit *= 1.3;
+            maxHit *= 1.2;
         }
         return maxHit;
     }

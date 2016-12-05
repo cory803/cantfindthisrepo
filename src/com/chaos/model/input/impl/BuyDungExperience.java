@@ -3,6 +3,7 @@ package com.chaos.model.input.impl;
 import com.chaos.GameSettings;
 import com.chaos.model.Skill;
 import com.chaos.model.input.EnterAmount;
+import com.chaos.model.player.GameMode;
 import com.chaos.util.Misc;
 import com.chaos.world.entity.impl.player.Player;
 
@@ -14,20 +15,21 @@ public class BuyDungExperience extends EnterAmount {
 		if (value > Integer.MAX_VALUE) {
 			amount = Integer.MAX_VALUE;
 		}
-		// player.getPacketSender().sendInterfaceRemoval();
-		if (player.getPointsHandler().getDungeoneeringTokens() < value / 3) {
-
-		} else if (value < 100) {
-
+		if (amount < 10000) {
+			player.getPacketSender().sendMessage("You can't purchase under 10,000 experience.");
+			return;
 		} else {
-			int amt = (int) value / 3;
-			int xp = (int) value;
-			player.getPointsHandler().setDungeoneeringTokens(-amt, true);
-			if (GameSettings.DOUBLE_EXP) {
-				xp /= 2;
+			int experience;
+			if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM || player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+				experience = 10;
+			} else {
+				experience = 100;
 			}
+			int amt = (int) amount / experience;
+			int xp = (int) amount;
+			player.getPointsHandler().setDungeoneeringTokens(-amt, true);
 			player.getSkillManager().addExactExperience(Skill.DUNGEONEERING, xp, false);
-
+			player.getPacketSender().sendMessage("You have purchased "+Misc.format(xp)+" Dungeoneering experience for "+Misc.format(amt)+" tokens.");
 		}
 	}
 

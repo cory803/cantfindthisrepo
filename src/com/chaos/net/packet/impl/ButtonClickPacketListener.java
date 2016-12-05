@@ -9,6 +9,7 @@ import com.chaos.model.container.impl.Bank.BankSearchAttributes;
 import com.chaos.model.definitions.WeaponInterfaces.WeaponInterface;
 import com.chaos.model.input.impl.*;
 import com.chaos.model.options.Option;
+import com.chaos.model.player.GameMode;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
@@ -104,17 +105,23 @@ public class ButtonClickPacketListener implements PacketListener {
                 }
                 break;
             case -23636:
-//                if (player.getShop() != null && player.getShop().id == 44 && player.isShopping()) {
-//                    player.setInputHandling(new BuyDungExperience());
-//                    player.getPacketSender().sendEnterAmountPrompt("How much experience would you like to buy? 1 token = 3 exp");
-//                } else {
+                if (player.getShop() != null && player.getShop().id == 46 && player.isShopping()) {
+                    int experience;
+                    if(player.getGameModeAssistant().getGameMode() == GameMode.REALISM || player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+                        experience = 10;
+                    } else {
+                        experience = 100;
+                    }
+                    player.setInputHandling(new BuyDungExperience());
+                    player.getPacketSender().sendEnterAmountPrompt("How much experience would you like to buy? 1 token = "+experience+" exp");
+                } else if(player.isPlayerOwnedShopping()) {
                     if (player.getGameModeAssistant().isIronMan()) {
                         player.getPacketSender().sendMessage("Ironmen can't use the player owned shops!");
                         return;
                     }
                     player.setPlayerOwnedShopping(false);
                     PlayerOwnedShops.openItemSearch(player, false);
-               // }
+                }
             break;
             //Wells
             case -10435:

@@ -228,7 +228,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.getDialog().sendDialog(new LeaveDungeon(player));
                                 break;
                             case 52847:
-                                if(player.getDungeoneering().getDungeonStage() == Dungeoneering.DungeonStage.DEFAULT) {
+                                if(player.getPosition().getY() >= 3725) {
                                     player.getPacketSender().sendMessage("You are currently not dungeoneering.");
                                     return;
                                 }

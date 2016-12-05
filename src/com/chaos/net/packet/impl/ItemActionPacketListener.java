@@ -128,10 +128,8 @@ public class ItemActionPacketListener implements PacketListener {
 				break;
 			case 5733:
 				if(player.getRottenPotato().elapsed(43200000)) {
-					player.rottenPotatoDrop = 0;
 					player.rottenPotatoPrayer = 0;
 					player.rottenPotatoHeal = 0;
-					player.getRottenPotatoDropTimer().reset();
 				}
 				if (!player.getRottenPotato().elapsed(43200000) && player.rottenPotatoHeal >= 5) {
 					player.getPacketSender().sendMessage("You can use your rotten potato again in "+(Misc.getRottenPotatoTime((43200000 - player.getRottenPotato().elapsed()))+"."));
@@ -694,14 +692,13 @@ public class ItemActionPacketListener implements PacketListener {
 				player.getPacketSender().sendInterface(18700);
 				break;
 			case 5733:
-				if(player.getRottenPotato().elapsed(43200000)) {
-					player.rottenPotatoDrop = 0;
-					player.rottenPotatoPrayer = 0;
+				if(player.getRottenPotatoDropTimer().elapsed(43200000)) {
 					player.rottenPotatoDrop = 0;
 					player.getRottenPotatoDropTimer().reset();
+					player.debug(1);
 				}
-				if (!player.getRottenPotato().elapsed(43200000) && player.rottenPotatoDrop >= 1) {
-					player.getPacketSender().sendMessage("You can use your rotten potato again in "+(Misc.getRottenPotatoTime((43200000 - player.getRottenPotato().elapsed()))+"."));
+				if (!player.getRottenPotatoDropTimer().elapsed(43200000) && player.rottenPotatoDrop >= 1) {
+					player.getPacketSender().sendMessage("You can use your rotten potato again in "+(Misc.getRottenPotatoTime((43200000 - player.getRottenPotatoDropTimer().elapsed()))+"."));
 					return;
 				}
 				if(player.getLocation() == Locations.Location.WILDERNESS) {

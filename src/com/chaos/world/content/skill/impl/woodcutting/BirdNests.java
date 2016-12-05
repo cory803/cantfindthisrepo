@@ -102,17 +102,22 @@ public class BirdNests {
 	 */
 	public static final void ringNest(Player p, int itemId) {
 		if (itemId == 5074) {
-			int random = Misc.getRandom(1000);
-			if (random >= 0 && random <= 340) {
-				p.getInventory().add(RING_REWARDS[0], AMOUNT);
-			} else if (random >= 341 && random <= 750) {
-				p.getInventory().add(RING_REWARDS[1], AMOUNT);
-			} else if (random >= 751 && random <= 910) {
-				p.getInventory().add(RING_REWARDS[2], AMOUNT);
-			} else if (random >= 911 && random <= 989) {
-				p.getInventory().add(RING_REWARDS[3], AMOUNT);
-			} else if (random >= 990) {
-				p.getInventory().add(RING_REWARDS[4], AMOUNT);
+			int randomWealth = Misc.inclusiveRandom(1, 500);
+			if(randomWealth == 250) {
+				p.getInventory().add(2572, 1);
+			} else {
+				int random = Misc.getRandom(1000);
+				if (random >= 0 && random <= 340) {
+					p.getInventory().add(RING_REWARDS[0], AMOUNT);
+				} else if (random >= 341 && random <= 750) {
+					p.getInventory().add(RING_REWARDS[1], AMOUNT);
+				} else if (random >= 751 && random <= 910) {
+					p.getInventory().add(RING_REWARDS[2], AMOUNT);
+				} else if (random >= 911 && random <= 989) {
+					p.getInventory().add(RING_REWARDS[3], AMOUNT);
+				} else if (random >= 990) {
+					p.getInventory().add(RING_REWARDS[4], AMOUNT);
+				}
 			}
 		}
 	}

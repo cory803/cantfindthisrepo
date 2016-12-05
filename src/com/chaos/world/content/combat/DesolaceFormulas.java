@@ -332,9 +332,9 @@ public class DesolaceFormulas {
 		boolean eliteVoidEquipment = EquipmentBonus.wearingEliteVoid(plr, CombatType.MAGIC);
 		int attackLevel = plr.getSkillManager().getCurrentLevel(Skill.MAGIC);
 		if (voidEquipment) {
-			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.3;
+			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.2;
 		} else if(eliteVoidEquipment) {
-			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.4;
+			attackLevel += plr.getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.3;
 		}
 		if (plr.getPrayerActive()[PrayerHandler.MYSTIC_WILL] || plr.getCurseActive()[CurseHandler.SAP_MAGE]) {
 			attackLevel *= 1.05;

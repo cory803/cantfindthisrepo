@@ -408,6 +408,7 @@ public final class ActionHandler {
             BankPin.init(player, false);
             return;
         }
+        System.out.println(""+npc.getId());
         player.setEntityInteraction(npc);
         player.setNpcClickId(npc.getId());
         if (player.getStaffRights().isDeveloper(player))
