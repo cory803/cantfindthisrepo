@@ -286,6 +286,8 @@ public final class CombatFactory {
             Player player = (Player) entity;
             if (player.getPoisonImmunity() > 0)
                 return;
+            if(player.getEquipment().contains(21107))
+                return;
             player.getPacketSender().sendConstitutionOrbPoison(true);
             player.getPacketSender().sendMessage("You have been poisoned!");
         }
