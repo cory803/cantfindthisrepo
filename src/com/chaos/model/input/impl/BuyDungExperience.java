@@ -27,6 +27,10 @@ public class BuyDungExperience extends EnterAmount {
 			}
 			int amt = (int) amount / experience;
 			int xp = (int) amount;
+			if(player.getPointsHandler().getDungeoneeringTokens() < amt) {
+				player.getPacketSender().sendMessage("You do not have enough dungeoneering tokens.");
+				return;
+			}
 			player.getPointsHandler().setDungeoneeringTokens(-amt, true);
 			player.getSkillManager().addExactExperience(Skill.DUNGEONEERING, xp, false);
 			player.getPacketSender().sendMessage("You have purchased "+Misc.format(xp)+" Dungeoneering experience for "+Misc.format(amt)+" tokens.");
