@@ -38,7 +38,7 @@ public class GiveDonatorDialog extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_5:
-                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
+                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER && player.getStaffRights() != StaffRights.ADMINISTRATOR) {
                                     return;
                                 }
                                 rights = DonatorRights.PREMIUM;
@@ -56,7 +56,7 @@ public class GiveDonatorDialog extends Dialog {
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_2_OF_5:
-                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
+                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER && player.getStaffRights() != StaffRights.ADMINISTRATOR) {
                                     return;
                                 }
                                 rights = DonatorRights.EXTREME;
@@ -74,7 +74,7 @@ public class GiveDonatorDialog extends Dialog {
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_3_OF_5:
-                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
+                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER && player.getStaffRights() != StaffRights.ADMINISTRATOR) {
                                     return;
                                 }
                                 rights = DonatorRights.LEGENDARY;
@@ -92,7 +92,7 @@ public class GiveDonatorDialog extends Dialog {
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_4_OF_5:
-                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
+                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER && player.getStaffRights() != StaffRights.ADMINISTRATOR) {
                                     return;
                                 }
                                 rights = DonatorRights.UBER;
@@ -110,7 +110,7 @@ public class GiveDonatorDialog extends Dialog {
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_5_OF_5:
-                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
+                                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER && player.getStaffRights() != StaffRights.ADMINISTRATOR) {
                                     return;
                                 }
                                 rights = DonatorRights.PLATINUM;

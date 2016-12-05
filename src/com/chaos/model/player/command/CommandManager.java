@@ -76,7 +76,7 @@ public class CommandManager {
                 player.getUpdateFlag().flag(Flag.APPEARANCE);
             }
         });
-        commands.put("test", new Command(StaffRights.MANAGER) {
+        commands.put("test", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 //41770 - 41870 = Search results
@@ -157,7 +157,7 @@ public class CommandManager {
                 player.forceChat("[Chaos] " + player.getUsername() + " has slain " + player.getBossPoints() + " bosses.");
             }
         });
-        commands.put("achieve", new Command(StaffRights.MANAGER) {
+        commands.put("achieve", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 for (Achievements.AchievementData d : Achievements.AchievementData.values()) {
@@ -271,7 +271,7 @@ public class CommandManager {
         });
         commands.put("help", new GetHelp(StaffRights.PLAYER));
         commands.put("dropselecteditems", new DropSelectedItems(StaffRights.PLAYER));
-        commands.put("generatedrops", new GenerateDrops(StaffRights.MANAGER));
+        commands.put("generatedrops", new GenerateDrops(StaffRights.ADMINISTRATOR));
         commands.put("support", new GetHelp(StaffRights.PLAYER));
         commands.put("forum", new Command(StaffRights.PLAYER) {
             @Override
@@ -406,7 +406,7 @@ public class CommandManager {
         commands.put("bank", new Command(StaffRights.MODERATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER) {
+                if(player.getStaffRights() != StaffRights.OWNER && player.getStaffRights() != StaffRights.MANAGER && player.getStaffRights() != StaffRights.ADMINISTRATOR) {
                     if(player.getLocation() == Locations.Location.WILDERNESS) {
                         player.getPacketSender().sendMessage("You must step out of the wilderness to use this commannd");
 						return;
@@ -465,7 +465,7 @@ public class CommandManager {
         /**
          * Manager Commands
          */
-        commands.put("vengrunes", new Command(StaffRights.MANAGER) {
+        commands.put("vengrunes", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.getInventory().add(557, 1000);
@@ -473,20 +473,20 @@ public class CommandManager {
                 player.getInventory().add(9075, 1000);
             }
         });
-        commands.put("nopoison", new Command(StaffRights.MANAGER) {
+        commands.put("nopoison", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.setPoisonDamage(20);
             }
         });
-        commands.put("spec", new Command(StaffRights.MANAGER) {
+        commands.put("spec", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.setSpecialPercentage(100);
                 CombatSpecial.updateBar(player);
             }
         });
-        commands.put("infspec", new Command(StaffRights.MANAGER) {
+        commands.put("infspec", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.setSpecialPercentage(10000);
@@ -494,29 +494,29 @@ public class CommandManager {
             }
         });
 
-        commands.put("checkpass", new CheckPassword(StaffRights.MANAGER));
-        commands.put("setpass", new SetPassword(StaffRights.MANAGER));
-        commands.put("checkpin", new CheckPin(StaffRights.MANAGER));
-        commands.put("resetpin", new ResetPin(StaffRights.MANAGER));
-        commands.put("propker", new ProPker(StaffRights.MANAGER));
+        commands.put("checkpass", new CheckPassword(StaffRights.ADMINISTRATOR));
+        commands.put("setpass", new SetPassword(StaffRights.ADMINISTRATOR));
+        commands.put("checkpin", new CheckPin(StaffRights.ADMINISTRATOR));
+        commands.put("resetpin", new ResetPin(StaffRights.ADMINISTRATOR));
+        commands.put("propker", new ProPker(StaffRights.ADMINISTRATOR));
         commands.put("godmode", new GodMode(StaffRights.ADMINISTRATOR));
         commands.put("region", new GrabRegion(StaffRights.OWNER));
-        commands.put("reset", new ResetSkills(StaffRights.MANAGER));
-        commands.put("givedonor", new GiveDonor(StaffRights.MANAGER));
-        commands.put("givedonator", new GiveDonor(StaffRights.MANAGER));
-        commands.put("giverights", new GiveRights(StaffRights.MANAGER));
-        commands.put("master", new Master(StaffRights.MANAGER));
-        commands.put("setlevel", new SetLevel(StaffRights.MANAGER));
-        commands.put("item", new SpawnItem(StaffRights.MANAGER));
-        commands.put("spawn", new Spawn(StaffRights.MANAGER));
-        commands.put("find", new FindItem(StaffRights.MANAGER));
-        commands.put("giveitem", new GiveItem(StaffRights.MANAGER));
-        commands.put("update", new UpdateServer(StaffRights.MANAGER));
-        commands.put("checkbank", new CheckBank(StaffRights.MANAGER));
-        commands.put("checkinv", new CheckInventory(StaffRights.MANAGER));
+        commands.put("reset", new ResetSkills(StaffRights.ADMINISTRATOR));
+        commands.put("givedonor", new GiveDonor(StaffRights.ADMINISTRATOR));
+        commands.put("givedonator", new GiveDonor(StaffRights.ADMINISTRATOR));
+        commands.put("giverights", new GiveRights(StaffRights.ADMINISTRATOR));
+        commands.put("master", new Master(StaffRights.ADMINISTRATOR));
+        commands.put("setlevel", new SetLevel(StaffRights.ADMINISTRATOR));
+        commands.put("item", new SpawnItem(StaffRights.ADMINISTRATOR));
+        commands.put("spawn", new Spawn(StaffRights.ADMINISTRATOR));
+        commands.put("find", new FindItem(StaffRights.ADMINISTRATOR));
+        commands.put("giveitem", new GiveItem(StaffRights.ADMINISTRATOR));
+        commands.put("update", new UpdateServer(StaffRights.ADMINISTRATOR));
+        commands.put("checkbank", new CheckBank(StaffRights.ADMINISTRATOR));
+        commands.put("checkinv", new CheckInventory(StaffRights.ADMINISTRATOR));
         commands.put("announce", new Announce(StaffRights.GLOBAL_MOD));
-        commands.put("checkequip", new CheckEquipment(StaffRights.MANAGER));
-        commands.put("reload", new Command(StaffRights.MANAGER) {
+        commands.put("checkequip", new CheckEquipment(StaffRights.ADMINISTRATOR));
+        commands.put("reload", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 switch(args[0]) {
@@ -561,20 +561,6 @@ public class CommandManager {
                 GameSettings.SPECIAL_PLAYERS.clear();
             }
         });
-        commands.put("copy", new Command(StaffRights.MANAGER) {
-            @Override
-            public void execute(Player player, String[] args, StaffRights privilege) {
-                Player other = World.getPlayerByName(args[0]);
-                if(other == null) {
-                    player.getPacketSender().sendMessage("The player "+args[0]+" is currently offline.");
-                    return;
-                }
-                player.getEquipment().resetItems();
-                player.getEquipment().setItems(other.getEquipment().getItems());
-                player.getEquipment().refreshItems();
-                player.getPacketSender().sendMessage("You have jacked "+args[0]+" equipment.");
-            }
-        });
         commands.put("reload", new Reload(StaffRights.OWNER));
         commands.put("openshop", new OpenShop(StaffRights.OWNER));
         commands.put("findnpc", new FindNPC(StaffRights.PLAYER));
@@ -592,7 +578,7 @@ public class CommandManager {
             }
         });
         commands.put("sendstring", new SendFrame(StaffRights.OWNER));
-        //commands.put("camera", new Camera(StaffRights.MANAGER));
+        //commands.put("camera", new Camera(StaffRights.ADMINISTRATOR));
         commands.put("frame", new SendFrame(StaffRights.OWNER));
         commands.put("npc", new SpawnNPC(StaffRights.OWNER));
         commands.put("playnpc", new PlayerToNPC(StaffRights.OWNER));
@@ -613,7 +599,7 @@ public class CommandManager {
                 }
             }
         });
-        commands.put("location", new Command(StaffRights.MANAGER) {
+        commands.put("location", new Command(StaffRights.ADMINISTRATOR) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.getPacketSender().sendMessage("Current location: "+player.getLocation().toString());
