@@ -26,6 +26,12 @@ public class Bank extends ItemContainer {
 		super(player);
 	}
 
+	public void resetBank(Player player) {
+		for (int i = 0; i < player.getBanks().length; i++) {
+			player.getBank(i).resetItems();
+		}
+	}
+
 	public Bank open() {
 		getPlayer().getPacketSender().sendClientRightClickRemoval();
 		if (getPlayer().getBankPinAttributes().hasBankPin() && !getPlayer().getBankPinAttributes().hasEnteredBankPin()
