@@ -761,6 +761,16 @@ public class UseItemPacketListener implements PacketListener {
 				}
 				break;
 
+			case 3642:
+				if(item_id == 11716) {
+					if(player.getInventory().getAmount(995) < 35000000) {
+						player.getDialog().sendDialog(new SpearOnNpc(player, 3));
+					} else {
+						player.getDialog().sendDialog(new SpearOnNpc(player, 0));
+					}
+				}
+				break;
+
 			case 747:
 				if(item_id == 11286) {
 					player.setNpcClickId(747);

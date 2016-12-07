@@ -87,7 +87,18 @@ public class TreasureChest {
 			p.getInventory().add(uncommonRewards[Misc.getRandom(uncommonRewards.length - 1)]);
 		}
 
-		if(Misc.inclusiveRandom(1, 250) == 2) { // 1/250 chance
+		/**
+		 * Knight = 1/250
+		 * Realism = 1/162
+		 * Ironman = 1/125
+		 */
+		int chance = 250;
+		if(p.getGameModeAssistant().getGameMode() == GameMode.REALISM) {
+			chance = 162;
+		} else if(p.getGameModeAssistant().getGameMode() == GameMode.IRONMAN) {
+			chance = 125;
+		}
+		if(Misc.inclusiveRandom(1, chance) == 2) {
 			Item item = rareRewards[Misc.getRandom(rareRewards.length - 1)];
 			p.getInventory().add(item);
 			sendAnnouncment(p.getUsername(), item);
@@ -228,6 +239,17 @@ public class TreasureChest {
 		new Item(10348, 1), //3rd age platebody
 		new Item(10350, 1), //3rd age full helmet
 		new Item(10352, 1), //3rd age kiteshield
+		new Item(1053, 1),
+		new Item(1055, 1),
+		new Item(1057, 1),
+		new Item(21027, 1),
+		new Item(21028, 1),
+		new Item(21029, 1),
+		new Item(21030, 1),
+		new Item(21031, 1),
+		new Item(21032, 1),
+		new Item(21033, 1),
+		new Item(21034, 1),
 	};
 
 }
