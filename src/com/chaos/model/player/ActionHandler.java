@@ -29,6 +29,7 @@ import com.chaos.world.content.skill.impl.thieving.ThievingManager;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
+import org.scripts.kotlin.content.dialog.ChangeGameMode;
 import org.scripts.kotlin.content.dialog.Rfd;
 import org.scripts.kotlin.content.dialog.healers.Healers;
 import org.scripts.kotlin.content.dialog.healers.HealersQuickOption;
@@ -80,7 +81,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
-
+            //game mode changer
+            case 3642:
+                player.getDialog().sendDialog(new ChangeGameMode(player));
+                break;
             //sheep
             case 43:
                 Sheep.shearSheep(player, npc);
