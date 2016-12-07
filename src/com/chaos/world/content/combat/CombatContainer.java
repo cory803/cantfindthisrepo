@@ -211,13 +211,16 @@ public class CombatContainer {
 		return damage;
 	}
 
-	public final void dealDamage() {
+	public final void dealDamage(CombatBuilder builder, CombatContainer container) {
 		TaskManager.submit(new Task(1, attacker, false) {
 			int tick = 0;
 			@Override
 			public void execute() {
 				tick++;
 				if(tick == 1) {
+
+					CombatFactory.applyPrayerProtection(container, builder);
+
 					if (hits.length == 1) {
 						victim.dealDamage(attacker, hits[0].getHit());
 					} else if (hits.length == 2) {

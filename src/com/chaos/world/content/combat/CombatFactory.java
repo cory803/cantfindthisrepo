@@ -1264,7 +1264,6 @@ public final class CombatFactory {
                 if (CombatFactory.fullVeracs(attacker)) {
                     return;
                 }
-
                 // They aren't wearing veracs so lets reduce the accuracy and
                 // hits.
                 if (PrayerHandler.isActivated(victim, PrayerHandler.getProtectingPrayer(container.getCombatType()))

@@ -137764,6 +137764,7 @@
 "examine": "Urr, that thing looks demonic!",
 "combat": 382,
 "size": 4,
+"rareChance": 125,
 "attackable": true,
 "aggressive": true,
 "retreats": false,

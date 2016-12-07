@@ -137,13 +137,12 @@ public class HitQueue {
 					|| container.isAccurate()) {
 
 				/** PRAYERS **/
-				CombatFactory.applyPrayerProtection(container, builder);
 
 				this.damage = container.getDamage();
 				if (container.getCombatType() == CombatType.MELEE) {
 					CombatFactory.giveExperience(builder, container, damage);
 				}
-				container.dealDamage();
+				container.dealDamage(builder, container);
 
 				/** MISC **/
 				if (attacker.isPlayer()) {

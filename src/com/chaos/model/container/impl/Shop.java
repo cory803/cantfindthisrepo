@@ -944,15 +944,22 @@ public class Shop extends ItemContainer {
 					case 4757:
 					case 4759:
 					case 4755:
-						return new Object[] {500, "Pk points" };
+					case 4736:
+					case 4738:
+					case 4712:
+					case 4714:
+						return new Object[] {400, "Pk points" };
 					case 4708:
 					case 4710:
 					case 4745:
 					case 4747:
-						return new Object[] {250, "Pk points" };
-					case 4712:
-					case 4714:
-						return new Object[] {750, "Pk points" };
+					case 4732:
+					case 4734:
+						return new Object[] {200, "Pk points" };
+					case 4740:
+						return new Object[] {1, "Pk points" };
+					case 19748:
+						return new Object[] {1000, "Pk points" };
 
 				}
 			} else if (shop == TOKKUL_EXCHANGE_STORE) {
