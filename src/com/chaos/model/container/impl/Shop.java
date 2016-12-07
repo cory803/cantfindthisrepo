@@ -749,6 +749,7 @@ public class Shop extends ItemContainer {
 					case 6666:
 					case 13101:
 						return new Object[] { 5, "Vote points" };
+					case 21128:
 					case 21129:
 					case 21130:
 					case 21131:
@@ -783,6 +784,8 @@ public class Shop extends ItemContainer {
 					case 12954:
 					case 20072:
 						return new Object[] { 20, "Vote points" };
+					case 11716:
+						return new Object[] { 50, "Vote points" };
 				}
 			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2 || shop == PKING_REWARDS_STORE3) {
 				switch (item) {
@@ -791,6 +794,10 @@ public class Shop extends ItemContainer {
 
 					case 11694:
 						return new Object[] { 6500, "Pk points" };
+
+					case 15273:
+					case 3145:
+						return new Object[] { 3, "Pk points" };
 
 					case 11700:
 					case 11698:

@@ -793,6 +793,7 @@ public class ItemActionPacketListener implements PacketListener {
 			RunecraftingPouches.empty(player, RunecraftingPouch.forId(itemId));
 			break;
 		case 11283: // DFS
+		case 11284: // DFS
 			player.getPacketSender()
 					.sendMessage("Your Dragonfire shield has " + player.getDfsCharges() + "/50 dragon-fire charges.");
 			break;

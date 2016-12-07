@@ -175,6 +175,11 @@
     "interface": "SPEAR"
   },
   {
+    "hash": 11716,
+    "item-id": 11716,
+    "interface": "SPEAR"
+  },
+  {
     "hash": 4170,
     "item-id": 4170,
     "interface": "STAFF"
@@ -182,12 +187,12 @@
   {
     "hash": 21074,
     "item-id": 21074,
-    "interface": "STAFF"
+    "interface": "LONGSWORD"
   },
   {
     "hash": 21077,
     "item-id": 21077,
-    "interface": "STAFF"
+    "interface": "LONGSWORD"
   },
   {
     "hash": 21079,

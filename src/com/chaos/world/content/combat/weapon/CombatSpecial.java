@@ -443,7 +443,7 @@ public enum CombatSpecial {
 			throw new UnsupportedOperationException("Dragon battleaxe does not have a special attack!");
 		}
 	},
-	TOXIC_STAFF_OF_DEAD(new int[] { 21077, 21079 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.STAFF) {
+	TOXIC_STAFF_OF_DEAD(new int[] { 21077, 21079 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
 		@Override
 		public void onActivation(Player player, Character target) {
 			player.performGraphic(new Graphic(1228, GraphicHeight.SUPER_HIGH6));
@@ -460,7 +460,7 @@ public enum CombatSpecial {
 		}
 	},
 
-	STAFF_OF_DEAD(new int[] { 21074 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.STAFF) {
+	STAFF_OF_DEAD(new int[] { 21074 }, 100, 1, 1, CombatType.MELEE, WeaponInterface.LONGSWORD) {
 		@Override
 		public void onActivation(Player player, Character target) {
 			player.performGraphic(new Graphic(1228, GraphicHeight.SUPER_HIGH6));

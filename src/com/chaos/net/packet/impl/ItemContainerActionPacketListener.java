@@ -394,6 +394,7 @@ public class ItemContainerActionPacketListener implements PacketListener {
 					TeleportHandler.teleportPlayer(player, new Position(3450, 3715), TeleportType.DUNGEONEERING, false);
 					break;
 			case 11283:
+			case 11284:
 				int charges = player.getDfsCharges();
 				if (!player.getDragonfireShield().elapsed(30000)) {
 					player.getPacketSender().sendMessage("Your dragonfire shield needs to cool down.");

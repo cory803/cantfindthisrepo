@@ -206,6 +206,7 @@ public class TreasureChest {
 		new Item(19305, 1), //Mithril dragon mask
 		new Item(13099, 1), //Rune cane
 		new Item(10362, 1), //Amulet of glory (t)
+		new Item(11716, 1), //Zamorakian spear
 	};
 
 	/**

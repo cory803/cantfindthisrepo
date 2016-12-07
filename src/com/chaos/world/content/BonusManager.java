@@ -31,7 +31,7 @@ public class BonusManager {
 			} else if (i <= 13) {
 				int index = i - 5;
 				player.getBonusManager().defenceBonus[index] = bonuses[i];
-				if (player.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283
+				if ((player.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283 || player.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284)
 						&& !STRING_ID[i][1].contains("Magic")) {
 					if (player.getDfsCharges() > 0) {
 						player.getBonusManager().defenceBonus[index] += player.getDfsCharges();

@@ -56,6 +56,7 @@ public abstract class Character extends Entity {
 	private Hit primaryHit;
 	private Hit secondaryHit;
 	private RegionInstance regionInstance;
+	private boolean isFreeze;
 
 	/*** INTS ***/
 	private int npcTransformationId;
@@ -106,6 +107,14 @@ public abstract class Character extends Entity {
 
 	public Graphic getGraphic() {
 		return graphic;
+	}
+
+	public void setFreeze(boolean freeze) {
+		this.isFreeze = freeze;
+	}
+
+	public boolean isFreeze() {
+		return isFreeze;
 	}
 
 	public Character setGraphic(Graphic graphic) {

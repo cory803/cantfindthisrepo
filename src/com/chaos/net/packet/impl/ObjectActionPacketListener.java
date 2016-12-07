@@ -112,8 +112,14 @@ public class ObjectActionPacketListener implements PacketListener {
             return;
         }
         //Fixes barb agility course exploit
-        if(gameObject.getId() == 2282) {
+        if (gameObject.getId() == 2282) {
             position.set(2551, 3554, 0);
+        }
+        if (gameObject.getDefinition().getName().equalsIgnoreCase("ladder") || gameObject.getDefinition().getName().equalsIgnoreCase("staircase")) {
+            if (player.isFrozen()) {
+                player.getPacketSender().sendMessage("You can't use this ladder because you are frozen.");
+                return;
+            }
         }
         player.setInteractingObject(gameObject)
                 .setWalkToTask(new WalkToTask(player, position, gameObject.getSize(), new FinalizedMovementTask() {

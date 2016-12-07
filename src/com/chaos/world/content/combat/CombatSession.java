@@ -140,6 +140,11 @@ public class CombatSession {
 
 			builder.getStrategy().customContainerAttack(builder.getCharacter(), builder.getVictim());
 			CombatContainer container = builder.getContainer();
+			if(builder.getCombatType() == CombatType.MAGIC) {
+				if (container.isAccurate()) {
+					builder.getCharacter().getCurrentlyCasting().finishCast(builder.getCharacter(), builder.getVictim(), true, builder.getContainer().getDamage());
+				}
+			}
 			if (builder.getCharacter().isPlayer()) {
 				Player killer = (Player) builder.getCharacter();
 				if(container.getCombatType() == CombatType.MAGIC) {

@@ -36,6 +36,8 @@ public abstract class CombatEffectSpell extends CombatSpell {
 	public void finishCast(Character cast, Character castOn, boolean accurate, int damage) {
 		if (accurate) {
 			spellEffect(cast, castOn);
+		} else {
+			castOn.setFreeze(false);
 		}
 	}
 

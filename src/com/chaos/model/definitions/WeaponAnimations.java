@@ -93,7 +93,7 @@ public final class WeaponAnimations {
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
 		} else if (weaponName.contains("wand") || weaponName.contains("staff") || weaponName.contains("staff")
-				|| weaponName.contains("spear") || item.getId() == 21005 || item.getId() == 21010) {
+				|| weaponName.contains("spear") || item.getId() == 21005 || item.getId() == 21010 || item.getId() == 21120) {
 			playerStandIndex = 8980;
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
@@ -275,7 +275,7 @@ public final class WeaponAnimations {
 				return 15072;
 			return 15071;
 		}
-		if (weaponName.contains("spear")) {
+		if (weaponName.contains("spear") || weaponId == 21120) {
 			if (prop.contains("lunge"))
 				return 13045;
 			else if (prop.contains("slash"))

@@ -2940,7 +2940,7 @@ public enum CombatSpells {
 
 		@Override
 		public Optional<Graphic> endGraphic(Character cast) {
-			if (cast.isFrozen()) {
+			if (!cast.isFreeze()) {
 				return Optional.of(new Graphic(1677, GraphicHeight.MIDDLE));
 			} else {
 				return Optional.of(new Graphic(369));

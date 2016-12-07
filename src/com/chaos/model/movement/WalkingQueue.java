@@ -422,8 +422,11 @@ public final class WalkingQueue {
 	}
 
 	public void freeze(int delay) {
-		if (mobile.isFrozen() || (System.currentTimeMillis() - mobile.getLastFreeze()) < 1000)
+		if (mobile.isFrozen() || (System.currentTimeMillis() - mobile.getLastFreeze()) < 1000) {
+			mobile.setFreeze(false);
 			return;
+		}
+		mobile.setFreeze(true);
 		mobile.setFreezeDelay(delay);
 		if (mobile.isPlayer()) {
 			((Player) mobile).getPacketSender().sendMessage("You have been frozen!");

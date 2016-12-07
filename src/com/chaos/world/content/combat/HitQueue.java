@@ -142,6 +142,7 @@ public class HitQueue {
 				if (container.getCombatType() == CombatType.MELEE) {
 					CombatFactory.giveExperience(builder, container, damage);
 				}
+
 				container.dealDamage(builder, container);
 
 				/** MISC **/
@@ -169,7 +170,7 @@ public class HitQueue {
 				} else {
 					if (victim.isPlayer() && container.getCombatType() == CombatType.DRAGON_FIRE) {
 						Player p = (Player) victim;
-						if (p.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283) {
+						if (p.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283 || p.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284) {
 							p.setPositionToFace(attacker.getPosition().copy());
 							CombatFactory.chargeDragonFireShield(p);
 						}
@@ -201,7 +202,6 @@ public class HitQueue {
 				// Finish the magic spell with the correct end graphic.
 				if (container.getCombatType() == CombatType.MAGIC && attacker.getCurrentlyCasting() != null) {
 					attacker.getCurrentlyCasting().endGraphic(victim).ifPresent(victim::performGraphic);
-					attacker.getCurrentlyCasting().finishCast(attacker, victim, true, damage);
 					attacker.setCurrentlyCasting(null);
 				}
 			}
