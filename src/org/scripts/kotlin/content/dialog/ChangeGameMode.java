@@ -58,12 +58,10 @@ public class ChangeGameMode extends Dialog {
                                 break;
                             case OPTION_2_OF_4:
                                 if (!sameMode(getPlayer(), GameMode.REALISM)) {
-                                    System.out.println("111");
                                     newMode = "Realism";
                                     setState(2);
                                     getPlayer().getDialog().sendDialog(next);
                                 }
-                                System.out.println("2222");
                                 break;
                             case OPTION_3_OF_4:
                                 if (!sameMode(getPlayer(), GameMode.IRONMAN)) {
@@ -80,19 +78,14 @@ public class ChangeGameMode extends Dialog {
                 });
             case 2:
                 if (getPlayer().getGameModeAssistant().isIronMan()) {
-                    System.out.println("3");
                     return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I can allow you to keep your items and stats. This @red@cannot be undone@bla@.");
                 } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.REALISM && newMode != "Iron Man") {
-                    System.out.println("4");
                     return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I can allow you to keep your items and stats. This @red@cannot be undone@bla@");
                 } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT && newMode == "Iron Man") {
-                    System.out.println("5");
                     return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I have to take all your items, stats and achievements. This @red@cannot be undone@bla@");
                 } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT && newMode == "Realism") {
-                    System.out.println("6");
                     return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I can allow you to keep your items and but NOT your stats. This @red@cannot be undone@bla@.");
                 } else {
-                    System.out.println("7");
                 }
             case 3:
                 return Dialog.createOption(new TwoOption(
