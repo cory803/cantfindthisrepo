@@ -5,6 +5,7 @@ import com.chaos.model.Skill;
 import com.chaos.model.input.EnterAmount;
 import com.chaos.model.player.GameMode;
 import com.chaos.util.Misc;
+import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
 
 public class BuyDungExperience extends EnterAmount {
@@ -34,6 +35,7 @@ public class BuyDungExperience extends EnterAmount {
 			player.getPointsHandler().setDungeoneeringTokens(-amt, true);
 			player.getSkillManager().addExactExperience(Skill.DUNGEONEERING, xp, false);
 			player.getPacketSender().sendMessage("You have purchased "+Misc.format(xp)+" Dungeoneering experience for "+Misc.format(amt)+" tokens.");
+			PlayerPanel.refreshPanel(player);
 		}
 	}
 

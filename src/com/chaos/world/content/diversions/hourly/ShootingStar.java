@@ -374,8 +374,9 @@ public final class ShootingStar extends GameObject implements HourlyDiversion, D
 		NORTH_EDGEVILLE_MINE(new Position(3109, 3570), "at Edgeville north mining site", "Edgeville"),
 		KBD_ENTRANCE(new Position(3011, 3846), "near the King Black Dragon entrance", "King Black Dragon"),
 		PIRATES_HIDEOUT(new Position(3045, 3940), "near the Pirates' hideout", "Pirates' hideout"),
-		MAGE_BANK(new Position(3091, 3962), "north of the Mage Bank lever", "Mage Bank");
-		
+		MAGE_BANK(new Position(3091, 3962), "north of the Mage Bank lever", "Mage Bank"),
+		LUMBRIDGE_SWAMP(new Position(3238, 3174), "east of Lumbridge Swamp", "Lumbridge Swamp");
+
 		private Location(Position position, String clue, String name) {
 			this.position = position;
 			this.name = name;

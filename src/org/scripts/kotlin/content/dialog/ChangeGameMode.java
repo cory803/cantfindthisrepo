@@ -1,22 +1,21 @@
 package org.scripts.kotlin.content.dialog;
 
 import com.chaos.model.options.fouroption.FourOption;
+import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
+import com.chaos.world.content.PlayerPanel;
 import com.chaos.world.entity.impl.player.Player;
 
 public class ChangeGameMode extends Dialog {
 
     public Dialog next = this;
 
-    private boolean resetStats = getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT;
-    private boolean resetItems = getPlayer().getGameModeAssistant().getGameMode() == GameMode.IRONMAN;
-
-    private String newMode = "";
-    private String currentMode = getPlayer().getGameModeAssistant().getModeName();
+    private GameMode newMode;
+    private GameMode currentMode = getPlayer().getGameModeAssistant().getGameMode();
 
     private boolean sameMode(Player player, GameMode mode) {
         player.getPacketSender().sendInterfaceRemoval();
@@ -41,110 +40,91 @@ public class ChangeGameMode extends Dialog {
                 return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "Hello, would you like to change your game mode?");
             case 1:
                 setEndState(1);
-                return Dialog.createOption(new FourOption(
+                return Dialog.createOption(new ThreeOption(
                         "I want to be a Knight",
                         "I want to be Realism",
-                        "I want to be an Iron Man",
                         "Cancel") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch(option) {
-                            case OPTION_1_OF_4:
+                            case OPTION_1_OF_3:
                                 if (!sameMode(getPlayer(), GameMode.KNIGHT)) {
-                                    newMode = "Knight";
+                                    newMode = GameMode.KNIGHT;
                                     setState(2);
                                     getPlayer().getDialog().sendDialog(next);
                                 }
                                 break;
-                            case OPTION_2_OF_4:
+                            case OPTION_2_OF_3:
                                 if (!sameMode(getPlayer(), GameMode.REALISM)) {
-                                    newMode = "Realism";
+                                    newMode = GameMode.REALISM;
                                     setState(2);
                                     getPlayer().getDialog().sendDialog(next);
                                 }
                                 break;
-                            case OPTION_3_OF_4:
-                                if (!sameMode(getPlayer(), GameMode.IRONMAN)) {
-                                    newMode = "Iron Man";
-                                    setState(2);
-                                    getPlayer().getDialog().sendDialog(next);
-                                }
-                                break;
-                            case OPTION_4_OF_4:
+                            case OPTION_3_OF_3:
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                         }
                     }
                 });
             case 2:
+                getPlayer().debug(2);
                 if (getPlayer().getGameModeAssistant().isIronMan()) {
-                    return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I can allow you to keep your items and stats. This @red@cannot be undone@bla@.");
-                } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.REALISM && newMode != "Iron Man") {
-                    return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I can allow you to keep your items and stats. This @red@cannot be undone@bla@");
-                } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT && newMode == "Iron Man") {
-                    return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I have to take all your items, stats and achievements. This @red@cannot be undone@bla@");
-                } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT && newMode == "Realism") {
-                    return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode + "@bla@ to a @blu@" + newMode + "@bla@ I can allow you to keep your items and but NOT your stats. This @red@cannot be undone@bla@.");
+                    return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode.getModeName() + "@bla@ to a @blu@" + newMode.getModeName() + "@bla@ I can allow you to keep your items and stats. This @red@cannot be undone@bla@.");
+                } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.REALISM && newMode != GameMode.IRONMAN) {
+                    return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode.getModeName() + "@bla@ to a @blu@" + newMode.getModeName() + "@bla@ I can allow you to keep your items and stats. This @red@cannot be undone@bla@");
+                } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.KNIGHT && newMode == GameMode.REALISM) {
+                    return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode.getModeName() + "@bla@ to a @blu@" + newMode.getModeName() + "@bla@ I can allow you to keep your items and but NOT your stats. This @red@cannot be undone@bla@.");
                 } else {
                 }
             case 3:
                 return Dialog.createOption(new TwoOption(
-                        "Yes change my mode from " + currentMode + " to " + newMode,
-                        "No I want to stay as a(n) " + currentMode) {
+                        "Yes change my mode from " + currentMode.getModeName() + " to " + newMode.getModeName(),
+                        "No I want to stay as a(n) " + currentMode.getModeName()) {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_2:
-                                    if (currentMode == "Knight") {
+                                    if (currentMode == GameMode.KNIGHT) {
                                         switch (newMode) {
-                                            case "Realism":
+                                            case REALISM:
                                                 player.getPacketSender().sendInterfaceRemoval();
-                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode + " to " + newMode + ".");
+                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode.getModeName() + " to " + newMode.getModeName() + ".");
                                                 player.getGameModeAssistant().setGameMode(GameMode.REALISM);
                                                 player.getGameModeAssistant().resetStats(player, false);
-                                                break;
-                                            case "Iron Man":
-                                                player.getPacketSender().sendInterfaceRemoval();
-                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode + " to " + newMode + ".");
-                                                player.getGameModeAssistant().setGameMode(GameMode.IRONMAN);
-                                                player.getBank(0).resetBank(player);
-                                                player.getGameModeAssistant().resetStats(player, true);
+                                                PlayerPanel.refreshPanel(player);
                                                 break;
                                             default:
                                                 player.getPacketSender().sendMessage("Error changing game mode....");
                                         }
-                                    } else if (currentMode == "Realism") {
-                                        switch (currentMode) {
-                                            case "Knight":
+                                    } else if (currentMode == GameMode.REALISM) {
+                                        switch (newMode) {
+                                            case KNIGHT:
                                                 player.getPacketSender().sendInterfaceRemoval();
-                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode + " to " + newMode + ".");
+                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode.getModeName() + " to " + newMode.getModeName() + ".");
                                                 player.getGameModeAssistant().setGameMode(GameMode.KNIGHT);
+                                                PlayerPanel.refreshPanel(player);
                                                 player.save();
-                                                break;
-                                            case "Iron Man":
-                                                player.getPacketSender().sendInterfaceRemoval();
-                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode + " to " + newMode + ".");
-                                                player.getGameModeAssistant().setGameMode(GameMode.IRONMAN);
-                                                player.getBank(0).resetBank(player);
-                                                player.getGameModeAssistant().resetStats(player, true);
                                                 break;
                                             default:
                                                 player.getPacketSender().sendMessage("Error changing game mode....");
                                         }
 
-                                    } else if (currentMode == "Iron Man") {
-                                        switch (currentMode) {
-                                            case "Knight":
+                                    } else if (currentMode == GameMode.IRONMAN) {
+                                        switch (newMode) {
+                                            case KNIGHT:
                                                 player.getPacketSender().sendInterfaceRemoval();
-                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode + " to " + newMode + ".");
+                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode.getModeName() + " to " + newMode.getModeName() + ".");
                                                 player.getGameModeAssistant().setGameMode(GameMode.KNIGHT);
                                                 player.save();
+                                                PlayerPanel.refreshPanel(player);
                                                 break;
-                                            case "Realism":
+                                            case REALISM:
                                                 player.getPacketSender().sendInterfaceRemoval();
-                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode + " to " + newMode + ".");
+                                                player.getPacketSender().sendMessage("You have just changed your game mode from " + currentMode.getModeName() + " to " + newMode.getModeName() + ".");
                                                 player.getGameModeAssistant().setGameMode(GameMode.REALISM);
                                                 player.save();
+                                                PlayerPanel.refreshPanel(player);
                                                 break;
                                             default:
                                                 player.getPacketSender().sendMessage("Error changing game mode....");

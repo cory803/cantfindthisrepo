@@ -81,6 +81,10 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
+    public void refreshPanel() {
+        PlayerPanel.refreshPanel(this);
+    }
+
     private int equipmentHits = 0;
 
     public void debug(int debug) {

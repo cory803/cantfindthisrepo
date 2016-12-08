@@ -457,10 +457,10 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("Saved players!");
             }
         });
-        commands.put("pos", new GetPosition(StaffRights.ADMINISTRATOR));
-        commands.put("mypos", new GetPosition(StaffRights.ADMINISTRATOR));
-        commands.put("coords", new GetPosition(StaffRights.ADMINISTRATOR));
-        commands.put("tele", new Teleport(StaffRights.ADMINISTRATOR));
+        commands.put("pos", new GetPosition(StaffRights.MODERATOR));
+        commands.put("mypos", new GetPosition(StaffRights.MODERATOR));
+        commands.put("coords", new GetPosition(StaffRights.MODERATOR));
+        commands.put("tele", new Teleport(StaffRights.GLOBAL_MOD));
 
         /**
          * Manager Commands

@@ -65,7 +65,7 @@ public class TeleportHandler {
 						player.performGraphic(teleportType.getEndGraphic());
 						player.setInConstructionDungeon(false);
 						player.moveTo(targetLocation).setPosition(targetLocation);
-
+						player.getWalkingQueue().setLockMovement(false).clear();
 						player.setTeleporting(false);
 					} else if (tick == teleportType.getStartTick() + 3) {
 						player.getWalkingQueue().setLockMovement(false).clear();
@@ -80,6 +80,7 @@ public class TeleportHandler {
 			public void stop() {
 				setEventRunning(false);
 				player.setTeleporting(false);
+				player.getWalkingQueue().setLockMovement(false).clear();
 				player.getClickDelay().reset(0);
 			}
 		});
