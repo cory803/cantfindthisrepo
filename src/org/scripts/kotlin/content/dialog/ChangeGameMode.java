@@ -48,6 +48,11 @@ public class ChangeGameMode extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_3:
+                                if (player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
+                                    player.getPacketSender().sendInterfaceRemoval();
+                                    player.getPacketSender().sendMessage("Please unequip all your items first.");
+                                    return;
+                                }
                                 if (!sameMode(getPlayer(), GameMode.KNIGHT)) {
                                     newMode = GameMode.KNIGHT;
                                     setState(2);
@@ -55,6 +60,11 @@ public class ChangeGameMode extends Dialog {
                                 }
                                 break;
                             case OPTION_2_OF_3:
+                                if (player.getEquipment().getFreeSlots() != player.getEquipment().capacity()) {
+                                    player.getPacketSender().sendInterfaceRemoval();
+                                    player.getPacketSender().sendMessage("Please unequip all your items first.");
+                                    return;
+                                }
                                 if (!sameMode(getPlayer(), GameMode.REALISM)) {
                                     newMode = GameMode.REALISM;
                                     setState(2);
