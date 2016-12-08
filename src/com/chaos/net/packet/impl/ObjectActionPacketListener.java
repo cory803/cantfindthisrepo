@@ -312,15 +312,12 @@ public class ObjectActionPacketListener implements PacketListener {
                                 });
                                 break;
                             //Well of Goodness
-                            case 26945:
+                            case 884:
                                 player.setNpcClickId(945);
                                 player.getDialog().sendDialog(new Well(player));
                                 break;
                             //Edgeville coffins
-                            case 26935:
-                            case 26937:
-                            case 26939:
-                            case 26941:
+                            case 398:
                                 player.setNpcClickId(945);
                                 player.getDialog().sendDialog(new EdgevilleCoffins(player));
                                 break;
@@ -579,6 +576,7 @@ public class ObjectActionPacketListener implements PacketListener {
                                 });
                                 break;
                             case 21764:
+                            case 2654:
                                 if (player.getDonatorRights().ordinal() > 2) {
                                     if (!player.getSpecTimer().elapsed(120000)) {
                                         player.getPacketSender()
@@ -2287,7 +2285,6 @@ public class ObjectActionPacketListener implements PacketListener {
                                 player.getBank(player.getCurrentBankTab()).open();
                                 break;
                             case 884:
-                            case 26945:
                                 player.setNpcClickId(945);
                                 player.getDialog().sendDialog(new DonateToWellDial(player));
                                 break;

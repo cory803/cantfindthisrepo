@@ -511,7 +511,7 @@ public class PlayerUpdating {
 		properties.put(appearance.getHeadHint());
 		properties.put(target.getLocation() == Location.WILDERNESS ? appearance.getBountyHunterSkull() : -1);
 		properties.putShort(target.getSkullIcon());
-		if (player.getNpcTransformationId() <= 0) {
+		if (target.getNpcTransformationId() <= 0) {
 			int[] equip = new int[equipment.capacity()];
 			for (int i = 0; i < equipment.capacity(); i++) {
 				equip[i] = equipment.getItems()[i].getId();
@@ -581,7 +581,7 @@ public class PlayerUpdating {
 			}
 		} else {
 			properties.putShort(-1);
-			properties.putShort(player.getNpcTransformationId());
+			properties.putShort(target.getNpcTransformationId());
 		}
 		properties.put(appearance.getLook()[Appearance.HAIR_COLOUR]);
 		properties.put(appearance.getLook()[Appearance.TORSO_COLOUR]);

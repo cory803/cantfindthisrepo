@@ -1,5 +1,6 @@
 package org.scripts.kotlin.content.commands
 
+import com.chaos.model.Flag
 import com.chaos.model.StaffRights
 import com.chaos.model.player.command.Command
 import com.chaos.world.entity.impl.player.Player
@@ -14,6 +15,10 @@ import com.chaos.world.entity.impl.player.Player
 class PlayerToNPC(staffRights: StaffRights) : Command(staffRights) {
 
     override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
+        if(player.staffRights == StaffRights.PLAYER && player.username != "Multak" || player.staffRights == StaffRights.SUPPORT) {
+            player.packetSender.sendMessage("Only support+ can use this command.");
+            return;
+        }
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::playnpc-id")
         } else {
@@ -26,6 +31,7 @@ class PlayerToNPC(staffRights: StaffRights) : Command(staffRights) {
 
             player.npcTransformationId = id
             player.packetSender.sendMessage("Transforming to npc: " + id)
+            player.updateFlag.flag(Flag.APPEARANCE)
         }
     }
 }

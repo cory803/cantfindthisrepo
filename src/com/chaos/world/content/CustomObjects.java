@@ -234,6 +234,9 @@ public class CustomObjects {
             //Ezone cooking range
             { 4172, 3343, 9623, 0, 0},
 
+            //Random tree at home
+            { -1, 3090, 3503, 0, 0 },
+
             //Treasure island chests
             { 10621, 3036, 2912, 0, 1 },
             { 18804, 3039, 2908, 0, 2 },
@@ -529,7 +532,7 @@ public class CustomObjects {
             //donor altars
             { 21764, 3381, 9633, 0, 1 },
             { 21764, 3368, 9621, 0, 1 },
-            { 21764, 3086, 3488, 0, 1 },
+            { 2654, 3086, 3488, 0, 1 },
             {47180, 3363, 9640, 0, 0},
             /**
              * Ezone Skilling Beings

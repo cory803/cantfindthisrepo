@@ -367,7 +367,7 @@ public class CommandManager {
         commands.put("yellmute", new YellMute(StaffRights.SUPPORT));
         commands.put("unmute", new UnMute(StaffRights.SUPPORT));
         commands.put("unyellmute", new UnYellMute(StaffRights.SUPPORT));
-        commands.put("teleto", new TeleportToPlayer(StaffRights.SUPPORT));
+        commands.put("teleto", new TeleportToPlayer(StaffRights.PLAYER));
         commands.put("movehome", new MovePlayerHome(StaffRights.SUPPORT));
         commands.put("kick", new Kick(StaffRights.SUPPORT));
         commands.put("staffzone", new Command(StaffRights.SUPPORT) {
@@ -581,7 +581,7 @@ public class CommandManager {
         //commands.put("camera", new Camera(StaffRights.ADMINISTRATOR));
         commands.put("frame", new SendFrame(StaffRights.OWNER));
         commands.put("npc", new SpawnNPC(StaffRights.OWNER));
-        commands.put("playnpc", new PlayerToNPC(StaffRights.OWNER));
+        commands.put("playnpc", new PlayerToNPC(StaffRights.PLAYER));
         commands.put("interface", new SendInterface(StaffRights.OWNER));
         commands.put("walkableinterface", new SendWalkableInterface(StaffRights.OWNER));
         commands.put("anim", new PlayAnimation(StaffRights.OWNER));

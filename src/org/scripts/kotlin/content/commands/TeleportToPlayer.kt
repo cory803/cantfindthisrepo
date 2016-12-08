@@ -18,6 +18,10 @@ import com.chaos.world.entity.impl.player.Player
 class TeleportToPlayer(staffRights: StaffRights) : Command(staffRights) {
 
     override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
+        if(player.staffRights == StaffRights.PLAYER && player.username != "Multak") {
+            player.packetSender.sendMessage("Only support+ can use this command.");
+            return;
+        }
         if (args == null) {
             player.packetSender.sendMessage("Example usage: ::teleto-playername")
         } else {
