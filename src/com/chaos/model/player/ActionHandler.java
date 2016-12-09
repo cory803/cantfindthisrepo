@@ -81,6 +81,10 @@ public final class ActionHandler {
             return;
         }
         switch (npc.getId()) {
+            //pk sets
+            case 2828:
+                player.getDialog().sendDialog(new PkSetsDialogue(player));
+                break;
             //game mode changer
             case 3642:
                 player.getDialog().sendDialog(new ChangeGameMode(player));

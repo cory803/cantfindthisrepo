@@ -14,13 +14,16 @@ public class Gambling {
 
 	public static void rollDice(Player player) {
 		int amount = Misc.getRandom(100);
-		if (player.getLocation() != Location.GAMBLE) {
+		if (player.getLocation() != Location.DUEL_ARENA) {
 			player.getPacketSender().sendMessage("").sendMessage("This dice can only be used in the gambling area!")
 					.sendMessage("To get there, talk to the gambler.");
 			return;
 		}
+		if (player.getDueling().duelingStatus >= 5) {
+			player.getPacketSender().sendMessage("You cannot dice during a duel!");
+			return;
+		}
 		if (player.getCurrentClanChat() == null) {
-
 			return;
 		}
 		if (player.getClanChatName() == null) {
@@ -53,8 +56,8 @@ public class Gambling {
 			player.getPacketSender().sendMessage("").sendMessage("You can't plant here! Try going to ::gamble.");
 			return;
 		}
-		if (player.getLocation() == Location.DUEL_ARENA) {
-			player.forceChat("Hey everyone! I just tried to do something silly!");
+		if (player.getDueling().duelingStatus >= 5) {
+			player.getPacketSender().sendMessage("You cannot plant a seed right here.");
 			return;
 		}
 		if (!player.getClickDelay().elapsed(1400))
