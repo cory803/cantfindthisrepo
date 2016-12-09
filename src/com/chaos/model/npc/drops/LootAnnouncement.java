@@ -23,7 +23,7 @@ public class LootAnnouncement {
     /**
      * This is the list of items that will be announced if someone gets one.
      */
-    private static final int[] CAN_ANNOUNCE = {21472, 21473, 21474, 21475, 21476,
+    private static final int[] CAN_ANNOUNCE = {11613, 21472, 21473, 21474, 21475, 21476,
 			21369, 6643, 6640, 6642, 6641, 13247,
             21114, 21113, 21112, 21111, 21110, 12703, 1543, 1545, 1546,
             21074, 21077, 21075, 21076, 21078, 21079, 1547, 1548, 6571, 14484, 4224, 11702, 11704, 11706, 12926,
