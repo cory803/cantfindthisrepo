@@ -98,6 +98,7 @@ public enum SlayerTasks {
     VENENATIS(new int[] {2000}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3126, 3815, 0), true),
     VETION(new int[] {6611}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3246, 3796, 0), true),
     CHAOS_FANATIC(new int[] {6619}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2967, 3848, 0), true),
+    TDS(new int[] {8349}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2570, 5735, 0), true),
     CRAZY_ARCHAEOLOGIST(new int[] {6618}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2980, 3690, 0), true);
 
 

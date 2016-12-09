@@ -44,6 +44,8 @@ public class Locations {
 	public enum Location {
 		//boolean multi, boolean summonAllowed, boolean followingAllowed,
 		//boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed
+		TDS(new int[] { 2570, 2620 }, new int[] { 5701, 5750 }, true, true, true, false, false, true) {
+		},
 		SHILO(new int[] { 2757, 2909 }, new int[] { 2939, 3010 }, false, true, true, false, false, true) {
 		},
 		CONSTRUCTION(new int[] {1880, 1951}, new int[] {5080, 5151}, false, true, true, false, true, true) {
@@ -1078,7 +1080,9 @@ public class Locations {
 				if (gc.getLocation() != WILDERNESS) {
 					// rock crabs
 					if (x >= 2656 && x <= 2732 && y >= 3711 && y <= 3742
-							|| x >= 2885 && x <= 2920 && y >= 4375 && y <= 4415) {
+							|| x >= 2885 && x <= 2920 && y >= 4375 && y <= 4415
+							//tds
+							|| x >= 2570 && x <= 2620 && y >= 5701 && y <= 5750) {
 						return true;
 					}
 				}
