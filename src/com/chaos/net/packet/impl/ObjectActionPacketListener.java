@@ -115,10 +115,16 @@ public class ObjectActionPacketListener implements PacketListener {
         if (gameObject.getId() == 2282) {
             position.set(2551, 3554, 0);
         }
-        if (gameObject.getDefinition().getName().equalsIgnoreCase("ladder") || gameObject.getDefinition().getName().equalsIgnoreCase("staircase")) {
-            if (player.isFrozen()) {
-                player.getPacketSender().sendMessage("You can't use this ladder because you are frozen.");
-                return;
+        if(gameObject != null) {
+            if(gameObject.getDefinition() != null) {
+                if(gameObject.getDefinition().getName() != null) {
+                    if (gameObject.getDefinition().getName().equalsIgnoreCase("ladder") || gameObject.getDefinition().getName().equalsIgnoreCase("staircase")) {
+                        if (player.isFrozen()) {
+                            player.getPacketSender().sendMessage("You can't use this ladder because you are frozen.");
+                            return;
+                        }
+                    }
+                }
             }
         }
         player.setInteractingObject(gameObject)
@@ -187,6 +193,11 @@ public class ObjectActionPacketListener implements PacketListener {
                                 PlayerOwnedShops.openItemSearch(player, true);
                                 //player.setPlayerOwnedShopping(true);
                                 break;
+
+                            //Kuradels dungeon
+                            case 47236:
+                                break;
+
                             //Construction portal
                             case 15477:
 

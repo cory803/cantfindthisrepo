@@ -141,8 +141,36 @@ public class CombatSession {
 			builder.getStrategy().customContainerAttack(builder.getCharacter(), builder.getVictim());
 			CombatContainer container = builder.getContainer();
 			if(builder.getCombatType() == CombatType.MAGIC) {
-				if (container.isAccurate()) {
-					builder.getCharacter().getCurrentlyCasting().finishCast(builder.getCharacter(), builder.getVictim(), true, builder.getContainer().getDamage());
+				if(builder.getCharacter().isNpc()) {
+					if(builder != null) {
+						if(builder.getCharacter() != null) {
+							if(builder.getCharacter().getCurrentlyCasting() != null) {
+								if(builder.getCharacter() != null) {
+									if(builder.getVictim() != null) {
+										if(builder.getContainer() != null) {
+											builder.getCharacter().getCurrentlyCasting().finishCast(builder.getCharacter(), builder.getVictim(), true, builder.getContainer().getDamage());
+										}
+									}
+								}
+							}
+						}
+					}
+				} else {
+					if (container.isAccurate()) {
+						if(builder != null) {
+							if(builder.getCharacter() != null) {
+								if(builder.getCharacter().getCurrentlyCasting() != null) {
+									if(builder.getCharacter() != null) {
+										if(builder.getVictim() != null) {
+											if(builder.getContainer() != null) {
+												builder.getCharacter().getCurrentlyCasting().finishCast(builder.getCharacter(), builder.getVictim(), true, builder.getContainer().getDamage());
+											}
+										}
+									}
+								}
+							}
+						}
+					}
 				}
 			}
 			if (builder.getCharacter().isPlayer()) {
