@@ -789,6 +789,9 @@ public class Shop extends ItemContainer {
 				}
 			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2 || shop == PKING_REWARDS_STORE3) {
 				switch (item) {
+					case 7478:
+						return new Object[] { 1250, "Pk points" };
+
 					case 14484:
 						return new Object[] { 5750, "Pk points" };
 

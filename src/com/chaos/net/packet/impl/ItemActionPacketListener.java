@@ -94,6 +94,23 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 7478:
+				if (player.getPlayerKillingAttributes().getTarget() != null) {
+					if (player.getInventory().contains(7478)) {
+						if (!player.getClickDelay().elapsed(5000))
+							return;
+						if (player.getPlayerKillingAttributes().getTarget().getLocation() != Locations.Location.WILDERNESS) {
+							player.getPacketSender().sendMessage("Your target is not currently in the wild. You have not used up a token.");
+							return;
+						}
+						player.getPacketSender().sendMessage("Your target is located at " + player.getPlayerKillingAttributes().getTarget().getWildernessLevel() + " wilderness.");
+						player.getInventory().delete(7478, 1);
+						player.getClickDelay().reset();
+					}
+				} else {
+					player.getPacketSender().sendMessage("You currently do not have a target. Who are you trying to find?");
+				}
+				break;
 			case 6808:
 				player.getDialog().sendDialog(new TrustedDicerScroll(player));
 				break;
