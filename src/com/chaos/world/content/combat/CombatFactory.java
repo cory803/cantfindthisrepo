@@ -17,6 +17,14 @@ import com.chaos.world.content.combat.effect.CombatPoisonEffect.PoisonType;
 import com.chaos.world.content.combat.effect.CombatVenomEffect;
 import com.chaos.world.content.combat.effect.CombatVenomEffect.VenomType;
 import com.chaos.world.content.combat.effect.EquipmentBonus;
+import com.chaos.world.content.combat.form.accuracy.AccuracyCalculator;
+import com.chaos.world.content.combat.form.accuracy.v1.DragonfireAccuracyCalculator;
+import com.chaos.world.content.combat.form.accuracy.v1.MeleeAccuracyCalculator;
+import com.chaos.world.content.combat.form.accuracy.v1.RangedAccuracyCalculator;
+import com.chaos.world.content.combat.form.max.MaxHitCalculator;
+import com.chaos.world.content.combat.form.max.v1.DragonfireMaxHitCalculator;
+import com.chaos.world.content.combat.form.max.v1.MeleeMaxHitCalculator;
+import com.chaos.world.content.combat.form.max.v1.RangedMaxHitCalculator;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.range.CombatRangedAmmo;
@@ -32,6 +40,7 @@ import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * A static factory class containing all miscellaneous methods related to, and
@@ -42,6 +51,16 @@ import java.util.Optional;
  * @author Graham
  */
 public final class CombatFactory {
+
+    private static final MaxHitCalculator MELEE_MAX_HIT = new MeleeMaxHitCalculator();
+    private static final MaxHitCalculator RANGED_MAX_HIT = new RangedMaxHitCalculator();
+    //private static final MaxHitCalculator MAGIC_MAX_HIT = new MagicMaxHitCalculator();
+    private static final MaxHitCalculator DRAGONFIRE_MAX_HIT = new DragonfireMaxHitCalculator();
+
+    private static final AccuracyCalculator MELEE_ACCURACY_CALC = new MeleeAccuracyCalculator();
+    private static final AccuracyCalculator RANGED_ACCURACY_CALC = new RangedAccuracyCalculator();
+//    private static final AccuracyCalculator MAGIC_ACCURACY_CALC = new MagicAccuracyCalculator();
+    private static final AccuracyCalculator DRAGONFIRE_ACCURACY_CALC = new DragonfireAccuracyCalculator();
 
     /**
      * The amount of time it takes for cached damage to timeout.
@@ -431,23 +450,33 @@ public final class CombatFactory {
      * @return the melee hit.
      */
     public static Hit getHit(Character entity, Character victim, CombatType type) {
+        if (victim == null)
+            return new Hit(0, Hitmask.NONE, CombatIcon.NONE);
         switch (type) {
             case MELEE:
-                int maxMelee = DesolaceFormulas.calculateMaxMeleeHit(entity, victim);
+                int maxMelee = MELEE_MAX_HIT.getMaxHit(entity, victim);
+
                 double meleeValue = maxMelee * .95;
-                int meleeHit = Misc.inclusiveRandom(1, maxMelee);
-                //System.out.println("max possible hit: "+maxMelee);
+
+                System.out.println("Max melee hit: "+maxMelee);
+
+                int meleeHit = (int) (maxMelee <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxMelee) * MELEE_ACCURACY_CALC.getAccuracy(entity, victim));
+
                 if(meleeHit > (int)meleeValue) {
                     return new Hit(meleeHit, Hitmask.CRITICAL, CombatIcon.MELEE);
                 } else {
                     return new Hit(meleeHit, Hitmask.RED, CombatIcon.MELEE);
                 }
             case RANGED:
-                int maxRanged = CombatFactory.calculateMaxRangedHit(entity, victim) + 40;
-                double rangedValue = maxRanged * .95;
-                int rangeHit = Misc.inclusiveRandom(1, maxRanged);
-                //System.out.println("max possible hit: "+maxRanged);
-                if(rangeHit > (int)rangedValue) {
+                int maxRange = RANGED_MAX_HIT.getMaxHit(entity, victim);
+
+                double rangeValue = maxRange * .95;
+
+                System.out.println("Max range hit: "+maxRange);
+
+                int rangeHit = (int) (maxRange <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxRange) * MELEE_ACCURACY_CALC.getAccuracy(entity, victim));
+
+                if(rangeHit > (int)rangeValue) {
                     return new Hit(rangeHit, Hitmask.CRITICAL, CombatIcon.RANGED);
                 } else {
                     return new Hit(rangeHit, Hitmask.RED, CombatIcon.RANGED);
@@ -462,8 +491,13 @@ public final class CombatFactory {
                     return new Hit(magicHit, Hitmask.RED, CombatIcon.MAGIC);
                 }
             case DRAGON_FIRE:
-                return new Hit(Misc.inclusiveRandom(0, CombatFactory.calculateMaxDragonFireHit(entity, victim)),
-                        Hitmask.RED, CombatIcon.MAGIC);
+                int maxDragonFire = DRAGONFIRE_MAX_HIT.getMaxHit(entity, victim);
+
+                System.out.println("Max dragon fire hit: "+maxDragonFire);
+
+                int dragonFireHit = (int) (maxDragonFire <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxDragonFire) * DRAGONFIRE_ACCURACY_CALC.getAccuracy(entity, victim));
+
+                return new Hit(dragonFireHit, Hitmask.RED, CombatIcon.MAGIC);
             default:
                 throw new IllegalArgumentException("Invalid combat type: " + type);
         }
@@ -1231,16 +1265,12 @@ public final class CombatFactory {
                         container.allHits(context -> {
                             int hit = context.getHit().getDamage();
                             if (attacker.getId() == 2745) { // Jad
-                                context.setAccurate(false);
                                 context.getHit().incrementAbsorbedDamage(hit);
                             } else {
                                 double reduceRatio = attacker.getId() == 1158 || attacker.getId() == 1160 ? 0.4 : 0.8;
                                 double mod = Math.abs(1 - reduceRatio);
                                 context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
                                 mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
-                                if (mod <= CombatFactory.PRAYER_ACCURACY_REDUCTION) {
-                                    context.setAccurate(false);
-                                }
                             }
                         });
                     }
@@ -1276,9 +1306,6 @@ public final class CombatFactory {
                         context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
                         // Then reduce the accuracy.
                         mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
-                        if (mod <= CombatFactory.PRAYER_ACCURACY_REDUCTION) {
-                            context.setAccurate(false);
-                        }
                     });
                 }
             }
@@ -1291,9 +1318,6 @@ public final class CombatFactory {
                     double mod = Math.abs(1 - 0.5);
                     context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
                     mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
-                    if (mod <= CombatFactory.PRAYER_ACCURACY_REDUCTION) {
-                        context.setAccurate(false);
-                    }
                 });
             } else if (npc.getId() == 8133) {
                 if(attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 21120 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 11716 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 1249) {
@@ -1310,24 +1334,18 @@ public final class CombatFactory {
                     double mod = Math.abs(1 - 0.95);
                     context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
                     mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
-                    if (mod <= CombatFactory.PRAYER_ACCURACY_REDUCTION) {
-                        context.setAccurate(false);
-                    }
                 });
-                attacker.getPacketSender().sendMessage("Your "
-                        + (container.getCombatType() == CombatType.MAGIC ? "magic"
-                        : container.getCombatType() == CombatType.RANGED ? "ranged" : "melee")
-                        + " attack has" + (!container.getHits()[0].isAccurate() ? "" : " close to")
-                        + " no effect on the queen.");
+//                attacker.getPacketSender().sendMessage("Your "
+//                        + (container.getCombatType() == CombatType.MAGIC ? "magic"
+//                        : container.getCombatType() == CombatType.RANGED ? "ranged" : "melee")
+//                        + " attack has" + (!container.getHits()[0].isAccurate() ? "" : " close to")
+//                        + " no effect on the queen.");
             } else if (npc.getId() == 13347 && Nex.zarosStage()) {
                 container.allHits(context -> {
                     int hit = context.getHit().getDamage();
                     double mod = Math.abs(1 - 0.4);
                     context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
                     mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
-                    if (mod <= CombatFactory.PRAYER_ACCURACY_REDUCTION) {
-                        context.setAccurate(false);
-                    }
                 });
             }
             if(npc.getId() == BossPets.BossPet.PET_DAGANNOTH_SUPREME.getBossId()) {

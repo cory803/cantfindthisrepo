@@ -127,11 +127,7 @@ public class CombatContainer {
 		// hit and accuracy calculations.
 		ContainerHit[] array = new ContainerHit[hitAmount];
 		for (int i = 0; i < array.length; i++) {
-			boolean accuracy = checkAccuracy ? CombatFactory.rollAccuracy(attacker, victim, combatType) : true;
-			array[i] = new ContainerHit(CombatFactory.getHit(attacker, victim, combatType), accuracy);
-			if (array[i].isAccurate()) {
-				accurate = true;
-			}
+			array[i] = new ContainerHit(CombatFactory.getHit(attacker, victim, combatType));
 		}
 
 		/** SPECS **/
@@ -154,7 +150,6 @@ public class CombatContainer {
 					if (array[i].getHit().getDamage() < 80) {
 						array[i].getHit().setDamage(80);
 					}
-					array[i].setAccurate(true);
 				}
 			}
 			int total = 0;
@@ -193,12 +188,15 @@ public class CombatContainer {
 					bypass = true;
 				}
 			}
-			if (!hit.accurate && !bypass) {
-				int absorb = hit.getHit().getAbsorb();
-				hit.hit = new Hit(0, Hitmask.RED, CombatIcon.BLOCK);
-				hit.hit.setAbsorb(absorb);
-			}
+//			if (!hit.accurate && !bypass) {
+//				int absorb = hit.getHit().getAbsorb();
+//				hit.hit = new Hit(0, Hitmask.RED, CombatIcon.BLOCK);
+//				hit.hit.setAbsorb(absorb);
+//			}
 			damage += hit.hit.getDamage();
+			if(damage == 0) {
+				hit.hit = new Hit(0, Hitmask.RED, CombatIcon.BLOCK);
+			}
 		}
 		if(attacker.isPlayer()) {
 			Player player = (Player) attacker;
@@ -382,9 +380,6 @@ public class CombatContainer {
 		/** The actual hit that will be dealt. */
 		private Hit hit;
 
-		/** The accuracy of the hit to be dealt. */
-		private boolean accurate;
-
 		/**
 		 * Create a new {@link ContainerHit}.
 		 * 
@@ -393,9 +388,8 @@ public class CombatContainer {
 		 * @param accurate
 		 *            the accuracy of the hit to be dealt.
 		 */
-		public ContainerHit(Hit hit, boolean accurate) {
+		public ContainerHit(Hit hit) {
 			this.hit = hit;
-			this.accurate = accurate;
 		}
 
 		/**
@@ -415,25 +409,6 @@ public class CombatContainer {
 		 */
 		public void setHit(Hit hit) {
 			this.hit = hit;
-		}
-
-		/**
-		 * Gets the accuracy of the hit to be dealt.
-		 * 
-		 * @return the accuracy of the hit to be dealt.
-		 */
-		public boolean isAccurate() {
-			return accurate;
-		}
-
-		/**
-		 * Sets the accuracy of the hit to be dealt.
-		 * 
-		 * @param accurate
-		 *            the accuracy of the hit to be dealt.
-		 */
-		public void setAccurate(boolean accurate) {
-			this.accurate = accurate;
 		}
 	}
 }

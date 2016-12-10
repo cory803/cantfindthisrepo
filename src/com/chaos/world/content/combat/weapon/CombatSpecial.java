@@ -130,7 +130,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.RANGED, true);
 		}
 	},
-	GRANITE_MAUL(new int[] { 4153, 20084 }, 50, 1.15, 1, CombatType.MELEE, WeaponInterface.WARHAMMER) {
+	GRANITE_MAUL(new int[] { 4153, 20084 }, 50, .65, 1, CombatType.MELEE, WeaponInterface.WARHAMMER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1667));
@@ -168,7 +168,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.MELEE, false);
 		}
 	},
-	DRAGON_LONGSWORD(new int[] { 1305 }, 25, 1.15, 1.20, CombatType.MELEE, WeaponInterface.LONGSWORD) {
+	DRAGON_LONGSWORD(new int[] { 1305 }, 25, 1.15, 1.00, CombatType.MELEE, WeaponInterface.LONGSWORD) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1058));
@@ -177,7 +177,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.MELEE, true);
 		}
 	},
-	VESTAS_SPEAR(new int[] { 13905, 13907 }, 50, 1.50, 1.10, CombatType.MELEE, WeaponInterface.SPEAR) {
+	VESTAS_SPEAR(new int[] { 13905, 13907 }, 50, 1.25, 1.10, CombatType.MELEE, WeaponInterface.SPEAR) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(10499));
@@ -582,7 +582,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 2, CombatType.MELEE, true);
 		}
 	},
-	ARMADYL_GODSWORD(new int[] { 11694 }, 50, 1.43, 1.63, CombatType.MELEE, WeaponInterface.TWO_HANDED_SWORD) {
+	ARMADYL_GODSWORD(new int[] { 11694 }, 50, 1.375, 2.0, CombatType.MELEE, WeaponInterface.TWO_HANDED_SWORD) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(11989));

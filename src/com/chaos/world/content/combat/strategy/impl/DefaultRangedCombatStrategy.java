@@ -336,8 +336,9 @@ public class DefaultRangedCombatStrategy implements CombatStrategy {
 		if (container == null || container.getHits().length < 1)
 			return 0;
 		ContainerHit hit = container.getHits()[0];
-		if (!hit.isAccurate())
+		if(hit.getHit().getDamage() == 0) {
 			return 0;
+		}
 		int damage = container.getHits()[0].getHit().getDamage();
 		int ammo = player.getFireAmmo();
 		if (ammo == -1) {

@@ -128,7 +128,6 @@ public class HitQueue {
 			if (container.getModifiedDamage() > 0) {
 				container.allHits(context -> {
 					context.getHit().setDamage(container.getModifiedDamage());
-					context.setAccurate(true);
 				});
 			}
 			// Now we send the hitsplats if needed! We can't send the hitsplats
