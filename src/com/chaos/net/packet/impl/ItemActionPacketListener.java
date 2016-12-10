@@ -34,6 +34,7 @@ import com.chaos.world.content.transportation.jewelry.SkillsTeleporting;
 import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.ChooseFlower;
 import org.scripts.kotlin.content.dialog.KnightLamp;
+import org.scripts.kotlin.content.dialog.TrustedDicerScroll;
 import org.scripts.kotlin.content.dialog.npcs.OpenScroll;
 
 public class ItemActionPacketListener implements PacketListener {
@@ -93,6 +94,9 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 6808:
+				player.getDialog().sendDialog(new TrustedDicerScroll(player));
+				break;
 			case 5023:
 				if (player.getInventory().contains(5023)) {
 					player.getInventory().delete(5023, 1);

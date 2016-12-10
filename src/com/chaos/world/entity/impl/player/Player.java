@@ -1026,6 +1026,7 @@ public class Player extends Character {
     private Player killed_player;
 
     /*** BOOLEANS ***/
+    private boolean trustedDicer = false;
     public boolean hasQC = false;
     private boolean invisible = false;
     public boolean ignoreClip = true;
@@ -1358,6 +1359,14 @@ public class Player extends Character {
 	/*
 	 * Getters and setters
 	 */
+
+    public void setTrustedDicer(boolean trustedDicer) {
+        this.trustedDicer = trustedDicer;
+    }
+
+    public boolean isTrustedDicer() {
+        return trustedDicer;
+    }
 
     public String getUsername() {
         return username;

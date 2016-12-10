@@ -303,6 +303,10 @@ public class PlayerLoading {
 			}
 		}
 
+		if (reader.has("trusted-dicer")) {
+			player.setTrustedDicer(reader.get("got-beta-items").getAsBoolean());
+		}
+
 		if (reader.has("slayer-master")) {
 			try {
 				player.getSlayer().setSlayerMaster(SlayerMasters.valueOf(reader.get("slayer-master").getAsString()));

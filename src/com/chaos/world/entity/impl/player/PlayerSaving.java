@@ -194,6 +194,7 @@ public class PlayerSaving {
 		object.addProperty("staff-rights", player.getStaffRights().name());
 		object.addProperty("donator-rights", player.getDonatorRights().name());
 		object.addProperty("game-mode", player.getGameModeAssistant().getGameMode().name());
+		object.addProperty("trusted-dicer", new Boolean(player.isTrustedDicer()));
 		if(player.getSlayer().getSlayerMaster() != null) {
 			object.addProperty("slayer-master", player.getSlayer().getSlayerMaster().name());
 		}
