@@ -227,6 +227,16 @@ public class CustomObjects {
     // spawn, this is just
     // clipping!
     private static final int[][] CLIENT_OBJECTS = {
+
+            /*
+            * New Dzone
+            */
+            { 2213, 2333, 9808, 0, 2 },
+            { 411, 2336, 9814, 0, 2 },
+            { 409, 2331, 9814, 0, 2 },
+            { 410, 2331, 9817, 0, 2 },
+            { 6552, 2341, 9814, 0, 2 },
+
             //compost bins
             { 7808, 2661, 3375, 0, 3},
             { 7818, 3610, 3522, 0, 1},
