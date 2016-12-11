@@ -37,12 +37,6 @@ public class CombatContainer {
 	/** The combat type that is being used during this combat hook. */
 	private CombatType combatType;
 
-	/** If accuracy should be taken into account. */
-	private boolean checkAccuracy;
-
-	/** If at least one hit in this container is accurate. */
-	private boolean accurate;
-
 	/** The modified damage, used for bolt effects etc **/
 	private int modifiedDamage;
 
@@ -63,12 +57,10 @@ public class CombatContainer {
 	 * @param checkAccuracy
 	 *            if accuracy should be taken into account.
 	 */
-	public CombatContainer(Character attacker, Character victim, int hitAmount, CombatType hitType,
-			boolean checkAccuracy) {
+	public CombatContainer(Character attacker, Character victim, int hitAmount, CombatType hitType, boolean accuracy) {
 		this.attacker = attacker;
 		this.victim = victim;
 		this.combatType = hitType;
-		this.checkAccuracy = checkAccuracy;
 		this.hits = prepareHits(hitAmount);
 		this.experience = getSkills(hitType);
 		this.hitDelay = hitType == CombatType.MELEE ? 0
@@ -77,12 +69,10 @@ public class CombatContainer {
 		attacker.setLastCombatType(hitType);
 	}
 
-	public CombatContainer(Character attacker, Character victim, int hitAmount, int hitDelay, CombatType hitType,
-			boolean checkAccuracy) {
+	public CombatContainer(Character attacker, Character victim, int hitAmount, int hitDelay, CombatType hitType, boolean accuracy) {
 		this.attacker = attacker;
 		this.victim = victim;
 		this.combatType = hitType;
-		this.checkAccuracy = checkAccuracy;
 		this.hits = prepareHits(hitAmount);
 		this.experience = getSkills(hitType);
 		this.hitDelay = hitDelay;
@@ -97,8 +87,8 @@ public class CombatContainer {
 	 * @param checkAccuracy
 	 *            if accuracy should be taken into account.
 	 */
-	public CombatContainer(Character attacker, Character victim, CombatType hitType, boolean checkAccuracy) {
-		this(attacker, victim, 0, hitType, checkAccuracy);
+	public CombatContainer(Character attacker, Character victim, CombatType hitType, boolean accuracy) {
+		this(attacker, victim, 0, hitType, true);
 	}
 
 	/**
@@ -119,7 +109,6 @@ public class CombatContainer {
 
 		// No hit for this turn, but we still need to calculate accuracy.
 		if (hitAmount == 0) {
-			accurate = checkAccuracy ? CombatFactory.rollAccuracy(attacker, victim, combatType) : true;
 			return new ContainerHit[] {};
 		}
 
@@ -188,11 +177,6 @@ public class CombatContainer {
 					bypass = true;
 				}
 			}
-//			if (!hit.accurate && !bypass) {
-//				int absorb = hit.getHit().getAbsorb();
-//				hit.hit = new Hit(0, Hitmask.RED, CombatIcon.BLOCK);
-//				hit.hit.setAbsorb(absorb);
-//			}
 			damage += hit.hit.getDamage();
 			if(damage == 0) {
 				hit.hit = new Hit(0, Hitmask.RED, CombatIcon.BLOCK);
@@ -283,7 +267,7 @@ public class CombatContainer {
 	 * @param accurate
 	 *            if the attack is accurate.
 	 */
-	public void onHit(int damage, boolean accurate) {
+	public void onHit(int damage, boolean accuracy) {
 	}
 
 	/**
@@ -334,40 +318,16 @@ public class CombatContainer {
 	}
 
 	/**
-	 * Gets if accuracy should be taken into account.
-	 * 
-	 * @return true if accuracy should be taken into account.
-	 */
-	public final boolean isCheckAccuracy() {
-		return checkAccuracy;
-	}
-
-	/**
-	 * Sets if accuracy should be taken into account.
-	 * 
-	 * @param checkAccuracy
-	 *            true if accuracy should be taken into account.
-	 */
-	public final void setCheckAccuracy(boolean checkAccuracy) {
-		this.checkAccuracy = checkAccuracy;
-	}
-
-	/**
-	 * Gets if at least one hit in this container is accurate.
-	 * 
-	 * @return true if at least one hit in this container is accurate.
-	 */
-	public final boolean isAccurate() {
-		return accurate;
-	}
-
-	/**
 	 * Gets the hit delay before the hit is executed.
 	 * 
 	 * @return the hit delay.
 	 */
 	public int getHitDelay() {
 		return hitDelay;
+	}
+
+	public boolean isAccurate() {
+		return this.getDamage() > 0;
 	}
 
 	/**

@@ -232,7 +232,7 @@ public class HitQueue {
 			}
 
 			// Fire the container's dynamic hit method.
-			container.onHit(damage, container.isAccurate());
+			container.onHit(damage, true);
 
 			//Handles Kraken whirlpools
 			if(victim.isNpc() && attacker.isPlayer()) {

@@ -21,10 +21,12 @@ import com.chaos.world.content.combat.form.accuracy.AccuracyCalculator;
 import com.chaos.world.content.combat.form.accuracy.v1.DragonfireAccuracyCalculator;
 import com.chaos.world.content.combat.form.accuracy.v1.MeleeAccuracyCalculator;
 import com.chaos.world.content.combat.form.accuracy.v1.RangedAccuracyCalculator;
+import com.chaos.world.content.combat.form.accuracy.v2.MagicAccuracyCalculator;
 import com.chaos.world.content.combat.form.max.MaxHitCalculator;
 import com.chaos.world.content.combat.form.max.v1.DragonfireMaxHitCalculator;
 import com.chaos.world.content.combat.form.max.v1.MeleeMaxHitCalculator;
 import com.chaos.world.content.combat.form.max.v1.RangedMaxHitCalculator;
+import com.chaos.world.content.combat.form.max.v2.MagicMaxHitCalculator;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.range.CombatRangedAmmo;
@@ -54,12 +56,12 @@ public final class CombatFactory {
 
     private static final MaxHitCalculator MELEE_MAX_HIT = new MeleeMaxHitCalculator();
     private static final MaxHitCalculator RANGED_MAX_HIT = new RangedMaxHitCalculator();
-    //private static final MaxHitCalculator MAGIC_MAX_HIT = new MagicMaxHitCalculator();
+    private static final MaxHitCalculator MAGIC_MAX_HIT = new MagicMaxHitCalculator();
     private static final MaxHitCalculator DRAGONFIRE_MAX_HIT = new DragonfireMaxHitCalculator();
 
     private static final AccuracyCalculator MELEE_ACCURACY_CALC = new MeleeAccuracyCalculator();
     private static final AccuracyCalculator RANGED_ACCURACY_CALC = new RangedAccuracyCalculator();
-//    private static final AccuracyCalculator MAGIC_ACCURACY_CALC = new MagicAccuracyCalculator();
+    private static final AccuracyCalculator MAGIC_ACCURACY_CALC = new MagicAccuracyCalculator();
     private static final AccuracyCalculator DRAGONFIRE_ACCURACY_CALC = new DragonfireAccuracyCalculator();
 
     /**
@@ -474,7 +476,7 @@ public final class CombatFactory {
 
                 System.out.println("Max range hit: "+maxRange);
 
-                int rangeHit = (int) (maxRange <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxRange) * MELEE_ACCURACY_CALC.getAccuracy(entity, victim));
+                int rangeHit = (int) (maxRange <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxRange) * RANGED_ACCURACY_CALC.getAccuracy(entity, victim));
 
                 if(rangeHit > (int)rangeValue) {
                     return new Hit(rangeHit, Hitmask.CRITICAL, CombatIcon.RANGED);
@@ -482,9 +484,14 @@ public final class CombatFactory {
                     return new Hit(rangeHit, Hitmask.RED, CombatIcon.RANGED);
                 }
             case MAGIC:
-                int maxMagic = DesolaceFormulas.getMagicMaxhit(entity);
+                int maxMagic = MAGIC_MAX_HIT.getMaxHit(entity, victim);
+
                 double magicValue = maxMagic * .95;
-                int magicHit = Misc.inclusiveRandom(1, maxMagic);
+
+                System.out.println("Max magic hit: "+maxMagic);
+
+                int magicHit = (int) (maxMagic <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxMagic) * MAGIC_ACCURACY_CALC.getAccuracy(entity, victim));
+
                 if(magicHit > (int)magicValue) {
                     return new Hit(magicHit, Hitmask.CRITICAL, CombatIcon.MAGIC);
                 } else {
@@ -1189,7 +1196,7 @@ public final class CombatFactory {
 
         // If we aren't checking the accuracy, then don't bother doing any of
         // this.
-        if (!container.isCheckAccuracy() || builder.getVictim() == null) {
+        if (builder.getVictim() == null) {
             return;
         }
 
