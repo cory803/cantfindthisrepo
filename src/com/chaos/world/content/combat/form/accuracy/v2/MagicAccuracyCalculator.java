@@ -15,6 +15,7 @@ import com.chaos.world.content.combat.weapon.FightStyle;
 import com.chaos.world.content.skill.impl.prayer.Prayer;
 import com.chaos.world.content.skill.impl.summoning.FamiliarData;
 import com.chaos.world.entity.impl.Character;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -127,6 +128,8 @@ public final class MagicAccuracyCalculator implements AccuracyCalculator {
 
 		if(attacker.isPlayer()) {
 			effectiveLevel = ((Player)attacker).getSkillManager().getCurrentLevel(Skill.MAGIC);
+		} else {
+			effectiveLevel = (int) (((NPC)attacker).getDefinition().getAttackBonus() * 0.7);
 		}
 		
 		if (prayerBook == Prayerbook.CURSES
@@ -256,6 +259,10 @@ public final class MagicAccuracyCalculator implements AccuracyCalculator {
 			effectiveLevel = (int)
 					((((Player)victim).getSkillManager().getCurrentLevel(Skill.DEFENCE) * 0.3)
 							+ (((Player)victim).getSkillManager().getCurrentLevel(Skill.MAGIC) * 0.7));
+		} else {
+			effectiveLevel = (int)
+					((((NPC)victim).getDefinition().getDefenceMage() * 0.3)
+							+ (((NPC)victim).getDefinition().getAttackBonus() * 0.7));
 		}
 		
 		if (prayerBook == Prayerbook.CURSES

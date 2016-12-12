@@ -2,6 +2,7 @@ package com.chaos.world.content.combat.form.max.v1;
 
 import com.chaos.world.content.combat.form.max.MaxHitCalculator;
 import com.chaos.world.entity.impl.Character;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -16,7 +17,10 @@ public final class DragonfireMaxHitCalculator implements MaxHitCalculator {
 	public int getMaxHit(Character source, Character victim) {
 		//TODO: get the magic bonus for players (if we ever decide to use player dragon-fire attacks)
 		//and get combat level/magic level for mobs to decide max hit
-		int maxHit = 320;
+		int maxHit = 250;
+		if(victim.isNpc()) {
+			return ((NPC)victim).getDefinition().getMaxHit();
+		}
 		return maxHit;
 	}
 }

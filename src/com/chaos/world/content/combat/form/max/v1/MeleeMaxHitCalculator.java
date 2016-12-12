@@ -4,6 +4,7 @@ import com.chaos.model.Item;
 import com.chaos.model.Prayerbook;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
+import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
@@ -13,6 +14,7 @@ import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightStyle;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.world.entity.impl.Character;
 
@@ -26,6 +28,10 @@ public final class MeleeMaxHitCalculator implements MaxHitCalculator {
 
 	@Override
 	public int getMaxHit(Character source, Character victim) {
+
+		if(source.isNpc()) {
+			return ((NPC)source).getDefinition().getMaxHit();
+		}
 		
 		/*
 		 * Defining some constants.

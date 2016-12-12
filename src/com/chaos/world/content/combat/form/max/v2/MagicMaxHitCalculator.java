@@ -21,6 +21,10 @@ public class MagicMaxHitCalculator implements MaxHitCalculator {
 
 	@Override
 	public int getMaxHit(Character source, Character victim) {
+
+		if(source.isNpc()) {
+			return ((NPC)source).getDefinition().getMaxHit();
+		}
 		
 		/*
 		 * Defining some constants.

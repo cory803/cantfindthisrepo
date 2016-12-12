@@ -20,6 +20,7 @@ import com.chaos.world.content.combat.weapon.FightType;
 import com.chaos.world.content.skill.impl.summoning.Familiar;
 import com.chaos.world.content.skill.impl.summoning.FamiliarData;
 import com.chaos.world.entity.impl.Character;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -39,6 +40,7 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 		 */
 		Prayerbook victimPrayerBook = Prayerbook.NORMAL;
 		boolean[] victimPrayer = victim.getPrayerActive();
+		boolean[] victimCurses = victim.getCurseActive();
 
 		if(victim.isPlayer()) {
 			Player player = ((Player)victim);
@@ -55,7 +57,7 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 			//is a {@link org.niobe.world.Mob}, block the hit completely
 			if (victimPrayerBook == Prayerbook.NORMAL && victimPrayer[PrayerHandler.PROTECT_FROM_MELEE]) {
 				return 0;
-			} else if (victimPrayerBook == Prayerbook.CURSES && victimPrayer[CurseHandler.CurseData.DEFLECT_MELEE.ordinal()]) {
+			} else if (victimPrayerBook == Prayerbook.CURSES && victimCurses[CurseHandler.CurseData.DEFLECT_MELEE.ordinal()]) {
 				return 0;
 			}
 		} else if (source.isPlayer()) {
@@ -64,7 +66,7 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 			//to reduce 40% of the damage
 			if (victimPrayerBook == Prayerbook.NORMAL && victimPrayer[PrayerHandler.PROTECT_FROM_MELEE]) {
 				prayerProtection = 0.6;
-			} else if (victimPrayerBook == Prayerbook.CURSES && victimPrayer[CurseHandler.CurseData.DEFLECT_MELEE.ordinal()]) {
+			} else if (victimPrayerBook == Prayerbook.CURSES && victimCurses[CurseHandler.CurseData.DEFLECT_MELEE.ordinal()]) {
 				prayerProtection = 0.6;
 			}
 		}
@@ -156,6 +158,9 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 		if(attacker.isPlayer()) {
 			Player player = ((Player) attacker);
 			effectiveLevel = player.getSkillManager().getCurrentLevel(Skill.ATTACK);
+		} else {
+			NPC npc = ((NPC) attacker);
+			effectiveLevel = npc.getDefinition().getAttackBonus();
 		}
 		
 		if (prayerBook == Prayerbook.CURSES
@@ -325,11 +330,14 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 		/*
 		 * Effective level
 		 */
-		int effectiveLevel = 0;
+		int effectiveLevel;
 
 		if(victim.isPlayer()) {
 			Player player = ((Player) victim);
 			effectiveLevel = player.getSkillManager().getCurrentLevel(Skill.DEFENCE);
+		} else {
+			NPC npc = ((NPC) victim);
+			effectiveLevel = npc.getDefinition().getDefenceMelee();
 		}
 
 		
@@ -386,12 +394,13 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 		/*
 		 * Equipment bonuses
 		 */
-		//DefenceBonus bonus = null;
-		//victim.getFields().getBonusManager().getDefenceBonus()[bonus.ordinal()
 
 		double equipmentBonus = 0;
 		if(victim.isPlayer()) {
 			equipmentBonus = ((Player)victim).getBonusManager().getDefenceBonus()[((Player)victim).getFightType().getBonusType()];
+		} else {
+			NPC npc = ((NPC) victim);
+			equipmentBonus = npc.getDefinition().getDefenceMelee();
 		}
 		
 		/*

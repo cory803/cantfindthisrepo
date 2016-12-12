@@ -13,6 +13,7 @@ import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightStyle;
 import com.chaos.world.entity.impl.Character;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -25,7 +26,11 @@ public final class RangedMaxHitCalculator implements MaxHitCalculator {
 
 	@Override
 	public int getMaxHit(Character source, Character victim) {
-		
+
+		if(source.isNpc()) {
+			return ((NPC)source).getDefinition().getMaxHit();
+		}
+
 		/*
 		 * Defining some constants.
 		 */

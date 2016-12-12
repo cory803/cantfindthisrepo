@@ -15,6 +15,7 @@ import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightStyle;
 import com.chaos.world.entity.impl.Character;
+import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 
 /**
@@ -133,6 +134,8 @@ public final class RangedAccuracyCalculator implements AccuracyCalculator {
 		int effectiveLevel = 0;
 		if(attacker.isPlayer()) {
 			effectiveLevel = ((Player)attacker).getSkillManager().getCurrentLevel(Skill.RANGED);
+		} else {
+			effectiveLevel = ((NPC)attacker).getDefinition().getAttackBonus();
 		}
 		
 		if (prayerBook == Prayerbook.CURSES
@@ -266,6 +269,8 @@ public final class RangedAccuracyCalculator implements AccuracyCalculator {
 		int effectiveLevel = 0;
 		if(victim.isPlayer()) {
 			effectiveLevel = ((Player)victim).getSkillManager().getCurrentLevel(Skill.DEFENCE);
+		} else {
+			effectiveLevel = ((NPC)victim).getDefinition().getDefenceRange();
 		}
 		
 		if (prayerBook == Prayerbook.CURSES
