@@ -740,6 +740,126 @@
     "interface": "BATTLEAXE"
   },
   {
+    "hash": 15998,
+    "item-id": 15998,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16375,
+    "item-id": 16375,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16381,
+    "item-id": 16381,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16379,
+    "item-id": 16379,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16377,
+    "item-id": 16377,
+    "interface": "BATTLEAXE"
+  }, 
+  {
+    "hash": 16375,
+    "item-id": 16375,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16373,
+    "item-id": 16373,
+    "interface": "BATTLEAXE"
+  }, 
+  {
+    "hash": 16371,
+    "item-id": 16371,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16369,
+    "item-id": 16369,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16367,
+    "item-id": 16367,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16365,
+    "item-id": 16365,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16363,
+    "item-id": 16363,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16361,
+    "item-id": 16361,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16001,
+    "item-id": 16001,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 15991,
+    "item-id": 15991,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 15992,
+    "item-id": 15992,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 15993,
+    "item-id": 15993,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 15994,
+    "item-id": 15994,
+    "interface": "BATTLEAXE"
+  }, 
+  {
+    "hash": 15995,
+    "item-id": 15995,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 15996,
+    "item-id": 15996,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 15997,
+    "item-id": 15997,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 15998,
+    "item-id": 15998,
+    "interface": "BATTLEAXE"
+  }, 
+  {
+    "hash": 15999,
+    "item-id": 15999,
+    "interface": "BATTLEAXE"
+  },
+  {
+    "hash": 16000,
+    "item-id": 16000,
+    "interface": "BATTLEAXE"
+  },
+  {
     "hash": 1353,
     "item-id": 1353,
     "interface": "BATTLEAXE"
@@ -1087,6 +1207,16 @@
   {
     "hash": 6591,
     "item-id": 6591,
+    "interface": "DAGGER"
+  },
+  {
+    "hash": 16829,
+    "item-id": 16829,
+    "interface": "DAGGER"
+  },
+  {
+    "hash": 15884,
+    "item-id": 15884,
     "interface": "DAGGER"
   },
   {
