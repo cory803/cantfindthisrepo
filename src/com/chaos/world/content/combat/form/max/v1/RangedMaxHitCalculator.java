@@ -4,6 +4,8 @@ import com.chaos.model.Item;
 import com.chaos.model.Prayerbook;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
+import com.chaos.model.definitions.ItemDefinition;
+import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.effect.EquipmentBonus;
@@ -125,28 +127,19 @@ public final class RangedMaxHitCalculator implements MaxHitCalculator {
 			}
 		}
 
-		
 		/*
 		 * Equipment bonuses
 		 */
 		double equipmentBonus = 0;
 
 		if(source.isPlayer()) {
-			equipmentBonus = ((Player)source).getBonusManager().getOtherBonus()[BonusManager.BONUS_RANGE];
+			Player player = ((Player)source);
+			if(player.getWeapon() != WeaponInterfaces.WeaponInterface.SHORTBOW && player.getWeapon() != WeaponInterfaces.WeaponInterface.BALLISTA && player.getWeapon() != WeaponInterfaces.WeaponInterface.LONGBOW && player.getWeapon() != WeaponInterfaces.WeaponInterface.CROSSBOW) {
+				equipmentBonus = ((Player) source).getBonusManager().getOtherBonus()[BonusManager.BONUS_RANGE] - player.getEquipment().get(Equipment.AMMUNITION_SLOT).getDefinition().getBonus()[15];
+			} else {
+				equipmentBonus = ((Player) source).getBonusManager().getOtherBonus()[BonusManager.BONUS_RANGE];
+			}
 		}
-
-		if (weapon != null && equipment != null && equipment[Equipment.AMMUNITION_SLOT].getId() > 0) {
-			
-//			if (weapon.getDefinition().getRangedWeaponType() != null
-//					|| weapon.getDefinition().getBowType() == BowType.ZARYTE_BOW
-//					|| weapon.getDefinition().getBowType() == BowType.CRYSTAL_BOW
-//					|| weapon.getDefinition().getBowType() == BowType.TOXIC_BLOWPIPE) {
-//				//removing ammunition ranged strength bonus if the source is currently using
-//				//a ranged weapon type which can be knives, darts, etc
-//				equipmentBonus -= ItemDefinition.forId(equipment[Equipment.AMMUNITION_SLOT].getId()).getBonus()[15];
-//			}
-		}
-		
 		/*
 		 * Base damage
 		 */

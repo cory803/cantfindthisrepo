@@ -398,9 +398,6 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 		double equipmentBonus = 0;
 		if(victim.isPlayer()) {
 			equipmentBonus = ((Player)victim).getBonusManager().getDefenceBonus()[((Player)victim).getFightType().getBonusType()];
-		} else {
-			NPC npc = ((NPC) victim);
-			equipmentBonus = npc.getDefinition().getDefenceMelee();
 		}
 		
 		/*

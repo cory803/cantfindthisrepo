@@ -175,10 +175,8 @@ public class LootSystem {
                     amt += table.getSortedLoot()[0][i].getRandomAmount();
                 }
 
-                if(p.getInventory().contains(18337)) {
-                    if (Prayer.isBone(table.getSortedLoot()[0][i].getId())) {
-                        Prayer.crushBone(p, table.getSortedLoot()[0][i].getId());
-                    }
+                if(p.getInventory().contains(18337) && Prayer.isBone(table.getSortedLoot()[0][i].getId())) {
+                    Prayer.crushBone(p, table.getSortedLoot()[0][i].getId());
                 } else {
                     Player clanLooter = ClanChatManager.lootshare(p, n.getPosition().copy(), table.getSortedLoot()[0][i].getId(), amt);
                     if(p.getLocation() == Locations.Location.KRAKEN && clanLooter != null) {
@@ -376,6 +374,9 @@ public class LootSystem {
                     item = new Item(loot.getId(), loot.getRandomAmount());
                 }
             }
+        }
+        if (GameSettings.DOUBLE_DROPS) {
+            item.setAmount(item.getAmount() * 2);
         }
         return item;
     }

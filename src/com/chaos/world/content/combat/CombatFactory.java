@@ -460,7 +460,7 @@ public final class CombatFactory {
 
                 double meleeValue = maxMelee * .95;
 
-                System.out.println("Max melee hit: "+maxMelee);
+                //System.out.println("Max melee hit: "+maxMelee);
 
                 int meleeHit = (int) (maxMelee <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxMelee) * MELEE_ACCURACY_CALC.getAccuracy(entity, victim));
 
@@ -474,7 +474,7 @@ public final class CombatFactory {
 
                 double rangeValue = maxRange * .95;
 
-                System.out.println("Max range hit: "+maxRange);
+                //System.out.println("Max range hit: "+maxRange);
 
                 int rangeHit = (int) (maxRange <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxRange) * RANGED_ACCURACY_CALC.getAccuracy(entity, victim));
 
@@ -488,7 +488,7 @@ public final class CombatFactory {
 
                 double magicValue = maxMagic * .95;
 
-                System.out.println("Max magic hit: "+maxMagic);
+                //System.out.println("Max magic hit: "+maxMagic);
 
                 int magicHit = (int) (maxMagic <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxMagic) * MAGIC_ACCURACY_CALC.getAccuracy(entity, victim));
 
@@ -500,7 +500,7 @@ public final class CombatFactory {
             case DRAGON_FIRE:
                 int maxDragonFire = DRAGONFIRE_MAX_HIT.getMaxHit(entity, victim);
 
-                System.out.println("Max dragon fire hit: "+maxDragonFire);
+                //System.out.println("Max dragon fire hit: "+maxDragonFire);
 
                 int dragonFireHit = (int) (maxDragonFire <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxDragonFire) * DRAGONFIRE_ACCURACY_CALC.getAccuracy(entity, victim));
 
