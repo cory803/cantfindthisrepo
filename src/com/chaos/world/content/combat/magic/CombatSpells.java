@@ -152,6 +152,11 @@ public enum CombatSpells {
 		}
 
 		@Override
+		public int maximumHit() {
+			return 30;
+		}
+
+		@Override
 		public int spellId() {
 			return 1153;
 		}
@@ -411,6 +416,11 @@ public enum CombatSpells {
 		@Override
 		public Optional<Graphic> endGraphic(Character cast) {
 			return Optional.of(new Graphic(107));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 30;
 		}
 
 		@Override
@@ -724,6 +734,11 @@ public enum CombatSpells {
 		@Override
 		public Optional<Projectile> castProjectile(Character cast, Character castOn) {
 			return Optional.of(new Projectile(cast, castOn, 178, 44, 3, 43, 31, 0));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 30;
 		}
 
 		@Override
@@ -1127,6 +1142,11 @@ public enum CombatSpells {
 		@Override
 		public Optional<Projectile> castProjectile(Character cast, Character castOn) {
 			return Optional.of(new Projectile(cast, castOn, 178, 44, 3, 43, 31, 0));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 30;
 		}
 
 		@Override
@@ -1583,6 +1603,11 @@ public enum CombatSpells {
 		}
 
 		@Override
+		public int maximumHit() {
+			return 30;
+		}
+
+		@Override
 		public void spellEffect(Character cast, Character castOn) {
 			if (castOn.isPlayer()) {
 				Player player = (Player) castOn;
@@ -1704,6 +1729,11 @@ public enum CombatSpells {
 		@Override
 		public Optional<Projectile> castProjectile(Character cast, Character castOn) {
 			return Optional.of(new Projectile(cast, castOn, 171, 44, 3, 43, 31, 0));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 30;
 		}
 
 		@Override
@@ -1870,6 +1900,11 @@ public enum CombatSpells {
 		}
 
 		@Override
+		public int maximumHit() {
+			return 30;
+		}
+
+		@Override
 		public int spellId() {
 			return 1592;
 		}
@@ -1882,6 +1917,11 @@ public enum CombatSpells {
 		@Override
 		public Optional<Projectile> castProjectile(Character cast, Character castOn) {
 			return Optional.of(new Projectile(cast, castOn, 174, 44, 3, 43, 31, 0));
+		}
+
+		@Override
+		public int maximumHit() {
+			return 30;
 		}
 
 		@Override
@@ -1988,6 +2028,11 @@ public enum CombatSpells {
 							.sendMessage("All NPCs are completely immune to this particular spell.");
 				}
 			}
+		}
+
+		@Override
+		public int maximumHit() {
+			return 30;
 		}
 
 		@Override
