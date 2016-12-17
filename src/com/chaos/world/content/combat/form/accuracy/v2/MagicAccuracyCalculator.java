@@ -52,9 +52,9 @@ public final class MagicAccuracyCalculator implements AccuracyCalculator {
 			//if {@param victim} has magic protection prayer and our {@param source} is a
 			//mob, block the hit completely
 			if (victimPrayerBook == Prayerbook.NORMAL && victimPrayer[PrayerHandler.PROTECT_FROM_MAGIC]) {
-				return 0;
+				prayerProtection = 0.6;
 			} else if (victimPrayerBook == Prayerbook.CURSES && victimCurses[CurseHandler.CurseData.DEFLECT_MAGIC.ordinal()]) {
-				return 0;
+				prayerProtection = 0.6;
 			}
 		} else if (source.isPlayer()) {
 			//if {@param victim} has magic protection prayer and our {@param source}
