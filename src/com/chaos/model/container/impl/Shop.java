@@ -1180,12 +1180,19 @@ public class Shop extends ItemContainer {
 					case 13742:
 						return new Object[] {3000, "donator points"};
 					case 13740:
-					case 21140:
 						return new Object[] {5000, "donator points"};
+					case 21140:
+						return new Object[] {3000, "donator points"};
 					case 11724:
 						return new Object[] {1500, "donator points"};
 					case 11726:
 						return new Object[] {1500, "donator points"};
+					case 20821:
+						return new Object[] {50000, "donator points"};
+					case 14018:
+						return new Object[] {20000, "donator points"};
+					case 4565:
+						return new Object[] {25000, "donator points"};
 					case 11718:
 					case 11720:
 					case 11722:
@@ -1202,9 +1209,12 @@ public class Shop extends ItemContainer {
 						return new Object[] {1500, "donator points"};
 					case 19780:
 						return new Object[] {1250, "donator points"};
-					case 21107:
+
 					case 21148:
 						return new Object[] {3000, "donator points"};
+
+					case 21107:
+						return new Object[] {1500, "donator points"};
 				}
 			} else if (shop == ENERGY_FRAGMENT_STORE) {
 				switch (item) {
