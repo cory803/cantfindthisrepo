@@ -138,7 +138,7 @@ public class Slayer {
         }
         ArrayList<SlayerTasks> possibleTasks = new ArrayList<>();
         for(SlayerTasks slayerTasks: SlayerTasks.values()) {
-            if(slayerTasks.getSlayerMaster() == slayerMaster || (slayerTasks.getSlayerMaster().ordinal() == slayerMaster.ordinal() - 1 && !player.getSlayer().isOnlyBossDuradel())) {
+            if(slayerTasks.getSlayerMaster() == slayerMaster || (slayerTasks.getSlayerMaster().ordinal() == slayerMaster.ordinal() - 1 && !player.getSlayer().isOnlyBossDuradel()) && slayerMaster != SlayerMasters.KURADAL) {
                 if(!possibleTasks.contains(slayerTasks)) {
                     if (player.getSkillManager().getCurrentLevel(Skill.SLAYER) >= NpcDefinition.forId(slayerTasks.getNpcId(0)).getSlayerLevel()) {
                         possibleTasks.add(slayerTasks);

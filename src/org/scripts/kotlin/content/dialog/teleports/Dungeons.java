@@ -53,7 +53,7 @@ public class Dungeons extends Dialog {
                 return Dialog.createOption(new ThreeOption(
                         "Strykewyrm Cavern",
                         "Ancient Guthix Temple",
-                        "Cancel") {
+                        "Kuradal's Dungeon") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch (option) {
@@ -64,7 +64,7 @@ public class Dungeons extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2570, 5735, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_3:
-                                player.getPacketSender().sendInterfaceRemoval();
+                                TeleportHandler.teleportPlayer(player, new Position(1659, 5257, 0), player.getSpellbook().getTeleportType());
                                 break;
                         }
                     }

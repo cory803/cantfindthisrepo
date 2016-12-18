@@ -85,6 +85,17 @@ public final class ActionHandler {
             case 2828:
                 player.getDialog().sendDialog(new PkSetsDialogue(player));
                 break;
+
+            //Legendary donator shop
+            case 590:
+                if (player.getDonatorRights().ordinal() >= 3) {
+                    player.getDialog().sendDialog(new Aemad(player));
+                } else {
+                    player.getPacketSender()
+                            .sendMessage("You need to be an Legendary donator or higher, to access this shop!");
+                }
+                break;
+
             //game mode changer
             case 3642:
                 player.getDialog().sendDialog(new ChangeGameMode(player));
@@ -205,6 +216,7 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
+            case 9085:
                 player.getDialog().sendDialog(new SlayerDialog(player, 0, null));
                 break;
 
@@ -416,7 +428,6 @@ public final class ActionHandler {
             BankPin.init(player, false);
             return;
         }
-        System.out.println(""+npc.getId());
         player.setEntityInteraction(npc);
         player.setNpcClickId(npc.getId());
         if (player.getStaffRights().isDeveloper(player))
@@ -457,6 +468,16 @@ public final class ActionHandler {
             //void knight shop
             case 3789:
                 Shop.ShopManager.getShops().get(47).open(player);
+                break;
+
+            //Legendary donator shop
+            case 590:
+                if (player.getDonatorRights().ordinal() >= 3) {
+                    Shop.ShopManager.getShops().get(49).open(player);
+                } else {
+                    player.getPacketSender()
+                            .sendMessage("You need to be an Legendary donator or higher, to access this shop!");
+                }
                 break;
 
             //Travel with Sailor
@@ -540,6 +561,7 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
+            case 9085:
                 if (player.getSlayer().hasMasterRequirements(SlayerMasters.forNpcId(npc.getId()))) {
                     player.getSlayer().assignSlayerTask(SlayerMasters.forNpcId(npc.getId()), false);
                 } else {
@@ -656,15 +678,6 @@ public final class ActionHandler {
             case 4657:
 
                 break;
-            case 9085:
-            case 8591:
-                if (!player.getMinigameAttributes().getNomadAttributes().hasFinishedPart(1)) {
-                    player.getPacketSender()
-                            .sendMessage("You must complete Nomad's quest before being able to use this shop.");
-                    return;
-                }
-                Shop.ShopManager.getShops().get(37).open(player);
-                break;
             case 805:
                 Tanning.selectionInterface(player);
                 break;
@@ -730,6 +743,7 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
+            case 9085:
                 Shop.ShopManager.getShops().get(32).open(player);
                 break;
 
@@ -794,6 +808,7 @@ public final class ActionHandler {
             case 404:
             case 405:
             case 490:
+            case 9085:
 //                if (player.getGameModeAssistant().isIronMan()) {
 //                    Shop.ShopManager.getShops().get(33).open(player);
 //                } else {

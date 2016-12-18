@@ -805,7 +805,7 @@ public final class CombatFactory {
             NPC npc = (NPC) e;
             baseMax = npc.getDefinition().getMaxHit() * 3;
             if (victim.getFireImmunity() > 0 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 1540
-                    || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284) {
+                    || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11283 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11284 || victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 11613) {
                 if (victim.getFireDamageModifier() == 100) {
                     return 0;
                 } else if (victim.getFireDamageModifier() == 50) {

@@ -176,6 +176,9 @@ public class Shop extends ItemContainer {
 				: "" + ItemDefinition.forId(shopItem.getId()).getName() + " currently costs ";
 		if (getCurrency().getId() != -1) {
 			finalValue = ItemDefinition.forId(item.getId()).getValue();
+			if(item.getId() >= 18349 && item.getId() <=  18363) {
+				finalValue *= 10;
+			}
 			String s = currency.getDefinition().getName().toLowerCase().endsWith("s")
 					? currency.getDefinition().getName().toLowerCase()
 					: currency.getDefinition().getName().toLowerCase() + "s";
@@ -276,6 +279,9 @@ public class Shop extends ItemContainer {
 		int itemValue = 0;
 		if (getCurrency().getId() > 0) {
 			itemValue = ItemDefinition.forId(itemToSell.getId()).getValue();
+			if(itemToSell.getId() >= 18349 && itemToSell.getId() <= 18363) {
+				itemValue *= 10;
+			}
 		} else {
 			Object[] obj = ShopManager.getCustomShopData(id, itemToSell.getId());
 			if (obj == null)
@@ -371,6 +377,9 @@ public class Shop extends ItemContainer {
 		boolean usePouch = false;
 		int playerCurrencyAmount = 0;
 		int value = ItemDefinition.forId(item.getId()).getValue();
+		if(item.getId() >= 18349 && item.getId() <= 18363) {
+			value *= 10;
+		}
 		String currencyName = "";
 		if (getCurrency().getId() != -1) {
 			playerCurrencyAmount = player.getInventory().getAmount(currency.getId());

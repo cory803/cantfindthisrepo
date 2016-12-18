@@ -1,6 +1,7 @@
 package com.chaos.world.content.combat.form.max.v1;
 
 import com.chaos.model.Item;
+import com.chaos.model.Locations;
 import com.chaos.model.Prayerbook;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
@@ -14,6 +15,7 @@ import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightStyle;
+import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.world.entity.impl.Character;
@@ -224,21 +226,19 @@ public final class MeleeMaxHitCalculator implements MaxHitCalculator {
 					break;
 				}
 			}
-			
-//			if (victim.isMob() && equipment[Equipment.RING_SLOT].getId() >= 15398 && equipment[Equipment.RING_SLOT].getId() <= 15402
-//					&& source.getPlayerFields().getSkillAttributes().getSlayerAssignment() != null) {
-//				//ferocious ring bonus on slayer tasks
-//				SlayerKey key = MobDefinition.forId(victim.getId()).getSlayerKey();
-//				if (source.getPlayerFields().getSkillAttributes().getSlayerAssignment().getKey() == key) {
-//					maxHit += 40;
-//				}
-//			} else if (victim.isMob() && victim.getId() == 9462 && equipment[Equipment.CAPE_SLOT].getId() == 6570) {
-//				//ice strykewyrm while wearing a fire cape bonus
-//				maxHit *= 1.33;
-//			} else if (victim.isMob() && victim.getId() == 8133 && equipment[Equipment.WEAPON_SLOT].getId() == 11716) {
-//				//zamorakian spear on corporeal beast bonus
-//				maxHit += 100;
-//			}
+
+			if(source.isPlayer()) {
+				Player player = ((Player)source);
+				if (victim.isNpc() && equipment[Equipment.RING_SLOT].getId() >= 15398 && equipment[Equipment.RING_SLOT].getId() <= 15402) {
+					if(player.getSlayer().getSlayerMaster() != null) {
+						if(player.getSlayer().getSlayerMaster() == SlayerMasters.KURADAL) {
+							if(player.getLocation() == Locations.Location.KURADALS_DUNGEON) {
+								maxHit *= 1.1;
+							}
+						}
+					}
+				}
+			}
 		}
 		
 		return maxHit;

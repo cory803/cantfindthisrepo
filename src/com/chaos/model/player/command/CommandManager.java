@@ -364,7 +364,7 @@ public class CommandManager {
         commands.put("scan", new Scan(StaffRights.SUPPORT));
         commands.put("jail", new Jail(StaffRights.SUPPORT));
         commands.put("mute", new Mute(StaffRights.SUPPORT));
-        commands.put("yellmute", new YellMute(StaffRights.SUPPORT));
+        commands.put("muteyell", new YellMute(StaffRights.SUPPORT));
         commands.put("unmute", new UnMute(StaffRights.SUPPORT));
         commands.put("unyellmute", new UnYellMute(StaffRights.SUPPORT));
         commands.put("teleto", new TeleportToPlayer(StaffRights.PLAYER));

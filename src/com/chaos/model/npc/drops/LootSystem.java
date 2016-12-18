@@ -13,6 +13,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.DropLog;
 import com.chaos.world.content.Kraken;
+import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChatManager;
 import com.chaos.world.content.skill.impl.prayer.Prayer;
@@ -215,6 +216,23 @@ public class LootSystem {
                 }
                 DropLog.submit(p, new DropLog.DropLogEntry(roll.getId(), roll.getAmount()));
                 announcement.sendAnnouncment(p.getUsername(), roll, n.getDefinition().getName());
+            }
+        }
+
+        if(p.getLocation() == Locations.Location.KURADALS_DUNGEON) {
+            if(p.getSlayer().getSlayerTask() != null) {
+                if(p.getSlayer().getSlayerMaster() == SlayerMasters.KURADAL) {
+                    for (int t = 0; t < p.getSlayer().getSlayerTask().getNpcIds().length; t++) {
+                        if(p.getSlayer().getSlayerTask().getNpcIds()[t] == n.getId()) {
+                            int chance = Misc.inclusiveRandom(1, 50);
+                            if(chance == 5) {
+                                GroundItemManager.spawnGroundItem(p, new GroundItem(new Item(15398, 1), n.getPosition(), p.getUsername(), false, 150, goGlobal, 200));
+                                announcement.sendAnnouncment(p.getUsername(), new Item(15398, 1), n.getDefinition().getName());
+                            }
+                            return;
+                        }
+                    }
+                }
             }
         }
     }

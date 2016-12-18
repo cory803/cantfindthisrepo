@@ -36,7 +36,7 @@ public class Locations {
     public enum Location {
         //boolean multi, boolean summonAllowed, boolean followingAllowed,
         //boolean cannonAllowed, boolean firemakingAllowed, boolean aidingAllowed
-        TDS(new int[]{2570, 2620}, new int[]{5701, 5750}, true, true, true, false, false, true) {
+        TORMENTED_DEMONS(new int[]{2570, 2620}, new int[]{5701, 5750}, true, true, true, false, false, true) {
         },
         SHILO(new int[]{2757, 2909}, new int[]{2939, 3010}, false, true, true, false, false, true) {
         },
@@ -69,6 +69,8 @@ public class Locations {
         TREASURE_ISLAND(new int[]{3010, 3075}, new int[]{2870, 2950}, true, true, true, false, true, true) {
         },
         GAMBLE(new int[]{2430, 2493}, new int[]{3055, 3139}, false, true, true, true, true, true) {
+        },
+        KURADALS_DUNGEON(new int[]{1595, 1673}, new int[]{5240, 5328}, true, true, true, true, false, true) {
         },
         BANK(new int[]{3090, 3099, 3089, 3090, 3248, 3258, 3179, 3191, 2944, 2948, 2942, 2948, 2944, 2950, 3008, 3019,
                 3017, 3022, 3203, 3213, 3212, 3215, 3215, 3220, 3220, 3227, 3227, 3230, 3226, 3228, 3227, 3229},
@@ -206,9 +208,9 @@ public class Locations {
         },
         // 3653
         WILDERNESS(
-                new int[]{2940, 3392, 2986, 3012, 3653, 3720, 3650, 3653, 3012, 3059, 3008, 3070, 2250, 2295, 2760,
+                new int[]{2940, 3392, 2986, 3012, 3650, 3653, 3012, 3059, 3008, 3070, 2250, 2295, 2760,
                         2805, 2830, 2885, 2505, 2550},
-                new int[]{3525, 3968, 10338, 10366, 3441, 3517, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729,
+                new int[]{3525, 3968, 10338, 10366, 3457, 3472, 10303, 10351, 10235, 10300, 4675, 4729,
                         10120, 10180, 10105, 10150, 4760, 4795},
                 false, true, true, true, true, true) {
             @Override

@@ -46,7 +46,14 @@ public enum SlayerMasters {
      * Located in Shilo Village
      * Requires: Combat level 120
      */
-    DURADEL(405, 120, 15, 75, 225);
+    DURADEL(405, 120, 15, 75, 225),
+
+    /**
+     * Kuradel slayer master
+     * Located in Kuradal's dungeon
+     * Requires: Combat level 110
+     */
+    KURADAL(9085, 110, 18, 90, 270);
 
     SlayerMasters(int npcId, int combatLevelRequirement, int pointsPerTask, int tenTaskBonus, int fiftyTaskBonus) {
         this.npcId = npcId;

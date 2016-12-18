@@ -1,12 +1,14 @@
 package com.chaos.world.content.combat.form.max.v2;
 
 import com.chaos.model.Item;
+import com.chaos.model.Locations;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.world.content.BonusManager;
 import com.chaos.world.content.combat.form.max.MaxHitCalculator;
 import com.chaos.world.content.combat.magic.CombatSpell;
+import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -78,6 +80,20 @@ public class MagicMaxHitCalculator implements MaxHitCalculator {
 		if (boostedLevels > 0) {
 			double levelBase = 1.0 + (boostedLevels * .03);
 			baseDamage *= levelBase;
+		}
+
+		if(source.isPlayer()) {
+			Player player = ((Player)source);
+			Item[] equipment = ((Player)source).getEquipment().getItems();
+			if (victim.isNpc() && equipment[Equipment.RING_SLOT].getId() >= 15398 && equipment[Equipment.RING_SLOT].getId() <= 15402) {
+				if(player.getSlayer().getSlayerMaster() != null) {
+					if(player.getSlayer().getSlayerMaster() == SlayerMasters.KURADAL) {
+						if(player.getLocation() == Locations.Location.KURADALS_DUNGEON) {
+							baseDamage *= 1.1;
+						}
+					}
+				}
+			}
 		}
 		
 		/*

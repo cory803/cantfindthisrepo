@@ -48,7 +48,7 @@ public enum SlayerTasks {
     OGRE(new int[] {115}, new int[] {95}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(2493, 3092, 0)),
     INFERNAL_MAGE(new int[] {1643}, new int[] {80}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3444, 3556)),
     BLOODVELD(new int[] {1618}, new int[] {90}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3410, 3574, 1)),
-    LIVING_ROCK_CREATURES(new int[] {8834, 8833, 8832}, new int[] {160, 130, 100}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3638, 5104, 0)),
+    LIVING_ROCK_CREATURE(new int[] {8834, 8833, 8832}, new int[] {160, 130, 100}, SlayerMasters.VANNAKA, 15, 75, -1, new Position(3638, 5104, 0)),
 
     /**
      * Chaeldar's slayer tasks
@@ -74,6 +74,7 @@ public enum SlayerTasks {
     STEEL_DRAGON(new int[] {1592}, new int[] {275}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2721, 9464, 0)),
     JUNGLE_STRYKEWYRM(new int[] {9467}, new int[] {135}, SlayerMasters.NIEVE, 15, 125, -1, new Position(2728, 5098, 0)),
     GLACOR(new int[] {1382}, new int[] {250}, SlayerMasters.NIEVE, 15, 125, -1, new Position(3037, 9579, 0)),
+    TORMENTED_DEMON(new int[] {8349}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2570, 5735, 0), true),
 
     /**
      * Duradel's slayer tasks
@@ -98,9 +99,20 @@ public enum SlayerTasks {
     VENENATIS(new int[] {2000}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3126, 3815, 0), true),
     VETION(new int[] {6611}, new int[] {750}, SlayerMasters.DURADEL, 15, 50, -1, new Position(3246, 3796, 0), true),
     CHAOS_FANATIC(new int[] {6619}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2967, 3848, 0), true),
-    TDS(new int[] {8349}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2570, 5735, 0), true),
-    CRAZY_ARCHAEOLOGIST(new int[] {6618}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2980, 3690, 0), true);
+    CRAZY_ARCHAEOLOGIST(new int[] {6618}, new int[] {650}, SlayerMasters.DURADEL, 15, 50, -1, new Position(2980, 3690, 0), true),
 
+    /**
+     * Kuradal's slayer tasks
+     * @SlayerMasters.KURADAL
+     */
+    HELLHOUND_KURADAL(new int[] {49}, new int[] {140}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1641, 5257, 0)),
+    GREATER_DEMON_KURADAL(new int[] {83}, new int[] {115}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1620, 5256, 0)),
+    BLUE_DRAGON_KURADAL(new int[] {52, 55}, new int[] {60, 125}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1607, 5273, 0)),
+    GARGOYLE_KURADAL(new int[] {1610}, new int[] {125}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1609, 5297, 0)),
+    ABYSSAL_DEMON_KURADAL(new int[] {1615}, new int[] {140}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1638, 5300, 0)),
+    DARK_BEAST_KURADAL(new int[] {2783}, new int[] {190}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1650, 5290, 0)),
+    IRON_DRAGON_KURADAL(new int[] {1591}, new int[] {225}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1651, 5271, 0)),
+    MITHRIL_DRAGON_KURADAL(new int[] {5363}, new int[] {270}, SlayerMasters.KURADAL, 40, 125, -1, new Position(1629, 5281, 0));
 
     SlayerTasks(int[] npcId, int[] experience, SlayerMasters slayerMaster, int minimumAmount, int maximumAmount, int equipmentId, Position pos, boolean wild) {
         this.npcId = npcId;
@@ -207,7 +219,7 @@ public enum SlayerTasks {
      * @return
      */
     public String getName() {
-        return Misc.formatText(this.toString().toLowerCase().replace("_", " "));
+        return Misc.formatText(this.toString().toLowerCase().replace("_", " ").replace("kuradal", ""));
     }
 
     public Position getTaskPos() {

@@ -126,8 +126,9 @@ public class MiningData {
 		for (Pickaxe p : Pickaxe.values()) {
 			if (plr.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == p.getId())
 				return p.getId();
-			else if (plr.getInventory().contains(p.getId()))
+			else if (plr.getInventory().contains(p.getId())) {
 				return p.getId();
+			}
 		}
 		return -1;
 	}

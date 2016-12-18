@@ -66,7 +66,7 @@ public class SlayerDialog extends Dialog {
                             }
                         }
                     });
-                } else if(!getPlayer().getSlayer().isOnlyBossDuradel()) {
+                } else if(!getPlayer().getSlayer().isOnlyBossDuradel() && slayerMaster == SlayerMasters.DURADEL) {
                     return Dialog.createOption(new ThreeOption (
                             "I need a slayer assignment.",
                             "I want only boss tasks from you (50 points)",

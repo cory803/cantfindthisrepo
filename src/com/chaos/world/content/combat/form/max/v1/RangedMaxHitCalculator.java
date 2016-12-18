@@ -1,6 +1,7 @@
 package com.chaos.world.content.combat.form.max.v1;
 
 import com.chaos.model.Item;
+import com.chaos.model.Locations;
 import com.chaos.model.Prayerbook;
 import com.chaos.model.Skill;
 import com.chaos.model.container.impl.Equipment;
@@ -14,6 +15,7 @@ import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
 import com.chaos.world.content.combat.weapon.FightStyle;
+import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.npc.NPC;
 import com.chaos.world.entity.impl.player.Player;
@@ -154,6 +156,20 @@ public final class RangedMaxHitCalculator implements MaxHitCalculator {
 				if (special != null) {
 					maxHit *= special.getStrengthBonus();
 					//maxHit += special.getExtraDamage(source, victim);
+				}
+			}
+		}
+
+
+		if(source.isPlayer()) {
+			Player player = ((Player)source);
+			if (victim.isNpc() && equipment[Equipment.RING_SLOT].getId() >= 15398 && equipment[Equipment.RING_SLOT].getId() <= 15402) {
+				if(player.getSlayer().getSlayerMaster() != null) {
+					if(player.getSlayer().getSlayerMaster() == SlayerMasters.KURADAL) {
+						if(player.getLocation() == Locations.Location.KURADALS_DUNGEON) {
+							maxHit *= 1.1;
+						}
+					}
 				}
 			}
 		}

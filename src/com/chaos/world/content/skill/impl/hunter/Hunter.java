@@ -142,7 +142,7 @@ public class Hunter {
 	public static boolean goodArea(Player client) {
 		int x = client.getPosition().getX();
 		int y = client.getPosition().getY();
-		return x >= 2758 && x <= 2965 && y >= 2880 && y <= 2954;
+		return (x >= 2758 && x <= 2965 && y >= 2880 && y <= 2954) || (x >= 2682 && x <= 2743 && y >= 2749 && y <= 2819);
 	}
 
 	/**

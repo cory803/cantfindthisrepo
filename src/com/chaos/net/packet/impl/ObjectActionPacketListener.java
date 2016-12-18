@@ -1696,7 +1696,14 @@ public class ObjectActionPacketListener implements PacketListener {
                                 TaskManager.submit(new Task(1, player, false) {
                                     @Override
                                     protected void execute() {
-                                        if (gameObject.getPosition().equals(2839, 3537)) {
+                                        if (player.getPosition().getX() > 3204 || player.getLocation() == Location.LUMBRIDGE) {
+                                            if (player.getPosition().getX() < 3207)
+                                                player.moveTo(new Position(player.getPosition().getX(),
+                                                        player.getPosition().getY(), 1));
+                                        } else if (player.getLocation() != Location.WARRIORS_GUILD
+                                                && player.getPosition().getZ() == 0) {
+                                            player.moveTo(new Position(2729, 3462, 1));
+                                        } else {
                                             player.moveTo(new Position(2840, 3539, 2));
                                         }
                                         stop();
@@ -1830,22 +1837,10 @@ public class ObjectActionPacketListener implements PacketListener {
                                     player.getLocation().leave(player);
                                 }
                                 break;
-                            case 36773:
-                                if (player.getPosition().getX() > 3204 || player.getLocation() == Location.LUMBRIDGE) {
-                                    if (player.getPosition().getX() < 3207)
-                                    player.moveTo(new Position(player.getPosition().getX(),
-                                                                player.getPosition().getY(), 1));
-                                } else if (player.getLocation() != Location.WARRIORS_GUILD
-                                        && player.getPosition().getZ() == 0) {
-                                    player.moveTo(new Position(2729, 3462, 1));
-                                } else {
-                                    player.moveTo(new Position(2840, 3539, 2));
-                                }
-                                break;
-                            case 36774:
+                            case 1739:
                                 player.getDialog().sendDialog(new LumbyStairs(player));
                                 break;
-                            case 36775:
+                            case 1740:
                                 player.moveTo(new Position(player.getPosition().getX(),
                                         player.getPosition().getY(), player.getPosition().getZ() - 1));
                                 break;
