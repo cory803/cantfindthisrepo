@@ -456,7 +456,7 @@ Monster: Black dragon(Level: 227) (id = 54)
 Always
 1x Dragon bones
 1x Black dragonhide
-1x Dragon token
+1x Target Locator
 
 Common
 1x Adamant javelin
@@ -2648,21 +2648,21 @@ Rare (1/50)
 1x Rune kiteshield (1/500)
 1x Dragon med helm (1/500)
 
-Very Rare (1/200)
-1x Infinity top (1/1400)
-1x Infinity hat (1/1400)
-1x Infinity boots (1/1400)
-1x Infinity gloves (1/1400)
-1x Infinity bottoms (1/1400)
-1x Dragon scimitar (1/1400)
-1x Granite maul (1/1400)
+Very Rare (1/50)
+1x Infinity top (1/350)
+1x Infinity hat (1/350)
+1x Infinity boots (1/350)
+1x Infinity gloves (1/350)
+1x Infinity bottoms (1/350)
+1x Dragon scimitar (1/350)
+1x Granite maul (1/350)
 
-Epic (1/1000)
-1x Shield left half (1/5000)
-1x Dragon spear (1/5000)
-1x Master wand (1/5000)
-1x Mages' book (1/5000)
-1x Dragon boots (1/5000)
+Epic (1/100)
+1x Shield left half (1/500)
+1x Dragon spear (1/500)
+1x Master wand (1/500)
+1x Mages' book (1/500)
+1x Dragon boots (1/500)
 
 
 Monster: Battle mage(Level: 54) (id = 913)
@@ -2736,21 +2736,21 @@ Rare (1/50)
 1x Rune kiteshield (1/500)
 1x Dragon med helm (1/500)
 
-Very Rare (1/200)
-1x Infinity top (1/1400)
-1x Infinity hat (1/1400)
-1x Infinity boots (1/1400)
-1x Infinity gloves (1/1400)
-1x Infinity bottoms (1/1400)
-1x Dragon scimitar (1/1400)
-1x Granite maul (1/1400)
+Very Rare (1/50)
+1x Infinity top (1/350)
+1x Infinity hat (1/350)
+1x Infinity boots (1/350)
+1x Infinity gloves (1/350)
+1x Infinity bottoms (1/350)
+1x Dragon scimitar (1/350)
+1x Granite maul (1/350)
 
-Epic (1/1000)
-1x Shield left half (1/5000)
-1x Dragon spear (1/5000)
-1x Master wand (1/5000)
-1x Mages' book (1/5000)
-1x Dragon boots (1/5000)
+Epic (1/100)
+1x Shield left half (1/500)
+1x Dragon spear (1/500)
+1x Master wand (1/500)
+1x Mages' book (1/500)
+1x Dragon boots (1/500)
 
 
 Monster: Green dragon(Level: 79) (id = 941)
@@ -6165,15 +6165,10 @@ Uncommon (1/10)
 1000-1500x Blood rune
 500-1500x Death rune
 
-Rare (1/50)
-1x Dragonfire shield (1/400)
-1x Ancient statuette (1/400)
-1x Ancient statuette (1/400)
-1x Ancient statuette (1/400)
-1x Ancient statuette (1/400)
-1x Coins (1/400)
-1x Ancient statuette (1/400)
-1x Ancient statuette (1/400)
+Rare (1/125)
+1x Dragonfire shield (1/375)
+1x Ancient statuette (1/375)
+1x Coins (1/375)
 
 Epic (1/1000)
 1x Vanguard helm (1/4000)
@@ -7858,7 +7853,9 @@ Rare (1/50)
 1x Starved ancient effigy (1/1200)
 
 Very Rare (1/200)
-1x Dragon warhammer (1/200)
+1x Dragon warhammer (1/600)
+1x Dragon full helm (1/600)
+1x Draconic visage (1/600)
 
 
 Monster: Zombie(Level: 44) (id = 5377)
@@ -9883,10 +9880,8 @@ Very Rare (1/200)
 1x Zamorak hilt (1/1000)
 
 Epic (1/1000)
-1x Staff of the dead (1/4000)
-1x Shield left half (1/4000)
-1x Dragon spear (1/4000)
-1x Pet K'ril tsutsaroth (1/4000)
+1x Staff of the dead (1/2000)
+1x Pet K'ril tsutsaroth (1/2000)
 
 
 Monster: Tstanon Karlak(Level: 145) (id = 6204)
@@ -11614,7 +11609,8 @@ Rare (1/50)
 1x Grimy lantadyme (1/650)
 
 Very Rare (1/200)
-1x Dragon claws (1/200)
+1x Dragon claws (1/400)
+1x Dragon kiteshield (1/400)
 
 
 Monster: Phoenix(Level: 123) (id = 8549)
@@ -12118,6 +12114,20 @@ Rare (1/50)
 1x Starved ancient effigy (1/750)
 
 
+Monster: Sagittare(Level: 495) (id = 9766)
+---------------
+
+Always
+1x Sagittare key
+
+
+Monster: Har'Lakk the Riftsplitter(Level: 582) (id = 9911)
+---------------
+
+Always
+1x Riftsplitter Key
+
+
 Monster: Plane-freezer Lakhrahnaz(Level: 223) (id = 9939)
 ---------------
 
@@ -12160,6 +12170,13 @@ Rare (1/50)
 1x Zamorak hilt (1/400)
 1x Korasi's sword (1/400)
 1x Dragon claws (1/400)
+
+
+Monster: Unholy cursebearer(Level: 495) (id = 10127)
+---------------
+
+Always
+1x Unholy key
 
 
 Monster: Icefiend(Level: 88) (id = 10216)
@@ -12250,6 +12267,13 @@ Rare (1/50)
 Very Rare (1/200)
 1x Draconic visage (1/400)
 1x Dragon warhammer (1/400)
+
+
+Monster: Necrolord(Level: 495) (id = 11751)
+---------------
+
+Always
+1x Necrolord Key
 
 
 Monster: Nex(Level: 565) (id = 13447)

@@ -326,10 +326,10 @@ public class Nex implements CombatStrategy {
 				NEX.setChargingAttack(true);
 				final int origX = p.getPosition().getX();
 				final int origY = p.getPosition().getY();
-				p.getWalkingQueue().clear();
+				//p.getWalkingQueue().clear();
 				for (int x = origX - 1; x < origX + 1; x++) {
 					for (int y = origY - 1; y < origY + 1; y++) {
-						CustomObjects.globalObjectRemovalTask(new GameObject(57263, new Position(x, y)), 5);
+						//CustomObjects.globalObjectRemovalTask(new GameObject(57263, new Position(x, y)), 5);
 					}
 				}
 				TaskManager.submit(new Task(10, NEX, false) {
@@ -340,7 +340,7 @@ public class Nex implements CombatStrategy {
 						}
 						for (int x = origX - 1; x < origX + 1; x++) {
 							for (int y = origY - 1; y < origY + 1; y++) {
-								CustomObjects.globalObjectRemovalTask(new GameObject(6951, new Position(x, y)), 5);
+								//CustomObjects.globalObjectRemovalTask(new GameObject(6951, new Position(x, y)), 5);
 							}
 						}
 						this.stop();
@@ -361,7 +361,7 @@ public class Nex implements CombatStrategy {
 				for (int x = origX - 2; x < origX + 2; x++) {
 					for (int y = origY - 2; y < origY + 2; y++) {
 						if (x == origX - 2 || x == origX + 2 || y == origY - 2 || y == origY + 2) {
-							CustomObjects.globalObjectRemovalTask(new GameObject(57262, new Position(x, y)), 5);
+							//CustomObjects.globalObjectRemovalTask(new GameObject(57262, new Position(x, y)), 5);
 						}
 					}
 				}

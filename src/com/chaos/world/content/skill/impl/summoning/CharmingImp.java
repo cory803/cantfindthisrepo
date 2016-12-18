@@ -35,6 +35,7 @@ public class CharmingImp {
 		if (index == -1) {
 			return false;
 		}
+		System.out.println(""+player.getSummoning().getCharmImpConfig(index));
 		switch (player.getSummoning().getCharmImpConfig(index)) {
 		case 0:
 			turnIntoXp(player, itemId, amount);
