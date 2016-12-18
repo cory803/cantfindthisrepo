@@ -3,6 +3,7 @@ package org.scripts.kotlin.content.dialog;
 import com.chaos.model.Position;
 import com.chaos.model.Skill;
 import com.chaos.model.options.fiveoption.FiveOption;
+import com.chaos.model.options.fouroption.FourOption;
 import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
@@ -58,24 +59,30 @@ public class PortalDevice extends Dialog {
                 });
             case 1:
                 setEndState(1);
-                return Dialog.createOption(new ThreeOption(
+                return Dialog.createOption(new FourOption(
                         "Chaos Fanatic @bla@(@red@Wild@bla@)",
                         "Crazy Archaeologist @bla@(@red@Wild@bla@)",
-                        "Venenatis @bla@(@red@Wild@bla@)") {
+                        "Venenatis @bla@(@red@Wild@bla@)",
+                        "WildyWyrm @bla@(@red@Wild@bla@)") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch(option) {
-                            case OPTION_1_OF_3:
+                            case OPTION_1_OF_4:
                                 player.getPacketSender().sendInterfaceRemoval();
                                 TeleportHandler.teleportPlayer(player, new Position(2981, 3854, 0), TeleportType.NORMAL);
                                 break;
-                            case OPTION_2_OF_3:
+                            case OPTION_2_OF_4:
                                 player.getPacketSender().sendInterfaceRemoval();
                                 TeleportHandler.teleportPlayer(player, new Position(2978, 3702, 0), TeleportType.NORMAL);
                                 break;
-                            case OPTION_3_OF_3:
+                            case OPTION_3_OF_4:
                                 player.getPacketSender().sendInterfaceRemoval();
                                 TeleportHandler.teleportPlayer(player, new Position(3146, 3800, 0), TeleportType.NORMAL);
+                                break;
+                            case OPTION_4_OF_4:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                TeleportHandler.teleportPlayer(player, new Position(3194, 3831, 0), TeleportType.NORMAL);
+                                break;
                         }
                     }
                 });
