@@ -66,6 +66,34 @@ public class SlayerDialog extends Dialog {
                             }
                         }
                     });
+                } else if(!getPlayer().getSlayer().isOnlyBossDuradel()) {
+                    return Dialog.createOption(new ThreeOption (
+                            "I need a slayer assignment.",
+                            "I want only boss tasks from you (50 points)",
+                            "I don't need anything.") {
+                        @Override
+                        public void execute(Player player, OptionType option) {
+                            switch (option) {
+                                case OPTION_1_OF_3:
+                                    player.getSlayer().assignSlayerTask(slayerMaster, false);
+                                    break;
+                                case OPTION_2_OF_3:
+                                    if(player.getPointsHandler().getSlayerPoints() < 50) {
+                                        player.getDialog().sendDialog(new SlayerDialog(player, 14, null));
+                                    } else {
+                                        player.getPointsHandler().setSlayerPoints(-50, true);
+                                        player.refreshPanel();
+                                        player.getSlayer().setOnlyBossDuradel(true);
+                                        player.save();
+                                        player.getDialog().sendDialog(new SlayerDialog(player, 15, null));
+                                    }
+                                    break;
+                                case OPTION_3_OF_3:
+                                    player.getPacketSender().sendInterfaceRemoval();
+                                    break;
+                            }
+                        }
+                    });
                 } else {
                     return Dialog.createOption(new TwoOption (
                             "I need a slayer assignment.",
@@ -136,6 +164,12 @@ public class SlayerDialog extends Dialog {
             case 13:
                 setEndState(13);
                 return Dialog.createNpc(DialogHandler.CALM, "Goodluck, your assignment has been set!");
+            case 14:
+                setEndState(14);
+                return Dialog.createNpc(DialogHandler.CALM, "You need atleast 50 slayer points in order to only get boss tasks from me.");
+            case 15:
+                setEndState(15);
+                return Dialog.createNpc(DialogHandler.CALM, "Congratulations! You will now only get boss slayer assignments from me.");
         }
         return null;
     }

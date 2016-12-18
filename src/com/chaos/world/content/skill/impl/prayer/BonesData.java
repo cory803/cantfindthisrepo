@@ -21,7 +21,7 @@ public enum BonesData {
 	IMPIOUS_ASHES(20264, 4),
 	ACCURSED_ASHES(20266, 13),
 	INFERNAL_ASHES(20268, 63),
-	LAVA_DRAGON_BONES(11943, 85);
+	LAVA_DRAGON_BONES(11943, 150);
 
 	BonesData(int boneId, int buryXP) {
 		this.boneId = boneId;

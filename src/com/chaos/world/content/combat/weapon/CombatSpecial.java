@@ -139,7 +139,7 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.MELEE, true);
 		}
 	},
-	ABYSSAL_WHIP(new int[] { 12006, 21372, 4151, 15441, 15442, 15443, 15444, 21000, 21001, 21002, 21003, 21004, 21005,
+	ABYSSAL_WHIP(new int[] { 21372, 4151, 15441, 15442, 15443, 15444, 21000, 21001, 21002, 21003, 21004, 21005,
 			21006, 21007 }, 50, 1, 1, CombatType.MELEE, WeaponInterface.WHIP) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
@@ -151,6 +151,18 @@ public enum CombatSpecial {
 				if (totalRunEnergy < 0)
 					totalRunEnergy = 0;
 				p.setRunEnergy(totalRunEnergy);
+			}
+			return new CombatContainer(player, target, 1, CombatType.MELEE, false);
+		}
+	},
+	ABYSSAL_TENTACLE(new int[] { 12006}, 50, 1, 1, CombatType.MELEE, WeaponInterface.WHIP) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			player.performAnimation(new Animation(1658));
+			target.performGraphic(new Graphic(341, GraphicHeight.HIGH));
+			if (target.isPlayer()) {
+				Player p = (Player) target;
+				p.getWalkingQueue().freeze(5);
 			}
 			return new CombatContainer(player, target, 1, CombatType.MELEE, false);
 		}

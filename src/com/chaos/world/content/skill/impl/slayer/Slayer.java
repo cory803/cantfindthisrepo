@@ -31,6 +31,7 @@ public class Slayer {
     private int slayerStreak;
     private String duoPlayer;
     private int givenDuo = 0;
+    private boolean onlyBossDuradel = false;
 
     public Slayer(Player player) {
         this.player = player;
@@ -137,7 +138,7 @@ public class Slayer {
         }
         ArrayList<SlayerTasks> possibleTasks = new ArrayList<>();
         for(SlayerTasks slayerTasks: SlayerTasks.values()) {
-            if(slayerTasks.getSlayerMaster() == slayerMaster || slayerTasks.getSlayerMaster().ordinal() == slayerMaster.ordinal() - 1) {
+            if(slayerTasks.getSlayerMaster() == slayerMaster || (slayerTasks.getSlayerMaster().ordinal() == slayerMaster.ordinal() - 1 && !player.getSlayer().isOnlyBossDuradel())) {
                 if(!possibleTasks.contains(slayerTasks)) {
                     if (player.getSkillManager().getCurrentLevel(Skill.SLAYER) >= NpcDefinition.forId(slayerTasks.getNpcId(0)).getSlayerLevel()) {
                         possibleTasks.add(slayerTasks);
@@ -450,5 +451,13 @@ public class Slayer {
             }
         }
         return false;
+    }
+
+    public boolean isOnlyBossDuradel() {
+        return onlyBossDuradel;
+    }
+
+    public void setOnlyBossDuradel(boolean onlyBossDuradel) {
+        this.onlyBossDuradel = onlyBossDuradel;
     }
 }

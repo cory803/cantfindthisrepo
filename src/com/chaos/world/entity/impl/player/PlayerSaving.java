@@ -232,6 +232,7 @@ public class PlayerSaving {
 		object.addProperty("jailed-ticks", new Integer(player.getPlayerTimers().getJailTicks()));
 		object.addProperty("xp-rate", new Boolean(player.getXpRate()));
 		object.addProperty("given-starter", new Boolean(player.didReceiveStarter()));
+		object.addProperty("duradel-only-boss", new Boolean(player.getSlayer().isOnlyBossDuradel()));
 		object.addProperty("yell-toggle", new Boolean(player.yellToggle()));
 		object.addProperty("tourney-toggle", new Boolean(player.tourneyToggle()));
 		object.addProperty("yell-ticks", new Integer(player.getPlayerTimers().getYellTicks()));

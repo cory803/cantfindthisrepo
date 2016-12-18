@@ -502,6 +502,10 @@ public class PlayerLoading {
 			player.setYellToggle(reader.get("yell-toggle").getAsBoolean());
 		}
 
+		if (reader.has("duradel-only-boss")) {
+			player.getSlayer().setOnlyBossDuradel(reader.get("duradel-only-boss").getAsBoolean());
+		}
+
 		if (reader.has("tourney-toggle")) {
 			player.setTourneyToggle(reader.get("tourney-toggle").getAsBoolean());
 		}

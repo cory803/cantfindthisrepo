@@ -5,6 +5,7 @@ import com.chaos.model.Item;
 import com.chaos.model.Position;
 import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.options.fouroption.FourOption;
+import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.options.twooption.TwoOption;
 import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
@@ -31,15 +32,14 @@ public class StartTutorial extends Dialog {
                 ClanChatManager.join(getPlayer(), "chaos");
                 return Dialog.createNpc(DialogHandler.CALM, "Hello, Welcome to Chaos!\\nWhat Game Mode would you like?");
             case 1:
-                return Dialog.createOption(new FourOption(
+                return Dialog.createOption(new ThreeOption(
                         "Play in @red@Knight@bla@ mode (@blu@500XP@bla@ Per Hit)",
                         "Play in @red@Realism@bla@ mode (@blu@10XP@bla@ Per Hit)",
-                        "Play in @red@Ironman@bla@ mode (@blu@No trading & 50XP Per Hit@bla@)",
-                        "Learn about these modes") {
+                        "Play in @red@Ironman@bla@ mode (@blu@No trading & 50XP Per Hit@bla@)") {
                     @Override
                     public void execute(Player player, OptionType option) {
                         switch(option) {
-                            case OPTION_1_OF_4:
+                            case OPTION_1_OF_3:
                                 player.getGameModeAssistant().setGameMode(GameMode.KNIGHT);
                                 PlayerPanel.refreshPanel(player);
                                 //Equipment
@@ -85,7 +85,7 @@ public class StartTutorial extends Dialog {
                                 setState(2);
                                 player.getDialog().sendDialog(dialog);
                                 break;
-                            case OPTION_2_OF_4:
+                            case OPTION_2_OF_3:
                                 player.getGameModeAssistant().setGameMode(GameMode.REALISM);
                                 PlayerPanel.refreshPanel(player);
                                 //Equipment
@@ -131,15 +131,10 @@ public class StartTutorial extends Dialog {
                                 setState(2);
                                 player.getDialog().sendDialog(dialog);
                                 break;
-                            case OPTION_3_OF_4:
+                            case OPTION_3_OF_3:
                                 player.getGameModeAssistant().setGameMode(GameMode.IRONMAN);
                                 PlayerPanel.refreshPanel(player);
                                 setState(2);
-                                player.getDialog().sendDialog(dialog);
-                                break;
-                            case OPTION_4_OF_4:
-                                //TODO: Open the url for game modes information
-                                setState(1);
                                 player.getDialog().sendDialog(dialog);
                                 break;
                         }
