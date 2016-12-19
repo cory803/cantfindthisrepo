@@ -2441,7 +2441,30 @@
         "z": 0
       }
     }
-  } 
+  },
+   {
+ # Camelot Flax Door
+    "openState": {
+      "id": 1531,
+      "direction": 1,
+      "position": {
+        "hashed": true,
+        "x": 2715,
+        "y": 3472,
+        "z": 0
+      }
+    },
+    "closedState": {
+      "id": 1530,
+      "direction": 0,
+      "position": {
+        "hashed": true,
+        "x": 2716,
+        "y": 3472,
+        "z": 0
+      }
+    }
+  }
   
   
   
