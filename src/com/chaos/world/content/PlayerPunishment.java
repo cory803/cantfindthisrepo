@@ -205,7 +205,7 @@ public class PlayerPunishment {
 
 	public static void yellMute(String name, Long time) {
 		try {
-			new File(YELL_MUTE_DIRECTORY + name).createNewFile();
+			new File(YELL_MUTE_DIRECTORY + name.toLowerCase()).createNewFile();
 		} catch (IOException exception) {
 			exception.printStackTrace();
 		}
