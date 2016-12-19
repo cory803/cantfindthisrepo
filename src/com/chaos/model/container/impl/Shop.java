@@ -182,6 +182,9 @@ public class Shop extends ItemContainer {
 			if (item.getId() >= 207 && item.getId() <= 218 || item.getId() == 3050 || item.getId() == 3052 || item.getId() == 2486) {
 				finalValue *= 7;
 			}
+			if (item.getId() == 21631) {
+				finalValue *= 100;
+			}
 			String s = currency.getDefinition().getName().toLowerCase().endsWith("s")
 					? currency.getDefinition().getName().toLowerCase()
 					: currency.getDefinition().getName().toLowerCase() + "s";
