@@ -1007,6 +1007,10 @@ public class PlayerLoading {
 					builder.fromJson(reader.get("loyalty-titles").getAsJsonArray(), boolean[].class));
 		}
 
+		if (reader.has("player-title")) {
+			player.setTitle(reader.get("player-title").getAsString());
+		}
+
 		if (reader.has("achievements-completion")) {
 			player.getAchievementAttributes().setCompletion(
 					builder.fromJson(reader.get("achievements-completion").getAsJsonArray(), boolean[].class));

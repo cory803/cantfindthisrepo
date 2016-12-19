@@ -8,6 +8,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.world.content.PlayerPanel;
+import com.chaos.world.content.Titles;
 import com.chaos.world.entity.impl.player.Player;
 
 public class ChangeGameMode extends Dialog {
@@ -30,14 +31,15 @@ public class ChangeGameMode extends Dialog {
 
     public ChangeGameMode(Player player) {
         super(player);
-        setEndState(3);
+        setEndState(4);
     }
 
     @Override
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "Hello, would you like to change your game mode?");
+                setState(3);
+                return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "Hello, would you like me to change your game mode or title?");
             case 1:
                 setEndState(1);
                 return Dialog.createOption(new ThreeOption(
@@ -78,7 +80,6 @@ public class ChangeGameMode extends Dialog {
                     }
                 });
             case 2:
-                getPlayer().debug(2);
                 if (getPlayer().getGameModeAssistant().isIronMan()) {
                     return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "When changing from a @blu@" + currentMode.getModeName() + "@bla@ to a @blu@" + newMode.getModeName() + "@bla@ I can allow you to keep your items and stats. This @red@cannot be undone@bla@.");
                 } else if (getPlayer().getGameModeAssistant().getGameMode() == GameMode.REALISM && newMode != GameMode.IRONMAN) {
@@ -146,6 +147,30 @@ public class ChangeGameMode extends Dialog {
                                 break;
                         }
 
+                    }
+                });
+            case 4:
+                setEndState(1);
+                return Dialog.createOption(new ThreeOption(
+                        "I want to change my Title",
+                        "I want to change my Game Mode",
+                        "Cancel") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch(option) {
+                            case OPTION_1_OF_3:
+                                Titles.openInterface(player);
+                                player.getPacketSender().sendInterface(45400);
+                                break;
+                            case OPTION_2_OF_3:
+                                setEndState(1);
+                                setState(1);
+                                getPlayer().getDialog().sendDialog(next);
+                                break;
+                            case OPTION_3_OF_3:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                break;
+                        }
                     }
                 });
         }

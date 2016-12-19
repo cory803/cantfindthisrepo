@@ -7,6 +7,7 @@ import com.chaos.util.Misc;
 import com.chaos.world.World;
 import com.chaos.world.content.Achievements;
 import com.chaos.world.content.PlayersOnlineInterface;
+import com.chaos.world.content.Titles;
 import com.chaos.world.content.combat.CombatFactory;
 import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.DesolaceFormulas;
@@ -80,7 +81,7 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 //41770 - 41870 = Search results
-                player.getPacketSender().sendString(41473, ":storeowner:-11694-500000000-test");
+                Titles.openInterface(player);
             }
         });
         commands.put("upcount", new Command(StaffRights.OWNER) {

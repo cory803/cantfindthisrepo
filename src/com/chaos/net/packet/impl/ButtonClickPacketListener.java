@@ -1263,6 +1263,9 @@ public class ButtonClickPacketListener implements PacketListener {
         if (Achievements.handleButton(player, id)) {
             return true;
         }
+        if (Titles.handleButtons(player, id)) {
+            return true;
+        }
         if (Sounds.handleButton(player, id)) {
             return true;
         }

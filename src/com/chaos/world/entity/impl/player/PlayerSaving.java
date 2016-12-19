@@ -217,6 +217,7 @@ public class PlayerSaving {
 		object.addProperty("last-bank-ip", player.getLastBankIp());
 		object.addProperty("last-bank-serial", player.getLastBankSerial());
 		object.addProperty("loyalty-title", player.getLoyaltyTitle().name());
+		object.addProperty("player-title", player.getTitle());
 		object.add("position", builder.toJsonTree(player.getPosition()));
 		object.addProperty("melee-max-hit", new Integer(player.getMeleeMaxHit()));
 		object.addProperty("range-max-hit", new Integer(player.getRangeMaxHit()));

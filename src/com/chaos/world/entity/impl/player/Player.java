@@ -81,6 +81,8 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
+    private String title = "null";
+
     public void refreshPanel() {
         PlayerPanel.refreshPanel(this);
     }
@@ -3232,4 +3234,11 @@ public class Player extends Character {
         return barrowsChestRewards;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 }

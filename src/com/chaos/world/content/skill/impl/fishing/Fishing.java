@@ -216,9 +216,9 @@ public class Fishing {
 					} else if (s.getRawFish()[fishIndex] == 389) {
 						Achievements.doProgress(p, AchievementData.FISH_700_MANTA);
 					} else if (s.getRawFish()[fishIndex] == 15270) {
-						Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
+						Achievements.doProgress(p, AchievementData.FISH_1500_ROCKTAILS);
 					} else if(s.getRawFish()[fishIndex] == 15271) {
-						Achievements.doProgress(p, AchievementData.FISH_2000_ROCKTAILS);
+						Achievements.doProgress(p, AchievementData.FISH_1500_ROCKTAILS);
 					}
 					p.getSkillManager().addSkillExperience(Skill.FISHING, s.getXp()[fishIndex]);
 					setupFishing(p, s);

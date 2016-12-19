@@ -608,7 +608,7 @@ public class PlayerUpdating {
 		properties.put(target.summoningAdd);
 		properties.putShort(target.getSkillManager().getTotalLevel());
 		properties.putShort(rankId);
-		properties.putShort(target.getLoyaltyRank()); // Loyalty Title
+		properties.putString(target.getTitle()); // Loyalty Title
 
 		out.put(properties.buffer().writerIndex(), ValueType.C);
 		out.putBytes(properties.buffer());
