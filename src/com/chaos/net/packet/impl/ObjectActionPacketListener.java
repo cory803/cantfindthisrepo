@@ -177,6 +177,22 @@ public class ObjectActionPacketListener implements PacketListener {
                             return;
                         }
                         switch (id) {
+                            //camelot stairs up
+                            case 1725:
+                                player.moveTo(new Position(player.getPosition().getX(), 3513, 1));
+                                break;
+                            //camelot stairs down
+                            case 1726:
+                                player.moveTo(new Position(player.getPosition().getX(), 3509, 0));
+                                break;
+                            case 1747: // camelot ladder up
+                                player.performAnimation(new Animation(828));
+                                player.delayedMoveTo(new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()+1), 2);
+                                break;
+                            case 1746: // camelot ladder down
+                                player.performAnimation(new Animation(827));
+                                player.delayedMoveTo(new Position(player.getPosition().getX(), player.getPosition().getY(), player.getPosition().getZ()-1), 2);
+                                break;
                             //Crystal Ball (Bolt Enchanting)
                             case 589:
                                 Enchanting.update_interface(player);
