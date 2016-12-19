@@ -369,6 +369,7 @@ public final class ActionHandler {
             case 6063:
             case 6064:
             case 7903:
+            case 1030:
                 PuroPuro.catchImpling(player, npc);
                 break;
             case 8022:

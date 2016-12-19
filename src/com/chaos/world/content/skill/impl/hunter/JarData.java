@@ -7,9 +7,8 @@ import com.chaos.util.Misc;
 public enum JarData {
 
     GRENWALL_IMPLING_JAR(11262,
-            new Item(12539).setRarity(ItemRarity.COMMON).setAmount(Misc.random(5, 12)),
-            new Item(12539).setRarity(ItemRarity.UNCOMMON).setAmount(Misc.random(5, 12)),
-            new Item(12539).setRarity(ItemRarity.RARE).setAmount(Misc.random(5, 12)),
+            new Item(12539).setRarity(ItemRarity.COMMON).setAmount(Misc.random(5, 18)),
+            new Item(12539).setRarity(ItemRarity.RARE).setAmount(Misc.random(5, 18)),
             new Item(1779).setRarity(ItemRarity.UNCOMMON), new Item(7170).setRarity(ItemRarity.UNCOMMON),
             new Item(207).setRarity(ItemRarity.UNCOMMON), new Item(209).setRarity(ItemRarity.UNCOMMON),
             new Item(211).setRarity(ItemRarity.RARE), new Item(215).setRarity(ItemRarity.RARE),

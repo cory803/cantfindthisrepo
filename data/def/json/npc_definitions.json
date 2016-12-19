@@ -22679,8 +22679,8 @@
 },
 {
 "id": 1030,
-"name": "Gourmet impling",
-"examine": "An impling gourmet. Mmmm, tasty.",
+"name": "Grenwall impling",
+"examine": "A grenwall impling. Right on, maaan.",
 "combat": 0,
 "size": 1,
 "attackable": true,
@@ -133538,8 +133538,8 @@
 },
 {
   "id": 6065,
-  "name": "Grenwall impling",
-  "examine": "A grenwall impling. Right on, maaan.",
+  "name": "Null",
+  "examine": "A null.",
   "combat": 0,
   "size": 1,
   "attackable": true,

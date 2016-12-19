@@ -40,7 +40,7 @@ public enum ImpData {
 	/**
 	 * Grenwall Impling.
 	 */
-	GRENWALL("Grenwall Impling", 11262, 533, 77, 6065),
+	GRENWALL("Grenwall Impling", 11262, 533, 77, 1030),
 	/**
 	 * Dragon Impling.
 	 */
