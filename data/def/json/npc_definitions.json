@@ -22687,7 +22687,7 @@
 "aggressive": false,
 "retreats": false,
 "poisonous": false,
-"respawn": 10,
+"respawn": 200,
 "maxHit": 0,
 "hitpoints": 0,
 "attackSpeed": 0,
