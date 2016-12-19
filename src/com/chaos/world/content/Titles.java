@@ -9,12 +9,17 @@ public class Titles {
 
 	public enum TitleData {
 
-		PKER("@dre@", AchievementData.DEFEAT_30_PLAYERS, 30, 4587),
+		PKER("@dre@", AchievementData.DEFEAT_30_PLAYERS, 15, 4587),
 		GODLIKE("@god@", AchievementData.BURY_500_FROST_DRAGON_BONES, 500, 18830),
 		CHEF("@or3@", AchievementData.COOK_500_MANTA, 500, 391),
-		TERMINATOR("@ter@", AchievementData.DEFEAT_500_BOSSES, 500, 11694),
+		TERMINATOR("@ter@", AchievementData.DEFEAT_500_BOSSES, 500, 21091),
 		FISHERMAN("@fro@", AchievementData.FISH_1500_ROCKTAILS, 1500, 309),
-		LUMBERJACK("@lum@", AchievementData.CHOP_2500_MAGIC_LOGS, 2500, 6739);
+		LUMBERJACK("@lum@", AchievementData.CHOP_2500_MAGIC_LOGS, 2500, 6739),
+		DESTROYER("@red@", AchievementData.DEAL_HARD_DAMAGE_USING_MELEE, 500000, 21371),
+		PROPKER("@red@", AchievementData.HIT_700_WITH_SPECIAL_ATTACK, 1, 11694),
+		ALCHEMIST("@alc@", AchievementData.HIGH_ALCH_ITEMS, 1000, 561),
+		WIZARD("@369@", AchievementData.DEAL_HARD_DAMAGE_USING_MAGIC, 500000, 22211);
+
 
 		TitleData(String color, AchievementData data, int amount, int interfaceItem) {
 			this.color = color;
@@ -92,21 +97,21 @@ public class Titles {
 				player.getPacketSender().sendString(45413 + value, "@gre@Activate");
 				player.getPacketSender().sendString(45408 + value, "@gre@"+titleData.getAchievement().getName());
 				if(titleData.getAchievement().progressData != null) {
-					player.getPacketSender().sendString(45409 + value, "@gre@("+titleData.getAmount()+"/"+titleData.getAmount()+")");
+					player.getPacketSender().sendString(45409 + value, "@gre@("+Misc.formatAmount(titleData.getAmount())+"/"+Misc.formatAmount(titleData.getAmount())+")");
 				}
 			} else if(progress) {
 				player.getPacketSender().sendString(45406 + value, "@yel@"+titleData.getName());
 				player.getPacketSender().sendString(45413 + value, "@yel@Locked");
 				player.getPacketSender().sendString(45408 + value, "@yel@"+titleData.getAchievement().getName());
 				if(titleData.getAchievement().progressData != null) {
-					player.getPacketSender().sendString(45409 + value, "@yel@("+player.getAchievementAttributes().getProgress()[titleData.getAchievement().progressData[0]]+"/"+titleData.getAmount()+")");
+					player.getPacketSender().sendString(45409 + value, "@yel@("+player.getAchievementAttributes().getProgress()[titleData.getAchievement().progressData[0]]+"/"+Misc.formatAmount(titleData.getAmount())+")");
 				}
 			} else {
 				player.getPacketSender().sendString(45406 + value, "@red@"+titleData.getName());
 				player.getPacketSender().sendString(45413 + value, "@red@Locked");
 				player.getPacketSender().sendString(45408 + value, "@red@" + titleData.getAchievement().getName());
 				if(titleData.getAchievement().progressData != null) {
-					player.getPacketSender().sendString(45409 + value, "@red@(0/"+titleData.getAmount()+")");
+					player.getPacketSender().sendString(45409 + value, "@red@(0/"+Misc.formatAmount(titleData.getAmount())+")");
 				}
 			}
 			player.getPacketSender().sendItemOnInterface(45414 + value, titleData.getInterfaceItem(), 0, 1);
