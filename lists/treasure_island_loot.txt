@@ -31,83 +31,95 @@
 2500000-5000000x Coins
 
 -Uncommon (1/5)-
-1x Rune platebody (g)
-1x Rune platebody (t)
-1x Rune platelegs (g)
-1x Rune platelegs (t)
-1x Rune full helm (g)
-1x Rune full helm (t)
-1x Rune kiteshield (g)
-1x Rune kiteshield (t)
-1x Zamorak platebody
-1x Zamorak platelegs
-1x Zamorak full helm
-1x Zamorak kiteshield
-1x Guthix platebody
-1x Guthix platelegs
-1x Guthix full helm
-1x Guthix kiteshield
-1x Saradomin platebody
-1x Saradomin platelegs
-1x Saradomin full helm
-1x Saradomin kiteshield
-1x Tan cavalier
-1x Dark cavalier
-1x Black cavalier
-1x Highwayman mask
-1x Red boater
-1x Orange boater
-1x Green boater
-1x Blue boater
-1x Black boater
-1x Black elegant shirt
-1x Black elegant legs
-1x Red elegant shirt
-1x Red elegant legs
-1x Blue elegant shirt
-1x Blue elegant legs
-1x Green elegant shirt
-1x Green elegant legs
-1x Purple elegant shirt
-1x Purple elegant legs
-1x White elegant blouse
-1x White elegant skirt
-1x Armadyl cloak
-1x Bandos cloak
-1x Ancient cloak
-1x Saradomin cloak
-1x Guthix cloak
-1x Zamorak cloak
-1x Wizard boots
-1x Red headband
-1x Black headband
-1x Brown headband
-1x Green dragon mask
-1x Blue dragon mask
-1x Red dragon mask
-1x Black dragon mask
-1x Frost dragon mask
-1x Bronze dragon mask
-1x Iron dragon mask
-1x Steel dragon mask
-1x Mithril dragon mask
-1x Rune cane
-1x Amulet of glory (t)
+1x Rune platebody (g) (1/315)
+1x Rune platebody (t) (1/315)
+1x Rune platelegs (g) (1/315)
+1x Rune platelegs (t) (1/315)
+1x Rune full helm (g) (1/315)
+1x Rune full helm (t) (1/315)
+1x Rune kiteshield (g) (1/315)
+1x Rune kiteshield (t) (1/315)
+1x Zamorak platebody (1/315)
+1x Zamorak platelegs (1/315)
+1x Zamorak full helm (1/315)
+1x Zamorak kiteshield (1/315)
+1x Guthix platebody (1/315)
+1x Guthix platelegs (1/315)
+1x Guthix full helm (1/315)
+1x Guthix kiteshield (1/315)
+1x Saradomin platebody (1/315)
+1x Saradomin platelegs (1/315)
+1x Saradomin full helm (1/315)
+1x Saradomin kiteshield (1/315)
+1x Tan cavalier (1/315)
+1x Dark cavalier (1/315)
+1x Black cavalier (1/315)
+1x Highwayman mask (1/315)
+1x Red boater (1/315)
+1x Orange boater (1/315)
+1x Green boater (1/315)
+1x Blue boater (1/315)
+1x Black boater (1/315)
+1x Black elegant shirt (1/315)
+1x Black elegant legs (1/315)
+1x Red elegant shirt (1/315)
+1x Red elegant legs (1/315)
+1x Blue elegant shirt (1/315)
+1x Blue elegant legs (1/315)
+1x Green elegant shirt (1/315)
+1x Green elegant legs (1/315)
+1x Purple elegant shirt (1/315)
+1x Purple elegant legs (1/315)
+1x White elegant blouse (1/315)
+1x White elegant skirt (1/315)
+1x Armadyl cloak (1/315)
+1x Bandos cloak (1/315)
+1x Ancient cloak (1/315)
+1x Saradomin cloak (1/315)
+1x Guthix cloak (1/315)
+1x Zamorak cloak (1/315)
+1x Wizard boots (1/315)
+1x Red headband (1/315)
+1x Black headband (1/315)
+1x Brown headband (1/315)
+1x Green dragon mask (1/315)
+1x Blue dragon mask (1/315)
+1x Red dragon mask (1/315)
+1x Black dragon mask (1/315)
+1x Frost dragon mask (1/315)
+1x Bronze dragon mask (1/315)
+1x Iron dragon mask (1/315)
+1x Steel dragon mask (1/315)
+1x Mithril dragon mask (1/315)
+1x Rune cane (1/315)
+1x Amulet of glory (t) (1/315)
+1x Zamorakian spear (1/315)
 
 -Rare (1/250)-
-1x Drygore longsword
-1x Drygore rapier
-1x Drygore mace
-1x Third-age range top
-1x Third-age range legs
-1x Third-age range coif
-1x Third-age vambraces
-1x Third-age robe top
-1x Third-age robe
-1x Third-age mage hat
-1x Third-age amulet
-1x Third-age platelegs
-1x Third-age platebody
-1x Third-age full helmet
-1x Third-age kiteshield
+1x Drygore longsword (1/6500)
+1x Drygore rapier (1/6500)
+1x Drygore mace (1/6500)
+1x Third-age range top (1/6500)
+1x Third-age range legs (1/6500)
+1x Third-age range coif (1/6500)
+1x Third-age vambraces (1/6500)
+1x Third-age robe top (1/6500)
+1x Third-age robe (1/6500)
+1x Third-age mage hat (1/6500)
+1x Third-age amulet (1/6500)
+1x Third-age platelegs (1/6500)
+1x Third-age platebody (1/6500)
+1x Third-age full helmet (1/6500)
+1x Third-age kiteshield (1/6500)
+1x Green halloween mask (1/6500)
+1x Blue halloween mask (1/6500)
+1x Red halloween mask (1/6500)
+1x Lime halloween mask (1/6500)
+1x Aqua halloween mask (1/6500)
+1x Pink halloween mask (1/6500)
+1x White halloween mask (1/6500)
+1x Yellow halloween mask (1/6500)
+1x Lava halloween mask (1/6500)
+1x Purple halloween mask (1/6500)
+1x Black halloween mask (1/6500)
 

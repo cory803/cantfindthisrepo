@@ -98,7 +98,7 @@ public final class GameLoader {
 		 * Dumps a list of item drops into
 		 * lists/drops.txt
 		 */
-		DropListDumper.dump();
+		//DropListDumper.dump();
 
 		/**
 		 * Dumps a list of treasure island loot into

@@ -52,10 +52,11 @@ public class TreasureIslandLootDumper {
 				if(TreasureChest.uncommonRewards[i2] == null) {
 					continue;
 				}
+				int chance = TreasureChest.uncommonRewards.length * 5;
 				if(TreasureChest.uncommonRewards[i2].getAmount() > 1) {
-					write(bw, "" + TreasureChest.uncommonRewards[i2].getAmount() / 2 + "-" + TreasureChest.uncommonRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.uncommonRewards[i2].getId()).getName());
+					write(bw, "" + TreasureChest.uncommonRewards[i2].getAmount() / 2 + "-" + TreasureChest.uncommonRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.uncommonRewards[i2].getId()).getName() + " (1/"+chance+")");
 				} else {
-					write(bw, "" + TreasureChest.uncommonRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.uncommonRewards[i2].getId()).getName());
+					write(bw, "" + TreasureChest.uncommonRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.uncommonRewards[i2].getId()).getName() + " (1/"+chance+")");
 				}
 
 			}
@@ -66,10 +67,11 @@ public class TreasureIslandLootDumper {
 				if(TreasureChest.rareRewards[i2] == null) {
 					continue;
 				}
+				int chance = TreasureChest.rareRewards.length * 250;
 				if(TreasureChest.rareRewards[i2].getAmount() > 1) {
-					write(bw, "" + TreasureChest.rareRewards[i2].getAmount() / 2 + "-" + TreasureChest.rareRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.rareRewards[i2].getId()).getName());
+					write(bw, "" + TreasureChest.rareRewards[i2].getAmount() / 2 + "-" + TreasureChest.rareRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.rareRewards[i2].getId()).getName() + " (1/"+chance+")");
 				} else {
-					write(bw, "" + TreasureChest.rareRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.rareRewards[i2].getId()).getName());
+					write(bw, "" + TreasureChest.rareRewards[i2].getAmount() + "x " + ItemDefinition.forId(TreasureChest.rareRewards[i2].getId()).getName() + " (1/"+chance+")");
 				}
 
 			}
