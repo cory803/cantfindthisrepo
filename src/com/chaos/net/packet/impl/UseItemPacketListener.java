@@ -88,11 +88,19 @@ public class UseItemPacketListener implements PacketListener {
 				return;
 			}
 		}
-		if((usedWith.getId() == 991 && itemUsedWith.getId() == 2347) || (usedWith.getId() == 2347 && itemUsedWith.getId() == 991)) {
+		if((usedWith.getId() == 991 && itemUsedWith.getId() == 227) || (usedWith.getId() == 227 && itemUsedWith.getId() == 991)) {
+			int random = Misc.random(0, 2);
 			if (player.getInventory().contains(991)) {
-				if (player.getInventory().getFreeSlots() > 1) {
+				if (player.getInventory().getFreeSlots() > 0) {
+					player.performAnimation(new Animation(363));
 					player.getInventory().delete(991, 1);
-
+					player.getInventory().delete(227, 1);
+					if (random == 1) {
+						player.getInventory().add(989, 1);
+						player.getPacketSender().sendMessage("You have rinsed the mud off the crystal key");
+					} else {
+						player.getPacketSender().sendMessage("Your muddy key crumbles into dust.");
+					}
 				} else {
 					player.getPacketSender().sendMessage("You do not have enough free slots");
 				}
