@@ -94,6 +94,9 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 11262:
+				PuroPuro.lootJar(player, new Item(itemId, 1), JarData.forJar(itemId));
+				break;
 			case 7478:
 				if (player.getPlayerKillingAttributes().getTarget() != null) {
 					if (player.getInventory().contains(7478)) {

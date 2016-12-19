@@ -38,6 +38,10 @@ public enum ImpData {
 	 */
 	NINJA("Ninja Impling", 11254, 481, 74, 6063),
 	/**
+	 * Grenwall Impling.
+	 */
+	GRENWALL("Grenwall Impling", 11262, 533, 77, 6065),
+	/**
 	 * Dragon Impling.
 	 */
 	DRAGON("Dragon Impling", 11256, 553, 83, 6064),
