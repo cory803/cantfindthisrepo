@@ -137,7 +137,6 @@ public class LootSystem {
         }
 
         if (p.getLocation() == Locations.Location.MONSTER_DONOR) {
-            System.out.println("Calling barrows...");
             BarrowsDzone.killedBrother(p, n);
         }
 

@@ -28,7 +28,6 @@ public class BarrowsDzone {
 
     private static boolean rollDrop() {
         int chance = Misc.random(1, 35);
-        System.out.println("Chance: " + chance);
         if (chance == 30) {
             return true;
         }
@@ -44,7 +43,6 @@ public class BarrowsDzone {
 
     public static void killedBrother(Player player, NPC npc) {
         boolean drop = rollDrop();
-        System.out.println("Drop: " + drop);
         switch (npc.getId()) {
             case 2025:
                 if (drop) {
@@ -85,7 +83,6 @@ public class BarrowsDzone {
                 }
                 break;
             default:
-                System.out.println("Default got here... [BarrowsDzone Killed Brother]");
         }
     }
 
