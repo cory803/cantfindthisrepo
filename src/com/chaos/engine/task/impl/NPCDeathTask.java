@@ -191,11 +191,9 @@ public class NPCDeathTask extends Task {
 				&& npc.getLocation() != Location.SHREKS_HUT && !npc.isDungeoneeringNpc()) {
 			TaskManager.submit(new NPCRespawnTask(npc, npc.getDefinition().getRespawnTime()));
 		}
-		System.out.println("Npc location: " + npc.getLocation().toString());
-		System.out.println("Npc Timer: " + npc.getDefinition().getRespawnTime());
+
 		//Respawn monsters in Monster Dzone that have no respawn time
 		if (npc.getDefinition().getRespawnTime() == -1 && npc.getLocation() == Location.MONSTER_DONOR) {
-			System.out.println("got here : NPC: " + npc.getId());
 			TaskManager.submit(new NPCRespawnTask(npc, 20));
 		}
 

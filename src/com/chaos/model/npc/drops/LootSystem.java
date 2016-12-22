@@ -136,6 +136,11 @@ public class LootSystem {
             return;
         }
 
+        if (p.getLocation() == Locations.Location.MONSTER_DONOR) {
+            System.out.println("Calling barrows...");
+            BarrowsDzone.killedBrother(p, n);
+        }
+
         LootTable table = tables.get(n.getId());
 
         if (table == null) {
@@ -166,9 +171,6 @@ public class LootSystem {
             }
             if(n.getId() != 5871) {
                 casketDrop(p, n.getDefinition().getCombatLevel(), n.getPosition());
-            }
-            if (p.getLocation() == Locations.Location.MONSTER_DONOR) {
-                BarrowsDzone.killedBrother(p, n);
             }
         }
 
