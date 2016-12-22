@@ -192,6 +192,11 @@ public class NPCDeathTask extends Task {
 			TaskManager.submit(new NPCRespawnTask(npc, npc.getDefinition().getRespawnTime()));
 		}
 
+		//Respawn monsters in Monster Dzone that have no respawn time
+		if (npc.getDefinition().getRespawnTime() == 0 && npc.getLocation() == Location.MONSTER_DONOR) {
+			TaskManager.submit(new NPCRespawnTask(npc, 20));
+		}
+
 		World.deregister(npc);
 
 		if (npc.getId() == 1158 || npc.getId() == 1160) {

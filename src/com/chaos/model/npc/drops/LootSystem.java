@@ -11,6 +11,7 @@ import com.chaos.model.container.impl.Equipment;
 import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
+import com.chaos.world.content.BarrowsDzone;
 import com.chaos.world.content.DropLog;
 import com.chaos.world.content.Kraken;
 import com.chaos.world.content.skill.impl.slayer.SlayerMasters;
@@ -165,6 +166,9 @@ public class LootSystem {
             }
             if(n.getId() != 5871) {
                 casketDrop(p, n.getDefinition().getCombatLevel(), n.getPosition());
+            }
+            if (p.getLocation() == Locations.Location.MONSTER_DONOR) {
+                BarrowsDzone.killedBrother(p, n);
             }
         }
 
@@ -435,6 +439,7 @@ public class LootSystem {
                 if (player.getInventory().contains(6500) && CharmingImp.handleCharmDrop(pl, LootCharm.CHARM.values()[i].getCharm(), amt)) {
                     return;
                 }
+
                 if(pl.getLocation() == Locations.Location.KRAKEN) {
                     GroundItemManager.spawnGroundItem(pl, new GroundItem(new Item(LootCharm.CHARM.values()[i].getCharm(), amt), pl.getPosition(), pl.getUsername(), false, 150, true, 200));
                 } else {
