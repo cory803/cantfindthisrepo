@@ -56,6 +56,7 @@ public final class NpcAggression {
 					|| gwdMob) {
 				if (player.getTolerance().elapsed() > (NPC_TOLERANCE_SECONDS * 1000)
 						&& !npc.isBoss
+						&& !gwdMob
 						&& player.getLocation() != Location.GODWARS_DUNGEON
 						&& player.getLocation() != Location.DAGANNOTH_DUNGEON) {
 					break;
