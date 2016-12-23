@@ -20,7 +20,6 @@ import com.chaos.model.definitions.WeaponAnimations;
 import com.chaos.model.definitions.WeaponInterfaces;
 import com.chaos.model.input.impl.ChangePassword;
 import com.chaos.model.player.GameMode;
-import com.chaos.model.player.Titles;
 import com.chaos.net.PlayerSession;
 import com.chaos.net.SessionState;
 import com.chaos.net.login.LoginResponses;
@@ -108,6 +107,9 @@ public class PlayerHandler {
 		} else {
 			player.getPacketSender().sendConfig(427, 1);
 		}
+
+		Titles.onLogin(player);
+
 		player.getInventory().refreshItems();
 		player.getEquipment().refreshItems();
 
@@ -128,7 +130,6 @@ public class PlayerHandler {
 				"Friends List (" + player.getRelations().getFriendList().size() + "/200)");
 		// Relations
 		player.getRelations().setPrivateMessageId(1).onLogin(player).updateLists(true, 1);
-		Titles.setTitle(player);
 		// Client configurations
 		player.getPacketSender().sendConfig(172, player.isAutoRetaliate() ? 1 : 0)
 				.sendTotalXp(player.getSkillManager().getTotalGainedExp())

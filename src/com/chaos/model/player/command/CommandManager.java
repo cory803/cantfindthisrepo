@@ -214,6 +214,14 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("Attempting to open: www.chaosps.com/wiki/");
             }
         });
+        commands.put("resettitle", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.setTitle("null");
+                player.getUpdateFlag().flag(Flag.APPEARANCE);
+                player.getPacketSender().sendMessage("You have reset your title.");
+            }
+        });
         commands.put("auth", new ClaimAuth(StaffRights.PLAYER));
         commands.put("attacks", new Command(StaffRights.PLAYER) {
             @Override
