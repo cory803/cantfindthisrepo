@@ -140,6 +140,7 @@ public class Titles {
 				}
 				player.setTitle(titleData.getColor() + titleData.getName());
 				player.getPacketSender().sendMessage("<col=ff0000>You have activated the title "+titleData.getName()+".");
+				player.getPacketSender().sendMessage("Type ::resettitle to remove your game title.");
 				player.getUpdateFlag().flag(Flag.APPEARANCE);
 				return true;
 			}

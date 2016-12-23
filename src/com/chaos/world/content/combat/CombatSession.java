@@ -88,7 +88,6 @@ public class CombatSession {
 
 		if (builder.attackTimer < 1 || builder.attackTimer < newTimer) {
 			// Check if the attacker is close enough to attack.
-
 			if (!CombatFactory.checkAttackDistance(builder)) {
 				if (builder.getCharacter().isNpc() && builder.getVictim().isPlayer()) {
 					((NPC) builder.getCharacter()).follow(builder.getVictim());
