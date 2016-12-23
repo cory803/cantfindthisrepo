@@ -101,6 +101,8 @@ public class NPC extends Character {
         }
     }
 
+    public boolean isBoss = (this.getDefaultConstitution() > 2000);
+
     /**
      * The {@link org.niobe.world.content.dialogue.Dialogue} this {@link Mob}
      * will have upon their {@value Talk-to} action has been clicked upon.
