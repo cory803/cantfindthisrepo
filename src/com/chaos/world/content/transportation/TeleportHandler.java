@@ -68,7 +68,7 @@ public class TeleportHandler {
 						player.getWalkingQueue().setLockMovement(false).clear();
 						player.setTeleporting(false);
 					} else if (tick == teleportType.getStartTick() + 3) {
-						player.getWalkingQueue().setLockMovement(false).clear();
+						player.getWalkingQueue().setLockMovement(false);
 					} else if (tick == teleportType.getStartTick() + 4)
 						stop();
 					break;
@@ -80,7 +80,7 @@ public class TeleportHandler {
 			public void stop() {
 				setEventRunning(false);
 				player.setTeleporting(false);
-				player.getWalkingQueue().setLockMovement(false).clear();
+				player.getWalkingQueue().setLockMovement(false);
 				player.getClickDelay().reset(0);
 			}
 		});

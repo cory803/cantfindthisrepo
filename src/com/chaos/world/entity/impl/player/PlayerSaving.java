@@ -280,6 +280,7 @@ public class PlayerSaving {
 		object.addProperty("potato-timer", new Long(player.getRottenPotato().getTime()));
 		object.addProperty("potato-drop-timer", new Long(player.getRottenPotatoDropTimer().getTime()));
 		object.addProperty("potato-heal", new Integer(player.rottenPotatoHeal));
+		object.addProperty("presents", new Integer(player.presentsPickedUp));
 		object.addProperty("potato-prayer", new Integer(player.rottenPotatoPrayer));
 		object.addProperty("potato-drop", new Integer(player.rottenPotatoDrop));
 		object.addProperty("drop-rate-boost", new Double(player.dropRateBoost));

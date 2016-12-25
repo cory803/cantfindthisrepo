@@ -111,7 +111,7 @@ public class SkillManager {
 			boost += .1;
 		} else if (player.getLocation() == Locations.Location.SHILO) {
 			boost += .2;
-		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE) {
+		} else if (player.getLocation() == Locations.Location.DONATOR_ZONE || player.getLocation() == Locations.Location.MONSTER_DONOR) {
 			boost += .1;
 		} else if (player.getLocation() == Location.EZONE_DONOR) {
 			boost += .2;

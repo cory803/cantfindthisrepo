@@ -988,6 +988,12 @@ public class Locations {
         EZONE_DONOR(new int[]{3342, 3385}, new int[]{9618, 9661}, false, true, true, false, false, false) {
         },
         MONSTER_DONOR(new int[]{2306, 2360}, new int[]{9769, 9918}, true, true, true, false, false, false) {
+            @Override
+            public void process(Player player) {
+                if (!player.getDonatorRights().isDonator() && !player.newPlayer()) {
+                    player.moveTo(new Position(3086, 3502));
+                }
+            }
         },
         KRAKEN(new int[]{3680, 3712}, new int[]{5791, 5824}, true, false, true, false, false, true) {
             @Override

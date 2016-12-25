@@ -227,6 +227,12 @@ public class CustomObjects {
     // spawn, this is just
     // clipping!
     private static final int[][] CLIENT_OBJECTS = {
+            /**
+             * Dzone cave
+            */
+            { -1, 2512, 3875, 0, 0 },
+            { 2, 2509, 3874, 0, 0 },
+
 
             /*
             * New Dzone

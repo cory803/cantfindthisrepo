@@ -19,6 +19,7 @@ import com.chaos.world.content.*;
 import com.chaos.world.content.chests.CrystalChest;
 import com.chaos.world.content.chests.TreasureChest;
 import com.chaos.world.content.chests.WarChest;
+import com.chaos.world.content.christmas.Presents;
 import com.chaos.world.content.combat.magic.Autocasting;
 import com.chaos.world.content.combat.prayer.CurseHandler;
 import com.chaos.world.content.combat.prayer.PrayerHandler;
@@ -227,6 +228,11 @@ public class ObjectActionPacketListener implements PacketListener {
                                         Mining.startMining(player, new GameObject(24445, player.getInteractingObject().getPosition()), null);
                                     }
                                 }
+                                break;
+                            case 47758:
+                            case 47760:
+                            case 47762:
+                                Presents.pickUpPresent(player, gameObject);
                                 break;
                             case 2492:
                                 player.moveTo(new Position(3253, 3400, 0));
@@ -1945,6 +1951,14 @@ public class ObjectActionPacketListener implements PacketListener {
                                     player.moveTo(new Position(2384, 4706));
                                 } else if(gameObject.getPosition().equals(2383, 4704)) {
                                     player.moveTo(new Position(2794, 2773));
+                                } else if(gameObject.getPosition().equals(2509, 3874)) {
+                                    player.moveTo(new Position(2336, 9794));
+                                }
+                                player.getPacketSender().sendMessage("You walk through the entrance..");
+                                break;
+                            case 3223:
+                                if(gameObject.getPosition().equals(2336, 9793)) {
+                                    player.moveTo(new Position(2510, 3873));
                                 }
                                 player.getPacketSender().sendMessage("You walk through the entrance..");
                                 break;

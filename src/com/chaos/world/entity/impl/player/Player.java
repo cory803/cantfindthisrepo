@@ -2501,6 +2501,8 @@ public class Player extends Character {
         return this;
     }
 
+    public int presentsPickedUp = 0;
+
     public int getFireDamageModifier() {
         return fireDamageModifier;
     }

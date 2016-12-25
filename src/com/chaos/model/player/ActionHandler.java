@@ -130,6 +130,12 @@ public final class ActionHandler {
                 player.getDialog().sendDialog(new PumpkinPete(player, 0));
                 break;
 
+            //Santa
+            case 8540:
+                player.getDialog().sendDialog(new Santa(player));
+                break;
+
+
             //Gambler
             case 2998:
                 player.getDialog().sendDialog(new Gambler(player));

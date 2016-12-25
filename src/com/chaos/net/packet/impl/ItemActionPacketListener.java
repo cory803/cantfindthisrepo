@@ -9,6 +9,7 @@ import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
 import com.chaos.util.Misc;
 import com.chaos.world.content.*;
+import com.chaos.world.content.christmas.Presents;
 import com.chaos.world.content.combat.range.DwarfMultiCannon;
 import com.chaos.world.content.skill.impl.herblore.Herblore;
 import com.chaos.world.content.skill.impl.herblore.IngridientsBook;
@@ -124,6 +125,10 @@ public class ItemActionPacketListener implements PacketListener {
 					player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch() + "");
 				}
 				player.getPacketSender().sendMessage("You have claimed this ticket for 15m and it has been added to your money pouch.");
+				break;
+			case 6542:
+			case 15420:
+				Presents.openPresent(player, itemId);
 				break;
 			//Scrolls
 			case 10934:
