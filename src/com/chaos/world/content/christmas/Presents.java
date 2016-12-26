@@ -4,6 +4,7 @@ import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
 import com.chaos.model.Animation;
 import com.chaos.model.GameObject;
+import com.chaos.model.Graphic;
 import com.chaos.model.Item;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.npc.drops.LootAnnouncement;
@@ -97,9 +98,11 @@ public class Presents {
 		if(player.getInventory().contains(itemId)) {
 			player.getInventory().delete(itemId, 1);
 			if(Misc.inclusiveRandom(1, 50) == 10) {
-				Item[] loot = commonRewards[Misc.getRandom(commonRewards.length - 1)];
+				Item[] loot = rareRewards[Misc.getRandom(rareRewards.length - 1)];
 				for (Item item : loot) {
 					player.getInventory().add(item);
+					World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "
+							+ item.getDefinition().getName() + " from the a Present!");
 				}
 			} else {
 				Item[] loot = commonRewards[Misc.getRandom(commonRewards.length - 1)];
@@ -107,6 +110,7 @@ public class Presents {
 					player.getInventory().add(item);
 				}
 			}
+			player.performGraphic(new Graphic(1664));
 		}
 		player.getPacketSender().sendMessage("<col=ff0000><shad=f><icon=3>Merry christmas!");
 	}

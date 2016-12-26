@@ -358,8 +358,8 @@ public class PlayerLoading {
 			player.rottenPotatoHeal = reader.get("potato-heal").getAsInt();
 		}
 
-		if (reader.has("presents")) {
-			player.presentsPickedUp = reader.get("presents").getAsInt();
+		if (reader.has("presents-new")) {
+			player.presentsPickedUp = reader.get("presents-new").getAsInt();
 		}
 
 		if (reader.has("potato-prayer")) {
