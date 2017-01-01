@@ -272,7 +272,7 @@ public class EquipPacketListener implements PacketListener {
 						continue;
 					}
 					if (!player.getAchievementAttributes().getCompletion()[d.ordinal()]) {
-						player.getPacketSender().sendMessage("You must complete all tier 1, tier 2, and tier 3 achievements to wear this.");
+						player.getPacketSender().sendMessage("You must complete all easy, medium, and hard achievements to wear this.");
 						return;
 					}
 				}

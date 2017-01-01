@@ -84,6 +84,14 @@ public class CommandManager {
                 Titles.openInterface(player);
             }
         });
+        commands.put("togglecompletedachievements", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                player.debug(10);
+                player.completedAchievements = Boolean.parseBoolean(args[0]);
+                Achievements.updateInterface(player);
+            }
+        });
         commands.put("upcount", new Command(StaffRights.OWNER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {

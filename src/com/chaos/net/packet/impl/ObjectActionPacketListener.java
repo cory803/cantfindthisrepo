@@ -232,7 +232,7 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 47758:
                             case 47760:
                             case 47762:
-                                Presents.pickUpPresent(player, gameObject);
+                                //Presents.pickUpPresent(player, gameObject);
                                 break;
                             case 2492:
                                 player.moveTo(new Position(3253, 3400, 0));

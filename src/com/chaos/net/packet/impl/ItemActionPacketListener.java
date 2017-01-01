@@ -128,7 +128,7 @@ public class ItemActionPacketListener implements PacketListener {
 				break;
 			case 6542:
 			case 15420:
-				//Presents.openPresent(player, itemId);
+				Presents.openPresent(player, itemId);
 				break;
 			//Scrolls
 			case 10934:

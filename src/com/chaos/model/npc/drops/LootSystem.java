@@ -402,7 +402,9 @@ public class LootSystem {
             }
         }
         if (GameSettings.DOUBLE_DROPS) {
-            item.setAmount(item.getAmount() * 2);
+            if(item != null) {
+                item.setAmount(item.getAmount() * 2);
+            }
         }
         return item;
     }

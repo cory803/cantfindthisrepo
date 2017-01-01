@@ -81,6 +81,7 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
+    public boolean completedAchievements = false;
     private String title = "null";
 
     public void refreshPanel() {
