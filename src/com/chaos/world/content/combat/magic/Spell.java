@@ -3,9 +3,11 @@ package com.chaos.world.content.combat.magic;
 import java.util.Arrays;
 import java.util.Optional;
 
+import com.chaos.model.DonatorRights;
 import com.chaos.model.Item;
 import com.chaos.model.MagicSpellbook;
 import com.chaos.model.Skill;
+import com.chaos.util.Misc;
 import com.chaos.world.entity.Entity;
 import com.chaos.world.entity.impl.Character;
 import com.chaos.world.entity.impl.player.Player;
@@ -67,6 +69,16 @@ public abstract class Spell {
 
 			// We've made it through the checks, so we have the items and can
 			// remove them now.
+			if(player.getDonatorRights() == DonatorRights.UBER) {
+				if(Misc.inclusiveRandom(1, 4) == 1) {
+					delete = false;
+				}
+			}
+			if(player.getDonatorRights() == DonatorRights.PLATINUM) {
+				if(Misc.inclusiveRandom(1, 2) == 1) {
+					delete = false;
+				}
+			}
 			if (delete) {
 				for (Item it : Arrays.asList(items)) {
 					if (it != null)

@@ -24,7 +24,7 @@ public final class LoginResponses {
 			return USERNAME_STARTS_WITH_SPACE;
 		}
 		if (!GameSettings.client_version.equals(msg.getClientVersion())
-				&& !GameSettings.client_version.equals("invalid_connection")
+				&& !GameSettings.client_version.equals("none")
 				&& !msg.getClientVersion().equals("invalid_connection")) {
 			return OLD_CLIENT_VERSION;
 		}

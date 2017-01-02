@@ -307,6 +307,9 @@ public class CustomObjects {
             //Edgeville altar
             { 409, 3086, 3483, 0, 2 },
 
+            //lzone altar
+            { 409, 3350, 9645, 0, 1 },
+
             //Christmas tree
 //            { 47748, 3073, 3503, 0, 1 },
 //            { 47758, 3075, 3503, 0, 1 },
@@ -511,6 +514,9 @@ public class CustomObjects {
             { 14859, 3115, 3690, 0, 1 },
             { 14859, 3116, 3689, 0, 1 },
 			/* Training Grounds Skillzone */
+
+			//Edgeville scoreboard
+            { 30205, 3090, 3509, 0, 1 },
 
             //giant crystal
             { 62, 2508, 3363, 0, 2 },

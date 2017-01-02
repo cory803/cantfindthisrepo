@@ -9,6 +9,7 @@ import java.util.concurrent.Phaser;
 import java.util.logging.Level;
 
 import com.chaos.model.*;
+import com.chaos.world.content.Gambling;
 import com.chaos.world.content.HalloweenEvent;
 import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
@@ -508,6 +509,17 @@ public class World {
 		for (int ids = 0; ids < GameObjectDefinition.removeObjects.length; ids++) {
 			if (object.getId() == GameObjectDefinition.removeObjects[ids]) {
 				object.getDefinition().unwalkable = false;
+				return;
+			}
+		}
+		if(object.getType() == 22) {
+			return;
+		}
+		for(Gambling.FlowersData flower: Gambling.FlowersData.values()) {
+			if(flower == null) {
+				continue;
+			}
+			if(flower.objectId == object.getId()) {
 				return;
 			}
 		}

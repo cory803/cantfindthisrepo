@@ -35,7 +35,6 @@ public class CombatSession {
 	}
 
 	public void process() {
-
 		if (builder.isCooldown()) {
 			builder.cooldown--;
 			builder.attackTimer--;

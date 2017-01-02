@@ -8,6 +8,9 @@ import com.chaos.world.entity.impl.player.Player;
 public class PlayerPanel {
 
 	public static void refreshPanel(Player player) {
+		Scoreboard.update(player, 1);
+		Scoreboard.update(player, 2);
+		Scoreboard.update(player, 4);
 		int kdr = 0;
 		if (player.getPlayerKillingAttributes().getPlayerDeaths() > 0) {
 			kdr = player.getPlayerKillingAttributes().getPlayerKills() / player.getPlayerKillingAttributes().getPlayerDeaths();

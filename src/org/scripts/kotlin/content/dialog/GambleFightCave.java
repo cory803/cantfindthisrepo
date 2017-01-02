@@ -8,6 +8,7 @@ import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.util.Misc;
+import com.chaos.world.World;
 import com.chaos.world.entity.impl.player.Player;
 
 public class GambleFightCave extends Dialog {
@@ -47,6 +48,8 @@ public class GambleFightCave extends Dialog {
                                 if(gotIt) {
                                     player.getInventory().add(new Item(13225, 1));
                                     player.getDialog().sendDialog(new GambleFightCave(player, 3, -1));
+                                    World.sendMessage("<icon=1><shad=FF8C38> " + player.getUsername() + " has just received "
+                                            + ItemDefinition.forId(13225).getName() + " from Fight Cave!");
                                 } else {
                                     player.getPacketSender().sendInterfaceRemoval();
                                 }

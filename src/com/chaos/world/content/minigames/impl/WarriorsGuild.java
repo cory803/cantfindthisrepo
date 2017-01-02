@@ -2,14 +2,8 @@ package com.chaos.world.content.minigames.impl;
 
 import com.chaos.engine.task.Task;
 import com.chaos.engine.task.TaskManager;
-import com.chaos.model.Animation;
-import com.chaos.model.GameObject;
-import com.chaos.model.Graphic;
-import com.chaos.model.GroundItem;
-import com.chaos.model.Item;
+import com.chaos.model.*;
 import com.chaos.model.Locations.Location;
-import com.chaos.model.Position;
-import com.chaos.model.RegionInstance;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.player.GameMode;
@@ -175,7 +169,11 @@ public class WarriorsGuild {
 					return;
 				}
 				if (player.getInventory().contains(8851)) {
-					player.getInventory().delete(8851, 10);
+					int tokenAmount = 10;
+					if(player.getDonatorRights() != DonatorRights.PLAYER) {
+						tokenAmount = 5;
+					}
+					player.getInventory().delete(8851, tokenAmount);
 					player.performGraphic(new Graphic(1368));
 					player.getPacketSender().sendMessage("Some of your tokens crumble to dust..");
 				} else {

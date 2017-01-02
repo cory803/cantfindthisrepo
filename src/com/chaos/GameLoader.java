@@ -12,6 +12,7 @@ import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.*;
 import com.chaos.world.World;
+import com.chaos.world.content.Scoreboard;
 import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
 import com.chaos.world.doors.DoorManager;
@@ -76,6 +77,7 @@ public final class GameLoader {
 		CombatPoisonData.init();
 		CombatVenomData.init();
 		CombatStrategies.init();
+		Scoreboard.load();
 		NpcDefinition.parseNpcs().load();
 		LootSystem.loadDropTables();
 		WeaponInterfaces.parseInterfaces().load();

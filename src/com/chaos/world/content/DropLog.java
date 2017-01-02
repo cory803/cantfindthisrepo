@@ -120,7 +120,7 @@ public class DropLog {
 		public DropLogEntry(int item, int amount) {
 			this.item = item;
 			this.amount = amount;
-			this.rareDrop = ItemDefinition.forId(item).getValue() > 500000 || LootSystem.getAnnouncment().isAnnouncable(item);
+			this.rareDrop = ItemDefinition.forId(item).getValue() > 500000 || LootSystem.getAnnouncment().isAnnouncable(item) || LootSystem.isBarrows(item);
 		}
 
 		public int item;

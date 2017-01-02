@@ -1,9 +1,11 @@
 package com.chaos.util;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import com.chaos.GameServer;
 import com.chaos.world.World;
+import com.chaos.world.content.Scoreboard;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChatManager;
@@ -26,6 +28,11 @@ public class ShutdownHook extends Thread {
 			if (player != null) {
 				PlayerHandler.handleLogout(player);
 			}
+		}
+		try {
+			Scoreboard.save();
+		} catch (IOException e) {
+
 		}
 		WellOfGoodness.save();
 		ClanChatManager.save();

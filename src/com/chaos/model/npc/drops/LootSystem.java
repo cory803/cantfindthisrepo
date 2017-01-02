@@ -8,6 +8,7 @@ import com.chaos.model.Locations;
 import com.chaos.model.Position;
 import com.chaos.model.container.impl.Bank;
 import com.chaos.model.container.impl.Equipment;
+import com.chaos.model.definitions.ItemDefinition;
 import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.util.Misc;
 import com.chaos.world.World;
@@ -467,5 +468,18 @@ public class LootSystem {
                     + " has just received a wilderness key as a random drop!";
             World.sendMessage(message);
         }
+    }
+
+    /**
+     * Check if a item id is a barrows item
+     * @param item
+     * @return
+     */
+    public static boolean isBarrows(int item) {
+        String itemName = ItemDefinition.forId(item).getName().toLowerCase();
+        if(itemName.contains("guthan") || itemName.contains("dharok") || itemName.contains("verac") || itemName.contains("ahrim") || itemName.contains("torag") || itemName.contains("karil")) {
+            return true;
+        }
+        return false;
     }
 }

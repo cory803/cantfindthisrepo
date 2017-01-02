@@ -198,6 +198,9 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 589:
                                 Enchanting.update_interface(player);
                             break;
+                            case 30205:
+                                player.getDialog().sendDialog(new ChooseScoreboard(player));
+                                break;
                             case 28089:
                                 if (!GameSettings.POS_ENABLED) {
                                     player.getPacketSender().sendMessage("Player owned shops have been disabled.");
@@ -1877,9 +1880,13 @@ public class ObjectActionPacketListener implements PacketListener {
                                         break;
                                     case 2:
                                         if (player.getPosition().getX() == 2846) {
-                                            if (player.getInventory().getAmount(8851) < 50) {
+                                            int requiredAmount = 50;
+                                            if(player.getDonatorRights() != DonatorRights.PLAYER) {
+                                                requiredAmount = 25;
+                                            }
+                                            if (player.getInventory().getAmount(8851) < requiredAmount) {
                                                 player.getPacketSender()
-                                                        .sendMessage("You need at least 50 tokens to enter this area.");
+                                                        .sendMessage("You need at least "+requiredAmount+" tokens to enter this area.");
                                                 return;
                                             }
                                             player.moveTo(new Position(2847, player.getPosition().getY(), 2));
@@ -1928,6 +1935,7 @@ public class ObjectActionPacketListener implements PacketListener {
                             case 19184:
                             case 19182:
                             case 19178:
+                            case 19186:
                                 Hunter.lootTrap(player, gameObject);
                                 break;
                             case 28716:

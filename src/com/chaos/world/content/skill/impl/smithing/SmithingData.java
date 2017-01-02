@@ -1350,7 +1350,7 @@ public class SmithingData {
 			break;
 
 		case 1071: // Mithril plateleggs
-			xp = 250;
+			xp = 150;
 			reqLvl = 66;
 			break;
 
