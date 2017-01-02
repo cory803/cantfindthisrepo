@@ -6040,3 +6040,108 @@ NullPointerException  at com.chaos.world.content.HalloweenEvent.spawnPumpkins(Ha
   at java.lang.Thread.run(Thread.java:745)
 
 ================================
+Date: Sun Jan 01 23:08:51 PST 2017
+IllegalArgumentException: bound must be positive
+  at java.util.Random.nextInt(Random.java:388)
+  at com.chaos.world.content.lottery.LotterySaving.execute(LotterySaving.java:50)
+  at com.chaos.world.World.sequence(World.java:377)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Sun Jan 01 23:08:52 PST 2017
+IllegalArgumentException: bound must be positive
+  at java.util.Random.nextInt(Random.java:388)
+  at com.chaos.world.content.lottery.LotterySaving.execute(LotterySaving.java:50)
+  at com.chaos.world.World.sequence(World.java:377)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Sun Jan 01 23:08:52 PST 2017
+IllegalArgumentException: bound must be positive
+  at java.util.Random.nextInt(Random.java:388)
+  at com.chaos.world.content.lottery.LotterySaving.execute(LotterySaving.java:50)
+  at com.chaos.world.World.sequence(World.java:377)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Sun Jan 01 23:08:53 PST 2017
+IllegalArgumentException: bound must be positive
+  at java.util.Random.nextInt(Random.java:388)
+  at com.chaos.world.content.lottery.LotterySaving.execute(LotterySaving.java:50)
+  at com.chaos.world.World.sequence(World.java:377)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Sun Jan 01 23:08:53 PST 2017
+IllegalArgumentException: bound must be positive
+  at java.util.Random.nextInt(Random.java:388)
+  at com.chaos.world.content.lottery.LotterySaving.execute(LotterySaving.java:50)
+  at com.chaos.world.World.sequence(World.java:377)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Sun Jan 01 23:08:54 PST 2017
+IllegalArgumentException: bound must be positive
+  at java.util.Random.nextInt(Random.java:388)
+  at com.chaos.world.content.lottery.LotterySaving.execute(LotterySaving.java:50)
+  at com.chaos.world.World.sequence(World.java:377)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================
+Date: Sun Jan 01 23:08:55 PST 2017
+IllegalArgumentException: bound must be positive
+  at java.util.Random.nextInt(Random.java:388)
+  at com.chaos.world.content.lottery.LotterySaving.execute(LotterySaving.java:50)
+  at com.chaos.world.World.sequence(World.java:377)
+  at com.chaos.engine.GameEngine.run(GameEngine.java:49)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+  at java.lang.Thread.run(Thread.java:745)
+
+================================

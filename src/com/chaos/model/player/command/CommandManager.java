@@ -13,6 +13,9 @@ import com.chaos.world.content.combat.CombatType;
 import com.chaos.world.content.combat.DesolaceFormulas;
 import com.chaos.world.content.combat.effect.EquipmentBonus;
 import com.chaos.world.content.combat.weapon.CombatSpecial;
+import com.chaos.world.content.lottery.Lotteries;
+import com.chaos.world.content.lottery.Lottery;
+import com.chaos.world.content.lottery.LotterySaving;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.transportation.TeleportHandler;
 import com.chaos.world.content.transportation.TeleportType;
@@ -27,6 +30,7 @@ import org.scripts.kotlin.content.commands.writenpc.WriteNPC;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -59,6 +63,54 @@ public class CommandManager {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
                 player.forceChat("[Chaos] My game mode is "+player.getGameModeAssistant().getModeName()+".");
+            }
+        });
+        commands.put("dolottery", new Command(StaffRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                int index = new Random().nextInt(LotterySaving.lottery1.getOffers().size());
+                if(LotterySaving.lottery1.getOffers().get(index) == null) {
+                    player.getPacketSender().sendMessage("This lottery is null.");
+                    return;
+                }
+                if(LotterySaving.lottery1.getOffers().get(index).getUsername() == null) {
+                    player.getPacketSender().sendMessage("This lottery username is null.");
+                    return;
+                }
+                String winner = LotterySaving.lottery1.getOffers().get(index).getUsername();
+                int totalInLottery = 0;
+                for(Lottery lottery: LotterySaving.lottery1.getOffers()) {
+                    if(lottery == null) {
+                        continue;
+                    }
+                    if(lottery.getUsername() == null) {
+                        continue;
+                    }
+                    if(lottery.getUsername().equalsIgnoreCase(winner)) {
+                        totalInLottery++;
+                    }
+                }
+                double percentage = (double) totalInLottery / LotterySaving.lottery1.getOffers().size() * 100;
+                DecimalFormat format = new DecimalFormat("#.##");
+                percentage = Double.valueOf(format.format(percentage));
+                Player other = World.getPlayerByName(winner);
+                if(other != null) {
+                    other.forceChat("[CHAOS] I have just won the $50 Lottery!");
+                    other.getPacketSender().sendMessage("Congratulations, you won the $50 Lottery. Contact a Owner!");
+                }
+                World.sendMessage("<icon=1><shad=FF8C38>[News] " + winner + " has won the $50 cash Lottery with a "+percentage+"% chance.");
+                LotterySaving.save();
+            }
+        });
+        commands.put("startlottery", new Command(StaffRights.OWNER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                if(LotterySaving.lottery1Timer == 0) {
+                    LotterySaving.lottery1Timer = System.currentTimeMillis();;
+                }
+                LotterySaving.lottery1 = new Lotteries(null);
+                LotterySaving.LOTTERY_ON = true;
+                World.sendMessage("<icon=1><shad=FF8C38>[News] The $50 cash lottery has been started!");
             }
         });
         commands.put("sendcaperecolor", new Command(StaffRights.PLAYER) {
@@ -471,6 +523,7 @@ public class CommandManager {
             public void execute(Player player, String[] args, StaffRights privilege) {
                 World.savePlayers();
                 PlayerOwnedShops.save();
+                LotterySaving.save();
                 player.getPacketSender().sendMessage("Saved players!");
             }
         });

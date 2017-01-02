@@ -149,6 +149,7 @@ public class TreasureChest {
 		new Item(2362, 25), //Adamant bar
 		new Item(2360, 50), //Mithril bar
 		new Item(995, 5000000), //Coins
+		new Item(13664, 1), //$50 lottery ticket
 	};
 
 	/**

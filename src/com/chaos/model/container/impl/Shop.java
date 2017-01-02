@@ -782,6 +782,8 @@ public class Shop extends ItemContainer {
 						return new Object[] { 20, "Vote points" };
 					case 15426:
 						return new Object[] { 250, "Vote points" };
+					case 13664:
+						return new Object[] { 10, "Vote points" };
 					case 6:
 					case 8:
 					case 10:
@@ -806,6 +808,9 @@ public class Shop extends ItemContainer {
 				switch (item) {
 					case 7478:
 						return new Object[] { 1250, "Pk points" };
+
+					case 13664:
+						return new Object[] { 1000, "Pk points" };
 
 					case 14484:
 						return new Object[] { 5750, "Pk points" };
@@ -1285,6 +1290,8 @@ public class Shop extends ItemContainer {
 					case 11664:
 					case 11665:
 						return new Object[]{150, "Commendations"};
+					case 13664:
+						return new Object[]{200, "Commendations"};
 					case 10551:
 						return new Object[]{400, "Commendations"};
 					case 19780:

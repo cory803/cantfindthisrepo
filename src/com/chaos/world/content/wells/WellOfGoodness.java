@@ -28,7 +28,7 @@ public class WellOfGoodness {
 
     private static CopyOnWriteArrayList<Player> DONATORS = new CopyOnWriteArrayList<Player>();
 
-    private static long[] START_TIMER = { 0, 0,0 };
+    private static long[] START_TIMER = { 0, 0, 0 };
     private static int[] MONEY_IN_WELL = { 0, 0, 0 };
     private static boolean[] isFull = { false, false, false };
 

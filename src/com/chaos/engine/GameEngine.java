@@ -6,6 +6,7 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.ThreadPoolExecutor.CallerRunsPolicy;
 import java.util.concurrent.TimeUnit;
 
+import com.chaos.world.content.lottery.LotterySaving;
 import com.chaos.world.entity.impl.player.Player;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.world.content.pos.PlayerOwnedShops;
@@ -76,6 +77,7 @@ public final class GameEngine implements Runnable {
 			World.logError("game_engine_error_log.txt", (Exception) e);
 			World.savePlayers();
 			PlayerOwnedShops.save();
+			LotterySaving.save();
 			ClanChatManager.save();
 		}
 	}

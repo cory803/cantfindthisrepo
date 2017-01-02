@@ -12,6 +12,7 @@ import com.chaos.model.*;
 import com.chaos.world.content.Gambling;
 import com.chaos.world.content.HalloweenEvent;
 import com.chaos.world.content.diversions.hourly.HourlyDiversionManager;
+import com.chaos.world.content.lottery.LotterySaving;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.chaos.GameServer;
 import com.chaos.GameSettings;
@@ -373,7 +374,7 @@ public class World {
 		}
 		long minigame_start = System.currentTimeMillis();
 		long logoutCycle = minigame_start - logout_start;
-
+		LotterySaving.execute();
 		FightPit.sequence();
 		PestControl.sequence();
 		HourlyDiversionManager.pulse();

@@ -1,7 +1,5 @@
 package com.chaos.world.entity.impl.player;
 
-import static com.chaos.world.content.Lottery.onLogin;
-
 import com.chaos.GameServer;
 import com.chaos.GameSettings;
 import com.chaos.engine.task.TaskManager;
@@ -262,7 +260,6 @@ public class PlayerHandler {
 		if (player.getPointsHandler().getAchievementPoints() > AchievementData.values().length) {
 			player.getPointsHandler().setAchievementPoints(AchievementData.values().length, false);
 		}
-		onLogin(player);
 		Locations.login(player);
 		player.getPacketSender().sendString(1, "[CLEAR]");
 		ClanChatManager.handleLogin(player);

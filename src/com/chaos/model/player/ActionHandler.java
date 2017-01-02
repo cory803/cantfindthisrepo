@@ -138,7 +138,7 @@ public final class ActionHandler {
 
             //Gambler
             case 2998:
-                player.getDialog().sendDialog(new Gambler(player));
+                player.getDialog().sendDialog(new Gambler(player, 0, 1));
                 break;
 
             //Runecrafting npc

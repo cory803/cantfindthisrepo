@@ -6,6 +6,7 @@ import java.util.logging.Logger;
 import com.chaos.GameServer;
 import com.chaos.world.World;
 import com.chaos.world.content.Scoreboard;
+import com.chaos.world.content.lottery.LotterySaving;
 import com.chaos.world.content.pos.PlayerOwnedShops;
 import com.chaos.world.content.wells.WellOfGoodness;
 import com.chaos.world.content.clan.ClanChatManager;
@@ -36,6 +37,7 @@ public class ShutdownHook extends Thread {
 		}
 		WellOfGoodness.save();
 		ClanChatManager.save();
+		LotterySaving.save();
 		PlayerOwnedShops.save();
 		logger.info("The shudown hook actions have been completed, shutting the server down...");
 	}

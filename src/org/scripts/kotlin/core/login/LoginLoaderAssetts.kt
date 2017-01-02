@@ -2,7 +2,6 @@ package org.scripts.kotlin.core.login
 
 import com.chaos.model.Locations
 import com.chaos.world.content.Achievements
-import com.chaos.world.content.Lottery
 import com.chaos.world.content.PlayerPanel
 import com.chaos.world.content.clan.ClanChatManager
 import com.chaos.world.entity.impl.player.Player
@@ -18,7 +17,6 @@ class LoginLoaderAssetts {
             if (player.pointsHandler.achievementPoints > Achievements.AchievementData.values().size) {
                 player.pointsHandler.setAchievementPoints(Achievements.AchievementData.values().size, false)
             }
-            Lottery.onLogin(player)
             Locations.login(player)
             player.getPacketSender().sendString(1, "[CLEAR]")
             ClanChatManager.handleLogin(player)

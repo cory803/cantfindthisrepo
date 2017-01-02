@@ -82,7 +82,6 @@ public final class NpcAggression {
 					if (CombatFactory.checkHook(npc, player)) {
 						player.setTargeted(true);
 						//npc.follow(player);
-						System.out.println("Attack!!");
 						npc.getCombatBuilder().attack(player);
 						npc.setFindNewTarget(false);
 						//break;

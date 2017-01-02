@@ -9,6 +9,7 @@ import com.chaos.util.FilterExecutable
 import com.chaos.world.World
 import com.chaos.world.content.wells.WellOfGoodness
 import com.chaos.world.content.clan.ClanChatManager
+import com.chaos.world.content.lottery.LotterySaving
 import com.chaos.world.entity.impl.player.Player
 import com.chaos.world.content.pos.PlayerOwnedShops
 
@@ -49,6 +50,7 @@ class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
                                 World.deregister(player)
                             }
                         })
+                        LotterySaving.save()
                         PlayerOwnedShops.save()
                         ClanChatManager.save()
                         WellOfGoodness.save()

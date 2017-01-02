@@ -126,9 +126,9 @@ public class UseItemPacketListener implements PacketListener {
 			if (itemUsedWith.getId() == 12435) {
 				if (player.getSummoning().getFamiliar() != null) {
 					if (player.getSummoning().getFamiliar().getSummonNpc().getId() == 6873) {
-						if (!player.getSummoningTimer().elapsed(30000)) {
+						if (!player.getSummoningTimer().elapsed(15000)) {
 							player.getPacketSender().sendMessage(
-									"You must wait 30 seconds in order to use the winter storage scroll effect.");
+									"You must wait 15 seconds in order to use the winter storage scroll effect.");
 							return;
 						}
 						if (usedWith.getDefinition().isNoted() || usedWith.getDefinition().isStackable()) {

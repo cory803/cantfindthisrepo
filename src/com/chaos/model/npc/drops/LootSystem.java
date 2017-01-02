@@ -127,6 +127,28 @@ public class LootSystem {
                     new GroundItem(new Item(7956), pos, player.getUsername(), false, 150, true, 200));
         }
     }
+
+    public static void lotteryDrop(Player player, int combat, int veryRare, int health, Position pos) {
+        boolean boss = (health > 2500);
+        int chance = (veryRare / 10) * 2;
+        if(boss) {
+            chance /= 2;
+        }
+        if(combat < 50) {
+          chance += 50 - combat;
+        }
+        if(combat <= 0 || combat >= 1500) {
+            return;
+        }
+        System.out.println(""+chance);
+        if (Misc.inclusiveRandom(1, chance) == 2) {
+            GroundItemManager.spawnGroundItem(player,
+                    new GroundItem(new Item(13664), pos, player.getUsername(), false, 150, true, 200));
+            player.getPacketSender().sendMessage("<col=3A3DA4>The monster you have killed has dropped a $50 Lottery Ticket.");
+            player.getPacketSender().sendMessage("<col=3A3DA4>You can sell this ticket, or use it for a chance to get $50 cash.");
+        }
+    }
+
     /**
      * Processes our drop method for the player given the killed npc.
      * @param p {@link Player} The player that killed the {@link NPC}
@@ -171,6 +193,7 @@ public class LootSystem {
             }
             if(n.getId() != 5871) {
                 casketDrop(p, n.getDefinition().getCombatLevel(), n.getPosition());
+                lotteryDrop(p, n.getDefinition().getCombatLevel(), n.getDefinition().getVeryRare(), n.getDefinition().getHitpoints(), n.getPosition());
             }
         }
 

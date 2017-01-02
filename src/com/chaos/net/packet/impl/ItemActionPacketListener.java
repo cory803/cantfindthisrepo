@@ -36,6 +36,7 @@ import com.chaos.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.ChooseFlower;
 import org.scripts.kotlin.content.dialog.KnightLamp;
 import org.scripts.kotlin.content.dialog.TrustedDicerScroll;
+import org.scripts.kotlin.content.dialog.UseLottery;
 import org.scripts.kotlin.content.dialog.npcs.OpenScroll;
 
 public class ItemActionPacketListener implements PacketListener {
@@ -198,6 +199,10 @@ public class ItemActionPacketListener implements PacketListener {
 					}
 				}
 				player.getPacketSender().sendMessage("You do not have 100 Shards of Armadyl");
+				break;
+			case 13664:
+				player.setNpcClickId(2998);
+				player.getDialog().sendDialog(new UseLottery(player));
 				break;
 			case 8013:
 				if (player.isJailed()) {
