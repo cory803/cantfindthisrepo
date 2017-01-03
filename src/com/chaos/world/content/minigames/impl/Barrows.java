@@ -232,7 +232,7 @@ public class Barrows {
 				player.getInventory().add(randomRunes(), 25 + Misc.getRandom(300));
 				player.getInventory().add(995, Misc.inclusiveRandom(1500, 25000));
 				player.barrowsChestsLooted++;
-				if (Misc.getRandom(100) >= 87) {
+				if (Misc.getRandom(100) >= 92) {
 					int b = randomBarrows();
 					//int dragonKite = Misc.inclusiveRandom(1, 132);
 					player.getInventory().add(b, 1);
