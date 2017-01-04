@@ -27,8 +27,8 @@ public class SkillingAreas extends Dialog {
             case 0:
                 return Dialog.createOption(new FiveOption(
                         "Catherby",
-                        "Skilling Zone (Low)",
-                        "Skilling Zone (High)",
+                        "Low Skilling Zone",
+                        "High Skilling Zone",
                         "Living Rock Cavern",
                         "Resource Area @bla@(@red@Wild@bla@)") {
                     @Override
@@ -41,7 +41,12 @@ public class SkillingAreas extends Dialog {
                                 TeleportHandler.teleportPlayer(player, new Position(2802, 2785, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2852, 2960, 0), player.getSpellbook().getTeleportType());
+                                if (player.getSkillManager().getTotalLevel() >= 1000) {
+                                    TeleportHandler.teleportPlayer(player, new Position(2852, 2960, 0), player.getSpellbook().getTeleportType());
+                                } else {
+                                    player.getPacketSender().sendInterfaceRemoval();
+                                    player.getPacketSender().sendMessage("@red@You need to have over 1000 total level to teleport to this zone.");
+                                }
                                 break;
                             case OPTION_4_OF_5:
                                 TeleportHandler.teleportPlayer(player, new Position(3654, 5114, 0), player.getSpellbook().getTeleportType());
