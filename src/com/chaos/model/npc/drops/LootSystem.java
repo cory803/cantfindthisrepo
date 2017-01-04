@@ -130,7 +130,7 @@ public class LootSystem {
 
     public static void lotteryDrop(Player player, int combat, int veryRare, int health, Position pos) {
         boolean boss = (health > 2500);
-        int chance = (veryRare / 10) * 2;
+        int chance = (200 / 10) * 2;
         if(boss) {
             chance /= 2;
         }
@@ -140,7 +140,6 @@ public class LootSystem {
         if(combat <= 0 || combat >= 1500) {
             return;
         }
-        System.out.println(""+chance);
         if (Misc.inclusiveRandom(1, chance) == 2) {
             GroundItemManager.spawnGroundItem(player,
                     new GroundItem(new Item(13664), pos, player.getUsername(), false, 150, true, 200));
