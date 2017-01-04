@@ -1,13 +1,17 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
 import com.chaos.model.Item;
+import com.chaos.model.options.Option;
 import com.chaos.model.options.fiveoption.FiveOption;
+import com.chaos.model.options.threeoption.ThreeOption;
 import com.chaos.model.player.GameMode;
 import com.chaos.model.player.dialog.Dialog;
 import com.chaos.model.player.dialog.DialogHandler;
 import com.chaos.model.player.dialog.DialogMessage;
 import com.chaos.util.Misc;
 import com.chaos.world.entity.impl.player.Player;
+
+import static org.scripts.kotlin.content.dialog.npcs.PkSetsDialogue.PkSets.buyRunes;
 
 public class PkSetsDialogue extends Dialog {
     public enum PkSets {
@@ -51,6 +55,72 @@ public class PkSetsDialogue extends Dialog {
         private int cost;
         private Item[] items;
 
+        public static void buyRunes(Player player, int setNumber) {
+            int[] prices = { 160_000, 1_600_000, 140_000, 1_400_000 };
+            switch (setNumber) {
+                case 0:
+                    if (player.getMoneyInPouch() >= prices[setNumber]) {
+                        if (player.getInventory().getFreeSlots() >= 3) {
+                            player.setMoneyInPouch(player.getMoneyInPouch() - prices[setNumber]);
+                            player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch() + "");
+                            player.getInventory().add(565, 200);
+                            player.getInventory().add(560, 400);
+                            player.getInventory().add(555, 600);
+                        }
+                        player.getPacketSender().sendInterfaceRemoval();
+                    } else {
+                        player.getPacketSender().sendInterfaceRemoval();
+                        player.getPacketSender().sendMessage("You do not have enough money in your money pouch to buy this.");
+                    }
+                break;
+                case 1:
+                    if (player.getMoneyInPouch() >= prices[setNumber]) {
+                        if (player.getInventory().getFreeSlots() >= 3) {
+                            player.setMoneyInPouch(player.getMoneyInPouch() - prices[setNumber]);
+                            player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch() + "");
+                            player.getInventory().add(565, 2000);
+                            player.getInventory().add(560, 4000);
+                            player.getInventory().add(555, 6000);
+                        }
+                        player.getPacketSender().sendInterfaceRemoval();
+                    } else {
+                        player.getPacketSender().sendInterfaceRemoval();
+                        player.getPacketSender().sendMessage("You do not have enough money in your money pouch to buy this.");
+                    }
+                break;
+                case 2:
+                    if (player.getMoneyInPouch() >= prices[setNumber]) {
+                        if (player.getInventory().getFreeSlots() >= 3) {
+                            player.setMoneyInPouch(player.getMoneyInPouch() - prices[setNumber]);
+                            player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch() + "");
+                            player.getInventory().add(560, 200);
+                            player.getInventory().add(9075, 400);
+                            player.getInventory().add(557, 1000);
+                        }
+                        player.getPacketSender().sendInterfaceRemoval();
+                    } else {
+                        player.getPacketSender().sendInterfaceRemoval();
+                        player.getPacketSender().sendMessage("You do not have enough money in your money pouch to buy this.");
+                    }
+                break;
+                case 3:
+                    if (player.getMoneyInPouch() >= prices[setNumber]) {
+                        if (player.getInventory().getFreeSlots() >= 3) {
+                            player.setMoneyInPouch(player.getMoneyInPouch() - prices[setNumber]);
+                            player.getPacketSender().sendString(8135, "" + player.getMoneyInPouch() + "");
+                            player.getInventory().add(560, 2000);
+                            player.getInventory().add(9075, 4000);
+                            player.getInventory().add(557, 10000);
+                        }
+                        player.getPacketSender().sendInterfaceRemoval();
+                    } else {
+                        player.getPacketSender().sendInterfaceRemoval();
+                        player.getPacketSender().sendMessage("You do not have enough money in your money pouch to buy this.");
+                    }
+                break;
+            }
+        }
+
         public static void buySet(Player player, PkSets set) {
             player.getPacketSender().sendInterfaceRemoval();
             if (player.getGameModeAssistant().getGameMode() == GameMode.IRONMAN ) {
@@ -87,7 +157,7 @@ public class PkSetsDialogue extends Dialog {
 
     public PkSetsDialogue(Player player) {
         super(player);
-        setEndState(1);
+        setEndState(3);
     }
 
     @Override
@@ -96,6 +166,29 @@ public class PkSetsDialogue extends Dialog {
             case 0:
                 return Dialog.createNpc(DialogHandler.PLAIN_EVIL, "Hello " + getPlayer().getUsername() + "! Do you want to buy some pk quick sets?");
             case 1:
+                return Dialog.createOption(new ThreeOption(
+                        "Buy Armour Sets",
+                        "Buy Rune Sets",
+                        "Cancel") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_3:
+                                setState(2);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_2_OF_3:
+                                setState(3);
+                                player.getDialog().sendDialog(dialog);
+                                break;
+                            case OPTION_3_OF_3:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                break;
+                        }
+
+                    }
+                });
+            case 2:
                 return Dialog.createOption(new FiveOption(
                         "Pure Set (750k)",
                         "Main Hybrid Set (2.5m)",
@@ -121,6 +214,36 @@ public class PkSetsDialogue extends Dialog {
                                 PkSets.buySet(getPlayer(), PkSets.MAGIC_MAIN_SET);
                                 break;
                         }
+                    }
+                });
+            case 3:
+
+                return Dialog.createOption(new FiveOption(
+                        "Buy @blu@100@bla@ Barrage Casts 160k",
+                        "Buy @blu@1,000@bla@ Barrage Casts 1.6m",
+                        "Buy @blu@100@bla@ Vengeance Casts 140k",
+                        "Buy @blu@1,000@bla@ Vengeance Casts 1.4m",
+                        "Close") {
+                    @Override
+                    public void execute(Player player, OptionType option) {
+                        switch (option) {
+                            case OPTION_1_OF_5:
+                                buyRunes(player, 0);
+                                break;
+                            case OPTION_2_OF_5:
+                                buyRunes(player, 1);
+                                break;
+                            case OPTION_3_OF_5:
+                                buyRunes(player, 2);
+                                break;
+                            case OPTION_4_OF_5:
+                                buyRunes(player, 3);
+                                break;
+                            case OPTION_5_OF_5:
+                                player.getPacketSender().sendInterfaceRemoval();
+                                break;
+                        }
+
                     }
                 });
             }
