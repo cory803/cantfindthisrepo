@@ -107,7 +107,7 @@
   {
     "hash": 21003,
     "item-id": 21003,
-    "interface": "WHIP"
+    "interface": "WARHAMMER"
   }, 
   {
     "hash": 21004,
@@ -122,7 +122,7 @@
   {
     "hash": 21006,
     "item-id": 21006,
-    "interface": "WHIP"
+    "interface": "STAFF"
   },
   {
     "hash": 21007,
@@ -242,6 +242,11 @@
   {
     "hash": 4212,
     "item-id": 4212,
+    "interface": "SHORTBOW"
+  },
+  {
+    "hash": 20997,
+    "item-id": 20997,
     "interface": "SHORTBOW"
   },
   {

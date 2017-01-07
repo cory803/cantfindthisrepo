@@ -330,6 +330,24 @@ public class EquipPacketListener implements PacketListener {
 						player.getInventory().full();
 						return;
 					}
+				} else if (item.getId() == 21015 && item.getDefinition().getEquipmentSlot() == Equipment.SHIELD_SLOT) {
+					int slotsNeeded = 0;
+					if (player.getEquipment().isSlotOccupied(Equipment.SHIELD_SLOT)
+							&& player.getEquipment().isSlotOccupied(Equipment.WEAPON_SLOT)) {
+						slotsNeeded++;
+					}
+					if (player.getInventory().getFreeSlots() >= slotsNeeded) {
+						Item weapon = player.getEquipment().getItems()[Equipment.WEAPON_SLOT];
+						player.getInventory().add(weapon);
+						player.getInventory().delete(item);
+						player.getEquipment().delete(weapon);
+						player.getInventory().add(equipItem);
+						player.getInventory().add(weapon);
+						player.getEquipment().setItem(equipmentSlot, item);
+					} else {
+						player.getInventory().full();
+						return;
+					}
 				} else if (equipmentSlot == Equipment.SHIELD_SLOT
 						&& player.getEquipment().getItems()[Equipment.WEAPON_SLOT].getDefinition().isTwoHanded()) {
 					player.getInventory().setItem(slot, player.getEquipment().getItems()[Equipment.WEAPON_SLOT]);
@@ -360,7 +378,7 @@ public class EquipPacketListener implements PacketListener {
 						.sendMessage("<col=996633> Duel Arena.");
 			}
 
-			if (player.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 4153) {
+			if (player.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 4153 && player.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 21003) {
 				player.getCombatBuilder().cooldown(false);
 			}
 

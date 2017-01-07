@@ -450,7 +450,7 @@ public class Sounds {
 		{
 			return 420;
 		}
-		if (id == 4153) // gmaul
+		if (id == 4153 || id == 21003) // gmaul
 		{
 			return 1082;
 		}

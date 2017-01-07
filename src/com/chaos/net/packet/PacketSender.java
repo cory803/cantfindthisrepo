@@ -271,6 +271,12 @@ public class PacketSender {
 	}
 
 	public PacketSender updateSpecialAttackOrb() {
+		if(player.getCombatSpecial() != null) {
+			sendString(1, "SPECIALREQUIRED-" +player.getCombatSpecial().getDrainAmount());
+			sendString(1, "HASSPECWEAPON-true");
+		} else {
+			sendString(1, "HASSPECWEAPON-false");
+		}
 		PacketBuilder out = new PacketBuilder(111);
 		out.put(player.getSpecialPercentage());
 		player.getSession().queueMessage(out);

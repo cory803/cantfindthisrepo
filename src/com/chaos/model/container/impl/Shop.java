@@ -751,58 +751,66 @@ public class Shop extends ItemContainer {
 		public static Object[] getCustomShopData(int shop, int item) {
 			if (shop == VOTING_REWARDS_STORE || shop == VOTING_REWARDS_STORE2) {
 				switch (item) {
-					case 9470:
-					case 22215:
-					case 22216:
-					case 22217:
-					case 22218:
-						return new Object[] { 10, "Vote points" };
-					case 18744:
-					case 18745:
-					case 18746:
-						return new Object[] { 100, "Vote points" };
-					case 6666:
-					case 13101:
-						return new Object[] { 5, "Vote points" };
-					case 21128:
-					case 21129:
-					case 21130:
-					case 21131:
-					case 21132:
-					case 21133:
-						return new Object[] { 10, "Vote points" };
-					case 22207:
-					case 22209:
-					case 22211:
-					case 22213:
-						return new Object[] { 25, "Vote points" };
-					case 20950:
-					case 20951:
-					case 20952:
+					case 15220:
 						return new Object[] { 20, "Vote points" };
-					case 15426:
-						return new Object[] { 250, "Vote points" };
-					case 13664:
+					case 15019:
+					case 15018:
 						return new Object[] { 10, "Vote points" };
+					case 6199:
+						return new Object[] { 15, "Vote points" };
+					case 4151:
+						return new Object[] { 25, "Vote points" };
+					case 6570:
+						return new Object[] { 15, "Vote points" };
+					case 19111:
+						return new Object[] { 20, "Vote points" };
+					case 15492:
+						return new Object[] { 100, "Vote points" };
+					case 15602:
+						return new Object[] { 50, "Vote points" };
+					case 15600:
+						return new Object[] { 75, "Vote points" };
+					case 15604:
+						return new Object[] { 75, "Vote points" };
+					case 10732:
+						return new Object[] { 80, "Vote points" };
+					case 5023:
+						return new Object[] { 10, "Vote points" };
+					case 14484:
+						return new Object[] { 75, "Vote points" };
+					case 11724:
+					case 11726:
+						return new Object[] { 50, "Vote points" };
+					case 11863:
+						return new Object[] { 2500, "Vote points" };
+					case 5608:
+						return new Object[] { 80, "Vote points" };
+					case 11846:
+					case 11848:
+					case 11850:
+					case 11852:
+					case 11854:
+					case 11856:
+						return new Object[] { 20, "Vote points" };
 					case 6:
 					case 8:
 					case 10:
 					case 12:
 						return new Object[] { 5, "Vote points" };
-					case 14749:
-					case 14759:
-					case 14763:
-					case 14773:
-						return new Object[] { 2, "Vote points" };
-					case 6570:
-						return new Object[] { 8, "Vote points" };
-					case 19711:
-					case 10551:
-					case 12954:
-					case 20072:
-						return new Object[] { 20, "Vote points" };
-					case 11716:
+					case 11665:
+					case 11664:
+					case 11663:
+						return new Object[] { 75, "Vote points" };
+					case 8840:
+					case 8839:
+						return new Object[] { 125, "Vote points" };
+					case 8842:
 						return new Object[] { 50, "Vote points" };
+					case 11283:
+					case 11235:
+						return new Object[] { 25, "Vote points" };
+					case 10551:
+						return new Object[] { 15, "Vote points" };
 				}
 			} else if (shop == PKING_REWARDS_STORE || shop == PKING_REWARDS_STORE2 || shop == PKING_REWARDS_STORE3) {
 				switch (item) {

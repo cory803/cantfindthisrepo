@@ -53,7 +53,7 @@ public enum CombatSpecial {
 			player.performAnimation(new Animation(14788));
 			player.performGraphic(new Graphic(1729));
 
-			return new CombatContainer(player, target, 1, 0, CombatType.MAGIC, true) {
+			return new CombatContainer(player, target, 1, 0, CombatType.MELEE, true) {
 				@Override
 				public void onHit(int damage, boolean accurate) {
 					target.performGraphic(new Graphic(1730));
@@ -130,7 +130,16 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 1, CombatType.RANGED, true);
 		}
 	},
-	GRANITE_MAUL(new int[] { 4153, 20084 }, 50, .65, 1, CombatType.MELEE, WeaponInterface.WARHAMMER) {
+	GRANITE_MAUL(new int[] { 4153, 20084 }, 50, .57, 1, CombatType.MELEE, WeaponInterface.WARHAMMER) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			player.performAnimation(new Animation(1667));
+			player.performGraphic(new Graphic(337, GraphicHeight.HIGH));
+			player.getCombatBuilder().setAttackTimer(1);
+			return new CombatContainer(player, target, 1, CombatType.MELEE, true);
+		}
+	},
+	ELDER_MAUL(new int[] { 21003 }, 50, .44, 1.3, CombatType.MELEE, WeaponInterface.WARHAMMER) {
 		@Override
 		public CombatContainer container(Player player, Character target) {
 			player.performAnimation(new Animation(1667));
@@ -214,7 +223,7 @@ public enum CombatSpecial {
 			player.performAnimation(new Animation(11993));
 			player.setEntityInteraction(target);
 
-			return new CombatContainer(player, target, 2, CombatType.MAGIC, true) {
+			return new CombatContainer(player, target, 2, CombatType.MELEE, true) {
 				@Override
 				public void onHit(int damage, boolean accurate) {
 					target.performGraphic(new Graphic(1194));
@@ -297,6 +306,42 @@ public enum CombatSpecial {
 			});
 
 			return new CombatContainer(player, target, 2, CombatType.RANGED, true);
+		}
+	},
+	TWISTED_BOW(new int[] { 20997 }, 55, 1.3, 1.5, CombatType.RANGED, WeaponInterface.SHORTBOW) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+
+			player.performAnimation(new Animation(1074));
+			player.performGraphic(new Graphic(250, GraphicHeight.HIGH));
+			new Projectile(player, target, 249, 44, 3, 43, 31, 0).sendProjectile();
+
+			TaskManager.submit(new Task(1, player, false) {
+				@Override
+				public void execute() {
+
+					new Projectile(player, target, 249, 44, 3, 43, 31, 0).sendProjectile();
+					this.stop();
+				}
+			});
+
+			return new CombatContainer(player, target, 2, CombatType.RANGED, true) {
+				@Override
+				public void onHit(int damage, boolean accurate) {
+					if (target.isPlayer() && accurate) {
+						Player t = (Player) target;
+						int currentDef = t.getSkillManager().getCurrentLevel(Skill.DEFENCE);
+						int defDecrease = (int) (currentDef * 0.30);
+						if ((currentDef - defDecrease) <= 0 || currentDef <= 0)
+							return;
+						if(t != null) {
+							t.getSkillManager().setCurrentLevel(Skill.DEFENCE, currentDef - defDecrease);
+							t.getPacketSender().sendMessage("Your opponent has reduced your Defence level.");
+							player.getPacketSender().sendMessage("Your bow forces some of your opponent's defences to break.");
+						}
+					}
+				}
+			};
 		}
 	},
 	ZARYTE_BOW(new int[] { 20171 }, 100, 0.40, 1.30, CombatType.RANGED, WeaponInterface.SHORTBOW) {
@@ -802,6 +847,7 @@ public enum CombatSpecial {
 	 *            the player who's special bar will be updated.
 	 */
 	public static void updateBar(Player player) {
+		player.getPacketSender().updateSpecialAttackOrb();
 		if (player.getWeapon().getSpecialBar() == -1 || player.getWeapon().getSpecialMeter() == -1) {
 			return;
 		}
@@ -874,7 +920,7 @@ public enum CombatSpecial {
 			final CombatSpecial spec = player.getCombatSpecial();
 			boolean instantSpecial = spec == CombatSpecial.GRANITE_MAUL || spec == CombatSpecial.DRAGON_BATTLEAXE
 					|| spec == CombatSpecial.STAFF_OF_LIGHT || spec == CombatSpecial.TOXIC_STAFF_OF_DEAD
-					|| spec == CombatSpecial.STAFF_OF_DEAD || spec == SIR_OWENS_LONGSWORD;
+					|| spec == CombatSpecial.STAFF_OF_DEAD || spec == CombatSpecial.ELDER_MAUL || spec == SIR_OWENS_LONGSWORD;
 			if (spec != CombatSpecial.STAFF_OF_LIGHT && spec != CombatSpecial.TOXIC_STAFF_OF_DEAD
 					&& spec != CombatSpecial.STAFF_OF_DEAD && player.isAutocast()) {
 				Autocasting.resetAutocast(player, true);
@@ -891,7 +937,7 @@ public enum CombatSpecial {
 			player.setSpecialActivated(true);
 			if (instantSpecial) {
 				spec.onActivation(player, player.getCombatBuilder().getVictim());
-				if (spec == CombatSpecial.GRANITE_MAUL && player.getCombatBuilder().isAttacking()
+				if ((spec == CombatSpecial.GRANITE_MAUL || spec == CombatSpecial.ELDER_MAUL) && player.getCombatBuilder().isAttacking()
 						&& !player.getCombatBuilder().isCooldown()) {
 					player.getCombatBuilder().setAttackTimer(0);
 					player.getCombatBuilder().attack(player.getCombatBuilder().getVictim());

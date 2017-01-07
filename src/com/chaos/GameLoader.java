@@ -8,9 +8,11 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import com.chaos.cache.Archive;
+import com.chaos.ect.dropwriting.DropManager;
 import com.chaos.model.definitions.*;
 import com.chaos.model.npc.drops.LootSystem;
 import com.chaos.util.*;
+import com.chaos.util.wiki.WikiDumper;
 import com.chaos.world.World;
 import com.chaos.world.content.Scoreboard;
 import com.chaos.world.content.lottery.LotterySaving;
@@ -129,7 +131,7 @@ public final class GameLoader {
 		/**
 		 * Dump a drop table for a specific npc id.
 		 */
-		//WikiDumper.dumpNpcDropDefinition(50);
+		//WikiDumper.dumpNpcDropDefinition(7286);
 		//DropManager.saveDrops();
 	}
 

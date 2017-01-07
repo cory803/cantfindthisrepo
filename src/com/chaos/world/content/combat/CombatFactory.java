@@ -460,8 +460,6 @@ public final class CombatFactory {
 
                 double meleeValue = maxMelee * .95;
 
-                //System.out.println("Max melee hit: "+maxMelee);
-
                 int meleeHit = (int) (maxMelee <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxMelee) * MELEE_ACCURACY_CALC.getAccuracy(entity, victim));
 
                 if(meleeHit > (int)meleeValue) {
@@ -474,7 +472,7 @@ public final class CombatFactory {
 
                 double rangeValue = maxRange * .95;
 
-                //System.out.println("Max range hit: "+maxRange);
+                System.out.println("Max range hit: "+maxRange);
 
                 int rangeHit = (int) (maxRange <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxRange) * RANGED_ACCURACY_CALC.getAccuracy(entity, victim));
 
@@ -1220,6 +1218,17 @@ public final class CombatFactory {
                             }
                         }
                     });
+                }
+                if(builder.getCharacter().isNpc()) {
+                    if (victim.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId() == 21015) {
+                        container.allHits(context -> {
+                            if (context.getHit().getDamage() > 0) {
+                                context.getHit().incrementAbsorbedDamage(
+                                        (int) (context.getHit().getDamage() - (context.getHit().getDamage() * 0.50)));
+
+                            }
+                        });
+                    }
                 }
                 if (victim.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId() == 21104) {
                     container.allHits(context -> {

@@ -420,7 +420,7 @@ public class PestControl {
 			return;
 		switch (_npc) {
 		case SPINNER:
-			processSpinner(npc);
+			//processSpinner(npc);
 			break;
 		case SHIFTER:
 			processShifter(npc, _npc);

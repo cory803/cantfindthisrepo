@@ -4952,6 +4952,168 @@ Epic (1/750)
 1x Scorpia's offspring (1/750)
 
 
+Monster: Ahrim the Blighted(Level: 98) (id = 2025)
+---------------
+
+Always
+1x Bones
+
+Common
+1-500x Mind rune
+1-200x Chaos rune
+1-100x Death rune
+
+Uncommon (1/10)
+1-40x Blood rune
+1-2000x Coins
+
+Rare (1/50)
+1x Loop half of a key (1/150)
+1x Tooth half of a key (1/150)
+1x Dragon med helm (1/150)
+
+Very Rare (1/40)
+1x Ahrim's hood (1/160)
+1x Ahrim's staff (1/160)
+1x Ahrim's robetop (1/160)
+1x Ahrim's robeskirt (1/160)
+
+
+Monster: Dharok the Wretched(Level: 115) (id = 2026)
+---------------
+
+Always
+1x Bones
+
+Common
+1-500x Mind rune
+1-200x Chaos rune
+1-100x Death rune
+
+Uncommon (1/10)
+1-40x Blood rune
+1-2000x Coins
+
+Rare (1/50)
+1x Loop half of a key (1/150)
+1x Tooth half of a key (1/150)
+1x Dragon med helm (1/150)
+
+Very Rare (1/40)
+1x Dharok's helm (1/160)
+1x Dharok's greataxe (1/160)
+1x Dharok's platebody (1/160)
+1x Dharok's platelegs (1/160)
+
+
+Monster: Guthan the Infested(Level: 115) (id = 2027)
+---------------
+
+Always
+1x Bones
+
+Common
+1-500x Mind rune
+1-200x Chaos rune
+1-100x Death rune
+
+Uncommon (1/10)
+1-40x Blood rune
+1-2000x Coins
+
+Rare (1/50)
+1x Loop half of a key (1/150)
+1x Tooth half of a key (1/150)
+1x Dragon med helm (1/150)
+
+Very Rare (1/40)
+1x Guthan's helm (1/160)
+1x Guthan's warspear (1/160)
+1x Guthan's platebody (1/160)
+1x Guthan's chainskirt (1/160)
+
+
+Monster: Karil the Tainted(Level: 98) (id = 2028)
+---------------
+
+Always
+1x Bones
+
+Common
+1-500x Mind rune
+1-200x Chaos rune
+1-100x Death rune
+
+Uncommon (1/10)
+1-40x Blood rune
+1-2000x Coins
+
+Rare (1/50)
+1x Loop half of a key (1/150)
+1x Tooth half of a key (1/150)
+1x Dragon med helm (1/150)
+
+Very Rare (1/40)
+1x Karil's coif (1/160)
+1x Karil's crossbow (1/160)
+1x Karil's top (1/160)
+1x Karil's skirt (1/160)
+
+
+Monster: Torag the Corrupted(Level: 115) (id = 2029)
+---------------
+
+Always
+1x Bones
+
+Common
+1-500x Mind rune
+1-200x Chaos rune
+1-100x Death rune
+
+Uncommon (1/10)
+1-40x Blood rune
+1-2000x Coins
+
+Rare (1/50)
+1x Loop half of a key (1/150)
+1x Tooth half of a key (1/150)
+1x Dragon med helm (1/150)
+
+Very Rare (1/40)
+1x Torag's helm (1/160)
+1x Torag's hammers (1/160)
+1x Torag's platebody (1/160)
+1x Torag's platelegs (1/160)
+
+
+Monster: Verac the Defiled(Level: 115) (id = 2030)
+---------------
+
+Always
+1x Bones
+
+Common
+1-500x Mind rune
+1-200x Chaos rune
+1-100x Death rune
+
+Uncommon (1/10)
+1-40x Blood rune
+1-2000x Coins
+
+Rare (1/50)
+1x Loop half of a key (1/150)
+1x Tooth half of a key (1/150)
+1x Dragon med helm (1/150)
+
+Very Rare (1/40)
+1x Verac's helm (1/160)
+1x Verac's flail (1/160)
+1x Verac's brassard (1/160)
+1x Verac's plateskirt (1/160)
+
+
 Monster: Bloodworm(Level: 52) (id = 2031)
 ---------------
 
@@ -11484,6 +11646,34 @@ Very Rare (1/200)
 
 Epic (1/1000)
 1x Pet chaos elemental (1/1000)
+
+
+Monster: Skotizo(Level: 321) (id = 7286)
+---------------
+
+Common
+1x Death rune
+1x Soul rune
+1x Blood rune
+1x Rune platebody
+1x Rune kiteshield
+1x Rune platelegs
+1x Rune plateskirt
+1x Grimy ranarr
+1x Grimy snapdragon
+1x Grimy torstol
+1x Uncut dragonstone
+1x Battlestaff
+1x Onyx bolt tips
+1x Adamantite ore
+1x Rune bar
+1x Mahogany plank
+
+Very Rare (1/500)
+1x Kodai wand (1/2000)
+1x Elder maul (1/2000)
+1x Twisted bow (1/2000)
+1x Dinh's bulwark (1/2000)
 
 
 Monster: Corporeal Beast(Level: 785) (id = 8133)

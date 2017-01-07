@@ -81,6 +81,8 @@ public class Player extends Character {
         this.session = playerIO;
     }
 
+    private String teleportType = "null";
+
     public boolean completedAchievements = false;
     private String title = "null";
 
@@ -479,6 +481,7 @@ public class Player extends Character {
         int speed = weapon.getSpeed();
         String weapon = equipment.get(Equipment.WEAPON_SLOT).getDefinition().getName();
         int weaponId = equipment.get(Equipment.WEAPON_SLOT).getId();
+        int shieldId = equipment.get(Equipment.SHIELD_SLOT).getId();
         if (getCurrentlyCasting() != null) {
             if (equipment.get(Equipment.WEAPON_SLOT).getId() == 11905 || equipment.get(Equipment.WEAPON_SLOT).getId() == 12899) {
                 return 4;
@@ -491,6 +494,9 @@ public class Player extends Character {
             } else {
                 return 5;
             }
+        }
+        if(shieldId == 21015) {
+            return 7;
         }
         if(weaponId == 4734) {
             speed = 4;
@@ -3243,5 +3249,13 @@ public class Player extends Character {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getTeleportType() {
+        return teleportType;
+    }
+
+    public void setTeleportType(String teleportType) {
+        this.teleportType = teleportType;
     }
 }

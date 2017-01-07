@@ -77,7 +77,9 @@ public final class MeleeAccuracyCalculator implements AccuracyCalculator {
 		 */
 		int attackerRoll = getAttackerRoll(source, victim);
 		int defenderRoll = getDefenderRoll(source, victim);
-		
+
+		defenderRoll *= .75;
+
 		if (CombatFactory.fullDharoks(source) && victim.isPlayer()
 				&& MathUtil.random(2) == 0) {
 			attackerRoll += (attackerRoll / 2) + MathUtil.random(attackerRoll / 4);

@@ -109,6 +109,12 @@ public class CombatBuilder {
 			}
 			return;
 		}
+//		if(character.isNpc()) {
+//			NPC npc = (NPC)character;
+//			if(!npc.canWalk()) {
+//				return;
+//			}
+//		}
 		distanceSession = new CombatDistanceSession(this, target);
 	}
 

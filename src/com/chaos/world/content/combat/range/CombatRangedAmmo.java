@@ -76,7 +76,7 @@ public class CombatRangedAmmo {
 																										AmmunitionData.ICE_ARROW,
 																										AmmunitionData.BROAD_ARROW },
 																								RangedWeaponType.LONGBOW), MAGIC_SHORTBOW(
-																										new int[] { 861,
+																										new int[] { 861, 20997,
 																												6724, 21136 },
 																										new AmmunitionData[] {
 																												AmmunitionData.BRONZE_ARROW,

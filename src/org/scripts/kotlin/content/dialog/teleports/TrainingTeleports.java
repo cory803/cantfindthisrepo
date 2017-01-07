@@ -14,8 +14,9 @@ public class TrainingTeleports extends Dialog {
 
     public Dialog dialog = this;
 
-    public TrainingTeleports(Player player) {
+    public TrainingTeleports(Player player, int state) {
         super(player);
+        setState(state);
         setEndState(2);
     }
 

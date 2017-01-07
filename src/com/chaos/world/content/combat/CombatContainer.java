@@ -178,7 +178,7 @@ public class CombatContainer {
 				}
 			}
 			damage += hit.hit.getDamage();
-			if(damage == 0) {
+			if(damage == 0 && !bypass) {
 				hit.hit = new Hit(0, Hitmask.RED, CombatIcon.BLOCK);
 			}
 		}

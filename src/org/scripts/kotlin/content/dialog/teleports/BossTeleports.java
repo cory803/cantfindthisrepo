@@ -14,8 +14,9 @@ public class BossTeleports extends Dialog {
 
     public Dialog dialog = this;
 
-    public BossTeleports(Player player) {
+    public BossTeleports(Player player, int state) {
         super(player);
+        setState(state);
         setEndState(4);
     }
 

@@ -64,7 +64,7 @@ public class SlayerTeleports extends Dialog {
                                         TeleportHandler.teleportPlayer(player, new Position(2436, 3421, 0), TeleportType.NORMAL);
                                         break;
                                     case OPTION_2_OF_3:
-                                        TeleportHandler.teleportPlayer(player, new Position(2869, 2982, 0), TeleportType.NORMAL);
+                                        TeleportHandler.teleportPlayer(player, new Position(2970, 3342, 0), TeleportType.NORMAL);
                                         player.setDirection(Direction.SOUTH);
                                         break;
                                     case OPTION_3_OF_3:

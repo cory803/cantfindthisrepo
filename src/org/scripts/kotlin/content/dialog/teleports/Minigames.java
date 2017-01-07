@@ -15,8 +15,9 @@ public class Minigames extends Dialog {
 
     public Dialog dialog = this;
 
-    public Minigames(Player player) {
+    public Minigames(Player player, int state) {
         super(player);
+        setState(state);
         setEndState(2);
     }
 

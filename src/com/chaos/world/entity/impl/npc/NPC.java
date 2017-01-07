@@ -246,6 +246,10 @@ public class NPC extends Character {
                     int walking = stream.readByte();
                     stream.readByte(); //This is for world reading.  We currently do not need this
                     NPC npc = new NPC(id, position);
+                    if(id >= 2025 && id <= 2030) {
+                        npc.setConstitution(2000);
+                        npc.setDefaultConstitution(2000);
+                    }
                     npc.setDirection(direction);
                     npc.walkingDistance = walking;
                     if (!canWalk) {

@@ -2935,7 +2935,7 @@
 "attackBonus": 325,
 "defenceMelee": 350,
 "defenceRange": 350,
-"defenceMage": 350
+"defenceMage": 230
 },
 {
 "id": 131,
@@ -129006,6 +129006,29 @@
 "defenceRange": 420,
 "defenceMage": 200,
 "slayerLevel": 92
+},
+{
+"id": 7286,
+"name": "Skotizo",
+"veryRareChance": 500,
+"examine": "Big, purple, and incredibly evil.",
+"combat": 321,
+"size": 5,
+"attackable": true,
+"aggressive": false,
+"retreats": false,
+"poisonous": false,
+"respawn": 35,
+"maxHit": 650,
+"hitpoints": 25000,
+"attackSpeed": 6,
+"attackAnim": 64,
+"defenceAnim": 65,
+"deathAnim": 67,
+"attackBonus": 240,
+"defenceMelee": 80,
+"defenceRange": 130,
+"defenceMage": 630
 },
 {
 "id": 5867,

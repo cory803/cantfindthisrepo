@@ -166,17 +166,28 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
 
             //City teleports
+            case -4934:
             case 1174: //Moderns
             case 13079: //Ancients
             case 30250: //Lunars
-                player.getDialog().sendDialog(new CityTeleports(player));
+                TeleportingInterface.showInterface(player, "cities");
+                //player.getDialog().sendDialog(new CityTeleports(player));
+                break;
+
+            case 8299:
+                if(player.newPlayer()) {
+                    return;
+                }
+                TeleportingInterface.showInterface(player, "cities");
                 break;
 
             //Training teleports
+            case -4925:
             case 1164: //Moderns
             case 13035: //Ancients
             case 30064: //Lunars
-                player.getDialog().sendDialog(new TrainingTeleports(player));
+                TeleportingInterface.showInterface(player, "monsters");
+                //player.getDialog().sendDialog(new TrainingTeleports(player));
                 break;
 
             //Wilderness areas
@@ -187,31 +198,39 @@ public class ButtonClickPacketListener implements PacketListener {
                 break;
 
             //Dungeons
+            case -4922:
             case 1541: //Moderns
             case 13069: //Ancients
             case 30138: //Lunars
-                player.getDialog().sendDialog(new Dungeons(player));
+                TeleportingInterface.showInterface(player, "dungeons");
+                //player.getDialog().sendDialog(new Dungeons(player));
                 break;
 
             //Minigames
             case 1167: //Moderns
             case 13087: //Ancients
             case 30106: //Lunars
-                player.getDialog().sendDialog(new Minigames(player));
+            case -4928:
+                TeleportingInterface.showInterface(player, "minigames");
+                //player.getDialog().sendDialog(new Minigames(player));
                 break;
 
             //Boss Teleports
+            case -4919:
             case 7455: //Moderns
             case 13053: //Ancients
             case 30266: //Lunars
-                player.getDialog().sendDialog(new BossTeleports(player));
+                TeleportingInterface.showInterface(player, "bosses");
+                //player.getDialog().sendDialog(new BossTeleports(player));
                 break;
 
             //Skilling Areas
+            case -4931:
             case 13045: // ancient2
             case 1540: //Moderns
             case 30083: //Lunars
-                player.getDialog().sendDialog(new SkillingAreas(player));
+                TeleportingInterface.showInterface(player, "skilling");
+                //player.getDialog().sendDialog(new SkillingAreas(player));
                 break;
 
             case 13061: //Ancients
@@ -440,6 +459,9 @@ public class ButtonClickPacketListener implements PacketListener {
                 } else {
                     PrayerHandler.activatePrayer(player, PrayerHandler.RIGOUR);
                 }
+                break;
+            case -4884:
+                player.getPacketSender().sendInterfaceRemoval();
                 break;
             case 10000:
             case 950:
@@ -694,6 +716,7 @@ public class ButtonClickPacketListener implements PacketListener {
             case 7562:
             case 7487:
             case 7788:
+            case 8298:
             case 8481:
             case 7612:
             case 7587:
@@ -1274,6 +1297,9 @@ public class ButtonClickPacketListener implements PacketListener {
             return true;
         }
         if (CurseHandler.isButton(player, id)) {
+            return true;
+        }
+        if (TeleportingInterface.isButton(player, id)) {
             return true;
         }
         if (Autocasting.handleAutocast(player, id)) {

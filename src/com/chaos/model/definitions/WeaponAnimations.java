@@ -27,7 +27,7 @@ public final class WeaponAnimations {
 	 */
 	public static void assign(Player player, Item item) {
 		player.getCharacterAnimations().reset();
-		player.setCharacterAnimations(getUpdateAnimation(item));
+		player.setCharacterAnimations(getUpdateAnimation(player, item));
 		if(player.isResting()) {
 			player.setResting(false);
 			player.performAnimation(new Animation(11788));
@@ -35,12 +35,22 @@ public final class WeaponAnimations {
 		}
 	}
 
-	public static CharacterAnimations getUpdateAnimation(Item item) {
+	public static CharacterAnimations getUpdateAnimation(Player player, Item item) {
 		String weaponName = item.getDefinition().getName().toLowerCase();
+		int shieldId = player.getEquipment().get(Equipment.SHIELD_SLOT).getId();
+		int weaponId = player.getEquipment().get(Equipment.WEAPON_SLOT).getId();
 		int playerStandIndex = 0x328;
 		int playerWalkIndex = 0x333;
 		int playerRunIndex = 0x338;
-		if (weaponName.contains("halberd") || weaponName.contains("guthan")) {
+		if (weaponId == 21015) {
+			playerStandIndex = 7508;
+			playerWalkIndex = 7509;
+			playerRunIndex = 7509;
+		} else if(weaponId == 21006) {
+			playerStandIndex = 8980;
+			playerRunIndex = 1210;
+			playerWalkIndex = 1146;
+		} else if (weaponName.contains("halberd") || weaponName.contains("guthan")) {
 			playerStandIndex = 809;
 			playerWalkIndex = 1146;
 			playerRunIndex = 1210;
@@ -93,7 +103,7 @@ public final class WeaponAnimations {
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
 		} else if (weaponName.contains("wand") || weaponName.contains("staff") || weaponName.contains("staff")
-				|| weaponName.contains("spear") || item.getId() == 21005 || item.getId() == 21010 || item.getId() == 21120) {
+				|| weaponName.contains("spear") || item.getId() == 21005 || item.getId() == 21006 || item.getId() == 21010 || item.getId() == 21120) {
 			playerStandIndex = 8980;
 			playerRunIndex = 1210;
 			playerWalkIndex = 1146;
@@ -125,6 +135,7 @@ public final class WeaponAnimations {
 			playerWalkIndex = 7046;
 			playerRunIndex = 7046;
 			break;
+		case 21003:
 		case 18353: // maul chaotic
 			playerStandIndex = 13217;
 			playerWalkIndex = 13218;
@@ -150,10 +161,8 @@ public final class WeaponAnimations {
 		case 21000: // whip
 		case 21001: // whip
 		case 21002: // whip
-		case 21003: // whip
 		case 21004: // whip
 		case 21005: // whip
-		case 21006: // whip
 		case 21007: // whip
 		case 21371: // whip
 		case 21372: // whip
@@ -209,8 +218,12 @@ public final class WeaponAnimations {
 
 	public static int getAttackAnimation(Player c) {
 		int weaponId = c.getEquipment().getItems()[Equipment.WEAPON_SLOT].getId();
+		int shieldId = c.getEquipment().getItems()[Equipment.SHIELD_SLOT].getId();
 		String weaponName = ItemDefinition.forId(weaponId).getName().toLowerCase();
 		String prop = c.getFightType().toString().toLowerCase();
+		if(weaponId == 21015) {
+			return 7507;
+		}
 		if (weaponId == 18373)
 			return 1074;
 		if (weaponId == 10033 || weaponId == 10034)
@@ -334,6 +347,7 @@ public final class WeaponAnimations {
 			return 0x814;
 		case 4710: // ahrim
 			return 406;
+		case 21003:
 		case 18353:
 			return 13055;
 		case 18349:
@@ -356,7 +370,6 @@ public final class WeaponAnimations {
 		case 21000: // whip
 		case 21001: // whip
 		case 21002: // whip
-		case 21003: // whip
 		case 21004: // whip
 		case 21005: // whip
 		case 21006: // whip
@@ -407,7 +420,6 @@ public final class WeaponAnimations {
 		case 21000: // whip
 		case 21001: // whip
 		case 21002: // whip
-		case 21003: // whip
 		case 21004: // whip
 		case 21005: // whip
 		case 21006: // whip
@@ -438,6 +450,7 @@ public final class WeaponAnimations {
 			return 12806;
 		case 18349:
 			return 13038;
+		case 21003:
 		case 18353:
 			return 13054;
 		case 18351:
