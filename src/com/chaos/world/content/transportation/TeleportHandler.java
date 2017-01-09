@@ -89,7 +89,7 @@ public class TeleportHandler {
 	}
 
 	public static void teleportPlayer(final Player player, final Position targetLocation,
-			final TeleportType teleportType) {
+									  final TeleportType teleportType) {
 		if (player.isJailed()) {
 			player.getPacketSender().sendMessage("You can't teleport out of jail.");
 			return;
@@ -104,6 +104,23 @@ public class TeleportHandler {
 			return;
 		}
 		teleportPlayer(player, targetLocation, teleportType, false);
+	}
+	public static void JewleryteleportPlayer(final Player player, final Position targetLocation,
+									  final TeleportType teleportType) {
+		if (player.isJailed()) {
+			player.getPacketSender().sendMessage("You can't teleport out of jail.");
+			return;
+		}
+		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()
+				&& player.getBankPinAttributes().onDifferent(player)) {
+			BankPin.init(player, false);
+			return;
+		}
+		if (player.getLocation() == Location.DUEL_ARENA && player.getDueling().duelingStatus == 5) {
+			player.getPacketSender().sendMessage("You cannot do this now");
+			return;
+		}
+		teleportPlayer(player, targetLocation, teleportType, true);
 	}
 
 	/**
@@ -131,7 +148,14 @@ public class TeleportHandler {
 			player.getPacketSender().sendMessage("You can't teleport out of jail");
 		}
 		if (player.getLocation() == Location.WILDKEY_ZONE || player.getLocation() == Location.WILDERNESS) {
-			if (player.getWildernessLevel() > 20) {
+			if (jeweleryTeleport) {
+				if (player.getWildernessLevel() > 30) {
+					player.getPacketSender().sendMessage("You must be below level 30 of Wilderness to use jewelery teleportation spells.");
+					player.getPacketSender().sendInterfaceRemoval();
+					return false;
+				}
+			}
+			if (player.getWildernessLevel() > 20 && !jeweleryTeleport) {
 				if (player.getStaffRights().isManagement()) {
 					player.getPacketSender()
 							.sendMessage("@red@You've teleported out of deep Wilderness, logs have been written.");

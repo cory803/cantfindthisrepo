@@ -30,18 +30,18 @@ public class Jewelery extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch (option) {
                             case OPTION_1_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(3094, 3478, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.JewleryteleportPlayer(player, new Position(3094, 3478, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_2_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(3165, 3483, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.JewleryteleportPlayer(player, new Position(3165, 3483, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_3_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(2441, 3090, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.JewleryteleportPlayer(player, new Position(2441, 3090, 0), player.getSpellbook().getTeleportType());
                                 player.getPacketSender().sendMessage("<col=3A3DA4>Welcome to the Gambling Area, make sure you always use a middle man for high bets!");
                                 player.getPacketSender().sendMessage("<col=3A3DA4>Recording your stake will only get the player banned if they scam.");
                                 break;
                             case OPTION_4_OF_5:
-                                TeleportHandler.teleportPlayer(player, new Position(3079, 3425, 0), player.getSpellbook().getTeleportType());
+                                TeleportHandler.JewleryteleportPlayer(player, new Position(3079, 3425, 0), player.getSpellbook().getTeleportType());
                                 break;
                             case OPTION_5_OF_5:
                                 player.getPacketSender().sendInterfaceRemoval();
