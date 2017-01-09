@@ -114,7 +114,7 @@ public enum CombatSpells {
 			} else if (castOn.isNpc()) {
 				NPC npc = (NPC) castOn;
 
-				if (npc.getDefenceWeakened()[0] || npc.getStrengthWeakened()[0]) {
+				if (npc.getAttackWeakened()[0] || npc.getStrengthWeakened()[0]) {
 					if (cast.isPlayer()) {
 						((Player) cast).getPacketSender()
 								.sendMessage("The spell has no effect because the NPC has already been weakened.");
@@ -122,7 +122,7 @@ public enum CombatSpells {
 					return;
 				}
 
-				npc.getDefenceWeakened()[0] = true;
+				npc.getAttackWeakened()[0] = true;
 			}
 		}
 
@@ -401,7 +401,7 @@ public enum CombatSpells {
 			} else if (castOn.isNpc()) {
 				NPC npc = (NPC) castOn;
 
-				if (npc.getDefenceWeakened()[1] || npc.getStrengthWeakened()[1]) {
+				if (npc.getAttackWeakened()[1] || npc.getStrengthWeakened()[1]) {
 					if (cast.isPlayer()) {
 						((Player) cast).getPacketSender()
 								.sendMessage("The spell has no effect because the NPC has already been weakened.");
@@ -409,7 +409,7 @@ public enum CombatSpells {
 					return;
 				}
 
-				npc.getDefenceWeakened()[1] = true;
+				npc.getAttackWeakened()[1] = true;
 			}
 		}
 
@@ -684,7 +684,7 @@ public enum CombatSpells {
 			} else if (castOn.isNpc()) {
 				NPC npc = (NPC) castOn;
 
-				if (npc.getDefenceWeakened()[2] || npc.getStrengthWeakened()[2]) {
+				if (npc.getAttackWeakened()[2] || npc.getStrengthWeakened()[2]) {
 					if (cast.isPlayer()) {
 						((Player) cast).getPacketSender()
 								.sendMessage("The spell has no effect because the NPC has already been weakened.");
@@ -692,7 +692,7 @@ public enum CombatSpells {
 					return;
 				}
 
-				npc.getDefenceWeakened()[2] = true;
+				npc.getAttackWeakened()[2] = true;
 			}
 		}
 
@@ -1629,7 +1629,7 @@ public enum CombatSpells {
 			} else if (castOn.isNpc()) {
 				NPC npc = (NPC) castOn;
 
-				if (npc.getDefenceWeakened()[2] || npc.getStrengthWeakened()[2]) {
+				if (npc.getAttackWeakened()[2] || npc.getStrengthWeakened()[2]) {
 					if (cast.isPlayer()) {
 						((Player) cast).getPacketSender()
 								.sendMessage("The spell has no effect because the NPC is already weakened.");
@@ -1759,7 +1759,7 @@ public enum CombatSpells {
 			} else if (castOn.isNpc()) {
 				NPC npc = (NPC) castOn;
 
-				if (npc.getDefenceWeakened()[1] || npc.getStrengthWeakened()[1]) {
+				if (npc.getAttackWeakened()[1] || npc.getStrengthWeakened()[1]) {
 					if (cast.isPlayer()) {
 						((Player) cast).getPacketSender()
 								.sendMessage("The spell has no effect because the NPC is already weakened.");
@@ -1946,7 +1946,7 @@ public enum CombatSpells {
 			} else if (castOn.isNpc()) {
 				NPC npc = (NPC) castOn;
 
-				if (npc.getDefenceWeakened()[0] || npc.getStrengthWeakened()[0]) {
+				if (npc.getAttackWeakened()[0] || npc.getStrengthWeakened()[0]) {
 					if (cast.isPlayer()) {
 						((Player) cast).getPacketSender()
 								.sendMessage("The spell has no effect because the NPC is already weakened.");

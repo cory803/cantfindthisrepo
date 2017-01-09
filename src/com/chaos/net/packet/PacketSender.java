@@ -51,8 +51,8 @@ public class PacketSender {
 			boolean sendList = npc.getDefaultConstitution() >= 2500 && Locations.Location.inMulti(npc);
 			out.put(sendList ? 1 : 0);
 			if(sendList) {
-				List<DamageDealer> list = npc.fetchNewDamageMap() ? npc.getCombatBuilder().getTopKillers(npc) : npc.getDamageDealerMap();
-				if(npc.fetchNewDamageMap()) {
+				List<DamageDealer> list = npc.isFetchNewDamageMap() ? npc.getCombatBuilder().getTopKillers(npc) : npc.getDamageDealerMap();
+				if(npc.isFetchNewDamageMap()) {
 					npc.setDamageDealerMap(list);
 					npc.setFetchNewDamageMap(false);
 				}

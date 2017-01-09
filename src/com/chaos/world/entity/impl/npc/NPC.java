@@ -8,6 +8,7 @@ import com.chaos.model.Locations.Location;
 import com.chaos.model.Position;
 import com.chaos.model.definitions.NpcDefinition;
 import com.chaos.model.player.dialog.Dialog;
+import com.chaos.util.Filter;
 import com.chaos.util.RandomGenerator;
 import com.chaos.world.World;
 import com.chaos.world.clip.region.Region;
@@ -42,6 +43,55 @@ import java.util.Random;
 
 public class NPC extends Character {
 
+    /**
+     * INSTANCES
+     **/
+    private final Position defaultPosition;
+    private Player spawnedFor;
+    private NpcDefinition definition;
+    private Position lastWalkPosition = null;
+    private Area makeArea;
+    private Position walkingTo;
+
+    /**
+     * INTS
+     **/
+    private final int id;
+    private final int walkingRandom;
+    private int constitution = 100;
+    private int defaultConstitution;
+    private int transformationId = -1;
+    private int containsCount;
+    private int walkingDistance;
+    private int maximumDistance = 8;
+
+    /**
+     * BOOLEANS
+     **/
+    private boolean[] attackWeakened = new boolean[3], strengthWeakened = new boolean[3];
+    private boolean summoningNpc, summoningCombat;
+    private boolean isDying;
+    private boolean visible = true;
+    private boolean healed, chargingAttack;
+    private boolean findNewTarget;
+    private boolean fetchNewDamageMap;
+    private boolean projectileClipping;
+    private boolean randomWalks;
+    private boolean walkEnabled = true;
+    private boolean dungeoneeringNpc;
+    private boolean isBoss = (this.getDefaultConstitution() > 2000);
+
+    /**
+     * LISTS & MAPS
+     */
+    private List<DamageDealer> damageDealerMap = new ArrayList<DamageDealer>();
+
+    /**
+     * CONSTRUCTOR
+     *
+     * @param id        {@link Integer} The id of the {@link NPC}
+     * @param position  {@link Position} the position of the {@link NPC}
+     */
     public NPC(int id, Position position) {
         super(position);
         NpcDefinition definition = NpcDefinition.forId(id);
@@ -60,6 +110,13 @@ public class NPC extends Character {
         setLocation(Location.getLocation(this));
     }
 
+    /**
+     * CONSTRUCTOR
+     *
+     * @param id        {@link Integer} The id of the {@link NPC}
+     * @param position  {@link Position} The position of the {@link NPC}
+     * @param direction {@link Direction} The face direction of the {@link NPC}
+     */
     public NPC(int id, Position position, Direction direction) {
         super(position);
         NpcDefinition definition = NpcDefinition.forId(id);
@@ -79,68 +136,19 @@ public class NPC extends Character {
         setLocation(Location.getLocation(this));
     }
 
-    private List<DamageDealer> damageDealerMap = new ArrayList<DamageDealer>();
-    public List<DamageDealer> getDamageDealerMap() {
-        return damageDealerMap;
-    }
-
-    public void setDamageDealerMap(List<DamageDealer> damageDealerMap) {
-        this.damageDealerMap = damageDealerMap;
-    }
-
-    public void removeInstancedNpcs(Location loc, int height) {
-        int checks = loc.getX().length - 1;
-        for(int i = 0; i <= checks; i+=2) {
-            if(getPosition().getX() >= loc.getX()[i] && getPosition().getX() <= loc.getX()[i + 1]) {
-                if(getPosition().getY() >= loc.getY()[i] && getPosition().getY() <= loc.getY()[i + 1]) {
-                    if(getPosition().getZ() == height) {
-                        World.deregister(this);
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean isBoss = (this.getDefaultConstitution() > 2000);
-
-    /**
-     * The {@link org.niobe.world.content.dialogue.Dialogue} this {@link Mob}
-     * will have upon their {@value Talk-to} action has been clicked upon.
-     * @param player	The {@link Player} speaking to this {@link Mob}.
-     * @return			{@value null} if this {@link Mob} does not speak to {@link Player}s.
-     */
-    public Dialog getDialogue(Player player) {
-        return null;
-    }
-
     public void sequence() {
 
         /** COMBAT **/
-        getCombatBuilder().process();
+        this.getCombatBuilder().process();
 
-        if (getCombatBuilder().isAttacking()) {
-            follow(getCombatBuilder().getVictim());
-        } else {
-            walking();
+        if (this.getCombatBuilder().isAttacking()) {
+            this.follow(this.getCombatBuilder().getVictim());
+        } else if (!this.getCombatBuilder().isAttacking() && this.getDefinition().isAggressive() && !isDying) {
+            this.getCombatBuilder().attack(this.findTarget());
         }
 
-        /**
-         * HP restoration
-         */
-        if (constitution < defaultConstitution) {
-            if (!isDying) {
-                if (getLastCombat().elapsed((id == 13447 || id == 3200 ? 50000 : 5000))
-                        && !getCombatBuilder().isAttacking() && getLocation() != Location.PEST_CONTROL_GAME) {
-                   // if(constitution + (int) (defaultConstitution * 0.1) <= defaultConstitution) {
-                       // setConstitution(constitution + (int) (defaultConstitution * 0.1));
-                       // if (constitution > defaultConstitution) {
-                       //     System.out.println("Constitution - " + constitution);
-                       //     System.out.println("Constitution - " + defaultConstitution);
-                       //     setConstitution(defaultConstitution);
-                       // }
-                    //}
-                }
-            }
+        if (!this.getCombatBuilder().isAttacking()) {
+            this.walking();
         }
     }
 
@@ -227,11 +235,13 @@ public class NPC extends Character {
 
     }
 
+    @Override
+    public CombatStrategy determineStrategy() {
+        return CombatStrategies.getStrategy(id);
+    }
+
     /**
-     * Prepares the dynamic json loader for loading world npcs.
-     *
-     * @return the dynamic json loader.
-     * @throws Exception if any errors occur while preparing for load.
+     * Loaded the npc spawns biniary file and imports them into the world.
      */
     public static void init() {
         try {
@@ -253,7 +263,7 @@ public class NPC extends Character {
                     npc.setDirection(direction);
                     npc.walkingDistance = walking;
                     if (!canWalk) {
-                        npc.setWalking(false);
+                        npc.setWalkEnabled(false);
                     }
                     World.register(npc);
                     if (id > 5070 && id < 5081) {
@@ -272,11 +282,245 @@ public class NPC extends Character {
         KalphiteQueen.spawn(1158, new Position(3478, 9490));
     }
 
-    @Override
-    public CombatStrategy determineStrategy() {
-        return CombatStrategies.getStrategy(id);
+    /**
+     * GETTERS & SETTERS
+     */
+    public Dialog getDialogue(Player player) {
+        return null;
     }
 
+    public Position getDefaultPosition() {
+        return defaultPosition;
+    }
+
+    public Player getSpawnedFor() {
+        return spawnedFor;
+    }
+
+    public NPC setSpawnedFor(Player spawnedFor) {
+        this.spawnedFor = spawnedFor;
+        return this;
+    }
+
+    public NpcDefinition getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(NpcDefinition definition) {
+        this.definition = definition;
+    }
+
+    public Position getLastWalkPosition() {
+        return lastWalkPosition;
+    }
+
+    public void setLastWalkPosition(Position lastWalkPosition) {
+        this.lastWalkPosition = lastWalkPosition;
+    }
+
+    public Area getMakeArea() {
+        return makeArea;
+    }
+
+    public void setMakeArea(Area makeArea) {
+        this.makeArea = makeArea;
+    }
+
+    public Position getWalkingTo() {
+        return walkingTo;
+    }
+
+    public void setWalkingTo(Position walkingTo) {
+        this.walkingTo = walkingTo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getWalkingRandom() {
+        return walkingRandom;
+    }
+
+    public int getDefaultConstitution() {
+        return defaultConstitution;
+    }
+
+    public void setDefaultConstitution(int defaultConstitution) {
+        this.defaultConstitution = defaultConstitution;
+    }
+
+    public int getTransformationId() {
+        return transformationId;
+    }
+
+    public void setTransformationId(int transformationId) {
+        this.transformationId = transformationId;
+    }
+
+    public int getContainsCount() {
+        return containsCount;
+    }
+
+    public void setContainsCount(int containsCount) {
+        this.containsCount = containsCount;
+    }
+
+    public int getWalkingDistance() {
+        return walkingDistance;
+    }
+
+    public void setWalkingDistance(int walkingDistance) {
+        this.walkingDistance = walkingDistance;
+    }
+
+    public int getMaximumDistance() {
+        return maximumDistance;
+    }
+
+    public void setMaximumDistance(int maximumDistance) {
+        this.maximumDistance = maximumDistance;
+    }
+
+    public boolean[] getAttackWeakened() {
+        return attackWeakened;
+    }
+
+    public void setAttackWeakened(boolean[] attackWeakened) {
+        this.attackWeakened = attackWeakened;
+    }
+
+    public boolean[] getStrengthWeakened() {
+        return strengthWeakened;
+    }
+
+    public void setStrengthWeakened(boolean[] strengthWeakened) {
+        this.strengthWeakened = strengthWeakened;
+    }
+
+    public boolean isSummoningNpc() {
+        return summoningNpc;
+    }
+
+    public void setSummoningNpc(boolean summoningNpc) {
+        this.summoningNpc = summoningNpc;
+    }
+
+    public boolean isSummoningCombat() {
+        return summoningCombat;
+    }
+
+    public void setSummoningCombat(boolean summoningCombat) {
+        this.summoningCombat = summoningCombat;
+    }
+
+    public boolean isDying() {
+        return isDying;
+    }
+
+    public void setDying(boolean dying) {
+        isDying = dying;
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
+    }
+
+    public boolean isHealed() {
+        return healed;
+    }
+
+    public void setHealed(boolean healed) {
+        this.healed = healed;
+    }
+
+    public boolean isChargingAttack() {
+        return chargingAttack;
+    }
+
+    public NPC setChargingAttack(boolean chargingAttack) {
+        this.chargingAttack = chargingAttack;
+        return this;
+    }
+
+    public boolean isFindNewTarget() {
+        return findNewTarget;
+    }
+
+    public void setFindNewTarget(boolean findNewTarget) {
+        this.findNewTarget = findNewTarget;
+    }
+
+    public boolean isFetchNewDamageMap() {
+        return fetchNewDamageMap;
+    }
+
+    public void setFetchNewDamageMap(boolean fetchNewDamageMap) {
+        this.fetchNewDamageMap = fetchNewDamageMap;
+    }
+
+    public boolean isProjectileClipping() {
+        return projectileClipping;
+    }
+
+    public void setProjectileClipping(boolean projectileClipping) {
+        this.projectileClipping = projectileClipping;
+    }
+
+    public boolean isRandomWalks() {
+        return randomWalks;
+    }
+
+    public void setRandomWalks(boolean randomWalks) {
+        this.randomWalks = randomWalks;
+    }
+
+    public boolean isWalkEnabled() {
+        return walkEnabled;
+    }
+
+    public void setWalkEnabled(boolean walkEnabled) {
+        this.walkEnabled = walkEnabled;
+    }
+
+    public boolean isDungeoneeringNpc() {
+        return dungeoneeringNpc;
+    }
+
+    public void setDungeoneeringNpc(boolean dungeoneeringNpc) {
+        this.dungeoneeringNpc = dungeoneeringNpc;
+    }
+
+    public boolean isBoss() {
+        return isBoss;
+    }
+
+    public void setBoss(boolean boss) {
+        isBoss = boss;
+    }
+
+    public List<DamageDealer> getDamageDealerMap() {
+        return damageDealerMap;
+    }
+
+    public void setDamageDealerMap(List<DamageDealer> damageDealerMap) {
+        this.damageDealerMap = damageDealerMap;
+    }
+
+    /**
+     * END GETTERS & SETTERS
+     */
+
+
+    /**
+     * Determines if the {@link NPC} is able to switch targets
+     *
+     * @return {@link Boolean}
+     */
     public boolean switchesVictim() {
         return id == 6263 || id == 6265 || id == 6203 || id == 6208 || id == 6206 || id == 6247 || id == 6250
                 || id == 2054 || id == 4540 || id == 1158 || id == 1160 || id == 8133 || id == 13447 || id == 13451
@@ -284,6 +528,11 @@ public class NPC extends Character {
                 || id == 5866;
     }
 
+    /**
+     * Gets the aggressive distance limit for the the given {@link NPC}
+     *
+     * @return {@link Integer}
+     */
     public int getAggressiveDistanceLimit() {
         switch (id) {
             case 135:
@@ -307,180 +556,11 @@ public class NPC extends Character {
         return 10;
     }
 
-	/*
-	 * Fields
-	 */
     /**
-     * INSTANCES
-     **/
-    private final Position defaultPosition;
-    private Player spawnedFor;
-    private NpcDefinition definition;
-    private Position lastWalkPosition = null;
-    public Area makeArea;
-    public Position walkingTo;
-    public boolean dungeoneeringNpc;
-
-    /**
-     * INTS
-     **/
-    private final int id;
-    private int constitution = 100;
-    private int defaultConstitution;
-    private int transformationId = -1;
-    private int containsCount;
-    private final int walkingRandom;
-    public int walkingDistance;
-    protected int maximumDistance = 8;
-
-    /**
-     * BOOLEANS
-     **/
-    private boolean[] attackWeakened = new boolean[3], strengthWeakened = new boolean[3];
-    private boolean summoningNpc, summoningCombat;
-    private boolean isDying;
-    private boolean visible = true;
-    private boolean healed, chargingAttack;
-    private boolean findNewTarget;
-    private boolean fetchNewDamageMap;
-    public boolean projectileClipping;
-    private boolean randomWalks;
-    private boolean walkEnabled = true;
-
-    public void setWalking(boolean canWalk) {
-        this.walkEnabled = canWalk;
-    }
-
-	/*
-	 * Getters and setters
-	 */
-    public void setFetchNewDamageMap(boolean fetchNewDamageMap) {
-        this.fetchNewDamageMap = fetchNewDamageMap;
-    }
-
-    public boolean fetchNewDamageMap() {
-        return fetchNewDamageMap;
-    }
-    public int getId() {
-        return id;
-    }
-
-    public Position getDefaultPosition() {
-        return defaultPosition;
-    }
-
-    public int getDefaultConstitution() {
-        return defaultConstitution;
-    }
-
-    public int getTransformationId() {
-        return transformationId;
-    }
-
-    public void setTransformationId(int transformationId) {
-        this.transformationId = transformationId;
-    }
-
-    public boolean isVisible() {
-        return visible;
-    }
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
-    }
-
-    public void setDying(boolean isDying) {
-        this.isDying = isDying;
-    }
-
-    public void setDefaultConstitution(int defaultConstitution) {
-        this.defaultConstitution = defaultConstitution;
-    }
-
-    /**
-     * @return the statsWeakened
+     * Determines if is a {@link NPC} is statically able to walk
+     *
+     * @return {@link Boolean}
      */
-    public boolean[] getDefenceWeakened() {
-        return attackWeakened;
-    }
-
-    public void setSummoningNpc(boolean summoningNpc) {
-        this.summoningNpc = summoningNpc;
-    }
-
-    public void setDungeoneeringNpc(boolean dungeoneeringNpc) {
-        this.dungeoneeringNpc = dungeoneeringNpc;
-    }
-
-    public boolean isSummoningNpc() {
-        return summoningNpc;
-    }
-
-    public boolean isDungeoneeringNpc() {
-        return dungeoneeringNpc;
-    }
-
-    public boolean isDying() {
-        return isDying;
-    }
-
-    /**
-     * @return the statsBadlyWeakened
-     */
-    public boolean[] getStrengthWeakened() {
-        return strengthWeakened;
-    }
-
-    public NpcDefinition getDefinition() {
-        return definition;
-    }
-
-    public Player getSpawnedFor() {
-        return spawnedFor;
-    }
-
-    public NPC setSpawnedFor(Player spawnedFor) {
-        this.spawnedFor = spawnedFor;
-        return this;
-    }
-
-    public boolean hasHealed() {
-        return healed;
-    }
-
-    public void setHealed(boolean healed) {
-        this.healed = healed;
-    }
-
-    public boolean isChargingAttack() {
-        return chargingAttack;
-    }
-
-    public NPC setChargingAttack(boolean chargingAttack) {
-        this.chargingAttack = chargingAttack;
-        return this;
-    }
-
-    public boolean findNewTarget() {
-        return findNewTarget;
-    }
-
-    public void setFindNewTarget(boolean findNewTarget) {
-        this.findNewTarget = findNewTarget;
-    }
-
-    public boolean summoningCombat() {
-        return summoningCombat;
-    }
-
-    public void setSummoningCombat(boolean summoningCombat) {
-        this.summoningCombat = summoningCombat;
-    }
-
-    public void disableRandomWalking() {
-        randomWalks = false;
-    }
-
     public boolean canWalk() {
         switch (id) {
             case 1532:
@@ -507,7 +587,14 @@ public class NPC extends Character {
         return this.walkEnabled;
     }
 
-    public static int getWalkingDistance(int id) {
+    /**
+     * Get the walking distance for a given {@link NPC}
+     *
+     * @param id {@link Integer} The id of the {@link NPC} we are checking.
+     *
+     * @return {@link Integer}
+     */
+    private static int getWalkingDistance(int id) {
         switch (id) {
             case 42:
             case 43:
@@ -567,6 +654,13 @@ public class NPC extends Character {
         return 3;
     }
 
+    /**
+     * Gets the maximum distance the given {@link NPC} can travel.
+     *
+     * @param id {@link Integer} The id of the {@link NPC} we are checking.
+     *
+     * @return {@link Integer}
+     */
     private static int getMaximumDistance(int id) {
         switch (id) {
             case 6203:
@@ -622,6 +716,13 @@ public class NPC extends Character {
         }
     }
 
+    /**
+     * Gets the random walking distance for the given {@link NPC}
+     *
+     * @param id {@link Integer} The id of the {@link NPC} we are checking.
+     *
+     * @return {@link Integer}
+     */
     private static int getWalkingRandom(int id) {
         switch (id) {
             case 659:
@@ -656,64 +757,14 @@ public class NPC extends Character {
         return 3;
     }
 
-    public static boolean randomWalks(int id) {
-        switch (id) {
-            case 333:
-            case 599:
-            case 6390:
-            case 550:
-            case 549:
-            case 541:
-            case 5989:
-            case 2538:
-            case 519:
-            case 494:
-            case 1282:
-            case 2619:
-            case 3788:
-            case 44:
-            case 45:
-            case 324:
-            case 243:
-            case 241:
-            case 2244:
-            case 326:
-            case 334:
-            case 322:
-            case 2589:
-            case 2579:
-            case 2578:
-            case 3782:
-            case 3790:
-            case 3789:
-            case 6142:
-            case 6143:
-            case 6144:
-            case 6145:
-            case 904:
-            case 905:
-            case 520:
-            case 2290:
-            case 2618:
-            case 546:
-            case 902:
-            case 590:
-            case 7044:
-            case 8948:
-            case 309:
-            case 312:
-            case 313:
-            case 316:
-            case 2262:
-            case 8091:
-            case 943:
-            case 2067:
-                return false;
-        }
-        return true;
-    }
-
-    public static boolean isProjectileNpc(int id) {
+    /**
+     * Checks to see if the npc is able to shoot projectiles
+     *
+     * @param id {@link Integer} The id of the {@link NPC} we are checking.
+     *
+     * @return {@link Boolean}
+     */
+    private static boolean isProjectileNpc(int id) {
         switch (id) {
             case 5082:
             case 5083:
@@ -745,6 +796,74 @@ public class NPC extends Character {
         return false;
     }
 
+    /**
+     * Finds a target.
+     *
+     * @return {@link Character}
+     */
+    public Character findTarget() {
+        return World.getPlayer(new AttackingFilter(this));
+    }
+
+    /**
+     * The filter to get a player this {@link NPC} can attack.
+     */
+    private class AttackingFilter implements Filter<Player> {
+
+        private final NPC npc;
+
+        private AttackingFilter(NPC npc) {
+            this.npc = npc;
+        }
+
+        @Override
+        public boolean accept(Player player) {
+            return !player.isInvisible() &&
+                    !(player.getCombatBuilder().getLastAttacker() != npc && player.getCombatBuilder().getLastAttacker() != null && !Location.inMulti(player)) &&
+                    (npc.canAggressTo(player) || npc.distance(player) <= 0) &&
+                    (npc.getDefinition().isAggressive() && player.getPlayerTimers().getAggressiveDelay() == 0);
+        }
+    }
+
+    /**
+     * Checks to see if the current npc is able to be aggressive towards a player.
+     *
+     * @param player the player we are checking to see if they are eligible to be aggressed to.
+     *
+     * @return boolean
+     */
+    private boolean canAggressTo(Player player) {
+        boolean gwdMob = Nex.nexMob(this.getId()) || this.getId() == 6260 || this.getId() == 6261
+                || this.getId() == 6263 || this.getId() == 6265 || this.getId() == 6222 || this.getId() == 6223
+                || this.getId() == 6225 || this.getId() == 6227 || this.getId() == 6203 || this.getId() == 6208
+                || this.getId() == 6204 || this.getId() == 6206 || this.getId() == 6247 || this.getId() == 6248
+                || this.getId() == 6250 || this.getId() == 6252;
+
+        if (makeArea == null) {
+            return false;
+        }
+        if (player.getPosition().getZ()!= this.getPosition().getZ()) {
+            return false;
+        }
+        if (gwdMob) {
+            if (!player.getMinigameAttributes().getGodwarsDungeonAttributes().hasEnteredRoom()) {
+                return false;
+            }
+        }
+        if (player.getSkillManager().getCombatLevel() > (this.getDefinition().getCombatLevel() * 2) && player.getLocation() != Location.WILDERNESS && !this.getDefinition().isAggressive()) {
+            return false;
+        }
+        if (makeArea.distance(player.getPosition()) > walkingDistance + getAggressiveDistanceLimit()) {
+            return false;
+        }
+        return distance(player) <= getAggressiveDistanceLimit() && Region.canAttack(player, this);
+    }
+
+    /**
+     * Follows a {@link Character}
+     *
+     * @param a {@link Character}
+     */
     public void follow(Character a) {
         if (!canWalk()) {
             return;
@@ -767,10 +886,10 @@ public class NPC extends Character {
         Position targetPos = a.getWalkingQueue().getNextPosition();
         Direction direction;
         if (!isSummoningNpc() && makeArea.distance(targetPos) > maximumDistance) {
-            if (getCombatBuilder().getLastAttacker() == null) {
+            if (this.getCombatBuilder().getLastAttacker() == null) {
                 return;
             }
-            if (getCombatBuilder().getLastAttacker().getCombatBuilder().isAttacking() == false) {
+            if (!this.getCombatBuilder().getLastAttacker().getCombatBuilder().isAttacking()) {
                 return;
             }
             direction = NPC.moveAwayDirection(targetPos, area);
@@ -786,6 +905,14 @@ public class NPC extends Character {
         walkingQueue.addStepInternal(getPosition().getX() + direction.getX(), getPosition().getY() + direction.getY());
     }
 
+    /**
+     * Generates the direction the npc needs to head towards.
+     *
+     * @param position      {@link Position} The current position of the npc.
+     * @param destination   {@link Area} The area we want the npc to go.
+     *
+     * @return {@link Direction}
+     */
     private Direction getNextFollowPoint(Position position, Area destination) {
         int x = position.getX();
         int y = position.getY();
@@ -817,12 +944,6 @@ public class NPC extends Character {
         if (World.directionBlocked(dirY, z, destination.getX(), destination.getY(), destination.getSize())) {
             dirY = Direction.NONE;
         }
-		/*if (dirX == Direction.NONE) {
-			return dirY;
-		}
-		if (dirY == Direction.NONE) {
-			return dirX;
-		}*/
         Direction direction = Direction.direction(dirX.getX(), dirY.getY());
         if (World.directionBlocked(direction, z, destination.getX(), destination.getY(), destination.getSize())) {
             if (Math.abs(diffX) >= Math.abs(diffY)) {
@@ -834,7 +955,15 @@ public class NPC extends Character {
         return direction;
     }
 
-    public static Direction moveAwayDirection(Position position, Area destination) {
+    /**
+     * We are too far away from our starting location so we need to npc the npc back in distance of its plot.
+     *
+     * @param position      {@link Position} The current position of the {@link NPC}
+     * @param destination   {@link Area} The area we want the {@link NPC} to move back to.
+     *
+     * @return {@link Direction}
+     */
+    private static Direction moveAwayDirection(Position position, Area destination) {
         int x = position.getX();
         int y = position.getY();
         int diffX = destination.xDifference(x);
@@ -868,7 +997,10 @@ public class NPC extends Character {
         return direction;
     }
 
-    public void walking() {
+    /**
+     * Performs and generated the walking path for the npc if they are allowed to walk.
+     */
+    private void walking() {
         if (constitution <= 0 || !this.canWalk()) {
             return;
         }

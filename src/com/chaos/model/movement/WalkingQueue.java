@@ -351,7 +351,7 @@ public final class WalkingQueue {
 			}
 			return Direction.NONE;
 		}
-		if (mobile instanceof NPC && ((NPC)mobile).projectileClipping) {
+		if (mobile instanceof NPC && ((NPC)mobile).isProjectileClipping()) {
 			if (World.projectileDirectionBlocked(direction, z, x, y, mobile.getSize())) {
 				return Direction.NONE;
 			}

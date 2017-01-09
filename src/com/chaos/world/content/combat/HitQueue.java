@@ -268,7 +268,7 @@ public class HitQueue {
 
 			// And finally auto-retaliate if needed.
 			if (!victim.getCombatBuilder().isAttacking() || victim.getCombatBuilder().isCooldown()
-					|| victim.isNpc() && ((NPC) victim).findNewTarget()) {
+					|| victim.isNpc() && ((NPC) victim).isFindNewTarget()) {
 				if (shouldRetaliate()) {
 					if (initialDelay == 0) {
 						TaskManager.submit(new Task(1, victim, false) {

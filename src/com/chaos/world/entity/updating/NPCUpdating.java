@@ -73,7 +73,7 @@ public class NPCUpdating {
 	}
 
 	public static void updateFacing(Player player, NPC npc) {
-		if (npc.walkingDistance > 0 || npc.getCombatBuilder().isBeingAttacked()
+		if (npc.getWalkingDistance() > 0 || npc.getCombatBuilder().isBeingAttacked()
 				|| npc.moving)
 			return;
 		final Position position = npc.getPositionToFace();
