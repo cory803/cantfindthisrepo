@@ -33,10 +33,7 @@ import com.chaos.world.content.transportation.jewelry.CombatTeleporting;
 import com.chaos.world.content.transportation.jewelry.GloryTeleporting;
 import com.chaos.world.content.transportation.jewelry.SkillsTeleporting;
 import com.chaos.world.entity.impl.player.Player;
-import org.scripts.kotlin.content.dialog.ChooseFlower;
-import org.scripts.kotlin.content.dialog.KnightLamp;
-import org.scripts.kotlin.content.dialog.TrustedDicerScroll;
-import org.scripts.kotlin.content.dialog.UseLottery;
+import org.scripts.kotlin.content.dialog.*;
 import org.scripts.kotlin.content.dialog.npcs.OpenScroll;
 
 public class ItemActionPacketListener implements PacketListener {
@@ -96,6 +93,9 @@ public class ItemActionPacketListener implements PacketListener {
 			return;
 		}
 		switch (itemId) {
+			case 2379:
+				player.getDialog().sendDialog(new RockCake(player));
+				break;
 			case 11262:
 				PuroPuro.lootJar(player, new Item(itemId, 1), JarData.forJar(itemId));
 				break;
