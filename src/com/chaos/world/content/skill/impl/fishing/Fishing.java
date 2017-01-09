@@ -57,7 +57,7 @@ public class Fishing {
 
 		KARAM(2859, new int[] { 3142 }, 305, -1, new int[] { 65 }, false, new int[] { 105 }, 621),
 
-		HIGH_LVL_FISH(3368, new int[] { 15270, 3142, 389 }, 307, 313, new int[] { 91, 89, 87 }, true, new int[] { 608, 699, 622 }, 623),
+		HIGH_LVL_FISH(3368, new int[] { 15270, 3142, 389, 389 }, 307, 313, new int[] { 91, 89, 87, 87 }, true, new int[] { 608, 699, 622, 622 }, 623),
 
 		RESOURCE_ROCKTAIL(321, new int[] { 15271, 15270 }, 309, 15263, new int[] { 97, 97 }, false, new int[] { 480, 480 }, 623),
 
@@ -142,8 +142,8 @@ public class Fishing {
 			return;
 		}
 		if (p.getSkillManager().getCurrentLevel(Skill.FISHING) >= s.getLevelReq()[0]) {
-			if (p.getInventory().contains(s.getEquipment()) || Skillcape_Data.STRENGTH.isWearingCape(p)
-					|| Skillcape_Data.MASTER_STRENGTH.isWearingCape(p)) {
+			if (p.getInventory().contains(s.getEquipment()) || Skillcape_Data.FISHING.isWearingCape(p)
+					|| Skillcape_Data.MASTER_FISHING.isWearingCape(p)) {
 				if (s.getBait() != -1) {
 					if (p.getInventory().contains(s.getBait())) {
 						startFishing(p, s);
@@ -173,7 +173,7 @@ public class Fishing {
 		p.getSkillManager().stopSkilling();
 		final int fishIndex = Misc.getRandom(100) >= 70 ? getMax(p, s.fishingReqs)
 				: (getMax(p, s.fishingReqs) != 0 ? getMax(p, s.fishingReqs) - 1 : 0);
-		if (Skillcape_Data.STRENGTH.isWearingCape(p))
+		if (Skillcape_Data.FISHING.isWearingCape(p))
 			p.performAnimation(new Animation(9980));
 		else
 			p.performAnimation(new Animation(s.getAnim()));
@@ -192,7 +192,7 @@ public class Fishing {
 					return;
 				}
 				cycle++;
-				if (Skillcape_Data.STRENGTH.isWearingCape(p))
+				if (Skillcape_Data.FISHING.isWearingCape(p))
 					p.performAnimation(new Animation(9980));
 				else
 					p.performAnimation(new Animation(s.getAnim()));
