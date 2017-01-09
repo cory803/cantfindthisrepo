@@ -768,11 +768,11 @@ public final class CombatFactory {
 
         if (victim != null && victim.isNpc()) {
             NPC npc = (NPC) victim;
-            if (npc.getDefenceWeakened()[0]) {
+            if (npc.getAttackWeakened()[0]) {
                 maxHit += (int) ((0.10) * (maxHit));
-            } else if (npc.getDefenceWeakened()[1]) {
+            } else if (npc.getAttackWeakened()[1]) {
                 maxHit += (int) ((0.20) * (maxHit));
-            } else if (npc.getDefenceWeakened()[2]) {
+            } else if (npc.getAttackWeakened()[2]) {
                 maxHit += (int) ((0.30) * (maxHit));
             }
             /** SLAYER HELMET **/
@@ -1056,7 +1056,7 @@ public final class CombatFactory {
                 // System.out.println(n.getDefaultPosition().toString() + ", " +
                 // n.getPosition().toString() + ", " + (8 +
                 // n.getMovementCoordinator().getCoordinator().getRadius()));
-                int limit = n.getAggressiveDistanceLimit() + n.walkingDistance;
+                int limit = n.getAggressiveDistanceLimit() + n.getWalkingDistance();
                 if (n.getPosition().getDistance(n.getDefaultPosition()) > limit) {
                     // PathFinder.calculatePath(n,
                     // n.getDefaultPosition().getX(),

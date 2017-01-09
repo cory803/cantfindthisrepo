@@ -39,7 +39,7 @@ public class Nomad implements CombatStrategy {
 
 		if (randomNomad >= 0 && randomNomad <= 15) {
 			boolean meleeDistance = Locations.goodDistance(nomad.getPosition(), target.getPosition(), 2);
-			boolean heal = !nomad.hasHealed() && nomad.getConstitution() < 4000;
+			boolean heal = !nomad.isHealed() && nomad.getConstitution() < 4000;
 			if (meleeDistance) {
 				if (nomad.getConstitution() > 0 && !heal) {
 					nomad.performAnimation(anim2);

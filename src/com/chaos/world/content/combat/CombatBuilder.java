@@ -59,6 +59,9 @@ public class CombatBuilder {
 	}
 
 	public void attack(Character target) {
+		if (target == null) {
+			return;
+		}
 		if(character.getConstitution() <= 0) {
 			return;
 		}

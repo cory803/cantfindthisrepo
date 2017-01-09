@@ -85,8 +85,8 @@ public class WriteNPC extends Command {
             SpawnList.serialize(file);
 
             NPC npc = new NPC(npcId, player.getPosition());
-            npc.setWalking(canWalk);
-            npc.walkingDistance = radius;
+            npc.setWalkEnabled(canWalk);
+            npc.setWalkingDistance(radius);
 
             World.register(npc);
 

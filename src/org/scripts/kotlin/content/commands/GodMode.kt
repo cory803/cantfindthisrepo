@@ -15,12 +15,12 @@ import com.chaos.world.entity.impl.player.Player
 class GodMode(staffRights: StaffRights) : Command(staffRights) {
 
     override fun execute(player: Player, args: Array<String>?, privilege: StaffRights) {
-        player.skillManager.setCurrentLevel(Skill.ATTACK, 99999, true)
-        player.skillManager.setCurrentLevel(Skill.STRENGTH, 99999, true)
-        player.skillManager.setCurrentLevel(Skill.RANGED, 99999, true)
+        player.skillManager.setCurrentLevel(Skill.ATTACK, 1, true)
+        player.skillManager.setCurrentLevel(Skill.STRENGTH, 1, true)
+        player.skillManager.setCurrentLevel(Skill.RANGED, 1, true)
         player.skillManager.setCurrentLevel(Skill.DEFENCE, 99999, true)
-        player.skillManager.setCurrentLevel(Skill.MAGIC, 99999, true)
+        player.skillManager.setCurrentLevel(Skill.MAGIC, 1, true)
         player.skillManager.setCurrentLevel(Skill.CONSTITUTION, 99999, true)
-        player.skillManager.setCurrentLevel(Skill.PRAYER, 99999, true)
+        player.skillManager.setCurrentLevel(Skill.PRAYER, 1, true)
     }
 }

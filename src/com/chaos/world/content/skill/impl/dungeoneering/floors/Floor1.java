@@ -32,8 +32,8 @@ public class Floor1 extends Floor {
         this.player = player;
         this.boss = getBosses()[Misc.inclusiveRandom(getBosses().length - 1)];
         this.boss.setDungeoneeringNpc(true);
-        this.boss.setWalking(true);
-        this.boss.walkingDistance = 2;
+        this.boss.setWalkEnabled(true);
+        this.boss.setWalkingDistance(2);
     }
 
     private NPC[] minions = new NPC[] {
@@ -83,8 +83,8 @@ public class Floor1 extends Floor {
         }
         player.getDungeoneering().setDungeonStage(Dungeoneering.DungeonStage.ENTERED);
         for(int i = 0; i < getMinions().length; i++) {
-            getMinions()[i].setWalking(true);
-            getMinions()[i].walkingDistance = 2;
+            getMinions()[i].setWalkEnabled(true);
+            getMinions()[i].setWalkingDistance(2);
             getMinions()[i].setDungeoneeringNpc(true);
             getMinions()[i].getPosition().setZ(player.getIndex() * 4);
             getMinions()[i].setConstitution(getMinions()[i].getDefaultConstitution());

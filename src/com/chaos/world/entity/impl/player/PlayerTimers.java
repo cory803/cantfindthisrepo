@@ -29,6 +29,11 @@ public class PlayerTimers {
     private int yellTicks = -1;
 
     /**
+     * How long do the npc's have before they start targeting your ass.
+     */
+    private int aggressiveDelay = 0;
+
+    /**
      * Gets how long the player is jailed for
      * @return
      */
@@ -60,6 +65,24 @@ public class PlayerTimers {
         this.yellTicks = yellTicks;
     }
 
+    /**
+     * Gets the aggressive delay for the player
+     *
+     * @return {@link Integer}
+     */
+    public int getAggressiveDelay() {
+        return aggressiveDelay;
+    }
+
+    /**
+     * Sets the aggressive timer for the player.
+     *
+     * @param aggressiveDelay {@link Integer} The time we want to set the timer to.
+     */
+    public void setAggressiveDelay(int aggressiveDelay) {
+        this.aggressiveDelay = aggressiveDelay;
+    }
+
     public void process() {
         if (player.isJailed()) {
             if (this.jailTicks == 0) {
@@ -73,6 +96,10 @@ public class PlayerTimers {
                 player.getPacketSender().sendMessage("You yell mute has ended.  You can now yell again.");
             }
             this.yellTicks--;
+        }
+
+        if (this.aggressiveDelay > 0) {
+            aggressiveDelay--;
         }
     }
 }

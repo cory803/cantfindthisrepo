@@ -5,6 +5,7 @@ import com.chaos.engine.task.TaskManager;
 import com.chaos.model.RegionInstance.RegionInstanceType;
 import com.chaos.net.packet.Packet;
 import com.chaos.net.packet.PacketListener;
+import com.chaos.util.Misc;
 import com.chaos.world.content.CustomObjects;
 import com.chaos.world.content.Sounds;
 import com.chaos.world.entity.impl.GroundItemManager;
@@ -41,6 +42,8 @@ public class RegionChangePacketListener implements PacketListener {
 					stop();
 				}
 			});
+
+			player.getPlayerTimers().setAggressiveDelay(Misc.secondsToTicks(10));
 
 			player.setRegionChange(false).setAllowRegionChangePacket(false);
 		}

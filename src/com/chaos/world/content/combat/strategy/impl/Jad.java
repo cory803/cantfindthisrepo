@@ -31,7 +31,7 @@ public class Jad implements CombatStrategy {
 		if (victim.getConstitution() <= 0 || victim.getConstitution() <= 0) {
 			return true;
 		}
-		if (jad.getConstitution() <= 1200 && !jad.hasHealed()) {
+		if (jad.getConstitution() <= 1200 && !jad.isHealed()) {
 			jad.performAnimation(anim1);
 			jad.performGraphic(gfx1);
 			jad.setConstitution(jad.getConstitution() + Misc.getRandom(1600));

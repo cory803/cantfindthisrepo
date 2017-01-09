@@ -37,8 +37,8 @@ public class FightCave {
 					stop();
 					return;
 				}
-				NPC n = new NPC(JAD_NPC_ID, new Position(2399, 5083, player.getPosition().getZ()))
-						.setSpawnedFor(player);
+				NPC n = new NPC(JAD_NPC_ID, new Position(2399, 5083, player.getPosition().getZ()));
+				n.setSpawnedFor(player);
 				World.register(n);
 				player.getRegionInstance().getNpcsList().add(n);
 				n.getCombatBuilder().attack(player);

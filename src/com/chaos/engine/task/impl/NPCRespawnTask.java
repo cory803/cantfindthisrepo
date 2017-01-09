@@ -19,7 +19,7 @@ public class NPCRespawnTask extends Task {
 	@Override
 	public void execute() {
 		NPC npc_ = new NPC(npc.getId(), npc.getDefaultPosition());
-		npc_.walkingDistance = npc.walkingDistance;
+		npc_.setWalkingDistance(npc.getWalkingDistance());
 		if (npc_.getId() == 8022 || npc_.getId() == 8028) { // Desospan, respawn
 															// at random
 															// locations
