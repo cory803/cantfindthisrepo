@@ -94,6 +94,10 @@ public class ItemActionPacketListener implements PacketListener {
 		}
 		switch (itemId) {
 			case 2379:
+			    if (player.getConstitution() < 500) {
+                    player.getPacketSender().sendMessage("Eating this will kill you. You need at least 500 hp.");
+                    return;
+                }
 				player.getDialog().sendDialog(new RockCake(player));
 				break;
 			case 11262:
