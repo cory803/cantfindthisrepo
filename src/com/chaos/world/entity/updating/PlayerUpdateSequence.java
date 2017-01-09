@@ -67,6 +67,11 @@ public class PlayerUpdateSequence implements UpdateSequence<Player> {
 	public void executePostUpdate(Player t) {
 		try {
 			PlayerUpdating.resetFlags(t);
+			try {
+				t.getActionQueue().processActions();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			World.deregister(t);

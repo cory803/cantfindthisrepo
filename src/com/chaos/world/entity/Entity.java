@@ -96,7 +96,6 @@ public class Entity {
 	 *            the world position
 	 */
 	public Entity setPosition(Position position) {
-		//System.out.println(position.toString());
 		this.lastPosition = this.position;
 		this.position = position;
 		return this;

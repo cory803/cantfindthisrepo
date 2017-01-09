@@ -33,6 +33,7 @@ public class TeleportHandler {
 		if (!player.getClickDelay().elapsed(4500) || player.getWalkingQueue().isLockMovement())
 			return;
 		player.currentDialog = null;
+		player.setLastPosition(targetLocation.transform(-1, 0));
 		player.setTeleporting(true).getWalkingQueue().setLockMovement(true).clear();
 		cancelCurrentActions(player);
 		player.performAnimation(teleportType.getStartAnimation());
