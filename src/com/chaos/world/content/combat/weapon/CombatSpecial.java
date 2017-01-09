@@ -593,8 +593,8 @@ public enum CombatSpecial {
 				@Override
 				public void onHit(int damage, boolean accurate) {
 					if (target.isPlayer()) {
-						PrayerHandler.resetPrayers((Player) target, PrayerHandler.OVERHEAD_PRAYERS, -1);
-						CurseHandler.deactivateCurses((Player) target, CurseHandler.OVERHEAD_CURSES);
+						PrayerHandler.deactivateAll(player);
+						CurseHandler.deactivateAll(player);
 						((Player) target).getPacketSender().sendMessage("Your overhead prayers have been disabled!");
 						((Player) target).getDragonScimitarTimer().reset();
 					}

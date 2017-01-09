@@ -54,7 +54,7 @@ public class CombatContainer {
 	 *            the amount of hits to deal this combat hook.
 	 * @param hitType
 	 *            the combat type that is being used during this combat hook
-	 * @param checkAccuracy
+	 * @param accuracy
 	 *            if accuracy should be taken into account.
 	 */
 	public CombatContainer(Character attacker, Character victim, int hitAmount, CombatType hitType, boolean accuracy) {
@@ -84,7 +84,7 @@ public class CombatContainer {
 	 * Used for things like spells that have special effects but don't deal
 	 * damage.
 	 * 
-	 * @param checkAccuracy
+	 * @param accuracy
 	 *            if accuracy should be taken into account.
 	 */
 	public CombatContainer(Character attacker, Character victim, CombatType hitType, boolean accuracy) {
@@ -136,6 +136,9 @@ public class CombatContainer {
 				}
 			} else if (((Player) attacker).getCombatSpecial() == CombatSpecial.DARK_BOW && hitAmount == 2) {
 				for (int i = 0; i < hitAmount; i++) {
+					if (array[i].getHit().getDamage() < 80) {
+						array[i].getHit().setDamage(80);
+					}
 					if (array[i].getHit().getDamage() < 80) {
 						array[i].getHit().setDamage(80);
 					}
@@ -264,7 +267,7 @@ public class CombatContainer {
 	 * @param damage
 	 *            the damage inflicted with this attack, always 0 if the attack
 	 *            isn't accurate.
-	 * @param accurate
+	 * @param accuracy
 	 *            if the attack is accurate.
 	 */
 	public void onHit(int damage, boolean accuracy) {
@@ -345,7 +348,7 @@ public class CombatContainer {
 		 * 
 		 * @param hit
 		 *            the actual hit that will be dealt.
-		 * @param accurate
+		 * @param hit
 		 *            the accuracy of the hit to be dealt.
 		 */
 		public ContainerHit(Hit hit) {
