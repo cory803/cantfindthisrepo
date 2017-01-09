@@ -179,11 +179,14 @@ public class Shop extends ItemContainer {
 			if(item.getId() >= 18349 && item.getId() <=  18363) {
 				finalValue *= 10;
 			}
-			if (item.getId() >= 207 && item.getId() <= 218 || item.getId() == 3050 || item.getId() == 3052 || item.getId() == 2486) {
+			if (item.getId() >= 207 && item.getId() <= 2220 || item.getId() == 3050 || item.getId() == 3052 || item.getId() == 2486) {
 				finalValue *= 7;
 			}
 			if (item.getId() == 21631) {
 				finalValue *= 100;
+			}
+			if (item.getId() == 9242 || item.getId() == 9244) {
+				finalValue = 7000;
 			}
 			String s = currency.getDefinition().getName().toLowerCase().endsWith("s")
 					? currency.getDefinition().getName().toLowerCase()

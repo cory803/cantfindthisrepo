@@ -433,6 +433,10 @@ public class Misc {
 		int day = Calendar.getInstance().get(7);
 		return (day == 1) || (day == 6) || (day == 7);
 	}
+	public static boolean isSaturday() {
+		int day = Calendar.getInstance().get(7);
+		return (day == 7);
+	}
 
 	/**
 	 * Returns a pseudo-random {@code int} value between inclusive

@@ -270,6 +270,9 @@ public class PestControl {
 							point_amount += 15;
 							break;
 					}
+					if (Misc.isSaturday()) {
+						point_amount *= 2;
+					}
 					p.getPacketSender()
 							.sendMessage("The portals were successfully closed. You've been rewarded for your effort.");
 					p.getPacketSender().sendMessage("You've received " + point_amount + " Commendations and "

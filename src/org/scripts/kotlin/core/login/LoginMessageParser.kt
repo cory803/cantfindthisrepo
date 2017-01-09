@@ -2,6 +2,7 @@ package org.scripts.kotlin.core.login
 
 import com.chaos.world.entity.impl.player.Player;
 import com.chaos.GameSettings
+import com.chaos.util.Misc
 import com.chaos.world.content.wells.WellOfGoodness
 import java.util.concurrent.TimeUnit
 
@@ -22,6 +23,10 @@ class LoginMessageParser {
             if (player.isInvisible) {
                 player.getPacketSender().sendMessage(
                         "@red@You are currently invisible...")
+            }
+            if (Misc.isSaturday()) {
+                player.getPacketSender().sendMessage(
+                        "<img=4> <col=008FB2>There is currently a double points boost for pest control.")
             }
            // player.getPacketSender().sendMessage(
                    // "<icon=0><col=EE6800><shad=0>Type ::thread-275 to view the halloween event!")
