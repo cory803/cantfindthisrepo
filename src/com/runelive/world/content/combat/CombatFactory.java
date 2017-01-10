@@ -1088,8 +1088,6 @@ public final class CombatFactory {
         CombatType combatType = a.determineStrategy().getCombatType();
         int distanceTo = a.distance(b, true);
         if (distanceTo == 0) {
-            Position position = a.getPosition();
-            a.getWalkingQueue().addStepInternal(position.getX() + 1, position.getY());
             return false;
         }
         if (a.getPosition().getZ() != b.getPosition().getZ()) {
