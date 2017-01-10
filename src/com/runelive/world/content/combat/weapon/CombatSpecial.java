@@ -47,18 +47,12 @@ public enum CombatSpecial {
 		}
 	},
 	KORASIS_SWORD(new int[] { 19780 }, 60, 1.55, 8, CombatType.MELEE, WeaponInterface.SWORD) {
-		@Override
-		public CombatContainer container(Player player, Character target) {
+	@Override
+	public CombatContainer container(Player player, Character target) {
+		player.performAnimation(new Animation(14788));
+		player.performGraphic(new Graphic(1729));
 
-			player.performAnimation(new Animation(14788));
-			player.performGraphic(new Graphic(1729));
-
-			return new CombatContainer(player, target, 1, 0, CombatType.MELEE, true) {
-				@Override
-				public void onHit(int damage, boolean accurate) {
-					target.performGraphic(new Graphic(1730));
-				}
-			};
+		return new CombatContainer(player, target, 1, CombatType.MELEE, true);
 		}
 	},
 	HEAVY_BALLISTA(new int[] { 21144 }, 75, 1.00, 1.50, CombatType.RANGED, WeaponInterface.BALLISTA) {
