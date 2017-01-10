@@ -1,14 +1,14 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.StaffRights
-import com.chaos.model.container.impl.Shop
-import com.chaos.model.definitions.ItemDefinition
-import com.chaos.model.npc.drops.LootSystem
-import com.chaos.model.player.command.Command
-import com.chaos.util.FilterExecutable
-import com.chaos.world.World
-import com.chaos.world.entity.impl.npc.NPC
-import com.chaos.world.entity.impl.player.Player
+import com.runelive.model.StaffRights
+import com.runelive.model.container.impl.Shop
+import com.runelive.model.definitions.ItemDefinition
+import com.runelive.model.npc.drops.LootSystem
+import com.runelive.model.player.command.Command
+import com.runelive.util.FilterExecutable
+import com.runelive.world.World
+import com.runelive.world.entity.impl.npc.NPC
+import com.runelive.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas

@@ -1,12 +1,9 @@
 package org.scripts.kotlin.content.dialog;
 
-import com.chaos.model.Skill;
-import com.chaos.model.options.fiveoption.FiveOption;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.options.threeoption.ThreeOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.entity.impl.player.Player;
 
 public class Report extends Dialog {
 
@@ -29,15 +26,15 @@ public class Report extends Dialog {
                     public void execute(Player player, OptionType option) {
                         switch(option) {
                             case OPTION_1_OF_3:
-                                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/support/");
+                                player.getPacketSender().sendString(1, "www.rune.live/forums/index.php?/support/");
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_2_OF_3:
-                                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/support/");
+                                player.getPacketSender().sendString(1, "www.rune.live/forums/index.php?/support/");
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                             case OPTION_3_OF_3:
-                                player.getPacketSender().sendString(1, "www.chaosps.com/forums/index.php?/support/");
+                                player.getPacketSender().sendString(1, "www.rune.live/forums/index.php?/support/");
                                 player.getPacketSender().sendInterfaceRemoval();
                                 break;
                         }

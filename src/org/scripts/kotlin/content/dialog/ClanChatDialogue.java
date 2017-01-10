@@ -1,10 +1,10 @@
 package org.scripts.kotlin.content.dialog;
 
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.content.clan.ClanChatManager;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.options.fouroption.FourOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.content.clan.ClanChatManager;
+import com.runelive.world.entity.impl.player.Player;
 
 public class ClanChatDialogue extends Dialog {
 

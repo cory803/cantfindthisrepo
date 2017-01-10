@@ -1,9 +1,9 @@
 package org.scripts.kotlin.content.commands;
 
-import com.chaos.model.StaffRights;
-import com.chaos.model.container.impl.Shop;
-import com.chaos.model.player.command.Command;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.StaffRights;
+import com.runelive.model.container.impl.Shop;
+import com.runelive.model.player.command.Command;
+import com.runelive.world.entity.impl.player.Player;
 
 public class OpenShop extends Command {
 

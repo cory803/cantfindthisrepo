@@ -1,10 +1,10 @@
 package org.scripts.kotlin.content.dialog.Well;
 
-import com.chaos.model.input.impl.DonateToWell;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.input.impl.DonateToWell;
+import com.runelive.model.options.threeoption.ThreeOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.entity.impl.player.Player;
 
 public class DonateToWellDial extends Dialog {
 

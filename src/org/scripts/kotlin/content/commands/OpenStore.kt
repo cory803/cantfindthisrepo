@@ -1,9 +1,9 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.GameSettings
-import com.chaos.model.StaffRights
-import com.chaos.model.player.command.Command
-import com.chaos.world.entity.impl.player.Player
+import com.runelive.GameSettings
+import com.runelive.model.StaffRights
+import com.runelive.model.player.command.Command
+import com.runelive.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas
@@ -19,7 +19,7 @@ class OpenStore(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("The Store is currently turned off, please try again in 30 minutes!")
             return
         }
-        player.packetSender.sendString(1, "www.chaosps.com/store")
-        player.packetSender.sendMessage("Attempting to open: www.chaosps.com/store")
+        player.packetSender.sendString(1, "www.rune.live/store")
+        player.packetSender.sendMessage("Attempting to open: www.rune.live/store")
     }
 }

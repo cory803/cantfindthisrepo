@@ -1,9 +1,9 @@
 package org.scripts.kotlin.core.login
 
-import com.chaos.world.content.BankPin
-import com.chaos.world.content.PlayerLogs
-import com.chaos.world.entity.impl.player.Player
-import com.chaos.world.content.pos.PlayerOwnedShops
+import com.runelive.world.content.BankPin
+import com.runelive.world.content.PlayerLogs
+import com.runelive.world.entity.impl.player.Player
+import com.runelive.world.content.pos.PlayerOwnedShops
 
 /**
  * Created by Dave on 05/07/2016.

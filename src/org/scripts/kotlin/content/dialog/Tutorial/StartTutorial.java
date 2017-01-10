@@ -1,20 +1,19 @@
 package org.scripts.kotlin.content.dialog.Tutorial;
 
-import com.chaos.model.Flag;
-import com.chaos.model.Item;
-import com.chaos.model.Position;
-import com.chaos.model.container.impl.Equipment;
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.GameMode;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.net.packet.impl.EquipPacketListener;
-import com.chaos.world.content.PlayerPanel;
-import com.chaos.world.content.clan.ClanChatManager;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Flag;
+import com.runelive.model.Item;
+import com.runelive.model.Position;
+import com.runelive.model.container.impl.Equipment;
+import com.runelive.model.options.threeoption.ThreeOption;
+import com.runelive.model.options.twooption.TwoOption;
+import com.runelive.model.player.GameMode;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.net.packet.impl.EquipPacketListener;
+import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.content.clan.ClanChatManager;
+import com.runelive.world.entity.impl.player.Player;
 import org.scripts.kotlin.content.dialog.BankPin.BankPinTut;
 
 public class StartTutorial extends Dialog {
@@ -29,8 +28,8 @@ public class StartTutorial extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                ClanChatManager.join(getPlayer(), "chaos");
-                return Dialog.createNpc(DialogHandler.CALM, "Hello, Welcome to Chaos!\\nWhat Game Mode would you like?");
+                ClanChatManager.join(getPlayer(), "runelive");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello, Welcome to RuneLive!\\nWhat Game Mode would you like?");
             case 1:
                 return Dialog.createOption(new ThreeOption(
                         "Play in @red@Knight@bla@ mode (@blu@500XP@bla@ Per Hit)",
@@ -143,7 +142,7 @@ public class StartTutorial extends Dialog {
             case 2:
                 return Dialog.createPlayer(DialogHandler.HAPPY, "I would like to play as a "+getPlayer().getGameModeAssistant().getGameMode().getModeName()+".");
             case 3:
-                return Dialog.createNpc(DialogHandler.CALM_CONTINUED, "A very interesting choice! Would you like to go through the Chaos tutorial to help you learn how to make money and other sorts of stuff?");
+                return Dialog.createNpc(DialogHandler.CALM_CONTINUED, "A very interesting choice! Would you like to go through the RuneLive tutorial to help you learn how to make money and other sorts of stuff?");
             case 4:
                 return Dialog.createOption(new TwoOption(
                         "Yes, take the tutorial.",
@@ -174,11 +173,11 @@ public class StartTutorial extends Dialog {
                 return Dialog.createNpc(DialogHandler.HAPPY, "There are areas made just for skilling, this is the training grounds. You can train most skills here or by getting to them from this zone.");
             case 8:
                 getPlayer().moveTo(new Position(3093, 3502, 0));
-                return Dialog.createNpc(DialogHandler.HAPPY, "This is where the basic shops are located you can explore the rest of Chaos by playing!");
+                return Dialog.createNpc(DialogHandler.HAPPY, "This is where the basic shops are located you can explore the rest of RuneLive by playing!");
             case 9:
                 getPlayer().setNewPlayer(false);
                 getPlayer().setPlayerLocked(false);
-                return Dialog.createNpc(DialogHandler.HAPPY, "Have fun playing Chaos! If you need more help you can find me in Lumbridge.");
+                return Dialog.createNpc(DialogHandler.HAPPY, "Have fun playing RuneLive! If you need more help you can find me in Lumbridge.");
 //                return Dialog.createOption(new TwoOption(
 //                        "Setup Account Pin",
 //                        "Setup Bank Pin") {

@@ -1,11 +1,11 @@
 package org.scripts.kotlin.content.commands.writenpc;
 
-import com.chaos.model.StaffRights;
-import com.chaos.model.definitions.NpcDefinition;
-import com.chaos.model.player.command.Command;
-import com.chaos.world.World;
-import com.chaos.world.entity.impl.npc.NPC;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.StaffRights;
+import com.runelive.model.definitions.NpcDefinition;
+import com.runelive.model.player.command.Command;
+import com.runelive.world.World;
+import com.runelive.world.entity.impl.npc.NPC;
+import com.runelive.world.entity.impl.player.Player;
 
 import java.io.File;
 import java.util.HashMap;

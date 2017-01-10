@@ -1,15 +1,14 @@
 package org.scripts.kotlin.content.dialog;
 
-import com.chaos.model.DonatorRights;
-import com.chaos.model.StaffRights;
-import com.chaos.model.options.fiveoption.FiveOption;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.World;
-import com.chaos.world.content.AccountTools;
-import com.chaos.world.content.PlayerPanel;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.DonatorRights;
+import com.runelive.model.StaffRights;
+import com.runelive.model.options.fiveoption.FiveOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.World;
+import com.runelive.world.content.AccountTools;
+import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.entity.impl.player.Player;
 
 public class GiveDonatorDialog extends Dialog {
 

@@ -1,16 +1,13 @@
 package org.scripts.kotlin.content.dialog;
 
-import com.chaos.model.Position;
-import com.chaos.model.Skill;
-import com.chaos.model.options.fiveoption.FiveOption;
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.content.transportation.TeleportHandler;
-import com.chaos.world.content.transportation.TeleportType;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Position;
+import com.runelive.model.options.fiveoption.FiveOption;
+import com.runelive.model.options.fouroption.FourOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.content.transportation.TeleportHandler;
+import com.runelive.world.content.transportation.TeleportType;
+import com.runelive.world.entity.impl.player.Player;
 
 public class PortalDevice extends Dialog {
 

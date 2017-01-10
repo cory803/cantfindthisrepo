@@ -1,15 +1,14 @@
 package org.scripts.kotlin.content.dialog.teleports;
 
-import com.chaos.model.Position;
-import com.chaos.model.Skill;
-import com.chaos.model.options.fiveoption.FiveOption;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.util.Misc;
-import com.chaos.world.content.transportation.TeleportHandler;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Position;
+import com.runelive.model.Skill;
+import com.runelive.model.options.fiveoption.FiveOption;
+import com.runelive.model.options.threeoption.ThreeOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.util.Misc;
+import com.runelive.world.content.transportation.TeleportHandler;
+import com.runelive.world.entity.impl.player.Player;
 
 public class Minigames extends Dialog {
 

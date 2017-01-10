@@ -1,11 +1,8 @@
 package org.scripts.kotlin.content.commands;
 
-import com.chaos.model.StaffRights;
-import com.chaos.model.container.impl.Shop;
-import com.chaos.model.input.impl.*;
-import com.chaos.model.player.command.Command;
-import com.chaos.world.World;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.StaffRights;
+import com.runelive.model.player.command.Command;
+import com.runelive.world.entity.impl.player.Player;
 
 public class Announce extends Command {
 
@@ -19,7 +16,7 @@ public class Announce extends Command {
             player.getPacketSender().sendMessage("Example usage: ::announce-time");
         } else {
             player.setAnnouncementTime(Integer.parseInt(args[0]));
-            player.setInputHandling(new com.chaos.model.input.impl.GlobalAnnouncement());
+            player.setInputHandling(new com.runelive.model.input.impl.GlobalAnnouncement());
             player.getPacketSender().sendEnterInputPrompt("Enter a announcement:");
         }
     }

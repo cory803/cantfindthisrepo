@@ -1,8 +1,8 @@
 package org.scripts.kotlin.core.engine
 
-import com.chaos.world.content.EvilTrees
-import com.chaos.world.content.minigames.impl.FightPit
-import com.chaos.world.content.minigames.impl.PestControl
+import com.runelive.world.content.EvilTrees
+import com.runelive.world.content.minigames.impl.FightPit
+import com.runelive.world.content.minigames.impl.PestControl
 
 /**
  * Created by Dave on 05/07/2016.

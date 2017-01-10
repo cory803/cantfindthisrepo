@@ -1,14 +1,14 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.model.Skill;
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.util.Misc;
-import com.chaos.world.content.Achievements;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Skill;
+import com.runelive.model.options.fouroption.FourOption;
+import com.runelive.model.options.twooption.TwoOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.util.Misc;
+import com.runelive.world.content.Achievements;
+import com.runelive.world.entity.impl.player.Player;
 
 public class Max extends Dialog {
 
@@ -59,7 +59,7 @@ public class Max extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "Hello! I distribute all well known capes that prove achievements, accomplishments, and status among Chaos. I only give them to those that are worthy.");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello! I distribute all well known capes that prove achievements, accomplishments, and status among RuneLive. I only give them to those that are worthy.");
             case 1:
                 return Dialog.createOption(new FourOption(
                         "I'd like to buy a Max Cape ("+Misc.formatAmount(getMaxCapePrice(getPlayer()))+")",

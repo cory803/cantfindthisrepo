@@ -1,13 +1,13 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.model.definitions.ItemDefinition;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.util.Misc;
-import com.chaos.world.content.Scrolls;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.options.twooption.TwoOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.util.Misc;
+import com.runelive.world.content.Scrolls;
+import com.runelive.world.entity.impl.player.Player;
 
 public class OpenScroll extends Dialog {
 

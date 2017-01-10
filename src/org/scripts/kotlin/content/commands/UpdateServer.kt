@@ -1,17 +1,17 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.GameServer
-import com.chaos.engine.task.Task
-import com.chaos.engine.task.TaskManager
-import com.chaos.model.StaffRights
-import com.chaos.model.player.command.Command
-import com.chaos.util.FilterExecutable
-import com.chaos.world.World
-import com.chaos.world.content.wells.WellOfGoodness
-import com.chaos.world.content.clan.ClanChatManager
-import com.chaos.world.content.lottery.LotterySaving
-import com.chaos.world.entity.impl.player.Player
-import com.chaos.world.content.pos.PlayerOwnedShops
+import com.runelive.GameServer
+import com.runelive.engine.task.Task
+import com.runelive.engine.task.TaskManager
+import com.runelive.model.StaffRights
+import com.runelive.model.player.command.Command
+import com.runelive.util.FilterExecutable
+import com.runelive.world.World
+import com.runelive.world.content.wells.WellOfGoodness
+import com.runelive.world.content.clan.ClanChatManager
+import com.runelive.world.content.lottery.LotterySaving
+import com.runelive.world.entity.impl.player.Player
+import com.runelive.world.content.pos.PlayerOwnedShops
 
 import java.io.IOException
 

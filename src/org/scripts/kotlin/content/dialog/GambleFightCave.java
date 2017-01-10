@@ -1,15 +1,14 @@
 package org.scripts.kotlin.content.dialog;
 
-import com.chaos.model.Item;
-import com.chaos.model.container.impl.Shop;
-import com.chaos.model.definitions.ItemDefinition;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.util.Misc;
-import com.chaos.world.World;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Item;
+import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.model.options.twooption.TwoOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.util.Misc;
+import com.runelive.world.World;
+import com.runelive.world.entity.impl.player.Player;
 
 public class GambleFightCave extends Dialog {
 

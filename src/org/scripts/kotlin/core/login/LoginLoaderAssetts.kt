@@ -1,10 +1,10 @@
 package org.scripts.kotlin.core.login
 
-import com.chaos.model.Locations
-import com.chaos.world.content.Achievements
-import com.chaos.world.content.PlayerPanel
-import com.chaos.world.content.clan.ClanChatManager
-import com.chaos.world.entity.impl.player.Player
+import com.runelive.model.Locations
+import com.runelive.world.content.Achievements
+import com.runelive.world.content.PlayerPanel
+import com.runelive.world.content.clan.ClanChatManager
+import com.runelive.world.entity.impl.player.Player
 
 /**
  * Created by Dave on 01/07/2016.

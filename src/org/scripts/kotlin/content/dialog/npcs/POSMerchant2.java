@@ -1,13 +1,13 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.GameSettings;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.content.pos.PlayerOwnedShops;
-import com.chaos.world.content.pos.PosFeaturedShops;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.GameSettings;
+import com.runelive.model.options.twooption.TwoOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.content.pos.PlayerOwnedShops;
+import com.runelive.world.content.pos.PosFeaturedShops;
+import com.runelive.world.entity.impl.player.Player;
 
 public class POSMerchant2 extends Dialog {
     int x = 0;

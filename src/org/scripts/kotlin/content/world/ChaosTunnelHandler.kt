@@ -1,8 +1,8 @@
 package org.scripts.kotlin.content.world;
 
-import com.chaos.model.GameObject
-import com.chaos.model.Position
-import com.chaos.world.entity.impl.player.Player
+import com.runelive.model.GameObject
+import com.runelive.model.Position
+import com.runelive.world.entity.impl.player.Player
 
 /**
  * Author Vados

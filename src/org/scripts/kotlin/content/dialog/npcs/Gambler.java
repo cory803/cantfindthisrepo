@@ -1,18 +1,12 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.model.Position;
-import com.chaos.model.StaffRights;
-import com.chaos.model.container.impl.Shop;
-import com.chaos.model.options.fiveoption.FiveOption;
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.content.lottery.Lottery;
-import com.chaos.world.content.lottery.LotterySaving;
-import com.chaos.world.content.transportation.TeleportHandler;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.options.fiveoption.FiveOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.content.lottery.Lottery;
+import com.runelive.world.content.lottery.LotterySaving;
+import com.runelive.world.entity.impl.player.Player;
 
 public class Gambler extends Dialog {
 
@@ -83,7 +77,7 @@ public class Gambler extends Dialog {
                     }
                 });
             case 2:
-                return Dialog.createNpc(DialogHandler.CALM, "The Lottery is a pot of $50 that is drawn every 7 days. You can get lottery tickets by killing monsters, or other various things in Chaos.");
+                return Dialog.createNpc(DialogHandler.CALM, "The Lottery is a pot of $50 that is drawn every 7 days. You can get lottery tickets by killing monsters, or other various things in RuneLive.");
             case 3:
                 return Dialog.createNpc(DialogHandler.CALM, "You need to have a $50 Lottery ticket in order to enter the lottery.");
             case 4:

@@ -1,9 +1,9 @@
 package org.scripts.kotlin.core.login
 
-import com.chaos.world.entity.impl.player.Player;
-import com.chaos.GameSettings
-import com.chaos.util.Misc
-import com.chaos.world.content.wells.WellOfGoodness
+import com.runelive.world.entity.impl.player.Player;
+import com.runelive.GameSettings
+import com.runelive.util.Misc
+import com.runelive.world.content.wells.WellOfGoodness
 import java.util.concurrent.TimeUnit
 
 /**

@@ -1,15 +1,14 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.model.Item;
-import com.chaos.model.options.Option;
-import com.chaos.model.options.fiveoption.FiveOption;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.player.GameMode;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.util.Misc;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Item;
+import com.runelive.model.options.fiveoption.FiveOption;
+import com.runelive.model.options.threeoption.ThreeOption;
+import com.runelive.model.player.GameMode;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.util.Misc;
+import com.runelive.world.entity.impl.player.Player;
 
 import static org.scripts.kotlin.content.dialog.npcs.PkSetsDialogue.PkSets.buyRunes;
 

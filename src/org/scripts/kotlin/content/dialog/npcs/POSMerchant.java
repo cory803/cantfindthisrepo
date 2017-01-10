@@ -1,17 +1,14 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.GameSettings;
-import com.chaos.model.container.impl.Shop;
-import com.chaos.model.input.impl.EnterYellTag;
-import com.chaos.model.input.impl.PosSearchShop;
-import com.chaos.model.input.impl.SetPOSCaption;
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.content.pos.PlayerOwnedShops;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.GameSettings;
+import com.runelive.model.input.impl.PosSearchShop;
+import com.runelive.model.input.impl.SetPOSCaption;
+import com.runelive.model.options.fouroption.FourOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.content.pos.PlayerOwnedShops;
+import com.runelive.world.entity.impl.player.Player;
 
 public class POSMerchant extends Dialog {
 
@@ -24,7 +21,7 @@ public class POSMerchant extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                return Dialog.createNpc(DialogHandler.CALM, "Hello "+getPlayer().getUsername()+", welcome to the Chaos market!");
+                return Dialog.createNpc(DialogHandler.CALM, "Hello "+getPlayer().getUsername()+", welcome to the RuneLive market!");
             case 1:
             return Dialog.createOption(new FourOption(
                     "Set my store caption",

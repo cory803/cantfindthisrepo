@@ -1,19 +1,16 @@
 package org.scripts.kotlin.content.dialog.npcs;
 
-import com.chaos.model.Item;
-import com.chaos.model.Position;
-import com.chaos.model.container.impl.Shop;
-import com.chaos.model.definitions.ItemDefinition;
-import com.chaos.model.options.fouroption.FourOption;
-import com.chaos.model.options.threeoption.ThreeOption;
-import com.chaos.model.options.twooption.TwoOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.net.packet.impl.UseItemPacketListener;
-import com.chaos.world.content.transportation.TeleportHandler;
-import com.chaos.world.content.transportation.TeleportType;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Item;
+import com.runelive.model.Position;
+import com.runelive.model.options.fouroption.FourOption;
+import com.runelive.model.options.threeoption.ThreeOption;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.net.packet.impl.UseItemPacketListener;
+import com.runelive.world.content.transportation.TeleportHandler;
+import com.runelive.world.content.transportation.TeleportType;
+import com.runelive.world.entity.impl.player.Player;
 
 public class ToolLeprechaun extends Dialog {
 
@@ -91,7 +88,7 @@ public class ToolLeprechaun extends Dialog {
                 return Dialog.createNpc(DialogHandler.HAPPY, "To start farming, you can buy supplies from Farmer Fromund in Catherby.");
             case 5:
                 setEndState(6);
-                return Dialog.createNpc(DialogHandler.HAPPY, "There are many patches all over Chaos. I can bring you to all of them!");
+                return Dialog.createNpc(DialogHandler.HAPPY, "There are many patches all over RuneLive. I can bring you to all of them!");
             case 6:
                 setEndState(6);
                 return Dialog.createNpc(DialogHandler.HAPPY, "If you need any more help, you can contact a staff member for assistance. Have fun farming!");

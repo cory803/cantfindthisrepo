@@ -1,10 +1,10 @@
 package org.scripts.kotlin.content.dialog.healers;
 
-import com.chaos.model.Skill;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.Skill;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.entity.impl.player.Player;
 
 /**
  * Created by Jonathan on 9/3/2016.

@@ -1,13 +1,11 @@
 package org.scripts.kotlin.content.commands;
 
-import com.chaos.model.Item;
-import com.chaos.model.StaffRights;
-import com.chaos.model.container.ItemContainer;
-import com.chaos.model.player.command.Command;
-import com.chaos.world.World;
-import com.chaos.world.entity.impl.player.Player;
-
-import java.util.Arrays;
+import com.runelive.model.Item;
+import com.runelive.model.StaffRights;
+import com.runelive.model.container.ItemContainer;
+import com.runelive.model.player.command.Command;
+import com.runelive.world.World;
+import com.runelive.world.entity.impl.player.Player;
 
 /**
  * Created on 11/5/2016.

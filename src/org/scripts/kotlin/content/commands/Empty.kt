@@ -1,13 +1,13 @@
 package org.scripts.kotlin.content.commands
 
-import com.chaos.model.StaffRights
-import com.chaos.model.options.Option
-import com.chaos.model.options.twooption.TwoOption
-import com.chaos.model.player.command.Command
-import com.chaos.model.player.dialog.Dialog
-import com.chaos.model.player.dialog.DialogHandler
-import com.chaos.model.player.dialog.DialogMessage
-import com.chaos.world.entity.impl.player.Player
+import com.runelive.model.StaffRights
+import com.runelive.model.options.Option
+import com.runelive.model.options.twooption.TwoOption
+import com.runelive.model.player.command.Command
+import com.runelive.model.player.dialog.Dialog
+import com.runelive.model.player.dialog.DialogHandler
+import com.runelive.model.player.dialog.DialogMessage
+import com.runelive.world.entity.impl.player.Player
 
 /**
  * "The digital revolution is far more significant than the invention of writing or even of printing." - Douglas

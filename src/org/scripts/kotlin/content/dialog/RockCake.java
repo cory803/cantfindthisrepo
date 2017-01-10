@@ -1,14 +1,12 @@
 package org.scripts.kotlin.content.dialog;
 
-import com.chaos.model.CombatIcon;
-import com.chaos.model.Hit;
-import com.chaos.model.Hitmask;
-import com.chaos.model.Skill;
-import com.chaos.model.options.fiveoption.FiveOption;
-import com.chaos.model.player.dialog.Dialog;
-import com.chaos.model.player.dialog.DialogHandler;
-import com.chaos.model.player.dialog.DialogMessage;
-import com.chaos.world.entity.impl.player.Player;
+import com.runelive.model.CombatIcon;
+import com.runelive.model.Hit;
+import com.runelive.model.Hitmask;
+import com.runelive.model.player.dialog.Dialog;
+import com.runelive.model.player.dialog.DialogHandler;
+import com.runelive.model.player.dialog.DialogMessage;
+import com.runelive.world.entity.impl.player.Player;
 
 public class RockCake extends Dialog {
 
