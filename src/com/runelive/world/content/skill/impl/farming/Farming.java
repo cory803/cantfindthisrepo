@@ -496,7 +496,7 @@ public final class Farming extends AbstractHarvestSkill {
 						
 						final Patch newPatch = new Patch(patchType, finalSeedType, patch.getGrowthState() == null ? GrowthState.GROWING : patch.getGrowthState(), 0);
 						newPatch.setWeedStage(FarmingConstants.WEED_CONFIG.length - 1);
-						newPatch.setProduct(finalSeedType.getRewards()[0].copy().setAmount(finalSeedType.getHarvestAmount(patch)));
+						newPatch.setProduct(finalSeedType.getRewards()[0].copy().setAmount(Misc.inclusiveRandom(6, 25)));
 						newPatch.setHarvestedItem(finalSeedType.getRewards()[0].copy().setAmount(0));
 						newPatch.setPlantConfigurations(player);
 						player.getPatches().put(patchType, newPatch);

@@ -18,6 +18,6 @@ object SequenceControl {
         FightPit.sequence()
         PestControl.sequence()
         EvilTrees.sequence()
-        System.out.println("Chaos has successfully started up World sequences.")
+        System.out.println("RuneLive has successfully started up World sequences.")
     }
 }
