@@ -1335,7 +1335,7 @@ public final class CombatFactory {
                     context.getHit().incrementAbsorbedDamage((int) (hit - (hit * mod)));
                     mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
                 });
-            } else if (npc.getId() == 8133) {
+            } else if (npc.getId() == 8133 || npc.getId() == 6611) {
                 if(attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 21120 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 11716 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 1249) {
                     container.allHits(context -> {
                         int hit = context.getHit().getDamage();
