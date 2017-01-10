@@ -9,7 +9,9 @@ import java.util.concurrent.Phaser;
 import java.util.logging.Level;
 
 import com.runelive.model.*;
+import com.runelive.model.definitions.CacheObjectDefinition;
 import com.runelive.world.content.Gambling;
+import com.runelive.world.content.HalloweenEvent;
 import com.runelive.world.content.diversions.hourly.HourlyDiversionManager;
 import com.runelive.world.content.lottery.LotterySaving;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
@@ -497,7 +499,7 @@ public class World {
 	}
 
 	private static void flag(GameObject object) {
-		GameObjectDefinition definition = GameObjectDefinition.forId(object.getId());
+		CacheObjectDefinition definition = CacheObjectDefinition.definition(object.getId());
 		if (definition == null) {
 			return;
 		}
@@ -511,6 +513,9 @@ public class World {
 				object.getDefinition().unwalkable = false;
 				return;
 			}
+		}
+		if (!definition.isUnwalkable()) {
+			return;
 		}
 		if(object.getType() == 22) {
 			return;
@@ -577,7 +582,7 @@ public class World {
 					flag(x - 1, y, z, Region.EAST_BLOCKED);
 				}
 			}
-			if (definition.impenetrable) {
+			if (definition.isProjectileBlocked()) {
 				if (type == 0) {
 					if (rotation == 0) {
 						flag(x, y, z, Region.PROJECTILE_WEST_BLOCKED);
@@ -629,7 +634,7 @@ public class World {
 		} else if (type >= 4 && type <= 8) {//Wall Decoration
 		} else if ((type == 9) || (type == 10 || type == 11) || (type >= 12 && type <= 21)) {//Diagonal Wall || Interactive Object || Roof
 			int mask = Region.TILE_BLOCKED;
-			if (definition.impenetrable) {
+			if (definition.isProjectileBlocked()) {
 				mask += Region.PROJECTILE_TILE_BLOCKED;
 			}
 			int xLength = object.getLengthX();
@@ -640,7 +645,7 @@ public class World {
 				}
 			}
 		} else if (type == 22) {//Floor Decoration
-			if (definition.interactive) {
+			if (definition.isInteractable()) {
 				flag(x, y, z, Region.BLOCKED_TILE);
 			}
 		} else {

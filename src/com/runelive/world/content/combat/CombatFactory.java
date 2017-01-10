@@ -40,6 +40,7 @@ import com.runelive.world.content.transportation.TeleportType;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
+import javafx.geometry.Pos;
 
 import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
@@ -1085,8 +1086,10 @@ public final class CombatFactory {
 
     public static boolean checkAttackDistance(Character a, Character b) {
         CombatType combatType = a.determineStrategy().getCombatType();
-        int distanceTo = a.distance(b);
+        int distanceTo = a.distance(b, true);
         if (distanceTo == 0) {
+            Position position = a.getPosition();
+            a.getWalkingQueue().addStepInternal(position.getX() + 1, position.getY());
             return false;
         }
         if (a.getPosition().getZ() != b.getPosition().getZ()) {

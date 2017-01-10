@@ -37,6 +37,11 @@ public class PlayerUpdateSequence implements UpdateSequence<Player> {
 			t.process();
 			if (t.getWalkToTask() != null)
 				t.getWalkToTask().tick();
+			try {
+				t.getActionQueue().processActions();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			t.getWalkingQueue().processNextMovement();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -65,11 +70,6 @@ public class PlayerUpdateSequence implements UpdateSequence<Player> {
 	public void executePostUpdate(Player t) {
 		try {
 			PlayerUpdating.resetFlags(t);
-			try {
-				t.getActionQueue().processActions();
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			World.deregister(t);

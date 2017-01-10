@@ -1,41 +1,40 @@
 package com.runelive;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.runelive.cache.Archive;
+import com.runelive.engine.GameEngine;
+import com.runelive.engine.task.TaskManager;
+import com.runelive.engine.task.impl.ServerTimeUpdateTask;
+import com.runelive.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
+import com.runelive.model.container.impl.Shop.ShopManager;
+import com.runelive.model.definitions.*;
+import com.runelive.model.npc.drops.LootSystem;
+import com.runelive.net.PipelineFactory;
+import com.runelive.net.security.ConnectionHandler;
+import com.runelive.util.FontUtils;
+import com.runelive.world.World;
+import com.runelive.world.content.CustomObjects;
+import com.runelive.world.content.Scoreboard;
+import com.runelive.world.content.clan.ClanChatManager;
+import com.runelive.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
+import com.runelive.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
+import com.runelive.world.content.combat.strategy.CombatStrategies;
+import com.runelive.world.content.diversions.hourly.HourlyDiversionManager;
+import com.runelive.world.content.lottery.LotterySaving;
+import com.runelive.world.content.pos.PlayerOwnedShops;
+import com.runelive.world.content.wells.WellOfGoodness;
+import com.runelive.world.doors.DoorManager;
+import com.runelive.world.entity.impl.npc.NPC;
+import org.jboss.netty.bootstrap.ServerBootstrap;
+import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
+import org.jboss.netty.util.HashedWheelTimer;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
-
-import com.runelive.cache.Archive;
-import com.runelive.model.definitions.*;
-import com.runelive.model.npc.drops.LootSystem;
-import com.runelive.util.*;
-import com.runelive.world.World;
-import com.runelive.world.content.Scoreboard;
-import com.runelive.world.content.lottery.LotterySaving;
-import com.runelive.world.content.wells.WellOfGoodness;
-import com.runelive.world.content.diversions.hourly.HourlyDiversionManager;
-import com.runelive.world.doors.DoorManager;
-import org.jboss.netty.bootstrap.ServerBootstrap;
-import org.jboss.netty.channel.socket.nio.NioServerSocketChannelFactory;
-import org.jboss.netty.util.HashedWheelTimer;
-
-import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import com.runelive.engine.GameEngine;
-import com.runelive.engine.task.TaskManager;
-import com.runelive.engine.task.impl.ServerTimeUpdateTask;
-import com.runelive.model.container.impl.Shop.ShopManager;
-import com.runelive.net.PipelineFactory;
-import com.runelive.net.security.ConnectionHandler;
-import com.runelive.world.content.CustomObjects;
-import com.runelive.world.content.clan.ClanChatManager;
-import com.runelive.world.content.combat.effect.CombatPoisonEffect.CombatPoisonData;
-import com.runelive.world.content.combat.effect.CombatVenomEffect.CombatVenomData;
-import com.runelive.world.content.combat.strategy.CombatStrategies;
-import com.runelive.world.entity.impl.npc.NPC;
-import com.runelive.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
-import com.runelive.world.content.pos.PlayerOwnedShops;
 
 /**
  * testCredit: lare96, Gabbe, Jonny, High105
@@ -66,6 +65,7 @@ public final class GameLoader {
 		ConnectionHandler.init();
 		FontUtils.initialize(new Archive(GameServer.cache.getFile(0, 1)));
 		GameObjectDefinition.init();
+		CacheObjectDefinition.load(new Archive(GameServer.cache.getFile(0, 2)));
 		World.loadRegions(new Archive(GameServer.cache.getFile(0, 5)));
 		CustomObjects.init();
 		ItemDefinition.init().load();
