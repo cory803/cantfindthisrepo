@@ -2,7 +2,6 @@ package com.runelive.world.content.combat;
 
 import com.runelive.engine.task.Task;
 import com.runelive.model.action.distance.CombatFollowMobileAction;
-import com.runelive.model.action.distance.CombatFollowMobileActionMelee;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.combat.HitQueue.CombatHit;
@@ -94,17 +93,7 @@ public class CombatSession {
 					}
 				}
 				if(builder.getCharacter().isPlayer()) {
-					if (builder.getCombatType() == CombatType.MELEE) {
-						if ((builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getX()) >= -1 && (builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getX()) <= 1 || (builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getY()) >= -1 && (builder.getCharacter().getPosition().getX() - builder.getVictim().getPosition().getY()) <= 1) {
-							((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
-						} else {
-							((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileActionMelee(((Player) builder.getCharacter()), builder.getVictim()));
-						}
-					} else {
-						if (builder.getCharacter().isPlayer()) {
-							((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
-						}
-					}
+					((Player) builder.getCharacter()).getActionQueue().addAction(new CombatFollowMobileAction(((Player) builder.getCharacter()), builder.getVictim()));
 				}
 				return;
 			}
