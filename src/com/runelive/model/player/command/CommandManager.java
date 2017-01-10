@@ -359,6 +359,7 @@ public class CommandManager {
         commands.put("scores", new OpenHiscores(StaffRights.PLAYER));
         commands.put("hiscores", new OpenHiscores(StaffRights.PLAYER));
         commands.put("highscores", new OpenHiscores(StaffRights.PLAYER));
+        commands.put("rules", new Rules(StaffRights.PLAYER));
         commands.put("thread", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
