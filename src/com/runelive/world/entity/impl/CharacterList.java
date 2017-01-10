@@ -215,7 +215,7 @@ public final class CharacterList<E extends Character> implements Iterable<E> {
 			}
 			return -1;
 		}
-		return slotQueue.remove();
+		return slotQueue.poll();
 	}
 
 	/**

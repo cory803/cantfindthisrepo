@@ -434,6 +434,7 @@ public class PlayerLoading {
 
 		if (reader.has("position")) {
 			player.getPosition().setAs(builder.fromJson(reader.get("position"), Position.class));
+			player.setLastPosition(player.getPosition());
 		}
 
 		if (reader.has("melee-max-hit")) {

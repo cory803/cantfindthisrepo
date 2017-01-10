@@ -65,12 +65,12 @@ public class World {
 	/**
 	 * All of the registered players.
 	 */
-	private static CharacterList<Player> players = new CharacterList<>(1000);
+	private static CharacterList<Player> players = new CharacterList<>(1_000);
 
 	/**
 	 * All of the registered NPCs.
 	 */
-	private static CharacterList<NPC> npcs = new CharacterList<>(2027);
+	private static CharacterList<NPC> npcs = new CharacterList<>(5_000);
 
 	/**
 	 * Used to block the game thread until updating has completed.

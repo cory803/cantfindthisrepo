@@ -271,8 +271,6 @@ public final class CacheObjectDefinition {
 					childrenIDs[j2] = -1;
 				}*/
 				}
-			} else {
-				GameServer.getLogger().log(Level.WARNING, "Error: unrecognised objdef code: " + opcode + " " + prevOpcode);
 			}
 			prevOpcode = opcode;
 		}
