@@ -63,6 +63,11 @@ public class DropItemPacketListener implements PacketListener {
 					player.getPacketSender().sendMessage("The potion explodes in your face as you drop it!");
 				} else {
 					int address = Misc.random(0, Integer.MAX_VALUE);
+					if(player.getGameModeAssistant().isIronMan()) {
+						//destroyItemInterface(player, item);
+						player.getPacketSender().sendMessage("Your item vanishes as it touches the ground...");
+						return;
+					}
 					if (player.getLocation() == Location.WILDERNESS
 							&& ItemDefinition.forId(item.getId()).getValue() >= 100000) {
 						GroundItemManager.spawnGroundItemGlobally(player, new GroundItem(item,

@@ -22,6 +22,10 @@ class CCkick(staffRights: StaffRights) : Command(staffRights) {
                 player.packetSender.sendMessage("You cannot kick someone who isn't in a clanchat")
                 return
             }
+            if (kick.staffRights.isStaff == null) {
+                player.packetSender.sendMessage("You cannot kick another staff member.")
+                return
+            }
             if (kick.currentClanChat.ownerName == kick.username) {
                 player.packetSender.sendMessage("You cannot kick someone who is in their own clanchat.")
                 return
