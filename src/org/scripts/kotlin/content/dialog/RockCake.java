@@ -21,8 +21,7 @@ public class RockCake extends Dialog {
     public DialogMessage getMessage() {
         switch (getState()) {
             case 0:
-                getPlayer().dealDamage(null, new Hit(500, Hitmask.RED, CombatIcon.NONE));
-                getPlayer().getInventory().delete(2379, 1);
+                getPlayer().dealDamage(null, new Hit(10, Hitmask.RED, CombatIcon.NONE));
                 return Dialog.createPlayer(DialogHandler.CALM, "Ow! I nearly broke a tooth!");
         }
         return null;
