@@ -429,6 +429,7 @@ public class CommandManager {
         /**
          * Server Support Commands
          */
+        commands.put("cckick", new CCkick(StaffRights.SUPPORT));
         commands.put("unjail", new Unjail(StaffRights.SUPPORT));
         commands.put("scan", new Scan(StaffRights.SUPPORT));
         commands.put("jail", new Jail(StaffRights.SUPPORT));
