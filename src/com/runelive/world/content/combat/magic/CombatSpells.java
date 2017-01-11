@@ -2253,7 +2253,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage >= 1 || accurate) {
-				castOn.getWalkingQueue().freeze(7);
+				castOn.getWalkingQueue().freeze(5);
 			}
 		}
 
@@ -2490,7 +2490,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage >= 1 || accurate) {
-				castOn.getWalkingQueue().freeze(9);
+				castOn.getWalkingQueue().freeze(10);
 			}
 		}
 
@@ -2727,7 +2727,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage >= 1 || accurate) {
-				castOn.getWalkingQueue().freeze(10);
+				castOn.getWalkingQueue().freeze(15);
 			}
 		}
 
@@ -2964,7 +2964,7 @@ public enum CombatSpells {
 		@Override
 		public void spellEffect(Character cast, Character castOn, int damage, boolean accurate) {
 			if (damage >= 1 || accurate) {
-				castOn.getWalkingQueue().freeze(15);
+				castOn.getWalkingQueue().freeze(20);
 			}
 		}
 
