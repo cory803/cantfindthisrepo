@@ -1755,14 +1755,11 @@ public final class CombatFactory {
                             }
                         }
                     }
-                    p.getPacketSender()
-                            .sendMessage(
-                                    "You manage to leech your target's "
-                                            + (i == 8 ? ("energy")
-                                            : i == 7 ? ("Special Attack")
-                                            : Misc.formatText(Skill.forId(i).toString().toLowerCase()))
-                                            + ".");
-                }
+                    if(i == 8) {
+                        p.getPacketSender().sendMessage("You manage to leech your targer's energy");
+                    } else if(i == 7) {
+                        p.getPacketSender().sendMessage("You manage to leech your special attack energy");
+                    }
             } else {
                 boolean sapWarrior = p.getCurseActive()[CurseHandler.SAP_WARRIOR];
                 boolean sapRanger = p.getCurseActive()[CurseHandler.SAP_RANGER];
