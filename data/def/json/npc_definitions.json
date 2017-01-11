@@ -137884,7 +137884,7 @@
 "combat": 91,
 "size": 1,
 "attackable": true,
-"aggressive": true,
+"aggressive": false,
 "retreats": false,
 "poisonous": false,
 "respawn": 70,
