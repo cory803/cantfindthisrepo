@@ -1650,7 +1650,7 @@ public final class CombatFactory {
                         if (!(attacker == null || target == null || attacker.getConstitution() <= 0)) {
                             target.performGraphic(new Graphic(2264, GraphicHeight.LOW));
 
-                            if(p.getConstitution() >= p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
+                            if (p.getConstitution() >= p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
                                 //No need to take any health because you are already full.
                             } else {
                                 if (form + p.getConstitution() > p.getSkillManager().getMaxLevel(Skill.CONSTITUTION) + p.getEquipment().getBoost()) {
@@ -1755,80 +1755,80 @@ public final class CombatFactory {
                             }
                         }
                     }
-                    if(i == 8) {
+                    if (i == 8) {
                         p.getPacketSender().sendMessage("You manage to leech your targer's energy");
-                    } else if(i == 7) {
+                    } else if (i == 7) {
                         p.getPacketSender().sendMessage("You manage to leech your special attack energy");
                     }
-            } else {
-                boolean sapWarrior = p.getCurseActive()[CurseHandler.SAP_WARRIOR];
-                boolean sapRanger = p.getCurseActive()[CurseHandler.SAP_RANGER];
-                boolean sapMage = p.getCurseActive()[CurseHandler.SAP_MAGE];
-                if (sapWarrior || sapRanger || sapMage) {
-                    if (sapWarrior && Misc.getRandom(8) <= 2) {
-                        CurseHandler.handleLeech(target, 0, 1, -10, true);
-                        CurseHandler.handleLeech(target, 1, 1, -10, true);
-                        CurseHandler.handleLeech(target, 2, 1, -10, true);
-                        p.performGraphic(new Graphic(2214));
-                        p.performAnimation(new Animation(12575));
-                        new Projectile(p, target, 2215, 44, 3, 43, 31, 0).sendProjectile();
-                        p.getPacketSender().sendMessage("You decrease the your Attack, Strength and Defence level..");
-                    } else if (sapRanger && Misc.getRandom(16) >= 9) {
-                        CurseHandler.handleLeech(target, 4, 1, -10, true);
-                        CurseHandler.handleLeech(target, 1, 1, -10, true);
-                        p.performGraphic(new Graphic(2217));
-                        p.performAnimation(new Animation(12575));
-                        new Projectile(p, target, 2218, 44, 3, 43, 31, 0).sendProjectile();
-                        p.getPacketSender().sendMessage("You decrease your target's Ranged and Defence level..");
-                    } else if (sapMage && Misc.getRandom(15) >= 10) {
-                        CurseHandler.handleLeech(target, 6, 1, -10, true);
-                        CurseHandler.handleLeech(target, 1, 1, -10, true);
-                        p.performGraphic(new Graphic(2220));
-                        p.performAnimation(new Animation(12575));
-                        new Projectile(p, target, 2221, 44, 3, 43, 31, 0).sendProjectile();
-                        p.getPacketSender().sendMessage("You decrease your target's Magic and Defence level..");
+                } else {
+                    boolean sapWarrior = p.getCurseActive()[CurseHandler.SAP_WARRIOR];
+                    boolean sapRanger = p.getCurseActive()[CurseHandler.SAP_RANGER];
+                    boolean sapMage = p.getCurseActive()[CurseHandler.SAP_MAGE];
+                    if (sapWarrior || sapRanger || sapMage) {
+                        if (sapWarrior && Misc.getRandom(8) <= 2) {
+                            CurseHandler.handleLeech(target, 0, 1, -10, true);
+                            CurseHandler.handleLeech(target, 1, 1, -10, true);
+                            CurseHandler.handleLeech(target, 2, 1, -10, true);
+                            p.performGraphic(new Graphic(2214));
+                            p.performAnimation(new Animation(12575));
+                            new Projectile(p, target, 2215, 44, 3, 43, 31, 0).sendProjectile();
+                            p.getPacketSender().sendMessage("You decrease the your Attack, Strength and Defence level..");
+                        } else if (sapRanger && Misc.getRandom(16) >= 9) {
+                            CurseHandler.handleLeech(target, 4, 1, -10, true);
+                            CurseHandler.handleLeech(target, 1, 1, -10, true);
+                            p.performGraphic(new Graphic(2217));
+                            p.performAnimation(new Animation(12575));
+                            new Projectile(p, target, 2218, 44, 3, 43, 31, 0).sendProjectile();
+                            p.getPacketSender().sendMessage("You decrease your target's Ranged and Defence level..");
+                        } else if (sapMage && Misc.getRandom(15) >= 10) {
+                            CurseHandler.handleLeech(target, 6, 1, -10, true);
+                            CurseHandler.handleLeech(target, 1, 1, -10, true);
+                            p.performGraphic(new Graphic(2220));
+                            p.performAnimation(new Animation(12575));
+                            new Projectile(p, target, 2221, 44, 3, 43, 31, 0).sendProjectile();
+                            p.getPacketSender().sendMessage("You decrease your target's Magic and Defence level..");
+                        }
+                    }
+                }
+            }
+            if (target.isPlayer()) {
+                Player victim = (Player) target;
+                if (damage > 0 && Misc.inclusiveRandom(1, 10) <= 7) {
+                    int deflectDamage = -1;
+                    if (CurseHandler.isActivated(victim, CurseHandler.DEFLECT_MAGIC) && combatType == CombatType.MAGIC) {
+                        victim.performGraphic(new Graphic(2228, GraphicHeight.MIDDLE));
+                        victim.performAnimation(new Animation(12573));
+                        deflectDamage = (int) (damage * 0.05);
+                    } else if (CurseHandler.isActivated(victim, CurseHandler.DEFLECT_MISSILES)
+                            && combatType == CombatType.RANGED) {
+                        victim.performGraphic(new Graphic(2229, GraphicHeight.MIDDLE));
+                        victim.performAnimation(new Animation(12573));
+                        deflectDamage = (int) (damage * 0.05);
+                    } else if (CurseHandler.isActivated(victim, CurseHandler.DEFLECT_MELEE)
+                            && combatType == CombatType.MELEE) {
+                        victim.performGraphic(new Graphic(2230, GraphicHeight.MIDDLE));
+                        victim.performAnimation(new Animation(12573));
+                        System.out.println("" + damage);
+                        deflectDamage = (int) (damage * 0.05);
+                    }
+                    if (deflectDamage > 0) {
+                        if (deflectDamage > attacker.getConstitution())
+                            deflectDamage = attacker.getConstitution();
+                        final int toDeflect = deflectDamage;
+                        TaskManager.submit(new Task(1, victim, false) {
+                            @Override
+                            public void execute() {
+                                if (attacker == null || attacker.getConstitution() <= 0) {
+                                    stop();
+                                } else
+                                    attacker.dealDamage(target, new Hit(toDeflect, Hitmask.RED, CombatIcon.BLUE_SHIELD));
+                                stop();
+                            }
+                        });
                     }
                 }
             }
         }
-        if (target.isPlayer()) {
-            Player victim = (Player) target;
-            if (damage > 0 && Misc.inclusiveRandom(1, 10) <= 7) {
-                int deflectDamage = -1;
-                if (CurseHandler.isActivated(victim, CurseHandler.DEFLECT_MAGIC) && combatType == CombatType.MAGIC) {
-                    victim.performGraphic(new Graphic(2228, GraphicHeight.MIDDLE));
-                    victim.performAnimation(new Animation(12573));
-                    deflectDamage = (int) (damage * 0.05);
-                } else if (CurseHandler.isActivated(victim, CurseHandler.DEFLECT_MISSILES)
-                        && combatType == CombatType.RANGED) {
-                    victim.performGraphic(new Graphic(2229, GraphicHeight.MIDDLE));
-                    victim.performAnimation(new Animation(12573));
-                    deflectDamage = (int) (damage * 0.05);
-                } else if (CurseHandler.isActivated(victim, CurseHandler.DEFLECT_MELEE)
-                        && combatType == CombatType.MELEE) {
-                    victim.performGraphic(new Graphic(2230, GraphicHeight.MIDDLE));
-                    victim.performAnimation(new Animation(12573));
-                    System.out.println(""+damage);
-                    deflectDamage = (int) (damage * 0.05);
-                }
-                if (deflectDamage > 0) {
-                    if (deflectDamage > attacker.getConstitution())
-                        deflectDamage = attacker.getConstitution();
-                    final int toDeflect = deflectDamage;
-                    TaskManager.submit(new Task(1, victim, false) {
-                        @Override
-                        public void execute() {
-                            if (attacker == null || attacker.getConstitution() <= 0) {
-                                stop();
-                            } else
-                                attacker.dealDamage(target, new Hit(toDeflect, Hitmask.RED, CombatIcon.BLUE_SHIELD));
-                            stop();
-                        }
-                    });
-                }
-            }
-        }
-
     }
 
     protected static void handleSpellEffects(Character attacker, Character target, int damage, CombatType combatType) {
