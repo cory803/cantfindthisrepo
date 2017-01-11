@@ -100,6 +100,9 @@ public class Player extends Character {
         return this.equipmentHits;
     }
 
+    public boolean sethasRecievedMessage(boolean hasRecievedMessage) { return this.hasRecievedMessage = hasRecievedMessage; }
+    public boolean getHasRecievedMessage() { return this.hasRecievedMessage; }
+
     public void incrementEquipmentHits() {
         this.equipmentHits++;
     }
@@ -155,6 +158,7 @@ public class Player extends Character {
     }
 
     private boolean usingChest;
+    private boolean hasRecievedMessage;
 
     /**
      * Check if you are currently using a chest.
@@ -226,12 +230,7 @@ public class Player extends Character {
         this.harvestSkill = harvestSkill;
     }
 
-    /**
-     * Sets the busy flag with said index - index being represented by
-     * the {@code skill}'s ordinal value.
-     * @param skill	The {@link org.niobe.model.SkillManager.Skill} to set busy flag for.
-     * @param busy	The flag that will be set for the {@link #busy[skill.ordinal()]}.
-     */
+
     public void setBusy(Skill skill, boolean busy) {
         this.busy[skill.ordinal()] = busy;
     }
@@ -243,10 +242,7 @@ public class Player extends Character {
         this.busy = new boolean[SkillManager.MAX_SKILLS];
     }
 
-    /**
-     * The {@link org.niobe.model.Position} the player has executed
-     * the skill in.
-     */
+
     private Position startPosition;
     /**
      * This map contains the skill delays.
