@@ -42,20 +42,20 @@ public class PacketSender {
 		PacketBuilder out = new PacketBuilder(125, PacketType.BYTE);
 		out.putShort(character.getIndex());
 		out.put(character.isPlayer() ? 0 : 1);
-		if(character.isPlayer()) {
+		if (character.isPlayer()) {
 			player.getSession().queueMessage(out);
 		} else {
 			NPC npc = (NPC) character;
 			boolean sendList = npc.getDefaultConstitution() >= 2500 && Locations.Location.inMulti(npc);
 			out.put(sendList ? 1 : 0);
-			if(sendList) {
+			if (sendList) {
 				List<DamageDealer> list = npc.isFetchNewDamageMap() ? npc.getCombatBuilder().getTopKillers(npc) : npc.getDamageDealerMap();
-				if(npc.isFetchNewDamageMap()) {
+				if (npc.isFetchNewDamageMap()) {
 					npc.setDamageDealerMap(list);
 					npc.setFetchNewDamageMap(false);
 				}
 				out.put(list.size());
-				for(int i = 0; i < list.size(); i++) {
+				for (int i = 0; i < list.size(); i++) {
 					DamageDealer dd = list.get(i);
 					out.putString(dd.getPlayer().getUsername());
 					out.putShort(dd.getDamage());
@@ -111,8 +111,7 @@ public class PacketSender {
 	 * Sets the world's system update time, once timer is 0, everyone will be
 	 * disconnected.
 	 *
-	 * @param time
-	 *            The amount of seconds in which world will be updated in.
+	 * @param time The amount of seconds in which world will be updated in.
 	 * @return The PacketSender instance.
 	 */
 	public PacketSender sendSystemUpdate(int time) {
@@ -126,8 +125,7 @@ public class PacketSender {
 	 * Sets the world's system restart time, once timer is 0, everyone will be
 	 * disconnected.
 	 *
-	 * @param time
-	 *            The amount of seconds in which world will be restart in.
+	 * @param time The amount of seconds in which world will be restart in.
 	 * @return The PacketSender instance.
 	 */
 	public PacketSender sendSystemRestart(int time) {
@@ -169,8 +167,7 @@ public class PacketSender {
 	/**
 	 * Sends a game message to a player in the server.
 	 *
-	 * @param message
-	 *            The message they will receive in chat box.
+	 * @param message The message they will receive in chat box.
 	 * @return The PacketSender instance.
 	 */
 	public PacketSender sendMessage(String message) {
@@ -179,6 +176,18 @@ public class PacketSender {
 		player.getSession().queueMessage(out);
 		return this;
 	}
+
+	public PacketSender sendMessage(String message, boolean canBeFiltered) {
+		PacketBuilder out = new PacketBuilder(253, PacketType.BYTE);
+		out.putString(message);
+		if (!canBeFiltered && player.getGameFilter()) {
+			player.getSession().queueMessage(out);
+			return this;
+		}
+		return null;
+	}
+
+
 
 	public PacketSender sendLootMessage(String message) {
 		PacketBuilder out = new PacketBuilder(253, PacketType.BYTE);

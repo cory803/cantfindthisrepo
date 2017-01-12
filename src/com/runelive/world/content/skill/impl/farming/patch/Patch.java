@@ -155,22 +155,13 @@ public final class Patch {
 								}
 							}
 						} else {
-							sendGrowthMessage(player);
+							player.getPacketSender().sendMessage("One of your crops is now fully grown!", true);
 							stop();
 						}
 					}
 				}
 			}
 		});
-	}
-
-	public void sendGrowthMessage(Player player) {
-		if(!player.getHasRecievedMessage() && isFullyGrown()) {
-			player.getPacketSender().sendMessage("One or more of your crops is now fully grown!");
-			player.sethasRecievedMessage(true); //variable resets on login or logout
-		} else {
-			player.getPacketSender().sendMessage("Another one of your crops are now fully grown!");
-		}
 	}
 	
 	public void decreaseDiseaseImmunity() {

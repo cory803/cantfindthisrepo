@@ -103,6 +103,9 @@ public class Player extends Character {
     public boolean sethasRecievedMessage(boolean hasRecievedMessage) { return this.hasRecievedMessage = hasRecievedMessage; }
     public boolean getHasRecievedMessage() { return this.hasRecievedMessage; }
 
+    public boolean setGameFilter(boolean gameFilter) { return this.gameFilter = gameFilter; }
+    public boolean getGameFilter() { return this.gameFilter; }
+
     public void incrementEquipmentHits() {
         this.equipmentHits++;
     }
@@ -159,6 +162,7 @@ public class Player extends Character {
 
     private boolean usingChest;
     private boolean hasRecievedMessage;
+    private boolean gameFilter;
 
     /**
      * Check if you are currently using a chest.
