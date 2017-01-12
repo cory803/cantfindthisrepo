@@ -1,5 +1,0 @@
-
-{{DropsTableHeader|Name=100%}}
-{{DropsLine|Name=Bones|Quantity=1|Rarity=always}}
-
-{{DropsTableHeader|Name=Misc}}
