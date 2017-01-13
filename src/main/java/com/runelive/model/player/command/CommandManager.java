@@ -380,7 +380,7 @@ public class CommandManager {
         commands.put("teamspeak", new Command(StaffRights.PLAYER) {
             @Override
             public void execute(Player player, String[] args, StaffRights privilege) {
-                player.getPacketSender().sendMessage("Teamspeak address: ts3.rune.live");
+                player.getPacketSender().sendMessage("Teamspeak address: 64.94.100.8:30670");
             }
         });
         commands.put("market", new TeleportMarket(StaffRights.PLAYER));
