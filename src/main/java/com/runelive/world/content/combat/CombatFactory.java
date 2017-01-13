@@ -1337,7 +1337,7 @@ public final class CombatFactory {
                     mod = Math.round(Misc.RANDOM.nextDouble() * 100.0) / 100.0;
                 });
             } else if (npc.getId() == 8133 || npc.getId() == 6611) {
-                if(attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 21120 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 11716 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 1249) {
+                if(attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 21120 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 11716 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 1249 && attacker.getEquipment().get(Equipment.WEAPON_SLOT).getId() != 13905) {
                     container.allHits(context -> {
                         int hit = context.getHit().getDamage();
                         double mod = hit * .5;
