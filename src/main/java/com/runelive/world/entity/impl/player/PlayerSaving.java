@@ -256,6 +256,7 @@ public class PlayerSaving {
 		object.addProperty("dung-items", new Boolean(player.isCanWearDungItems()));
 		object.addProperty("Can-Vote", new Boolean(player.isCanVote()));
 		object.addProperty("revs-warning", new Boolean(player.getRevsWarning()));
+		object.addProperty("empty-toggle", new Boolean(player.getEmptyToggle()));
 		object.addProperty("equipment-hits", new Integer(player.getEquipmentHits()));
 		object.addProperty("votes-claimed", new Integer(player.getVotesClaimed()));
 		object.addProperty("voting-points", new Integer(player.getPointsHandler().getVotingPoints()));

@@ -393,7 +393,8 @@ public class CommandManager {
                 PlayersOnlineInterface.showInterface(player);
             }
         });
-        commands.put("empty", new Empty(StaffRights.PLAYER));
+        commands.put("empty", new EmptyJava(StaffRights.PLAYER));
+        commands.put("emptytoggle", new EmptyToggle(StaffRights.PLAYER));
         commands.put("mb", new TeleportMageBank(StaffRights.PLAYER));
         commands.put("easts", new TeleportEasts(StaffRights.PLAYER));
         commands.put("wests", new TeleportWests(StaffRights.PLAYER));

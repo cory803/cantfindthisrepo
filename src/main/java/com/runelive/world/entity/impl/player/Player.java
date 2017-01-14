@@ -1035,6 +1035,7 @@ public class Player extends Character {
     private Player killed_player;
 
     /*** BOOLEANS ***/
+    private boolean emptyToggle = false;
     private boolean trustedDicer = false;
     public boolean hasQC = false;
     private boolean invisible = false;
@@ -1121,6 +1122,14 @@ public class Player extends Character {
     /*
      * Getters & Setters
      */
+
+    public void setEmptytoggle(boolean emptyToggle) {
+        this.emptyToggle = emptyToggle;
+    }
+
+    public boolean getEmptyToggle() {
+        return emptyToggle;
+    }
 
     public boolean isDropLogOpen() {
         return dropLogOpen;

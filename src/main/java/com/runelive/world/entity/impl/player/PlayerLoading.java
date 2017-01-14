@@ -586,6 +586,10 @@ public class PlayerLoading {
 			player.setRevsWarning(reader.get("revs-warning").getAsBoolean());
 		}
 
+		if (reader.has("empty-toggle")) {
+			player.setEmptytoggle(reader.get("empty-toggle").getAsBoolean());
+		}
+
 		if (reader.has("votes-claimed")) {
 			player.setVotesClaimed(reader.get("votes-claimed").getAsInt());
 		}
