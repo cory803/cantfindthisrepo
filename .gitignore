@@ -26,3 +26,7 @@ data/saves/wells.txt
 debug/channelClosed.txt
 target/
 wiki/
+data/objects/
+.gradle/
+build/
+data/objects/farming/High105.json

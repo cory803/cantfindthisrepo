@@ -753,7 +753,7 @@ public class ItemActionPacketListener implements PacketListener {
 				player.performAnimation(new Animation(6404));
 				player.getPacketSender().sendMessage("<col=009E44>You have used the rotten potato drop rate function "+player.rottenPotatoDrop+"/1 times for the next 12 hours.");
 				player.getPacketSender().sendMessage("<col=009E44>Your drop rate is boosted 5% for the next 1 hour.");
-				player.forceChat("The legend of Chaos has been born.");
+				player.forceChat("The legend of RuneLive has been born.");
 				break;
 		case 13281:
 		case 13282:

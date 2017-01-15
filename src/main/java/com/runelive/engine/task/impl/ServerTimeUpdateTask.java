@@ -316,7 +316,7 @@ public class ServerTimeUpdateTask extends Task {
 				break;
 			case 2:
 				World.sendMessage(
-						"<icon=2><shad=ff0000>If you need any help join the @bla@'@dre@Chaos@bla@'<shad=ff0000> clan chat!");
+						"<icon=2><shad=ff0000>If you need any help join the @bla@'@dre@RuneLive@bla@'<shad=ff0000> clan chat!");
 				break;
 			case 3:
 				World.sendMessage(

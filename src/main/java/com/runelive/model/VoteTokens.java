@@ -45,7 +45,7 @@ public class VoteTokens {
 		} else {
 			player.getPacketSender().sendMessage("<col=C70000>and " + player.getPointsHandler().getVotingPoints() + " Vote Points.");
 		}
-		player.getPacketSender().sendMessage("<col=C70000><shad=0>Thank you for voting for Chaos!");
+		player.getPacketSender().sendMessage("<col=C70000><shad=0>Thank you for voting for RuneLive!");
 	}
 
 	/**

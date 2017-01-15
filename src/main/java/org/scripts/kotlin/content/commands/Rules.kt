@@ -17,7 +17,7 @@ class Rules(staffRights: StaffRights) : Command(staffRights) {
             player.packetSender.sendMessage("This wouldn't be wise to open your browser in the wild!")
             return
         }
-        player.packetSender.sendString(1, "http://chaosps.com/forums/index.php?/topic/1178-official-chaos-rules/")
+        player.packetSender.sendString(1, "http://rune.live/forums/index.php?/topic/1178-official-chaos-rules/")
         player.packetSender.sendMessage("Attempting to open: Official server rules")
     }
 }
