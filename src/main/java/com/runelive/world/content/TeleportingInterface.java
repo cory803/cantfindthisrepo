@@ -170,8 +170,8 @@ public class TeleportingInterface {
 				player.getPacketSender().sendString(60663, "");
 				player.getPacketSender().sendString(60664, "Ganodermic");
 				player.getPacketSender().sendString(60665, "Beast");
-				player.getPacketSender().sendString(60666, "Slash");
-				player.getPacketSender().sendString(60667, "Bash");
+				player.getPacketSender().sendString(60666, "Abyssal");
+				player.getPacketSender().sendString(60667, "Sire");
 				player.getPacketSender().sendString(60668, "Corporeal");
 				player.getPacketSender().sendString(60669, "Beast");
 				player.getPacketSender().sendString(60670, "Kraken");
@@ -330,9 +330,9 @@ public class TeleportingInterface {
 						return true;
 					case "bosses":
 						/**
-						 * Slash Bash
+						 * Abyssal Sire
 						 */
-						TeleportHandler.teleportPlayer(player, new Position(2547, 9448, 0), player.getSpellbook().getTeleportType());
+						TeleportHandler.teleportPlayer(player, new Position(2516, 4636, 0), player.getSpellbook().getTeleportType());
 						return true;
 				}
 				break;

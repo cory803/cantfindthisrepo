@@ -135,6 +135,7 @@ public final class WeaponAnimations {
 			playerWalkIndex = 7046;
 			playerRunIndex = 7046;
 			break;
+		case 3271:
 		case 21003:
 		case 18353: // maul chaotic
 			playerStandIndex = 13217;
@@ -297,6 +298,8 @@ public final class WeaponAnimations {
 		}
 		if (weaponName.contains("claws"))
 			return 393;
+		if (weaponName.contains("bludgeon"))
+			return 3297;
 		if (weaponName.contains("maul") && !weaponName.contains("granite"))
 			return 13055;
 		if (weaponName.contains("dharok")) {

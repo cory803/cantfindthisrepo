@@ -26,6 +26,7 @@ public class EmptyJava extends Command {
                 }
                 player.getPacketSender().sendMessage("You have emptied all of the items in your inventory.");
             } else {
+                player.setNpcClickId(945);
                 player.getDialog().sendDialog(new EmptyDialog(player));
             }
         }

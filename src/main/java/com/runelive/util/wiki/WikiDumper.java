@@ -326,6 +326,9 @@ public class WikiDumper {
                         DropManager.addCharm(npcId, DropTable.CHARM.GREEN, 1, 50);
                         DropManager.addCharm(npcId, DropTable.CHARM.BLUE, 1, 50);
                     }
+                    if(value1.contains("â€“") || value2.contains("â€“")) {
+                        continue;
+                    }
                     DropManager.addDrop(npcId, itemId, Integer.parseInt(value1), Integer.parseInt(value2), rarity, Drop.CONDITION.NONE);
                 }
             }

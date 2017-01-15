@@ -2,6 +2,7 @@ package com.runelive;
 
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.runelive.cache.Archive;
+import com.runelive.ect.dropwriting.DropManager;
 import com.runelive.engine.GameEngine;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
@@ -12,6 +13,7 @@ import com.runelive.model.npc.drops.LootSystem;
 import com.runelive.net.PipelineFactory;
 import com.runelive.net.security.ConnectionHandler;
 import com.runelive.util.FontUtils;
+import com.runelive.util.wiki.WikiDumper;
 import com.runelive.world.World;
 import com.runelive.world.content.CustomObjects;
 import com.runelive.world.content.Scoreboard;
@@ -129,7 +131,7 @@ public final class GameLoader {
 		/**
 		 * Dump a drop table for a specific npc id.
 		 */
-		//WikiDumper.dumpNpcDropDefinition(7286);
+		//WikiDumper.dumpNpcDropDefinition(5886);
 		//DropManager.saveDrops();
 	}
 

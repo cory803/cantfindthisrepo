@@ -176,6 +176,13 @@ public class BossPets {
 		ROCK_GOLEM(6716, 6716, 13321),
 
 		/**
+		 * Abyssal Orphan
+		 * -Undecided-
+		 * @return AbyssalSire
+		 */
+		ABYSSAL_ORPHAN(5886, 5883, 13262),
+
+		/**
 		 *  Snakeling
 		 *	-Undecided-
 		 *	@return null
@@ -328,6 +335,15 @@ public class BossPets {
 				return new Heron(player);
 			case 6716:
 				return new RockGolem(player);
+			case 5883:
+				int orphanChance = Misc.inclusiveRandom(1, 2);
+				switch(orphanChance) {
+					case 1:
+						return new AbyssalOrphan(player);
+					case 2:
+						return new AbyssalOrphan2(player);
+				}
+				return new AbyssalOrphan(player);
 			case 2127:
 			case 2129:
 			case 2128:

@@ -5,6 +5,7 @@ import com.runelive.model.Position;
 import com.runelive.model.action.PlayerAction;
 import com.runelive.model.movement.PathFinder;
 import com.runelive.model.movement.WalkingQueue;
+import com.runelive.util.RandomGenerator;
 import com.runelive.world.World;
 import com.runelive.world.clip.region.Region;
 import com.runelive.world.content.Area;
@@ -38,7 +39,7 @@ public final class CombatFollowMobileAction extends PlayerAction {
 	@Override
 	public int execute() {
 		WalkingQueue walkingQueue = player.getWalkingQueue();
-		Area destination = Area.create(following.getLastPosition(), following.getSize() - 1);
+		Area destination = Area.create(following.getPosition(), following.getSize() - 1);
 		if (walkingQueue.deleteSteps(destination)) {
 			return 1;
 		}
@@ -114,13 +115,17 @@ public final class CombatFollowMobileAction extends PlayerAction {
 			return Direction.NONE;
 		}
 		int z = position.getZ() % 4;
-		if (World.directionBlocked(dirX, z, x, y, following.getSize())) {
+		if (World.directionBlocked(dirX, z, x, y, destination.getSize())) {
 			dirX = Direction.NONE;
 		}
-		if (World.directionBlocked(dirY, z, x, y, following.getSize())) {
+		if (World.directionBlocked(dirY, z, x, y, destination.getSize())) {
 			dirY = Direction.NONE;
 		}
 		if (dirX == Direction.NONE || dirY == Direction.NONE) {
+			if (distanceTo == 2) {
+				walkStep();
+				return Direction.NONE;
+			}
 			PathFinder.calculatePath(player, following.getPosition().getX(), following.getPosition().getY(), 1, 1, true);
 		}
 		if (dirX == Direction.NONE) {
@@ -138,5 +143,51 @@ public final class CombatFollowMobileAction extends PlayerAction {
 			}
 		}
 		return direction;
+	}
+
+	private void walkStep() {
+		int x = following.getPosition().getX();
+		int y = following.getPosition().getY();
+
+		int myX = player.getPosition().getX();
+		int myY = player.getPosition().getY();
+
+		if (dist(myX + 1, myY, x, y) == 1) {
+			player.getWalkingQueue().walkStep(1, 0);
+		} else if (dist(myX - 1, myY, x, y) == 1) {
+			player.getWalkingQueue().walkStep(-1, 0);
+		} else if (dist(myX, myY + 1, x, y) == 1) {
+			player.getWalkingQueue().walkStep(0, 1);
+		} else if (dist(myX, myY - 1, x, y) == 1){
+			player.getWalkingQueue().walkStep(0, -1);
+		}
+	}
+
+	private int dist(int x, int y, int otherX, int otherY) {
+		boolean math = true;
+		int endX = x;
+		int endY = y;
+		int distX, distY;
+		if (endX < otherX) {
+			distX = otherX - endX;
+		} else if (x > otherX) {
+			distX = x - otherX;
+		} else {
+			distX = 0;
+		}
+		if (endY < otherY) {
+			distY = otherY - endY;
+		} else if (y > otherY) {
+			distY = y - otherY;
+		} else {
+			distY = 0;
+		}
+		if (!math && distX == distY) {
+			if (distX == 0) {
+				return 0;
+			}
+			return distX + 1;
+		}
+		return distX > distY ? distX : distY;
 	}
 }

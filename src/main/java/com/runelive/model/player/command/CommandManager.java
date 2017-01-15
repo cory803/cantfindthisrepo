@@ -383,6 +383,12 @@ public class CommandManager {
                 player.getPacketSender().sendMessage("Teamspeak address: 64.94.100.8:30670");
             }
         });
+        commands.put("slashbash", new Command(StaffRights.PLAYER) {
+            @Override
+            public void execute(Player player, String[] args, StaffRights privilege) {
+                TeleportHandler.teleportPlayer(player, new Position(2547, 9448, 0), player.getSpellbook().getTeleportType());
+            }
+        });
         commands.put("market", new TeleportMarket(StaffRights.PLAYER));
         commands.put("claim", new ClaimStorePurchase(StaffRights.PLAYER));
         commands.put("gamble", new TeleportGamble(StaffRights.PLAYER));

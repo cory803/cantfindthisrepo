@@ -72,11 +72,6 @@ public class ChannelHandler extends IdleStateAwareChannelUpstreamHandler {
 
 	@Override
 	public void channelClosed(ChannelHandlerContext ctx, ChannelStateEvent e) throws Exception {
-		if(player == null) {
-			PlayerDebugging.log("channelClosed", "Variable player null on channel close");
-		} else {
-			PlayerDebugging.log("channelClosed", "Player: "+player.getUsername()+", Session state: "+player.getSession().getState()+", Is in logout queue: "+World.getLogoutQueue().contains(player));
-		}
 		if (player != null) {
 			if (player.getSession().getState() != SessionState.LOGGED_OUT) {
 				if (!World.getLogoutQueue().contains(player)) {

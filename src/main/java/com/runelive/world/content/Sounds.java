@@ -438,7 +438,7 @@ public class Sounds {
 		{
 			return 1081;
 		}
-		if (id == 5698) // dds
+		if (id == 5698 || id == 13271) // dds
 		{
 			return 1082;
 		}

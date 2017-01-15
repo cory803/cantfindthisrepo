@@ -46,6 +46,15 @@ public enum CombatSpecial {
 			return new CombatContainer(player, target, 2, CombatType.MELEE, true);
 		}
 	},
+	ABYSSAL_DAGGER(new int[] { 13271 }, 50, 1.10, 1.25, CombatType.MELEE, WeaponInterface.DAGGER) {
+		@Override
+		public CombatContainer container(Player player, Character target) {
+			player.performAnimation(new Animation(1062));
+			player.performGraphic(new Graphic(252, GraphicHeight.HIGH));
+
+			return new CombatContainer(player, target, 2, CombatType.MELEE, true);
+		}
+	},
 	KORASIS_SWORD(new int[] { 19780 }, 60, 1.55, 8, CombatType.MELEE, WeaponInterface.SWORD) {
 	@Override
 	public CombatContainer container(Player player, Character target) {

@@ -461,6 +461,8 @@ public final class CombatFactory {
 
                 double meleeValue = maxMelee * .95;
 
+                System.out.println("Max melee hit: "+maxMelee);
+
                 int meleeHit = (int) (maxMelee <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxMelee) * MELEE_ACCURACY_CALC.getAccuracy(entity, victim));
 
                 if(meleeHit > (int)meleeValue) {

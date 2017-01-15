@@ -537,6 +537,8 @@ public class Player extends Character {
             return 2;
         } else if(weapon.contains("maul") || weapon.contains("longsword")) {
             return 6;
+        } else if(weapon.contains("bludgeon")) {
+            return 4;
         } else if(fightType == FightType.THROWNAXE_RAPID) {
             return 4;
         } else if(weapon.contains("throwing axe") && fightType != FightType.THROWNAXE_RAPID) {
