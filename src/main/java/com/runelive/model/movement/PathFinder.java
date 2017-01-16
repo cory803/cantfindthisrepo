@@ -175,7 +175,7 @@ public class PathFinder {
         /*
          * Check conditions so we do not waste resources.
          */
-		if(m.getPosition().distanceTo(new Position(destX, destY)) >= 64 || destX == m.getPosition().getX() && destY == m.getPosition().getY() && near) {
+		if(m.getPosition().distanceTo(new Position(destX, destY)) >= 100 || destX == m.getPosition().getX() && destY == m.getPosition().getY() && near) {
 			return;
 		}
 

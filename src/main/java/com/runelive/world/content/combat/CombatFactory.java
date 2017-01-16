@@ -1088,7 +1088,7 @@ public final class CombatFactory {
 
     public static boolean checkAttackDistance(Character a, Character b) {
         CombatType combatType = a.determineStrategy().getCombatType();
-        int distanceTo = a.distance(b, true);
+        int distanceTo = a.distance(b;
         if (distanceTo == 0) {
             return false;
         }
