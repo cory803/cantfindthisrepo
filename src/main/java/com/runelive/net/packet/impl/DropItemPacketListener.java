@@ -1,18 +1,14 @@
 package com.runelive.net.packet.impl;
 
-import com.runelive.model.CombatIcon;
-import com.runelive.model.Graphic;
-import com.runelive.model.GroundItem;
-import com.runelive.model.Hit;
-import com.runelive.model.Hitmask;
-import com.runelive.model.Item;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.net.packet.Packet;
 import com.runelive.net.packet.PacketListener;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Drop;
 import com.runelive.util.Misc;
 import com.runelive.world.content.BankPin;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
 import com.runelive.world.entity.impl.GroundItemManager;
@@ -81,7 +77,7 @@ public class DropItemPacketListener implements PacketListener {
 								address));
 					}
 
-					PlayerLogs.drops(player, item, String.valueOf(address));
+					ServerLogs.submit(new Drop(player, address, item));
 					player.save();
 				}
 				Sounds.sendSound(player, Sound.DROP_ITEM);

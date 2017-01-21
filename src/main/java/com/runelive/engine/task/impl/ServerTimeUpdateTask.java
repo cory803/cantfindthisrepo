@@ -118,6 +118,9 @@ public class ServerTimeUpdateTask extends Task {
 								} else {
 									GameSettings.PLAYERS_ONLINE = false;
 								}
+							} else if (line.contains("world_id")) {
+								args = line.split(": ");
+								GameSettings.WORLD_ID = Integer.parseInt(args[1]);
 							} else if (line.contains("database_logging")) {
 								args = line.split(": ");
 								if (args[1].toLowerCase().equals("on")) {

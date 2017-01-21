@@ -5,6 +5,7 @@ import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.Skill;
 import com.runelive.util.Misc;
+import com.runelive.world.Update;
 import com.runelive.world.World;
 import com.runelive.world.content.LoyaltyProgramme;
 import com.runelive.world.content.combat.pvp.BountyHunter;
@@ -76,6 +77,8 @@ public class PlayerProcess {
 		}
 
 		/** MISC **/
+
+		Update.update(player);
 
 		if (previousHeight != player.getPosition().getZ()) {
 			GroundItemManager.handleRegionChange(player);

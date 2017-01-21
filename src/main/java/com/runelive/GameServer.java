@@ -2,13 +2,16 @@ package com.runelive;
 
 import com.runelive.cache.RSCache;
 import com.runelive.engine.task.impl.ServerTimeUpdateTask;
+import com.runelive.loginserver.LoginServer;
 import com.runelive.net.mysql.*;
 import com.runelive.net.mysql.impl.DatabaseInformationVoting;
 import com.runelive.threading.GameEngine;
 import com.runelive.threading.event.Event;
+import com.runelive.threading.event.ServerLogEvent;
 import com.runelive.threading.task.Task;
 import com.runelive.util.ErrorFile;
 import com.runelive.util.ShutdownHook;
+import com.runelive.world.World;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -34,8 +37,17 @@ public class GameServer {
 	private static ThreadedSQL website_sql = null;
 	private static ThreadedSQL voting_sql = null;
 	private static final GameEngine engine = new GameEngine();
+	private static LoginServer loginServer;
 	public static RSCache cache;
 	private static File cacheRepository = new File("." + File.separator + "cache" + File.separator);
+
+	public static LoginServer getLoginServer() {
+		return GameServer.loginServer;
+	}
+
+	public static void setLoginServer(LoginServer loginServer) {
+		GameServer.loginServer = loginServer;
+	}
 
 	public static ThreadedSQL getServerPool() {
 		return server_sql;
@@ -102,12 +114,16 @@ public class GameServer {
 			System.out.println("Connecting to MYSQL website database...");
 
 			cache = RSCache.create(cacheRepository);
+			GameServer.loginServer = new LoginServer(new String[] {"gameserver.rune.live"}, 43590);
+			GameServer.loginServer.start();
 			GameServer.engine.start();
 			loader.init();
 			loader.finish();
 			logger.info("Starting Configurations...");
 			ServerTimeUpdateTask.start_configuration_process();
 			logger.info("RuneLive is now online on port " + GameSettings.GAME_PORT + "!");
+
+			GameServer.submit(new ServerLogEvent());
 		} catch (Exception ex) {
 			logger.log(Level.SEVERE, "Could not " +
 					" RuneLive! Program terminated.", ex);

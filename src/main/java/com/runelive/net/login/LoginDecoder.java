@@ -1,24 +1,26 @@
 package com.runelive.net.login;
 
-import java.math.BigInteger;
-import java.net.InetSocketAddress;
-import java.security.SecureRandom;
-
+import com.runelive.GameServer;
+import com.runelive.GameSettings;
+import com.runelive.model.player.PlayerDetails;
+import com.runelive.net.PlayerSession;
+import com.runelive.net.packet.PacketBuilder;
+import com.runelive.net.packet.codec.PacketDecoder;
+import com.runelive.net.packet.codec.PacketEncoder;
+import com.runelive.net.security.IsaacRandom;
+import com.runelive.threading.task.world.PendLoginTask;
+import com.runelive.util.Misc;
+import com.runelive.util.NameUtils;
+import com.runelive.world.entity.impl.player.Player;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
 import org.jboss.netty.channel.Channel;
 import org.jboss.netty.channel.ChannelHandlerContext;
 import org.jboss.netty.handler.codec.frame.FrameDecoder;
 
-import com.runelive.GameSettings;
-import com.runelive.net.PlayerSession;
-import com.runelive.net.packet.PacketBuilder;
-import com.runelive.net.packet.codec.PacketDecoder;
-import com.runelive.net.packet.codec.PacketEncoder;
-import com.runelive.net.security.IsaacRandom;
-import com.runelive.util.Misc;
-import com.runelive.util.NameUtils;
-import com.runelive.world.entity.impl.player.Player;
+import java.math.BigInteger;
+import java.net.InetSocketAddress;
+import java.security.SecureRandom;
 
 /**
  * the login requests.
@@ -79,6 +81,11 @@ public final class LoginDecoder extends FrameDecoder {
 			if (magicId != 0xFF) {
 				System.out.println("Invalid magic id! magicId: " + magicId);
 				channel.close();
+				return null;
+			}
+			if (!GameServer.getLoginServer().isConnected()) {
+				channel.write(new PacketBuilder().put((byte) LoginResponses.LOGIN_SERVER_OFFLINE).toPacket()).addListener(listener -> listener.getChannel().close());
+				GameServer.getLoginServer().reconnect();
 				return null;
 			}
 			int clientVersion = buffer.readShort();
@@ -145,22 +152,11 @@ public final class LoginDecoder extends FrameDecoder {
 			username = Misc.formatText(username.toLowerCase());
 			channel.getPipeline().replace("encoder", "encoder", new PacketEncoder(new IsaacRandom(seed)));
 			channel.getPipeline().replace("decoder", "decoder", new PacketDecoder(decodingRandom));
-			return login(channel, new LoginDetailsMessage(username, password, ip_address, computer_address, mac_address,
-					serial, client_version, uid));
+			PlayerDetails details = new PlayerDetails(channel, username, NameUtils.stringToLong(username), password, ip_address, mac_address, computer_address, serial, client_version, uid);
+			GameServer.submit(new PendLoginTask(details));
+			return details.getPlayer();
 		}
 		return null;
-	}
-
-	public Player login(Channel channel, LoginDetailsMessage msg) {
-		PlayerSession session = new PlayerSession(channel);
-		Player player = new Player(session).setUsername(msg.getUsername())
-				.setLongUsername(NameUtils.stringToLong(msg.getUsername())).setPassword(msg.getPassword())
-				.setHostAddress(msg.getHost()).setComputerAddress(msg.getComputerAddress())
-				.setSerialNumber(msg.getSerial()).setMacAddress(msg.getMacAddress());
-		// CharacterConversion.convert(channel);
-		session.setPlayer(player);
-		LoginManager.startLogin(session, msg);
-		return player;
 	}
 
 }

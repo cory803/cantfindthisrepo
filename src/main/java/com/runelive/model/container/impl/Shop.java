@@ -1,8 +1,5 @@
 package com.runelive.model.container.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.runelive.engine.task.TaskManager;
@@ -14,12 +11,16 @@ import com.runelive.model.container.StackType;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.impl.EnterAmountToBuyFromShop;
 import com.runelive.model.input.impl.EnterAmountToSellToShop;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Other;
 import com.runelive.util.JsonLoader;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.minigames.impl.RecipeForDisaster;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Messy but perfect Shop System
@@ -391,8 +392,8 @@ public class Shop extends ItemContainer {
 		String currencyName = "";
 		if (getCurrency().getId() != -1) {
 			playerCurrencyAmount = player.getInventory().getAmount(currency.getId());
-			PlayerLogs.other(player, "Player has bought the store item: " + item.getDefinition().getName() + " ("
-					+ item.getId() + "), amount: " + amountBuying);
+			ServerLogs.submit(new Other(player, "Player has bought the store item: " + item.getDefinition().getName() + " ("
+					+ item.getId() + "), amount: " + amountBuying));
 			currencyName = ItemDefinition.forId(currency.getId()).getName().toLowerCase();
 			if (currency.getId() == 995) {
 				if (player.getMoneyInPouch() >= value) {

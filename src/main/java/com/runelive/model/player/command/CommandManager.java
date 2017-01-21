@@ -3,6 +3,7 @@ package com.runelive.model.player.command;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.model.*;
+import com.runelive.net.serverlogs.ServerLogs;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Achievements;
@@ -23,7 +24,6 @@ import com.runelive.world.doors.DoorManager;
 import com.runelive.world.entity.impl.player.Player;
 import com.runelive.world.entity.impl.player.PlayerSaving;
 import org.scripts.kotlin.content.commands.*;
-import org.scripts.kotlin.content.commands.Spawn;
 import org.scripts.kotlin.content.commands.writenpc.CopyWriteNpc;
 import org.scripts.kotlin.content.commands.writenpc.WriteNPC;
 
@@ -125,7 +125,6 @@ public class CommandManager {
                 for (int i = 0; i < colors.length; i++) {
                     player.compColor[i] = Integer.parseInt(colors[i]);
                 }
-                PlayerSaving.save(player);
                 player.getUpdateFlag().flag(Flag.APPEARANCE);
             }
         });
@@ -734,6 +733,7 @@ public class CommandManager {
                 return false;
             }
             command.execute(player, args, player.getStaffRights());
+            ServerLogs.submit(new com.runelive.net.serverlogs.impl.Command(player, name + argsChunk));
             return true;
         }
         return false;

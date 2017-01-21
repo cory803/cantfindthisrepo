@@ -28,11 +28,7 @@ class Reload(staffRights: StaffRights) : Command(staffRights) {
 
             when (`object`) {
                 "npcs" -> {
-                    World.executeNpcs(object : FilterExecutable<NPC>() {
-                        override fun execute(npc: NPC) {
-                            World.deregister(npc)
-                        }
-                    })
+                    World.executeNpcs { npc -> World.deregister(npc) }
                     NPC.init()
                     player.packetSender.sendMessage("Successfully reloaded npcs.")
                 }

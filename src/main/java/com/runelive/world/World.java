@@ -1,32 +1,23 @@
 package com.runelive.world;
 
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Phaser;
-import java.util.logging.Level;
-
-import com.runelive.model.*;
-import com.runelive.model.definitions.CacheObjectDefinition;
-import com.runelive.world.content.Gambling;
-import com.runelive.world.content.HalloweenEvent;
-import com.runelive.world.content.diversions.hourly.HourlyDiversionManager;
-import com.runelive.world.content.lottery.LotterySaving;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.cache.Archive;
+import com.runelive.loginserver.LoginProcessor;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
+import com.runelive.model.definitions.CacheObjectDefinition;
 import com.runelive.model.definitions.GameObjectDefinition;
-import com.runelive.net.login.LoginManager;
 import com.runelive.net.login.LoginResponses;
 import com.runelive.util.ByteStream;
 import com.runelive.util.Filter;
 import com.runelive.util.FilterExecutable;
 import com.runelive.util.Misc;
 import com.runelive.world.clip.region.Region;
+import com.runelive.world.content.Gambling;
+import com.runelive.world.content.diversions.hourly.HourlyDiversionManager;
+import com.runelive.world.content.lottery.LotterySaving;
 import com.runelive.world.content.minigames.impl.FightPit;
 import com.runelive.world.content.minigames.impl.PestControl;
 import com.runelive.world.entity.Entity;
@@ -38,6 +29,15 @@ import com.runelive.world.entity.impl.player.PlayerHandler;
 import com.runelive.world.entity.updating.NpcUpdateSequence;
 import com.runelive.world.entity.updating.PlayerUpdateSequence;
 import com.runelive.world.entity.updating.UpdateSequence;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.*;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Phaser;
+import java.util.logging.Level;
 
 /**
  * @author Gabriel Hannason Thanks to lare96 for help with parallel updating
@@ -221,9 +221,9 @@ public class World {
 
 	/*
 	 * Gets the player according to said name in long format.
-	 * 
+	 *
 	 * @param name The name of the player to search for in long format.
-	 * 
+	 *
 	 * @return The player who has the same name as said param.
 	 */
 	public static Player getPlayerForLongName(long longName) {
@@ -338,11 +338,11 @@ public class World {
 		long start = System.currentTimeMillis();
 
 		// Handle queued logins.
-		if (!LoginManager.getSuccessfulLogins().isEmpty()) {
-			Iterator<Long> it = LoginManager.getSuccessfulLogins().keySet().iterator();
+		if (!LoginProcessor.getSuccessfulLogins().isEmpty()) {
+			Iterator<Long> it = LoginProcessor.getSuccessfulLogins().keySet().iterator();
 			while (it.hasNext()) {
 				long encodedName = it.next();
-				Player player = LoginManager.getSuccessfulLogins().get(encodedName);
+				Player player = LoginProcessor.getSuccessfulLogins().get(encodedName);
 				if (player == null) {
 					continue;
 				}
@@ -352,7 +352,7 @@ public class World {
 					} else {
 						PlayerHandler.handleLogin(player);
 					}
-					LoginManager.getSuccessfulLogins().remove(encodedName);
+					LoginProcessor.getSuccessfulLogins().remove(encodedName);
 				}
 			}
 		}
@@ -666,7 +666,7 @@ public class World {
 			return;
 		}
 		//if (!definition.unwalkable) {
-			//return;
+		//return;
 		//}
 		int type = object.getType();
 		int z = position.getZ();
@@ -856,7 +856,7 @@ public class World {
 		unflag(object);
 	}
 
-	private static class PlayerFilterExecutable extends FilterExecutable<Player> {
+	private static class PlayerFilterExecutable implements FilterExecutable<Player> {
 		private final GameObject object;
 
 		public PlayerFilterExecutable(GameObject object) {
@@ -875,7 +875,7 @@ public class World {
 		}
 	}
 
-	private static class RemoveObject extends FilterExecutable<Player> {
+	private static class RemoveObject implements FilterExecutable<Player> {
 		private final GameObject object;
 
 		public RemoveObject(GameObject object) {

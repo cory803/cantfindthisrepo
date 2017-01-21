@@ -1,22 +1,23 @@
 package com.runelive.engine.task.impl;
 
-import java.util.ArrayList;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Kill;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
-import com.runelive.world.content.ItemsKeptOnDeath;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.Degrading;
+import com.runelive.world.content.ItemsKeptOnDeath;
 import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.entity.impl.GroundItemManager;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Represents a player's death task, through which the process of dying is
@@ -136,7 +137,7 @@ public class PlayerDeathTask extends Task {
 														killer != null ? killer.getUsername() : player.getUsername(),
 														player.getHostAddress(), false, 150, true, 150, address, (killer != null && killer.getGameModeAssistant().isIronMan()), player.getUsername()));
 										if (killer != null) {
-											PlayerLogs.kills(killer, player, item);
+											ServerLogs.submit(new Kill(killer, player, item));
 										}
 									}
 								}

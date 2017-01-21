@@ -38,18 +38,10 @@ class UpdateServer(staffRights: StaffRights) : Command(staffRights) {
             val time = t
             if (time > 0) {
                 GameServer.setUpdating(true)
-                World.executeAll(object : FilterExecutable<Player>() {
-                    override fun execute(player: Player) {
-                        player.packetSender.sendSystemUpdate(time)
-                    }
-                })
+                World.executeAll( { player -> player.packetSender.sendSystemUpdate(time) } )
                 TaskManager.submit(object : Task(time) {
                     override fun execute() {
-                        World.executeAll(object : FilterExecutable<Player>() {
-                            override fun execute(player: Player) {
-                                World.deregister(player)
-                            }
-                        })
+                        World.executeAll( { player -> World.deregister(player) } )
                         LotterySaving.save()
                         PlayerOwnedShops.save()
                         ClanChatManager.save()

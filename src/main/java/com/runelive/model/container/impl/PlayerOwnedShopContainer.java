@@ -1,10 +1,5 @@
 package com.runelive.model.container.impl;
 
-import java.text.NumberFormat;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-
 import com.runelive.model.Item;
 import com.runelive.model.container.ItemContainer;
 import com.runelive.model.container.StackType;
@@ -12,13 +7,19 @@ import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.impl.EnterAmountOfPosOfferPrice;
 import com.runelive.model.input.impl.EnterAmountToBuyFromShop;
 import com.runelive.model.input.impl.EnterAmountToSellToShop;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Other;
 import com.runelive.world.World;
 import com.runelive.world.content.MoneyPouch;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.pos.PosOffer;
 import com.runelive.world.content.pos.PosOffers;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.text.NumberFormat;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
 
 /**
  * Handles the Player Owned Shop Containers
@@ -405,8 +406,7 @@ public class PlayerOwnedShopContainer extends ItemContainer {
 					}
 				} else {
 					offer.decreaseAmount(item.getAmount());
-					PlayerLogs.other(player,
-							"Player owned shop decreased amount from shop: " + item.getDefinition().getName() + "");
+					ServerLogs.submit(new Other(player, "Player owned shop decreased amount from shop: " + item.getDefinition().getName()));
 					super.switchItem(to, new Item(item.getId(), item.getAmount()), slot, false, false);
 				}
 			}

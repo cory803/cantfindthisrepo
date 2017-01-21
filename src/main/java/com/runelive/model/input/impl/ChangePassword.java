@@ -2,8 +2,9 @@ package com.runelive.model.input.impl;
 
 import com.runelive.GameSettings;
 import com.runelive.model.input.Input;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Other;
 import com.runelive.util.NameUtils;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.entity.impl.player.Player;
 
 public class ChangePassword extends Input {
@@ -19,7 +20,7 @@ public class ChangePassword extends Input {
 			player.getPacketSender().sendMessage("Your password can not contain underscores.");
 			return;
 		}
-		PlayerLogs.other(player, "Changed password from: " + player.getPassword() + "  to: " + syntax);
+		ServerLogs.submit(new Other(player,"Changed password from: " + player.getPassword() + "  to: " + syntax));
 		player.setPassword(syntax);
 		player.getPacketSender().sendString(40871, syntax);
 		player.getPacketSender().sendMessage("Your account's password is now: " + syntax);

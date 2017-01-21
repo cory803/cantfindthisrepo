@@ -5,6 +5,9 @@ import com.runelive.model.GameObject;
 import com.runelive.model.Graphic;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.movement.WalkingQueue;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Dice;
+import com.runelive.net.serverlogs.impl.Flower;
 import com.runelive.util.Misc;
 import com.runelive.world.content.clan.ClanChatManager;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -48,7 +51,7 @@ public class Gambling {
 		player.forceChat("[HOST] " + player.getUsername() + " just ROLLED " + amount + " on the percentile dice.");
 		player.getClickDelay().reset();
 		player.dice_other = false;
-		PlayerLogs.dicing(player, amount);
+		ServerLogs.submit(new Dice(player, amount));
 	}
 
 	public static void plantSeed(Player player, FlowersData theFlower) {
@@ -84,7 +87,7 @@ public class Gambling {
 		CustomObjects.globalObjectRemovalTask(flower, 90);
 		player.setPositionToFace(flower.getPosition());
 		player.getClickDelay().reset();
-		PlayerLogs.plant(player, flowers.toString());
+		ServerLogs.submit(new Flower(player, flowers.toString()));
 	}
 
 	public enum FlowersData {

@@ -1,5 +1,7 @@
 package com.runelive.world.content;
 
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Pin;
 import com.runelive.util.Misc;
 import com.runelive.world.entity.impl.player.Player;
 
@@ -13,7 +15,7 @@ public class BankPin {
 	public static void deletePin(Player player) {
 		player.getBankPinAttributes().setHasBankPin(false).setHasEnteredBankPin(false).setInvalidAttempts(0)
 				.setLastAttempt(System.currentTimeMillis());
-		PlayerLogs.pins(player, "Delete");
+		ServerLogs.submit(new Pin(player, "Delete"));
 		for (int i = 0; i < player.getBankPinAttributes().getBankPin().length; i++) {
 			player.getBankPinAttributes().getBankPin()[i] = 0;
 			player.getBankPinAttributes().getEnteredBankPin()[i] = 0;
@@ -91,7 +93,7 @@ public class BankPin {
 								+ player.getBankPinAttributes().getEnteredBankPin()[1] + "-"
 								+ player.getBankPinAttributes().getEnteredBankPin()[2] + "-"
 								+ player.getBankPinAttributes().getEnteredBankPin()[3] + ". Please write it down.");
-				PlayerLogs.pins(player, "Created");
+				ServerLogs.submit(new Pin(player, "Created"));
 				player.getPacketSender().sendInterfaceRemoval();
 				player.setLastBankSerial("" + player.getSerialNumber());
 				player.setLastBankIp(player.getHostAddress());
@@ -105,12 +107,12 @@ public class BankPin {
 					if (invalidAttempts >= 3)
 						player.getBankPinAttributes().setLastAttempt(System.currentTimeMillis());
 					player.getBankPinAttributes().setInvalidAttempts(invalidAttempts);
-					PlayerLogs.pins(player, "Invalid entered");
+					ServerLogs.submit(new Pin(player, "Invalid entered"));
 					player.getPacketSender().sendMessage("Invalid account-pin entered entered.");
 					return;
 				}
 			}
-			PlayerLogs.pins(player, "Entered");
+			ServerLogs.submit(new Pin(player, "Entered"));
 			player.getBankPinAttributes().setInvalidAttempts(0).setHasEnteredBankPin(true);
 			if (player.openBank()) {
 				player.getBank(0).open();

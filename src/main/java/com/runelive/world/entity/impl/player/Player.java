@@ -1,5 +1,6 @@
 package com.runelive.world.entity.impl.player;
 
+import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
@@ -25,7 +26,6 @@ import com.runelive.model.player.dialog.DialogHandler;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.SessionState;
 import com.runelive.net.login.LoginDetailsMessage;
-import com.runelive.net.mysql.impl.Hiscores;
 import com.runelive.net.packet.PacketSender;
 import com.runelive.util.Misc;
 import com.runelive.util.Stopwatch;
@@ -54,6 +54,8 @@ import com.runelive.world.content.diversions.Diversion;
 import com.runelive.world.content.minigames.MinigameAttributes;
 import com.runelive.world.content.minigames.impl.Dueling;
 import com.runelive.world.content.minigames.impl.Dueling.DuelRule;
+import com.runelive.world.content.pos.PosDetails;
+import com.runelive.world.content.pos.PosOffer;
 import com.runelive.world.content.skill.AbstractHarvestSkill;
 import com.runelive.world.content.skill.AbstractSkill;
 import com.runelive.world.content.skill.SkillManager;
@@ -68,8 +70,6 @@ import com.runelive.world.content.skill.impl.thieving.Thieving;
 import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
 import org.jboss.netty.channel.Channel;
-import com.runelive.world.content.pos.PosDetails;
-import com.runelive.world.content.pos.PosOffer;
 
 import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -315,6 +315,15 @@ public class Player extends Character {
     private boolean requestAssistance = false;
     public boolean afterBeta = false;
     public boolean gotBetaItems = false;
+    private boolean updateAnnounced = false;
+
+    public boolean isUpdateAnnounced() {
+        return updateAnnounced;
+    }
+
+    public void setUpdateAnnounced(boolean updateAnnounced) {
+        this.updateAnnounced = updateAnnounced;
+    }
 
     public int casketRewards() {
         int[] rewards = { 200, 202, 204, 206, 208, 210, 212, 214, 216, 218, 220, 2486, 3052, 1624, 1622, 1620, 1618,
@@ -750,10 +759,7 @@ public class Player extends Character {
             return;
         }
         PatchSaving.save(this);
-        if (GameSettings.MYSQL_PLAYER_SAVING)
-            PlayerSaving.saveGame(this);
-        if (GameSettings.JSON_PLAYER_SAVING)
-            PlayerSaving.save(this);
+        GameServer.getLoginServer().getPacketCreator().sendSavePacket(this, false);
     }
 
     public boolean logout() {
@@ -764,9 +770,6 @@ public class Player extends Character {
         if (getConstitution() <= 0 || isDying || settingUpCannon || crossingObstacle) {
             getPacketSender().sendMessage("You cannot log out at the moment.");
             return false;
-        }
-        if(GameSettings.HIGHSCORE_CONNECTIONS) {
-            new Hiscores(this).execute();
         }
         return true;
     }
