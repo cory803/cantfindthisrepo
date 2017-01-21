@@ -163,7 +163,9 @@ public class LootSystem {
         }
 
         LootTable table = tables.get(n.getId());
-
+        if (n.getId() == 8549 && World.PHOENIX_RESPAWN < 5) {
+            return;
+        }
         if (table == null) {
             return;
         }

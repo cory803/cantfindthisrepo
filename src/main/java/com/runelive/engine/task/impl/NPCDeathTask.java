@@ -14,6 +14,7 @@ import com.runelive.world.content.KillsTracker.KillsEntry;
 import com.runelive.world.content.PlayerPanel;
 import com.runelive.world.content.combat.strategy.impl.KalphiteQueen;
 import com.runelive.world.content.combat.strategy.impl.Nex;
+import com.runelive.world.content.combat.strategy.impl.Phoenix;
 import com.runelive.world.content.minigames.impl.WarriorsGuild;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
@@ -188,8 +189,17 @@ public class NPCDeathTask extends Task {
 		// respawn
 		if (npc.getDefinition().getRespawnTime() > 0 && npc.getLocation() != Location.BOSS_SYSTEM
 				&& npc.getLocation() != Location.GRAVEYARD && npc.getLocation() != Location.WILDKEY_ZONE
-				&& npc.getLocation() != Location.SHREKS_HUT && !npc.isDungeoneeringNpc()) {
+				&& npc.getLocation() != Location.SHREKS_HUT && npc.getLocation() != Location.PHOENIX
+				&& !npc.isDungeoneeringNpc()) {
 			TaskManager.submit(new NPCRespawnTask(npc, npc.getDefinition().getRespawnTime()));
+		}
+
+
+		if (npc.getId() == 8549 && World.PHOENIX_RESPAWN <= 5) {
+			Phoenix.death(npc.getId(), npc.getPosition());
+//			System.out.println("Respawn # " + World.PHOENIX_RESPAWN);
+		} else {
+			TaskManager.submit(new NPCRespawnTask(npc, 25));
 		}
 
 		//Respawn monsters in Monster Dzone that have no respawn time
@@ -202,6 +212,7 @@ public class NPCDeathTask extends Task {
 		if (npc.getId() == 1158 || npc.getId() == 1160) {
 			KalphiteQueen.death(npc.getId(), npc.getPosition());
 		}
+
 		if (Nex.nexMob(npc.getId())) {
 			Nex.death(npc.getId());
 		}

@@ -132,6 +132,11 @@ public class World {
 		}
 	}
 
+	/**
+	 * PHOENIX_RESPAWN increments the phoenix bosses Respawn Count before dropping loot and finishing stages.
+	 */
+	public static int PHOENIX_RESPAWN = 0;
+
 	public static void sendYell(String message, Player player) {
 		players.stream()
 				.filter(p -> p != null && (p.yellToggle())
