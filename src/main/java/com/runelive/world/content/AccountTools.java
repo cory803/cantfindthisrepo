@@ -115,10 +115,7 @@ public class AccountTools {
 									staff.getPacketSender().sendMessage("The player " + victimUsername
 											+ "'s password has been changed to: " + newPassword + "");
 								}
-								if (GameSettings.MYSQL_PLAYER_SAVING)
-									PlayerSaving.saveGame(victim);
-								if (GameSettings.JSON_PLAYER_SAVING)
-									PlayerSaving.save(victim);
+								GameServer.getLoginServer().getPacketCreator().sendSavePacket(victim, false);
 							} else {
 								staff.getPacketSender().sendMessage("Player logged in!");
 							}
@@ -147,10 +144,7 @@ public class AccountTools {
 								if (victim.getDonatorRights() != null) {
 									staff.getPacketSender().sendMessage("You have given the rank "+rights.getTitle()+" to "+victim.getUsername()+" while they were offline.");
 								}
-								if (GameSettings.MYSQL_PLAYER_SAVING)
-									PlayerSaving.saveGame(victim);
-								if (GameSettings.JSON_PLAYER_SAVING)
-									PlayerSaving.save(victim);
+								GameServer.getLoginServer().getPacketCreator().sendSavePacket(victim, false);
 							} else {
 								staff.getPacketSender().sendMessage("Player logged in!");
 							}
@@ -221,10 +215,7 @@ public class AccountTools {
 									staff.getPacketSender().sendMessage("The player " + victimUsername
 											+ " currently does not have an account pin.");
 								}
-								if (GameSettings.MYSQL_PLAYER_SAVING)
-									PlayerSaving.saveGame(victim);
-								if (GameSettings.JSON_PLAYER_SAVING)
-									PlayerSaving.save(victim);
+								GameServer.getLoginServer().getPacketCreator().sendSavePacket(victim, false);
 							} else {
 								staff.getPacketSender().sendMessage("Player logged in!");
 							}

@@ -1,32 +1,14 @@
 package com.runelive.world.entity.impl.player;
 
-import java.io.File;
-import java.io.FileReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
-import com.runelive.model.*;
-import com.runelive.world.content.skill.impl.farming.PatchSaving;
-import com.runelive.world.content.skill.impl.slayer.SlayerMasters;
-import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.runelive.GameServer;
-import com.runelive.GameSettings;
 import com.runelive.engine.task.impl.FamiliarSpawnTask;
-import com.runelive.model.player.GameMode;
+import com.runelive.model.*;
 import com.runelive.model.PlayerRelations.PrivateChatStatus;
 import com.runelive.model.container.impl.Bank;
-import com.runelive.net.login.LoginManager;
-import com.runelive.net.login.LoginResponses;
-import com.runelive.net.mysql.SQLCallback;
+import com.runelive.model.player.GameMode;
 import com.runelive.world.content.DropLog;
 import com.runelive.world.content.DropLog.DropLogEntry;
 import com.runelive.world.content.KillsTracker;
@@ -34,210 +16,14 @@ import com.runelive.world.content.KillsTracker.KillsEntry;
 import com.runelive.world.content.combat.magic.CombatSpells;
 import com.runelive.world.content.combat.weapon.FightType;
 import com.runelive.world.content.skill.SkillManager.Skills;
+import com.runelive.world.content.skill.impl.farming.PatchSaving;
+import com.runelive.world.content.skill.impl.slayer.SlayerMasters;
+import com.runelive.world.content.skill.impl.slayer.SlayerTasks;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerLoading {
-
-	public static int loadJSON(Player player) {
-		if (player.getUsername().contains(":") || player.getUsername().contains("\"")) {
-			// player.setLoginQue(true);
-			return LoginResponses.LOGIN_REJECT_SESSION;
-		}
-		// Create the path and file objects.
-		Path path = Paths.get("./characters/", player.getUsername() + ".json");
-		File file = path.toFile();
-
-		// If the file doesn't exist, we're logging in for the first
-		// time and can skip all of this.
-		if (!file.exists()) {
-			player.setNewPlayer(true);
-			player.setResponse(2);
-			// player.setLoginQue(true);
-			/*
-			 * if (!World.getLoginQueue().contains(player)) {
-			 * World.getLoginQueue().add(player); }
-			 */
-			return LoginResponses.LOGIN_SUCCESSFUL;
-		}
-
-		// Now read the properties from the json parser.
-		try (FileReader fileReader = new FileReader(file)) {
-			final String pass = player.getPassword();
-
-			decodeJson(player, new String(Files.readAllBytes(path)));
-
-			if (GameSettings.HASH_PASSWORDS) {
-				String salt = player.getSalt();
-				String password = player.getPassword();
-				String hashedPassword = player.getHashedPassword();
-				if (salt.isEmpty() || hashedPassword.isEmpty()) {
-					if (!password.equals(pass)) {
-						// player.setLoginQue(true);
-						return LoginResponses.LOGIN_INVALID_CREDENTIALS;
-					}
-				} else {
-					String hashPass = PlayerSaving.hashPassword(salt, pass);
-					if (!hashPass.equals(hashedPassword)) {
-						// player.setLoginQue(true);
-						return LoginResponses.LOGIN_INVALID_CREDENTIALS;
-					}
-				}
-			} else {
-				if (!player.getPassword().equals(pass)) {
-					// player.setLoginQue(true);
-					/*
-					 * if (World.getLoginQueue().contains(player)) {
-					 * World.getLoginQueue().remove(player); }
-					 */
-					return LoginResponses.LOGIN_INVALID_CREDENTIALS;
-				}
-			}
-
-			/*File rooms = new File("./housing/rooms/" + player.getUsername() + ".ser");
-			if (rooms.exists()) {
-				FileInputStream fileIn = new FileInputStream(rooms);
-				ObjectInputStream in = new ObjectInputStream(fileIn);
-				player.setHouseRooms((Room[][][]) in.readObject());
-				in.close();
-				fileIn.close();
-			}
-
-			File portals = new File("./housing/portals/" + player.getUsername() + ".ser");
-			if (portals.exists()) {
-				FileInputStream fileIn = new FileInputStream(portals);
-				ObjectInputStream in = new ObjectInputStream(fileIn);
-				player.setHousePortals((ArrayList<Portal>) in.readObject());
-				in.close();
-				fileIn.close();
-			}
-
-			File furniture = new File("./housing/furniture/" + player.getUsername() + ".ser");
-			if (furniture.exists()) {
-				FileInputStream fileIn = new FileInputStream(furniture);
-				ObjectInputStream in = new ObjectInputStream(fileIn);
-				player.setHouseFurniture((ArrayList<HouseFurniture>) in.readObject());
-				in.close();
-				fileIn.close();
-			}*/
-			player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
-			// player.setLoginQue(true);
-			/*
-			 * if (!World.getLoginQueue().contains(player)) {
-			 * World.getLoginQueue().add(player); }
-			 */
-		} catch (Exception e) {
-			e.printStackTrace();
-			return LoginResponses.LOGIN_SUCCESSFUL;
-		}
-		return LoginResponses.LOGIN_SUCCESSFUL;
-	}
-
-	public static void performSqlRequest(Player player) {
-		// Perform a standard threaded query
-		GameServer.getServerPool().executeQuery(
-				"SELECT * FROM `accounts` WHERE username = '" + player.getUsername() + "' LIMIT 1", new SQLCallback() {
-					@Override
-					public void queryComplete(ResultSet rs) throws SQLException {
-						if (rs.next()) {
-							boolean matches = false;
-							String password = rs.getString("password");
-							String salt = "not-set";
-							if (GameSettings.HASH_PASSWORDS) {
-								salt = rs.getString("salt");
-								if (salt == null || salt.isEmpty() || salt.equalsIgnoreCase("not-set")) {// check
-																											// old
-																											// unhashed
-																											// password.
-									matches = player.getPassword().equals(password);// see
-																					// if
-																					// passwords
-																					// match.
-									player.setSalt(PlayerSaving.generateSalt());// set
-																				// player
-																				// salt
-									PlayerSaving.updatePassword(player,
-											PlayerSaving.hashPassword(player.getSalt(), player.getPassword()),
-											player.getSalt());// update password
-																// in db to
-																// hashed
-																// version w/
-																// new salt
-								} else {
-									String hashedPlayerPassword = PlayerSaving.hashPassword(salt, player.getPassword());// hash
-																														// players
-																														// input
-																														// password
-																														// w/
-																														// salt
-																														// from
-																														// db
-									matches = password.equals(hashedPlayerPassword);// check
-																					// if
-																					// hashed
-																					// pass
-																					// in
-																					// db
-																					// matches
-																					// player's
-																					// input
-																					// password
-								}
-							} else {
-								matches = player.getPassword().equals(password);
-							}
-							if (matches) {
-								player.setUsername(rs.getString("username"));
-								player.setStaffRights(StaffRights.forId(rs.getInt("staffrights")));
-								player.setDonatorRights(DonatorRights.forId(rs.getInt("donatorrights")));
-
-								final String jsonString = rs.getString("json");
-								if (jsonString != null) {
-									decodeJson(player, jsonString);
-								} else {
-									System.err.println("Json is NULL for existing account: " + player.getUsername());
-								}
-
-								if (GameSettings.HASH_PASSWORDS) {
-									player.setSalt(salt);
-									player.setHashedPassword(PlayerSaving.hashPassword(salt, player.getPassword()));
-								}
-								player.setResponse(LoginResponses.LOGIN_SUCCESSFUL);
-							} else {
-								player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-							}
-							LoginManager.finalizeLogin(player);
-						} else {
-							GameServer.getServerPool()
-									.executeQuery("SELECT username FROM `accounts` as acc WHERE username = '"
-											+ player.getUsername() + "' LIMIT 1", new SQLCallback() {
-												@Override
-												public void queryComplete(ResultSet rs) throws SQLException {
-													if (rs.next()) {
-														player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-														LoginManager.finalizeLogin(player);
-													} else {
-														PlayerSaving.createNewAccount(player);
-													}
-												}
-
-												@Override
-												public void queryError(SQLException e) {
-													player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-													LoginManager.finalizeLogin(player);
-													e.printStackTrace();
-												}
-											});
-						}
-					}
-
-					@Override
-					public void queryError(SQLException e) {
-						player.setResponse(LoginResponses.LOGIN_INVALID_CREDENTIALS);
-						LoginManager.finalizeLogin(player);
-						e.printStackTrace();
-					}
-				});
-		// return player.getResponse();
-	}
 
 	public static JsonObject decodeJson(Player player, String jsonString) {
 		Gson builder = new GsonBuilder().create();

@@ -1,5 +1,16 @@
 package com.runelive.world.entity.impl.player;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.runelive.GameServer;
+import com.runelive.GameSettings;
+import com.runelive.net.mysql.CompletedCallback;
+import com.runelive.net.mysql.impl.AccountExistsQuery;
+import com.runelive.util.MD5;
+import com.runelive.util.Misc;
+import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.UnsupportedEncodingException;
@@ -7,104 +18,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonObject;
-import com.runelive.GameServer;
-import com.runelive.GameSettings;
-import com.runelive.net.login.LoginManager;
-import com.runelive.net.mysql.CompletedCallback;
-import com.runelive.net.mysql.SQLCallback;
-import com.runelive.net.mysql.impl.AccountExistsQuery;
-import com.runelive.util.MD5;
-import com.runelive.util.Misc;
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 public class PlayerSaving {
 
 	public static AccountExistsQuery accountExists(String name, CompletedCallback callback) {
 		return new AccountExistsQuery(name).setCompletedCallback(callback).execute();
-	}
-
-	/*
-	 * public static boolean accountExists(Player player, String name,
-	 * SQLCallback callback) { GameServer.getServerPool().executeQuery(
-	 * "SELECT username FROM `accounts` as acc WHERE LOWER (`username`) = LOWER('"
-	 * + name + "') LIMIT 1", new SQLCallback() {
-	 * 
-	 * @Override public void queryComplete(ResultSet rs) throws SQLException {
-	 * if (rs.next()) { player.accountExists = true; } }
-	 * 
-	 * @Override public void queryError(SQLException e) { e.printStackTrace(); }
-	 * }); return player.accountExists; }
-	 */
-
-	public static void updatePassword(Player p, String password, String salt) {
-		GameServer.getServerPool().executeQuery(
-				"UPDATE accounts SET password=" + password + ",salt=" + salt + " WHERE username=" + p.getUsername(),
-				new SQLCallback() {
-					@Override
-					public void queryError(SQLException e) {
-						System.err.println("Error updating password for " + p.getUsername() + ": " + password);
-						e.printStackTrace();
-					}
-
-					@Override
-					public void queryComplete(ResultSet result) throws SQLException {
-						// password updated!
-					}
-				});
-	}
-
-	public static void createNewAccount(Player p) {
-		String query = "INSERT INTO `accounts` (username, password) VALUES ('" + p.getUsername() + "', '"
-				+ p.getPassword() + "')";
-		if (GameSettings.HASH_PASSWORDS) {
-			if (p.getSalt().isEmpty()) {
-				p.setSalt(PlayerSaving.generateSalt());
-			}
-			query = "INSERT INTO `accounts` (username, password, salt) VALUES ('" + p.getUsername() + "', '"
-					+ p.getPassword() + ", " + p.getSalt() + "')";
-		}
-		GameServer.getServerPool().executeQuery(query, new SQLCallback() {
-			@Override
-			public void queryError(SQLException e) {
-				p.setResponse(3);
-				e.printStackTrace();
-				LoginManager.finalizeLogin(p);
-			}
-
-			@Override
-			public void queryComplete(ResultSet result) throws SQLException {
-				p.setNewPlayer(true);
-				p.setResponse(2);
-				LoginManager.finalizeLogin(p);
-			}
-		});
-	}
-
-	public static void saveGame(Player player) {
-		if (player == null || player.getUsername() == null) {
-			return;
-		}
-		final Player p = player;
-		GameServer.getServerPool().executeLogoutQuery(p, new SQLCallback() {
-			@Override
-			public void queryComplete(ResultSet result) throws SQLException {
-
-			}
-
-			@Override
-			public void queryError(SQLException e) {
-				e.printStackTrace();
-			}
-
-		});
 	}
 
 	public static String generateSalt() {
@@ -126,55 +46,8 @@ public class PlayerSaving {
 		return password;
 	}
 
-	public static void save(Player player) {
-		if (player.newPlayer())
-			return;
-		// Create the path and file objects.
-		Path path = Paths.get("./characters/", player.getUsername() + ".json");
-		File file = path.toFile();
-		file.getParentFile().setWritable(true);
-
-		// Attempt to make the player save directory if it doesn't
-		// exist.
-		if (!file.getParentFile().exists()) {
-			try {
-				file.getParentFile().mkdirs();
-			} catch (SecurityException e) {
-				System.out.println("Unable to create directory for player data!");
-			}
-		}
-		try (FileWriter writer = new FileWriter(file)) {
-			writer.write(toJson(player));
-			writer.close();
-
-			/*
-			 * Housing
-			 */
-			/*FileOutputStream fileOut = new FileOutputStream("./housing/rooms/" + player.getUsername() + ".ser");
-			ObjectOutputStream out = new ObjectOutputStream(fileOut);
-			out.writeObject(player.getHouseRooms());
-			out.close();
-			fileOut.close();
-
-			fileOut = new FileOutputStream("./housing/furniture/" + player.getUsername() + ".ser");
-			out = new ObjectOutputStream(fileOut);
-			out.writeObject(player.getHouseFurniture());
-			out.close();
-			fileOut.close();
-
-			fileOut = new FileOutputStream("./housing/portals/" + player.getUsername() + ".ser");
-			out = new ObjectOutputStream(fileOut);
-			out.writeObject(player.getHousePortals());
-			out.close();
-			fileOut.close();*/
-		} catch (Exception e) {
-			// An error happened while saving.
-			GameServer.getLogger().log(Level.WARNING, "An error has occured while saving a character file!", e);
-		}
-	}
-
 	public static String toJson(Player player) {
-		Gson builder = new GsonBuilder().setPrettyPrinting().create();
+		Gson builder = new GsonBuilder().create();
 		JsonObject object = new JsonObject();
 		object.addProperty("total-play-time-ms", player.getTotalPlayTime());
 		object.addProperty("username", player.getUsername().trim());

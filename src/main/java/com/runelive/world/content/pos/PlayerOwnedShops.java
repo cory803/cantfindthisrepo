@@ -1,25 +1,21 @@
 package com.runelive.world.content.pos;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
-import java.util.ArrayList;
-import java.util.NavigableMap;
-import java.util.SortedMap;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
-
 import com.runelive.model.Item;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer;
 import com.runelive.model.container.impl.PlayerOwnedShopContainer.PlayerOwnedShopManager;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.model.input.impl.PosItemSearch;
 import com.runelive.model.input.impl.PosSearchShop;
-import com.runelive.world.content.PlayerLogs;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Other;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.NavigableMap;
+import java.util.SortedMap;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class PlayerOwnedShops {
 
@@ -262,7 +258,7 @@ public class PlayerOwnedShops {
 				player.setPlayerOwnedShopping(true);
 				player.getPacketSender().sendString(3903, PlayerOwnedShops.SHOPS_ARRAYLIST.get(i).getCaption());
 				PlayerOwnedShopManager.getShops().get(i).open(player, username.toLowerCase(), i);
-				PlayerLogs.other(player, "Opened the player owned shop: " + username + "");
+				ServerLogs.submit(new Other(player, "Opened the player owned shop: " + username));
 				if (i == SHOPS_ARRAYLIST.size())
 					player.getPacketSender().sendMessage("This shop does not exist!");
 			}

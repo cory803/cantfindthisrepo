@@ -1,17 +1,18 @@
 package com.runelive.world.entity.impl;
 
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.runelive.engine.task.impl.GroundItemsTask;
 import com.runelive.model.GroundItem;
 import com.runelive.model.Item;
 import com.runelive.model.Position;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Pickup;
 import com.runelive.world.World;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.Sounds;
 import com.runelive.world.content.Sounds.Sound;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GroundItemManager {
 
@@ -257,7 +258,7 @@ public class GroundItemManager {
 			p.getInventory().add(item);
 			p.getLastItemPickup().reset();
 			Sounds.sendSound(p, Sound.PICKUP_ITEM);
-			PlayerLogs.pickups(p, item, gt.getAddress());
+			ServerLogs.submit(new Pickup(p, gt.getAddress(), item));
 		}
 	}
 

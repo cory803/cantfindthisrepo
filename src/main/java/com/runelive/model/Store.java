@@ -1,15 +1,16 @@
 package com.runelive.model;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import com.runelive.GameServer;
 import com.runelive.model.definitions.ItemDefinition;
 import com.runelive.net.mysql.SQLCallback;
-import com.runelive.world.content.Scrolls;
-import com.runelive.world.content.PlayerLogs;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Donation;
 import com.runelive.world.content.PlayerPanel;
+import com.runelive.world.content.Scrolls;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class Store {
 
@@ -59,8 +60,7 @@ public class Store {
 													+ ItemDefinition.forId(Integer.parseInt(item_ids[i])).name
 													+ " has been added to your inventory.");
 								}
-								PlayerLogs.donations(player, forum_id, credits,
-										new Item(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i])));
+								ServerLogs.submit(new Donation(player, new Item(Integer.parseInt(item_ids[i]), Integer.parseInt(amounts[i]))));
 								int itemId = Integer.parseInt(item_ids[i]);
 								if (!alreadyGotAmountClaimed) {
 									if (itemId != 7629 && itemId != 10934 && itemId != 10935 && itemId != 10943) {
@@ -109,82 +109,6 @@ public class Store {
 					public void queryComplete(ResultSet rs) throws SQLException {
 						if (rs.next()) {
 
-						}
-					}
-
-					@Override
-					public void queryError(SQLException e) {
-						e.printStackTrace();
-					}
-				});
-	}
-
-	public static void addTokensFromScroll(Player player, String name, int amount, int item) {
-		GameServer.getStorePool().executeQuery("SELECT `name` FROM `members` WHERE `name` = '" + name + "' LIMIT 1",
-				new SQLCallback() {
-					@Override
-					public void queryComplete(ResultSet rs) throws SQLException {
-						boolean went = false;
-						while (rs.next()) {
-							went = true;
-							if (!player.getInventory().contains(item)) {
-								player.getPacketSender().sendMessage("What happened to your scroll?");
-							} else {
-								player.getInventory().delete(item, 1);
-								GameServer.getStorePool().executeQuery("UPDATE `members` SET credits = credits + "
-										+ amount + " WHERE `name` = '" + name + "' LIMIT 1", new SQLCallback() {
-											@Override
-											public void queryComplete(ResultSet rs) throws SQLException {
-												switch (item) {
-												case 10943:
-													player.getPacketSender().sendMessage(
-															"Please note, once you use your tokens on the site, you will get donator ranks!");
-													player.getPacketSender().sendMessage(
-															"The forum account " + name + " has gained 10 tokens.");
-													PlayerPanel.refreshPanel(player);
-													PlayerLogs.scrolls(player, 10, name);
-													player.save();
-													break;
-												case 10934:
-													player.getPacketSender().sendMessage(
-															"Please note, once you use your tokens on the site, you will get donator ranks!");
-													player.getPacketSender().sendMessage(
-															"The forum account " + name + " has gained 25 tokens.");
-													PlayerPanel.refreshPanel(player);
-													PlayerLogs.scrolls(player, 25, name);
-													player.save();
-													break;
-												case 10935:
-													player.getPacketSender().sendMessage(
-															"Please note, once you use your tokens on the site, you will get donator ranks!");
-													player.getPacketSender().sendMessage(
-															"The forum account " + name + " has gained 50 tokens.");
-													PlayerPanel.refreshPanel(player);
-													PlayerLogs.scrolls(player, 50, name);
-													player.save();
-													break;
-												case 7629:
-													player.getPacketSender().sendMessage(
-															"Please note, once you use your tokens on the site, you will get donator ranks!");
-													player.getPacketSender().sendMessage(
-															"The forum account " + name + " has gained 125 tokens.");
-													PlayerPanel.refreshPanel(player);
-													PlayerLogs.scrolls(player, 125, name);
-													player.save();
-													break;
-												}
-											}
-
-											@Override
-											public void queryError(SQLException e) {
-												e.printStackTrace();
-											}
-										});
-							}
-						}
-						if (!went) {
-							player.getPacketSender().sendMessage(
-									"A forum account has not been found with this name, use ::register to create it!");
 						}
 					}
 

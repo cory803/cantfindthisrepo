@@ -1,24 +1,21 @@
 package com.runelive.world.content.minigames.impl;
 
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
-import com.runelive.model.Flag;
-import com.runelive.model.Item;
-import com.runelive.model.Locations;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.StaffRights;
-import com.runelive.model.Position;
 import com.runelive.model.container.impl.Equipment;
 import com.runelive.model.container.impl.Inventory;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Stake;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.BankPin;
 import com.runelive.world.content.BonusManager;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Dueling {
 
@@ -665,7 +662,6 @@ public class Dueling {
 							playerDuel.getInventory().add(item);
 						} else {
 							stakedItems.add(item);
-							PlayerLogs.stake(player, playerDuel, item, playerDuel.getUsername());
 						}
 					}
 				}
@@ -693,10 +689,11 @@ public class Dueling {
 					player.getPacketSender().sendMessage("The stack of " + Misc.formatAmount(item.getAmount())
 							+ " shards has been converted into gp. " + Misc.formatAmount((long) item.getAmount() * 25)
 							+ " has been added to your pouch.");
-				} else
+				} else {
 					player.getInventory().add(item);
+				}
 				Player playerDuel = World.getPlayers().get(duelingWith);
-				PlayerLogs.stake(player, playerDuel, item, player.getUsername());
+				ServerLogs.submit(new Stake(player, playerDuel, item));
 			}
 		}
 		reset();

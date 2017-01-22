@@ -13,6 +13,7 @@ import java.util.Map;
 
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
+import com.runelive.model.player.PlayerDetails;
 import com.runelive.net.login.LoginDetailsMessage;
 import com.runelive.net.login.LoginResponses;
 import com.runelive.world.content.PlayerPunishment;
@@ -30,10 +31,10 @@ public class ConnectionHandler {
 		loadStarters();
 	}
 
-	public static int getResponse(Player player, LoginDetailsMessage msg) {
+	public static int getResponse(Player player, PlayerDetails msg) {
 
-		String host = msg.getHost();
-		String computer_address = msg.getComputerAddress();
+		String host = msg.getIpAddress();
+		String computer_address = msg.getClientSerial();
 		String mac_address = msg.getMacAddress();
 		long serial_address = msg.getSerial();
 		if (PlayerPunishment.isPlayerBanned(player.getUsername())) {

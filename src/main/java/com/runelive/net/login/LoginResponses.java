@@ -2,6 +2,7 @@ package com.runelive.net.login;
 
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
+import com.runelive.model.player.PlayerDetails;
 import com.runelive.net.security.ConnectionHandler;
 import com.runelive.util.NameUtils;
 import com.runelive.world.World;
@@ -9,7 +10,7 @@ import com.runelive.world.entity.impl.player.Player;
 
 public final class LoginResponses {
 
-	public static final int getResponse(Player player, LoginDetailsMessage msg) {
+	public static int getResponse(Player player, PlayerDetails msg) {
 		int playerLoadingResponse = player.getResponse();
 		if (World.getPlayers().isFull()) {
 			return LOGIN_WORLD_FULL;

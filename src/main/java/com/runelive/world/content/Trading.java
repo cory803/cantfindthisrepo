@@ -1,16 +1,18 @@
 package com.runelive.world.content;
 
-import java.text.NumberFormat;
-import java.util.Locale;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import com.runelive.model.Item;
 import com.runelive.model.Locations;
 import com.runelive.model.Locations.Location;
 import com.runelive.model.definitions.ItemDefinition;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Trade;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.entity.impl.player.Player;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * @author: @Gabbe Warning: This crap is so messy and ugly. Will redo it once I
@@ -444,7 +446,7 @@ public class Trading {
 
 			// logs
 			for (Item item : player.getTrading().offeredItems) {
-				PlayerLogs.trades(player, player2, item);
+				ServerLogs.submit(new Trade(player, player2, item));
 			}
 		} catch (Exception ignored) {
 		}

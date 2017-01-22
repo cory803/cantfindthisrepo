@@ -1,9 +1,11 @@
 package com.runelive.util;
 
-public abstract class FilterExecutable<E> {
-	public boolean accept(E e) {
+public interface FilterExecutable<E> {
+
+	void execute(E e);
+
+	default boolean accept(E e) {
 		return true;
 	}
 
-	public abstract void execute(E e);
 }

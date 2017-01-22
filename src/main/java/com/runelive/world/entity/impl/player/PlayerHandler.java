@@ -3,14 +3,7 @@ package com.runelive.world.entity.impl.player;
 import com.runelive.GameServer;
 import com.runelive.GameSettings;
 import com.runelive.engine.task.TaskManager;
-import com.runelive.engine.task.impl.BonusExperienceTask;
-import com.runelive.engine.task.impl.CombatSkullEffect;
-import com.runelive.engine.task.impl.FireImmunityTask;
-import com.runelive.engine.task.impl.OverloadPotionTask;
-import com.runelive.engine.task.impl.PlayerSkillsTask;
-import com.runelive.engine.task.impl.PlayerSpecialAmountTask;
-import com.runelive.engine.task.impl.PrayerRenewalPotionTask;
-import com.runelive.engine.task.impl.StaffOfLightSpecialAttackTask;
+import com.runelive.engine.task.impl.*;
 import com.runelive.model.*;
 import com.runelive.model.container.impl.Bank;
 import com.runelive.model.container.impl.Equipment;
@@ -21,10 +14,9 @@ import com.runelive.model.player.GameMode;
 import com.runelive.net.PlayerSession;
 import com.runelive.net.SessionState;
 import com.runelive.net.login.LoginResponses;
-//import org.scripts.kotlin.core.login.LoginChecksParser;
-//import org.scripts.kotlin.core.login.LoginLoaderAssetts;
-//import org.scripts.kotlin.core.login.LoginMessageParser;
 import com.runelive.net.security.ConnectionHandler;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Connection;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.*;
@@ -40,13 +32,18 @@ import com.runelive.world.content.combat.pvp.BountyHunter;
 import com.runelive.world.content.combat.range.DwarfMultiCannon;
 import com.runelive.world.content.combat.weapon.CombatSpecial;
 import com.runelive.world.content.minigames.impl.Barrows;
+import com.runelive.world.content.pos.PlayerOwnedShops;
 import com.runelive.world.content.skill.SkillManager;
 import com.runelive.world.content.skill.impl.farming.FarmingManager;
+import com.runelive.world.content.skill.impl.farming.PatchSaving;
 import com.runelive.world.content.skill.impl.hunter.Hunter;
 import com.runelive.world.entity.impl.npc.NPC;
 import org.scripts.kotlin.content.dialog.Tutorial.StartTutorial;
 import org.scripts.kotlin.core.login.LoginMessageParser;
-import com.runelive.world.content.pos.PlayerOwnedShops;
+
+//import org.scripts.kotlin.core.login.LoginChecksParser;
+//import org.scripts.kotlin.core.login.LoginLoaderAssetts;
+//import org.scripts.kotlin.core.login.LoginMessageParser;
 
 public class PlayerHandler {
 
@@ -294,7 +291,7 @@ public class PlayerHandler {
 			player.getSkillManager().setCurrentLevel(Skill.CONSTITUTION,
 					player.getSkillManager().getMaxLevel(Skill.CONSTITUTION));
 		}
-		PlayerLogs.connections(player, "Login");
+		ServerLogs.submit(new Connection(player, "Login"));
 		if (player.getBankPinAttributes().hasBankPin() && !player.getBankPinAttributes().hasEnteredBankPin()
 				&& player.getBankPinAttributes().onDifferent(player)) {
 			BankPin.init(player, false);
@@ -441,12 +438,13 @@ public class PlayerHandler {
 				PlayersOnlineInterface.remove(player);
 				TaskManager.cancelTasks(player.getCombatBuilder());
 				TaskManager.cancelTasks(player);
-				player.save();
+				PatchSaving.save(player);
+				GameServer.getLoginServer().getPacketCreator().sendSavePacket(player, true);
 				World.getPlayers().remove(player);
 				session.setState(SessionState.LOGGED_OUT);
 				World.updatePlayersOnline();
 				player.setForumConnections(0);
-				PlayerLogs.connections(player, "Logout");
+				ServerLogs.submit(new Connection(player, "Logout"));
 				return true;
 			} else {
 				return false;

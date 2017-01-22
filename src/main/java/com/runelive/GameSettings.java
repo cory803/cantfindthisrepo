@@ -9,6 +9,8 @@ import com.runelive.world.entity.impl.npc.NPC;
 
 public class GameSettings {
 
+	public static int WORLD_ID = 50;
+
 	public static boolean STARTED_SERVER = false;
 
 	/**

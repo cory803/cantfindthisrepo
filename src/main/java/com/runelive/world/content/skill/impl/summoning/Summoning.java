@@ -3,19 +3,15 @@ package com.runelive.world.content.skill.impl.summoning;
 import com.runelive.engine.task.Task;
 import com.runelive.engine.task.TaskManager;
 import com.runelive.engine.task.impl.FamiliarSpawnTask;
-import com.runelive.model.Animation;
-import com.runelive.model.Graphic;
-import com.runelive.model.GroundItem;
-import com.runelive.model.Item;
+import com.runelive.model.*;
 import com.runelive.model.Locations.Location;
-import com.runelive.model.Position;
-import com.runelive.model.Skill;
 import com.runelive.model.container.impl.BeastOfBurden;
 import com.runelive.model.movement.WalkingQueue;
+import com.runelive.net.serverlogs.ServerLogs;
+import com.runelive.net.serverlogs.impl.Drop;
 import com.runelive.util.Misc;
 import com.runelive.world.World;
 import com.runelive.world.content.Emotes.Skillcape_Data;
-import com.runelive.world.content.PlayerLogs;
 import com.runelive.world.content.skill.impl.summoning.BossPets.BossPet;
 import com.runelive.world.entity.impl.GroundItemManager;
 import com.runelive.world.entity.impl.npc.NPC;
@@ -158,7 +154,7 @@ public class Summoning {
 						GroundItemManager.spawnGroundItem(player,
 								new GroundItem(t, getFamiliar().getSummonNpc().getPosition().copy(),
 										player.getUsername(), player.getHostAddress(), false, 120, true, 80, address));
-						PlayerLogs.drops(player, t, String.valueOf(address));
+						ServerLogs.submit(new Drop(player, address, t));
 					}
 					player.getPacketSender().sendMessage("Your familiar has dropped its carried items on the floor.");
 				}
