@@ -16,6 +16,7 @@ public class CombatStrategies {
 
 	public static void init() {
 		DefaultMagicCombatStrategy defaultMagicStrategy = new DefaultMagicCombatStrategy();
+		STRATEGIES.put(8549, new Phoenix());
 		STRATEGIES.put(6618, new CrazyArcheologist());
 		STRATEGIES.put(6619, new ChaosFanatic());
 		STRATEGIES.put(502, new Kraken());

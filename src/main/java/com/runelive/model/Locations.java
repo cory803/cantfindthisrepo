@@ -6,6 +6,7 @@ import com.runelive.world.World;
 import com.runelive.world.content.BossSystem;
 import com.runelive.world.content.combat.CombatFactory;
 import com.runelive.world.content.combat.pvp.BountyHunter;
+import com.runelive.world.content.combat.strategy.impl.Phoenix;
 import com.runelive.world.content.minigames.impl.*;
 import com.runelive.world.content.skill.impl.dungeoneering.Dungeoneering;
 import com.runelive.world.entity.Entity;

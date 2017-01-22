@@ -166,6 +166,9 @@ public class LootSystem {
         if (n.getId() == 8549 && World.PHOENIX_RESPAWN < 5) {
             return;
         }
+        if (n.getId() == 6217 && n.getLocation() == Locations.Location.PHOENIX) {
+            return;
+        }
         if (table == null) {
             return;
         }

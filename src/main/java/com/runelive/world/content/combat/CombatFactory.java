@@ -461,7 +461,7 @@ public final class CombatFactory {
 
                 double meleeValue = maxMelee * .95;
 
-                System.out.println("Max melee hit: "+maxMelee);
+                //System.out.println("Max melee hit: "+maxMelee);
 
                 int meleeHit = (int) (maxMelee <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxMelee) * MELEE_ACCURACY_CALC.getAccuracy(entity, victim));
 
@@ -475,7 +475,7 @@ public final class CombatFactory {
 
                 double rangeValue = maxRange * .95;
 
-                System.out.println("Max range hit: "+maxRange);
+                //System.out.println("Max range hit: "+maxRange);
 
                 int rangeHit = (int) (maxRange <= 0 ? 0 : ThreadLocalRandom.current().nextInt(maxRange) * RANGED_ACCURACY_CALC.getAccuracy(entity, victim));
 
@@ -1088,7 +1088,7 @@ public final class CombatFactory {
 
     public static boolean checkAttackDistance(Character a, Character b) {
         CombatType combatType = a.determineStrategy().getCombatType();
-        int distanceTo = a.distance(b;
+        int distanceTo = a.distance(b);
         if (distanceTo == 0) {
             return false;
         }

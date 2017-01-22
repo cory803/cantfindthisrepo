@@ -198,6 +198,8 @@ public class NPCDeathTask extends Task {
 		if (npc.getId() == 8549 && World.PHOENIX_RESPAWN <= 5) {
 			Phoenix.death(npc.getId(), npc.getPosition());
 //			System.out.println("Respawn # " + World.PHOENIX_RESPAWN);
+		} else if (npc.getId() == 6217 && npc.getLocation() == Location.PHOENIX) {
+
 		} else {
 			TaskManager.submit(new NPCRespawnTask(npc, 25));
 		}

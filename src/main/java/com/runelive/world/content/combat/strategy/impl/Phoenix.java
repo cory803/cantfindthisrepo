@@ -13,11 +13,14 @@ import com.runelive.world.entity.impl.Character;
 import com.runelive.world.entity.impl.npc.NPC;
 import com.runelive.world.entity.impl.player.Player;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Phoenix implements CombatStrategy {
 
     public static NPC PHOENIX;
+
+    public static ArrayList<NPC> MINION = new ArrayList<NPC>();
 
     public static void spawn(int id, Position pos) {
         PHOENIX = new NPC(id, pos);
@@ -29,7 +32,8 @@ public class Phoenix implements CombatStrategy {
             "I am near immortal !",
             "Time to die",
             "Mwuahahaha!!!",
-            "I was resurrected"
+            "I was resurrected",
+            "I'm baaaaaaaaaaaaaack"
     };
 
     public static void resetOrIncrement() {
@@ -40,30 +44,54 @@ public class Phoenix implements CombatStrategy {
         }
     }
 
-    public boolean summonMinions(List<Player> list) {
-        boolean doubleSpawn = Misc.random(10) == 0;
-        for (int i = 0; i < list.size(); i++) {
+    public boolean summonMinions(Player p) {
+        p.getPacketSender().sendMessage("The phoenix has summoned it's minions on you!");
+//        System.out.println("Summoning... || size: " + MINION.size());
+                MINION.add(new NPC(6217, p.getPosition()));
+                MINION.get(MINION.size()-1).getCombatBuilder().attack(p.getCharacter());
+                World.register(MINION.get(MINION.size()-1));
+                MINION.get(MINION.size()-1).forceChat("I will die for my master!");
+//                System.out.println("Spawned minion["+i+"]    || size: " + MINION.size());
+        /*boolean doubleSpawn = Misc.random(10) == 1;
             if (doubleSpawn) {
 //                System.out.println("Double Spawning minion");
-                NPC npc_ = new NPC(6216, list.get(i).getPosition());
+                p.setRegionInstance(new RegionInstance(p, RegionInstance.RegionInstanceType.PHOENIX));
+                NPC npc_ = new NPC(6217, p.getPosition());
                 npc_.getCombatBuilder().setAttackTimer(3);
-                npc_.getCombatBuilder().attack(list.get(i).getCharacter());
+                npc_.getCombatBuilder().attack(p.getCharacter());
                 World.register(npc_);
-            }
+                p.getRegionInstance().getNpcsList().add(npc_);
+            }*/
 //            System.out.println("Spawning minion");
-            NPC npc_ = new NPC(6216, list.get(i).getPosition());
-            npc_.getCombatBuilder().setAttackTimer(3);
-            npc_.getCombatBuilder().attack(list.get(i).getCharacter());
-            World.register(npc_);
-        }
-
         return false;
+    }
+
+    /**
+     *
+     * @param n checks the minion NPC array
+     */
+    public static void despawnMinions(ArrayList<NPC> n) {
+        for (int i = 0; i < MINION.size(); i++) {
+                MINION.remove(n);
+                World.deregister(MINION.get(i));
+        }
+        MINION.clear();
+    }
+
+    /**
+     * Checks for any minions
+     * @return true if there are any spawn minions
+     */
+    public static boolean anyMinionAlive() {
+        boolean sizeIsZero = MINION.size() == 0 ? true : false;
+        return sizeIsZero;
     }
 
     public static void death(final int id, final Position pos) {
         TaskManager.submit(new Task(40, World.PHOENIX_RESPAWN < 5 ? true : false) {
             @Override
             protected void execute() {
+                despawnMinions(MINION);
                 resetOrIncrement();
                 spawn(id, pos);
                 stop();
@@ -92,7 +120,7 @@ public class Phoenix implements CombatStrategy {
         }
 
         final CombatType style = Misc.getRandom(3) == 0 ? CombatType.MAGIC : CombatType.RANGED;
-        boolean spawnMinions = Misc.getRandom(10) == 0 ? true : false;
+        boolean spawnMinions = Misc.getRandom(50) == 2 ? true : false;
         phoenix.performAnimation(new Animation(phoenix.getDefinition().getAttackAnimation()));
         phoenix.setChargingAttack(true);
         Player target = (Player) victim;
@@ -111,7 +139,7 @@ public class Phoenix implements CombatStrategy {
                                     .sendProjectile();
                             near.performGraphic(new Graphic(129));
                             if (spawnMinions) {
-                                summonMinions(list);
+                                summonMinions(near);
                             }
                         }
                     } else if (tick == 2) {
@@ -119,9 +147,9 @@ public class Phoenix implements CombatStrategy {
                             if (near == null)
                                 continue;
                             //System.out.println("Near player: " + near.getUsername());
-
-                            new HitQueue.CombatHit(phoenix.getCombatBuilder(),
-                                    new CombatContainer(phoenix, near, 1, style, true)).handleAttack();
+                            phoenix.getCombatBuilder().setVictim(near);
+                            new HitQueue.CombatHit(phoenix.getCombatBuilder(), new CombatContainer(phoenix, near, 1, CombatType.MAGIC, true))
+                                    .handleAttack();
                         }
                         phoenix.setChargingAttack(false);
                         stop();
@@ -130,7 +158,7 @@ public class Phoenix implements CombatStrategy {
                     if (tick == 1) {
                             new Projectile(phoenix, victim, 1099, 44, 5, 33, 33, 0).sendProjectile();
                         if (spawnMinions) {
-                            summonMinions(list);
+                            summonMinions((Player) victim);
                         }
                     } else if (tick == 2) {
                             new HitQueue.CombatHit(phoenix.getCombatBuilder(),
