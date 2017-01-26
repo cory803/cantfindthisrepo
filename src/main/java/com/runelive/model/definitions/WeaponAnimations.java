@@ -299,7 +299,7 @@ public final class WeaponAnimations {
 		if (weaponName.contains("claws"))
 			return 393;
 		if (weaponName.contains("bludgeon"))
-			return 3297;
+			return 12002;
 		if (weaponName.contains("maul") && !weaponName.contains("granite"))
 			return 13055;
 		if (weaponName.contains("dharok")) {

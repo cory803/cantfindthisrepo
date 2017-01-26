@@ -514,6 +514,8 @@ public class Locations {
         },
         SKOTIZO(new int[]{2525, 2601}, new int[]{4915, 4990}, true, true, true, false, true, true) {
         },
+        ABYSSAL_SIRE(new int[]{2495, 2550}, new int[]{4621, 4670}, true, true, true, false, true, true) {
+        },
         BOSS_SYSTEM(new int[]{2845, 2865}, new int[]{9626, 9650}, true, true, true, false, false, false) {
             @Override
             public void process(Player player) {
